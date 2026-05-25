@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OSINT Analyzer & Logistics Matrix Workspace</title>
+
+<style>
+
+    :root {
+
+        --bg-primary: #0a0f1d;
+
+        --bg-secondary: #111827;
+
+        --bg-tertiary: #1f2937;
+
+        --accent-cyan: #06b6d4;
+
+        --accent-green: #10b981;
+
+        --accent-red: #ef4444;
+
+        --text-main: #f3f4f6;
+
+        --text-muted: #9ca3af;
+
+        --border-color: #374151;
+
+    }
+
+    * {
+
+        box-sizing: border-box;
+
+        margin: 0;
+
+        padding: 0;
+
+        font-family: 'Courier New', Courier, monospace;
+
+    }
+
+    body {
+
+        background-color: var(--bg-primary);
+
+        color: var(--text-main);
+
+        display: flex;
+
+        flex-direction: column;
+
+        height: 100vh;
+
+        overflow: hidden;
+
+    }
+
+    /* Top Header Navigation */
+
+    header {
+
+        background-color: var(--bg-secondary);
+
+        border-bottom: 2px solid var(--border-color);
+
+        padding: 10px 20px;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+    }
+
+    .logo-area {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+    }
+
+    .logo-status {
+
+        width: 10px;
+
+        height: 10px;
+
+        background-color: var(--accent-green);
+
+        border-radius: 50%;
+
+        box-shadow: 0 0 8px var(--accent-green);
+
+    }
+
+    .credits-bypass {
+
+        background-color: rgba(6, 182, 212, 0.1);
+
+        border: 1px solid var(--accent-cyan);
+
+        color: var(--accent-cyan);
+
+        padding: 4px 12px;
+
+        border-radius: 4px;
+
+        font-size: 0.85rem;
+
+    }
+
+    /* Main Workspace Layout */
+
+    .workspace {
+
+        display: flex;
+
+        flex: 1;
+
+        overflow: hidden;
+
+    }
+
+    /* Left Panel: Control Station & Input */
+
+    .control-panel {
+
+        width: 35%;
+
+        background-color: var(--bg-secondary);
+
+        border-right: 2px solid var(--border-color);
+
+        display: flex;
+
+        flex-direction: column;
+
+        padding: 20px;
+
+        gap: 20px;
+
+        overflow-y: auto;
+
+    }
+
+    /* Right Panel: Data Matrix Grid Viewer */
+
+    .matrix-display {
+
+        width: 65%;
+
+        padding: 20px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 15px;
+
+        overflow-y: auto;
+
+    }
+
+    .panel-title {
+
+        font-size: 1.1rem;
+
+        text-transform: uppercase;
+
+        letter-spacing: 1px;
+
+        color: var(--accent-cyan);
+
+        border-bottom: 1px solid var(--border-color);
+
+        padding-bottom: 5px;
+
+    }
+
+    .form-group {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 8px;
+
+    }
+
+    label {
+
+        font-size: 0.85rem;
+
+        color: var(--text-muted);
+
+        text-transform: uppercase;
+
+    }
+
+    textarea, select, input {
+
+        background-color: var(--bg-primary);
+
+        border: 1px solid var(--border-color);
+
+        color: var(--text-main);
+
+        padding: 10px;
+
+        border-radius: 4px;
+
+        resize: none;
+
+    }
+
+    textarea:focus, select:focus, input:focus {
+
+        outline: none;
+
+        border-color: var(--accent-cyan);
+
+    }
+
+    .btn-group {
+
+        display: flex;
+
+        gap: 10px;
+
+    }
+
+    button {
+
+        flex: 1;
+
+        padding: 12px;
+
+        background-color: var(--bg-tertiary);
+
+        border: 1px solid var(--border-color);
+
+        color: var(--text-main);
+
+        cursor: pointer;
+
+        font-weight: bold;
+
+        text-transform: uppercase;
+
+        transition: all 0.2s ease;
+
+    }
+
+    button:hover {
+
+        background-color: var(--border-color);
+
+    }
+
+    button.primary {
+
+        background-color: var(--accent-cyan);
+
+        color: var(--bg-primary);
+
+        border: none;
+
+    }
+
+    button.primary:hover {
+
+        background-color: #22d3ee;
+
+        box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+
+    }
+
+    /* Data Matrix Table Style */
+
+    .table-container {
+
+        border: 1px solid var(--border-color);
+
+        border-radius: 4px;
+
+        overflow: hidden;
+
+        background-color: var(--bg-secondary);
+
+    }
+
+    table {
+
+        width: 100%;
+
+        border-collapse: collapse;
+
+        text-align: left;
+
+        font-size: 0.9rem;
+
+    }
+
+    th, td {
+
+        padding: 12px;
+
+        border-bottom: 1px solid var(--border-color);
+
+    }
+
+    th {
+
+        background-color: var(--bg-tertiary);
+
+        color: var(--accent-cyan);
+
+        text-transform: uppercase;
+
+        font-size: 0.8rem;
+
+    }
+
+    tr:hover {
+
+        background-color: rgba(255, 255, 255, 0.02);
+
+    }
+
+    .badge {
+
+        display: inline-block;
+
+        padding: 2px 6px;
+
+        border-radius: 3px;
+
+        font-size: 0.75rem;
+
+        font-weight: bold;
+
+    }
+
+    .badge-intel { background-color: rgba(6, 182, 212, 0.2); color: var(--accent-cyan); }
+
+    .badge-logistics { background-color: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
+
+    .badge-risk { background-color: rgba(239, 68, 68, 0.2); color: var(--accent-red); }
+
+    /* Terminal Console Output Log */
+
+    .terminal-log {
+
+        background-color: black;
+
+        border: 1px solid var(--border-color);
+
+        border-radius: 4px;
+
+        padding: 12px;
+
+        height: 150px;
+
+        overflow-y: auto;
+
+        font-size: 0.8rem;
+
+        color: #38bdf8;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 4px;
+
+    }
+
+    .log-entry span.timestamp { color: var(--text-muted); margin-right: 8px; }
+
+    .log-entry.error { color: var(--accent-red); }
+
+    .log-entry.success { color: var(--accent-green); }
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo-area">
+
+        <div class="logo-status"></div>
+
+        <h2>OSINT_ANALYZER // LOCAL_CORE</h2>
+
+    </div>
+
+    <div class="credits-bypass">BYPASS MODE: UNLIMITED LOCAL CREDIT ALLOCATION</div>
+
+</header>
+
+<div class="workspace">
+
+    <div class="control-panel">
+
+        <div class="panel-title">Data Extraction Pipeline</div>
+
+
+
+        <div class="form-group">
+
+            <label for="dataType">Analysis Target Matrix</label>
+
+            <select id="dataType">
+
+                <option value="logistics">Logistics Hubs & Freight Nodes</option>
+
+                <option value="environmental">Environmental Site Records / Contaminants</option>
+
+                <option value="public_records">Municipal Public Records & Assets</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="rawInput">Raw Text / Log Stream (Regex Parser Target)</label>
+
+            <textarea id="rawInput" rows="8" placeholder="Paste raw OSINT terminal output, system logs, or text blocks here to extract matrices..."></textarea>
+
+        </div>
+
+        <div class="btn-group">
+
+            <button type="button" onclick="clearWorkspace()">Clear</button>
+
+            <button type="button" class="primary" onclick="executeLocalExtraction()">Run Analysis</button>
+
+        </div>
+
+        <div class="panel-title" style="margin-top: 10px;">System Terminal Log</div>
+
+        <div class="terminal-log" id="terminalLog">
+
+            <div class="log-entry"><span class="timestamp">[05:44:02]</span>SYSTEM: Local environment initialized successfully.</div>
+
+            <div class="log-entry success"><span class="timestamp">[05:44:03]</span>AUTH: Bypassed platform server. Direct execution channel armed.</div>
+
+        </div>
+
+    </div>
+
+    <div class="matrix-display">
+
+        <div class="panel-title">Structured Records Matrix Output</div>
+
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Timestamp</th>
+
+                        <th>Target Node Element</th>
+
+                        <th>Classification Classification</th>
+
+                        <th>Extracted Target Signatures / Metrics</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="matrixTableBody">
+
+                    <tr>
+
+                        <td>2026-05-25 05:40</td>
+
+                        <td>Argosy Ave Industrial Storage</td>
+
+                        <td><span class="badge badge-logistics">Logistics Node</span></td>
+
+                        <td>Freight Nexus / Storage Pipeline Infrastructure Checked</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>2026-05-25 05:41</td>
+
+                        <td>Hexavalent Chromium Threshold</td>
+
+                        <td><span class="badge badge-risk">Risk Assessment</span></td>
+
+                        <td>California Regulatory Limits / Soil Analysis Pipeline</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>2026-05-25 05:42</td>
+
+                        <td>Municipal Code Tracking Matrix</td>
+
+                        <td><span class="badge badge-intel">Public Records</span></td>
+
+                        <td>Local Asset Ledger Tracking Verified</td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+    function logToTerminal(message, type = 'info') {
+
+        const logBox = document.getElementById('terminalLog');
+
+        const entry = document.createElement('div');
+
+        entry.classList.add('log-entry');
+
+        if (type === 'error') entry.classList.add('error');
+
+        if (type === 'success') entry.classList.add('success');
+
+
+
+        const now = new Date();
+
+        const timeStr = `[${now.toTimeString().split(' ')[0]}]`;
+
+
+
+        entry.innerHTML = `<span class="timestamp">${timeStr}</span>${message}`;
+
+        logBox.appendChild(entry);
+
+        logBox.scrollTop = logBox.scrollHeight;
+
+    }
+
+    function executeLocalExtraction() {
+
+        const inputData = document.getElementById('rawInput').value.trim();
+
+        const targetType = document.getElementById('dataType').value;
+
+        const tableBody = document.getElementById('matrixTableBody');
+
+        if (!inputData) {
+
+            logToTerminal("ERROR: Input data stream empty. Provide target text to parse.", "error");
+
+            return;
+
+        }
+
+        logToTerminal(`Initiating data mining against target classification: [${targetType.toUpperCase()}]...`);
+
+
+
+        // Local client-side parsing simulator (Customizable based on user regex)
+
+        setTimeout(() => {
+
+            const now = new Date();
+
+            const dateStr = now.toISOString().slice(0,10) + ' ' + now.toTimeString().slice(0,5);
+
+
+
+            let nodeElement = "Extracted Edge Element Block";
+
+            let badgeClass = "badge-intel";
+
+            let badgeText = "Public Records";
+
+
+
+            if (targetType === 'logistics') {
+
+                nodeElement = "Logistics Nexus Point Alpha";
+
+                badgeClass = "badge-logistics";
+
+                badgeText = "Logistics Node";
+
+            } else if (targetType === 'environmental') {
+
+                nodeElement = "Soil Forensics Contaminant Node";
+
+                badgeClass = "badge-risk";
+
+                badgeText = "Risk Assessment";
+
+            }
+
+            const newRow = document.createElement('tr');
+
+            newRow.innerHTML = `
+
+                <td>${dateStr}</td>
+
+                <td>${nodeElement}</td>
+
+                <td><span class="badge ${badgeClass}">${badgeText}</span></td>
+
+                <td>${inputData.substring(0, 60)}${inputData.length > 60 ? '...' : ''}</td>
+
+            `;
+
+
+
+            tableBody.insertBefore(newRow, tableBody.firstChild);
+
+            logToTerminal("SUCCESS: Core record compiled. Data Matrix element injected safely.", "success");
+
+        }, 600);
+
+    }
+
+    function clearWorkspace() {
+
+        document.getElementById('rawInput').value = '';
+
+        logToTerminal("Workspace state text buffer cleared.");
+
+    }
+
+</script>
+
+</body>
+
+</html>
