@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OSINT Backups & Large Extracted Data
+github_backups/
+.backup_sync_status.json
+NPI/
+NPI---Non-Profiteers-Index/
+OSINTNeoAiCLI/
+OSINTNeoAiXL/
+OsintNeoAi52026/
+OsintNeoAiXXXL/
+OsintNeoAi/
+Ytyt/
+altwarp/
+civil-rights-activist-emailer/
+landgrabpro/
+landgrabpro2/
+osint-agent/
+osint_analyzer/
+riconow/
+social-media-campaign-manager/
+vertex-ai-creative-studio/
+
+# Environment
+.env
+venv/
+env/
+ENV/
