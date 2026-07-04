@@ -1,0 +1,83 @@
+name: Deploy to Google Cloud Run
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  PROJECT_ID: osint-neo-ai-prod
+  REGION: us-central1
+  SERVICE: osint-neo-ai
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Authenticate to GCP
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+          service_account: ${{ secrets.WIF_SERVICE_ACCOUNT }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker
+        run: gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev
+
+      - name: Build & Push
+        run: |
+          docker build -t ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/cloud-run-source-deploy/${{ env.SERVICE }}:${{ github.sha }} .
+          docker push ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/cloud-run-source-deploy/${{ env.SERVICE }}:${{ github.sha }}
+
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy ${{ env.SERVICE }} \
+            --image ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/cloud-run-source-deploy/${{ env.SERVICE }}:${{ github.sha }} \
+            --region ${{ env.REGION }} \
+            --platform managed \
+            --memory 2Gi \
+            --cpu 2 \
+            --timeout 3600 \
+            --set-env-vars GCP_PROJECT=${{ env.PROJECT_ID }} \
+            --allow-unauthenticated
+
+      - name: Get Service URL
+        run: |
+          URL=$(gcloud run services describe ${{ env.SERVICE }} --region ${{ env.REGION }} --format='value(status.url)')
+          echo "Deployed to: $URL"
+          echo "SERVICE_URL=$URL" >> $GITHUB_ENV
+
+      - name: Create/Update Scheduler (Collect)
+        run: |
+          gcloud scheduler jobs create http osint-data-collection \
+            --location=${{ env.REGION }} \
+            --schedule="0 */4 * * *" \
+            --uri="${{ env.SERVICE_URL }}/collect" \
+            --http-method=POST \
+            --oidc-service-account-email=${{ secrets.WIF_SERVICE_ACCOUNT }} \
+            --oidc-token-audience="${{ env.SERVICE_URL }}" 2>/dev/null || \
+          gcloud scheduler jobs update http osint-data-collection \
+            --schedule="0 */4 * * *" \
+            --uri="${{ env.SERVICE_URL }}/collect"
+
+      - name: Create/Update Scheduler (Resolve)
+        run: |
+          gcloud scheduler jobs create http osint-entity-resolution \
+            --location=${{ env.REGION }} \
+            --schedule="0 */12 * * *" \
+            --uri="${{ env.SERVICE_URL }}/resolve" \
+            --http-method=POST \
+            --oidc-service-account-email=${{ secrets.WIF_SERVICE_ACCOUNT }} \
+            --oidc-token-audience="${{ env.SERVICE_URL }}" 2>/dev/null || \
+          gcloud scheduler jobs update http osint-entity-resolution \
+            --schedule="0 */12 * * *" \
+            --uri="${{ env.SERVICE_URL }}/resolve"

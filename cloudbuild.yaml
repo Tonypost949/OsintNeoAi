@@ -1,0 +1,45 @@
+steps:
+  - id: "build"
+    name: "gcr.io/cloud-builders/docker"
+    args:
+      - "build"
+      - "-t"
+      - "${_REGION}-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/osint-neo-ai:$COMMIT_SHA"
+      - "."
+    waitFor: ["-"]
+
+  - id: "push"
+    name: "gcr.io/cloud-builders/docker"
+    args:
+      - "push"
+      - "${_REGION}-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/osint-neo-ai:$COMMIT_SHA"
+    waitFor: ["build"]
+
+  - id: "deploy"
+    name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: gcloud
+    args:
+      - "run"
+      - "deploy"
+      - "osint-neo-ai"
+      - "--image"
+      - "${_REGION}-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/osint-neo-ai:$COMMIT_SHA"
+      - "--region"
+      - "${_REGION}"
+      - "--platform"
+      - "managed"
+      - "--memory"
+      - "2Gi"
+      - "--cpu"
+      - "2"
+      - "--timeout"
+      - "3600"
+      - "--set-env-vars"
+      - "GCP_PROJECT=$PROJECT_ID,OSINT_WORKSPACE=/app"
+      - "--allow-unauthenticated"
+    waitFor: ["push"]
+
+substitutions:
+  _REGION: us-central1
+
+timeout: 1800s
