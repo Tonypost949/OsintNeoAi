@@ -1,0 +1,78 @@
+# ==========================================
+# Root-level Whitelist Configuration
+# ==========================================
+
+# By default, ignore all files and directories at the repository root
+/*
+
+# Explicitly whitelist the active workspace and its contents
+!/AG2OSINTNEOMAXX/
+!/AG2OSINTNEOMAXX/**
+
+# Explicitly whitelist the shared forensic code directory
+!/opencode_work/
+!/opencode_work/**
+
+# Explicitly whitelist the new scratch program folder
+!/new_program_scratch/
+!/new_program_scratch/**
+
+# Whitelist global git config files
+!/.gitignore
+
+# ==========================================
+# Exclusions within Whitelisted Directories
+# ==========================================
+
+# Ignore heavy binary, archive, document, and media formats
+*.exe
+*.msix
+*.lnk
+*.reg
+*.inf
+*.cat
+*.torrent
+*.bak
+*.zip
+*.pdf
+*.docx
+*.doc
+*.xlsx
+*.xls
+*.png
+*.jpg
+*.jpeg
+*.mp3
+*.db
+*.db3
+*.avi
+*.mp4
+*.tar.gz
+*.tgz
+*.pptx
+*.ppt
+*.webp
+*.mtgl
+*.mtgx
+*.ics
+*.csv
+*.dat
+*.ndjson
+
+# Ignore giant log files
+*.log
+
+# Ignore heavy agent-generated/extracted directories inside active workspace
+AG2OSINTNEOMAXX/extracted_backup/
+AG2OSINTNEOMAXX/extracted_pkg/
+AG2OSINTNEOMAXX/extracted_windows/
+AG2OSINTNEOMAXX/scratch/
+
+# Ignore local editor/IDE settings and temporary drive uploads
+.agents/
+.tmp.driveupload/
+"New Text Document*.txt"
+New Text Document*.txt
+
+# Ignore giant extracted directories inside new_program_scratch
+new_program_scratch/unzipped_data/

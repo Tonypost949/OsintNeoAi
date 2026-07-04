@@ -1,0 +1,25 @@
+﻿.\venv\Scripts\python.exe : 
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+At line:1 char:1
++ .\venv\Scripts\python.exe query_unclaimed_property.py 2>&1 | Out-File ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\HP\.ge...dpoint instead.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  warnings.warn(
+=== CHECKING UNCLAIMED PROPERTY DATASET SCHEMA ===
+Table: network_assets
+  suspect: STRING
+  state: STRING
+  holder: STRING
+  amount: FLOAT
+  property_id: STRING
+  address: STRING
+  status: STRING
+
+=== RUNNING SEARCH FOR MERCY HOUSE & LARRY HAYNES ===
+
+Searching table: project-743aab84-f9a5-4ec7-954.unclaimed_property.network_assets
+Searching columns: ['suspect', 'state', 'holder']
+No records found in this table.

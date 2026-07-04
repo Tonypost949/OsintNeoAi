@@ -1,0 +1,21 @@
+environments:
+  hhhhh:
+    project: "project-743aab84-f9a5-4ec7-954"
+
+    region: "us-west2"
+
+    # TODO: Replace with your Composer environment
+    composer_environment: "YOUR_COMPOSER"
+
+    # TODO: Replace with your artifacts bucket
+    artifact_storage:
+      bucket: "YOUR_BUCKET"
+      path_prefix: pipelines
+
+    variables:
+      # TODO: Replace with your service account
+      service_account: "YOUR_SERVICE_ACCOUNT"
+      network_uri: projects/project-743aab84-f9a5-4ec7-954/global/networks/default
+
+    pipelines:
+      - source: mnjbujhvhv.yaml

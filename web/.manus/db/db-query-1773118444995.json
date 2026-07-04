@@ -1,0 +1,9 @@
+{
+  "query": "DROP TABLE IF EXISTS analysisReports;\nDROP TABLE IF EXISTS googleDriveAccounts;\nDROP TABLE IF EXISTS relationships;\nDROP TABLE IF EXISTS entityFileAssociations;\nDROP TABLE IF EXISTS entities;\nDROP TABLE IF EXISTS files;\nDROP TABLE IF EXISTS analyses;\nDROP TABLE IF EXISTS users;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user hq8RaqFssnFY18F.root --database kLhrzeUjUDoaRZ4byUpVo3 --execute DROP TABLE IF EXISTS analysisReports;\nDROP TABLE IF EXISTS googleDriveAccounts;\nDROP TABLE IF EXISTS relationships;\nDROP TABLE IF EXISTS entityFileAssociations;\nDROP TABLE IF EXISTS entities;\nDROP TABLE IF EXISTS files;\nDROP TABLE IF EXISTS analyses;\nDROP TABLE IF EXISTS users;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 2984
+}

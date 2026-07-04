@@ -6,6 +6,12 @@ __pycache__/
 # OSINT Backups & Large Extracted Data
 github_backups/
 .backup_sync_status.json
+node_modules/
+*.zip
+*.jsonl
+results/
+ocr_output/
+procurement_screenshots/
 NPI/
 NPI---Non-Profiteers-Index/
 OSINTNeoAiCLI/

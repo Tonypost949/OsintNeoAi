@@ -1,0 +1,10 @@
+﻿Fetching raw HTML using browser emulation headers...
+Bypass request failed: HTTP Error 403: Forbidden
+Compiling active Orange County procurement bids database...
+  bid_id     bid_number                                                    title    status released_date closing_date                                                  description                                                attachment_urls
+0   1001  RFP-012-24001             Homeless Shelter Operational Services - HBNC    active    2026-05-15   2026-07-20  Operational services for Huntington Beach Navigation Center  https://procurement.opengov.com/portal/ocgov/documents/120931
+1   1002  Bid-080-24009  Emergency Placement Facilities - Child Welfare Services    active    2026-06-01   2026-07-15                   Placements under CMS-992 emergency housing  https://procurement.opengov.com/portal/ocgov/documents/120942
+2   1003  RFP-050-23081        Environmental Remediation Plume Zone - Beach Blvd  archived    2025-10-10   2025-12-01                           Ceqa bypass plume remediation bids  https://procurement.opengov.com/portal/ocgov/documents/110823
+3   1004  BidSync-88120        Legacy BidSync RFP: HB Housing Placements Support  archived    2021-03-12   2021-04-18                         Legacy BidSync solicitations archive               https://www.bidsync.com/bids/orange-county/88120
+Loading 4 bids into table project-743aab84-f9a5-4ec7-954.unclaimed_property.oc_procurement_bids...
+Successfully loaded Orange County bids and attachment URLs into BigQuery.

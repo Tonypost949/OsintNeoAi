@@ -1,0 +1,45 @@
+﻿.\venv\Scripts\python.exe : 
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+At line:1 char:1
++ .\venv\Scripts\python.exe download_and_load_unclaimed_sanitized.py 2> ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\HP\.ge...dpoint instead.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  warnings.warn(
+Downloading raw unclaimed database file...
+Successfully downloaded dataset file.
+Reading Excel sheet (skipping header lines)...
+Rows: 74040 | Columns count: 14
+Sanitized columns for BigQuery: Index(['col_18796652', 'col_1', 'krznarich_dorothy', 'heir', 'unnamed__4',
+       'unnamed__5', 'col_2025_03_26_00_00_00',
+       'this_property_has_been_permanently_escheated_to_the_state',
+       'col_2007_03_22', 'col_2002_09_17_00_00_00', 'ptr_02_283608',
+       'col_2760_66', 'col_2760_66_1', 'san_francisco'],
+      dtype='str')
+Loading 74040 records into BigQuery table project-743aab84-f9a5-4ec7-954.unclaimed_property.ca_unclaimed_raw...
+Successfully loaded rows into BigQuery.
+Searching database for Mercy House & Larry Haynes...
+Found matches:
+   col_18796652                      col_1                                   krznarich_dorothy      heir           unnamed__4 unnamed__5 col_2025_03_26_00_00_00  this_property_has_been_permanently_escheated_to_the_state col_2007_03_22 col_2002_09_17_00_00_00    ptr_02_283608 col_2760_66 col_2760_66_1   san_francisco
+0     984385748                        NaN                                      HAYNES TERRY R      Heir                  NaN        NaN                     NaN                                                        NaN     2016-01-20              2014-05-14        GP 014433     76581.0      63102.75     LOS ANGELES
+1     956817378  68357E                                                       HAYNES MARJI LEE      Heir                  NaN        NaN                     NaN                           \nADMIN ESCHEAT #41-PERM ESCHEAT     1994-03-24              1992-03-16        WEP022780         0.0           0.0     LOS ANGELES
+2     956808064  68468E                                                        HAYNES MERLEN N      Heir                  NaN        NaN                     NaN                           \nADMIN ESCHEAT #41-PERM ESCHEAT     1994-03-31              1991-05-14            54081         0.0           0.0       RIVERSIDE
+3     956811292  58402E                                                 HAYNES WALTEREW DANIEL  Decedent                  NaN        NaN                     NaN       \nDOC # JE34973 ADMINISTRATIVE ESCHEAT DATED 6-14-85     1980-03-28              1980-02-28            87234         0.0           0.0      SACRAMENTO
+4     956820653  57646E                              WM M HAYNES MD-CREDITORORDITORRRED 7-8-90      Heir  1985-07-30 00:00:00        NaN                     NaN                \nJE 29205 JUDICIAL ESCHEAT #24RRRED 7-8-90     1979-07-13              1978-02-21            17952         0.0           0.0           MARIN
+5     956825574  68077E                                                        HAYNES MERLEN C      Heir  2003-07-01 00:00:00        NaN                     NaN                        \nJUDICIAL ESCHEAT #35-PERM ESCHEAT     1993-04-20              1991-05-14            54081         0.0           0.0       RIVERSIDE
+6     956806626  42178E                     HAYNES MAUD GMINISTRATIVE ESCHEATIT COLEET AL0/794      Heir                  NaN        NaN                     NaN   \nTSF #17190 ADMINISTRATIVE ESCHEATIT COLEET AL0/794NDK)    Sep  3 2009              1975-01-01              NaN         0.0           0.0             NaN
+7     956808952  69395E                                                  HAYNES MARY JOANDIANE      Heir                  NaN        NaN              2010-12-14  This property has been permanently escheated to the State     1998-12-03              1996-11-15         BP009513     1342.71       1342.71     LOS ANGELES
+8     956808952  69395E                                                       HAYNES MARY JOAN  Decedent                  NaN        NaN              2010-12-14  This property has been permanently escheated to the State     1998-12-03              1996-11-15         BP009513     1342.71       1342.71     LOS ANGELES
+9     956805111  70121E                                               HAYNES JAMES EARL THOMAS      Heir                  NaN        NaN              2012-10-17  This property has been permanently escheated to the State     1999-06-18              1997-07-16         PP001746       35.64         35.64     LOS ANGELES
+10    956805111  70121E                                                      HAYNES KYVA RENEE      Heir                  NaN        NaN              2012-10-17  This property has been permanently escheated to the State     1999-06-18              1997-07-16         PP001746       35.64         35.64     LOS ANGELES
+11    956825100  70809E                                                        HAYNES NORMAN D      Heir                  NaN        NaN              2020-02-06  This property has been permanently escheated to the State     2003-01-15              2001-08-10           PA4849      3827.3        3827.3  SAN BERNARDINO
+12    956830161  71469E                                                         HAYNES MOZELLA  Decedent                  NaN        NaN              2011-01-20  This property has been permanently escheated to the State     2005-08-26              2005-06-13  S-1500-PB-52880     7339.73       7339.73            KERN
+============================================================
+  INITIATING SECURE EMAIL NOTIFICATION  
+============================================================
+Connecting to SMTP server smtp.gmail.com:587...
+Logging in using secure App Password...
+Sending email to txtdjdrop@gmail.com...
+Error: 'charmap' codec can't encode character '\u274c' in position 0: character maps to <undefined>
