@@ -62,7 +62,7 @@ osint-pipeline/
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| GCP_PROJECT | noble-beanbag-497411-m4 | GCP project ID |
+| GCP_PROJECT | project-743aab84-f9a5-4ec7-954 | GCP project ID |
 | BQ_DATASET | osint | BigQuery dataset |
 | NEO4J_URI | bolt://localhost:7687 | Neo4j connection |
 | FUZZY_THRESHOLD | 85 | Minimum match score |

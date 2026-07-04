@@ -57,7 +57,7 @@ This guide will help you deploy OsintNeoAi across Google Cloud, GitHub Actions, 
 ```bash
 # Visit: https://console.cloud.google.com
 # Create a new project: "OsintNeoAi"
-PROJECT_ID="osint-neo-ai-prod"
+PROJECT_ID="project-743aab84-f9a5-4ec7-954"
 REGION="us-central1"
 ```
 
@@ -101,9 +101,9 @@ Add these secrets:
 
 ```
 GEMINI_API_KEY = [Your API key from https://aistudio.google.com/app/apikey]
-GCP_PROJECT_ID = osint-neo-ai-prod
+GCP_PROJECT_ID = project-743aab84-f9a5-4ec7-954
 WIF_PROVIDER = [Generated in Step 3]
-WIF_SERVICE_ACCOUNT = github-actions@osint-neo-ai-prod.iam.gserviceaccount.com
+WIF_SERVICE_ACCOUNT = github-actions@project-743aab84-f9a5-4ec7-954.iam.gserviceaccount.com
 GOOGLE_CREDENTIALS_JSON = [Generated in Step 3]
 ```
 

@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  PROJECT_ID: osint-neo-ai-prod
+  PROJECT_ID: project-743aab84-f9a5-4ec7-954
   REGION: us-central1
   SERVICE: osint-neo-ai
 

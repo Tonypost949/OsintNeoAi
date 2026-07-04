@@ -15,7 +15,7 @@ for d in [EXPORT_DIR, CACHE_DIR, LOG_DIR]:
     d.mkdir(parents=True, exist_ok=True)
 
 # ── GCP / BigQuery ─────────────────────────────────────────────
-GCP_PROJECT = os.getenv("GCP_PROJECT", "noble-beanbag-497411-m4")
+GCP_PROJECT = os.getenv("GCP_PROJECT", "project-743aab84-f9a5-4ec7-954")
 BQ_DATASET = os.getenv("BQ_DATASET", "osint")
 BQ_TABLE_ENTITIES = f"{GCP_PROJECT}.{BQ_DATASET}.entities"
 BQ_TABLE_RELATIONSHIPS = f"{GCP_PROJECT}.{BQ_DATASET}.relationships"

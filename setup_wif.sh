@@ -2,7 +2,7 @@
 # setup_wif.sh — Run this in Cloud Shell or local gcloud
 # Sets up Workload Identity Federation for GitHub Actions → GCP
 
-PROJECT_ID="hardy-order-496117-p3"
+PROJECT_ID="project-743aab84-f9a5-4ec7-954"
 PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format='value(projectNumber)')
 REPO="Tonypost949/OsintNeoAi"
 
