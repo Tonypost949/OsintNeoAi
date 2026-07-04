@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OsintNeoAi</title>
+<style>
+:root{--bg:#0a0c10;--surface:#11151c;--border:#1e2530;--accent:#00e5ff;--accent2:#39ff14;--text:#e8eaed;--text2:#8892a0;--danger:#ff2a5f}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;height:100vh;overflow:hidden}
+.app{display:flex;height:100vh}
+.sidebar{width:300px;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0}
+.sidebar-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.sidebar-header h1{font-size:18px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.status-dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);box-shadow:0 0 8px var(--accent2)}
+.sidebar-nav{padding:12px 0;flex:1;overflow-y:auto}
+.nav-item{padding:10px 20px;cursor:pointer;display:flex;align-items:center;gap:10px;color:var(--text2);border-left:3px solid transparent;transition:all .2s}
+.nav-item:hover{background:rgba(0,229,255,.05);color:var(--text)}
+.nav-item.active{color:var(--accent);border-left-color:var(--accent);background:rgba(0,229,255,.08)}
+.nav-item svg{width:18px;height:18px;flex-shrink:0}
+.main{flex:1;display:flex;flex-direction:column;min-width:0}
+.topbar{height:56px;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 24px;justify-content:space-between;flex-shrink:0}
+.topbar h2{font-size:16px;font-weight:600}
+.topbar-actions{display:flex;gap:8px;align-items:center}
+.btn{background:var(--surface);border:1px solid var(--border);color:var(--text);padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px;transition:all .2s}
+.btn:hover{background:rgba(0,229,255,.1);border-color:var(--accent)}
+.btn-primary{background:var(--accent);color:var(--bg);border-color:var(--accent);font-weight:600}
+.btn-primary:hover{background:#00c4db}
+.content{flex:1;overflow-y:auto;padding:24px;display:flex;flex-direction:column}
+.panel{display:none;flex-direction:column;height:100%}
+.panel.active{display:flex}
+.chat-messages{flex:1;overflow-y:auto;padding-bottom:16px}
+.msg{padding:12px 16px;margin-bottom:8px;border-radius:8px;max-width:85%;line-height:1.5;font-size:14px}
+.msg.user{background:var(--surface);border:1px solid var(--border);align-self:flex-end;margin-left:auto}
+.msg.ai{background:rgba(0,229,255,.05);border:1px solid rgba(0,229,255,.15);align-self:flex-start}
+.msg.system{background:rgba(57,255,20,.05);border:1px solid rgba(57,255,20,.15);font-family:monospace;font-size:13px}
+.chat-input-wrap{padding:12px 0 0;flex-shrink:0}
+.chat-input-wrap form{display:flex;gap:8px}
+.chat-input-wrap input{flex:1;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:10px 14px;border-radius:8px;font-size:14px;outline:none}
+.chat-input-wrap input:focus{border-color:var(--accent)}
+.chat-input-wrap button{background:var(--accent);border:none;color:var(--bg);padding:10px 18px;border-radius:8px;cursor:pointer;font-weight:600}
+.upload-zone{border:2px dashed var(--border);border-radius:12px;padding:40px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:16px}
+.upload-zone:hover{border-color:var(--accent);background:rgba(0,229,255,.03)}
+.upload-zone.has-file{border-color:var(--accent2);background:rgba(57,255,20,.03)}
+.analysis-result{padding:16px;background:var(--surface);border-radius:8px;border:1px solid var(--border);white-space:pre-wrap;font-size:14px;line-height:1.6;overflow-x:auto}
+.bq-editor{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:12px}
+.bq-editor textarea{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:12px;border-radius:6px;font-family:monospace;font-size:13px;min-height:100px;resize:vertical;outline:none}
+.bq-editor textarea:focus{border-color:var(--accent)}
+.bq-results{overflow-x:auto}
+.bq-results table{width:100%;border-collapse:collapse;font-size:13px}
+.bq-results th{background:var(--surface);padding:8px 12px;text-align:left;border-bottom:2px solid var(--border);color:var(--accent);font-weight:600}
+.bq-results td{padding:6px 12px;border-bottom:1px solid var(--border);max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bq-results tr:hover{background:rgba(0,229,255,.03)}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;cursor:pointer;transition:all .2s}
+.tool-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.tool-card h3{font-size:14px;margin-bottom:4px}
+.tool-card p{font-size:12px;color:var(--text2)}
+.loading{display:flex;gap:4px;padding:8px;align-self:flex-start}
+.loading span{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:bounce 1.4s infinite both}
+.loading span:nth-child(1){animation-delay:-.32s}
+.loading span:nth-child(2){animation-delay:-.16s}
+@keyframes bounce{0%,80%,100%{transform:scale(0)}40%{transform:scale(1)}}
+.menu-btn{display:none;background:none;border:none;color:var(--text);cursor:pointer;padding:4px}
+@media(max-width:768px){
+.sidebar{position:fixed;left:-300px;top:0;bottom:0;z-index:100;transition:left .3s}
+.sidebar.open{left:0}
+.menu-btn{display:block}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:99}
+.overlay.show{display:block}
+}
+</style>
+</head>
+<body>
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+<div class="sidebar-header">
+<div class="status-dot"></div>
+<h1>OsintNeoAi</h1>
+</div>
+<nav class="sidebar-nav">
+<div class="nav-item active" data-panel="chat" onclick="switchPanel('chat')">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Chat
+</div>
+<div class="nav-item" data-panel="upload" onclick="switchPanel('upload')">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>Upload
+</div>
+<div class="nav-item" data-panel="bq" onclick="switchPanel('bq')">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>BigQuery
+</div>
+<div class="nav-item" data-panel="tools" onclick="switchPanel('tools')">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Tools
+</div>
+</nav>
+</aside>
+<div class="main">
+<div class="topbar">
+<div style="display:flex;align-items:center;gap:8px">
+<button class="menu-btn" onclick="toggleSidebar()">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+<h2 id="panelTitle">Chat</h2>
+</div>
+<div class="topbar-actions">
+<span id="statusBadge" style="font-size:12px;color:var(--accent2)">&#9679; Connected</span>
+</div>
+</div>
+<div class="content">
+<div class="panel active" id="panel-chat">
+<div class="chat-messages" id="chatMessages">
+<div class="msg ai"><strong>OsintNeoAi</strong> — I'm ready. Ask me anything about your OSINT data, run BigQuery queries, upload files for analysis, or use the forensic tools. I'm powered by Vertex AI and always on.</div>
+</div>
+<div class="chat-input-wrap">
+<form id="chatForm">
+<input type="text" id="chatInput" placeholder="Ask anything..." autocomplete="off">
+<button type="submit">Send</button>
+</form>
+</div>
+</div>
+<div class="panel" id="panel-upload">
+<div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+<div style="font-size:32px;margin-bottom:8px">&#128194;</div>
+<div style="font-size:14px;font-weight:600">Upload a file for OSINT analysis</div>
+<div style="font-size:12px;color:var(--text2);margin-top:4px">CSV, TXT, JSON, PDF — extracts entities, addresses, patterns</div>
+</div>
+<input type="file" id="fileInput" style="display:none" onchange="handleUpload(event)">
+<div id="uploadResult"></div>
+<div id="uploadAnalysis"></div>
+</div>
+<div class="panel" id="panel-bq">
+<div class="bq-editor">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+<span style="font-size:13px;color:var(--text2)">Run SQL against BigQuery</span>
+<button class="btn btn-primary" onclick="runBQ()">Run</button>
+</div>
+<textarea id="bqSql" placeholder="SELECT * FROM `project-743aab84-f9a5-4ec7-954.INFORMATION_SCHEMA.TABLES` LIMIT 10"></textarea>
+</div>
+<div id="bqStatus" style="font-size:13px;color:var(--text2);margin-bottom:8px"></div>
+<div class="bq-results" id="bqResults"></div>
+</div>
+<div class="panel" id="panel-tools">
+<h3 style="font-size:15px;margin-bottom:12px">Forensic Tools</h3>
+<div class="tools-grid" id="toolsGrid"></div>
+<div id="toolOutput" style="margin-top:16px;padding:16px;background:var(--surface);border-radius:8px;border:1px solid var(--border);display:none"></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+const WS = '';
+const API = WS + '';
+let chatHistory = [];
+
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('show')}
+
+function switchPanel(id){
+document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+document.querySelector(`.nav-item[data-panel="${id}"]`).classList.add('active');
+document.getElementById(`panel-${id}`).classList.add('active');
+const titles={chat:'Chat',upload:'Upload & Analyze',bq:'BigQuery',tools:'Forensic Tools'};
+document.getElementById('panelTitle').textContent=titles[id]||id;
+if(window.innerWidth<=768)toggleSidebar()
+}
+
+// Chat
+document.getElementById('chatForm').addEventListener('submit',async e=>{
+e.preventDefault();const input=document.getElementById('chatInput');const msg=input.value.trim();if(!msg)return;
+input.value='';const msgs=document.getElementById('chatMessages');
+const userDiv=document.createElement('div');userDiv.className='msg user';userDiv.textContent=msg;msgs.appendChild(userDiv);
+const loadDiv=document.createElement('div');loadDiv.className='loading';loadDiv.innerHTML='<span></span><span></span><span></span>';msgs.appendChild(loadDiv);msgs.scrollTop=msgs.scrollHeight;
+try{
+const resp=await fetch(API+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg})});
+const data=await resp.json();loadDiv.remove();
+const aiDiv=document.createElement('div');aiDiv.className='msg ai';aiDiv.innerHTML=marked(data.response||data.error||'No response');msgs.appendChild(aiDiv)
+}catch(e){loadDiv.remove();const eDiv=document.createElement('div');eDiv.className='msg system';eDiv.textContent='Error: '+e.message;msgs.appendChild(eDiv)}
+msgs.scrollTop=msgs.scrollHeight
+});
+
+// Upload
+async function handleUpload(e){
+const file=e.target.files[0];if(!file)return;
+const zone=document.getElementById('uploadZone');zone.classList.add('has-file');zone.innerHTML='<div style="font-size:32px;margin-bottom:8px">&#128230;</div><div>Uploading '+file.name+'...</div>';
+const fd=new FormData();fd.append('file',file);
+try{
+const resp=await fetch(API+'/api/upload',{method:'POST',body:fd});
+const data=await resp.json();
+zone.innerHTML='<div style="font-size:32px;margin-bottom:8px">&#9989;</div><div>'+file.name+' analyzed</div>';
+const div=document.getElementById('uploadAnalysis');
+div.innerHTML='<div class="analysis-result">'+(data.analysis||data.error||'No analysis')+'</div>'
+}catch(e){zone.innerHTML='<div style="color:var(--danger)">Upload failed: '+e.message+'</div>'}
+}
+
+// BigQuery
+async function runBQ(){
+const sql=document.getElementById('bqSql').value.trim();if(!sql)return;
+const status=document.getElementById('bqStatus');status.textContent='Running...';
+const results=document.getElementById('bqResults');results.innerHTML='';
+try{
+const resp=await fetch(API+'/api/bq/query',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sql:sql})});
+const data=await resp.json();
+if(data.error){status.textContent='Error: '+data.error;return}
+status.textContent=data.total+' rows returned';
+if(data.rows.length===0){results.innerHTML='<div style="color:var(--text2);padding:16px">No results</div>';return}
+const cols=Object.keys(data.rows[0]);
+let html='<table><thead><tr>'+cols.map(c=>'<th>'+esc(c)+'</th>').join('')+'</tr></thead><tbody>';
+for(const r of data.rows){html+='<tr>'+cols.map(c=>'<td>'+esc(String(r[c]??''))+'</td>').join('')+'</tr>'}
+html+='</tbody></table>';results.innerHTML=html
+}catch(e){status.textContent='Error: '+e.message}
+}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+
+// Tools
+const tools=[
+{name:'NPI Calculator',desc:'Non-Profiteers Index — score nonprofits',action:()=>window.open('/forensic/index.html','_blank')},
+{name:'Entity Resolution',desc:'Run entity matching pipeline',action:async()=>{const r=await fetch(API+'/api/pipeline/resolve',{method:'POST'});const d=await r.json();showToolOutput(JSON.stringify(d,null,2))}},
+{name:'Data Collection',desc:'Run OSINT data collection',action:async()=>{const r=await fetch(API+'/api/pipeline/run',{method:'POST'});const d=await r.json();showToolOutput(JSON.stringify(d,null,2))}},
+{name:'List Datasets',desc:'Show BigQuery datasets',action:async()=>{const r=await fetch(API+'/api/bq/tables');const d=await r.json();showToolOutput(JSON.stringify(d,null,2))}}
+];
+function showToolOutput(text){const div=document.getElementById('toolOutput');div.style.display='block';div.innerHTML='<pre style="white-space:pre-wrap;font-size:13px">'+esc(text)+'</pre>'}
+const grid=document.getElementById('toolsGrid');
+tools.forEach(t=>{
+const card=document.createElement('div');card.className='tool-card';card.onclick=t.action;
+card.innerHTML='<h3>'+esc(t.name)+'</h3><p>'+esc(t.desc)+'</p>';grid.appendChild(card)
+});
+
+// Markdown-like formatting
+function marked(text){
+return text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
+.replace(/`(.*?)`/g,'<code style="background:var(--bg);padding:2px 4px;border-radius:3px">$1</code>')
+.replace(/\n/g,'<br>')
+}
+
+// Health check
+(async function(){try{const r=await fetch(API+'/api/status');const d=await r.json();if(d.status==='ok')document.getElementById('statusBadge').innerHTML='&#9679; '+d.service+' v'+d.version}catch(e){document.getElementById('statusBadge').innerHTML='&#9679; Disconnected';}})()
+</script>
+</body>
+</html>
