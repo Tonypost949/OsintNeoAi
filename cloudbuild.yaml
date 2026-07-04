@@ -37,6 +37,9 @@ steps:
       - "--set-env-vars"
       - "GCP_PROJECT=$PROJECT_ID,OSINT_WORKSPACE=/app"
       - "--allow-unauthenticated"
+      - "--min-instances=1"
+      - "--concurrency"
+      - "80"
     waitFor: ["push"]
 
 substitutions:

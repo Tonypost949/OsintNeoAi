@@ -47,6 +47,8 @@ jobs:
             --memory 2Gi \
             --cpu 2 \
             --timeout 3600 \
+            --min-instances=1 \
+            --concurrency 80 \
             --set-env-vars GCP_PROJECT=${{ env.PROJECT_ID }} \
             --allow-unauthenticated
 
@@ -61,23 +63,23 @@ jobs:
           gcloud scheduler jobs create http osint-data-collection \
             --location=${{ env.REGION }} \
             --schedule="0 */4 * * *" \
-            --uri="${{ env.SERVICE_URL }}/collect" \
+            --uri="${{ env.SERVICE_URL }}/api/pipeline/run" \
             --http-method=POST \
             --oidc-service-account-email=${{ secrets.WIF_SERVICE_ACCOUNT }} \
             --oidc-token-audience="${{ env.SERVICE_URL }}" 2>/dev/null || \
           gcloud scheduler jobs update http osint-data-collection \
             --schedule="0 */4 * * *" \
-            --uri="${{ env.SERVICE_URL }}/collect"
+            --uri="${{ env.SERVICE_URL }}/api/pipeline/run"
 
       - name: Create/Update Scheduler (Resolve)
         run: |
           gcloud scheduler jobs create http osint-entity-resolution \
             --location=${{ env.REGION }} \
             --schedule="0 */12 * * *" \
-            --uri="${{ env.SERVICE_URL }}/resolve" \
+            --uri="${{ env.SERVICE_URL }}/api/pipeline/resolve" \
             --http-method=POST \
             --oidc-service-account-email=${{ secrets.WIF_SERVICE_ACCOUNT }} \
             --oidc-token-audience="${{ env.SERVICE_URL }}" 2>/dev/null || \
           gcloud scheduler jobs update http osint-entity-resolution \
             --schedule="0 */12 * * *" \
-            --uri="${{ env.SERVICE_URL }}/resolve"
+            --uri="${{ env.SERVICE_URL }}/api/pipeline/resolve"

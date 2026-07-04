@@ -5,88 +5,123 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>OsintNeoAi</title>
 <style>
-:root{--bg:#0a0c10;--surface:#11151c;--border:#1e2530;--accent:#00e5ff;--accent2:#39ff14;--text:#e8eaed;--text2:#8892a0;--danger:#ff2a5f}
+:root{--bg:#0a0c10;--surface:#11151c;--surface2:#1a1f2e;--border:#1e2530;--accent:#00e5ff;--accent2:#39ff14;--text:#e8eaed;--text2:#8892a0;--danger:#ff2a5f;--warning:#f59e0b}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;height:100vh;overflow:hidden}
 .app{display:flex;height:100vh}
-.sidebar{width:300px;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0}
-.sidebar-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
-.sidebar-header h1{font-size:18px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.status-dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);box-shadow:0 0 8px var(--accent2)}
-.sidebar-nav{padding:12px 0;flex:1;overflow-y:auto}
-.nav-item{padding:10px 20px;cursor:pointer;display:flex;align-items:center;gap:10px;color:var(--text2);border-left:3px solid transparent;transition:all .2s}
-.nav-item:hover{background:rgba(0,229,255,.05);color:var(--text)}
-.nav-item.active{color:var(--accent);border-left-color:var(--accent);background:rgba(0,229,255,.08)}
-.nav-item svg{width:18px;height:18px;flex-shrink:0}
+.sidebar{width:280px;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0}
+.sidebar-header{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.sidebar-header h1{font-size:16px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--accent2);box-shadow:0 0 6px var(--accent2)}
+.sidebar-nav{padding:8px 0;flex:1;overflow-y:auto}
+.nav-item{padding:9px 18px;cursor:pointer;display:flex;align-items:center;gap:10px;color:var(--text2);border-left:3px solid transparent;transition:all .15s;font-size:13px}
+.nav-item:hover{background:rgba(0,229,255,.04);color:var(--text)}
+.nav-item.active{color:var(--accent);border-left-color:var(--accent);background:rgba(0,229,255,.07)}
+.nav-item svg{width:16px;height:16px;flex-shrink:0}
+.knowledge-badge{background:var(--accent);color:var(--bg);font-size:10px;padding:1px 6px;border-radius:10px;margin-left:auto}
 .main{flex:1;display:flex;flex-direction:column;min-width:0}
-.topbar{height:56px;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 24px;justify-content:space-between;flex-shrink:0}
-.topbar h2{font-size:16px;font-weight:600}
-.topbar-actions{display:flex;gap:8px;align-items:center}
-.btn{background:var(--surface);border:1px solid var(--border);color:var(--text);padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px;transition:all .2s}
-.btn:hover{background:rgba(0,229,255,.1);border-color:var(--accent)}
+.topbar{height:48px;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 20px;justify-content:space-between;flex-shrink:0}
+.topbar h2{font-size:14px;font-weight:600}
+.topbar-actions{display:flex;gap:6px;align-items:center}
+.btn{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:5px 12px;border-radius:5px;cursor:pointer;font-size:12px;transition:all .15s}
+.btn:hover{background:rgba(0,229,255,.08);border-color:var(--accent)}
 .btn-primary{background:var(--accent);color:var(--bg);border-color:var(--accent);font-weight:600}
 .btn-primary:hover{background:#00c4db}
-.content{flex:1;overflow-y:auto;padding:24px;display:flex;flex-direction:column}
+.content{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column}
 .panel{display:none;flex-direction:column;height:100%}
 .panel.active{display:flex}
-.chat-messages{flex:1;overflow-y:auto;padding-bottom:16px}
-.msg{padding:12px 16px;margin-bottom:8px;border-radius:8px;max-width:85%;line-height:1.5;font-size:14px}
+.chat-messages{flex:1;overflow-y:auto;padding-bottom:12px}
+.msg{padding:10px 14px;margin-bottom:6px;border-radius:8px;max-width:88%;line-height:1.5;font-size:13px}
 .msg.user{background:var(--surface);border:1px solid var(--border);align-self:flex-end;margin-left:auto}
-.msg.ai{background:rgba(0,229,255,.05);border:1px solid rgba(0,229,255,.15);align-self:flex-start}
-.msg.system{background:rgba(57,255,20,.05);border:1px solid rgba(57,255,20,.15);font-family:monospace;font-size:13px}
-.chat-input-wrap{padding:12px 0 0;flex-shrink:0}
-.chat-input-wrap form{display:flex;gap:8px}
-.chat-input-wrap input{flex:1;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:10px 14px;border-radius:8px;font-size:14px;outline:none}
+.msg.ai{background:rgba(0,229,255,.04);border:1px solid rgba(0,229,255,.12);align-self:flex-start;width:100%;max-width:100%}
+.msg.system{background:rgba(57,255,20,.04);border:1px solid rgba(57,255,20,.12);font-family:monospace;font-size:12px;width:100%;max-width:100%}
+.msg.ai pre{background:var(--surface);padding:10px;border-radius:6px;overflow-x:auto;font-size:12px;margin:6px 0}
+.msg.ai code{background:var(--surface);padding:1px 4px;border-radius:3px;font-size:12px}
+.msg.ai table{border-collapse:collapse;width:100%;margin:6px 0;font-size:12px}
+.msg.ai th,.msg.ai td{border:1px solid var(--border);padding:4px 8px;text-align:left}
+.msg.ai th{background:var(--surface);color:var(--accent)}
+.chat-input-wrap{padding:8px 0 0;flex-shrink:0}
+.chat-input-wrap form{display:flex;gap:6px}
+.chat-input-wrap input{flex:1;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:9px 12px;border-radius:6px;font-size:13px;outline:none}
 .chat-input-wrap input:focus{border-color:var(--accent)}
-.chat-input-wrap button{background:var(--accent);border:none;color:var(--bg);padding:10px 18px;border-radius:8px;cursor:pointer;font-weight:600}
-.upload-zone{border:2px dashed var(--border);border-radius:12px;padding:40px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:16px}
+.chat-input-wrap button{background:var(--accent);border:none;color:var(--bg);padding:9px 16px;border-radius:6px;cursor:pointer;font-weight:600;font-size:12px}
+.upload-zone{border:2px dashed var(--border);border-radius:10px;padding:30px 20px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:12px}
 .upload-zone:hover{border-color:var(--accent);background:rgba(0,229,255,.03)}
 .upload-zone.has-file{border-color:var(--accent2);background:rgba(57,255,20,.03)}
-.analysis-result{padding:16px;background:var(--surface);border-radius:8px;border:1px solid var(--border);white-space:pre-wrap;font-size:14px;line-height:1.6;overflow-x:auto}
-.bq-editor{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:12px}
-.bq-editor textarea{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:12px;border-radius:6px;font-family:monospace;font-size:13px;min-height:100px;resize:vertical;outline:none}
-.bq-editor textarea:focus{border-color:var(--accent)}
-.bq-results{overflow-x:auto}
-.bq-results table{width:100%;border-collapse:collapse;font-size:13px}
-.bq-results th{background:var(--surface);padding:8px 12px;text-align:left;border-bottom:2px solid var(--border);color:var(--accent);font-weight:600}
-.bq-results td{padding:6px 12px;border-bottom:1px solid var(--border);max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.analysis-result{padding:14px;background:var(--surface);border-radius:6px;border:1px solid var(--border);white-space:pre-wrap;font-size:13px;line-height:1.5;overflow-x:auto;max-height:400px;overflow-y:auto}
+.bq-panel{display:flex;flex-direction:column;height:100%}
+.bq-browser{display:flex;gap:10px;flex:1;min-height:0}
+.bq-tree{width:220px;background:var(--surface);border-radius:6px;border:1px solid var(--border);overflow-y:auto;flex-shrink:0}
+.bq-tree-item{padding:6px 10px;cursor:pointer;font-size:12px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px}
+.bq-tree-item:hover{background:rgba(0,229,255,.04)}
+.bq-tree-item.active{background:rgba(0,229,255,.08);color:var(--accent)}
+.bq-tree-item .ds{color:var(--accent);font-weight:600}
+.bq-tree-item .tb{color:var(--text2);padding-left:16px;font-size:11px}
+.bq-detail{flex:1;display:flex;flex-direction:column;min-width:0}
+.bq-detail .editor{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:10px;margin-bottom:8px}
+.bq-detail .editor textarea{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:4px;font-family:monospace;font-size:12px;min-height:70px;resize:vertical;outline:none}
+.bq-detail .editor textarea:focus{border-color:var(--accent)}
+.bq-detail .editor .row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.bq-results{overflow:auto;flex:1}
+.bq-results table{width:100%;border-collapse:collapse;font-size:12px}
+.bq-results th{background:var(--surface);padding:5px 8px;text-align:left;border-bottom:2px solid var(--border);color:var(--accent);font-weight:600;position:sticky;top:0}
+.bq-results td{padding:4px 8px;border-bottom:1px solid var(--border);max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .bq-results tr:hover{background:rgba(0,229,255,.03)}
-.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
-.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;cursor:pointer;transition:all .2s}
-.tool-card:hover{border-color:var(--accent);transform:translateY(-2px)}
-.tool-card h3{font-size:14px;margin-bottom:4px}
-.tool-card p{font-size:12px;color:var(--text2)}
-.loading{display:flex;gap:4px;padding:8px;align-self:flex-start}
-.loading span{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:bounce 1.4s infinite both}
+.knowledge-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.knowledge-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;cursor:pointer;transition:all .15s}
+.knowledge-card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.knowledge-card h3{font-size:13px;margin-bottom:3px}
+.knowledge-card p{font-size:11px;color:var(--text2)}
+.knowledge-card .tag{display:inline-block;background:rgba(0,229,255,.1);color:var(--accent);padding:1px 6px;border-radius:3px;font-size:10px;margin:2px}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:12px;cursor:pointer;transition:all .15s}
+.tool-card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.tool-card h3{font-size:13px;margin-bottom:3px}
+.tool-card p{font-size:11px;color:var(--text2)}
+.loading{display:flex;gap:4px;padding:6px;align-self:flex-start}
+.loading span{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:bounce 1.4s infinite both}
 .loading span:nth-child(1){animation-delay:-.32s}
 .loading span:nth-child(2){animation-delay:-.16s}
 @keyframes bounce{0%,80%,100%{transform:scale(0)}40%{transform:scale(1)}}
 .menu-btn{display:none;background:none;border:none;color:var(--text);cursor:pointer;padding:4px}
+.subtitle{font-size:11px;color:var(--text2);margin-bottom:8px}
+.section-title{font-size:14px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.smart-input{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:10px;margin-bottom:8px;display:flex;gap:6px}
+.smart-input input{flex:1;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:7px 10px;border-radius:4px;font-size:13px;outline:none}
+.smart-input input:focus{border-color:var(--accent)}
+.loading-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:1000;display:none}
+.loading-overlay.show{display:flex}
+.spinner{width:40px;height:40px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 @media(max-width:768px){
-.sidebar{position:fixed;left:-300px;top:0;bottom:0;z-index:100;transition:left .3s}
+.sidebar{position:fixed;left:-280px;top:0;bottom:0;z-index:100;transition:left .25s}
 .sidebar.open{left:0}
 .menu-btn{display:block}
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:99}
 .overlay.show{display:block}
+.bq-browser{flex-direction:column}
+.bq-tree{width:100%;max-height:150px}
 }
 </style>
 </head>
 <body>
 <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+<div class="loading-overlay" id="loadingOverlay"><div class="spinner"></div></div>
 <div class="app">
 <aside class="sidebar" id="sidebar">
 <div class="sidebar-header">
-<div class="status-dot"></div>
+<div class="status-dot" id="statusDot"></div>
 <h1>OsintNeoAi</h1>
 </div>
 <nav class="sidebar-nav">
 <div class="nav-item active" data-panel="chat" onclick="switchPanel('chat')">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Chat
 </div>
-<div class="nav-item" data-panel="upload" onclick="switchPanel('upload')">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>Upload
+<div class="nav-item" data-panel="knowledge" onclick="switchPanel('knowledge');loadKnowledge()">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Knowledge
+<span class="knowledge-badge" id="knowledgeBadge">0</span>
 </div>
-<div class="nav-item" data-panel="bq" onclick="switchPanel('bq')">
+<div class="nav-item" data-panel="bq" onclick="switchPanel('bq');loadCatalog()">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>BigQuery
 </div>
 <div class="nav-item" data-panel="tools" onclick="switchPanel('tools')">
@@ -98,59 +133,100 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 <div class="topbar">
 <div style="display:flex;align-items:center;gap:8px">
 <button class="menu-btn" onclick="toggleSidebar()">
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
 </button>
 <h2 id="panelTitle">Chat</h2>
 </div>
 <div class="topbar-actions">
-<span id="statusBadge" style="font-size:12px;color:var(--accent2)">&#9679; Connected</span>
+<span id="statusBadge" style="font-size:11px;color:var(--accent2)">&#9679; Checking...</span>
 </div>
 </div>
 <div class="content">
+<!-- CHAT PANEL -->
 <div class="panel active" id="panel-chat">
 <div class="chat-messages" id="chatMessages">
-<div class="msg ai"><strong>OsintNeoAi</strong> — I'm ready. Ask me anything about your OSINT data, run BigQuery queries, upload files for analysis, or use the forensic tools. I'm powered by Vertex AI and always on.</div>
+<div class="msg ai" id="welcomeMsg"><strong>OsintNeoAi</strong> — I'm connected to all your BigQuery data. Ask me about:
+<ul style="margin:6px 0 0 16px;color:var(--text2)">
+<li>Nonprofits, entities, people in the forensic datasets</li>
+<li>PPP loan data and RICO patterns</li>
+<li>National audit records</li>
+<li>Upload documents for analysis</li>
+<li>Import bookmarks for context</li>
+</ul>
+</div>
 </div>
 <div class="chat-input-wrap">
 <form id="chatForm">
-<input type="text" id="chatInput" placeholder="Ask anything..." autocomplete="off">
+<input type="text" id="chatInput" placeholder="Ask anything about your data..." autocomplete="off">
 <button type="submit">Send</button>
 </form>
 </div>
 </div>
-<div class="panel" id="panel-upload">
-<div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
-<div style="font-size:32px;margin-bottom:8px">&#128194;</div>
-<div style="font-size:14px;font-weight:600">Upload a file for OSINT analysis</div>
-<div style="font-size:12px;color:var(--text2);margin-top:4px">CSV, TXT, JSON, PDF — extracts entities, addresses, patterns</div>
+
+<!-- KNOWLEDGE PANEL -->
+<div class="panel" id="panel-knowledge">
+<div class="section-title">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+Your Knowledge Base
+<div style="margin-left:auto;display:flex;gap:6px">
+<button class="btn" onclick="document.getElementById('uploadFile').click()">+ Upload</button>
+<button class="btn" onclick="document.getElementById('bookmarkFile').click()">+ Bookmarks</button>
+<button class="btn" onclick="clearKnowledge()" style="color:var(--danger)">Clear</button>
 </div>
-<input type="file" id="fileInput" style="display:none" onchange="handleUpload(event)">
-<div id="uploadResult"></div>
-<div id="uploadAnalysis"></div>
 </div>
+<input type="file" id="uploadFile" style="display:none" onchange="handleUpload(event)">
+<input type="file" id="bookmarkFile" style="display:none" onchange="handleBookmarks(event)">
+<div class="subtitle">Uploaded documents and imported bookmarks are used as context for all AI responses.</div>
+<div id="knowledgeContent"><div style="color:var(--text2);padding:20px;text-align:center">Loading...</div></div>
+</div>
+
+<!-- BIGQUERY PANEL -->
 <div class="panel" id="panel-bq">
-<div class="bq-editor">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-<span style="font-size:13px;color:var(--text2)">Run SQL against BigQuery</span>
+<div class="bq-panel">
+<div class="section-title">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
+BigQuery Catalog & Query
+</div>
+<div class="bq-browser">
+<div class="bq-tree" id="bqTree"><div style="color:var(--text2);padding:10px;font-size:12px">Loading...</div></div>
+<div class="bq-detail">
+<div class="editor">
+<div class="row">
+<span style="font-size:12px;color:var(--text2)" id="bqTableInfo">Select a table to preview or write SQL</span>
+<div style="display:flex;gap:4px">
+<button class="btn" onclick="runSmartSQL()">&#9889; Smart</button>
 <button class="btn btn-primary" onclick="runBQ()">Run</button>
 </div>
-<textarea id="bqSql" placeholder="SELECT * FROM `project-743aab84-f9a5-4ec7-954.INFORMATION_SCHEMA.TABLES` LIMIT 10"></textarea>
 </div>
-<div id="bqStatus" style="font-size:13px;color:var(--text2);margin-bottom:8px"></div>
+<textarea id="bqSql" placeholder="SELECT * FROM `project-743aab84-f9a5-4ec7-954.npi_forensic.entities` LIMIT 10"></textarea>
+<div style="margin-top:6px;display:flex;gap:6px;align-items:center">
+<span id="bqStatus" style="font-size:11px;color:var(--text2)"></span>
+</div>
+</div>
 <div class="bq-results" id="bqResults"></div>
 </div>
+</div>
+</div>
+</div>
+
+<!-- TOOLS PANEL -->
 <div class="panel" id="panel-tools">
-<h3 style="font-size:15px;margin-bottom:12px">Forensic Tools</h3>
+<div class="section-title">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+Forensic & OSINT Tools
+</div>
+<div class="subtitle">Specialized analysis tools and data collection pipelines.</div>
 <div class="tools-grid" id="toolsGrid"></div>
-<div id="toolOutput" style="margin-top:16px;padding:16px;background:var(--surface);border-radius:8px;border:1px solid var(--border);display:none"></div>
+<div id="toolOutput" style="margin-top:12px;display:none"></div>
 </div>
 </div>
 </div>
 </div>
+
 <script>
-const WS = '';
-const API = WS + '';
-let chatHistory = [];
+const API = '';
+let knowledgeLoaded = false;
+let catalogLoaded = false;
 
 function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('show')}
 
@@ -159,40 +235,163 @@ document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
 document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
 document.querySelector(`.nav-item[data-panel="${id}"]`).classList.add('active');
 document.getElementById(`panel-${id}`).classList.add('active');
-const titles={chat:'Chat',upload:'Upload & Analyze',bq:'BigQuery',tools:'Forensic Tools'};
+const titles={chat:'Chat',knowledge:'Knowledge',bq:'BigQuery',tools:'Tools'};
 document.getElementById('panelTitle').textContent=titles[id]||id;
 if(window.innerWidth<=768)toggleSidebar()
 }
 
-// Chat
+function loading(show){document.getElementById('loadingOverlay').classList.toggle('show',show)}
+
+// ── CHAT ──────────────────────────────────────────────────────
 document.getElementById('chatForm').addEventListener('submit',async e=>{
 e.preventDefault();const input=document.getElementById('chatInput');const msg=input.value.trim();if(!msg)return;
 input.value='';const msgs=document.getElementById('chatMessages');
+document.getElementById('welcomeMsg').style.display='none';
 const userDiv=document.createElement('div');userDiv.className='msg user';userDiv.textContent=msg;msgs.appendChild(userDiv);
 const loadDiv=document.createElement('div');loadDiv.className='loading';loadDiv.innerHTML='<span></span><span></span><span></span>';msgs.appendChild(loadDiv);msgs.scrollTop=msgs.scrollHeight;
 try{
 const resp=await fetch(API+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg})});
 const data=await resp.json();loadDiv.remove();
-const aiDiv=document.createElement('div');aiDiv.className='msg ai';aiDiv.innerHTML=marked(data.response||data.error||'No response');msgs.appendChild(aiDiv)
+const aiDiv=document.createElement('div');aiDiv.className='msg ai';aiDiv.innerHTML=marked(data.response||data.error||'No response');
+msgs.appendChild(aiDiv);
+if(data.context){updateBadge(data.context.documents+data.context.bookmarks)}
+if(data.result){
+const r=data.result;
+const resDiv=document.createElement('div');resDiv.className='msg system';
+let html='<strong>Query Result</strong>';
+if(r.error){html+='<br><span style="color:var(--danger)">SQL Error: '+esc(r.error)+'</span>'}
+if(r.sql){html+='<pre>'+esc(r.sql)+'</pre>'}
+if(r.rows&&r.rows.length>0){
+const cols=Object.keys(r.rows[0]);
+html+=`<div style="font-size:11px;color:var(--text2);margin-bottom:4px">${r.total} row(s)</div><table><thead><tr>${cols.map(c=>'<th>'+esc(c)+'</th>').join('')}</tr></thead><tbody>`;
+for(const row of r.rows.slice(0,20)){html+='<tr>'+cols.map(c=>'<td>'+esc(String(row[c]??''))+'</td>').join('')+'</tr>'}
+html+='</tbody></table>'
+}
+resDiv.innerHTML=html;msgs.appendChild(resDiv)
+}
 }catch(e){loadDiv.remove();const eDiv=document.createElement('div');eDiv.className='msg system';eDiv.textContent='Error: '+e.message;msgs.appendChild(eDiv)}
 msgs.scrollTop=msgs.scrollHeight
 });
 
-// Upload
+// ── UPLOAD ─────────────────────────────────────────────────────
 async function handleUpload(e){
 const file=e.target.files[0];if(!file)return;
-const zone=document.getElementById('uploadZone');zone.classList.add('has-file');zone.innerHTML='<div style="font-size:32px;margin-bottom:8px">&#128230;</div><div>Uploading '+file.name+'...</div>';
+loading(true);
 const fd=new FormData();fd.append('file',file);
 try{
 const resp=await fetch(API+'/api/upload',{method:'POST',body:fd});
-const data=await resp.json();
-zone.innerHTML='<div style="font-size:32px;margin-bottom:8px">&#9989;</div><div>'+file.name+' analyzed</div>';
-const div=document.getElementById('uploadAnalysis');
-div.innerHTML='<div class="analysis-result">'+(data.analysis||data.error||'No analysis')+'</div>'
-}catch(e){zone.innerHTML='<div style="color:var(--danger)">Upload failed: '+e.message+'</div>'}
+const data=await resp.json();loading(false);
+if(data.document_id){updateBadge();loadKnowledge()}
+const msgs=document.getElementById('chatMessages');
+document.getElementById('welcomeMsg').style.display='none';
+const aiDiv=document.createElement('div');aiDiv.className='msg ai';
+aiDiv.innerHTML='<strong>Uploaded: '+esc(file.name)+'</strong><br>'+marked(data.analysis||'No analysis');
+msgs.appendChild(aiDiv);msgs.scrollTop=msgs.scrollHeight;
+switchPanel('chat')
+}catch(e){loading(false);alert('Upload failed: '+e.message)}
 }
 
-// BigQuery
+// ── BOOKMARKS ─────────────────────────────────────────────────
+async function handleBookmarks(e){
+const file=e.target.files[0];if(!file)return;
+loading(true);
+const fd=new FormData();fd.append('file',file);
+try{
+const resp=await fetch(API+'/api/bookmarks/import',{method:'POST',body:fd});
+const data=await resp.json();loading(false);
+updateBadge();loadKnowledge();
+const msgs=document.getElementById('chatMessages');
+document.getElementById('welcomeMsg').style.display='none';
+const aiDiv=document.createElement('div');aiDiv.className='msg ai';
+aiDiv.innerHTML='<strong>Imported '+data.count+' Bookmarks</strong><br>'+marked(data.analysis||'');
+msgs.appendChild(aiDiv);msgs.scrollTop=msgs.scrollHeight;
+switchPanel('chat')
+}catch(e){loading(false);alert('Import failed: '+e.message)}
+}
+
+// ── KNOWLEDGE ─────────────────────────────────────────────────
+async function loadKnowledge(){
+knowledgeLoaded=true;
+const div=document.getElementById('knowledgeContent');
+try{
+const resp=await fetch(API+'/api/knowledge/documents');const docs=await resp.json();
+const resp2=await fetch(API+'/api/bookmarks/list');const bm=await resp2.json();
+if(docs.documents.length===0&&bm.bookmarks.length===0){
+div.innerHTML='<div style="color:var(--text2);padding:30px;text-align:center">No documents or bookmarks yet.<br><span style="font-size:12px">Upload files or import browser bookmarks to build your knowledge base.</span></div>';return
+}
+let html='<div class="knowledge-grid">';
+for(const d of docs.documents){
+html+=`<div class="knowledge-card" onclick="showDoc('${d.id}')"><h3>${esc(d.filename)}</h3><p>${esc(d.summary.substring(0,150))}</p><div style="font-size:10px;color:var(--text2);margin-top:4px">${d.timestamp}</div></div>`
+}
+for(const b of bm.bookmarks.slice(0,20)){
+const tags=(b.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('');
+html+=`<div class="knowledge-card"><h3>${esc(b.title)}</h3><p style="font-size:10px;color:var(--accent)">${esc(b.url.substring(0,60))}</p><div>${tags}</div></div>`
+}
+html+='</div>';div.innerHTML=html
+}catch(e){div.innerHTML='<div style="color:var(--danger)">Error: '+e.message+'</div>'}
+}
+
+function showDoc(id){
+fetch(API+'/api/knowledge/document/'+id).then(r=>r.json()).then(d=>{
+const msgs=document.getElementById('chatMessages');
+document.getElementById('welcomeMsg').style.display='none';
+const div=document.createElement('div');div.className='msg ai';
+div.innerHTML='<strong>Document: '+esc(d.filename)+'</strong><br><div class="analysis-result">'+marked(d.text.substring(0,5000))+'</div>';
+msgs.appendChild(div);msgs.scrollTop=msgs.scrollHeight;switchPanel('chat')
+})
+}
+
+async function clearKnowledge(){
+if(!confirm('Clear all uploaded documents and bookmarks?'))return;
+await fetch(API+'/api/knowledge/clear',{method:'POST'});
+updateBadge();loadKnowledge()
+}
+
+async function updateBadge(count){
+if(!count){
+try{const r=await fetch(API+'/api/status');const d=await r.json();count=(d.knowledge?.documents||0)+(d.knowledge?.bookmarks||0)}catch(e){}
+}
+document.getElementById('knowledgeBadge').textContent=count||'0'
+}
+
+// ── BIGQUERY ──────────────────────────────────────────────────
+async function loadCatalog(){
+if(catalogLoaded)return;catalogLoaded=true;
+const tree=document.getElementById('bqTree');
+try{
+const resp=await fetch(API+'/api/bq/catalog');const data=await resp.json();
+if(data.error){tree.innerHTML='<div style="color:var(--danger);padding:10px">'+esc(data.error)+'</div>';return}
+let html='';
+for(const ds of data.datasets){
+const tables=data.tables.filter(t=>t.dataset===ds);
+html+=`<div class="bq-tree-item" onclick="toggleDataset(this)"><span class="ds">${esc(ds)}</span><span style="font-size:10px;color:var(--text2);margin-left:auto">${tables.length}</span></div>`;
+html+=`<div class="bq-tree-ds" style="display:none">`;
+for(const t of tables){
+const colPreview=t.columns.slice(0,3).map(c=>c.name).join(', ');
+html+=`<div class="bq-tree-item tb" onclick="selectTable('${esc(ds)}','${esc(t.table)}')" title="${esc(t.columns.map(c=>c.name+':'+c.type).join(', '))}">
+${esc(t.table)} <span style="font-size:10px;color:var(--text2)">(${t.rows.toLocaleString()} rows)</span>
+</div>`
+}
+html+=`</div>`
+}
+tree.innerHTML=html
+}catch(e){tree.innerHTML='<div style="color:var(--danger)">Error: '+e.message+'</div>'}
+}
+
+function toggleDataset(el){
+const next=el.nextElementSibling;
+if(next&&next.classList.contains('bq-tree-ds')){
+next.style.display=next.style.display==='none'?'block':'none'
+}
+}
+
+function selectTable(dataset,table){
+const ta=document.getElementById('bqSql');
+ta.value='SELECT * FROM `project-743aab84-f9a5-4ec7-954.'+dataset+'.'+table+'` LIMIT 20';
+document.getElementById('bqTableInfo').textContent=dataset+'.'+table;
+runBQ()
+}
+
 async function runBQ(){
 const sql=document.getElementById('bqSql').value.trim();if(!sql)return;
 const status=document.getElementById('bqStatus');status.textContent='Running...';
@@ -201,40 +400,85 @@ try{
 const resp=await fetch(API+'/api/bq/query',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sql:sql})});
 const data=await resp.json();
 if(data.error){status.textContent='Error: '+data.error;return}
-status.textContent=data.total+' rows returned';
-if(data.rows.length===0){results.innerHTML='<div style="color:var(--text2);padding:16px">No results</div>';return}
-const cols=Object.keys(data.rows[0]);
+status.textContent=data.total+' rows';
+if(data.rows.length===0){results.innerHTML='<div style="color:var(--text2);padding:12px">No results</div>';return}
+const cols=data.columns||Object.keys(data.rows[0]);
 let html='<table><thead><tr>'+cols.map(c=>'<th>'+esc(c)+'</th>').join('')+'</tr></thead><tbody>';
-for(const r of data.rows){html+='<tr>'+cols.map(c=>'<td>'+esc(String(r[c]??''))+'</td>').join('')+'</tr>'}
+for(const r of data.rows.slice(0,100)){html+='<tr>'+cols.map(c=>'<td title="'+esc(String(r[c]??'')).replace(/"/g,'&quot;')+'">'+esc(String(r[c]??'').substring(0,200))+'</td>').join('')+'</tr>'}
 html+='</tbody></table>';results.innerHTML=html
 }catch(e){status.textContent='Error: '+e.message}
 }
-function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 
-// Tools
+async function runSmartSQL(){
+const question=prompt('What do you want to know about your data?');
+if(!question)return;
+loading(true);
+const status=document.getElementById('bqStatus');status.textContent='Generating SQL...';
+try{
+const resp=await fetch(API+'/api/bq/smart',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:question})});
+const data=await resp.json();loading(false);
+if(data.error){status.textContent='Error: '+data.error;return}
+document.getElementById('bqSql').value=data.sql;
+status.textContent=data.total+' rows | Generated from: "'+question+'"';
+const results=document.getElementById('bqResults');
+const cols=data.columns||(data.rows.length>0?Object.keys(data.rows[0]):[]);
+let html='';
+if(data.interpretation){
+html+='<div style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:10px;margin-bottom:8px;font-size:13px;line-height:1.5">'+marked(data.interpretation)+'</div>'
+}
+if(data.rows.length>0){
+html+='<table><thead><tr>'+cols.map(c=>'<th>'+esc(c)+'</th>').join('')+'</tr></thead><tbody>';
+for(const r of data.rows.slice(0,100)){html+='<tr>'+cols.map(c=>'<td>'+esc(String(r[c]??'').substring(0,200))+'</td>').join('')+'</tr>'}
+html+='</tbody></table>'
+}
+results.innerHTML=html
+}catch(e){loading(false);status.textContent='Error: '+e.message}
+}
+
+// ── TOOLS ──────────────────────────────────────────────────────
 const tools=[
 {name:'NPI Calculator',desc:'Non-Profiteers Index — score nonprofits',action:()=>window.open('/forensic/index.html','_blank')},
-{name:'Entity Resolution',desc:'Run entity matching pipeline',action:async()=>{const r=await fetch(API+'/api/pipeline/resolve',{method:'POST'});const d=await r.json();showToolOutput(JSON.stringify(d,null,2))}},
-{name:'Data Collection',desc:'Run OSINT data collection',action:async()=>{const r=await fetch(API+'/api/pipeline/run',{method:'POST'});const d=await r.json();showToolOutput(JSON.stringify(d,null,2))}},
-{name:'List Datasets',desc:'Show BigQuery datasets',action:async()=>{const r=await fetch(API+'/api/bq/tables');const d=await r.json();showToolOutput(JSON.stringify(d,null,2))}}
+{name:'Entity Resolution',desc:'Match & resolve entities across datasets',action:async()=>{const r=await fetch(API+'/api/pipeline/resolve',{method:'POST'});const d=await r.json();showToolOutput(JSON.stringify(d,null,2))}},
+{name:'Run Pipeline',desc:'Execute data collection pipeline',action:async()=>{const r=await fetch(API+'/api/pipeline/run',{method:'POST'});const d=await r.json();showToolOutput(JSON.stringify(d,null,2))}},
+{name:'BQ Smart Query',desc:'Ask questions in plain English',action:()=>{switchPanel('bq');runSmartSQL()}},
+{name:'Import Bookmarks',desc:'Import browser bookmarks file',action:()=>document.getElementById('bookmarkFile').click()},
+{name:'Upload Doc',desc:'Upload file for AI analysis',action:()=>document.getElementById('uploadFile').click()},
 ];
-function showToolOutput(text){const div=document.getElementById('toolOutput');div.style.display='block';div.innerHTML='<pre style="white-space:pre-wrap;font-size:13px">'+esc(text)+'</pre>'}
+
+function showToolOutput(text){
+const div=document.getElementById('toolOutput');div.style.display='block';
+div.innerHTML='<div class="analysis-result"><pre style="white-space:pre-wrap;font-size:12px">'+esc(text)+'</pre></div>'
+}
+
 const grid=document.getElementById('toolsGrid');
 tools.forEach(t=>{
 const card=document.createElement('div');card.className='tool-card';card.onclick=t.action;
 card.innerHTML='<h3>'+esc(t.name)+'</h3><p>'+esc(t.desc)+'</p>';grid.appendChild(card)
 });
 
-// Markdown-like formatting
+// ── MARKDOWN RENDERER ──────────────────────────────────────────
 function marked(text){
-return text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+return esc(text)
 .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
-.replace(/`(.*?)`/g,'<code style="background:var(--bg);padding:2px 4px;border-radius:3px">$1</code>')
+.replace(/`(.*?)`/g,'<code>$1</code>')
+.replace(/^- (.*?)$/gm,'<li>$1</li>')
+.replace(/(<li>.*?<\/li>)\n(?!<li>)/gs,m=>'<ul>'+m+'</ul>')
+.replace(/\n\n/g,'</p><p>')
 .replace(/\n/g,'<br>')
 }
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 
-// Health check
-(async function(){try{const r=await fetch(API+'/api/status');const d=await r.json();if(d.status==='ok')document.getElementById('statusBadge').innerHTML='&#9679; '+d.service+' v'+d.version}catch(e){document.getElementById('statusBadge').innerHTML='&#9679; Disconnected';}})()
+// ── INIT ───────────────────────────────────────────────────────
+(async function(){
+try{
+const r=await fetch(API+'/api/status');const d=await r.json();
+if(d.status==='ok'){
+document.getElementById('statusBadge').innerHTML='&#9679; '+d.service;
+document.getElementById('statusDot').style.background='var(--accent2)';
+if(d.knowledge){updateBadge((d.knowledge.documents||0)+(d.knowledge.bookmarks||0))}
+}
+}catch(e){document.getElementById('statusBadge').innerHTML='&#9679; Disconnected';document.getElementById('statusDot').style.background='var(--danger)'}
+})()
 </script>
 </body>
 </html>
