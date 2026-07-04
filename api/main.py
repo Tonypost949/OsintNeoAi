@@ -27,7 +27,7 @@ def get_ai():
     from vertexai.generative_models import GenerativeModel
     credentials, _ = google.auth.default()
     init(credentials=credentials, project=GCP_PROJECT, location="us-central1")
-    return GenerativeModel("gemini-2.0-flash-001")
+    return GenerativeModel("gemini-2.0-flash")
 
 def get_bq():
     from google.cloud import bigquery
