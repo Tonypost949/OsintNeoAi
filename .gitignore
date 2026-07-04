@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -30,17 +29,15 @@ vertex-ai-creative-studio/
 venv/
 env/
 ENV/
-=======
+
+# General
 __pycache__
 *.pyc
-.env
 *.egg-info
 .git
 .venv
-venv
 .pytest_cache
 .DS_Store
 results/*.csv
 results/*.jsonl
 *.sqlite3
->>>>>>> da625d8 (init)
