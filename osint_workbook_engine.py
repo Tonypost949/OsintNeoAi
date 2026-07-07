@@ -36,11 +36,13 @@ try:
     from openpyxl import Workbook
     from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
     from openpyxl.utils import get_column_letter
-    from openpyxl.worksheet.datavalidation import DataValidation
     from openpyxl.drawing.image import Image as XLImage
 except ImportError:
     print("Installing openpyxl...")
     os.system("pip install openpyxl")
+
+from osint_utils import BaseWorkbookGenerator, HEADER_FONT, THIN_BORDER
+from osint_db import DatabaseManager
 
 try:
     import networkx as nx
@@ -489,25 +491,19 @@ class NetworkVisualizer:
         return communities
 
 # ── Excel Workbook Generator ────────────────────────────────────────────────
-class OSINTWorkbookGenerator:
+class OSINTWorkbookGenerator(BaseWorkbookGenerator):
     """Generate comprehensive OSINT Excel workbook."""
     
-    # Styling
-    HEADER_FONT = Font(name="Calibri", bold=True, size=11, color="FFFFFF")
     HEADER_FILL = PatternFill(start_color="1F4E78", end_color="1F4E78", fill_type="solid")
     DATA_FILL = PatternFill(start_color="D9E1F2", end_color="D9E1F2", fill_type="solid")
     CONNECTION_FILL = PatternFill(start_color="E2EFDA", end_color="E2EFDA", fill_type="solid")
     WARNING_FILL = PatternFill(start_color="FCE4D6", end_color="FCE4D6", fill_type="solid")
-    THIN_BORDER = Border(
-        left=Side(style="thin"), right=Side(style="thin"),
-        top=Side(style="thin"), bottom=Side(style="thin")
-    )
     
     def __init__(self, people: Dict[str, Person], connections: List[Connection], search_results: Dict = None):
+        super().__init__()
         self.people = people
         self.connections = connections
         self.search_results = search_results or {}
-        self.wb = Workbook()
     
     def generate(self, output_path: str) -> str:
         """Generate complete workbook."""
@@ -556,7 +552,7 @@ class OSINTWorkbookGenerator:
         
         for row in ws.iter_rows(min_row=2, max_row=13):
             for cell in row:
-                cell.border = self.THIN_BORDER
+                cell.border = THIN_BORDER
         
         ws.column_dimensions["A"].width = 30
         ws.column_dimensions["B"].width = 20
@@ -572,14 +568,7 @@ class OSINTWorkbookGenerator:
             "Data Sources", "Notes"
         ]
         ws.append(headers)
-        
-        # Format header
-        for col, header in enumerate(headers, 1):
-            cell = ws.cell(row=1, column=col)
-            cell.font = self.HEADER_FONT
-            cell.fill = self.HEADER_FILL
-            cell.border = self.THIN_BORDER
-            cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+        self._style_header(ws, len(headers), fill=self.HEADER_FILL)
         
         # Add people data
         for idx, (person_id, person) in enumerate(self.people.items(), 2):
@@ -612,7 +601,7 @@ class OSINTWorkbookGenerator:
                     ws.cell(row=idx, column=col).fill = self.DATA_FILL
             
             for col in range(1, len(headers) + 1):
-                ws.cell(row=idx, column=col).border = self.THIN_BORDER
+                ws.cell(row=idx, column=col).border = THIN_BORDER
         
         # Set column widths
         ws.column_dimensions["A"].width = 10
@@ -634,14 +623,7 @@ class OSINTWorkbookGenerator:
             "Shared Attributes", "Evidence", "Confidence"
         ]
         ws.append(headers)
-        
-        # Format header
-        for col, header in enumerate(headers, 1):
-            cell = ws.cell(row=1, column=col)
-            cell.font = self.HEADER_FONT
-            cell.fill = self.HEADER_FILL
-            cell.border = self.THIN_BORDER
-            cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+        self._style_header(ws, len(headers), fill=self.HEADER_FILL)
         
         # Add connections
         for idx, conn in enumerate(self.connections, 2):
@@ -662,7 +644,7 @@ class OSINTWorkbookGenerator:
             # Color by strength
             for col in range(1, len(headers) + 1):
                 cell = ws.cell(row=idx, column=col)
-                cell.border = self.THIN_BORDER
+                cell.border = THIN_BORDER
                 if conn.strength > 0.7:
                     cell.fill = self.CONNECTION_FILL
                 elif conn.strength > 0.5:
@@ -697,17 +679,13 @@ class OSINTWorkbookGenerator:
         
         ws.append([])
         ws.append(["Metric", "Value"])
-        for col, header in enumerate(["Metric", "Value"], 1):
-            cell = ws.cell(row=3, column=col)
-            cell.font = self.HEADER_FONT
-            cell.fill = self.HEADER_FILL
-            cell.border = self.THIN_BORDER
+        self._style_header(ws, 2, fill=self.HEADER_FILL, start_row=3)
         
         row = 4
         for key, value in stats.items():
             ws.append([key.replace('_', ' ').title(), f"{value:.2f}" if isinstance(value, float) else value])
             for col in range(1, 3):
-                ws.cell(row=row, column=col).border = self.THIN_BORDER
+                ws.cell(row=row, column=col).border = THIN_BORDER
             row += 1
         
         # Communities
@@ -736,14 +714,7 @@ class OSINTWorkbookGenerator:
             "Data Type", "Value", "Status"
         ]
         ws.append(headers)
-        
-        # Format header
-        for col, header in enumerate(headers, 1):
-            cell = ws.cell(row=1, column=col)
-            cell.font = self.HEADER_FONT
-            cell.fill = self.HEADER_FILL
-            cell.border = self.THIN_BORDER
-            cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+        self._style_header(ws, len(headers), fill=self.HEADER_FILL)
         
         row = 2
         for person_id, results in self.search_results.items():
@@ -765,7 +736,7 @@ class OSINTWorkbookGenerator:
                             ])
                             
                             for col in range(1, len(headers) + 1):
-                                ws.cell(row=row, column=col).border = self.THIN_BORDER
+                                ws.cell(row=row, column=col).border = THIN_BORDER
                                 if finding.get('confidence', 0) > 0.8:
                                     ws.cell(row=row, column=col).fill = self.CONNECTION_FILL
                                 else:
@@ -788,13 +759,7 @@ class OSINTWorkbookGenerator:
             "Results Found", "Findings", "Last Updated"
         ]
         ws.append(headers)
-        
-        # Format header
-        for col, header in enumerate(headers, 1):
-            cell = ws.cell(row=1, column=col)
-            cell.font = self.HEADER_FONT
-            cell.fill = self.HEADER_FILL
-            cell.border = self.THIN_BORDER
+        self._style_header(ws, len(headers), fill=self.HEADER_FILL)
         
         row = 2
         for person_id, results in self.search_results.items():
@@ -817,7 +782,7 @@ class OSINTWorkbookGenerator:
                     ])
                     
                     for col in range(1, len(headers) + 1):
-                        ws.cell(row=row, column=col).border = self.THIN_BORDER
+                        ws.cell(row=row, column=col).border = THIN_BORDER
                         if findings_count > 0:
                             ws.cell(row=row, column=col).fill = self.CONNECTION_FILL
                     
@@ -866,14 +831,7 @@ class OSINTWorkbookGenerator:
         
         headers = list(data_types.keys())
         ws.append(headers)
-        
-        # Format header
-        for col, header in enumerate(headers, 1):
-            cell = ws.cell(row=1, column=col)
-            cell.font = self.HEADER_FONT
-            cell.fill = self.HEADER_FILL
-            cell.border = self.THIN_BORDER
-            cell.alignment = Alignment(horizontal="center", vertical="center")
+        self._style_header(ws, len(headers), fill=self.HEADER_FILL)
         
         # Find max entries
         max_entries = max(len(v) for v in data_types.values())
@@ -887,7 +845,7 @@ class OSINTWorkbookGenerator:
             ws.append(row_data)
             
             for col in range(1, len(headers) + 1):
-                ws.cell(row=i+2, column=col).border = self.THIN_BORDER
+                ws.cell(row=i+2, column=col).border = THIN_BORDER
                 if i % 2 == 0:
                     ws.cell(row=i+2, column=col).fill = self.DATA_FILL
         
@@ -919,7 +877,7 @@ class OSINTWorkbookGenerator:
             cell = ws.cell(row=3, column=col)
             cell.font = Font(bold=True, size=9)
             cell.fill = self.DATA_FILL
-            cell.border = self.THIN_BORDER
+            cell.border = THIN_BORDER
             cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
         
         # Build matrix
@@ -930,11 +888,11 @@ class OSINTWorkbookGenerator:
             ws.append([person_a.name])
             ws.cell(row=i, column=1).font = Font(bold=True, size=9)
             ws.cell(row=i, column=1).fill = self.DATA_FILL
-            ws.cell(row=i, column=1).border = self.THIN_BORDER
+            ws.cell(row=i, column=1).border = THIN_BORDER
             
             for j, person_b in enumerate(people_list, 2):
                 cell = ws.cell(row=i, column=j)
-                cell.border = self.THIN_BORDER
+                cell.border = THIN_BORDER
                 
                 if person_a.id == person_b.id:
                     cell.value = "●"
@@ -974,10 +932,12 @@ class OSINTWorkbookOrchestrator:
         self.extractor = OSINTDataExtractor()
         self.searcher = OSINTAutoSearcher()
         self.detector = None
+        self.enricher = None
+        self.db_manager = DatabaseManager()
     
     def process_file(self, file_path: str, auto_search: bool = True) -> Tuple[Dict, List, Dict]:
         """Process a file and return people, connections, and search results."""
-        print(f"🔍 Processing file: {file_path}")
+        print(f"Processing file: {file_path}")
         
         # Extract data
         file_ext = Path(file_path).suffix.lower()
@@ -990,33 +950,120 @@ class OSINTWorkbookOrchestrator:
         else:
             raise ValueError(f"Unsupported file format: {file_ext}")
         
-        print(f"✅ Extracted {len(people)} people from file")
+        print(f"Extracted {len(people)} people from file")
+        
+        # Save people to DB
+        saved = self.db_manager.save_people(list(self.extractor.people.values()))
+        print(f"Saved {saved} people to database")
         
         # Detect connections
         self.detector = ConnectionDetector(self.extractor.people)
         connections = self.detector.detect_all_connections()
-        print(f"✅ Detected {len(connections)} connections")
+        print(f"Detected {len(connections)} connections")
+        
+        # Save connections to DB
+        self.db_manager.save_connections(connections)
         
         # Auto-search (optional)
         search_results = {}
         if auto_search:
-            print("🔎 Running auto-search on all people...")
+            print("Running auto-search on all people...")
             for person_id, person in self.extractor.people.items():
                 results = self.searcher.search_person(person)
                 search_results[person_id] = results
-            print(f"✅ Auto-search completed for {len(search_results)} people")
+            print(f"Auto-search completed for {len(search_results)} people")
+            self.db_manager.save_search_results(search_results)
         
         return self.extractor.people, connections, search_results
     
+    def search_and_report_agents(self, business_names: List[str], state: str = "CA",
+                                  output_csv: str = "registered_agents_report.csv"):
+        """Run targeted agent searches for multiple businesses and save to CSV."""
+        print(f"Running targeted agent search for {len(business_names)} entities in {state}...")
+
+        try:
+            from osint_api_integrations import OSINTEnrichmentOrchestrator
+            self.enricher = OSINTEnrichmentOrchestrator()
+        except ImportError:
+            print("osint_api_integrations.py not found - install it for full enrichment")
+            self.enricher = None
+
+        all_agents = []
+        batch_id = f"batch_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}"
+
+        for name in business_names:
+            print(f"\n--- Searching for: {name} ---")
+            if self.enricher:
+                results = self.enricher.enrich_person({
+                    "name": f"Entity Contact for {name}",
+                    "business": name,
+                    "state": state
+                })
+
+                ca_sos_results = results.get('enriched_data', {}).get('ca_sos', [])
+                for r in ca_sos_results:
+                    for officer in r.get('officers', []):
+                        all_agents.append({
+                            'entity_name': name,
+                            'person_name': officer.get('name', ''),
+                            'role': 'REGISTERED_AGENT',
+                            'address': officer.get('address', ''),
+                            'source': 'CA_SOS'
+                        })
+                        self.db_manager.save_enrichment_run(
+                            batch_id, name, 'CA_SOS',
+                            officer.get('name', ''), 'REGISTERED_AGENT'
+                        )
+
+                oc_results = results.get('enriched_data', {}).get('opencorporates', [])
+                for company_data in oc_results:
+                    company = company_data.get('company', {})
+                    agent_name = company.get('agent_name', '')
+                    if agent_name:
+                        all_agents.append({
+                            'entity_name': name,
+                            'person_name': agent_name,
+                            'role': 'REGISTERED_AGENT',
+                            'address': company.get('registered_address_in_full', ''),
+                            'source': 'OPENCORPORATES'
+                        })
+                        self.db_manager.save_enrichment_run(
+                            batch_id, name, 'OPENCORPORATES',
+                            agent_name, 'REGISTERED_AGENT'
+                        )
+            else:
+                all_agents.append({
+                    'entity_name': name,
+                    'person_name': '',
+                    'role': 'REGISTERED_AGENT',
+                    'address': '',
+                    'source': 'MANUAL'
+                })
+
+        self._write_agents_csv(output_csv, all_agents)
+        print(f"\nAgent report complete. {len(all_agents)} records -> {output_csv}")
+        return output_csv
+
     def generate_workbook(self, output_path: str, people: Dict, connections: List, search_results: Dict):
         """Generate the Excel workbook."""
-        print(f"📊 Generating workbook: {output_path}")
+        print(f"Generating workbook: {output_path}")
         
         generator = OSINTWorkbookGenerator(people, connections, search_results)
         result_path = generator.generate(output_path)
         
-        print(f"✅ Workbook generated: {result_path}")
+        print(f"Workbook generated: {result_path}")
         return result_path
+
+    @staticmethod
+    def _write_agents_csv(output_path: str, agents: List[Dict]):
+        if not agents:
+            print("No agent data found to write.")
+            return
+        with open(output_path, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.DictWriter(f, fieldnames=['entity_name', 'person_name', 'role', 'address', 'source'])
+            writer.writeheader()
+            writer.writerows(agents)
+        print(f"Wrote {len(agents)} agent records to {output_path}")
 
 # ── CLI ──────────────────────────────────────────────────────────────────────
 def main():
@@ -1042,12 +1089,30 @@ def main():
         action="store_true",
         help="Disable auto-search"
     )
+    parser.add_argument(
+        "--search-business",
+        nargs="+",
+        metavar="NAME",
+        help="Run targeted agent search for one or more businesses (state defaults to CA). "
+             "E.g., --search-business \"BELAVITA LLC\" \"BELINGER LLC\""
+    )
     
     args = parser.parse_args()
     
+    # Handle targeted business agent search
+    if args.search_business:
+        orchestrator = OSINTWorkbookOrchestrator()
+        output_csv = args.output.replace(".xlsx", "_agents.csv") if args.output.endswith(".xlsx") else "registered_agents_report.csv"
+        orchestrator.search_and_report_agents(
+            business_names=args.search_business,
+            state="CA",
+            output_csv=output_csv
+        )
+        return
+    
     # If no input provided, create sample data
     if not args.input:
-        print("📝 Creating sample data...")
+        print("Creating sample data...")
         sample_data = [
             {"name": "John Smith", "phone": "(555) 123-4567", "email": "john@company.com", "business": "Tech Corp", "city": "New York", "state": "NY"},
             {"name": "Jane Doe", "phone": "(555) 234-5678", "email": "jane@company.com", "business": "Tech Corp", "city": "New York", "state": "NY"},
@@ -1058,7 +1123,7 @@ def main():
         args.input = "sample_osint_data.json"
         with open(args.input, 'w') as f:
             json.dump(sample_data, f, indent=2)
-        print(f"✅ Created {args.input}")
+        print(f"Created {args.input}")
     
     # Process
     orchestrator = OSINTWorkbookOrchestrator()
@@ -1069,13 +1134,13 @@ def main():
     orchestrator.generate_workbook(args.output, people, connections, search_results)
     
     print(f"\n{'='*60}")
-    print(f"✅ OSINT Workbook Generation Complete!")
+    print(f"OSINT Workbook Generation Complete!")
     print(f"{'='*60}")
-    print(f"📊 Workbook: {args.output}")
-    print(f"👥 Total People: {len(people)}")
-    print(f"🔗 Total Connections: {len(connections)}")
-    print(f"🔍 Search Results: {len(search_results)}")
-    print(f"📈 Network Density: {len(connections) / (len(people) * (len(people)-1) / 2) if len(people) > 1 else 0:.1%}")
+    print(f"Workbook: {args.output}")
+    print(f"Total People: {len(people)}")
+    print(f"Total Connections: {len(connections)}")
+    print(f"Search Results: {len(search_results)}")
+    print(f"Network Density: {len(connections) / (len(people) * (len(people)-1) / 2) if len(people) > 1 else 0:.1%}")
     print(f"{'='*60}")
 
 if __name__ == "__main__":

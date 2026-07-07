@@ -15,20 +15,11 @@ Usage:
 """
 
 import argparse
-import datetime
-from openpyxl import Workbook
-from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+import datetime as dt
+from openpyxl.styles import Font, Alignment
 from openpyxl.utils import get_column_letter
-from openpyxl.worksheet.datavalidation import DataValidation
 
-# ── Palette ──────────────────────────────────────────────────────────────────
-HEADER_FONT = Font(name="Calibri", bold=True, size=11, color="FFFFFF")
-HEADER_FILL = PatternFill(start_color="2F5496", end_color="2F5496", fill_type="solid")
-ALT_FILL = PatternFill(start_color="D6E4F0", end_color="D6E4F0", fill_type="solid")
-THIN_BORDER = Border(
-    left=Side(style="thin"), right=Side(style="thin"),
-    top=Side(style="thin"), bottom=Side(style="thin"),
-)
+from osint_utils import BaseWorkbookGenerator, HEADER_FONT, HEADER_FILL, THIN_BORDER, ALT_FILL
 
 # ── Validation option lists ──────────────────────────────────────────────────
 ENTITY_TYPES = [
@@ -178,143 +169,88 @@ for i in range(_max_len):
 
 
 # ── Builder ──────────────────────────────────────────────────────────────────
-def _style_header(ws, col_count):
-    """Apply formatting to header row."""
-    for col in range(1, col_count + 1):
-        cell = ws.cell(row=1, column=col)
-        cell.font = HEADER_FONT
-        cell.fill = HEADER_FILL
-        cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
-        cell.border = THIN_BORDER
+class BusinessWorkbookGenerator(BaseWorkbookGenerator):
+    """Builds a complete multi-sheet business workbook."""
 
+    def generate(self, output_path: str) -> str:
+        """Build the complete business workbook and return the file path."""
+        first = True
 
-def _set_widths(ws, widths):
-    for i, w in enumerate(widths, start=1):
-        ws.column_dimensions[get_column_letter(i)].width = w
+        for sheet_name, spec in SHEETS.items():
+            if first:
+                ws = self.wb.active
+                ws.title = sheet_name
+                first = False
+            else:
+                ws = self.wb.create_sheet(title=sheet_name)
 
+            headers = spec["headers"]
+            ws.append(headers)
+            for row in spec["rows"]:
+                ws.append(row)
 
-def _add_autofilter(ws, col_count):
-    ws.auto_filter.ref = f"A1:{get_column_letter(col_count)}1"
+            col_count = len(headers)
+            self._style_header(ws, col_count)
+            self._set_widths(ws, spec["widths"])
+            self._add_autofilter(ws, col_count)
+            self._stripe_rows(ws, len(spec["rows"]), col_count)
 
+        # Freeze top row on every sheet
+        for ws in self.wb.worksheets:
+            ws.freeze_panes = "A2"
 
-def _stripe_rows(ws, row_count, col_count):
-    """Alternate row shading for readability."""
-    for r in range(2, row_count + 2):
-        for c in range(1, col_count + 1):
-            cell = ws.cell(row=r, column=c)
-            cell.border = THIN_BORDER
-            cell.alignment = Alignment(vertical="center", wrap_text=True)
-            if r % 2 == 0:
-                cell.fill = ALT_FILL
+        # ── Data validations (reference the Validation Lists sheet) ──────────
+        vl_title = "'Validation Lists'"
+        entity_count = len(ENTITY_TYPES)
+        status_count = len(STATUSES)
+        lic_count = len(LICENSE_STATUSES)
+        role_count = len(CONTACT_ROLES)
+        comp_type_count = len(COMPLIANCE_TYPES)
+        comp_res_count = len(COMPLIANCE_RESULT)
 
+        self._add_validation(self.wb["Entities"], 4, f"={vl_title}!$A$2:$A${entity_count + 1}")
+        self._add_validation(self.wb["Entities"], 8, f"={vl_title}!$B$2:$B${status_count + 1}")
+        self._add_validation(self.wb["Contacts"], 4, f"={vl_title}!$D$2:$D${role_count + 1}")
+        self._add_validation(self.wb["Contacts"], 9, '"Yes,No"')
+        self._add_validation(self.wb["Licenses"], 8, f"={vl_title}!$C$2:$C${lic_count + 1}")
+        self._add_validation(self.wb["Compliance"], 3, f"={vl_title}!$E$2:$E${comp_type_count + 1}")
+        self._add_validation(self.wb["Compliance"], 6, f"={vl_title}!$F$2:$F${comp_res_count + 1}")
 
-def _add_validation(ws, col_idx, formula, row_start=2, row_end=200):
-    """Add a dropdown data-validation rule to a column range."""
-    col_letter = get_column_letter(col_idx)
-    dv = DataValidation(type="list", formula1=formula, allow_blank=True)
-    dv.error = "Please select a value from the dropdown list."
-    dv.errorTitle = "Invalid Entry"
-    dv.prompt = "Choose from the list."
-    dv.promptTitle = "Selection"
-    dv.sqref = f"{col_letter}{row_start}:{col_letter}{row_end}"
-    ws.add_data_validation(dv)
+        # ── Summary sheet (quick-reference counts) ───────────────────────────
+        summary = self.wb.create_sheet(title="Summary", index=0)
+        summary.append(["Business Workbook Summary"])
+        summary.merge_cells("A1:C1")
+        summary["A1"].font = Font(name="Calibri", bold=True, size=14, color="2F5496")
+        summary["A1"].alignment = Alignment(horizontal="center")
 
+        summary.append([])
+        summary.append(["Sheet", "Records", "Description"])
+        self._style_header(summary, 3, start_row=3)
 
-def build_workbook(output_path: str) -> str:
-    """Build the complete business workbook and return the file path."""
-    wb = Workbook()
-    first = True
-
-    for sheet_name, spec in SHEETS.items():
-        if first:
-            ws = wb.active
-            ws.title = sheet_name
-            first = False
-        else:
-            ws = wb.create_sheet(title=sheet_name)
-
-        headers = spec["headers"]
-        ws.append(headers)
-        for row in spec["rows"]:
-            ws.append(row)
-
-        col_count = len(headers)
-        _style_header(ws, col_count)
-        _set_widths(ws, spec["widths"])
-        _add_autofilter(ws, col_count)
-        _stripe_rows(ws, len(spec["rows"]), col_count)
-
-    # Freeze top row on every sheet
-    for ws in wb.worksheets:
-        ws.freeze_panes = "A2"
-
-    # ── Data validations (reference the Validation Lists sheet) ──────────
-    vl_title = "'Validation Lists'"
-    entity_count = len(ENTITY_TYPES)
-    status_count = len(STATUSES)
-    lic_count = len(LICENSE_STATUSES)
-    role_count = len(CONTACT_ROLES)
-    comp_type_count = len(COMPLIANCE_TYPES)
-    comp_res_count = len(COMPLIANCE_RESULT)
-
-    # Entities sheet
-    ent_ws = wb["Entities"]
-    _add_validation(ent_ws, 4, f"={vl_title}!$A$2:$A${entity_count + 1}")   # Entity Type
-    _add_validation(ent_ws, 8, f"={vl_title}!$B$2:$B${status_count + 1}")    # Status
-
-    # Contacts sheet
-    con_ws = wb["Contacts"]
-    _add_validation(con_ws, 4, f"={vl_title}!$D$2:$D${role_count + 1}")      # Role
-    _add_validation(con_ws, 9, '"Yes,No"')                                     # Primary Contact
-
-    # Licenses sheet
-    lic_ws = wb["Licenses"]
-    _add_validation(lic_ws, 8, f"={vl_title}!$C$2:$C${lic_count + 1}")       # License Status
-
-    # Compliance sheet
-    cmp_ws = wb["Compliance"]
-    _add_validation(cmp_ws, 3, f"={vl_title}!$E$2:$E${comp_type_count + 1}") # Compliance Type
-    _add_validation(cmp_ws, 6, f"={vl_title}!$F$2:$F${comp_res_count + 1}")  # Result
-
-    # ── Summary sheet (quick-reference counts) ───────────────────────────
-    summary = wb.create_sheet(title="Summary", index=0)
-    summary.append(["Business Workbook Summary"])
-    summary.merge_cells("A1:C1")
-    summary["A1"].font = Font(name="Calibri", bold=True, size=14, color="2F5496")
-    summary["A1"].alignment = Alignment(horizontal="center")
-
-    summary.append([])
-    summary.append(["Sheet", "Records", "Description"])
-    for c in range(1, 4):
-        cell = summary.cell(row=3, column=c)
-        cell.font = HEADER_FONT
-        cell.fill = HEADER_FILL
-        cell.border = THIN_BORDER
-
-    info_rows = [
-        ("Entities", len(SHEETS["Entities"]["rows"]), "Business entities & organizations"),
-        ("Contacts", len(SHEETS["Contacts"]["rows"]), "People linked to entities"),
-        ("Licenses", len(SHEETS["Licenses"]["rows"]), "Permits, licenses & registrations"),
-        ("Compliance", len(SHEETS["Compliance"]["rows"]), "Filing & compliance tracking"),
-        ("Activity Log", len(SHEETS["Activity Log"]["rows"]), "Chronological action history"),
-        ("Validation Lists", _max_len, "Dropdown source values"),
-    ]
-    for i, (name, count, desc) in enumerate(info_rows, start=4):
-        summary.append([name, count, desc])
-        for c in range(1, 4):
-            summary.cell(row=i, column=c).border = THIN_BORDER
-        if i % 2 == 0:
+        info_rows = [
+            ("Entities", len(SHEETS["Entities"]["rows"]), "Business entities & organizations"),
+            ("Contacts", len(SHEETS["Contacts"]["rows"]), "People linked to entities"),
+            ("Licenses", len(SHEETS["Licenses"]["rows"]), "Permits, licenses & registrations"),
+            ("Compliance", len(SHEETS["Compliance"]["rows"]), "Filing & compliance tracking"),
+            ("Activity Log", len(SHEETS["Activity Log"]["rows"]), "Chronological action history"),
+            ("Validation Lists", _max_len, "Dropdown source values"),
+        ]
+        for i, (name, count, desc) in enumerate(info_rows, start=4):
+            summary.append([name, count, desc])
             for c in range(1, 4):
-                summary.cell(row=i, column=c).fill = ALT_FILL
+                summary.cell(row=i, column=c).border = THIN_BORDER
+            if i % 2 == 0:
+                for c in range(1, 4):
+                    summary.cell(row=i, column=c).fill = ALT_FILL
 
-    summary.append([])
-    summary.append(["Generated", datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")])
-    summary.column_dimensions["A"].width = 22
-    summary.column_dimensions["B"].width = 12
-    summary.column_dimensions["C"].width = 40
+        summary.append([])
+        summary.append(["Generated", dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")])
+        summary.column_dimensions["A"].width = 22
+        summary.column_dimensions["B"].width = 12
+        summary.column_dimensions["C"].width = 40
 
-    wb.save(output_path)
-    return output_path
+        self.wb.save(output_path)
+        return output_path
 
 
 # ── CLI ──────────────────────────────────────────────────────────────────────
@@ -328,7 +264,8 @@ def main():
         help="Output file path (default: business_workbook.xlsx)",
     )
     args = parser.parse_args()
-    path = build_workbook(args.output)
+    generator = BusinessWorkbookGenerator()
+    path = generator.generate(args.output)
     print(f"✅ Workbook created: {path}")
     print(f"   Sheets: {', '.join(SHEETS.keys())}, Summary")
     print("   Validation dropdowns: Entity Type, Status, License Status, Role, Compliance Type, Result")
