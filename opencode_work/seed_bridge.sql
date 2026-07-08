@@ -1,0 +1,15 @@
+INSERT INTO forensic_layers.ppp_property_bridge VALUES
+('STEWART INDUSTRIES LLC', '3311 BOUNTY CIR', 'HUNTINGTON BEACH', '178-431-14',
+ '1077 PACIFIC COAST HWY #247', 'SEAL BEACH', 'STEWART, JOSH; STEWART, BRENDA',
+ DATE '2021-05-04', 0.0, 2, 1128327.5, 1137910.56,
+ ['150 Mcquiston Dr, Battle Creek, MI', '150 McQuiston Dr, Battle Creek, MI'],
+ ['MI', 'MI'], ['336211', '336211'], ['Bank of America NA', 'Bank of America NA'],
+ '150 Mcquiston Dr', 'BATTLE CREEK', 'MI',
+ TRUE, TRUE, TRUE, TRUE, TRUE),
+('TRIUMVIRATE LLC', '21951 BROOKHURST ST', 'HUNTINGTON BEACH', '151-234-09',
+ '9874 RARITAN AVE', 'FOUNTAIN VALLEY', 'ROSELL, DAVID T; ROSELL, LORI L',
+ DATE '2021-11-19', 2800000.0, 2, 1471840.0, 859751.42,
+ ['3705 Arctic Blvd, Anchorage, AK', '3705 Arctic Blvd #429, Anchorage, AK'],
+ ['AK', 'AK'], ['721199', '713920'], ['Community Banks of Colorado', 'Community Banks of Colorado'],
+ '3705 Arctic Blvd', 'ANCHORAGE', 'AK',
+ TRUE, TRUE, TRUE, FALSE, FALSE)

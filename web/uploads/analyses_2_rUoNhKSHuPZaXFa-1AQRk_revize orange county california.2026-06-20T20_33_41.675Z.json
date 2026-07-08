@@ -1,0 +1,229 @@
+{
+  "id": "019ee6bd-46ad-756c-897c-81305a8db802",
+  "startedAt": "2026-06-20T20:33:41.675Z",
+  "endedAt": "2026-06-20T20:33:44.014Z",
+  "endpoint": "search",
+  "formState": {
+    "parseFile": null,
+    "parseFileMeta": null,
+    "extractSetupCompleted": false,
+    "urls": [],
+    "extractSchema": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "company_mission": {
+          "type": "string"
+        },
+        "supports_sso": {
+          "type": "boolean"
+        },
+        "is_open_source": {
+          "type": "boolean"
+        },
+        "is_in_yc": {
+          "type": "boolean"
+        }
+      }
+    },
+    "extractPrompt": "Extract the company details, following the schema.",
+    "enableWebSearch": false,
+    "constrainUrls": false,
+    "options": {
+      "onlyMainContent": true,
+      "parsePDF": true,
+      "stealthMode": false,
+      "excludeTags": [],
+      "includeTags": [],
+      "waitFor": "",
+      "timeout": "",
+      "maxAge": "2 days",
+      "ignoreSitemap": false,
+      "crawlEntireDomain": false,
+      "sitemap": "include",
+      "limit": "10",
+      "maxDepth": "",
+      "excludePaths": [],
+      "includePaths": [],
+      "includeSubdomains": false,
+      "search": "",
+      "scrapeContentFromSearchResults": true,
+      "timeBasedSearch": "",
+      "location": "",
+      "prompt": ""
+    },
+    "formats": [],
+    "sources": [
+      "images",
+      "web",
+      "news"
+    ],
+    "categories": [],
+    "jsonSchema": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "company_name": {
+          "type": "string"
+        },
+        "company_description": {
+          "type": "string"
+        }
+      }
+    },
+    "jsonPrompt": "",
+    "questionPrompt": "",
+    "highlightsQuery": "",
+    "agent": {},
+    "url": "revize orange county california",
+    "endpoint": "search"
+  },
+  "status": "success",
+  "version": "TqFQXnVEj9IVye4Up0HTD",
+  "isPreview": false,
+  "web": [
+    {
+      "url": "https://www.revize.com/",
+      "title": "Revize Websites",
+      "description": "The site allows customers to make payments online, use an improved interactive map, s and events across the county. The site allows customers to make payments ...",
+      "position": 1
+    },
+    {
+      "url": "https://pw.oc.gov/",
+      "title": "OC Public Works | Orange County | California",
+      "description": "OC Public Works (OCPW) will complete a street rehabilitation road resurfacing project to provide a smoother drive and extend the service life of streets in your ...",
+      "position": 2
+    },
+    {
+      "url": "https://www.facebook.com/revizesoftwaresystems/",
+      "title": "Revize | Troy MI - Facebook",
+      "description": "Revize is a renowned leader in providing easy-to-use Government CMS designed for municipalities. connects residents in need to vital assistance programs.",
+      "position": 3
+    },
+    {
+      "url": "https://www.prometsource.com/work/orange-county-california",
+      "title": "Orange County, California | Promet Source",
+      "description": "A case study with Orange County, California on Drupal migration and maximizing engagement across persona groups.",
+      "position": 4
+    },
+    {
+      "url": "https://www.ocgov.com/",
+      "title": "Orange County | Orange County",
+      "description": "The Orange County Board of Supervisors oversees the management of County government. Update Local Hazard Mitigation Plan. Assistance 855.886.5400 Navigation",
+      "position": 5
+    },
+    {
+      "url": "https://www.linkedin.com/company/revize",
+      "title": "Revize | LinkedIn",
+      "description": "Revize Software Systems was founded in June 1995 as a new media development company specializing in the creation of interactive multimedia content.",
+      "position": 6
+    },
+    {
+      "url": "https://cityofwilliams.org/revize_training/index.php",
+      "title": "Revize Training - City of Williams, CA",
+      "description": "Revize Training City of Williams, California ・ 10:00 AM PST/1:00 PM EST (530) 473-5389. Location: 810 E Street, Williams, CA 95987 • Hours: ...",
+      "position": 7
+    },
+    {
+      "url": "https://www.buenapark.com/city_departments/community_development/planning_division/helpful_planning_resources.php",
+      "title": "Helpful Planning Resources - Buena Park, CA",
+      "description": "Helpful Planning Resources 6650 Beach Blvd. Buena Park, CA 90621-5009 • 714-562-3500 Powered by revize., Government Website",
+      "position": 8
+    },
+    {
+      "url": "https://www.revize.com/about/",
+      "title": "Web Content Management System Government CMS providers ...",
+      "description": "Revize focuses on providing integrated government web CMS through custom java, embedded database, web server and a complete browser interface at an ...",
+      "position": 9
+    },
+    {
+      "url": "https://www.huntingtonbeachca.gov/news_detail_T4_R219.php",
+      "title": "Public Works Department Awarded $240,000 Grant from Orange ...",
+      "description": "The Public Works Department submitted an application under Project X which is the environmental category for the purchase and installation of 60 catch basin ...",
+      "position": 10
+    }
+  ],
+  "news": [],
+  "images": [
+    {
+      "title": "Revize | LinkedIn",
+      "imageUrl": "https://media.licdn.com/dms/image/v2/C560BAQHY-HcM-6uC1A/company-logo_200_200/company-logo_200_200/0/1630622757401/revize_software_systems_logo?e=2147483647&v=beta&t=NY4ph0lO8-TU_s7eVz7CTrKGYfgOmLr7pZBmOuTkPnU",
+      "imageWidth": 200,
+      "imageHeight": 200,
+      "url": "https://www.linkedin.com/company/revize",
+      "position": 1
+    },
+    {
+      "title": "Martinez: Let's Reimagine Our Democracy, Orange County",
+      "imageUrl": "https://i2.wp.com/voiceofoc.org/wp-content/uploads/2021/06/Voice-of-OC-Pic-1-OC-Supervisorial-Districts.jpg?fit=812%2C809&ssl=1",
+      "imageWidth": 812,
+      "imageHeight": 809,
+      "url": "https://voiceofoc.org/2021/06/martinez-lets-reimagine-our-democracy-orange-county/",
+      "position": 2
+    },
+    {
+      "title": "RevHub OC: Home",
+      "imageUrl": "https://revhuboc.com/wp-content/uploads/2023/08/RevHub-Square-Cover-Image.png",
+      "imageWidth": 2500,
+      "imageHeight": 2500,
+      "url": "https://revhuboc.com/",
+      "position": 3
+    },
+    {
+      "title": "Orange County, California - Wikiwand",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Map-of-orange-county-california.jpg/500px-Map-of-orange-county-california.jpg",
+      "imageWidth": 500,
+      "imageHeight": 708,
+      "url": "https://www.wikiwand.com/en/Orange_County,_California",
+      "position": 4
+    },
+    {
+      "title": "LA, Orange counties eligible to advance into orange tier, letting  restaurants, churches and movie theaters expand capacity - ABC7 Los Angeles",
+      "imageUrl": "https://cdn.abcotvs.com/dip/images/10460301_033021-kabc-3p-la-oc-orange-tier-vid.jpg",
+      "imageWidth": 1280,
+      "imageHeight": 720,
+      "url": "https://abc7.com/post/orange-county-tier-red-what-is/10459356/",
+      "position": 5
+    },
+    {
+      "title": "See you tomorrow, California.",
+      "imageUrl": "https://lookaside.instagram.com/seo/google_widget/crawler/?media_id=3864672427167018787",
+      "imageWidth": 640,
+      "imageHeight": 1136,
+      "url": "https://www.instagram.com/p/DTPUvbglVb3/",
+      "position": 6
+    },
+    {
+      "title": "Regional Center of Orange County Announces 2026 Spotlight Award Honorees",
+      "imageUrl": "https://mma.prnewswire.com/media/2962187/RCOC_Logo_FullColor_Logo_Logo_Logo.jpg?p=facebook",
+      "imageWidth": 1500,
+      "imageHeight": 785,
+      "url": "https://www.prnewswire.com/news-releases/regional-center-of-orange-county-announces-2026-spotlight-award-honorees-302749154.html",
+      "position": 7
+    },
+    {
+      "title": "OC Revive Alcohol & Drug Rehab Orange County",
+      "imageUrl": "https://ocrevive.com/wp-content/uploads/2023/10/social-oc-revive.png",
+      "imageWidth": 1200,
+      "imageHeight": 630,
+      "url": "https://ocrevive.com/",
+      "position": 8
+    },
+    {
+      "title": "Water Damage Restoration Irvine, CA - Mold Remediation & Fire Restoration - Orange  County Restoration Services",
+      "imageUrl": "https://ocrestorationservices.com/wp-content/uploads/2023/12/OCRS-Logo.webp",
+      "imageWidth": 2560,
+      "imageHeight": 814,
+      "url": "https://ocrestorationservices.com/",
+      "position": 9
+    },
+    {
+      "title": "California County Recycles All Its Wastewater, a World First",
+      "imageUrl": "https://erepublic.brightspotcdn.com/dims4/default/2d24238/2147483647/strip/true/crop/1680x817+0+30/resize/1440x700!/quality/90/?url=http%3A%2F%2Ferepublic-brightspot.s3.us-west-2.amazonaws.com%2Fce%2Fc0%2Faa7305bf43ac8c15762c0fe244a9%2Fgwrs.jpg",
+      "imageWidth": 1440,
+      "imageHeight": 700,
+      "url": "https://www.governing.com/now/california-county-recycles-all-its-wastewater-a-world-first",
+      "position": 10
+    }
+  ]
+}

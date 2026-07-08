@@ -1,0 +1,123 @@
+import json
+from google.cloud import bigquery
+
+client = bigquery.Client(project="noble-beanbag-497411-m4")
+
+# Weaver audit entities to load with extended schema
+weaver_entities = [
+    {
+        "entity_name": "L2T MEDIA LLC",
+        "property_address": None,
+        "property_city": None,
+        "property_apn": None,
+        "property_mail_address": "1840 OAK AVE STE 315N",
+        "property_mail_city": "EVANSTON",
+        "last_seller": None,
+        "property_acquisition_date": None,
+        "property_acquisition_value": None,
+        "ppp_loan_count": 1,
+        "ppp_total_amount": 1054297.0,
+        "ppp_total_forgiven": 1060898.07,
+        "ppp_business_addresses": ["1840 OAK AVE STE 315N, EVANSTON, IL 60201"],
+        "ppp_state_array": ["IL"],
+        "ppp_naics_codes": ["541810"],
+        "ppp_lenders": ["JPMorgan Chase Bank NA"],
+        "ppp_borrower_address": "1840 OAK AVE STE 315N",
+        "ppp_borrower_city": "EVANSTON",
+        "ppp_borrower_state": "IL",
+        "is_multi_state_ppp": True,
+        "is_naics_mismatch": True,
+        "is_post_ppp_property_acquisition": False,
+        "is_mailbox_address": True,
+        "is_zero_dollar_transfer": False,
+    },
+    {
+        "entity_name": "PREMIERE ENTERTAINMENT SOLUTIONS",
+        "property_address": None,
+        "property_city": "HUNTINGTON BEACH",
+        "property_apn": None,
+        "property_mail_address": None,
+        "property_mail_city": None,
+        "last_seller": None,
+        "property_acquisition_date": None,
+        "property_acquisition_value": None,
+        "ppp_loan_count": 1,
+        "ppp_total_amount": 41200.0,
+        "ppp_total_forgiven": 41534.12,
+        "ppp_business_addresses": ["Huntington Beach, CA"],
+        "ppp_state_array": ["CA"],
+        "ppp_naics_codes": ["532490"],
+        "ppp_lenders": [],
+        "ppp_borrower_address": "Huntington Beach",
+        "ppp_borrower_city": "HUNTINGTON BEACH",
+        "ppp_borrower_state": "CA",
+        "is_multi_state_ppp": False,
+        "is_naics_mismatch": True,
+        "is_post_ppp_property_acquisition": False,
+        "is_mailbox_address": False,
+        "is_zero_dollar_transfer": False,
+    },
+    {
+        "entity_name": "PREMIERE ENTERTAINMENT LLC (AL)",
+        "property_address": None,
+        "property_city": None,
+        "property_apn": None,
+        "property_mail_address": None,
+        "property_mail_city": "MONTGOMERY",
+        "last_seller": None,
+        "property_acquisition_date": None,
+        "property_acquisition_value": None,
+        "ppp_loan_count": 1,
+        "ppp_total_amount": 209400.0,
+        "ppp_total_forgiven": 211685.95,
+        "ppp_business_addresses": ["2941 Zelda Rd, Montgomery, AL"],
+        "ppp_state_array": ["AL"],
+        "ppp_naics_codes": ["812199"],
+        "ppp_lenders": ["Renasant Bank"],
+        "ppp_borrower_address": "2941 Zelda Rd",
+        "ppp_borrower_city": "MONTGOMERY",
+        "ppp_borrower_state": "AL",
+        "is_multi_state_ppp": True,
+        "is_naics_mismatch": True,
+        "is_post_ppp_property_acquisition": False,
+        "is_mailbox_address": False,
+        "is_zero_dollar_transfer": False,
+    },
+    {
+        "entity_name": "HD ENTERTAINMENT INC",
+        "property_address": None,
+        "property_city": None,
+        "property_apn": None,
+        "property_mail_address": None,
+        "property_mail_city": "BIRMINGHAM",
+        "last_seller": None,
+        "property_acquisition_date": None,
+        "property_acquisition_value": None,
+        "ppp_loan_count": 2,
+        "ppp_total_amount": 91001.0,
+        "ppp_total_forgiven": 39468.5,
+        "ppp_business_addresses": ["Birmingham, AL"],
+        "ppp_state_array": ["AL"],
+        "ppp_naics_codes": ["722511"],
+        "ppp_lenders": [],
+        "ppp_borrower_address": "Birmingham",
+        "ppp_borrower_city": "BIRMINGHAM",
+        "ppp_borrower_state": "AL",
+        "is_multi_state_ppp": True,
+        "is_naics_mismatch": True,
+        "is_post_ppp_property_acquisition": False,
+        "is_mailbox_address": False,
+        "is_zero_dollar_transfer": False,
+    },
+]
+
+table_id = "noble-beanbag-497411-m4.forensic_layers.ppp_property_bridge"
+errors = client.insert_rows_json(table_id, weaver_entities)
+if errors:
+    print(f"Errors: {errors}")
+else:
+    print(f"Inserted {len(weaver_entities)} Weaver entities into bridge")
+
+# Verify
+count = list(client.query(f"SELECT COUNT(*) as c FROM {table_id}").result())[0].c
+print(f"Bridge table now has {count} entities")

@@ -34,13 +34,13 @@ All significant system changes, rule adoptions, and backup actions are permanent
 - **Project:** `project-743aab84-f9a5-4ec7-954`
 - **Dataset:** `ai_sandbox`
 - **Table:** `ag_status_tracker`
-- **Authentication:** Application Default Credentials (ADC) via `gcloud config set account txtdjdrop@gmail.com`.
+- **Authentication:** Application Default Credentials (ADC) via `gcloud config set account anthonymichaeldimarcello@gmail.com`.
 
 ## 4. Connection & Authentication Map
 To ensure all accounts know what is connected and how, here is the official architecture of our fully functioning existence:
 - **Google Drive (`sharedall`):** Authenticated via `token_drive_upload.json` (OAuth). Connected via `sync_git_to_drive.py` which packages a 1:1 replica clone of the entire local directory.
 - **GitHub (`Tonypost949/osint-agent`):** Authenticated via local Git credentials. Connected via manual `git push`. Scrubbed backups only.
-- **Google Cloud Platform (BigQuery/Drive API):** Authenticated via `txtdjdrop@gmail.com`. Project ID: `project-743aab84-f9a5-4ec7-954`.
+- **Google Cloud Platform (BigQuery/Drive API):** Authenticated via `anthonymichaeldimarcello@gmail.com`. Project ID: `project-743aab84-f9a5-4ec7-954`.
 
 ## 5. Troubleshooting & Recourse Protocols
 If the system encounters known hard-blockers, follow these established recourses to restore functionality:

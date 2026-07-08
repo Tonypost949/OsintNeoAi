@@ -1,0 +1,147 @@
+=== PPP BigQuery Pipeline ===
+
+[1/6] Rename existing files...
+
+[2/6] Download missing parts...
+  [SKIP] public_up_to_150k_1_240930.csv (414 MB)
+  [SKIP] public_up_to_150k_2_240930.csv (412 MB)
+  [SKIP] public_up_to_150k_3_240930.csv (412 MB)
+  [SKIP] public_up_to_150k_4_240930.csv (403 MB)
+  [SKIP] public_up_to_150k_5_240930.csv (406 MB)
+  [SKIP] public_up_to_150k_6_240930.csv (411 MB)
+  [SKIP] public_up_to_150k_7_240930.csv (405 MB)
+  [SKIP] public_up_to_150k_8_240930.csv (410 MB)
+  [SKIP] public_up_to_150k_9_240930.csv (406 MB)
+  [SKIP] public_up_to_150k_10_240930.csv (410 MB)
+  [SKIP] public_up_to_150k_11_240930.csv (406 MB)
+  [SKIP] public_up_to_150k_12_240930.csv (271 MB)
+
+[3/6] Load to BigQuery...
+  [+] ppp_150k_plus: 968,524 rows
+  Loading part 1...
+  Appending part 2...
+  Appending part 3...
+  Appending part 4...
+  Appending part 5...
+  Appending part 6...
+  Appending part 7...
+  Appending part 8...
+  Appending part 9...
+  Appending part 10...
+  Appending part 11...
+  Appending part 12...
+  [+] ppp_up_to_150k: 10,499,686 rows total
+  [+] hb_llcs: 2,696 rows
+
+[4/6] Match...
+  Running matching query...
+  [+] rico_evidence_matrix: 101 rows
+
+[5/6] Export...
+  [+] Exported to bq_rico_matches.csv (101 rows)
+
+  STEWART INDUSTRIES LLC               $1,128,328  $1,137,911   2 loans  Battle Creek, MI; BATTLE CREEK, MI
+  TRIUMVIRATE LLC                      $  869,677  $  876,838   3 loans  Anchorage, AK; CHEYENNE, WY; Cheyenne, WY
+  LAZER LLC                            $  600,000  $      nan   1 loans  SADDLE RIVER, NJ
+  INCUPLACE LLC                        $  588,619  $  593,393   2 loans  Marina del Rey, CA; MARINA DEL REY, CA
+  HB LLC                               $  570,233  $  566,911   8 loans  Fairfax, VA; Denver, CO; Wichita, KS; Las Veg
+  NEWPORT LLC                          $  536,590  $  540,721   1 loans  SAN FRANCISCO, CA
+  PACE RECOVERY CENTER LLC             $  510,549  $  515,613   1 loans  NEWPORT BEACH, CA
+  DBS-ENTERPRISES LLC                  $  408,982  $  279,509   6 loans  Camden Wyoming, DE; Chugiak, AK; CAMDEN WYOMI
+  RAV LLC                              $  392,800  $  397,375   2 loans  Myrtle Beach, SC; MYRTLE BEACH, SC
+  DRT LLC                              $  381,116  $  385,748   2 loans  ONTARIO, OR; BYRON CENTER, MI
+  2450 COLORADO BLVD LLC               $  376,000  $      nan   2 loans  Chatsworth, CA
+  THE LE FAMILY LLC                    $  366,700  $  371,326   2 loans  KILLEEN, TX; Killeen, TX
+  LIGHTHOUSE CAFE LLC                  $  366,554  $  369,266   1 loans  Newport Beach, CA
+  COMPASSIONATE CARE HOSPICE LLC       $  279,820  $  281,637   1 loans  FOUNTAIN VALLEY, CA
+  COMPASSIONATE CARE HOSPICE LLC       $  279,820  $  281,637   1 loans  FOUNTAIN VALLEY, CA
+  RMI MANAGEMENT LLC                   $  217,702  $  220,601   1 loans  LONGVIEW, TX
+  FIRST HIGHLAND LLC                   $  205,800  $  207,040   1 loans  Windermere, FL
+  INFINITY PROPERTIES LLC              $  162,785  $  164,536   2 loans  Mounds, OK; MOUNDS, OK
+  EVERSTONE CAPITAL LLC                $  146,499  $      nan   1 loans  NEW YORK, NY
+  BARAKAH LLC                          $  144,593  $  145,862   4 loans  Renton, WA; CHANHASSEN, MN; Chanhassen, MN; T
+  GALAXY MANAGEMENT LLC                $  130,591  $  131,525   3 loans  CHARLOTTE, NC; Webster, MA; Charlotte, NC
+  A & D LLC                            $  123,236  $  123,836   2 loans  Phoenix, AZ; Asheville, NC
+  AGHA LLC                             $  117,457  $  118,388   2 loans  Blauvelt, NY; BLAUVELT, NY
+  NEWPORT BEACH GOLF COURSE LLC        $  115,400  $  116,402   1 loans  NEWPORT BEACH, CA
+  DEVPRI HOSPITALITY LLC               $  115,000  $  116,052   2 loans  SUNSET BEACH, CA; Sunset Beach, CA
+  DEVPRI HOSPITALITY LLC               $  115,000  $  116,052   2 loans  Sunset Beach, CA; SUNSET BEACH, CA
+  DDA LLC                              $  107,700  $  108,600   3 loans  Fairlawn, NJ; Louisville, KY; LOUISVILLE, KY
+  GOLDEN HILLS PROPERTIES LLC          $   88,324  $   88,842   1 loans  Los Angeles, CA
+  DRIVE LLC                            $   70,357  $   70,853   3 loans  HUBBARD, OH; Hubbard, OH; NIXA, MO
+  JBH LLC                              $   69,474  $   70,286   3 loans  PHOENIX, AZ; DALTON, PA; Falls Church, VA
+  LOS ALAMOS LLC                       $   64,600  $   64,924   1 loans  Uvalde, TX
+  SAMPSON VENTURES LLC                 $   62,363  $   62,818   3 loans  Mesa, AZ; Panama City, FL
+  LA COLONIA LLC                       $   59,202  $   59,672   2 loans  SUITLAND, MD; Suitland, MD
+  WFS PROPERTIES LLC                   $   54,417  $   54,912   1 loans  BREA, CA
+  HAN LLC                              $   53,669  $   53,903   3 loans  FREEPORT, ME; LEAVENWORTH, KS; Leavenworth, K
+  HAN LLC                              $   53,669  $   53,903   3 loans  Leavenworth, KS; FREEPORT, ME; LEAVENWORTH, K
+  INSIGHT PROPERTIES LLC               $   49,879  $   50,162   3 loans  Happy Valley, OR; SAINT CHARLES, MO; Saint Ch
+  J3 HOLDINGS LLC                      $   47,600  $   47,944   1 loans  FARGO, ND
+  J3 HOLDINGS LLC                      $   47,600  $   47,944   1 loans  FARGO, ND
+  J3 HOLDINGS LLC                      $   47,600  $   47,944   1 loans  FARGO, ND
+  RANCHO LA SIESTA LLC                 $   45,000  $   45,366   1 loans  Fountain Valley, CA
+  SDM HOLDINGS LLC                     $   44,529  $   41,411   2 loans  Castle Pines, CO; CASTLE PINES, CO
+  CROWN WEALTH PROPERTIES LLC          $   43,190  $   43,676   1 loans  COSTA MESA, CA
+  MERRIMAC PARTNERS LLC                $   41,665  $   42,106   1 loans  YORBA LINDA, CA
+  CTA ENTERPRISES LLC                  $   41,664  $   42,109   2 loans  Garden Grove, CA; GARDEN GROVE, CA
+  CTA ENTERPRISES LLC                  $   41,664  $   42,109   2 loans  GARDEN GROVE, CA; Garden Grove, CA
+  LEE BROTHERS LLC                     $   41,600  $   41,719   2 loans  Hanston, KS
+  AIMS LLC                             $   41,250  $   41,587   1 loans  SPRINGFIELD, MO
+  GARDEN RANCH LLC                     $   37,424  $   37,736   2 loans  COLORADO SPRINGS, CO; Colorado Springs, CO
+  JJ HOLDINGS LLC                      $   36,200  $   36,475   1 loans  LAFAYETTE, LA
+  PARS LLC                             $   32,861  $   33,140   2 loans  FARMINGTON HILLS, MI; Farmington Hills, MI
+  PARKSVILLE INVESTMENT LLC            $   29,165  $   29,650   1 loans  LOS ANGELES, CA
+  ERA VENTURES LLC                     $   27,900  $   28,095   2 loans  COTO LAUREL, PR; Cotto Laurel, PR
+  JEK INVESTMENTS LLC                  $   26,907  $   27,222   1 loans  Phoenix, AZ
+  SDR LLC                              $   26,197  $   26,406   3 loans  SALT LAKE CITY, UT; Salt Lake City, UT; GASTO
+  SDR LLC                              $   26,197  $   26,406   3 loans  Salt Lake City, UT; GASTON, SC; SALT LAKE CIT
+  SDR LLC                              $   26,197  $   26,406   3 loans  Salt Lake City, UT; SALT LAKE CITY, UT; GASTO
+  SDR LLC                              $   26,197  $   26,406   3 loans  GASTON, SC; SALT LAKE CITY, UT; Salt Lake Cit
+  SUBURBAN PROPERTIES LLC              $   26,047  $   26,161   1 loans  Batavia, IL
+  BONGOS SPORTFISHING LLC              $   25,250  $   25,671   1 loans  NEWPORT BEACH, CA
+  DRT INVESTMENTS LLC                  $   24,094  $   24,247   1 loans  Phoenix, AZ
+  DRT INVESTMENTS LLC                  $   24,094  $   24,247   1 loans  Phoenix, AZ
+  SMD INVESTMENTS LLC                  $   21,700  $   21,909   1 loans  Cottondale, AL
+  ARES INVESTMENT GROUP LLC            $   20,832  $   20,888   1 loans  Reno, NV
+  ARES INVESTMENT GROUP LLC            $   20,832  $   20,888   1 loans  Reno, NV
+  ARES INVESTMENT GROUP LLC            $   20,832  $   20,888   1 loans  Reno, NV
+  ARES INVESTMENT GROUP LLC            $   20,832  $   20,888   1 loans  Reno, NV
+  LOTUS PROPERTIES LLC                 $   20,265  $   20,534   1 loans  SPRING, TX
+  AGG PROPERTIES LLC                   $   19,200  $   19,399   1 loans  SAINT PETERSBURG, FL
+  JS PROPERTIES LLC                    $   17,575  $   17,758   1 loans  Dix Hills, NY
+  GOODWILL LLC                         $   16,400  $   16,502   2 loans  Brookfield, CT; BROOKFIELD, CT
+  SUMMIT PROPERTIES LLC                $   16,340  $   16,419   1 loans  Guntersville, AL
+  DLC ENTERPRISES LLC                  $   16,042  $   16,147   1 loans  Lincoln, RI
+  ARABELLA LLC                         $   13,513  $   13,626   3 loans  Glen Arbor, MI; Skaneateles, NY
+  ON THE EDGE DESIGNS LLC              $   12,900  $   13,060   1 loans  KAILUA KONA, HI
+  POINTFAR AUTOMATION LLC              $   11,365  $   11,432   2 loans  Santa Clarita, CA; NEW HALL, CA
+  SEA AIRE APARTMENTS LLC              $    9,950  $   10,060   1 loans  LOS ANGELES, CA
+  SEA AIRE APARTMENTS LLC              $    9,950  $   10,060   1 loans  LOS ANGELES, CA
+  SEA AIRE APARTMENTS LLC              $    9,950  $   10,060   1 loans  LOS ANGELES, CA
+  DAYAL LLC                            $    9,750  $    9,804   1 loans  CHECOTAH, OK
+  ALCHEMY FACTORY LLC                  $    9,600  $    9,675   1 loans  Costa Mesa, CA
+  RCP ENTERPRISES LLC                  $    9,397  $    9,459   1 loans  Johnston, RI
+  FRR LLC                              $    8,600  $    8,676   1 loans  Burlington, IA
+  FRR LLC                              $    8,600  $    8,676   1 loans  Burlington, IA
+  OG RESIDENTIAL LLC                   $    8,462  $    8,552   2 loans  La Mirada, CA; LA MIRADA, CA
+  SANDERSON GROUP LLC                  $    8,332  $      nan   1 loans  AUSTIN, TX
+  FOCUS REALTY LLC                     $    7,500  $    7,575   1 loans  DASSEL, MN
+  FOCUS REALTY LLC                     $    7,500  $    7,575   1 loans  DASSEL, MN
+  FOCUS REALTY LLC                     $    7,500  $    7,575   1 loans  DASSEL, MN
+  PALACE PROPERTIES LLC                $    7,200  $    7,290   1 loans  AURORA, IL
+  POSEIDON ENTERPRISES LLC             $    6,070  $    6,110   1 loans  Hillsborough, NJ
+  NM 168 LLC                           $    5,767  $    5,804   1 loans  Irvine, CA
+  NM 168 LLC                           $    5,767  $    5,804   1 loans  Irvine, CA
+  PEACEFUL JOURNEY LLC                 $    5,010  $    5,055   1 loans  HUNTINGTON BEACH, CA
+  L & E HOLDINGS LLC                   $    4,700  $    4,743   1 loans  GROVE, OK
+  KC GROUP LLC                         $    4,140  $    4,165   1 loans  Hammonton, NJ
+  WILDCAT PROPERTIES LLC               $    4,000  $    4,040   1 loans  Greenfield Center, NY
+  DNA INVESTMENTS LLC                  $    2,452  $    2,462   1 loans  New Orleans, LA
+  BAM HOMES LLC                        $    2,417  $    2,444   1 loans  Lake Oswego, OR
+  YSA LLC                              $    2,296  $    2,323   1 loans  RICHMOND, VA
+  MY VILLAGE LLC                       $    1,000  $    1,007   1 loans  OLYMPIA, WA
+
+[6/6] Cleanup temp scripts...
+
+=== DONE ===

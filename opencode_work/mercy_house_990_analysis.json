@@ -1,0 +1,60 @@
+{
+  "organization_name": "Mercy House Living Centers",
+  "fiscal_year": "2024",
+  "fiscal_year_end": "June 30, 2024",
+  "source": "Combined Financial Report, Year Ended June 30, 2024 (Audited)",
+  "total_revenue": 75468469,
+  "total_expenses": 69616591,
+  "net_assets": 32446023,
+  "total_federal_awards_expended": 14598215,
+  "executive_compensation": null,
+  "grant_funding": 14598215,
+  "unaccounted_fund_delta": 5851878,
+  "material_weakness": {
+    "finding_id": "2024-001",
+    "title": "Grant Revenue and Refundable Advances (Material Weakness)",
+    "condition": "Unspent funds of unconditional grants/contributions with donor restrictions were recorded as refundable advances (liabilities) instead of restricted grant/contribution revenue.",
+    "effect": "Revenues understated and liabilities overstated by $1,517,679",
+    "status": "Corrective action in progress — added manager position, enhanced CFO tracking"
+  },
+  "prior_year_findings": [
+    {
+      "finding_id": "2023-001",
+      "title": "Books and Records Not Closed on a Timely Basis",
+      "condition": "Trial balance and SEFA submitted several months after year-end with significant adjustments throughout audit.",
+      "current_status": "Net effect of adjustments not material for 2024"
+    },
+    {
+      "finding_id": "2023-002",
+      "title": "Grant Revenue and Refundable Advances",
+      "condition": "Advance received for cost-reimbursement grant recorded as revenue before costs incurred.",
+      "current_status": "Reclassified refundable advances to revenue per 2024-001"
+    }
+  ],
+  "major_federal_programs": [
+    "Continuum of Care Program (14.267) — HUD",
+    "Coronavirus State and Local Fiscal Recovery Funds (21.027) — Treasury"
+  ],
+  "revenue_breakdown": {
+    "without_donor_restrictions": 74235716,
+    "with_donor_restrictions": 1232753,
+    "total": 75468469
+  },
+  "expense_breakdown": {
+    "program_services": 63540786,
+    "management_and_general": 5622264,
+    "fundraising_and_development": 453541,
+    "total": 69616591
+  },
+  "net_assets_breakdown": {
+    "without_donor_restrictions": 28960328,
+    "with_donor_restrictions": 3485695,
+    "total": 32446023
+  },
+  "audit_opinion": "Unmodified (Clean)",
+  "internal_control_findings": {
+    "material_weakness": 1,
+    "significant_deficiency": 0
+  },
+  "assessment": "FY 2024: Revenue $75.47M, Expenses $69.62M, Net Surplus $5.85M. Total Net Assets $32.45M. Federal awards received: $14.60M (19.3% of revenue). MATERIAL WEAKNESS: Grant revenue understated by $1,517,679 due to misclassification of restricted contributions as refundable advances. This is a repeat finding from FY2023. Also prior finding on untimely book closures (now improved). Organizations received clean audit opinion on financial statements but flagged for poor internal controls over grant revenue recognition. Compliance with federal awards: Unmodified opinion."
+}

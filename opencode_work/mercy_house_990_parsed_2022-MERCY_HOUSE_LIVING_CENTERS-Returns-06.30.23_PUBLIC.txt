@@ -1,0 +1,337 @@
+Here is the extracted information from the provided Form 990:
+
+```json
+{
+  "organization_name": "MERCY HOUSE LIVING CENTERS",
+  "employer_identification_number": "33-0315864",
+  "gross_receipts": "54,846,063.00",
+  "total_revenue": "54,570,713.00",
+  "total_assets": {
+    "beginning_of_year": "20,241,609.00",
+    "end_of_year": "27,817,685.00"
+  },
+  "total_liabilities": {
+    "beginning_of_year": "11,785,338.00",
+    "end_of_year": "17,836,905.00"
+  },
+  "grants_and_assistance_amounts": {
+    "contributions_and_grants": {
+      "prior_year": "37,599,696.00",
+      "current_year": "53,239,888.00"
+    },
+    "grants_to_domestic_organizations_and_governments": "0.00",
+    "grants_to_domestic_individuals": "0.00",
+    "grants_to_foreign_organizations_and_individuals": "0.00"
+  },
+  "officer_director_trustee_compensation": [
+    {
+      "name": "LARRY HAYNES",
+      "title": "CEO & PRESIDENT",
+      "average_hours_per_week": "40.00",
+      "reportable_compensation_from_organization": "169,254.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "17,201.00"
+    },
+    {
+      "name": "PATTI LONG",
+      "title": "COO",
+      "average_hours_per_week": "40.00",
+      "reportable_compensation_from_organization": "140,210.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "MARY ELLEN GROSS",
+      "title": "CFO",
+      "average_hours_per_week": "40.00",
+      "reportable_compensation_from_organization": "97,530.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "2,919.00"
+    },
+    {
+      "name": "LINDA WILSON",
+      "title": "CHO",
+      "average_hours_per_week": "40.00",
+      "reportable_compensation_from_organization": "72,966.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "2,400.00"
+    },
+    {
+      "name": "JACOB MIZE",
+      "title": "SEC. & DEV. DIRECTOR",
+      "average_hours_per_week": "40.00",
+      "reportable_compensation_from_organization": "72,514.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "2,169.00"
+    },
+    {
+      "name": "JAMES BROOKS",
+      "title": "DIRECTOR",
+      "average_hours_per_week": "40.00",
+      "reportable_compensation_from_organization": "72,404.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "RAYMOND BUKATY",
+      "title": "CHAIRMAN",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "TIM CLYDE",
+      "title": "VICE CHAIRMAN",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "BILL BAKER",
+      "title": "ASST SECRETARY",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "GARY BELZ",
+      "title": "DIRECTOR",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "JORDAN BENNETT",
+      "title": "DIRECTOR",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "MIA BERGMAN",
+      "title": "DIRECTOR",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "JOHNNY BRYANT",
+      "title": "DIRECTOR",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "MLADEN BUNTICH",
+      "title": "DIRECTOR",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "DARYL A COLE",
+      "title": "DIRECTOR",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "JEREMY ELKINS",
+      "title": "DIRECTOR",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "PHILLIP KAPLAN",
+      "title": "DIRECTOR",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "MARIANNE KOSHAR",
+      "title": "DIRECTOR",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "RICHARD LOPEZ",
+      "title": "DIRECTOR",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "RICHARD MASTERSON",
+      "title": "DIRECTOR",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "HEATHER MCNEILL (AS OF 10/17/22)",
+      "title": "DIRECTOR",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "LINDA NGUYEN",
+      "title": "DIRECTOR",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "CHRISTIE PETTUS",
+      "title": "DIRECTOR",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "JIM RIGHEIMER",
+      "title": "DIRECTOR",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "LISA RUMBAUGH",
+      "title": "DIRECTOR",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    },
+    {
+      "name": "MICHAEL SOLO",
+      "title": "DIRECTOR",
+      "average_hours_per_week": "1.00",
+      "reportable_compensation_from_organization": "0.00",
+      "reportable_compensation_from_related_organizations": "0.00",
+      "estimated_other_compensation": "0.00"
+    }
+  ],
+  "related_party_transactions": {
+    "part_iv_lines_26_27_28": {
+      "line_26_receivables_payables_from_to_officer_etc": "Yes",
+      "line_27_grant_other_assistance_to_officer_etc": "Yes",
+      "line_28a_business_transaction_with_officer_etc": "Yes",
+      "line_28b_business_transaction_with_family_member": "Yes",
+      "line_28c_business_transaction_with_35_controlled_entity": "Yes"
+    },
+    "part_iv_lines_34_36": {
+      "line_34_related_to_tax_exempt_taxable_entity": "Yes",
+      "line_35a_controlled_entity": "Yes",
+      "line_35b_payment_transaction_with_controlled_entity": "Not found in document",
+      "line_36_transfers_to_exempt_non_charitable_related_organization": "Yes"
+    },
+    "schedule_j_related_compensation": {
+      "line_4a_severance_payment": "No",
+      "line_4b_supplemental_nonqualified_retirement_plan": "No",
+      "line_4c_equity_based_compensation": "No",
+      "line_5a_compensation_contingent_on_organization_revenues": "No",
+      "line_5b_compensation_contingent_on_related_organization_revenues": "No",
+      "line_6a_compensation_contingent_on_organization_net_earnings": "No",
+      "line_6b_compensation_contingent_on_related_organization_net_earnings": "No",
+      "line_7_nonfixed_payments": "No",
+      "line_8_contract_subject_to_initial_exception": "No"
+    }
+  },
+  "revenue_sources_breakdown": {
+    "contributions_gifts_grants": {
+      "federated_campaigns": "0.00",
+      "membership_dues": "0.00",
+      "fundraising_events": "417,135.00",
+      "related_organizations": "0.00",
+      "government_grants_contributions": "51,011,265.00",
+      "all_other_contributions_gifts_grants": "1,811,488.00",
+      "total_contributions_gifts_grants": "53,239,888.00"
+    },
+    "program_service_revenue": {
+      "housing_contributions": "1,038,431.00",
+      "all_other_program_service_revenue": "0.00",
+      "total_program_service_revenue": "1,038,431.00"
+    },
+    "investment_income": "2,944.00",
+    "income_from_tax_exempt_bond_proceeds": "0.00",
+    "royalties": "0.00",
+    "net_rental_income_or_loss": "0.00",
+    "net_gain_or_loss_from_sales_of_assets": "0.00",
+    "net_income_or_loss_from_fundraising_events": "-121,434.00",
+    "net_income_or_loss_from_gaming_activities": "0.00",
+    "net_income_or_loss_from_sales_of_inventory": "0.00",
+    "miscellaneous_revenue": {
+      "other_revenue": "235,572.00",
+      "management_fee": "175,312.00",
+      "all_other_revenue": "0.00",
+      "total_miscellaneous_revenue": "410,884.00"
+    },
+    "total_revenue_from_part_viii": "54,570,713.00"
+  },
+  "expenses_breakdown": {
+    "compensation_of_current_officers_directors_etc": "742,290.00",
+    "other_salaries_and_wages": "19,689,289.00",
+    "pension_plan_accruals_and_contributions": "80,183.00",
+    "other_employee_benefits": "1,254,564.00",
+    "payroll_taxes": "1,673,541.00",
+    "fees_for_services_nonemployees": {
+      "management": "864,843.00",
+      "legal": "54,465.00",
+      "accounting": "0.00",
+      "lobbying": "0.00",
+      "professional_fundraising_services": "0.00",
+      "investment_management_fees": "0.00",
+      "other": "407,402.00",
+      "total": "1,326,710.00"
+    },
+    "advertising_and_promotion": "0.00",
+    "office_expenses": "1,701,413.00",
+    "information_technology": "0.00",
+    "royalties": "0.00",
+    "occupancy": "1,459,449.00",
+    "travel": "0.00",
+    "payments_of_travel_or_entertainment_expenses_for_public_officials": "0.00",
+    "conferences_conventions_and_meetings": "147,762.00",
+    "interest": "501,512.00",
+    "payments_to_affiliates": "0.00",
+    "depreciation_depletion_and_amortization": "326,951.00",
+    "insurance": "0.00",
+    "other_expenses": {
+      "emergency_shelter": "12,615,745.00",
+      "living_assistance": "9,527,599.00",
+      "workers_compensation": "795,528.00",
+      "other_expenses_line_d": "704,332.00",
+      "all_other_expenses": "510,065.00",
+      "total": "24,153,269.00"
+    },
+    "total_functional_expenses": "53,056,933.00",
+    "total_fundraising_expenses": "374,310.00"
+  },
+  "net_assets_fund_balance": {
+    "beginning_of_year": "8,456,271.00",
+    "end_of_year": "9,980,780.00"
+  }
+}
+```

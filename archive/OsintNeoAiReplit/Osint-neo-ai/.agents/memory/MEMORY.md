@@ -1,0 +1,3 @@
+- [API integration strategy](api-integration.md) — All API clients try live service first, then gracefully degrade to local/simulated data. No breaking changes when keys are missing.
+- [AI assistant quota handling](ai-assistant-quota.md) — 429/insufficient_quota errors are caught and shown with a helpful billing message instead of raw stack traces.
+- [Session plan](.local/session_plan.md) — Task tracker for the API integration layer work (T001-T006, all completed).

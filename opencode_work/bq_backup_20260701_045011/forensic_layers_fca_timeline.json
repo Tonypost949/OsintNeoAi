@@ -1,0 +1,1049 @@
+[
+  {
+    "event_id": "FCA-HIT-002",
+    "event_date": "2026-04-14 23:56:53+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "Civil Fraud Unit / False Claims Act Unit (DOJ)",
+    "subject": "Supplemental Qui Tam Disclosure \u2014 RICO Pattern: OC SSA / Mercy House / SPIN / Angulo NPI / ICWA-IIM Fraud",
+    "snippet": "To the Civil Fraud Unit / False Claims Act Unit: This correspondence constitutes a supplemental disclosure to our pending qui tam action against Mercy House Living Centers and related Orange County",
+    "signal_type": [
+      "FCA_FILING",
+      "SUPPLEMENTAL_DISCLOSURE",
+      "DOJ_NOTIFICATION"
+    ],
+    "entity_referenced": [
+      "Mercy House Living Centers",
+      "OC SSA",
+      "SPIN",
+      "Angulo NPI",
+      "ICWA-IIM"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "qui_tam",
+      "fca",
+      "doj",
+      "rico_pattern",
+      "ssa",
+      "icwa"
+    ]
+  },
+  {
+    "event_id": "FCA-HIT-004",
+    "event_date": "2026-05-24 06:23:29+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "NBC Los Angeles Investigative Unit",
+    "subject": "INVESTIGATION TIP: Mercy House Child Deaths + Environmental Poisoning at Homeless Shelter",
+    "snippet": "I am submitting a comprehensive OSINT investigation documenting child deaths (4 confirmed), medical emergencies (279), and environmental poisoning (hexavalent chromium)",
+    "signal_type": [
+      "MEDIA_TIP",
+      "CHILD_DEATH",
+      "ENVIRONMENTAL_POISONING",
+      "HEXAVALENT_CHROMIUM"
+    ],
+    "entity_referenced": [
+      "Mercy House Living Centers",
+      "NBC Los Angeles"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "child_death",
+      "cr_vi",
+      "environmental",
+      "medical_emergencies",
+      "navigation_center"
+    ]
+  },
+  {
+    "event_id": "FCA-HIT-011",
+    "event_date": "2026-05-06 17:15:38+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "ALL UC HEALTH/COUNSELING SERVICES (UCI, UCLA, USC, UCSD, Berkeley, Stanford)",
+    "subject": "MANDATORY REPORT: Dependent Adults Poisoned by Hexavalent Chromium (49x Limit) \u2014 Ongoing Federal Case",
+    "snippet": "CALIFORNIA WELFARE & INSTITUTIONS CODE \u00a7 15630 | MANDATORY REPORTER STATUTE. You are counseling/health services staff at a California postsecondary institution and are a mandated reporter for dependent adult abuse involving environmental poisoning.",
+    "signal_type": [
+      "MANDATORY_REPORTER",
+      "ENVIRONMENTAL_POISONING",
+      "HEXAVALENT_CHROMIUM",
+      "INSTITUTIONAL_NOTICE"
+    ],
+    "entity_referenced": [
+      "UC System",
+      "California Welfare & Institutions Code 15630"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "mandatory_reporter",
+      "uc_system",
+      "health_services",
+      "cr_vi",
+      "49x_limit"
+    ]
+  },
+  {
+    "event_id": "FCA-HIT-013",
+    "event_date": "2026-05-06 17:15:24+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "UC Campus Police + Disability Services (UCI, UCLA, UCSD, Berkeley)",
+    "subject": "CAMPUS POLICE & DISABILITY SERVICES: Federal Environmental Crime Alert \u2014 Hexavalent Chromium Poisoning (49x Limit)",
+    "snippet": "FEDERAL ENVIRONMENTAL CRIMES | 42 USC \u00a7 6972 (RCRA); 18 USC \u00a7\u00a7 241-242. TO CAMPUS POLICE: You have immediate authority and duty to report federal crimes involving environmental poisoning and deprivation of civil rights.",
+    "signal_type": [
+      "LAW_ENFORCEMENT",
+      "FEDERAL_CRIME",
+      "RCRA",
+      "CIVIL_RIGHTS",
+      "DISABILITY_RIGHTS"
+    ],
+    "entity_referenced": [
+      "UC Police",
+      "42 USC 6972",
+      "18 USC 241",
+      "18 USC 242"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "rcra",
+      "civil_rights",
+      "campus_police",
+      "disability",
+      "federal_crime"
+    ]
+  },
+  {
+    "event_id": "FCA-HIT-014",
+    "event_date": "2026-05-06 17:15:09+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "ALL UC NURSING FACULTY (UCI, UCLA, USC, UCSD, Berkeley, Stanford)",
+    "subject": "CRITICAL ENVIRONMENTAL HEALTH ALERT: Hexavalent Chromium Poisoning (49x Limit) \u2014 Mandatory Report Required",
+    "snippet": "CALIFORNIA PENAL CODE \u00a7 11165.7(a) | CALIFORNIA NURSING BOARD REPORTING REQUIREMENT. You are a nursing faculty member and mandated reporter. California law requires immediate notification of dependent adult abuse involving environmental poisoning.",
+    "signal_type": [
+      "MANDATORY_REPORTER",
+      "ENVIRONMENTAL_POISONING",
+      "HEXAVALENT_CHROMIUM",
+      "NURSING_BOARD"
+    ],
+    "entity_referenced": [
+      "California Penal Code 11165.7",
+      "CA Nursing Board"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "mandatory_reporter",
+      "nursing",
+      "penal_code",
+      "dependent_adult"
+    ]
+  },
+  {
+    "event_id": "YCGD-007",
+    "event_date": "2024-01-01 08:00:00+00:00",
+    "sender": "HUNTINGTON VALLEY LLC",
+    "recipient": "MARGARET M. GATES TRUST",
+    "subject": "Zero-dollar transfer: Newman Ave property from Gates Trust to shell LLC",
+    "snippet": "HUNTINGTON VALLEY LLC acquired 8382 Newman Ave for \\ from MARGARET M. GATES TRUST. Gates is a named City of HB official (RICO-002) and listed as responsible party in HBNC Formal Complaint. LLC mail at 424 Vista Flora, Newport Beach.",
+    "signal_type": [
+      "ZERO_TRANSFER",
+      "GATES_CONNECTION",
+      "CITY_OFFICIAL",
+      "RICO_PATTERN"
+    ],
+    "entity_referenced": [
+      "Huntington Valley LLC",
+      "Margaret M. Gates",
+      "City of Huntington Beach"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "gates",
+      "zero_transfer",
+      "city_official",
+      "rico_002"
+    ]
+  },
+  {
+    "event_id": "YCGD-008",
+    "event_date": "2026-06-12 01:01:54+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "Multiple recipients",
+    "subject": "Yamada Form 700 Violation \u2014 Criminal Conspiracy + Federal Program Fraud",
+    "snippet": "URGENT ESCALATION \u2014 Huntington Beach Navigation Center. NEW EVIDENCE reveals CRIMINAL CONSPIRACY + FEDERAL PROGRAM FRAUD tied to Mitsuru Yamada Form 700 disclosure violations. Demand Immediate Permit Revocation + Facility Closure.",
+    "signal_type": [
+      "FORM_700_VIOLATION",
+      "FEDERAL_PROGRAM_FRAUD",
+      "CRIMINAL_CONSPIRACY",
+      "YAMADA_INVOLVEMENT"
+    ],
+    "entity_referenced": [
+      "Mitsuru Yamada",
+      "HBNC",
+      "CA Govt Code 87100"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "yamada",
+      "form_700",
+      "criminal_conspiracy",
+      "federal_fraud",
+      "hb"
+    ]
+  },
+  {
+    "event_id": "CPS-001",
+    "event_date": "2026-06-10 22:14:42+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "FBI Investigators",
+    "subject": "MANDATORY REPORTER ACTIVATION: CERCLA Chemical Emergency + Child Trafficking + 5 Years Blocked Reporting",
+    "snippet": "Emergency federal whistleblower report and mandatory reporter activation. OC Child Welfare Trafficking Network. CERCLA chemical emergency at HBNC. 5 years of blocked reporting.",
+    "signal_type": [
+      "FBI_NOTIFICATION",
+      "CHILD_TRAFFICKING",
+      "CERCLA",
+      "MANDATORY_REPORTER",
+      "BLOCKED_REPORTING"
+    ],
+    "entity_referenced": [
+      "FBI",
+      "OC Child Welfare",
+      "CERCLA",
+      "HBNC"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "cps",
+      "child_trafficking",
+      "fbi",
+      "cercla",
+      "mandatory_reporter"
+    ]
+  },
+  {
+    "event_id": "CPS-002",
+    "event_date": "2026-04-15 21:45:58+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "USC and UCLA Schools of Social Work",
+    "subject": "URGENT: Whistleblower Evidence - $340M+ Federal Fraud Network - OC Child Welfare Trafficking",
+    "snippet": "Evidence of systematic child welfare trafficking and fraud affecting Orange County. CPS removals used as billing mechanism through federal IV-E reimbursement.",
+    "signal_type": [
+      "CHILD_TRAFFICKING",
+      "INSTITUTIONAL_NOTICE",
+      "IV_E_FRAUD",
+      "CPS_FRAUD"
+    ],
+    "entity_referenced": [
+      "USC School of Social Work",
+      "UCLA School of Social Welfare",
+      "OC SSA",
+      "Title IV-E"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "cps",
+      "child_trafficking",
+      "340M",
+      "iv_e",
+      "social_work"
+    ]
+  },
+  {
+    "event_id": "CPS-003",
+    "event_date": "2026-05-24 07:00:00+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "KABC-TV, Voice of OC, ProPublica",
+    "subject": "$512M+ COVID/CARES Fraud involving Child Welfare Trafficking Network",
+    "snippet": "Systematic child welfare trafficking through Mercy House Living Centers. $512M+ in COVID/CARES fraud. 4 confirmed child deaths, 279 medical emergencies at HBNC.",
+    "signal_type": [
+      "CHILD_TRAFFICKING",
+      "MEDIA_TIP",
+      "COVID_FRAUD",
+      "CHILD_DEATH"
+    ],
+    "entity_referenced": [
+      "Mercy House",
+      "HBNC",
+      "CARES Act",
+      "KABC-TV",
+      "Voice of OC"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "cps",
+      "512M",
+      "child_death",
+      "cares_act",
+      "mercy_house"
+    ]
+  },
+  {
+    "event_id": "CPS-004",
+    "event_date": "2026-05-27 07:00:00+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "HUD OIG / DOJ Civil Fraud Unit",
+    "subject": "FINAL NOTICE: HUD FCA / 31 USC 3730 Automatic Qui Tam Trigger",
+    "snippet": "FINAL NOTICE triggering 31 USC 3730 automatic qui tam provisions. HUD False Claims Act violation involving child welfare trafficking through HUD-funded shelters.",
+    "signal_type": [
+      "FCA_TRIGGER",
+      "HUD_FCA",
+      "CHILD_TRAFFICKING",
+      "SHELTER_FRAUD"
+    ],
+    "entity_referenced": [
+      "HUD OIG",
+      "DOJ Civil Fraud Unit",
+      "Mercy House",
+      "31 USC 3730"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "cps",
+      "hud_fca",
+      "qui_tam",
+      "31_usc_3730",
+      "shelter_fraud"
+    ]
+  },
+  {
+    "event_id": "CPS-005",
+    "event_date": "2024-01-01 08:00:00+00:00",
+    "sender": "OC SSA (Systemic)",
+    "recipient": "HHS/ACF Title IV-E Program",
+    "subject": "30,000 CPS removals/year in Orange County - $200M-$300M/yr IV-E reimbursement pipeline",
+    "snippet": "OC SSA makes 30,000 CPS dispatches per year. Each removal triggers federal Title IV-E per-diem reimbursement. Gap between removals (30K) and homeless PIT (700) is 97.7% - 29,300 children unaccounted.",
+    "signal_type": [
+      "CPS_REMOVAL",
+      "IV_E_BILLING",
+      "GHOST_BILLING",
+      "SYSTEMIC_FRAUD"
+    ],
+    "entity_referenced": [
+      "OC SSA",
+      "HHS",
+      "ACF",
+      "Title IV-E",
+      "42 USC 671-679b"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "cps",
+      "iv_e",
+      "ghost_billing",
+      "200M",
+      "removal_pipeline"
+    ]
+  },
+  {
+    "event_id": "CPS-007",
+    "event_date": "2026-05-24 02:23:32+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "KABC-TV (ABC 7) News Tips",
+    "subject": "INVESTIGATION TIP: Orange County COVID Fraud + Child Welfare Trafficking Network",
+    "snippet": "$512M+ COVID/CARES fraud involving child welfare trafficking network",
+    "signal_type": [
+      "MEDIA_TIP"
+    ],
+    "entity_referenced": [
+      "Mercy House",
+      "OC SSA",
+      "KABC-TV"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "media",
+      "covid-fraud",
+      "trafficking"
+    ]
+  },
+  {
+    "event_id": "CPS-008",
+    "event_date": "2026-05-24 02:23:21+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "LAist Investigative Team",
+    "subject": "INVESTIGATION TIP: Orange County Child Welfare Trafficking - Mercy House Living Centers",
+    "snippet": "Systematic child welfare trafficking through Mercy House Living Centers",
+    "signal_type": [
+      "MEDIA_TIP"
+    ],
+    "entity_referenced": [
+      "Mercy House",
+      "LAist"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "media",
+      "trafficking",
+      "mercy-house"
+    ]
+  },
+  {
+    "event_id": "CPS-009",
+    "event_date": "2026-05-24 02:21:55+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "California DSS Fraud Unit",
+    "subject": "California DSS Fraud Unit: ICWA/IIM Systematic Fraud - OC Fraud Network v10",
+    "snippet": "Systematic fraud within OC Social Services involving Indian Child Welfare Act violations",
+    "signal_type": [
+      "REGULATORY_COMPLAINT"
+    ],
+    "entity_referenced": [
+      "OC SSA",
+      "CA DSS",
+      "ICWA"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "dss",
+      "icwa",
+      "iim",
+      "regulatory"
+    ]
+  },
+  {
+    "event_id": "CPS-010",
+    "event_date": "2026-04-14 16:57:45+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "Bureau of Trust Funds Administration, DOI",
+    "subject": "IIM Account Misappropriation Tip - Orange County SSA / Foster Care Trustee Petition",
+    "snippet": "Federal whistleblower tip regarding IIM trust fund misappropriation",
+    "signal_type": [
+      "FEDERAL_TIP"
+    ],
+    "entity_referenced": [
+      "OC SSA",
+      "DOI",
+      "Bureau of Trust Funds"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "iim",
+      "doi",
+      "trust-funds"
+    ]
+  },
+  {
+    "event_id": "CPS-011",
+    "event_date": "2026-04-14 16:57:32+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "LAist Investigative Desk",
+    "subject": "Investigative Tip - OC Toxic Shelter / Medicaid Fraud / Native Child IIM Theft",
+    "snippet": "Interconnected fraud network: toxic shelter, Medicaid fraud, Native child IIM theft",
+    "signal_type": [
+      "MEDIA_TIP"
+    ],
+    "entity_referenced": [
+      "Mercy House",
+      "HBNC",
+      "LAist"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "media",
+      "toxic-shelter",
+      "medicaid",
+      "iim"
+    ]
+  },
+  {
+    "event_id": "CPS-012",
+    "event_date": "2026-04-14 16:56:53+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "DOJ Civil Fraud Unit",
+    "subject": "Supplemental Qui Tam Disclosure - RICO Pattern: OC SSA / Mercy House / SPIN / Angulo NPI / ICWA-IIM Fraud",
+    "snippet": "Supplemental disclosure to pending qui tam action; RICO pattern documented",
+    "signal_type": [
+      "QUI_TAM"
+    ],
+    "entity_referenced": [
+      "OC SSA",
+      "Mercy House",
+      "SPIN",
+      "Marcus Angulo",
+      "DOJ"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "qui-tam",
+      "rico",
+      "supplemental"
+    ]
+  },
+  {
+    "event_id": "CPS-014",
+    "event_date": "2026-04-14 16:47:10+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "EPA OIG Hotline",
+    "subject": "Investigative Tip - OC Toxic Shelter / Medicaid Fraud / Native Child IIM Theft",
+    "snippet": "EPA OIG received tip regarding toxic shelter and interconnected fraud",
+    "signal_type": [
+      "FEDERAL_TIP"
+    ],
+    "entity_referenced": [
+      "EPA OIG",
+      "Mercy House",
+      "HBNC"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "epa",
+      "toxic",
+      "iim"
+    ]
+  },
+  {
+    "event_id": "CPS-015",
+    "event_date": "2026-04-19 02:18:09+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "DOI Office of Inspector General",
+    "subject": "ICWA/IIM Fraud Complaint - OC SSA Systematic Non-Inquiry + $200M Trust Fund Abuse",
+    "snippet": "Indian Child Welfare Act / Indian Individual Money fraud complaint",
+    "signal_type": [
+      "FEDERAL_COMPLAINT"
+    ],
+    "entity_referenced": [
+      "DOI OIG",
+      "OC SSA",
+      "ICWA",
+      "IIM"
+    ],
+    "docket_number": null,
+    "risk_level": "CRITICAL",
+    "tags": [
+      "doi-oig",
+      "icwa",
+      "iim",
+      "200m"
+    ]
+  },
+  {
+    "event_id": "FCA-HIT-003",
+    "event_date": "2026-06-12 01:15:04+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "ProPublica Nonprofit Accountability Desk",
+    "subject": "TIP: Nonprofit accountability \u2014 Mercy House charity fraud (unclaimed property + homeless residents poisoning)",
+    "snippet": "Mercy House, a California nonprofit claiming to serve homeless populations, is part of a larger conspiracy involving: Environmental poisoning: Placing homeless",
+    "signal_type": [
+      "MEDIA_TIP",
+      "ENVIRONMENTAL_POISONING",
+      "UNCLAIMED_PROPERTY"
+    ],
+    "entity_referenced": [
+      "Mercy House Living Centers",
+      "ProPublica"
+    ],
+    "docket_number": null,
+    "risk_level": "HIGH",
+    "tags": [
+      "environmental",
+      "cr_vi",
+      "unclaimed_property",
+      "charity_fraud",
+      "media"
+    ]
+  },
+  {
+    "event_id": "FCA-HIT-005",
+    "event_date": "2026-05-12 17:52:41+00:00",
+    "sender": "Anthony <osintneoai@gmail.com>",
+    "recipient": "Unknown",
+    "subject": "How would you like to proceed? fuck",
+    "snippet": "I have completed the deep-dive search for unclaimed property as requested. The entities Mercy House and Larry Haynes both returned active records within the State Controller's database.",
+    "signal_type": [
+      "UNCLAIMED_PROPERTY",
+      "FINANCIAL_ANOMALY"
+    ],
+    "entity_referenced": [
+      "Mercy House",
+      "Larry Haynes",
+      "CA State Controller"
+    ],
+    "docket_number": null,
+    "risk_level": "HIGH",
+    "tags": [
+      "unclaimed_property",
+      "financial",
+      "state_controller"
+    ]
+  },
+  {
+    "event_id": "YCGD-003",
+    "event_date": "2016-04-29 07:00:00+00:00",
+    "sender": "GEORGE T. CHEN + LEILANI S. CHEN",
+    "recipient": "BROWN HUBERT LLC (NV shell)",
+    "subject": "Zero-dollar transfer: 7561 Center Ave #D1 to Nevada shell corporation",
+    "snippet": "George T. Chen and Leilani S. Chen (likely descendants of 1979 Chen family) transferred 7561 Center Ave Unit D1 to BROWN HUBERT LLC for \\. BROWN HUBERT LLC is a Nevada shell (PO Box 531604, Henderson NV) formed through CORPORATE CREATIONS NETWORK INC. (formed 03/15/2021). Same office park as DNA Holdings and Tam Nguyen PPP.",
+    "signal_type": [
+      "ZERO_TRANSFER",
+      "NV_SHELL",
+      "CONVERGENCE_POINT",
+      "CHEN_NETWORK"
+    ],
+    "entity_referenced": [
+      "George T. Chen",
+      "Leilani S. Chen",
+      "Brown Hubert LLC",
+      "Corporate Creations Network Inc"
+    ],
+    "docket_number": null,
+    "risk_level": "HIGH",
+    "tags": [
+      "zero_transfer",
+      "nv_shell",
+      "7561_center_ave",
+      "chen"
+    ]
+  },
+  {
+    "event_id": "YCGD-006",
+    "event_date": "2021-05-27 07:00:00+00:00",
+    "sender": "AFFORDABLE HOUSING LAND CONSULTANTS LLC",
+    "recipient": "PELOCHINO, JOHN F + NGUYEN, HONG PHUONG",
+    "subject": "Simultaneous purchase of TWO Beach Blvd parcels for \\.2M on same day",
+    "snippet": "AFFORDABLE HOUSING LAND CONSULTANTS LLC purchased 19431 Beach Blvd (\\) and 19471 Beach Blvd (\\.2M) on 05/27/2021 \u2014 same day, same LLC, PO Box 260770 Encino mailbox. Both parcels sit on the Beach Blvd corridor adjacent to the HBNC/Navigation Center footprint.",
+    "signal_type": [
+      "SIMULTANEOUS_PURCHASE",
+      "BEACH_BLVD_CORRIDOR",
+      "MAILBOX_ADDRESS",
+      "AFFORDABLE_HOUSING"
+    ],
+    "entity_referenced": [
+      "Affordable Housing Land Consultants LLC",
+      "John F. Pelochino",
+      "Hong Phuong Nguyen"
+    ],
+    "docket_number": null,
+    "risk_level": "HIGH",
+    "tags": [
+      "simultaneous_purchase",
+      "beach_blvd",
+      "mailbox",
+      "8.2M"
+    ]
+  },
+  {
+    "event_id": "CPS-006",
+    "event_date": "2026-05-27 20:13:52+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "University Leadership (Social Work, Nursing)",
+    "subject": "MANDATORY REPORTER ALERT: v11 Orange County Child Welfare + Homeless Services Fraud",
+    "snippet": "OC Fraud Network + Child Welfare Pipeline; mandatory reporter activation to universities",
+    "signal_type": [
+      "WHISTLEBLOWER_TIP"
+    ],
+    "entity_referenced": [
+      "OC SSA",
+      "Mercy House",
+      "Universities"
+    ],
+    "docket_number": null,
+    "risk_level": "HIGH",
+    "tags": [
+      "mandatory-reporter",
+      "child-welfare",
+      "universities"
+    ]
+  },
+  {
+    "event_id": "CPS-013",
+    "event_date": "2026-04-14 16:52:19+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "FBI FOIPA",
+    "subject": "IIM Account Misappropriation Tip - Orange County SSA / Foster Care Trustee Petition",
+    "snippet": "Forwarded IIM misappropriation tip to FBI",
+    "signal_type": [
+      "FEDERAL_TIP"
+    ],
+    "entity_referenced": [
+      "FBI",
+      "OC SSA",
+      "IIM"
+    ],
+    "docket_number": null,
+    "risk_level": "HIGH",
+    "tags": [
+      "fbi",
+      "iim",
+      "forwarded"
+    ]
+  },
+  {
+    "event_id": "FCA-HIT-007",
+    "event_date": "2026-04-23 00:30:29+00:00",
+    "sender": "Mercy House <development@mercyhouse.net>",
+    "recipient": "Donor List",
+    "subject": "STATUS UPDATE: We've Hit Our Goal of $50,000! Can we hit our increased goal of $60,000?",
+    "snippet": "Thank you for believing in Mercy House and what we do. Can we hit our increased goal of $60,000? We did it! Thank you for believing that everyone deserves a place to call home.",
+    "signal_type": [
+      "FUNDRAISING",
+      "GOAL_ESCALATION"
+    ],
+    "entity_referenced": [
+      "Mercy House"
+    ],
+    "docket_number": null,
+    "risk_level": "LOW",
+    "tags": [
+      "fundraising",
+      "donor_list"
+    ]
+  },
+  {
+    "event_id": "FCA-HIT-008",
+    "event_date": "2025-12-31 17:01:49+00:00",
+    "sender": "Mercy House <development@mercyhouse.net>",
+    "recipient": "Donor List",
+    "subject": "2025: A Year in Review...",
+    "snippet": "We couldn't have done it without YOU! DONATE FOLLOW US. Mercy House | PO Box 1905 | Santa Ana, CA 92702",
+    "signal_type": [
+      "FUNDRAISING",
+      "ANNUAL_REVIEW"
+    ],
+    "entity_referenced": [
+      "Mercy House"
+    ],
+    "docket_number": null,
+    "risk_level": "LOW",
+    "tags": [
+      "fundraising",
+      "year_end",
+      "annual_report"
+    ]
+  },
+  {
+    "event_id": "FCA-HIT-009",
+    "event_date": "2025-12-30 17:15:37+00:00",
+    "sender": "Mercy House <development@mercyhouse.net>",
+    "recipient": "Donor List",
+    "subject": "Here's What Your Support Makes Possible",
+    "snippet": "In 2025, Mercy House housed or prevented the homelessness of more than 11 people every single day.",
+    "signal_type": [
+      "FUNDRAISING",
+      "IMPACT_CLAIM"
+    ],
+    "entity_referenced": [
+      "Mercy House"
+    ],
+    "docket_number": null,
+    "risk_level": "LOW",
+    "tags": [
+      "fundraising",
+      "impact_report"
+    ]
+  },
+  {
+    "event_id": "FCA-HIT-010",
+    "event_date": "2026-04-08 16:45:29+00:00",
+    "sender": "Mercy House <development@mercyhouse.net>",
+    "recipient": "Donor List",
+    "subject": "We're one family away...",
+    "snippet": "Our giving alliance can help 2 families a month, can we make it three? DONATE The Pulse is Mercy House's monthly giving alliance.",
+    "signal_type": [
+      "FUNDRAISING",
+      "DONOR_DRIVE"
+    ],
+    "entity_referenced": [
+      "Mercy House"
+    ],
+    "docket_number": null,
+    "risk_level": "LOW",
+    "tags": [
+      "fundraising",
+      "monthly_giving"
+    ]
+  },
+  {
+    "event_id": "FCA-HIT-006",
+    "event_date": "2026-04-22 14:04:52+00:00",
+    "sender": "Mercy House <development@mercyhouse.net>",
+    "recipient": "Donor List",
+    "subject": "Today, your donations will be DOUBLED",
+    "snippet": "A video from our CEO Larry Haynes describing Help Them Home and what we do. Thanks to our matching donor, Eastside Christian Church, your donations will be doubled.",
+    "signal_type": [
+      "FUNDRAISING",
+      "CHURCH_LINK"
+    ],
+    "entity_referenced": [
+      "Mercy House",
+      "Eastside Christian Church",
+      "Larry Haynes"
+    ],
+    "docket_number": null,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "fundraising",
+      "church_network",
+      "eastside",
+      "matching_donor"
+    ]
+  },
+  {
+    "event_id": "YCGD-002",
+    "event_date": "2005-06-09 07:00:00+00:00",
+    "sender": "SHAN-CHIN CHEN + CHUN-LEE CHEN",
+    "recipient": "WEST CONTINENTAL PROPERTIES LLC",
+    "subject": "Sale: 17671 Beach Blvd from Chen Family to West Continental Properties LLC",
+    "snippet": "Chen family (1979 easement holders) sold 17671 Beach Blvd (APN 165-311-17) to WEST CONTINENTAL PROPERTIES LLC for \\,000. LLC maintains ownership to present day. Mail at 2791 MENDOZA DR, COSTA MESA.",
+    "signal_type": [
+      "PROPERTY_TRANSFER",
+      "CHEN_NETWORK",
+      "BEACH_BLVD_CORRIDOR"
+    ],
+    "entity_referenced": [
+      "Shan-Chin Chen",
+      "Chun-Lee Chen",
+      "West Continental Properties LLC"
+    ],
+    "docket_number": null,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "property_transfer",
+      "chen",
+      "beach_blvd",
+      "2005"
+    ]
+  },
+  {
+    "event_id": "FCA-HIT-012",
+    "event_date": "2026-05-06 17:15:51+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "Orange Coast College President, Saddleback College President, GWC President",
+    "subject": "LOCAL ALERT: Huntington Beach Residents Poisoned by Hexavalent Chromium \u2014 Mandatory Report Required (Federal Case 8:2026cv00348)",
+    "snippet": "URGENT LOCAL ALERT \u2014 CALIFORNIA MANDATORY REPORTING STATUTE. You serve the Huntington Beach/Midway City/Orange County community. You are a mandated reporter under California Welfare & Institutions Code.",
+    "signal_type": [
+      "MANDATORY_REPORTER",
+      "ENVIRONMENTAL_POISONING",
+      "LOCAL_ALERT",
+      "HEXAVALENT_CHROMIUM"
+    ],
+    "entity_referenced": [
+      "Orange Coast College",
+      "Saddleback College",
+      "Golden West College",
+      "Huntington Beach"
+    ],
+    "docket_number": "8:2026cv00348",
+    "risk_level": "CRITICAL",
+    "tags": [
+      "mandatory_reporter",
+      "community_college",
+      "local_alert",
+      "cr_vi"
+    ]
+  },
+  {
+    "event_id": "FCA-HIT-015",
+    "event_date": "2026-05-06 17:14:56+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "ALL UC SOCIAL WORK FACULTY (UCI, UCLA, USC, UCSD, UC Davis, Berkeley)",
+    "subject": "MANDATORY REPORT REQUIRED: Hexavalent Chromium Poisoning (49x Legal Limit) at OC Shelter \u2014 Federal Case 8:2026cv00348",
+    "snippet": "CALIFORNIA WELFARE & INSTITUTIONS CODE \u00a7 15630 \u2014 MANDATORY REPORTER ACTIVATION. You are a mandated reporter at a California postsecondary institution. You have a legal duty to report dependent adult abuse at the Orange County homeless shelter.",
+    "signal_type": [
+      "MANDATORY_REPORTER",
+      "ENVIRONMENTAL_POISONING",
+      "HEXAVALENT_CHROMIUM",
+      "SOCIAL_WORK"
+    ],
+    "entity_referenced": [
+      "California W&I Code 15630",
+      "OC Homeless Shelter"
+    ],
+    "docket_number": "8:2026cv00348",
+    "risk_level": "CRITICAL",
+    "tags": [
+      "mandatory_reporter",
+      "social_work",
+      "dependent_adult",
+      "cr_vi"
+    ]
+  },
+  {
+    "event_id": "FCA-HIT-001",
+    "event_date": "2026-04-14 23:57:17+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "Mr. Knabb (attorney)",
+    "subject": "8:26-cv-00348 \u2014 Parallel Qui Tam / RICO Evidence Package \u2014 Coordination Request",
+    "snippet": "Mr. Knabb, My name is Anthony Michael DiMarcello III. I am a federal whistleblower and relator co-prosecuting a False Claims Act qui tam action targeting Mercy House Living Centers and the broader",
+    "signal_type": [
+      "FCA_FILING",
+      "RICO_PATTERN",
+      "ATTORNEY_COORDINATION"
+    ],
+    "entity_referenced": [
+      "Mercy House Living Centers"
+    ],
+    "docket_number": "8:26-cv-00348",
+    "risk_level": "CRITICAL",
+    "tags": [
+      "qui_tam",
+      "fca",
+      "federal_docket",
+      "whistleblower",
+      "rico"
+    ]
+  },
+  {
+    "event_id": "FCA-HIT-016",
+    "event_date": "2026-04-14 23:57:17+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "LA Times, Voice of OC, CalMatters, OC Register (MEDIA COORDINATION)",
+    "subject": "8:26-cv-00348 \u2014 Parallel Qui Tam / RICO Evidence Package \u2014 Coordination Request",
+    "snippet": "Mr. Knabb, My name is Anthony Michael DiMarcello III. I am a federal whistleblower and relator co-prosecuting a False Claims Act qui tam action targeting Mercy House Living Centers.",
+    "signal_type": [
+      "FCA_FILING",
+      "MEDIA_COORDINATION",
+      "RICO_PATTERN"
+    ],
+    "entity_referenced": [
+      "Mercy House Living Centers",
+      "LA Times",
+      "Voice of OC",
+      "CalMatters",
+      "OC Register"
+    ],
+    "docket_number": "8:26-cv-00348",
+    "risk_level": "CRITICAL",
+    "tags": [
+      "qui_tam",
+      "fca",
+      "media",
+      "whistleblower",
+      "rico"
+    ]
+  },
+  {
+    "event_id": "FCA-HIT-017",
+    "event_date": "2026-04-14 23:47:28+00:00",
+    "sender": "Anthony DiMarcello <amd949609@gmail.com>",
+    "recipient": "EPA OIG Hotline, EPA Region 9, ICWA-NARF, Disability Rights CA, LAist (FEDERAL + RIGHTS ORGS)",
+    "subject": "8:26-cv-00348 \u2014 Parallel Qui Tam / RICO Evidence Package \u2014 Coordination Request",
+    "snippet": "Mr. Knabb, My name is Anthony Michael DiMarcello III. I am a federal whistleblower and relator co-prosecuting a False Claims Act qui tam action targeting Mercy House Living Centers. Notification sent to EPA OIG, ICWA at NARF, Disability Rights California.",
+    "signal_type": [
+      "FCA_FILING",
+      "EPA_NOTIFICATION",
+      "ICWA_NOTIFICATION",
+      "DISABILITY_RIGHTS",
+      "TRIBAL_RIGHTS"
+    ],
+    "entity_referenced": [
+      "EPA OIG",
+      "EPA Region 9",
+      "ICWA",
+      "NARF",
+      "Disability Rights CA",
+      "Mercy House"
+    ],
+    "docket_number": "8:26-cv-00348",
+    "risk_level": "CRITICAL",
+    "tags": [
+      "epa",
+      "icwa",
+      "narf",
+      "tribal_rights",
+      "disability_rights",
+      "fca"
+    ]
+  },
+  {
+    "event_id": "YCGD-004",
+    "event_date": "2020-02-18 08:00:00+00:00",
+    "sender": "City of Huntington Beach",
+    "recipient": "SHIGERU YAMADA + MITSURU YAMADA",
+    "subject": "City purchases 17631 Cameron Lane from Yamada family for HBNC site",
+    "snippet": "City of Huntington Beach purchased 17631 Cameron Lane from Shigeru Yamada and Mitsuru Yamada for the Navigation Center site. Purchase funded with \\.1M LMIHAF restricted permanent housing funds. Mitsuru Yamada was an OC environmental agency employee with ZERO Form 700 disclosures.",
+    "signal_type": [
+      "CITY_PURCHASE",
+      "CONFLICT_OF_INTEREST",
+      "LMIHAF_DIVERSION",
+      "YAMADA_NETWORK"
+    ],
+    "entity_referenced": [
+      "City of Huntington Beach",
+      "Shigeru Yamada",
+      "Mitsuru Yamada",
+      "LMIHAF"
+    ],
+    "docket_number": "Case 20IC002",
+    "risk_level": "CRITICAL",
+    "tags": [
+      "city_purchase",
+      "yamada",
+      "conflict_of_interest",
+      "lmihaf",
+      "form_700"
+    ]
+  },
+  {
+    "event_id": "YCGD-005",
+    "event_date": "2020-08-21 07:00:00+00:00",
+    "sender": "Orange County Health Care Agency",
+    "recipient": "GeoTracker (T10000018579)",
+    "subject": "Cr-VI at 49x MCL documented AND false facility closure certified \u2014 SAME DAY",
+    "snippet": "W-4150 well at 17631 Cameron Ln documented hexavalent chromium at 49x maximum contaminant level. On the SAME DAY (Aug 21, 2020), OCHCA certified the facility as CLOSED with ZERO cleanup actions. Mitsuru Yamada was OC environmental employee during this period. Closure states site must be reevaluated for any land use change.",
+    "signal_type": [
+      "ENVIRONMENTAL_FRAUD",
+      "FALSE_CLOSURE",
+      "CONFLICT_OF_INTEREST",
+      "CR_VI_CONTAMINATION"
+    ],
+    "entity_referenced": [
+      "OCHCA",
+      "Mitsuru Yamada",
+      "W-4150 Well",
+      "GeoTracker T10000018579"
+    ],
+    "docket_number": "Case 20IC002",
+    "risk_level": "CRITICAL",
+    "tags": [
+      "cr_vi",
+      "false_closure",
+      "yamada",
+      "49x_mcl",
+      "environmental_fraud"
+    ]
+  },
+  {
+    "event_id": "YCGD-001",
+    "event_date": "1979-09-18 07:00:00+00:00",
+    "sender": "MITSURU YAMADA",
+    "recipient": "City of Huntington Beach Development Services",
+    "subject": "Chen-Yamada Reciprocal Easement Agreement (UPX1978058)",
+    "snippet": "Shan-Chin Chen + Chun-Lee Chen (NW Liberty/Beach) and Mitsuru Yamada + Shigeru Yamada (SW Speer/Beach) executed a reciprocal easement tying their adjacent Beach Blvd commercial parcels. Agent for Chen: J. Don Hartfelder, A.I.A.",
+    "signal_type": [
+      "PROPERTY_EASEMENT",
+      "FAMILY_NETWORK",
+      "BEACH_BLVD_CORRIDOR"
+    ],
+    "entity_referenced": [
+      "Shan-Chin Chen",
+      "Chun-Lee Chen",
+      "Mitsuru Yamada",
+      "Shigeru Yamada",
+      "City of Huntington Beach"
+    ],
+    "docket_number": "UPX1978058",
+    "risk_level": "MEDIUM",
+    "tags": [
+      "easement",
+      "yamada",
+      "chen",
+      "beach_blvd",
+      "1979"
+    ]
+  }
+]

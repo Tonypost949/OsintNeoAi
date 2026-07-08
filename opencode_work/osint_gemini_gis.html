@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>OSINTNeoAi</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-polylinedecorator@1.6.0/dist/leaflet.polylineDecorator.js"></script>
+<script src="osint_geo_data.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body,#map{width:100%;height:100%;background:#000;font-family:monospace}
+
+#panel{position:fixed;right:0;top:0;bottom:0;width:360px;z-index:1000;display:flex;flex-direction:column;gap:4px;
+  background:rgba(0,0,0,0.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-left:1px solid rgba(0,255,0,0.15);padding:10px 8px 8px 8px;transition:transform 0.3s}
+#panel.hidden{transform:translateX(360px)}
+#panel-header{display:flex;justify-content:flex-end;gap:6px;margin-bottom:2px}
+#panel-header button{background:none;border:none;color:#0a0;cursor:pointer;font-size:14px;padding:0 4px;font-family:monospace}
+#panel-header button:hover{color:#0f0}
+
+#chatbox{flex:1;overflow-y:auto;font-size:11px;color:#bbb;line-height:1.35;min-height:0;padding:2px}
+#chatbox .msg{margin:3px 0;padding:4px 7px;border-radius:3px;max-width:95%;word-wrap:break-word}
+#chatbox .user{background:rgba(0,60,0,0.4);color:#0f0}
+#chatbox .ai{background:rgba(0,0,0,0.3);color:#8cf}
+#chatbox pre{background:rgba(0,0,40,0.5);color:#0f0;padding:4px;font-size:10px;overflow-x:auto;margin:3px 0;border-left:2px solid rgba(0,255,0,0.3)}
+
+#editor{border:1px solid rgba(0,255,0,0.12);background:rgba(0,0,0,0.3);color:#8cf;padding:4px 6px;font-size:10px;border-radius:3px;resize:none;font-family:monospace;height:56px;min-height:44px}
+#prompt{border:1px solid rgba(0,255,0,0.15);background:rgba(0,0,0,0.4);color:#0f0;padding:5px 6px;font-size:10px;border-radius:3px;resize:none;font-family:monospace;min-height:36px}
+#prompt:focus,#editor:focus{outline:none;border-color:#0f0}
+#controls{display:flex;gap:3px}
+#controls button{background:rgba(0,0,0,0.5);color:#0a0;border:1px solid rgba(0,255,0,0.12);padding:4px 6px;border-radius:3px;cursor:pointer;font-size:10px;font-family:monospace;flex:1;transition:all 0.15s}
+#controls button:hover{background:rgba(0,40,0,0.6);color:#0f0;border-color:rgba(0,255,0,0.3)}
+#status{color:#444;font-size:9px;min-height:12px;text-align:right}
+
+#keymodal{position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;background:rgba(0,0,0,0.88);display:none;justify-content:center;align-items:center}
+#keymodal.show{display:flex}
+#keymodal>div{background:rgba(0,0,0,0.9);border:1px solid rgba(0,255,0,0.3);padding:24px;width:320px}
+#keymodal h3{color:#0f0;font-size:12px;margin-bottom:8px}
+#keymodal input{width:100%;padding:8px;background:rgba(0,0,0,0.6);color:#0f0;border:1px solid rgba(0,255,0,0.2);font-size:11px;font-family:monospace;margin:6px 0}
+#keymodal button{background:rgba(0,60,0,0.5);color:#0f0;border:1px solid rgba(0,255,0,0.3);padding:8px 20px;cursor:pointer;font-size:12px;font-family:monospace;margin-top:4px}
+#keymodal button:hover{background:rgba(0,120,0,0.5)}
+
+@keyframes glow-red{0%,100%{box-shadow:0 0 8px 2px rgba(255,0,50,0.6)}50%{box-shadow:0 0 18px 4px rgba(255,0,50,0.9)}}
+@keyframes glow-amber{0%,100%{box-shadow:0 0 6px 2px rgba(255,140,0,0.4)}50%{box-shadow:0 0 14px 3px rgba(255,140,0,0.7)}}
+
+.leaflet-tooltip.parcel-label{background:rgba(0,0,0,0.78);border:1px solid rgba(0,255,0,0.2);color:#0f0;font-size:10px;font-family:monospace;padding:2px 5px;border-radius:2px;white-space:nowrap}
+.leaflet-tooltip.parcel-label::before{border-top-color:rgba(0,255,0,0.2)}
+</style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<div id="panel">
+  <div id="panel-header">
+    <button onclick="document.getElementById('keymodal').classList.add('show')" title="API Key">&#9881;</button>
+    <button onclick="document.getElementById('panel').classList.add('hidden')" title="Close">&#10005;</button>
+  </div>
+  <div id="chatbox"></div>
+  <textarea id="editor" placeholder="AI output / notes..."></textarea>
+  <textarea id="prompt" placeholder="Ask about any parcel or pattern..."></textarea>
+  <div id="status">18 markers | grid live </div>
+  <div id="controls">
+    <button onclick="sendMsg()">SEND</button>
+    <button onclick="saveEditor()">SAVE</button>
+    <button onclick="document.getElementById('chatbox').innerHTML=''">CLR</button>
+    <button onclick="resetView()">&#8982;</button>
+  </div>
+</div>
+
+<div id="keymodal">
+  <div>
+    <h3>GEMINI API KEY</h3>
+    <input id="keyinput" type="password" placeholder="AIza...">
+    <button onclick="setKey()">UNLOCK</button>
+  </div>
+</div>
+
+<script>
+let KEY = localStorage.getItem('gkey')||'';
+if(KEY) document.getElementById('keymodal').classList.remove('show');
+function setKey(){KEY=document.getElementById('keyinput').value.trim();if(KEY)localStorage.setItem('gkey',KEY);document.getElementById('keymodal').classList.remove('show');addMsg('ai','Key active.')}
+
+function addMsg(role,text){
+  const b=document.getElementById('chatbox');
+  const d=document.createElement('div');d.className='msg '+role;
+  d.innerHTML=text.replace(/```(\w*)\n?([\s\S]*?)```/g,'<pre>$2</pre>');
+  b.appendChild(d);b.scrollTop=b.scrollHeight;
+}
+
+async function sendMsg(){
+  const p=document.getElementById('prompt').value.trim();if(!p)return;
+  addMsg('user',p);document.getElementById('prompt').value='';document.getElementById('status').textContent='thinking...';
+  if(!KEY){addMsg('ai','Click gear icon for API key.');document.getElementById('status').textContent='no key';return;}
+  try{
+    const r=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${KEY}`,{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({contents:[{parts:[{text:`OSINTNeoAi forensic GIS. Map shows HB CA with 2006 assessment grid overlay. Red-glowing parcels=toxic (HBNC Cr-VI 49x, Cameron Ln asphalt failure, 7561 Center Ave concrete vaults). Amber-glowing parcels=suspect shell LLCs ($0 quitclaims, CMRA mailboxes). 18 geo-tagged markers with addresses visible. Respond short and direct: ${p}`}]}],generationConfig:{temperature:0.3,maxOutputTokens:1000}})
+    });
+    const d=await r.json();
+    const t=d.candidates?.[0]?.content?.parts?.[0]?.text||JSON.stringify(d);
+    addMsg('ai',t);document.getElementById('editor').value=t;document.getElementById('status').textContent='done';
+  }catch(e){addMsg('ai','E: '+e.message);document.getElementById('status').textContent='error';}
+}
+
+function saveEditor(){const t=document.getElementById('editor').value;const b=new Blob([t]);const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='ai_'+new Date().toISOString().slice(0,10)+'.txt';a.click()}
+function resetView(){map.setView([33.69,-118.0],14)}
+document.getElementById('prompt').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg()}});
+
+// MAP
+const map=L.map('map',{zoomControl:false,attributionControl:false}).setView([33.69,-118.0],14);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:19}).addTo(map);
+L.control.zoom({position:'bottomright'}).addTo(map);
+
+// TOXIC (red glow)
+const TOXIC=[  
+  [33.6775,-118.0012,'HBNC TOXIC','17642 Beach Blvd / Cr-VI 49x / Disputed Closure / $155M COC'],
+  [33.6770,-118.0015,'Cameron Ln','17631 Cameron Ln / Asphalt cap failure'],
+  [33.6927,-117.9974,'7561 Center Ave','Units D1-E1-G3-J1 / 4 shell LLCs / Chen Yamada'],
+];
+// SUSPECT (amber glow)
+const SUSPECT=[
+  [33.7070,-117.9580,'Triumvirate LLC','21951 Brookhurst St / $2.8M / Nov 2021'],
+  [33.7530,-118.0720,'Stewart Ind.','3311 Bounty Cir / $0 transfer / 1077 PCH #247 CMRA'],
+  [33.8080,-118.0020,'CP Premier 1','7100 Cerritos Ave #108 / Pham $0 / 2614 Orchard Dr'],
+  [33.7740,-117.9870,'CP Premier 2','13801 Shirley St #85 / Pham $0 quitclaim'],
+  [33.7530,-117.9900,'Garnet Drop','15822 Garnet St / Dylan & Andrew mailbox'],
+  [33.6500,-117.8900,'Newport LLCs','20341-71 Irvine Ave / CSJ/PL Jetty shell cluster'],
+  [33.7450,-117.8120,'Pham Residence','2614 Orchard Dr Tustin / Peter Pham'],
+];
+const OTHER=[
+  [33.8000,-118.0500,'NAS Los Alamitos','Navy base / CERCLA party'],
+  [33.6750,-117.7300,'El Toro MCAS','Contaminated fill storage / Decommissioned 1999'],
+  [33.6760,-118.0015,'HB City Hall','2000 Main St / CEQA exemption fraud'],
+  [33.7450,-117.8700,'OC DA','300 N Flower St / Todd Spitzer / No action'],
+  [33.7480,-117.8700,'USDC CD CA','411 W 4th St / Knabb v. HB RICO'],
+];
+
+// Merge live BigQuery data (from osint_geo_data.js)
+if(typeof LIVE_TOXIC!=='undefined'){LIVE_TOXIC.forEach(d=>TOXIC.push([d.lat,d.lng,d.label,d.desc]));}
+if(typeof LIVE_SUSPECT!=='undefined'){LIVE_SUSPECT.forEach(d=>SUSPECT.push([d.lat,d.lng,d.label,d.desc]));}
+if(typeof LIVE_OTHER!=='undefined'){LIVE_OTHER.forEach(d=>OTHER.push([d.lat,d.lng,d.label,d.desc]));}
+
+// GLOWING GRID OVERLAY
+const GridLayer = L.GridLayer.extend({
+  createTile: function(coords){
+    const tile=document.createElement('canvas');
+    const size=this.getTileSize();tile.width=size.x;tile.height=size.y;
+    const ctx=tile.getContext('2d');
+    const nw=coords.scaleBy(size);
+    const se=L.point(nw.x+size.x,nw.y+size.y);
+    const step=size.x/8;
+
+    // grid lines
+    ctx.strokeStyle='rgba(0,80,0,0.18)';ctx.lineWidth=0.5;
+    for(let i=0;i<=8;i++){ctx.beginPath();ctx.moveTo(i*step,0);ctx.lineTo(i*step,size.y);ctx.stroke();ctx.beginPath();ctx.moveTo(0,i*step);ctx.lineTo(size.x,i*step);ctx.stroke()}
+
+    const glow=(lat,lng,colorG,colorF,radius)=>{
+      const pt=this._map.project([lat,lng],coords.z);
+      const px=pt.x-nw.x, py=pt.y-nw.y;
+      const s=step*0.65;
+      if(px>-s*2&&px<size.x+s*2&&py>-s*2&&py<size.y+s*2){
+        // outer glow
+        const g=ctx.createRadialGradient(px,py,0,px,py,radius);
+        g.addColorStop(0,colorG);g.addColorStop(1,'transparent');
+        ctx.fillStyle=g;ctx.fillRect(px-radius,py-radius,radius*2,radius*2);
+        // inner fill
+        ctx.fillStyle=colorF;ctx.fillRect(px-s/2,py-s/2,s,s);
+        ctx.strokeStyle=colorG.replace('0.8','1').replace('0.5','0.8');
+        ctx.lineWidth=1.2;ctx.strokeRect(px-s/2,py-s/2,s,s);
+      }
+    };
+ 
+    TOXIC.forEach(([lat,lng])=>glow(lat,lng,'rgba(255,0,40,0.8)','rgba(255,0,40,0.55)',step*1.8));
+    SUSPECT.forEach(([lat,lng])=>glow(lat,lng,'rgba(255,140,0,0.5)','rgba(255,140,0,0.3)',step*1.3));
+    return tile;
+  }
+});
+new GridLayer({tileSize:256,minZoom:12,maxZoom:19}).addTo(map);
+
+// POINT MARKERS + LABELS
+const icons={TOXIC:'&#9762;',SUSPECT:'&#9632;',OTHER:'&#9679;'};
+const all=[
+  ...TOXIC.map(a=>[...a,'TOXIC','#f33']),
+  ...SUSPECT.map(a=>[...a,'SUSPECT','#f93']),
+  ...OTHER.map(a=>[...a,'OTHER','#48f']),
+];
+
+all.forEach(([lat,lng,label,desc,type,color])=>{
+  const sz=type==='TOXIC'?20:16;
+  L.marker([lat,lng],{
+    icon:L.divIcon({html:`<div style="color:${color};font-size:${sz}px;text-align:center;text-shadow:0 0 10px ${color}">${icons[type]}</div>`,iconSize:[sz+4,sz+4],iconAnchor:[sz/2+2,sz/2+2]})
+  }).addTo(map).bindTooltip(label,{direction:'top',offset:[0,-8],className:'parcel-label',permanent:false,opacity:0.92})
+    .bindPopup(`<div style="font-family:monospace;font-size:11px;color:#ccc"><b style="color:${color}">${label}</b><br>${desc}</div>`);
+});
+
+// === WATER FLOW / PLUME ARROWS ===
+// Groundwater in HB flows SW toward ocean. Arrows fan from HBNC outward.
+const plumeOrigin = [33.6773,-118.0013];
+const flowVectors = [
+  [0.004,-0.005],[0.006,-0.004],[0.008,-0.002],[0.005,-0.007],
+  [-0.003,-0.006],[-0.005,-0.004],[-0.007,-0.001],[0.002,-0.009],
+  [0.009,0.001],[0.010,-0.002],[-0.008,-0.003],[-0.004,-0.008]
+];
+
+flowVectors.forEach(([dy,dx])=>{
+  const end = [plumeOrigin[0]+dy*2.5, plumeOrigin[1]+dx*2.5];
+  const pts = [plumeOrigin];
+  for(let i=1;i<=4;i++) pts.push([plumeOrigin[0]+dy*i*0.6, plumeOrigin[1]+dx*i*0.6]);
+  
+  const line = L.polyline(pts,{
+    color:'#0ff',weight:0.8,opacity:0.35,dashArray:'3,6',
+  }).addTo(map).bindTooltip('Cr-VI plume vector',{direction:'center',className:'parcel-label'});
+  
+  L.polylineDecorator(line,{patterns:[{offset:12,repeat:20,symbol:L.Symbol.arrowHead({pixelSize:8,pathOptions:{color:'#0ff',weight:1,opacity:0.5}})}]}).addTo(map);
+});
+
+// Plume radius circles (100m, 300m, 500m, 1km, 2km)
+const plumeRadii = [100,300,500,1000,2000];
+const plumeColors = ['rgba(0,255,255,0.25)','rgba(0,255,255,0.15)','rgba(0,255,255,0.10)','rgba(0,255,255,0.05)','rgba(0,255,255,0.03)'];
+plumeRadii.forEach((r,i)=>{
+  L.circle(plumeOrigin,{radius:r,color:'#0ff',weight:0.5,opacity:0.3,fillColor:plumeColors[i],fillOpacity:1}).addTo(map)
+    .bindTooltip(i===0?'HBNC plume '+r+'m':null,{direction:'center'});
+});
+
+// === SINKHOLES ===
+const sinkholes = [
+  [33.6930,-117.9975,'7561 Center vaults','Underground concrete coffins / Chen / 1960s-70s excavation'],
+  [33.6778,-118.0015,'HBNC excavation','Asphalt cap failure / Cr-VI soil disturbance / Phase I ESA'],
+  [33.6755,-117.7305,'El Toro hangars','Contaminated fill burial / decommissioned MCAS / no inspection'],
+];
+
+sinkholes.forEach(([lat,lng,label,desc])=>{
+  L.circleMarker([lat,lng],{
+    radius:10,color:'#000',fillColor:'#111',fillOpacity:0.9,weight:2,
+  }).addTo(map).bindTooltip(`SINK: ${label}`,{direction:'top',className:'parcel-label',permanent:true})
+    .bindPopup(`<div style="font-family:monospace;font-size:11px;color:#ccc"><b style="color:#888">&#x25CF; SINKHOLE</b><br>${label}<br>${desc}</div>`);
+});
+
+// === FINANCIAL BLACK HOLES ===
+const blackholes = [
+  [33.6500,-117.8950,'Newport shell cluster','20341-71 Irvine Ave — CSJ Mgmt / Irvine Ave LLC / PL Jetty — $0 transfers'],
+  [33.7450,-117.8125,'Pham quitclaim nexus','2614 Orchard Dr / 7100 Cerritos #108 / 13801 Shirley #85 — all $0'],
+  [33.7530,-117.9905,'Garnet St routing','15822 Garnet St — Dylan & Andrew mailbox CMRA layer'],
+  [33.7505,-118.0955,'PCH CMRA','1077 Pacific Coast Hwy #247 — Stewart Industries mailbox'],
+];
+
+blackholes.forEach(([lat,lng,label,desc])=>{
+  L.circleMarker([lat,lng],{
+    radius:14,color:'#000',fillColor:'#000',fillOpacity:0.95,weight:1,
+  }).addTo(map).bindTooltip('$ '+label,{direction:'bottom',className:'parcel-label',permanent:true})
+    .bindPopup(`<div style="font-family:monospace;font-size:11px;color:#ccc"><b style="color:#f0f">&#x25C9; BLACK HOLE</b><br>${label}<br>${desc}</div>`);
+  
+  L.circle([lat,lng],{radius:200,color:'#000',weight:0.3,opacity:0.4,fillColor:'#000',fillOpacity:0.05}).addTo(map);
+});
+
+// === FINANCIAL VEINS (LLC connections) ===
+const veins = [
+  [[33.7530,-118.0720],[33.7505,-118.0955],'Stewart Ind. &#8594; PCH CMRA'],
+  [[33.7530,-117.9905],[33.6927,-117.9974],'Garnet Drop &#8594; 7561 Center'],
+  [[33.8080,-118.0020],[33.7740,-117.9870],'CP Premier 1 &#8594; CP Premier 2'],
+  [[33.7740,-117.9870],[33.7450,-117.8125],'CP Premier &#8594; Pham Residence'],
+  [[33.6927,-117.9974],[33.6775,-118.0012],'7561 Center &#8594; HBNC'],
+  [[33.6775,-118.0012],[33.6755,-117.7305],'HBNC &#8594; El Toro'],
+];
+
+veins.forEach(([a,b,label])=>{
+  L.polyline([a,b],{
+    color:'#f0f',weight:1,opacity:0.35,dashArray:'4,8',
+  }).addTo(map).bindTooltip(label,{className:'parcel-label'});
+});
+
+// reopen hint
+L.marker([33.715,-117.99],{
+  icon:L.divIcon({html:'<div style="color:#0f0;font-size:10px;background:rgba(0,0,0,0.7);padding:2px 6px;border-radius:10px">&#9664; panel closed? drag here to reopen</div>',iconSize:[160,16],iconAnchor:[150,8]}),
+  interactive:false
+}).addTo(map);
+
+// Legend update
+const legendEl = document.getElementById('grid-legend');
+if(legendEl){
+  legendEl.innerHTML = '<span class="r">&#9632; toxic</span><span class="a">&#9632; suspect</span><span style="color:#0ff">&#9655; plume/water</span><span style="color:#888">&#x25CF; sinkhole</span><span style="color:#f0f">&#x25C9; $ hole</span>';
+}
+
+addMsg('ai','Grid + plume + sinkholes + $ holes + veins active. Live BigQuery data merged.<br>Run <code>python live_gis_to_json.py</code> to refresh from BQ.');
+</script>
+</body>
+</html>

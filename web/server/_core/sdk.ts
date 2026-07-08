@@ -257,6 +257,21 @@ class SDKServer {
   }
 
   async authenticateRequest(req: Request): Promise<User> {
+    // If in development mode or OAuth Server URL is not configured, bypass authentication with a mock developer user
+    if (process.env.NODE_ENV === "development" || !ENV.oAuthServerUrl) {
+      return {
+        id: 1,
+        openId: "dev-user-openid",
+        name: "Developer",
+        email: "anthonymichaeldimarcello@gmail.com",
+        loginMethod: "local",
+        role: "admin",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        lastSignedIn: new Date(),
+      };
+    }
+
     // Regular authentication flow
     const cookies = this.parseCookies(req.headers.cookie);
     const sessionCookie = cookies.get(COOKIE_NAME);

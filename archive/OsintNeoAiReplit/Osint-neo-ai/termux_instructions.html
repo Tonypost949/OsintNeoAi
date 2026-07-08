@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSINT AI Neo — Termux Setup</title>
+<style>
+  body { background: #0a0e1a; color: #c8d8f0; font-family: 'Courier New', monospace; padding: 20px; max-width: 800px; margin: auto; }
+  h1 { color: #00d4ff; letter-spacing: 0.2em; font-size: 1.4rem; margin-bottom: 0.2em; }
+  h2 { color: #00d4ff; font-size: 1rem; margin-top: 1.8em; border-left: 3px solid #00d4ff; padding-left: 10px; }
+  .sub { color: #5a7090; font-size: 0.8rem; letter-spacing: 0.15em; margin-bottom: 2em; }
+  .step { background: #0f1628; border: 1px solid #1e2d50; border-radius: 6px; padding: 16px 20px; margin-bottom: 16px; }
+  .step-num { color: #7b2fff; font-weight: bold; font-size: 0.75rem; letter-spacing: 0.15em; margin-bottom: 8px; }
+  .step-title { color: #e8f4ff; font-weight: bold; font-size: 0.95rem; margin-bottom: 10px; }
+  pre { background: #050810; border: 1px solid #1e2d50; border-radius: 4px; padding: 12px; margin: 8px 0; overflow-x: auto; font-size: 0.85rem; line-height: 1.6; position: relative; }
+  code { color: #00ff88; }
+  .copy-btn { position: absolute; top: 8px; right: 8px; background: #1e2d50; border: 1px solid #00d4ff; color: #00d4ff; font-family: 'Courier New', monospace; font-size: 0.7rem; padding: 3px 10px; border-radius: 3px; cursor: pointer; }
+  .copy-btn:hover { background: rgba(0,212,255,0.15); }
+  .copy-btn.copied { color: #00ff88; border-color: #00ff88; }
+  .note { background: rgba(123,47,255,0.1); border: 1px solid rgba(123,47,255,0.3); border-radius: 4px; padding: 10px 14px; font-size: 0.82rem; color: #c8d8f0; margin-top: 10px; }
+  .green { color: #00ff88; }
+  .yellow { color: #ffd700; }
+  .menu { background: #050810; border: 1px solid #1e2d50; border-radius: 4px; padding: 12px; margin: 8px 0; font-size: 0.85rem; line-height: 1.9; }
+  .menu span { color: #7b2fff; }
+  .output-path { color: #ffd700; }
+  a { color: #00d4ff; }
+  .status { display: inline-block; width: 8px; height: 8px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 6px #00ff88; margin-right: 6px; }
+</style>
+</head>
+<body>
+
+<h1>🛡️ OSINT AI NEO</h1>
+<div class="sub">ANDROID PHONE SCANNER — TERMUX SETUP GUIDE</div>
+
+<div class="step">
+  <div class="step-num">STEP 1 OF 4</div>
+  <div class="step-title">Install Termux on your Android phone</div>
+  <p style="font-size:0.85rem;color:#5a7090;margin-bottom:10px;">Download from F-Droid (not Play Store — the F-Droid version has full storage access):</p>
+  <pre><code>https://f-droid.org/packages/com.termux/</code></pre>
+  <div class="note">⚠️ Do not use the Play Store version — it has restricted storage access and the scanner will not work.</div>
+</div>
+
+<div class="step">
+  <div class="step-num">STEP 2 OF 4</div>
+  <div class="step-title">Run setup in Termux (one time only)</div>
+  <p style="font-size:0.85rem;color:#5a7090;margin-bottom:8px;">Open Termux and paste this entire block:</p>
+  <pre id="setup-cmd"><code>pkg update -y && pkg install -y python python-pip && pip install openpyxl Pillow mutagen && termux-setup-storage</code>
+<button class="copy-btn" onclick="copyBlock('setup-cmd', this)">COPY</button></pre>
+  <div class="note">When asked "Allow Termux to access files?" — tap <strong style="color:#00ff88">Allow</strong>.</div>
+</div>
+
+<div class="step">
+  <div class="step-num">STEP 3 OF 4</div>
+  <div class="step-title">Download the scanner to your phone</div>
+  <p style="font-size:0.85rem;color:#5a7090;margin-bottom:8px;">In Termux, run:</p>
+  <pre id="download-cmd"><code>curl -o ~/phone_scanner.py https://REPLACE_WITH_YOUR_REPLIT_URL/phone_scanner.py</code>
+<button class="copy-btn" onclick="copyBlock('download-cmd', this)">COPY</button></pre>
+  <div class="note">Or manually copy <strong>phone_scanner.py</strong> from this project into your Downloads folder, then in Termux run:<br><br>
+  <code style="color:#00ff88">cp ~/storage/downloads/phone_scanner.py ~/phone_scanner.py</code></div>
+</div>
+
+<div class="step">
+  <div class="step-num">STEP 4 OF 4</div>
+  <div class="step-title">Run the scanner</div>
+  <pre id="run-cmd"><code>python ~/phone_scanner.py</code>
+<button class="copy-btn" onclick="copyBlock('run-cmd', this)">COPY</button></pre>
+
+  <p style="font-size:0.82rem;color:#5a7090;margin:10px 0 6px;">You will see this menu:</p>
+  <div class="menu">
+    <span>1.</span> Documents<br>
+    <span>2.</span> DCIM (Camera Photos)<br>
+    <span>3.</span> Downloads<br>
+    <span>4.</span> WhatsApp<br>
+    <span>5.</span> Contacts (VCF)<br>
+    <span>6.</span> All phone storage<br>
+    <span>7.</span> Custom path
+  </div>
+
+  <p style="font-size:0.82rem;color:#5a7090;margin:12px 0 4px;">Pick a number, set max files, and it scans. Results saved to:</p>
+  <pre><code class="output-path">/storage/emulated/0/OSINT_Neo/OSINT_Master.xlsx</code></pre>
+</div>
+
+<div class="step">
+  <div class="step-num">HOW THE MASTER LIST GROWS</div>
+  <div class="step-title">Run it as many times as you want</div>
+  <p style="font-size:0.85rem;line-height:1.8;color:#c8d8f0;">
+    Every scan adds <strong style="color:#00ff88">only new files</strong> to the master.<br>
+    Files already scanned are <strong style="color:#ffd700">automatically skipped</strong> — no duplicates.<br>
+    The master Excel file has 4 sheets:
+  </p>
+  <div class="menu">
+    <span>📊</span> Summary &nbsp;&nbsp;&nbsp;— Total counts and scan history log<br>
+    <span>📁</span> All Files &nbsp;&nbsp;— Every file ever scanned with metadata<br>
+    <span>📍</span> GPS Data &nbsp;&nbsp;— Only files with embedded GPS coordinates<br>
+    <span>👤</span> Contacts &nbsp;&nbsp;— VCF contact files (name, phone, email)
+  </div>
+</div>
+
+<script>
+function copyBlock(id, btn) {
+  const pre = document.getElementById(id);
+  const code = pre.querySelector('code');
+  navigator.clipboard.writeText(code.innerText.trim()).then(() => {
+    btn.textContent = 'COPIED ✓';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'COPY'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>

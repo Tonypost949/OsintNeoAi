@@ -47,3 +47,20 @@ __pycache__
 results/*.csv
 results/*.jsonl
 *.sqlite3
+
+# Ignore large files in opencode_work
+opencode_work/**/*.csv
+opencode_work/**/*.pdf
+opencode_work/**/*.zip
+opencode_work/bq_exports/
+opencode_work/national_audits_drive_file_index.csv
+opencode_work/Private_EDR_2025_Real/
+opencode_work/Official_GeoTracker_T10000018579/
+
+# Ignore credentials and temp files in opencode_work
+opencode_work/temp/
+opencode_work/OSINT_VAULT_BACKUP/
+opencode_work/**/google_creds.json
+**/token.json.stale
+**/*creds*.json
+**/client_secret*.json

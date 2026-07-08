@@ -18,7 +18,7 @@ GATEWAYS = [
 ]
 
 # Add the main email address as well
-GATEWAYS.append("txtdjdrop@gmail.com")
+GATEWAYS.append("anthonymichaeldimarcello@gmail.com")
 
 def notify_user():
     if not os.path.exists(TOKEN_FILE):
@@ -49,7 +49,7 @@ def notify_user():
         message = EmailMessage()
         message.set_content(body)
         message['To'] = recipient
-        message['From'] = 'txtdjdrop@gmail.com'
+        message['From'] = 'anthonymichaeldimarcello@gmail.com'
         message['Subject'] = 'OSINT Zeus: Vault Command'
 
         try:

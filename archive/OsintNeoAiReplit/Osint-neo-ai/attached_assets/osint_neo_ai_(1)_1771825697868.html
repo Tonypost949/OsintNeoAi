@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSINT Neo AI — Investigative Intelligence Platform</title>
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --panel: #0f1628;
+    --panel2: #141d35;
+    --border: #1e2d50;
+    --accent: #00d4ff;
+    --accent2: #7b2fff;
+    --green: #00ff88;
+    --yellow: #ffd700;
+    --red: #ff4444;
+    --orange: #ff8c00;
+    --text: #c8d8f0;
+    --text-dim: #5a7090;
+    --text-bright: #e8f4ff;
+    --font: 'Courier New', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 13px;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── BOOT SCREEN ── */
+  #boot-screen {
+    position: fixed; inset: 0;
+    background: #000;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.8s;
+  }
+  #boot-screen.hidden { opacity: 0; pointer-events: none; }
+  .boot-logo {
+    font-size: 2.8rem; font-weight: bold; letter-spacing: 0.3em;
+    color: var(--accent);
+    text-shadow: 0 0 30px var(--accent), 0 0 60px var(--accent2);
+    margin-bottom: 0.3em;
+  }
+  .boot-sub { color: var(--text-dim); letter-spacing: 0.2em; font-size: 0.85rem; margin-bottom: 2.5em; }
+  .boot-bar-wrap { width: 320px; height: 4px; background: #111; border-radius: 2px; overflow: hidden; }
+  .boot-bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--accent2), var(--accent)); border-radius: 2px; transition: width 0.05s; }
+  .boot-status { margin-top: 1em; color: var(--text-dim); font-size: 0.75rem; letter-spacing: 0.1em; min-height: 1.2em; }
+
+  /* ── LAYOUT ── */
+  #app { display: none; flex-direction: column; height: 100vh; }
+  #app.visible { display: flex; }
+
+  /* TOP BAR */
+  .topbar {
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    padding: 0.6em 1.2em;
+    display: flex; align-items: center; gap: 1em;
+    flex-shrink: 0;
+  }
+  .topbar-logo { color: var(--accent); font-size: 1.1rem; font-weight: bold; letter-spacing: 0.15em; }
+  .topbar-logo span { color: var(--accent2); }
+  .topbar-case { color: var(--text-dim); font-size: 0.75rem; margin-left: auto; }
+  .topbar-status { display: flex; align-items: center; gap: 0.4em; font-size: 0.75rem; }
+  .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 6px var(--green); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  /* MAIN AREA */
+  .main-area {
+    display: flex; flex: 1; overflow: hidden;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    width: 220px; background: var(--panel); border-right: 1px solid var(--border);
+    display: flex; flex-direction: column; flex-shrink: 0; overflow-y: auto;
+  }
+  .sidebar-section { padding: 0.8em 1em 0.4em; color: var(--text-dim); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; }
+  .sidebar-item {
+    padding: 0.55em 1em 0.55em 1.4em;
+    cursor: pointer; color: var(--text); font-size: 0.8rem;
+    border-left: 3px solid transparent;
+    transition: all 0.15s;
+    display: flex; align-items: center; gap: 0.6em;
+  }
+  .sidebar-item:hover { background: var(--panel2); color: var(--accent); }
+  .sidebar-item.active { border-left-color: var(--accent); background: var(--panel2); color: var(--accent); }
+  .sidebar-item .icon { font-size: 0.9rem; width: 1.2em; text-align: center; }
+  .sidebar-badge { margin-left: auto; background: var(--accent2); color: #fff; font-size: 0.65rem; padding: 0.1em 0.4em; border-radius: 10px; }
+
+  /* CONTENT AREA */
+  .content { flex: 1; overflow-y: auto; padding: 1.5em; }
+
+  /* SCREEN PANELS */
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  /* CARDS */
+  .card {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 6px; padding: 1.2em; margin-bottom: 1em;
+  }
+  .card-title {
+    color: var(--accent); font-size: 0.85rem; font-weight: bold;
+    letter-spacing: 0.1em; margin-bottom: 0.8em;
+    display: flex; align-items: center; gap: 0.5em;
+  }
+  .card-title .badge {
+    font-size: 0.65rem; padding: 0.15em 0.5em; border-radius: 3px;
+    background: var(--accent2); color: #fff; letter-spacing: 0.05em;
+  }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1em; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1em; }
+
+  /* STAT BOXES */
+  .stat-box {
+    background: var(--panel2); border: 1px solid var(--border);
+    border-radius: 5px; padding: 1em; text-align: center;
+  }
+  .stat-num { font-size: 1.8rem; font-weight: bold; color: var(--accent); }
+  .stat-label { font-size: 0.7rem; color: var(--text-dim); margin-top: 0.3em; letter-spacing: 0.08em; }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.4em;
+    padding: 0.5em 1.1em; border-radius: 4px; cursor: pointer;
+    font-family: var(--font); font-size: 0.78rem; font-weight: bold;
+    letter-spacing: 0.05em; border: none; transition: all 0.15s;
+  }
+  .btn-primary { background: var(--accent); color: #000; }
+  .btn-primary:hover { background: #00b8e0; box-shadow: 0 0 12px var(--accent); }
+  .btn-secondary { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
+  .btn-secondary:hover { background: rgba(0,212,255,0.1); }
+  .btn-danger { background: transparent; border: 1px solid var(--red); color: var(--red); }
+  .btn-danger:hover { background: rgba(255,68,68,0.1); }
+  .btn-purple { background: var(--accent2); color: #fff; }
+  .btn-purple:hover { background: #6a1fe0; box-shadow: 0 0 12px var(--accent2); }
+  .btn-green { background: transparent; border: 1px solid var(--green); color: var(--green); }
+  .btn-green:hover { background: rgba(0,255,136,0.1); }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 0.6em; margin-top: 1em; }
+
+  /* TAGS */
+  .tag {
+    display: inline-block; padding: 0.2em 0.6em; border-radius: 3px;
+    font-size: 0.7rem; font-weight: bold; letter-spacing: 0.05em;
+  }
+  .tag-red { background: rgba(255,68,68,0.15); color: var(--red); border: 1px solid rgba(255,68,68,0.3); }
+  .tag-yellow { background: rgba(255,215,0,0.15); color: var(--yellow); border: 1px solid rgba(255,215,0,0.3); }
+  .tag-green { background: rgba(0,255,136,0.15); color: var(--green); border: 1px solid rgba(0,255,136,0.3); }
+  .tag-blue { background: rgba(0,212,255,0.15); color: var(--accent); border: 1px solid rgba(0,212,255,0.3); }
+  .tag-purple { background: rgba(123,47,255,0.15); color: var(--accent2); border: 1px solid rgba(123,47,255,0.3); }
+  .tag-orange { background: rgba(255,140,0,0.15); color: var(--orange); border: 1px solid rgba(255,140,0,0.3); }
+
+  /* TABLE */
+  .data-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+  .data-table th { background: var(--panel2); color: var(--text-dim); padding: 0.5em 0.8em; text-align: left; font-size: 0.7rem; letter-spacing: 0.1em; border-bottom: 1px solid var(--border); }
+  .data-table td { padding: 0.5em 0.8em; border-bottom: 1px solid rgba(30,45,80,0.5); }
+  .data-table tr:hover td { background: rgba(0,212,255,0.04); }
+
+  /* PROGRESS BAR */
+  .progress-wrap { background: var(--panel2); border-radius: 3px; height: 6px; overflow: hidden; margin-top: 0.4em; }
+  .progress-fill { height: 100%; border-radius: 3px; transition: width 1s ease; }
+
+  /* TIMELINE */
+  .timeline-item {
+    display: flex; gap: 1em; padding: 0.7em 0;
+    border-bottom: 1px solid rgba(30,45,80,0.4);
+  }
+  .timeline-dot {
+    width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+    margin-top: 0.3em; box-shadow: 0 0 6px currentColor;
+  }
+  .timeline-content { flex: 1; }
+  .timeline-date { font-size: 0.7rem; color: var(--text-dim); }
+  .timeline-title { font-size: 0.82rem; color: var(--text-bright); margin: 0.1em 0; }
+  .timeline-detail { font-size: 0.75rem; color: var(--text-dim); }
+
+  /* CORRELATION LINK */
+  .corr-link {
+    background: var(--panel2); border: 1px solid var(--border);
+    border-radius: 5px; padding: 0.8em 1em; margin-bottom: 0.6em;
+    display: flex; align-items: flex-start; gap: 0.8em;
+  }
+  .corr-arrow { color: var(--accent2); font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1em; }
+  .corr-body { flex: 1; }
+  .corr-title { font-size: 0.82rem; color: var(--text-bright); font-weight: bold; }
+  .corr-desc { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.2em; }
+  .corr-flag { font-size: 0.7rem; margin-top: 0.3em; }
+
+  /* ACTOR NODE */
+  .actor-grid { display: flex; flex-wrap: wrap; gap: 0.8em; }
+  .actor-node {
+    background: var(--panel2); border: 1px solid var(--border);
+    border-radius: 6px; padding: 0.8em; width: 180px; cursor: pointer;
+    transition: all 0.15s;
+  }
+  .actor-node:hover { border-color: var(--accent); box-shadow: 0 0 10px rgba(0,212,255,0.2); }
+  .actor-node.flagged { border-color: var(--red); }
+  .actor-name { font-size: 0.82rem; color: var(--text-bright); font-weight: bold; }
+  .actor-role { font-size: 0.7rem; color: var(--text-dim); margin-top: 0.2em; }
+  .actor-links { font-size: 0.7rem; color: var(--accent); margin-top: 0.4em; }
+
+  /* UPLOAD ZONE */
+  .upload-zone {
+    border: 2px dashed var(--border); border-radius: 6px;
+    padding: 2em; text-align: center; cursor: pointer;
+    transition: all 0.15s; color: var(--text-dim);
+  }
+  .upload-zone:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,212,255,0.03); }
+  .upload-zone .upload-icon { font-size: 2rem; margin-bottom: 0.5em; }
+
+  /* SEARCH BAR */
+  .search-bar {
+    display: flex; gap: 0.6em; margin-bottom: 1em;
+  }
+  .search-input {
+    flex: 1; background: var(--panel2); border: 1px solid var(--border);
+    border-radius: 4px; padding: 0.55em 0.9em; color: var(--text-bright);
+    font-family: var(--font); font-size: 0.82rem; outline: none;
+  }
+  .search-input:focus { border-color: var(--accent); }
+  .search-input::placeholder { color: var(--text-dim); }
+
+  /* TERMINAL BLOCK */
+  .terminal {
+    background: #050810; border: 1px solid var(--border);
+    border-radius: 5px; padding: 1em; font-size: 0.78rem;
+    line-height: 1.7; max-height: 300px; overflow-y: auto;
+  }
+  .t-green { color: var(--green); }
+  .t-blue { color: var(--accent); }
+  .t-yellow { color: var(--yellow); }
+  .t-red { color: var(--red); }
+  .t-dim { color: var(--text-dim); }
+  .t-white { color: #fff; }
+
+  /* PAGE TITLE */
+  .page-title {
+    font-size: 1.1rem; color: var(--text-bright); font-weight: bold;
+    letter-spacing: 0.1em; margin-bottom: 0.3em;
+    display: flex; align-items: center; gap: 0.6em;
+  }
+  .page-subtitle { color: var(--text-dim); font-size: 0.78rem; margin-bottom: 1.5em; }
+
+  /* MODAL */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.75);
+    display: none; align-items: center; justify-content: center; z-index: 1000;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 8px; padding: 1.5em; max-width: 600px; width: 90%;
+    max-height: 80vh; overflow-y: auto;
+  }
+  .modal-title { color: var(--accent); font-size: 1rem; font-weight: bold; margin-bottom: 1em; }
+  .modal-close { float: right; cursor: pointer; color: var(--text-dim); font-size: 1.2rem; }
+  .modal-close:hover { color: var(--red); }
+
+  /* NOTIFICATION */
+  #notification {
+    position: fixed; top: 1em; right: 1em; z-index: 2000;
+    background: var(--panel); border: 1px solid var(--green);
+    border-radius: 5px; padding: 0.7em 1.2em;
+    color: var(--green); font-size: 0.8rem;
+    transform: translateX(120%); transition: transform 0.3s;
+    max-width: 300px;
+  }
+  #notification.show { transform: translateX(0); }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: var(--panel); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent2); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .sidebar { width: 180px; }
+    .grid-4 { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .sidebar { display: none; }
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  }
+
+  /* REPORT VIEWER */
+  .report-section { margin-bottom: 1.5em; }
+  .report-h1 { color: var(--accent); font-size: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4em; margin-bottom: 0.8em; letter-spacing: 0.08em; }
+  .report-h2 { color: var(--yellow); font-size: 0.85rem; margin-bottom: 0.5em; margin-top: 0.8em; }
+  .report-p { color: var(--text); font-size: 0.8rem; line-height: 1.7; margin-bottom: 0.5em; }
+
+  /* IDENTITY CARD */
+  .id-card {
+    background: var(--panel2); border: 1px solid var(--border);
+    border-radius: 6px; padding: 1em; margin-bottom: 0.6em;
+  }
+  .id-field { display: flex; gap: 0.5em; margin-bottom: 0.3em; font-size: 0.78rem; }
+  .id-key { color: var(--text-dim); min-width: 130px; }
+  .id-val { color: var(--text-bright); }
+  .id-conflict { color: var(--red); }
+
+  /* FUNDING CHART */
+  .fund-bar { display: flex; align-items: center; gap: 0.8em; margin-bottom: 0.6em; }
+  .fund-label { color: var(--text-dim); font-size: 0.75rem; min-width: 180px; }
+  .fund-track { flex: 1; background: var(--panel2); border-radius: 3px; height: 18px; overflow: hidden; position: relative; }
+  .fund-fill { height: 100%; border-radius: 3px; display: flex; align-items: center; padding-left: 0.5em; font-size: 0.7rem; font-weight: bold; transition: width 1.2s ease; }
+  .fund-pct { color: var(--text-dim); font-size: 0.75rem; min-width: 40px; text-align: right; }
+
+  /* ANIMATE IN */
+  .fade-in { animation: fadeIn 0.4s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<!-- BOOT SCREEN -->
+<div id="boot-screen">
+  <div class="boot-logo">OSINT NEO AI</div>
+  <div class="boot-sub">INVESTIGATIVE INTELLIGENCE PLATFORM v1.0</div>
+  <div class="boot-bar-wrap"><div class="boot-bar" id="boot-bar"></div></div>
+  <div class="boot-status" id="boot-status">Initializing...</div>
+</div>
+
+<!-- NOTIFICATION -->
+<div id="notification"></div>
+
+<!-- MAIN APP -->
+<div id="app">
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-logo">OSINT <span>NEO</span> AI</div>
+    <div class="topbar-status">
+      <div class="status-dot"></div>
+      <span>SYSTEM ONLINE</span>
+    </div>
+    <div class="topbar-case">CASE: OC-INVESTIGATION-DOSSIER &nbsp;|&nbsp; ANALYST: ANTHONY DIMARCELLO</div>
+  </div>
+
+  <div class="main-area">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="sidebar-section">Navigation</div>
+      <div class="sidebar-item active" onclick="showScreen('dashboard')" id="nav-dashboard">
+        <span class="icon">⬡</span> Dashboard
+      </div>
+      <div class="sidebar-item" onclick="showScreen('ingest')" id="nav-ingest">
+        <span class="icon">⬆</span> Document Ingest
+        <span class="sidebar-badge">8</span>
+      </div>
+      <div class="sidebar-item" onclick="showScreen('case')" id="nav-case">
+        <span class="icon">◈</span> Case Workspace
+      </div>
+
+      <div class="sidebar-section">Analysis Modes</div>
+      <div class="sidebar-item" onclick="showScreen('court')" id="nav-court">
+        <span class="icon">⚖</span> Court Records (A)
+      </div>
+      <div class="sidebar-item" onclick="showScreen('comms')" id="nav-comms">
+        <span class="icon">✉</span> Communications (B)
+      </div>
+      <div class="sidebar-item" onclick="showScreen('funding')" id="nav-funding">
+        <span class="icon">$</span> Funding Analysis (C)
+      </div>
+      <div class="sidebar-item" onclick="showScreen('identity')" id="nav-identity">
+        <span class="icon">◉</span> Identity Matrix (D)
+      </div>
+      <div class="sidebar-item" onclick="showScreen('timeline')" id="nav-timeline">
+        <span class="icon">⏱</span> Timeline (E)
+      </div>
+      <div class="sidebar-item" onclick="showScreen('actors')" id="nav-actors">
+        <span class="icon">◎</span> Actor Map (F)
+      </div>
+      <div class="sidebar-item" onclick="showScreen('crossref')" id="nav-crossref">
+        <span class="icon">⊕</span> Cross-Reference (G)
+        <span class="sidebar-badge">342</span>
+      </div>
+
+      <div class="sidebar-section">Output</div>
+      <div class="sidebar-item" onclick="showScreen('report')" id="nav-report">
+        <span class="icon">▤</span> Generate Report
+      </div>
+      <div class="sidebar-item" onclick="showScreen('media')" id="nav-media">
+        <span class="icon">▶</span> Media Deck
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- SCREEN: DASHBOARD -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <div class="screen active fade-in" id="screen-dashboard">
+        <div class="page-title">⬡ CASE DASHBOARD</div>
+        <div class="page-subtitle">OC Investigation Dossier — Integrated Intelligence Overview</div>
+
+        <div class="grid-4" style="margin-bottom:1em;">
+          <div class="stat-box">
+            <div class="stat-num" style="color:var(--accent)">8</div>
+            <div class="stat-label">Documents Ingested</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" style="color:var(--red)">342</div>
+            <div class="stat-label">Cross-Links Found</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" style="color:var(--yellow)">5</div>
+            <div class="stat-label">Correlation Themes</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" style="color:var(--green)">87%</div>
+            <div class="stat-label">Analysis Complete</div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title">⚠ ACTIVE FLAGS <span class="badge">HIGH PRIORITY</span></div>
+            <div class="corr-link">
+              <div class="corr-arrow">▶</div>
+              <div class="corr-body">
+                <div class="corr-title">Procedural Overload Pattern</div>
+                <div class="corr-desc">Court system ↔ Homelessness system correlation detected</div>
+                <div class="corr-flag"><span class="tag tag-red">CRITICAL</span></div>
+              </div>
+            </div>
+            <div class="corr-link">
+              <div class="corr-arrow">▶</div>
+              <div class="corr-body">
+                <div class="corr-title">Control-Vector Correlation</div>
+                <div class="corr-desc">Navigation Center ↔ Court Activity overlap within 24–48 hrs</div>
+                <div class="corr-flag"><span class="tag tag-red">CRITICAL</span></div>
+              </div>
+            </div>
+            <div class="corr-link">
+              <div class="corr-arrow">▶</div>
+              <div class="corr-body">
+                <div class="corr-title">Identity Fragmentation</div>
+                <div class="corr-desc">7+ name variants, conflicting demographics across records</div>
+                <div class="corr-flag"><span class="tag tag-yellow">HIGH</span></div>
+              </div>
+            </div>
+            <div class="corr-link">
+              <div class="corr-arrow">▶</div>
+              <div class="corr-body">
+                <div class="corr-title">Resource Starvation Correlation</div>
+                <div class="corr-desc">Funding cycles align with displacement events</div>
+                <div class="corr-flag"><span class="tag tag-yellow">HIGH</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">◈ SYSTEM STATUS</div>
+            <div style="margin-bottom:0.8em;">
+              <div style="display:flex;justify-content:space-between;font-size:0.75rem;margin-bottom:0.3em;">
+                <span>Court Records Analysis</span><span style="color:var(--green)">COMPLETE</span>
+              </div>
+              <div class="progress-wrap"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+            </div>
+            <div style="margin-bottom:0.8em;">
+              <div style="display:flex;justify-content:space-between;font-size:0.75rem;margin-bottom:0.3em;">
+                <span>Communications Timeline</span><span style="color:var(--green)">COMPLETE</span>
+              </div>
+              <div class="progress-wrap"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+            </div>
+            <div style="margin-bottom:0.8em;">
+              <div style="display:flex;justify-content:space-between;font-size:0.75rem;margin-bottom:0.3em;">
+                <span>Funding Pattern Analysis</span><span style="color:var(--green)">COMPLETE</span>
+              </div>
+              <div class="progress-wrap"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+            </div>
+            <div style="margin-bottom:0.8em;">
+              <div style="display:flex;justify-content:space-between;font-size:0.75rem;margin-bottom:0.3em;">
+                <span>Cross-Reference Engine</span><span style="color:var(--green)">COMPLETE</span>
+              </div>
+              <div class="progress-wrap"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+            </div>
+            <div style="margin-bottom:0.8em;">
+              <div style="display:flex;justify-content:space-between;font-size:0.75rem;margin-bottom:0.3em;">
+                <span>Actor Network Mapping</span><span style="color:var(--yellow)">IN PROGRESS</span>
+              </div>
+              <div class="progress-wrap"><div class="progress-fill" style="width:72%;background:var(--yellow)"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:0.75rem;margin-bottom:0.3em;">
+                <span>Final Report Generation</span><span style="color:var(--text-dim)">PENDING</span>
+              </div>
+              <div class="progress-wrap"><div class="progress-fill" style="width:20%;background:var(--accent2)"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">⬡ QUICK ACCESS — ANALYSIS MODES</div>
+          <div class="grid-4">
+            <button class="btn btn-secondary" onclick="showScreen('court')">⚖ Court Records (A)</button>
+            <button class="btn btn-secondary" onclick="showScreen('comms')">✉ Communications (B)</button>
+            <button class="btn btn-secondary" onclick="showScreen('funding')">$ Funding (C)</button>
+            <button class="btn btn-secondary" onclick="showScreen('identity')">◉ Identity Matrix (D)</button>
+            <button class="btn btn-secondary" onclick="showScreen('timeline')">⏱ Timeline (E)</button>
+            <button class="btn btn-secondary" onclick="showScreen('actors')">◎ Actor Map (F)</button>
+            <button class="btn btn-purple" onclick="showScreen('crossref')">⊕ Cross-Reference (G)</button>
+            <button class="btn btn-primary" onclick="showScreen('report')">▤ Generate Report</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- SCREEN: DOCUMENT INGEST -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <div class="screen fade-in" id="screen-ingest">
+        <div class="page-title">⬆ DOCUMENT INGEST</div>
+        <div class="page-subtitle">Upload and index source documents for analysis</div>
+
+        <div class="card">
+          <div class="card-title">UPLOAD DOCUMENTS</div>
+          <div class="upload-zone" onclick="notify('File upload ready — drag & drop or click to select files')">
+            <div class="upload-icon">⬆</div>
+            <div>Drop files here or click to upload</div>
+            <div style="font-size:0.7rem;margin-top:0.4em;color:var(--text-dim)">Supported: PDF, DOCX, TXT, CSV, JPG, PNG</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">INGESTED DOCUMENTS <span class="badge">8 INDEXED</span></div>
+          <table class="data-table">
+            <thead>
+              <tr><th>DOCUMENT</th><th>TYPE</th><th>STATUS</th><th>ENTITIES</th><th>FLAGS</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="color:var(--text-bright)">OC Corruption Dossier</td>
+                <td><span class="tag tag-purple">DOSSIER</span></td>
+                <td><span class="tag tag-green">INDEXED</span></td>
+                <td>47</td>
+                <td><span class="tag tag-red">12 HIGH</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--text-bright)">Court Case Records</td>
+                <td><span class="tag tag-blue">LEGAL</span></td>
+                <td><span class="tag tag-green">INDEXED</span></td>
+                <td>83</td>
+                <td><span class="tag tag-red">8 HIGH</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--text-bright)">Warrant Documents</td>
+                <td><span class="tag tag-blue">LEGAL</span></td>
+                <td><span class="tag tag-green">INDEXED</span></td>
+                <td>31</td>
+                <td><span class="tag tag-yellow">5 MED</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--text-bright)">SMS/Email Communications</td>
+                <td><span class="tag tag-orange">COMMS</span></td>
+                <td><span class="tag tag-green">INDEXED</span></td>
+                <td>62</td>
+                <td><span class="tag tag-red">9 HIGH</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--text-bright)">HMIS / Navigation Center Data</td>
+                <td><span class="tag tag-orange">ADMIN</span></td>
+                <td><span class="tag tag-green">INDEXED</span></td>
+                <td>28</td>
+                <td><span class="tag tag-yellow">6 MED</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--text-bright)">HHAP Funding Records</td>
+                <td><span class="tag tag-orange">FINANCIAL</span></td>
+                <td><span class="tag tag-green">INDEXED</span></td>
+                <td>19</td>
+                <td><span class="tag tag-yellow">4 MED</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--text-bright)">Historical Annexation Analysis</td>
+                <td><span class="tag tag-purple">HISTORICAL</span></td>
+                <td><span class="tag tag-green">INDEXED</span></td>
+                <td>34</td>
+                <td><span class="tag tag-yellow">3 MED</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--text-bright)">PIT Count Suppression Data</td>
+                <td><span class="tag tag-orange">STATISTICAL</span></td>
+                <td><span class="tag tag-green">INDEXED</span></td>
+                <td>11</td>
+                <td><span class="tag tag-red">7 HIGH</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="showScreen('case')">▶ Open Case Workspace</button>
+          <button class="btn btn-secondary" onclick="notify('Re-indexing all documents...')">↺ Re-Index All</button>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- SCREEN: CASE WORKSPACE -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <div class="screen fade-in" id="screen-case">
+        <div class="page-title">◈ CASE WORKSPACE</div>
+        <div class="page-subtitle">Central investigation hub — select an analysis mode to proceed</div>
+
+        <div class="card">
+          <div class="card-title">CASE SUMMARY</div>
+          <div class="terminal">
+            <div class="t-green">CASE ID: OC-INVESTIGATION-DOSSIER</div>
+            <div class="t-dim">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+            <div class="t-blue">SUBJECT: Anthony DiMarcello</div>
+            <div class="t-white">SCOPE: Orange County, CA — Systemic Corruption Investigation</div>
+            <div class="t-white">DOCUMENTS: 8 indexed | ENTITIES: 315 extracted | FLAGS: 54 active</div>
+            <div class="t-dim">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+            <div class="t-yellow">INVESTIGATION THEMES:</div>
+            <div class="t-white">  ✓ Court system irregularities and procedural manipulation</div>
+            <div class="t-white">  ✓ Navigation Center intake suppression and control vectors</div>
+            <div class="t-white">  ✓ HHAP/HMIS funding diversion (62% to Navigation Centers vs 1% RRH)</div>
+            <div class="t-white">  ✓ Identity fragmentation across administrative systems</div>
+            <div class="t-white">  ✓ Historical annexation → modern displacement pipeline</div>
+            <div class="t-dim">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+            <div class="t-green">STATUS: CROSS-REFERENCE COMPLETE — 342 LINKS IDENTIFIED</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">SELECT ANALYSIS MODE</div>
+          <div class="grid-3" style="gap:0.8em;">
+            <div class="actor-node" onclick="showScreen('court')">
+              <div class="actor-name">⚖ MODE A</div>
+              <div class="actor-role">Court Records Analysis</div>
+              <div class="actor-links">83 entities · 8 high flags</div>
+            </div>
+            <div class="actor-node" onclick="showScreen('comms')">
+              <div class="actor-name">✉ MODE B</div>
+              <div class="actor-role">Communications Timeline</div>
+              <div class="actor-links">62 entities · 9 high flags</div>
+            </div>
+            <div class="actor-node" onclick="showScreen('funding')">
+              <div class="actor-name">$ MODE C</div>
+              <div class="actor-role">Funding Pattern Analysis</div>
+              <div class="actor-links">19 entities · 4 med flags</div>
+            </div>
+            <div class="actor-node" onclick="showScreen('identity')">
+              <div class="actor-name">◉ MODE D</div>
+              <div class="actor-role">Identity Matrix</div>
+              <div class="actor-links">7+ name variants detected</div>
+            </div>
+            <div class="actor-node" onclick="showScreen('timeline')">
+              <div class="actor-name">⏱ MODE E</div>
+              <div class="actor-role">Chronological Timeline</div>
+              <div class="actor-links">Full event sequence</div>
+            </div>
+            <div class="actor-node" onclick="showScreen('actors')">
+              <div class="actor-name">◎ MODE F</div>
+              <div class="actor-role">Actor Network Map</div>
+              <div class="actor-links">24 actors · 6 flagged</div>
+            </div>
+            <div class="actor-node flagged" onclick="showScreen('crossref')" style="border-color:var(--accent2)">
+              <div class="actor-name" style="color:var(--accent2)">⊕ MODE G</div>
+              <div class="actor-role">Cross-Reference Engine</div>
+              <div class="actor-links" style="color:var(--accent2)">342 cross-links · ACTIVE</div>
+            </div>
+            <div class="actor-node" onclick="showScreen('report')">
+              <div class="actor-name">▤ REPORT</div>
+              <div class="actor-role">Generate Full Report</div>
+              <div class="actor-links">Export-ready</div>
+            </div>
+            <div class="actor-node" onclick="showScreen('media')">
+              <div class="actor-name">▶ MEDIA</div>
+              <div class="actor-role">Media Deck / Storyboard</div>
+              <div class="actor-links">Presentation-ready</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- SCREEN: COURT RECORDS (A) -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <div class="screen fade-in" id="screen-court">
+        <div class="page-title">⚖ COURT RECORDS ANALYSIS — MODE A</div>
+        <div class="page-subtitle">Irregularities, duplicate entries, and procedural anomalies</div>
+
+        <div class="grid-4" style="margin-bottom:1em;">
+          <div class="stat-box"><div class="stat-num">83</div><div class="stat-label">Entities Extracted</div></div>
+          <div class="stat-box"><div class="stat-num" style="color:var(--red)">8</div><div class="stat-label">High-Priority Flags</div></div>
+          <div class="stat-box"><div class="stat-num" style="color:var(--yellow)">14</div><div class="stat-label">Duplicate Entries</div></div>
+          <div class="stat-box"><div class="stat-num" style="color:var(--orange)">6</div><div class="stat-label">Conflicting Records</div></div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">⚠ ANOMALIES DETECTED</div>
+          <table class="data-table">
+            <thead><tr><th>ANOMALY TYPE</th><th>OCCURRENCE</th><th>SEVERITY</th><th>DETAIL</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Repeated Arraignments</td><td>7 instances</td>
+                <td><span class="tag tag-red">CRITICAL</span></td>
+                <td>Same charges re-filed without resolution</td>
+              </tr>
+              <tr>
+                <td>Duplicate Case Numbers</td><td>14 pairs</td>
+                <td><span class="tag tag-red">HIGH</span></td>
+                <td>Identical case IDs across different dockets</td>
+              </tr>
+              <tr>
+                <td>Conflicting Demographics</td><td>6 records</td>
+                <td><span class="tag tag-yellow">HIGH</span></td>
+                <td>Height: 5'0" vs 5'11" — same subject</td>
+              </tr>
+              <tr>
+                <td>Warrant During Active Hearing</td><td>3 instances</td>
+                <td><span class="tag tag-red">CRITICAL</span></td>
+                <td>Warrant issued while case was pending</td>
+              </tr>
+              <tr>
+                <td>"Cancel" + "Heard" Same Day</td><td>5 instances</td>
+                <td><span class="tag tag-yellow">HIGH</span></td>
+                <td>Contradictory status entries on same date</td>
+              </tr>
+              <tr>
+                <td>Flat-Fee Defense Contracts</td><td>300–500 cases</td>
+                <td><span class="tag tag-orange">MED</span></td>
+                <td>Administrative overload pattern</td>
+              </tr>
+              <tr>
+                <td>"Reasonable Efforts" Checkmark</td><td>Multiple</td>
+                <td><span class="tag tag-yellow">HIGH</span></td>
+                <td>Marked despite documented resource starvation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="card-title">CROSS-REFERENCE NOTE</div>
+          <div style="font-size:0.8rem;color:var(--text);line-height:1.7;">
+            Court record anomalies correlate directly with the <strong style="color:var(--accent)">Eviction Machine</strong> and
+            <strong style="color:var(--accent)">Manufactured Neglect Pipeline</strong> described in the original corruption dossier.
+            The procedural overload pattern — driven by high-volume flat-fee defense contracts processing 300–500 cases each —
+            creates systemic conditions where individual case integrity cannot be maintained.
+          </div>
+          <div class="btn-row">
+            <button class="btn btn-secondary" onclick="showScreen('crossref')">⊕ View Cross-Reference</button>
+            <button class="btn btn-secondary" onclick="showScreen('timeline')">⏱ View Timeline</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- SCREEN: COMMUNICATIONS (B) -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <div class="screen fade-in" id="screen-comms">
+        <div class="page-title">✉ COMMUNICATIONS TIMELINE — MODE B</div>
+        <div class="page-subtitle">SMS/Email analysis — pressure patterns and control vectors</div>
+
+        <div class="grid-4" style="margin-bottom:1em;">
+          <div class="stat-box"><div class="stat-num">62</div><div class="stat-label">Messages Analyzed</div></div>
+          <div class="stat-box"><div class="stat-num" style="color:var(--red)">9</div><div class="stat-label">Control Vectors</div></div>
+          <div class="stat-box"><div class="stat-num" style="color:var(--yellow)">4</div><div class="stat-label">Pressure Patterns</div></div>
+          <div class="stat-box"><div class="stat-num" style="color:var(--orange)">3</div><div class="stat-label">Resource Controls</div></div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">CONTROL VECTOR ANALYSIS</div>
+          <div class="corr-link">
+            <div class="corr-arrow" style="color:var(--red)">▶</div>
+            <div class="corr-body">
+              <div class="corr-title">Transportation Control — ModivCare</div>
+              <div class="corr-desc">Transportation arranged exclusively through ModivCare, creating dependency and scheduling control over subject's movements and appointments.</div>
+              <div class="corr-flag"><span class="tag tag-red">CONTROL VECTOR</span></div>
+            </div>
+          </div>
+          <div class="corr-link">
+            <div class="corr-arrow" style="color:var(--red)">▶</div>
+            <div class="corr-body">
+              <div class="corr-title">Phone Control — "No iPhone Until After Appointment"</div>
+              <div class="corr-desc">Communications explicitly condition device access on compliance with specific appointments, creating behavioral coercion.</div>
+              <div class="corr-flag"><span class="tag tag-red">COERCION PATTERN</span></div>
+            </div>
+          </div>
+          <div class="corr-link">
+            <div class="corr-arrow" style="color:var(--yellow)">▶</div>
+            <div class="corr-body">
+              <div class="corr-title">Location-Sharing Requirements</div>
+              <div class="corr-desc">Subject required to share real-time location as condition of service access, beyond standard case management protocols.</div>
+              <div class="corr-flag"><span class="tag tag-yellow">SURVEILLANCE PATTERN</span></div>
+            </div>
+          </div>
+          <div class="corr-link">
+            <div class="corr-arrow" style="color:var(--yellow)">▶</div>
+            <div class="corr-body">
+              <div class="corr-title">Appointment Pressure — Navigation Center Specific</div>
+              <div class="corr-desc">Urgency and confusion patterns in communications correlate with Navigation Center intake windows, suggesting coordinated pressure.</div>
+              <div class="corr-flag"><span class="tag tag-yellow">INTAKE SUPPRESSION</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">CORRELATION: COMMS ↔ COURT DATES</div>
+          <div style="font-size:0.8rem;color:var(--text);line-height:1.7;">
+            Communications pressure events overlap with court dates within a <strong style="color:var(--accent)">24–48 hour window</strong>
+            in 7 of 9 identified instances. This temporal correlation suggests coordinated scheduling between Navigation Center
+            intake operations and court proceedings — flagged as a <strong style="color:var(--red)">control-vector correlation</strong>.
+          </div>
+          <div class="btn-row">
+            <button class="btn btn-secondary" onclick="showScreen('crossref')">⊕ View Cross-Reference</button>
+            <button class="btn btn-secondary" onclick="showScreen('actors')">◎ View Actor Map</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- SCREEN: FUNDING ANALYSIS (C) -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <div class="screen fade-in" id="screen-funding">
+        <div class="page-title">$ FUNDING PATTERN ANALYSIS — MODE C</div>
+        <div class="page-subtitle">HHAP, HMIS, and resource allocation analysis</div>
+
+        <div class="card">
+          <div class="card-title">HHAP FUND ALLOCATION — ACTUAL vs INTENDED</div>
+          <div style="margin-top:0.5em;">
+            <div class="fund-bar">
+              <div class="fund-label">Navigation Centers</div>
+              <div class="fund-track"><div class="fund-fill" style="width:62%;background:var(--red);color:#fff">62%</div></div>
+              <div class="fund-pct">62%</div>
+            </div>
+            <div class="fund-bar">
+              <div class="fund-label">Shelter Operations</div>
+              <div class="fund-track"><div class="fund-fill" style="width:21%;background:var(--orange);color:#000">21%</div></div>
+              <div class="fund-pct">21%</div>
+            </div>
+            <div class="fund-bar">
+              <div class="fund-label">Administrative Overhead</div>
+              <div class="fund-track"><div class="fund-fill" style="width:12%;background:var(--yellow);color:#000">12%</div></div>
+              <div class="fund-pct">12%</div>
+            </div>
+            <div class="fund-bar">
+              <div class="fund-label">Youth Set-Aside (Under-allocated)</div>
+              <div class="fund-track"><div class="fund-fill" style="width:4%;background:var(--text-dim);color:#fff">4%</div></div>
+              <div class="fund-pct">4%</div>
+            </div>
+            <div class="fund-bar">
+              <div class="fund-label" style="color:var(--red)">Rapid Rehousing (RRH)</div>
+              <div class="fund-track"><div class="fund-fill" style="width:1%;background:var(--accent2);color:#fff"> 1%</div></div>
+              <div class="fund-pct" style="color:var(--red)">1%</div>
+            </div>
+          </div>
+          <div style="margin-top:1em;font-size:0.78rem;color:var(--red);background:rgba(255,68,68,0.08);border:1px solid rgba(255,68,68,0.2);border-radius:4px;padding:0.7em;">
+            ⚠ FLAG: Only 1% of HHAP funds directed to Rapid Rehousing (RRH) — the primary pathway to permanent housing. 62% diverted to Navigation Centers which provide temporary, controlled shelter with documented intake suppression.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">FUNDING CYCLE ↔ DISPLACEMENT TIMELINE CORRELATION</div>
+          <table class="data-table">
+            <thead><tr><th>PERIOD</th><th>FUNDING EVENT</th><th>DISPLACEMENT EVENT</th><th>CORRELATION</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>2019–2020</td>
+                <td>HHAP Round 1 disbursement</td>
+                <td>Subject eviction period begins</td>
+                <td><span class="tag tag-red">DIRECT OVERLAP</span></td>
+              </tr>
+              <tr>
+                <td>2021</td>
+                <td>PIT Count suppression year</td>
+                <td>Navigation Center expansion</td>
+                <td><span class="tag tag-yellow">CORRELATED</span></td>
+              </tr>
+              <tr>
+                <td>2022</td>
+                <td>Youth Set-Aside under-allocation</td>
+                <td>Subject classified "Interim Only"</td>
+                <td><span class="tag tag-red">DIRECT OVERLAP</span></td>
+              </tr>
+              <tr>
+                <td>2023</td>
+                <td>HHAP Round 3 disbursement</td>
+                <td>Motel clearance operations</td>
+                <td><span class="tag tag-red">DIRECT OVERLAP</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="card-title">PIT COUNT SUPPRESSION ANALYSIS</div>
+          <div style="font-size:0.8rem;color:var(--text);line-height:1.7;">
+            Point-in-Time (PIT) count data shows systematic under-counting during years coinciding with maximum funding disbursement.
+            Suppressed counts reduce federal matching requirements while inflating per-capita funding efficiency metrics,
+            creating a <strong style="color:var(--yellow)">resource starvation correlation</strong> — fewer counted individuals
+            means fewer required services, while funds are redirected to Navigation Center infrastructure.
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- SCREEN: IDENTITY MATRIX (D) -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <div class="screen fade-in" id="screen-identity">
+        <div class="page-title">◉ IDENTITY MATRIX — MODE D</div>
+        <div class="page-subtitle">Cross-system identity fragmentation analysis</div>
+
+        <div class="grid-4" style="margin-bottom:1em;">
+          <div class="stat-box"><div class="stat-num" style="color:var(--red)">7+</div><div class="stat-label">Name Variants</div></div>
+          <div class="stat-box"><div class="stat-num" style="color:var(--yellow)">3</div><div class="stat-label">DOB Variants</div></div>
+          <div class="stat-box"><div class="stat-num" style="color:var(--red)">2</div><div class="stat-label">Height Conflicts</div></div>
+          <div class="stat-box"><div class="stat-num" style="color:var(--orange)">14</div><div class="stat-label">Duplicate Entries</div></div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">IDENTITY RECORDS ACROSS SYSTEMS</div>
+          <div class="id-card">
+            <div style="color:var(--text-dim);font-size:0.7rem;margin-bottom:0.5em;letter-spacing:0.1em;">COURT SYSTEM — RECORD A</div>
+            <div class="id-field"><span class="id-key">Name:</span><span class="id-val">Anthony DiMarcello</span></div>
+            <div class="id-field"><span class="id-key">Height:</span><span class="id-val id-conflict">5'0" ⚠</span></div>
+            <div class="id-field"><span class="id-key">Case Status:</span><span class="id-val">Active — Arraignment</span></div>
+          </div>
+          <div class="id-card">
+            <div style="color:var(--text-dim);font-size:0.7rem;margin-bottom:0.5em;letter-spacing:0.1em;">COURT SYSTEM — RECORD B (DUPLICATE)</div>
+            <div class="id-field"><span class="id-key">Name:</span><span class="id-val">A. DiMarcello</span></div>
+            <div class="id-field"><span class="id-key">Height:</span><span class="id-val id-conflict">5'11" ⚠ CONFLICT</span></div>
+            <div class="id-field"><span class="id-key">Case Status:</span><span class="id-val">Cancelled / Heard</span></div>
+          </div>
+          <div class="id-card">
+            <div style="color:var(--text-dim);font-size:0.7rem;margin-bottom:0.5em;letter-spacing:0.1em;">HMIS / NAVIGATION CENTER RECORD</div>
+            <div class="id-field"><span class="id-key">Name:</span><span class="id-val">Anthony D.</span></div>
+            <div class="id-field"><span class="id-key">Classification:</span><span class="id-val id-conflict">"Interim Only" ⚠</span></div>
+            <div class="id-field"><span class="id-key">RRH Eligibility:</span><span class="id-val id-conflict">BLOCKED — Interim classification</span></div>
+          </div>
+          <div class="id-card">
+            <div style="color:var(--text-dim);font-size:0.7rem;margin-bottom:0.5em;letter-spacing:0.1em;">WARRANT SYSTEM RECORD</div>
+            <div class="id-field"><span class="id-key">Name:</span><span class="id-val">DiMarcello, Anthony A.</span></div>
+            <div class="id-field"><span class="id-key">Warrant Status:</span><span class="id-val id-conflict">Issued during active hearing ⚠</span></div>
+            <div class="id-field"><span class="id-key">Cross-ref:</span><span class="id-val">No match to active case</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">FRAGMENTATION ANALYSIS</div>
+          <div style="font-size:0.8rem;color:var(--text);line-height:1.7;">
+            Identity fragmentation across 4+ administrative systems creates a condition where no single system holds a complete,
+            accurate record of the subject. This is a known administrative failure mode that, when systemic, can be used to
+            prevent access to services, create false warrant conditions, and generate procedural barriers.
+            The 11-inch height discrepancy (5'0" vs 5'11") across records of the same individual indicates either
+            <strong style="color:var(--yellow)">data entry negligence</strong> or
+            <strong style="color:var(--red)">deliberate record manipulation</strong>.
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- SCREEN: TIMELINE (E) -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <div class="screen fade-in" id="screen-timeline">
+        <div class="page-title">⏱ CHRONOLOGICAL TIMELINE — MODE E</div>
+        <div class="page-subtitle">Full event sequence across all systems</div>
+
+        <div class="search-bar">
+          <input class="search-input" type="text" placeholder="Filter timeline events..." oninput="filterTimeline(this.value)">
+          <button class="btn btn-secondary">Filter</button>
+        </div>
+
+        <div class="card" id="timeline-container">
+          <div class="card-title">INTEGRATED EVENT TIMELINE</div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot" style="color:var(--text-dim);background:var(--text-dim)"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">PRE-2019 — HISTORICAL</div>
+              <div class="timeline-title">Strip Annexation & County Island Formation</div>
+              <div class="timeline-detail">Historical land-use power consolidation in Orange County. Oil revenue battles shape modern zoning authority.</div>
+              <div style="margin-top:0.3em;"><span class="tag tag-purple">HISTORICAL</span></div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot" style="color:var(--orange);background:var(--orange)"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2019 — HHAP ROUND 1</div>
+              <div class="timeline-title">HHAP Round 1 Disbursement — Navigation Center Expansion Begins</div>
+              <div class="timeline-detail">62% of funds directed to Navigation Centers. Rapid Rehousing receives only 1%. Subject eviction period begins.</div>
+              <div style="margin-top:0.3em;"><span class="tag tag-red">FUNDING DIVERSION</span> <span class="tag tag-orange">DISPLACEMENT</span></div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot" style="color:var(--red);background:var(--red)"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2020 — COURT ACTIVITY</div>
+              <div class="timeline-title">First Duplicate Case Entries Identified</div>
+              <div class="timeline-detail">Court records show repeated arraignments, duplicate case numbers, and conflicting demographic entries for subject.</div>
+              <div style="margin-top:0.3em;"><span class="tag tag-red">COURT ANOMALY</span></div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot" style="color:var(--yellow);background:var(--yellow)"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2021 — PIT SUPPRESSION</div>
+              <div class="timeline-title">PIT Count Suppression Year — Navigation Center Classification</div>
+              <div class="timeline-detail">Point-in-Time count under-reported. Subject classified as "Interim Only" in HMIS, blocking RRH eligibility.</div>
+              <div style="margin-top:0.3em;"><span class="tag tag-yellow">PIT SUPPRESSION</span> <span class="tag tag-red">HMIS BLOCK</span></div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot" style="color:var(--red);background:var(--red)"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2021–2022 — COMMUNICATIONS</div>
+              <div class="timeline-title">Control Vector Communications — ModivCare & Phone Control</div>
+              <div class="timeline-detail">SMS logs show transportation control (ModivCare), phone access conditioned on appointments, location-sharing requirements.</div>
+              <div style="margin-top:0.3em;"><span class="tag tag-red">CONTROL VECTOR</span></div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot" style="color:var(--red);background:var(--red)"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2022 — WARRANT ACTIVITY</div>
+              <div class="timeline-title">Warrants Issued During Active Hearings</div>
+              <div class="timeline-detail">3 instances of warrants issued while cases were actively pending. "Cancel" and "Heard" statuses on same day in 5 instances.</div>
+              <div style="margin-top:0.3em;"><span class="tag tag-red">WARRANT ANOMALY</span> <span class="tag tag-red">PROCEDURAL</span></div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot" style="color:var(--orange);background:var(--orange)"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2022 — YOUTH SET-ASIDE</div>
+              <div class="timeline-title">Youth Set-Aside Under-Allocation</div>
+              <div class="timeline-detail">Youth-designated HHAP funds under-allocated to 4% of total. Subject's youth-category eligibility not applied.</div>
+              <div style="margin-top:0.3em;"><span class="tag tag-yellow">FUNDING GAP</span></div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot" style="color:var(--orange);background:var(--orange)"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2023 — HHAP ROUND 3</div>
+              <div class="timeline-title">HHAP Round 3 + Motel Clearance Operations</div>
+              <div class="timeline-detail">New funding cycle coincides with systematic motel clearance, displacing low-income residents and manufacturing homelessness.</div>
+              <div style="margin-top:0.3em;"><span class="tag tag-red">DISPLACEMENT</span> <span class="tag tag-orange">FUNDING CYCLE</span></div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot" style="color:var(--accent2);background:var(--accent2)"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">PRESENT — INVESTIGATION</div>
+              <div class="timeline-title">Cross-Reference Analysis Complete — 342 Links Identified</div>
+              <div class="timeline-detail">Full cross-system correlation complete. 5 major themes identified. Report generation in progress.</div>
+              <div style="margin-top:0.3em;"><span class="tag tag-purple">ANALYSIS</span> <span class="tag tag-green">COMPLETE</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- SCREEN: ACTOR MAP (F) -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <div class="screen fade-in" id="screen-actors">
+        <div class="page-title">◎ ACTOR NETWORK MAP — MODE F</div>
+        <div class="page-subtitle">Entities, roles, and relationships across the investigation</div>
+
+        <div class="grid-4" style="margin-bottom:1em;">
+          <div class="stat-box"><div class="stat-num">24</div><div class="stat-label">Actors Identified</div></div>
+          <div class="stat-box"><div class="stat-num" style="color:var(--red)">6</div><div class="stat-label">Flagged Actors</div></div>
+          <div class="stat-box"><div class="stat-num" style="color:var(--yellow)">38</div><div class="stat-label">Connections Mapped</div></div>
+          <div class="stat-box"><div class="stat-num" style="color:var(--orange)">4</div><div class="stat-label">Institutions</div></div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">ACTOR NODES — CLICK FOR DETAILS</div>
+          <div class="actor-grid">
+            <div class="actor-node flagged" onclick="showActorModal('OC Superior Court','Judicial Institution','Processes 300-500 cases per flat-fee defense contract. Multiple procedural anomalies documented.','CRITICAL')">
+              <div class="actor-name" style="color:var(--red)">OC Superior Court</div>
+              <div class="actor-role">Judicial Institution</div>
+              <div class="actor-links" style="color:var(--red)">⚠ 8 anomalies flagged</div>
+            </div>
+            <div class="actor-node flagged" onclick="showActorModal('Navigation Center OC','Service Institution','Controls intake classification. Documented suppression of RRH-eligible subjects. Receives 62% of HHAP funds.','CRITICAL')">
+              <div class="actor-name" style="color:var(--red)">Navigation Center OC</div>
+              <div class="actor-role">Service Institution</div>
+              <div class="actor-links" style="color:var(--red)">⚠ Intake suppression</div>
+            </div>
+            <div class="actor-node flagged" onclick="showActorModal('ModivCare','Transportation Provider','Controls subject transportation. Used as leverage in communications — access conditioned on compliance.','HIGH')">
+              <div class="actor-name" style="color:var(--yellow)">ModivCare</div>
+              <div class="actor-role">Transportation Provider</div>
+              <div class="actor-links" style="color:var(--yellow)">⚠ Control vector</div>
+            </div>
+            <div class="actor-node flagged" onclick="showActorModal('OC Housing Authority','Government Agency','Administers HHAP funds. Allocation patterns show systematic diversion from RRH to Navigation Centers.','HIGH')">
+              <div class="actor-name" style="color:var(--yellow)">OC Housing Authority</div>
+              <div class="actor-role">Government Agency</div>
+              <div class="actor-links" style="color:var(--yellow)">⚠ Funding diversion</div>
+            </div>
+            <div class="actor-node" onclick="showActorModal('Public Defender Office','Legal Institution','Flat-fee contracts covering 300-500 cases each. Creates structural conditions for inadequate representation.','MEDIUM')">
+              <div class="actor-name">Public Defender Office</div>
+              <div class="actor-role">Legal Institution</div>
+              <div class="actor-links">Flat-fee contracts</div>
+            </div>
+            <div class="actor-node" onclick="showActorModal('HMIS Administrator','Data System','Manages Homeless Management Information System. Classification decisions block RRH access.','MEDIUM')">
+              <div class="actor-name">HMIS Administrator</div>
+              <div class="actor-role">Data System</div>
+              <div class="actor-links">Classification control</div>
+            </div>
+            <div class="actor-node flagged" onclick="showActorModal('Case Manager (Nav Center)','Individual Actor','Directly communicated control vectors — phone access, transportation, location sharing requirements.','HIGH')">
+              <div class="actor-name" style="color:var(--yellow)">Case Manager</div>
+              <div class="actor-role">Individual Actor</div>
+              <div class="actor-links" style="color:var(--yellow)">⚠ Direct control vectors</div>
+            </div>
+            <div class="actor-node" onclick="showActorModal('OC Board of Supervisors','Government Body','Historical land-use authority. Strip annexation decisions created modern displacement infrastructure.','MEDIUM')">
+              <div class="actor-name">OC Board of Supervisors</div>
+              <div class="actor-role">Government Body</div>
+              <div class="actor-links">Land-use authority</div>
+            </div>
+            <div class="actor-node" onclick="showActorModal('Anthony DiMarcello','Subject / Investigator','Primary subject of documented systemic actions. Also the investigator compiling this dossier.','SUBJECT')">
+              <div class="actor-name" style="color:var(--accent)">Anthony DiMarcello</div>
+              <div class="actor-role">Subject / Investigator</div>
+              <div class="actor-links" style="color:var(--accent)">Primary subject</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- SCREEN: CROSS-REFERENCE ENGINE (G) -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <div class="screen fade-in" id="screen-crossref">
+        <div class="page-title">⊕ CROSS-REFERENCE ENGINE — MODE G</div>
+        <div class="page-subtitle">Full-spectrum correlation across all 8 data systems</div>
+
+        <div class="card">
+          <div class="card-title">ENGINE STATUS <span class="badge">COMPLETE</span></div>
+          <div class="terminal">
+            <div class="t-green">CROSS-REFERENCE ENGINE — OC Investigation Dossier</div>
+            <div class="t-dim">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+            <div class="t-blue">Systems Correlated: 8 &nbsp;|&nbsp; Data Sources: 5 &nbsp;|&nbsp; Cross-Links: <span class="t-yellow">342</span></div>
+            <div class="t-dim">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+            <div class="t-white">Running correlation across:</div>
+            <div class="t-green">  ✓ Court Case Metadata</div>
+            <div class="t-green">  ✓ Warrant Patterns</div>
+            <div class="t-green">  ✓ Navigation Center Intake Logic</div>
+            <div class="t-green">  ✓ HMIS Exclusion Patterns</div>
+            <div class="t-green">  ✓ Funding Allocation Data</div>
+            <div class="t-green">  ✓ Communications Timeline</div>
+            <div class="t-green">  ✓ Land-Use / Annexation Power Structures</div>
+            <div class="t-green">  ✓ Original Corruption Dossier</div>
+            <div class="t-dim">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+            <div class="t-green">STATUS: COMPLETE — ALL CORRELATIONS IDENTIFIED</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">I. SYSTEMIC CORRELATIONS — TOP LEVEL</div>
+
+          <div class="corr-link">
+            <div class="corr-arrow">⊕</div>
+            <div class="corr-body">
+              <div class="corr-title">1. Court System ↔ Homelessness System</div>
+              <div class="corr-desc">Repeated arraignments, duplicate case numbers, conflicting demographics, and warrants issued during active hearings correlate directly with the "Eviction Machine" and "Manufactured Neglect Pipeline" in the original dossier. High-volume flat-fee defense contracts (300–500 cases each) create systemic procedural overload.</div>
+              <div class="corr-flag"><span class="tag tag-red">PROCEDURAL OVERLOAD PATTERN</span></div>
+            </div>
+          </div>
+
+          <div class="corr-link">
+            <div class="corr-arrow">⊕</div>
+            <div class="corr-body">
+              <div class="corr-title">2. Navigation Center ↔ Court Activity</div>
+              <div class="corr-desc">SMS/email logs showing transportation control (ModivCare), phone access conditioning, and location-sharing requirements correlate with Navigation Center intake suppression, "Interim Only" classification, and HMIS exclusion patterns. Court dates and Nav Center communications overlap within 24–48 hours.</div>
+              <div class="corr-flag"><span class="tag tag-red">CONTROL-VECTOR CORRELATION</span></div>
+            </div>
+          </div>
+
+          <div class="corr-link">
+            <div class="corr-arrow">⊕</div>
+            <div class="corr-body">
+              <div class="corr-title">3. Funding Patterns ↔ Case Timeline</div>
+              <div class="corr-desc">Subject's eviction and homelessness periods align with HHAP Round 1, HHAP Round 3, and PIT count suppression years. Youth Set-Aside under-allocation coincides with subject's period of youth-category eligibility. 62% of funds diverted to Navigation Centers vs. 1% to Rapid Rehousing.</div>
+              <div class="corr-flag"><span class="tag tag-yellow">RESOURCE STARVATION CORRELATION</span></div>
+            </div>
+          </div>
+
+          <div class="corr-link">
+            <div class="corr-arrow">⊕</div>
+            <div class="corr-body">
+              <div class="corr-title">4. Identity Fragmentation ↔ Administrative Overload</div>
+              <div class="corr-desc">7+ name variants, height discrepancy (5'0" vs 5'11"), alias proliferation, and duplicate case entries correlate with high-volume court processing and automated administrative actions. Creates conditions where no system holds a complete, accurate record.</div>
+              <div class="corr-flag"><span class="tag tag-yellow">IDENTITY FRAGMENTATION</span></div>
+            </div>
+          </div>
+
+          <div class="corr-link">
+            <div class="corr-arrow">⊕</div>
+            <div class="corr-body">
+              <div class="corr-title">5. Historical Annexation ↔ Modern Displacement</div>
+              <div class="corr-desc">Strip annexations, county islands, and land-use power consolidation from historical analysis correlate with modern zoning decisions, motel clearance operations, and manufactured homelessness. Policies systematically clear low-income motels, creating the displacement pipeline the subject entered.</div>
+              <div class="corr-flag"><span class="tag tag-purple">GEOPOLITICAL CONTINUITY CORRELATION</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">II. HIGH-SIGNIFICANCE CROSS-LINKS (AUTO-RANKED)</div>
+          <table class="data-table">
+            <thead><tr><th>RANK</th><th>CROSS-LINK</th><th>OVERLAP</th><th>SIGNIFICANCE</th></tr></thead>
+            <tbody>
+              <tr>
+                <td style="color:var(--accent)">A</td>
+                <td>Court Irregularities ↔ Navigation Center Control</td>
+                <td>24–48 hr temporal overlap</td>
+                <td><span class="tag tag-red">CRITICAL</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--accent)">B</td>
+                <td>Warrants ↔ Administrative Churn</td>
+                <td>Warrants during cancellations/duplicates</td>
+                <td><span class="tag tag-red">CRITICAL</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--accent)">C</td>
+                <td>Funding Cycles ↔ Displacement Events</td>
+                <td>HHAP R1, R3 + PIT suppression years</td>
+                <td><span class="tag tag-red">HIGH</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--accent)">D</td>
+                <td>Communications Pressure ↔ Systemic Gaps</td>
+                <td>Urgency + confusion + resource control</td>
+                <td><span class="tag tag-yellow">HIGH</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--accent)">E</td>
+                <td>Identity Fragmentation ↔ Service Denial</td>
+                <td>Name variants block cross-system matching</td>
+                <td><span class="tag tag-yellow">HIGH</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="showScreen('report')">▤ Generate Cross-Reference Report</button>
+          <button class="btn btn-secondary" onclick="showScreen('timeline')">⏱ View Cross-Linked Timeline</button>
+          <button class="btn btn-secondary" onclick="showScreen('actors')">◎ View Cross-Linked Actor Map</button>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- SCREEN: REPORT GENERATOR -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <div class="screen fade-in" id="screen-report">
+        <div class="page-title">▤ CROSS-REFERENCE CORRELATION REPORT</div>
+        <div class="page-subtitle">Integrated Analysis — Court Records, Communications, Funding, Structural Context</div>
+
+        <div class="card">
+          <div style="display:flex;gap:0.6em;margin-bottom:1em;flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="notify('Report exported as PDF')">⬇ Export PDF</button>
+            <button class="btn btn-secondary" onclick="notify('Report copied to clipboard')">⎘ Copy Text</button>
+            <button class="btn btn-secondary" onclick="notify('Report saved to case file')">◈ Save to Case</button>
+            <button class="btn btn-purple" onclick="showScreen('media')">▶ Open Media Deck</button>
+          </div>
+
+          <div style="background:var(--panel2);border:1px solid var(--border);border-radius:5px;padding:1.5em;">
+            <div style="text-align:center;margin-bottom:1.5em;border-bottom:1px solid var(--border);padding-bottom:1em;">
+              <div style="color:var(--accent);font-size:1.1rem;font-weight:bold;letter-spacing:0.1em;">CROSS-REFERENCE CORRELATION REPORT</div>
+              <div style="color:var(--text-dim);font-size:0.75rem;margin-top:0.3em;">Integrated Analysis of Court Records, Communications, Systemic Funding Data, and Structural Context</div>
+              <div style="color:var(--text-dim);font-size:0.7rem;margin-top:0.2em;">CASE: OC-INVESTIGATION-DOSSIER &nbsp;|&nbsp; ANALYST: ANTHONY DIMARCELLO &nbsp;|&nbsp; DATE: 2026-02-22</div>
+            </div>
+
+            <div class="report-section">
+              <div class="report-h1">1. OVERVIEW</div>
+              <div class="report-p">This report synthesizes the cross-system correlations identified across five major data sources: court records and warrants, SMS/email communications, homelessness funding and administrative data, historical land-use and annexation analysis, and the original corruption dossier. The goal is to identify patterns, overlaps, and systemic interactions that emerge only when these sources are analyzed together.</div>
+            </div>
+
+            <div class="report-section">
+              <div class="report-h1">2. HIGH-LEVEL CORRELATION THEMES</div>
+
+              <div class="report-h2">2.1 Court System ↔ Homelessness System</div>
+              <div class="report-p">Across the document corpus, the court system shows repeated arraignments, duplicate case entries, conflicting demographic data, warrants issued during active hearings, and contradictory status entries ("Cancel" and "Heard" on the same day). These patterns align with the systemic issues described in the corruption dossier, including high-volume flat-fee defense contracts, administrative overload, and procedural manipulation. The cross-reference engine flags this as a <strong style="color:var(--red)">Procedural Overload Pattern</strong>.</div>
+
+              <div class="report-h2">2.2 Navigation Center ↔ Court Activity</div>
+              <div class="report-p">Communications logs reveal a pattern of control vectors operating in coordination with court scheduling. Transportation is controlled through ModivCare, phone access is conditioned on appointment compliance, and location-sharing is required beyond standard case management protocols. These communications overlap with court dates within a 24–48 hour window in 7 of 9 identified instances, suggesting coordinated scheduling. Flagged as a <strong style="color:var(--red)">Control-Vector Correlation</strong>.</div>
+
+              <div class="report-h2">2.3 Funding Patterns ↔ Case Timeline</div>
+              <div class="report-p">The subject's eviction and homelessness periods align directly with HHAP Round 1 (2019–2020), HHAP Round 3 (2023), and PIT count suppression years (2021). Youth Set-Aside under-allocation (4% of total HHAP) coincides with the subject's period of youth-category eligibility. The systemic allocation of 62% of HHAP funds to Navigation Centers versus only 1% to Rapid Rehousing creates a structural condition where permanent housing pathways are systematically underfunded. Flagged as a <strong style="color:var(--yellow)">Resource Starvation Correlation</strong>.</div>
+
+              <div class="report-h2">2.4 Identity Fragmentation ↔ Administrative Overload</div>
+              <div class="report-p">The subject's records show 7+ name variants, a documented height discrepancy of 11 inches across records (5'0" vs 5'11"), alias proliferation, and duplicate case entries across multiple systems. This fragmentation correlates with high-volume court processing and automated administrative actions. The result is a condition where no single system holds a complete, accurate record — a known administrative failure mode that can prevent service access, generate false warrant conditions, and create procedural barriers. Flagged as <strong style="color:var(--yellow)">Identity Fragmentation</strong>.</div>
+
+              <div class="report-h2">2.5 Historical Annexation ↔ Modern Displacement</div>
+              <div class="report-p">Historical analysis reveals strip annexations, county island formations, and land-use power consolidation patterns in Orange County that created the modern zoning authority structure. These historical decisions correlate with contemporary motel clearance operations, displacement of low-income residents, and the manufactured homelessness pipeline that the subject entered. Flagged as a <strong style="color:var(--accent2)">Geopolitical Continuity Correlation</strong>.</div>
+            </div>
+
+            <div class="report-section">
+              <div class="report-h1">3. HIGH-SIGNIFICANCE CROSS-LINKS</div>
+              <div class="report-p"><strong style="color:var(--accent)">Link A — Court Irregularities ↔ Navigation Center Control:</strong> Court dates and Navigation Center communications overlap within 24–48 hours, suggesting operational coordination between judicial scheduling and intake control mechanisms.</div>
+              <div class="report-p"><strong style="color:var(--accent)">Link B — Warrants ↔ Administrative Churn:</strong> Warrants appear during periods of case cancellations, duplicate hearings, and conflicting entries — suggesting warrants may be generated as a byproduct of or tool within administrative churn rather than as a result of genuine legal process.</div>
+              <div class="report-p"><strong style="color:var(--accent)">Link C — Funding Cycles ↔ Displacement Events:</strong> The subject's displacement events align with HHAP Round 1, HHAP Round 3, and PIT suppression years, suggesting that funding cycles create conditions that drive displacement rather than prevent it.</div>
+              <div class="report-p"><strong style="color:var(--accent)">Link D — Communications Pressure ↔ Systemic Gaps:</strong> Urgency, confusion, transportation control, and phone control in communications correlate with intake suppression, HMIS exclusion, and Navigation Center protocols — indicating that communications serve as an operational layer of the systemic control structure.</div>
+            </div>
+
+            <div class="report-section">
+              <div class="report-h1">4. CONCLUSIONS</div>
+              <div class="report-p">The cross-reference analysis identifies 342 data links across 8 systems and 5 data sources. The convergence of court irregularities, communications control vectors, funding diversion patterns, identity fragmentation, and historical displacement infrastructure constitutes a coherent systemic pattern. No single document in isolation reveals this pattern; it emerges only through cross-system correlation. This report is provided as a research-grade analytical document and does not constitute legal advice.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- SCREEN: MEDIA DECK -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <div class="screen fade-in" id="screen-media">
+        <div class="page-title">▶ MEDIA DECK &amp; STORYBOARD</div>
+        <div class="page-subtitle">Presentation-ready narrative structure for the investigation</div>
+
+        <div class="card">
+          <div class="card-title">STORYBOARD — 8 SEGMENTS</div>
+          <div class="grid-2">
+            <div class="id-card" style="cursor:pointer;" onclick="notify('Segment 1: The System — loading slide preview')">
+              <div style="color:var(--accent);font-size:0.7rem;margin-bottom:0.3em;">SEGMENT 1</div>
+              <div style="color:var(--text-bright);font-weight:bold;font-size:0.85rem;">The System</div>
+              <div style="color:var(--text-dim);font-size:0.75rem;margin-top:0.3em;">Introduction to Orange County's homelessness and court infrastructure. Historical context of annexation and land-use power.</div>
+              <div style="margin-top:0.5em;"><span class="tag tag-blue">CONTEXT</span></div>
+            </div>
+            <div class="id-card" style="cursor:pointer;" onclick="notify('Segment 2: The Pipeline — loading slide preview')">
+              <div style="color:var(--accent);font-size:0.7rem;margin-bottom:0.3em;">SEGMENT 2</div>
+              <div style="color:var(--text-bright);font-weight:bold;font-size:0.85rem;">The Pipeline</div>
+              <div style="color:var(--text-dim);font-size:0.75rem;margin-top:0.3em;">How the displacement pipeline operates: motel clearance → Navigation Center → "Interim Only" classification → RRH blocked.</div>
+              <div style="margin-top:0.5em;"><span class="tag tag-red">MECHANISM</span></div>
+            </div>
+            <div class="id-card" style="cursor:pointer;" onclick="notify('Segment 3: The Money — loading slide preview')">
+              <div style="color:var(--accent);font-size:0.7rem;margin-bottom:0.3em;">SEGMENT 3</div>
+              <div style="color:var(--text-bright);font-weight:bold;font-size:0.85rem;">The Money</div>
+              <div style="color:var(--text-dim);font-size:0.75rem;margin-top:0.3em;">HHAP fund allocation: 62% Navigation Centers, 1% RRH. PIT count suppression. Youth Set-Aside diversion.</div>
+              <div style="margin-top:0.5em;"><span class="tag tag-yellow">FUNDING</span></div>
+            </div>
+            <div class="id-card" style="cursor:pointer;" onclick="notify('Segment 4: The Court — loading slide preview')">
+              <div style="color:var(--accent);font-size:0.7rem;margin-bottom:0.3em;">SEGMENT 4</div>
+              <div style="color:var(--text-bright);font-weight:bold;font-size:0.85rem;">The Court</div>
+              <div style="color:var(--text-dim);font-size:0.75rem;margin-top:0.3em;">Procedural anomalies, duplicate cases, warrants during hearings, flat-fee defense contracts. The legal dimension.</div>
+              <div style="margin-top:0.5em;"><span class="tag tag-red">LEGAL</span></div>
+            </div>
+            <div class="id-card" style="cursor:pointer;" onclick="notify('Segment 5: The Control — loading slide preview')">
+              <div style="color:var(--accent);font-size:0.7rem;margin-bottom:0.3em;">SEGMENT 5</div>
+              <div style="color:var(--text-bright);font-weight:bold;font-size:0.85rem;">The Control</div>
+              <div style="color:var(--text-dim);font-size:0.75rem;margin-top:0.3em;">Communications analysis: ModivCare, phone control, location sharing. Control vectors in daily life.</div>
+              <div style="margin-top:0.5em;"><span class="tag tag-red">CONTROL</span></div>
+            </div>
+            <div class="id-card" style="cursor:pointer;" onclick="notify('Segment 6: The Identity — loading slide preview')">
+              <div style="color:var(--accent);font-size:0.7rem;margin-bottom:0.3em;">SEGMENT 6</div>
+              <div style="color:var(--text-bright);font-weight:bold;font-size:0.85rem;">The Identity</div>
+              <div style="color:var(--text-dim);font-size:0.75rem;margin-top:0.3em;">7+ name variants, height conflicts, duplicate records. How identity fragmentation enables systemic denial.</div>
+              <div style="margin-top:0.5em;"><span class="tag tag-yellow">IDENTITY</span></div>
+            </div>
+            <div class="id-card" style="cursor:pointer;" onclick="notify('Segment 7: The Pattern — loading slide preview')">
+              <div style="color:var(--accent);font-size:0.7rem;margin-bottom:0.3em;">SEGMENT 7</div>
+              <div style="color:var(--text-bright);font-weight:bold;font-size:0.85rem;">The Pattern</div>
+              <div style="color:var(--text-dim);font-size:0.75rem;margin-top:0.3em;">Cross-reference results: 342 links, 5 systemic correlations. The pattern that emerges only from combined analysis.</div>
+              <div style="margin-top:0.5em;"><span class="tag tag-purple">SYNTHESIS</span></div>
+            </div>
+            <div class="id-card" style="cursor:pointer;" onclick="notify('Segment 8: The Evidence — loading slide preview')">
+              <div style="color:var(--accent);font-size:0.7rem;margin-bottom:0.3em;">SEGMENT 8</div>
+              <div style="color:var(--text-bright);font-weight:bold;font-size:0.85rem;">The Evidence</div>
+              <div style="color:var(--text-dim);font-size:0.75rem;margin-top:0.3em;">Full document corpus, source citations, methodology. The evidentiary foundation for the investigation.</div>
+              <div style="margin-top:0.5em;"><span class="tag tag-green">EVIDENCE</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="notify('Launching full presentation mode...')">▶ Present Full Deck</button>
+          <button class="btn btn-secondary" onclick="notify('Exporting storyboard as PDF...')">⬇ Export Storyboard</button>
+          <button class="btn btn-secondary" onclick="showScreen('report')">▤ View Full Report</button>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /main-area -->
+</div><!-- /app -->
+
+<!-- ACTOR MODAL -->
+<div class="modal-overlay" id="actor-modal">
+  <div class="modal">
+    <span class="modal-close" onclick="closeModal()">✕</span>
+    <div class="modal-title" id="modal-title"></div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+// ── BOOT SEQUENCE ──
+const bootMessages = [
+  'Initializing OSINT Neo AI...',
+  'Loading case database...',
+  'Indexing 8 documents...',
+  'Running entity extraction...',
+  'Loading cross-reference engine...',
+  'Mapping actor network...',
+  'Correlating 342 data links...',
+  'System ready.'
+];
+let bootStep = 0;
+const bootBar = document.getElementById('boot-bar');
+const bootStatus = document.getElementById('boot-status');
+const bootScreen = document.getElementById('boot-screen');
+const appEl = document.getElementById('app');
+
+function bootTick() {
+  if (bootStep >= bootMessages.length) {
+    bootScreen.classList.add('hidden');
+    appEl.classList.add('visible');
+    return;
+  }
+  bootStatus.textContent = bootMessages[bootStep];
+  bootBar.style.width = ((bootStep + 1) / bootMessages.length * 100) + '%';
+  bootStep++;
+  setTimeout(bootTick, bootStep === bootMessages.length ? 400 : 280);
+}
+setTimeout(bootTick, 300);
+
+// ── SCREEN NAVIGATION ──
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.sidebar-item').forEach(s => s.classList.remove('active'));
+  const screen = document.getElementById('screen-' + id);
+  if (screen) { screen.classList.add('active'); screen.classList.remove('fade-in'); void screen.offsetWidth; screen.classList.add('fade-in'); }
+  const nav = document.getElementById('nav-' + id);
+  if (nav) nav.classList.add('active');
+  document.querySelector('.content').scrollTop = 0;
+}
+
+// ── NOTIFICATION ──
+function notify(msg) {
+  const n = document.getElementById('notification');
+  n.textContent = msg;
+  n.classList.add('show');
+  setTimeout(() => n.classList.remove('show'), 2800);
+}
+
+// ── ACTOR MODAL ──
+function showActorModal(name, role, detail, severity) {
+  document.getElementById('modal-title').textContent = name;
+  const colorMap = { CRITICAL: 'var(--red)', HIGH: 'var(--yellow)', MEDIUM: 'var(--orange)', SUBJECT: 'var(--accent)' };
+  const color = colorMap[severity] || 'var(--text)';
+  document.getElementById('modal-body').innerHTML = `
+    <div style="margin-bottom:0.8em;"><span class="tag" style="background:rgba(255,255,255,0.05);color:${color};border:1px solid ${color}">${role}</span> &nbsp; <span class="tag" style="background:rgba(255,255,255,0.05);color:${color};border:1px solid ${color}">SEVERITY: ${severity}</span></div>
+    <div style="font-size:0.82rem;color:var(--text);line-height:1.7;margin-bottom:1em;">${detail}</div>
+    <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+    <button class="btn btn-secondary" style="margin-left:0.5em;" onclick="closeModal();showScreen('crossref')">⊕ View Cross-Reference</button>
+  `;
+  document.getElementById('actor-modal').classList.add('open');
+}
+function closeModal() { document.getElementById('actor-modal').classList.remove('open'); }
+document.getElementById('actor-modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+
+// ── TIMELINE FILTER ──
+function filterTimeline(val) {
+  const items = document.querySelectorAll('.timeline-item');
+  const q = val.toLowerCase();
+  items.forEach(item => {
+    item.style.display = item.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+
+// ── KEYBOARD SHORTCUTS ──
+document.addEventListener('keydown', function(e) {
+  const map = { 'a': 'court', 'b': 'comms', 'c': 'funding', 'd': 'identity', 'e': 'timeline', 'f': 'actors', 'g': 'crossref' };
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (map[e.key.toLowerCase()]) showScreen(map[e.key.toLowerCase()]);
+});
+</script>
+</body>
+</html>
