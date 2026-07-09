@@ -1,50 +1,41 @@
 #!/bin/bash
 set -euo pipefail
 
+# Deploy GCE backup VM for Cloud Shell backups
+# This VM serves as a Linux jump box to bypass Windows firewall issues
+# with gcloud cloud-shell SSH tunnel (WinError 10053)
+
 PROJECT_ID="project-743aab84-f9a5-4ec7-954"
-REGION="us-central1"
-CLUSTER="migrated-home-cluster"
-CONFIG="migrated-home-config"
-WS_NAME="main-workstation"
+ZONE="us-central1-a"
+VM_NAME="backup-vm"
 
-gcloud config set project "$PROJECT_ID"
+echo "=== ENABLING APIS (via REST to bypass ADC quota project) ==="
+TOKEN=$(gcloud auth print-access-token)
+for api in compute.googleapis.com cloudshell.googleapis.com serviceusage.googleapis.com; do
+  curl -s -X POST -H "Authorization: Bearer $TOKEN" \
+    -H "Content-Type: application/json" \
+    -H "x-goog-user-project: $PROJECT_ID" \
+    "https://serviceusage.googleapis.com/v1/projects/$PROJECT_ID/services/$api:enable" > /dev/null
+done
 
-echo "=== ENABLING APIS ==="
-gcloud services enable workstations.googleapis.com compute.googleapis.com
+echo "=== CREATING FIREWALL RULE ==="
+gcloud compute firewall-rules create allow-ssh-backup \
+  --project="$PROJECT_ID" \
+  --network=default --allow=tcp:22 \
+  --source-ranges=0.0.0.0/0 --target-tags=backup-vm 2>/dev/null || true
 
-echo "=== CREATING VPC ==="
-gcloud compute networks create migration-vpc --subnet-mode=custom 2>/dev/null || true
-gcloud compute networks subnets create migration-subnet \
-  --network=migration-vpc --range=10.0.0.0/24 --region="$REGION" \
-  --enable-private-ip-google-access 2>/dev/null || true
+echo "=== CREATING BACKUP VM ==="
+gcloud compute instances create "$VM_NAME" \
+  --project="$PROJECT_ID" --zone="$ZONE" \
+  --machine-type=e2-micro \
+  --boot-disk-size=50 --boot-disk-type=pd-standard \
+  --image-family=debian-12 --image-project=debian-cloud \
+  --tags=backup-vm \
+  --scopes=cloud-platform
 
-echo "=== SETTING UP NAT ==="
-gcloud compute routers create migration-router \
-  --network=migration-vpc --region="$REGION" 2>/dev/null || true
-gcloud compute routers nats create migration-nat \
-  --router=migration-router --region="$REGION" \
-  --nat-all-subnet-ip-ranges --auto-allocate-nat-external-ips 2>/dev/null || true
-
-echo "=== CREATING WORKSTATION CLUSTER ==="
-gcloud workstations clusters create "$CLUSTER" \
-  --region="$REGION" --network=migration-vpc --subnetwork=migration-subnet 2>/dev/null || true
-
-echo "=== CREATING WORKSTATION CONFIG ==="
-gcloud workstations configs create "$CONFIG" \
-  --cluster="$CLUSTER" --region="$REGION" \
-  --machine-type=e2-standard-4 \
-  --pd-disk-type=pd-ssd --pd-disk-size=100 \
-  --container-image=us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:latest \
-  --idle-timeout=7200s --running-timeout=86400s 2>/dev/null || true
-
-echo "=== CREATING WORKSTATION ==="
-gcloud workstations create "$WS_NAME" \
-  --cluster="$CLUSTER" --config="$CONFIG" --region="$REGION" 2>/dev/null || true
-
-echo "=== GRANTING ACCESS ==="
-echo "Add users: gcloud workstations add-iam-policy-binding ..."
-
+echo "=== VM READY ==="
+echo "IP: $(gcloud compute instances describe $VM_NAME --zone=$ZONE --format='get(networkInterfaces[0].accessConfigs[0].natIP)')"
+echo "SSH: gcloud compute ssh $VM_NAME --zone=$ZONE"
 echo ""
-echo "=== DEPLOYMENT COMPLETE ==="
-echo "Start: gcloud workstations start $WS_NAME --cluster=$CLUSTER --config=$CONFIG --region=$REGION"
-echo "URL: https://console.cloud.google.com/workstations/workstation/$REGION/$CLUSTER/$CONFIG/$WS_NAME?project=$PROJECT_ID"
+echo "Then run: bash backup-scripts/backup-cloudshell.sh <email> <label> <token>"
+echo "Get token: gcloud auth print-access-token --account=<email>"
