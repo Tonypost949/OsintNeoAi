@@ -6,15 +6,20 @@ from pathlib import Path
 
 WORKSPACE_DIR = r"c:\Users\HP\OneDrive\Documents\OsintNeoAi"
 
-def run_cmd(cmd, cwd=WORKSPACE_DIR):
-    print(f"Executing: {' '.join(cmd)}")
-    try:
-        res = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, check=True)
-        print(f"STDOUT: {res.stdout}")
-        return True
-    except subprocess.CalledProcessError as e:
-        print(f"ERROR: {e.stderr}")
-        return False
+def run_cmd(cmd, cwd=WORKSPACE_DIR, retries=3, delay=10):
+    for attempt in range(retries):
+        print(f"Executing (Attempt {attempt + 1}/{retries}): {' '.join(cmd)}")
+        try:
+            res = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, check=True)
+            print(f"STDOUT: {res.stdout}")
+            return True
+        except subprocess.CalledProcessError as e:
+            print(f"ERROR on attempt {attempt + 1}: {e.stderr}")
+            if attempt < retries - 1:
+                print(f"Waiting {delay}s before retrying...")
+                time.sleep(delay)
+            else:
+                return False
 
 def main():
     print("=== STARTING CONTINUOUS SYNC CYCLE ===")
@@ -43,16 +48,16 @@ def main():
         "--exclude", "node_modules/**",
         "--exclude", ".git/**",
         "--exclude", "__pycache__/**"
-    ])
+    ], retries=5, delay=15)
     
     # 4. Sync opencode_work folder specifically
     run_cmd([
         "rclone", "sync",
         os.path.join(WORKSPACE_DIR, "opencode_work"),
         "gdrive:Sharedall/opencode_work"
-    ])
+    ], retries=5, delay=15)
     
-    print("=== SYNC CYCLE COMPLETED SUCCESSFULLY ===")
+    print("=== SYNC CYCLE COMPLETED ===")
 
 if __name__ == "__main__":
     main()
