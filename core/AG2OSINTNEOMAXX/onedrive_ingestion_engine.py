@@ -35,7 +35,8 @@ DOC_EXTS = (".pdf", ".docx", ".doc")
 # Exclusion list to skip system files, massive binaries, and caches
 EXCLUDED_KEYWORDS = [
     "node_modules", ".venv", "appdata", "bin", "obj", ".git", ".gradle",
-    "me_pe_log", "memu", ".vmdk", ".exe", ".msi", ".dll", ".zip", ".old"
+    "me_pe_log", "memu", ".vmdk", ".exe", ".msi", ".dll", ".zip", ".old",
+    ".vscode"
 ]
 
 # Terminal styles
@@ -61,7 +62,11 @@ class OneDriveIngestor:
         if not self.dry_run:
             try:
                 self.client = bigquery.Client()
-                self.init_dataset()
+                # Try to init dataset; ignore quota conflicts (dataset already exists)
+                try:
+                    self.init_dataset()
+                except Exception:
+                    safe_print(f"{YELLOW}[!] Could not verify dataset (likely quota issue, continuing anyway){RESET}")
                 self.bq_connected = True
             except Exception as e:
                 safe_print(f"{RED}[!] BigQuery connection failed: {e}{RESET}")
