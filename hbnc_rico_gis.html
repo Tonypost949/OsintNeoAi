@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HBNC RICO GIS — Beach Blvd / PCH / 405 Corridor</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body,#map{width:100%;height:100%;background:#000;font-family:monospace;overflow:hidden}
+#hud{position:fixed;top:8px;left:8px;z-index:1000;font-family:monospace;font-size:9px;color:#aaa;line-height:1.5;pointer-events:none}
+#hud b{color:#0f0}#hud .r{color:#f44}.c{color:#0ff}.y{color:#fc0}.p{color:#f0f}
+#stats{position:fixed;top:8px;right:8px;z-index:1000;background:rgba(0,0,0,0.82);border:1px solid rgba(0,255,0,0.12);border-radius:6px;font-family:monospace;color:#aaa;padding:10px 12px;font-size:9px;line-height:1.7;width:260px;backdrop-filter:blur(8px)}
+#stats b{color:#fff}
+#legend{position:fixed;bottom:8px;left:8px;z-index:1000;background:rgba(0,0,0,0.78);border:1px solid rgba(255,255,255,0.06);border-radius:6px;font-family:monospace;font-size:9px;color:#888;padding:8px 12px;line-height:2;backdrop-filter:blur(8px)}
+#legend .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:3px;vertical-align:middle}
+#legend .dash{display:inline-block;width:12px;height:0;border-top:1.5px dashed;margin-right:3px;vertical-align:middle}
+#toggles{position:fixed;bottom:8px;right:8px;z-index:1000;display:flex;flex-wrap:wrap;gap:4px;max-width:360px}
+#toggles button{background:rgba(0,0,0,0.7);color:#666;border:1px solid rgba(255,255,255,0.08);padding:3px 7px;font-size:8px;border-radius:3px;cursor:pointer;font-family:monospace;transition:all .2s;white-space:nowrap}
+#toggles button.on{color:#fff;border-color:rgba(255,255,255,0.3)}
+#toggles button:hover{color:#0f0;border-color:rgba(0,255,0,0.3)}
+#search{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2000;display:none}
+#search.show{display:block}
+#search input{background:rgba(0,0,0,0.9);color:#0f0;border:1px solid rgba(0,255,0,0.3);padding:8px 14px;font-size:12px;font-family:monospace;width:300px;border-radius:4px}
+#search input:focus{outline:none;border-color:#0f0}
+#search .results{background:rgba(0,0,0,0.92);border:1px solid rgba(0,255,0,0.15);max-height:200px;overflow-y:auto;margin-top:2px;border-radius:4px}
+#search .results div{padding:6px 10px;color:#aaa;font-size:10px;cursor:pointer;border-bottom:1px solid rgba(0,255,0,0.05)}
+#search .results div:hover{background:rgba(0,60,0,0.3);color:#0f0}
+.rf{color:#f44}.cf{color:#0ff}.yf{color:#fc0}.pf{color:#f0f}.gf{color:#0f0}
+.leaflet-tooltip.parcel-label{background:rgba(0,0,0,0.85);border:1px solid rgba(0,255,0,0.15);color:#0f0;font-size:9px;font-family:monospace;padding:2px 6px;border-radius:2px}
+.leaflet-popup-content-wrapper{background:rgba(0,0,0,0.92);color:#ccc;border:1px solid rgba(0,255,0,0.15);border-radius:4px;font-family:monospace;font-size:10px}
+.leaflet-popup-tip{background:rgba(0,0,0,0.92)}
+.scale-bar{position:fixed;bottom:8px;left:50%;transform:translateX(-50%);z-index:1000;background:rgba(0,0,0,0.7);border:1px solid rgba(0,255,0,0.15);border-radius:4px;padding:4px 8px;font-family:monospace;font-size:8px;color:#0f0}
+.coord-readout{position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:1000;background:rgba(0,0,0,0.7);border:1px solid rgba(0,255,0,0.15);border-radius:4px;padding:4px 10px;font-family:monospace;font-size:9px;color:#0f0}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div id="hud">
+  <b>HBNC RICO GIS — BEACH BLVD / PCH / 405 CORRIDOR</b><br>
+  <span style="color:#0f0">CR-VI PLUME | ASPHALT CAP FAILURE | SHELL LLC CLUSTER | FINANCIAL VEINS</span><br>
+  <span class="r">TOXIC: 3</span> &bull; <span class="y">LLC: 12</span> &bull; <span class="c">PLUME VECTORS: 12</span> &bull; <span class="p">CPS: 4</span> &bull; <span style="color:#f93">VEINS: 6</span>
+</div>
+<div id="stats"><b>LIVE STATS</b><br><span id="stats-body">loading...</span></div>
+<div id="legend"><span id="legend-body"></span></div>
+<div id="toggles">
+  <button class="on rf" onclick="toggle('toxic')" id="btn-toxic">☢ TOXIC</button>
+  <button class="on" style="color:#f93" onclick="toggle('llc')" id="btn-llc">■ LLC SHELLS</button>
+  <button class="on" style="color:#0ff" onclick="toggle('plume')" id="btn-plume">→ PLUME</button>
+  <button class="on" style="color:#888" onclick="toggle('sink')" id="btn-sink">● SINKHOLES</button>
+  <button class="on" style="color:#f0f" onclick="toggle('veins')" id="btn-veins">◆ VEINS</button>
+  <button class="on" style="color:#ff0" onclick="toggle('fca')" id="btn-fca">● FCA</button>
+  <button class="on" style="color:#fa0" onclick="toggle('procurement')" id="btn-procurement">$ PROCURE</button>
+  <button class="on" style="color:#f44" onclick="toggle('cps')" id="btn-cps">☠ CPS</button>
+  <button class="on" style="color:#0f0" onclick="toggle('infra')" id="btn-infra">⬢ INFRA</button>
+  <button onclick="document.getElementById('search').classList.toggle('show')">⌕ FIND</button>
+  <button onclick="resetView()">↻ RESET</button>
+  <button onclick="threatMode()" style="color:#f44">☢ THREAT</button>
+</div>
+<div id="search">
+  <input id="search-input" placeholder="Search entity, address, APN, $amount..." oninput="doSearch()" onkeydown="if(event.key==='Escape')document.getElementById('search').classList.remove('show')">
+  <div class="results" id="search-results"></div>
+</div>
+<div class="scale-bar">Scale: <span id="scale-text">~50m</span> | <span id="coord-readout">Lat: 33.6775 Lng: -118.0012</span></div>
+<div class="coord-readout" id="coord-readout-main">Lat: 33.677500 | Lng: -118.001200 | Zoom: 17</div>
+
+<script>
+// === LAYER GROUPS ===
+const layers = {toxic:[], llc:[], plume:[], sink:[], veins:[], fca:[], procurement:[], cps:[], infra:[]};
+
+function toggle(key){
+  const btn = document.getElementById('btn-'+key);
+  btn.classList.toggle('on');
+  const show = btn.classList.contains('on');
+  (layers[key]||[]).forEach(l => {if(show)map.addLayer(l);else map.removeLayer(l)});
+}
+
+// === MAP ===
+const map = L.map('map', {zoomControl:false, attributionControl:false}).setView([33.6775, -118.0012], 17);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {maxZoom:20}).addTo(map);
+L.control.zoom({position:'bottomleft'}).addTo(map);
+
+// === ICONS ===
+const TOXIC_ICON = '<div style="color:#f44;font-size:20px;text-align:center;text-shadow:0 0 12px #f44">☢</div>';
+const LLC_ICON = '<div style="color:#f93;font-size:14px;text-align:center;text-shadow:0 0 8px #f93">■</div>';
+const SINK_ICON = '<div style="color:#000;font-size:12px;text-align:center">●</div>';
+const VEIN_ICON = '<div style="color:#f0f;font-size:12px;text-align:center">◆</div>';
+const INFRA_ICON = '<div style="color:#0f0;font-size:12px;text-align:center">⬢</div>';
+const CPS_ICON = '<div style="color:#f44;font-size:14px;text-align:center">☠</div>';
+
+// === HBNC TOXIC SITE (17642 Beach Blvd / 17631 Cameron Ln) ===
+const HBNC = [33.6775, -118.0012];
+const CAMERON = [33.6770, -118.0015];
+
+const toxic = [
+  [33.6775, -118.0012, 'HBNC TOXIC SITE', '17642 Beach Blvd / 17631 Cameron Ln | Cr-VI 980 µg/kg (49x RSL) | Asphalt cap FAILING | 2,247 cu ft HDPE Stormtech chambers | Void ab initio clearance | $155M COC liability'],
+  [33.6770, -118.0015, 'Cameron Ln Parcel', '17631 Cameron Ln | Asbestos/Lead paint | Former ag pesticides | Yamada Trustee 1998 | Uneven topography SE corner'],
+  [33.6927, -117.9974, '7561 Center Ave — Yamada/Chen Vaults', 'Units D1-E1-G3-J1 | 4 shell LLCs | Underground concrete coffins (1960s-70s) | Chen-Yamada pipeline | $1.47M PPP / $1.13M PPP routing'],
+];
+toxic.forEach(([lat,lng,label,desc])=>{
+  const m = L.marker([lat,lng], {icon:L.divIcon({html:TOXIC_ICON,iconSize:[24,24],iconAnchor:[12,12]})})
+    .bindTooltip(label,{direction:'top',offset:[0,-10],className:'parcel-label',permanent:true})
+    .bindPopup(`<div style="font-family:monospace;font-size:10px;color:#ccc"><b style="color:#f44">☢ ${label}</b><br>${desc}</div>`);
+  layers.toxic.push(m); m.addTo(map);
+});
+
+// PLUME VECTORS (groundwater flow SW per Phase I ESA)
+const plumeOrigin = [33.6773, -118.0013];
+const flowVectors = [
+  [0.0004,-0.0005],[0.0006,-0.0004],[0.0008,-0.0002],[0.0005,-0.0007],
+  [-0.0003,-0.0006],[-0.0005,-0.0004],[-0.0007,-0.0001],[0.0002,-0.0009],
+  [0.0009,0.0001],[0.0010,-0.0002],[-0.0008,-0.0003],[-0.0004,-0.0008]
+];
+flowVectors.forEach(([dy,dx])=>{
+  const pts = [plumeOrigin];
+  for(let i=1;i<=6;i++) pts.push([plumeOrigin[0]+dy*i*0.8, plumeOrigin[1]+dx*i*0.8]);
+  const line = L.polyline(pts, {color:'#0ff',weight:1.2,opacity:0.4,dashArray:'4,8'});
+  layers.plume.push(line); line.addTo(map).bindTooltip('Cr-VI plume vector',{className:'parcel-label'});
+});
+[50,150,300,600,1200].forEach(r=>{
+  const c = L.circle(plumeOrigin,{radius:r,color:'#0ff',weight:0.5,opacity:0.3,fillColor:'#0ff',fillOpacity:0.04});
+  layers.plume.push(c); c.addTo(map);
+});
+
+// SINKHOLES / SUBSURFACE ANOMALIES
+const sinkholes = [
+  [33.6930, -117.9975, '7561 Center Vaults', 'Underground concrete coffins / Chen-Yamada / 1960s-70s construction / D1-E1-G3-J1 units'],
+  [33.6778, -118.0015, 'HBNC Excavation', 'Asphalt cap failure / Cr-VI soil disturbance / 2,247 cu ft HDPE Stormtech chambers misrepresented as temporary'],
+  [33.6755, -117.7305, 'El Toro Hangars', 'Contaminated fill burial / Decommissioned MCAS El Toro / PFAS plume migration'],
+  [33.6773, -118.0010, 'Stormtech Chamber Field', 'HDPE Stormtech SC-740 chambers / 2,247 cu ft / PVC manifold / Corrosive soil accelerating failure'],
+];
+sinkholes.forEach(([lat,lng,label,desc])=>{
+  const m = L.circleMarker([lat,lng],{radius:10,color:'#000',fillColor:'#111',fillOpacity:0.95,weight:2})
+    .bindTooltip(`SINK: ${label}`,{direction:'top',className:'parcel-label',permanent:true})
+    .bindPopup(`<div style="font-family:monospace;font-size:10px;color:#ccc"><b style="color:#888">● SINKHOLE</b><br>${label}<br>${desc}</div>`);
+  layers.sink.push(m); m.addTo(map);
+  const c = L.circle([lat,lng],{radius:80,color:'#000',weight:0.3,opacity:0.4,fillColor:'#000',fillOpacity:0.05});
+  layers.sink.push(c); c.addTo(map);
+});
+
+// FINANCIAL BLACK HOLES
+const blackholes = [
+  [33.650, -117.895, 'Newport Shell Cluster', '20341-71 Irvine Ave — CSJ Mgmt / PL Jetty — $0 transfers'],
+  [33.745, -117.8125, 'Pham Quitclaim Nexus', '2614 Orchard Dr / 7100 Cerritos #108 / 13801 Shirley #85 — $0 quitclaims'],
+  [33.753, -117.9905, 'Garnet St Routing', '15822 Garnet St — CMRA layer / Dylan & Andrew mailbox'],
+  [33.7505, -118.0955, 'PCH CMRA', '1077 Pacific Coast Hwy #247 — Stewart mailbox / Battle Creek MI'],
+];
+blackholes.forEach(([lat,lng,label,desc])=>{
+  const m = L.circleMarker([lat,lng],{radius:14,color:'#000',fillColor:'#000',fillOpacity:0.98,weight:2})
+    .bindTooltip(`$ ${label}`,{direction:'bottom',className:'parcel-label',permanent:true})
+    .bindPopup(`<div style="font-family:monospace;font-size:10px;color:#ccc"><b style="color:#f0f">◆ BLACK HOLE</b><br>${label}<br>${desc}</div>`);
+  layers.sink.push(m); m.addTo(map);
+  const c = L.circle([lat,lng],{radius:250,color:'#000',weight:0.3,opacity:0.4,fillColor:'#000',fillOpacity:0.05});
+  layers.sink.push(c); c.addTo(map);
+});
+
+// FINANCIAL VEINS (LLC connections)
+const veins = [
+  [[33.753,-118.072],[33.7505,-118.0955],'Stewart Industrial → PCH CMRA'],
+  [[33.753,-117.9905],[33.6927,-117.9974],'Garnet St → 7561 Center Ave'],
+  [[33.808,-118.002],[33.774,-117.987],'CP Premier 1 → CP Premier 2'],
+  [[33.774,-117.987],[33.745,-117.8125],'CP Premier → Pham Residence'],
+  [[33.6927,-117.9974],[33.6775,-118.0012],'7561 Center → HBNC'],
+  [[33.6775,-118.0012],[33.6755,-117.7305],'HBNC → El Toro'],
+  [[33.755,-117.990],[33.6775,-118.0012],'Stewart PPP $1.13M → HBNC'],
+  [[33.707,-117.958],[33.6775,-118.0012],'Triumvirate PPP $1.47M → HBNC'],
+];
+veins.forEach(([a,b,label])=>{
+  const l = L.polyline([a,b],{color:'#f0f',weight:1.5,opacity:0.4,dashArray:'5,10'});
+  layers.veins.push(l); l.addTo(map).bindTooltip(label,{className:'parcel-label'});
+});
+
+// SUSPECT LLC SHELLS (Beach Blvd / PCH / 405 corridor)
+const llc = [
+  [33.7070, -117.9580, 'Triumvirate LLC', '21951 Brookhurst St | PPP $1,471,840 | Anchorage AK mailbox'],
+  [33.7530, -118.0720, 'Stewart Industrial', '3311 Bounty Cir | PPP $1,128,327 | 1077 PCH #247 CMRA'],
+  [33.8080, -118.0020, 'CP Premier 1', '7100 Cerritos Ave #108 | Peter Pham $0 quitclaim'],
+  [33.7740, -117.9870, 'CP Premier 2', '13801 Shirley St #85 | Peter Pham $0 quitclaim'],
+  [33.7530, -117.9900, 'Garnet Drop', '15822 Garnet St | Dylan & Andrew mailbox CMRA'],
+  [33.6500, -117.8900, 'Newport LLC Cluster', '20341-71 Irvine Ave | CSJ/PL Jetty shell cluster'],
+  [33.7450, -117.8120, 'Pham Residence', '2614 Orchard Dr Tustin | Peter Pham nexus'],
+  [33.7550, -117.990, 'Stewart PPP', 'PPP $1,128,327 | Bounty Cir | Battle Creek MI'],
+  [33.7250, -117.97, 'Triumvirate PPP', 'PPP $1,471,840 | Brookhurst | 3705 Arctic Blvd AK'],
+  [33.6870, -117.988, 'ONNI HB LLC', '$97.25M | 17011 Beach Blvd | Phoenix mail'],
+  [33.6830, -117.994, 'Corte Bella TruAmerica', '$85.75M | 9543 Dixie St | Woodland Hills mail'],
+  [33.6830, -117.994, 'Sendero Riverbend', '$70M | 8955 Riverbend Dr | LA mail'],
+  [33.6890, -117.985, 'SCG Edinger Plaza', '$65.5M | 7542 Edinger Ave | SF mail'],
+];
+llc.forEach(([lat,lng,label,desc])=>{
+  const m = L.marker([lat,lng],{icon:L.divIcon({html:LLC_ICON,iconSize:[18,18],iconAnchor:[9,9]})})
+    .bindTooltip(label,{direction:'top',offset:[0,-8],className:'parcel-label'})
+    .bindPopup(`<div style="font-family:monospace;font-size:10px;color:#ccc"><b style="color:#f93">■ ${label}</b><br>${desc}</div>`);
+  layers.llc.push(m); m.addTo(map);
+});
+
+// INFRASTRUCTURE (405, PCH, Stormtech, utilities)
+const infra = [
+  // I-405 corridor line
+  [[33.65,-118.00],[33.73,-117.99],'I-405 Freeway Corridor', '#fc0'],
+  // PCH line
+  [[33.65,-118.00],[33.73,-117.98],'Pacific Coast Hwy (PCH)', '#f93'],
+  // Beach Blvd
+  [[33.677,-118.001],[33.73,-117.99],'Beach Boulevard', '#f44'],
+  // Stormtech chamber field at HBNC
+  [[33.6773,-118.0013],[33.6778,-118.0015],'HDPE Stormtech Chambers (2,247 cu ft)', '#0f0'],
+  // Groundwater monitoring wells
+  [33.6775,-118.0012,'MW-1 (Cr-VI 980 µg/kg)', '#f44'],
+  [33.6770,-118.0015,'MW-2 (Asbestos/Lead)', '#f93'],
+  [33.6780,-118.0005,'MW-3 (Pesticides)', '#fc0'],
+  [33.6765,-118.0020,'MW-4 (Background)', '#0ff'],
+];
+infra.forEach(item=>{
+  if(item.length===4){
+    const [[lat1,lng1],[lat2,lng2],label,color] = item;
+    const l = L.polyline([[lat1,lng1],[lat2,lng2]],{color,weight:2,opacity:0.6,dashArray:color==='#fc0'?'10,5':color==='#f93'?'5,5':color==='#0f0'?'2,4':undefined});
+    layers.infra.push(l); l.addTo(map).bindTooltip(label,{className:'parcel-label'});
+  }else{
+    const [lat,lng,label,color] = item;
+    const m = L.circleMarker([lat,lng],{radius:6,color,fillColor:color,fillOpacity:0.7,weight:1.5});
+    layers.infra.push(m); m.addTo(map).bindTooltip(label,{className:'parcel-label'});
+  }
+});
+
+// CPS CHILD TRAFFICKING EVENTS
+const cpsEvents = [
+  [33.6775,-118.0012,'HBNC Child Deaths','4 confirmed deaths | 279 emergencies | CERCLA toxics exposure | #f44','CHILD_DEATH'],
+  [33.748,-117.870,'OC DA / Spitzer','No action on CPS trafficking referrals | Political protection','TRAFFICKING'],
+  [33.676,-118.0015,'HB City Hall','CEQA exemption fraud | Blocked reporting | Ordinance 4289','BLOCKED_REPORTING'],
+  [33.835,-117.91,'Anaheim CPS Hub','Multi-LLC shelter billing cluster | COVID fraud','COVID_FRAUD'],
+  [34.05,-118.25,'LA County CPS','Largest CPS system | IV-E billing nexus | $200M-$512M alleged','IV_E_FRAUD'],
+];
+cpsEvents.forEach(([lat,lng,label,desc,color,layer])=>{
+  const m = L.circleMarker([lat,lng],{radius:12,color,fillColor:color,fillOpacity:0.5,weight:2})
+    .bindTooltip(`<b style="color:${color}">${label}</b>`,{direction:'right',className:'parcel-label'})
+    .bindPopup(`<div style="font-family:monospace;font-size:10px;color:#ccc"><b style="color:${color}">${layer}</b><br>${label}<br>${desc}</div>`);
+  layers.cps.push(m); m.addTo(map);
+});
+
+// FCA TIMELINE
+const fcaEvents = [
+  [33.748,-117.870,'USDC CD CA','FCA-HIT-001: Knabb v. HB RICO / Qui Tam coordination','#ff0','CRITICAL'],
+  [34.05,-118.25,'USDC CD CA LA','FCA-HIT-007: EPA OIG referral filed','#ff0','CRITICAL'],
+  [38.907,-77.037,'FCA DC Filing','FCA-HIT-012: DOJ Civil Division notice','#f0f','HIGH'],
+  [33.748,-117.870,'FCA-HIT-019','FCA-HIT-019: Qui Tam complaint under seal','#ff0','CRITICAL'],
+  [33.676,-118.0015,'FCA-HIT-024','FCA-HIT-024: Relator disclosure served','#fa0','HIGH'],
+];
+fcaEvents.forEach(([lat,lng,label,desc,color,risk])=>{
+  const sz = risk==='CRITICAL'?16:12;
+  const m = L.circleMarker([lat,lng],{radius:sz,color,fillColor:color,fillOpacity:0.6,weight:2})
+    .bindTooltip(`<b style="color:${color}">${label}</b>`,{direction:'right',className:'parcel-label'})
+    .bindPopup(`<div style="font-family:monospace;font-size:10px;color:#ccc"><b style="color:${color}">FCA ${risk}</b><br>${label}<br>${desc}</div>`);
+  layers.fca.push(m); m.addTo(map);
+  const ring = L.circle([lat,lng],{radius:sz*10,color,weight:0.5,fillColor:'transparent',opacity:0.3,dashArray:'2,6'});
+  layers.fca.push(ring); ring.addTo(map);
+});
+
+// PROCUREMENT
+const procurements = [
+  {lat:33.715,lng:-117.85,title:'OC Sheriff Body Cam Program',dept:'Sheriff',status:'Open',amount:8500000},
+  {lat:33.748,lng:-117.87,title:'County IT Security Assessment',dept:'IT',status:'Open',amount:2500000},
+  {lat:33.676,lng:-118.00,title:'HB Coastal Infrastructure',dept:'Public Works',status:'Under Review',amount:12000000},
+  {lat:33.835,lng:-117.91,title:'Anaheim Housing Services RFP',dept:'Housing',status:'Closed',amount:4500000},
+  {lat:33.6775,lng:-118.0012,title:'HBNC Remediation Contract',dept:'OCHCA/DPW',status:'Void',amount:155000000},
+];
+procurements.forEach(p=>{
+  const color = p.status==='Open'?'#0f0':p.status==='Under Review'?'#fc0':p.status==='Void'?'#f44':'#888';
+  const m = L.circleMarker([p.lat,p.lng],{radius:8,color,fillColor:color,fillOpacity:0.5,weight:1.5})
+    .bindTooltip(`<b style="color:${color}">${p.title}</b>`,{direction:'right',className:'parcel-label'})
+    .bindPopup(`<div style="font-family:monospace;font-size:10px;color:#ccc"><b style="color:${color}">PROCUREMENT</b><br>${p.title}<br>Dept: ${p.dept}<br>Status: ${p.status}<br>Amount: $${(p.amount/1e6).toFixed(1)}M<br><a href="https://procurement.opengov.com/portal/ocgov" target="_blank" style="color:#0f0">OpenGov Portal</a></div>`);
+  layers.procurement.push(m); m.addTo(map);
+});
+
+// === SEARCH INDEX ===
+const allSearchable = [];
+[...toxic,...llc,...cpsEvents,...fcaEvents,...procurements].forEach(item=>{
+  if(item.lat) allSearchable.push({type:item[4]||'TOXIC',name:item[2],desc:item[3],lat:item[0],lng:item[1]});
+  else if(item.lat!==undefined) allSearchable.push({type:'LLC',name:item[2],desc:item[3],lat:item[0],lng:item[1]});
+});
+// Add parcels from search
+allSearchable.push(
+  {type:'PARCEL',name:'HBNC 17642 Beach Blvd',desc:'Cr-VI 980 µg/kg | Asphalt cap | $155M COC',lat:33.6775,lng:-118.0012},
+  {type:'PARCEL',name:'Cameron Ln 17631',desc:'Asbestos/Lead | Yamada Trustee | Ag pesticides',lat:33.6770,lng:-118.0015},
+  {type:'PARCEL',name:'7561 Center Ave',desc:'Yamada/Chen vaults | 4 shell LLCs | $1.47M PPP',lat:33.6927,lng:-117.9974}
+);
+
+function doSearch(){
+  const q = document.getElementById('search-input').value.toLowerCase();
+  const results = document.getElementById('search-results');
+  results.innerHTML='';
+  if(!q||q.length<2) return;
+  const matches = allSearchable.filter(i=>(i.name+i.desc+i.type).toLowerCase().includes(q)).slice(0,15);
+  matches.forEach(m=>{
+    const d=document.createElement('div');
+    d.innerHTML=`<b>${m.type}</b> ${m.name}<br><small>${m.desc.substring(0,80)}</small>`;
+    d.onclick=()=>{map.setView([m.lat,m.lng],m.type==='PARCEL'?19:15);document.getElementById('search').classList.remove('show');};
+    results.appendChild(d);
+  });
+}
+
+// === STATS ===
+document.getElementById('stats-body').innerHTML = `
+  <span class="r">☢ TOXIC:</span> ${toxic.length} sites<br>
+  <span style="color:#f93">■ LLC:</span> ${llc.length} shells<br>
+  <span style="color:#0ff">→ PLUME:</span> ${flowVectors.length} vectors<br>
+  <span style="color:#888">● SINK:</span> ${sinkholes.length} anomalies<br>
+  <span style="color:#f0f">◆ VEINS:</span> ${veins.length} connections<br>
+  <span style="color:#ff0">● FCA:</span> ${fcaEvents.length} filings<br>
+  <span style="color:#fa0">$ PROCURE:</span> ${procurements.length} contracts<br>
+  <span style="color:#f44">☠ CPS:</span> ${cpsEvents.length} events<br>
+  <span style="color:#0f0">⬢ INFRA:</span> ${infra.length} corridors<br>
+  <br><b style="color:#f44">CR-VI: 980 µg/kg (49x RSL)</b><br>
+  <b style="color:#f93">ASPHALT CAP: FAILING</b><br>
+  <b style="color:#0ff">STORMTECH: 2,247 cu ft HDPE</b><br>
+  <b style="color:#f0f">CLEARANCE: VOID AB INITIO</b>
+`;
+
+// === LEGEND ===
+document.getElementById('legend-body').innerHTML = `
+  <span class="rf"><span class="dot" style="background:#f44"></span>TOXIC SITE</span>
+  <span style="color:#f93"><span class="dot" style="background:#f93"></span>LLC SHELL</span>
+  <span style="color:#0ff"><span class="dash" style="border-color:#0ff"></span>PLUME VECTOR</span>
+  <span style="color:#888"><span class="dot" style="background:#111;border:1px solid #333"></span>SINKHOLE</span>
+  <span style="color:#f0f"><span class="dot" style="background:#f0f"></span>BLACK HOLE</span>
+  <span style="color:#f0f"><span class="dash" style="border-color:#f0f"></span>FIN VEIN</span>
+  <span style="color:#ff0"><span class="dot" style="background:#ff0"></span>FCA FILING</span>
+  <span style="color:#f44"><span class="dot" style="background:#f44"></span>CPS DEATH</span>
+  <span style="color:#0f0"><span class="dot" style="background:#0f0"></span>INFRA/STORMTECH</span><br>
+  <a href="https://github.com/Tonypost949/osint-agent" target="_blank" style="color:#0f0">EVIDENCE REPO</a> |
+  <a href="https://procurement.opengov.com/portal/ocgov" target="_blank" style="color:#0f0">PROCUREMENT</a> |
+  <a href="https://github.com/Tonypost949/osint-agent/blob/master/FEDERAL_WHISTLEBLOWER_EXHIBIT.md" target="_blank" style="color:#0f0">EXHIBIT</a>
+`;
+
+// === MAP INTERACTION ===
+map.on('moveend',()=>{
+  const center=map.getCenter(),zoom=map.getZoom();
+  document.getElementById('coord-readout-main').textContent=`Lat: ${center.lat.toFixed(6)} | Lng: ${center.lng.toFixed(6)} | Zoom: ${zoom}`;
+  // Approximate scale
+  const metersPerPixel = 156543.03392 * Math.cos(center.lat * Math.PI/180) / Math.pow(2,zoom);
+  const barMeters = 100 * metersPerPixel;
+  let scaleText;
+  if(barMeters>=1000) scaleText=`~${(barMeters/1000).toFixed(1)} km`;
+  else scaleText=`~${Math.round(barMeters)} m`;
+  document.getElementById('scale-text').textContent=scaleText;
+});
+map.on('mousemove',e=>{
+  document.getElementById('coord-readout').textContent=`Lat: ${e.latlng.lat.toFixed(6)} | Lng: ${e.latlng.lng.toFixed(6)}`;
+});
+
+function resetView(){map.setView([33.6775,-118.0012],17);}
+let threatActive=false;
+function threatMode(){
+  threatActive=!threatActive;
+  const color=threatActive?'#f00':'#f44';
+  document.querySelectorAll('.leaflet-interactive').forEach(el=>{
+    if(el._path&&el._path.classList){el.setAttribute('stroke',color);}
+  });
+  document.getElementById('hud').innerHTML+=threatActive?'<br><span class="r" style="animation:blink 1s infinite">⚠ THREAT MODE ACTIVE</span>':'';
+}
+
+// Keyboard shortcuts
+document.addEventListener('keydown',e=>{
+  if(e.key==='f'&&e.ctrlKey){e.preventDefault();document.getElementById('search').classList.toggle('show');document.getElementById('search-input').focus();}
+  if(e.key==='t'&&e.ctrlKey){e.preventDefault();threatMode();}
+  if(e.key==='Escape'){document.getElementById('search').classList.remove('show');}
+});
+
+// Add blink animation
+const style=document.createElement('style');
+style.textContent='@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}';
+document.head.appendChild(style);
+
+console.log('HBNC RICO GIS — Beach Blvd/PCH/405 Corridor — LIVE');
+console.log(`TOXIC:${toxic.length} LLC:${llc.length} PLUME:${flowVectors.length} SINK:${sinkholes.length} VEINS:${veins.length} FCA:${fcaEvents.length} CPS:${cpsEvents.length} INFRA:${infra.length} PROCURE:${procurements.length}`);
+</script>
+</body>
+</html>
