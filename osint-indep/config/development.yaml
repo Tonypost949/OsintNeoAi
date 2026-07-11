@@ -1,0 +1,31 @@
+# Development configuration - overrides default.yaml
+
+database:
+  type: sqlite
+  path: data/osint_dev.db
+  echo: true
+
+api:
+  host: 127.0.0.1
+  port: 8000
+  workers: 1
+  auth_enabled: false
+  cors_origins:
+    - "*"
+
+collectors:
+  timeout: 60
+  max_concurrent: 5
+  rate_limit: 10
+
+logging:
+  level: DEBUG
+  format: console
+  file: logs/osint_dev.log
+  console: true
+
+web:
+  host: 127.0.0.1
+  port: 8080
+  debug: true
+  secret_key: dev-secret-change-in-production

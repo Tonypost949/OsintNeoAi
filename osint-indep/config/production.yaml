@@ -1,0 +1,32 @@
+# Production configuration - overrides default.yaml
+# Values here take precedence over default.yaml
+
+database:
+  type: postgresql
+  host: ${DB_HOST}
+  port: 5432
+  database: ${DB_NAME}
+  username: ${DB_USER}
+  password: ${DB_PASSWORD}
+  pool_size: 20
+  max_overflow: 30
+
+api:
+  workers: 8
+  rate_limit: 1000
+  cors_origins:
+    - https://yourdomain.com
+    - https://api.yourdomain.com
+
+collectors:
+  timeout: 60
+  max_concurrent: 20
+  rate_limit: 500
+
+logging:
+  level: WARNING
+  file: /var/log/osint/osint.log
+
+web:
+  debug: false
+  secret_key: ${OSINT_WEB_SECRET}

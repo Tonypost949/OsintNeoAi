@@ -1,0 +1,1 @@
+"""Test package for OSINT Independent Platform"""
