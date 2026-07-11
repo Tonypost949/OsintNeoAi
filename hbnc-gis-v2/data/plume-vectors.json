@@ -1,0 +1,29 @@
+{
+  "type": "FeatureCollection",
+  "name": "Cr-VI Plume Vectors",
+  "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+  "metadata": {
+    "origin": [33.6773, -118.0013],
+    "description": "Groundwater flow vectors SW from HBNC per Phase I ESA (depth 18-24 ft bgs, gradient SW)",
+    "source": "Phase I ESA T10000018579, Section 3.2 Regulatory Status"
+  },
+  "features": [
+    { "type": "Feature", "properties": { "id": "vec-1", "label": "Cr-VI plume vector 1", "dy": 0.0004, "dx": -0.0005 }, "geometry": { "type": "LineString", "coordinates": [[-118.0013, 33.6773], [-118.00155, 33.67742], [-118.0018, 33.67754], [-118.00205, 33.67766], [-118.0023, 33.67778], [-118.00255, 33.6779], [-118.0028, 33.67802]] } },
+    { "type": "Feature", "properties": { "id": "vec-2", "label": "Cr-VI plume vector 2", "dy": 0.0006, "dx": -0.0004 }, "geometry": { "type": "LineString", "coordinates": [[-118.0013, 33.6773], [-118.0015, 33.67742], [-118.0017, 33.67754], [-118.0019, 33.67766], [-118.0021, 33.67778], [-118.0023, 33.6779]] } },
+    { "type": "Feature", "properties": { "id": "vec-3", "label": "Cr-VI plume vector 3", "dy": 0.0008, "dx": -0.0002 }, "geometry": { "type": "LineString", "coordinates": [[-118.0013, 33.6773], [-118.0014, 33.67746], [-118.0015, 33.67762], [-118.0016, 33.67778], [-118.0017, 33.67794], [-118.0018, 33.6781]] } },
+    { "type": "Feature", "properties": { "id": "vec-4", "label": "Cr-VI plume vector 4", "dy": 0.0005, "dx": -0.0007 }, "geometry": { "type": "LineString", "coordinates": [[-118.0013, 33.6773], [-118.00165, 33.6774], [-118.002, 33.6775], [-118.00235, 33.6776], [-118.0027, 33.6777], [-118.00305, 33.6778]] } },
+    { "type": "Feature", "properties": { "id": "vec-5", "label": "Cr-VI plume vector 5", "dy": -0.0003, "dx": -0.0006 }, "geometry": { "type": "LineString", "coordinates": [[-118.0013, 33.6773], [-118.0016, 33.67724], [-118.0019, 33.67718], [-118.0022, 33.67712], [-118.0025, 33.67706], [-118.0028, 33.677]] } },
+    { "type": "Feature", "properties": { "id": "vec-6", "label": "Cr-VI plume vector 6", "dy": -0.0005, "dx": -0.0004 }, "geometry": { "type": "LineString", "coordinates": [[-118.0013, 33.6773], [-118.0015, 33.6772], [-118.0017, 33.6771], [-118.0019, 33.677], [-118.0021, 33.6769], [-118.0023, 33.6768]] } },
+    { "type": "Feature", "properties": { "id": "vec-7", "label": "Cr-VI plume vector 7", "dy": -0.0007, "dx": -0.0001 }, "geometry": { "type": "LineString", "coordinates": [[-118.0013, 33.6773], [-118.00135, 33.67708], [-118.0014, 33.67686], [-118.00145, 33.67664], [-118.0015, 33.67642], [-118.00155, 33.6762]] } },
+    { "type": "Feature", "properties": { "id": "vec-8", "label": "Cr-VI plume vector 8", "dy": 0.0002, "dx": -0.0009 }, "geometry": { "type": "LineString", "coordinates": [[-118.0013, 33.6773], [-118.00175, 33.67736], [-118.0022, 33.67742], [-118.00265, 33.67748], [-118.0031, 33.67754], [-118.00355, 33.6776]] } },
+    { "type": "Feature", "properties": { "id": "vec-9", "label": "Cr-VI plume vector 9", "dy": 0.0009, "dx": 0.0001 }, "geometry": { "type": "LineString", "coordinates": [[-118.0013, 33.6773], [-118.00125, 33.67758], [-118.0012, 33.67786], [-118.00115, 33.67814], [-118.0011, 33.67842], [-118.00105, 33.6787]] } },
+    { "type": "Feature", "properties": { "id": "vec-10", "label": "Cr-VI plume vector 10", "dy": 0.0010, "dx": -0.0002 }, "geometry": { "type": "LineString", "coordinates": [[-118.0013, 33.6773], [-118.0014, 33.6777], [-118.0015, 33.6781], [-118.0016, 33.6785], [-118.0017, 33.6789], [-118.0018, 33.6793]] } },
+    { "type": "Feature", "properties": { "id": "vec-11", "label": "Cr-VI plume vector 11", "dy": -0.0008, "dx": -0.0003 }, "geometry": { "type": "LineString", "coordinates": [[-118.0013, 33.6773], [-118.00145, 33.67706], [-118.0016, 33.67682], [-118.00175, 33.67658], [-118.0019, 33.67634], [-118.00205, 33.6761]] } },
+    { "type": "Feature", "properties": { "id": "vec-12", "label": "Cr-VI plume vector 12", "dy": -0.0004, "dx": -0.0008 }, "geometry": { "type": "LineString", "coordinates": [[-118.0013, 33.6773], [-118.0017, 33.67718], [-118.0021, 33.67706], [-118.0025, 33.67694], [-118.0029, 33.67682], [-118.0033, 33.6767]] } },
+    { "type": "Feature", "properties": { "id": "radius-50", "label": "50m radius", "radius_m": 50 }, "geometry": { "type": "Point", "coordinates": [-118.0013, 33.6773] } },
+    { "type": "Feature", "properties": { "id": "radius-150", "label": "150m radius", "radius_m": 150 }, "geometry": { "type": "Point", "coordinates": [-118.0013, 33.6773] } },
+    { "type": "Feature", "properties": { "id": "radius-300", "label": "300m radius", "radius_m": 300 }, "geometry": { "type": "Point", "coordinates": [-118.0013, 33.6773] } },
+    { "type": "Feature", "properties": { "id": "radius-600", "label": "600m radius", "radius_m": 600 }, "geometry": { "type": "Point", "coordinates": [-118.0013, 33.6773] } },
+    { "type": "Feature", "properties": { "id": "radius-1200", "label": "1200m radius", "radius_m": 1200 }, "geometry": { "type": "Point", "coordinates": [-118.0013, 33.6773] } }
+  ]
+}

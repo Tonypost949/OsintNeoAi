@@ -1,0 +1,19 @@
+{
+  "type": "FeatureCollection",
+  "name": "Financial Veins (LLC Connections)",
+  "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+  "metadata": {
+    "description": "Money trails between shell LLC clusters and HBNC",
+    "source": "PPP/SBA data, Orange County recorder, forensic spreadsheet cross-ref"
+  },
+  "features": [
+    { "type": "Feature", "properties": { "id": "vein-1", "label": "Stewart Industrial → PCH CMRA", "from": "Stewart Industrial", "to": "PCH CMRA", "ppp_usd": 1128327, "notes": "3311 Bounty Cir → 1077 PCH #247 mailbox | Battle Creek MI" }, "geometry": { "type": "LineString", "coordinates": [[-118.072, 33.753], [-118.0955, 33.7505]] } },
+    { "type": "Feature", "properties": { "id": "vein-2", "label": "Garnet St → 7561 Center Ave", "from": "Garnet Drop", "to": "7561 Center Ave", "ppp_usd": 1471840, "notes": "15822 Garnet St (CMRA layer) → Units D1/E1/G3/J1 | Dylan & Andrew mailbox" }, "geometry": { "type": "LineString", "coordinates": [[-117.9905, 33.753], [-117.9974, 33.6927]] } },
+    { "type": "Feature", "properties": { "id": "vein-3", "label": "CP Premier 1 → CP Premier 2", "from": "CP Premier 1", "to": "CP Premier 2", "ppp_usd": 0, "notes": "7100 Cerritos Ave #108 → 13801 Shirley St #85 | Peter Pham $0 quitclaim" }, "geometry": { "type": "LineString", "coordinates": [[-118.002, 33.808], [-117.987, 33.774]] } },
+    { "type": "Feature", "properties": { "id": "vein-4", "label": "CP Premier → Pham Residence", "from": "CP Premier 2", "to": "Pham Residence", "ppp_usd": 0, "notes": "13801 Shirley St #85 → 2614 Orchard Dr Tustin | Pham nexus" }, "geometry": { "type": "LineString", "coordinates": [[-117.987, 33.774], [-117.8125, 33.745]] } },
+    { "type": "Feature", "properties": { "id": "vein-5", "label": "7561 Center Ave → HBNC", "from": "7561 Center Ave", "to": "HBNC", "ppp_usd": 0, "notes": "Chen-Yamada vaults → Cr-VI plume origin | Concrete coffins to shelter" }, "geometry": { "type": "LineString", "coordinates": [[-117.9974, 33.6927], [-118.0012, 33.6775]] } },
+    { "type": "Feature", "properties": { "id": "vein-6", "label": "HBNC → El Toro", "from": "HBNC", "to": "El Toro Hangars", "ppp_usd": 0, "notes": "Cr-VI plume migration → Contaminated fill burial | Decommissioned MCAS" }, "geometry": { "type": "LineString", "coordinates": [[-118.0012, 33.6775], [-117.7305, 33.6755]] } },
+    { "type": "Feature", "properties": { "id": "vein-7", "label": "Stewart PPP $1.13M → HBNC", "from": "Stewart PPP", "to": "HBNC", "ppp_usd": 1128327, "notes": "3311 Bounty Cir PPP → Shelter funding pipeline" }, "geometry": { "type": "LineString", "coordinates": [[-117.99, 33.755], [-118.0012, 33.6775]] } },
+    { "type": "Feature", "properties": { "id": "vein-8", "label": "Triumvirate PPP $1.47M → HBNC", "from": "Triumvirate PPP", "to": "HBNC", "ppp_usd": 1471840, "notes": "21951 Brookhurst PPP → Shelter funding pipeline | Anchorage AK mailbox" }, "geometry": { "type": "LineString", "coordinates": [[-117.958, 33.707], [-118.0012, 33.6775]] } }
+  ]
+}
