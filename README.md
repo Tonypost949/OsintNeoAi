@@ -74,3 +74,7 @@ All services run on free tiers with no hidden costs!
 - [Gemini API Docs](https://ai.google.dev/)
 
 **Never freeze again! Your OSINT platform is now production-ready.** 🚀
+
+## ⚠️ Agent Instructions
+
+**ALL agents MUST read [AGENTS.md](./AGENTS.md) before making any changes.** This repo uses a strict 3-location backup protocol, multi-agent awareness, and resurrection-first workflow. Do not act without reading everything first.
