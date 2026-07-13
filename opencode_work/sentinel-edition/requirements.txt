@@ -1,0 +1,16 @@
+# Sentinel OSINT Engine - Independent Edition
+# Core: Zero external dependencies for basic operation
+# All extras are optional
+
+# Required
+requests>=2.28.0
+
+# Optional - Enhanced functionality
+# openpyxl>=3.1.0       # Excel export
+# pandas>=2.0.0         # Advanced data analysis
+# plotly>=5.15.0        # Interactive charts
+# networkx>=3.1         # Advanced graph algorithms (Sentinel has its own)
+# flask>=3.0.0          # Web API server
+# beautifulsoup4>=4.12  # HTML parsing
+# pytesseract>=0.3.10   # OCR
+# Pillow>=10.0          # Image processing
