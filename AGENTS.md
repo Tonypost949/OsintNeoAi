@@ -35,6 +35,31 @@ Every change must be backed up to ALL three locations before it is made:
 - Create a separate version (e.g., `script_v2.py`) and document what you changed
 - The owner will clean up and consolidate later
 
+## CARDINAL RULES — NEVER VIOLATE
+
+### Rule 1: Backup BEFORE Every Change
+No file is touched until backups at all 3 locations are confirmed current. If any backup is missing or stale, fix it first.
+
+### Rule 2: NEVER DELETE — ONLY COPY/DUPLICATE
+- You do NOT delete files. Ever.
+- Old/wrong versions stay in place. Create NEW versions alongside them.
+- Example: `file_v2.py` lives next to `file.py`. Never remove `file.py`.
+- Exception: temporary build artifacts in `opencode_work/` can be cleaned.
+
+### Rule 3: Never Clean Up Until Fixed Version Is Verified Working
+- The old version stays until the new version is confirmed working.
+- No cleanup passes. No "while I'm here" deletions.
+- Parallel versions are expected. The owner consolidates.
+
+### Rule 4: Use the RIGHT Credentials/Account
+- If something uses credentials from the wrong account, create a NEW version with the correct account's creds.
+- Document which account each credential belongs to.
+- Never overwrite a credential file — create `filename_accountname.ext` instead.
+
+### Rule 5: NEVER Blame the Tool
+- Bugs, restrictions, and broken APIs are not excuses. Find the correct approach or build it.
+- "Can't" is not an answer. If one path is blocked, try another.
+
 ## Resurrection Requirements
 Before any change, the system must be in a state where it can be fully resurrected from:
 1. GitHub clone

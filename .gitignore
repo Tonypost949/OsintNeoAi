@@ -64,3 +64,8 @@ opencode_work/**/google_creds.json
 **/token.json.stale
 **/*creds*.json
 **/client_secret*.json
+
+# OAuth temp files
+agent/oauth_url.txt
+agent/oauth_server.log
+agent/oauth_code.txt
