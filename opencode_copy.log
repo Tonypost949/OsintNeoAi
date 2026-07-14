@@ -1,0 +1,774 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, July 13, 2026 1:15:43 PM
+   Source : c:\Users\HP\OneDrive\Documents\opencode_work\
+     Dest : c:\Users\HP\OneDrive\Documents\OsintNeoAi\opencode_work\
+
+    Files : *.*
+	    
+Exc Files : .env
+	    *.pyc
+	    *.whl
+	    
+ Exc Dirs : .git
+	    __pycache__
+	    ZenAndroidApp
+	    OsintNeoAi
+	    osintneoai_temp
+	    OPENCODE_BACKUP
+	    OSINT_VAULT_BACKUP
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                 461	c:\Users\HP\OneDrive\Documents\opencode_work\
+	    Older     		    1134	address_research_20260703.md100%  
+	    Older     		    2330	add_mercy_house_to_db.py100%  
+	    Older     		    7509	add_timeline_only.py100%  
+	    Older     		       2	affordable_housing_sos.json100%  
+	    Newer     		    8340	ag2_rico_graph.py100%  
+	    Older     		    1096	ai_connector.err.log100%  
+	    Older     		     132	ai_connector.out.log100%  
+	    Older     		   13059	ai_connector.py100%  
+	    New File  		    1238	ai_sandbox_findings.csv100%  
+	    New File  		  230003	ai_sandbox_hb_surface_flow.csv 56%  100%  
+	    Older     		    1312	analyze_lenders.py100%  
+	    Older     		    3364	analyze_mercy_house_990.py100%  
+	    Older     		    2117	analyze_mercy_house_990_gemini.py100%  
+	    Older     		    4523	analyze_mercy_house_tax.py100%  
+	    Older     		    3076	analyze_mercy_house_vertex.py100%  
+	    Older     		    9455	ANNOTATED_SUMMARY.md100%  
+	    Older     		       2	ares_sos.json100%  
+	    Older     		    5755	ARIZONA_CONNECTIONS.md100%  
+	    Older     		     686	audit_schemas.py100%  
+	    Older     		    5413	auto_join_schema.sql100%  
+	    Older     		    3707	azure_ocr_permits.py100%  
+	    Older     		     991	azure_runner.py100%  
+	    Older     		    5704	azure_search_index.py100%  
+	    Older     		    3521	azure_setup.py100%  
+	    Older     		    5132	azure_transcribe_audio.py100%  
+	    Older     		    2439	backup_antigravity.py100%  
+	    Older     		    2897	backup_antigravity_projects.py100%  
+	    Older     		    1447	backup_bigquery.py100%  
+	    Older     		    3994	backup_opencode_work_to_sharedall.py100%  
+	    Older     		       2	banc_california_sos.json100%  
+	    New File  		    1728	banc_of_california_lender.csv100%  
+	    Older     		    1737	bq_backup_check.py100%  
+	    Older     		    6565	bq_board_ppp.py100%  
+	    New File  		  13.5 m	bq_board_ppp_final.csv  7.3% 14.7% 22.1% 29.4% 36.8% 44.2% 51.5% 58.9% 66.3% 73.6% 81.0% 88.4% 95.7%100%  
+	    Older     		    3868	bq_board_ppp_v2.py100%  
+	    Older     		     380	bq_check.py100%  
+	    New File  		  12.8 m	bq_church_ppp.csv  7.7% 15.5% 23.2% 31.0% 38.8% 46.5% 54.3% 62.1% 69.8% 77.6% 85.4% 93.1%100%  
+	    Older     		   13645	bq_create_views.py100%  
+	    New File  		  15.4 m	bq_crossref_full.csv  6.4% 12.9% 19.3% 25.8% 32.2% 38.7% 45.1% 51.6% 58.0% 64.5% 70.9% 77.4% 83.9% 90.3% 96.8%100%  
+	    Older     		   12961	bq_crossref_full.py100%  
+	    New File  		    3126	bq_dataset_summary.csv100%  
+	    New File  		   29472	bq_enriched_rico_matrix.csv100%  
+	    Older     		    2786	bq_explore.py100%  
+	    Older     		    4353	bq_geotracker_mailbox.py100%  
+	    Older     		     729	bq_inspect.py100%  
+	    New File  		   23842	bq_large_oc_ppp.csv100%  
+	    New File  		      74	bq_llc_owners_npppes.csv100%  
+	    New File  		   27284	bq_llc_owners_ppp.csv100%  
+	    Older     		    1915	bq_mercy_search.py100%  
+	    New File  		    7580	bq_nonprofits_ppp.csv100%  
+	    Older     		   11810	bq_permanent_views.sql100%  
+	    New File  		    2839	bq_query_All_rico_matches.csv100%  
+	    New File  		     311	bq_query_MERCY_in_rico_evidence_matrix.csv100%  
+	    New File  		   16949	bq_rico_matches.csv100%  
+	    New File  		    4707	bq_rico_matches_full.csv100%  
+	    New File  		     619	bq_sample_ai_sandbox_findings.csv100%  
+	    New File  		     866	bq_sample_ai_sandbox_hb_surface_flow.csv100%  
+	    New File  		     352	bq_sample_hb_church_osint_entities.csv100%  
+	    New File  		     480	bq_sample_hb_church_osint_properties.csv100%  
+	    New File  		     292	bq_sample_hb_church_osint_relationships.csv100%  
+	    New File  		    1731	bq_sample_national_audits_all_performance_reports.csv100%  
+	    New File  		     819	bq_sample_national_audits_all_state_records.csv100%  
+	    New File  		      58	bq_sample_national_audits_city_council_minutes.csv100%  
+	    New File  		    1342	bq_sample_national_audits_drive_file_index.csv100%  
+	    New File  		     396	bq_sample_national_audits_drive_photos_exif.csv100%  
+	    New File  		     218	bq_sample_national_audits_evidence_chain_of_custody.csv100%  
+	    New File  		     122	bq_sample_national_audits_google_photos_index.csv100%  
+	    New File  		      67	bq_sample_national_audits_ingestion_audit_trail.csv100%  
+	    New File  		     405	bq_sample_national_audits_mat_looker_forensic_base.csv100%  
+	    New File  		     837	bq_sample_national_audits_vw_forensic_evidence_export.csv100%  
+	    New File  		     334	bq_sample_nppes_export_irs_ein_oc_lb_health.csv100%  
+	    New File  		     221	bq_sample_nppes_export_oc_lb_orgs.csv100%  
+	    New File  		     486	bq_sample_ppp_rico_hb_llcs.csv100%  
+	    New File  		    2233	bq_sample_ppp_rico_ppp_150k_plus.csv100%  
+	    New File  		    2213	bq_sample_ppp_rico_ppp_up_to_150k.csv100%  
+	    New File  		     694	bq_sample_ppp_rico_rico_evidence_matrix.csv100%  
+	    New File  		     513	bq_sample_ppp_rico_rico_matches.csv100%  
+	    Older     		     457	bq_schema_check.py100%  
+	    Older     		  117746	brad_smith_bing.html100%  
+	    Older     		  120262	brad_smith_exact.html100%  
+	    Older     		   90939	brad_smith_search.html100%  
+	    Older     		    1177	brookhurst_bigfish_ppp.py100%  
+	    Older     		   11683	build_matrix.py100%  
+	    Older     		   22178	build_matrix_v2.py100%  
+	    Older     		    2340	build_network.py100%  
+	    Older     		    1940	build_network2.py100%  
+	    Older     		    1950	build_network_local.py100%  
+	    Older     		   15682	build_network_map.py100%  
+	    Older     		    7466	CANONICAL_BRIEFING.md100%  
+	    Older     		   13735	CANONICAL_BRIEFING_MERCY_HOUSE.md100%  
+	    Older     		    2079	carmen_leuge_search.py100%  
+	    Older     		     876	carmen_leuge_search2.py100%  
+	    Older     		    2858	CASA_ALIENTO_OWNERSHIP.md100%  
+	    Older     		       2	casa_aliento_sos.json100%  
+	    Older     		    3347	CA_AG_ENVIRONMENTAL_PPP_FRAUD_REFERRAL.md100%  
+	    Older     		    4071	ca_sos_alt_search.py100%  
+	    Older     		    6810	ca_sos_alt_search_results.json100%  
+	    Older     		    2505	ca_sos_alt_urls.py100%  
+	    Older     		    2615	ca_sos_lookup.py100%  
+	    Older     		    4873	ca_sos_playwright.py100%  
+	    Older     		    5071	ca_sos_playwright_results.json100%  
+	    Older     		     973	ca_sos_search.html100%  
+	    New File  		    2393	century_housing_as_lender.csv100%  
+	    Older     		       2	century_housing_sos.json100%  
+	    Older     		    6300	CHDO_MERCY_RICO_BREAKDOWN.md100%  
+	    Older     		    3694	CHDO_REAL_ESTATE_PORTFOLIO.md100%  
+	    Older     		     356	check_bq_schema.py100%  
+	    Older     		     930	check_drive.py100%  
+	    New File  		     330	check_gcs.py100%  
+	    Older     		     300	check_gcs_shards.py100%  
+	    Older     		    1136	check_llc_schema.py100%  
+	    Older     		    1563	check_multiple_loans.py100%  
+	    Older     		    2554	check_national_scope.py100%  
+	    Older     		     460	check_parcel_schema.py100%  
+	    Older     		     553	check_schema.py100%  
+	    Older     		    1309	check_sharedall.py100%  
+	    Older     		     598	check_venv.py100%  
+	    Older     		    4450	CHILD_TRAFFICKING_CPS_LAYER.md100%  
+	    New File  		 100.0 m	chunk_004.dat  1.0%  2.0%  3.0%  4.0%  5.0%  6.0%  7.0%  8.0%  9.0% 10.0% 11.0% 12.0% 13.0% 14.0% 15.0% 16.0% 17.0% 18.0% 19.0% 20.0% 21.0% 22.0% 23.0% 24.0% 25.0% 26.0% 27.0% 28.0% 29.0% 30.0% 31.0% 32.0% 33.0% 34.0% 35.0% 36.0% 37.0% 38.0% 39.0% 40.0% 41.0% 42.0% 43.0% 44.0% 45.0% 46.0% 47.0% 48.0% 49.0% 50.0% 51.0% 52.0% 53.0% 54.0% 55.0% 56.0% 57.0% 58.0% 59.0% 60.0% 61.0% 62.0% 63.0% 64.0% 65.0% 66.0% 67.0% 68.0% 69.0% 70.0% 71.0% 72.0% 73.0% 74.0% 75.0% 76.0% 77.0% 78.0% 79.0% 80.0% 81.0% 82.0% 83.0% 84.0% 85.0% 86.0% 87.0% 88.0% 89.0% 90.0% 91.0% 92.0% 93.0% 94.0% 95.0% 96.0% 97.0% 98.0% 99.0%100%  
+	    Older     		    2019	cleanup_drive.py100%  
+	    Older     		    1704	cluster_11770_warner.md100%  
+	    Older     		    2683	cm_cleaning_investigation.py100%  
+	    Older     		    2874	CPRA_HB_CDBG_Mercy_House.md100%  
+	    Older     		    3861	CPRA_ORANGE_COUNTY_RECORDS_REQUEST.md100%  
+	    Older     		    4157	create_bq_tables.py100%  
+	    Older     		   11637	create_unified_enterprise_table.py100%  
+	    New File  		   29036	create_zen_app.ps1100%  
+	    Older     		    6949	CRIMINAL_REFERRAL_FINAL.md100%  
+	    Older     		    1290	crossref_88_fair_ppp.py100%  
+	    New File  		   21695	crossref_entities.csv100%  
+	    New File  		   25709	crossref_hb_llcs.csv100%  
+	    Older     		    4733	crossref_high_risk.py100%  
+	    New File  		    6578	crossref_nppes.csv100%  
+	    New File  		   33214	crossref_ppp_150k.csv100%  
+	    Older     		    1200	crossref_shell_factories.py100%  
+	    Older     		    4891	cross_ref_master_sheet_mercy.md100%  
+	    Older     		    6943	cross_ref_mercy_casa_aliento.md100%  
+	    Older     		    3552	dashboard_data.py100%  
+	    Older     		     918	dashboard_stats.json100%  
+	    Older     		    3833	deep_yamada_chen.py100%  
+	    Older     		    1425	download_exports.py100%  
+	    Older     		    2299	drive_audit.py100%  
+	    Older     		    1412	edr_links.py100%  
+	    Older     		    7682	enrich_fca_timeline.py100%  
+	    Older     		    1479	entity_lookups_results.json100%  
+	    Older     		    3843	entity_lookup_search.py100%  
+	    Older     		    5884	entity_network_map.md100%  
+	    Older     		    6544	ENVIRONMENTAL_RICO_PIPELINE.md100%  
+	    Older     		    3613	env_site_assessment.txt100%  
+	    Older     		    2675	EPA_OIG_RUBICON_REFERRAL.md100%  
+	    Older     		    3964	EPSTEIN_PARALLELS_NATIONWIDE.md100%  
+	    Older     		   12742	expand_cps_layer.py100%  
+	    Older     		    2042	export_all_bq_tables.py100%  
+	    Older     		    1506	export_large_tables.py100%  
+	    Older     		    1248	export_large_tables_v2.py100%  
+	    Older     		    1032	export_matrix.py100%  
+	    Older     		    1029	export_ppp_up_to_150k.py100%  
+	    Older     		    1325	export_tables.py100%  
+	    Older     		    1166	extract_mercy_house_gsa.py100%  
+	    Older     		    1516	extract_mercy_house_pdf.py100%  
+	    Older     		     708	extract_mercy_house_pdf2.py100%  
+	    Older     		    5409	extract_mercy_schedule_i.py100%  
+	    Older     		    1255	extract_photo_meta.py100%  
+	    Older     		    1314	fast_export_ppp.py100%  
+	    Older     		    3513	FBI_ENVIRONMENTAL_RICO_REFERRAL.md100%  
+	    Older     		    2538	final_drive_upload.py100%  
+	    Older     		    3411	FINCEN_SAR_LOOKBACK_REFERRAL.md100%  
+	    Older     		    1524	find_edr.py100%  
+	    Older     		    2301	find_edr_2025.py100%  
+	    Older     		    3038	find_real_edr.py100%  
+	    Older     		     765	find_sharedall.py100%  
+	    Older     		    1090	find_shell_factories.py100%  
+	    Older     		     862	find_zero_dollar_clusters.py100%  
+	    Older     		    1583	finish_large_exports.py100%  
+	    Older     		     608	fix_geotracker_quotes.py100%  
+	    Older     		    2068	flag_lender_fraud.py100%  
+	    Older     		    1563	flag_zero_dollar_fraud.py100%  
+	    Older     		    2661	FOIA_BANC_OF_CALIFORNIA_MERCY_HOUSE.md100%  
+	    Older     		    2110	FOIA_BANK_OF_AMERICA_STEWART.md100%  
+	    Older     		    3400	FOIA_CPS_ICWA_REQUESTS.md100%  
+	    Older     		    1931	FOIA_JPMORGAN_CHASE_L2T.md100%  
+	    Older     		   11029	FOIA_SUBMISSION_CHECKLIST.md100%  
+	    Older     		    2509	FOIA_WEBSTER_BANK_TRIUMVIRATE.md100%  
+	    Older     		    4179	forensic_cross_join.sql100%  
+	    Older     		    3783	full_backup_to_sharedall.py100%  
+	    Older     		    6051	FULL_MAP.md100%  
+	    Older     		    7674	full_ppp_parcel_crossref.py100%  
+	    New File  		    2273	full_ppp_parcel_matches.csv100%  
+	    Older     		    3660	fuzzy_church_match.py100%  
+	    Older     		    2377	gcs_export_ppp.py100%  
+	    Older     		    2451	gemini_ocr_mercy.py100%  
+	    Older     		    8988	generate_briefing.py100%  
+	    Older     		    3495	geotracker_overlay.py100%  
+	    New File  		    4106	geo_entity_map.csv100%  
+	    Older     		   12496	gmail_mercy_house_hits.txt100%  
+	    Older     		    6632	grant_disqualification_check.py100%  
+	    Older     		    9168	grant_disqualification_focused.py100%  
+	    Older     		    5839	grant_disqualification_fraud_only.py100%  
+	    New File  		   3.2 m	grant_disqualified_entities.csv 15%   30%   46%   61%   77%   92%  100%  
+	    New File  		  542515	grant_disqualified_entities_focused.csv 48%   96%  100%  
+	    New File  		   13111	grant_disqualified_entities_fraud_only.csv100%  
+	    Older     		  120244	hbpd_org_chart.html100%  
+	    Older     		  119641	hbpd_roster.html100%  
+	    New File  		   4.9 m	hb_church_osint_entities.csv 10%   20%   30%   40%   50%   60%   70%   80%   90%  100%  
+	    New File  		  340312	hb_church_osint_properties.csv 38%   77%  100%  
+	    New File  		    1005	hb_church_osint_relationships.csv100%  
+	    Older     		   13817	HB_OSINT_Forensic_Briefing.md100%  
+	    New File  		  387242	HB_OutOfState_LLCs.csv 33%   67%  100%  
+	    New File  		  566360	HB_Suspicious_LLC_Matrix.csv 46%   92%  100%  
+	    Older     		       2	hoang_sweden_sos.json100%  
+	    Older     		    4526	HUD_OIG_REFERRAL_MERCY_HOUSE.md100%  
+	    Older     		   31545	index.html100%  
+	    Older     		     743	inspect_tables.py100%  
+	    Older     		    1218	investigate_88_fair.py100%  
+	    Older     		    2055	investigate_top_entities.py100%  
+	    Older     		    1166	investigate_vue_portfolio.py100%  
+	    Older     		    3777	jackson_hole_sweep.py100%  
+	    Older     		       2	jaric_sos.json100%  
+	    Older     		     381	list_ai_sandbox.py100%  
+	    Older     		    4459	live_gis_to_json.py100%  
+	    Older     		    4841	load_cps_events.py100%  
+	    Older     		    9652	load_fca_timeline.py100%  
+	    Older     		    3351	load_files_to_bq.py100%  
+	    Older     		    2907	load_lender_fraud.py100%  
+	    Older     		    3390	load_nationwide.py100%  
+	    Older     		    2980	load_new_matches.py
+2026/07/13 13:27:41 ERROR 426 (0x000001AA) Copying File c:\Users\HP\OneDrive\Documents\opencode_work\load_new_matches.py
+The cloud operation was not completed before the time-out period expired.
+Waiting 30 seconds... Retrying...
+	    Older     		    2980	load_new_matches.py
+2026/07/13 13:29:11 ERROR 426 (0x000001AA) Copying File c:\Users\HP\OneDrive\Documents\opencode_work\load_new_matches.py
+The cloud operation was not completed before the time-out period expired.
+Waiting 30 seconds... Retrying...
+	    Older     		    2980	load_new_matches.py
+2026/07/13 13:30:42 ERROR 426 (0x000001AA) Copying File c:\Users\HP\OneDrive\Documents\opencode_work\load_new_matches.py
+The cloud operation was not completed before the time-out period expired.
+Waiting 30 seconds... Retrying...
+	    Older     		    2980	load_new_matches.py100%  
+	    Older     		    5179	load_procurement_to_bq.py100%  
+	    Older     		    2349	load_shell_factories.py100%  
+	    Older     		    2245	load_shell_factory.py100%  
+	    Older     		    2364	load_vue_portfolio.py100%  
+	    Older     		    4498	load_weaver_to_bridge.py100%  
+	    Older     		    2798	mailbox_cluster.py100%  
+	    Older     		   53248	master_index.db100%  
+	    Older     		   57344	master_index_v2.db100%  
+	    New File  		    1802	mat_looker_forensic_base.csv100%  
+	    Older     		    1032	ma_innerbelt.json100%  
+	    Older     		    2694	ma_sos_lookup.py100%  
+	    Older     		    1030	ma_triumvirate.json100%  
+	    Older     		     210	ma_triumvirate_env.json100%  
+	    Older     		     210	ma_triumvirate_env2.json100%  
+	    Older     		    2824	mercy_brookhurst_crossref.py100%  
+	    Older     		       2	mercy_ceal_sos.json100%  
+	    Older     		    1933	mercy_deep_dive.py100%  
+	    Older     		    2905	mercy_house_990_analysis.json100%  
+	    Older     		   12764	mercy_house_990_parsed_2022-MERCY_HOUSE_LIVING_CENTERS-Returns-06.30.23_PUBLIC.txt100%  
+	    Older     		    9918	mercy_house_990_parsed_Mercy_House_Living_Centers_-_Full_Filing_-_Nonprofit_Explorer_-_ProPublica.txt100%  
+	    Older     		     635	mercy_house_990_raw.json100%  
+	    Older     		  101400	mercy_house_990_text.txt100%  
+	    New File  		    2884	mercy_house_chdo_transactions.csv100%  
+	    Older     		   98167	mercy_house_gsa_audit_2024.txt100%  
+	    New File  		    1346	mercy_house_living_centers_ppp.csv100%  
+	    Older     		   1.2 m	mercy_house_page_1.png 20%   40%   60%   80%  100%  
+	    Older     		  559802	mercy_house_page_10.png 46%   93%  100%  
+	    Older     		  561865	mercy_house_page_11.png 46%   93%  100%  
+	    Older     		  480932	mercy_house_page_12.png 27%   54%   81%  100%  
+	    Older     		  933860	mercy_house_page_13.png 28%   56%   84%  100%  
+	    Older     		  742419	mercy_house_page_14.png 35%   70%  100%  
+	    Older     		  830045	mercy_house_page_15.png 31%   63%   94%  100%  
+	    Older     		  862817	mercy_house_page_16.png 30%   60%   91%  100%  
+	    Older     		  867574	mercy_house_page_17.png 30%   60%   90%  100%  
+	    Older     		  425960	mercy_house_page_18.png 30%   61%   92%  100%  
+	    Older     		  433482	mercy_house_page_19.png 30%   60%   90%  100%  
+	    Older     		  819126	mercy_house_page_2.png 32%   64%   96%  100%  
+	    Older     		  163685	mercy_house_page_20.png 80%  100%  
+	    Older     		  912370	mercy_house_page_21.png 28%   57%   86%  100%  
+	    Older     		  580727	mercy_house_page_22.png 45%   90%  100%  
+	    Older     		  456147	mercy_house_page_23.png 28%   57%   86%  100%  
+	    Older     		  433408	mercy_house_page_24.png 30%   60%   90%  100%  
+	    Older     		  538976	mercy_house_page_25.png 48%   97%  100%  
+	    Older     		  392087	mercy_house_page_26.png 33%   66%  100%  
+	    Older     		  330676	mercy_house_page_27.png 39%   79%  100%  
+	    Older     		   92390	mercy_house_page_28.png100%  
+	    Older     		  770291	mercy_house_page_29.png 34%   68%  100%  
+	    Older     		  937856	mercy_house_page_3.png 27%   55%   83%  100%  
+	    Older     		  270136	mercy_house_page_30.png 48%   97%  100%  
+	    Older     		  116706	mercy_house_page_31.png100%  
+	    Older     		  578062	mercy_house_page_32.png 45%   90%  100%  
+	    Older     		  146595	mercy_house_page_33.png 89%  100%  
+	    Older     		  505842	mercy_house_page_34.png 25%   51%   77%  100%  
+	    Older     		  902785	mercy_house_page_4.png 29%   58%   87%  100%  
+	    Older     		  862966	mercy_house_page_5.png 30%   60%   91%  100%  
+	    Older     		  882901	mercy_house_page_6.png 29%   59%   89%  100%  
+	    Older     		  794261	mercy_house_page_7.png 33%   66%   99%  100%  
+	    Older     		  781058	mercy_house_page_8.png 33%   67%  100%  
+	    Older     		  530363	mercy_house_page_9.png 49%   98%  100%  
+	    Older     		    5421	mercy_house_rico_analysis.md100%  
+	    Older     		       2	mercy_house_sos.json100%  
+	    New File  		     118	mercy_nppes.csv100%  
+	    Older     		    1822	mercy_oc_search.py100%  
+	    New File  		    4604	mercy_osint_entities.csv100%  
+	    New File  		   69278	mercy_ppp_crossref.csv100%  
+	    Older     		    2213	mercy_ppp_crossref.py100%  
+	    New File  		    2942	mercy_targeted_crossref.csv100%  
+	    Older     		    1649	mercy_targeted_crossref.py100%  
+	    Older     		   13113	MOTION_TO_INTERVENE.md100%  
+	    Older     		    2451	multi_state_check.py100%  
+	    Older     		    4458	NAMES.md100%  
+	    New File  		    1731	national_audits_all_performance_reports.csv100%  
+	    New File  		   15641	national_audits_all_state_records.csv100%  
+	    New File  		       2	national_audits_city_council_minutes.csv100%  
+	    New File  		 126.0 m	national_audits_drive_file_index.csv
+2026/07/13 13:35:17 ERROR 426 (0x000001AA) Copying File c:\Users\HP\OneDrive\Documents\opencode_work\national_audits_drive_file_index.csv
+The cloud operation was not completed before the time-out period expired.
+Waiting 30 seconds... Retrying...
+	    New File  		 126.0 m	national_audits_drive_file_index.csv  0.7%  1.5%  2.3%  3.1%  3.9%  4.7%  5.5%  6.3%  7.1%  7.9%  8.7%  9.5% 10.3% 11.1% 11.8% 12.6% 13.4% 14.2% 15.0% 15.8% 16.6% 17.4% 18.2% 19.0% 19.8% 20.6% 21.4% 22.2% 23.0% 23.7% 24.5% 25.3% 26.1% 26.9% 27.7% 28.5% 29.3% 30.1% 30.9% 31.7% 32.5% 33.3% 34.1% 34.9% 35.6% 36.4% 37.2% 38.0% 38.8% 39.6% 40.4% 41.2% 42.0% 42.8% 43.6% 44.4% 45.2% 46.0% 46.8% 47.5% 48.3% 49.1% 49.9% 50.7% 51.5% 52.3% 53.1% 53.9% 54.7% 55.5% 56.3% 57.1% 57.9% 58.6% 59.4% 60.2% 61.0% 61.8% 62.6% 63.4% 64.2% 65.0% 65.8% 66.6% 67.4% 68.2% 69.0% 69.8% 70.5% 71.3% 72.1% 72.9% 73.7% 74.5% 75.3% 76.1% 76.9% 77.7% 78.5% 79.3% 80.1% 80.9% 81.7% 82.4% 83.2% 84.0% 84.8% 85.6% 86.4% 87.2% 88.0% 88.8% 89.6% 90.4% 91.2% 92.0% 92.8% 93.6% 94.3% 95.1% 95.9% 96.7% 97.5% 98.3% 99.1% 99.9%100%  
+	    New File  		  134361	national_audits_drive_photos_exif.csv 97%  100%  
+	    New File  		     218	national_audits_evidence_chain_of_custody.csv100%  
+	    New File  		  14.5 m	national_audits_gmail_index.csv  6.8% 13.7% 20.6% 27.5% 34.4% 41.3% 48.1% 55.0% 61.9% 68.8% 75.7% 82.6% 89.5% 96.3%100%  
+	    New File  		       2	national_audits_google_photos_index.csv100%  
+	    New File  		       2	national_audits_ingestion_audit_trail.csv100%  
+	    New File  		    1992	national_audits_mat_looker_forensic_base.csv100%  
+	    New File  		       2	national_audits_vw_forensic_evidence_export.csv100%  
+	    Older     		   13074	nationwide_coc_map.html100%  
+	    New File  		    5049	nationwide_cross_state_map.csv100%  
+	    Older     		    6951	nationwide_ein_sweep.py100%  
+	    Older     		    4754	NATIONWIDE_FOOTPRINT.md100%  
+	    Older     		   68707	nationwide_pipeline_map.html100%  
+	    Older     		    7474	NATIONWIDE_RICO_NETWORK_BRIEF.md100%  
+	    Older     		    5412	nationwide_scan.py100%  
+	    Older     		   13729	nationwide_states.json100%  
+	    Older     		    3242	newport_triumvirate.py100%  
+	    New File  		   42676	nppes_export_irs_ein_oc_lb_health.csv100%  
+	    New File  		   1.4 m	nppes_export_oc_lb_orgs.csv 17%   35%   53%   71%   88%  100%  
+	    New File  		     842	nppes_mercy_facilities.csv100%  
+	    Older     		    6160	ocr_batch1.py100%  
+	    Older     		    6685	ocr_batch2.py100%  
+	    Older     		   13033	ocr_bulk_scanner.py100%  
+	    Older     		    3117	ocr_environmental_reports.py100%  
+	    Older     		    3227	ocr_final.py100%  
+	    Older     		    8889	ocr_priority_scan.py100%  
+	    Older     		   23678	oc_all_projects_full.json100%  
+	    New File  		    5287	oc_llcs.csv100%  
+	    Older     		       0	oc_procurement_files_full.json
+	    New File  		  255808	oc_procurement_files_index.csv 51%  100%  
+	    New File  		       0	oc_procurement_files_index_full.csv
+	    Older     		  24.9 m	oc_procurement_files_load.ndjson  4.0%  8.0% 12.0% 16.0% 20.0% 24.0% 28.0% 32.1% 36.1% 40.1% 44.1% 48.1% 52.1% 56.1% 60.1% 64.2% 68.2% 72.2% 76.2% 80.2% 84.2% 88.2% 92.2% 96.3%100%  
+	    New File  		  651628	oc_procurement_index.csv 40%   80%  100%  
+	    Older     		  620777	oc_procurement_load.ndjson 42%   84%  100%  
+	    Older     		   15253	oc_procurement_map.json100%  
+	    New File  		  372483	oc_procurement_projects.csv 35%   70%  100%  
+	    Older     		  712951	oc_procurement_projects.json 36%   73%  100%  
+	    Older     		     279	oc_procurement_raw_text.txt100%  
+	    Older     		       2	oc_projects_api_data.json100%  
+	    Older     		   5.6 m	oc_projects_full_react.json  8%   17%   26%   35%   44%   53%   62%   71%   80%   89%   97%  100%  
+	    Older     		    1649	offshore_v2.py100%  
+	    Older     		    5368	open_threads_sweep.py100%  
+	    Older     		    3475	osint_bigquery_summary.md100%  
+	    Older     		   16135	osint_gemini_gis.html100%  
+	    Older     		    3310	osint_geo_data.js100%  
+	    Older     		    7401	out_of_state_connections.py100%  
+	    New File  		    6171	out_of_state_llc_ppp_network.csv100%  
+	    New File  		    1320	out_of_state_matrix.csv100%  
+	    Older     		    8780	OUT_OF_STATE_NETWORK_ANALYSIS.md100%  
+	    Older     		    2681	out_of_state_part2.py100%  
+	    Older     		    4190	out_of_state_part3.py100%  
+	    Older     		    5750	out_of_state_timing.py100%  
+	    New File  		   85871	out_of_state_timing_matrix.csv100%  
+	    Older     		     800	parse_bing_results.py100%  
+	    Older     		     761	parse_exact_search.py100%  
+	    Older     		    4278	parse_mercy_house_990.py100%  
+	    Older     		     759	parse_org_chart.py100%  
+	    Older     		    3833	pattern_analysis.md100%  
+	    Older     		    6707	pdf_sweep.py100%  
+	    Older     		   50322	permit_backups_manifest.txt100%  
+	    Older     		   63345	permit_search_hits.txt100%  
+	    Older     		    3313	phase1_esa.txt100%  
+	    Older     		    1171	photos_scan.py100%  
+	    Older     		     653	pipeline.err.log100%  
+	    Older     		   11079	pipeline.out.log100%  
+	    Older     		   12227	pipeline.py100%  
+	    Older     		    2875	pipeline4_offshore.py100%  
+	    Older     		   21289	pipeline_full_data.json100%  
+	    Older     		   16579	pipeline_map_data.json100%  
+	    Older     		     209	pipeline_map_totals.json100%  
+	    New File  		  489595	ppp_150k_plus_sample.csv 26%   53%   80%  100%  
+	    Older     		    1727	ppp_bridge_schema.json100%  
+	    Older     		   27776	ppp_bridge_seed.ndjson100%  
+	    New File  		    1640	ppp_mercy_ca.csv100%  
+	    New File  		  348762	ppp_rico_hb_llcs.csv 37%   75%  100%  
+	    New File  		    4707	ppp_rico_matches.csv100%  
+	    New File  		    4707	ppp_rico_rico_matches.csv100%  
+	    New File  		    2810	pull_arcgis_layers.py100%  
+	    New File  		    2577	query_150k.py100%  
+	    New File  		    1925	query_brink.py100%  
+	    New File  		    1973	query_church_address_match.py100%  
+	    New File  		    2604	query_church_ppp.py100%  
+	    New File  		    1198	query_findings.py100%  
+	    Older     		    1663	query_forensic.py100%  
+	    Older     		    1205	query_lender_network.py100%  
+	    Older     		    2459	query_mercy.py100%  
+	    Older     		    2466	query_multichurch_llcs.py100%  
+	    Older     		    2547	query_multichurch_llcs2.py100%  
+	    Older     		    1425	query_national_audits.py100%  
+	    Older     		    1141	query_osint_props.py100%  
+	    Older     		    1533	query_osint_props2.py100%  
+	    Older     		     775	query_propublica_ein.py100%  
+	    Older     		    1583	query_relationships.py100%  
+	    Older     		    1585	query_relationships2.py100%  
+	    Older     		    1510	query_zero_dollar_ppp.py100%  
+	    Older     		    4268	qui_tam_email_inventory.md100%  
+	    Older     		    3048	REMAINING_LEADS.md100%  
+	    Older     		    1049	resume_ppp_export.py100%  
+	    Older     		    2212	resume_upload_antigravity.py100%  
+	    Older     		    2333	retry_gcs_export.py100%  
+	    Older     		   14629	rico_cross_reference.py100%  
+	    Older     		    6581	RICO_ENTERPRISE_BRIEF.md100%  
+	    Older     		   19868	RICO_ENTERPRISE_BRIEF_v3.md100%  
+	    New File  		  446726	rico_evidence_matrix.csv 29%   58%   88%  100%  
+	    Older     		    3120	SBA_OIG_NEW_APPLICATION_REFERRAL.md100%  
+	    Older     		    5432	scale_detection.py100%  
+	    Older     		   10443	scrape_oc_procurement.py100%  
+	    Older     		    9360	scrape_oc_procurement_v2.py100%  
+	    Older     		   12068	scrape_oc_procurement_v3.py100%  
+	    Older     		    7665	scrape_project_details.py100%  
+	    Older     		    1377	search_brad_smith.py100%  
+	    Older     		    3181	search_brad_smith_deep.py100%  
+	    Older     		    1309	search_burns_logan.py100%  
+	    Older     		    1629	search_burns_logan2.py100%  
+	    Older     		    1467	search_burns_logan3.py100%  
+	    Older     		    1264	search_nexus.py100%  
+	    Older     		    1144	search_np003_np006.py100%  
+	    Older     		     963	seed_bridge.sql100%  
+	    Older     		    2500	SHELL_FACTORY_LENDER_FRAUD_REPORT.md100%  
+	    Older     		    1253	SHELL_FACTORY_NETWORK.md100%  
+	    Older     		    1913	show_timing.py100%  
+	    Older     		    3809	sos_pacep_search.py100%  
+	    Older     		    1858	sos_search_v2.py100%  
+	    Older     		    2568	stewart_triumvirate_deep.py100%  
+	    New File  		   17134	suspicious_hb_network.csv100%  
+	    Older     		    1468	sweep_permits.py100%  
+	    Older     		    1674	sweep_permits_v2.py100%  
+	    Older     		    2762	sync_all_to_drive.py100%  
+	    Older     		    8721	system_a_b_bridge_analysis.md100%  
+	    Older     		    5919	tavares_expander.py100%  
+	    New File  		     113	tavares_portfolio.csv100%  
+	    Older     		     396	test_playwright.py100%  
+	    Older     		    4978	trace_cps_pipeline.py100%  
+	    Older     		    4972	trace_medical_trail.py100%  
+	    Older     		    3599	trace_shea.py100%  
+	    Older     		     552	trigger_sync.py100%  
+	    Older     		    1242	upload_briefing.py100%  
+	    Older     		    2879	upload_chunks.py100%  
+	    Older     		    2729	upload_csvs_to_drive.py100%  
+	    Older     		    4667	upload_everything.py100%  
+	    Older     		    2004	upload_large_only.py100%  
+	    Older     		    1910	upload_latest_zip.py100%  
+	    Older     		    2969	upload_new_files.py100%  
+	    Older     		    3915	upload_remaining.py100%  
+	    Older     		    2232	upload_via_gcs.py100%  
+	    Older     		    2082	upload_zip_to_sharedall.py100%  
+	    Older     		    2899	warner_cluster.py100%  
+	    Older     		   19206	weaver_audit_analysis.md100%  
+	    Older     		     573	weaver_implementation_plan.md100%  
+	    Older     		       2	west_continental_sos.json100%  
+	    Older     		    3739	xref_weaver_fca.py100%  
+	    Older     		    2529	ZERO_DOLLAR_PPP_FRAUD_REPORT.md100%  
+	    Older     		    1539	_check_existing.py100%  
+	    Older     		    1634	_check_existing_v2.py100%  
+	    Older     		    1309	_check_hbnc.py100%  
+	    Older     		     720	_check_schema.py100%  
+	    Older     		    1030	_check_timeline_v3.py100%  
+	    Older     		    1594	_search_emails.py100%  
+	    Older     		    1596	_search_emails_v2.py100%  
+	    Older     		     966	_test_sos.py100%  
+	    Older     		    1720	_verify_final.py100%  
+	  New Dir          2	c:\Users\HP\OneDrive\Documents\opencode_work\.pytest_cache\
+	    New File  		      37	.gitignore100%  
+	    New File  		     302	README.md100%  
+	  New Dir          0	c:\Users\HP\OneDrive\Documents\opencode_work\.pytest_cache\v\
+	  New Dir          0	c:\Users\HP\OneDrive\Documents\opencode_work\.pytest_cache\v\cache\
+	                  12	c:\Users\HP\OneDrive\Documents\opencode_work\arcgis_exports\
+	    New File  		     390	HB_Business.csv100%  
+	    Older     		    1425	HB_Business.json100%  
+	    New File  		      85	HB_CityFacilities.csv100%  
+	    Older     		     174	HB_CityFacilities.json100%  
+	    New File  		   3.2 m	HB_Parcels.csv 15%   30%   45%   60%   76%   91%  100%  
+	    Older     		  20.2 m	HB_Parcels.json  4.9%  9.8% 14.8% 19.7% 24.7% 29.6% 34.5% 39.5% 44.4% 49.4% 54.3% 59.2% 64.2% 69.1% 74.1% 79.0% 83.9% 88.9% 93.8% 98.8%100%  
+	    New File  		  220343	HB_Planning.csv 59%  100%  
+	    Older     		   1.5 m	HB_Planning.json 15%   31%   47%   62%   78%   94%  100%  
+	    New File  		  665613	HB_Properties.csv 39%   78%  100%  
+	    Older     		   2.2 m	HB_Properties.json 22%   45%   67%   90%  100%  
+	    New File  		  390272	HB_SurfaceFlow.csv 33%   67%  100%  
+	    Older     		   2.4 m	HB_SurfaceFlow.json 20%   40%   60%   81%  100%  
+	                   5	c:\Users\HP\OneDrive\Documents\opencode_work\bq_backup_20260701_045011\
+	    Older     		   34801	forensic_layers_fca_timeline.json100%  
+	    Older     		   7.6 m	forensic_layers_geotracker_ust.json  6.5% 13.0% 19.5% 26.1% 32.6% 39.1% 45.6% 52.2% 58.7% 65.2% 71.7% 78.3% 84.8% 91.3% 97.9%100%  
+	    Older     		     574	forensic_layers_lender_fraud_pattern.json100%  
+	    Older     		  132784	forensic_layers_ppp_property_bridge.json 98%  100%  
+	    Older     		   19958	forensic_layers_rico_network_map.json100%  
+	  New Dir          4	c:\Users\HP\OneDrive\Documents\opencode_work\bq_exports\
+	    New File  		     182	all_state_records_1000.csv100%  
+	    New File  		  268828	hb_llcs_1000.csv 48%   97%  100%  
+	    New File  		 440.8 m	ppp_rico_ppp_150k_plus.csv  0.2%  0.4%  0.6%  0.9%  1.1%  1.3%  1.5%  1.8%  2.0%  2.2%  2.4%  2.7%  2.9%  3.1%  3.4%  3.6%  3.8%  4.0%  4.3%  4.5%  4.7%  4.9%  5.2%  5.4%  5.6%  5.8%  6.1%  6.3%  6.5%  6.8%  7.0%  7.2%  7.4%  7.7%  7.9%  8.1%  8.3%  8.6%  8.8%  9.0%  9.3%  9.5%  9.7%  9.9% 10.2% 10.4% 10.6% 10.8% 11.1% 11.3% 11.5% 11.7% 12.0% 12.2% 12.4% 12.7% 12.9% 13.1% 13.3% 13.6% 13.8% 14.0% 14.2% 14.5% 14.7% 14.9% 15.1% 15.4% 15.6% 15.8% 16.1% 16.3% 16.5% 16.7% 17.0% 17.2% 17.4% 17.6% 17.9% 18.1% 18.3% 18.6% 18.8% 19.0% 19.2% 19.5% 19.7% 19.9% 20.1% 20.4% 20.6% 20.8% 21.0% 21.3% 21.5% 21.7% 22.0% 22.2% 22.4% 22.6% 22.9% 23.1% 23.3% 23.5% 23.8% 24.0% 24.2% 24.5% 24.7% 24.9% 25.1% 25.4% 25.6% 25.8% 26.0% 26.3% 26.5% 26.7% 26.9% 27.2% 27.4% 27.6% 27.9% 28.1% 28.3% 28.5% 28.8% 29.0% 29.2% 29.4% 29.7% 29.9% 30.1% 30.3% 30.6% 30.8% 31.0% 31.3% 31.5% 31.7% 31.9% 32.2% 32.4% 32.6% 32.8% 33.1% 33.3% 33.5% 33.8% 34.0% 34.2% 34.4% 34.7% 34.9% 35.1% 35.3% 35.6% 35.8% 36.0% 36.2% 36.5% 36.7% 36.9% 37.2% 37.4% 37.6% 37.8% 38.1% 38.3% 38.5% 38.7% 39.0% 39.2% 39.4% 39.7% 39.9% 40.1% 40.3% 40.6% 40.8% 41.0% 41.2% 41.5% 41.7% 41.9% 42.1% 42.4% 42.6% 42.8% 43.1% 43.3% 43.5% 43.7% 44.0% 44.2% 44.4% 44.6% 44.9% 45.1% 45.3% 45.5% 45.8% 46.0% 46.2% 46.5% 46.7% 46.9% 47.1% 47.4% 47.6% 47.8% 48.0% 48.3% 48.5% 48.7% 49.0% 49.2% 49.4% 49.6% 49.9% 50.1% 50.3% 50.5% 50.8% 51.0% 51.2% 51.4% 51.7% 51.9% 52.1% 52.4% 52.6% 52.8% 53.0% 53.3% 53.5% 53.7% 53.9% 54.2% 54.4% 54.6% 54.8% 55.1% 55.3% 55.5% 55.8% 56.0% 56.2% 56.4% 56.7% 56.9% 57.1% 57.3% 57.6% 57.8% 58.0% 58.3% 58.5% 58.7% 58.9% 59.2% 59.4% 59.6% 59.8% 60.1% 60.3% 60.5% 60.7% 61.0% 61.2% 61.4% 61.7% 61.9% 62.1% 62.3% 62.6% 62.8% 63.0% 63.2% 63.5% 63.7% 63.9% 64.2% 64.4% 64.6% 64.8% 65.1% 65.3% 65.5% 65.7% 66.0% 66.2% 66.4% 66.6% 66.9% 67.1% 67.3% 67.6% 67.8% 68.0% 68.2% 68.5% 68.7% 68.9% 69.1% 69.4% 69.6% 69.8% 70.0% 70.3% 70.5% 70.7% 71.0% 71.2% 71.4% 71.6% 71.9% 72.1% 72.3% 72.5% 72.8% 73.0% 73.2% 73.5% 73.7% 73.9% 74.1% 74.4% 74.6% 74.8% 75.0% 75.3% 75.5% 75.7% 75.9% 76.2% 76.4% 76.6% 76.9% 77.1% 77.3% 77.5% 77.8% 78.0% 78.2% 78.4% 78.7% 78.9% 79.1% 79.4% 79.6% 79.8% 80.0% 80.3% 80.5% 80.7% 80.9% 81.2% 81.4% 81.6% 81.8% 82.1% 82.3% 82.5% 82.8% 83.0% 83.2% 83.4% 83.7% 83.9% 84.1% 84.3% 84.6% 84.8% 85.0% 85.2% 85.5% 85.7% 85.9% 86.2% 86.4% 86.6% 86.8% 87.1% 87.3% 87.5% 87.7% 88.0% 88.2% 88.4% 88.7% 88.9% 89.1% 89.3% 89.6% 89.8% 90.0% 90.2% 90.5% 90.7% 90.9% 91.1% 91.4% 91.6% 91.8% 92.1% 92.3% 92.5% 92.7% 93.0% 93.2% 93.4% 93.6% 93.9% 94.1% 94.3% 94.5% 94.8% 95.0% 95.2% 95.5% 95.7% 95.9% 96.1% 96.4% 96.6% 96.8% 97.0% 97.3% 97.5% 97.7% 98.0% 98.2% 98.4% 98.6% 98.9% 99.1% 99.3% 99.5% 99.8%100%  
+	    New File  		   33860	rico_evidence_matrix_1000.csv100%  
+	                  18	c:\Users\HP\OneDrive\Documents\opencode_work\extracted_text\
+	    Older     		   16606	chen Combine February 28, 2026.pdf.txt100%  
+	    Older     		  129232	Dennis Durham Orange County Permits WK#6 (2).pdf.txt100%  
+	    Older     		  112106	Dennis_Durham_Orange_County_Permits_WK#6.pdf.txt100%  
+	    Older     		  129232	Dennis_Durham_Orange_County_Permits_WK#6_(2).pdf.txt100%  
+	    Older     		     300	Exhibit_A_Forensic_Well_Location_Overlay.pdf.txt100%  
+	    Older     		    2602	Formal_Complaint_HBNC_Yamada.pdf.txt100%  
+	    Older     		    2601	Formal_Complaint_HBNC_Yamada_Property.pdf.txt100%  
+	    Older     		     876	GeoTracker.pdf.txt100%  
+	    Older     		    1669	geotracker.waterboards.ca.gov_csm_report_global_id=T10000018579.pdf.txt100%  
+	    Older     		    3450	GeoTrackerStatusDefinitions.pdf.txt100%  
+	    Older     		   11692	Gmail - Hello Mr. Chen..pdf.txt100%  
+	    Older     		    1295	HBNC_Formal_Complaint_FINAL.pdf.txt100%  
+	    Older     		   48995	HB_IRC_Report_v1.1.pdf.txt100%  
+	    Older     		   47945	Huntington Beach Navigation Center Environmental Concerns.pdf.txt100%  
+	    Older     		    1307	Huntington_Beach_Public_Records_Search__Yamada.pdf.txt100%  
+	    Older     		     722	The Brink Center_ 17672 Beach Blvd, Huntington Beach, CA 92647.pdf.txt100%  
+	    Older     		   49013	UPX1978058_SupportingDocs_Chen_Yamada.pdf.txt100%  
+	    Older     		    5661	WRA_YAMADA_FINDINGS_BREAKDOWN_JUNE2026.md.txt100%  
+	                   4	c:\Users\HP\OneDrive\Documents\opencode_work\geotracker\
+	    Older     		    1186	PermittedUSTReadMe.txt100%  
+	    Older     		   2.4 m	permitted_ust.txt 20%   40%   61%   81%  100%  
+	    Older     		   2.4 m	permitted_ust_clean.txt 20%   40%   61%   81%  100%  
+	    Older     		  17.6 m	permitted_ust_tanks.txt  5.6% 11.3% 17.0% 22.7% 28.3% 34.0% 39.7% 45.4% 51.0% 56.7% 62.4% 68.1% 73.7% 79.4% 85.1% 90.8% 96.4%100%  
+	  New Dir          5	c:\Users\HP\OneDrive\Documents\opencode_work\Misc_Research_Docs_Review\
+	    New File  		  175261	Hydrogeological and Historical Assessment of the Cameron Tract W.pdf 74%   99%  100%  
+	    New File  		   44560	I have been working to retrieve the 1994 aerial image of your si.pdf 99%  100%  
+	    New File  		   51007	In 2026 the historical machine youre tracingthe one that categor.pdf 99%  100%  
+	    New File  		   48159	Lets dig in. Based on the historical data the 1943 Renie Atlas a.pdf 99%  100%  
+	    New File  		   51971	The GIS data for Buck Ranch aka Callens Ranch is historical only.pdf 99%  100%  
+	  New Dir         12	c:\Users\HP\OneDrive\Documents\opencode_work\ocr_output\
+	    New File  		   85050	ocr_andrew-do-forensic-audit-report-commissioned-by-co.txt100%  
+	    New File  		   69905	ocr_Annual_Military_Equipment_Use_Report__AB_481___4_..txt100%  
+	    New File  		   70396	ocr_Annual_Military_Equipment_Use_Report__AB_481___4__.txt100%  
+	    New File  		   11328	ocr_Cameron_Tract_Wells__1940s___Undated__1__1771475692334..txt100%  
+	    New File  		   12240	ocr_Copy_of_full_info_well_17642_beach.pdf.txt100%  
+	    New File  		   11791	ocr_Copy_of_full_info_well_17642_beach_1771475692432.pdf.txt100%  
+	    New File  		   10906	ocr_Copy_of_update_17642_wells_data.pdf.txt100%  
+	    New File  		    6534	ocr_Future_Development_of_17642_Beach_Blvd._-_NO_ACTIO.txt100%  
+	    New File  		    6840	ocr_HB_IRC_Report_v1.1.pdf.txt100%  
+	    New File  		  166233	ocr_HISTORIC_FILES_-_PHASE_I_ENVIRONMENTAL_SITE_ASSESSMENT_.txt 78%  100%  
+	    New File  		   10700	ocr_SITE_ASSESSMENT_REPORT__-_SITE_ASSESSMENT_REPORT_-.txt100%  
+	    New File  		   57457	ocr_UPX1978058_SupportingDocs_Chen_Yamada.pdf.txt100%  
+	  New Dir         23	c:\Users\HP\OneDrive\Documents\opencode_work\Official_GeoTracker_T10000018579\
+	    New File  		   2.0 m	HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200408.Analytical Report.pdf 24%   48%   72%   96%  100%  
+	    New File  		   1.1 m	HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200410.Analytical Report.pdf 22%   44%   66%   88%  100%  
+	    New File  		   2.2 m	HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200414.Analytical Report.pdf 22%   44%   66%   88%  100%  
+	    New File  		   1.6 m	HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200415.Analytical Report.pdf 15%   30%   46%   61%   76%   92%  100%  
+	    New File  		   2.1 m	HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200417.Analytical Report.pdf 23%   47%   70%   94%  100%  
+	    New File  		   2.4 m	HISTORIC FILES - BULKFILE - T10000018579.BulkFile.pdf 20%   40%   61%   81%  100%  
+	    New File  		   10075	index.html100%  
+	    New File  		  160843	Pages from T10000018579.20200318.Phase I Environmental Site Assessment-1 (1)(1).pdf 81%   99%  100%  
+	    New File  		  160843	Pages from T10000018579.20200318.Phase I Environmental Site Assessment-1 (1).pdf 81%   99%  100%  
+	    New File  		  15.5 m	T10000018579.20200318.Phase I Environmental Site Assessment-1 (1).pdf  6.4% 12.8% 19.3% 25.7% 32.2% 38.6% 45.1% 51.5% 58.0% 64.4% 70.8% 77.3% 83.7% 90.2% 96.6%100%  100%  
+	    New File  		   6.8 m	T10000018579.20200318.Phase I Environmental Site Assessment-1 (2).pdf  7.2% 14.5% 21.8% 29.1% 36.4% 43.7% 51.0% 58.3% 65.6% 72.8% 80.1% 87.4% 94.7% 99.9%100%  
+	    New File  		  10.5 m	T10000018579.20200318.Phase I Environmental Site Assessment-1 (3).pdf  9.4% 18.9% 28.4% 37.9% 47.4% 56.9% 66.3% 75.8% 85.3% 94.8% 99.9%100%  
+	    New File  		  12.5 m	T10000018579.20200318.Phase I Environmental Site Assessment-1.pdf  7.9% 15.9% 23.9% 31.9% 39.9% 47.9% 55.9% 63.9% 71.9% 79.9% 87.9% 95.9%100%  100%  
+	    New File  		  36.5 m	T10000018579.20200318.Phase I Environmental Site Assessment.pdf  2.7%  5.4%  8.2% 10.9% 13.6% 16.4% 19.1% 21.8% 24.6% 27.3% 30.0% 32.8% 35.5% 38.2% 41.0% 43.7% 46.4% 49.2% 51.9% 54.6% 57.4% 60.1% 62.8% 65.6% 68.3% 71.0% 73.8% 76.5% 79.2% 82.0% 84.7% 87.4% 90.2% 92.9% 95.6% 98.4%100%  
+	    New File  		   2.0 m	T10000018579.20200408.Analytical Report.pdf 24%   48%   72%   96%  100%  
+	    New File  		   1.1 m	T10000018579.20200410.Analytical Report.pdf 22%   44%   66%   88%  100%  
+	    New File  		   2.2 m	T10000018579.20200414.Analytical Report.pdf 22%   44%   66%   88%  100%  
+	    New File  		   1.6 m	T10000018579.20200415.Analytical Report.pdf 15%   30%   46%   61%   76%   92%  100%  
+	    New File  		   2.1 m	T10000018579.20200417.Analytical Report.pdf 23%   47%   70%   94%  100%  
+	    New File  		       0	T10000018579.20200625.Site Assessment Report.pdf
+	    New File  		   2.4 m	T10000018579.BulkFile.pdf 20%   40%   61%   81%  100%  
+	    New File  		  16.7 m	T10000018579_2024-Nov-27-022844-Diego-HP-ProBook.zip  5.9% 11.9% 17.8% 23.8% 29.8% 35.7% 41.7% 47.7% 53.6% 59.6% 65.6% 71.5% 77.5% 83.4% 89.4% 95.4%100%  
+	    New File  		  63.1 m	T10000018579_2025-Mar-23-124354.zip  1.5%  3.1%  4.7%  6.3%  7.9%  9.4% 11.0% 12.6% 14.2% 15.8% 17.4% 18.9% 20.5% 22.1% 23.7% 25.3% 26.9% 28.4% 30.0% 31.6% 33.2% 34.8% 36.3% 37.9% 39.5% 41.1% 42.7% 44.3% 45.8% 47.4% 49.0% 50.6% 52.2% 53.8% 55.3% 56.9% 58.5% 60.1% 61.7% 63.2% 64.8% 66.4% 68.0% 69.6% 71.2% 72.7% 74.3% 75.9% 77.5% 79.1% 80.7% 82.2% 83.8% 85.4% 87.0% 88.6% 90.2% 91.7% 93.3% 94.9% 96.5% 98.1% 99.6%100%  
+	                   9	c:\Users\HP\OneDrive\Documents\opencode_work\osint-pipeline\
+	    Older     		    3740	attorney_nodes.py100%  
+	    Older     		    2917	config.py100%  
+	    Older     		    3277	entity_match.py100%  
+	    Older     		    4216	neo4j_export.py100%  
+	    Older     		    6675	people_handler.py100%  
+	    Older     		      78	requirements.txt100%  
+	    Older     		    3204	RUNBOOK.md100%  
+	    Older     		    6725	watcher.py100%  
+	    Older     		    3644	watcher_v2.py100%  
+	                   2	c:\Users\HP\OneDrive\Documents\opencode_work\osint-pipeline\sql\
+	    Older     		    3303	001_schema.sql100%  
+	    Older     		    2394	control_cluster.sql100%  
+	                   1	c:\Users\HP\OneDrive\Documents\opencode_work\osint-pipeline\tests\
+	    Older     		    9582	test_pipeline.py100%  
+	  New Dir         51	c:\Users\HP\OneDrive\Documents\opencode_work\Private_EDR_2025_Real\
+	    New File  		   1.4 m	074-0125-014_Sanborn_7867953.3S.pdf 17%   34%   51%   68%   85%  100%  
+	    New File  		   7.9 m	7887036.12_1.pdf  6.2% 12.5% 18.7% 25.0% 31.3% 37.5% 43.8% 50.0% 56.3% 62.6% 68.8% 75.1% 81.4% 87.6% 93.9%100%  
+	    New File  		   8.7 m	7887036.12_2.pdf 11.4% 22.9% 34.4% 45.8% 57.3% 68.8% 80.2% 91.7%100%  
+	    New File  		   1.4 m	7887036.15.pdf 17%   34%   51%   68%   85%  100%  
+	    New File  		   9.2 m	7887036.16.pdf 10.8% 21.6% 32.4% 43.2% 54.0% 64.8% 75.6% 86.4% 97.2%100%  
+	    New File  		   8.1 m	7887036.24_1.pdf 12.2% 24.4% 36.7% 48.9% 61.1% 73.4% 85.6% 97.9%100%  
+	    New File  		   8.8 m	7887036.24_2.pdf 11.2% 22.4% 33.7% 44.9% 56.1% 67.4% 78.6% 89.9%100%  
+	    New File  		   1.4 m	7887036.3 (1).pdf 17%   34%   51%   68%   85%  100%  
+	    New File  		   1.4 m	7887036.3.pdf 17%   34%   51%   68%   85%  100%  
+	    New File  		   9.2 m	7887036.4 (1).pdf 10.8% 21.6% 32.4% 43.2% 54.1% 64.9% 75.7% 86.5% 97.4%100%  
+	    New File  		   9.2 m	7887036.4.pdf 10.8% 21.6% 32.4% 43.2% 54.1% 64.9% 75.7% 86.5% 97.4%100%  
+	    New File  		  180797	788703618.PDF 72%  100%  
+	    New File  		  180797	788703618_2.PDF
+2026/07/13 13:48:06 ERROR 426 (0x000001AA) Copying File c:\Users\HP\OneDrive\Documents\opencode_work\Private_EDR_2025_Real\788703618_2.PDF
+The cloud operation was not completed before the time-out period expired.
+Waiting 30 seconds... Retrying...
+	    New File  		  180797	788703618_2.PDF
+2026/07/13 13:49:37 ERROR 426 (0x000001AA) Copying File c:\Users\HP\OneDrive\Documents\opencode_work\Private_EDR_2025_Real\788703618_2.PDF
+The cloud operation was not completed before the time-out period expired.
+Waiting 30 seconds... Retrying...
+	    New File  		  180797	788703618_2.PDF
+2026/07/13 13:51:07 ERROR 426 (0x000001AA) Copying File c:\Users\HP\OneDrive\Documents\opencode_work\Private_EDR_2025_Real\788703618_2.PDF
+The cloud operation was not completed before the time-out period expired.
+Waiting 30 seconds... Retrying...
+	    New File  		  180797	788703618_2.PDF
+2026/07/13 13:52:38 ERROR 426 (0x000001AA) Copying File c:\Users\HP\OneDrive\Documents\opencode_work\Private_EDR_2025_Real\788703618_2.PDF
+The cloud operation was not completed before the time-out period expired.
+Waiting 30 seconds... Retrying...
+	    New File  		  180797	788703618_2.PDF
+2026/07/13 13:54:08 ERROR 426 (0x000001AA) Copying File c:\Users\HP\OneDrive\Documents\opencode_work\Private_EDR_2025_Real\788703618_2.PDF
+The cloud operation was not completed before the time-out period expired.
+Waiting 30 seconds... Retrying...
+	    New File  		  180797	788703618_2.PDF 72%  100%  
+	    New File  		  797876	788703620.PDF 32%   65%   98%  100%  
+	    New File  		  797876	788703620_2.PDF 32%   65%   98%  100%  
+	    New File  		  181434	78870367 (1).PDF 72%  100%  
+	    New File  		  181434	78870367.PDF 72%  100%  
+	    New File  		  181434	78870367_2.PDF 72%  100%  
+	    New File  		  816694	78870369 (1).PDF 32%   64%   96%  100%  
+	    New File  		  816694	78870369 (2).PDF 32%   64%   96%  100%  
+	    New File  		  816694	78870369 (3).PDF 32%   64%   96%  100%  
+	    New File  		  816694	78870369.PDF 32%   64%   96%  100%  
+	    New File  		  816694	78870369_2.PDF 32%   64%   96%  100%  
+	    New File  		  30.1 m	7887036_14.pdf  3.3%  6.6%  9.9% 13.2% 16.5% 19.9% 23.2% 26.5% 29.8% 33.1% 36.4% 39.8% 43.1% 46.4% 49.7% 53.0% 56.4% 59.7% 63.0% 66.3% 69.6% 72.9% 76.3% 79.6% 82.9% 86.2% 89.5% 92.8% 96.2% 99.5%100%  
+	    New File  		  18.1 m	7969270.11 (1).pdf  5.4% 10.9% 16.4% 21.9% 27.4% 32.9% 38.4% 43.9% 49.4% 54.9% 60.4% 65.9% 71.4% 76.9% 82.4% 87.9% 93.4% 98.9%100%  
+	    New File  		  18.1 m	7969270.11.pdf  5.4% 10.9% 16.4% 21.9% 27.4% 32.9% 38.4% 43.9% 49.4% 54.9% 60.4% 65.9% 71.4% 76.9% 82.4% 87.9% 93.4% 98.9%100%  
+	    New File  		   8.1 m	7969270.11_1.pdf 12.2% 24.4% 36.7% 48.9% 61.2% 73.4% 85.7% 97.9%100%  
+	    New File  		   8.3 m	7969270.11_2.pdf 11.9% 23.8% 35.8% 47.7% 59.7% 71.6% 83.5% 95.5%100%  
+	    New File  		   1.6 m	7969270.11_3.pdf 15%   30%   45%   60%   75%   90%  100%  
+	    New File  		  647767	7969270.2s (1).pdf 40%   80%  100%  
+	    New File  		  15.0 m	7969270.2s (1).rtf  6.6% 13.3% 19.9% 26.6% 33.2% 39.9% 46.5% 53.2% 59.8% 66.5% 73.1% 79.8% 86.5% 93.1% 99.8%100%  
+	    New File  		  647767	7969270.2s (2).pdf 40%   80%  100%  
+	    New File  		  647767	7969270.2s (3).pdf 40%   80%  100%  
+	    New File  		  647785	7969270.2s.pdf 40%   80%  100%  
+	    New File  		  15.0 m	7969270.2s.rtf  6.6% 13.3% 19.9% 26.6% 33.2% 39.9% 46.5% 53.2% 59.8% 66.5% 73.1% 79.8% 86.5% 93.1% 99.8%100%  
+	    New File  		   1.4 m	7969270.3 (1).pdf 17%   34%   51%   68%   85%  100%  
+	    New File  		   1.4 m	7969270.3.pdf 17%   34%   51%   68%   85%  100%  
+	    New File  		  10.8 m	7969270.4.pdf  9.2% 18.4% 27.6% 36.8% 46.0% 55.3% 64.5% 73.7% 82.9% 92.1%100%  
+	    New File  		  10.2 m	7969270.4_1.pdf  9.7% 19.5% 29.2% 39.0% 48.7% 58.5% 68.3% 78.0% 87.8% 97.5%100%  
+	    New File  		  630137	7969270.4_2.pdf 41%   83%  100%  
+	    New File  		  114616	79692706 (1).PDF100%  
+	    New File  		  114616	79692706 (2).PDF100%  
+	    New File  		  114616	79692706.PDF100%  
+	    New File  		  834791	79692708 (1).PDF 31%   62%   94%  100%  
+	    New File  		  834791	79692708 (2).PDF 31%   62%   94%  100%  
+	    New File  		  834791	79692708 (3).PDF 31%   62%   94%  100%  
+	    New File  		  834791	79692708 (4).PDF 31%   62%   94%  100%  
+	    New File  		  834791	79692708.PDF 31%   62%   94%  100%  
+	    New File  		  13.2 m	7969270_2.pdf  7.5% 15.1% 22.6% 30.2% 37.7% 45.3% 52.9% 60.4% 68.0% 75.5% 83.1% 90.6% 98.2%100%  
+	    New File  		  14.8 m	SUMMARY_RADIUS_7969270_2.pdf  6.7% 13.4% 20.2% 26.9% 33.6% 40.4% 47.1% 53.8% 60.6% 67.3% 74.0% 80.8% 87.5% 94.2%100%  
+	    New File  		  40.1 m	Volume-III-Appendix-D-Historical-Survey.pdf  2.4%  4.9%  7.4%  9.9% 12.4% 14.9% 17.4% 19.9% 22.4% 24.9% 27.4% 29.8% 32.3% 34.8% 37.3% 39.8% 42.3% 44.8% 47.3% 49.8% 52.3% 54.8% 57.2% 59.7% 62.2% 64.7% 67.2% 69.7% 72.2% 74.7% 77.2% 79.7% 82.2% 84.7% 87.1% 89.6% 92.1% 94.6% 97.1% 99.6%100%  
+	  New Dir          0	c:\Users\HP\OneDrive\Documents\opencode_work\procurement_downloads\
+	  New Dir          0	c:\Users\HP\OneDrive\Documents\opencode_work\procurement_downloads\test_project\
+	  New Dir          8	c:\Users\HP\OneDrive\Documents\opencode_work\procurement_screenshots\
+	    New File  		  147706	detail_debug.html 88%  100%  
+	    New File  		  144849	detail_downloads.html 90%  100%  
+	    New File  		  395162	detail_js_click.html 33%   66%   99%  100%  
+	    New File  		  147731	detail_test.html 88%  100%  
+	    New File  		   36856	final.png100%  
+	    New File  		    8512	page_1_initial.png100%  
+	    New File  		  443616	page_source.html 29%   59%   88%  100%  
+	    New File  		  138831	uc_success.png 94%  100%  
+	                   6	c:\Users\HP\OneDrive\Documents\opencode_work\Public_Shelter_Records\
+	    Older     		    2602	Formal_Complaint_HBNC_Yamada.pdf.txt100%  
+	    Older     		    2601	Formal_Complaint_HBNC_Yamada_Property.pdf.txt100%  
+	    Older     		    1669	geotracker.waterboards.ca.gov_csm_report_global_id=T10000018579.pdf.txt100%  
+	    Older     		    1295	HBNC_Formal_Complaint_FINAL.pdf.txt100%  
+	    Older     		    1307	Huntington_Beach_Public_Records_Search__Yamada.pdf.txt100%  
+	    Older     		    3313	phase1_esa.txt100%  
+	  New Dir          8	c:\Users\HP\OneDrive\Documents\opencode_work\sentinel-edition\
+	    New File  		     120	.gitignore100%  
+	    New File  		   10266	BACKUP_PROTOCOL.md100%  
+	    New File  		    5934	cli.py100%  
+	    New File  		     416	error.log100%  
+	    New File  		    9722	README.md100%  
+	    New File  		     554	requirements.txt100%  
+	    New File  		      96	start.bat100%  
+	    New File  		   18639	webapp.py100%  
+	  New Dir          3	c:\Users\HP\OneDrive\Documents\opencode_work\sentinel-edition\.pytest_cache\
+	    New File  		      37	.gitignore100%  
+	    New File  		     191	CACHEDIR.TAG100%  
+	    New File  		     302	README.md100%  
+	  New Dir          0	c:\Users\HP\OneDrive\Documents\opencode_work\sentinel-edition\.pytest_cache\v\
+	  New Dir          1	c:\Users\HP\OneDrive\Documents\opencode_work\sentinel-edition\.pytest_cache\v\cache\
+	    New File  		     333	nodeids100%  
+	  New Dir          3	c:\Users\HP\OneDrive\Documents\opencode_work\sentinel-edition\analyzers\
+	    New File  		    8460	network_analyzer.py100%  
+	    New File  		    6932	text_analyzer.py100%  
+	    New File  		      35	__init__.py100%  
+	  New Dir          7	c:\Users\HP\OneDrive\Documents\opencode_work\sentinel-edition\backup\
+	    New File  		    6598	auto_configure_sharedall.py100%  
+	    New File  		    2655	create_backup.py100%  
+	    New File  		    2839	download_from_sharedall.py100%  
+	    New File  		    7371	pre_change_backup.py100%  
+	    New File  		    4726	sync_to_local.py100%  
+	    New File  		    6513	sync_to_sharedall.py100%  
+	    New File  		    6657	verify_backups.py100%  
+	  New Dir          7	c:\Users\HP\OneDrive\Documents\opencode_work\sentinel-edition\backups\
+	    New File  		     251	manifest_20260711_071209.json100%  
+	    New File  		     250	manifest_20260711_100608.json100%  
+	    New File  		     250	manifest_20260711_100651.json100%  
+	    New File  		   43493	sentinel_20260711_071209_initial_sentinel_edition.zip100%  
+	    New File  		   45630	sentinel_20260711_100608_sentinel_edition_full_backup.zip100%  
+	    New File  		   45630	sentinel_20260711_100651_sentinel_edition_full_backup.zip100%  
+	    New File  		     601	sync_log.json100%  
+	  New Dir          3	c:\Users\HP\OneDrive\Documents\opencode_work\sentinel-edition\collectors\
+	    New File  		    7378	public_records.py100%  
+	    New File  		    7427	web_collector.py100%  
+	    New File  		      41	__init__.py100%  
+	  New Dir          1	c:\Users\HP\OneDrive\Documents\opencode_work\sentinel-edition\config\
+	    New File  		     682	config.example.json100%  
+	  New Dir          2	c:\Users\HP\OneDrive\Documents\opencode_work\sentinel-edition\core\
+	    New File  		   25464	engine.py100%  
+	    New File  		      90	__init__.py100%  
+	  New Dir          3	c:\Users\HP\OneDrive\Documents\opencode_work\sentinel-edition\exports\
+	    New File  		    2626	geojson_export.py100%  
+	    New File  		    7583	html_report.py100%  
+	    New File  		      40	__init__.py100%  
+	  New Dir          1	c:\Users\HP\OneDrive\Documents\opencode_work\sentinel-edition\sentinel-workspace\
+	    New File  		   45056	investigation.db100%  
+	  New Dir          1	c:\Users\HP\OneDrive\Documents\opencode_work\sentinel-edition\tests\
+	    New File  		    4645	test_engine.py100%  
+	  New Dir          1	c:\Users\HP\OneDrive\Documents\opencode_work\temp\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        44        25        19         0         0         0
+   Files :       664       663         1         0         0         0
+   Bytes :   1.300 g   1.299 g    1.64 m         0         0         0
+   Times :   0:42:44   0:38:14                       0:04:30   0:00:00
+
+
+   Speed :              608026 Bytes/sec.
+   Speed :              34.791 MegaBytes/min.
+   Ended : Monday, July 13, 2026 1:58:28 PM
+
