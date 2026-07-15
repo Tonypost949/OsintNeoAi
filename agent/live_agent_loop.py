@@ -16,7 +16,7 @@ TOKEN_FILE = os.path.join(SCRIPT_DIR, "token_live_agent.json")
 CLIENT_SECRET_FILE = os.path.join(SCRIPT_DIR, "client_secret.json")
 
 VALID_SENDERS = [
-    "anthonymichaeldimarcello@gmail.com",
+    "txtdjdrop@gmail.com",
     "9493502312@vtext.com",
     "9493502312@vzwpix.com",
     "9493502312@txt.att.net",
@@ -51,7 +51,7 @@ def send_reply(service, to_address, subject, response_text):
     message = EmailMessage()
     message.set_content(response_text)
     message['To'] = to_address
-    message['From'] = 'anthonymichaeldimarcello@gmail.com'
+    message['From'] = 'txtdjdrop@gmail.com'
     message['Subject'] = 'Re: ' + subject
 
     encoded_message = base64.urlsafe_b64encode(message.as_bytes()).decode()

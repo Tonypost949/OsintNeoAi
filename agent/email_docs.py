@@ -31,8 +31,8 @@ def send_docs():
 
     message = EmailMessage()
     message.set_content("Here are all the critical case files, presentation decks, and evidence templates you requested. You can open these directly on your tablet.")
-    message['To'] = 'anthonymichaeldimarcello@gmail.com'
-    message['From'] = 'anthonymichaeldimarcello@gmail.com'
+    message['To'] = 'txtdjdrop@gmail.com'
+    message['From'] = 'txtdjdrop@gmail.com'
     message['Subject'] = 'OSINT Zeus: RICO Master Case Files & Presentation Deck'
 
     for file_path in FILES_TO_ATTACH:

@@ -4,7 +4,7 @@ import json
 import os
 
 def fetch(bq, table_id: str, limit: int = 5000) -> pd.DataFrame:
-    query = f"SELECT *OM `{table_id}` LIMIT {limit}"
+    query = f"SELECT * FROM `{table_id}` LIMIT {limit}"
     return bq.query(query).to_dataframe()
 
 def main():

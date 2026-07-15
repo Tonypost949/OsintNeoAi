@@ -40,8 +40,8 @@ def send_apk_email():
         "Here is your compiled OSINTNeoAI Android application (osintneoai.apk) attached below.\n\n"
         "You can download and install this on your Android device to access the mobile interface."
     )
-    message['To'] = 'anthonymichaeldimarcello@gmail.com'
-    message['From'] = 'anthonymichaeldimarcello@gmail.com'
+    message['To'] = 'txtdjdrop@gmail.com'
+    message['From'] = 'txtdjdrop@gmail.com'
     message['Subject'] = 'OSINT Zeus: OSINTNeoAI Android APK Shell'
 
     # Read APK binary data
@@ -60,7 +60,7 @@ def send_apk_email():
         encoded_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
         create_message = {'raw': encoded_message}
         
-        print(f"[+] Sending APK email to anthonymichaeldimarcello@gmail.com...")
+        print(f"[+] Sending APK email to txtdjdrop@gmail.com...")
         service.users().messages().send(userId="me", body=create_message).execute()
         print("[+] APK email successfully sent!")
     except Exception as e:

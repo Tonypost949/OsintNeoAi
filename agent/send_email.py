@@ -6,10 +6,10 @@ import os
 # Configuration for automated email alerts using generated app password
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
-SENDER_EMAIL = "anthonymichaeldimarcello@gmail.com"
-APP_PASSWORD = "nsqj quiv snfr wvaf" # Generated app password
+SENDER_EMAIL = "amd949609@gmail.com"
+APP_PASSWORD = "iwen bfmr awdq yvin" # Generated app password
 
-def send_evidence_alert(subject, body_content, recipient="anthonymichaeldimarcello@gmail.com"):
+def send_evidence_alert(subject, body_content, recipient="txtdjdrop@gmail.com"):
     print("=" * 60)
     print("  INITIATING SECURE EMAIL NOTIFICATION  ")
     print("=" * 60)

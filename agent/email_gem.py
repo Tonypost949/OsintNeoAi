@@ -40,8 +40,8 @@ def send_gem_email():
 
     message = EmailMessage()
     message.set_content(f"Here is the Gemini Gem configuration instructions for your phone. Copy the instructions block below and paste it into the Gem Instructions manager:\n\n{gem_content}")
-    message['To'] = 'anthonymichaeldimarcello@gmail.com'
-    message['From'] = 'anthonymichaeldimarcello@gmail.com'
+    message['To'] = 'txtdjdrop@gmail.com'
+    message['From'] = 'txtdjdrop@gmail.com'
     message['Subject'] = 'OSINT Zeus: Makaveli Gemini Gem Configuration'
 
     # Also attach the file

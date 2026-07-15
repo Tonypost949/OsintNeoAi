@@ -90,8 +90,8 @@ def send_image_email():
         service = build('gmail', 'v1', credentials=creds)
         message = EmailMessage()
         message.set_content("Here is the visual architecture graph of the Vanguard RICO network. See attached image.")
-        message['To'] = 'anthonymichaeldimarcello@gmail.com'
-        message['From'] = 'anthonymichaeldimarcello@gmail.com'
+        message['To'] = 'txtdjdrop@gmail.com'
+        message['From'] = 'txtdjdrop@gmail.com'
         message['Subject'] = 'OSINT Zeus: Vanguard RICO Network Visual Graph'
 
         # Attach the image

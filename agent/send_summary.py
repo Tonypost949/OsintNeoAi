@@ -102,7 +102,7 @@ def main():
     </html>
     """
     
-    send_email("anthonymichaeldimarcello@gmail.com", "OSINTNeoAi: RICO Investigation & Sgt Brad Smith Summary", email_body)
+    send_email("txtdjdrop@gmail.com", "OSINTNeoAi: RICO Investigation & Sgt Brad Smith Summary", email_body)
 
 if __name__ == "__main__":
     main()
