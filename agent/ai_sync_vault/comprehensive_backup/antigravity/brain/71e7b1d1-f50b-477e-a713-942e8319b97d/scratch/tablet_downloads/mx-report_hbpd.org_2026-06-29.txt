@@ -1,0 +1,32 @@
+MX RECORD REPORT
+Domain: hbpd.org
+Lookup time: Mon, 29 Jun 2026 17:31:05 GMT
+Detected provider: Microsoft 365 / Exchange Online
+
+--- MX Records (priority, server) ---
+  0  →  hbpd-org.mail.protection.outlook.com
+
+--- Raw DNS JSON ---
+{
+  "Status": 0,
+  "TC": false,
+  "RD": true,
+  "RA": true,
+  "AD": false,
+  "CD": false,
+  "Question": [
+    {
+      "name": "hbpd.org.",
+      "type": 15
+    }
+  ],
+  "Answer": [
+    {
+      "name": "hbpd.org.",
+      "type": 15,
+      "TTL": 60,
+      "data": "0 hbpd-org.mail.protection.outlook.com."
+    }
+  ],
+  "Comment": "Response from 172.64.33.114."
+}

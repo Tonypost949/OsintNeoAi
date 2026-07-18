@@ -65,7 +65,4 @@ opencode_work/**/google_creds.json
 **/*creds*.json
 **/client_secret*.json
 
-# OAuth temp files
-agent/oauth_url.txt
-agent/oauth_server.log
-agent/oauth_code.txt
+opencode_work/chunk_*.dat

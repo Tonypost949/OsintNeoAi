@@ -54,7 +54,7 @@ def send_text_message():
             "OC Map: https://github.com/Tonypost949/osint-agent/blob/master/osint_gemini_gis.html"
         )
         message['To'] = recipient
-        message['From'] = 'txtdjdrop@gmail.com'
+        message['From'] = 'anthonymichaeldimarcello@gmail.com'
         message['Subject'] = 'OSINT Zeus'
 
         try:

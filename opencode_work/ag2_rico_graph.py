@@ -1,10 +1,9 @@
 """
 RICO Network Graph Generator — Gemini Multi-Agent Pipeline
-Uses google-genai with ADC (Application Default Credentials).
+Uses google-genai with Vertex AI (project billing, no API key).
 Phases: Entity Extraction → Graph Construction → Intelligence Summary
 
 Usage:  C:\Python314\python.exe ag2_rico_graph.py
-Prereq: gcloud auth application-default login
 """
 import csv
 import json
@@ -12,8 +11,31 @@ from pathlib import Path
 from google import genai
 from google.genai import types
 
-# ── Gemini Config — ADC (no API key) ──────────────────────────
-client = genai.Client()  # Uses ADC automatically
+# ── Client Config (Vertex AI with ADC) ──────────────────────────
+import os
+import subprocess
+
+# Auto-detect project ID via gcloud config
+try:
+    project_id = subprocess.check_output(
+        ["gcloud", "config", "get-value", "project"],
+        text=True
+    ).strip()
+except Exception:
+    project_id = "project-9c94c2fa-3af4-49f1-a7b"
+
+if not project_id or project_id == "project-743aab84-f9a5-4ec7-954":
+    project_id = "project-9c94c2fa-3af4-49f1-a7b"
+
+client = genai.Client(
+    vertexai=True,
+    project=project_id,
+    location="us-central1",
+)
+print(f"Using Vertex AI client with project: {project_id}")
+
+
+
 
 WORK_DIR = Path(r"C:\Users\HP\OneDrive\Documents\opencode_work")
 CSV_FILES = {
@@ -122,7 +144,8 @@ def run_agent(system_prompt: str, user_prompt: str) -> str:
 def main():
     print("=" * 60)
     print("RICO NETWORK GRAPH GENERATOR")
-    print(f"Model: {MODEL} via ADC")
+    print(f"Model: {MODEL} via Vertex AI")
+    print(f"Project: project-743aab84-f9a5-4ec7-954")
     print("=" * 60)
 
     csv_context = build_csv_context()
