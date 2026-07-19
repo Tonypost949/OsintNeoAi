@@ -8,6 +8,7 @@ import os
 import sys
 import json
 import imaplib
+imaplib._MAXLINE = 100000000
 import email
 from email.header import decode_header
 import datetime
@@ -154,66 +155,115 @@ def scan_gmail_imap(password, max_results=1000, folder="[Gmail]/All Mail"):
     scan_uids = uids[:max_results]
     print(f"[IMAP] Processing newest {len(scan_uids)} messages...")
 
-    rows = []
     scan_ts = datetime.datetime.utcnow().isoformat() + "Z"
+    
+    # Establish BigQuery client
+    bq_client = bigquery.Client(project=GCP_PROJECT)
+    
+    # Check table existence (we already created it, but check is safe)
+    try:
+        bq_client.get_table(FULL_TABLE_ID)
+        print(f"[BQ] Connected to existing table {FULL_TABLE_ID}.")
+    except Exception as e:
+        print(f"[BQ] Warning: Could not connect to table {FULL_TABLE_ID}: {e}")
 
-    for idx, uid in enumerate(scan_uids):
-        try:
-            # Fetch custom Gmail properties along with headers
-            status, data = mail.uid("fetch", uid, "(X-GM-THRID X-GM-MSGID BODY.PEEK[HEADER.FIELDS (Message-ID Date From To Subject)])")
-            if status != "OK" or not data:
-                continue
+    backup_filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "gmail_backup_progress.jsonl")
+    print(f"[LOCAL] Saving progress to: {backup_filepath}")
 
-            raw_envelope = None
-            gmail_extension_bytes = b""
-            
-            for part in data:
-                if isinstance(part, tuple):
-                    gmail_extension_bytes = part[0]
-                    raw_envelope = part[1]
-            
-            thrid, msgid = parse_gmail_extensions(gmail_extension_bytes)
-            
-            # If we couldn't parse the message ID via gmail extensions, fall back to UID
-            if not msgid:
-                msgid = uid.decode()
+    chunk_rows = []
+    total_processed = 0
 
-            # Parse headers
-            subject = ""
-            sender = ""
-            recipient = ""
-            date_str = ""
-            
-            if raw_envelope:
-                msg = email.message_from_bytes(raw_envelope)
-                subject = safe_decode(msg.get("Subject"))
-                sender = safe_decode(msg.get("From"))
-                recipient = safe_decode(msg.get("To"))
-                date_str = safe_decode(msg.get("Date"))
+    with open(backup_filepath, "a", encoding="utf-8") as f_backup:
+        for idx, uid in enumerate(scan_uids):
+            try:
+                # Fetch custom Gmail properties along with headers
+                status, data = mail.uid("fetch", uid, "(X-GM-THRID X-GM-MSGID BODY.PEEK[HEADER.FIELDS (Message-ID Date From To Subject)])")
+                if status != "OK" or not data:
+                    continue
 
-            # Create row
-            row = {
-                "message_id": msgid,
-                "thread_id": thrid or "",
-                "subject": subject,
-                "sender": sender,
-                "recipient": recipient,
-                "date_header": date_str,
-                "snippet": f"IMAP Scan - Folder: {folder}",
-                "label_ids": [folder],
-                "scan_timestamp": scan_ts,
-            }
-            rows.append(row)
-            
-            if len(rows) % 100 == 0:
-                print(f"  Processed {len(rows)}/{len(scan_uids)} emails...")
+                raw_envelope = None
+                gmail_extension_bytes = b""
                 
-        except Exception as e:
-            print(f"  [!] Error processing UID {uid.decode()}: {e}")
+                for part in data:
+                    if isinstance(part, tuple):
+                        gmail_extension_bytes = part[0]
+                        raw_envelope = part[1]
+                
+                thrid, msgid = parse_gmail_extensions(gmail_extension_bytes)
+                
+                # If we couldn't parse the message ID via gmail extensions, fall back to UID
+                if not msgid:
+                    msgid = uid.decode()
 
-    print(f"[IMAP] Completed extraction. Formatted {len(rows)} rows.")
+                # Parse headers
+                subject = ""
+                sender = ""
+                recipient = ""
+                date_str = ""
+                
+                if raw_envelope:
+                    msg = email.message_from_bytes(raw_envelope)
+                    subject = safe_decode(msg.get("Subject"))
+                    sender = safe_decode(msg.get("From"))
+                    recipient = safe_decode(msg.get("To"))
+                    date_str = safe_decode(msg.get("Date"))
+
+                # Create row
+                row = {
+                    "message_id": msgid,
+                    "thread_id": thrid or "",
+                    "subject": subject,
+                    "sender": sender,
+                    "recipient": recipient,
+                    "date_header": date_str,
+                    "snippet": f"IMAP Scan - Folder: {folder}",
+                    "label_ids": [folder],
+                    "scan_timestamp": scan_ts,
+                }
+                
+                # Save locally immediately
+                f_backup.write(json.dumps(row, ensure_ascii=False) + "\n")
+                f_backup.flush()
+                
+                chunk_rows.append(row)
+                total_processed += 1
+                
+                # Ingest to BigQuery in chunks of 100
+                if len(chunk_rows) >= 100:
+                    try:
+                        job_config = bigquery.LoadJobConfig(
+                            schema=BQ_SCHEMA,
+                            write_disposition=bigquery.WriteDisposition.WRITE_APPEND,
+                            source_format=bigquery.SourceFormat.NEWLINE_DELIMITED_JSON,
+                        )
+                        load_job = bq_client.load_table_from_json(chunk_rows, FULL_TABLE_ID, job_config=job_config)
+                        load_job.result()
+                        print(f"  [BQ] Successfully ingested chunk of {len(chunk_rows)} rows (Total: {total_processed}).")
+                    except Exception as bq_err:
+                        print(f"  [BQ] [!] Error ingesting chunk: {bq_err} (Saved locally).")
+                    
+                    chunk_rows = []
+                    
+            except Exception as e:
+                print(f"  [!] Error processing UID {uid.decode()}: {e}")
+
+        # Ingest remaining rows
+        if chunk_rows:
+            try:
+                job_config = bigquery.LoadJobConfig(
+                    schema=BQ_SCHEMA,
+                    write_disposition=bigquery.WriteDisposition.WRITE_APPEND,
+                    source_format=bigquery.SourceFormat.NEWLINE_DELIMITED_JSON,
+                )
+                load_job = bq_client.load_table_from_json(chunk_rows, FULL_TABLE_ID, job_config=job_config)
+                load_job.result()
+                print(f"  [BQ] Successfully ingested final chunk of {len(chunk_rows)} rows.")
+            except Exception as bq_err:
+                print(f"  [BQ] [!] Error ingesting final chunk: {bq_err} (Saved locally).")
+
+    print(f"[IMAP] Completed extraction. Processed {total_processed} emails.")
     mail.logout()
-    return rows
+    return total_processed
 
 # ---------------------------------------------------------------------------
 # MAIN
@@ -234,15 +284,13 @@ def main():
         sys.exit(1)
 
     # Perform scan (defaulting to INBOX for quick sync first, can be adjusted)
-    rows = scan_gmail_imap(password, max_results=1000, folder="INBOX")
+    total = scan_gmail_imap(password, max_results=1000, folder="INBOX")
 
-    if not rows:
+    if not total:
         print("[!] No messages scanned. Exiting.")
         return
 
-    # Ingest
-    ingest_to_bq(rows)
-    print("[✓] Gmail IMAP scan complete.")
+    print(f"[✓] Gmail IMAP scan complete. Total processed: {total}")
 
 if __name__ == "__main__":
     main()
