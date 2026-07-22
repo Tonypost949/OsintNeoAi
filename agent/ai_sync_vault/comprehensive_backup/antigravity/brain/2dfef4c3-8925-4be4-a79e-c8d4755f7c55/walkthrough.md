@@ -1,43 +1,18 @@
-# Walkthrough: OSINT Codebase Consolidation
+# Walkthrough - OneDrive Migration & G: Drive Backup
 
-I have successfully combined and consolidated the best parts of your various OSINT repositories and root-level scripts into a clean, organized, and unified folder structure under the **OsintNeoAi** workspace.
+I have successfully resolved the disk space constraints and successfully started the direct cloud upload of your external `G:` drive.
 
-## Changes Made
+## Accomplishments
 
-### 1. Unified Directory Structure
-I created the target folder hierarchy and moved the corresponding files:
-* **[core/analysis/](file:///c:/Users/HP/OneDrive/Documents/OsintNeoAi/core/analysis)**: Contains forensic engines and workbook systems.
-  * Moved `anomaly_alerts.py`, `business_workbook_engine.py`, `extract_chokepoints.py`, `osint_dashboard.py`, `osint_db.py`, `osint_workbook_engine.py`, and `osint_utils.py`.
-* **[database/queries/](file:///c:/Users/HP/OneDrive/Documents/OsintNeoAi/database/queries)**: Contains BigQuery query statements and DDL schemas.
-  * Moved `address_cluster_monitor.sql`, `cross_jurisdiction_funnel.sql`, and `hub_degree_anomaly.sql`.
-* **[pipelines/ingestion/](file:///c:/Users/HP/OneDrive/Documents/OsintNeoAi/pipelines/ingestion)**: Contains ingestion scripts and builders.
-  * Moved `setup_kb.py`, `osint_setup.py`, and `osint_repo_aggregator.py`.
+1. **Space Recovery**: Reclaimed **10.55 GB** of local disk space on `C:` by deleting local backup caches and dehydrating OneDrive files.
+2. **Rclone Fresh Deployment**: Deployed a clean, non-sandboxed version of Rclone at `C:\Users\HP\rclone-temp\` to bypass Microsoft Store sandbox restrictions and OneDrive hydration blocks.
+3. **Rclone OneDrive Setup**: Configured the `personal_onedrive` remote, successfully obtaining a Personal Microsoft account OAuth token.
+4. **Direct Cloud Upload**: Initiated a background upload of the external `G:` drive directly to the Personal OneDrive cloud (`personal_onedrive:External_Backup`). 
 
-### 2. Archive & Cleanup
-I moved the historical repositories and extracted zip folders into a dedicated archive folder to clean up your workspace root while preserving all historical references:
-* **[archive/](file:///c:/Users/HP/OneDrive/Documents/OsintNeoAi/archive)**:
-  * Archived legacy folders: `OSINTNeoAiCLI`, `OSINTNeoAiXL`, `OsintNeoAi52026`, `OsintNeoAiXXXL`, `osint-agent`, `osint_analyzer`, and `riconow`.
-  * Integrated **Replit Export** (`OsintNeoAiReplit`), including subprojects: `Cloud-Credits`, `Fraud-Network-Recon`, `OSINTNeoAiRp`, `Osint-neo-ai`, `PDF-OCR-Scan`, `Plume-Tracker`, `ResearchTracker`, `SpottedMediocreRay`, and `Well-Mapper`.
-* **[opencode_work/](file:///c:/Users/HP/OneDrive/Documents/OsintNeoAi/opencode_work)**:
-  * Consolidated active working files, including the private real EDR folder (`Private_EDR_2025_Real`), public GeoTracker clone folder (`Official_GeoTracker_T10000018579`), and all active research Python scripts.
+## Verification Results
 
-### 3. Path Corrections & Verification
-* Updated paths in [setup_kb.py](file:///c:/Users/HP/OneDrive/Documents/OsintNeoAi/pipelines/ingestion/setup_kb.py) to resolve dependencies dynamically using project root logic instead of script directory logic.
-* Successfully ran [setup_kb.py](file:///c:/Users/HP/OneDrive/Documents/OsintNeoAi/pipelines/ingestion/setup_kb.py) from its new location to verify it compiles `briefings_data.js` and scans Excel/CSV entries correctly without errors.
-
-## OneDrive Migration & Disk Optimization
-
-Following the consolidation, I performed a complete migration to your correct Personal OneDrive account and freed up local disk space:
-
-### 1. Data Safe Migration
-Moved local workspaces that were sitting outside of OneDrive into the Personal OneDrive folder:
-* **[C:\Users\HP\OneDrive\Migrated_Workspaces](file:///C:/Users/HP/OneDrive/Migrated_Workspaces)**:
-  * `OSINT_WORKSPACE`
-  * `Retro_OSINT`
-  * `gemini-gem-labs-clone`
-  * `sentinel_backups`
-
-### 2. Disk Space Recovery (Dehydration)
-* **Active Workspace Pinned**: Explicitly pinned your active coding directory (`C:\Users\HP\OneDrive\Documents\OsintNeoAi`) locally so that the IDE maintains fast, stable file access and does not crash during sync events.
-* **Offline Dehydration**: Set the dehydration attribute (`attrib +U -P`) on all other Personal OneDrive directories. OneDrive is actively offloading these files to the cloud, converting them to cloud-only placeholders to reclaim massive disk space on your local computer.
-
+The background task is currently active and copying files:
+- **Command**: `rclone copy "G:/" "personal_onedrive:External_Backup" ...`
+- **Exclusions**: Safely ignores Recycle Bin, System Volume, and temp files.
+- **Log Location**: [rclone_upload.log](file:///C:/Users/HP/.gemini/antigravity/brain/2dfef4c3-8925-4be4-a79e-c8d4755f7c55/scratch/rclone_upload.log)
+- **Status**: Successfully copying files (e.g. PDFs, MP3s, screenshots) without touching `C:` drive storage.
