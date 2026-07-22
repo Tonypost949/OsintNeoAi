@@ -1,11 +1,9 @@
-Domain,Endpoint,Category,Severity,Status,City,State
-hbdp.org,/.env,Environment Secrets,CRITICAL,200,Huntington Beach,CA
-hbdp.org,/.git/config,Version Control,CRITICAL,200,Huntington Beach,CA
-hbdp.org,/.aws/credentials,Cloud Credentials,CRITICAL,200,Huntington Beach,CA
-santamonicapd.org,/.git/config,Version Control,CRITICAL,200,Santa Monica,CA
-santamonicapd.org,/backup.sql,Database Backup,CRITICAL,200,Santa Monica,CA
-lapdonline.org,/.env,Environment Secrets,CRITICAL,200,Los Angeles,CA
-santaanapd.org,/.config/db.yml,Database Config,HIGH,200,Santa Ana,CA
-dallaspolice.net,/.aws/config,Cloud Credentials,CRITICAL,200,Dallas,TX
-santamonicapd.org,/.aws/credentials,Cloud Credentials,CRITICAL,200,Santa Monica,CA
-hbdp.org,/phpmyadmin,Admin Panel,HIGH,301,Huntington Beach,CA
+Domain,Metric,Category,Count,Severity,Status,Details
+hbdp.org,Exposed Endpoint,Secrets,3,CRITICAL,200,/.env /.git/config /.aws/credentials
+hbdp.org,Data Breach Listings,aggregated breaches,400,CRITICAL,N/A,Source: Dehashed
+santamonicapd.org,Exposed Endpoint,Database,2,CRITICAL,200,/.git/config /backup.sql
+lapdonline.org,Exposed Endpoint,Secrets,1,CRITICAL,200,/.env
+santaanapd.org,Exposed Endpoint,Database Config,1,HIGH,200,/.config/db.yml
+dallaspolice.net,Exposed Endpoint,Cloud Access,1,CRITICAL,200,/.aws/config
+socalgovernments,Geolocated Nodes,Infrastructure,75,INFO,N/A,Resolved City IPs
+municipal_portals,Total Endpoints Checked,Recon,1351,INFO,N/A,Active Recon Scan
