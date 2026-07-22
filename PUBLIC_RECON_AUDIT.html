@@ -103,7 +103,7 @@
       const blob = new Blob([csv], { type: 'text/csv' });
       const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'recon_audit.csv'; a.click();
     };
-    renderMap(); // Mark everything on the map first
+    renderMap();
   })();
 </script>
 </body>
