@@ -117,7 +117,7 @@ def _write_output(locations: list, output_path: str) -> None:
     }
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2)
-    print(f"[OK]   Wrote {len(locations)} markers → {output_path}")
+    print(f"[OK]   Wrote {len(locations)} markers -> {output_path}")
     print(f"       Exposed: {payload['exposed_count']}")
 
 
