@@ -8,10 +8,12 @@ import { extractEntities, findCoOccurrences } from "./extraction";
 import { storagePut } from "./storage";
 import { nanoid } from "nanoid";
 import { googleDriveRouter } from "./routers/googleDrive";
+import { markersRouter } from "./routers/markers";
 
 export const appRouter = router({
   system: systemRouter,
   googleDrive: googleDriveRouter,
+  markers: markersRouter,
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
     logout: publicProcedure.mutation(({ ctx }) => {
