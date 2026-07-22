@@ -1,0 +1,571 @@
+city_cyber_recon Table Exploration
+===================================
+
+Total rows queried: 500
+
+Domain: alaska.gov | Path: /.aws | Exposed: True | Status: 200
+Domain: ct.gov | Path: /.aws | Exposed: True | Status: 200
+Domain: alabama.gov | Path: /.aws | Exposed: True | Status: 301
+Domain: arizona.gov | Path: /.aws | Exposed: True | Status: 301
+Domain: ca.gov | Path: /.aws | Exposed: True | Status: 301
+Domain: illinois.gov | Path: /.aws | Exposed: True | Status: 301
+Domain: iowa.gov | Path: /.aws | Exposed: True | Status: 301
+Domain: louisiana.gov | Path: /.aws | Exposed: True | Status: 301
+Domain: nv.gov | Path: /.aws | Exposed: True | Status: 301
+Domain: newmexico.gov | Path: /.aws | Exposed: True | Status: 301
+Domain: nc.gov | Path: /.aws | Exposed: True | Status: 301
+Domain: virginia.gov | Path: /.aws | Exposed: True | Status: 301
+Domain: wa.gov | Path: /.aws | Exposed: True | Status: 301
+Domain: huntingtonbeachcu.org | Path: /.aws | Exposed: True | Status: 301
+Domain: santamonica.gov | Path: /.aws | Exposed: True | Status: 301
+Domain: santamonicapd.org | Path: /.aws | Exposed: True | Status: 301
+Domain: joinsmpd.com | Path: /.aws | Exposed: True | Status: 301
+Domain: cityofirvine.org | Path: /.aws | Exposed: True | Status: 301
+Domain: irvinepd.org | Path: /.aws | Exposed: True | Status: 301
+Domain: lacity.org | Path: /.aws | Exposed: True | Status: 301
+Domain: cmpd.org | Path: /.aws | Exposed: True | Status: 301
+Domain: anaheim.net | Path: /.aws | Exposed: True | Status: 301
+Domain: garden-grove.org | Path: /.aws | Exposed: True | Status: 301
+Domain: sce.com | Path: /.aws | Exposed: True | Status: 301
+Domain: edison.com | Path: /.aws | Exposed: True | Status: 301
+Domain: colorado.gov | Path: /.aws | Exposed: True | Status: 302
+Domain: myflorida.com | Path: /.aws | Exposed: True | Status: 302
+Domain: hawaii.gov | Path: /.aws | Exposed: True | Status: 302
+Domain: in.gov | Path: /.aws | Exposed: True | Status: 302
+Domain: kansas.gov | Path: /.aws | Exposed: True | Status: 302
+Domain: mn.gov | Path: /.aws | Exposed: True | Status: 302
+Domain: ms.gov | Path: /.aws | Exposed: True | Status: 302
+Domain: ok.gov | Path: /.aws | Exposed: True | Status: 302
+Domain: oregon.gov | Path: /.aws | Exposed: True | Status: 302
+Domain: ri.gov | Path: /.aws | Exposed: True | Status: 302
+Domain: tn.gov | Path: /.aws | Exposed: True | Status: 302
+Domain: texas.gov | Path: /.aws | Exposed: True | Status: 302
+Domain: utah.gov | Path: /.aws | Exposed: True | Status: 302
+Domain: wisconsin.gov | Path: /.aws | Exposed: True | Status: 302
+Domain: wv.gov | Path: /.aws | Exposed: True | Status: 302
+Domain: wy.gov | Path: /.aws | Exposed: True | Status: 302
+Domain: huntingtonbeachca.gov | Path: /.aws | Exposed: True | Status: 302
+Domain: nbpd.org | Path: /.aws | Exposed: True | Status: 302
+Domain: santa-ana.org | Path: /.aws | Exposed: True | Status: 302
+Domain: georgia.gov | Path: /.aws | Exposed: True | Status: 403
+Domain: michigan.gov | Path: /.aws | Exposed: True | Status: 403
+Domain: ny.gov | Path: /.aws | Exposed: True | Status: 403
+Domain: volunteer.huntingtonbeachca.gov | Path: /.aws | Exposed: True | Status: 403
+Domain: joinirvinepd.gov | Path: /.aws | Exposed: True | Status: 403
+Domain: ocgov.com | Path: /.aws | Exposed: True | Status: 403
+Domain: santaanapd.org | Path: /.aws | Exposed: True | Status: 403
+Domain: alaska.gov | Path: /.env | Exposed: True | Status: 200
+Domain: ct.gov | Path: /.env | Exposed: True | Status: 200
+Domain: lapd.org | Path: /.env | Exposed: True | Status: 200
+Domain: alabama.gov | Path: /.env | Exposed: True | Status: 301
+Domain: arizona.gov | Path: /.env | Exposed: True | Status: 301
+Domain: ca.gov | Path: /.env | Exposed: True | Status: 301
+Domain: illinois.gov | Path: /.env | Exposed: True | Status: 301
+Domain: louisiana.gov | Path: /.env | Exposed: True | Status: 301
+Domain: newmexico.gov | Path: /.env | Exposed: True | Status: 301
+Domain: nc.gov | Path: /.env | Exposed: True | Status: 301
+Domain: virginia.gov | Path: /.env | Exposed: True | Status: 301
+Domain: wa.gov | Path: /.env | Exposed: True | Status: 301
+Domain: huntingtonbeachcu.org | Path: /.env | Exposed: True | Status: 301
+Domain: santamonica.gov | Path: /.env | Exposed: True | Status: 301
+Domain: santamonicapd.org | Path: /.env | Exposed: True | Status: 301
+Domain: cityofirvine.org | Path: /.env | Exposed: True | Status: 301
+Domain: irvinepd.org | Path: /.env | Exposed: True | Status: 301
+Domain: cmpd.org | Path: /.env | Exposed: True | Status: 301
+Domain: garden-grove.org | Path: /.env | Exposed: True | Status: 301
+Domain: sce.com | Path: /.env | Exposed: True | Status: 301
+Domain: myflorida.com | Path: /.env | Exposed: True | Status: 302
+Domain: hawaii.gov | Path: /.env | Exposed: True | Status: 302
+Domain: in.gov | Path: /.env | Exposed: True | Status: 302
+Domain: kansas.gov | Path: /.env | Exposed: True | Status: 302
+Domain: mn.gov | Path: /.env | Exposed: True | Status: 302
+Domain: ok.gov | Path: /.env | Exposed: True | Status: 302
+Domain: oregon.gov | Path: /.env | Exposed: True | Status: 302
+Domain: ri.gov | Path: /.env | Exposed: True | Status: 302
+Domain: tn.gov | Path: /.env | Exposed: True | Status: 302
+Domain: texas.gov | Path: /.env | Exposed: True | Status: 302
+Domain: utah.gov | Path: /.env | Exposed: True | Status: 302
+Domain: wisconsin.gov | Path: /.env | Exposed: True | Status: 302
+Domain: wv.gov | Path: /.env | Exposed: True | Status: 302
+Domain: nbpd.org | Path: /.env | Exposed: True | Status: 302
+Domain: santa-ana.org | Path: /.env | Exposed: True | Status: 302
+Domain: colorado.gov | Path: /.env | Exposed: True | Status: 403
+Domain: georgia.gov | Path: /.env | Exposed: True | Status: 403
+Domain: iowa.gov | Path: /.env | Exposed: True | Status: 403
+Domain: michigan.gov | Path: /.env | Exposed: True | Status: 403
+Domain: ms.gov | Path: /.env | Exposed: True | Status: 403
+Domain: nv.gov | Path: /.env | Exposed: True | Status: 403
+Domain: nj.gov | Path: /.env | Exposed: True | Status: 403
+Domain: ny.gov | Path: /.env | Exposed: True | Status: 403
+Domain: pa.gov | Path: /.env | Exposed: True | Status: 403
+Domain: pr.gov | Path: /.env | Exposed: True | Status: 403
+Domain: hbpd.org | Path: /.env | Exposed: True | Status: 403
+Domain: huntingtonbeachca.gov | Path: /.env | Exposed: True | Status: 403
+Domain: volunteer.huntingtonbeachca.gov | Path: /.env | Exposed: True | Status: 403
+Domain: joinsmpd.com | Path: /.env | Exposed: True | Status: 403
+Domain: joinirvinepd.gov | Path: /.env | Exposed: True | Status: 403
+Domain: lacity.org | Path: /.env | Exposed: True | Status: 403
+Domain: ocgov.com | Path: /.env | Exposed: True | Status: 403
+Domain: santaanapd.org | Path: /.env | Exposed: True | Status: 403
+Domain: anaheim.net | Path: /.env | Exposed: True | Status: 403
+Domain: edison.com | Path: /.env | Exposed: True | Status: 403
+Domain: alaska.gov | Path: /.git | Exposed: True | Status: 200
+Domain: ct.gov | Path: /.git | Exposed: True | Status: 200
+Domain: lapd.org | Path: /.git | Exposed: True | Status: 200
+Domain: alabama.gov | Path: /.git | Exposed: True | Status: 301
+Domain: arizona.gov | Path: /.git | Exposed: True | Status: 301
+Domain: ca.gov | Path: /.git | Exposed: True | Status: 301
+Domain: illinois.gov | Path: /.git | Exposed: True | Status: 301
+Domain: iowa.gov | Path: /.git | Exposed: True | Status: 301
+Domain: louisiana.gov | Path: /.git | Exposed: True | Status: 301
+Domain: newmexico.gov | Path: /.git | Exposed: True | Status: 301
+Domain: nc.gov | Path: /.git | Exposed: True | Status: 301
+Domain: nd.gov | Path: /.git | Exposed: True | Status: 301
+Domain: virginia.gov | Path: /.git | Exposed: True | Status: 301
+Domain: huntingtonbeachcu.org | Path: /.git | Exposed: True | Status: 301
+Domain: santamonica.gov | Path: /.git | Exposed: True | Status: 301
+Domain: santamonicapd.org | Path: /.git | Exposed: True | Status: 301
+Domain: cityofirvine.org | Path: /.git | Exposed: True | Status: 301
+Domain: irvinepd.org | Path: /.git | Exposed: True | Status: 301
+Domain: lacity.org | Path: /.git | Exposed: True | Status: 301
+Domain: cmpd.org | Path: /.git | Exposed: True | Status: 301
+Domain: anaheim.net | Path: /.git | Exposed: True | Status: 301
+Domain: garden-grove.org | Path: /.git | Exposed: True | Status: 301
+Domain: sce.com | Path: /.git | Exposed: True | Status: 301
+Domain: edison.com | Path: /.git | Exposed: True | Status: 301
+Domain: colorado.gov | Path: /.git | Exposed: True | Status: 302
+Domain: myflorida.com | Path: /.git | Exposed: True | Status: 302
+Domain: hawaii.gov | Path: /.git | Exposed: True | Status: 302
+Domain: in.gov | Path: /.git | Exposed: True | Status: 302
+Domain: kansas.gov | Path: /.git | Exposed: True | Status: 302
+Domain: mn.gov | Path: /.git | Exposed: True | Status: 302
+Domain: ms.gov | Path: /.git | Exposed: True | Status: 302
+Domain: ok.gov | Path: /.git | Exposed: True | Status: 302
+Domain: oregon.gov | Path: /.git | Exposed: True | Status: 302
+Domain: ri.gov | Path: /.git | Exposed: True | Status: 302
+Domain: tn.gov | Path: /.git | Exposed: True | Status: 302
+Domain: texas.gov | Path: /.git | Exposed: True | Status: 302
+Domain: utah.gov | Path: /.git | Exposed: True | Status: 302
+Domain: wisconsin.gov | Path: /.git | Exposed: True | Status: 302
+Domain: wv.gov | Path: /.git | Exposed: True | Status: 302
+Domain: wy.gov | Path: /.git | Exposed: True | Status: 302
+Domain: nbpd.org | Path: /.git | Exposed: True | Status: 302
+Domain: santa-ana.org | Path: /.git | Exposed: True | Status: 302
+Domain: georgia.gov | Path: /.git | Exposed: True | Status: 403
+Domain: michigan.gov | Path: /.git | Exposed: True | Status: 403
+Domain: nv.gov | Path: /.git | Exposed: True | Status: 403
+Domain: nj.gov | Path: /.git | Exposed: True | Status: 403
+Domain: ny.gov | Path: /.git | Exposed: True | Status: 403
+Domain: wa.gov | Path: /.git | Exposed: True | Status: 403
+Domain: pr.gov | Path: /.git | Exposed: True | Status: 403
+Domain: huntingtonbeachca.gov | Path: /.git | Exposed: True | Status: 403
+Domain: volunteer.huntingtonbeachca.gov | Path: /.git | Exposed: True | Status: 403
+Domain: joinsmpd.com | Path: /.git | Exposed: True | Status: 403
+Domain: joinirvinepd.gov | Path: /.git | Exposed: True | Status: 403
+Domain: ocgov.com | Path: /.git | Exposed: True | Status: 403
+Domain: santaanapd.org | Path: /.git | Exposed: True | Status: 403
+Domain: alaska.gov | Path: /.htaccess | Exposed: True | Status: 200
+Domain: ct.gov | Path: /.htaccess | Exposed: True | Status: 200
+Domain: delaware.gov | Path: /.htaccess | Exposed: True | Status: 200
+Domain: alabama.gov | Path: /.htaccess | Exposed: True | Status: 301
+Domain: arizona.gov | Path: /.htaccess | Exposed: True | Status: 301
+Domain: ca.gov | Path: /.htaccess | Exposed: True | Status: 301
+Domain: illinois.gov | Path: /.htaccess | Exposed: True | Status: 301
+Domain: louisiana.gov | Path: /.htaccess | Exposed: True | Status: 301
+Domain: newmexico.gov | Path: /.htaccess | Exposed: True | Status: 301
+Domain: virginia.gov | Path: /.htaccess | Exposed: True | Status: 301
+Domain: wa.gov | Path: /.htaccess | Exposed: True | Status: 301
+Domain: santamonica.gov | Path: /.htaccess | Exposed: True | Status: 301
+Domain: santamonicapd.org | Path: /.htaccess | Exposed: True | Status: 301
+Domain: joinsmpd.com | Path: /.htaccess | Exposed: True | Status: 301
+Domain: cityofirvine.org | Path: /.htaccess | Exposed: True | Status: 301
+Domain: irvinepd.org | Path: /.htaccess | Exposed: True | Status: 301
+Domain: cmpd.org | Path: /.htaccess | Exposed: True | Status: 301
+Domain: garden-grove.org | Path: /.htaccess | Exposed: True | Status: 301
+Domain: sce.com | Path: /.htaccess | Exposed: True | Status: 301
+Domain: myflorida.com | Path: /.htaccess | Exposed: True | Status: 302
+Domain: hawaii.gov | Path: /.htaccess | Exposed: True | Status: 302
+Domain: in.gov | Path: /.htaccess | Exposed: True | Status: 302
+Domain: kansas.gov | Path: /.htaccess | Exposed: True | Status: 302
+Domain: mn.gov | Path: /.htaccess | Exposed: True | Status: 302
+Domain: ok.gov | Path: /.htaccess | Exposed: True | Status: 302
+Domain: oregon.gov | Path: /.htaccess | Exposed: True | Status: 302
+Domain: ri.gov | Path: /.htaccess | Exposed: True | Status: 302
+Domain: tn.gov | Path: /.htaccess | Exposed: True | Status: 302
+Domain: texas.gov | Path: /.htaccess | Exposed: True | Status: 302
+Domain: utah.gov | Path: /.htaccess | Exposed: True | Status: 302
+Domain: wisconsin.gov | Path: /.htaccess | Exposed: True | Status: 302
+Domain: wv.gov | Path: /.htaccess | Exposed: True | Status: 302
+Domain: wy.gov | Path: /.htaccess | Exposed: True | Status: 302
+Domain: nbpd.org | Path: /.htaccess | Exposed: True | Status: 302
+Domain: arkansas.gov | Path: /.htaccess | Exposed: True | Status: 403
+Domain: colorado.gov | Path: /.htaccess | Exposed: True | Status: 403
+Domain: georgia.gov | Path: /.htaccess | Exposed: True | Status: 403
+Domain: iowa.gov | Path: /.htaccess | Exposed: True | Status: 403
+Domain: michigan.gov | Path: /.htaccess | Exposed: True | Status: 403
+Domain: ms.gov | Path: /.htaccess | Exposed: True | Status: 403
+Domain: nv.gov | Path: /.htaccess | Exposed: True | Status: 403
+Domain: nj.gov | Path: /.htaccess | Exposed: True | Status: 403
+Domain: ny.gov | Path: /.htaccess | Exposed: True | Status: 403
+Domain: nc.gov | Path: /.htaccess | Exposed: True | Status: 403
+Domain: pa.gov | Path: /.htaccess | Exposed: True | Status: 403
+Domain: pr.gov | Path: /.htaccess | Exposed: True | Status: 403
+Domain: huntingtonbeachca.gov | Path: /.htaccess | Exposed: True | Status: 403
+Domain: volunteer.huntingtonbeachca.gov | Path: /.htaccess | Exposed: True | Status: 403
+Domain: huntingtonbeachcu.org | Path: /.htaccess | Exposed: True | Status: 403
+Domain: joinirvinepd.gov | Path: /.htaccess | Exposed: True | Status: 403
+Domain: lacity.org | Path: /.htaccess | Exposed: True | Status: 403
+Domain: ocgov.com | Path: /.htaccess | Exposed: True | Status: 403
+Domain: santa-ana.org | Path: /.htaccess | Exposed: True | Status: 403
+Domain: santaanapd.org | Path: /.htaccess | Exposed: True | Status: 403
+Domain: anaheim.net | Path: /.htaccess | Exposed: True | Status: 403
+Domain: edison.com | Path: /.htaccess | Exposed: True | Status: 403
+Domain: alaska.gov | Path: /.ssh | Exposed: True | Status: 200
+Domain: ct.gov | Path: /.ssh | Exposed: True | Status: 200
+Domain: alabama.gov | Path: /.ssh | Exposed: True | Status: 301
+Domain: arizona.gov | Path: /.ssh | Exposed: True | Status: 301
+Domain: ca.gov | Path: /.ssh | Exposed: True | Status: 301
+Domain: illinois.gov | Path: /.ssh | Exposed: True | Status: 301
+Domain: iowa.gov | Path: /.ssh | Exposed: True | Status: 301
+Domain: louisiana.gov | Path: /.ssh | Exposed: True | Status: 301
+Domain: newmexico.gov | Path: /.ssh | Exposed: True | Status: 301
+Domain: nc.gov | Path: /.ssh | Exposed: True | Status: 301
+Domain: virginia.gov | Path: /.ssh | Exposed: True | Status: 301
+Domain: wa.gov | Path: /.ssh | Exposed: True | Status: 301
+Domain: huntingtonbeachcu.org | Path: /.ssh | Exposed: True | Status: 301
+Domain: santamonica.gov | Path: /.ssh | Exposed: True | Status: 301
+Domain: santamonicapd.org | Path: /.ssh | Exposed: True | Status: 301
+Domain: joinsmpd.com | Path: /.ssh | Exposed: True | Status: 301
+Domain: cityofirvine.org | Path: /.ssh | Exposed: True | Status: 301
+Domain: irvinepd.org | Path: /.ssh | Exposed: True | Status: 301
+Domain: lacity.org | Path: /.ssh | Exposed: True | Status: 301
+Domain: cmpd.org | Path: /.ssh | Exposed: True | Status: 301
+Domain: anaheim.net | Path: /.ssh | Exposed: True | Status: 301
+Domain: garden-grove.org | Path: /.ssh | Exposed: True | Status: 301
+Domain: sce.com | Path: /.ssh | Exposed: True | Status: 301
+Domain: edison.com | Path: /.ssh | Exposed: True | Status: 301
+Domain: colorado.gov | Path: /.ssh | Exposed: True | Status: 302
+Domain: myflorida.com | Path: /.ssh | Exposed: True | Status: 302
+Domain: hawaii.gov | Path: /.ssh | Exposed: True | Status: 302
+Domain: in.gov | Path: /.ssh | Exposed: True | Status: 302
+Domain: kansas.gov | Path: /.ssh | Exposed: True | Status: 302
+Domain: mn.gov | Path: /.ssh | Exposed: True | Status: 302
+Domain: ms.gov | Path: /.ssh | Exposed: True | Status: 302
+Domain: ok.gov | Path: /.ssh | Exposed: True | Status: 302
+Domain: oregon.gov | Path: /.ssh | Exposed: True | Status: 302
+Domain: ri.gov | Path: /.ssh | Exposed: True | Status: 302
+Domain: tn.gov | Path: /.ssh | Exposed: True | Status: 302
+Domain: texas.gov | Path: /.ssh | Exposed: True | Status: 302
+Domain: utah.gov | Path: /.ssh | Exposed: True | Status: 302
+Domain: wisconsin.gov | Path: /.ssh | Exposed: True | Status: 302
+Domain: wv.gov | Path: /.ssh | Exposed: True | Status: 302
+Domain: wy.gov | Path: /.ssh | Exposed: True | Status: 302
+Domain: nbpd.org | Path: /.ssh | Exposed: True | Status: 302
+Domain: santa-ana.org | Path: /.ssh | Exposed: True | Status: 302
+Domain: georgia.gov | Path: /.ssh | Exposed: True | Status: 403
+Domain: michigan.gov | Path: /.ssh | Exposed: True | Status: 403
+Domain: nv.gov | Path: /.ssh | Exposed: True | Status: 403
+Domain: ny.gov | Path: /.ssh | Exposed: True | Status: 403
+Domain: pr.gov | Path: /.ssh | Exposed: True | Status: 403
+Domain: huntingtonbeachca.gov | Path: /.ssh | Exposed: True | Status: 403
+Domain: volunteer.huntingtonbeachca.gov | Path: /.ssh | Exposed: True | Status: 403
+Domain: joinirvinepd.gov | Path: /.ssh | Exposed: True | Status: 403
+Domain: ocgov.com | Path: /.ssh | Exposed: True | Status: 403
+Domain: santaanapd.org | Path: /.ssh | Exposed: True | Status: 403
+Domain: alaska.gov | Path: /.svn | Exposed: True | Status: 200
+Domain: ct.gov | Path: /.svn | Exposed: True | Status: 200
+Domain: alabama.gov | Path: /.svn | Exposed: True | Status: 301
+Domain: arizona.gov | Path: /.svn | Exposed: True | Status: 301
+Domain: ca.gov | Path: /.svn | Exposed: True | Status: 301
+Domain: illinois.gov | Path: /.svn | Exposed: True | Status: 301
+Domain: iowa.gov | Path: /.svn | Exposed: True | Status: 301
+Domain: louisiana.gov | Path: /.svn | Exposed: True | Status: 301
+Domain: newmexico.gov | Path: /.svn | Exposed: True | Status: 301
+Domain: nc.gov | Path: /.svn | Exposed: True | Status: 301
+Domain: virginia.gov | Path: /.svn | Exposed: True | Status: 301
+Domain: wa.gov | Path: /.svn | Exposed: True | Status: 301
+Domain: huntingtonbeachcu.org | Path: /.svn | Exposed: True | Status: 301
+Domain: santamonica.gov | Path: /.svn | Exposed: True | Status: 301
+Domain: santamonicapd.org | Path: /.svn | Exposed: True | Status: 301
+Domain: joinsmpd.com | Path: /.svn | Exposed: True | Status: 301
+Domain: cityofirvine.org | Path: /.svn | Exposed: True | Status: 301
+Domain: irvinepd.org | Path: /.svn | Exposed: True | Status: 301
+Domain: lacity.org | Path: /.svn | Exposed: True | Status: 301
+Domain: cmpd.org | Path: /.svn | Exposed: True | Status: 301
+Domain: anaheim.net | Path: /.svn | Exposed: True | Status: 301
+Domain: garden-grove.org | Path: /.svn | Exposed: True | Status: 301
+Domain: sce.com | Path: /.svn | Exposed: True | Status: 301
+Domain: edison.com | Path: /.svn | Exposed: True | Status: 301
+Domain: colorado.gov | Path: /.svn | Exposed: True | Status: 302
+Domain: myflorida.com | Path: /.svn | Exposed: True | Status: 302
+Domain: hawaii.gov | Path: /.svn | Exposed: True | Status: 302
+Domain: in.gov | Path: /.svn | Exposed: True | Status: 302
+Domain: kansas.gov | Path: /.svn | Exposed: True | Status: 302
+Domain: mn.gov | Path: /.svn | Exposed: True | Status: 302
+Domain: ms.gov | Path: /.svn | Exposed: True | Status: 302
+Domain: ok.gov | Path: /.svn | Exposed: True | Status: 302
+Domain: oregon.gov | Path: /.svn | Exposed: True | Status: 302
+Domain: ri.gov | Path: /.svn | Exposed: True | Status: 302
+Domain: tn.gov | Path: /.svn | Exposed: True | Status: 302
+Domain: texas.gov | Path: /.svn | Exposed: True | Status: 302
+Domain: utah.gov | Path: /.svn | Exposed: True | Status: 302
+Domain: wisconsin.gov | Path: /.svn | Exposed: True | Status: 302
+Domain: wv.gov | Path: /.svn | Exposed: True | Status: 302
+Domain: wy.gov | Path: /.svn | Exposed: True | Status: 302
+Domain: nbpd.org | Path: /.svn | Exposed: True | Status: 302
+Domain: santa-ana.org | Path: /.svn | Exposed: True | Status: 302
+Domain: arkansas.gov | Path: /.svn | Exposed: True | Status: 403
+Domain: georgia.gov | Path: /.svn | Exposed: True | Status: 403
+Domain: michigan.gov | Path: /.svn | Exposed: True | Status: 403
+Domain: nv.gov | Path: /.svn | Exposed: True | Status: 403
+Domain: ny.gov | Path: /.svn | Exposed: True | Status: 403
+Domain: pr.gov | Path: /.svn | Exposed: True | Status: 403
+Domain: huntingtonbeachca.gov | Path: /.svn | Exposed: True | Status: 403
+Domain: volunteer.huntingtonbeachca.gov | Path: /.svn | Exposed: True | Status: 403
+Domain: joinirvinepd.gov | Path: /.svn | Exposed: True | Status: 403
+Domain: ocgov.com | Path: /.svn | Exposed: True | Status: 403
+Domain: santaanapd.org | Path: /.svn | Exposed: True | Status: 403
+Domain: alaska.gov | Path: /admin | Exposed: True | Status: 200
+Domain: ct.gov | Path: /admin | Exposed: True | Status: 200
+Domain: santaanapd.org | Path: /admin | Exposed: True | Status: 200
+Domain: lapd.org | Path: /admin | Exposed: True | Status: 200
+Domain: alabama.gov | Path: /admin | Exposed: True | Status: 301
+Domain: arizona.gov | Path: /admin | Exposed: True | Status: 301
+Domain: ca.gov | Path: /admin | Exposed: True | Status: 301
+Domain: delaware.gov | Path: /admin | Exposed: True | Status: 301
+Domain: illinois.gov | Path: /admin | Exposed: True | Status: 301
+Domain: iowa.gov | Path: /admin | Exposed: True | Status: 301
+Domain: louisiana.gov | Path: /admin | Exposed: True | Status: 301
+Domain: nv.gov | Path: /admin | Exposed: True | Status: 301
+Domain: newmexico.gov | Path: /admin | Exposed: True | Status: 301
+Domain: ny.gov | Path: /admin | Exposed: True | Status: 301
+Domain: nc.gov | Path: /admin | Exposed: True | Status: 301
+Domain: virginia.gov | Path: /admin | Exposed: True | Status: 301
+Domain: huntingtonbeachcu.org | Path: /admin | Exposed: True | Status: 301
+Domain: santamonica.gov | Path: /admin | Exposed: True | Status: 301
+Domain: santamonicapd.org | Path: /admin | Exposed: True | Status: 301
+Domain: joinsmpd.com | Path: /admin | Exposed: True | Status: 301
+Domain: cityofirvine.org | Path: /admin | Exposed: True | Status: 301
+Domain: irvinepd.org | Path: /admin | Exposed: True | Status: 301
+Domain: joinirvinepd.gov | Path: /admin | Exposed: True | Status: 301
+Domain: lacity.org | Path: /admin | Exposed: True | Status: 301
+Domain: cmpd.org | Path: /admin | Exposed: True | Status: 301
+Domain: anaheim.net | Path: /admin | Exposed: True | Status: 301
+Domain: garden-grove.org | Path: /admin | Exposed: True | Status: 301
+Domain: sce.com | Path: /admin | Exposed: True | Status: 301
+Domain: edison.com | Path: /admin | Exposed: True | Status: 301
+Domain: colorado.gov | Path: /admin | Exposed: True | Status: 302
+Domain: myflorida.com | Path: /admin | Exposed: True | Status: 302
+Domain: hawaii.gov | Path: /admin | Exposed: True | Status: 302
+Domain: idaho.gov | Path: /admin | Exposed: True | Status: 302
+Domain: in.gov | Path: /admin | Exposed: True | Status: 302
+Domain: kansas.gov | Path: /admin | Exposed: True | Status: 302
+Domain: mn.gov | Path: /admin | Exposed: True | Status: 302
+Domain: ms.gov | Path: /admin | Exposed: True | Status: 302
+Domain: ok.gov | Path: /admin | Exposed: True | Status: 302
+Domain: oregon.gov | Path: /admin | Exposed: True | Status: 302
+Domain: ri.gov | Path: /admin | Exposed: True | Status: 302
+Domain: tn.gov | Path: /admin | Exposed: True | Status: 302
+Domain: texas.gov | Path: /admin | Exposed: True | Status: 302
+Domain: utah.gov | Path: /admin | Exposed: True | Status: 302
+Domain: wisconsin.gov | Path: /admin | Exposed: True | Status: 302
+Domain: wv.gov | Path: /admin | Exposed: True | Status: 302
+Domain: wy.gov | Path: /admin | Exposed: True | Status: 302
+Domain: newportbeachca.gov | Path: /admin | Exposed: True | Status: 302
+Domain: nbpd.org | Path: /admin | Exposed: True | Status: 302
+Domain: santa-ana.org | Path: /admin | Exposed: True | Status: 302
+Domain: egm.gov.tr | Path: /admin | Exposed: True | Status: 302
+Domain: jandarma.gov.tr | Path: /admin | Exposed: True | Status: 302
+Domain: turkiye.gov.tr | Path: /admin | Exposed: True | Status: 302
+Domain: georgia.gov | Path: /admin | Exposed: True | Status: 403
+Domain: michigan.gov | Path: /admin | Exposed: True | Status: 403
+Domain: wa.gov | Path: /admin | Exposed: True | Status: 403
+Domain: volunteer.huntingtonbeachca.gov | Path: /admin | Exposed: True | Status: 403
+Domain: ocgov.com | Path: /admin | Exposed: True | Status: 403
+Domain: alaska.gov | Path: /administrator | Exposed: True | Status: 200
+Domain: ct.gov | Path: /administrator | Exposed: True | Status: 200
+Domain: santaanapd.org | Path: /administrator | Exposed: True | Status: 200
+Domain: lapd.org | Path: /administrator | Exposed: True | Status: 200
+Domain: alabama.gov | Path: /administrator | Exposed: True | Status: 301
+Domain: arizona.gov | Path: /administrator | Exposed: True | Status: 301
+Domain: ca.gov | Path: /administrator | Exposed: True | Status: 301
+Domain: illinois.gov | Path: /administrator | Exposed: True | Status: 301
+Domain: iowa.gov | Path: /administrator | Exposed: True | Status: 301
+Domain: louisiana.gov | Path: /administrator | Exposed: True | Status: 301
+Domain: nv.gov | Path: /administrator | Exposed: True | Status: 301
+Domain: newmexico.gov | Path: /administrator | Exposed: True | Status: 301
+Domain: ny.gov | Path: /administrator | Exposed: True | Status: 301
+Domain: nc.gov | Path: /administrator | Exposed: True | Status: 301
+Domain: oregon.gov | Path: /administrator | Exposed: True | Status: 301
+Domain: virginia.gov | Path: /administrator | Exposed: True | Status: 301
+Domain: huntingtonbeachcu.org | Path: /administrator | Exposed: True | Status: 301
+Domain: santamonica.gov | Path: /administrator | Exposed: True | Status: 301
+Domain: santamonicapd.org | Path: /administrator | Exposed: True | Status: 301
+Domain: joinsmpd.com | Path: /administrator | Exposed: True | Status: 301
+Domain: cityofirvine.org | Path: /administrator | Exposed: True | Status: 301
+Domain: irvinepd.org | Path: /administrator | Exposed: True | Status: 301
+Domain: cmpd.org | Path: /administrator | Exposed: True | Status: 301
+Domain: anaheim.net | Path: /administrator | Exposed: True | Status: 301
+Domain: garden-grove.org | Path: /administrator | Exposed: True | Status: 301
+Domain: sce.com | Path: /administrator | Exposed: True | Status: 301
+Domain: edison.com | Path: /administrator | Exposed: True | Status: 301
+Domain: colorado.gov | Path: /administrator | Exposed: True | Status: 302
+Domain: myflorida.com | Path: /administrator | Exposed: True | Status: 302
+Domain: hawaii.gov | Path: /administrator | Exposed: True | Status: 302
+Domain: in.gov | Path: /administrator | Exposed: True | Status: 302
+Domain: kansas.gov | Path: /administrator | Exposed: True | Status: 302
+Domain: mn.gov | Path: /administrator | Exposed: True | Status: 302
+Domain: ms.gov | Path: /administrator | Exposed: True | Status: 302
+Domain: ok.gov | Path: /administrator | Exposed: True | Status: 302
+Domain: ri.gov | Path: /administrator | Exposed: True | Status: 302
+Domain: tn.gov | Path: /administrator | Exposed: True | Status: 302
+Domain: texas.gov | Path: /administrator | Exposed: True | Status: 302
+Domain: utah.gov | Path: /administrator | Exposed: True | Status: 302
+Domain: wisconsin.gov | Path: /administrator | Exposed: True | Status: 302
+Domain: wv.gov | Path: /administrator | Exposed: True | Status: 302
+Domain: wy.gov | Path: /administrator | Exposed: True | Status: 302
+Domain: nbpd.org | Path: /administrator | Exposed: True | Status: 302
+Domain: santa-ana.org | Path: /administrator | Exposed: True | Status: 302
+Domain: egm.gov.tr | Path: /administrator | Exposed: True | Status: 302
+Domain: jandarma.gov.tr | Path: /administrator | Exposed: True | Status: 302
+Domain: turkiye.gov.tr | Path: /administrator | Exposed: True | Status: 302
+Domain: michigan.gov | Path: /administrator | Exposed: True | Status: 403
+Domain: volunteer.huntingtonbeachca.gov | Path: /administrator | Exposed: True | Status: 403
+Domain: lacity.org | Path: /administrator | Exposed: True | Status: 403
+Domain: alaska.gov | Path: /backup | Exposed: True | Status: 200
+Domain: ct.gov | Path: /backup | Exposed: True | Status: 200
+Domain: santaanapd.org | Path: /backup | Exposed: True | Status: 200
+Domain: lapd.org | Path: /backup | Exposed: True | Status: 200
+Domain: alabama.gov | Path: /backup | Exposed: True | Status: 301
+Domain: arizona.gov | Path: /backup | Exposed: True | Status: 301
+Domain: ca.gov | Path: /backup | Exposed: True | Status: 301
+Domain: illinois.gov | Path: /backup | Exposed: True | Status: 301
+Domain: iowa.gov | Path: /backup | Exposed: True | Status: 301
+Domain: louisiana.gov | Path: /backup | Exposed: True | Status: 301
+Domain: nv.gov | Path: /backup | Exposed: True | Status: 301
+Domain: newmexico.gov | Path: /backup | Exposed: True | Status: 301
+Domain: ny.gov | Path: /backup | Exposed: True | Status: 301
+Domain: nc.gov | Path: /backup | Exposed: True | Status: 301
+Domain: virginia.gov | Path: /backup | Exposed: True | Status: 301
+Domain: huntingtonbeachcu.org | Path: /backup | Exposed: True | Status: 301
+Domain: santamonica.gov | Path: /backup | Exposed: True | Status: 301
+Domain: santamonicapd.org | Path: /backup | Exposed: True | Status: 301
+Domain: joinsmpd.com | Path: /backup | Exposed: True | Status: 301
+Domain: cityofirvine.org | Path: /backup | Exposed: True | Status: 301
+Domain: irvinepd.org | Path: /backup | Exposed: True | Status: 301
+Domain: joinirvinepd.gov | Path: /backup | Exposed: True | Status: 301
+Domain: lacity.org | Path: /backup | Exposed: True | Status: 301
+Domain: cmpd.org | Path: /backup | Exposed: True | Status: 301
+Domain: anaheim.net | Path: /backup | Exposed: True | Status: 301
+Domain: garden-grove.org | Path: /backup | Exposed: True | Status: 301
+Domain: sce.com | Path: /backup | Exposed: True | Status: 301
+Domain: edison.com | Path: /backup | Exposed: True | Status: 301
+Domain: colorado.gov | Path: /backup | Exposed: True | Status: 302
+Domain: myflorida.com | Path: /backup | Exposed: True | Status: 302
+Domain: hawaii.gov | Path: /backup | Exposed: True | Status: 302
+Domain: in.gov | Path: /backup | Exposed: True | Status: 302
+Domain: kansas.gov | Path: /backup | Exposed: True | Status: 302
+Domain: mn.gov | Path: /backup | Exposed: True | Status: 302
+Domain: ms.gov | Path: /backup | Exposed: True | Status: 302
+Domain: ok.gov | Path: /backup | Exposed: True | Status: 302
+Domain: oregon.gov | Path: /backup | Exposed: True | Status: 302
+Domain: ri.gov | Path: /backup | Exposed: True | Status: 302
+Domain: tn.gov | Path: /backup | Exposed: True | Status: 302
+Domain: texas.gov | Path: /backup | Exposed: True | Status: 302
+Domain: utah.gov | Path: /backup | Exposed: True | Status: 302
+Domain: wisconsin.gov | Path: /backup | Exposed: True | Status: 302
+Domain: wv.gov | Path: /backup | Exposed: True | Status: 302
+Domain: wy.gov | Path: /backup | Exposed: True | Status: 302
+Domain: nbpd.org | Path: /backup | Exposed: True | Status: 302
+Domain: santa-ana.org | Path: /backup | Exposed: True | Status: 302
+Domain: egm.gov.tr | Path: /backup | Exposed: True | Status: 302
+Domain: jandarma.gov.tr | Path: /backup | Exposed: True | Status: 302
+Domain: michigan.gov | Path: /backup | Exposed: True | Status: 403
+Domain: volunteer.huntingtonbeachca.gov | Path: /backup | Exposed: True | Status: 403
+Domain: alaska.gov | Path: /cgi-bin | Exposed: True | Status: 200
+Domain: ct.gov | Path: /cgi-bin | Exposed: True | Status: 200
+Domain: santaanapd.org | Path: /cgi-bin | Exposed: True | Status: 200
+Domain: alabama.gov | Path: /cgi-bin | Exposed: True | Status: 301
+Domain: arizona.gov | Path: /cgi-bin | Exposed: True | Status: 301
+Domain: arkansas.gov | Path: /cgi-bin | Exposed: True | Status: 301
+Domain: ca.gov | Path: /cgi-bin | Exposed: True | Status: 301
+Domain: illinois.gov | Path: /cgi-bin | Exposed: True | Status: 301
+Domain: iowa.gov | Path: /cgi-bin | Exposed: True | Status: 301
+Domain: louisiana.gov | Path: /cgi-bin | Exposed: True | Status: 301
+Domain: nv.gov | Path: /cgi-bin | Exposed: True | Status: 301
+Domain: newmexico.gov | Path: /cgi-bin | Exposed: True | Status: 301
+Domain: ny.gov | Path: /cgi-bin | Exposed: True | Status: 301
+Domain: nc.gov | Path: /cgi-bin | Exposed: True | Status: 301
+Domain: virginia.gov | Path: /cgi-bin | Exposed: True | Status: 301
+Domain: huntingtonbeachcu.org | Path: /cgi-bin | Exposed: True | Status: 301
+Domain: santamonicapd.org | Path: /cgi-bin | Exposed: True | Status: 301
+Domain: santamonica.gov | Path: /cgi-bin | Exposed: True | Status: 301
+Domain: joinsmpd.com | Path: /cgi-bin | Exposed: True | Status: 301
+Domain: cityofirvine.org | Path: /cgi-bin | Exposed: True | Status: 301
+Domain: irvinepd.org | Path: /cgi-bin | Exposed: True | Status: 301
+
+Unique Domains Found:
+  - alabama.gov (Exposed count: 10)
+  - alaska.gov (Exposed count: 10)
+  - anaheim.net (Exposed count: 9)
+  - arizona.gov (Exposed count: 10)
+  - arkansas.gov (Exposed count: 3)
+  - ca.gov (Exposed count: 10)
+  - cityofirvine.org (Exposed count: 10)
+  - cmpd.org (Exposed count: 9)
+  - colorado.gov (Exposed count: 9)
+  - ct.gov (Exposed count: 10)
+  - delaware.gov (Exposed count: 2)
+  - edison.com (Exposed count: 9)
+  - egm.gov.tr (Exposed count: 3)
+  - garden-grove.org (Exposed count: 9)
+  - georgia.gov (Exposed count: 7)
+  - hawaii.gov (Exposed count: 9)
+  - hbpd.org (Exposed count: 1)
+  - huntingtonbeachca.gov (Exposed count: 6)
+  - huntingtonbeachcu.org (Exposed count: 10)
+  - idaho.gov (Exposed count: 1)
+  - illinois.gov (Exposed count: 10)
+  - in.gov (Exposed count: 9)
+  - iowa.gov (Exposed count: 10)
+  - irvinepd.org (Exposed count: 10)
+  - jandarma.gov.tr (Exposed count: 3)
+  - joinirvinepd.gov (Exposed count: 8)
+  - joinsmpd.com (Exposed count: 10)
+  - kansas.gov (Exposed count: 9)
+  - lacity.org (Exposed count: 9)
+  - lapd.org (Exposed count: 5)
+  - louisiana.gov (Exposed count: 10)
+  - michigan.gov (Exposed count: 9)
+  - mn.gov (Exposed count: 9)
+  - ms.gov (Exposed count: 9)
+  - myflorida.com (Exposed count: 9)
+  - nbpd.org (Exposed count: 9)
+  - nc.gov (Exposed count: 10)
+  - nd.gov (Exposed count: 1)
+  - newmexico.gov (Exposed count: 10)
+  - newportbeachca.gov (Exposed count: 1)
+  - nj.gov (Exposed count: 3)
+  - nv.gov (Exposed count: 10)
+  - ny.gov (Exposed count: 10)
+  - ocgov.com (Exposed count: 7)
+  - ok.gov (Exposed count: 9)
+  - oregon.gov (Exposed count: 9)
+  - pa.gov (Exposed count: 2)
+  - pr.gov (Exposed count: 5)
+  - ri.gov (Exposed count: 9)
+  - santa-ana.org (Exposed count: 9)
+  - santaanapd.org (Exposed count: 10)
+  - santamonica.gov (Exposed count: 10)
+  - santamonicapd.org (Exposed count: 10)
+  - sce.com (Exposed count: 9)
+  - texas.gov (Exposed count: 9)
+  - tn.gov (Exposed count: 9)
+  - turkiye.gov.tr (Exposed count: 2)
+  - utah.gov (Exposed count: 9)
+  - virginia.gov (Exposed count: 10)
+  - volunteer.huntingtonbeachca.gov (Exposed count: 9)
+  - wa.gov (Exposed count: 7)
+  - wisconsin.gov (Exposed count: 9)
+  - wv.gov (Exposed count: 9)
+  - wy.gov (Exposed count: 8)

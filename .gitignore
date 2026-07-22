@@ -1,71 +1,22 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# OSINT Backups & Large Extracted Data
-github_backups/
-.backup_sync_status.json
-node_modules/
-*.zip
-*.jsonl
-results/
-ocr_output/
-procurement_screenshots/
-NPI/
-NPI---Non-Profiteers-Index/
-OSINTNeoAiCLI/
-OSINTNeoAiXL/
-OsintNeoAi52026/
-OsintNeoAiXXXL/
-OsintNeoAi/
-Ytyt/
-altwarp/
-civil-rights-activist-emailer/
-landgrabpro/
-landgrabpro2/
-osint-agent/
-osint_analyzer/
-riconow/
-social-media-campaign-manager/
-vertex-ai-creative-studio/
-
-# Environment
+# Sensitive files - never commit
+rclone.conf
+client_secret*.json
+token_live_agent.json
+credentials.json
+*.env
 .env
-venv/
-env/
-ENV/
 
-# General
-__pycache__
-*.pyc
-*.egg-info
-.git
-.venv
-.pytest_cache
+# Large chunk files
+opencode_work/chunk_*.dat
+
+# Agent conversation logs with embedded secrets
+.system_generated/
+
+# Brain backups - contain embedded OAuth tokens and secrets in transcripts
+agent/ai_sync_vault/comprehensive_backup/antigravity/brain/
+
+# OS
 .DS_Store
-results/*.csv
-results/*.jsonl
-*.sqlite3
-
-# Ignore large files in opencode_work
-opencode_work/**/*.csv
-opencode_work/**/*.pdf
-opencode_work/**/*.zip
-opencode_work/bq_exports/
-opencode_work/national_audits_drive_file_index.csv
-opencode_work/Private_EDR_2025_Real/
-opencode_work/Official_GeoTracker_T10000018579/
-
-# Ignore credentials and temp files in opencode_work
-opencode_work/temp/
-opencode_work/OSINT_VAULT_BACKUP/
-opencode_work/**/google_creds.json
-**/token.json.stale
-**/*creds*.json
-**/client_secret*.json
-
-# OAuth temp files
-agent/oauth_url.txt
-agent/oauth_server.log
-agent/oauth_code.txt
+Thumbs.db
+__pycache__/
+*.pyc

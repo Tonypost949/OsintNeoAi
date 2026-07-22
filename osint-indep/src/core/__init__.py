@@ -1,1 +1,0 @@
-"""Core package for OSINT Independent Platform"""

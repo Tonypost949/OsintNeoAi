@@ -1,663 +1,510 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>OSINT Analyzer & Logistics Matrix Workspace</title>
-
+<title>OSINTNeoAi — RICO Command Center</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
-
-    :root {
-
-        --bg-primary: #0a0f1d;
-
-        --bg-secondary: #111827;
-
-        --bg-tertiary: #1f2937;
-
-        --accent-cyan: #06b6d4;
-
-        --accent-green: #10b981;
-
-        --accent-red: #ef4444;
-
-        --text-main: #f3f4f6;
-
-        --text-muted: #9ca3af;
-
-        --border-color: #374151;
-
-    }
-
-    * {
-
-        box-sizing: border-box;
-
-        margin: 0;
-
-        padding: 0;
-
-        font-family: 'Courier New', Courier, monospace;
-
-    }
-
-    body {
-
-        background-color: var(--bg-primary);
-
-        color: var(--text-main);
-
-        display: flex;
-
-        flex-direction: column;
-
-        height: 100vh;
-
-        overflow: hidden;
-
-    }
-
-    /* Top Header Navigation */
-
-    header {
-
-        background-color: var(--bg-secondary);
-
-        border-bottom: 2px solid var(--border-color);
-
-        padding: 10px 20px;
-
-        display: flex;
-
-        justify-content: space-between;
-
-        align-items: center;
-
-    }
-
-    .logo-area {
-
-        display: flex;
-
-        align-items: center;
-
-        gap: 10px;
-
-    }
-
-    .logo-status {
-
-        width: 10px;
-
-        height: 10px;
-
-        background-color: var(--accent-green);
-
-        border-radius: 50%;
-
-        box-shadow: 0 0 8px var(--accent-green);
-
-    }
-
-    .credits-bypass {
-
-        background-color: rgba(6, 182, 212, 0.1);
-
-        border: 1px solid var(--accent-cyan);
-
-        color: var(--accent-cyan);
-
-        padding: 4px 12px;
-
-        border-radius: 4px;
-
-        font-size: 0.85rem;
-
-    }
-
-    /* Main Workspace Layout */
-
-    .workspace {
-
-        display: flex;
-
-        flex: 1;
-
-        overflow: hidden;
-
-    }
-
-    /* Left Panel: Control Station & Input */
-
-    .control-panel {
-
-        width: 35%;
-
-        background-color: var(--bg-secondary);
-
-        border-right: 2px solid var(--border-color);
-
-        display: flex;
-
-        flex-direction: column;
-
-        padding: 20px;
-
-        gap: 20px;
-
-        overflow-y: auto;
-
-    }
-
-    /* Right Panel: Data Matrix Grid Viewer */
-
-    .matrix-display {
-
-        width: 65%;
-
-        padding: 20px;
-
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 15px;
-
-        overflow-y: auto;
-
-    }
-
-    .panel-title {
-
-        font-size: 1.1rem;
-
-        text-transform: uppercase;
-
-        letter-spacing: 1px;
-
-        color: var(--accent-cyan);
-
-        border-bottom: 1px solid var(--border-color);
-
-        padding-bottom: 5px;
-
-    }
-
-    .form-group {
-
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 8px;
-
-    }
-
-    label {
-
-        font-size: 0.85rem;
-
-        color: var(--text-muted);
-
-        text-transform: uppercase;
-
-    }
-
-    textarea, select, input {
-
-        background-color: var(--bg-primary);
-
-        border: 1px solid var(--border-color);
-
-        color: var(--text-main);
-
-        padding: 10px;
-
-        border-radius: 4px;
-
-        resize: none;
-
-    }
-
-    textarea:focus, select:focus, input:focus {
-
-        outline: none;
-
-        border-color: var(--accent-cyan);
-
-    }
-
-    .btn-group {
-
-        display: flex;
-
-        gap: 10px;
-
-    }
-
-    button {
-
-        flex: 1;
-
-        padding: 12px;
-
-        background-color: var(--bg-tertiary);
-
-        border: 1px solid var(--border-color);
-
-        color: var(--text-main);
-
-        cursor: pointer;
-
-        font-weight: bold;
-
-        text-transform: uppercase;
-
-        transition: all 0.2s ease;
-
-    }
-
-    button:hover {
-
-        background-color: var(--border-color);
-
-    }
-
-    button.primary {
-
-        background-color: var(--accent-cyan);
-
-        color: var(--bg-primary);
-
-        border: none;
-
-    }
-
-    button.primary:hover {
-
-        background-color: #22d3ee;
-
-        box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
-
-    }
-
-    /* Data Matrix Table Style */
-
-    .table-container {
-
-        border: 1px solid var(--border-color);
-
-        border-radius: 4px;
-
-        overflow: hidden;
-
-        background-color: var(--bg-secondary);
-
-    }
-
-    table {
-
-        width: 100%;
-
-        border-collapse: collapse;
-
-        text-align: left;
-
-        font-size: 0.9rem;
-
-    }
-
-    th, td {
-
-        padding: 12px;
-
-        border-bottom: 1px solid var(--border-color);
-
-    }
-
-    th {
-
-        background-color: var(--bg-tertiary);
-
-        color: var(--accent-cyan);
-
-        text-transform: uppercase;
-
-        font-size: 0.8rem;
-
-    }
-
-    tr:hover {
-
-        background-color: rgba(255, 255, 255, 0.02);
-
-    }
-
-    .badge {
-
-        display: inline-block;
-
-        padding: 2px 6px;
-
-        border-radius: 3px;
-
-        font-size: 0.75rem;
-
-        font-weight: bold;
-
-    }
-
-    .badge-intel { background-color: rgba(6, 182, 212, 0.2); color: var(--accent-cyan); }
-
-    .badge-logistics { background-color: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
-
-    .badge-risk { background-color: rgba(239, 68, 68, 0.2); color: var(--accent-red); }
-
-    /* Terminal Console Output Log */
-
-    .terminal-log {
-
-        background-color: black;
-
-        border: 1px solid var(--border-color);
-
-        border-radius: 4px;
-
-        padding: 12px;
-
-        height: 150px;
-
-        overflow-y: auto;
-
-        font-size: 0.8rem;
-
-        color: #38bdf8;
-
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 4px;
-
-    }
-
-    .log-entry span.timestamp { color: var(--text-muted); margin-right: 8px; }
-
-    .log-entry.error { color: var(--accent-red); }
-
-    .log-entry.success { color: var(--accent-green); }
-
+*{margin:0;padding:0;box-sizing:border-box}
+html,body,#map{width:100%;height:100%;background:#000;font-family:monospace;overflow:hidden}
+
+#hud{position:fixed;top:8px;left:8px;z-index:1000;font-family:monospace;font-size:9px;color:#aaa;line-height:1.5;pointer-events:none}
+#hud b{color:#0f0}#hud .r{color:#f44}.c{color:#0ff}.y{color:#fc0}.p{color:#f0f}
+
+/* STATS PANEL */
+#stats{position:fixed;top:8px;right:8px;z-index:1000;background:rgba(0,0,0,0.82);border:1px solid rgba(0,255,0,0.12);border-radius:6px;font-family:monospace;color:#aaa;padding:10px 12px;font-size:9px;line-height:1.7;width:220px;backdrop-filter:blur(8px)}
+#stats b{color:#fff}
+#stats .bar{display:inline-block;height:3px;vertical-align:middle;border-radius:2px;margin-right:4px}
+
+/* LEGEND */
+#legend{position:fixed;bottom:8px;left:8px;z-index:1000;background:rgba(0,0,0,0.78);border:1px solid rgba(255,255,255,0.06);border-radius:6px;font-family:monospace;font-size:9px;color:#888;padding:8px 12px;line-height:2;backdrop-filter:blur(8px)}
+#legend .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:3px;vertical-align:middle}
+#legend .dash{display:inline-block;width:12px;height:0;border-top:1.5px dashed;margin-right:3px;vertical-align:middle}
+
+/* LAYER TOGGLES */
+#toggles{position:fixed;bottom:8px;right:8px;z-index:1000;display:flex;flex-wrap:wrap;gap:4px;max-width:320px}
+#toggles button{background:rgba(0,0,0,0.7);color:#666;border:1px solid rgba(255,255,255,0.08);padding:3px 7px;font-size:8px;border-radius:3px;cursor:pointer;font-family:monospace;transition:all .2s;white-space:nowrap}
+#toggles button.on{color:#fff;border-color:rgba(255,255,255,0.3)}
+#toggles button:hover{color:#0f0;border-color:rgba(0,255,0,0.3)}
+
+/* SEARCH */
+#search{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2000;display:none}
+#search.show{display:block}
+#search input{background:rgba(0,0,0,0.9);color:#0f0;border:1px solid rgba(0,255,0,0.3);padding:8px 14px;font-size:12px;font-family:monospace;width:300px;border-radius:4px}
+#search input:focus{outline:none;border-color:#0f0}
+#search .results{background:rgba(0,0,0,0.92);border:1px solid rgba(0,255,0,0.15);max-height:200px;overflow-y:auto;margin-top:2px;border-radius:4px}
+#search .results div{padding:6px 10px;color:#aaa;font-size:10px;cursor:pointer;border-bottom:1px solid rgba(0,255,0,0.05)}
+#search .results div:hover{background:rgba(0,60,0,0.3);color:#0f0}
+
+/* POPUPS */
+.rf{color:#f44}.cf{color:#0ff}.yf{color:#fc0}.pf{color:#f0f}.gf{color:#0f0}
+
+.leaflet-tooltip.parcel-label{background:rgba(0,0,0,0.85);border:1px solid rgba(0,255,0,0.15);color:#0f0;font-size:9px;font-family:monospace;padding:2px 6px;border-radius:2px}
+.leaflet-popup-content-wrapper{background:rgba(0,0,0,0.92);color:#ccc;border:1px solid rgba(0,255,0,0.15);border-radius:4px;font-family:monospace;font-size:10px}
+.leaflet-popup-tip{background:rgba(0,0,0,0.92)}
 </style>
-
 </head>
-
 <body>
-
-<header>
-
-    <div class="logo-area">
-
-        <div class="logo-status"></div>
-
-        <h2>OSINT_ANALYZER // LOCAL_CORE</h2>
-
-    </div>
-
-    <div class="credits-bypass">BYPASS MODE: UNLIMITED LOCAL CREDIT ALLOCATION</div>
-
-</header>
-
-<div class="workspace">
-
-    <div class="control-panel">
-
-        <div class="panel-title">Data Extraction Pipeline</div>
-
-
-
-        <div class="form-group">
-
-            <label for="dataType">Analysis Target Matrix</label>
-
-            <select id="dataType">
-
-                <option value="logistics">Logistics Hubs & Freight Nodes</option>
-
-                <option value="environmental">Environmental Site Records / Contaminants</option>
-
-                <option value="public_records">Municipal Public Records & Assets</option>
-
-            </select>
-
-        </div>
-
-        <div class="form-group">
-
-            <label for="rawInput">Raw Text / Log Stream (Regex Parser Target)</label>
-
-            <textarea id="rawInput" rows="8" placeholder="Paste raw OSINT terminal output, system logs, or text blocks here to extract matrices..."></textarea>
-
-        </div>
-
-        <div class="btn-group">
-
-            <button type="button" onclick="clearWorkspace()">Clear</button>
-
-            <button type="button" class="primary" onclick="executeLocalExtraction()">Run Analysis</button>
-
-        </div>
-
-        <div class="panel-title" style="margin-top: 10px;">System Terminal Log</div>
-
-        <div class="terminal-log" id="terminalLog">
-
-            <div class="log-entry"><span class="timestamp">[05:44:02]</span>SYSTEM: Local environment initialized successfully.</div>
-
-            <div class="log-entry success"><span class="timestamp">[05:44:03]</span>AUTH: Bypassed platform server. Direct execution channel armed.</div>
-
-        </div>
-
-    </div>
-
-    <div class="matrix-display">
-
-        <div class="panel-title">Structured Records Matrix Output</div>
-
-
-
-        <div class="table-container">
-
-            <table>
-
-                <thead>
-
-                    <tr>
-
-                        <th>Timestamp</th>
-
-                        <th>Target Node Element</th>
-
-                        <th>Classification Classification</th>
-
-                        <th>Extracted Target Signatures / Metrics</th>
-
-                    </tr>
-
-                </thead>
-
-                <tbody id="matrixTableBody">
-
-                    <tr>
-
-                        <td>2026-05-25 05:40</td>
-
-                        <td>Argosy Ave Industrial Storage</td>
-
-                        <td><span class="badge badge-logistics">Logistics Node</span></td>
-
-                        <td>Freight Nexus / Storage Pipeline Infrastructure Checked</td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>2026-05-25 05:41</td>
-
-                        <td>Hexavalent Chromium Threshold</td>
-
-                        <td><span class="badge badge-risk">Risk Assessment</span></td>
-
-                        <td>California Regulatory Limits / Soil Analysis Pipeline</td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>2026-05-25 05:42</td>
-
-                        <td>Municipal Code Tracking Matrix</td>
-
-                        <td><span class="badge badge-intel">Public Records</span></td>
-
-                        <td>Local Asset Ledger Tracking Verified</td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </div>
-
+<div id="map"></div>
+<div id="hud">
+  <b>RICO ENTERPRISE COMMAND CENTER</b><br>
+  <span style="color:#0f0">50 STATES | 5 PIPELINES | 4 AGENCIES | LIVE BQ</span><br>
+  <span class="r">3 TARGETS</span> &bull; <span class="y">57 LLCs</span> &bull; <span class="c">$3.1B PPP</span><br>
+  <span class="p">CPS 29.3K GAP</span> &bull; <span class="r">4 CHILD DEATHS</span>
+</div>
+<div id="stats"><b>LIVE STATS</b><br><span id="stats-body">loading...</span></div>
+<div id="legend"><span id="legend-body"></span></div>
+
+<div id="toggles">
+  <button class="on rf" onclick="toggle('hud')" id="btn-hud">HUD</button>
+  <button class="on cf" onclick="toggle('sba')" id="btn-sba">SBA</button>
+  <button class="on yf" onclick="toggle('cares')" id="btn-cares">CARES</button>
+  <button class="on pf" onclick="toggle('hhs')" id="btn-hhs">HHS</button>
+  <button class="on" style="color:#f44" onclick="toggle('toxic')" id="btn-toxic">TOXIC</button>
+  <button class="on" style="color:#f93" onclick="toggle('suspect')" id="btn-suspect">LLC</button>
+  <button class="on" style="color:#f0f" onclick="toggle('cps')" id="btn-cps">CPS</button>
+  <button class="on" style="color:#0ff" onclick="toggle('plume')" id="btn-plume">PLUME</button>
+  <button class="on" style="color:#888" onclick="toggle('sink')" id="btn-sink">SINK</button>
+  <button class="on" style="color:#f0f" onclick="toggle('veins')" id="btn-veins">VEINS</button>
+  <button class="on" style="color:#ff0" onclick="toggle('fca')" id="btn-fca">FCA</button>
+  <button class="on" style="color:#fa0" onclick="toggle('procurement')" id="btn-procurement">PROCURE</button>
+  <button onclick="document.getElementById('search').classList.toggle('show')">&#8981;FIND</button>
+  <button onclick="resetView()">&#8634;</button>
 </div>
 
+<div id="search">
+  <input id="search-input" placeholder="Search entity, address, $amount..." oninput="doSearch()" onkeydown="if(event.key==='Escape')document.getElementById('search').classList.remove('show')">
+  <div class="results" id="search-results"></div>
+</div>
+
+<!-- ===== EMBEDDED TOTALS DATA ===== -->
 <script>
-
-    function logToTerminal(message, type = 'info') {
-
-        const logBox = document.getElementById('terminalLog');
-
-        const entry = document.createElement('div');
-
-        entry.classList.add('log-entry');
-
-        if (type === 'error') entry.classList.add('error');
-
-        if (type === 'success') entry.classList.add('success');
-
-
-
-        const now = new Date();
-
-        const timeStr = `[${now.toTimeString().split(' ')[0]}]`;
-
-
-
-        entry.innerHTML = `<span class="timestamp">${timeStr}</span>${message}`;
-
-        logBox.appendChild(entry);
-
-        logBox.scrollTop = logBox.scrollHeight;
-
-    }
-
-    function executeLocalExtraction() {
-
-        const inputData = document.getElementById('rawInput').value.trim();
-
-        const targetType = document.getElementById('dataType').value;
-
-        const tableBody = document.getElementById('matrixTableBody');
-
-        if (!inputData) {
-
-            logToTerminal("ERROR: Input data stream empty. Provide target text to parse.", "error");
-
-            return;
-
-        }
-
-        logToTerminal(`Initiating data mining against target classification: [${targetType.toUpperCase()}]...`);
-
-
-
-        // Local client-side parsing simulator (Customizable based on user regex)
-
-        setTimeout(() => {
-
-            const now = new Date();
-
-            const dateStr = now.toISOString().slice(0,10) + ' ' + now.toTimeString().slice(0,5);
-
-
-
-            let nodeElement = "Extracted Edge Element Block";
-
-            let badgeClass = "badge-intel";
-
-            let badgeText = "Public Records";
-
-
-
-            if (targetType === 'logistics') {
-
-                nodeElement = "Logistics Nexus Point Alpha";
-
-                badgeClass = "badge-logistics";
-
-                badgeText = "Logistics Node";
-
-            } else if (targetType === 'environmental') {
-
-                nodeElement = "Soil Forensics Contaminant Node";
-
-                badgeClass = "badge-risk";
-
-                badgeText = "Risk Assessment";
-
-            }
-
-            const newRow = document.createElement('tr');
-
-            newRow.innerHTML = `
-
-                <td>${dateStr}</td>
-
-                <td>${nodeElement}</td>
-
-                <td><span class="badge ${badgeClass}">${badgeText}</span></td>
-
-                <td>${inputData.substring(0, 60)}${inputData.length > 60 ? '...' : ''}</td>
-
-            `;
-
-
-
-            tableBody.insertBefore(newRow, tableBody.firstChild);
-
-            logToTerminal("SUCCESS: Core record compiled. Data Matrix element injected safely.", "success");
-
-        }, 600);
-
-    }
-
-    function clearWorkspace() {
-
-        document.getElementById('rawInput').value = '';
-
-        logToTerminal("Workspace state text buffer cleared.");
-
-    }
-
+var TOTALS={"states": 50, "total_pit": 296102, "total_coc": 453700000, "total_ppp": 785944250808.5314, "total_gap": 1554515, "hud_states": 8, "sba_states": 50, "cares_states": 12, "flagged_states": 1, "env_flagged": 1, "last_engine_run": "2026-07-22T00:00:43.617412"};
 </script>
 
-</body>
+<script>
+// === LAYER GROUPS ===
+const layers={
+  hud:[], sba:[], cares:[], hhs:[],
+  toxic:[], suspect:[], cps:[], plume:[], sink:[], veins:[], fca:[], procurement:[]
+};
 
+function toggle(key){
+  const btn=document.getElementById('btn-'+key);
+  btn.classList.toggle('on');
+  const show=btn.classList.contains('on');
+  (layers[key]||[]).forEach(l=>{if(show)map.addLayer(l);else map.removeLayer(l)});
+}
+
+// === MAP ===
+const map=L.map('map',{zoomControl:false,attributionControl:false}).setView([38,-98],4.3);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:19}).addTo(map);
+L.control.zoom({position:'bottomleft'}).addTo(map);
+
+// === DC AGENCY HUBS ===
+const DC=[38.907,-77.037];
+const AGENCIES=[
+  [38.884,-77.022,'HUD','#f44',TOTALS.total_coc],
+  [38.897,-77.043,'SBA','#0ff',TOTALS.total_ppp],
+  [38.892,-77.025,'HHS','#f0f',0],
+  [38.894,-77.040,'TREASURY','#fc0',0],
+];
+AGENCIES.forEach(([lat,lng,name,color,amt])=>{
+  L.circleMarker([lat,lng],{radius:12,color,fillColor:color,fillOpacity:0.7,weight:2})
+    .addTo(map).bindTooltip(`<b style="color:${color}">${name}</b>`,{permanent:true,direction:'top',className:'parcel-label'});
+  L.circle([lat,lng],{radius:48,color,weight:0.5,fillColor:'transparent',opacity:0.4,dashArray:'2,4'}).addTo(map);
+});
+
+// === EMBEDDED STATE DATA (50 states) ===
+const STATEDATA=[
+  {state:"AK",pit:1422,cps:8887,gap:7465,coc:3400000,ppp:2047297770,hud:1,sba:1,cares:0,hhs:0,lat:61.4,lng:-149.5},
+  {state:"AL",pit:1124,cps:7025,gap:5901,coc:12500000,ppp:9414668018,hud:1,sba:1,cares:0,hhs:0,lat:32.8,lng:-86.8},
+  {state:"AR",pit:545,cps:3406,gap:2861,coc:0,ppp:4996545472,hud:0,sba:1,cares:0,hhs:0,lat:34.7,lng:-92.3},
+  {state:"AZ",pit:9642,cps:60262,gap:50620,coc:42100000,ppp:12387225935,hud:1,sba:1,cares:1,hhs:0,lat:33.5,lng:-112.1},
+  {state:"CA",pit:71320,cps:445750,gap:374430,coc:155000000,ppp:103157155708,hud:1,sba:1,cares:1,hhs:1,lat:36.8,lng:-119.7,flagged:7,env:2},
+  {state:"CO",pit:9065,cps:56656,gap:47591,coc:0,ppp:15060294577,hud:0,sba:1,cares:0,hhs:0,lat:39,lng:-105.5},
+  {state:"CT",pit:1850,cps:11562,gap:9712,coc:0,ppp:9370192473,hud:0,sba:1,cares:0,hhs:0,lat:41.6,lng:-72.7},
+  {state:"DE",pit:1245,cps:7781,gap:6536,coc:0,ppp:1986947037,hud:0,sba:1,cares:0,hhs:0,lat:39,lng:-75.5},
+  {state:"FL",pit:2314,cps:14462,gap:12148,coc:1800000,ppp:56567600632,hud:1,sba:1,cares:0,hhs:0,lat:28.1,lng:-81.7},
+  {state:"GA",pit:2679,cps:16743,gap:14064,coc:0,ppp:32829005992,hud:0,sba:1,cares:0,hhs:0,lat:32.6,lng:-83.5},
+  {state:"HI",pit:4389,cps:27431,gap:23042,coc:1300000,ppp:2654471146,hud:1,sba:1,cares:0,hhs:0,lat:20.5,lng:-157.5},
+  {state:"IA",pit:1050,cps:6562,gap:5512,coc:0,ppp:7834957964,hud:0,sba:1,cares:0,hhs:0,lat:42,lng:-93.5},
+  {state:"ID",pit:1384,cps:8650,gap:7266,coc:0,ppp:4193846629,hud:0,sba:1,cares:0,hhs:0,lat:44,lng:-114},
+  {state:"IL",pit:4005,cps:25031,gap:21026,coc:0,ppp:41033572635,hud:0,sba:1,cares:0,hhs:0,lat:40,lng:-89.5},
+  {state:"IN",pit:1993,cps:12456,gap:10463,coc:0,ppp:19370564326,hud:0,sba:1,cares:0,hhs:0,lat:39.8,lng:-86},
+  {state:"KS",pit:1187,cps:7418,gap:6231,coc:0,ppp:9979146289,hud:0,sba:1,cares:0,hhs:0,lat:38.5,lng:-98},
+  {state:"KY",pit:1725,cps:10781,gap:9056,coc:0,ppp:10765909751,hud:0,sba:1,cares:0,hhs:0,lat:37.5,lng:-85},
+  {state:"LA",pit:1737,cps:10856,gap:9119,coc:0,ppp:11171817703,hud:0,sba:1,cares:0,hhs:0,lat:31,lng:-92},
+  {state:"MA",pit:2758,cps:17237,gap:14479,coc:0,ppp:23437483150,hud:0,sba:1,cares:0,hhs:0,lat:42.3,lng:-71.8},
+  {state:"MD",pit:2417,cps:15106,gap:12689,coc:0,ppp:15523630818,hud:0,sba:1,cares:0,hhs:0,lat:39,lng:-76.8},
+  {state:"ME",pit:898,cps:5612,gap:4714,coc:0,ppp:3951768838,hud:0,sba:1,cares:0,hhs:0,lat:45,lng:-69},
+  {state:"MI",pit:3506,cps:21912,gap:18406,coc:0,ppp:28344824866,hud:0,sba:1,cares:0,hhs:0,lat:43.5,lng:-84.5},
+  {state:"MN",pit:3241,cps:20256,gap:17015,coc:0,ppp:19141550947,hud:0,sba:1,cares:0,hhs:0,lat:46,lng:-94},
+  {state:"MO",pit:2445,cps:15281,gap:12836,coc:0,ppp:15790653980,hud:0,sba:1,cares:0,hhs:0,lat:38.5,lng:-92.5},
+  {state:"MS",pit:808,cps:5050,gap:4242,coc:0,ppp:7138200351,hud:0,sba:1,cares:0,hhs:0,lat:32.5,lng:-89.5},
+  {state:"MT",pit:842,cps:5262,gap:4420,coc:0,ppp:2983384386,hud:0,sba:1,cares:0,hhs:0,lat:47,lng:-109.5},
+  {state:"NC",pit:3281,cps:20506,gap:17225,coc:0,ppp:25349856433,hud:0,sba:1,cares:0,hhs:0,lat:35.5,lng:-79},
+  {state:"ND",pit:279,cps:1743,gap:1464,coc:0,ppp:2836679918,hud:0,sba:1,cares:0,hhs:0,lat:47.5,lng:-100.5},
+  {state:"NE",pit:763,cps:4768,gap:4005,coc:0,ppp:6953574612,hud:0,sba:1,cares:0,hhs:0,lat:41.5,lng:-99.5},
+  {state:"NH",pit:804,cps:5025,gap:4221,coc:0,ppp:4530491736,hud:0,sba:1,cares:0,hhs:0,lat:43.7,lng:-71.5},
+  {state:"NJ",pit:4608,cps:28800,gap:24192,coc:0,ppp:26610937355,hud:0,sba:1,cares:0,hhs:0,lat:40.2,lng:-74.5},
+  {state:"NM",pit:2049,cps:12806,gap:10757,coc:0,ppp:4277888281,hud:0,sba:1,cares:0,hhs:0,lat:34.5,lng:-106},
+  {state:"NV",pit:3114,cps:19462,gap:16348,coc:0,ppp:7861194525,hud:0,sba:1,cares:0,hhs:0,lat:39,lng:-117},
+  {state:"NY",pit:140039,cps:875243,gap:735204,coc:268000000,ppp:79726109452,hud:1,sba:1,cares:1,hhs:0,lat:42.9,lng:-75.8},
+  {state:"OH",pit:6195,cps:38718,gap:32523,coc:0,ppp:26646348484,hud:0,sba:1,cares:0,hhs:0,lat:40.3,lng:-82.5},
+  {state:"OK",pit:1574,cps:9837,gap:8263,coc:0,ppp:8282075234,hud:0,sba:1,cares:0,hhs:0,lat:35.5,lng:-97.5},
+  {state:"OR",pit:6467,cps:40418,gap:33951,coc:0,ppp:10056050705,hud:0,sba:1,cares:0,hhs:0,lat:44,lng:-121.5},
+  {state:"PA",pit:7079,cps:44243,gap:37164,coc:0,ppp:32668805243,hud:0,sba:1,cares:0,hhs:0,lat:40.8,lng:-77.8},
+  {state:"RI",pit:739,cps:4618,gap:3879,coc:0,ppp:3333404677,hud:0,sba:1,cares:0,hhs:0,lat:41.5,lng:-71.5},
+  {state:"SC",pit:1726,cps:10787,gap:9061,coc:0,ppp:10854664823,hud:0,sba:1,cares:0,hhs:0,lat:33.8,lng:-80.9},
+  {state:"SD",pit:465,cps:2906,gap:2441,coc:0,ppp:3000311709,hud:0,sba:1,cares:0,hhs:0,lat:44.5,lng:-100},
+  {state:"TN",pit:2380,cps:14875,gap:12495,coc:0,ppp:18222211066,hud:0,sba:1,cares:0,hhs:0,lat:35.8,lng:-86.5},
+  {state:"TX",pit:4213,cps:26331,gap:22118,coc:4800000,ppp:77402672093,hud:1,sba:1,cares:1,hhs:0,lat:31.4,lng:-99.2},
+  {state:"UT",pit:1931,cps:12068,gap:10137,coc:0,ppp:7796779431,hud:0,sba:1,cares:0,hhs:0,lat:39.5,lng:-112.5},
+  {state:"VA",pit:3166,cps:19787,gap:16621,coc:0,ppp:21652370709,hud:0,sba:1,cares:0,hhs:0,lat:37.5,lng:-78.5},
+  {state:"VT",pit:1123,cps:7018,gap:5895,coc:0,ppp:1671455028,hud:0,sba:1,cares:0,hhs:0,lat:44,lng:-72.7},
+  {state:"WA",pit:13984,cps:87400,gap:73416,coc:0,ppp:19884778179,hud:0,sba:1,cares:1,hhs:0,lat:47.5,lng:-120.5},
+  {state:"WI",pit:2554,cps:15962,gap:13408,coc:0,ppp:16096894868,hud:0,sba:1,cares:0,hhs:0,lat:44.5,lng:-89.5},
+  {state:"WV",pit:660,cps:4125,gap:3465,coc:0,ppp:2104547698,hud:0,sba:1,cares:0,hhs:0,lat:38.8,lng:-80.5},
+  {state:"WY",pit:372,cps:2325,gap:1953,coc:0,ppp:1495713254,hud:0,sba:1,cares:0,hhs:0,lat:42.8,lng:-107.5},
+];
+
+let totalPit=0,totalCoc=0,totalPpp=0,totalGap=0,hudC=0,sbaC=0,caresC=0,hhsC=0;
+
+STATEDATA.forEach(s=>{
+  totalPit+=s.pit||0;totalCoc+=s.coc||0;totalPpp+=s.ppp||0;totalGap+=s.gap||0;
+  if(s.hud)hudC++;if(s.sba)sbaC++;if(s.cares)caresC++;if(s.hhs)hhsC++;
+
+  const rad=Math.max(3,Math.min(30,Math.sqrt(s.pit||1)*0.45));
+
+  // HUD flow lines
+  if(s.hud){
+    const line=L.polyline([DC,[s.lat,s.lng]],{color:'#f44',weight:0.3,opacity:0.25,dashArray:'3,6'});
+    layers.hud.push(line);
+    L.circle([s.lat,s.lng],{radius:rad*2.2,color:'#f44',weight:0.6,fillColor:'transparent',opacity:0.6,dashArray:'2,4'}).addTo(map);
+  }
+  // SBA ring
+  if(s.sba){
+    const c=L.circle([s.lat,s.lng],{radius:rad*1.5,color:'#0ff',weight:0.4,fillColor:'transparent',opacity:0.5});
+    layers.sba.push(c);
+  }
+  // CARES
+  if(s.cares){
+    const c=L.circle([s.lat,s.lng],{radius:rad*1.8,color:'#fc0',weight:0.3,fillColor:'transparent',opacity:0.4});
+    layers.cares.push(c);
+  }
+  // HHS
+  if(s.hhs){
+    const c=L.circle([s.lat,s.lng],{radius:rad*2.6,color:'#f0f',weight:0.8,fillColor:'transparent',opacity:0.7,dashArray:'3,3'});
+    layers.hhs.push(c);
+  }
+
+  const clr=s.hud?'#f44':s.flagged>0?'#f0f':s.coc>0?'#fc0':'#0ff';
+  L.circleMarker([s.lat,s.lng],{radius:rad,color:clr,fillColor:clr,fillOpacity:0.55,weight:1}).addTo(map)
+    .bindTooltip(`<b>${s.state}</b> PIT:${s.pit.toLocaleString()} Gap:${s.gap.toLocaleString()}`,{direction:'top',className:'parcel-label'})
+    .bindPopup(`<div style="font-family:monospace;font-size:10px;color:#ccc">
+      <b style="color:${clr}">${s.state}</b><br>
+      PIT: ${s.pit.toLocaleString()} | CPS est: ${s.cps.toLocaleString()}<br>
+      GAP: <b style="color:#f44">${s.gap.toLocaleString()}</b><br>
+      COC: $${(s.coc/1e6).toFixed(0)}M | PPP: $${(s.ppp/1e9).toFixed(1)}B<br>
+      HUD:${s.hud?'YES':'no'} | CARES:${s.cares?'YES':'no'} | HHS:${s.hhs?'YES':'no'}
+    </div>`);
+});
+
+// Show all layers initially
+Object.values(layers).forEach(arr=>arr.forEach(l=>l.addTo(map)));
+
+// === OC / HB DETAIL LAYER ===
+
+// TOXIC SITES (red glow)
+const TOXIC=[
+  [33.6775,-118.0012,'HBNC TOXIC','17642 Beach Blvd / Cr-VI 49x / Disputed / $155M COC'],
+  [33.6770,-118.0015,'Cameron Ln','17631 Cameron Ln / Asphalt cap failure'],
+  [33.6927,-117.9974,'7561 Center Ave','Units D1-E1-G3-J1 / 4 shell LLCs / Chen-Yamada'],
+];
+const SUSPECT=[
+  [33.7070,-117.9580,'Triumvirate LLC','21951 Brookhurst St / $1.47M PPP / Anchorage AK'],
+  [33.7530,-118.0720,'Stewart Ind.','3311 Bounty Cir / $1.13M PPP / 1077 PCH #247 CMRA'],
+  [33.8080,-118.0020,'CP Premier 1','7100 Cerritos Ave #108 / Pham $0 quitclaim'],
+  [33.7740,-117.9870,'CP Premier 2','13801 Shirley St #85 / Pham $0 quitclaim'],
+  [33.7530,-117.9900,'Garnet Drop','15822 Garnet St / Dylan & Andrew mailbox CMRA'],
+  [33.6500,-117.8900,'Newport LLCs','20341-71 Irvine Ave / CSJ/PL Jetty shell cluster'],
+  [33.7450,-117.8120,'Pham Residence','2614 Orchard Dr Tustin / Peter Pham'],
+  [33.7550,-117.99,'Stewart Ind. PPP','PPP $1,128,327 / Bounty Cir / Battle Creek MI'],
+  [33.7250,-117.97,'Triumvirate PPP','PPP $1,471,840 / Brookhurst / 3705 Arctic Blvd AK'],
+  [33.6870,-117.988,'ONNI HB LLC','$97.25M / 17011 Beach Blvd / Phoenix mail'],
+  [33.6830,-117.994,'Corte Bella TruAmerica','$85.75M / 9543 Dixie St / Woodland Hills'],
+  [33.6830,-117.994,'Sendero Riverbend','$70M / 8955 Riverbend Dr / LA mail'],
+  [33.6890,-117.985,'SCG Edinger Plaza','$65.5M / 7542 Edinger Ave / SF mail'],
+];
+
+const TOXIC_ICON='<div style="color:#f44;font-size:18px;text-align:center;text-shadow:0 0 12px #f44">\u2622</div>';
+const SUSPECT_ICON='<div style="color:#f93;font-size:14px;text-align:center;text-shadow:0 0 8px #f93">\u25A0</div>';
+const OTHER_ICON='<div style="color:#48f;font-size:14px;text-align:center;text-shadow:0 0 8px #48f">\u25CF</div>';
+
+TOXIC.forEach(([lat,lng,label,desc])=>{
+  const m=L.marker([lat,lng],{
+    icon:L.divIcon({html:TOXIC_ICON,iconSize:[20,20],iconAnchor:[10,10]})
+  }).bindTooltip(label,{direction:'top',offset:[0,-8],className:'parcel-label'})
+    .bindPopup(`<div style="font-family:monospace;font-size:10px;color:#ccc"><b style="color:#f44">\u2622 ${label}</b><br>${desc}</div>`);
+  layers.toxic.push(m);
+  m.addTo(map);
+});
+
+SUSPECT.forEach(([lat,lng,label,desc])=>{
+  const m=L.marker([lat,lng],{
+    icon:L.divIcon({html:SUSPECT_ICON,iconSize:[16,16],iconAnchor:[8,8]})
+  }).bindTooltip(label,{direction:'top',offset:[0,-8],className:'parcel-label'})
+    .bindPopup(`<div style="font-family:monospace;font-size:10px;color:#ccc"><b style="color:#f93">\u25A0 ${label}</b><br>${desc}</div>`);
+  layers.suspect.push(m);
+  m.addTo(map);
+});
+
+// PLUME (HBNC groundwater vectors)
+const plumeOrigin=[33.6773,-118.0013];
+const flowVectors=[[0.004,-0.005],[0.006,-0.004],[0.008,-0.002],[0.005,-0.007],[-0.003,-0.006],[-0.005,-0.004],[-0.007,-0.001],[0.002,-0.009],[0.009,0.001],[0.010,-0.002],[-0.008,-0.003],[-0.004,-0.008]];
+
+flowVectors.forEach(([dy,dx])=>{
+  const pts=[plumeOrigin];
+  for(let i=1;i<=4;i++)pts.push([plumeOrigin[0]+dy*i*0.6,plumeOrigin[1]+dx*i*0.6]);
+  const line=L.polyline(pts,{color:'#0ff',weight:0.8,opacity:0.3,dashArray:'3,6'});
+  layers.plume.push(line);
+  line.addTo(map).bindTooltip('Cr-VI plume',{direction:'center',className:'parcel-label'});
+});
+
+// Plume radius circles
+[100,300,500,1000,2000].forEach(r=>{
+  const c=L.circle(plumeOrigin,{radius:r,color:'#0ff',weight:0.4,opacity:0.25,fillColor:'#0ff',fillOpacity:0.03});
+  layers.plume.push(c);
+  c.addTo(map);
+});
+
+// SINKHOLES
+const sinkholes=[
+  [33.6930,-117.9975,'7561 Center vaults','Underground concrete coffins / Chen / 1960s-70s'],
+  [33.6778,-118.0015,'HBNC excavation','Asphalt cap failure / Cr-VI soil disturbance'],
+  [33.6755,-117.7305,'El Toro hangars','Contaminated fill burial / decommissioned MCAS'],
+];
+sinkholes.forEach(([lat,lng,label,desc])=>{
+  const m=L.circleMarker([lat,lng],{radius:8,color:'#000',fillColor:'#111',fillOpacity:0.95,weight:2})
+    .bindTooltip(`SINK: ${label}`,{direction:'top',className:'parcel-label',permanent:true})
+    .bindPopup(`<div style="font-family:monospace;font-size:10px;color:#ccc"><b style="color:#888">\u25CF SINKHOLE</b><br>${label}<br>${desc}</div>`);
+  layers.sink.push(m);
+  m.addTo(map);
+});
+
+// FINANCIAL BLACK HOLES
+const blackholes=[
+  [33.650,-117.895,'Newport shell cluster','20341-71 Irvine Ave — CSJ Mgmt / PL Jetty — $0 transfers'],
+  [33.745,-117.8125,'Pham quitclaim nexus','2614 Orchard Dr / 7100 Cerritos #108 / 13801 Shirley #85'],
+  [33.753,-117.9905,'Garnet St routing','15822 Garnet St — CMRA layer'],
+  [33.7505,-118.0955,'PCH CMRA','1077 Pacific Coast Hwy #247 — Stewart mailbox'],
+];
+blackholes.forEach(([lat,lng,label,desc])=>{
+  const m=L.circleMarker([lat,lng],{radius:12,color:'#000',fillColor:'#000',fillOpacity:0.98,weight:2})
+    .bindTooltip('$ '+label,{direction:'bottom',className:'parcel-label',permanent:true})
+    .bindPopup(`<div style="font-family:monospace;font-size:10px;color:#ccc"><b style="color:#f0f">\u25C9 BLACK HOLE</b><br>${label}<br>${desc}</div>`);
+  layers.sink.push(m);
+  m.addTo(map);
+  const c=L.circle([lat,lng],{radius:200,color:'#000',weight:0.3,opacity:0.4,fillColor:'#000',fillOpacity:0.05});
+  layers.sink.push(c);
+  c.addTo(map);
+});
+
+// FINANCIAL VEINS (LLC connections)
+const veins=[
+  [[33.753,-118.072],[33.7505,-118.0955],'Stewart \u2192 PCH CMRA'],
+  [[33.753,-117.9905],[33.6927,-117.9974],'Garnet \u2192 7561 Center'],
+  [[33.808,-118.002],[33.774,-117.987],'CP Premier 1 \u2192 CP Premier 2'],
+  [[33.774,-117.987],[33.745,-117.8125],'CP Premier \u2192 Pham Residence'],
+  [[33.6927,-117.9974],[33.6775,-118.0012],'7561 Center \u2192 HBNC'],
+  [[33.6775,-118.0012],[33.6755,-117.7305],'HBNC \u2192 El Toro'],
+];
+veins.forEach(([a,b,label])=>{
+  const l=L.polyline([a,b],{color:'#f0f',weight:1,opacity:0.3,dashArray:'4,8'});
+  layers.veins.push(l);
+  l.addTo(map).bindTooltip(label,{className:'parcel-label'});
+});
+
+// === CPS LAYER (child trafficking events) ===
+const CPSEVENTS=[
+  [33.6775,-118.0012,'HBNC Child Deaths','4 confirmed / 279 emergencies / CERCLA toxics','#f44','CHILD_DEATH'],
+  [33.748,-117.870,'OC DA / Spitzer','No action on CPS trafficking referrals','#f0f','TRAFFICKING'],
+  [33.676,-118.0015,'HB City Hall','CEQA exemption fraud / blocked reporting','#f80','BLOCKED_REPORTING'],
+  [33.835,-117.91,'Anaheim CPS Hub','Multi-LLC shelter billing cluster','#fc0','COVID_FRAUD'],
+  [34.05,-118.25,'LA County CPS','Largest CPS system / IV-E billing nexus','#fc0','IV_E_FRAUD'],
+];
+CPSEVENTS.forEach(([lat,lng,label,desc,color,layer])=>{
+  const m=L.circleMarker([lat,lng],{radius:10,color,fillColor:color,fillOpacity:0.5,weight:2})
+    .bindTooltip(`<b style="color:${color}">${label}</b>`,{direction:'right',className:'parcel-label'})
+    .bindPopup(`<div style="font-family:monospace;font-size:10px;color:#ccc"><b style="color:${color}">${layer}</b><br>${label}<br>${desc}</div>`);
+  layers.cps.push(m);
+  m.addTo(map);
+});
+
+// === FCA TIMELINE (legal events) ===
+const FCAEVENTS=[
+  [33.748,-117.870,'USDC CD CA','FCA-HIT-001: Knabb v. HB RICO / Qui Tam coordination','#ff0','CRITICAL'],
+  [34.05,-118.25,'USDC CD CA LA','FCA-HIT-007: EPA OIG referral filed','#ff0','CRITICAL'],
+  [38.907,-77.037,'FCA DC Filing','FCA-HIT-012: DOJ Civil Division notice','#f0f','HIGH'],
+  [33.748,-117.870,'FCA-HIT-019','FCA-HIT-019: Qui Tam complaint under seal','#ff0','CRITICAL'],
+  [33.676,-118.0015,'FCA-HIT-024','FCA-HIT-024: Relator disclosure served','#fa0','HIGH'],
+];
+FCAEVENTS.forEach(([lat,lng,label,desc,color,risk])=>{
+  const sz=risk==='CRITICAL'?14:10;
+  const m=L.circleMarker([lat,lng],{radius:sz,color,fillColor:color,fillOpacity:0.6,weight:2})
+    .bindTooltip(`<b style="color:${color}">${label}</b>`,{direction:'right',className:'parcel-label'})
+    .bindPopup(`<div style="font-family:monospace;font-size:10px;color:#ccc"><b style="color:${color}">FCA ${risk}</b><br>${label}<br>${desc}</div>`);
+  layers.fca.push(m);
+  m.addTo(map);
+  const ring=L.circle([lat,lng],{radius:sz*8,color,weight:0.5,fillColor:'transparent',opacity:0.3,dashArray:'2,6'});
+  layers.fca.push(ring);
+  ring.addTo(map);
+});
+
+// === MERCY HOUSE / TARGET ENTITIES ===
+const TARGETS=[
+  [33.745,-117.87,'Carmen Luege','Luege Advocacy Group / 910 N Broadway Santa Ana / Risk:88','#f44'],
+  [33.745,-117.87,'Victor Nunez','OC Community Transition Partners / 1200 N Main St #400 / Risk:94','#f44'],
+  [33.835,-117.91,'Paul Barnes','Barnes Housing Solutions / 2100 E Howell Ave Anaheim / Risk:91','#f44'],
+];
+TARGETS.forEach(([lat,lng,label,desc,color])=>{
+  L.circleMarker([lat,lng+0.002*(Math.random()-0.5)],{radius:10,color,fillColor:color,fillOpacity:0.7,weight:3})
+    .addTo(map).bindTooltip(`<b style="color:${color}">TARGET: ${label}</b>`,{direction:'top',className:'parcel-label',permanent:true})
+    .bindPopup(`<div style="font-family:monospace;font-size:10px;color:#ccc"><b style="color:${color}">\u{1F3AF} ${label}</b><br>${desc}<br><a href="https://github.com/Tonypost949/osint-agent" target="_blank">View Evidence</a></div>`);
+});
+
+// === PROCUREMENT LAYER (populated from BQ export) ===
+// Inline a few key procurement projects + load from external JSON if available
+const PROCUREMENTS=[
+  {lat:33.715,lng:-117.85,title:"OC Sheriff Body Cam Program",dept:"Sheriff",status:"Open",amount:8500000},
+  {lat:33.748,lng:-117.87,title:"County IT Security Assessment",dept:"IT",status:"Open",amount:2500000},
+  {lat:33.676,lng:-118.00,title:"HB Coastal Infrastructure",dept:"Public Works",status:"Under Review",amount:12000000},
+  {lat:33.835,lng:-117.91,title:"Anaheim Housing Services RFP",dept:"Housing",status:"Closed",amount:4500000},
+];
+
+PROCUREMENTS.forEach(p=>{
+  const color=p.status==='Open'?'#0f0':p.status==='Under Review'?'#fc0':'#888';
+  const m=L.circleMarker([p.lat,p.lng],{radius:7,color,fillColor:color,fillOpacity:0.5,weight:1.5})
+    .bindTooltip(`<b style="color:${color}">${p.title}</b>`,{direction:'right',className:'parcel-label'})
+    .bindPopup(`<div style="font-family:monospace;font-size:10px;color:#ccc"><b style="color:${color}">PROCUREMENT</b><br>${p.title}<br>Dept: ${p.dept}<br>Status: ${p.status}<br>Amount: $${(p.amount/1e6).toFixed(1)}M<br><a href="https://procurement.opengov.com/portal/ocgov" target="_blank">OpenGov Portal</a></div>`);
+  layers.procurement.push(m);
+  m.addTo(map);
+});
+
+// === UPDATE STATS ===
+document.getElementById('stats-body').innerHTML = `
+  States: <b>50</b> | Flagged: <b>${TOTALS.flagged_states||1}</b><br>
+  PIT total: <b>${totalPit.toLocaleString()}</b><br>
+  <span class="r">Est gap: <b>${totalGap.toLocaleString()}</b></span><br>
+  <span class="r">HUD COC: $${(totalCoc/1e6).toFixed(0)}M (${hudC} states)</span><br>
+  <span class="c">SBA PPP: $${(totalPpp/1e12).toFixed(1)}T (${sbaC} states)</span><br>
+  <span class="y">CARES: ${caresC} states</span> | <span class="p">HHS: ${hhsC} states</span><br>
+  <br><b style="color:#f0f">OC TARGETS</b><br>
+  <span class="r">Luege: Risk 88</span><br>
+  <span class="r">Nunez: Risk 94</span><br>
+  <span class="r">Barnes: Risk 91</span><br>
+  <br><b style="color:#f44">CPS: OC 29.3K GAP</b><br>
+  <span class="r">4 child deaths | 279 emergencies</span><br>
+  <span class="p">30K removals/yr | $200M-$512M alleged</span>
+`;
+
+// === LEGEND ===
+document.getElementById('legend-body').innerHTML = `
+  <span class="rf"><span class="dot" style="background:#f44"></span>HUD COC</span>
+  <span class="cf"><span class="dot" style="background:#0ff"></span>SBA PPP</span>
+  <span class="yf"><span class="dot" style="background:#fc0"></span>CARES</span>
+  <span class="pf"><span class="dot" style="background:#f0f"></span>HHS / CPS</span><br>
+  <span class="rf">\u2622 TOXIC</span>
+  <span style="color:#f93">\u25A0 LLC/SUSPECT</span>
+  <span style="color:#0ff">\u2192 PLUME</span>
+  <span style="color:#888">\u25CF SINKHOLE</span>
+  <span style="color:#f0f">\u25C9 $ BLACK HOLE</span>
+  <span style="color:#ff0">\u25CF FCA FILING</span><br>
+  <a href="https://github.com/Tonypost949/osint-agent" target="_blank" style="color:#0f0">EVIDENCE REPO</a> |
+  <a href="https://procurement.opengov.com/portal/ocgov" target="_blank" style="color:#0f0">PROCUREMENT</a> |
+  <a href="https://github.com/Tonypost949/osint-agent/blob/master/FEDERAL_WHISTLEBLOWER_EXHIBIT.md" target="_blank" style="color:#0f0">EXHIBIT</a>
+`;
+
+// === SEARCH ===
+const allSearchable=[];
+STATEDATA.forEach(s=>allSearchable.push({type:'STATE',name:s.state,desc:`PIT:${s.pit} Gap:${s.gap}`,lat:s.lat,lng:s.lng}));
+TOXIC.forEach(t=>allSearchable.push({type:'TOXIC',name:t[2],desc:t[3],lat:t[0],lng:t[1]}));
+SUSPECT.forEach(s=>allSearchable.push({type:'LLC',name:s[2],desc:s[3],lat:s[0],lng:s[1]}));
+CPSEVENTS.forEach(c=>allSearchable.push({type:'CPS',name:c[2],desc:c[3],lat:c[0],lng:c[1]}));
+FCAEVENTS.forEach(f=>allSearchable.push({type:'FCA',name:f[2],desc:f[3],lat:f[0],lng:f[1]}));
+TARGETS.forEach(t=>allSearchable.push({type:'TARGET',name:t[2],desc:t[3],lat:t[0],lng:t[1]}));
+PROCUREMENTS.forEach(p=>allSearchable.push({type:'PROCURE',name:p.title,desc:`${p.dept} $${(p.amount/1e6).toFixed(1)}M`,lat:p.lat,lng:p.lng}));
+
+function doSearch(){
+  const q=document.getElementById('search-input').value.toLowerCase();
+  const results=document.getElementById('search-results');
+  results.innerHTML='';
+  if(!q||q.length<2)return;
+  const matches=allSearchable.filter(i=>(i.name+i.desc+i.type).toLowerCase().includes(q)).slice(0,15);
+  matches.forEach(m=>{
+    const d=document.createElement('div');
+    d.innerHTML=`<b>${m.type}</b> ${m.name}<br><small>${m.desc.substring(0,60)}</small>`;
+    d.onclick=()=>{map.setView([m.lat,m.lng],m.type==='STATE'?6:15);document.getElementById('search').classList.remove('show');};
+    results.appendChild(d);
+  });
+}
+
+// === RESET VIEW ===
+function resetView(){map.setView([38,-98],4.3);}
+
+// === THREAT MODE (red alert toggle) ===
+let threatActive=false;
+function threatMode(){
+  threatActive=!threatActive;
+  const color=threatActive?'#f00':'#f44';
+  document.querySelectorAll('.leaflet-interactive').forEach(el=>{
+    if(el._path&&el._path.classList){el.setAttribute('stroke',color);}
+  });
+}
+
+// Keyboard shortcuts
+document.addEventListener('keydown',e=>{
+  if(e.key==='f'&&e.ctrlKey){e.preventDefault();document.getElementById('search').classList.toggle('show');document.getElementById('search-input').focus();}
+  if(e.key==='t'&&e.ctrlKey){e.preventDefault();threatMode();}
+  if(e.key==='Escape'){document.getElementById('search').classList.remove('show');}
+});
+
+// === Load external procurement JSON if available ===
+fetch('oc_procurement_projects.json').then(r=>r.json()).then(data=>{
+  data.forEach(p=>{
+    if(p.lat&&p.lng){
+      const m=L.circleMarker([p.lat,p.lng],{radius:7,color:'#fa0',fillColor:'#fa0',fillOpacity:0.5,weight:1.5})
+        .bindTooltip(`<b>${p.title||'Project'}</b>`,{className:'parcel-label'})
+        .bindPopup(`<div style="font-family:monospace;font-size:10px;color:#ccc"><b style="color:#fa0">PROCUREMENT</b><br>${p.title}<br>${p.department||''}<br>${p.status||''}<br><a href="https://procurement.opengov.com/portal/ocgov" target="_blank">OpenGov</a></div>`);
+      layers.procurement.push(m);
+      m.addTo(map);
+    }
+  });
+  console.log(`Loaded ${data.length} procurement projects`);
+}).catch(()=>{/* no external file yet */});
+
+// === Load external BQ geo data if available ===
+try{
+  if(typeof LIVE_TOXIC!=='undefined')LIVE_TOXIC.forEach(d=>{
+    const m=L.marker([d.lat,d.lng],{icon:L.divIcon({html:TOXIC_ICON,iconSize:[20,20],iconAnchor:[10,10]})})
+      .bindTooltip(d.label,{direction:'top',className:'parcel-label'})
+      .bindPopup(`<div style="font-family:monospace;font-size:10px;color:#ccc"><b style="color:#f44">LIVE BQ</b><br>${d.label}<br>${d.desc}</div>`);
+    layers.toxic.push(m);m.addTo(map);
+  });
+  if(typeof LIVE_SUSPECT!=='undefined')LIVE_SUSPECT.forEach(d=>{
+    const m=L.marker([d.lat,d.lng],{icon:L.divIcon({html:SUSPECT_ICON,iconSize:[16,16],iconAnchor:[8,8]})})
+      .bindTooltip(d.label,{direction:'top',className:'parcel-label'})
+      .bindPopup(`<div style="font-family:monospace;font-size:10px;color:#ccc"><b style="color:#f93">LIVE BQ</b><br>${d.label}<br>${d.desc}</div>`);
+    layers.suspect.push(m);m.addTo(map);
+  });
+}catch(e){/* no live data */}
+
+console.log('OSINTNeoAi RICO Command Center — LIVE');
+console.log(`States:${STATEDATA.length} | TOXIC:${TOXIC.length} | SUSPECT:${SUSPECT.length} | CPS:${CPSEVENTS.length} | FCA:${FCAEVENTS.length} | TARGETS:${TARGETS.length}`);
+console.log('Ctrl+F = Search | Ctrl+T = Threat Mode');
+</script>
+</body>
 </html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recon – Physical Map + CSV Export</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { background: #0b0e14; color: #c8d0dc; font-family: 'Segoe UI', sans-serif; padding: 20px; margin: 0; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    h1 { color: #7ab7ff; display: flex; align-items: center; gap: 12px; }
+    .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; align-items: center; }
+    .controls input { flex: 1; min-width: 180px; padding: 12px; border-radius: 8px; border: 1px solid #2a3344; background: #141a24; color: #fff; }
+    .controls button { padding: 12px 22px; background: #1a6bff; border: none; border-radius: 8px; color: #fff; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+    #recordToggle.recording { background: #b71c1c; animation: pulse 1.2s infinite; }
+    #exportCSV { background: #2a5a2a; border: 1px solid #4caf50; color: #a5d6a7; }
+    .dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: #555; }
+    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+    .map-view { position: relative; width: 100%; background: #0f121a; border-radius: 12px; border: 1px solid #1f2a3a; overflow: hidden; }
+    canvas { display: block; width: 100%; height: auto; cursor: pointer; }
+    .detail-panel { display: none; position: fixed; right: 0; top: 0; bottom: 0; width: 400px; background: #141a24; border-left: 2px solid #1f2a3a; padding: 20px; overflow-y: auto; z-index: 1000; box-shadow: -4px 0 20px rgba(0,0,0,0.6); }
+    .detail-panel.open { display: block; }
+    .log { margin-top: 16px; background: #0b0e14; border: 1px solid #1f2a3a; border-radius: 8px; padding: 12px; font-family: 'Courier New', monospace; font-size: 12px; max-height: 250px; overflow-y: auto; color: #6a7a8e; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>🗺️ Recon Map (Receipt Mode)</h1>
+  <div class="controls">
+    <input type="text" id="domainInput" value="hbpd.org, huntingtonbeachca.gov, newportbeachca.gov, nbpd.org, santamonica.gov, santamonicapd.org, cityofirvine.org, irvinepd.org" />
+    <button id="scanBtn">▶ Run Scan</button>
+    <button id="recordToggle"><span class="dot"></span> <span id="recordLabel">Record (OFF)</span></button>
+    <button id="exportCSV">⬇ Export CSV</button>
+    <button id="downloadLog" style="display:none;">⬇ Receipt</button>
+  </div>
+  <div id="resultsContainer" class="map-view"></div>
+  <div id="log" class="log">Ready. All data stays local.</div>
+</div>
+<div id="detailPanel" class="detail-panel">
+  <button onclick="document.getElementById('detailPanel').classList.remove('open')" style="float:right;background:#2a3344;color:#fff;border:none;cursor:pointer;padding:5px 10px;">✕</button>
+  <h2 id="panelDomain">Domain</h2>
+  <div id="panelPathList"></div>
+</div>
+<script>
+  (function() {
+    const PROXY = 'https://corsproxy.io/?';
+    const adminPaths = ['/admin', '/.env', '/.git/config', '/backup.sql', '/.aws/credentials', '/config', '/phpmyadmin'];
+    const cityCoords = {
+      'hbpd.org': { x: 0.25, y: 0.70 }, 'huntingtonbeachca.gov': { x: 0.25, y: 0.75 },
+      'newportbeachca.gov': { x: 0.35, y: 0.80 }, 'nbpd.org': { x: 0.38, y: 0.82 },
+      'santamonica.gov': { x: 0.10, y: 0.30 }, 'santamonicapd.org': { x: 0.08, y: 0.33 },
+      'cityofirvine.org': { x: 0.45, y: 0.65 }, 'irvinepd.org': { x: 0.48, y: 0.68 }
+    };
+    let isRecording = false, sessionLog = [], allResults = [];
+
+    async function checkUrl(url) {
+      try {
+        const resp = await fetch(PROXY + encodeURIComponent(url), { signal: AbortSignal.timeout(8000) });
+        const line = `[${new Date().toLocaleTimeString()}] ${resp.ok ? '✅' : '❌'} ${url} → ${resp.status}`;
+        document.getElementById('log').textContent += `\n${line}`;
+        if (isRecording) sessionLog.push(line);
+        return { url, status: resp.status, ok: resp.ok };
+      } catch (e) { return { url, status: 0, ok: false }; }
+    }
+
+    async function runScan() {
+      const domains = document.getElementById('domainInput').value.split(',').map(s => s.trim());
+      allResults = [];
+      for (const domain of domains) {
+        let base = 'https://' + domain;
+        let res = await checkUrl(base);
+        const paths = [];
+        for (const p of adminPaths) {
+          const r = await checkUrl(base + p);
+          paths.push({ path: p, status: r.status, found: r.ok && r.status < 400 });
+        }
+        allResults.push({ domain, reachable: res.ok, paths, foundPaths: paths.filter(p => p.found) });
+        renderMap();
+      }
+      isRecording = false;
+      document.getElementById('recordToggle').classList.remove('recording');
+      document.getElementById('downloadLog').style.display = 'inline-flex';
+    }
+
+    function renderMap() {
+      const resultsContainer = document.getElementById('resultsContainer');
+      resultsContainer.innerHTML = '<canvas id="mapCanvas" width="800" height="600"></canvas>';
+      const ctx = document.getElementById('mapCanvas').getContext('2d');
+      ctx.fillStyle = '#0f121a'; ctx.fillRect(0, 0, 800, 600);
+      allResults.forEach(r => {
+        const coords = cityCoords[r.domain] || { x: Math.random(), y: Math.random() };
+        const color = r.reachable ? (r.foundPaths.length > 0 ? '#ffa726' : '#4caf50') : '#f44336';
+        ctx.beginPath(); ctx.arc(coords.x * 800, coords.y * 600, 15, 0, Math.PI * 2);
+        ctx.fillStyle = color; ctx.fill();
+        ctx.fillStyle = '#fff'; ctx.fillText(r.domain, coords.x * 800 - 20, coords.y * 600 - 20);
+      });
+    }
+
+    document.getElementById('scanBtn').onclick = () => { isRecording = true; document.getElementById('recordToggle').classList.add('recording'); runScan(); };
+    document.getElementById('exportCSV').onclick = () => {
+      let csv = 'Domain,Path,Status\n';
+      allResults.forEach(r => r.paths.forEach(p => csv += `${r.domain},${p.path},${p.status}\n`));
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'recon_audit.csv'; a.click();
+    };
+    renderMap();
+  })();
+</script>
+</body>
+</html>

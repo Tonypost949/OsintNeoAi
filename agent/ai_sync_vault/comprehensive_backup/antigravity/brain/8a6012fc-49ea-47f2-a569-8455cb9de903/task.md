@@ -1,0 +1,4 @@
+- [x] Update default theme to dark in App.tsx
+- [x] Redesign Home.tsx landing page and dashboard layout
+- [x] Upgrade visual aesthetics in Analysis.tsx
+- [x] Verify local server renders correctly

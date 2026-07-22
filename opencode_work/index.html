@@ -99,7 +99,23 @@ function toggle(key){
 }
 
 // === MAP ===
-const map=L.map('map',{zoomControl:false,attributionControl:false}).setView([38,-98],4.3);
+const defaultCenter = [38,-98];
+const defaultZoom = 4.3;
+let savedCenter, savedZoom;
+try {
+  savedCenter = localStorage.getItem('mapCenter') ? JSON.parse(localStorage.getItem('mapCenter')) : defaultCenter;
+  savedZoom = localStorage.getItem('mapZoom') ? parseFloat(localStorage.getItem('mapZoom')) : defaultZoom;
+} catch (e) {
+  savedCenter = defaultCenter;
+  savedZoom = defaultZoom;
+}
+const map=L.map('map',{zoomControl:false,attributionControl:false}).setView(savedCenter, savedZoom);
+map.on('moveend', () => {
+  try {
+    localStorage.setItem('mapCenter', JSON.stringify([map.getCenter().lat, map.getCenter().lng]));
+    localStorage.setItem('mapZoom', map.getZoom());
+  } catch (e) {}
+});
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:19}).addTo(map);
 L.control.zoom({position:'bottomleft'}).addTo(map);
 

@@ -1,0 +1,5 @@
+- [x] Create backup synchronization script `sync_backups.py`
+- [x] Run `sync_backups.py` to extract all zip backups in `github_backups/`
+- [x] Modify `osint_dashboard.py` to import and leverage NPI logic and the extracted Riconow databases
+- [x] Add the NPI Forensic Auditing screen to the Streamlit dashboard
+- [x] Verify execution of the integrated dashboard and auto-sync

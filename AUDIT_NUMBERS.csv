@@ -1,0 +1,11 @@
+Domain,Path,Status,Severity,Category
+hbpd.org,/.env,403,CRITICAL,Environment Secrets
+hbpd.org,/.aws/credentials,302,CRITICAL,Cloud Credentials
+hbpd.org,/.git/config,403,CRITICAL,Version Control
+santamonicapd.org,/backup.sql,301,CRITICAL,Database Backup
+santamonicapd.org,/.git/config,301,CRITICAL,Version Control
+lapdonline.org,/.env,403,CRITICAL,Environment Secrets
+dallaspolice.net,/.aws/config,301,CRITICAL,Cloud Credentials
+santaanapd.org,/.config/db.yml,301,HIGH,Database Config
+alaska.gov,/.ssh,200,CRITICAL,Secure Shell
+lapd.org,/.ssh,200,CRITICAL,Secure Shell
