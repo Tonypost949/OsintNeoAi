@@ -6,5 +6,13 @@ santamonicapd.org,Exposed Endpoint,Database,2,CRITICAL,200,/.git/config /backup.
 lapdonline.org,Exposed Endpoint,Secrets,1,CRITICAL,200,/.env
 santaanapd.org,Exposed Endpoint,Database Config,1,HIGH,200,/.config/db.yml
 dallaspolice.net,Exposed Endpoint,Cloud Access,1,CRITICAL,200,/.aws/config
+columbus.gov,Pending Audit,Nationwide,0,HIGH,N/A,Recent major breach reported 2026
+stpaul.gov,Pending Audit,Nationwide,0,HIGH,N/A,Interlock ransomware target 2026
+acworth.org,Pending Audit,Nationwide,0,WARN,N/A,June 2026 system breach
+ardmorecity.org,Pending Audit,Nationwide,0,WARN,N/A,Ransomware notification issued
+suffolkva.us,Pending Audit,Nationwide,0,WARN,N/A,Investigating unauthorized access
+anchorage.gov,Pending Audit,Nationwide,0,INFO,N/A,Police servers taken offline 2026
+wichita.gov,Pending Audit,Nationwide,0,INFO,N/A,Recent cyber disruption reporting
+desmoines.gov,Pending Audit,Nationwide,0,INFO,N/A,Geolocated IP confirmed in BQ
 socalgovernments,Geolocated Nodes,Infrastructure,75,INFO,N/A,Resolved City IPs
 municipal_portals,Total Endpoints Checked,Recon,1351,INFO,N/A,Active Recon Scan
