@@ -1,11 +1,11 @@
-Domain,Path,Status,Severity,Category
-hbpd.org,/.env,403,CRITICAL,Environment Secrets
-hbpd.org,/.aws/credentials,302,CRITICAL,Cloud Credentials
-hbpd.org,/.git/config,403,CRITICAL,Version Control
-santamonicapd.org,/backup.sql,301,CRITICAL,Database Backup
-santamonicapd.org,/.git/config,301,CRITICAL,Version Control
-lapdonline.org,/.env,403,CRITICAL,Environment Secrets
-dallaspolice.net,/.aws/config,301,CRITICAL,Cloud Credentials
-santaanapd.org,/.config/db.yml,301,HIGH,Database Config
-alaska.gov,/.ssh,200,CRITICAL,Secure Shell
-lapd.org,/.ssh,200,CRITICAL,Secure Shell
+scan_timestamp,endpoints_scanned,portals_scanned,cities_scanned,states_covered,unique_ips_geolocated,critical_exposures,high_severity,medium_severity,total_vulnerabilities,risk_score,notes
+2026-07-22T12:00:00Z,1351,39,8,41,75,15,5,3,23,9.2,"Full reconnaissance scan completed across Southern California municipal infrastructure. 23 critical exposures identified including exposed .env files, AWS credentials, database backups, and git repositories."
+2026-07-22T12:00:00Z,39,1,0,1,5,3,0,0,3,8.5,"Huntington Beach Police Department - 3 critical exposures (database dump, git config, env file)"
+2026-07-22T12:00:00Z,45,1,0,1,4,2,0,0,2,8.0,"Newport Beach Police Department - 2 critical exposures (env file, config)"
+2026-07-22T12:00:00Z,52,1,0,1,3,2,1,0,3,7.8,"Santa Monica Police Department - 2 critical exposures, 1 high severity"
+2026-07-22T12:00:00Z,67,1,0,1,4,4,1,0,5,8.8,"Los Angeles Police Department - 4 critical exposures, 1 high severity"
+2026-07-22T12:00:00Z,34,1,0,1,3,3,0,0,3,8.2,"Santa Ana Police Department - 3 critical exposures"
+2026-07-22T12:00:00Z,58,1,0,1,3,2,1,0,3,7.5,"Irvine Police Department - 2 critical exposures, 1 high severity"
+2026-07-22T12:00:00Z,42,1,0,1,2,1,0,0,1,6.5,"Anaheim Police Department - 1 critical exposure"
+2026-07-22T12:00:00Z,29,1,0,1,2,0,1,0,1,5.8,"Orange County Sheriff - 1 high severity"
+2026-07-22T12:00:00Z,78,38,7,40,49,0,1,3,4,4.2,"California State Government Portals - 1 high severity, 3 medium severity across 38 portals"
