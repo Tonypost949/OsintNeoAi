@@ -1,0 +1,6 @@
+id,timestamp,target,type,status,redaction_flag,ci_status,commit_sha,evidence_url
+ART-001,2026-07-24T08:45Z,hbpd.org,socket_scan,verified,true,pass,97800f9d,https://github.com/Tonypost949/OsintNeoAi/blob/main/agent/banner_grabber.py
+ART-002,2026-07-24T09:39Z,newportbeachca.gov,report_stub,pending,false,pass,b7623636,https://github.com/Tonypost949/OsintNeoAi/blob/main/reports/municipal_exposures/newport_beach.md
+ART-003,2026-07-24T09:39Z,costamesaca.gov,report_stub,pending,false,pass,7a57cc5e,https://github.com/Tonypost949/OsintNeoAi/blob/main/reports/municipal_exposures/costa_mesa.md
+ART-004,2026-07-22T01:00Z,hbdp.org,recon_receipt,active,true,pass,53cc8141,https://github.com/Tonypost949/OsintNeoAi/blob/main/PUBLIC_RECON_AUDIT.html
+ART-005,2026-07-22T01:00Z,national,audit_numbers,active,true,pass,66022c62,https://github.com/Tonypost949/OsintNeoAi/blob/main/AUDIT_NUMBERS.csv
