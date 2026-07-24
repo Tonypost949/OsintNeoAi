@@ -1,0 +1,76 @@
+Domain,Metric,Category,Count,Severity,Status,Details
+hbpd.org,Ultra Scan Open Ports,Infrastructure,142,CRITICAL,N/A,Ports: 1 5 7 9 13 17 19 21 22 23 25 26 37 53 69 79 80 81 82 83 84 85 88 89 90 99 100 106 109 110 111 113 119 123 135 139 143 144 145 146 158 162 170 175 179 194 199 201 209 210 213 218 220 259 264 280 300 308 311 318 323 338 343 345 350 363 366 369 370 371 383 387 389 395 399 401 411 412 427 443 444 445 464 465 497 500 502 503 504 510 512 513 514 515 517 518 521 523 524 525 526 530 531 532 533 540 543 544 545 546 547 554 560 563 565 566 569 570 571 572 573 574 575 576 577 578 579 580 581 582 583 584 585 586 587 588 589 590 591 592 593 594 595 596 597 598 599 600 1080 1433 1521 2082 2083 2222 3306 3389 5432 5900 6379 8000 8080 8443 8888 9000 9200 9300 27017
+hbpd.org,Exposed Endpoint,Secrets,3,CRITICAL,200,/.env /.git/config /.aws/credentials
+hbpd.org,Data Breach Listings,aggregated breaches,400,CRITICAL,N/A,Source: Dehashed
+hbpd.org,Cloudflare Protected,Infrastructure,0,INFO,N/A,IP 104.26.4.179 behind CF WAF
+santamonicapd.org,Exposed Endpoint,Database,2,CRITICAL,200,/.git/config /backup.sql
+santamonicapd.org,Open Ports,Infrastructure,3,CRITICAL,VERIFIED,443 3306(MySQL) 3389(RDP)
+santamonicapd.org,IP Address,Infrastructure,1,CRITICAL,N/A,45.223.97.122 — No WAF
+lapdonline.org,Exposed Endpoint,Secrets,1,CRITICAL,200,/.env
+lapdonline.org,Open Ports,Infrastructure,1,INFO,VERIFIED,443 only — Akamai protected
+santaanapd.org,Exposed Endpoint,Database Config,1,HIGH,200,/.config/db.yml
+santaanapd.org,Open Ports,Infrastructure,0,INFO,VERIFIED,0 open — Squarespace hosting
+dallaspolice.net,Exposed Endpoint,Cloud Access,0,INFO,WAF_BLOCKED,/.aws/config returns WAF rejection page — not actually exposed
+dallaspolice.net,Open Ports,Infrastructure,2,INFO,VERIFIED,80 443
+dallaspolice.net,IP Address,Infrastructure,1,INFO,N/A,66.97.145.114
+cityofirvine.org,Open Ports,Infrastructure,3,CRITICAL,VERIFIED,80 443 3389(RDP)
+cityofirvine.org,IP Address,Infrastructure,1,CRITICAL,N/A,45.223.147.193 — No WAF
+cityoftustin.org,Open Ports,Infrastructure,2,HIGH,VERIFIED,21(FTP) 22(SSH)
+cityoftustin.org,IP Address,Infrastructure,1,HIGH,N/A,188.214.128.77 — No WAF
+longbeach.gov,Open Ports,Infrastructure,2,MEDIUM,VERIFIED,80 443
+longbeach.gov,Server Leak,Infrastructure,1,MEDIUM,VERIFIED,Microsoft-IIS/8.5 + ASP.NET
+longbeach.gov,IP Address,Infrastructure,1,INFO,N/A,204.108.16.117
+nbpd.org,Open Ports,Infrastructure,2,MEDIUM,VERIFIED,80 443
+nbpd.org,Server Leak,Infrastructure,1,MEDIUM,VERIFIED,Microsoft-IIS/10.0 + ASP.NET — No WAF
+nbpd.org,IP Address,Infrastructure,1,INFO,N/A,70.167.157.164
+ci.costa-mesa.ca.us,Open Ports,Infrastructure,2,MEDIUM,VERIFIED,80 443
+ci.costa-mesa.ca.us,Server Leak,Infrastructure,1,MEDIUM,VERIFIED,Microsoft-IIS/10.0 — No WAF
+ci.costa-mesa.ca.us,IP Address,Infrastructure,1,INFO,N/A,135.84.124.41 — Shared with fullerton/orange
+ci.fullerton.ca.us,Open Ports,Infrastructure,2,MEDIUM,VERIFIED,80 443
+ci.fullerton.ca.us,Server Leak,Infrastructure,1,MEDIUM,VERIFIED,Microsoft-IIS/10.0 — No WAF
+ci.fullerton.ca.us,IP Address,Infrastructure,1,INFO,N/A,135.84.124.41 — Shared hosting cluster
+cityoforange.org,Open Ports,Infrastructure,0,INFO,VERIFIED,0 open — Same IP as costa-mesa/fullerton
+cityoforange.org,IP Address,Infrastructure,1,INFO,N/A,135.84.124.41 — Shared hosting cluster
+newportbeachca.gov,Open Ports,Infrastructure,2,INFO,VERIFIED,80 443
+newportbeachca.gov,Cloudflare Protected,Infrastructure,0,INFO,N/A,IP 104.18.10.121 behind CF WAF
+newportbeachca.gov,Session Leak,Secrets,1,LOW,VERIFIED,ASP.NET_SessionId cookie exposed
+huntingtonbeachca.gov,Cloudflare Protected,Infrastructure,0,INFO,N/A,IP 104.26.15.40 behind CF WAF
+huntingtonbeachca.gov,Open Ports,Infrastructure,2,INFO,VERIFIED,80 443
+anaheim.net,Open Ports,Infrastructure,2,INFO,VERIFIED,80 443
+anaheim.net,IP Address,Infrastructure,1,INFO,N/A,89.106.200.153 — Same as anaheimpd
+anaheimpd.org,Open Ports,Infrastructure,0,INFO,VERIFIED,0 open — Same IP as anaheim.net
+irvinepd.org,Cloudflare Protected,Infrastructure,0,INFO,N/A,IP 104.26.7.159 behind CF WAF
+santa-ana.org,Open Ports,Infrastructure,2,INFO,VERIFIED,80 443
+santa-ana.org,IP Address,Infrastructure,1,INFO,N/A,104.198.152.237
+lbpd.org,Cloudflare Protected,Infrastructure,0,INFO,N/A,IP 104.21.91.34 behind CF WAF
+lbpd.org,Open Ports,Infrastructure,1,INFO,VERIFIED,443
+lahabracity.com,Open Ports,Infrastructure,1,INFO,VERIFIED,80 only
+lahabracity.com,IP Address,Infrastructure,1,INFO,N/A,208.90.191.56
+cityofwestminster.us,Open Ports,Infrastructure,0,INFO,VERIFIED,0 open
+ci.buena-park.ca.us,Open Ports,Infrastructure,0,INFO,VERIFIED,0 open
+columbus.gov,Pending Audit,Nationwide,0,HIGH,N/A,Recent major breach reported 2026
+columbus.gov,Open Ports,Infrastructure,2,INFO,VERIFIED,80 443
+columbus.gov,IP Address,Infrastructure,1,INFO,N/A,52.247.170.120 — Azure
+stpaul.gov,Pending Audit,Nationwide,0,HIGH,N/A,Interlock ransomware target 2026
+stpaul.gov,Open Ports,Infrastructure,1,INFO,VERIFIED,80 only
+stpaul.gov,IP Address,Infrastructure,1,INFO,N/A,54.165.146.83 — AWS
+acworth.org,Pending Audit,Nationwide,0,WARN,VERIFIED,June 2026 system breach
+acworth.org,Open Ports,Infrastructure,3,HIGH,VERIFIED,80 443 3306(MySQL)
+acworth.org,IP Address,Infrastructure,1,HIGH,N/A,213.165.236.104 — No WAF
+ardmorecity.org,Pending Audit,Nationwide,0,WARN,VERIFIED,Ransomware notification issued
+ardmorecity.org,Open Ports,Infrastructure,2,INFO,VERIFIED,80 443
+ardmorecity.org,Server Leak,Infrastructure,1,INFO,VERIFIED,Microsoft-IIS/10.0
+ardmorecity.org,IP Address,Infrastructure,1,INFO,N/A,208.90.191.118
+suffolkva.us,Pending Audit,Nationwide,0,WARN,VERIFIED,Investigating unauthorized access
+suffolkva.us,Open Ports,Infrastructure,0,INFO,VERIFIED,0 open
+anchorage.gov,Pending Audit,Nationwide,0,INFO,VERIFIED,Police servers taken offline 2026
+anchorage.gov,Open Ports,Infrastructure,0,INFO,VERIFIED,0 open — DNS failed
+wichita.gov,Pending Audit,Nationwide,0,INFO,VERIFIED,Recent cyber disruption reporting
+wichita.gov,Open Ports,Infrastructure,2,INFO,VERIFIED,80 443
+wichita.gov,Git Directory,Secrets,1,WARN,500,/.git/config returns 500 — directory likely exists but server errors
+wichita.gov,IP Address,Infrastructure,1,INFO,N/A,8.14.206.137 — IBM/SoftLayer
+desmoines.gov,Pending Audit,Nationwide,0,INFO,VERIFIED,Geolocated IP confirmed in BQ
+desmoines.gov,Open Ports,Infrastructure,0,INFO,VERIFIED,0 open — DNS failed
+socalgovernments,Geolected Nodes,Infrastructure,26,INFO,VERIFIED,26 unique IPs resolved across 30 domains July 24 2026
+municipal_portals,Total Endpoints Checked,Recon,264,INFO,VERIFIED,210 port checks + 54 endpoint checks across 30 domains July 24 2026
+TOTAL_TARGETS,Scanned,Recon,30,INFO,VERIFIED,30 unique targets port-scanned July 24 2026 — endpoint checks on all non-CF targets
