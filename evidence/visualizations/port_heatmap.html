@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Port Exposure Heatmap</title>
+    <style>
+        body { background: #0b0e14; color: #c8d0dc; font-family: sans-serif; padding: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; background: #141a24; }
+        th, td { border: 1px solid #1f2a3a; padding: 10px; text-align: center; font-size: 12px; }
+        th { background: #1a6bff; color: white; position: sticky; top: 0; }
+        .open { font-weight: bold; }
+        .high-risk { background: #ff4444; color: white; }
+        .med-risk { background: #ffa500; color: white; }
+        .low-risk { background: #ffff44; color: black; }
+        .closed { background: #2a5a2a; color: #a5d6a7; }
+        h1 { color: #7ab7ff; }
+    </style>
+</head>
+<body>
+    <h1>Critical Infrastructure Port Exposure Heatmap</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Target Domain</th>
+                <th>21 (FTP)</th>
+                <th>25 (SMTP)</th>
+                <th>80 (HTTP)</th>
+                <th>110 (POP3)</th>
+                <th>143 (IMAP)</th>
+                <th>443 (HTTPS)</th>
+                <th>993 (IMAPS)</th>
+                <th>995 (POP3S)</th>
+                <th>1433 (SQL)</th>
+                <th>3306 (SQL)</th>
+                <th>3389 (RDP)</th>
+                <th>5432 (SQL)</th>
+                <th>5900 (VNC)</th>
+                <th>8080 (ALT)</th>
+                <th>8443 (ALT)</th>
+                <th>9200 (ES)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align:left; font-weight:bold;">lacounty.gov</td>
+                <td class="open med-risk">OPEN</td><td class="closed">CLOSED</td><td class="open low-risk">OPEN</td><td class="open low-risk">OPEN</td><td class="open low-risk">OPEN</td><td class="open low-risk">OPEN</td><td class="open low-risk">OPEN</td><td class="open low-risk">OPEN</td><td class="open high-risk">OPEN</td><td class="open high-risk">OPEN</td><td class="open high-risk">OPEN</td><td class="closed">CLOSED</td><td class="open high-risk">OPEN</td><td class="open low-risk">OPEN</td><td class="open low-risk">OPEN</td><td class="open high-risk">OPEN</td>
+            </tr>
+            <tr>
+                <td style="text-align:left; font-weight:bold;">libertyseniorliving.com</td>
+                <td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="open low-risk">OPEN</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="open low-risk">OPEN</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="open low-risk">OPEN</td><td class="open low-risk">OPEN</td><td class="closed">CLOSED</td>
+            </tr>
+            <tr>
+                <td style="text-align:left; font-weight:bold;">pimasheriff.org</td>
+                <td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="open low-risk">OPEN</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="open low-risk">OPEN</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="open low-risk">OPEN</td><td class="open low-risk">OPEN</td><td class="closed">CLOSED</td>
+            </tr>
+            <tr>
+                <td style="text-align:left; font-weight:bold;">cookcountysheriff.org</td>
+                <td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="open low-risk">OPEN</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="open low-risk">OPEN</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="open low-risk">OPEN</td><td class="open low-risk">OPEN</td><td class="closed">CLOSED</td>
+            </tr>
+            <tr>
+                <td style="text-align:left; font-weight:bold;">hbpd.org</td>
+                <td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="open low-risk">OPEN</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td>
+            </tr>
+            <tr>
+                <td style="text-align:left; font-weight:bold;">shelbycountytn.gov</td>
+                <td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="open low-risk">OPEN</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="open low-risk">OPEN</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td>
+            </tr>
+            <tr>
+                <td style="text-align:left; font-weight:bold;">anaheim.net</td>
+                <td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="open low-risk">OPEN</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="open low-risk">OPEN</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td><td class="closed">CLOSED</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
