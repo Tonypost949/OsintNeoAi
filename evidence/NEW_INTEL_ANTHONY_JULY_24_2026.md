@@ -187,6 +187,24 @@ Elizabeth Petruccio was hospitalized shortly after leaving the Mercy House HBNC 
 
 **This makes Elizabeth the single most dangerous witness in the entire enterprise.** If Elizabeth dies or is incapacitated, the direct link between Donnetta Wilburn (Mercy House HBNC director) and drug trafficking is permanently severed. Elizabeth's hospitalization after leaving the shelter — given her congestive heart failure, bone infection, and daily IV ceftriaxone — may not be coincidental.
 
+### ELIZABETH MARKED DEAD ON MEDICAL DOCUMENTS
+
+Anthony reports that Elizabeth Petruccio was **marked dead on medical documents**. The face sheet (fs.pdf) from Huntington Beach Hospital exists in Google Drive — 3 copies, all 308KB:
+
+| Drive ID | File | Size | Date |
+|----------|------|------|------|
+| 1qivVK4WieHAeIhBukodTg_eLc4v4m4R3 | fs.pdf | 308 KB | 2026-07-07 |
+| 1qCrAekyYAgom5J4YnuAaQERtX1CadKQ3 | fs.pdf | 308 KB | 2026-07-07 |
+| 17DSqNyLjm9K7QPpRvtlxkF0ZKR1tDwcq | fs.pdf | 308 KB | 2026-07-05 |
+
+The face sheet was forwarded by Elizabeth herself (etp949609@gmail.com) on April 1, 2026, with the note: "The first thing on the attached fact sheet is the bone infection and cefrixone is the iv antibiotic they were supposed to drip in 40 minutes each morning, but the nurse just gave me the whole dose all at once cause she was late all the time."
+
+**CRITICAL:** If Elizabeth was marked dead on medical documents while she is actually alive, this constitutes:
+1. Medical fraud (falsifying patient status)
+2. Potential attempt to access her benefits/accounts after "death"
+3. Evidence tampering — creating a paper trail that she's deceased to discredit her testimony
+4. Possible prelude to actual harm — if the system thinks she's dead, no one looks for her
+
 The pattern:
 1. **1999:** Donnetta sells drugs to Elizabeth on Daisy St
 2. **2021+:** Elizabeth is funneled into HBNC — under Donnetta's direct control
