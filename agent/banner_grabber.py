@@ -18,6 +18,7 @@ def grab_banner(ip, port):
         return None
 
 def scan_target(target, ports, log_file):
+    print(f"[*] Probing target: {target}")
     with open(log_file, "a") as f:
         f.write(f"\nTARGET: {target}\n")
         f.write("-" * 50 + "\n")
@@ -25,8 +26,10 @@ def scan_target(target, ports, log_file):
             banner = grab_banner(target, port)
             if banner:
                 result = f"PORT {port}: OPEN | BANNER: {repr(banner)}"
+                print(f"[+] {target}:{port} -> {result}")
                 f.write(result + "\n")
             else:
+                print(f"[-] {target}:{port} -> CLOSED/FILTERED")
                 f.write(f"PORT {port}: CLOSED/FILTERED\n")
         f.write("-" * 50 + "\n")
 
@@ -39,11 +42,13 @@ def main():
     ports = [int(p) for p in args.ports.split(',')]
     timestamp = datetime.now().isoformat()
     log_file = f"nationwide_banner_scan_{int(time.time())}.log"
+    print(f"[*] NATIONWIDE SCAN START: {timestamp}")
     with open(log_file, "w") as f:
         f.write(f"NATIONWIDE_SCAN_START: {timestamp}\n")
         f.write(f"TARGETS: {args.targets}\n")
     for target in targets:
         if target: scan_target(target, ports, log_file); time.sleep(1)
+    print(f"[*] NATIONWIDE SCAN END: {datetime.now().isoformat()}")
     with open(log_file, "a") as f:
         f.write(f"\nNATIONWIDE_SCAN_END: {datetime.now().isoformat()}\n")
 
