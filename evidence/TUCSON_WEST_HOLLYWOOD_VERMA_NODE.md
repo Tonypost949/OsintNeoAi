@@ -99,24 +99,40 @@
 | Status | Active mandated reporter documenting International Child Trafficking RICO |
 | Operational Role | Primary secure communications relay — Dr. Verma's restricted communications routed through her email |
 
-## IV. ANDREW FAULK — PROPERTY OWNER (1133 N FORMOSA)
+## IV. ANDREW FAULK / FALK — PROPERTY OWNER (1133 N FORMOSA)
 
 | Field | Detail |
 |-------|--------|
-| Name | Andrew Faulk |
+| Name | Andrew Faulk (also spelled "Andrew Falk" in Antigravity DeepSeek data — spelling needs confirmation from Anthony) |
 | Email | drewfalk@me.com (consumer-grade, untraceable — displacement-by-informality tactic) |
 | Role | Claims to be property owner AND HOA President of 1133 N Formosa |
 | HOA Status | Officially "Inactive" — dissolved entity, yet Faulk continues to collect fees and make unilateral decisions |
 | Crime | Sold Dr. Ann Verma into sham rent-to-own arrangement |
 | TDS Violation | Failed to provide Transfer Disclosure Statement (CA Civil Code 1102) — mandatory for any sale with purchase option |
-| Biohazards Found | Toxic mold, critical fire code violations, visible blood (potential undisclosed crime scene) |
+| Biohazards Found | Toxic mold (180,000 spore count Aspergillus), critical fire code violations, visible blood (potential undisclosed crime scene) |
 | Complicity | West Hollywood Sheriff runs operations on tenants |
 | Fire Codes | Entire neighborhood has NO up-to-date fire codes |
 | Suresh Verma | Fabricated identity introduced into negotiations — claimed to be Dr. Verma's father, physician, Westminster Seminary alumnus, 5044 Allington St, Lakewood. Debunked: address belongs to unrelated citizens, academic claims don't match databases |
 | Tactic | "Prestige Layering" — manufacturing false familial trust to induce predatory contract signing |
+| Photo | andrewfalk.png in Google Drive (2 copies, 591KB each): Drive IDs 1MoCBkApx1ZwJRKVbuPLaTjJ0POXIY6cJ and 1jx3O7LpcGqqNbM_Zpq0K5JKTnweE91V2 |
+
+### ADDRESS DISCREPANCY — RESOLVED
+
+**Antigravity DeepSeek data (June 2026):** References "1133 N. Normandie Ave, Los Angeles, CA 90029"
+**Current doc + Google Doc (July 4, 2026):** References "1133 N Formosa Ave, West Hollywood, CA 90046"
+**Resolution:** The current documentation is correct (matches Google Doc Notice of Rescission). The Antigravity data used an incorrect address. Both N. Normandie and N. Formosa run parallel N-S through Hollywood/West Hollywood, ~0.3 miles apart.
+
+### NAME SPELLING DISCREPANCY — NEEDS ANTHONY CONFIRMATION
+
+- Current doc uses: "Andrew **Faulk**" (with 'u')
+- Antigravity DeepSeek data uses: "Andrew **Falk**" (without 'u')
+- Email uses: "drew**falk**@me.com" (without 'u')
+- Drive filename uses: "andrew**falk**.png" (without 'u')
+- Google Doc may use one or the other — needs verification against the Rescission Notice text
 
 **Legal Basis for Rescission:** CA Civil Code 1941.1 (Warranty of Habitability), West Hollywood Municipal Code 17.52.090 (Tenant Harassment)
 **July 4, 2026:** Notice of Rescission and Demand for Restitution filed
+**July 4, 2026:** Google Doc created: "Notice of Rescission and Demand for Restitution: 1133 N Formosa" (Doc ID: 1ZfxgYiowD_svrrLCxgIMPDv-aHTNfjSDxIC6PclDVFE)
 
 ## V. JUDGE DAVID W. SWIFT — SANTA MONICA COURTS
 
@@ -156,26 +172,32 @@
 
 ## VIII. EVIDENCE IN REPO
 
-| File | Path |
+| File | Path / Drive ID |
 |------|------|
 | Petruccio Medical Summary | C:\migrate opencode\OSINTNEOAI\PETRUCCIO_MEDICAL_SUMMARY.md |
 | Comprehensive RICO Directory | C:\migrate opencode\OSINTNEOAI\core\new_program_scratch\comprehensive_rico_suspect_directory.md |
 | Gmail Hits (Ann Verma) | C:\migrate opencode\OSINTNEOAI\gmail_amd949609_hits.json |
 | Drive Index (1133 N Formosa doc) | C:\migrate opencode\OSINTNEOAI\agent\drive_file_index_full.csv (line 5358) |
+| Drive Index (andrewfalk.png copy 1) | C:\migrate opencode\OSINTNEOAI\agent\drive_file_index_full.csv (line 9730) — Drive ID: 1MoCBkApx1ZwJRKVbuPLaTjJ0POXIY6cJ |
+| Drive Index (andrewfalk.png copy 2) | C:\migrate opencode\OSINTNEOAI\agent\drive_file_index_full.csv (line 9731) — Drive ID: 1jx3O7LpcGqqNbM_Zpq0K5JKTnweE91V2 |
+| Google Doc (Rescission Notice) | https://docs.google.com/document/d/1ZfxgYiowD_svrrLCxgIMPDv-aHTNfjSDxIC6PclDVFE/edit |
 | Federal Criminal Referral | C:\migrate opencode\OSINTNEOAI\gmail_amd949609_hits.json (line 1183) |
 | Mandatory Reporter Notice | C:\migrate opencode\OSINTNEOAI\gmail_amd949609_hits.json (line 1211) |
 | Headway Issues | C:\migrate opencode\OSINTNEOAI\agent\deepseek_session_dehashed_hbpd.txt (line 2787+) |
 | Forensic Master Spreadsheet | C:\migrate opencode\OSINTNEOAI\agent\local_scan_extracted_text.csv (line 163934-163935) |
-| Google Doc (Rescission Notice) | https://docs.google.com/document/d/1ZfxgYiowD_svrrLCxgIMPDv-aHTNfjSDxIC6PclDVFE/edit |
+| Antigravity WH Investigation | C:\migrate opencode\OSINTNEOAI\agent\ai_sync_vault\comprehensive_backup\antigravity\brain\71e7b1d1-f50b-477e-a713-942e8319b97d\scratch\deepseek_investigation_matches_formatted.txt (lines 291-466: Andrew Falk, 1133 N Normandie, 180k Aspergillus, Judge Swift TRO, Mayor Heilman) |
+| Antigravity Anaheim Details | C:\migrate opencode\OSINTNEOAI\agent\ai_sync_vault\comprehensive_backup\antigravity\brain\71e7b1d1-f50b-477e-a713-942e8319b97d\scratch\anaheim_details.txt (lines 266-464: Andrew Falk, 1133 N Normandie, 180k Aspergillus, WH Sheriff, Judge Swift) |
 
 ## IX. WHAT'S MISSING — NEED FROM ANTHONY
 
-1. **Andrew Faulk** — Full legal name, DOB, corporate entities, any other properties
+1. **Andrew Faulk/Falk** — Correct spelling of last name (Faulk vs Falk), full legal name, DOB, corporate entities, any other properties
 2. **Fire code violations** — Specific complaints, LA County records, inspection reports
 3. **Sham rent-to-own agreement** — Copy of the contract, payment history
 4. **West Hollywood Sheriff operations** — Specific incidents, dates, officers involved
 5. **Judge Swift cases** — Case numbers, dates, what was ruled
 6. **1133 N Formosa HOA** — HOA formed 1990, 5 units, fire alarm panels, sprinklers, emergency lighting status
+7. **Andrew Falk.png photo** — Confirm if this is the landlord's face; download from Drive for evidence package
+8. **1133 N Formosa property records** — Verify APN, deed history, Andrew Falk/Faulk listed as owner on official records
 
 ## X. THE PATTERN
 
