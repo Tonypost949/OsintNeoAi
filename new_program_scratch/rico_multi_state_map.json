@@ -1,0 +1,214 @@
+{
+    "enterprise_meta": {
+        "name": "Orange County - Multi-State Continuum of Care (CoC) Financial Exploitation Enterprise",
+        "statutes": [
+            "18 U.S.C. \u00a7 1962 (RICO Conspiracy)",
+            "18 U.S.C. \u00a7 1341 (Mail Fraud)",
+            "18 U.S.C. \u00a7 1343 (Wire Fraud)",
+            "18 U.S.C. \u00a7 1512 / 1519 (Obstruction of Justice / Alteration of Records)",
+            "31 U.S.C. \u00a7\u00a7 3729-3733 (False Claims Act)",
+            "CA Govt Code \u00a7 87100 (Conflict of Interest)"
+        ],
+        "analysis_timestamp": "2026-07-02T21:54:14.234828"
+    },
+    "regional_nodes": {
+        "CASE-047": {
+            "type": "National Expansion Node",
+            "location": "Arizona Balance of State CoC (AZ-500)",
+            "description": "Sheriff-only rural coverage across 13 counties exhibits total absence of registered NPI health-billing verification despite millions in HUD grants",
+            "regulatory_gap": "Sheriff-only policing / No registered clinical social work billing (NPI vacuum)",
+            "environmental_hazard": "EPA toxic overlays / heavy agricultural/industrial runoff",
+            "statutory_violation": "False Claims Act / HUD ESG Requirements",
+            "jurisdiction": "Federal / State"
+        },
+        "CASE-048": {
+            "type": "National Expansion Node",
+            "location": "Colorado Balance of State CoC (CO-500)",
+            "description": "54 rural counties with sheriff-only policing are flagged for heavy environmental justice concerns (oil & gas shale regions) and lack of clinical oversight",
+            "regulatory_gap": "Sheriff-only policing / No registered clinical social work billing (NPI vacuum)",
+            "environmental_hazard": "EPA toxic overlays / heavy agricultural/industrial runoff",
+            "statutory_violation": "False Claims Act / CERCLA",
+            "jurisdiction": "Federal"
+        },
+        "CASE-049": {
+            "type": "National Expansion Node",
+            "location": "Georgia Balance of State CoC (GA-501)",
+            "description": "Over 100 rural counties with sheriff-only policing show significant overlap with heavy industrial corridors and zero registered clinical NPIs",
+            "regulatory_gap": "Sheriff-only policing / No registered clinical social work billing (NPI vacuum)",
+            "environmental_hazard": "EPA toxic overlays / heavy agricultural/industrial runoff",
+            "statutory_violation": "False Claims Act / HUD ESG Requirements",
+            "jurisdiction": "Federal"
+        },
+        "CASE-050": {
+            "type": "National Expansion Node",
+            "location": "Texas Balance of State CoC (TX-611)",
+            "description": "Largest US BoS (214 counties) governed primarily by sheriff-only jurisdictions showing massive environmental risk (pesticide/oil) and zero NPI verification",
+            "regulatory_gap": "Sheriff-only policing / No registered clinical social work billing (NPI vacuum)",
+            "environmental_hazard": "EPA toxic overlays / heavy agricultural/industrial runoff",
+            "statutory_violation": "False Claims Act / HUD ESG Requirements",
+            "jurisdiction": "Federal"
+        },
+        "CASE-051": {
+            "type": "National Expansion Node",
+            "location": "Missouri Balance of State CoC (MO-505)",
+            "description": "101 non-entitlement counties governed by sheriff-only policing are flagged for zero clinical social work presence and high EPA toxic overlays",
+            "regulatory_gap": "Sheriff-only policing / No registered clinical social work billing (NPI vacuum)",
+            "environmental_hazard": "EPA toxic overlays / heavy agricultural/industrial runoff",
+            "statutory_violation": "False Claims Act / CERCLA",
+            "jurisdiction": "Federal"
+        },
+        "CASE-052": {
+            "type": "National Expansion Node",
+            "location": "Ohio Balance of State CoC (OH-506)",
+            "description": "80 non-urban counties with sheriff-only coverage present zero billing NPI tracking for clinical support, operating as pass-throughs",
+            "regulatory_gap": "Sheriff-only policing / No registered clinical social work billing (NPI vacuum)",
+            "environmental_hazard": "EPA toxic overlays / heavy agricultural/industrial runoff",
+            "statutory_violation": "False Claims Act / HUD ESG Requirements",
+            "jurisdiction": "Federal"
+        },
+        "CASE-053": {
+            "type": "National Expansion Node",
+            "location": "Oregon Balance of State CoC (OR-504)",
+            "description": "Rural counties with sheriff-only policing show significant overlap with heavy agricultural pesticide runoffs and zero NPI registration",
+            "regulatory_gap": "Sheriff-only policing / No registered clinical social work billing (NPI vacuum)",
+            "environmental_hazard": "EPA toxic overlays / heavy agricultural/industrial runoff",
+            "statutory_violation": "False Claims Act / CERCLA",
+            "jurisdiction": "Federal"
+        },
+        "CASE-054": {
+            "type": "National Expansion Node",
+            "location": "Washington Balance of State CoC (WA-507)",
+            "description": "Rural agricultural BoS regions with sheriff-only law enforcement lack NPI records and are adjacent to industrial runoffs",
+            "regulatory_gap": "Sheriff-only policing / No registered clinical social work billing (NPI vacuum)",
+            "environmental_hazard": "EPA toxic overlays / heavy agricultural/industrial runoff",
+            "statutory_violation": "False Claims Act / HUD ESG Requirements",
+            "jurisdiction": "Federal"
+        },
+        "CASE-055": {
+            "type": "National Expansion Node",
+            "location": "West Virginia Balance of State CoC (WV-501)",
+            "description": "54 rural counties with sheriff-only policing exhibit heavy industrial/coal runoff toxic overlays and zero registered billing NPIs",
+            "regulatory_gap": "Sheriff-only policing / No registered clinical social work billing (NPI vacuum)",
+            "environmental_hazard": "EPA toxic overlays / heavy agricultural/industrial runoff",
+            "statutory_violation": "False Claims Act / CERCLA",
+            "jurisdiction": "Federal"
+        }
+    },
+    "individuals": {
+        "Tom Conway": {
+            "role": "Board Member (24 yrs)",
+            "entity": "Mercy House / DIS",
+            "incident": "0.9% kickback from retirement plan proceeds laundered through shell entities",
+            "statutes": "Money Laundering Control Act (18 U.S.C. \u00a7 1956)",
+            "linked_cases": "CASE-002,CASE-026,CASE-027"
+        },
+        "Mercy House Board of Directors": {
+            "role": "Multiple",
+            "entity": "HUD / Mercy House",
+            "incident": "ESG grant required environmental review; none was done before placing vulnerable populations on Superfund site",
+            "statutes": "HUD ESG Program Requirements / 24 CFR 576",
+            "linked_cases": "CASE-019,CASE-020,CASE-002"
+        },
+        "Johnny Bryant": {
+            "role": "Board Member",
+            "entity": "Mercy House Living Centers",
+            "incident": "ASL Electric & Plumbing awarded lucrative no-bid facility electrical/plumbing contracts while Bryant holds active board seat",
+            "statutes": "IRC Section 4941 / California Corp. Code Section 5233",
+            "linked_cases": "CASE-002,CASE-026"
+        },
+        "Bryan Pavalko": {
+            "role": "Board Member",
+            "entity": "Mercy House Living Centers",
+            "incident": "RBA Builders LLC awarded millions in shelter construction contracts while Pavalko occupies board seat; firm double-dipped $2.59M SBA PPP loan",
+            "statutes": "18 U.S.C. Section 287 (False Claims Act) / IRC Section 4941",
+            "linked_cases": "CASE-002,CASE-021,CASE-026"
+        },
+        "Mladen Buntich": {
+            "role": "Board Member",
+            "entity": "Mercy House Living Centers",
+            "incident": "Mladen Buntich Construction Co. awarded high-value site engineering contracts; firm simultaneously secured $1.58M SBA PPP loan",
+            "statutes": "IRC Section 4941 / California Corp. Code Section 5233",
+            "linked_cases": "CASE-002,CASE-026"
+        },
+        "Mia Bergman": {
+            "role": "Board Member",
+            "entity": "Mercy House Living Centers",
+            "incident": "Shopoff Realty Investments structured land and facility acquisition deals for Mercy House shelters; firm received $2.31M PPP loan",
+            "statutes": "False Claims Act / California Corp. Code Section 5233",
+            "linked_cases": "CASE-002,CASE-021,CASE-026"
+        },
+        "Natalie McCarty": {
+            "role": "Board Member",
+            "entity": "Mercy House Living Centers",
+            "incident": "Shopoff Investments maintains dual board-seat footprint to control property transaction votes (Bergman + McCarty representing same corporate firm)",
+            "statutes": "California Corp. Code Section 5233 / Breach of Duty of Loyalty",
+            "linked_cases": "CASE-002,CASE-026,CASE-039"
+        },
+        "Paul Julian": {
+            "role": "Board Member",
+            "entity": "Mercy House Living Centers",
+            "incident": "Advanced Real Estate Services leased multi-family housing units to Mercy House at inflated rates funded by HUD ESG grants",
+            "statutes": "IRC Section 4941 / California Corp. Code Section 5233",
+            "linked_cases": "CASE-002,CASE-021,CASE-026"
+        },
+        "Daryl Cole": {
+            "role": "Board Member",
+            "entity": "Mercy House Living Centers",
+            "incident": "Cole & Company Wealth Management awarded exclusive, no-bid oversight of Mercy House's investment advisory and cash management loops",
+            "statutes": "SEC Investment Advisers Act of 1940 / California Corp. Code Section 5233",
+            "linked_cases": "CASE-002,CASE-026"
+        },
+        "Lisa Rumbaugh": {
+            "role": "Board Member",
+            "entity": "Mercy House Living Centers",
+            "incident": "Clarity Tax Accounting awarded exclusive book-keeping and tax filing audit prep contracts resulting in self-dealing transactions of $17,134.00",
+            "statutes": "IRC Section 4941 / California Corp. Code Section 5233",
+            "linked_cases": "CASE-002,CASE-026"
+        },
+        "Paul Daneshrad": {
+            "role": "Board Trustee / Starpoint CEO",
+            "entity": "Starpoint Properties / Covenant House CA",
+            "incident": "Acquired residential and commercial properties under localized shell LLCs and leased them to Covenant House California at highly inflated values",
+            "statutes": "18 U.S.C. Section 1341 (Mail Fraud) / 18 U.S.C. Section 1343 (Wire Fraud)"
+        }
+    },
+    "entities": {
+        "Mercy House Board of Directors": {
+            "type": "Non-Profit Operating Entity / Board Link",
+            "description": "0.9% retirement plan kickback through Diversified Investment Services (DIS)",
+            "implicated_statutes": "SEC Investment Advisers Act of 1940",
+            "linked_cases": "CASE-001"
+        },
+        "HUD / Mercy House": {
+            "type": "Non-Profit Operating Entity / Board Link",
+            "description": "ESG grant required environmental review; none was done before placing vulnerable populations on Superfund site",
+            "implicated_statutes": "HUD ESG Program Requirements / 24 CFR 576",
+            "linked_cases": "CASE-019,CASE-020,CASE-002"
+        },
+        "Mercy House": {
+            "type": "Non-Profit Operating Entity / Board Link",
+            "description": "Failure to disclose 0.9% retirement plan revenue in Form 990",
+            "implicated_statutes": "IRS Form 990 / Tax Fraud",
+            "linked_cases": "CASE-002"
+        },
+        "Mercy House / DIS": {
+            "type": "Non-Profit Operating Entity / Board Link",
+            "description": "0.9% kickback from retirement plan proceeds laundered through shell entities",
+            "implicated_statutes": "Money Laundering Control Act (18 U.S.C. \u00a7 1956)",
+            "linked_cases": "CASE-002,CASE-026,CASE-027"
+        },
+        "Mercy House Living Centers": {
+            "type": "Non-Profit Operating Entity / Board Link",
+            "description": "Clarity Tax Accounting awarded exclusive book-keeping and tax filing audit prep contracts resulting in self-dealing transactions of $17,134.00",
+            "implicated_statutes": "IRC Section 4941 / California Corp. Code Section 5233",
+            "linked_cases": "CASE-002,CASE-026"
+        },
+        "Starpoint Properties LLC": {
+            "type": "Private Real Estate Conduit",
+            "control_individual": "Paul Daneshrad",
+            "mechanism": "Circular Lease Tax Evasion / Rapid property shuffle using shell trusts",
+            "implicated_statutes": "California Civil Code Section 1940",
+            "linked_cases": "CASE-044, CASE-045, CASE-046"
+        }
+    }
+}

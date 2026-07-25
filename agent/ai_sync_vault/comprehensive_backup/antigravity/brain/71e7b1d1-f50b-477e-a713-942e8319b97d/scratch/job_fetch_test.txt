@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Emergent</title>
+    <meta name="title" content="Emergent - AI-Powered App Development | No Code Required">
+    <meta name="description" content="Transform ideas into production-ready applications with AI. Build web apps, mobile platforms, and custom software through simple conversation, no coding required.">
+    <meta name="keywords" content="no-code development, AI app builder, software development, web app creator, mobile app development, AI coding assistant">
+    <meta name="author" content="Emergent">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://app.emergent.sh/">
+    <meta property="og:title" content="Emergent - AI-Powered App Development | No Code Required">
+    <meta property="og:description" content="From idea to app in minutes. AI-powered development platform for creators, entrepreneurs, and developers.">
+    <meta property="og:image" content="https://app.emergent.sh/logo.png">
+    <meta name="facebook-domain-verification" content="v1096rpo7sp3nzp96d9ik3cvgwzodd" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://app.emergent.sh/">
+    <meta property="twitter:title" content="Emergent - AI-Powered App Development | No Code Required">
+    <meta property="twitter:description" content="Build real products with Emergent's vibe-coding platform. Emergent AI creates production-ready applications from natural language—no developers required.">
+    <meta property="twitter:image" content="https://app.emergent.sh/twitter-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/assets/site-CktRgHTk.webmanifest">
+    
+    <!-- Fonts and Styles -->
+    <!-- <link rel="stylesheet" href="https://rsms.me/inter/inter.css" /> -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://app.emergent.sh/">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NCCB99P9');</script>
+    <!-- Conditionally load Rewardful for affiliate users only -->
+    <script>
+    (function() {
+      // Check if user is from affiliate link
+      function isAffiliateUser() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var affiliateParams = ['via', 'referral', 'ref', 'affiliate', 'aff', 'affid'];
+
+        // Check URL parameters
+        for (var i = 0; i < affiliateParams.length; i++) {
+          if (urlParams.get(affiliateParams[i])) {
+            console.log('[Rewardful] ✅ Affiliate param found:', affiliateParams[i]);
+            return true;
+          }
+        }
+
+        // Check if rewardful cookie already exists (returning affiliate user)
+        // Check both rewardful.referral (native Rewardful cookie) and rewardful_affiliate (our custom cookie)
+        if (document.cookie.indexOf('rewardful.referral') !== -1 || document.cookie.indexOf('rewardful_affiliate') !== -1) {
+          console.log('[Rewardful] ✅ Returning affiliate user (cookie found)');
+          return true;
+        }
+
+        console.log('[Rewardful] ⛔ Organic user - skipping Rewardful');
+        return false;
+      }
+
+      // Only load Rewardful for affiliate users
+      if (isAffiliateUser()) {
+        console.log('[Rewardful] 🎯 Loading Rewardful script');
+
+        // Initialize queue
+        (function(w,r){w._rwq=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)}})(window,'rewardful');
+
+        // Load script
+        var script = document.createElement('script');
+        script.src = 'https://r.wdfl.co/rw.js';
+        script.async = true;
+        script.setAttribute('data-rewardful', '981168');
+        document.head.appendChild(script);
+      }
+    })();
+    </script>
+    <!-- Add Google Identity Services script -->
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1326372205570201');
+        fbq('track', 'PageView');
+    </script>
+    <!-- End Meta Pixel Code -->
+  <script type="module" crossorigin src="/main-CF_0yx1K.js"></script>
+  <link rel="modulepreload" crossorigin href="/chunks/chunk-CLN-lmR0.js">
+  <link rel="modulepreload" crossorigin href="/chunks/chunk-RU4Gx8c3.js">
+  <link rel="modulepreload" crossorigin href="/chunks/chunk-5rBBrdbz.js">
+  <link rel="modulepreload" crossorigin href="/chunks/chunk-BD9OJLJ5.js">
+  <link rel="modulepreload" crossorigin href="/chunks/chunk-DreM7Bcy.js">
+  <link rel="modulepreload" crossorigin href="/chunks/chunk-BIyfHqPs.js">
+  <link rel="modulepreload" crossorigin href="/chunks/chunk-CQp3WXbJ.js">
+  <link rel="stylesheet" crossorigin href="/assets/monaco-editor-CpN8rtOO.css">
+  <link rel="stylesheet" crossorigin href="/assets/main-D_1RmFQ2.css">
+</head>
+<body>
+    <!-- Meta Pixel Code (noscript) -->
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1326372205570201&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code (noscript) -->
+    <div id="root"></div>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCCB99P9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+</body>
+</html>

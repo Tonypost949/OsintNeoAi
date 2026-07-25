@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MX Record OSINT Tool</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 20px;
+    }
+    .card {
+      max-width: 820px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 30px 28px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+    .toolbar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 16px;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn-save-html {
+      background: #0b2b4a;
+      color: #fff;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-save-html:hover { background: #1a4466; }
+    h1 { font-size: 24px; font-weight: 600; margin: 0 0 6px 0; color: #0b1e33; display: flex; align-items: center; gap: 10px; }
+    .sub {
+      color: #4a5a6e; font-size: 14px; margin: 0 0 24px 0;
+      border-left: 4px solid #2a7de1; padding-left: 14px;
+      background: #f8faff; border-radius: 0 6px 6px 0; line-height: 1.5;
+    }
+    label { font-weight: 600; font-size: 14px; color: #1e2a3a; display: block; margin-bottom: 6px; }
+    .input-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .input-row input {
+      flex: 1; min-width: 200px; padding: 12px 16px;
+      border: 1.5px solid #d0d7e2; border-radius: 12px; font-size: 16px;
+      background: #fafcff; transition: border 0.2s, box-shadow 0.2s;
+    }
+    .input-row input:focus {
+      border-color: #2a7de1; box-shadow: 0 0 0 3px rgba(42,125,225,0.15); outline: none;
+    }
+    .input-row button {
+      padding: 12px 28px; background: #1a5bbf; color: #fff; border: none;
+      border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer;
+      transition: background 0.2s; white-space: nowrap;
+    }
+    .input-row button:hover { background: #0f4a9e; }
+    .input-row button:active { transform: scale(0.97); }
+    #result {
+      margin-top: 26px; padding: 18px 22px; border-radius: 14px;
+      background: #f7f9fc; border: 1px solid #e6ecf3;
+      min-height: 70px; font-size: 15px; line-height: 1.6; color: #1a2636;
+      white-space: pre-wrap; word-break: break-word;
+    }
+    .record-line {
+      display: flex; align-items: baseline; gap: 8px;
+      padding: 4px 0; border-bottom: 1px solid #eef2f7;
+    }
+    .record-line:last-child { border-bottom: none; }
+    .priority-badge {
+      display: inline-block; background: #dce3ef; padding: 0 12px;
+      border-radius: 20px; font-size: 13px; font-weight: 600; color: #1a2a44;
+    }
+    .provider-tag {
+      display: inline-block; margin-top: 12px; padding: 6px 18px;
+      background: #e4ebf5; border-radius: 30px; font-size: 14px; font-weight: 500;
+      color: #0b2b4a;
+    }
+    .provider-tag strong { color: #003b7a; }
+    .error { color: #b00020; background: #fff0f0; padding: 12px 16px; border-radius: 10px; border-left: 5px solid #b00020; }
+    .loading { color: #2a5f8a; display: flex; align-items: center; gap: 8px; }
+    details { margin-top: 16px; font-size: 13px; }
+    details summary { cursor: pointer; color: #3c5a7d; font-weight: 500; }
+    details pre { background: #edf1f7; padding: 12px; border-radius: 8px; overflow-x: auto; font-size: 12px; max-height: 220px; overflow-y: auto; }
+    .btn-group { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+    .btn-download {
+      background: #0d7a3e; color: white; border: none; padding: 10px 22px;
+      border-radius: 30px; font-size: 15px; font-weight: 600; cursor: pointer;
+      transition: background 0.2s; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-download:hover { background: #0a5f30; }
+    .btn-download:disabled { opacity: 0.5; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+<div class="card">
+  <!-- Toolbar: Save this page as HTML -->
+  <div class="toolbar">
+    <button class="btn-save-html" id="saveHtmlBtn">💾 Save this tool as HTML file</button>
+  </div>
+
+  <h1>🔍 MX Record OSINT</h1>
+  <div class="sub">Find the email provider (mail server) for any domain — pre‑filled with <strong>hbpd.org</strong></div>
+
+  <form id="lookupForm">
+    <label for="domainInput">Enter domain name</label>
+    <div class="input-row">
+      <input type="text" id="domainInput" value="hbpd.org" placeholder="e.g., hbpd.org" spellcheck="false" />
+      <button type="submit">Look up MX</button>
+    </div>
+  </form>
+
+  <div id="result">💡 Enter a domain and click <strong>Look up MX</strong>.</div>
+</div>
+
+<script>
+  (function() {
+    const form = document.getElementById('lookupForm');
+    const input = document.getElementById('domainInput');
+    const resultDiv = document.getElementById('result');
+
+    // --------------------------------------------------------------
+    // 1. SAVE THIS PAGE AS AN HTML FILE (the feature you asked for)
+    // --------------------------------------------------------------
+    document.getElementById('saveHtmlBtn').addEventListener('click', function() {
+      // Get the full HTML source of the current page
+      const doctype = '<!DOCTYPE html>\n';
+      const html = doctype + document.documentElement.outerHTML;
+      const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'MX_OSINT_Tool.html';  // the file name
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+
+    // --------------------------------------------------------------
+    // 2. MX LOOKUP LOGIC (unchanged, plus report download)
+    // --------------------------------------------------------------
+    function detectProvider(server) {
+      const s = server.toLowerCase();
+      if (s.includes('outlook') || s.includes('office365') || s.includes('protection.outlook')) return 'Microsoft 365 / Exchange Online';
+      if (s.includes('google') || s.includes('gmail') || s.includes('googlemail')) return 'Google Workspace (Gmail)';
+      if (s.includes('amazonses') || s.includes('aws') || s.includes('amazon')) return 'Amazon SES / AWS';
+      if (s.includes('zoho')) return 'Zoho Mail';
+      if (s.includes('proton')) return 'ProtonMail';
+      if (s.includes('mailgun')) return 'Mailgun';
+      if (s.includes('sendgrid')) return 'SendGrid';
+      if (s.includes('mailchimp') || s.includes('mandrill')) return 'Mailchimp / Mandrill';
+      if (s.includes('rackspace')) return 'Rackspace Email';
+      if (s.includes('fastmail')) return 'Fastmail';
+      if (s.includes('namecheap') || s.includes('privateemail')) return 'Namecheap Private Email';
+      if (s.includes('godaddy')) return 'GoDaddy Email';
+      if (s.includes('1and1') || s.includes('ionos')) return 'IONOS / 1&1';
+      if (s.includes('ovh')) return 'OVH Mail';
+      return 'Unknown / Custom provider';
+    }
+
+    function buildReport(domain, records, provider, raw) {
+      let txt = `MX RECORD REPORT\n`;
+      txt += `Domain: ${domain}\n`;
+      txt += `Lookup time: ${new Date().toUTCString()}\n`;
+      txt += `Detected provider: ${provider}\n`;
+      txt += `\n--- MX Records (priority, server) ---\n`;
+      records.forEach(r => {
+        txt += `  ${r.priority}  →  ${r.server}\n`;
+      });
+      txt += `\n--- Raw DNS JSON ---\n`;
+      txt += JSON.stringify(raw, null, 2);
+      return txt;
+    }
+
+    function renderResult(domain, records, provider, raw) {
+      let html = `<div style="font-weight:600; font-size:16px; margin-bottom:12px;">📬 MX records for <span style="color:#003b7a;">${domain}</span></div>`;
+      records.forEach(r => {
+        html += `<div class="record-line">
+          <span class="priority-badge">Prio ${r.priority}</span>
+          <span style="font-family: 'SF Mono', 'Consolas', monospace; font-size:15px;">${r.server}</span>
+        </div>`;
+      });
+      html += `<div class="provider-tag">🏷️ Detected provider: <strong>${provider}</strong></div>`;
+      if (records[0] && records[0].ttl) {
+        html += `<div style="margin-top:10px; font-size:13px; color:#4a5a6e;">⏱️ TTL: ${records[0].ttl} seconds</div>`;
+      }
+      // Download report as .txt (still handy)
+      html += `<div class="btn-group">
+        <button class="btn-download" id="downloadTxtBtn">📥 Download report (.txt)</button>
+      </div>`;
+      html += `<details>
+        <summary>🔎 View raw JSON response</summary>
+        <pre>${JSON.stringify(raw, null, 2)}</pre>
+      </details>`;
+
+      resultDiv.innerHTML = html;
+
+      const dlBtn = document.getElementById('downloadTxtBtn');
+      if (dlBtn) {
+        dlBtn.addEventListener('click', () => {
+          const content = buildReport(domain, records, provider, raw);
+          const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `mx-report_${domain}_${new Date().toISOString().slice(0,10)}.txt`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        });
+      }
+    }
+
+    async function performLookup(domain) {
+      resultDiv.innerHTML = `<div class="loading">⏳ Fetching MX records for <strong>${domain}</strong>…</div>`;
+      try {
+        const url = `https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=MX`;
+        const resp = await fetch(url);
+        const data = await resp.json();
+
+        if (data.Status !== 0) {
+          resultDiv.innerHTML = `<div class="error">❌ DNS lookup failed (status ${data.Status}). Domain may not exist or have no MX records.</div>`;
+          return;
+        }
+
+        const answers = data.Answer || [];
+        const mxRecords = answers.filter(r => r.type === 15);
+
+        if (mxRecords.length === 0) {
+          resultDiv.innerHTML = `<div class="error">⚠️ No MX records found for <strong>${domain}</strong>. This domain likely doesn't handle email.</div>`;
+          return;
+        }
+
+        const sorted = mxRecords.map(r => {
+          const parts = r.data.split(' ');
+          return {
+            priority: parseInt(parts[0]) || 0,
+            server: parts.slice(1).join(' ').replace(/\.$/, ''),
+            ttl: r.TTL || null
+          };
+        }).sort((a, b) => a.priority - b.priority);
+
+        let provider = 'Unknown';
+        const guessed = sorted.map(r => detectProvider(r.server));
+        const firstReal = guessed.find(g => g !== 'Unknown / Custom provider');
+        provider = firstReal || 'Unknown / Custom provider';
+
+        renderResult(domain, sorted, provider, data);
+      } catch (err) {
+        resultDiv.innerHTML = `<div class="error">❌ Network error: ${err.message}. Check your internet connection or CORS policy.</div>`;
+      }
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const domain = input.value.trim();
+      if (!domain) {
+        resultDiv.innerHTML = `<div class="error">⚠️ Please enter a domain name.</div>`;
+        return;
+      }
+      if (!/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(domain)) {
+        resultDiv.innerHTML = `<div class="error">⚠️ Please enter a valid domain (e.g., hbpd.org).</div>`;
+        return;
+      }
+      performLookup(domain);
+    });
+
+    // Auto-run on load for hbpd.org
+    window.addEventListener('load', () => {
+      performLookup(input.value.trim());
+    });
+  })();
+</script>
+</body>
+</html>

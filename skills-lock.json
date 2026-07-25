@@ -1,0 +1,299 @@
+{
+  "version": 1,
+  "skills": {
+    "alphafold-database-fetch-and-analyze": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/alphafold_database_fetch_and_analyze/SKILL.md",
+      "computedHash": "0cf02a2f4e2c85ac9ed34e1ac382799a19fb82379e0450dfe8f23337e6eb944b"
+    },
+    "alphagenome-single-variant-analysis": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/alphagenome_single_variant_analysis/SKILL.md",
+      "computedHash": "3fef6978054865e569ddb6108172c117947216ed8e45288446c13bb26bc375f6"
+    },
+    "chembl-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/chembl_database/SKILL.md",
+      "computedHash": "9ba22a216082350f348a30ce97d602fb535be5fbfcdab861da16d3eaf723c995"
+    },
+    "clinical-trials-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/clinical_trials_database/SKILL.md",
+      "computedHash": "9da04a5ec9bf334e25e3a8a4484644601a9af4141995dc7f4285e4764f3f92f6"
+    },
+    "clinvar-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/clinvar_database/SKILL.md",
+      "computedHash": "b62e8e04b6e20ae6b924310a4875c46db90b80cdcca784bb1446970ada25beab"
+    },
+    "credentials": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/credentials/SKILL.md",
+      "computedHash": "42f27d393e2207de6c20550c126cbcf8c1b84423ba2ad368746e3a126d40a526"
+    },
+    "dbsnp-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/dbsnp_database/SKILL.md",
+      "computedHash": "98bf460029554b9e0e6bf897d578c6dc85330a7a00c17179c9787d46217baee4"
+    },
+    "embl-ebi-ols": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/embl_ebi_ols/SKILL.md",
+      "computedHash": "dd0894d3297bd533a0cb8c832a58f3a328bc117b5316fd88cb76c1f7232f3eba"
+    },
+    "encode-ccres-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/encode_ccres_database/SKILL.md",
+      "computedHash": "7e2b3cb1f7a11035b2bcd71e31efc0bd2dc61196f9f9a718cef7f2f5dd66102a"
+    },
+    "ensembl-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ensembl_database/SKILL.md",
+      "computedHash": "56b79c73829e017998033a2e81880486a5dd65002b5fad30478218de96d787fc"
+    },
+    "firebase-ai-logic-basics": {
+      "source": "firebase/skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-ai-logic-basics/SKILL.md",
+      "computedHash": "d99bb286f07517d31efdfe54af482b44508b4e4cd49a518051e0f0c1d6ca9069"
+    },
+    "firebase-app-hosting-basics": {
+      "source": "firebase/skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-app-hosting-basics/SKILL.md",
+      "computedHash": "d77e5e62286b6e05e513ee8b5651b34ffe73c4231e252e23db5982b854cf4d78"
+    },
+    "firebase-auth-basics": {
+      "source": "firebase/skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-auth-basics/SKILL.md",
+      "computedHash": "9eb2db290f00437021a8fc09353a1be28663170b669b028ade3691d57b061874"
+    },
+    "firebase-basics": {
+      "source": "firebase/skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-basics/SKILL.md",
+      "computedHash": "6c40f96765c945a406244f2f020133c7cf4e7857be055f7420e2f9465e5b1e7e"
+    },
+    "firebase-crashlytics": {
+      "source": "firebase/skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-crashlytics/SKILL.md",
+      "computedHash": "3465237d88abfbbcc571429682998716b4b32194114b5c3675e4d9e06cdd852a"
+    },
+    "firebase-data-connect": {
+      "source": "firebase/skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-data-connect-basics/SKILL.md",
+      "computedHash": "855a5c537d1d3dcf90b3332adaa9be5e03201e54170d690cb95eb3b223421c4d"
+    },
+    "firebase-firestore": {
+      "source": "firebase/skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-firestore/SKILL.md",
+      "computedHash": "7fb6533c63627fc0ec0f6bab00d641ce0050eed823925d61a9a40545061646ee"
+    },
+    "firebase-hosting-basics": {
+      "source": "firebase/skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-hosting-basics/SKILL.md",
+      "computedHash": "1e18b014fdfde33ad3881a4a27610d21a6b836f54b6572cd8f28297da156686a"
+    },
+    "firebase-remote-config-basics": {
+      "source": "firebase/skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-remote-config-basics/SKILL.md",
+      "computedHash": "895c77b7597e79c36d76cfa6bfd6732e23fe4fa516b0991393bf139d32b75393"
+    },
+    "firebase-security-rules-auditor": {
+      "source": "firebase/skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-security-rules-auditor/SKILL.md",
+      "computedHash": "0ef93a495615c8fb4db2458e526897a9e7e58c7efca4fdb76564a0962fef5d43"
+    },
+    "foldseek-structural-search": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/foldseek_structural_search/SKILL.md",
+      "computedHash": "3fdde1d01b6da7ec110da3fd671aaa64acdaf7bcf86a8f2539082d11df28fb87"
+    },
+    "gnomad-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/gnomad_database/SKILL.md",
+      "computedHash": "9554c1e731fff6536e9248ec44b2988a0a1442f09544981f132c767c77144138"
+    },
+    "gtex-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/gtex_database/SKILL.md",
+      "computedHash": "f04745713e4dd892428285302ce5a01fd9fa6fa901664646a0f37178c7c810ce"
+    },
+    "human-protein-atlas-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/human_protein_atlas_database/SKILL.md",
+      "computedHash": "ed16e83768b99d6b1395f3385e3818da2bcace7a376ff9a3fb99efb526b3782c"
+    },
+    "interpro-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/interpro_database/SKILL.md",
+      "computedHash": "3860ac5dbae224059c6cdd6ce9f3b180f8f3ed17c7f8311b311e0bb90ef0deb5"
+    },
+    "jaspar-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/jaspar_database/SKILL.md",
+      "computedHash": "d45f1d7e8bda66da4005ca8b9159489207f07d654a1405e70324208f50aa09e7"
+    },
+    "literature-search-arxiv": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/literature_search_arxiv/SKILL.md",
+      "computedHash": "ff8aca21449b43a30f6f4ea79cb2baa3965965b5d631f46712959be084e503ea"
+    },
+    "literature-search-biorxiv": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/literature_search_biorxiv/SKILL.md",
+      "computedHash": "fcecdd0b96fdd4e5fbd1cbe195ad91095f54b271b3531a828b8ba1547584dae5"
+    },
+    "literature-search-europepmc": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/literature_search_europepmc/SKILL.md",
+      "computedHash": "1c305c20e8927792ada0080c1ab1b9fdb92d0c46d93f283cff8961f7ba2d1b60"
+    },
+    "literature-search-openalex": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/literature_search_openalex/SKILL.md",
+      "computedHash": "f85c245481fbd22a079dd1eef8fb391cc81c8372ee0dc58def39487362add545"
+    },
+    "ncbi-sequence-fetch": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ncbi_sequence_fetch/SKILL.md",
+      "computedHash": "434fa67de97d435c2de19e947dd5a11f2421f3a89fcf39648586d36cb5a59936"
+    },
+    "openfda-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/openfda_database/SKILL.md",
+      "computedHash": "f63a807de449d7b0bbb8b79888d643619fa9fb156c64bb12cb1a88ec2479f145"
+    },
+    "opentargets-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/opentargets_database/SKILL.md",
+      "computedHash": "37d93bae8934986d9b2a26dfda29cb124ac42a3f6df27a177b8d8b9aefec5703"
+    },
+    "pdb-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/pdb_database/SKILL.md",
+      "computedHash": "2feed41e553ebea6ccaadfc199064e267b395d6aa6e34bd27f7837dac31b15f8"
+    },
+    "predictingthepast": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/predictingthepast/SKILL.md",
+      "computedHash": "112c7d3503e9a5e3aaa8a1294ac412d67f7ecd761b8e0f5928f37fc3cc939dbd"
+    },
+    "protein-sequence-msa": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/protein_sequence_msa/SKILL.md",
+      "computedHash": "f46ba22cf382acbd5355e7f946acedc42137c577bb1c920302f098b410742b5b"
+    },
+    "protein-sequence-similarity-search": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/protein_sequence_similarity_search/SKILL.md",
+      "computedHash": "46cb6231aca0a110cac628fa2d36096108c148a541d74856b7ab2b236ac43c32"
+    },
+    "pubchem-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/pubchem_database/SKILL.md",
+      "computedHash": "807473bea069815103bc1fd7c786700e610400884faceea7559ea6e6f83dd5ea"
+    },
+    "pubmed-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/pubmed_database/SKILL.md",
+      "computedHash": "a01ed65a9d218e301e3bd5067759806089c6f0bd7115abc96f07ab102208599a"
+    },
+    "pymol": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/pymol/SKILL.md",
+      "computedHash": "6cf08ba603b1f2826205a670ecc224c737d1ced2e02c24c604270110ab10d144"
+    },
+    "quickgo-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/quickgo_database/SKILL.md",
+      "computedHash": "9d221939440daa93431ee8d17ee845dec88e796aa101b2e8c8e82137c4ab55ab"
+    },
+    "reactome-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/reactome_database/SKILL.md",
+      "computedHash": "8f32167f828903d7228e8aecb040115559dd886fc0cb4d92431cbc669ef2829b"
+    },
+    "string-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/string_database/SKILL.md",
+      "computedHash": "fb2c354ff2d9e5e947b0ed542ea4e125af5c4258defcbdcfaa04155847ac5bf9"
+    },
+    "ucsc-conservation-and-tfbs": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ucsc_conservation_and_tfbs/SKILL.md",
+      "computedHash": "14027fc2a7002ee2e967a7371ff54308966b5004a365ac8a211b28f102d10c01"
+    },
+    "unibind-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/unibind_database/SKILL.md",
+      "computedHash": "305c3956f2936dc8a0b727b1268b604cdfcaa08dd86828f38ab92478628cd695"
+    },
+    "uniprot-database": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/uniprot_database/SKILL.md",
+      "computedHash": "297c1a7f3760793c48dba64be4fe8ae2812cc299ce88937a3396f081be58c37a"
+    },
+    "uv": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/uv/SKILL.md",
+      "computedHash": "fa7d2051161928b427c6b5340b331b88456da5434e250707a411289ffbc40551"
+    },
+    "workflow-skill-creator": {
+      "source": "google-deepmind/science-skills",
+      "sourceType": "github",
+      "skillPath": "skills/workflow_skill_creator/SKILL.md",
+      "computedHash": "4b1e1f4466fde8bde8cb1efb938a627422beac9210bd15b4f1cd42db4360cd84"
+    },
+    "xcode-project-setup": {
+      "source": "firebase/skills",
+      "sourceType": "github",
+      "skillPath": "skills/xcode-project-setup/SKILL.md",
+      "computedHash": "847d62cb428f3ee7bf9842ab31f9bc04c28f32284168b992e40d4afb8575d2be"
+    }
+  }
+}

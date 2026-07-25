@@ -13,11 +13,7 @@ Supports:
 import os
 import json
 import requests
-try:
-    import geoip2.database
-    HAS_GEOIP2 = True
-except ImportError:
-    HAS_GEOIP2 = False
+import geoip2.database
 import pandas as pd
 from typing import Dict, List, Optional, Tuple
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -110,26 +106,25 @@ class CityIPGeolocation:
             except Exception:
                 pass
 
-        # Fallback to free API (ip-api.com)
+        # Fallback to free API (IP2Geo)
         try:
-            resp = requests.get(f"http://ip-api.com/json/{ip_address}", timeout=5)
+            resp = requests.get(f"https://api.ip2geo.io/{ip_address}", timeout=5)
             if resp.status_code == 200:
                 data = resp.json()
-                if data.get("status") == "success":
-                    return {
-                        "ip": ip_address,
-                        "city": data.get("city", "Unknown"),
-                        "region": data.get("regionName", "Unknown"),
-                        "country": data.get("countryCode", "Unknown"),
-                        "latitude": data.get("lat"),
-                        "longitude": data.get("lon"),
-                        "timezone": data.get("timezone"),
-                        "accuracy_radius": None,
-                        "asn": asn_data or data.get("as"),
-                        "source": "ip_api_com",
-                    }
+                return {
+                    "ip": ip_address,
+                    "city": data.get("city", "Unknown"),
+                    "region": data.get("region", "Unknown"),
+                    "country": data.get("country_code", "Unknown"),
+                    "latitude": data.get("latitude", None),
+                    "longitude": data.get("longitude", None),
+                    "timezone": data.get("timezone", None),
+                    "accuracy_radius": None,
+                    "asn": asn_data,
+                    "source": "ip2geo_api",
+                }
         except Exception as e:
-            logger.debug(f"ip-api.com lookup failed: {e}")
+            logger.debug(f"IP2Geo API failed: {e}")
 
         return {
             "ip": ip_address,
@@ -176,7 +171,7 @@ class CityIPGeolocation:
 
         job_config = bigquery.LoadJobConfig(
             write_disposition="WRITE_APPEND",
-            schema_update_options=[bigquery.SchemaUpdateOption.ALLOW_FIELD_ADDITION],
+            schema_update_options=[bigquery.SchemaUpdateOptions.ALLOW_FIELD_ADDITION],
         )
 
         try:

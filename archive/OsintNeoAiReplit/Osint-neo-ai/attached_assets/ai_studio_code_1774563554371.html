@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive OSINT Dashboard - Updated</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f4f4f9; margin: 20px; color: #333; }
+  h1 { text-align: center; color: #2c3e50; }
+  h2 { color: #2980b9; margin-top: 40px; border-bottom: 2px solid #2980b9; padding-bottom: 10px; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 20px; background: white; }
+  th, td { border: 1px solid #ccc; padding: 12px; text-align: left; }
+  th { background-color: #2980b9; color: white; cursor: pointer; }
+  tr:nth-child(even) { background-color: #ecf0f1; }
+  tr:hover { background-color: #d0e7f9; }
+  .filter-container { margin-bottom: 20px; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+  .filter-container label { margin-right: 10px; font-weight: bold; }
+  select { padding: 5px; margin-right: 20px; border-radius: 4px; border: 1px solid #ccc; }
+  .tag { padding: 4px 8px; border-radius: 4px; font-size: 0.85em; font-weight: bold; color: white; }
+  .risk-high { background: #e74c3c; }
+  .risk-med { background: #f39c12; }
+  .risk-low { background: #27ae60; }
+</style>
+</head>
+<body>
+
+<h1>Interactive OSINT Dashboard</h1>
+
+<div class="filter-container">
+  <label for="entityFilter">Filter Entities by Type:</label>
+  <select id="entityFilter">
+    <option value="All">All</option>
+    <option value="Person">Person</option>
+    <option value="Location">Location</option>
+    <option value="Vehicle">Vehicle</option>
+    <option value="Device">Device</option>
+    <option value="Object">Object</option>
+  </select>
+</div>
+
+<h2>Entities</h2>
+<table id="entitiesTable">
+  <thead>
+    <tr>
+      <th>Entity ID</th>
+      <th>Type</th>
+      <th>Label</th>
+      <th>Category</th>
+      <th>Geo Location / Address</th>
+      <th>Risk Level</th>
+      <th>Source</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Original Data -->
+    <tr><td>ENT-001</td><td>Person</td><td>Subject_A</td><td>Individual</td><td>32.2570, -110.9230</td><td>Unknown</td><td>Public_Record</td><td>Observed association</td></tr>
+    <tr><td>ENT-002</td><td>Location</td><td>Residence_A</td><td>Address</td><td>32.2570, -110.9230</td><td>Unknown</td><td>Public_Record</td><td>Residential building</td></tr>
+    <!-- New Data: Donnetta Wilburn -->
+    <tr>
+      <td>ENT-007</td><td>Person</td><td>Donnetta L. Wilburn</td><td>Subject</td><td>Santa Ana, CA</td>
+      <td><span class="tag risk-high">High</span></td><td>TruthFinder</td><td>Multiple criminal records (1998-2023). High risk due to recent citations.</td>
+    </tr>
+    <tr>
+      <td>ENT-008</td><td>Location</td><td>501 E 5th St</td><td>Primary Residence</td><td>Santa Ana, CA 92701</td>
+      <td><span class="tag risk-med">Medium</span></td><td>TruthFinder</td><td>Current address for Donnetta Wilburn. Proximity to sex offenders noted.</td>
+    </tr>
+    <!-- New Data: Martin Beebe -->
+    <tr>
+      <td>ENT-009</td><td>Person</td><td>Martin Raymond Beebe</td><td>Subject</td><td>Huntington Beach, CA</td>
+      <td><span class="tag risk-med">Medium</span></td><td>TruthFinder</td><td>History of Bankruptcy (2011) and significant Federal Tax Liens.</td>
+    </tr>
+    <tr>
+      <td>ENT-010</td><td>Location</td><td>8211 Ridgefield Dr</td><td>Primary Residence</td><td>Huntington Beach, CA 92646</td>
+      <td><span class="tag risk-low">Low</span></td><td>TruthFinder</td><td>Current address for Martin Beebe. Residential classification.</td>
+    </tr>
+    <tr>
+      <td>ENT-011</td><td>Location</td><td>205 Telegraph St</td><td>Historical Loc</td><td>Tennessee Ridge, TN 37178</td>
+      <td>Unknown</td><td>TruthFinder</td><td>Shared location between Wilburn and Amber Beard.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Relationships</h2>
+<table id="relationshipsTable">
+  <thead>
+    <tr>
+      <th>Relation ID</th>
+      <th>Source Entity</th>
+      <th>Target Entity</th>
+      <th>Relationship Type</th>
+      <th>Confidence</th>
+      <th>Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>REL-001</td><td>ENT-001</td><td>ENT-002</td><td>Located_At</td><td>Medium</td><td>Public_Record</td></tr>
+    <!-- Wilburn Relationships -->
+    <tr><td>REL-006</td><td>ENT-007</td><td>ENT-008</td><td>Resides_At</td><td>High</td><td>TruthFinder</td></tr>
+    <tr><td>REL-007</td><td>ENT-007</td><td>Alano Club of Santa Ana</td><td>Employment</td><td>High</td><td>Employment History</td></tr>
+    <!-- Beebe Relationships -->
+    <tr><td>REL-008</td><td>ENT-009</td><td>ENT-010</td><td>Resides_At</td><td>High</td><td>TruthFinder</td></tr>
+    <tr><td>REL-009</td><td>ENT-009</td><td>4f Generate LLC</td><td>Business Owner</td><td>High</td><td>Corporate Filings</td></tr>
+    <tr><td>REL-010</td><td>ENT-009</td><td>Feel Anthropy Foundation</td><td>Officer</td><td>High</td><td>Corporate Filings</td></tr>
+    <!-- Cross-Subject Link -->
+    <tr><td>REL-011</td><td>ENT-007</td><td>ENT-011</td><td>Shared_Address</td><td>Medium</td><td>Location History</td></tr>
+  </tbody>
+</table>
+
+<h2>Events / Timeline</h2>
+<table id="eventsTable">
+  <thead>
+    <tr>
+      <th>Event ID</th>
+      <th>Date/Timestamp</th>
+      <th>Event Type</th>
+      <th>Location</th>
+      <th>Entities Involved</th>
+      <th>Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>EV-001</td><td>02:28:00</td><td>Signal_Loss</td><td>Tucson_Area</td><td>ENT-005</td><td>Telemetry_Log</td></tr>
+    <!-- Legal Timeline -->
+    <tr><td>EV-004</td><td>2023-11-13</td><td>Criminal Offense</td><td>Orange, CA</td><td>ENT-007</td><td>Superior Court Record</td></tr>
+    <tr><td>EV-005</td><td>2020-12-18</td><td>Criminal Offense</td><td>Orange, CA</td><td>ENT-007</td><td>Superior Court Record</td></tr>
+    <tr><td>EV-006</td><td>2011-06-29</td><td>Bankruptcy Discharge</td><td>California</td><td>ENT-009</td><td>Court Case 1138021</td></tr>
+    <tr><td>EV-007</td><td>2016-03-31</td><td>Federal Tax Lien</td><td>Orange, CA</td><td>ENT-009</td><td>Recording #156608</td></tr>
+    <tr><td>EV-008</td><td>2010-05-10</td><td>State Tax Lien</td><td>Hall, GA</td><td>Adrian Morfin</td><td>Recording #14026</td></tr>
+  </tbody>
+</table>
+
+<script>
+  const entityFilter = document.getElementById('entityFilter');
+  const entitiesTable = document.getElementById('entitiesTable').getElementsByTagName('tbody')[0];
+
+  entityFilter.addEventListener('change', () => {
+    const filter = entityFilter.value;
+    for (let row of entitiesTable.rows) {
+      row.style.display = (filter === 'All' || row.cells[1].innerText === filter) ? '' : 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

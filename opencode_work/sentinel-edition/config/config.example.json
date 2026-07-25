@@ -1,0 +1,25 @@
+{
+    "workspace": "sentinel-workspace",
+    "database": "investigation.db",
+    "api_keys": {
+        "abuseipdb_api_key": "",
+        "shodan_api_key": "",
+        "pacer_key": ""
+    },
+    " collectors": {
+        "enabled": ["duckduckgo", "wayback", "crtsh", "rdap", "nppes", "sec_edgar", "usaspending"],
+        "rate_limit_seconds": 2
+    },
+    "analysis": {
+        "auto_extract_entities": true,
+        "auto_link_entities": true,
+        "risk_assessment_on_ingest": true,
+        "min_confidence_threshold": 0.3
+    },
+    "export": {
+        "default_format": "json",
+        "html_reports": true,
+        "geojson": true,
+        "auto_export_on_save": false
+    }
+}

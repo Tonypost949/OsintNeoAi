@@ -1,0 +1,101 @@
+=== DNS RECORDS: pimasheriff.org ===
+=== Generated: 2026-07-24 21:37:51 ===
+
+--- A RECORDS ---
+nslookup : Non-authoritative answer:
+At line:20 char:16
++     try { $a = nslookup -type=A $domain 8.8.8.8 2>&1 | Out-String; $o ...
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    pimasheriff.org
+Addresses:  104.21.87.104
+	  172.67.169.94
+
+
+--- MX RECORDS ---
+nslookup : Non-authoritative answer:
+At line:24 char:17
++     try { $mx = nslookup -type=MX $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+pimasheriff.org	MX preference = 1, mail exchanger = aspmx.l.google.com
+pimasheriff.org	MX preference = 5, mail exchanger = alt2.aspmx.l.google.com
+pimasheriff.org	MX preference = 10, mail exchanger = aspmx3.googlemail.com
+pimasheriff.org	MX preference = 10, mail exchanger = aspmx2.googlemail.com
+pimasheriff.org	MX preference = 5, mail exchanger = alt1.aspmx.l.google.com
+
+--- NS RECORDS ---
+nslookup : Non-authoritative answer:
+At line:28 char:17
++     try { $ns = nslookup -type=NS $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+pimasheriff.org	nameserver = seth.ns.cloudflare.com
+pimasheriff.org	nameserver = erin.ns.cloudflare.com
+
+--- TXT RECORDS ---
+nslookup : Non-authoritative answer:
+At line:32 char:18
++     try { $txt = nslookup -type=TXT $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+pimasheriff.org	text =
+
+	"BIKI6EVBSCTPPDUU4KABF962I5"
+pimasheriff.org	text =
+
+	"4m5b9ik60sinepunf0mc4s05bm"
+pimasheriff.org	text =
+
+	"49gch2nn9ijs6fr7f8c7s5g8uh"
+pimasheriff.org	text =
+
+	"v=spf1 a include:_spf.google.com ~all"
+pimasheriff.org	text =
+
+	"u3ip5ifpah95tn2v3k5323kqg8"
+
+--- SOA RECORD ---
+nslookup : Non-authoritative answer:
+At line:36 char:18
++     try { $soa = nslookup -type=SOA $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+pimasheriff.org
+	primary name server = erin.ns.cloudflare.com
+	responsible mail addr = dns.cloudflare.com
+	serial  = 2409274254
+	refresh = 10000 (2 hours 46 mins 40 secs)
+	retry   = 2400 (40 mins)
+	expire  = 604800 (7 days)
+	default TTL = 1800 (30 mins)

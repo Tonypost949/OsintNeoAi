@@ -176,7 +176,7 @@ class BulkCityIPScanner:
 
         job_config = bigquery.LoadJobConfig(
             write_disposition="WRITE_APPEND",
-            schema_update_options=[bigquery.SchemaUpdateOption.ALLOW_FIELD_ADDITION],
+            schema_update_options=[bigquery.SchemaUpdateOptions.ALLOW_FIELD_ADDITION],
         )
 
         try:
@@ -243,18 +243,17 @@ def main():
     domains = []
 
     if args.scan_california_cities:
-        # Import state and city domains from city_web_recon
-        try:
-            from agent.city_web_recon import city_domains as full_domains
-            domains = full_domains
-        except ImportError:
-            domains = [
-                "huntingtonbeachca.gov", "newportbeachca.gov", "irvine.ca.gov",
-                "santaana.gov", "anaheim.net", "fullertonca.gov",
-                "costamesaca.gov", "garden-grove.org",
-                "lacity.org", "lafd.org", "lapd.org",
-                "ca.gov", "ocgov.com",
-            ]
+        # California cities of interest
+        domains = [
+            # OC Cities
+            "huntingtonbeachca.gov", "newportbeachca.gov", "irvine.ca.gov",
+            "santaana.gov", "anaheim.net", "fullertonca.gov",
+            "costamesaca.gov", "garden-grove.org",
+            # LA Cities
+            "lacity.org", "lafd.org", "lapd.org",
+            # State
+            "ca.gov", "ocgov.com",
+        ]
 
     if args.scan_huntington_beach:
         domains = [

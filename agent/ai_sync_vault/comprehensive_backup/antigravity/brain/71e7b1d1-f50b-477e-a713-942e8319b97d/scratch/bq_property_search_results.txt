@@ -1,0 +1,9 @@
+BigQuery Property and Entity Search Results
+===========================================
+
+--- 1. Search v_rico_enterprise_master ---
+Found 0 rows.
+
+--- 2. Search regional_llcs ---
+Found 1 rows.
+Row: {'llc_name': 'COVENANT HOUSE CALIFORNIA', 'property_address': '1325 N Western Ave', 'city': 'Los Angeles', 'state': 'CA', 'ppp_amount': 1976026.0, 'ppp_forgiven': 1998926.25, 'status': 'Paid in Full', 'source': 'PPP_Database'}

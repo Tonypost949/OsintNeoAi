@@ -1,0 +1,106 @@
+=== DNS RECORDS: cookcountysheriff.org ===
+=== Generated: 2026-07-24 21:36:58 ===
+
+--- A RECORDS ---
+nslookup : Non-authoritative answer:
+At line:20 char:16
++     try { $a = nslookup -type=A $domain 8.8.8.8 2>&1 | Out-String; $o ...
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    cookcountysheriff.org
+Addresses:  141.193.213.20
+	  141.193.213.21
+
+
+--- MX RECORDS ---
+nslookup : Non-authoritative answer:
+At line:24 char:17
++     try { $mx = nslookup -type=MX $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+cookcountysheriff.org	MX preference = 0, mail exchanger = cookcountysheriff-org.mail.protection.outlook.com
+
+--- NS RECORDS ---
+nslookup : Non-authoritative answer:
+At line:28 char:17
++     try { $ns = nslookup -type=NS $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+cookcountysheriff.org	nameserver = ns25.worldnic.com
+cookcountysheriff.org	nameserver = ns26.worldnic.com
+
+--- TXT RECORDS ---
+nslookup : Non-authoritative answer:
+At line:32 char:18
++     try { $txt = nslookup -type=TXT $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+cookcountysheriff.org	text =
+
+	"q2qb2l2wytg5cgnwpvbmdk1b6dmgvp43"
+cookcountysheriff.org	text =
+
+	"_mqfg6u52tby1rdq6jss5hc9ea4jsvty"
+cookcountysheriff.org	text =
+
+	"f7qktndsr7t1tr70xczt2t7z6qw2w05g"
+cookcountysheriff.org	text =
+
+	"MS=ms16338272"
+cookcountysheriff.org	text =
+
+	"969h380sjkgzzts0vgqrsh6t6gvkhz35"
+cookcountysheriff.org	text =
+
+	"v=spf1 -all"
+cookcountysheriff.org	text =
+
+	"20953454d82f452f9728335b45168ba3"
+cookcountysheriff.org	text =
+
+	"_dlsvz0xr2p8vngp9c4ogawtntg34zcs"
+
+--- SOA RECORD ---
+nslookup : Non-authoritative answer:
+At line:36 char:18
++     try { $soa = nslookup -type=SOA $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+cookcountysheriff.org
+	primary name server = NS25.WORLDNIC.COM
+	responsible mail addr = namehost.WORLDNIC.COM
+	serial  = 125120511
+	refresh = 10800 (3 hours)
+	retry   = 3600 (1 hour)
+	expire  = 604800 (7 days)
+	default TTL = 3600 (1 hour)

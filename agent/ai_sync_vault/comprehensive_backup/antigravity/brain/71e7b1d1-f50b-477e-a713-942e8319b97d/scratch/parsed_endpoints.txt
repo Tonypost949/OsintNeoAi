@@ -1,0 +1,30 @@
+=== FILE: bigscan.html ===
+              '/administrator', '/backup', '/temp', '/config', '/.env',
+          const PROXY = 'https://corsproxy.io/?';
+              let base = 'https://' + domain;
+                  base = 'http://' + domain;
+                          pathsHtml = `<div class="detail"><span class="found">🔓 Exposed:</span> ${pathsHtml}</div>`;
+                          pathsHtml = `<div class="detail"><span class="notfound">✓ No common admin paths exposed.</span></div>`;
+=== FILE: cityscan.html ===
+              '/administrator', '/backup', '/temp', '/config', '/.env',
+              const protocols = ['https://', 'http://'];
+                  pathsHtml = '<div class="paths">🔓 Exposed paths: ';
+                  pathsHtml = '<div class="paths"><span class="notfound">✓ No common admin paths exposed</span></div>';
+=== FILE: cityscan2.html ===
+    const proxy = 'https://corsproxy.io/?';
+    const adminPaths = ['/admin','/cpanel','/webmail','/login','/wp-admin','/backup','/.env','/phpmyadmin','/server-status','/logs'];
+      const base = 'https://' + domain;
+        // try http
+        const httpBase = 'http://' + domain;
+        const mainHttp = await check(httpBase);
+        log.textContent += 'HTTP fallback: ' + (mainHttp.ok ? 'LIVE ('+mainHttp.status+')' : 'DEAD') + '\n';
+        if (!mainHttp.ok) { log.textContent += 'Domain unreachable.'; return; }
+        html += '<div class="card"><b>Exposed paths:</b> ' + found.join(', ') + '</div>';
+=== FILE: citycscan5.html ===
+        '/administrator', '/backup', '/temp', '/config', '/.env',
+      const PROXY = 'https://corsproxy.io/?';
+        // Try HTTPS first, then HTTP
+        let base = 'https://' + domain;
+          base = 'http://' + domain;
+          pathsHtml = '<div class="paths">🔓 Exposed paths: ';
+          pathsHtml = '<div class="paths"><span class="notfound">✓ No common admin paths exposed</span></div>';
