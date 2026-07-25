@@ -133,9 +133,9 @@ Prior to forced displacement August 4, 2021:
 | Detail | Fact |
 |---|---|
 | Property Type | 5-unit condominium complex, built 1989 |
-| Andrew Faulk Email | drewfalk@me.com (consumer-grade, untraceable) |
+| Andrew Falk Email | drewfalk@me.com (consumer-grade, untraceable) |
 | HOA Status | Officially "Inactive" — dissolved entity |
-| Faulk's Claim | Claims to be property owner AND HOA President (contradicts inactive status) |
+| Falk's Claim | Claims to be property owner AND HOA President (contradicts inactive status) |
 | Biohazards Found | Toxic mold, critical fire code violations, visible blood (potential undisclosed crime scene) |
 | TDS Violation | Failed to provide Transfer Disclosure Statement (CA Civil Code 1102) — mandatory for any sale with purchase option |
 | Legal Basis for Rescission | CA Civil Code 1941.1 (Warranty of Habitability), West Hollywood Municipal Code 17.52.090 (Tenant Harassment) |
@@ -284,7 +284,7 @@ Prior to forced displacement August 4, 2021:
 
 | Email | Context |
 |---|---|
-| drewfalk@me.com | Andrew Faulk — personal email used for property management |
+| drewfalk@me.com | Andrew Falk — personal email used for property management |
 | ironmandavinci@gmail.com | Anthony's primary identity — credential harvested |
 | CorporateWhistleblower@usdoj.gov | DOJ filing |
 | oig.hotline@oig.hhs.gov | HHS OIG filing |

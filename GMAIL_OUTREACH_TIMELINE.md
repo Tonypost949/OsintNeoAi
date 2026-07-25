@@ -400,7 +400,7 @@ The `gmail_govt_responses_hits.json` file contains 53 government emails — ALL 
 | **Anthony Michael DiMarcello III** | Relator, Series 3 Fiduciary, Designated Federal Witness | Primary filer |
 | **Dr. Ann Prema Verma** | Psychiatrist, NPI 1902152242, License A155456 | Co-relator, Headway whistleblower |
 | **Elizabeth (Tina) Petruccio** | Mother, mandated reporter | Communications relay |
-| **Andrew Faulk/Falk** | Landlord, 1133 N Normandie Ave, West Hollywood | Sham rent-to-own, toxic mold (180k Aspergillus) |
+| **Andrew Falk** | Landlord, 1133 N Normandie Ave, West Hollywood | Sham rent-to-own, toxic mold (180k Aspergillus) |
 | **Judge David W. Swift** | LA Superior Court, Dept P, Santa Monica | TRO hearing judge |
 | **Mayor John Heilman** | City of West Hollywood | Non-responsive executive node |
 | **Sheriff Don Barnes** | Orange County SD | 2021 armed eviction, linked to Shea Homes |

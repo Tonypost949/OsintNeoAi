@@ -132,7 +132,7 @@ Source: `forensic_investigative_dossier.md` lines 375-410, `CRIMINAL_REFERRAL_FI
 - DFEH deleted Anthony's case number
 - Knabb v. City of HB (8:26-cv-00348) — structural flaw: doesn't name County or Housing Authority in official capacity (Monell liability missed)
 - $6,000 settlement being weaponized as res judicata to dismiss entire action
-- Dr. Ann Verma: sham rent-to-own by Andrew Faulk, WH Sheriff operations, Judge Swift in Santa Monica courts
+- Dr. Ann Verma: sham rent-to-own by Andrew Falk, WH Sheriff operations, Judge Swift in Santa Monica courts
 - Nancy Guthrie disappeared from Tucson — FBI $50K reward — Tucson is the pipeline exit node (Casa Aliento CHDO LLC)
 
 Source: `hbnc_forensic_whistleblower_briefing.md` lines 38-73, `TUCSON_WEST_HOLLYWOOD_VERMA_NODE.md`
@@ -163,7 +163,7 @@ Source: `hbnc_forensic_whistleblower_briefing.md` lines 38-73, `TUCSON_WEST_HOLL
 - Psychiatrist, NPI 1902152242, License A155456
 - Headway whistleblower — filed Jan 15, 2026
 - Reported: HIPAA/CCPA/CIPA violations, billing fraud, forced biometric scraping, wage theft, controlled substance diversion
-- Living at 1133 N Formosa Ave — sham rent-to-own by Andrew Faulk
+- Living at 1133 N Formosa Ave — sham rent-to-own by Andrew Falk
 - WH Sheriff running operations on her, Judge Swift in Santa Monica courts
 - July 4, 2026: filed "Notice of Rescission and Demand for Restitution: 1133 N Formosa"
 - Email: annvermamd@gmail.com
