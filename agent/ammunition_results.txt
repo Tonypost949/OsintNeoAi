@@ -1,0 +1,23 @@
+﻿Parsing Purchase_and_Delivery_of_Ammunition.pdf...
+Extracted 40814 characters from PDF.
+Reading zip attachments...
+Found 2 attachment files inside ZIP.
+Loading ammunition bid data into BigQuery table project-743aab84-f9a5-4ec7-954.unclaimed_property.oc_ammunition_bids...
+.\venv\Scripts\python.exe : Traceback (most recent call last):
+At line:1 char:1
++ .\venv\Scripts\python.exe ingest_ammunition_bid.py 2>&1 | Out-File -E ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\ingest_ammunition_bid.py", line 66, in <module>
+    ingest_ammunition_bid()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\ingest_ammunition_bid.py", line 56, in 
+ingest_ammunition_bid
+    print("\u2705 Successfully loaded Ammunition Bid and Attachments into BigQuery!")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>

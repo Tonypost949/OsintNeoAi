@@ -1,0 +1,99 @@
+﻿.\venv\Scripts\python.exe : 
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+At line:1 char:1
++ .\venv\Scripts\python.exe investigate_triumvirate.py 2>&1 | Out-File  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\HP\.ge...dpoint instead.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  warnings.warn(
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+  warnings.warn(
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+  warnings.warn(
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+  warnings.warn(
+======================================================================
+TRIUMVIRATE LLC - FULL INVESTIGATION
+======================================================================
+
+--- ALL PPP LOANS: TRIUMVIRATE ---
+                                         BorrowerName             BorrowerAddress   BorrowerCity BorrowerState BorrowerZip  CurrentApprovalAmount  ForgivenessAmount NAICSCode                    BusinessType   LoanStatus DateApproved                        ServicingLenderName  JobsReported
+                      TRIUMVIRATE ENVIRONMENTAL, INC.         200 INNER BELT ROAD     SOMERVILLE            MA  02143-4456             9045899.00         8706594.72    562211        Subchapter S Corporation Paid in Full   04/29/2020          Webster Bank National Association         500.0
+                                      TRIUMVIRATE LLC            3705 Arctic Blvd      Anchorage            AK  99503-5774              852740.00          859751.42    721199 Limited  Liability Company(LLC) Paid in Full   02/17/2021 Community Banks of Colorado, A Division of          33.0
+                                     TRIUMVIRATE, LLC        3705 ARCTIC BLVD 429      ANCHORAGE            AK  99503-5774              619100.00          625841.31    713920 Limited  Liability Company(LLC) Paid in Full   04/09/2020 Community Banks of Colorado, A Division of          12.0
+                      TRIUMVIRATE OF BATON ROUGE, INC        1184 Bob Pettit Blvd    Baton Rouge            LA  70820-3005              320582.00          324277.60    722410                     Corporation Paid in Full   02/03/2021                         First Horizon Bank          55.0
+                      TRIUMVIRATE OF BATON ROUGE, INC        1184 BOB PETTIT BLVD    BATON ROUGE            LA       70820              228988.00          231996.65    722410                     Corporation Paid in Full   04/29/2020                         First Horizon Bank          55.0
+             TRIUMVIRATE RETAIL SOLUTIONS MNMEUSA LLC   80 N Portage Path Apt 7B3          Akron            OH  44303-1146              140106.00                NaN    453998 Limited  Liability Company(LLC) Paid in Full   04/20/2021                            A10Capital, LLC          12.0
+                                    TRIUMVIRATE, INC. 600 FAIRMOUNT AVE Suite 202         TOWSON            MD  21286-1001               21100.00           21248.87    541611                     Corporation Paid in Full   04/14/2020                     Firstrust Savings Bank           2.0
+                                      TRIUMVIRATE INC   600 Fairmount Ave Ste 202         Towson            MD  21286-1001               20887.50           21002.96    541611                     Corporation Paid in Full   02/03/2021                     Firstrust Savings Bank           2.0
+              TRIUMVIRATE REAL ESTATE INVESTMENTS LLC     6014 Fairdale Ln Unit B        Houston            TX  77057-6142               20833.00           20932.54    531390 Limited  Liability Company(LLC) Paid in Full   04/21/2021               Amur Equipment Finance, Inc.           1.0
+                            TRIUMVIRATE STRENGTH, LLC          1421 AVIATION BLVD  REDONDO BEACH            CA  90278-4012               20442.00           20587.61    999990 Limited  Liability Company(LLC) Paid in Full   05/01/2020      Bank of America, National Association          12.0
+              TRIUMVIRATE REAL ESTATE INVESTMENTS LLC     UNIT B 6014 FAIRDALE LN        HOUSTON            TX       77057               16875.00           17043.29    531390 Limited  Liability Company(LLC) Paid in Full   06/30/2020                           Cross River Bank           1.0
+                           TRIUMVIRATE ENTERPRISE LLC        4081 West 5500 South SALT LAKE CITY            UT  84118-4405               16800.00           16759.05    624120 Limited  Liability Company(LLC) Paid in Full   04/27/2020                              Brighton Bank           1.0
+                                      TRIUMVIRATE LLC            1710 Central Ave       Cheyenne            WY  82001-4534                9237.05            9317.02    451120                     Corporation Paid in Full   04/10/2021                      Pinnacle Bank-Wyoming           5.0
+                                     TRIUMVIRATE INC.            2593 Tokeland Rd       Tokeland            WA       98590                8335.00            8396.43    114112                     Corporation Paid in Full   03/01/2021                            Timberland Bank           2.0
+                             TRIUMVIRATE WIRELESS INC          151 e burnside ave          bronx            NY       10453                8260.00            8364.63    452319                     Corporation Paid in Full   05/01/2020                                    WebBank           2.0
+TRIUMVIRATE CONTENT CONSULTANTS LLC-SBA SMALL 7A TERM                 272 BAY AVE     GLEN RIDGE            NJ       07028                7949.00            8017.89       NaN Limited  Liability Company(LLC) Paid in Full   05/01/2020              TD Bank, National Association           1.0
+                                      TRIUMVIRATE LLC            1710 Central Ave       CHEYENNE            WY       82001                7700.00            7769.19    453998                     Corporation Paid in Full   04/15/2020                      Pinnacle Bank-Wyoming           3.0
+                             TRIUMVIRATE WIRELESS INC          151 E Burnside Ave          Bronx            NY  10453-4104                7252.00            7297.33    443142                     Corporation Paid in Full   03/09/2021              TD Bank, National Association           2.0
+
+--- HB_LLCS: TRIUMVIRATE ---
+         Owner1 Owner2         SiteAddress      MailAddress        MailCity        APN                      LastSeller LastSaleDate  LastSaleValue
+TRIUMVIRATE LLC    NaN 21951 BROOKHURST ST 9874 RARITAN AVE FOUNTAIN VALLEY 151-234-09 ROSELL, DAVID T; ROSELL, LORI L   11/19/2021      2800000.0
+
+--- ALL PPP AT 21951 BROOKHURST ST (Fountain Valley) ---
+                                         BorrowerName                BorrowerAddress    BorrowerCity BorrowerState  CurrentApprovalAmount  ForgivenessAmount NAICSCode             BusinessType   LoanStatus DateApproved                       ServicingLenderName
+PACIFIC HOSPITALIST ASSOCIATES, A MEDICAL CORPORATION           173600 BROOKHURST ST FOUNTAIN VALLEY            CA             1377800.00         1404299.06    622110              Corporation Paid in Full   04/15/2020                      United Business Bank
+              BOYS & GIRLS CLUBS OF HUNTINGTON VALLEY            16582 BROOKHURST ST FOUNTAIN VALLEY            CA             1147300.00         1157452.82    624110              Corporation Paid in Full   04/06/2020                  Loan Source Incorporated
+      BOYS & GIRLS CLUBS OF HUNTINGTON VALLEY - OWNER            16582 Brookhurst St Fountain Valley            CA             1011644.00         1023589.71    624110              Corporation Paid in Full   01/26/2021       Harvest Small Business Finance, LLC
+                              BRODARD ENTERPRISE INC.            16105 Brookhurst St Fountain Valley            CA              702744.00          711600.50    722511              Corporation Paid in Full   01/19/2021                    GBC International Bank
+             TIEN Q NGUYEN MD A PROFESSIONAL CORPORAT            17271 BROOKHURST ST FOUNTAIN VALLEY            CA              514041.00          457959.93    621399              Corporation Paid in Full   04/30/2020     Bank of America, National Association
+                             BRODARD ENTERPRISE, INC.            16105 BROOKHURST ST FOUNTAIN VALLEY            CA              503800.00          508147.86    722310              Corporation Paid in Full   04/27/2020                    GBC International Bank
+                            JACK F. JACOUB, M.D. INC. 18111 BROOKHURST ST, Ste. 6100 FOUNTAIN VALLEY            CA              477500.00          479933.70    621111              Corporation Paid in Full   04/28/2020           California Bank of Commerce, NA
+          TIEN Q NGUYEN MD A PROFESSIONAL CORPORATION            17271 Brookhurst St Fountain Valley            CA              440567.00          442824.15    621111              Corporation Paid in Full   02/11/2021     Bank of America, National Association
+         CALIFORNIA HEART ASSOCIATES, A MEDICAL GROUP      18111 BROOKHURST ST #5100 FOUNTAIN VALLEY            CA              429700.00          432743.71    621111              Partnership Paid in Full   04/27/2020                            East West Bank
+                       CAL-PACIFIC PET PRODUCTS, INC.            18551 BROOKHURST ST FOUNTAIN VALLEY            CA              362400.00          366878.86    339999 Subchapter S Corporation Paid in Full   05/01/2020 JPMorgan Chase Bank, National Association
+                               TPC CORP LITTLE SAIGON            16161 Brookhurst St Fountain Valley            CA              329900.00          331011.72    722511              Corporation Paid in Full   01/29/2021             Centerstone SBA Lending, Inc.
+                                           FVBFV INC.            17110 Brookhurst St Fountain Valley            CA              311000.00          315584.05    713950              Corporation Paid in Full   02/05/2021                  Loan Source Incorporated
+                                 LB47 ENTERPRISES INC            18889 Brookhurst St Fountain Valley            CA              310261.00          314095.48    722511              Corporation Paid in Full   03/12/2021 JPMorgan Chase Bank, National Association
+                                     AMIR FAMILY INC.            16205 Brookhurst St Fountain Valley            CA              300727.58          303166.81    722511 Subchapter S Corporation Paid in Full   01/20/2021                    First Bank of the Lake
+                                MEDHAT MIKHAEL MD INC   18035 Brookhurst St Ste 1200 Fountain Valley            CA              277316.00          278448.06    621399              Corporation Paid in Full   02/04/2021    Farmers & Merchants Bank of Long Beach
+                          THE RECESSROOM INCORPORATED            18380 Brookhurst St Fountain Valley            CA              252000.00          255093.04    722511      Sole Proprietorship Paid in Full   03/12/2021                     Readycap Lending, LLC
+                                MEDHAT MIKHAEL MD INC   18035 Brookhurst St Ste 1200 Fountain Valley            CA              249800.00          252578.60    621111              Corporation Paid in Full   04/28/2020    Farmers & Merchants Bank of Long Beach
+                  LEPORT SURGICAL MEDICAL CORPORATION            18111 BROOKHURST ST FOUNTAIN VALLEY            CA              236500.00          237905.86    621111              Corporation Paid in Full   04/29/2020                              Sunwest Bank
+                           VIETFACE MEDIA GROUP, INC.            16149 BROOKHURST ST FOUNTAIN VALLEY            CA              231625.00                NaN    515120              Corporation Paid in Full   04/13/2020                   Enterprise Bank & Trust
+      LB47 ENTERPRISES, INC DBA MARIE CALLENDER'S #47            18889 BROOKHURST ST FOUNTAIN VALLEY            CA              221615.00          224516.80    561499              Corporation Paid in Full   05/01/2020 JPMorgan Chase Bank, National Association
+
+--- TRIUMVIRATE NAICS lookup ---
+  541618 = Other Management Consulting
+  523930 = Investment Advice
+  531110 = Lessors of Residential Buildings
+  531120 = Lessors of Nonresidential Buildings
+
+--- OTHER ALASKA-BASED PPP in HB/OC area ---
+                                  BorrowerName               BorrowerAddress  BorrowerCity BorrowerState  CurrentApprovalAmount  ForgivenessAmount NAICSCode DateApproved
+         ARCTIC SLOPE NATIVE ASSOCIATION, LTD.                  7000 Uula St        BARROW            AK             7666768.00         7761324.81    813920   04/14/2020
+                  SOUTH PENINSULA HOSPITAL INC          4300 BARTLETT STREET         HOMER            AK             6528631.40         6598389.38    622110   04/14/2020
+               MATANUSKA TELEPHONE ASSOCIATION            1740 S. CHUGACH ST        PALMER            AK             5928882.00         5987841.44    517311   06/10/2020
+                         CRUZ CONSTRUCTION INC  7000 East Palmer Wasilla Hwy        PALMER            AK             5019000.24         5075790.57    238190   04/15/2020
+                HOMER ELECTRIC ASSOCIATION INC              3977 LAKE STREET         HOMER            AK             4808473.42         4861564.24    221122   04/28/2020
+ ALYESKA RESORT OPERATIONS LIMITED PARTNERSHIP              1000 Arlberg Ave      GIRDWOOD            AK             3400700.00         3444210.33    721110   04/13/2020
+                                 KAWERAK, INC.                    PO Box 948          NOME            AK             3142152.86                NaN    624110   04/13/2020
+                              BERING AIR, INC.                   PO Box 1650          NOME            AK             2574300.00         2608294.87    481211   04/13/2020
+                    KETCHIKAN INDIAN COMMUNITY    Ketchikan Indian Community     KETCHIKAN            AK             2210033.00         2241639.50    621910   04/27/2020
+                     NEW HORIZONS TELECOM INC.       901 Cope Industrial Way        PALMER            AK             2009300.00         2032200.52    237130   04/10/2020
+                         WHITTIER SEAFOOD, LLC             375 E WHITTIER ST      WHITTIER            AK             2000000.00         1894260.11    114111   03/28/2021
+                           AHTNA' T'AENE NENE' Mile 111.5 Richardson Highway Copper Center            AK             2000000.00         2025698.63    621498   03/24/2021
+                             ILISAGVIK COLLEGE              100 Stevenson St        BARROW            AK             1981787.00         2002799.37    611310   04/08/2020
+                         WATERFALL GROUP, LTD.               320 Dock Street     KETCHIKAN            AK             1883281.94         1904952.58    531110   04/13/2020
+                     THE WATERFALL GROUP. LTD.                   320 Dock St     Ketchikan            AK             1818671.10         1828835.73    561110   02/25/2021
+                     PETERSBURG MEDICAL CENTER               103 Fram Street    PETERSBURG            AK             1800000.00         1811095.89    621111   04/13/2020
+                KODIAK AREA NATIVE ASSOCIATION             3449 E Rezanof Dr        KODIAK            AK             1761147.16         1774705.58    813410   04/15/2020
+              SLAYDEN PLUMBING & HEATING INC..          1998 Richardson Hyw.    NORTH POLE            AK             1757700.00         1777203.25    238220   04/04/2020
+                            TYLER RENTAL, INC.             5216 Borch Street     KETCHIKAN            AK             1710615.00         1723081.40    423390   04/27/2020
+PENINSULA COMMUNITY HEALTH SERVICES OF AK INC.            230 E Marydale Ave      Soldotna            AK             1669367.00         1687615.70    621498   02/14/2021

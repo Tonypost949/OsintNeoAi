@@ -1,0 +1,77 @@
+﻿.\venv\Scripts\python.exe : 
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+At line:1 char:1
++ .\venv\Scripts\python.exe download_and_load_unclaimed_final.py 2>&1 | ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\HP\.ge...dpoint instead.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  warnings.warn(
+Using cached estates_deceased_persons.xlsx (already downloaded).
+Reading Excel sheet (skipping header lines)...
+Rows: 74040 | Raw columns count: 14
+Assigned columns: ['case_id', 'estate_number', 'decedent_or_heir_name', 'role', 'date_field_1', 'date_field_2', 'escheat_date', 'escheat_status', 'report_date', 'received_date', 'petition_number', 'amount_1', 'amount_2', 'county']
+Loading 74040 records into BigQuery table project-743aab84-f9a5-4ec7-954.unclaimed_property.ca_unclaimed_raw...
+Successfully loaded 74040 rows into BigQuery.
+Searching database for Mercy House & Larry Haynes...
+Found 50 matching records:
+       case_id              estate_number    decedent_or_heir_name      role date_field_1                         date_field_2 escheat_date escheat_status  report_date received_date             petition_number  amount_1  amount_2                                 county
+0    961363740                        NaN           COPELAND LARRY      Heir          NaN                                  NaN          NaN            NaN   2010-06-07    2010-05-24              PRO PS 0900614   17390.4       0.0                                    NaN
+1    962716507                        NaN         BERG LARRY EDWIN  Decedent          NaN                                  NaN          NaN            NaN   2011-01-12    2009-06-11                    PR-38714   10000.0   10000.0                                  BUTTE
+2    967548188                        NaN      BAILEY LARRY EUGENE      Heir          NaN                                  NaN          NaN            NaN   2010-02-01    2010-05-06                  GP 012 557  59869.76       0.0                            LOS ANGELES
+3    967548262                        NaN             LUNA LARRY F      Heir          NaN                                  NaN          NaN            NaN   2012-02-01    2008-11-13                  NP 011 209   1712.36   1712.36                            LOS ANGELES
+4    974917734                        NaN           KELLER LARRY E      Heir          NaN                                  NaN          NaN            NaN   2014-01-21    2012-04-25                   inp020488   6132.24   6132.24                                    NaN
+5    976472305                        NaN                GAY LARRY      Heir          NaN                                  NaN          NaN            NaN   2014-06-20    2013-02-05                  BP 107 412  18245.24  15523.58                                    NaN
+6    979529600                        NaN        PEARSON LARRY LEE  Decedent          NaN  \nPEARSON LAURENCE\nPEARSON LARRY L          NaN            NaN   2015-01-13    2003-06-20                     PR 9180   3333.33   3333.33                               TUOLUMNE
+7    979588691                        NaN               KING LARRY  Decedent          NaN                                  NaN          NaN            NaN   2015-01-27    2013-05-30                    20080153    143.05    143.05                              SAN DIEGO
+8    983236488                        NaN             CASALI LARRY  Decedent          NaN                  \nCASALI LAWRENCE A          NaN            NaN   2015-06-19    2014-02-13                   ZE 035747    500.24    500.24                            LOS ANGELES
+9    983236488                        NaN             CASALI LARRY      Heir          NaN                                  NaN          NaN            NaN   2015-06-19    2014-02-13                   ZE 035747    500.24    500.24                            LOS ANGELES
+10   984385748                        NaN           HAYNES TERRY R      Heir          NaN                                  NaN          NaN            NaN   2016-01-20    2014-05-14                   GP 014433   76581.0  63102.75                            LOS ANGELES
+11   989051077                        NaN         BRADFORD LARRY D      Heir          NaN                                  NaN          NaN            NaN   2017-01-19    2005-12-07                   BP 083605    351.48    351.48                            LOS ANGELES
+12   989051102                        NaN    RYBARCZYK LARRY WAYNE      Heir          NaN                                  NaN          NaN            NaN   2017-01-19    2014-09-11                  BP 091 368    337.34    337.34                            LOS ANGELES
+13   989692818                        NaN    MARSHAL PRESTON LARRY      Heir          NaN                                  NaN          NaN            NaN   2017-06-15    2016-02-03              PES 11-294-258  43086.04  32085.35                          SAN FRANCISCO
+14   990140352                        NaN             NEWMAN LARRY      Heir          NaN                                  NaN          NaN            NaN   2017-06-26    2016-04-18                 MCP 1400615   11959.3   11959.3                              RIVERSIDE
+15   993727922                        NaN             HUTTON LARRY  Decedent          NaN                                  NaN          NaN            NaN   2018-04-17    2018-01-12                 439-84-0043    245.05    245.05                            SANTA CLARA
+16   993727922                        NaN             HUTTON LARRY      Heir          NaN                                  NaN          NaN            NaN   2018-04-17    2018-01-12                 439-84-0043    245.05    245.05                            SANTA CLARA
+17   994493098                        NaN             GIBSON LARRY  Decedent          NaN                                  NaN          NaN            NaN   2018-06-26    2017-01-19               PA # 20172764   1248.95   1248.95                              SAN DIEGO
+18   995031335                        NaN             GILMAN LARRY  Decedent          NaN                                  NaN          NaN            NaN   2018-06-13    2015-01-19                   2015-0064     219.0     219.0                          SAN FRANCISCO
+19   995031335                        NaN             GILMAN LARRY      Heir          NaN                                  NaN          NaN            NaN   2018-06-13    2015-01-19                   2015-0064     219.0     219.0                          SAN FRANCISCO
+20   995911106                        NaN             NEWMAN LARRY      Heir          NaN                                  NaN          NaN            NaN   2018-06-18    2017-03-16                 MCP 1400615   6035.26   6035.26                              RIVERSIDE
+21   999424984                        NaN              DAVIS LARRY      Heir          NaN                                  NaN          NaN            NaN   2019-07-05    2017-03-02         37-2016-00004622-PR    226.29    226.29                              SAN DIEGO
+22  1004247128                        NaN           LOADER LARRY E  Decedent          NaN                  LOADER LARRY EUGENE          NaN            NaN   2019-12-26    2019-12-03                  INP1600612  17175.71       0.0                              RIVERSIDE
+23  1004418955                        NaN     NADEAU LARRY O'NEILL      Heir          NaN                                  NaN          NaN            NaN   2020-02-20    2018-06-19                        NONE    854.17    854.17                              SAN DIEGO
+24  1009844017                        NaN            HOLGUIN LARRY      Heir          NaN                                  NaN          NaN            NaN   2021-01-15    2019-07-31                    BP140877  41151.72  41151.72                            LOS ANGELES
+25  1010299457                        NaN            ROBERTS LARRY      Heir          NaN                                  NaN          NaN            NaN   2021-06-15    2020-03-26                        NONE     50.81     50.81                                VENTURA
+26  1017434855                        NaN             GARNER LARRY  Decedent          NaN                                  NaN          NaN            NaN   2021-12-20    2021-12-20                    20218580    761.04    761.04                              SAN DIEGO
+27  1017735825                        NaN               PYLE LARRY      Heir          NaN                                  NaN          NaN            NaN   2022-01-19    2020-10-20            34-2009-00033023  16576.55  16576.55                             SACRAMENTO
+28  1017793142                        NaN  MAGEE LARRY WILLIAM SR.      Heir          NaN                                  NaN          NaN            NaN   2022-01-13    2020-10-05                    13-01028    857.69    857.69                                ALAMEDA
+29  1018311452                        NaN              MARTZ LARRY      Heir          NaN                                  NaN          NaN            NaN   2022-06-15    2021-01-11               PES-17-300487   1600.64   1600.64                          SAN FRANCISCO
+30  1018311452                        NaN              MARTZ LARRY      Heir          NaN                                  NaN          NaN            NaN   2022-06-15    2021-01-11               PES-17-300487   1600.64   1600.64                          SAN FRANCISCO
+31  1018641560                        NaN         RIDGEWAY LARRY A  Decedent          NaN                                  NaN          NaN            NaN   2022-06-27    2021-02-22  30-2009-00256949-PR-OP-CJC   9802.54   9802.54                                 ORANGE
+32  1024717748                        NaN              SHEFF LARRY  Decedent          NaN                                  NaN          NaN            NaN   2023-01-11    2021-09-02                    17-01102   5258.25   5258.25                                ALAMEDA
+33  1024724348                        NaN         RIDGEWAY LARRY A  Decedent          NaN                                  NaN          NaN            NaN   2023-01-30    2021-05-24  30-2009-00256949-PR-OP-CJC    215.01    215.01                                 ORANGE
+34  1031555244                        NaN     RIDGEWAY LARRY ALLEN  Decedent          NaN                                  NaN          NaN            NaN   2024-02-06    2022-04-13  30-2009-00256949-PR-OP-CJC    497.23    497.23                                 ORANGE
+35  1031584944                        NaN      DAVIS LARRY ANTHONY      Heir          NaN                                  NaN          NaN            NaN   2024-01-09    2022-10-20                    BP124916    746.56    746.56                            LOS ANGELES
+36  1031584945                        NaN      DAVIS LARRY ANTHONY      Heir          NaN                                  NaN          NaN            NaN   2024-01-09    2022-10-20                    BP120841   5670.38   5670.38                            LOS ANGELES
+37  1032525108                        NaN           MILLER LARRY R  Decedent          NaN                                  NaN          NaN            NaN   2024-06-26    2023-03-06              1-76-PR 091787   3780.18   3780.18                            SANTA CLARA
+38  1039486513                        NaN          ARMSTRONG LARRY      Heir          NaN                                  NaN          NaN            NaN   2025-01-14    2019-08-16                 EAPBP164189   1401.14   1401.14                            LOS ANGELES
+39  1039514407                        NaN            GOODWIN LARRY      Heir          NaN                                  NaN          NaN            NaN   2025-01-14    2023-12-22                  RIP1701360   5616.83   5616.83                              RIVERSIDE
+40  1039514407                        NaN            GOODWIN LARRY      Heir          NaN                                  NaN          NaN            NaN   2025-01-14    2023-12-22                  RIP1701360   5616.83   5616.83                              RIVERSIDE
+41  1040793766                        NaN          FULLER LARRY JR      Heir          NaN                                  NaN          NaN            NaN   2025-06-16    2024-05-23                  RP15778320  52951.88  52951.88                                ALAMEDA
+42  1043331293                        NaN    SINCLAIR ROBERT LARRY      Heir          NaN                                  NaN          NaN            NaN   2025-06-26    2024-02-06  37-2022-00008178-PR-LA-CTL  50046.17  50046.17                              SAN DIEGO
+43  1069515397                        NaN             Suarez Larry      Heir          NaN                                  NaN          NaN            NaN  Jan  9 2026    2024-08-29                    BP168494    731.27    731.27                                    NaN
+44  1069751906                        NaN   Williamson Larry\tAlan  Decedent          NaN                                  NaN          NaN            NaN  Jan 22 2026    2024-06-01                   2024-1005     292.0     292.0  SAN FRANCISCO COUNTY REPORTED ESTATES
+45  1069796484                        NaN               Hahs Larry      Heir          NaN                                  NaN          NaN            NaN  Jan 30 2026    2024-07-12                PROPS1600738  49190.02  49190.02                                    NaN
+46  1069796492                        NaN            Sanchez Larry      Heir          NaN                                  NaN          NaN            NaN  Jan 30 2026    2024-12-04                PROSB2201723  20326.72  20326.72                                    NaN
+47   956819336  71909E                              BOUNDS LARRY G  Decedent          NaN                                  NaN          NaN            NaN   2008-01-17    2006-11-09                  RP04190582   6344.66   6344.66                                ALAMEDA
+48   956815333  71948E                              ERXLEBEN LARRY      Heir          NaN                                  NaN          NaN            NaN   2008-01-15    2000-07-31                  NO PROBATE   2300.88   2300.88                                 FRESNO
+49   956821743  72003E                              JEWETT LARRY L  Decedent          NaN                                  NaN          NaN            NaN   2008-01-30    2006-08-14                   FPR041597   10000.0       0.0                                 SOLANO
+============================================================
+  INITIATING SECURE EMAIL NOTIFICATION  
+============================================================
+Connecting to SMTP server smtp.gmail.com:587...
+Logging in using secure App Password...
+Sending email to txtdjdrop@gmail.com...
+[OK] Alert email sent successfully!
+Email notification sent.

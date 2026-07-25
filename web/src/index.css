@@ -1,0 +1,101 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: "JetBrains Mono", var(--font-mono);
+    --font-sans: "JetBrains Mono", var(--font-mono);
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: #00FF41;
+    --color-input: #00FF41;
+    --color-border: #00FF41;
+    --color-destructive: oklch(0.577 0.245 27.325);
+    --color-accent-foreground: #000000;
+    --color-accent: #00FF41;
+    --color-muted-foreground: #00FF4180;
+    --color-muted: #003310;
+    --color-secondary-foreground: #000000;
+    --color-secondary: #00FF41;
+    --color-primary-foreground: #000000;
+    --color-primary: #00FF41;
+    --color-popover-foreground: #00FF41;
+    --color-popover: #050505;
+    --color-card-foreground: #00FF41;
+    --color-card: #050505;
+    --color-foreground: #00FF41;
+    --color-background: #050505;
+    --radius-sm: 0;
+    --radius-md: 0;
+    --radius-lg: 0;
+}
+
+:root {
+    --background: #050505;
+    --foreground: #00FF41;
+    --card: #050505;
+    --card-foreground: #00FF41;
+    --popover: #050505;
+    --popover-foreground: #00FF41;
+    --primary: #00FF41;
+    --primary-foreground: #000000;
+    --secondary: #003310;
+    --secondary-foreground: #00FF41;
+    --muted: #003310;
+    --muted-foreground: #00FF4180;
+    --accent: #00FF41;
+    --accent-foreground: #000000;
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: #00FF41;
+    --input: #00FF41;
+    --ring: #00FF41;
+    --chart-1: #00FF41;
+    --chart-2: #003310;
+    --radius: 0rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    scrollbar-color: #00FF41 #001100;
+    scrollbar-width: thin;
+  }
+  body {
+    @apply bg-background text-foreground uppercase font-mono;
+  }
+  html {
+    @apply font-mono;
+  }
+  
+  /* Webkit custom scrollbars for terminal aesthetic */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #000800;
+    border-left: 1px solid rgba(0, 255, 65, 0.2);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #00FF41;
+    border: 1px solid #000800;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ffffff;
+  }
+}

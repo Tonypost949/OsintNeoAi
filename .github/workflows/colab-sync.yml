@@ -1,0 +1,70 @@
+name: Colab Sync
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "osint_pipeline/**"
+      - "main.py"
+      - "requirements.txt"
+  workflow_dispatch:
+
+jobs:
+  build-colab:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate Colab Notebook
+        run: |
+          cat > OsintNeoAi_Colab.ipynb << 'NBEOF'
+          {
+           "cells": [
+            {
+             "cell_type": "markdown",
+             "metadata": {},
+             "source": ["# OsintNeoAi — Colab Interactive Environment\\nRun the full OSINT pipeline from your browser."]
+            },
+            {
+             "cell_type": "code",
+             "execution_count": null,
+             "metadata": {},
+             "source": [
+              "# Cell 1: Clone and setup\\n!git clone https://github.com/Tonypost949/OsintNeoAi.git\\n%cd OsintNeoAi\\n!pip install -q -r requirements.txt\\n\\n# Set GEMINI_API_KEY as a Colab secret\\nimport os\\nfrom google.colab import userdata\\nos.environ['GEMINI_API_KEY'] = userdata.get('GEMINI_API_KEY', '')"
+             ]
+            },
+            {
+             "cell_type": "code",
+             "execution_count": null,
+             "metadata": {},
+             "source": [
+              "# Cell 2: Run OSINT collection\\n!python main.py --mode collect\\n\\n# Display results\\nimport glob\\nfor f in glob.glob('results/*.csv') + glob.glob('results/*.jsonl'):\\n    print(f'\\n=== {f} ===')\\n    with open(f) as fh:\\n        print(fh.read()[:2000])"
+             ]
+            },
+            {
+             "cell_type": "code",
+             "execution_count": null,
+             "metadata": {},
+             "source": [
+              "# Cell 3: Push results back to GitHub\\n!git config user.name 'Colab Bot'\\n!git config user.email 'colab@osintneoai.com'\\n!git add -A\\n!git commit -m 'Results from Colab - $(date)'\\n!git push"
+             ]
+            }
+           ],
+           "metadata": {
+            "accelerator": "GPU",
+            "language_info": {"name": "python", "version": "3.12"}
+           },
+           "nbformat": 4,
+           "nbformat_minor": 4
+          }
+NBEOF
+          echo "Colab notebook generated"
+
+      - name: Upload Colab Notebook
+        run: |
+          git config user.name "OsintNeoAi Bot"
+          git config user.email "bot@osintneoai.com"
+          git add OsintNeoAi_Colab.ipynb
+          git diff --staged --quiet || git commit -m "Update Colab notebook - $(date -u)"
+          git push
