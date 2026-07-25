@@ -116,11 +116,13 @@
 | Tactic | "Prestige Layering" — manufacturing false familial trust to induce predatory contract signing |
 | Photo | andrewfalk.png in Google Drive (2 copies, 591KB each): Drive IDs 1MoCBkApx1ZwJRKVbuPLaTjJ0POXIY6cJ and 1jx3O7LpcGqqNbM_Zpq0K5JKTnweE91V2 |
 
-### ADDRESS DISCREPANCY — RESOLVED
+### TWO ADDRESSES — BOTH CONFIRMED
 
-**Antigravity DeepSeek data (June 2026):** References "1133 N. Normandie Ave, Los Angeles, CA 90029"
-**Current doc + Google Doc (July 4, 2026):** References "1133 N Formosa Ave, West Hollywood, CA 90046"
-**Resolution:** The current documentation is correct (matches Google Doc Notice of Rescission). The Antigravity data used an incorrect address. Both N. Normandie and N. Formosa run parallel N-S through Hollywood/West Hollywood, ~0.3 miles apart.
+**1133 N. Normandie Ave, Los Angeles, CA 90029** — Andrew Falk's CURRENT personal residence (confirmed by user July 24, 2026)
+
+**1133 N Formosa Ave, West Hollywood, CA 90046** — The rental property where the rent-to-own fraud against Dr. Ann Verma occurred. Subject of July 4, 2026 Notice of Rescission.
+
+Both addresses are valid and connected to Andrew Falk. The Normandie address is where Falk lives; the Formosa address is where he committed the fraud.
 
 ### NAME SPELLING DISCREPANCY — NEEDS ANTHONY CONFIRMATION
 
