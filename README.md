@@ -1,76 +1,53 @@
-# OsintNeoAi - Open Source Intelligence Platform
+# OSINTNeoAi — Master Evidence & Investigation Index
 
-**Production-Grade OSINT Platform with Gemini AI Integration**
+Welcome to the **OSINTNeoAi** official investigation repository and evidence clearinghouse.
 
-[![Deploy to Google Cloud Run](https://github.com/Tonypost949/OsintNeoAi/actions/workflows/deploy-google-cloud.yml/badge.svg)](https://github.com/Tonypost949/OsintNeoAi/actions/workflows/deploy-google-cloud.yml)
-[![Auto-Commit Results](https://github.com/Tonypost949/OsintNeoAi/actions/workflows/auto-commit.yml/badge.svg)](https://github.com/Tonypost949/OsintNeoAi/actions/workflows/auto-commit.yml)
-[![Colab Sync](https://github.com/Tonypost949/OsintNeoAi/actions/workflows/colab-sync.yml/badge.svg)](https://github.com/Tonypost949/OsintNeoAi/actions/workflows/colab-sync.yml)
+---
 
-## 🚀 Features
+## 🌐 Master Single-Page Evidence Dashboard
+* **Interactive Command Center Page:** [index.html](https://github.com/Tonypost949/OsintNeoAi/blob/main/index.html)
+* **Direct File Path:** `https://github.com/Tonypost949/OsintNeoAi/blob/main/index.html`
 
-- **Multi-Channel Data Ingestion**: GDrive, Gmail, OneDrive, OCR support
-- **Entity Resolution**: Forensic matching with corporate record correlation
-- **Graph Analysis**: Maltego integration & GeoJSON spatial mapping
-- **Gemini AI Integration**: Real-time anomaly detection & analysis
-- **Cloud-Native**: Runs on Google Cloud Run (always-on, never freezes)
-- **Auto-Sync**: Results automatically push to GitHub hourly
-- **Colab-Ready**: Interactive notebooks in Google Colab
-- **Zero-Cost**: Entire platform runs on free tiers
+---
 
-## 📊 Quick Start
+## 📋 Comprehensive Evidence Index
 
-### 1. Local Installation
+### 📄 Investigative Reports & Summaries
+| Evidence Document | Full GitHub Online Path | Description |
+| :--- | :--- | :--- |
+| **Forensic Audit Report** | [FORENSIC_AUDIT_REPORT.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/FORENSIC_AUDIT_REPORT.md) | Full municipal & financial audit findings |
+| **Dehashed HBPD Scan Report** | [DEHASHED_HBPD_SCAN_REPORT.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/DEHASHED_HBPD_SCAN_REPORT.md) | Credential exposure & breach analysis |
+| **HBPD Port Scan Report** | [HBPD_PORT_SCAN_REPORT.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/HBPD_PORT_SCAN_REPORT.md) | Network port scan & vulnerability audit |
+| **Medical & Petruccio Summary** | [PETRUCCIO_MEDICAL_SUMMARY.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/PETRUCCIO_MEDICAL_SUMMARY.md) | Medical documentation & case evidence |
+| **BigQuery Ingestion Guide** | [OSINT_BIGQUERY_INGESTION_WALKTHROUGH_AND_PATHS.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/OSINT_BIGQUERY_INGESTION_WALKTHROUGH_AND_PATHS.md) | BigQuery schema & dataset mapping |
+| **Civil Rights Integration Guide** | [OSINT_Civil_Rights_Integration_Guide.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/OSINT_Civil_Rights_Integration_Guide.md) | Legal compliance & advocacy framework |
+| **Chokepoint Extraction Report** | [chokepoint_extraction_report.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/chokepoint_extraction_report.md) | Entity bottleneck analysis |
 
-```bash
-git clone https://github.com/Tonypost949/OsintNeoAi.git
-cd OsintNeoAi
+---
 
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\Activate.ps1
+### 📊 Master Data Spreadsheets & Manifests
+| Dataset / Manifest | Full GitHub Online Path | Description |
+| :--- | :--- | :--- |
+| **Audit Numbers (V2 Scan)** | [AUDIT_NUMBERS_v2_scan_july24.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/AUDIT_NUMBERS_v2_scan_july24.csv) | Primary audit figures & financial metrics |
+| **File Status Manifest** | [FILE_STATUS_MANIFEST.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/FILE_STATUS_MANIFEST.csv) | Complete file tracking index |
+| **Forensic Master Spreadsheet** | [forensic_master_spreadsheet.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/forensic_master_spreadsheet.csv) | Cross-referenced forensic evidence |
+| **Mercy PPP RPM Records** | [ppp_mercy_rpm.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/ppp_mercy_rpm.csv) | Mercy House PPP funding correlation |
+| **PPP Target Addresses** | [ppp_target_addresses.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/ppp_target_addresses.csv) | Address verification matrix |
+| **Regional LLCs Summary** | [regional_llcs_summary.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/regional_llcs_summary.csv) | Shell LLC network breakdown |
+| **Repository Paths** | [repository_paths.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/repository_paths.csv) | Internal file path directory |
+| **State Fraud Summary** | [state_fraud_summary.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/state_fraud_summary.csv) | Nationwide fraud pattern summary |
 
-pip install -r requirements.txt
+---
 
-cp .env.example .env
-# Edit .env with your Gemini API key
+### 🕸️ Graph Networks & Data Dumps
+| Data Structure | Full GitHub Online Path | Description |
+| :--- | :--- | :--- |
+| **Graph Nodes (Entities)** | [nodes.json](https://github.com/Tonypost949/OsintNeoAi/blob/main/nodes.json) | Complete entity node definitions |
+| **Graph Edges (Relationships)** | [edges.json](https://github.com/Tonypost949/OsintNeoAi/blob/main/edges.json) | Complete entity relationship edges |
+| **Gmail Government Hits** | [gmail_govt_responses_hits.json](https://github.com/Tonypost949/OsintNeoAi/blob/main/gmail_govt_responses_hits.json) | Public records & email disclosures |
 
-python main.py --mode collect
-```
+---
 
-### 2. Google Colab
-
-Open in Colab: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tonypost949/OsintNeoAi/blob/main/)
-
-1. Click `Secrets` (🔑) in left sidebar
-2. Add `GEMINI_API_KEY` from [aistudio.google.com](https://aistudio.google.com)
-3. Run cells
-
-### 3. Google Cloud Deployment
-
-See [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) for complete instructions.
-
-## 🔧 Project Structure
-
-```
-OsintNeoAi/
-├── .github/workflows/           # GitHub Actions workflows
-│   ├── deploy-google-cloud.yml  # Cloud Run deployment
-│   ├── auto-commit.yml          # Hourly results sync
-│   └── colab-sync.yml           # Notebook sync
-├── scripts/                     # Helper scripts
-├── main.py                      # Main entry point
-├── Dockerfile                   # Container config
-├── requirements.txt             # Dependencies
-└── DEPLOYMENT_GUIDE.md          # Setup guide
-```
-
-## 💰 Cost: $0.00
-
-All services run on free tiers with no hidden costs!
-
-## 📖 Documentation
-
-- [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) - Complete setup
-- [GitHub Issues](https://github.com/Tonypost949/OsintNeoAi/issues)
-- [Gemini API Docs](https://ai.google.dev/)
-
-**Never freeze again! Your OSINT platform is now production-ready.** 🚀
+## 🔒 Cloud Database Integration
+* **Google Cloud Project ID:** `gen-lang-client-0516646771`
+* **BigQuery Dataset:** `national_audits`
