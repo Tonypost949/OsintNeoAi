@@ -2,12 +2,104 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Open Evidence Index</title>
+  <title>OSINT Neo AI - Open Here</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>body{font-family:Arial,Helvetica,sans-serif;padding:2rem;background:#f7f7f7}a{color:#0366d6}</style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+      width: 100%;
+      padding: 2.5rem;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+    }
+    .subtitle {
+      color: #666;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+    .links {
+      display: grid;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    a {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    }
+    .link-label {
+      display: block;
+      font-size: 0.85rem;
+      opacity: 0.9;
+      margin-bottom: 0.25rem;
+    }
+    .divider {
+      margin: 2rem 0;
+      border: none;
+      border-top: 1px solid #eee;
+    }
+    .footer {
+      color: #999;
+      font-size: 0.85rem;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-  <h1>Evidence Index</h1>
-  <p>Open the evidence index here: <a href="https://github.com/Tonypost949/OsintNeoAi/blob/feat/city-cyber-recon-map/evidence/EVIDENCE_INDEX_CLEAN.md">EVIDENCE_INDEX_CLEAN.md</a></p>
+  <div class="container">
+    <h1>🔍 OSINT Neo AI</h1>
+    <p class="subtitle">Open Source Intelligence Platform</p>
+    
+    <div class="links">
+      <a href="https://Tonypost949.github.io/OsintNeoAi/">
+        <span class="link-label">→ Live Dashboard</span>
+        OSINT Analyzer Web App
+      </a>
+      
+      <a href="https://github.com/Tonypost949/OsintNeoAi/blob/feat/city-cyber-recon-map/evidence/EVIDENCE_INDEX_CLEAN.md">
+        <span class="link-label">→ Evidence Package</span>
+        Full Evidence Index (GitHub)
+      </a>
+    </div>
+
+    <hr class="divider">
+    
+    <div class="footer">
+      <p>Repository: <a href="https://github.com/Tonypost949/OsintNeoAi" style="color: #667eea; text-decoration: underline;">Tonypost949/OsintNeoAi</a></p>
+      <p style="margin-top: 0.5rem;">Evidence Branch: feat/city-cyber-recon-map</p>
+    </div>
+  </div>
 </body>
 </html>
