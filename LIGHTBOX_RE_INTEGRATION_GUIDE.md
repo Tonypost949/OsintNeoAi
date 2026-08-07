@@ -1,9 +1,11 @@
 # 🏢 LIGHTBOX RE API (`developer.lightboxre.com`) INTEGRATION GUIDE
 
 **Relator / Architect:** Anthony Michael DeMarcello III  
+**Registered App Owner:** `drillingoilandgasinfo@gmail.com`  
 **Portal:** [`https://developer.lightboxre.com`](https://developer.lightboxre.com)  
+**App Display Name:** `lightbox`  
+**App Status:** Approved (Expiry: 7/20/2026)  
 **Connector Script:** [`agent/lightbox_connector.py`](https://github.com/Tonypost949/OsintNeoAi/blob/main/agent/lightbox_connector.py)  
-**Status:** READY FOR API KEY PASTE  
 **Date:** August 07, 2026  
 
 ---
