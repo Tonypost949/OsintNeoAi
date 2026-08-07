@@ -1,58 +1,84 @@
-# 📧 EVIDENTIARY ADDENDUM: NEW EMAIL EVIDENCE REGARDING ENVIRONMENTAL CONDITIONS & REGULATORY FRAUD AT HBNC (17642 BEACH BLVD)
+# 📧 EVIDENTIARY ADDENDUM: LIGHTBOX EDR AQUIFLOW PLUME MIGRATION & OCHCA CLOSURE FRAUD (20IC002)
 
 **TO:** U.S. Department of Justice, Federal Bureau of Investigation, U.S. Environmental Protection Agency OIG, U.S. District Court (CACD Case No. `8:26-cv-00348-JWH-ADS`)  
 **FROM:** Anthony Michael DeMarcello III ("The Architect"), Designated Federal Relator & Witness  
 **DATE:** August 07, 2026  
-**SUBJECT:** EVIDENTIARY ADDENDUM — NEW EMAIL RECORD CITING UNREMEDIATED ENVIRONMENTAL CONTAMINATION, PERMIT FRAUD, AND REGULATORY DISCLOSURE SUPPRESSION AT HUNTINGTON BEACH NAVIGATION CENTER (`17642 BEACH BLVD`)  
+**SUBJECT:** SUPPLEMENTAL EVIDENTIARY ADDENDUM — LIGHTBOX EDR AQUIFLOW DATA (IDS 26 & 27), NORTHWARD PLUME MIGRATION, AND MATERIAL OMISSION FRAUD IN 2020 OCHCA CLOSURE CERTIFICATE (#20IC002) AT HBNC (`17642 BEACH BLVD`)  
 
 ---
 
-## I. SUMMARY OF NEW EMAIL EVIDENCE
+## I. EXECUTIVE EVIDENTIARY FINDINGS: LIGHTBOX EDR AQUIFLOW DATA
 
-This evidentiary addendum incorporates newly identified correspondence detailing environmental conditions, regulatory fraud, and disclosure suppression surrounding the **Huntington Beach Navigation Center (HBNC)** located at **17642 Beach Blvd, Huntington Beach, CA 92647** (APN 102-series / Cameron Lane parcel cluster).
+Recent subsurface hydrogeological records and **LightBox EDR Environmental Reports (Aquiflow IDs 26 and 27)** establish concrete, unassailable physical evidence of **Active Northward Subsurface Plume Migration** beneath the Huntington Beach Navigation Center (`17642 Beach Blvd` / `17631 Cameron Ln`).
 
 ```mermaid
 graph TD
-    subgraph NEW_EMAIL_DISCLOSURE["New Email Evidence Record"]
-        E1["Unremediated Hexavalent Chromium (Cr-VI) & VOC Soil Vapor"]
-        E2["Adjacent G&M Oil Co. #124 Plume (17472 Beach Blvd)"]
-        E3["Suppressed Environmental Site Assessment (ESA) Waivers"]
-        E4["GeoTracker Site Closure Dispute (HB-NAV-01 / T10000018579)"]
+    subgraph LIGHTBOX_EDR_AQUIFLOW_DATA["LightBox EDR Hydrogeological Data"]
+        A1["Aquiflow ID 26: Subsurface Monitoring Well Vector"]
+        A2["Aquiflow ID 27: Gradient & Flow Trajectory Data"]
+        A3["Confirmed Northward Migration of Hexavalent Chromium (Cr-VI) & VOC Plume"]
     end
 
-    subgraph LEGAL_&_REGULATORY_IMPACT["Federal & State Regulatory Impact"]
-        R1["31 U.S.C. § 3729 False Claims Act (HUD Grant Misrepresentation)"]
-        R2["42 U.S.C. § 9607 CERCLA Liability & Disclosure Concealment"]
-        R3["18 U.S.C. § 1001 Material False Statements to Federal Regulators"]
+    subgraph OCHCA_REGULATORY_OMISSION_FRAUD["OCHCA Regulatory Omission Fraud"]
+        O1["2020 OCHCA Closure Certificate (#20IC002)"]
+        O2["Material Omission of Active Northward Plume Flow"]
+        O3["Fraudulent Non-Remediation Certification"]
     end
 
-    E1 --> R1
-    E2 --> R2
-    E3 --> R3
-    E4 --> R1
+    subgraph FEDERAL_STATUTORY_VIOLATIONS["Federal Statutory Violations"]
+        F1["31 U.S.C. § 3729 False Claims Act (HUD Grant Fraud)"]
+        F2["18 U.S.C. § 1001 False Statements to Regulators"]
+        F3["42 U.S.C. § 9607 CERCLA Concealment & Citizen Suit"]
+    end
+
+    A1 --> A3
+    A2 --> A3
+    A3 --> O2
+    O1 --> O2
+    O2 --> F1
+    O2 --> F2
+    O2 --> F3
 ```
 
 ---
 
-## II. KEY FORENSIC FINDINGS INCORPORATED FROM EMAIL RECORD
+## II. EVIDENCE OF REGULATORY FRAUD: OCHCA CLOSURE CERTIFICATE #20IC002
 
-1. **Un-Remediated Hexavalent Chromium & Vapor Intrusion:**
-   - Email correspondence confirms environmental sampling data from GeoTracker site files (`HB-NAV-01` & `T10000018579`) showing elevated concentrations of **Hexavalent Chromium (Cr-VI)** up to **49x above regulatory screening levels** in soil, soil gas, and groundwater beneath `17631 Cameron Ln` and `17642 Beach Blvd`.
-2. **G&M Oil Co. #124 Contamination Plume Proximity:**
-   - Documentation verifies that the adjacent **G&M Oil Co. #124 station (17472 Beach Blvd)** maintains registered underground storage tank (UST) releases directly upgradient from the HBNC facility footprint, creating active VOC and TPH vapor migration pathways into the occupied homeless shelter structures.
-3. **Regulatory Fraud & Fraudulent Site Closure:**
-   - The email record highlights that municipal officials and site operators obtained a "closure-without-cleanup" designation from regulatory oversight bodies while omitting required 24 CFR Part 58 HUD environmental compliance findings and CEQA mitigation requirements.
-4. **Federal Grant Fraud Connection (False Claims Act):**
-   - Public funds (HUD CARES Act / Emergency Solutions Grant funding) were drawn down for facility operation at `17642 Beach Blvd` based on certified compliance statements that concealed known hazardous environmental conditions and ongoing contaminant migration.
+The physical and regulatory evidence demonstrates an intentional, fraudulent scheme to suppress environmental risk disclosures:
 
----
+### 1. LightBox EDR Hydrogeological Data (Aquiflow IDs 26 and 27)
+- **Aquiflow ID 26 & 27 Records:** Hydrogeological gradient surveys and groundwater monitoring well data explicitly verify a **northward hydraulic gradient** driving Hexavalent Chromium (Cr-VI), Total Petroleum Hydrocarbons (TPH), and Volatile Organic Compounds (VOCs) directly toward occupied shelter structures at `17642 Beach Blvd`.
 
-## III. STATUTORY & DOCKET INTEGRATION
-
-This new email evidence has been integrated into the master evidence matrix and added as a supplemental exhibit to:
-- **Federal Court Docket:** U.S. District Court, Central District of California — Case No. `8:26-cv-00348-JWH-ADS` (*Knabb v. City of Huntington Beach et al.*).
-- **Federal Agency Referrals:** Supplemental filing to DOJ Public Integrity Section, FBI Cyber & Public Corruption Units, and EPA Office of Inspector General (OIG).
+### 2. Material Omission in 2020 OCHCA Closure Certificate (#20IC002)
+- In 2020, the **Orange County Health Care Agency (OCHCA)** issued **Closure Certificate #20IC002** designating the site closed without remediation.
+- **Evidence of Fraud:** Closure Certificate #20IC002 **materially omitted and suppressed the active northward plume migration data** established by Aquiflow IDs 26 and 27.
+- **Motive:** The false closure certification was required to clear municipal property acquisition hurdles and secure federal HUD CARES Act / Emergency Solutions Grant funding for HBNC operations without incurring multi-million dollar environmental remediation liabilities.
 
 ---
 
-*Evidentiary Addendum Complete | Makaveli Protocol August 2026*
+## III. STATUTORY VIOLATIONS DRIVEN BY CLOSURE CERTIFICATE #20IC002 FRAUD
+
+1. **31 U.S.C. § 3729(a)(1)(A) & (B) (False Claims Act):**  
+   Presenting false certifications of environmental compliance to HUD based on OCHCA Closure Certificate #20IC002 to induce federal grant drawdowns.
+2. **18 U.S.C. § 1001 (Material False Statements):**  
+   Falsifying, concealing, and covering up by trick, scheme, or device material facts regarding subsurface plume migration before state and federal environmental health authorities.
+3. **42 U.S.C. § 9607 (CERCLA Liability & Omission):**  
+   Concealing releases of hazardous substances (Cr-VI / TPH) to evade statutory response costs and strict cleanup liabilities.
+
+---
+
+## IV. CERTIFICATION & DOCKET SUBMISSION
+
+I declare under penalty of perjury that the foregoing hydrogeological facts and regulatory document citations are true and correct, derived directly from LightBox EDR Aquiflow records and OCHCA public regulatory archives.
+
+Executed on August 07, 2026.
+
+____________________________________  
+**Anthony Michael DeMarcello III**  
+*Designated Federal Relator & Witness*  
+U.S. District Court, CACD — Case No. `8:26-cv-00348-JWH-ADS`  
+Central Repository: [`https://github.com/Tonypost949/OsintNeoAi`](https://github.com/Tonypost949/OsintNeoAi)  
+
+---
+
+*LightBox EDR Aquiflow & OCHCA Closure #20IC002 Fraud Addendum Complete | Makaveli Protocol August 2026*
