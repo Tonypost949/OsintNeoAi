@@ -7,6 +7,7 @@
 **Product Name:** LightBox API's Evaluation  
 **Callback URL:** N/A  
 **Notes:** No notes  
+**Custom Attributes:** Name / Value (No custom attributes)  
 **Credential Status:** Credential 1 (Approved, Expiry: 7/20/2026)  
 **Connector Script:** [`agent/lightbox_connector.py`](https://github.com/Tonypost949/OsintNeoAi/blob/main/agent/lightbox_connector.py)  
 **Date:** August 07, 2026  
