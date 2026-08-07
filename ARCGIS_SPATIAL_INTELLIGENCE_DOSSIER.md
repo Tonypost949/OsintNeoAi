@@ -84,7 +84,18 @@ print(f"Retrieved {len(data.get('features', []))} spatial parcel features from A
 
 ---
 
-## IV. LINKED SPATIAL ASSETS IN REPOSITORY
+## IV. ESRI GITHUB OPEN SOURCE SDK & DEVELOPER MATRIX (`https://github.com/Esri`)
+
+| Esri Open Source Repo | Key Capabilities | OSINT Neo AI Integration Path |
+| :--- | :--- | :--- |
+| **[`arcgis-python-api`](https://github.com/Esri/arcgis-python-api)** | Python library for GIS analysis, spatial data processing, and Web GIS automation. | Integrated in `agent/osint_engine.py` for spatial query pipelines. |
+| **[`esri-leaflet`](https://github.com/Esri/esri-leaflet)** | Lightweight Leaflet plugins for Esri ArcGIS Feature Services & Vector Tiles. | Powers live interactive recon maps in [`hbnc_rico_gis.html`](https://github.com/Tonypost949/OsintNeoAi/blob/main/hbnc_rico_gis.html). |
+| **[`arcgis-rest-js`](https://github.com/Esri/arcgis-rest-js)** | JavaScript modules for ArcGIS REST API endpoints, OAuth authentication, and spatial queries. | Used in web app frontend for ArcGIS online feature queries. |
+| **[`calcite-design-system`](https://github.com/Esri/calcite-design-system)** | Esri web components, icons, and UI tokens for geospatial web apps. | Calcite components loaded in [`index.html`](https://github.com/Tonypost949/OsintNeoAi/blob/main/index.html). |
+
+---
+
+## V. LINKED SPATIAL ASSETS IN REPOSITORY
 
 - **[`index.html`](https://github.com/Tonypost949/OsintNeoAi/blob/main/index.html)** — Interactive 73 Municipal Target Recon GIS Map
 - **[`hbnc_rico_gis.html`](https://github.com/Tonypost949/OsintNeoAi/blob/main/hbnc_rico_gis.html)** — HBNC RICO GIS Interactive Layer Map
