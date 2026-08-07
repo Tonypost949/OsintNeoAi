@@ -1,4 +1,4 @@
-# 🚨 FORENSIC ANALYSIS: "NUWEYT" GIS ADDRESS MANIPULATION ON HBNC & BEACH BLVD PARCELS
+# 🚨 FORENSIC ANALYSIS: "NUWEYT" GIS SYSTEM AUDIT & EVIDENTIARY BOUNDARY
 
 **Relator / Architect:** Anthony Michael DeMarcello III  
 **Target Account / User:** `NUWEYT` (Huntington Beach City GIS Employee Windows Domain Account)  
@@ -8,73 +8,62 @@
 
 ---
 
-## I. EXECUTIVE SUMMARY & FORENSIC FINDINGS
+## I. EMPIRICALLY VERIFIED LOG EVIDENCE VS. INFERRED ACTIONS
 
-During the deep-dive network and GIS audit of the City of Huntington Beach server infrastructure (`192.5.222.0/24`), forensic log analysis identified user account **`NUWEYT`** actively performing parcel database edits and address alterations on the city's public ArcGIS server.
+To maintain strict compliance with legal evidentiary standards (FRE 902) and the Makaveli Protocol, the findings regarding user account **`NUWEYT`** are strictly divided into **Empirically Proven Log Facts** versus **Analytical Inferences**.
 
 ```mermaid
 graph TD
-    subgraph MUNICIPAL_SERVER_INFRASTRUCTURE["City of Huntington Beach GIS Server (192.5.222.153)"]
-        S1["ArcGIS Server 10.8.1 (EOL 2020)<br>admin/tokens endpoints exposed"]
-        S2["AddressEdits FeatureServer<br>Writable: Create, Update, Delete, Uploads"]
+    subgraph EMPIRICAL_FACTS["Empirically Verified System Logs"]
+        E1["User Account: NUWEYT signed as editor on Huntington.dbo.W2_HB"]
+        E2["Endpoint: AddressEdits FeatureServer has Create, Update, Delete, Uploads capabilities"]
+        E3["Exposure: ArcGIS 10.8.1 admin/tokens endpoints accessible without auth"]
+        E4["Queries: 160 parcels identified with out-of-state shell mailing addresses"]
     end
 
-    subgraph DOMAIN_USER_ACCOUNT["Compromised Domain User"]
-        U1["User: NUWEYT<br>(HB City GIS Employee Windows Domain)"]
+    subgraph ANALYTICAL_INFERENCES["Analytical / Investigative Inferences"]
+        I1["Direct before-and-after field diff for 17631 Cameron Ln (Requires raw transaction delta logs)"]
+        I2["Intentional masking of specific HBNC addresses by NUWEYT (Inferred from writable access & parcel proximity)"]
     end
 
-    subgraph TARGETED_ADDRESS_ALTERATIONS["Targeted Address & Parcel Alterations"]
-        A1["HBNC Corridor Addresses:<br>17631 Cameron Ln & 17642 Beach Blvd"]
-        A2["Out-of-State Shell LLCs:<br>3225 McLeod Dr #777 Las Vegas (10 LLCs)"]
-        A3["Contaminated Commercial Parcels:<br>DDD PHAM LLC (19102 & 19142 Beach Blvd)"]
-    end
-
-    U1 --> S2
-    S2 --> A1
-    S2 --> A2
-    S2 --> A3
-    S1 --> U1
+    EMPIRICAL_FACTS -.-> ANALYTICAL_INFERENCES
 ```
 
 ---
 
-## II. EXACT DETAILS OF WHAT "NUWEYT" WAS CHANGING
+## II. EMPIRICALLY VERIFIED SYSTEM FACTS
 
-### 1. Account & System Identification
-- **Account Identity:** **`NUWEYT`** — Huntington Beach City GIS employee's official Windows domain user account.
-- **Server Environment:** ArcGIS Server `10.8.1` (unpatched End-Of-Life 2020 deployment running on IIS/10.0).
-- **Vulnerability:** The server was deployed with broken token security. REST services and administrative panels (`/arcgis/admin`, `/arcgis/manager`, `/arcgis/tokens`) were publicly accessible without authentication.
+Based strictly on the extracted session logs (`agent/opencode_data_nofIV75K.txt`, lines 1819–2196):
 
-### 2. Targeted Address & Parcel Modifications
-User `NUWEYT` accessed the unauthenticated **`AddressEdits` FeatureServer**, executing SQL/REST database edits across 74 fields (`OWNERNAME1`, `MAILADDRESS`, `MAILSTATE`, `APN`, `LASTSALEVALTRANSFER`, `LASTDOCNUMBER`), specifically altering:
-
-1. **Huntington Beach Navigation Center (HBNC) Parcel Entries:**
-   - Address alterations on **17631 Cameron Lane** and **17642 Beach Blvd** — the city-acquired homeless facility properties situated directly over hexavalent chromium / environmental contamination plumes.
-2. **Pham Family Real Property Holdings:**
-   - Ownership and mailing address updates for **DDD PHAM LLC** (`19102` & `19142 Beach Blvd`) and adjacent commercial parcels along the Beach Blvd contamination corridor.
-3. **Out-of-State Mail Drop Masking (160 Parcels):**
-   - Altering mailing address attributes for **160 out-of-state owner parcels** to obscure virtual office drops used by PPP fraud shell networks, including:
-     - **3225 McLeod Dr #777, Las Vegas, NV** (10 LLCs including `SUN AND FUN LLC`).
-     - **5815 E Redfield Rd, Scottsdale, AZ** (4 `RE HOLDINGS` shells).
-     - **1290 Avenue of the Americas, NYC** (`17531 Griffin Lane HB LLC` — 7 condo units, $14.7M value).
+1. **Editor Account Identity:**  
+   The database edits on the City's parcel layer (`Huntington.dbo.W2_HB`) are signed by Windows domain user account **`NUWEYT`** (a City of Huntington Beach GIS employee).
+2. **Writable Service Privilege:**  
+   The `AddressEdits FeatureServer` (`/arcgis/rest/services/AddressEdits/FeatureServer/0/addFeatures`) was configured with full write permissions (`Query`, `Create`, `Update`, `Delete`, `Uploads`, `Editing`) accessible without authentication tokens.
+3. **System Misconfiguration:**  
+   ArcGIS Server `10.8.1` (unpatched EOL 2020 on IIS/10.0 at `192.5.222.153`) exposed administrative endpoints (`/arcgis/admin`, `/arcgis/manager`, `/arcgis/tokens`) to unauthenticated web requests.
+4. **Out-of-State Shell Parcel Identifications:**  
+   Query results across 1,213 extracted parcels identified **160 parcels** with out-of-state mailing addresses, including virtual office clusters at:
+   - **3225 McLeod Dr #777, Las Vegas, NV** (10 LLCs including `SUN AND FUN LLC`).
+   - **5815 E Redfield Rd, Scottsdale, AZ** (4 `RE HOLDINGS` shells).
+   - **1290 Avenue of the Americas, NYC** (`17531 Griffin Lane HB LLC` — 7 condo units, $14.7M value).
 
 ---
 
-## III. LEGAL & EVIDENTIARY IMPLICATIONS
+## III. EVIDENTIARY BOUNDARY & MISSING DELTA LOGS
 
-1. **Data Tampering & Official Records Alteration:**
-   - Leaving the `AddressEdits` FeatureServer open with full `Create`, `Update`, `Delete`, `Uploads`, and `Editing` privileges allowed `NUWEYT` (or unauthorized parties acting under `NUWEYT` domain credentials) to modify municipal land records, title doc numbers, and tax mailing addresses without an audit trail.
-2. **Cross-Reference to Federal Qui Tam Docket:**
-   - Incorporating these forensic findings into CACD Case No. `8:26-cv-00348-JWH-ADS` demonstrates deliberate municipal record scrubbing surrounding contaminated properties and PPP fraud real estate holdings.
-
----
-
-## IV. LINKED REPOSITORY ASSETS
-
-- **[`agent/opencode_data_nofIV75K.txt`](https://github.com/Tonypost949/OsintNeoAi/blob/main/agent/opencode_data_nofIV75K.txt)** — Raw Session Log containing `NUWEYT` audit lines 1819-2196.
-- **[`OPENCODE_FORENSIC_MASTER_EXTRACTION.md`](https://github.com/Tonypost949/OsintNeoAi/blob/main/OPENCODE_FORENSIC_MASTER_EXTRACTION.md)** — OpenCode Master Extraction Vault.
-- **[`ARCGIS_SPATIAL_INTELLIGENCE_DOSSIER.md`](https://github.com/Tonypost949/OsintNeoAi/blob/main/ARCGIS_SPATIAL_INTELLIGENCE_DOSSIER.md)** — ArcGIS Spatial Reconnaissance Matrix.
+> [!IMPORTANT]
+> **Clarification on Before-and-After Record Diffs:**
+> The extracted text log confirms that `NUWEYT` is the logged editor account on a fully writable `AddressEdits` endpoint. However, **the text log does NOT display raw before-and-after transaction delta records** (e.g. an explicit diff showing `Field: MAILADDRESS | Old: X | New: Y`) for `17631 Cameron Lane` or `17642 Beach Blvd`.
+> 
+> Asserting that `NUWEYT` specifically altered the text values of `17631 Cameron Lane` is an **investigative inference** based on server access rights, not an empirically rendered before-and-after field diff in the current transcript log. To prove specific field-level alterations in court, subpoenaed transaction delta logs or historical database backups from `/arcgis/rest/services/AddressEdits` will be required.
 
 ---
 
-*Forensic Analysis of "NUWEYT" Address Manipulation Complete | Makaveli Protocol August 2026*
+## IV. REVISED EVIDENTIARY IMPACT FOR CACD CASE NO. 8:26-cv-00348-JWH-ADS
+
+- **Substantiated Claim:** The City of Huntington Beach maintained an unauthenticated, fully writable ArcGIS FeatureServer (`AddressEdits`) signed by user `NUWEYT`, creating an unmonitored security vulnerability where municipal land records could be modified, created, or deleted without public oversight.
+- **Pending Subpoena Item:** Requesting raw transaction delta logs for `Huntington.dbo.W2_HB` and `AddressEdits FeatureServer` to extract timestamped before-and-after diffs for parcels APN 102-series and 17631 Cameron Ln.
+
+---
+
+*Forensic Analysis & Evidentiary Boundary Report Complete | Makaveli Protocol August 2026*
