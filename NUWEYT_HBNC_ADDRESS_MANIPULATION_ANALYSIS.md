@@ -1,50 +1,60 @@
-# 🚨 SCHEMA & FIELD-LEVEL AUDIT: ARCGIS "PARCELS" 74-FIELD MATRIX
+# 🚨 EVIDENTIARY BOUNDARY STATEMENT: MISSING TRANSACTION DELTA METADATA
 
 **Relator / Architect:** Anthony Michael DeMarcello III  
-**Source Log File:** [`agent/opencode_data_nofIV75K.txt`](https://github.com/Tonypost949/OsintNeoAi/blob/main/agent/opencode_data_nofIV75K.txt) (Lines 1927, 2129, 2196)  
-**Schema Name:** `Huntington.dbo.W2_HB` (74 Total Schema Fields)  
-**Audit Target:** Parcel & Address Fields Vulnerable to Unauthenticated Modification  
+**Source Log File:** [`agent/opencode_data_nofIV75K.txt`](https://github.com/Tonypost949/OsintNeoAi/blob/main/agent/opencode_data_nofIV75K.txt)  
+**Target System:** City of Huntington Beach ArcGIS Server `10.8.1` (`192.5.222.153`) / `AddressEdits FeatureServer`  
+**Audit Target:** Explicit Missing Elements in Extracted Recon Summary  
 **Audit Date:** August 07, 2026  
 
 ---
 
-## I. VERBATIM SCHEMA FIELD CITATIONS FROM RAW TRANSCRIPT
+## I. ACKNOWLEDGEMENT OF MISSING TRANSACTION DELTA METADATA
 
-The raw session logs explicitly identify the 74-field database schema of the Huntington Beach ArcGIS `Parcels` layer (`Huntington.dbo.W2_HB`):
+In strict compliance with Federal Rules of Evidence (FRE 902) and the Makaveli Protocol, this report confirms that the current OSINT recon summary log (`opencode_data_nofIV75K.txt`) **DOES NOT** contain the raw database transaction delta logs.
 
-- **Line 1927:** `Parcels layer has 74 fields including OWNERNAME1, OWNERNAME2, MAILADDRESS, MAILSTATE, APN, TRACTNUMBER, LEGALDESCRIPTION, LASTSALEVALTRANSFER, TITLECOMPANYNAME, LASTDOCNUMBER`
-- **Line 2129:** `Parcels layer has 74 fields including OWNERNAME1, MAILADDRESS, MAILSTATE, APN, LASTSALEVALTRANSFER, LASTSALESELLERNAME, TRACTNUMBER, LASTDOCNUMBER, TITLECOMPANYNAME`
-- **Line 2196:** `Parcels layer: 74 fields, editor user "NUWEYT", AddressEdits FeatureServer writable (Create/Update/Delete)`
+Specifically, the current transcript log **DOES NOT IDENTIFY**:
 
----
-
-## II. FIELD-LEVEL EXPOSURE MATRIX (`AddressEdits FeatureServer`)
-
-Because the `AddressEdits FeatureServer` (`/arcgis/rest/services/AddressEdits/FeatureServer/0/addFeatures`) was left publicly writable with `Create`, `Update`, `Delete`, and `Editing` privileges, the following key fields were exposed to unauthenticated modification:
-
-| Field Name | Data Type | Field Purpose | Exposure Risk |
-| :--- | :--- | :--- | :--- |
-| **`OWNERNAME1`** | String | Registered Property Owner Name | Title masking / ownership alteration |
-| **`MAILADDRESS`** | String | Tax / Notice Mailing Address | Obscuring out-of-state shell mail drops |
-| **`MAILSTATE`** | String | Tax / Notice Mailing State | Hiding Nevada/Arizona shell connections |
-| **`APN`** | String | Assessor's Parcel Number | Uniquely identifying land parcels |
-| **`LASTSALEVALTRANSFER`** | Currency / Numeric | Recording Sale Price / Transfer Value | Hiding $0 transfer deeds or artificial inflation |
-| **`LASTDOCNUMBER`** | String | County Recorder Document / Instrument # | Obscuring underlying deed/lien records |
-| **`TRACTNUMBER`** | String | Municipal Subdivision Tract Number | Obscuring development tract associations |
-| **`TITLECOMPANYNAME`** | String | Closing Title Insurance Entity | Obscuring escrow & title transaction agents |
+| Missing Evidentiary Item | Status in Extracted Log | Required Discovery Action |
+| :--- | :---: | :--- |
+| **1. Specific Field Modified** | ❌ **NOT PRESENT** | Subpoena `sde.SDE_edit_log` for exact field name modified on `17631 Cameron Ln` or `17642 Beach Blvd`. |
+| **2. Before-and-After Values** | ❌ **NOT PRESENT** | Subpoena `sde.SDE_archives` for Old Value vs. New Value diff table. |
+| **3. Date & Timestamp of Edit** | ❌ **NOT PRESENT** | Subpoena SQL Server transaction log (`sys.fn_dblog`) for exact execution timestamp. |
+| **4. Transaction Classification** | ❌ **NOT PRESENT** | Subpoena edit operation type (Address Correction, Ownership Update, Mail Address Update, or Parcel Polygon Reshape). |
 
 ---
 
-## III. EVIDENTIARY DISTINCTION: SCHEMA SPECIFICATION VS. TRANSACTION LOG
+## II. WHAT IS EMPIRICALLY PROVEN VS. WHAT IS MISSING
 
-1. **What the Log Empirically Proves:**
-   - The `Parcels` layer contains these 74 schema fields (`OWNERNAME1`, `MAILADDRESS`, `MAILSTATE`, `APN`, `LASTSALEVALTRANSFER`, `LASTDOCNUMBER`).
-   - User account `NUWEYT` is signed as the editor on this layer.
-   - The `AddressEdits` endpoint exposes full write access to all 74 fields without authentication.
-2. **What Requires Subpoenaed Audit Trails:**
-   - The log lists the schema fields accessible to `NUWEYT`, but **does NOT contain raw SQL transaction payload logs** showing the exact previous vs. updated text values for individual edits.
-   - Establishing precise field-level mutations on specific APNs will require subpoenaing the ArcGIS Server transaction delta logs (`/arcgis/rest/services/AddressEdits/FeatureServer/0`).
+```mermaid
+graph TD
+    subgraph PROVEN_SYSTEM_FACTS["Empirically Proven Log Facts"]
+        P1["User NUWEYT signed as editor on Huntington.dbo.W2_HB"]
+        P2["AddressEdits FeatureServer writable (Query, Create, Update, Delete)"]
+        P3["ArcGIS 10.8.1 admin/tokens endpoints exposed without auth"]
+        P4["Parcels layer has 74 fields (OWNERNAME1, MAILADDRESS, APN, etc.)"]
+        P5["17631 Cameron Ln & 17642 Beach Blvd logged in GeoTracker as HBNC toxic sites"]
+    end
+
+    subgraph UNPROVEN_TRANSACTION_DELTAS["Unproven Transaction Deltas (Requires Subpoena)"]
+        U1["Exact Field Modified on HBNC Parcels"]
+        U2["Original Value vs. New Value Diff"]
+        U3["Timestamp of Edit"]
+        U4["Edit Type (Address vs. Ownership vs. Parcel Reshape)"]
+    end
+
+    PROVEN_SYSTEM_FACTS -.->|"Requires SQL Subpoena"| UNPROVEN_TRANSACTION_DELTAS
+```
 
 ---
 
-*ArcGIS Schema & Field-Level Audit Complete | Makaveli Protocol August 2026*
+## III. FORMAL DISCOVERY SUBPOENA SPECIFICATION FOR CACD DOCKET
+
+To convert the logged system vulnerability into admissible field-level court evidence for CACD Case No. `8:26-cv-00348-JWH-ADS`, the Relator must issue a Subpoena Duces Tecum to the City of Huntington Beach Information Services Department for:
+
+1. **`sde.SDE_archives` & `sde.SDE_edit_log` Database Dumps:** Full historical edit audit tables for layer `Huntington.dbo.W2_HB` and `AddressEdits FeatureServer` covering APNs associated with `17631 Cameron Ln` and `17642 Beach Blvd`.
+2. **ArcGIS Server Transaction & Access Logs:** IIS Web Server logs (`W3C` format) and ArcGIS Server Manager logs for IP `192.5.222.153` filtering for account `NUWEYT` and endpoint `/arcgis/rest/services/AddressEdits/FeatureServer/0`.
+3. **Before-and-After Diff Table:** A certified export showing `Edit_Date`, `Editor_User`, `Feature_ID`, `APN`, `Field_Name`, `Pre_Edit_Value`, and `Post_Edit_Value`.
+
+---
+
+*Evidentiary Boundary & Missing Transaction Delta Report Complete | Makaveli Protocol August 2026*
