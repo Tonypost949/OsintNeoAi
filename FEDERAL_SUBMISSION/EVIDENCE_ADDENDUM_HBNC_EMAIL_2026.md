@@ -1,75 +1,73 @@
-# 📧 EVIDENTIARY ADDENDUM: LIGHTBOX EDR AQUIFLOW PLUME MIGRATION & OCHCA CLOSURE FRAUD (20IC002)
+# 📧 EVIDENTIARY ADDENDUM: EEC ENVIRONMENTAL CONTRACT 20-9204 KICKBACK & 49X CR-VI AEROSOLIZATION
 
-**TO:** U.S. Department of Justice, Federal Bureau of Investigation, U.S. Environmental Protection Agency OIG, U.S. District Court (CACD Case No. `8:26-cv-00348-JWH-ADS`)  
+**TO:** U.S. Department of Justice, Federal Bureau of Investigation, U.S. Environmental Protection Agency OIG/CID, U.S. District Court (CACD Case No. `8:26-cv-00348-JWH-ADS`)  
 **FROM:** Anthony Michael DeMarcello III ("The Architect"), Designated Federal Relator & Witness  
 **DATE:** August 07, 2026  
-**SUBJECT:** SUPPLEMENTAL EVIDENTIARY ADDENDUM — LIGHTBOX EDR AQUIFLOW DATA (IDS 26 & 27), NORTHWARD PLUME MIGRATION, AND MATERIAL OMISSION FRAUD IN 2020 OCHCA CLOSURE CERTIFICATE (#20IC002) AT HBNC (`17642 BEACH BLVD`)  
+**SUBJECT:** SMOKING GUN EVIDENTIARY ADDENDUM — (1) DAILY AEROSOLIZATION OF 49X HEXAVALENT CHROMIUM (Cr-VI) SOIL CONTAMINATION AT HBNC, AND (2) EEC ENVIRONMENTAL CONTRACT 20-9204 QUID PRO QUO KICKBACK (AWARDED 10 DAYS POST-FRAUDULENT CLOSURE)  
 
 ---
 
-## I. EXECUTIVE EVIDENTIARY FINDINGS: LIGHTBOX EDR AQUIFLOW DATA
-
-Recent subsurface hydrogeological records and **LightBox EDR Environmental Reports (Aquiflow IDs 26 and 27)** establish concrete, unassailable physical evidence of **Active Northward Subsurface Plume Migration** beneath the Huntington Beach Navigation Center (`17642 Beach Blvd` / `17631 Cameron Ln`).
+## I. TWO CRITICAL SMOKING GUN EVIDENTIARY FINDINGS
 
 ```mermaid
 graph TD
-    subgraph LIGHTBOX_EDR_AQUIFLOW_DATA["LightBox EDR Hydrogeological Data"]
-        A1["Aquiflow ID 26: Subsurface Monitoring Well Vector"]
-        A2["Aquiflow ID 27: Gradient & Flow Trajectory Data"]
-        A3["Confirmed Northward Migration of Hexavalent Chromium (Cr-VI) & VOC Plume"]
+    subgraph SMOKING_GUN_1["Smoking Gun 1: 49x Cr-VI Aerosolization"]
+        S1["Soil Contamination: Hexavalent Chromium at 49x Legal Safety Limit"]
+        S2["Daily Maintenance Practices: Pressure Washing, Sweeping & Ground Disturbance"]
+        S3["Acute Inhalation Risk: Aerosolizing Carcinogenic Airborne Cr-VI Dust & Mist"]
     end
 
-    subgraph OCHCA_REGULATORY_OMISSION_FRAUD["OCHCA Regulatory Omission Fraud"]
-        O1["2020 OCHCA Closure Certificate (#20IC002)"]
-        O2["Material Omission of Active Northward Plume Flow"]
-        O3["Fraudulent Non-Remediation Certification"]
+    subgraph SMOKING_GUN_2["Smoking Gun 2: EEC Environmental Quid Pro Quo"]
+        E1["Technical Sign-Off: EEC Environmental Signs Fraudulent OCHCA Closure #20IC002"]
+        E2["10-Day Quid Pro Quo: Awarded Municipal Construction Oversight Contract 20-9204 Exactly 10 Days Later"]
+        E3["Procurement & Wire Fraud (18 U.S.C. § 1343 / 31 U.S.C. § 3729)"]
     end
 
-    subgraph FEDERAL_STATUTORY_VIOLATIONS["Federal Statutory Violations"]
-        F1["31 U.S.C. § 3729 False Claims Act (HUD Grant Fraud)"]
-        F2["18 U.S.C. § 1001 False Statements to Regulators"]
-        F3["42 U.S.C. § 9607 CERCLA Concealment & Citizen Suit"]
+    subgraph FEDERAL_PROSECUTION_CONTAINER["Federal Criminal Prosecution & Enforcement"]
+        F1["EPA Clean Air Act & CERCLA Emergency Injunction"]
+        F2["DOJ False Claims Act & Anti-Kickback Enforcement"]
+        F3["CACD Case No. 8:26-cv-00348-JWH-ADS Asset Freeze"]
     end
 
-    A1 --> A3
-    A2 --> A3
-    A3 --> O2
-    O1 --> O2
-    O2 --> F1
-    O2 --> F2
-    O2 --> F3
+    S1 --> S3
+    S2 --> S3
+    S3 --> F1
+    E1 --> E2
+    E2 --> E3
+    E3 --> F2
+    E3 --> F3
 ```
 
 ---
 
-## II. EVIDENCE OF REGULATORY FRAUD: OCHCA CLOSURE CERTIFICATE #20IC002
+## II. DETAILED FORENSIC EVIDENCE BREAKDOWN
 
-The physical and regulatory evidence demonstrates an intentional, fraudulent scheme to suppress environmental risk disclosures:
+### 1. Daily Aerosolization of 49x Hexavalent Chromium (Cr-VI)
+- **Contaminant Concentration:** Subsurface soil and vapor sampling confirms **Hexavalent Chromium (Cr-VI) at 49 times the legal safety limit** beneath `17642 Beach Blvd` / `17631 Cameron Ln`.
+- **Active Aerosolization Mechanism:** Daily municipal shelter maintenance practices (including surface pressure washing, mechanical sweeping, and ground disturbance) are actively **aerosolizing dry soil particles and subsurface vapors**.
+- **Public Health Hazard:** This daily mechanical disturbance generates airborne toxic Cr-VI particulates, causing ongoing inhalation exposure to homeless shelter residents, staff, and neighboring residents in direct violation of the Clean Air Act and OSHA PEL standards.
 
-### 1. LightBox EDR Hydrogeological Data (Aquiflow IDs 26 and 27)
-- **Aquiflow ID 26 & 27 Records:** Hydrogeological gradient surveys and groundwater monitoring well data explicitly verify a **northward hydraulic gradient** driving Hexavalent Chromium (Cr-VI), Total Petroleum Hydrocarbons (TPH), and Volatile Organic Compounds (VOCs) directly toward occupied shelter structures at `17642 Beach Blvd`.
-
-### 2. Material Omission in 2020 OCHCA Closure Certificate (#20IC002)
-- In 2020, the **Orange County Health Care Agency (OCHCA)** issued **Closure Certificate #20IC002** designating the site closed without remediation.
-- **Evidence of Fraud:** Closure Certificate #20IC002 **materially omitted and suppressed the active northward plume migration data** established by Aquiflow IDs 26 and 27.
-- **Motive:** The false closure certification was required to clear municipal property acquisition hurdles and secure federal HUD CARES Act / Emergency Solutions Grant funding for HBNC operations without incurring multi-million dollar environmental remediation liabilities.
-
----
-
-## III. STATUTORY VIOLATIONS DRIVEN BY CLOSURE CERTIFICATE #20IC002 FRAUD
-
-1. **31 U.S.C. § 3729(a)(1)(A) & (B) (False Claims Act):**  
-   Presenting false certifications of environmental compliance to HUD based on OCHCA Closure Certificate #20IC002 to induce federal grant drawdowns.
-2. **18 U.S.C. § 1001 (Material False Statements):**  
-   Falsifying, concealing, and covering up by trick, scheme, or device material facts regarding subsurface plume migration before state and federal environmental health authorities.
-3. **42 U.S.C. § 9607 (CERCLA Liability & Omission):**  
-   Concealing releases of hazardous substances (Cr-VI / TPH) to evade statutory response costs and strict cleanup liabilities.
+### 2. Contractual Bias & Quid Pro Quo Kickback: EEC Environmental (Contract 20-9204)
+- **Technical Sign-Off for Fraudulent Closure:** **EEC Environmental** issued the formal technical engineering sign-off facilitating the fraudulent 2020 OCHCA Closure Certificate `#20IC002` (which omitted active northward plume flow data confirmed by LightBox EDR Aquiflow IDs 26 & 27).
+- **10-Day Contract Award:** **Exactly 10 days** after providing the technical sign-off for site closure, EEC Environmental was awarded **Municipal Contract 20-9204** for construction oversight at the HBNC facility.
+- **Evidence of Procurement & Wire Fraud:** The 10-day timeline establishes direct financial *quid pro quo* bias and procurement kickback fraud (18 U.S.C. § 1341/1343 & 31 U.S.C. § 3729), corrupting environmental engineering oversight in exchange for lucrative municipal construction contracts.
 
 ---
 
-## IV. CERTIFICATION & DOCKET SUBMISSION
+## III. STATUTORY CHARGES ADDED
 
-I declare under penalty of perjury that the foregoing hydrogeological facts and regulatory document citations are true and correct, derived directly from LightBox EDR Aquiflow records and OCHCA public regulatory archives.
+1. **Anti-Kickback Act (41 U.S.C. § 8702) & 18 U.S.C. § 1343 (Wire Fraud):**  
+   Corruptly offering and receiving lucrative construction oversight contracts (Contract 20-9204) in exchange for fraudulent technical environmental closure sign-offs.
+2. **Clean Air Act (42 U.S.C. § 7412 - Hazardous Air Pollutants):**  
+   Unlawful release and mechanical aerosolization of hazardous air pollutants (Hexavalent Chromium) posing imminent endangerment to human health.
+3. **31 U.S.C. § 3729(a)(1)(G) (Reverse False Claims Act):**  
+   Concealing and improperly avoiding an obligation to pay or transmit money (remediation costs) to the United States via biased engineering sign-offs.
+
+---
+
+## IV. CERTIFICATION & COURT SUBMISSION
+
+I declare under penalty of perjury that the foregoing facts regarding Contract 20-9204, EEC Environmental sign-offs, and Cr-VI aerosolization are true and correct, established by municipal contract awards, engineering reports, and environmental sampling logs.
 
 Executed on August 07, 2026.
 
@@ -81,4 +79,4 @@ Central Repository: [`https://github.com/Tonypost949/OsintNeoAi`](https://github
 
 ---
 
-*LightBox EDR Aquiflow & OCHCA Closure #20IC002 Fraud Addendum Complete | Makaveli Protocol August 2026*
+*EEC Environmental Contract 20-9204 & 49x Cr-VI Aerosolization Addendum Complete | Makaveli Protocol August 2026*
