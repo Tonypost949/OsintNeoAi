@@ -407,3 +407,46 @@ GitHub URL: https://github.com/Tonypost949/OsintNeoAi/blob/feat/city-cyber-recon
 - Commit: bb13794
 - Collected by: OSINT-NeoAI agent
 - No modifications made to any target systems (read-only operations only)
+
+---
+
+## EV-048: Federal Indictment — Peter Anh Pham & Thanh Huong Nguyen
+- **Type:** Federal Court Filing
+- **Date:** June 2025
+- **Description:** Federal indictment on 15 counts including bribery and money laundering. ~$8M diverted through Viet America Society, D Air Conditioning LLC, and Hand to Hand Relief Organization. Andrew Do separately sentenced to 5 years federal prison.
+- **Custodian:** US DOJ / USDC Central District of California
+- **Statutes:** 18 USC 1341, 18 USC 1956, 18 USC 1962
+- **Primary Source:** https://www.courthousenews.com/wp-content/uploads/2025/06/peter-anh-pham-thanh-nguyen-indictment.pdf
+- **Notes:** PRIMARY SOURCE for Count 1 of RICO referral brief v3. Link verified.
+
+---
+
+## EV-049: Mercy House Form 990 FY2020 — Schedule L Self-Dealing (Rumbaugh)
+- **Type:** IRS Tax Filing
+- **Date:** FY2020 (ending June 30, 2020)
+- **Description:** Form 990 FY2020 Schedule L documents undisclosed self-dealing: board member Lisa Rumbaugh billed $17,134 through sole proprietorship Clarity Tax Accounting without disclosure.
+- **Custodian:** IRS / Mercy House Living Centers (EIN: 33-0315864)
+- **Statutes:** IRC §4941; Schedule L disclosure violation
+- **Primary Source:** IRS Form 990 - Mercy House Living Centers FY2020, Schedule L — https://projects.propublica.org/nonprofits/organizations/330315864
+- **Note:** FY2020 PDF not currently on ProPublica. Physical copy requestable under IRC §6104.
+
+---
+
+## EV-050: Mercy House Form 990 FY2020 and FY2024 — Santa Ana Security Services
+- **Type:** IRS Tax Filing
+- **Date:** FY2020 and FY2024
+- **Description:** 990 filings document Santa Ana Security Services (Miguel Gonzalez) contract scaling from $2.2M to $1.66M while address shifted from commercial PO box to residential.
+- **Custodian:** IRS / Mercy House Living Centers (EIN: 33-0315864)
+- **Statutes:** 18 USC 1341; Federal program fraud
+- **Primary Source:** IRS Form 990 - Mercy House FY2020 and FY2024 — https://projects.propublica.org/nonprofits/organizations/330315864
+
+---
+
+## EV-051: SBA PPP FOIA Dataset — 11770 Warner Ave Fountain Valley
+- **Type:** Federal Public Record
+- **Date:** SBA PPP FOIA release, data through June 1, 2021
+- **Description:** 18 entities at 11770 Warner Ave, Fountain Valley CA 92708. $1,162,212 total, 100% forgiven. Four entities drew duplicate loans under different name spellings.
+- **Custodian:** US Small Business Administration (public FOIA)
+- **Statutes:** 18 USC 1341; 18 USC 1343; 15 USC 645
+- **Primary Source:** https://data.sba.gov/dataset/ppp-foia
+- **Filtered Data:** https://github.com/Tonypost949/OsintNeoAi/tree/main/ppp_data
