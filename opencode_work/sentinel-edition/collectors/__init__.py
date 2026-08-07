@@ -1,1 +1,0 @@
-"""Sentinel Edition - Data Collectors"""
