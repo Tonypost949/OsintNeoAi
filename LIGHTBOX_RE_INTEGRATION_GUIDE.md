@@ -4,6 +4,7 @@
 **Registered App Owner:** `drillingoilandgasinfo@gmail.com`  
 **Portal:** [`https://developer.lightboxre.com`](https://developer.lightboxre.com)  
 **App Display Name:** `lightbox`  
+**Product Name:** LightBox API's Evaluation  
 **Callback URL:** N/A  
 **Notes:** No notes  
 **Credential Status:** Credential 1 (Approved, Expiry: 7/20/2026)  
