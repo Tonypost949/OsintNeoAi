@@ -4,7 +4,9 @@
 **Registered App Owner:** `drillingoilandgasinfo@gmail.com`  
 **Portal:** [`https://developer.lightboxre.com`](https://developer.lightboxre.com)  
 **App Display Name:** `lightbox`  
-**App Status:** Approved (Expiry: 7/20/2026)  
+**Callback URL:** N/A  
+**Notes:** No notes  
+**Credential Status:** Credential 1 (Approved, Expiry: 7/20/2026)  
 **Connector Script:** [`agent/lightbox_connector.py`](https://github.com/Tonypost949/OsintNeoAi/blob/main/agent/lightbox_connector.py)  
 **Date:** August 07, 2026  
 
