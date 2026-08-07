@@ -1,0 +1,43 @@
+﻿=== nslookup -type=ALL advancedrealestate.com ===
+nslookup : *** connectivity-check.warp-svc can't find advancedrealestate.com: Not implemented
+At line:5 char:12
++     $all = nslookup -type=ALL $d 2>&1 | Out-String
++            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (*** connectivit...Not implemented:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  connectivity-check.warp-svc
+Address:  127.0.2.2
+
+
+=== nslookup -type=SOA advancedrealestate.com ===
+nslookup : Non-authoritative answer:
+At line:6 char:12
++     $soa = nslookup -type=SOA $d 2>&1 | Out-String
++            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  connectivity-check.warp-svc
+Address:  127.0.2.2
+
+advancedrealestate.com
+	primary name server = ns1.apmdns.com
+	responsible mail addr = awsdns-hostmaster.amazon.com
+	serial  = 1
+	refresh = 7200 (2 hours)
+	retry   = 900 (15 mins)
+	expire  = 1209600 (14 days)
+	default TTL = 86400 (1 day)
+
+advancedrealestate.com
+	primary name server = ns1.apmdns.com
+	responsible mail addr = awsdns-hostmaster.amazon.com
+	serial  = 1
+	refresh = 7200 (2 hours)
+	retry   = 900 (15 mins)
+	expire  = 1209600 (14 days)
+	default TTL = 86400 (1 day)
+

@@ -1,0 +1,31 @@
+pipelineId: mnjbujhvhv
+description: TODO - describe your pipeline
+runner: 'airflow'
+owner: 'data-eng-team'
+modelVersion: '1.0'
+defaults:
+  projectId: {{ project }}
+  location: {{ region }}
+  executionConfig:
+    retries: 1
+
+triggers:
+  - schedule:
+      interval: '0 2 * * *' # 2 AM daily
+      startTime: "2025-11-01T00:00:00"
+      endTime: "2026-12-01T00:00:00"
+      catchup: false
+      timezone: 'UTC'
+
+# Add your jobs here
+actions:
+  - python:
+      name: generate_maltego_python_1782371189692
+      mainFilePath: generate_maltego.py
+      pythonCallable: ksjkjskjsks
+      environment:
+        systemSitePackages: true
+      engine:
+        local: {}
+tags:
+  - job:datacloud:antigravity

@@ -1,0 +1,37 @@
+name: Deploy Webapp to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'web/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        working-directory: ./web
+        run: npm install --legacy-peer-deps
+
+      - name: Build
+        working-directory: ./web
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: web/dist/public
+          branch: gh-pages

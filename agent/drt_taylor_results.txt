@@ -1,0 +1,141 @@
+﻿.\venv\Scripts\python.exe : 
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+At line:1 char:1
++ .\venv\Scripts\python.exe investigate_drt_taylor.py 2>&1 | Out-File - ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\HP\.ge...dpoint instead.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  warnings.warn(
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+  warnings.warn(
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+  warnings.warn(
+======================================================================
+DRT MAIL DROP + DANIEL TAYLOR + 19900 BEACH BLVD DEEP DIVE
+======================================================================
+
+--- ALL HB_LLCS using 20101 SW Birch St mail drop ---
+Entities sharing this mail drop: 9
+                        Owner1 Owner2           SiteAddress               MailAddress      MailCity        APN                                                 LastSeller LastSaleDate  LastSaleValue
+SDW REAL ESTATE HOLDINGS 3 LLC    NaN           221 11TH ST         20051 SW BIRCH ST NEWPORT BEACH 024-034-07                      MAYFIELD, ROBERT J; MAYFIELD, DIANE E   09/11/2024      2295000.0
+         NEWPORT PLASTIQUE LLC    NaN     20311 SW BIRCH ST 20311 SW BIRCH ST STE 200 NEWPORT BEACH 930-685-02                             DAVIES, THOMAS; DAVIES, LESLIE   07/13/2005      1575000.0
+           PCF INVESTMENTS LLC    NaN 1017 BAYSIDE CV # 307 20320 SW BIRCH ST STE 100 NEWPORT BEACH 934-320-17 CRAIG, W MICHAEL; THE W MICHAEL & NANCY N CRAIG REVOCABLE,   09/17/2004      1500000.0
+     20321 BIRCH SUITE 200 LLC    NaN     20321 SW BIRCH ST 20321 SW BIRCH ST STE 200 NEWPORT BEACH 930-685-00                                                   GRG LLC,   05/06/2010      1100000.0
+                 CVR BIRCH LLC    NaN     20281 SW BIRCH ST 20281 SW BIRCH ST STE 100 NEWPORT BEACH 930-685-05                                      HUSTING VERPLANK LLC,   06/23/2005            0.0
+                       DRT LLC    NaN    16862 CORAL CAY LN 20101 SW BIRCH ST STE 151 NEWPORT BEACH 178-653-37                                        DRI LLC, ; DRT LLC,   07/29/1997            0.0
+           DRT INVESTMENTS LLC    NaN      19900 BEACH BLVD 20101 SW BIRCH ST STE 151 NEWPORT BEACH 153-091-27                     TAYLOR, DANIEL R; TAYLOR FAMILY TRUST,   10/28/2003            0.0
+         MOTORCROSS JOHNNY LLC    NaN     20321 SW BIRCH ST 20321 SW BIRCH ST STE 100 NEWPORT BEACH 930-684-99                                     MOTORCROSS JOHNNY LLC,   09/30/2003            0.0
+           DRT INVESTMENTS LLC    NaN    16862 CORAL CAY LN 20101 SW BIRCH ST STE 151 NEWPORT BEACH 988-999-13                                                          ,          NaN            NaN
+
+--- DANIEL TAYLOR in PPP data ---
+                                                BorrowerName                       BorrowerAddress     BorrowerCity BorrowerState  CurrentApprovalAmount  ForgivenessAmount NAICSCode                    BusinessType DateApproved                       ServicingLenderName
+                                  TAYLOR OIL & PROPANE, INC.                          219 BIRCH ST   KENNETT SQUARE            PA              380330.00          385144.04    454310        Subchapter S Corporation   04/27/2020      Wilmington Savings Fund Society, FSB
+                                   RICHARD TAYLOR ASSOCIATES                     414 RIVERSIDE AVE    NEWPORT BEACH            CA              201949.00          204455.38    561730                     Corporation   04/30/2020    Wells Fargo Bank, National Association
+                                      DANIELS & TAYLOR, P.C.        390 West Crogan Street Ste 300    Lawrenceville            GA              178702.00          180283.39    541110        Subchapter S Corporation   05/11/2020                          Cross River Bank
+                                      TAYLOR 4 DELIVERY, INC                   12526 BIRCH GLEN CV        ALEXANDER            AR              145793.75          147211.74    492210 Limited  Liability Company(LLC)   04/14/2020                           Centennial Bank
+                               TAYLOR MARKET MEDIA GROUP INC 620 NEWPORT CENTER DRIVE ST. 1100-242    NEWPORT BEACH            CA              113806.00          114844.28    541513                     Corporation   04/30/2020    Wells Fargo Bank, National Association
+                                    JEFFREY R TAYLOR, MD INC                    1190 BAKER ST #103       COSTA MESA            CA               99900.00          100610.40    621111        Subchapter S Corporation   04/14/2020                              Sunwest Bank
+                                             DANIELLE TAYLOR                    2634 W Somerset St     Philadelphia            PA               95025.00           95824.25    531390 Limited  Liability Company(LLC)   04/23/2021                  Loan Source Incorporated
+                                     JEFFREY R TAYLOR MD INC                 1190 Baker St Ste 103       Costa Mesa            CA               83330.00           83982.94    423450        Subchapter S Corporation   01/29/2021                              Sunwest Bank
+SUSAN HILL-TAYLOR DDS INC. DBA TAYLOR COSMETIC AND GENERAL D          3 Corporate Plaza Dr Ste 210    Newport Beach            CA               81075.00           81553.93    621210        Subchapter S Corporation   03/12/2021 JPMorgan Chase Bank, National Association
+                                SUSAN HILL-TAYLOR, DDS, INC.          3 CORPORATE PLAZA DR STE 210    NEWPORT BEACH            CA               81075.00           82103.48    621210        Subchapter S Corporation   05/01/2020 JPMorgan Chase Bank, National Association
+                          LAW OFFICES OF TAYOR & TAYLOR INC.             16152 BEACH BLVD, STE 280 HUNTINGTON BEACH            CA               78900.00           79734.39    541110                     Corporation   04/05/2020                        City National Bank
+                          LAW OFFICES OF TAYLOR & TAYLOR INC              16152 Beach Blvd Ste 280 Huntington Beach            CA               70000.00           70644.38    541110                     Corporation   02/02/2021                        City National Bank
+                                     TAYLOR PROPERTIES, INC.                     20101 SW BIRCH ST    NEWPORT BEACH            CA               50735.00           51168.68    531210                     Corporation   05/06/2020    Farmers & Merchants Bank of Long Beach
+                                       TAYLOR PROPERTIES INC             20101 SW Birch St Ste 151    Newport Beach            CA               48774.00           48935.69    531190                     Corporation   02/27/2021    Farmers & Merchants Bank of Long Beach
+                                        SANDRA SCHULZ-TAYLOR                           324 Main St Huntington Beach            CA               42587.00           42867.02    448120             Sole Proprietorship   03/28/2021                     Readycap Lending, LLC
+                                      DANIEL TAYLOR DBA NONE                    81 SOUTH FOURTH ST         COLUMBUS            OH               41707.50           42140.79    621210             Sole Proprietorship   04/15/2020                          Fifth Third Bank
+                                    TAYLOR SPRING DESIGN LLC                        1136 BIRCH CIR           ALPINE            UT               39790.90           40060.59    541430 Limited  Liability Company(LLC)   04/29/2020                    Capital Community Bank
+                                  TAYLOR SALES SOLUTIONS INC                          128 Birch Pt           Dedham            ME               39240.00           39459.09    541613                     Partnership   03/17/2021             TD Bank, National Association
+                                              RICHARD TAYLOR                   9571 Albacore Drive Huntington Beach            CA               39200.00           39440.64    238190             Sole Proprietorship   04/28/2020                            Citibank, N.A.
+                                               DANIEL TAYLOR                          887 Bynum Rd         Seaboard            NC               38812.00           38999.59    111920             Sole Proprietorship   03/28/2021           Southern Bank and Trust Company
+
+--- PPP LOANS at Beach Blvd HB corridor (17000-20000 block) ---
+                               BorrowerName             BorrowerAddress     BorrowerCity BorrowerState  CurrentApprovalAmount  ForgivenessAmount NAICSCode                    BusinessType   LoanStatus DateApproved                       ServicingLenderName  JobsReported
+                 SURF CITY AUTO GROUP, INC.            16701 Beach Blvd HUNTINGTON BEACH            CA             3459080.00         3499147.68    441110                     Corporation Paid in Full   04/10/2020                                 Ally Bank         230.0
+                            OCEAN MEDIA LLC 17011 BEACH BLVD 15TH FLOOR HUNTINGTON BEACH            CA             2351800.00         2378649.72    541840 Limited  Liability Company(LLC) Paid in Full   04/15/2020                            Citibank, N.A.         122.0
+                            DWW III CO, INC            18881 Beach Blvd HUNTINGTON BEACH            CA             2070000.00         2105362.50    441110        Subchapter S Corporation Paid in Full   04/13/2020             Toyota Financial Savings Bank         139.0
+         WESTMINSTER AUTOMOTIVE GROUP, INC.            13600 BEACH BLVD      WESTMINSTER            CA             1900000.00         1918313.89    441110        Subchapter S Corporation Paid in Full   04/09/2020                             Comerica Bank         183.0
+           TRILOGY FINANCIAL SERVICES, INC.    17011 BEACH BLVD STE 800 HUNTINGTON BEACH            CA             1729900.00                NaN    523930                     Corporation Paid in Full   04/27/2020                              Sunwest Bank         140.0
+                              ELMORE MOTORS            15300 Beach Blvd      Westminster            CA             1658408.00         1666450.14    441110                     Corporation Paid in Full   03/26/2021    Farmers & Merchants Bank of Long Beach          96.0
+                              ELMORE MOTORS            15300 Beach Blvd      WESTMINSTER            CA             1571194.00         1586776.80    441110                     Corporation Paid in Full   04/09/2020    Farmers & Merchants Bank of Long Beach          81.0
+                 YORK ENTERPRISES SOUTH INC            18255 BEACH BLVD HUNTINGTON BEACH            CA             1465374.00         1485808.94    441110                     Corporation Paid in Full   05/01/2020     Bank of America, National Association          81.0
+                PRECISE FIT LIMITED ONE LLC    17011 Beach Blvd Ste 900 Huntington Beach            CA             1437376.00         1446918.58    561320 Limited  Liability Company(LLC) Paid in Full   01/14/2021                    Clearinghouse CDFI PPP         146.0
+                PRECISE FIT LIMITED ONE LLC  17011 Beach Blvd.  Ste 900 HUNTINGTON BEACH            CA             1437300.00         1447640.58    561330 Limited  Liability Company(LLC) Paid in Full   04/28/2020                                 FirstBank          96.0
+                            RRL CORPORATION            12590 Beach Blvd      WESTMINSTER            CA             1186896.30         1194611.13    441110        Subchapter S Corporation Paid in Full   04/27/2020             Toyota Financial Savings Bank         132.0
+GLOBAL INFORMATION TECHNOLOGY RESOURCES INC            17011 BEACH BLVD HUNTINGTON BEACH            CA             1085212.50         1093507.69    561312                     Corporation Paid in Full   05/01/2020           U.S. Bank, National Association          46.0
+GLOBAL INFORMATION TECHNOLOGY RESOURCES INC   17011 Beach Blvd Ste 1260 Huntington Beach            CA             1085212.00         1000388.55    561320                     Corporation  Exemption 4   01/19/2021       Harvest Small Business Finance, LLC          67.0
+        THE RUSSELL FISCHER PARTNERSHIP, LP            16061 Beach Blvd HUNTINGTON BEACH            CA              960200.00          970538.59    811192   Limited Liability Partnership Paid in Full   05/01/2020                 Zions Bank, A Division of         120.0
+                      DELILLO CHEVROLET CO.            18211 BEACH BLVD HUNTINGTON BEACH            CA              922719.38          930383.08    441110                           Trust Paid in Full   04/11/2020                                 Ally Bank          73.0
+        THE RUSSELL FISCHER PARTNERSHIP, LP            16061 Beach Blvd Huntington Beach            CA              827504.00          833103.82    447110   Limited Liability Partnership Paid in Full   04/24/2021                 Zions Bank, A Division of         132.0
+                             YNOT6 III, LLC            16751 BEACH BLVD HUNTINGTON BEACH            CA              742000.00          751269.92    441120 Limited  Liability Company(LLC) Paid in Full   04/15/2020                              Bank of Hope          45.0
+                           AMP HOLDING INC.            18835 Beach Blvd Huntington Beach            CA              739200.00          744769.32    441110        Subchapter S Corporation Paid in Full   03/24/2021             BMO Bank National Association          50.0
+        MCKENNA MOTORS HUNTINGTON BEACH INC            18711 BEACH BLVD HUNTINGTON BEACH            CA              718700.00          728302.63    441110                     Corporation Paid in Full   04/05/2020                       First Hawaiian Bank         108.0
+                          AMP HOLDING, INC.            18835 Beach Blvd HUNTINGTON BEACH            CA              702700.00          707955.81    441110        Subchapter S Corporation Paid in Full   04/10/2020             BMO Bank National Association          53.0
+                              KETTENBACH LP    16052 BEACH BLVD STE 221 HUNTINGTON BEACH            CA              702436.00          708247.94    339114   Limited Liability Partnership Paid in Full   05/01/2020     Bank of America, National Association          34.0
+                GN MEDICAL ASSOCIATES, INC.       16162 BEACH BLVD #100 HUNTINGTON BEACH            CA              697700.00          703165.32    621111                     Corporation Paid in Full   04/14/2020                             Comerica Bank          56.0
+                         GHREIWATI AUTO INC            17331 BEACH BLVD HUNTINGTON BEACH            CA              621980.00          626597.99    441110                     Corporation Paid in Full   04/27/2020         Golden Bank, National Association          33.0
+                           SLICE SHABU INC.            16871 Beach Blvd Huntington Beach            CA              567493.00          571271.10    722511                     Corporation Paid in Full   02/02/2021     Bank of America, National Association          45.0
+                      CORNERSTONE THERAPIES  18700 Beach Blvd Suite 120 Huntington Beach            CA              464773.00          467981.84    621340                     Partnership Paid in Full   04/27/2020                              NuVision FCU          45.0
+                   CONVERZE MEDIA GROUP LLC    17011 BEACH BLVD STE 600 HUNTINGTON BEACH            CA              433385.00          429985.66    541618 Limited  Liability Company(LLC) Paid in Full   04/15/2020     Bank of America, National Association          32.0
+                            SLICE SHABU LLC            16871 BEACH BLVD HUNTINGTON BEACH            CA              378321.00          383524.21    722511 Limited  Liability Company(LLC) Paid in Full   04/10/2020     Bank of America, National Association          66.0
+               TOLLY LANDSCAPE INCORPORATED    18822 BEACH BLVD STE 108 HUNTINGTON BEACH            CA              352390.00          355747.49    541320        Subchapter S Corporation Paid in Full   04/14/2020                                First Bank          41.0
+                     P. A. POON & SON, INC.      18862 BEACH BLVD. #103 HUNTINGTON BEACH            CA              350368.00          353286.13    531311                     Corporation Paid in Full   08/03/2020    Farmers & Merchants Bank of Long Beach          30.0
+                  CAREWORKS HEALTH SERVICES    18682 BEACH BLVD STE 225 HUNTINGTON BEACH            CA              344425.00          348737.97    624120                     Corporation Paid in Full   05/01/2020 JPMorgan Chase Bank, National Association          75.0
+
+--- REGIONAL LLCs at or near 19900 Beach Blvd ---
+Traceback (most recent call last):
+  File "C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\investigate_drt_taylor.py", line 69, in <module>
+    """).to_dataframe()
+         ~~~~~~~~~~~~^^
+  File 
+"C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\job\query.py", 
+line 2194, in to_dataframe
+    query_result = wait_for_query(self, progress_bar_type, max_results=max_results)
+  File "C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\_tqdm_help
+ers.py", line 107, in wait_for_query
+    return query_job.result(max_results=max_results)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File 
+"C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\job\query.py", 
+line 1797, in result
+    while not is_job_done():
+              ~~~~~~~~~~~^^
+  File 
+"C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", 
+line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File 
+"C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", 
+line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File 
+"C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\api_core\retry\retry_base.py", 
+line 216, in _retry_error_helper
+    raise final_exc from source_exc
+  File 
+"C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", 
+line 147, in retry_target
+    result = target()
+  File 
+"C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\job\query.py", 
+line 1746, in is_job_done
+    raise job_failed_exception
+google.api_core.exceptions.BadRequest: 400 Unrecognized name: regional_llcs at [4:28]; reason: invalidQuery, location: 
+query, message: Unrecognized name: regional_llcs at [4:28]
+
+Location: US
+Job ID: 4b351bd4-1b6a-4966-9772-89c9a5a464b3
+

@@ -1,0 +1,90 @@
+=== DNS RECORDS: apcommunities.com ===
+=== Generated: 2026-07-24 21:36:45 ===
+
+--- A RECORDS ---
+nslookup : Non-authoritative answer:
+At line:20 char:16
++     try { $a = nslookup -type=A $domain 8.8.8.8 2>&1 | Out-String; $o ...
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    apcommunities.com
+Address:  209.208.213.88
+
+
+--- MX RECORDS ---
+nslookup : Non-authoritative answer:
+At line:24 char:17
++     try { $mx = nslookup -type=MX $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+apcommunities.com	MX preference = 0, mail exchanger = apcommunities-com.mail.protection.outlook.com
+
+--- NS RECORDS ---
+nslookup : Non-authoritative answer:
+At line:28 char:17
++     try { $ns = nslookup -type=NS $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+apcommunities.com	nameserver = ns17.domaincontrol.com
+apcommunities.com	nameserver = ns18.domaincontrol.com
+
+--- TXT RECORDS ---
+nslookup : Non-authoritative answer:
+At line:32 char:18
++     try { $txt = nslookup -type=TXT $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+apcommunities.com	text =
+
+	"v=spf1 ptr include:mxlogic.net include:sendgrid.net include:spf.buildinglink.com include:spf.protection.outlook.com ~all"
+apcommunities.com	text =
+
+	"smartsheet-site-validation=rkMXOEm7lLaHOELkwAspkMWd1lBD78uN"
+apcommunities.com	text =
+
+	"IM054qRm9+1C0ATqaIJ3rJmjQi0Fyl5kOurOPpXniiXgb1EPwfICt6FkSuQR13YhN2T6y/mxiG3AFTsqz9vY3w=="
+
+--- SOA RECORD ---
+nslookup : Non-authoritative answer:
+At line:36 char:18
++     try { $soa = nslookup -type=SOA $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+apcommunities.com
+	primary name server = ns17.domaincontrol.com
+	responsible mail addr = dns.jomax.net
+	serial  = 2026060900
+	refresh = 28800 (8 hours)
+	retry   = 7200 (2 hours)
+	expire  = 604800 (7 days)
+	default TTL = 600 (10 mins)

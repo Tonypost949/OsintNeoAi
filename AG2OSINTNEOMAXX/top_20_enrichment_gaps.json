@@ -1,0 +1,634 @@
+{
+  "mission": "TOP 20 ENTITY ENRICHMENT",
+  "entities": [
+    {
+      "organization_name": "BELAVITA LLC",
+      "known_people": [
+        "Yinchang Lin",
+        "Diana Lin"
+      ],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [
+        "11770 WARNER AVE STE 215, FOUNTAIN VALLEY",
+        "3187 RED HILL AVE STE 213, COSTA MESA"
+      ],
+      "property_count": 94,
+      "existing_relationships": 188,
+      "confidence_score": 0.85
+    },
+    {
+      "organization_name": "PENINSULA VILLAGE LLC",
+      "known_people": [],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [
+        "220 NEWPORT CENTER DR # 11-557, NEWPORT BEACH"
+      ],
+      "property_count": 57,
+      "existing_relationships": 171,
+      "confidence_score": 0.5
+    },
+    {
+      "organization_name": "OSF NB LLC",
+      "known_people": [],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [],
+      "property_count": 57,
+      "existing_relationships": 114,
+      "confidence_score": 0.5
+    },
+    {
+      "organization_name": "JASMINE PLACE ASSOCIATES LLC",
+      "known_people": [],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [
+        "620 NEWPORT CENTER DR FL 11TH, NEWPORT BEACH"
+      ],
+      "property_count": 35,
+      "existing_relationships": 70,
+      "confidence_score": 0.5
+    },
+    {
+      "organization_name": "HS HOMES LLC",
+      "known_people": [],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [
+        "PO BOX 11427, SANTA ANA"
+      ],
+      "property_count": 30,
+      "existing_relationships": 60,
+      "confidence_score": 0.5
+    },
+    {
+      "organization_name": "SUPERIOR BEACH HOMES LLC",
+      "known_people": [],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [
+        "2161 VENTIA, TUSTIN"
+      ],
+      "property_count": 25,
+      "existing_relationships": 50,
+      "confidence_score": 0.5
+    },
+    {
+      "organization_name": "SLATER I LLC",
+      "known_people": [],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [
+        "PO BOX 1368, ORANGE"
+      ],
+      "property_count": 21,
+      "existing_relationships": 42,
+      "confidence_score": 0.5
+    },
+    {
+      "organization_name": "LIDO PENINSULA CO LLC",
+      "known_people": [],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [
+        "PO BOX 1549, NEWPORT BEACH",
+        "717 LIDO PARK DR, NEWPORT BEACH"
+      ],
+      "property_count": 16,
+      "existing_relationships": 32,
+      "confidence_score": 0.5
+    },
+    {
+      "organization_name": "BCORE RETAIL BROOKHURST ADAMS LLC",
+      "known_people": [],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [
+        "PO BOX A3879, CHICAGO"
+      ],
+      "property_count": 13,
+      "existing_relationships": 39,
+      "confidence_score": 0.5
+    },
+    {
+      "organization_name": "M WESTLAND LLC",
+      "known_people": [],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [
+        "5880 GARDEN GROVE BLVD, WESTMINSTER",
+        "13070 OLD BOLSA CHICA RD, WESTMINSTER"
+      ],
+      "property_count": 18,
+      "existing_relationships": 37,
+      "confidence_score": 0.5
+    },
+    {
+      "organization_name": "BURKE MONARCH LLC",
+      "known_people": [],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [
+        "260 BAKER ST STE 100, COSTA MESA"
+      ],
+      "property_count": 14,
+      "existing_relationships": 29,
+      "confidence_score": 0.5
+    },
+    {
+      "organization_name": "FOUNTAIN VALLEY RENTALS LLC",
+      "known_people": [],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [
+        "17272 NEWHOPE ST, FOUNTAIN VALLEY"
+      ],
+      "property_count": 14,
+      "existing_relationships": 28,
+      "confidence_score": 0.5
+    },
+    {
+      "organization_name": "M GAPCO LLC",
+      "known_people": [],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [
+        "16868 A LN, HUNTINGTON BEACH"
+      ],
+      "property_count": 13,
+      "existing_relationships": 26,
+      "confidence_score": 0.5
+    },
+    {
+      "organization_name": "PL JETTY LLC",
+      "known_people": [],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [
+        "1006 SEGOVIA CIR, PLACENTIA",
+        "17772 17TH ST STE 107, TUSTIN"
+      ],
+      "property_count": 13,
+      "existing_relationships": 26,
+      "confidence_score": 0.5
+    },
+    {
+      "organization_name": "VUE INVESTOR OWNER LLC",
+      "known_people": [],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [],
+      "property_count": 0,
+      "existing_relationships": 56,
+      "confidence_score": 0.5
+    },
+    {
+      "organization_name": "D J T COMPANY LLC",
+      "known_people": [],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [],
+      "property_count": 0,
+      "existing_relationships": 56,
+      "confidence_score": 0.5
+    },
+    {
+      "organization_name": "FOURCHER 4340 LLC",
+      "known_people": [],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [
+        "507 LARKSPUR AVE, CORONA DEL MAR"
+      ],
+      "property_count": 12,
+      "existing_relationships": 24,
+      "confidence_score": 0.5
+    },
+    {
+      "organization_name": "HUNTINGTON LLC",
+      "known_people": [],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [
+        "14752 BEACH BLVD STE 106, LA MIRADA",
+        "6922 HOLLYWOOD BLVD FL 9TH, LOS ANGELES"
+      ],
+      "property_count": 12,
+      "existing_relationships": 24,
+      "confidence_score": 0.5
+    },
+    {
+      "organization_name": "BCORE RETAIL GOLDENWEST WARNER LLC",
+      "known_people": [],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [
+        "PO BOX A3879, CHICAGO",
+        "PO BOX 847, CARLSBAD"
+      ],
+      "property_count": 9,
+      "existing_relationships": 18,
+      "confidence_score": 0.5
+    },
+    {
+      "organization_name": "MESAVILLE HOLDINGS LLC",
+      "known_people": [],
+      "missing_people_types": [
+        "Officers",
+        "Managers",
+        "Members",
+        "Registered Agents",
+        "Trustees"
+      ],
+      "known_addresses": [
+        "11770 WARNER AVE STE 215, FOUNTAIN VALLEY"
+      ],
+      "property_count": 2,
+      "existing_relationships": 4,
+      "confidence_score": 0.5
+    }
+  ],
+  "rankings": {
+    "A_fastest_to_enrich": [
+      {
+        "rank": 1,
+        "organization_name": "BELAVITA LLC",
+        "reason": "Already contains known connections",
+        "property_count": 94,
+        "existing_relationships": 188
+      },
+      {
+        "rank": 2,
+        "organization_name": "MESAVILLE HOLDINGS LLC",
+        "reason": "Shares exact address with BELAVITA LLC (11770 Warner Ave hub)",
+        "property_count": 2,
+        "existing_relationships": 4
+      },
+      {
+        "rank": 3,
+        "organization_name": "PENINSULA VILLAGE LLC",
+        "reason": "Has high physical address visibility with active relationships",
+        "property_count": 57,
+        "existing_relationships": 171
+      },
+      {
+        "rank": 4,
+        "organization_name": "OSF NB LLC",
+        "reason": "Has high physical address visibility with active relationships",
+        "property_count": 57,
+        "existing_relationships": 114
+      },
+      {
+        "rank": 5,
+        "organization_name": "JASMINE PLACE ASSOCIATES LLC",
+        "reason": "Has high physical address visibility with active relationships",
+        "property_count": 35,
+        "existing_relationships": 70
+      },
+      {
+        "rank": 6,
+        "organization_name": "M WESTLAND LLC",
+        "reason": "Has high physical address visibility with active relationships",
+        "property_count": 18,
+        "existing_relationships": 37
+      },
+      {
+        "rank": 7,
+        "organization_name": "LIDO PENINSULA CO LLC",
+        "reason": "Has high physical address visibility with active relationships",
+        "property_count": 16,
+        "existing_relationships": 32
+      },
+      {
+        "rank": 8,
+        "organization_name": "HS HOMES LLC",
+        "reason": "Has high physical address visibility with active relationships",
+        "property_count": 30,
+        "existing_relationships": 60
+      },
+      {
+        "rank": 9,
+        "organization_name": "PL JETTY LLC",
+        "reason": "Has high physical address visibility with active relationships",
+        "property_count": 13,
+        "existing_relationships": 26
+      },
+      {
+        "rank": 10,
+        "organization_name": "HUNTINGTON LLC",
+        "reason": "Has high physical address visibility with active relationships",
+        "property_count": 12,
+        "existing_relationships": 24
+      },
+      {
+        "rank": 11,
+        "organization_name": "BCORE RETAIL GOLDENWEST WARNER LLC",
+        "reason": "Has high physical address visibility with active relationships",
+        "property_count": 9,
+        "existing_relationships": 18
+      },
+      {
+        "rank": 12,
+        "organization_name": "SUPERIOR BEACH HOMES LLC",
+        "reason": "Has high physical address visibility with active relationships",
+        "property_count": 25,
+        "existing_relationships": 50
+      },
+      {
+        "rank": 13,
+        "organization_name": "SLATER I LLC",
+        "reason": "Has high physical address visibility with active relationships",
+        "property_count": 21,
+        "existing_relationships": 42
+      },
+      {
+        "rank": 14,
+        "organization_name": "BCORE RETAIL BROOKHURST ADAMS LLC",
+        "reason": "Has high physical address visibility with active relationships",
+        "property_count": 13,
+        "existing_relationships": 39
+      },
+      {
+        "rank": 15,
+        "organization_name": "BURKE MONARCH LLC",
+        "reason": "Has high physical address visibility with active relationships",
+        "property_count": 14,
+        "existing_relationships": 29
+      },
+      {
+        "rank": 16,
+        "organization_name": "FOUNTAIN VALLEY RENTALS LLC",
+        "reason": "Has high physical address visibility with active relationships",
+        "property_count": 14,
+        "existing_relationships": 28
+      },
+      {
+        "rank": 17,
+        "organization_name": "M GAPCO LLC",
+        "reason": "Has high physical address visibility with active relationships",
+        "property_count": 13,
+        "existing_relationships": 26
+      },
+      {
+        "rank": 18,
+        "organization_name": "FOURCHER 4340 LLC",
+        "reason": "Has high physical address visibility with active relationships",
+        "property_count": 12,
+        "existing_relationships": 24
+      },
+      {
+        "rank": 19,
+        "organization_name": "VUE INVESTOR OWNER LLC",
+        "reason": "Has high physical address visibility with active relationships",
+        "property_count": 0,
+        "existing_relationships": 56
+      },
+      {
+        "rank": 20,
+        "organization_name": "D J T COMPANY LLC",
+        "reason": "Has high physical address visibility with active relationships",
+        "property_count": 0,
+        "existing_relationships": 56
+      }
+    ],
+    "B_highest_value_to_enrich": [
+      {
+        "rank": 1,
+        "organization_name": "BELAVITA LLC",
+        "property_count": 94,
+        "existing_relationships": 188,
+        "reason": "Controls 94 property parcels and has 188 network relationships."
+      },
+      {
+        "rank": 2,
+        "organization_name": "PENINSULA VILLAGE LLC",
+        "property_count": 57,
+        "existing_relationships": 171,
+        "reason": "Controls 57 property parcels and has 171 network relationships."
+      },
+      {
+        "rank": 3,
+        "organization_name": "OSF NB LLC",
+        "property_count": 57,
+        "existing_relationships": 114,
+        "reason": "Controls 57 property parcels and has 114 network relationships."
+      },
+      {
+        "rank": 4,
+        "organization_name": "JASMINE PLACE ASSOCIATES LLC",
+        "property_count": 35,
+        "existing_relationships": 70,
+        "reason": "Controls 35 property parcels and has 70 network relationships."
+      },
+      {
+        "rank": 5,
+        "organization_name": "HS HOMES LLC",
+        "property_count": 30,
+        "existing_relationships": 60,
+        "reason": "Controls 30 property parcels and has 60 network relationships."
+      },
+      {
+        "rank": 6,
+        "organization_name": "SUPERIOR BEACH HOMES LLC",
+        "property_count": 25,
+        "existing_relationships": 50,
+        "reason": "Controls 25 property parcels and has 50 network relationships."
+      },
+      {
+        "rank": 7,
+        "organization_name": "SLATER I LLC",
+        "property_count": 21,
+        "existing_relationships": 42,
+        "reason": "Controls 21 property parcels and has 42 network relationships."
+      },
+      {
+        "rank": 8,
+        "organization_name": "M WESTLAND LLC",
+        "property_count": 18,
+        "existing_relationships": 37,
+        "reason": "Controls 18 property parcels and has 37 network relationships."
+      },
+      {
+        "rank": 9,
+        "organization_name": "LIDO PENINSULA CO LLC",
+        "property_count": 16,
+        "existing_relationships": 32,
+        "reason": "Controls 16 property parcels and has 32 network relationships."
+      },
+      {
+        "rank": 10,
+        "organization_name": "BURKE MONARCH LLC",
+        "property_count": 14,
+        "existing_relationships": 29,
+        "reason": "Controls 14 property parcels and has 29 network relationships."
+      },
+      {
+        "rank": 11,
+        "organization_name": "FOUNTAIN VALLEY RENTALS LLC",
+        "property_count": 14,
+        "existing_relationships": 28,
+        "reason": "Controls 14 property parcels and has 28 network relationships."
+      },
+      {
+        "rank": 12,
+        "organization_name": "BCORE RETAIL BROOKHURST ADAMS LLC",
+        "property_count": 13,
+        "existing_relationships": 39,
+        "reason": "Controls 13 property parcels and has 39 network relationships."
+      },
+      {
+        "rank": 13,
+        "organization_name": "M GAPCO LLC",
+        "property_count": 13,
+        "existing_relationships": 26,
+        "reason": "Controls 13 property parcels and has 26 network relationships."
+      },
+      {
+        "rank": 14,
+        "organization_name": "PL JETTY LLC",
+        "property_count": 13,
+        "existing_relationships": 26,
+        "reason": "Controls 13 property parcels and has 26 network relationships."
+      },
+      {
+        "rank": 15,
+        "organization_name": "FOURCHER 4340 LLC",
+        "property_count": 12,
+        "existing_relationships": 24,
+        "reason": "Controls 12 property parcels and has 24 network relationships."
+      },
+      {
+        "rank": 16,
+        "organization_name": "HUNTINGTON LLC",
+        "property_count": 12,
+        "existing_relationships": 24,
+        "reason": "Controls 12 property parcels and has 24 network relationships."
+      },
+      {
+        "rank": 17,
+        "organization_name": "BCORE RETAIL GOLDENWEST WARNER LLC",
+        "property_count": 9,
+        "existing_relationships": 18,
+        "reason": "Controls 9 property parcels and has 18 network relationships."
+      },
+      {
+        "rank": 18,
+        "organization_name": "MESAVILLE HOLDINGS LLC",
+        "property_count": 2,
+        "existing_relationships": 4,
+        "reason": "Controls 2 property parcels and has 4 network relationships."
+      },
+      {
+        "rank": 19,
+        "organization_name": "VUE INVESTOR OWNER LLC",
+        "property_count": 0,
+        "existing_relationships": 56,
+        "reason": "Controls 0 property parcels and has 56 network relationships."
+      },
+      {
+        "rank": 20,
+        "organization_name": "D J T COMPANY LLC",
+        "property_count": 0,
+        "existing_relationships": 56,
+        "reason": "Controls 0 property parcels and has 56 network relationships."
+      }
+    ]
+  }
+}

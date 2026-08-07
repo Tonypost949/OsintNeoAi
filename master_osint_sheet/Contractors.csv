@@ -1,0 +1,14 @@
+CON_ID,COMPANY_NAME,TYPE,CONTRACT_VALUE,CONTRACT_PURPOSE,CONTRACTING_AGENCY,KEY_PERSONNEL_IDS,RED_FLAGS,SOURCE_DOC,SOURCE_PAGE,QUOTE_SNIPPET,NOTES,LAST_UPDATED
+"CONTRACTORS: One row per contractor entity. CON_ID links to MASTER and all other tabs. RED_FLAGS: document procurement irregularities, conflicts of interest, or false certifications. CONTRACT_VALUE: enter dollar amount when known. To refresh: add row, assign next CON-### ID, update MASTER tab."
+CON-001,Haick Construction / Development,General Contractor,Unknown,City development project,City of Huntington Beach,PER-025,No-bid contract; conflict of interest; connected to city officials,Whistleblower Dossier,§8,Contract awarded without competitive bidding...
+CON-002,Unknown Remediation Contractor,Environmental Contractor,Unknown,HBNC toxic site cleanup,City of HB / Navy,PER-027,Sham cleanup; contamination not remediated; Cr-VI remains at 49x limit,HBNC Toxic Site HTML,§Cleanup,Remediation contractor certified completion; soil samples contradict...
+CON-003,Unknown IT/Surveillance Vendor,Technology Contractor,Unknown,Surveillance system for HBPD,City of Huntington Beach,,Potential civil rights violation; no public RFP,Whistleblower Dossier,§4
+CON-004,ASL Electric,General Contractor,,Mercy House vendor bids,Mercy House,PER-029,Board member is owner,meli-document-mercy-house-board-conflicts-of-interest (2).docx,Vendor / Self-Dealing Conflicts
+CON-005,ASL Plumbing,General Contractor,,Mercy House vendor bids,Mercy House,PER-029,Board member is owner,meli-document-mercy-house-board-conflicts-of-interest (2).docx,Vendor / Self-Dealing Conflicts
+CON-006,RBA Builders LLC,Commercial construction,,Mercy House construction,Mercy House,PER-030,Board member is CEO,meli-document-mercy-house-board-conflicts-of-interest (2).docx,Vendor / Self-Dealing Conflicts
+CON-007,Shopoff Realty Investments,Real Estate,,,Mercy House,PER-033;PER-034,Board members from Mercy House; dual representation,meli-document-mercy-house-board-conflicts-of-interest (2).docx
+CON-008,Advanced Real Estate Services,Real Estate,,,Mercy House,PER-035,Board member conflict of interest,meli-document-mercy-house-board-conflicts-of-interest (2).docx
+CON-009,Cole & Company Wealth Management,Financial Services,,,Mercy House,PER-036,Board member conflict of interest; financial oversight,meli-document-mercy-house-board-conflicts-of-interest (2).docx
+CON-010,Buntich Entities (Unspecified),TBD,,,Mercy House,PER-031;PER-032,Family network; requires further investigation,meli-document-mercy-house-board-conflicts-of-interest (2).docx
+CON-011,BriteCity,Managed IT / Cybersecurity,Unknown,Ransomware recovery / IT management,City of Huntington Beach,PER-056,Involved in post-disclosure sanitization,OSINT Research,p.1,,Regional IT node,2026-06-29
+CON-012,Alcala Consulting,Cybersecurity,Unknown,2025 Ransomware fix,City of Huntington Beach,,Potential post-facto record scrubbing,News Reports,p.2,,Enterprise 'Fixer',2026-06-29

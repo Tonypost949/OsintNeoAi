@@ -1,0 +1,8 @@
+EMAIL_ID,EMAIL_ADDRESS,TYPE,ENTITY_IDS,VERIFIED,SOURCE_DOC,SOURCE_PAGE,NOTES
+"EMAILS: One row per email address of significance. EMAIL_ID links to MASTER. ENTITY_IDS: semicolon-separated IDs of entities associated with this address. VERIFIED: Yes/No/Unverified. Add new contacts as discovered. To refresh: add row, assign next EMAIL-### ID, update MASTER tab."
+EMAIL-001,city.manager@surfcity-hb.org,Official,GOV-001;PER-003,Unverified,Whistleblower Dossier,§3,City Manager contact
+EMAIL-002,police.chief@surfcity-hb.org,Official,GOV-002;PER-004,Unverified,Whistleblower Dossier,§4,HBPD Chief contact
+EMAIL-003,city.attorney@surfcity-hb.org,Official,GOV-001;PER-008,Unverified,RICO Matrix,§RICO,City Attorney contact
+EMAIL-004,r9eisc@epa.gov,Official,GOV-011,Yes,Knabb v. HB RCRA Complaint,p.3,EPA Region 9 enforcement contact
+EMAIL-005,DTSC.PublicParticipation@dtsc.ca.gov,Official,GOV-008,Yes,HBNC Toxic Site HTML,§Regulatory,DTSC public participation
+EMAIL-006,[Add new contacts as discovered],,,,,,Placeholder — add new email contacts as identified

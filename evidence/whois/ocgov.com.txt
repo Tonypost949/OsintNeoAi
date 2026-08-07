@@ -1,0 +1,45 @@
+﻿=== nslookup -type=ALL ocgov.com ===
+nslookup : *** Request to connectivity-check.warp-svc timed-out
+At line:5 char:12
++     $all = nslookup -type=ALL $d 2>&1 | Out-String
++            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (*** Request to ...p-svc timed-out:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  connectivity-check.warp-svc
+Address:  127.0.2.2
+
+DNS request timed out.
+    timeout was 2 seconds.
+
+=== nslookup -type=SOA ocgov.com ===
+nslookup : Non-authoritative answer:
+At line:6 char:12
++     $soa = nslookup -type=SOA $d 2>&1 | Out-String
++            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  connectivity-check.warp-svc
+Address:  127.0.2.2
+
+ocgov.com
+	primary name server = ns1.ocgov.com
+	responsible mail addr = oc-dnsadmins.ceoit.ocgov.com
+	serial  = 851
+	refresh = 14400 (4 hours)
+	retry   = 3600 (1 hour)
+	expire  = 2419200 (28 days)
+	default TTL = 900 (15 mins)
+
+ocgov.com
+	primary name server = ns1.ocgov.com
+	responsible mail addr = oc-dnsadmins.ceoit.ocgov.com
+	serial  = 851
+	refresh = 14400 (4 hours)
+	retry   = 3600 (1 hour)
+	expire  = 2419200 (28 days)
+	default TTL = 900 (15 mins)
+

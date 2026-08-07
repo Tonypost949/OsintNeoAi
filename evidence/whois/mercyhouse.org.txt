@@ -1,0 +1,43 @@
+﻿=== nslookup -type=ALL mercyhouse.org ===
+nslookup : *** connectivity-check.warp-svc can't find mercyhouse.org: Not implemented
+At line:5 char:12
++     $all = nslookup -type=ALL $d 2>&1 | Out-String
++            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (*** connectivit...Not implemented:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  connectivity-check.warp-svc
+Address:  127.0.2.2
+
+
+=== nslookup -type=SOA mercyhouse.org ===
+nslookup : Non-authoritative answer:
+At line:6 char:12
++     $soa = nslookup -type=SOA $d 2>&1 | Out-String
++            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  connectivity-check.warp-svc
+Address:  127.0.2.2
+
+mercyhouse.org
+	primary name server = ns1.siteground.net
+	responsible mail addr = dnsadmin.us162.siteground.us
+	serial  = 2020052873
+	refresh = 86400 (1 day)
+	retry   = 7200 (2 hours)
+	expire  = 3600000 (41 days 16 hours)
+	default TTL = 86400 (1 day)
+
+mercyhouse.org
+	primary name server = ns1.siteground.net
+	responsible mail addr = dnsadmin.us162.siteground.us
+	serial  = 2020052873
+	refresh = 86400 (1 day)
+	retry   = 7200 (2 hours)
+	expire  = 3600000 (41 days 16 hours)
+	default TTL = 86400 (1 day)
+

@@ -1,0 +1,491 @@
+{
+  "total_projects": 1322,
+  "total_files": 13136,
+  "total_departments": 21,
+  "unique_departments": [
+    "Auditor-Controller",
+    "Clerk-Recorder",
+    "County Counsel",
+    "County Executive Office - Budget & Finance",
+    "County Executive Office - CPO",
+    "County Executive Office - Human Resources",
+    "County Executive Office - Office of Care Coordination",
+    "County Executive Office - Real Estate",
+    "District Attorney",
+    "Health Care Agency",
+    "Internal Auditor",
+    "John Wayne Airport",
+    "OC Community Resources",
+    "OC Public Works",
+    "OC Waste & Recycling",
+    "Orange County Information Technology (OCIT)",
+    "Probation",
+    "Registrar of Voters",
+    "Sheriff-Coroner",
+    "Social Services Agency",
+    "Treasurer-Tax Collector"
+  ],
+  "departments": {
+    "OC Public Works": {
+      "project_count": 361,
+      "file_count": 4440
+    },
+    "Sheriff-Coroner": {
+      "project_count": 339,
+      "file_count": 2953
+    },
+    "OC Waste & Recycling": {
+      "project_count": 97,
+      "file_count": 1068
+    },
+    "County Executive Office - CPO": {
+      "project_count": 106,
+      "file_count": 912
+    },
+    "OC Community Resources": {
+      "project_count": 83,
+      "file_count": 853
+    },
+    "Health Care Agency": {
+      "project_count": 127,
+      "file_count": 814
+    },
+    "John Wayne Airport": {
+      "project_count": 36,
+      "file_count": 450
+    },
+    "Probation": {
+      "project_count": 40,
+      "file_count": 369
+    },
+    "District Attorney": {
+      "project_count": 32,
+      "file_count": 333
+    },
+    "Registrar of Voters": {
+      "project_count": 26,
+      "file_count": 291
+    },
+    "Social Services Agency": {
+      "project_count": 30,
+      "file_count": 220
+    },
+    "Orange County Information Technology (OCIT)": {
+      "project_count": 12,
+      "file_count": 92
+    },
+    "County Executive Office - Human Resources": {
+      "project_count": 7,
+      "file_count": 85
+    },
+    "County Executive Office - Office of Care Coordination": {
+      "project_count": 7,
+      "file_count": 78
+    },
+    "Auditor-Controller": {
+      "project_count": 5,
+      "file_count": 60
+    },
+    "County Executive Office - Budget & Finance": {
+      "project_count": 7,
+      "file_count": 44
+    },
+    "Treasurer-Tax Collector": {
+      "project_count": 2,
+      "file_count": 29
+    },
+    "County Counsel": {
+      "project_count": 2,
+      "file_count": 17
+    },
+    "County Executive Office - Real Estate": {
+      "project_count": 1,
+      "file_count": 14
+    },
+    "Internal Auditor": {
+      "project_count": 1,
+      "file_count": 8
+    },
+    "Clerk-Recorder": {
+      "project_count": 1,
+      "file_count": 6
+    }
+  },
+  "file_types": {
+    "pdf": 10558,
+    "docx": 2087,
+    "xlsx": 284,
+    "html": 75,
+    "htm": 36,
+    "doc": 26,
+    "pptx": 20,
+    "jpg": 20,
+    "png": 14,
+    "xls": 5,
+    "rtf": 3,
+    "xlsm": 2,
+    "csv": 1,
+    "dwg": 1,
+    "mp4": 1
+  },
+  "top_50_by_files": [
+    {
+      "id": "179615",
+      "title": "Operations and Maintenance Services of Groundwater Control, Monitoring, and Wate",
+      "status": "closed",
+      "file_count": 82,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/179615"
+    },
+    {
+      "id": "67263",
+      "title": "AGING PROGRAM SERVICES",
+      "status": "closed",
+      "file_count": 49,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/67263"
+    },
+    {
+      "id": "172131",
+      "title": "Custom Forms",
+      "status": "closed",
+      "file_count": 41,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/172131"
+    },
+    {
+      "id": "141678",
+      "title": "Capistrano Beach Nature-Based Shoreline Adaptation Project",
+      "status": "closed",
+      "file_count": 32,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/141678"
+    },
+    {
+      "id": "130362",
+      "title": "Capistrano Beach Nature-Based Shoreline Adaptation Project",
+      "status": "closed",
+      "file_count": 31,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/130362"
+    },
+    {
+      "id": "128472",
+      "title": "UNARMED SECURITY GUARD SERVICES",
+      "status": "closed",
+      "file_count": 31,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/128472"
+    },
+    {
+      "id": "209623",
+      "title": "Staffing Services",
+      "status": "closed",
+      "file_count": 30,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/209623"
+    },
+    {
+      "id": "225350",
+      "title": "Stormwater Treatment Units - Inspection and Maintenance",
+      "status": "evaluation",
+      "file_count": 29,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/225350"
+    },
+    {
+      "id": "264884",
+      "title": "JOB ORDER CONTRACT (JOC) FOR PLUMBING SERVICES",
+      "status": "evaluation",
+      "file_count": 28,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/264884"
+    },
+    {
+      "id": "238004",
+      "title": "JOB ORDER CONTRACT (JOC) FOR DEMOLITION SERVICES",
+      "status": "evaluation",
+      "file_count": 28,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/238004"
+    },
+    {
+      "id": "260609",
+      "title": "Smart Irrigation Controllers and Master Valve/Flow Sensor with Professional Serv",
+      "status": "closed",
+      "file_count": 27,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/260609"
+    },
+    {
+      "id": "264943",
+      "title": "JOB ORDER CONTRACT (JOC) FOR PAINTING SERVICES",
+      "status": "evaluation",
+      "file_count": 27,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/264943"
+    },
+    {
+      "id": "264508",
+      "title": "JOB ORDER CONTRACT (JOC) FOR SLURRY & PAVING SERVICES",
+      "status": "evaluation",
+      "file_count": 27,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/264508"
+    },
+    {
+      "id": "253360",
+      "title": "JOB ORDER CONTRACT (JOC) FOR ELECTRICAL SERVICES",
+      "status": "evaluation",
+      "file_count": 27,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/253360"
+    },
+    {
+      "id": "239238",
+      "title": "DBB Las Flores Gateway Improvements and Pavement Rehabilitation",
+      "status": "closed",
+      "file_count": 27,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/239238"
+    },
+    {
+      "id": "222652",
+      "title": "CMAR - Santa Ana River (E01) Avio Tide Gates Replacement",
+      "status": "evaluation",
+      "file_count": 27,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/222652"
+    },
+    {
+      "id": "244751",
+      "title": "ALWO WATERSHED TRAIL EXHIBIT",
+      "status": "awardPending",
+      "file_count": 27,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/244751"
+    },
+    {
+      "id": "239981",
+      "title": "JOB ORDER CONTRACT (JOC) FOR PLUMBING SERVICES",
+      "status": "closed",
+      "file_count": 27,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/239981"
+    },
+    {
+      "id": "230741",
+      "title": "JOB ORDER CONTRACT (JOC) FOR ASBESTOS & DECONTAMINATION SERVICES",
+      "status": "evaluation",
+      "file_count": 27,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/230741"
+    },
+    {
+      "id": "238286",
+      "title": "Job Order Contract (JOC) for HVAC Services",
+      "status": "closed",
+      "file_count": 27,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/238286"
+    },
+    {
+      "id": "238254",
+      "title": "Job Order Contract (JOC) for Roofing Services",
+      "status": "closed",
+      "file_count": 27,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/238254"
+    },
+    {
+      "id": "238024",
+      "title": "JOB ORDER CONTRACT (JOC) FOR SLURRY & PAVING SERVICES",
+      "status": "closed",
+      "file_count": 27,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/238024"
+    },
+    {
+      "id": "235109",
+      "title": "JOB ORDER CONTRACT (JOC) FOR ELECTRICAL SERVICES",
+      "status": "closed",
+      "file_count": 27,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/235109"
+    },
+    {
+      "id": "106400",
+      "title": "Custom Boxes",
+      "status": "closed",
+      "file_count": 27,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/106400"
+    },
+    {
+      "id": "114720",
+      "title": "REQUEST FOR PROPOSAL  FOR  COMPREHENSIVE ADMINISTRATIVE AND INVESTMENT SERVICES ",
+      "status": "closed",
+      "file_count": 27,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/114720"
+    },
+    {
+      "id": "276065",
+      "title": "Progressive Design Build for New Emergency Operation Center",
+      "status": "open",
+      "file_count": 26,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/276065"
+    },
+    {
+      "id": "265305",
+      "title": "JOB ORDER CONTRACT (JOC) FOR ROOFING SERVICES",
+      "status": "evaluation",
+      "file_count": 26,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/265305"
+    },
+    {
+      "id": "265258",
+      "title": "JOB ORDER CONTRACT (JOC) FOR HVAC SERVICES",
+      "status": "evaluation",
+      "file_count": 26,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/265258"
+    },
+    {
+      "id": "245128",
+      "title": "Job Order Contract (JOC) for Flood Control and Bridge Maintenance Services",
+      "status": "evaluation",
+      "file_count": 26,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/245128"
+    },
+    {
+      "id": "239851",
+      "title": "JOB ORDER CONTRACT (JOC) FOR PAINTING SERVICES",
+      "status": "closed",
+      "file_count": 26,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/239851"
+    },
+    {
+      "id": "138179",
+      "title": "Printing and Mailing Services",
+      "status": "pending",
+      "file_count": 26,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/138179"
+    },
+    {
+      "id": "235783",
+      "title": "Smart Irrigation Controllers and Master Valve/Flow Sensor with Professional Serv",
+      "status": "closed",
+      "file_count": 25,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/235783"
+    },
+    {
+      "id": "239259",
+      "title": "JOB ORDER CONTRACT (JOC) FOR ELEVATOR SERVICES",
+      "status": "closed",
+      "file_count": 25,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/239259"
+    },
+    {
+      "id": "221658",
+      "title": "JOB ORDER CONTRACT (JOC) FOR PLUMBING SERVICES",
+      "status": "closed",
+      "file_count": 25,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/221658"
+    },
+    {
+      "id": "219926",
+      "title": "JOB ORDER CONTRACT (JOC) FOR ASBESTOS & DECONTAMINATION SERVICES",
+      "status": "closed",
+      "file_count": 25,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/219926"
+    },
+    {
+      "id": "236478",
+      "title": "Construction Manager-at-Risk (CMAR) for Facilities Security Improvements",
+      "status": "open",
+      "file_count": 25,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/236478"
+    },
+    {
+      "id": "108383",
+      "title": "Implementation, Maintenance and Support of New Case Management System (CMS)",
+      "status": "closed",
+      "file_count": 25,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/108383"
+    },
+    {
+      "id": "221917",
+      "title": "JOB ORDER CONTRACT (JOC) FOR PAINTING SERVICES",
+      "status": "closed",
+      "file_count": 24,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/221917"
+    },
+    {
+      "id": "203307",
+      "title": "DBB - Barrett Lane Drainage and Sidewalk Improvements",
+      "status": "closed",
+      "file_count": 24,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/203307"
+    },
+    {
+      "id": "205565",
+      "title": "JOB ORDER CONTRACT (JOC)  FOR GENERAL CONTRACTING SERVICES",
+      "status": "closed",
+      "file_count": 23,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/205565"
+    },
+    {
+      "id": "231377",
+      "title": "Job Order Contract (JOC) for Pavement Maintenance and Repair Services",
+      "status": "closed",
+      "file_count": 23,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/231377"
+    },
+    {
+      "id": "151252",
+      "title": "Job Order Contract (JOC) for Pavement Maintenance Services",
+      "status": "closed",
+      "file_count": 22,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/151252"
+    },
+    {
+      "id": "149481",
+      "title": "Job Order Contract (JOC) for Pavement Maintenance and Repair Services at John Wa",
+      "status": "closed",
+      "file_count": 22,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/149481"
+    },
+    {
+      "id": "192893",
+      "title": "Job Order Contract (JOC) for Electrical Services",
+      "status": "closed",
+      "file_count": 22,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/192893"
+    },
+    {
+      "id": "79256",
+      "title": "Enterprise Resource Planning Software as a Service System",
+      "status": "closed",
+      "file_count": 22,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/79256"
+    },
+    {
+      "id": "244001",
+      "title": "Asphalt and Concrete Maintenance Services",
+      "status": "closed",
+      "file_count": 21,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/244001"
+    },
+    {
+      "id": "221666",
+      "title": "JOB ORDER CONTRACT (JOC) FOR ELEVATOR SERVICES",
+      "status": "closed",
+      "file_count": 21,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/221666"
+    },
+    {
+      "id": "217287",
+      "title": "Debris Boom Project \u2013 Imperial Channel",
+      "status": "closed",
+      "file_count": 21,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/217287"
+    },
+    {
+      "id": "217286",
+      "title": "Debris Boom Project \u2013  Santa Ana Delhi Channel",
+      "status": "closed",
+      "file_count": 21,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/217286"
+    },
+    {
+      "id": "215987",
+      "title": "Debris Boom Project \u2013 Carbon Creek Channel",
+      "status": "closed",
+      "file_count": 21,
+      "url": "https://procurement.opengov.com/portal/ocgov/projects/215987"
+    }
+  ],
+  "status_breakdown": {
+    "closed": 1079,
+    "evaluation": 99,
+    "pending": 78,
+    "awardPending": 35,
+    "open": 30,
+    "coming soon": 1
+  }
+}

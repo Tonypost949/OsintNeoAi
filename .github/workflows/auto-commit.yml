@@ -1,0 +1,49 @@
+name: Auto-Commit Results
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # Every hour
+  workflow_dispatch:
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Authenticate to GCP
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+          service_account: ${{ secrets.WIF_SERVICE_ACCOUNT }}
+
+      - name: Pull latest results from Cloud Run
+        run: |
+          URL=$(gcloud run services describe osint-neo-ai --region us-central1 --format='value(status.url)')
+          mkdir -p results
+          curl -s "$URL/results" | python -c "
+import json, sys, urllib.request
+data = json.load(sys.stdin)
+for f in data.get('files', []):
+    url = '$URL/results/' + f
+    local = 'results/' + f
+    import os
+    os.makedirs(os.path.dirname(local), exist_ok=True)
+    urllib.request.urlretrieve(url, local)
+    print(f'Downloaded: {f}')
+" || echo "No new results"
+
+      - name: Commit & Push Results
+        run: |
+          git config user.name "OsintNeoAi Bot"
+          git config user.email "bot@osintneoai.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "Auto-commit results - $(date -u)"
+          git push
