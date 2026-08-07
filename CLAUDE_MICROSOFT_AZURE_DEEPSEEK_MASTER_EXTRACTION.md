@@ -64,6 +64,9 @@ graph TD
 
 ### 1. Anthropic Claude CLI & MCP Tool Protocols
 - **Configuration Store:** `C:\Users\HP\.claude` & `C:\Users\HP\.claude-server-commander`
+- **Claude User Profile (`.claude.json`):** User ID `a87a5a240e9084640da94fb2a6b9e0db3767e189dd9506e8330ddf9d11d4eabe` (Opus Pro & Sonnet 1M Migrations Complete)
+- **OneDrive Skill Documentation:** `C:\Users\HP\OneDrive - Post University,inc\allf\Microsoft Copilot Chat Files\osint claude skill.docx`
+- **OneDrive Azure Project File:** `C:\Users\HP\OneDrive - Post University,inc\allf\aZURE PROJECT NOW.docx`
 - **MCP Integration:** Model Context Protocol (MCP) servers connected to BigQuery, Cloud SQL, AlloyDB, and Google Developer Knowledge engines.
 
 ### 2. Perplexity & Search AI Web Reconnaissance
