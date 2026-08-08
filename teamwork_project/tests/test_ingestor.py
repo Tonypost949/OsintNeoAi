@@ -45,6 +45,23 @@ def sample_nodes_json(tmp_path):
 
 
 @pytest.fixture
+def dict_root_nodes_json(tmp_path):
+    """Fix 6 Verification: Support dictionary root JSON files."""
+    file_path = tmp_path / "dict_nodes.json"
+    data = {
+        "nodes": [
+            {
+                "id": "NODE_001",
+                "label": "ORGANIZATION",
+                "properties": {"name": "GLOBAL TECH INC"}
+            }
+        ]
+    }
+    file_path.write_text(json.dumps(data), encoding="utf-8")
+    return file_path
+
+
+@pytest.fixture
 def sample_edges_json(tmp_path):
     file_path = tmp_path / "edges.json"
     data = [
@@ -82,12 +99,25 @@ def sample_ppp_csv(tmp_path):
 
 
 @pytest.fixture
+def latin1_ppp_csv(tmp_path):
+    """Fix 6 Verification: Non-UTF8 CSV files (Latin-1) parse cleanly without UnicodeDecodeError."""
+    file_path = tmp_path / "latin1_ppp.csv"
+    content = (
+        "BorrowerName,BorrowerAddress,City,State,Zip,LoanNumber,CurrentApprovalAmount\n"
+        "CAFÉ ENTERPRISES LLC,100 MAIN ST,RENO,NV,89501,PPP-LATIN1,50000\n"
+    )
+    file_path.write_bytes(content.encode("iso-8859-1"))
+    return file_path
+
+
+@pytest.fixture
 def sample_sos_csv(tmp_path):
     file_path = tmp_path / "sos_records.csv"
     content = (
         "entity_name,sos_file_num,registered_agent,agent_address,status\n"
         "DESERT SUN ENTERPRISES LLC,E0123452020-1,JOHN SMITH,100 S VIRGINIA ST SUITE 10 RENO NV 89501,Active\n"
         "SIERRA TECH CORP,C0987652019-2,JANE DOE,456 COMMERCIAL ROW RENO NV 89501,Active\n"
+        "LLC,,THE,100 S VIRGINIA ST RENO NV 89501,Active\n"
     )
     file_path.write_text(content, encoding="utf-8")
     return file_path
@@ -123,6 +153,11 @@ class TestJsonParsers:
         assert "ADDRESS" in node_types
         assert "PPP_LOAN" in node_types
 
+    def test_parse_dict_root_nodes_json(self, dict_root_nodes_json):
+        nodes = parse_nodes_json(dict_root_nodes_json)
+        assert len(nodes) == 1
+        assert nodes[0].node_id == "NODE_001"
+
     def test_parse_edges_json(self, sample_edges_json):
         edges = parse_edges_json(sample_edges_json)
         assert len(edges) == 2
@@ -144,14 +179,29 @@ class TestCsvParsers:
         ppp_edges = [e for e in result.edges if e.edge_type == "RECEIVED_PPP"]
         assert len(ppp_edges) == 2
 
+    def test_latin1_csv_encoding(self, latin1_ppp_csv):
+        result = parse_ppp_loans_csv(latin1_ppp_csv)
+        assert result.node_count >= 2
+        org_node = [n for n in result.nodes if n.node_type == "ORGANIZATION"][0]
+        assert "CAF" in org_node.label.upper()
+
     def test_parse_sos_records_csv(self, sample_sos_csv):
         result = parse_sos_records_csv(sample_sos_csv)
-        assert result.node_count >= 6  # 2 ORGs, 2 PERSONs (agents), 2 ADDRESSes
+        assert result.node_count >= 6  # 3 ORGs, 3 PERSONs (agents), 3 ADDRESSes
         
         reg_edges = [e for e in result.edges if e.edge_type == "REGISTERED_AT"]
         officer_edges = [e for e in result.edges if e.edge_type == "OFFICER_OF"]
-        assert len(reg_edges) == 2
-        assert len(officer_edges) == 2
+        assert len(reg_edges) == 3
+        assert len(officer_edges) == 3
+
+    def test_parse_sos_records_node_id_uniqueness(self, sample_sos_csv):
+        """Fix 5 Verification: Empty sos_file_num and stop-word names do not create ORG_ or PERSON_ collisions."""
+        result = parse_sos_records_csv(sample_sos_csv)
+        node_ids = [n.node_id for n in result.nodes]
+        
+        assert "ORG_" not in node_ids
+        assert "PERSON_" not in node_ids
+        assert len(node_ids) == len(set(node_ids))  # All node IDs are strictly unique!
 
     def test_parse_property_records_csv(self, sample_property_csv):
         result = parse_property_records_csv(sample_property_csv)
