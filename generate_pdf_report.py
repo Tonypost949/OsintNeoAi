@@ -64,16 +64,16 @@ def create_pdf_report():
     elements.append(Spacer(1, 24))
     
     # Executive Summary
-    elements.append(Paragraph("Executive Summary", styles['Heading2']))
+    elements.append(Paragraph("Executive Summary", styles['CustomHeading2']))
     elements.append(Paragraph(
         "This report documents a comprehensive external security audit of municipal government and law enforcement "
         "web infrastructure across Southern California. The assessment identified <b>23 critical security exposures</b> "
         "across 39 state portals and 75 geolocated IP assets.",
-        styles['Normal']))
+        styles['CustomNormal']))
     elements.append(Spacer(1, 12))
     
     # Key Findings Table
-    elements.append(Paragraph("Key Findings", styles['Heading2']))
+    elements.append(Paragraph("Key Findings", styles['CustomHeading2']))
     
     findings_data = [
         ['Metric', 'Value'],
@@ -101,7 +101,7 @@ def create_pdf_report():
     elements.append(Spacer(1, 24))
     
     # Critical Vulnerability Findings
-    elements.append(Paragraph("Critical Vulnerability Findings", styles['Heading2']))
+    elements.append(Paragraph("Critical Vulnerability Findings", styles['CustomHeading2']))
     
     vuln_data = [
         ['Severity', 'Count', 'Description'],
@@ -152,25 +152,25 @@ def create_pdf_report():
     elements.append(Spacer(1, 12))
     
     # Recommendations
-    elements.append(Paragraph("Recommendations", styles['Heading2']))
-    elements.append(Paragraph("<b>Immediate Actions (0-24 hours):</b>", styles['Normal']))
-    elements.append(Paragraph("1. Rotate All Exposed Credentials", styles['Normal']))
-    elements.append(Paragraph("2. Remove Sensitive Files from Public Web Roots", styles['Normal']))
-    elements.append(Paragraph("3. Enable Monitoring", styles['Normal']))
+    elements.append(Paragraph("Recommendations", styles['CustomHeading2']))
+    elements.append(Paragraph("<b>Immediate Actions (0-24 hours):</b>", styles['CustomNormal']))
+    elements.append(Paragraph("1. Rotate All Exposed Credentials", styles['CustomNormal']))
+    elements.append(Paragraph("2. Remove Sensitive Files from Public Web Roots", styles['CustomNormal']))
+    elements.append(Paragraph("3. Enable Monitoring", styles['CustomNormal']))
     elements.append(Spacer(1, 12))
     
     # Methodology
-    elements.append(Paragraph("Methodology", styles['Heading2']))
+    elements.append(Paragraph("Methodology", styles['CustomHeading2']))
     elements.append(Paragraph(
         "Endpoint Discovery: Automated scanning of 1,351 URL endpoints<br/>"
         "Path Enumeration: Testing 25+ common administrative and sensitive paths<br/>"
         "DNS Resolution: Full A, MX, NS record enumeration<br/>"
         "Geolocation: IP-to-physical-location mapping using MaxMind and REST APIs",
-        styles['Normal']))
+        styles['CustomNormal']))
     elements.append(Spacer(1, 12))
     
     # Data Sources
-    elements.append(Paragraph("Data Sources", styles['Heading2']))
+    elements.append(Paragraph("Data Sources", styles['CustomHeading2']))
     
     data_sources = [
         ['Source', 'Table', 'Records'],
@@ -193,14 +193,14 @@ def create_pdf_report():
     elements.append(Spacer(1, 24))
     
     # Conclusion
-    elements.append(Paragraph("Conclusion", styles['Heading2']))
+    elements.append(Paragraph("Conclusion", styles['CustomHeading2']))
     elements.append(Paragraph(
         "This audit reveals significant security vulnerabilities in municipal web infrastructure that could lead to "
         "data breaches, credential theft, and operational disruption. The 23 critical exposures represent an active "
         "security incident requiring immediate remediation.",
-        styles['Normal']))
+        styles['CustomNormal']))
     elements.append(Spacer(1, 12))
-    elements.append(Paragraph("<b>Priority:</b> Forward this report to affected municipal IT/security teams immediately.", styles['Normal']))
+    elements.append(Paragraph("<b>Priority:</b> Forward this report to affected municipal IT/security teams immediately.", styles['CustomNormal']))
     
     # Build PDF
     doc.build(elements)
