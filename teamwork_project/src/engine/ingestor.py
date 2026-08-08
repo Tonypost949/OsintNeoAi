@@ -60,36 +60,61 @@ def _clean_numeric(val: Any, default: float = 0.0) -> float:
         return default
 
 
-def _read_csv_rows(file_path: Path) -> List[Dict[str, str]]:
+def _detect_encoding(file_path: Path) -> str:
     """
-    Reads a CSV file with fallback encoding support (utf-8-sig, utf-8, latin-1, cp1252).
-    Handles unescaped comma extra columns cleanly to prevent AttributeError.
+    Detects CSV file encoding in a single fast pass over a 64 KB byte sample.
+    Tests UTF-8-SIG / UTF-8 first, falling back to Latin-1 or CP1252.
     """
     encodings = ["utf-8-sig", "utf-8", "latin-1", "cp1252"]
-    raw_rows = None
-    for enc in encodings:
-        try:
-            with open(file_path, "r", encoding=enc, errors="strict") as f:
-                reader = csv.DictReader(f)
-                raw_rows = list(reader)
-                break
-        except (UnicodeDecodeError, UnicodeError):
-            continue
-    if raw_rows is None:
+    try:
+        with open(file_path, "rb") as f:
+            sample = f.read(65536)
+        for enc in encodings:
+            try:
+                sample.decode(enc)
+                return enc
+            except (UnicodeDecodeError, UnicodeError):
+                continue
+    except Exception:
+        pass
+    return "utf-8"
+
+
+def _stream_csv_rows(file_path: Path) -> Iterator[Dict[str, str]]:
+    """
+    Streams cleaned CSV rows as a generator directly from disk.
+    Prevents holding raw and cleaned row lists in RAM.
+    """
+    enc = _detect_encoding(file_path)
+    try:
+        with open(file_path, "r", encoding=enc, errors="strict") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if isinstance(row, dict):
+                    clean_row = {}
+                    for k, v in row.items():
+                        if k is not None and v is not None:
+                            clean_row[str(k).strip()] = str(v).strip()
+                    if clean_row:
+                        yield clean_row
+    except (UnicodeDecodeError, UnicodeError):
         with open(file_path, "r", encoding="utf-8", errors="replace") as f:
             reader = csv.DictReader(f)
-            raw_rows = list(reader)
+            for row in reader:
+                if isinstance(row, dict):
+                    clean_row = {}
+                    for k, v in row.items():
+                        if k is not None and v is not None:
+                            clean_row[str(k).strip()] = str(v).strip()
+                    if clean_row:
+                        yield clean_row
 
-    cleaned_rows: List[Dict[str, str]] = []
-    for row in raw_rows:
-        if not isinstance(row, dict):
-            continue
-        clean_row: Dict[str, str] = {}
-        for k, v in row.items():
-            if k is not None and v is not None:
-                clean_row[str(k).strip()] = str(v).strip()
-        cleaned_rows.append(clean_row)
-    return cleaned_rows
+
+def _read_csv_rows(file_path: Path) -> List[Dict[str, str]]:
+    """
+    Backward-compatible wrapper that returns a list of cleaned CSV rows.
+    """
+    return list(_stream_csv_rows(file_path))
 
 
 def parse_nodes_json(path: Union[str, Path]) -> List[NodeDTO]:
@@ -227,7 +252,7 @@ def parse_ppp_loans_csv(path: Union[str, Path]) -> IngestionResult:
     nodes_map: Dict[str, NodeDTO] = {}
     edges_map: Dict[str, EdgeDTO] = {}
 
-    rows = _read_csv_rows(file_path)
+    rows = _stream_csv_rows(file_path)
     for row in rows:
         row_lower = {k.strip().lower(): v.strip() for k, v in row.items() if k and v}
         
@@ -324,7 +349,7 @@ def parse_ppp_loans_csv(path: Union[str, Path]) -> IngestionResult:
                     }
                 )
 
-            nodes_map[org_id].address_id = norm_addr.address_hash
+            nodes_map[org_id] = nodes_map[org_id].model_copy(update={"address_id": norm_addr.address_hash})
 
             edge_loc_id = f"{org_id}_LOCATED_IN_{addr_node_id}"
             if edge_loc_id not in edges_map:
@@ -352,7 +377,7 @@ def parse_sos_records_csv(path: Union[str, Path]) -> IngestionResult:
     nodes_map: Dict[str, NodeDTO] = {}
     edges_map: Dict[str, EdgeDTO] = {}
 
-    rows = _read_csv_rows(file_path)
+    rows = _stream_csv_rows(file_path)
     for row in rows:
         row_lower = {k.strip().lower(): v.strip() for k, v in row.items() if k and v}
 
@@ -417,7 +442,7 @@ def parse_sos_records_csv(path: Union[str, Path]) -> IngestionResult:
                     }
                 )
 
-            nodes_map[org_id].address_id = norm_addr.address_hash
+            nodes_map[org_id] = nodes_map[org_id].model_copy(update={"address_id": norm_addr.address_hash})
 
             edge_reg_id = f"{org_id}_REGISTERED_AT_{addr_node_id}"
             if edge_reg_id not in edges_map:
@@ -481,7 +506,7 @@ def parse_property_records_csv(path: Union[str, Path]) -> IngestionResult:
 
     biz_keywords = {"LLC", "INC", "CORP", "CORPORATION", "CO", "HOLDINGS", "PROPERTIES", "TRUST", "LTD", "LP", "PARTNERSHIP"}
 
-    rows = _read_csv_rows(file_path)
+    rows = _stream_csv_rows(file_path)
     for row in rows:
         row_lower = {k.strip().lower(): v.strip() for k, v in row.items() if k and v}
 
@@ -568,7 +593,7 @@ def parse_property_records_csv(path: Union[str, Path]) -> IngestionResult:
                     }
                 )
 
-            nodes_map[prop_node_id].address_id = norm_situs.address_hash
+            nodes_map[prop_node_id] = nodes_map[prop_node_id].model_copy(update={"address_id": norm_situs.address_hash})
 
             edge_loc_id = f"{prop_node_id}_LOCATED_IN_{situs_node_id}"
             if edge_loc_id not in edges_map:

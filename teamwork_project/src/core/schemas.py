@@ -7,9 +7,10 @@ from pydantic import BaseModel, Field, ConfigDict
 
 class BaseDTO(BaseModel):
     model_config = ConfigDict(
-        frozen=False,
+        frozen=True,
         extra="ignore",
-        str_strip_whitespace=True
+        str_strip_whitespace=True,
+        slots=True
     )
 
 

@@ -3,8 +3,21 @@ Address and Entity Name Normalization Core Functions.
 """
 import re
 import hashlib
-from typing import Tuple, Optional, Any
+import functools
+from typing import Tuple, Optional, Any, List
 from src.core.schemas import NormalizedAddressDTO, NormalizedNameDTO
+
+# Module-level import checks for metaphone / jellyfish to prevent sys.path overhead per call
+try:
+    from metaphone import doublemetaphone as _doublemetaphone
+except ImportError:
+    _doublemetaphone = None
+
+try:
+    import jellyfish as _jellyfish
+except ImportError:
+    _jellyfish = None
+
 
 # USPS Standard Directional Map
 DIRECTIONALS = {
@@ -59,12 +72,39 @@ CORP_SUFFIX_PATTERNS = [
 # Stop Words for Core Key Generation
 STOP_WORDS = {"THE", "AND", "&", "OF", "IN", "ON", "FOR", "AT", "BY"}
 
+# ---------------------------------------------------------------------------
+# Pre-Compiled Module-Level Regex Constants
+# ---------------------------------------------------------------------------
 
+COMPILED_CORP_PATTERNS: List[re.Pattern] = [
+    re.compile(fr"(?:{p})(?:\s*[\.,;\s]*)$", flags=re.IGNORECASE)
+    for p in CORP_SUFFIX_PATTERNS
+]
+
+COMPILED_UNIT_PATTERN: re.Pattern = re.compile(
+    r"(?:#|\b(?:SUITE|STE|APT|APARTMENT|UNIT|BUILDING|BLDG|FLOOR|FL|ROOM|RM|DEPT|DEPARTMENT))\s*#?\s*([A-Z0-9\-]+)?",
+    flags=re.IGNORECASE
+)
+
+COMPILED_SINGLE_LINE_STATE_ZIP: re.Pattern = re.compile(
+    r"\b([A-Za-z]{2})\s+(\d{5}(?:-\d{4})?)\s*$",
+    flags=re.IGNORECASE
+)
+
+COMPILED_NON_ALPHA: re.Pattern = re.compile(r"[^A-Z]")
+COMPILED_NON_ALPHA_SPACE: re.Pattern = re.compile(r"[^A-Z\s]")
+COMPILED_NON_DIGIT: re.Pattern = re.compile(r"[^\d]")
+COMPILED_WORD_DOT_TOKENS: re.Pattern = re.compile(r"[A-Z0-9\.]+")
+COMPILED_NON_WORD_AMP: re.Pattern = re.compile(r"[^\w\s&]")
+COMPILED_MULTI_SPACE: re.Pattern = re.compile(r"\s+")
+
+
+@functools.lru_cache(maxsize=32768)
 def compute_soundex(name: Optional[str]) -> str:
     """Computes standard Soundex code for a string."""
     if not name:
         return "Z000"
-    name_str = re.sub(r"[^A-Z]", "", str(name).upper())
+    name_str = COMPILED_NON_ALPHA.sub("", str(name).upper())
     if not name_str:
         return "Z000"
     first_letter = name_str[0]
@@ -89,28 +129,33 @@ def compute_soundex(name: Optional[str]) -> str:
     return (first_letter + digits[:3])
 
 
+@functools.lru_cache(maxsize=32768)
 def compute_double_metaphone(name: Optional[str]) -> Tuple[str, str]:
     """
     Computes Double Metaphone (Primary, Secondary) codes.
-    Attempts importing from `metaphone` or `jellyfish` module,
+    Attempts using `metaphone` or `jellyfish` module,
     with robust pure-Python fallback.
     """
     if not name:
         return ("Z000", "Z000")
-    try:
-        from metaphone import doublemetaphone
-        res = doublemetaphone(str(name))
-        return (res[0] or "Z000", res[1] or "Z000")
-    except ImportError:
+    name_str = str(name)
+    if _doublemetaphone is not None:
         try:
-            import jellyfish
-            dm = jellyfish.metaphone(str(name))
+            res = _doublemetaphone(name_str)
+            return (res[0] or "Z000", res[1] or "Z000")
+        except Exception:
+            pass
+    if _jellyfish is not None:
+        try:
+            dm = _jellyfish.metaphone(name_str)
             return (dm or "Z000", dm or "Z000")
-        except (ImportError, AttributeError):
-            soundex_val = compute_soundex(name)
-            return (soundex_val, soundex_val)
+        except Exception:
+            pass
+    soundex_val = compute_soundex(name_str)
+    return (soundex_val, soundex_val)
 
 
+@functools.lru_cache(maxsize=32768)
 def normalize_address(
     street: Optional[str],
     city: Optional[str] = "",
@@ -159,15 +204,14 @@ def normalize_address(
                     city_str = state_zip[0]
         else:
             # Single-line address without commas: match State + Zip at end
-            match = re.search(r"\b([A-Za-z]{2})\s+(\d{5}(?:-\d{4})?)\s*$", street_str)
+            match = COMPILED_SINGLE_LINE_STATE_ZIP.search(street_str)
             if match:
                 state_str = match.group(1)
                 zip_str = match.group(2)
                 remainder = street_str[:match.start()].strip()
                 
                 # Split remainder into street address and city using unit marker or last word
-                unit_pattern_temp = r"(?:#|\b(?:SUITE|STE|APT|APARTMENT|UNIT|BUILDING|BLDG|FLOOR|FL|ROOM|RM|DEPT|DEPARTMENT))\s*#?\s*([A-Z0-9\-]+)?"
-                unit_match = re.search(unit_pattern_temp, remainder, flags=re.IGNORECASE)
+                unit_match = COMPILED_UNIT_PATTERN.search(remainder)
                 if unit_match:
                     split_idx = unit_match.end()
                     street_part = remainder[:split_idx].strip()
@@ -187,11 +231,11 @@ def normalize_address(
 
     # Clean & Uppercase
     raw_street = street_str.upper().strip()
-    city_clean = re.sub(r"[^A-Z\s]", "", city_str.upper().strip())
-    state_clean = re.sub(r"[^A-Z]", "", state_str.upper().strip())[:2]
+    city_clean = COMPILED_NON_ALPHA_SPACE.sub("", city_str.upper().strip())
+    state_clean = COMPILED_NON_ALPHA.sub("", state_str.upper().strip())[:2]
     
     # Pad & clean ZIP code
-    zip_digits = re.sub(r"[^\d]", "", zip_str)
+    zip_digits = COMPILED_NON_DIGIT.sub("", zip_str)
     if len(zip_digits) >= 5:
         zip_clean = zip_digits[:5]
     elif zip_digits:
@@ -200,15 +244,14 @@ def normalize_address(
         zip_clean = "00000"
 
     # Extract & Strip Unit / Suite / Apartment
-    unit_pattern = r"(?:#|\b(?:SUITE|STE|APT|APARTMENT|UNIT|BUILDING|BLDG|FLOOR|FL|ROOM|RM|DEPT|DEPARTMENT))\s*#?\s*([A-Z0-9\-]+)?"
-    unit_match = re.search(unit_pattern, raw_street)
+    unit_match = COMPILED_UNIT_PATTERN.search(raw_street)
     extracted_unit = unit_match.group(0).strip() if unit_match else None
     
-    street_no_unit = re.sub(unit_pattern, "", raw_street).strip()
-    street_no_unit = re.sub(r"\s+", " ", street_no_unit)
+    street_no_unit = COMPILED_UNIT_PATTERN.sub("", raw_street).strip()
+    street_no_unit = COMPILED_MULTI_SPACE.sub(" ", street_no_unit)
 
     # Tokenize street string
-    tokens = re.findall(r"[A-Z0-9\.]+", street_no_unit)
+    tokens = COMPILED_WORD_DOT_TOKENS.findall(street_no_unit)
     norm_tokens = []
     for token in tokens:
         token_upper = token.upper()
@@ -243,6 +286,7 @@ def normalize_address(
     )
 
 
+@functools.lru_cache(maxsize=32768)
 def normalize_entity_name(raw_name: Optional[str], is_business: bool = True) -> NormalizedNameDTO:
     """
     Normalizes business or individual entity names:
@@ -272,23 +316,21 @@ def normalize_entity_name(raw_name: Optional[str], is_business: bool = True) -> 
         changed = True
         while changed:
             changed = False
-            for pattern in CORP_SUFFIX_PATTERNS:
-                # Anchor pattern to end-of-string (allowing trailing dots, commas, or spaces)
-                anchored_pattern = fr"(?:{pattern})(?:\s*[\.,;\s]*)$"
-                new_name = re.sub(anchored_pattern, "", name_clean, flags=re.IGNORECASE).strip()
+            for compiled_pattern in COMPILED_CORP_PATTERNS:
+                new_name = compiled_pattern.sub("", name_clean).strip()
                 if new_name != name_clean:
                     name_clean = new_name
                     changed = True
                     break
 
     # Strip non-alphanumeric chars except ampersand
-    name_clean = re.sub(r"[^\w\s&]", " ", name_clean)
-    name_clean = re.sub(r"\s+", " ", name_clean).strip()
+    name_clean = COMPILED_NON_WORD_AMP.sub(" ", name_clean)
+    name_clean = COMPILED_MULTI_SPACE.sub(" ", name_clean).strip()
 
     if not name_clean:
         name_clean = raw_name_str.upper().strip()
-        name_clean = re.sub(r"[^\w\s&]", " ", name_clean)
-        name_clean = re.sub(r"\s+", " ", name_clean).strip()
+        name_clean = COMPILED_NON_WORD_AMP.sub(" ", name_clean)
+        name_clean = COMPILED_MULTI_SPACE.sub(" ", name_clean).strip()
 
     clean_name = name_clean.title() if name_clean else raw_name_str.title()
 
