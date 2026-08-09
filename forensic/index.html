@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPI Calculator - Non-Profiteers Index</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #4a7c59;
+            --secondary: #e07856;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --error: #ef4444;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #3a6447;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #d46844;
+        }
+        
+        .btn-ghost {
+            background: transparent;
+            color: #94a3b8;
+            border: 1px solid #475569;
+        }
+        
+        .btn-ghost:hover {
+            background: #334155;
+        }
+        
+        .input, .textarea, .select {
+            background: #0f172a;
+            border: 1px solid #475569;
+            color: #e2e8f0;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        .input:focus, .textarea:focus, .select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.1);
+        }
+        
+        .label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #cbd5e1;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .badge-success { background: rgba(34, 197, 94, 0.2); color: #86efac; }
+        .badge-warning { background: rgba(245, 158, 11, 0.2); color: #fcd34d; }
+        .badge-error { background: rgba(239, 68, 68, 0.2); color: #fca5a5; }
+        
+        .alert {
+            padding: 14px;
+            border-radius: 8px;
+            border-left: 4px solid;
+            margin-bottom: 16px;
+        }
+        
+        .alert-success {
+            background: rgba(34, 197, 94, 0.1);
+            border-color: #22c55e;
+            color: #86efac;
+        }
+        
+        .stat-box {
+            background: #0f172a;
+            border: 1px solid #334155;
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 8px 0;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #94a3b8;
+            text-transform: uppercase;
+        }
+        
+        .progress-bar {
+            background: #334155;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .flag-item {
+            padding: 12px;
+            background: #0f172a;
+            border-left: 3px solid var(--error);
+            margin-bottom: 8px;
+            border-radius: 4px;
+        }
+        
+        .flag-title {
+            font-weight: 600;
+            color: #fca5a5;
+            font-size: 13px;
+        }
+        
+        .flag-desc {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+        
+        /* Chat styles */
+        .chat-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 999;
+            transition: all 0.3s;
+        }
+        
+        .chat-btn:hover {
+            background: #3a6447;
+            transform: scale(1.1);
+        }
+        
+        .chat-modal {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            width: 380px;
+            max-height: 600px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+        }
+        
+        .chat-modal.open {
+            display: flex;
+        }
+        
+        .chat-header {
+            background: var(--primary);
+            color: white;
+            padding: 16px;
+            border-radius: 12px 12px 0 0;
+            font-weight: bold;
+        }
+        
+        .chat-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .chat-options {
+            display: grid;
+            gap: 8px;
+        }
+        
+        .chat-option-btn {
+            background: #334155;
+            border: 1px solid #475569;
+            color: #e2e8f0;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+            text-align: left;
+        }
+        
+        .chat-option-btn:hover {
+            background: #475569;
+            border-color: var(--primary);
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 10px;
+            background: #0f172a;
+            border: 1px solid #475569;
+            color: #e2e8f0;
+            border-radius: 6px;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+        
+        @media (max-width: 640px) {
+            .chat-modal {
+                width: calc(100vw - 32px);
+                bottom: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen p-4 lg:p-8">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header -->
+            <div class="mb-8">
+                <h1 class="text-4xl font-bold mb-2">NPI Calculator</h1>
+                <p class="text-slate-400">Non-Profiteers Index — Forensic Analysis Tool for Nonprofit Fraud Detection</p>
+            </div>
+
+            <!-- Main Grid -->
+            <div class="grid lg:grid-cols-3 gap-6">
+                <!-- Input Panel -->
+                <div class="lg:col-span-2">
+                    <div class="card mb-6">
+                        <h2 class="text-xl font-bold mb-4">Organization Financials</h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <label class="label">Total Assets ($)</label>
+                                <input type="number" id="totalAssets" class="input w-full" placeholder="456245" value="">
+                            </div>
+                            <div>
+                                <label class="label">Annual Income ($)</label>
+                                <input type="number" id="annualIncome" class="input w-full" placeholder="1823122" value="">
+                            </div>
+                            <div>
+                                <label class="label">Government Revenue ($)</label>
+                                <input type="number" id="govRevenue" class="input w-full" placeholder="1823122" value="">
+                            </div>
+                            <div>
+                                <label class="label">Total Spending ($)</label>
+                                <input type="number" id="totalSpending" class="input w-full" placeholder="1876774" value="">
+                            </div>
+                            <div>
+                                <label class="label">Direct Program Spending ($)</label>
+                                <input type="number" id="directSpending" class="input w-full" placeholder="150000" value="">
+                            </div>
+                            <div>
+                                <label class="label">Consecutive Audit Findings</label>
+                                <input type="number" id="auditFindings" class="input w-full" placeholder="0" value="0" min="0">
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3">
+                            <button class="btn btn-primary" onclick="calculateNPI()">Calculate NPI</button>
+                            <button class="btn btn-secondary" onclick="loadTestData()">Load Viet America Society</button>
+                            <button class="btn btn-ghost" onclick="clearForm()">Clear</button>
+                        </div>
+                    </div>
+
+                    <!-- Results Panel -->
+                    <div id="results" style="display: none;">
+                        <div class="card">
+                            <h2 class="text-xl font-bold mb-4">Analysis Results</h2>
+                            
+                            <!-- NPI Score -->
+                            <div class="mb-6 p-4 bg-gradient-to-r from-slate-800 to-slate-900 rounded-lg border border-slate-700">
+                                <div class="text-sm text-slate-400 mb-2">NPI Score</div>
+                                <div class="text-5xl font-bold" id="npiScore">0.00</div>
+                                <div id="riskLevel" class="mt-3"></div>
+                            </div>
+
+                            <!-- Component Ratios -->
+                            <div class="grid md:grid-cols-2 gap-4 mb-6">
+                                <div class="stat-box">
+                                    <div class="stat-label">Asset Accumulation Ratio</div>
+                                    <div class="stat-value" id="aarValue">0.00</div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" id="aarBar" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-label">Overhead Distortion Ratio</div>
+                                    <div class="stat-value" id="odrValue">0.00</div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" id="odrBar" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Metrics -->
+                            <div class="grid md:grid-cols-2 gap-4 mb-6">
+                                <div class="stat-box">
+                                    <div class="stat-label">Gov Dependency Rate</div>
+                                    <div class="stat-value text-yellow-400" id="govDep">0%</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-label">Admin Overhead %</div>
+                                    <div class="stat-value text-orange-400" id="adminOH">0%</div>
+                                </div>
+                            </div>
+
+                            <!-- Flags -->
+                            <div id="flagsContainer">
+                                <h3 class="font-bold text-sm mb-3 text-slate-300">Structural Red Flags</h3>
+                                <div id="flagsList"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reference Sidebar -->
+                <div>
+                    <div class="card sticky top-4">
+                        <h3 class="text-lg font-bold mb-4">NPI Methodology</h3>
+                        
+                        <div class="space-y-4 text-sm">
+                            <div>
+                                <div class="font-bold text-slate-300 mb-2">Formula</div>
+                                <code class="text-xs bg-slate-900 p-2 rounded block text-slate-400">NPI = (I_a / I_i) × (S_t / S_d)</code>
+                            </div>
+
+                            <div>
+                                <div class="font-bold text-slate-300 mb-2">Risk Thresholds</div>
+                                <ul class="space-y-1 text-slate-400">
+                                    <li><span class="badge badge-success">Low</span> <0.5</li>
+                                    <li><span class="badge badge-warning">Moderate</span> 0.5–2.0</li>
+                                    <li><span class="badge badge-warning">High</span> 2.0–5.0</li>
+                                    <li><span class="badge badge-error">Critical</span> >5.0</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <div class="font-bold text-slate-300 mb-2">Red Flags</div>
+                                <ul class="space-y-1 text-slate-400 text-xs">
+                                    <li>• >80% gov dependency</li>
+                                    <li>• Asset > 1 year revenue</li>
+                                    <li>• <15% direct services</li>
+                                    <li>• Consecutive audit fails</li>
+                                </ul>
+                            </div>
+
+                            <div class="pt-4 border-t border-slate-700">
+                                <p class="text-xs text-slate-500">
+                                    The NPI identifies nonprofits functioning as government contractors or preserving institutional assets rather than serving missions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Floating Button -->
+    <button class="chat-btn" onclick="toggleChat()" title="Search nonprofits">💬</button>
+
+    <!-- Chat Modal -->
+    <div id="chatModal" class="chat-modal">
+        <div class="chat-header">Nonprofit Lookup Bot</div>
+        <div class="chat-content" id="chatContent">
+            <div id="chatMessages"></div>
+            <div id="chatOptions" class="chat-options"></div>
+        </div>
+    </div>
+
+    <script>
+        const nonprofits = {
+            'viet america society': { name: 'Viet America Society', assets: 456245, income: 1823122, gov: 1823122, spending: 1876774, direct: 150000 },
+            'charity usa': { name: 'Charity USA', assets: 500000, income: 2000000, gov: 400000, spending: 1800000, direct: 1600000 },
+            'global relief': { name: 'Global Relief Foundation', assets: 750000, income: 3000000, gov: 2700000, spending: 2800000, direct: 420000 },
+            'youth programs inc': { name: 'Youth Programs Inc', assets: 200000, income: 800000, gov: 160000, spending: 750000, direct: 600000 },
+            'education first': { name: 'Education First', assets: 1200000, income: 4500000, gov: 2700000, spending: 4200000, direct: 3780000 }
+        };
+
+        let chatOpen = false;
+
+        function toggleChat() {
+            chatOpen = !chatOpen;
+            document.getElementById('chatModal').classList.toggle('open');
+            if (chatOpen) initChat();
+        }
+
+        function initChat() {
+            const messagesDiv = document.getElementById('chatMessages');
+            const optionsDiv = document.getElementById('chatOptions');
+            
+            messagesDiv.innerHTML = '<div style="font-size: 13px; color: #cbd5e1;">👋 Hi! Search for a nonprofit to auto-fill the calculator. Try:<br/><em style="color: #94a3b8;">- Viet America Society<br/>- Education First<br/>- Global Relief</em></div>';
+            
+            const searchInput = document.createElement('input');
+            searchInput.type = 'text';
+            searchInput.className = 'search-input';
+            searchInput.placeholder = 'Search nonprofit name...';
+            searchInput.onkeyup = (e) => searchNonprofits(e.target.value);
+            optionsDiv.innerHTML = '';
+            optionsDiv.appendChild(searchInput);
+            
+            const suggestions = document.createElement('div');
+            suggestions.className = 'chat-options';
+            suggestions.id = 'suggestions';
+            Object.keys(nonprofits).forEach(key => {
+                const btn = document.createElement('button');
+                btn.className = 'chat-option-btn';
+                btn.textContent = nonprofits[key].name;
+                btn.onclick = () => loadNonprofit(key);
+                suggestions.appendChild(btn);
+            });
+            optionsDiv.appendChild(suggestions);
+        }
+
+        function searchNonprofits(query) {
+            const suggestions = document.getElementById('suggestions');
+            if (!suggestions) return;
+            
+            suggestions.innerHTML = '';
+            const matches = Object.keys(nonprofits).filter(key => 
+                key.includes(query.toLowerCase())
+            );
+            
+            if (matches.length === 0) {
+                const msg = document.createElement('div');
+                msg.style.cssText = 'font-size: 13px; color: #94a3b8; padding: 8px;';
+                msg.textContent = 'No matches found';
+                suggestions.appendChild(msg);
+            } else {
+                matches.forEach(key => {
+                    const btn = document.createElement('button');
+                    btn.className = 'chat-option-btn';
+                    btn.textContent = nonprofits[key].name;
+                    btn.onclick = () => loadNonprofit(key);
+                    suggestions.appendChild(btn);
+                });
+            }
+        }
+
+        function loadNonprofit(key) {
+            const org = nonprofits[key];
+            document.getElementById('totalAssets').value = org.assets;
+            document.getElementById('annualIncome').value = org.income;
+            document.getElementById('govRevenue').value = org.gov;
+            document.getElementById('totalSpending').value = org.spending;
+            document.getElementById('directSpending').value = org.direct;
+            document.getElementById('auditFindings').value = '0';
+            
+            const messagesDiv = document.getElementById('chatMessages');
+            messagesDiv.innerHTML = `<div style="font-size: 13px; color: #86efac;">✓ Loaded ${org.name}<br/><span style="color: #94a3b8;">Click "Calculate NPI" to analyze</span></div>`;
+            
+            setTimeout(() => {
+                document.getElementById('chatModal').classList.remove('open');
+                chatOpen = false;
+            }, 1200);
+        }
+
+        function calculateNPI() {
+            const totalAssets = parseFloat(document.getElementById('totalAssets').value) || 0;
+            const annualIncome = parseFloat(document.getElementById('annualIncome').value) || 0;
+            const govRevenue = parseFloat(document.getElementById('govRevenue').value) || 0;
+            const totalSpending = parseFloat(document.getElementById('totalSpending').value) || 0;
+            const directSpending = parseFloat(document.getElementById('directSpending').value) || 0;
+            const auditFindings = parseInt(document.getElementById('auditFindings').value) || 0;
+
+            if (totalAssets <= 0 || annualIncome <= 0 || totalSpending <= 0) {
+                alert('Please enter valid positive numbers for Assets, Income, and Spending');
+                return;
+            }
+
+            const aar = annualIncome > 0 ? totalAssets / annualIncome : 0;
+            const odr = directSpending > 0 ? totalSpending / directSpending : totalSpending;
+            const npiScore = aar * odr;
+            const govDep = annualIncome > 0 ? (govRevenue / annualIncome) * 100 : 0;
+            const adminOH = totalSpending > 0 ? ((totalSpending - directSpending) / totalSpending) * 100 : 0;
+
+            let riskLevel, riskClass;
+            if (npiScore < 0.5) {
+                riskLevel = 'Low Risk';
+                riskClass = 'badge-success';
+            } else if (npiScore < 2.0) {
+                riskLevel = 'Moderate Risk';
+                riskClass = 'badge-warning';
+            } else if (npiScore < 5.0) {
+                riskLevel = 'High Risk';
+                riskClass = 'badge-warning';
+            } else {
+                riskLevel = 'Critical Risk';
+                riskClass = 'badge-error';
+            }
+
+            const flags = [];
+            if (govDep > 80) flags.push({ title: 'Extreme Government Dependency', desc: `${govDep.toFixed(1)}% of revenue is government-sourced. Organization functions as federal contractor, not charity.` });
+            if (aar > 1) flags.push({ title: 'Asset Accumulation', desc: `Assets exceed 1 year of income (${aar.toFixed(2)}×). Suggests capital preservation rather than mission spending.` });
+            if (adminOH > 50) flags.push({ title: 'Extreme Overhead Distortion', desc: `${adminOH.toFixed(1)}% spent on non-program activities. Minimal direct service delivery.` });
+            if (directSpending < (totalSpending * 0.15)) flags.push({ title: 'Low Direct Service Rate', desc: `Only ${(directSpending / totalSpending * 100).toFixed(1)}% goes to direct programs.` });
+            if (auditFindings > 0) flags.push({ title: 'Audit Compliance Issues', desc: `${auditFindings} consecutive finding(s). Pattern of regulatory non-compliance.` });
+
+            document.getElementById('npiScore').textContent = npiScore.toFixed(2);
+            document.getElementById('riskLevel').innerHTML = `<span class="badge ${riskClass}">${riskLevel}</span>`;
+            document.getElementById('aarValue').textContent = aar.toFixed(2);
+            document.getElementById('aarBar').style.width = Math.min(aar * 25, 100) + '%';
+            document.getElementById('odrValue').textContent = odr.toFixed(2);
+            document.getElementById('odrBar').style.width = Math.min(odr * 10, 100) + '%';
+            document.getElementById('govDep').textContent = govDep.toFixed(1) + '%';
+            document.getElementById('adminOH').textContent = adminOH.toFixed(1) + '%';
+
+            const flagsList = document.getElementById('flagsList');
+            if (flags.length === 0) {
+                flagsList.innerHTML = '<div class="alert alert-success">No major red flags detected.</div>';
+            } else {
+                flagsList.innerHTML = flags.map(f => `<div class="flag-item"><div class="flag-title">⚠ ${f.title}</div><div class="flag-desc">${f.desc}</div></div>`).join('');
+            }
+
+            document.getElementById('results').style.display = 'block';
+        }
+
+        function loadTestData() {
+            document.getElementById('totalAssets').value = '456245';
+            document.getElementById('annualIncome').value = '1823122';
+            document.getElementById('govRevenue').value = '1823122';
+            document.getElementById('totalSpending').value = '1876774';
+            document.getElementById('directSpending').value = '150000';
+            document.getElementById('auditFindings').value = '0';
+            setTimeout(() => calculateNPI(), 100);
+        }
+
+        function clearForm() {
+            document.getElementById('totalAssets').value = '';
+            document.getElementById('annualIncome').value = '';
+            document.getElementById('govRevenue').value = '';
+            document.getElementById('totalSpending').value = '';
+            document.getElementById('directSpending').value = '';
+            document.getElementById('auditFindings').value = '0';
+            document.getElementById('results').style.display = 'none';
+        }
+
+        window.addEventListener('load', () => {
+            loadTestData();
+        });
+    </script>
+</body>
+</html>

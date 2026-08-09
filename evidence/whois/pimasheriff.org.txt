@@ -1,0 +1,45 @@
+﻿=== nslookup -type=ALL pimasheriff.org ===
+nslookup : *** Request to connectivity-check.warp-svc timed-out
+At line:5 char:12
++     $all = nslookup -type=ALL $d 2>&1 | Out-String
++            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (*** Request to ...p-svc timed-out:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  connectivity-check.warp-svc
+Address:  127.0.2.2
+
+DNS request timed out.
+    timeout was 2 seconds.
+
+=== nslookup -type=SOA pimasheriff.org ===
+nslookup : Non-authoritative answer:
+At line:6 char:12
++     $soa = nslookup -type=SOA $d 2>&1 | Out-String
++            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  connectivity-check.warp-svc
+Address:  127.0.2.2
+
+pimasheriff.org
+	primary name server = erin.ns.cloudflare.com
+	responsible mail addr = dns.cloudflare.com
+	serial  = 2409274254
+	refresh = 10000 (2 hours 46 mins 40 secs)
+	retry   = 2400 (40 mins)
+	expire  = 604800 (7 days)
+	default TTL = 1800 (30 mins)
+
+pimasheriff.org
+	primary name server = erin.ns.cloudflare.com
+	responsible mail addr = dns.cloudflare.com
+	serial  = 2409274254
+	refresh = 10000 (2 hours 46 mins 40 secs)
+	retry   = 2400 (40 mins)
+	expire  = 604800 (7 days)
+	default TTL = 1800 (30 mins)
+

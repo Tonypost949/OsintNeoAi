@@ -1,0 +1,81 @@
+=== DNS RECORDS: illuminationfoundation.org ===
+=== Generated: 2026-07-24 21:37:09 ===
+
+--- A RECORDS ---
+nslookup : Non-authoritative answer:
+At line:20 char:16
++     try { $a = nslookup -type=A $domain 8.8.8.8 2>&1 | Out-String; $o ...
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    illuminationfoundation.org
+Addresses:  3.33.130.190
+	  15.197.148.33
+
+
+--- MX RECORDS ---
+Server:  dns.google
+Address:  8.8.8.8
+
+illuminationfoundation.org
+	primary name server = ns11.domaincontrol.com
+	responsible mail addr = dns.jomax.net
+	serial  = 2023091800
+	refresh = 28800 (8 hours)
+	retry   = 7200 (2 hours)
+	expire  = 604800 (7 days)
+	default TTL = 600 (10 mins)
+
+--- NS RECORDS ---
+nslookup : Non-authoritative answer:
+At line:28 char:17
++     try { $ns = nslookup -type=NS $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+illuminationfoundation.org	nameserver = ns12.domaincontrol.com
+illuminationfoundation.org	nameserver = ns11.domaincontrol.com
+
+--- TXT RECORDS ---
+Server:  dns.google
+Address:  8.8.8.8
+
+illuminationfoundation.org
+	primary name server = ns11.domaincontrol.com
+	responsible mail addr = dns.jomax.net
+	serial  = 2023091800
+	refresh = 28800 (8 hours)
+	retry   = 7200 (2 hours)
+	expire  = 604800 (7 days)
+	default TTL = 600 (10 mins)
+
+--- SOA RECORD ---
+nslookup : Non-authoritative answer:
+At line:36 char:18
++     try { $soa = nslookup -type=SOA $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+illuminationfoundation.org
+	primary name server = ns11.domaincontrol.com
+	responsible mail addr = dns.jomax.net
+	serial  = 2023091800
+	refresh = 28800 (8 hours)
+	retry   = 7200 (2 hours)
+	expire  = 604800 (7 days)
+	default TTL = 600 (10 mins)

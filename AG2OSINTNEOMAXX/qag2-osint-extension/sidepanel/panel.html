@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QAG2 OSINT Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-area">
+        <span class="logo-icon">⚡</span>
+        <div class="logo-text">
+          <h1>QAG2 OSINT</h1>
+          <p>Gmail & Threat Intel Companion</p>
+        </div>
+      </div>
+      <div class="active-badge" id="active-profile-badge">
+        <span class="pulse-dot"></span>
+        <span id="active-profile-name">amd949609@gmail.com</span>
+      </div>
+    </header>
+
+    <!-- Nav Tabs -->
+    <nav class="tabs-nav">
+      <button class="tab-btn active" id="tab-active" data-tab="active-tab-panel">🔍 Scanner</button>
+      <button class="tab-btn" id="tab-dorks" data-tab="dorks-panel">🧬 Dorks</button>
+      <button class="tab-btn" id="tab-intel" data-tab="intel-panel">🛰️ Leak Intel</button>
+      <button class="tab-btn" id="tab-profiles" data-tab="profiles-panel">⚙️ Profile</button>
+    </nav>
+
+    <!-- Panels Container -->
+    <main class="panels-container">
+      
+      <!-- Panel 1: Scanner -->
+      <section class="panel active" id="active-tab-panel">
+        <div class="section-title">
+          <h2>Active Page Indicators</h2>
+          <span class="refresh-indicator" id="scan-time">Idle</span>
+        </div>
+        <div class="page-meta-card">
+          <p class="meta-label">Scanned Source:</p>
+          <p class="meta-value" id="scanned-url">Please open a web page or Gmail thread to begin...</p>
+        </div>
+
+        <div class="indicator-group" id="indicator-results">
+          <!-- Empty State -->
+          <div class="empty-state" id="no-indicators">
+            <div class="empty-icon">📂</div>
+            <p>No threat indicators found on this page.</p>
+            <span>Content scripts automatically scrape emails, IPs, phone numbers, and domains as you browse.</span>
+          </div>
+
+          <!-- Indicator Lists -->
+          <div class="indicators-list hidden" id="ips-wrapper">
+            <h3>🌐 IP Addresses <span class="badge" id="ips-count">0</span></h3>
+            <div class="chips-container" id="ips-list"></div>
+          </div>
+
+          <div class="indicators-list hidden" id="emails-wrapper">
+            <h3>✉️ Email Addresses <span class="badge" id="emails-count">0</span></h3>
+            <div class="chips-container" id="emails-list"></div>
+          </div>
+
+          <div class="indicators-list hidden" id="domains-wrapper">
+            <h3>🔗 Scoped Domains <span class="badge" id="domains-count">0</span></h3>
+            <div class="chips-container" id="domains-list"></div>
+          </div>
+
+          <div class="indicators-list hidden" id="phones-wrapper">
+            <h3>📞 Phone Numbers <span class="badge" id="phones-count">0</span></h3>
+            <div class="chips-container" id="phones-list"></div>
+          </div>
+
+          <div class="indicators-list hidden" id="btc-wrapper">
+            <h3>🪙 BTC Addresses <span class="badge" id="btc-count">0</span></h3>
+            <div class="chips-container" id="btc-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Panel 2: Google Dorking -->
+      <section class="panel" id="dorks-panel">
+        <div class="section-title">
+          <h2>Google Dork Generator</h2>
+        </div>
+        <div class="dork-form">
+          <div class="input-group">
+            <label for="dork-query">Search Term / Target</label>
+            <input type="text" id="dork-query" placeholder="e.g. amd949609, Oliver Chi, etc." value="amd949609">
+          </div>
+
+          <div class="checkbox-grid">
+            <label class="control-box">
+              <input type="checkbox" id="chk-pdf" checked>
+              <span class="control-label">📄 Filetype: PDF</span>
+            </label>
+            <label class="control-box">
+              <input type="checkbox" id="chk-xls">
+              <span class="control-label">📊 Filetype: XLS / CSV</span>
+            </label>
+            <label class="control-box">
+              <input type="checkbox" id="chk-gov" checked>
+              <span class="control-label">🏛️ Site: .gov</span>
+            </label>
+            <label class="control-box">
+              <input type="checkbox" id="chk-edu">
+              <span class="control-label">🎓 Site: .edu</span>
+            </label>
+            <label class="control-box">
+              <input type="checkbox" id="chk-leak">
+              <span class="control-label">🔓 Text: "leak" / "dump"</span>
+            </label>
+            <label class="control-box">
+              <input type="checkbox" id="chk-pass">
+              <span class="control-label">🔑 Text: "password" / "cred"</span>
+            </label>
+          </div>
+
+          <button class="btn btn-primary" id="btn-generate-dork">🚀 Generate & Launch Google Dork</button>
+        </div>
+
+        <div class="preview-box">
+          <p class="preview-label">Generated Query String:</p>
+          <pre id="dork-preview-text">"amd949609" filetype:pdf site:gov</pre>
+        </div>
+      </section>
+
+      <!-- Panel 3: Leak Intel -->
+      <section class="panel" id="intel-panel">
+        <div class="section-title">
+          <h2>Sichuan Anxun (I-Soon) Leak Index</h2>
+        </div>
+        <p class="section-desc">Search local metadata cache for exfiltrated targets, state intelligence, or cellular networks.</p>
+
+        <div class="search-box">
+          <input type="text" id="intel-search-input" placeholder="Search targets (e.g. Newark, Feinstein, Chi, Wu)...">
+          <button class="btn" id="intel-search-btn">🔍 Search</button>
+        </div>
+
+        <div class="intel-results-container" id="intel-results">
+          <!-- Pre-seeded real targets -->
+          <div class="intel-card" data-keywords="oliver chi michael gates feinstein municipal">
+            <div class="intel-card-header">
+              <span class="status-indicator alert">HIGH MATCH</span>
+              <h3>Oliver Chi / Michael Gates Case Dossier</h3>
+            </div>
+            <p>Phase 8 Complete analysis. Evidence of structural discrepancies, municipal audits, Pasadena financial threads, and Navigation Center discrepancy logs.</p>
+            <div class="intel-card-tags">
+              <span>#Pasadena</span> <span>#OliverChi</span> <span>#Gates</span> <span>#MunicipalRICO</span>
+            </div>
+          </div>
+
+          <div class="intel-card" data-keywords="marshall wu chen beijing state intel">
+            <div class="intel-card-header">
+              <span class="status-indicator warning">POTENTIAL TARGET</span>
+              <h3>Marshall Wu / Beijing Chen</h3>
+            </div>
+            <p>I-Soon exfiltration discussions regarding state department files, targeting logs, and private mail inbox exfiltrations.</p>
+            <div class="intel-card-tags">
+              <span>#ISoon</span> <span>#Anxun</span> <span>#Chen</span> <span>#MarshallWu</span>
+            </div>
+          </div>
+
+          <div class="intel-card" data-keywords="newark police departments telecom carrier tele2 kazakhstan">
+            <div class="intel-card-header">
+              <span class="status-indicator info">INFO</span>
+              <h3>Tele2 Kazakhstan & Newark Police Infrastructure</h3>
+            </div>
+            <p>CDR/CRM database dumps and exfiltration logs from foreign cellular carrier Tele2 (Kazakhstan) and local US municipal network targeting profiles.</p>
+            <div class="intel-card-tags">
+              <span>#Tele2</span> <span>#Cellular</span> <span>#Newark</span> <span>#Telecommunication</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Panel 4: Profile & Setup -->
+      <section class="panel" id="profiles-panel">
+        <div class="section-title">
+          <h2>Chrome Profile Management</h2>
+        </div>
+        
+        <div class="info-alert">
+          <strong>ℹ️ Profile Selector Guide:</strong>
+          <p>Chrome launches browser sessions using the active profile. To change which profile opens by default or when utilizing scripts:</p>
+          <ol>
+            <li>In Chrome, click on your Profile picture in the top-right corner.</li>
+            <li>Select <strong>Manage Profiles</strong> (the gear icon).</li>
+            <li>In the profiles manager, choose the target account (e.g. <strong>amd949609@gmail.com</strong>) to set it as active, or toggle "Ask on startup" to choose every time.</li>
+          </ol>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-avatar">👤</div>
+          <div class="profile-details">
+            <h3>Active Session Profile</h3>
+            <p id="profile-text-display">Detecting active account...</p>
+            <div class="badge success">Verified Session</div>
+          </div>
+        </div>
+
+        <div class="settings-form">
+          <div class="input-group">
+            <label for="override-profile">Target Override Email</label>
+            <input type="text" id="override-profile" value="amd949609@gmail.com">
+          </div>
+          <button class="btn btn-secondary" id="btn-save-profile">💾 Save Profile Target</button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>QAG2 Intelligence Companion v1.0.0</p>
+    </footer>
+  </div>
+
+  <script src="panel.js"></script>
+</body>
+</html>

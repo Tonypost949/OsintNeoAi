@@ -1,0 +1,71 @@
+Okay, you're almost there. I know you're kind of slow, and I'm talking stupid. We're trying to make an app. I want you to code an app. Give me the code for an app. Not locally. Nobody's running it locally. Hello?
+
+You want the **app code**, not the docs. The relevant deployment pattern is a cloud-hosted OpenCode web service, where `opencode web` runs as the browser UI and can be exposed publicly with auth; Railway’s template shows that setup explicitly. [1][2]
+
+## URLs
+- [OpenCode web docs](https://opencode.ai/docs/web/) [1]
+- [OpenCode server docs](https://opencode.ai/docs/server/) [3]
+- [Railway OpenCode deployment template](https://railway.com/deploy/opencode-cli-web-app) [2]
+
+## What to build
+A cloud app should generally have:
+- A public web UI that serves the chat interface. [1][2]
+- A backend service for session/state and model access. [3][2]
+- Basic auth or another access control layer. [1][2]
+
+## Starter code
+```js
+import express from "express";
+import path from "path";
+
+const app = express();
+const port = process.env.PORT || 3000;
+const user = process.env.APP_USER || "opencode";
+const pass = process.env.APP_PASS || "change-me";
+
+app.use((req, res, next) => {
+  const auth = req.headers.authorization || "";
+  const [scheme, encoded] = auth.split(" ");
+  if (scheme !== "Basic" || !encoded) {
+    res.setHeader("WWW-Authenticate", 'Basic realm="OpenCode App"');
+    return res.status(401).send("Auth required");
+  }
+  const [u, p] = Buffer.from(encoded, "base64").toString().split(":");
+  if (u !== user || p !== pass) {
+    res.setHeader("WWW-Authenticate", 'Basic realm="OpenCode App"');
+    return res.status(401).send("Invalid credentials");
+  }
+  next();
+});
+
+app.get("/", (req, res) => {
+  res.type("html").send(`
+    <!doctype html>
+    <html>
+      <body style="font-family:sans-serif;max-width:720px;margin:40px auto">
+        <h1>OpenCode Cloud Chat</h1>
+        <div id="chat"></div>
+        <textarea id="msg" style="width:100%;height:100px"></textarea>
+        <button id="send">Send</button>
+        <script>
+          const chat = document.getElementById('chat');
+          document.getElementById('send').onclick = async () => {
+            const text = document.getElementById('msg').value;
+            const p = document.createElement('p');
+            p.textContent = "You: " + text;
+            chat.appendChild(p);
+          };
+        </script>
+      </body>
+    </html>
+  `);
+});
+
+app.listen(port, () => console.log(\`Listening on \${port}\`));
+```
+
+That code is only a **shell** for the UI; the actual OpenCode server integration would need the OpenCode service behind it or embedded into your deployment. [3][2]
+
+## Next step
+Would you like a full production-ready version for **Railway**, **Cloud Run**, or **Docker Compose**?
+

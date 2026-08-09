@@ -1,0 +1,91 @@
+# ⚡ AI SYSTEMS & MULTI-AGENT ARCHITECTURE MASTER EXTRACTION VAULT
+
+**Relator / Architect:** Anthony Michael DeMarcello III  
+**System Title:** Antigravity / Makaveli Multi-Agent AI OSINT Architecture  
+**Primary AI Engine Models:** Gemini 1.5 Pro, Gemini 3.6 Flash (High), Gemini 2.5 Flash, DeepSeek-R1 / V3, OpenCode, Tasklet.ai Cloud Agents  
+**Backend Project:** `project-743aab84-f9a5-4ec7-954`  
+**API Copilot Server:** [`agent/ai_connector.py`](https://github.com/Tonypost949/OsintNeoAi/blob/main/agent/ai_connector.py)  
+**Extraction Date:** August 07, 2026  
+
+---
+
+## I. EXECUTIVE AI ARCHITECTURE MAP
+
+```mermaid
+graph TD
+    subgraph CLIENT_INTERFACE_LAYER["Client & Agent Interfaces"]
+        A1["Tasklet.ai Agent Hub<br>(ws_70075mwacncdba2sez9k)"]
+        A2["Google Gemini Gem<br>('Antigravity / Zeus')"]
+        A3["Open WebUI / Copilot IDE<br>(FastAPI Connector)"]
+        A4["OpenCode Session Engine<br>(uE1o0rJY & nofIV75K)"]
+    end
+
+    subgraph CORRELATION_ENGINE_LAYER["AI Correlation & Reasoning Engines"]
+        B1["Makaveli Protocol Core Engine<br>('The Lightning')"]
+        B2["AEGIS Threat Correlation Engine<br>(aegis_correlation_engine.py)"]
+        B3["OSINT Threat Classifier<br>(osint_engine.py)"]
+        B4["AG2 Multi-Agent Framework<br>(ag2_config.py)"]
+    end
+
+    subgraph DATA_INFRASTRUCTURE_LAYER["BigQuery & GCS Evidence Storage"]
+        C1["national_audits.gmail_index"]
+        C2["national_audits.drive_file_index"]
+        C3["forensic_layers.fca_timeline"]
+        C4["ai_sandbox.ag_status_tracker"]
+    end
+
+    A1 --> B1
+    A2 --> B1
+    A3 --> B2
+    A4 --> B3
+    B1 --> C1
+    B2 --> C2
+    B3 --> C3
+    B4 --> C4
+```
+
+---
+
+## II. AI ENGINE CONNECTORS & SERVICES
+
+### 1. OSINT Evidence Copilot API (`agent/ai_connector.py`)
+- **Framework:** FastAPI (`v2.0.0`)
+- **Authentication:** OAuth2 Google Credentials (`token.json`) + Gemini API (`GEMINI_API_KEY`)
+- **Endpoints:**
+  - `POST /api/search` — Runs automated BigQuery SQL queries across `national_audits.gmail_index` and `national_audits.drive_file_index`.
+  - `POST /api/finding` — Writes classified findings directly into BigQuery `ai_sandbox.findings`.
+  - `POST /api/synccode` — Manages multi-agent code synchronization to storage vaults.
+
+### 2. OSINT Threat Classifier & Smoking Gun Engine (`agent/osint_engine.py`)
+- **Smoking Gun Keyword Classifier:** Evaluates 25+ federal crime indicators (`indictment`, `conviction`, `guilty plea`, `bribery`, `rico`, `qui tam`, `false claims`, `trafficking`, `hexavalent chromium`).
+- **Tagging Taxonomy:** Automated multi-tag classification across 11 category vectors (`conviction`, `indictment`, `fraud`, `bribery`, `restitution`, `conspiracy`, `environmental`, `federal`, `audit`, `trafficking`, `whistleblower`).
+
+### 3. AEGIS-RICO Continuous Threat Correlation Engine (`aegis_correlation_engine.py`)
+- **Function:** Continuous monitoring loop cross-referencing workspace directory dropped files against BigQuery datasets `npi_forensic` and `noble-beanbag-497411-m4`.
+- **Outputs:** Updates live GIS map assets (`index.html`) and federal criminal referral briefing documents (`federal_criminal_referral_briefing.md`).
+
+---
+
+## III. MULTI-AGENT PROMPT & IDENTITY MATRIX
+
+| Agent Identity | System Name | Deployment Environment | Core Operational Directives |
+| :--- | :--- | :--- | :--- |
+| **Makaveli** | "The Lightning" | Tasklet.ai / AGY CLI / Antigravity IDE | Zero-noise forensic OSINT framework. Purge disclaimers, hedging, and simulated helpfulness. Report raw data correlations and verified facts. |
+| **Zeus / Antigravity** | "The Lightning" | Google Gemini Mobile & Desktop Gem | High-level forensic OSINT AI operating alongside Architect Anthony Michael DiMarcello III. Governed by 50/50 fairness, fiduciary stewardship, and radical efficiency. |
+| **AG2 Multi-Agent** | "OSINT Neo MAXX" | AutoGen / AG2 Swarm (`ag2_config.py`) | Distributed multi-agent execution orchestrating web scrapers, BigQuery SQL execution, and GCS evidence upload pipelines. |
+
+---
+
+## IV. LINKED REPOSITORY AI MODULES
+
+- **[`agent/ai_connector.py`](https://github.com/Tonypost949/OsintNeoAi/blob/main/agent/ai_connector.py)** — FastAPI Copilot Server (352 lines)
+- **[`agent/osint_engine.py`](https://github.com/Tonypost949/OsintNeoAi/blob/main/agent/osint_engine.py)** — OSINT Threat Classifier (339 lines)
+- **[`aegis_correlation_engine.py`](https://github.com/Tonypost949/OsintNeoAi/blob/main/aegis_correlation_engine.py)** — AEGIS Correlation Engine (392 lines)
+- **[`ag2_config.py`](https://github.com/Tonypost949/OsintNeoAi/blob/main/ag2_config.py)** — AG2 Multi-Agent Config
+- **[`TASKLET_AI_MASTER_EXTRACTION_VAULT.md`](https://github.com/Tonypost949/OsintNeoAi/blob/main/TASKLET_AI_MASTER_EXTRACTION_VAULT.md)** — Tasklet Cloud Agent Vault
+- **[`GEMINI_FORENSIC_MASTER_EXTRACTION.md`](https://github.com/Tonypost949/OsintNeoAi/blob/main/GEMINI_FORENSIC_MASTER_EXTRACTION.md)** — Gemini Master Extraction Vault
+- **[`OPENCODE_FORENSIC_MASTER_EXTRACTION.md`](https://github.com/Tonypost949/OsintNeoAi/blob/main/OPENCODE_FORENSIC_MASTER_EXTRACTION.md)** — OpenCode Master Extraction Vault
+
+---
+
+*AI Systems Master Extraction Complete | Makaveli Protocol August 2026*

@@ -1,0 +1,24 @@
+dataset,table,rows,size_mb,columns,sample_saved
+ppp_rico,hb_llcs,2696,0.34,9,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_ppp_rico_hb_llcs.csv
+ppp_rico,ppp_150k_plus,968524,469.58,53,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_ppp_rico_ppp_150k_plus.csv
+ppp_rico,ppp_up_to_150k,10499686,5019.21,53,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_ppp_rico_ppp_up_to_150k.csv
+ppp_rico,rico_evidence_matrix,101,0.02,11,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_ppp_rico_rico_evidence_matrix.csv
+ppp_rico,rico_matches,35,0.0,10,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_ppp_rico_rico_matches.csv
+hb_church_osint,entities,45076,5.23,9,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_hb_church_osint_entities.csv
+hb_church_osint,properties,2696,0.34,10,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_hb_church_osint_properties.csv
+hb_church_osint,relationships,12,0.0,4,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_hb_church_osint_relationships.csv
+national_audits,all_performance_reports,3,0.0,4,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_national_audits_all_performance_reports.csv
+national_audits,all_state_records,50,0.01,8,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_national_audits_all_state_records.csv
+national_audits,city_council_minutes,0,0.0,5,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_national_audits_city_council_minutes.csv
+national_audits,drive_file_index,359273,94.94,17,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_national_audits_drive_file_index.csv
+national_audits,drive_photos_exif,1200,0.1,9,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_national_audits_drive_photos_exif.csv
+national_audits,evidence_chain_of_custody,1,0.0,6,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_national_audits_evidence_chain_of_custody.csv
+national_audits,gmail_index,30000,13.72,9,ERROR: 'charmap' codec can't encode character '\u200c' in position 538: character maps to <undefined>
+national_audits,google_photos_index,0,0.0,10,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_national_audits_google_photos_index.csv
+national_audits,ingestion_audit_trail,0,0.0,5,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_national_audits_ingestion_audit_trail.csv
+national_audits,mat_looker_forensic_base,53,0.0,10,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_national_audits_mat_looker_forensic_base.csv
+national_audits,vw_forensic_evidence_export,0,0.0,9,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_national_audits_vw_forensic_evidence_export.csv
+nppes_export,irs_ein_oc_lb_health,577,0.05,10,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_nppes_export_irs_ein_oc_lb_health.csv
+nppes_export,oc_lb_orgs,23104,1.46,4,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_nppes_export_oc_lb_orgs.csv
+ai_sandbox,findings,6,0.0,4,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_ai_sandbox_findings.csv
+ai_sandbox,hb_surface_flow,1000,0.23,18,C:\Users\HP\OneDrive\Documents\opencode_work\bq_sample_ai_sandbox_hb_surface_flow.csv

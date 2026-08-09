@@ -1,0 +1,111 @@
+=== DNS RECORDS: raipartners.com ===
+=== Generated: 2026-07-24 21:37:52 ===
+
+--- A RECORDS ---
+nslookup : Non-authoritative answer:
+At line:20 char:16
++     try { $a = nslookup -type=A $domain 8.8.8.8 2>&1 | Out-String; $o ...
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    raipartners.com
+Address:  198.202.211.1
+
+
+--- MX RECORDS ---
+nslookup : Non-authoritative answer:
+At line:24 char:17
++     try { $mx = nslookup -type=MX $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+raipartners.com	MX preference = 5, mail exchanger = alt2.aspmx.l.google.com
+raipartners.com	MX preference = 10, mail exchanger = alt4.aspmx.l.google.com
+raipartners.com	MX preference = 10, mail exchanger = alt3.aspmx.l.google.com
+raipartners.com	MX preference = 5, mail exchanger = alt1.aspmx.l.google.com
+raipartners.com	MX preference = 1, mail exchanger = aspmx.l.google.com
+
+--- NS RECORDS ---
+nslookup : Non-authoritative answer:
+At line:28 char:17
++     try { $ns = nslookup -type=NS $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+raipartners.com	nameserver = ns-54.awsdns-06.com
+raipartners.com	nameserver = ns-1015.awsdns-62.net
+raipartners.com	nameserver = ns-1115.awsdns-11.org
+raipartners.com	nameserver = ns-1629.awsdns-11.co.uk
+
+--- TXT RECORDS ---
+nslookup : Non-authoritative answer:
+At line:32 char:18
++     try { $txt = nslookup -type=TXT $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+raipartners.com	text =
+
+	"slack-domain-verification=w1CyNDlrlvmN1eo1GMteXGEKw7IQIPR5sxSlClzF"
+raipartners.com	text =
+
+	"MS=ms68944902"
+raipartners.com	text =
+
+	"rippling-domain-verification=8db1f70736d42bc9"
+raipartners.com	text =
+
+	"v=spf1 include:_spf.raipartners_com._d.easydmarc.pro ~all"
+raipartners.com	text =
+
+	"apple-domain-verification=HqsqprFMFuDnkHmS"
+raipartners.com	text =
+
+	"atlassian-domain-verification=oA1u7XkhNZdiVnyqFttaTTJhOTsgT7gpAUxRxy4SNEXwDf5y6KDrTH2kGWxKTGix"
+raipartners.com	text =
+
+	"proxy-ssl.webflow.com"
+raipartners.com	text =
+
+	"anthropic-domain-verification-e52pgv=OwOMKICqdKqGTP0FjhEyLbEdC"
+
+--- SOA RECORD ---
+nslookup : Non-authoritative answer:
+At line:36 char:18
++     try { $soa = nslookup -type=SOA $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+raipartners.com
+	primary name server = ns-1015.awsdns-62.net
+	responsible mail addr = awsdns-hostmaster.amazon.com
+	serial  = 1
+	refresh = 7200 (2 hours)
+	retry   = 900 (15 mins)
+	expire  = 1209600 (14 days)
+	default TTL = 86400 (1 day)

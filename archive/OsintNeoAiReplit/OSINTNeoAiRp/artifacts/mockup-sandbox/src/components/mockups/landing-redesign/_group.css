@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --button-outline: rgba(255,255,255, .10);
+  --badge-outline: rgba(255,255,255, .05);
+  --opaque-button-border-intensity: 9;
+  --elevate-1: rgba(255,255,255, .04);
+  --elevate-2: rgba(255,255,255, .09);
+
+  /* Deep IDE Background */
+  --background: 240 10% 4%;
+  --foreground: 0 0% 98%;
+  --border: 240 10% 12%;
+
+  --card: 240 10% 6%;
+  --card-foreground: 0 0% 98%;
+  --card-border: 240 10% 12%;
+
+  --sidebar: 240 10% 6%;
+  --sidebar-foreground: 0 0% 98%;
+  --sidebar-border: 240 10% 12%;
+  --sidebar-primary: 30 100% 60%;
+  --sidebar-primary-foreground: 240 10% 4%;
+  --sidebar-accent: 240 10% 12%;
+  --sidebar-accent-foreground: 0 0% 98%;
+  --sidebar-ring: 30 100% 60%;
+
+  --popover: 240 10% 6%;
+  --popover-foreground: 0 0% 98%;
+  --popover-border: 240 10% 12%;
+
+  /* Warm Accent - Amber/Orange */
+  --primary: 30 100% 60%;
+  --primary-foreground: 240 10% 4%;
+
+  --secondary: 240 10% 12%;
+  --secondary-foreground: 0 0% 98%;
+
+  --muted: 240 10% 12%;
+  --muted-foreground: 240 5% 65%;
+
+  --accent: 240 10% 16%;
+  --accent-foreground: 0 0% 98%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+
+  --input: 240 10% 16%;
+  --ring: 30 100% 60%;
+
+  --chart-1: 30 100% 60%;
+  --chart-2: 280 70% 60%;
+  --chart-3: 160 60% 50%;
+  --chart-4: 340 70% 60%;
+  --chart-5: 45 90% 50%;
+
+  --radius: 0.5rem;
+}

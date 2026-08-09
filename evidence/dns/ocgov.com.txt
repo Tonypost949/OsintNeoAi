@@ -1,0 +1,152 @@
+=== DNS RECORDS: ocgov.com ===
+=== Generated: 2026-07-24 21:37:49 ===
+
+--- A RECORDS ---
+nslookup : Non-authoritative answer:
+At line:20 char:16
++     try { $a = nslookup -type=A $domain 8.8.8.8 2>&1 | Out-String; $o ...
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    ocgov.com
+Addresses:  35.167.236.162
+	  34.210.182.99
+
+
+--- MX RECORDS ---
+nslookup : Non-authoritative answer:
+At line:24 char:17
++     try { $mx = nslookup -type=MX $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+ocgov.com	MX preference = 10, mail exchanger = mxa-005c9001.gslb.pphosted.com
+ocgov.com	MX preference = 10, mail exchanger = mxb-005c9001.gslb.pphosted.com
+
+--- NS RECORDS ---
+nslookup : Non-authoritative answer:
+At line:28 char:17
++     try { $ns = nslookup -type=NS $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+ocgov.com	nameserver = ns1.ocgov.com
+ocgov.com	nameserver = ns3.ocgov.com
+ocgov.com	nameserver = ns2.ocgov.com
+
+--- TXT RECORDS ---
+nslookup : Non-authoritative answer:
+At line:32 char:18
++     try { $txt = nslookup -type=TXT $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+ocgov.com	text =
+
+	"uo2k0qm1vt4a72cpj7h8vcnf1s"
+ocgov.com	text =
+
+ocgov.com	text =
+
+	"2GmPZJjup37+H31yAL0693ApVRfy0KAd511Mnay2gswBu1sNWlAnFf1Tgb+uXlFCXMrQtg+SD9401p489fE+vg=="
+ocgov.com	text =
+
+	"z89EPmtnaUmn9epW44aUCfBa2lUujDKiYafpUTBoV22ogXwPAG3/O8yo3L3fcx+2Cmku3/jv6t7ir5GFdsQMvA=="
+ocgov.com	text =
+
+	"qhh1158nvtmp3vntfa6oboaavs"
+ocgov.com	text =
+
+	"docusign=b1b7eb7f-29c7-47a1-866d-3f4305444e91"
+ocgov.com	text =
+
+	"es1fbsf0djub3j27o1r6uer73m"
+ocgov.com	text =
+
+	"q8q3pu7gq1iqt1b2t20ldgf9qt"
+ocgov.com	text =
+
+	"aodjtteau2q8e6ih0n5502n9qp"
+ocgov.com	text =
+
+	"vgu61ji7fcu9n30d1meoa76pr0"
+ocgov.com	text =
+
+	"google-site-verification=dXq3XxdmsYHRZzvYo8WKwjJhJTfNsF8jAxuIlv0VaV0"
+ocgov.com	text =
+
+	"6o41p13kng2ql3cucc33re8ren"
+ocgov.com	text =
+
+	"apple-domain-verification=15KSBvIqey4lWUFz"
+ocgov.com	text =
+
+	"cisco-ci-domain-verification=4f955a3e57be7bb8458d10d4bbf58823abe24afe1d10630a1c127ae4e9aefcbc"
+ocgov.com	text =
+
+	"3u7eujrdsbs31lda4b1ip3a885"
+ocgov.com	text =
+
+	"c50d1d35c4078e72b73a68f865f031ac"
+ocgov.com	text =
+
+	"sqb840ciq40s7taahhb4v207fc"
+ocgov.com	text =
+
+	"a8ccccqq76126saaliac6fl5f3"
+ocgov.com	text =
+
+	"a0grjg9rp81p4om2oi8k239ej"
+ocgov.com	text =
+
+	"v=spf1 include:spf.protection.outlook.com include:spf-us.appmail.granicus.com include:spfa.mailendo.com ip4:208.75.120.0/22 ip4:205.207.104.0/22 ip4:148.59.100.16/28 ip4:35.80.141.6 ip4:44.229.121.55 ~all"
+ocgov.com	text =
+
+	"6koiv1pumpvgl2ffqv8k5oel95"
+ocgov.com	text =
+
+	"MS=ms55730819"
+ocgov.com	text =
+
+	"05eff747-cb73-4e88-9f23-afc800d76ab8"
+
+--- SOA RECORD ---
+nslookup : Non-authoritative answer:
+At line:36 char:18
++     try { $soa = nslookup -type=SOA $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+ocgov.com
+	primary name server = ns1.ocgov.com
+	responsible mail addr = oc-dnsadmins.ceoit.ocgov.com
+	serial  = 851
+	refresh = 14400 (4 hours)
+	retry   = 3600 (1 hour)
+	expire  = 2419200 (28 days)
+	default TTL = 900 (15 mins)

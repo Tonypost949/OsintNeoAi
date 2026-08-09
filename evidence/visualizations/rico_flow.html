@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RICO Enterprise Flow</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true, theme:'dark'});</script>
+    <style>
+        body { background: #0b0e14; color: #c8d0dc; font-family: sans-serif; padding: 20px; }
+        h1 { color: #7ab7ff; }
+        .flow-container { background: #141a24; padding: 20px; border-radius: 10px; border: 1px solid #1f2a3a; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>RICO Enterprise Operational Flow</h1>
+    
+    <div class="flow-container">
+        <div class="mermaid">
+        graph TD
+            subgraph Pipeline1 [PPP Fraud]
+                A[Small Business Owners] -->|Fake Address| B(PPP Loan Application)
+                B -->|Funds Received| C(Shell Companies)
+                C -->|Wire Transfer| D(Personal Accounts)
+                style C fill:#ff4444,stroke:#333,stroke-width:2px
+            end
+
+            subgraph Pipeline2 [Nonprofit Laundering]
+                E[HUD/COC/ESG Grants] -->|Funding| F(Nonprofit Fronts)
+                F -->|Management Fees| G(Shell Companies)
+                G -->|Wire Transfer| H(Personal Accounts)
+                style G fill:#ff4444,stroke:#333,stroke-width:2px
+                style F fill:#ffff44,color:#000
+            end
+
+            subgraph Pipeline3 [IV-E Medicaid Billing]
+                I[Foster Children] -->|Placement| J(Group Homes)
+                J -->|Medicaid Billing| K(Medicaid Funds)
+                K --> L(Parent Company)
+                L -->|Fees| M(Personal Accounts)
+                style L fill:#ffa500,color:#000
+            end
+
+            Shells[l2tmedia.com<br/>rbabuilders.com<br/>stewartindustries.com] --- C
+            Shells --- G
+            Nonprofits[illuminationfoundation.org<br/>mercyhouse.org<br/>waymakers.org] --- F
+            Liberty[libertyhomes.org<br/>libertycare.com<br/>libertyseniorliving.com] --- L
+            
+            Carlisle[Carlisle Dev Group<br/>$26M Fraud] -->|Absorbed| AP[Atlantic Pacific Communities]
+            AP --- NonprofitLaundering
+        </div>
+    </div>
+</body>
+</html>

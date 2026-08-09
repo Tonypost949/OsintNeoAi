@@ -1,0 +1,11 @@
+Source Node ID,Source Node Label,Relationship Type,Target Node ID,Target Node Label,Properties/Evidence
+GOV-001,Organization,MISAPPROPRIATED,FIN-001,Financial,Amount: $6.1M; Fund: LMIHAF; Evidence: LMIHAF Annual Report FY 2020-21
+GOV-001,Organization,MANIPULATED_ADDRESS,LOC-001,Location,Address: 17631 Cameron Lane; Evidence: GIS/USPS Records
+PER-050,Person,WHISTLEBLEW_ON,GOV-001,Organization,Topic: Environmental & Financial Fraud
+GOV-001,Organization,RETALIATED_AGAINST,PER-050,Person,"Actions: Eviction, Warrants, Assault; Statutes: 18 U.S.C. § 1513(e)"
+NP-008,Organization,OPERATES_ON,LOC-002,Location,Address: 17642 Beach Blvd; Contract: Doc ID 5401898
+PER-001,Person,EXPOSED_TO,EV-002,Evidence,Toxin: Hexavalent Chromium (Cr-VI); Level: 49x limit
+GOV-008,Organization,ISSUED_FRAUDULENT,EV-001,Evidence,Document: Case Closed Certificate 20IC002
+PER-051,Person,ORCHESTRATED,NP-001,Organization,Note: Andrew Do & Viet America Society; Evidence: Federal Indictment
+NP-001,Organization,EMBEZZLED,FIN-002,Financial,Amount: $10M; Fund: COVID Relief Funds
+PER-008,Person,SHIELDED,GOV-001,Organization,Role: Institutional Shield; Agency: DOJ Civil Rights Division

@@ -1,0 +1,24 @@
+=== HTTP HEADERS: https://libertyseniorliving.com/wp-login.php ===
+Status: 200
+Headers:
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  cf-cache-status: DYNAMIC
+  Vary: Accept-Encoding
+  Accept-Ch: Sec-CH-UA-Mobile
+  Content-Security-Policy: frame-ancestors 'self';
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  X-Cacheable: NO:Private
+  X-Cache: MISS
+  X-Pass-Why: wp-admin
+  CF-RAY: a20879a078b00b0a-DFW
+  alt-svc: h3=":443"; ma=86400
+  Cache-Control: no-cache, must-revalidate, max-age=0, no-store, private
+  Content-Type: text/html; charset=UTF-8
+  Date: Sat, 25 Jul 2026 04:38:26 GMT
+  Expires: Wed, 11 Jan 1984 05:00:00 GMT
+  Set-Cookie: wordpress_test_cookie=WP%20Cookie%20check; path=/; secure; HttpOnly
+  Server: cloudflare
+  X-Powered-By: WP Engine
+ContentLength: 8085

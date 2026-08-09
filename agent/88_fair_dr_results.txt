@@ -1,0 +1,257 @@
+﻿.\venv\Scripts\python.exe : 
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+At line:1 char:1
++ .\venv\Scripts\python.exe investigate_88_fair_dr.py 2>&1 | Out-File - ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\HP\.ge...dpoint instead.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  warnings.warn(
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+  warnings.warn(
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+  warnings.warn(
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+  warnings.warn(
+======================================================================
+88 FAIR DR SHELL HUB - DEEP INVESTIGATION
+======================================================================
+
+--- ALL ENTITIES AT 88 FAIR DR ---
+                        BorrowerName                               BorrowerAddress        BorrowerCity BorrowerState BorrowerZip  CurrentApprovalAmount  ForgivenessAmount NAICSCode                    BusinessType   LoanStatus DateApproved                       ServicingLenderName
+       BRIDGEPORT RESCUE MISSION INC                            1088 FAIRFIELD AVE          BRIDGEPORT            CT  06605-1116              332800.00          335225.34    813319                     Corporation Paid in Full   04/06/2020   Manufacturers and Traders Trust Company
+              TALLEY LANDSCAPES, INC                             1088 FAIRVIEW AVE              GOLETA            CA       93117              182980.00          184804.79    236115                     Corporation Paid in Full   05/01/2020           U.S. Bank, National Association
+                      DALE ADAMS INC                        9788 Fairfax Boulevard             Fairfax            VA       22031              138315.00          139516.26    444190        Subchapter S Corporation Paid in Full   04/15/2020   Manufacturers and Traders Trust Company
+     AMERICAN SURPLUS AUTO PARTS LLC                               788 Fairford Rd Grosse Pointe Woods            MI  48236-2451              125510.00          126885.45    423110 Limited  Liability Company(LLC) Paid in Full   01/31/2021     Bank of America, National Association
+     AMERICAN SURPLUS AUTO PARTS LLC                               788 FAIRFORD RD GROSSE POINTE WOODS            MI  48236-2451              125510.00          127078.02    811111 Limited  Liability Company(LLC) Paid in Full   04/16/2020     Bank of America, National Association
+                            ZZP INC.                         3488 Fairfield Avenue          Bridgeport            CT  06605-3226              120205.00          121331.30    721199        Subchapter S Corporation Paid in Full   07/23/2020                          Cross River Bank
+                            ZZP INC.                            3488 Fairfield Ave          Bridgeport            CT  06605-3226              115619.00          116239.86    721199        Subchapter S Corporation Paid in Full   02/10/2021                          Cross River Bank
+        HODDING CARTER MEMORIAL YMCA                           1688 Fairgrounds Rd          Greenville            MS  38703-7805              105760.00          106345.30    813910                     Corporation Paid in Full   02/08/2021             Planters Bank & Trust Company
+        HODDING CARTER MEMORIAL YMCA                           1688 FAIRGROUNDS RD          GREENVILLE            MS  38703-7805              105700.00          106600.62    813410                     Corporation Paid in Full   04/05/2020             Planters Bank & Trust Company
+                        IMT YORK LLC                              1688 FAIRHOPE RD                YORK            SC  29745-7311               97187.00           98004.44    312230 Limited  Liability Company(LLC) Paid in Full   08/05/2020                              Quontic Bank
+                        IMT YORK LLC                              1688 Fairhope Rd                York            SC  29745-7311               93400.00           93781.28    332811 Limited  Liability Company(LLC) Paid in Full   04/17/2021       First-Citizens Bank & Trust Company
+                 WEST COAST SERVICES                              11788 FAIRWAY DR             YUCAIPA            CA       92399               74702.00           75391.71    238330             Sole Proprietorship Paid in Full   05/02/2020    Wells Fargo Bank, National Association
+                             AAP INC                              7788 Fairview Rd              Baxter            MN  56425-8429               71750.00           72204.09    722511                     Corporation Paid in Full   01/28/2021         Bremer Bank, National Association
+       DYNAMIC SALES & MARKETING INC                             8988 FAIRCHILD CT     NEW PORT RICHEY            FL  34654-5124               62060.00           62602.39    423620        Subchapter S Corporation Paid in Full   04/15/2020                              Synovus Bank
+                            AAP, INC                           7788 Fairview Rd No              BAXTER            MN  56425-8429               57600.00           58059.22    722511                     Corporation Paid in Full   04/11/2020         Bremer Bank, National Association
+              JERSEY DEVELOPMENT LLC                            188 FAIRFIELD LANE        HILLSBOROUGH            NJ       08844               57500.00           58158.49    238910                     Corporation Paid in Full   04/29/2020                  Loan Source Incorporated
+              ADVANTAGE PAINTING INC                         5688 Fairmount Hwy SE             Calhoun            GA  30701-4046               55340.00           55576.73    238320        Subchapter S Corporation Paid in Full   02/06/2021               North Georgia National Bank
+              ADVANTAGE PAINTING INC                         5688 FAIRMOUNT HWY SE             CALHOUN            GA  30701-4046               52700.00           53055.72    238320        Subchapter S Corporation Paid in Full   04/09/2020               North Georgia National Bank
+              JERSEY DEVELOPMENT LLC                              188 Fairfield Ln        Hillsborough            NJ  08844-1707               45590.00           46070.88    238910                     Corporation Paid in Full   03/16/2021                  Loan Source Incorporated
+               BENEFIT RESOURCES INC                      7588 FAIRWAY FOREST DR N             CORDOVA            TN  38016-5730               45417.50           45859.06    541612                     Corporation Paid in Full   04/07/2020                        First Horizon Bank
+                       OZSPEED, INC.                               488 Fairview Rd               SYLVA            NC       28779               44600.00           44857.82    336211        Subchapter S Corporation Paid in Full   04/14/2020                     United Community Bank
+             CRYSTAL POOL & SPA, INC                              88 Fairway Drive        East Hanover            NJ       07936               36000.00           36649.97    238990                     Corporation Paid in Full   04/28/2020                  Loan Source Incorporated
+                      NSI ALPHA CORP                             1588 FAIRFIELD RD          GETTYSBURG            PA  17325-7252               34700.00           34995.91    541199                     Corporation Paid in Full   05/01/2020            PNC Bank, National Association
+                       DAVID VASQUEZ                              188 Fairhaven Ln           Cleveland            NC  27013-6003               34000.00           34249.64    221114             Sole Proprietorship Paid in Full   02/16/2021                              Truliant FCU
+                         JANET EVANS                          6488 Fairford Ct N/A          Florissant            MO  63033-4706               27542.00           27640.85    541990       Self-Employed Individuals Paid in Full   04/23/2021                            Customers Bank
+                           ART BUNCE                           1588 Fairmount Pl C           Escondido            CA  92027-1060               26019.00           26232.14    541110             Sole Proprietorship Paid in Full   03/27/2021                            Customers Bank
+                        PAPA'S PIZZA                      4288 Fairystone Park Hwy             BASSETT            VA       24055               22600.00           22809.05    722513             Sole Proprietorship Paid in Full   04/30/2020                       Atlantic Union Bank
+          PB786 UPPER WEST SIDE CORP                              1188 fairfax Ave               BRONX            NY       10465               22500.00           22831.98    621111                     Corporation Paid in Full   05/01/2020 JPMorgan Chase Bank, National Association
+             PB786 MIDTOWN EAST CORP                              1188 fairfax Ave               BRONX            NY       10465               21000.00           21314.42    531110                     Corporation Paid in Full   05/01/2020 JPMorgan Chase Bank, National Association
+          F BOLOGNA & ASSOCIATES LLC                             388 Fairfield Ave              Gretna            LA  70056-7003               20835.00           21053.77    611430             Sole Proprietorship Paid in Full   04/06/2021         Gulf Coast Bank and Trust Company
+                   AES TRANSPORT LLC                             10688 Fairview Pl                Dyer            IN  46311-2388               20833.00           20932.88    488999 Limited  Liability Company(LLC) Paid in Full   03/12/2021                          Cross River Bank
+                 JAMES STEVEN WATERS                               888 Fairplay Dr       Social Circle            GA  30025-4009               20833.00           20892.36    238220             Sole Proprietorship Paid in Full   05/22/2021       Harvest Small Business Finance, LLC
+                       DARIUS CONLEY                              3588 Fairview St             Detroit            MI  48214-3539               20833.00           20947.15    813410               Single Member LLC Paid in Full   04/28/2021                          Benworth Capital
+                       CHERYL WATERS                               888 Fairplay Dr       Social Circle            GA  30025-4009               20833.00           20894.92    238220             Sole Proprietorship Paid in Full   05/18/2021                      Fountainhead SBF LLC
+                          TANIA SIMS                               88 Fairbanks St           Rochester            NY  14621-3630               20832.00           20949.47    531390             Sole Proprietorship Paid in Full   05/20/2021                       Prestamos CDFI, LLC
+               CEE DUBB TRUCKING LLC                       6688 Fairbanks Ferry Rd              Havana            FL  32333-5002               20829.00           20922.73    484121 Limited  Liability Company(LLC) Paid in Full   05/14/2021                       Prestamos CDFI, LLC
+              F BOLOGNA & ASSOCIATES                             388 FAIRFIELD AVE              GRETNA            LA  70056-7003               20800.00           21017.24    523999             Sole Proprietorship Paid in Full   05/03/2020         Gulf Coast Bank and Trust Company
+                  ANGELA L DAUGHERTY                            10888 Fairwoods Dr             Fishers            IN  46037-8804               20800.00           20907.13    541618             Sole Proprietorship Paid in Full   03/20/2021                       STAR Financial Bank
+                 CHRISTOPHER J LOGAN                        7188 Fairwind Acres Pl           Las Vegas            NV       89131               20800.00           20940.76    541511             Sole Proprietorship Paid in Full   05/01/2020                 Zions Bank, A Division of
+                CHRISTOPHER WILLIAMS                       6688 Fairbanks Ferry Rd              Havana            FL  32333-5002               20750.00           20905.05    561720             Sole Proprietorship Paid in Full   03/10/2021                        Itria Ventures LLC
+                     CLIFFORD MARTIN                            3588 Fair St Apt B               Macon            GA  31204-8214               20667.00           20741.63    621610             Sole Proprietorship Paid in Full   05/27/2021                       Prestamos CDFI, LLC
+                        KENYA HARPER                            5588 Fairington Pl            Lithonia            GA  30038-1161               20332.00                NaN    561730             Sole Proprietorship  Charged Off   04/17/2021                     Readycap Lending, LLC
+                        KENYA HARPER                            5588 Fairington Pl          Stonecrest            GA  30038-1161               20332.00                NaN    722310         Independent Contractors  Charged Off   02/24/2021                               Legacy Bank
+                         JOHN ROBLES                                 2288 Fair Ave              Pomona            CA  91768-1514               20000.00                NaN    448190             Sole Proprietorship  Exemption 4   05/02/2021                          Benworth Capital
+               CEE DUBB TRUCKING LLC                  6688 6688 FAIRBANKS FERRY RD              HAVANA            FL       32333               20000.00           20212.78    484230 Limited  Liability Company(LLC) Paid in Full   05/28/2020                                   WebBank
+             PB786 32ND STREET CORP.                              1188 fairfax Ave               BRONX            NY       10465               20000.00           20295.09    999990                     Corporation Paid in Full   05/01/2020 JPMorgan Chase Bank, National Association
+                   404 FRENCHIES LLC                            288 Fairburn Rd SW             Atlanta            GA  30331-4211               20000.00           20086.11    453910 Limited  Liability Company(LLC) Paid in Full   03/15/2021       Newtek Small Business Finance, Inc.
+           PB786 93RD BROADWAY CORP.                              1188 fairfax Ave               BRONX            NY       10465               18750.00           19026.65    999990                     Corporation Paid in Full   05/01/2020 JPMorgan Chase Bank, National Association
+           FABRICATIONS BY DESIGNLLC                           388 Fairview Avenue            Fairview            NJ  07022-2135               18504.00           18697.15    337121                     Partnership Paid in Full   07/30/2020                  Loan Source Incorporated
+              PB786 9TH AVENUE CORP.                              1188 fairfax Ave               BRONX            NY       10465               17750.00           18011.89    999990                     Corporation Paid in Full   05/01/2020 JPMorgan Chase Bank, National Association
+                        THANH NGUYEN                            11688 Fair Oak Ave         Baton Rouge            LA  70815-2355               16809.00           16864.10    812990             Sole Proprietorship Paid in Full   04/28/2021                             Landmark Bank
+              IVY HILL ENTERTAINMENT                         688 Fairmount Ave. #4             Oakland            CA  94611-5033               15750.00           15927.78    711190 Limited  Liability Company(LLC) Paid in Full   07/27/2020                     Beneficial State Bank
+                        JJD NA, INC.                        7188 Fairwind Acres Pl           Las Vegas            NV       89131               15500.00           15604.47    238910                     Corporation Paid in Full   05/14/2020                 Zions Bank, A Division of
+    PB786 ROOSEVELT FIELD MALL CORP.                              1188 fairfax Ave               BRONX            NY       10465               15000.00           15221.32       NaN                     Corporation Paid in Full   05/01/2020 JPMorgan Chase Bank, National Association
+                 HP & CL CORPORATION                       12188 Fairfax Towne Ctr             Fairfax            VA  22033-2876               13399.00           13472.32    812113                     Corporation Paid in Full   04/05/2021                        Itria Ventures LLC
+                    PRO CLIPS BARBER                            10688 Fairfax blvd             fairfax            VA       20120               13043.00           13175.93    812111       Self-Employed Individuals Paid in Full   08/06/2020                          Cross River Bank
+                    SALVADOR VASQUEZ                            23888 Fairlands Rd             Hayward            CA  94541-4444               12500.00           12576.04    492210         Independent Contractors Paid in Full   04/29/2021                       Prestamos CDFI, LLC
+                   AES TRANSPORT LLC                             10688 FAIRVIEW PL                DYER            IN  46311-2388               11636.25           11709.89    484121 Limited  Liability Company(LLC) Paid in Full   07/31/2020                          Cross River Bank
+                  ROADWAY LINES CORP             1188 Fairwood Dr 1188 Fairwood Dr               Elgin            IL  60123-1452               11537.00           11661.66    237310        Subchapter S Corporation Paid in Full   02/25/2021            PNC Bank, National Association
+       EXPLORE THE WORLD TRAVEL, LLC                              6488 Fairford Ct          Florissant            MO  63033-4706               11271.00                NaN    561510 Limited  Liability Company(LLC)  Exemption 4   06/29/2020                          Cross River Bank
+                     MUG LOUNGE, LLC                            2288 Fairfield Ave          BRIDGEPORT            CT       06605               10000.00           10123.84    722410 Limited  Liability Company(LLC) Paid in Full   04/28/2020                         First County Bank
+                         TEREZA BOCA                             1388 Fairview Trl       Lawrenceville            GA  30043-4216                9757.00            9805.38    315240       Self-Employed Individuals Paid in Full   03/20/2021                          Cross River Bank
+              LACHERS HAIR BY DEMAND                            2988 Fairfield Ave          Bridgeport            CT       06605                9757.00            9893.60    812112 Limited  Liability Company(LLC) Paid in Full   04/29/2020             TD Bank, National Association
+               WATERFRONT YACHT CARE                            5388 Fair Acres Dr              Lapeer            MI  48446-9683                9039.00            9073.65    811490               Single Member LLC Paid in Full   04/08/2021                                   WebBank
+                    DIEM HANG NGUYEN                            10688 Fairfax blvd  10688 Fairfax blvd            VA       20120                8043.00            8085.75    812111       Self-Employed Individuals Paid in Full   03/10/2021                            Customers Bank
+                    LULA JEAN BURTON                               88 Fairlawn Ave            Somerset            KY  42503-8004                7997.20            8041.41    531390             Sole Proprietorship Paid in Full   01/21/2021                  Cumberland Security Bank
+                         GRAHAM BECK                                188 Fairway Rd          Lido Beach            NY  11561-4820                7860.00            7916.85    541990             Sole Proprietorship Paid in Full   02/12/2021                  Loan Source Incorporated
+                         GRAHAM BECK                                188 FAIRWAY RD          LIDO BEACH            NY  11561-4820                7859.79            7929.34    541990             Sole Proprietorship Paid in Full   08/05/2020                  Loan Source Incorporated
+                       AMY K SCHWEBS                              6688 Fairway Cir             Windsor            WI  53598-9740                7835.00            7899.86    624410             Sole Proprietorship Paid in Full   04/14/2021                        Itria Ventures LLC
+                     GEOFFERY HODGES                           2788 Fairfield Pike         Shelbyville            TN  37160-5325                7780.00            7818.47    113310             Sole Proprietorship Paid in Full   03/01/2021              Peoples Bank & Trust Company
+         ZEN CRYSTAL ACUPUNCTURE INC                            20988 Fairwoods Ct           Cupertino            CA  95014-4200                7500.00            7562.47    621399                     Corporation Paid in Full   03/12/2021     Bank of America, National Association
+                     NARBE HERNANDEZ                            88 Fairview Avenue         Jersey City            NJ  07304-2104                6932.68            6993.84    448310             Sole Proprietorship Paid in Full   06/16/2020                       Square Capital, LLC
+              THERMATEST OF OHIO INC                              35088 FAIRWAY DR                AVON            OH  44011-3304                6040.00            6087.65    423390        Subchapter S Corporation Paid in Full   07/18/2020           U.S. Bank, National Association
+                       SAMUEL BURTON                               88 Fairlawn Ave            Somerset            KY  42503-8004                6016.20            6049.46    112111             Sole Proprietorship Paid in Full   01/21/2021                  Cumberland Security Bank
+             THERMATEST OF OHIO INC.                              35088 Fairway Dr                Avon            OH  44011-3304                5780.00            5802.96    423390        Subchapter S Corporation Paid in Full   02/19/2021           U.S. Bank, National Association
+                  ASHWOOD REALTY LLC                           10788 FAIRFIELD AVE           LAS VEGAS            NV  89183-4636                5510.00            5556.65       NaN Limited  Liability Company(LLC) Paid in Full   05/01/2020     Bank of America, National Association
+                          BETH BYRWA                                    88 Fair Dr          Costa Mesa            CA  92626-6521                5288.34            5323.26    453220             Sole Proprietorship Paid in Full   05/02/2021                       Square Capital, LLC
+                   WALLACE SCHLOSSER                   12788 Fairfield Creek Rd NE              Nelson            MN  56355-8135                5191.88            5207.31    112111             Sole Proprietorship Paid in Full   02/19/2021                Neighborhood National Bank
+                     MARCELLA GARCIA W136S7588 Fairfield Dr W136s7588 Fairfield Dr             Muskego            WI  53150-3917                4943.00            4967.99    448310             Sole Proprietorship Paid in Full   03/31/2021            PNC Bank, National Association
+                          ERIC SWIFT                           2288 Fairport Dr SE             Concord            NC  28025-8705                4277.50            4317.81    811310             Sole Proprietorship Paid in Full   02/02/2021                              Truliant FCU
+                  TATYANA CHERNIOGLO                              8588 Fairlawn Ct          Sacramento            CA  95828-4731                4165.00            4175.07    624410       Self-Employed Individuals Paid in Full   05/23/2021               Capital Plus Financial, LLC
+JOSH CAMPBELL DBA CAMPBELL'S MASSAGE                           1688 FAIRGROUNDS RD          GREENVILLE            MS  38703-7805                3900.00            3927.14    621399             Sole Proprietorship Paid in Full   04/15/2020             Guaranty Bank & Trust Company
+                   SERGEY CHERNIOGLO                              8588 Fairlawn Ct          Sacramento            CA  95828-4731                3843.00            3852.29    811211       Self-Employed Individuals Paid in Full   05/23/2021               Capital Plus Financial, LLC
+                      D & D TRUCKING                              6188 Fairford Rd            mcintosh            AL       36553                3752.70            3780.64    484122             Sole Proprietorship Paid in Full   06/22/2020                            Azalea City CU
+                   SWIFT TOOL REPAIR                 2288 Fairport Drive Southeast             Concord            NC  28205-8705                3700.00            3746.93    332216             Sole Proprietorship Paid in Full   04/28/2020                              Truliant FCU
+                         THUY TRUONG                            11688 Fair Oak Ave         Baton Rouge            LA  70815-2355                3333.00            3343.28    812199             Sole Proprietorship Paid in Full   04/28/2021                             Landmark Bank
+                      MATTHEW GRIPKA                            16988 Fairmount Rd             Basehor            KS  66007-5220                3298.00            3326.03    112111             Sole Proprietorship Paid in Full   01/25/2021                   Community National Bank
+                    FORREST ROBINSON                            3288 Fair Oaks Ave            Altadena            CA  91001-4447                3200.00            3252.89    713990             Sole Proprietorship Paid in Full   04/30/2020       Newtek Small Business Finance, Inc.
+             OHLMAN SEED SALES, INC.                          1788 Fairgrounds Rd.        CENTRAL CITY            NE  68826-8000                2500.00            2518.82    424910                     Corporation Paid in Full   04/08/2020                          Cornerstone Bank
+                        THANH NGUYEN                            11688 Fair Oak Ave         Baton Rouge            LA  70815-2355                2312.00            2320.86    812990             Sole Proprietorship Paid in Full   01/22/2021                             Landmark Bank
+                         THUY TRUONG                            11688 Fair Oak Ave         Baton Rouge            LA  70815-2355                2200.00            2208.13    812199             Sole Proprietorship Paid in Full   01/27/2021                             Landmark Bank
+              ERIC MATTHEW MCFARLAND                         3388 Fairmont Pike Rd            Wheeling            WV  26003-7273                2155.00            2161.70    531110 Limited  Liability Company(LLC) Paid in Full   03/16/2021                               Truist Bank
+         BOYER BROTHERS CONSTRUCTION                            61388 FAIRFIELD DR                BEND            OR  97702-2738                1903.00            1926.25    238130             Sole Proprietorship Paid in Full   05/11/2020                     TwinStar Credit Union
+                        JUSTIN JONES                                    88 Fair St           Brockport            NY  14420-2060                1678.00                NaN    236118             Sole Proprietorship  Charged Off   04/27/2021       Harvest Small Business Finance, LLC
+                        JUSTIN JONES                                    88 Fair St           Brockport            NY  14420-2060                1678.00                NaN    236118             Sole Proprietorship  Charged Off   04/05/2021       Harvest Small Business Finance, LLC
+                          #1 PERFUME                                 88 Fair Drive          Costa Mesa            CA       92626                1400.00            1410.85    453998             Sole Proprietorship Paid in Full   07/07/2020                            Customers Bank
+                       KELLY SANDERS                              7288 Fairview Dr            Newburgh            IN  47630-2953                 910.00             913.11    492210         Independent Contractors Paid in Full   03/31/2021               Capital Plus Financial, LLC
+
+--- 88 FAIR DR TOTALS ---
+ total_entities  unique_names  unique_naics  unique_cities  total_approved  total_forgiven first_loan  last_loan
+             97            84            70             75      3085700.04      3035342.54 01/21/2021 08/06/2020
+
+--- NAICS CODES AT 88 FAIR DR (what industries?) ---
+NAICSCode  entity_count  total_amount
+   813319             1     332800.00
+   721199             2     235824.00
+   236115             1     182980.00
+   444190             1     138315.00
+   722511             2     129350.00
+   813410             2     126533.00
+   423110             1     125510.00
+   811111             1     125510.00
+   238910             3     118590.00
+   238320             2     108040.00
+   813910             1     105760.00
+   312230             1      97187.00
+   332811             1      93400.00
+   238330             1      74702.00
+   423620             1      62060.00
+   999990             3      56500.00
+   541612             1      45417.50
+   336211             1      44600.00
+   541990             3      43261.79
+   238220             2      41666.00
+   238990             1      36000.00
+   541199             1      34700.00
+   221114             1      34000.00
+   484121             2      32465.25
+   531390             2      28829.20
+   541110             1      26019.00
+   531110             2      23155.00
+   722513             1      22600.00
+   621111             1      22500.00
+   812111             2      21086.00
+   611430             1      20835.00
+   488999             1      20833.00
+   523999             1      20800.00
+   541511             1      20800.00
+   541618             1      20800.00
+   561720             1      20750.00
+   621610             1      20667.00
+      NaN             2      20510.00
+   722310             1      20332.00
+   561730             1      20332.00
+   448190             1      20000.00
+   484230             1      20000.00
+   453910             1      20000.00
+   812990             2      19121.00
+   337121             1      18504.00
+   711190             1      15750.00
+   112111             3      14506.08
+   492210             2      13410.00
+   812113             1      13399.00
+   624410             2      12000.00
+   448310             2      11875.68
+   423390             2      11820.00
+   237310             1      11537.00
+   621399             2      11400.00
+   561510             1      11271.00
+   722410             1      10000.00
+   315240             1       9757.00
+   812112             1       9757.00
+   811490             1       9039.00
+   113310             1       7780.00
+   812199             2       5533.00
+   453220             1       5288.34
+   811310             1       4277.50
+   811211             1       3843.00
+   484122             1       3752.70
+   332216             1       3700.00
+   236118             2       3356.00
+   713990             1       3200.00
+   424910             1       2500.00
+   238130             1       1903.00
+   453998             1       1400.00
+
+--- CROSS-REF: Do 88 Fair Dr entities own HB properties? ---
+No direct HB property ownership found under these exact names.
+(May use nominee owners or shell layers - check lender patterns)
+
+--- LENDERS funding 88 Fair Dr entities ---
+                      ServicingLenderName  loans_funded  total_funded
+  Manufacturers and Traders Trust Company             2     471115.00
+                         Cross River Bank             7     302364.25
+    Bank of America, National Association             4     264030.00
+            Planters Bank & Trust Company             2     211460.00
+          U.S. Bank, National Association             3     194800.00
+                 Loan Source Incorporated             6     173313.79
+        Bremer Bank, National Association             2     129350.00
+JPMorgan Chase Bank, National Association             6     115000.00
+              North Georgia National Bank             2     108040.00
+                             Quontic Bank             1      97187.00
+      First-Citizens Bank & Trust Company             1      93400.00
+                      Prestamos CDFI, LLC             4      74828.00
+   Wells Fargo Bank, National Association             1      74702.00
+                           Customers Bank             4      63004.00
+                             Synovus Bank             1      62060.00
+           PNC Bank, National Association             3      51180.00
+                       First Horizon Bank             1      45417.50
+                    United Community Bank             1      44600.00
+                       Itria Ventures LLC             3      41984.00
+                             Truliant FCU             3      41977.50
+        Gulf Coast Bank and Trust Company             2      41635.00
+                         Benworth Capital             2      40833.00
+                Zions Bank, A Division of             2      36300.00
+                                  WebBank             2      29039.00
+                            Landmark Bank             4      24654.00
+      Harvest Small Business Finance, LLC             3      24189.00
+      Newtek Small Business Finance, Inc.             2      23200.00
+                      Atlantic Union Bank             1      22600.00
+                     Fountainhead SBF LLC             1      20833.00
+                      STAR Financial Bank             1      20800.00
+                              Legacy Bank             1      20332.00
+                    Readycap Lending, LLC             1      20332.00
+                    Beneficial State Bank             1      15750.00
+                 Cumberland Security Bank             2      14013.40
+                      Square Capital, LLC             2      12221.02
+                        First County Bank             1      10000.00
+            TD Bank, National Association             1       9757.00
+              Capital Plus Financial, LLC             3       8918.00
+             Peoples Bank & Trust Company             1       7780.00
+               Neighborhood National Bank             1       5191.88
+            Guaranty Bank & Trust Company             1       3900.00
+                           Azalea City CU             1       3752.70
+                  Community National Bank             1       3298.00
+                         Cornerstone Bank             1       2500.00
+                              Truist Bank             1       2155.00
+                    TwinStar Credit Union             1       1903.00
+
+======================================================================
+INVESTIGATION COMPLETE
+======================================================================

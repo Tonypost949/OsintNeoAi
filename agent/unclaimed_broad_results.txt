@@ -1,0 +1,14 @@
+﻿.\venv\Scripts\python.exe : 
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+At line:1 char:1
++ .\venv\Scripts\python.exe query_unclaimed_property_broad.py 2>&1 | Ou ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\HP\.ge...dpoint instead.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  warnings.warn(
+=== CHECKING ALL TABLES FOR MERCY HOUSE & LARRY HAYNES ===
+No direct matches in network_assets using broad filters.
+
+=== SEARCHING ALL TABLES IN ppp_rico DATASET ===
