@@ -22,6 +22,13 @@ object NetworkModule {
     private val okHttpClient: OkHttpClient = OkHttpClient.Builder()
         .addInterceptor(loggingInterceptor)
         .addInterceptor(ApiKeyInterceptor())
+        .addInterceptor { chain ->
+            val response = chain.proceed(chain.request())
+            if (!response.isSuccessful && response.code >= 500) {
+                throw java.io.IOException("Backend Error: ${response.code} ${response.message}")
+            }
+            response
+        }
         .followRedirects(false)
         .followSslRedirects(false)
         .connectTimeout(30, TimeUnit.SECONDS)
