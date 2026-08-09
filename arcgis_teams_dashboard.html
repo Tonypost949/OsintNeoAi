@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArcGIS for Teams — OSINT Neo AI Spatial Intelligence Hub</title>
+  
+  <!-- Google Fonts & Leaflet CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #090c10;
+      --bg-card: #131822;
+      --bg-glass: rgba(19, 24, 34, 0.85);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --border-active: #00e5ff;
+      --text-main: #f0f6fc;
+      --text-muted: #8b949e;
+      --accent-cyan: #00e5ff;
+      --accent-toxic: #ff3b30;
+      --accent-warning: #ffcc00;
+      --accent-purple: #bf5af2;
+      --accent-green: #30d158;
+      --font-body: 'Inter', sans-serif;
+      --font-heading: 'Outfit', sans-serif;
+      --font-code: 'Fira Code', monospace;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      overflow: hidden;
+    }
+
+    /* Layout structure */
+    .app-container {
+      display: grid;
+      grid-template-rows: 60px 1fr;
+      height: 100vh;
+    }
+
+    /* Top Bar for Teams Header Integration */
+    header {
+      background: rgba(13, 17, 23, 0.95);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      backdrop-filter: blur(12px);
+      z-index: 2000;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #00e5ff, #bf5af2);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      color: #000;
+      box-shadow: 0 0 12px rgba(0, 229, 255, 0.4);
+    }
+
+    .brand-text h1 {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #fff;
+    }
+
+    .brand-text span {
+      font-size: 11px;
+      color: var(--accent-cyan);
+      font-family: var(--font-code);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      background: rgba(0, 229, 255, 0.15);
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+      box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00e5ff, #0088ff);
+      color: #000;
+      border: none;
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+      color: #000;
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+    }
+
+    /* Main Content Area */
+    .main-body {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      height: calc(100vh - 60px);
+    }
+
+    /* Sidebar Panel */
+    .sidebar {
+      background: var(--bg-card);
+      border-right: 1px solid var(--border-color);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      overflow-y: auto;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    /* HUD Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    .stat-value {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Target List */
+    .target-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .target-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .target-item:hover, .target-item.active {
+      border-color: var(--accent-cyan);
+      background: rgba(0, 229, 255, 0.05);
+    }
+
+    .target-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .target-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .badge {
+      font-size: 9px;
+      font-family: var(--font-code);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .badge-critical { background: rgba(255, 59, 48, 0.2); color: var(--accent-toxic); border: 1px solid rgba(255, 59, 48, 0.4); }
+    .badge-high { background: rgba(255, 204, 0, 0.2); color: var(--accent-warning); border: 1px solid rgba(255, 204, 0, 0.4); }
+    .badge-info { background: rgba(48, 209, 88, 0.2); color: var(--accent-green); border: 1px solid rgba(48, 209, 88, 0.4); }
+
+    .target-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .target-meta {
+      font-family: var(--font-code);
+      font-size: 10px;
+      color: var(--accent-cyan);
+      margin-top: 6px;
+    }
+
+    /* Map Area */
+    .map-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+      background: #05070a;
+    }
+
+    /* Floating Controls */
+    .map-hud {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 1000;
+      background: var(--bg-glass);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 10px 14px;
+      backdrop-filter: blur(12px);
+      font-family: var(--font-code);
+      font-size: 11px;
+      color: var(--text-muted);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .map-hud span {
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    /* Modal Dialog */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 3000;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      width: 540px;
+      max-width: 90%;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .modal-title {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .card-preview {
+      background: #1c212d;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+      font-family: var(--font-code);
+      font-size: 11px;
+      color: var(--accent-cyan);
+      max-height: 260px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div class="brand-icon">A</div>
+        <div class="brand-text">
+          <h1>ArcGIS for Teams Spatial Intelligence</h1>
+          <span>OSINT Neo AI • Case CACD 8:26-cv-00348</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn" id="btn-export-geojson" onclick="downloadGeoJSON()">
+          📥 Export GeoJSON
+        </button>
+        <button class="btn" id="btn-export-esri" onclick="downloadEsriJSON()">
+          🗺️ Esri Layer JSON
+        </button>
+        <button class="btn btn-primary" id="btn-share-teams" onclick="openTeamsCardModal()">
+          💬 Share Adaptive Card to Teams
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-body">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div>
+          <div class="section-title">Spatial Metrics HUD</div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-value" style="color: var(--accent-toxic);">980 µg</div>
+              <div class="stat-label">Cr-VI Peak (49x RSL)</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" style="color: var(--accent-cyan);">8 Targets</div>
+              <div class="stat-label">Mapped Parcels</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" style="color: var(--accent-warning);">4 LLCs</div>
+              <div class="stat-label">Shell Routing Hubs</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" style="color: var(--accent-purple);">$155M</div>
+              <div class="stat-label">Estimated COC Liability</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-title">Target Spatial Layers</div>
+          <div class="target-list" id="target-list">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+      </aside>
+
+      <!-- Map Display -->
+      <main class="map-container">
+        <div class="map-hud">
+          ACTIVE MAP VIEW: <span>Huntington Beach & Orange County Spatial Matrix</span>
+        </div>
+        <div id="map"></div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Adaptive Card Modal -->
+  <div class="modal-overlay" id="card-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title">Microsoft Teams Adaptive Card Spec</div>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
+        Ready to post directly via Microsoft Teams Webhook or ArcGIS for Teams Bot:
+      </p>
+      <div class="card-preview" id="modal-card-json">Loading JSON...</div>
+      <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 16px;">
+        <button class="btn" onclick="closeModal()">Close</button>
+        <button class="btn btn-primary" onclick="copyCardJSON()">📋 Copy Adaptive Card JSON</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Spatial Targets Data
+    const targets = [
+      {
+        id: "TOX-001",
+        name: "HBNC Toxic Site",
+        category: "Toxic Site",
+        severity: "CRITICAL",
+        lat: 33.6775,
+        lng: -118.0012,
+        address: "17642 Beach Blvd / 17631 Cameron Ln",
+        apn: "102-451-09",
+        desc: "Cr-VI 980 µg/kg (49x RSL). Asphalt cap failing over 2,247 cu ft HDPE Stormtech chambers."
+      },
+      {
+        id: "TOX-002",
+        name: "Cameron Ln Parcel",
+        category: "Toxic Site",
+        severity: "HIGH",
+        lat: 33.6770,
+        lng: -118.0015,
+        address: "17631 Cameron Ln",
+        apn: "102-451-10",
+        desc: "Asbestos & Lead paint contamination. Former ag pesticides."
+      },
+      {
+        id: "TOX-003",
+        name: "Center Ave Vaults",
+        category: "Underground Vault",
+        severity: "CRITICAL",
+        lat: 33.6927,
+        lng: -117.9974,
+        address: "7561 Center Ave, Units D1-E1-G3-J1",
+        apn: "107-120-14",
+        desc: "Underground concrete coffins (1960s-70s). Chen-Yamada $1.47M PPP routing hub."
+      },
+      {
+        id: "LLC-001",
+        name: "Stewart Industrial Entity",
+        category: "Shell LLC",
+        severity: "HIGH",
+        lat: 33.7530,
+        lng: -118.0720,
+        address: "10832 Stewart St, Westminster, CA",
+        apn: "097-220-04",
+        desc: "Regional LLC registration hub. Direct routing to PCH CMRA."
+      },
+      {
+        id: "INF-001",
+        name: "HBPD Police Headquarters",
+        category: "Infrastructure",
+        severity: "INFO",
+        lat: 33.6603,
+        lng: -117.9992,
+        address: "2000 Main St, Huntington Beach, CA",
+        apn: "158-091-01",
+        desc: "Municipal Police HQ. Network port audit target site."
+      }
+    ];
+
+    // Initialize Map
+    const map = L.map('map', { zoomControl: false }).setView([33.6775, -118.0012], 14);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      maxZoom: 19
+    }).addTo(map);
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+    const markers = {};
+
+    // Render Targets List & Map Markers
+    const listContainer = document.getElementById('target-list');
+
+    targets.forEach(t => {
+      // Map Marker
+      const color = t.severity === 'CRITICAL' ? '#ff3b30' : (t.severity === 'HIGH' ? '#ffcc00' : '#30d158');
+      const marker = L.circleMarker([t.lat, t.lng], {
+        radius: 8,
+        fillColor: color,
+        color: '#fff',
+        weight: 1.5,
+        fillOpacity: 0.9
+      }).addTo(map).bindPopup(`
+        <div style="font-family: Inter, sans-serif; font-size: 12px; color: #fff;">
+          <b style="color: ${color}">${t.name} (${t.id})</b><br/>
+          <span style="color: #8b949e">${t.address}</span><br/><br/>
+          ${t.desc}
+        </div>
+      `);
+
+      markers[t.id] = marker;
+
+      // Sidebar Item
+      const badgeClass = t.severity === 'CRITICAL' ? 'badge-critical' : (t.severity === 'HIGH' ? 'badge-high' : 'badge-info');
+      const cardEl = document.createElement('div');
+      cardEl.className = 'target-item';
+      cardEl.onclick = () => focusTarget(t.id, t.lat, t.lng);
+      cardEl.innerHTML = `
+        <div class="target-header">
+          <div class="target-name">${t.name}</div>
+          <span class="badge ${badgeClass}">${t.severity}</span>
+        </div>
+        <div class="target-desc">${t.desc}</div>
+        <div class="target-meta">APN: ${t.apn} • ${t.lat.toFixed(4)}, ${t.lng.toFixed(4)}</div>
+      `;
+      listContainer.appendChild(cardEl);
+    });
+
+    function focusTarget(id, lat, lng) {
+      map.flyTo([lat, lng], 17, { duration: 1.2 });
+      if (markers[id]) {
+        markers[id].openPopup();
+      }
+    }
+
+    // Modal & Adaptive Card Actions
+    function openTeamsCardModal() {
+      const sampleCard = {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.4",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "🗺️ ArcGIS Spatial Intel Alert — HBNC Toxic Site",
+            "weight": "Bolder",
+            "size": "Medium",
+            "color": "Attention"
+          },
+          {
+            "type": "FactSet",
+            "facts": [
+              {"title": "Target ID:", "value": "TOX-001"},
+              {"title": "APN:", "value": "102-451-09"},
+              {"title": "Address:", "value": "17642 Beach Blvd, Huntington Beach, CA"},
+              {"title": "Severity:", "value": "CRITICAL"}
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "text": "Cr-VI 980 µg/kg (49x RSL). Asphalt cap failing over 2,247 cu ft HDPE Stormtech chambers.",
+            "wrap": true
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.OpenUrl",
+            "title": "Open in ArcGIS Web Map",
+            "url": "https://www.arcgis.com/home/webmap/viewer.html"
+          }
+        ]
+      };
+      document.getElementById('modal-card-json').innerText = JSON.stringify(sampleCard, null, 2);
+      document.getElementById('card-modal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('card-modal').classList.remove('active');
+    }
+
+    function copyCardJSON() {
+      const text = document.getElementById('modal-card-json').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Copied Microsoft Teams Adaptive Card JSON to clipboard!");
+      });
+    }
+
+    function downloadGeoJSON() {
+      window.location.href = "arcgis_for_teams_geojson.geojson";
+    }
+
+    function downloadEsriJSON() {
+      window.location.href = "arcgis_for_teams_feature_collection.json";
+    }
+  </script>
+</body>
+</html>
