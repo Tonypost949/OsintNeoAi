@@ -1,0 +1,82 @@
+{
+  "type": "message",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "contentUrl": null,
+      "content": {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.4",
+        "fallbackText": "ArcGIS Spatial Alert: HB Coastal Infrastructure",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "ArcGIS Spatial Alert",
+            "weight": "Bolder",
+            "size": "Medium",
+            "color": "Warning"
+          },
+          {
+            "type": "TextBlock",
+            "text": "HB Coastal Infrastructure",
+            "weight": "Bolder",
+            "wrap": true
+          },
+          {
+            "type": "FactSet",
+            "facts": [
+              {
+                "title": "Target ID:",
+                "value": "PROC-003"
+              },
+              {
+                "title": "Layer:",
+                "value": "PROCUREMENT"
+              },
+              {
+                "title": "Severity:",
+                "value": "MEDIUM"
+              },
+              {
+                "title": "Coordinates:",
+                "value": "33.676, -118.0"
+              },
+              {
+                "title": "Amount:",
+                "value": "$12,000,000"
+              },
+              {
+                "title": "Status:",
+                "value": "Under Review"
+              },
+              {
+                "title": "Source:",
+                "value": "Procurement portal"
+              }
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "text": "Public Works Under Review $12,000,000",
+            "wrap": true,
+            "size": "Small",
+            "isSubtle": true
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.OpenUrl",
+            "title": "Open in ArcGIS",
+            "url": "https://www.arcgis.com/home/webmap/viewer.html"
+          }
+        ],
+        "context": {
+          "generator": "arcgis_teams_card_generator.py",
+          "generated_utc": "2026-08-09T06:05:44Z",
+          "target_id": "PROC-003"
+        }
+      }
+    }
+  ]
+}

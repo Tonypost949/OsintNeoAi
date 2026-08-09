@@ -1,0 +1,74 @@
+{
+  "type": "message",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "contentUrl": null,
+      "content": {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.4",
+        "fallbackText": "ArcGIS Spatial Alert: HBNC Toxic Site",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "ArcGIS Spatial Alert",
+            "weight": "Bolder",
+            "size": "Medium",
+            "color": "Attention"
+          },
+          {
+            "type": "TextBlock",
+            "text": "HBNC Toxic Site",
+            "weight": "Bolder",
+            "wrap": true
+          },
+          {
+            "type": "FactSet",
+            "facts": [
+              {
+                "title": "Target ID:",
+                "value": "TOX-001"
+              },
+              {
+                "title": "Layer:",
+                "value": "TOXIC"
+              },
+              {
+                "title": "Severity:",
+                "value": "CRITICAL"
+              },
+              {
+                "title": "Coordinates:",
+                "value": "33.6775, -118.0012"
+              },
+              {
+                "title": "Source:",
+                "value": "CERCLA / Phase I ESA T10000018579"
+              }
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "text": "17642 Beach Blvd / 17631 Cameron Ln  |  Cr-VI 980 ug/kg (49x limit)  |  Asphalt cap FAILING  |  2,247 cu ft HDPE Stormtech chambers  |  Void ab initio clearance  |  $155M COC liability",
+            "wrap": true,
+            "size": "Small",
+            "isSubtle": true
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.OpenUrl",
+            "title": "Open in ArcGIS",
+            "url": "https://www.arcgis.com/home/webmap/viewer.html"
+          }
+        ],
+        "context": {
+          "generator": "arcgis_teams_card_generator.py",
+          "generated_utc": "2026-08-09T06:05:44Z",
+          "target_id": "TOX-001"
+        }
+      }
+    }
+  ]
+}

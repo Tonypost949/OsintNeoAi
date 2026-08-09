@@ -1,0 +1,4116 @@
+{
+  "generated_utc": "2026-08-09T06:05:44Z",
+  "post_to_teams_as": "application/vnd.microsoft.card.adaptive",
+  "cards": [
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: HBNC Toxic Site",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "HBNC Toxic Site",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "TOX-001"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "TOXIC"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "CRITICAL"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.6775, -118.0012"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "CERCLA / Phase I ESA T10000018579"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "17642 Beach Blvd / 17631 Cameron Ln  |  Cr-VI 980 ug/kg (49x limit)  |  Asphalt cap FAILING  |  2,247 cu ft HDPE Stormtech chambers  |  Void ab initio clearance  |  $155M COC liability",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "TOX-001"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Cameron Ln Parcel",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Cameron Ln Parcel",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "TOX-002"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "TOXIC"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.677, -118.0015"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Parcel survey"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "17631 Cameron Ln  |  Asbestos/Lead paint  |  Former ag pesticides  |  Yamada Trustee 1998",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "TOX-002"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: 7561 Center Ave Vaults",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "7561 Center Ave Vaults",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "TOX-003"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "TOXIC"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "CRITICAL"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.6927, -117.9974"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Parcel + PPP records"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Units D1-E1-G1-J1  |  4 shell LLCs  |  Underground concrete coffins  |  Chen-Yamada pipeline  |  $1.47M PPP / $1.13M PPP routing",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "TOX-003"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: 7561 Center Ave Vaults",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "7561 Center Ave Vaults",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "SINK-001"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "SINKHOLE"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.693, -117.9975"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Site assessment"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Underground concrete coffins / Chen-Yamada / 1960s-70s construction",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "SINK-001"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: HBNC Excavation",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "HBNC Excavation",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "SINK-002"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "SINKHOLE"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "CRITICAL"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.6778, -118.0015"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Site assessment"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Asphalt cap failure / Cr-VI soil disturbance / 2,247 cu ft HDPE chambers",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "SINK-002"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: El Toro Hangars",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Warning"
+              },
+              {
+                "type": "TextBlock",
+                "text": "El Toro Hangars",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "SINK-003"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "SINKHOLE"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "MEDIUM"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.6755, -117.7305"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Base closure"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Contaminated fill burial / Decommissioned MCAS El Toro / PFAS migration",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "SINK-003"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Stormtech Chamber Field",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Stormtech Chamber Field",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "SINK-004"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "SINKHOLE"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "CRITICAL"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.6773, -118.001"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Stormtech spec"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "HDPE Stormtech SC-740 / 2,247 cu ft / PVC manifold / corrosive soil",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "SINK-004"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Newport Shell Cluster",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Newport Shell Cluster",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "BH-001"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "BLACKHOLE"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.65, -117.895"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "LLC filings"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "20341-71 Irvine Ave  |  CSJ Mgmt / PL Jetty  |  $0 transfers",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "BH-001"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Pham Quitclaim Nexus",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Pham Quitclaim Nexus",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "BH-002"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "BLACKHOLE"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.745, -117.8125"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Deed records"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "2614 Orchard Dr / 7100 Cerritos #108 / 13801 Shirley #85  |  $0 quitclaims",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "BH-002"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Garnet St Routing",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Warning"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Garnet St Routing",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "BH-003"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "BLACKHOLE"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "MEDIUM"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.753, -117.9905"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Mail routing"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "15822 Garnet St  |  CMRA layer  |  Dylan & Andrew mailbox",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "BH-003"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: PCH CMRA",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "PCH CMRA",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "BH-004"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "BLACKHOLE"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.7505, -118.0955"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "PPP addresses"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "1077 Pacific Coast Hwy #247  |  Stewart mailbox  |  Battle Creek MI",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "BH-004"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Triumvirate LLC",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Triumvirate LLC",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "LLC-001"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "LLC"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.707, -117.958"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "PPP/SBA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "21951 Brookhurst St  |  PPP $1,471,840  |  Anchorage AK mailbox",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "LLC-001"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Stewart Industrial",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Stewart Industrial",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "LLC-002"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "LLC"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.753, -118.072"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "PPP/SBA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "3311 Bounty Cir  |  PPP $1,128,327  |  1076 PCH #247 CMRA",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "LLC-002"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: CP Premier 1",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "CP Premier 1",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "LLC-003"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "LLC"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.808, -118.002"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Deed"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "7100 Cerritos Ave #108  |  Peter Pham $0 quitclaim",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "LLC-003"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: CP Premier 2",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "CP Premier 2",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "LLC-004"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "LLC"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.774, -117.987"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Deed"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "13801 Shirley St #85  |  Peter Pham $0 quitclaim",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "LLC-004"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Garnet Drop",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Warning"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Garnet Drop",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "LLC-005"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "LLC"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "MEDIUM"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.753, -117.99"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Mail routing"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "15821-15822 Garnet St  |  Dylan & Andrew mailbox CMRA",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "LLC-005"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Newport LLC Cluster",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Warning"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Newport LLC Cluster",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "LLC-006"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "LLC"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "MEDIUM"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.65, -117.89"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "LLC filings"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "20341-91 Irvine Ave  |  CSJ/PL Jetty shell cluster",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "LLC-006"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Pham Residence",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Warning"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Pham Residence",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "LLC-007"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "LLC"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "MEDIUM"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.745, -117.812"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Deed"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "2614 Orchard Dr Tustin  |  Peter Pham nexus",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "LLC-007"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Stewart PPP",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Warning"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Stewart PPP",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "LLC-008"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "LLC"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "MEDIUM"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.755, -117.99"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "PPP/SBA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "PPP $1,128,327  |  Bounty Cir  |  Battle Creek MI",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "LLC-008"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Triumvirate PPP",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Warning"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Triumvirate PPP",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "LLC-009"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "LLC"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "MEDIUM"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.725, -117.97"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "PPP/SBA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "PPP $1,471,840  |  Brookhurst  |  3705 Arctic Blvd AK",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "LLC-009"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: ONNI HB LLC",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "ONNI HB LLC",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "LLC-010"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "LLC"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.687, -117.988"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "PPP/SBA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "$97.25M  |  17011 Beach Blvd  |  Phoenix mail",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "LLC-010"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Corte Bella TruAmerica",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Corte Bella TruAmerica",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "LLC-011"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "LLC"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.683, -117.994"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "PPP/SBA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "$85.75M  |  9543 Dixie St  |  Woodland Hills mail",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "LLC-011"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Sendero Riverbend",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Sendero Riverbend",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "LLC-012"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "LLC"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.683, -117.994"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "PPP/SBA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "$70M  |  8955 Riverbend Dr  |  LA mail",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "LLC-012"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: SCG Edinger Plaza",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "SCG Edinger Plaza",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "LLC-013"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "LLC"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.689, -117.985"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "PPP/SBA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "$65.5M  |  7542 Edinger Ave  |  SF mail",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "LLC-013"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: USDC CD CA — Knabb v. HB RICO / Qui Tam coordination",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "USDC CD CA — Knabb v. HB RICO / Qui Tam coordination",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "FCA-HIT-001"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "FCA"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "CRITICAL"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.748, -117.87"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Federal docket"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "FCA-HIT-001"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: USDC CD CA LA — EPA OIG referral",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "USDC CD CA LA — EPA OIG referral",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "FCA-HIT-007"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "FCA"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "CRITICAL"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "34.05, -118.25"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "OIG referral"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "FCA-HIT-007"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: DOJ Civil Division — qui tam notice",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "DOJ Civil Division — qui tam notice",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "FCA-HIT-012"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "FCA"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "38.907, -77.037"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "DOJ notice"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "FCA-HIT-012"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Qui Tam complaint under seal",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Qui Tam complaint under seal",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "FCA-HIT-019"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "FCA"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "CRITICAL"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.748, -117.87"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Sealed complaint"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "FCA-HIT-019"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Relator disclosure served",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Relator disclosure served",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "FCA-HIT-024"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "FCA"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.676, -118.0015"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Relator disclosure"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "FCA-HIT-024"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: HBNC Child Deaths",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "HBNC Child Deaths",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "CPS-001"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "CPS"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "CRITICAL"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.6775, -118.0012"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "OC HCA 20IC002"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "4 confirmed deaths  |  279 emergencies  |  CERCLA toxics exposure",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "CPS-001"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: OC DA Block",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "OC DA Block",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "CPS-002"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "CPS"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.748, -117.87"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Referral log"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "No action on trafficking referrals",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "CPS-002"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: HB City Hall",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "HB City Hall",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "CPS-003"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "CPS"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.676, -118.0015"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Ordinance 4289"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "CEQA exemption fraud  |  Blocked reporting",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "CPS-003"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Anaheim CPS Hub",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Anaheim CPS Hub",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "CPS-004"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "CPS"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.835, -117.91"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Licensing"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Shelter billing cluster  |  COVID fraud",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "CPS-004"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: LA County IV-E",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "LA County IV-E",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "CPS-005"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "CPS"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "34.05, -118.25"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "IV-E claims"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "IV-E billing nexus",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "CPS-005"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: OC Sheriff Body Cams",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Warning"
+              },
+              {
+                "type": "TextBlock",
+                "text": "OC Sheriff Body Cams",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "PROC-001"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "PROCUREMENT"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "MEDIUM"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.715, -117.85"
+                  },
+                  {
+                    "title": "Amount:",
+                    "value": "$8,500,000"
+                  },
+                  {
+                    "title": "Status:",
+                    "value": "Open"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Procurement portal"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Sheriff Open $8,500,000",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "PROC-001"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: County IT Security",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Warning"
+              },
+              {
+                "type": "TextBlock",
+                "text": "County IT Security",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "PROC-002"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "PROCUREMENT"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "MEDIUM"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.748, -117.87"
+                  },
+                  {
+                    "title": "Amount:",
+                    "value": "$2,500,000"
+                  },
+                  {
+                    "title": "Status:",
+                    "value": "Open"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Procurement portal"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "IT Open $2,500,000",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "PROC-002"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: HB Coastal Infrastructure",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Warning"
+              },
+              {
+                "type": "TextBlock",
+                "text": "HB Coastal Infrastructure",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "PROC-003"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "PROCUREMENT"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "MEDIUM"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.676, -118.0"
+                  },
+                  {
+                    "title": "Amount:",
+                    "value": "$12,000,000"
+                  },
+                  {
+                    "title": "Status:",
+                    "value": "Under Review"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Procurement portal"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Public Works Under Review $12,000,000",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "PROC-003"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Anaheim Housing RFQ",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Good"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Anaheim Housing RFQ",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "PROC-004"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "PROCUREMENT"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "INFO"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.835, -117.91"
+                  },
+                  {
+                    "title": "Amount:",
+                    "value": "$4,500,000"
+                  },
+                  {
+                    "title": "Status:",
+                    "value": "Closed"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Procurement portal"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Housing Closed $4,500,000",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "PROC-004"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: HBNC 155M Remediation",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "HBNC 155M Remediation",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "PROC-005"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "PROCUREMENT"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "CRITICAL"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "33.6775, -118.0012"
+                  },
+                  {
+                    "title": "Amount:",
+                    "value": "$155,000,000"
+                  },
+                  {
+                    "title": "Status:",
+                    "value": "VOID"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Procurement portal"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "OCHCA/DPW VOID $155,000,000",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "PROC-005"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: I-405 Freeway Corridor",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Good"
+              },
+              {
+                "type": "TextBlock",
+                "text": "I-405 Freeway Corridor",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "I-405_FREEWAY_CORRIDOR"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "INFRA"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "INFO"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "0, 0"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Transport"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "I-405 Freeway Corridor",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "I-405_FREEWAY_CORRIDOR"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Pacific Coast Hwy (PCH)",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Good"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Pacific Coast Hwy (PCH)",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "PACIFIC_COAST_HWY_(PCH)"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "INFRA"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "INFO"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "0, 0"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Transport"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Pacific Coast Hwy (PCH)",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "PACIFIC_COAST_HWY_(PCH)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Beach Boulevard",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Good"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Beach Boulevard",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "BEACH_BOULEVARD"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "INFRA"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "INFO"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "0, 0"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Transport"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Beach Boulevard",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "BEACH_BOULEVARD"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: HDPE Stormtech Chambers",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "HDPE Stormtech Chambers",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "HDPE_STORMTECH_CHAMBERS"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "INFRA"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "CRITICAL"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "0, 0"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Concealed infrastructure"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "HDPE Stormtech Chambers",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "HDPE_STORMTECH_CHAMBERS"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Cr-VI plume vector 1",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Cr-VI plume vector 1",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "PLUME-001"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "PLUME"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "0, 0"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Phase I ESA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "PLUME-001"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Cr-VI plume vector 2",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Cr-VI plume vector 2",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "PLUME-002"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "PLUME"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "0, 0"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Phase I ESA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "PLUME-002"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Cr-VI plume vector 3",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Cr-VI plume vector 3",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "PLUME-003"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "PLUME"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "0, 0"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Phase I ESA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "PLUME-003"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Cr-VI plume vector 4",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Cr-VI plume vector 4",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "PLUME-004"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "PLUME"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "0, 0"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Phase I ESA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "PLUME-004"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Cr-VI plume vector 5",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Cr-VI plume vector 5",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "PLUME-005"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "PLUME"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "0, 0"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Phase I ESA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "PLUME-005"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Cr-VI plume vector 6",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Cr-VI plume vector 6",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "PLUME-006"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "PLUME"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "0, 0"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Phase I ESA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "PLUME-006"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Cr-VI plume vector 7",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Cr-VI plume vector 7",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "PLUME-007"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "PLUME"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "0, 0"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Phase I ESA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "PLUME-007"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Cr-VI plume vector 8",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Cr-VI plume vector 8",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "PLUME-008"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "PLUME"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "0, 0"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Phase I ESA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "PLUME-008"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Cr-VI plume vector 9",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Cr-VI plume vector 9",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "PLUME-009"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "PLUME"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "0, 0"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Phase I ESA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "PLUME-009"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Cr-VI plume vector 10",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Cr-VI plume vector 10",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "PLUME-010"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "PLUME"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "0, 0"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Phase I ESA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "PLUME-010"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Cr-VI plume vector 11",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Cr-VI plume vector 11",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "PLUME-011"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "PLUME"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "0, 0"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Phase I ESA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "PLUME-011"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "message",
+      "attachments": [
+        {
+          "contentType": "application/vnd.microsoft.card.adaptive",
+          "contentUrl": null,
+          "content": {
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+            "type": "AdaptiveCard",
+            "version": "1.4",
+            "fallbackText": "ArcGIS Spatial Alert: Cr-VI plume vector 12",
+            "body": [
+              {
+                "type": "TextBlock",
+                "text": "ArcGIS Spatial Alert",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention"
+              },
+              {
+                "type": "TextBlock",
+                "text": "Cr-VI plume vector 12",
+                "weight": "Bolder",
+                "wrap": true
+              },
+              {
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Target ID:",
+                    "value": "PLUME-012"
+                  },
+                  {
+                    "title": "Layer:",
+                    "value": "PLUME"
+                  },
+                  {
+                    "title": "Severity:",
+                    "value": "HIGH"
+                  },
+                  {
+                    "title": "Coordinates:",
+                    "value": "0, 0"
+                  },
+                  {
+                    "title": "Source:",
+                    "value": "Phase I ESA"
+                  }
+                ]
+              },
+              {
+                "type": "TextBlock",
+                "text": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+                "wrap": true,
+                "size": "Small",
+                "isSubtle": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.OpenUrl",
+                "title": "Open in ArcGIS",
+                "url": "https://www.arcgis.com/home/webmap/viewer.html"
+              }
+            ],
+            "context": {
+              "generator": "arcgis_teams_card_generator.py",
+              "generated_utc": "2026-08-09T06:05:44Z",
+              "target_id": "PLUME-012"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "type": "message",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "contentUrl": null,
+      "content": {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.4",
+        "fallbackText": "ArcGIS Spatial Alert: Cr-VI plume vector 4",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "ArcGIS Spatial Alert",
+            "weight": "Bolder",
+            "size": "Medium",
+            "color": "Attention"
+          },
+          {
+            "type": "TextBlock",
+            "text": "Cr-VI plume vector 4",
+            "weight": "Bolder",
+            "wrap": true
+          },
+          {
+            "type": "FactSet",
+            "facts": [
+              {
+                "title": "Target ID:",
+                "value": "PLUME-004"
+              },
+              {
+                "title": "Layer:",
+                "value": "PLUME"
+              },
+              {
+                "title": "Severity:",
+                "value": "HIGH"
+              },
+              {
+                "title": "Coordinates:",
+                "value": "0, 0"
+              },
+              {
+                "title": "Source:",
+                "value": "Phase I ESA"
+              }
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "text": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+            "wrap": true,
+            "size": "Small",
+            "isSubtle": true
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.OpenUrl",
+            "title": "Open in ArcGIS",
+            "url": "https://www.arcgis.com/home/webmap/viewer.html"
+          }
+        ],
+        "context": {
+          "generator": "arcgis_teams_card_generator.py",
+          "generated_utc": "2026-08-09T06:05:44Z",
+          "target_id": "PLUME-004"
+        }
+      }
+    }
+  ]
+}

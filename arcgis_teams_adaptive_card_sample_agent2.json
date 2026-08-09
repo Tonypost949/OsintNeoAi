@@ -1,0 +1,146 @@
+﻿[
+  {
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.4",
+    "body": [
+      {
+        "type": "Container",
+        "items": [
+          {
+            "type": "TextBlock",
+            "text": "\ud83d\uddfa\ufe0f ArcGIS Spatial Intel Alert \u2014 HBNC Toxic Site",
+            "weight": "Bolder",
+            "size": "Medium",
+            "color": "Attention"
+          },
+          {
+            "type": "TextBlock",
+            "text": "OSINT Neo AI / Makaveli Spatial Target | Case Ref: 8:26-cv-00348",
+            "isSubtle": true,
+            "spacing": "None"
+          }
+        ]
+      },
+      {
+        "type": "FactSet",
+        "facts": [
+          {
+            "title": "Target ID:",
+            "value": "TOX-001"
+          },
+          {
+            "title": "Category:",
+            "value": "Toxic Contaminated Plume"
+          },
+          {
+            "title": "Severity:",
+            "value": "CRITICAL"
+          },
+          {
+            "title": "APN:",
+            "value": "102-451-09"
+          },
+          {
+            "title": "Address:",
+            "value": "17642 Beach Blvd / 17631 Cameron Ln, Huntington Beach, CA"
+          },
+          {
+            "title": "Coordinates:",
+            "value": "33.6775, -118.0012"
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "text": "Hexavalent Chromium (Cr-VI) 980 \u00b5g/kg (49x RSL). Asphalt cap failing over 2,247 cu ft HDPE Stormtech chambers. $155M COC liability.",
+        "wrap": true,
+        "spacing": "Small"
+      }
+    ],
+    "actions": [
+      {
+        "type": "Action.OpenUrl",
+        "title": "\ud83c\udf10 Open in ArcGIS Web Map",
+        "url": "https://www.arcgis.com/home/webmap/viewer.html?center=-118.0012,33.6775&level=17"
+      },
+      {
+        "type": "Action.OpenUrl",
+        "title": "\ud83d\udccd View Interactive Recon GIS Map",
+        "url": "https://github.com/Tonypost949/OsintNeoAi/blob/main/hbnc_rico_gis.html"
+      }
+    ]
+  },
+  {
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.4",
+    "body": [
+      {
+        "type": "Container",
+        "items": [
+          {
+            "type": "TextBlock",
+            "text": "\ud83d\uddfa\ufe0f ArcGIS Spatial Intel Alert \u2014 7561 Center Ave Vaults",
+            "weight": "Bolder",
+            "size": "Medium",
+            "color": "Attention"
+          },
+          {
+            "type": "TextBlock",
+            "text": "OSINT Neo AI / Makaveli Spatial Target | Case Ref: 8:26-cv-00348",
+            "isSubtle": true,
+            "spacing": "None"
+          }
+        ]
+      },
+      {
+        "type": "FactSet",
+        "facts": [
+          {
+            "title": "Target ID:",
+            "value": "TOX-003"
+          },
+          {
+            "title": "Category:",
+            "value": "Underground Vault / Shell Routing"
+          },
+          {
+            "title": "Severity:",
+            "value": "CRITICAL"
+          },
+          {
+            "title": "APN:",
+            "value": "107-120-14"
+          },
+          {
+            "title": "Address:",
+            "value": "7561 Center Ave, Units D1-E1-G3-J1, Huntington Beach, CA"
+          },
+          {
+            "title": "Coordinates:",
+            "value": "33.6927, -117.9974"
+          }
+        ]
+      },
+      {
+        "type": "TextBlock",
+        "text": "Underground concrete coffins (1960s-70s). 4 shell LLCs. Chen-Yamada pipeline routing $1.47M PPP funds.",
+        "wrap": true,
+        "spacing": "Small"
+      }
+    ],
+    "actions": [
+      {
+        "type": "Action.OpenUrl",
+        "title": "\ud83c\udf10 Open in ArcGIS Web Map",
+        "url": "https://www.arcgis.com/home/webmap/viewer.html?center=-117.9974,33.6927&level=17"
+      },
+      {
+        "type": "Action.OpenUrl",
+        "title": "\ud83d\udccd View Interactive Recon GIS Map",
+        "url": "https://github.com/Tonypost949/OsintNeoAi/blob/main/hbnc_rico_gis.html"
+      }
+    ]
+  }
+]

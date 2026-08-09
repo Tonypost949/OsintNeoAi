@@ -1,0 +1,74 @@
+{
+  "type": "message",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "contentUrl": null,
+      "content": {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.4",
+        "fallbackText": "ArcGIS Spatial Alert: ONNI HB LLC",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "ArcGIS Spatial Alert",
+            "weight": "Bolder",
+            "size": "Medium",
+            "color": "Attention"
+          },
+          {
+            "type": "TextBlock",
+            "text": "ONNI HB LLC",
+            "weight": "Bolder",
+            "wrap": true
+          },
+          {
+            "type": "FactSet",
+            "facts": [
+              {
+                "title": "Target ID:",
+                "value": "LLC-010"
+              },
+              {
+                "title": "Layer:",
+                "value": "LLC"
+              },
+              {
+                "title": "Severity:",
+                "value": "HIGH"
+              },
+              {
+                "title": "Coordinates:",
+                "value": "33.687, -117.988"
+              },
+              {
+                "title": "Source:",
+                "value": "PPP/SBA"
+              }
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "text": "$97.25M  |  17011 Beach Blvd  |  Phoenix mail",
+            "wrap": true,
+            "size": "Small",
+            "isSubtle": true
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.OpenUrl",
+            "title": "Open in ArcGIS",
+            "url": "https://www.arcgis.com/home/webmap/viewer.html"
+          }
+        ],
+        "context": {
+          "generator": "arcgis_teams_card_generator.py",
+          "generated_utc": "2026-08-09T06:05:44Z",
+          "target_id": "LLC-010"
+        }
+      }
+    }
+  ]
+}

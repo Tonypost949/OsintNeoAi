@@ -1,0 +1,74 @@
+{
+  "type": "message",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "contentUrl": null,
+      "content": {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.4",
+        "fallbackText": "ArcGIS Spatial Alert: Pham Quitclaim Nexus",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "ArcGIS Spatial Alert",
+            "weight": "Bolder",
+            "size": "Medium",
+            "color": "Attention"
+          },
+          {
+            "type": "TextBlock",
+            "text": "Pham Quitclaim Nexus",
+            "weight": "Bolder",
+            "wrap": true
+          },
+          {
+            "type": "FactSet",
+            "facts": [
+              {
+                "title": "Target ID:",
+                "value": "BH-002"
+              },
+              {
+                "title": "Layer:",
+                "value": "BLACKHOLE"
+              },
+              {
+                "title": "Severity:",
+                "value": "HIGH"
+              },
+              {
+                "title": "Coordinates:",
+                "value": "33.745, -117.8125"
+              },
+              {
+                "title": "Source:",
+                "value": "Deed records"
+              }
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "text": "2614 Orchard Dr / 7100 Cerritos #108 / 13801 Shirley #85  |  $0 quitclaims",
+            "wrap": true,
+            "size": "Small",
+            "isSubtle": true
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.OpenUrl",
+            "title": "Open in ArcGIS",
+            "url": "https://www.arcgis.com/home/webmap/viewer.html"
+          }
+        ],
+        "context": {
+          "generator": "arcgis_teams_card_generator.py",
+          "generated_utc": "2026-08-09T06:05:44Z",
+          "target_id": "BH-002"
+        }
+      }
+    }
+  ]
+}

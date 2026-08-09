@@ -1,0 +1,180 @@
+﻿{
+  "type": "FeatureCollection",
+  "name": "OSINT_Neo_AI_ArcGIS_Teams_Spatial_Intel",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0012,
+          33.6775
+        ]
+      },
+      "properties": {
+        "ID": "TOX-001",
+        "Name": "HBNC Toxic Site",
+        "Type": "Toxic Site",
+        "Category": "Toxic",
+        "Address": "17642 Beach Blvd / 17631 Cameron Ln, Huntington Beach, CA",
+        "APN": "102-451-09",
+        "Severity": "CRITICAL",
+        "Description": "Cr-VI 980 \u00b5g/kg (49x RSL). Asphalt cap failing. 2,247 cu ft HDPE Stormtech chambers. Void ab initio clearance. $155M COC liability.",
+        "Case_Ref": "8:26-cv-00348"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0015,
+          33.677
+        ]
+      },
+      "properties": {
+        "ID": "TOX-002",
+        "Name": "Cameron Ln Parcel",
+        "Type": "Toxic Site",
+        "Category": "Toxic",
+        "Address": "17631 Cameron Ln, Huntington Beach, CA",
+        "APN": "102-451-10",
+        "Severity": "HIGH",
+        "Description": "Asbestos/Lead paint. Former agricultural pesticides. Yamada Trustee 1998 acquisition.",
+        "Case_Ref": "8:26-cv-00348"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.9974,
+          33.6927
+        ]
+      },
+      "properties": {
+        "ID": "TOX-003",
+        "Name": "Center Ave Vaults",
+        "Type": "Underground Vault",
+        "Category": "Toxic",
+        "Address": "7561 Center Ave, Units D1-E1-G3-J1, Huntington Beach, CA",
+        "APN": "107-120-14",
+        "Severity": "CRITICAL",
+        "Description": "Underground concrete vaults (1960s-70s). 4 shell LLCs. Chen-Yamada pipeline routing $1.47M PPP.",
+        "Case_Ref": "8:26-cv-00348"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.072,
+          33.753
+        ]
+      },
+      "properties": {
+        "ID": "LLC-001",
+        "Name": "Stewart Industrial Entity",
+        "Type": "Shell LLC",
+        "Category": "LLC Shell",
+        "Address": "10832 Stewart St, Westminster, CA",
+        "APN": "097-220-04",
+        "Severity": "MEDIUM",
+        "Description": "Primary registration hub for regional LLCs. Routing hub to PCH CMRA.",
+        "Case_Ref": "8:26-cv-00348"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.895,
+          33.65
+        ]
+      },
+      "properties": {
+        "ID": "LLC-002",
+        "Name": "Newport Shell Cluster",
+        "Type": "Shell LLC",
+        "Category": "LLC Shell",
+        "Address": "20341 Irvine Ave, Newport Beach, CA",
+        "APN": "439-011-02",
+        "Severity": "HIGH",
+        "Description": "CSJ Management / PL Jetty $0 transfers hub.",
+        "Case_Ref": "8:26-cv-00348"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.8125,
+          33.745
+        ]
+      },
+      "properties": {
+        "ID": "LLC-003",
+        "Name": "Pham Quitclaim Nexus",
+        "Type": "Quitclaim Target",
+        "Category": "LLC Shell",
+        "Address": "2614 Orchard Dr, Santa Ana, CA",
+        "APN": "011-340-19",
+        "Severity": "HIGH",
+        "Description": "Quitclaim deed transfer hub ($0 consideration). Pham Family Trust.",
+        "Case_Ref": "8:26-cv-00348"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.9992,
+          33.6603
+        ]
+      },
+      "properties": {
+        "ID": "INF-001",
+        "Name": "Huntington Beach Police Dept",
+        "Type": "Municipal Node",
+        "Category": "Infrastructure",
+        "Address": "2000 Main St, Huntington Beach, CA",
+        "APN": "158-091-01",
+        "Severity": "INFO",
+        "Description": "Municipal Police HQ. Network port audit target site.",
+        "Case_Ref": "8:26-cv-00348"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.9985,
+          33.6598
+        ]
+      },
+      "properties": {
+        "ID": "INF-002",
+        "Name": "Huntington Beach City Hall",
+        "Type": "Municipal Node",
+        "Category": "Infrastructure",
+        "Address": "2000 Main St, Huntington Beach, CA",
+        "APN": "158-091-02",
+        "Severity": "INFO",
+        "Description": "Huntington Beach City Hall & CEQA record repository.",
+        "Case_Ref": "8:26-cv-00348"
+      }
+    }
+  ]
+}

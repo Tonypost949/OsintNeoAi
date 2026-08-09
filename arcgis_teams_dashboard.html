@@ -1,615 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ArcGIS for Teams — OSINT Neo AI Spatial Intelligence Hub</title>
-  
-  <!-- Google Fonts & Leaflet CSS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <style>
-    :root {
-      --bg-dark: #090c10;
-      --bg-card: #131822;
-      --bg-glass: rgba(19, 24, 34, 0.85);
-      --border-color: rgba(255, 255, 255, 0.1);
-      --border-active: #00e5ff;
-      --text-main: #f0f6fc;
-      --text-muted: #8b949e;
-      --accent-cyan: #00e5ff;
-      --accent-toxic: #ff3b30;
-      --accent-warning: #ffcc00;
-      --accent-purple: #bf5af2;
-      --accent-green: #30d158;
-      --font-body: 'Inter', sans-serif;
-      --font-heading: 'Outfit', sans-serif;
-      --font-code: 'Fira Code', monospace;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body, html {
-      width: 100%;
-      height: 100%;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      font-family: var(--font-body);
-      overflow: hidden;
-    }
-
-    /* Layout structure */
-    .app-container {
-      display: grid;
-      grid-template-rows: 60px 1fr;
-      height: 100vh;
-    }
-
-    /* Top Bar for Teams Header Integration */
-    header {
-      background: rgba(13, 17, 23, 0.95);
-      border-bottom: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-      backdrop-filter: blur(12px);
-      z-index: 2000;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand-icon {
-      width: 32px;
-      height: 32px;
-      background: linear-gradient(135deg, #00e5ff, #bf5af2);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 16px;
-      color: #000;
-      box-shadow: 0 0 12px rgba(0, 229, 255, 0.4);
-    }
-
-    .brand-text h1 {
-      font-family: var(--font-heading);
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      color: #fff;
-    }
-
-    .brand-text span {
-      font-size: 11px;
-      color: var(--accent-cyan);
-      font-family: var(--font-code);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .btn {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 500;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s ease;
-    }
-
-    .btn:hover {
-      background: rgba(0, 229, 255, 0.15);
-      border-color: var(--accent-cyan);
-      color: var(--accent-cyan);
-      box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #00e5ff, #0088ff);
-      color: #000;
-      border: none;
-      font-weight: 600;
-    }
-
-    .btn-primary:hover {
-      opacity: 0.9;
-      color: #000;
-      box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
-    }
-
-    /* Main Content Area */
-    .main-body {
-      display: grid;
-      grid-template-columns: 340px 1fr;
-      height: calc(100vh - 60px);
-    }
-
-    /* Sidebar Panel */
-    .sidebar {
-      background: var(--bg-card);
-      border-right: 1px solid var(--border-color);
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      overflow-y: auto;
-    }
-
-    .section-title {
-      font-family: var(--font-heading);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    /* HUD Stats Grid */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .stat-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border-color);
-      padding: 12px;
-      border-radius: 8px;
-    }
-
-    .stat-value {
-      font-family: var(--font-heading);
-      font-size: 20px;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    .stat-label {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    /* Target List */
-    .target-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .target-item {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 12px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .target-item:hover, .target-item.active {
-      border-color: var(--accent-cyan);
-      background: rgba(0, 229, 255, 0.05);
-    }
-
-    .target-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 6px;
-    }
-
-    .target-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: #fff;
-    }
-
-    .badge {
-      font-size: 9px;
-      font-family: var(--font-code);
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .badge-critical { background: rgba(255, 59, 48, 0.2); color: var(--accent-toxic); border: 1px solid rgba(255, 59, 48, 0.4); }
-    .badge-high { background: rgba(255, 204, 0, 0.2); color: var(--accent-warning); border: 1px solid rgba(255, 204, 0, 0.4); }
-    .badge-info { background: rgba(48, 209, 88, 0.2); color: var(--accent-green); border: 1px solid rgba(48, 209, 88, 0.4); }
-
-    .target-desc {
-      font-size: 11px;
-      color: var(--text-muted);
-      line-height: 1.4;
-    }
-
-    .target-meta {
-      font-family: var(--font-code);
-      font-size: 10px;
-      color: var(--accent-cyan);
-      margin-top: 6px;
-    }
-
-    /* Map Area */
-    .map-container {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-
-    #map {
-      width: 100%;
-      height: 100%;
-      background: #05070a;
-    }
-
-    /* Floating Controls */
-    .map-hud {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      z-index: 1000;
-      background: var(--bg-glass);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 10px 14px;
-      backdrop-filter: blur(12px);
-      font-family: var(--font-code);
-      font-size: 11px;
-      color: var(--text-muted);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .map-hud span {
-      color: var(--accent-cyan);
-      font-weight: 600;
-    }
-
-    /* Modal Dialog */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(8px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 3000;
-    }
-
-    .modal-overlay.active {
-      display: flex;
-    }
-
-    .modal-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      width: 540px;
-      max-width: 90%;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-    }
-
-    .modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
-
-    .modal-title {
-      font-family: var(--font-heading);
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    .modal-close {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      font-size: 20px;
-      cursor: pointer;
-    }
-
-    .card-preview {
-      background: #1c212d;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 16px;
-      font-family: var(--font-code);
-      font-size: 11px;
-      color: var(--accent-cyan);
-      max-height: 260px;
-      overflow-y: auto;
-      white-space: pre-wrap;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSINT Neo AI Spatial Dashboard</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body,#map{width:100%;height:100%;background:#0b0f0b;font-family:Segoe UI,system-ui,sans-serif}
+#list{position:fixed;top:0;left:0;bottom:0;width:330px;background:rgba(8,12,8,0.97);border-right:1px solid #223;z-index:1000;overflow-y:auto}
+#list h1{padding:14px;font-size:13px;color:#7ef07e;border-bottom:1px solid #223a22;letter-spacing:1px}
+#list h1 small{display:block;color:#556;font-weight:400;font-size:10px;margin-top:4px;letter-spacing:0}
+.entry{padding:10px 14px;border-bottom:1px solid #162216;cursor:pointer}
+.entry:hover{background:#12221a}
+.entry .sev{display:inline-block;padding:1px 8px;border-radius:10px;color:#000;font-size:9px;font-weight:800;margin-right:8px}
+.entry .nm{color:#dfe;font-size:12px}
+.entry .dst{color:#778;font-size:10px;margin-top:3px}
+.entry .ly{color:#4a4;font-size:9px;text-transform:uppercase;letter-spacing:1px;margin-top:3px}
+#card{position:fixed;bottom:12px;left:12px;width:300px;background:#202a20;border:1px solid #3a553a;border-radius:12px;padding:12px 14px;z-index:1500;box-shadow:0 6px 24px #000c;display:none}
+#card h3{color:#ff6b6b;font-size:13px;margin-bottom:6px}
+#card .r{font-size:11px;color:#cde;margin:2px 0}
+#card .r b{color:#fff;display:inline-block;width:92px}
+#card a{display:inline-block;margin-top:8px;color:#6f6;font-size:11px;text-decoration:none}
+#legend{position:fixed;right:12px;bottom:12px;background:rgba(8,12,8,.9);border:1px solid #223;border-radius:8px;padding:8px 10px;font-size:10px;color:#9aa;z-index:1000;line-height:1.8}
+#legend .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+@media(max-width:700px){#list{width:100%;height:45%}#map{top:45%}}
+</style>
 </head>
 <body>
-
-  <div class="app-container">
-    <!-- Header -->
-    <header>
-      <div class="brand">
-        <div class="brand-icon">A</div>
-        <div class="brand-text">
-          <h1>ArcGIS for Teams Spatial Intelligence</h1>
-          <span>OSINT Neo AI • Case CACD 8:26-cv-00348</span>
-        </div>
-      </div>
-      <div class="header-actions">
-        <button class="btn" id="btn-export-geojson" onclick="downloadGeoJSON()">
-          📥 Export GeoJSON
-        </button>
-        <button class="btn" id="btn-export-esri" onclick="downloadEsriJSON()">
-          🗺️ Esri Layer JSON
-        </button>
-        <button class="btn btn-primary" id="btn-share-teams" onclick="openTeamsCardModal()">
-          💬 Share Adaptive Card to Teams
-        </button>
-      </div>
-    </header>
-
-    <!-- Main Content -->
-    <div class="main-body">
-      <!-- Sidebar -->
-      <aside class="sidebar">
-        <div>
-          <div class="section-title">Spatial Metrics HUD</div>
-          <div class="stats-grid">
-            <div class="stat-card">
-              <div class="stat-value" style="color: var(--accent-toxic);">980 µg</div>
-              <div class="stat-label">Cr-VI Peak (49x RSL)</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value" style="color: var(--accent-cyan);">8 Targets</div>
-              <div class="stat-label">Mapped Parcels</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value" style="color: var(--accent-warning);">4 LLCs</div>
-              <div class="stat-label">Shell Routing Hubs</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value" style="color: var(--accent-purple);">$155M</div>
-              <div class="stat-label">Estimated COC Liability</div>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div class="section-title">Target Spatial Layers</div>
-          <div class="target-list" id="target-list">
-            <!-- Populated dynamically -->
-          </div>
-        </div>
-      </aside>
-
-      <!-- Map Display -->
-      <main class="map-container">
-        <div class="map-hud">
-          ACTIVE MAP VIEW: <span>Huntington Beach & Orange County Spatial Matrix</span>
-        </div>
-        <div id="map"></div>
-      </main>
-    </div>
-  </div>
-
-  <!-- Adaptive Card Modal -->
-  <div class="modal-overlay" id="card-modal">
-    <div class="modal-box">
-      <div class="modal-header">
-        <div class="modal-title">Microsoft Teams Adaptive Card Spec</div>
-        <button class="modal-close" onclick="closeModal()">✕</button>
-      </div>
-      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
-        Ready to post directly via Microsoft Teams Webhook or ArcGIS for Teams Bot:
-      </p>
-      <div class="card-preview" id="modal-card-json">Loading JSON...</div>
-      <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 16px;">
-        <button class="btn" onclick="closeModal()">Close</button>
-        <button class="btn btn-primary" onclick="copyCardJSON()">📋 Copy Adaptive Card JSON</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Spatial Targets Data
-    const targets = [
-      {
-        id: "TOX-001",
-        name: "HBNC Toxic Site",
-        category: "Toxic Site",
-        severity: "CRITICAL",
-        lat: 33.6775,
-        lng: -118.0012,
-        address: "17642 Beach Blvd / 17631 Cameron Ln",
-        apn: "102-451-09",
-        desc: "Cr-VI 980 µg/kg (49x RSL). Asphalt cap failing over 2,247 cu ft HDPE Stormtech chambers."
-      },
-      {
-        id: "TOX-002",
-        name: "Cameron Ln Parcel",
-        category: "Toxic Site",
-        severity: "HIGH",
-        lat: 33.6770,
-        lng: -118.0015,
-        address: "17631 Cameron Ln",
-        apn: "102-451-10",
-        desc: "Asbestos & Lead paint contamination. Former ag pesticides."
-      },
-      {
-        id: "TOX-003",
-        name: "Center Ave Vaults",
-        category: "Underground Vault",
-        severity: "CRITICAL",
-        lat: 33.6927,
-        lng: -117.9974,
-        address: "7561 Center Ave, Units D1-E1-G3-J1",
-        apn: "107-120-14",
-        desc: "Underground concrete coffins (1960s-70s). Chen-Yamada $1.47M PPP routing hub."
-      },
-      {
-        id: "LLC-001",
-        name: "Stewart Industrial Entity",
-        category: "Shell LLC",
-        severity: "HIGH",
-        lat: 33.7530,
-        lng: -118.0720,
-        address: "10832 Stewart St, Westminster, CA",
-        apn: "097-220-04",
-        desc: "Regional LLC registration hub. Direct routing to PCH CMRA."
-      },
-      {
-        id: "INF-001",
-        name: "HBPD Police Headquarters",
-        category: "Infrastructure",
-        severity: "INFO",
-        lat: 33.6603,
-        lng: -117.9992,
-        address: "2000 Main St, Huntington Beach, CA",
-        apn: "158-091-01",
-        desc: "Municipal Police HQ. Network port audit target site."
-      }
-    ];
-
-    // Initialize Map
-    const map = L.map('map', { zoomControl: false }).setView([33.6775, -118.0012], 14);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      maxZoom: 19
-    }).addTo(map);
-    L.control.zoom({ position: 'bottomright' }).addTo(map);
-
-    const markers = {};
-
-    // Render Targets List & Map Markers
-    const listContainer = document.getElementById('target-list');
-
-    targets.forEach(t => {
-      // Map Marker
-      const color = t.severity === 'CRITICAL' ? '#ff3b30' : (t.severity === 'HIGH' ? '#ffcc00' : '#30d158');
-      const marker = L.circleMarker([t.lat, t.lng], {
-        radius: 8,
-        fillColor: color,
-        color: '#fff',
-        weight: 1.5,
-        fillOpacity: 0.9
-      }).addTo(map).bindPopup(`
-        <div style="font-family: Inter, sans-serif; font-size: 12px; color: #fff;">
-          <b style="color: ${color}">${t.name} (${t.id})</b><br/>
-          <span style="color: #8b949e">${t.address}</span><br/><br/>
-          ${t.desc}
-        </div>
-      `);
-
-      markers[t.id] = marker;
-
-      // Sidebar Item
-      const badgeClass = t.severity === 'CRITICAL' ? 'badge-critical' : (t.severity === 'HIGH' ? 'badge-high' : 'badge-info');
-      const cardEl = document.createElement('div');
-      cardEl.className = 'target-item';
-      cardEl.onclick = () => focusTarget(t.id, t.lat, t.lng);
-      cardEl.innerHTML = `
-        <div class="target-header">
-          <div class="target-name">${t.name}</div>
-          <span class="badge ${badgeClass}">${t.severity}</span>
-        </div>
-        <div class="target-desc">${t.desc}</div>
-        <div class="target-meta">APN: ${t.apn} • ${t.lat.toFixed(4)}, ${t.lng.toFixed(4)}</div>
-      `;
-      listContainer.appendChild(cardEl);
-    });
-
-    function focusTarget(id, lat, lng) {
-      map.flyTo([lat, lng], 17, { duration: 1.2 });
-      if (markers[id]) {
-        markers[id].openPopup();
-      }
-    }
-
-    // Modal & Adaptive Card Actions
-    function openTeamsCardModal() {
-      const sampleCard = {
-        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-        "type": "AdaptiveCard",
-        "version": "1.4",
-        "body": [
-          {
-            "type": "TextBlock",
-            "text": "🗺️ ArcGIS Spatial Intel Alert — HBNC Toxic Site",
-            "weight": "Bolder",
-            "size": "Medium",
-            "color": "Attention"
-          },
-          {
-            "type": "FactSet",
-            "facts": [
-              {"title": "Target ID:", "value": "TOX-001"},
-              {"title": "APN:", "value": "102-451-09"},
-              {"title": "Address:", "value": "17642 Beach Blvd, Huntington Beach, CA"},
-              {"title": "Severity:", "value": "CRITICAL"}
-            ]
-          },
-          {
-            "type": "TextBlock",
-            "text": "Cr-VI 980 µg/kg (49x RSL). Asphalt cap failing over 2,247 cu ft HDPE Stormtech chambers.",
-            "wrap": true
-          }
-        ],
-        "actions": [
-          {
-            "type": "Action.OpenUrl",
-            "title": "Open in ArcGIS Web Map",
-            "url": "https://www.arcgis.com/home/webmap/viewer.html"
-          }
-        ]
-      };
-      document.getElementById('modal-card-json').innerText = JSON.stringify(sampleCard, null, 2);
-      document.getElementById('card-modal').classList.add('active');
-    }
-
-    function closeModal() {
-      document.getElementById('card-modal').classList.remove('active');
-    }
-
-    function copyCardJSON() {
-      const text = document.getElementById('modal-card-json').innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Copied Microsoft Teams Adaptive Card JSON to clipboard!");
-      });
-    }
-
-    function downloadGeoJSON() {
-      window.location.href = "arcgis_for_teams_geojson.geojson";
-    }
-
-    function downloadEsriJSON() {
-      window.location.href = "arcgis_for_teams_feature_collection.json";
-    }
-  </script>
+<div id="map"></div>
+<div id="list">
+<h1>OSINT NEO AI — SPATIAL TARGETS<small>__META__ features | severity-ranked | ArcGIS for Teams ready</small></h1>
+</div>
+<div id="legend">
+<span><span class="dot" style="background:#ff3b3b"></span>CRITICAL</span>
+<span><span class="dot" style="background:#ff9500"></span>HIGH</span>
+<span><span class="dot" style="background:#ffd60a"></span>MEDIUM</span>
+<span><span class="dot" style="background:#4a2ff"></span>INFO</span>
+</div>
+<div id="card"></div>
+<script>
+const ROWS = [
+  {id:'TOX-001', nm:'HBNC Toxic Site', layer:'TOXIC', sev:'CRITICAL', lat:33.6775, lng:-118.0012, desc:'17642 Beach Blvd / 17631 Cameron Ln | Cr-VI 980 ug/kg (49x limit) | Asphalt cap FAILING | 2,247 cu f', src:'CERCLA / Phase I ESA T10000018579'},
+  {id:'TOX-003', nm:'7561 Center Ave Vaults', layer:'TOXIC', sev:'CRITICAL', lat:33.6927, lng:-117.9974, desc:'Units D1-E1-G1-J1 | 4 shell LLCs | Underground concrete coffins | Chen-Yamada pipeline | $1.47M PPP ', src:'Parcel + PPP records'},
+  {id:'SINK-002', nm:'HBNC Excavation', layer:'SINKHOLE', sev:'CRITICAL', lat:33.6778, lng:-118.0015, desc:'Asphalt cap failure / Cr-VI soil disturbance / 2,247 cu ft HDPE chambers', src:'Site assessment'},
+  {id:'SINK-004', nm:'Stormtech Chamber Field', layer:'SINKHOLE', sev:'CRITICAL', lat:33.6773, lng:-118.001, desc:'HDPE Stormtech SC-740 / 2,247 cu ft / PVC manifold / corrosive soil', src:'Stormtech spec'},
+  {id:'FCA-HIT-001', nm:'USDC CD CA — Knabb v. HB RICO / Qui Tam coordination', layer:'FCA', sev:'CRITICAL', lat:33.748, lng:-117.87, desc:'', src:'Federal docket'},
+  {id:'FCA-HIT-007', nm:'USDC CD CA LA — EPA OIG referral', layer:'FCA', sev:'CRITICAL', lat:34.05, lng:-118.25, desc:'', src:'OIG referral'},
+  {id:'FCA-HIT-019', nm:'Qui Tam complaint under seal', layer:'FCA', sev:'CRITICAL', lat:33.748, lng:-117.87, desc:'', src:'Sealed complaint'},
+  {id:'CPS-001', nm:'HBNC Child Deaths', layer:'CPS', sev:'CRITICAL', lat:33.6775, lng:-118.0012, desc:'4 confirmed deaths | 279 emergencies | CERCLA toxics exposure', src:'OC HCA 20IC002'},
+  {id:'PROC-005', nm:'HBNC 155M Remediation', layer:'PROCUREMENT', sev:'CRITICAL', lat:33.6775, lng:-118.0012, desc:'OCHCA/DPW VOID $155,000,000', src:'Procurement portal'},
+  {id:'TOX-002', nm:'Cameron Ln Parcel', layer:'TOXIC', sev:'HIGH', lat:33.677, lng:-118.0015, desc:'17631 Cameron Ln | Asbestos/Lead paint | Former ag pesticides | Yamada Trustee 1998', src:'Parcel survey'},
+  {id:'SINK-001', nm:'7561 Center Ave Vaults', layer:'SINKHOLE', sev:'HIGH', lat:33.693, lng:-117.9975, desc:'Underground concrete coffins / Chen-Yamada / 1960s-70s construction', src:'Site assessment'},
+  {id:'BH-001', nm:'Newport Shell Cluster', layer:'BLACKHOLE', sev:'HIGH', lat:33.65, lng:-117.895, desc:'20341-71 Irvine Ave | CSJ Mgmt / PL Jetty | $0 transfers', src:'LLC filings'},
+  {id:'BH-002', nm:'Pham Quitclaim Nexus', layer:'BLACKHOLE', sev:'HIGH', lat:33.745, lng:-117.8125, desc:'2614 Orchard Dr / 7100 Cerritos #108 / 13801 Shirley #85 | $0 quitclaims', src:'Deed records'},
+  {id:'BH-004', nm:'PCH CMRA', layer:'BLACKHOLE', sev:'HIGH', lat:33.7505, lng:-118.0955, desc:'1077 Pacific Coast Hwy #247 | Stewart mailbox | Battle Creek MI', src:'PPP addresses'},
+  {id:'LLC-001', nm:'Triumvirate LLC', layer:'LLC', sev:'HIGH', lat:33.707, lng:-117.958, desc:'21951 Brookhurst St | PPP $1,471,840 | Anchorage AK mailbox', src:'PPP/SBA'},
+  {id:'LLC-002', nm:'Stewart Industrial', layer:'LLC', sev:'HIGH', lat:33.753, lng:-118.072, desc:'3311 Bounty Cir | PPP $1,128,327 | 1076 PCH #247 CMRA', src:'PPP/SBA'},
+  {id:'LLC-003', nm:'CP Premier 1', layer:'LLC', sev:'HIGH', lat:33.808, lng:-118.002, desc:'7100 Cerritos Ave #108 | Peter Pham $0 quitclaim', src:'Deed'},
+  {id:'LLC-004', nm:'CP Premier 2', layer:'LLC', sev:'HIGH', lat:33.774, lng:-117.987, desc:'13801 Shirley St #85 | Peter Pham $0 quitclaim', src:'Deed'},
+  {id:'LLC-010', nm:'ONNI HB LLC', layer:'LLC', sev:'HIGH', lat:33.687, lng:-117.988, desc:'$97.25M | 17011 Beach Blvd | Phoenix mail', src:'PPP/SBA'},
+  {id:'LLC-011', nm:'Corte Bella TruAmerica', layer:'LLC', sev:'HIGH', lat:33.683, lng:-117.994, desc:'$85.75M | 9543 Dixie St | Woodland Hills mail', src:'PPP/SBA'},
+  {id:'LLC-012', nm:'Sendero Riverbend', layer:'LLC', sev:'HIGH', lat:33.683, lng:-117.994, desc:'$70M | 8955 Riverbend Dr | LA mail', src:'PPP/SBA'},
+  {id:'LLC-013', nm:'SCG Edinger Plaza', layer:'LLC', sev:'HIGH', lat:33.689, lng:-117.985, desc:'$65.5M | 7542 Edinger Ave | SF mail', src:'PPP/SBA'},
+  {id:'FCA-HIT-012', nm:'DOJ Civil Division — qui tam notice', layer:'FCA', sev:'HIGH', lat:38.907, lng:-77.037, desc:'', src:'DOJ notice'},
+  {id:'FCA-HIT-024', nm:'Relator disclosure served', layer:'FCA', sev:'HIGH', lat:33.676, lng:-118.0015, desc:'', src:'Relator disclosure'},
+  {id:'CPS-002', nm:'OC DA Block', layer:'CPS', sev:'HIGH', lat:33.748, lng:-117.87, desc:'No action on trafficking referrals', src:'Referral log'},
+  {id:'CPS-003', nm:'HB City Hall', layer:'CPS', sev:'HIGH', lat:33.676, lng:-118.0015, desc:'CEQA exemption fraud | Blocked reporting', src:'Ordinance 4289'},
+  {id:'CPS-004', nm:'Anaheim CPS Hub', layer:'CPS', sev:'HIGH', lat:33.835, lng:-117.91, desc:'Shelter billing cluster | COVID fraud', src:'Licensing'},
+  {id:'CPS-005', nm:'LA County IV-E', layer:'CPS', sev:'HIGH', lat:34.05, lng:-118.25, desc:'IV-E billing nexus', src:'IV-E claims'},
+  {id:'SINK-003', nm:'El Toro Hangars', layer:'SINKHOLE', sev:'MEDIUM', lat:33.6755, lng:-117.7305, desc:'Contaminated fill burial / Decommissioned MCAS El Toro / PFAS migration', src:'Base closure'},
+  {id:'BH-003', nm:'Garnet St Routing', layer:'BLACKHOLE', sev:'MEDIUM', lat:33.753, lng:-117.9905, desc:'15822 Garnet St | CMRA layer | Dylan & Andrew mailbox', src:'Mail routing'},
+  {id:'LLC-005', nm:'Garnet Drop', layer:'LLC', sev:'MEDIUM', lat:33.753, lng:-117.99, desc:'15821-15822 Garnet St | Dylan & Andrew mailbox CMRA', src:'Mail routing'},
+  {id:'LLC-006', nm:'Newport LLC Cluster', layer:'LLC', sev:'MEDIUM', lat:33.65, lng:-117.89, desc:'20341-91 Irvine Ave | CSJ/PL Jetty shell cluster', src:'LLC filings'},
+  {id:'LLC-007', nm:'Pham Residence', layer:'LLC', sev:'MEDIUM', lat:33.745, lng:-117.812, desc:'2614 Orchard Dr Tustin | Peter Pham nexus', src:'Deed'},
+  {id:'LLC-008', nm:'Stewart PPP', layer:'LLC', sev:'MEDIUM', lat:33.755, lng:-117.99, desc:'PPP $1,128,327 | Bounty Cir | Battle Creek MI', src:'PPP/SBA'},
+  {id:'LLC-009', nm:'Triumvirate PPP', layer:'LLC', sev:'MEDIUM', lat:33.725, lng:-117.97, desc:'PPP $1,471,840 | Brookhurst | 3705 Arctic Blvd AK', src:'PPP/SBA'},
+  {id:'PROC-001', nm:'OC Sheriff Body Cams', layer:'PROCUREMENT', sev:'MEDIUM', lat:33.715, lng:-117.85, desc:'Sheriff Open $8,500,000', src:'Procurement portal'},
+  {id:'PROC-002', nm:'County IT Security', layer:'PROCUREMENT', sev:'MEDIUM', lat:33.748, lng:-117.87, desc:'IT Open $2,500,000', src:'Procurement portal'},
+  {id:'PROC-003', nm:'HB Coastal Infrastructure', layer:'PROCUREMENT', sev:'MEDIUM', lat:33.676, lng:-118.0, desc:'Public Works Under Review $12,000,000', src:'Procurement portal'},
+  {id:'PROC-004', nm:'Anaheim Housing RFQ', layer:'PROCUREMENT', sev:'INFO', lat:33.835, lng:-117.91, desc:'Housing Closed $4,500,000', src:'Procurement portal'}
+];
+const COLORS = {"CRITICAL":"#ff3b3b","HIGH":"#ff9500","MEDIUM":"#ffd60a","INFO":"#4ad2ff"};
+const map = L.map('map',{zoomControl:true}).setView([33.6775,-118.0012],16);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:20}).addTo(map);
+const markers = {};
+ROWS.forEach(r=>{
+  const color = COLORS[r.sev]||'#777';
+  const m = L.circleMarker([r.lat,r.lng],{radius:r.sev==='CRITICAL'?11:8,color:'#fff'===color?'#1a1a1a':'#fff',weight:1.2,fillColor:color,fillOpacity:0.9})
+    .bindPopup('<b>'+r.name+'</b><br/><span style="color:'+color+'">'+r.sev+'</span> — '+r.layer+'<br/>'+r.dst+'<br/><i>'+r.src+'</i>');
+  m.addTo(map);
+  markers[r.lat+','+r.lng]=m;
+});
+const list=document.getElementById('list');
+ROWS.forEach(r=>{
+  const d=document.createElement('div');d.className='entry';
+  d.innerHTML='<span class="sev" style="background:'+(COLORS[r.sev]||'#777')+'">'+r.sev+'</span><span class="nm">'+r.name+'</span><div class="dst">'+r.dst+'</div><div class="ly">'+r.layer+'</div>';
+  d.onclick=function(){map.setView([r.lat,r.lng],16);(markers[r.lat+','+r.lng]).openPopup();showCard(r);};
+  list.appendChild(d);
+});
+function showCard(r){
+  const c=document.getElementById('card');c.style.display='block';
+  c.innerHTML='<h3>SPATIAL ALERT — '+r.sev+'</h3>'+
+   '<div class="r"><b>Target:</b>'+r.name+'</div>'+
+   '<div class="r"><b>Name:</b>'+r.name+'</div>'+
+   '<div class="r"><b>Severity:</b>'+r.sev+'</div>'+
+   '<div class="r"><b>Coordinates:</b>'+r.lat+', '+r.lng+'</div>'+
+   '<div class="r"><b>Evidence:</b>'+r.src+'</div>'+
+   '<a href="https://www.arcgis.com/home/webmap/viewer.html" target="_blank">Open in ArcGIS &rarr;</a>';
+}
+</script>
 </body>
 </html>

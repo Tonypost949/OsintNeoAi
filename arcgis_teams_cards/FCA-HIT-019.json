@@ -1,0 +1,74 @@
+{
+  "type": "message",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "contentUrl": null,
+      "content": {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.4",
+        "fallbackText": "ArcGIS Spatial Alert: Qui Tam complaint under seal",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "ArcGIS Spatial Alert",
+            "weight": "Bolder",
+            "size": "Medium",
+            "color": "Attention"
+          },
+          {
+            "type": "TextBlock",
+            "text": "Qui Tam complaint under seal",
+            "weight": "Bolder",
+            "wrap": true
+          },
+          {
+            "type": "FactSet",
+            "facts": [
+              {
+                "title": "Target ID:",
+                "value": "FCA-HIT-019"
+              },
+              {
+                "title": "Layer:",
+                "value": "FCA"
+              },
+              {
+                "title": "Severity:",
+                "value": "CRITICAL"
+              },
+              {
+                "title": "Coordinates:",
+                "value": "33.748, -117.87"
+              },
+              {
+                "title": "Source:",
+                "value": "Sealed complaint"
+              }
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "text": "",
+            "wrap": true,
+            "size": "Small",
+            "isSubtle": true
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.OpenUrl",
+            "title": "Open in ArcGIS",
+            "url": "https://www.arcgis.com/home/webmap/viewer.html"
+          }
+        ],
+        "context": {
+          "generator": "arcgis_teams_card_generator.py",
+          "generated_utc": "2026-08-09T06:05:44Z",
+          "target_id": "FCA-HIT-019"
+        }
+      }
+    }
+  ]
+}

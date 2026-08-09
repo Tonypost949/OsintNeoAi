@@ -1,0 +1,74 @@
+{
+  "type": "message",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "contentUrl": null,
+      "content": {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.4",
+        "fallbackText": "ArcGIS Spatial Alert: 7561 Center Ave Vaults",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "ArcGIS Spatial Alert",
+            "weight": "Bolder",
+            "size": "Medium",
+            "color": "Attention"
+          },
+          {
+            "type": "TextBlock",
+            "text": "7561 Center Ave Vaults",
+            "weight": "Bolder",
+            "wrap": true
+          },
+          {
+            "type": "FactSet",
+            "facts": [
+              {
+                "title": "Target ID:",
+                "value": "TOX-003"
+              },
+              {
+                "title": "Layer:",
+                "value": "TOXIC"
+              },
+              {
+                "title": "Severity:",
+                "value": "CRITICAL"
+              },
+              {
+                "title": "Coordinates:",
+                "value": "33.6927, -117.9974"
+              },
+              {
+                "title": "Source:",
+                "value": "Parcel + PPP records"
+              }
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "text": "Units D1-E1-G1-J1  |  4 shell LLCs  |  Underground concrete coffins  |  Chen-Yamada pipeline  |  $1.47M PPP / $1.13M PPP routing",
+            "wrap": true,
+            "size": "Small",
+            "isSubtle": true
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.OpenUrl",
+            "title": "Open in ArcGIS",
+            "url": "https://www.arcgis.com/home/webmap/viewer.html"
+          }
+        ],
+        "context": {
+          "generator": "arcgis_teams_card_generator.py",
+          "generated_utc": "2026-08-09T06:05:44Z",
+          "target_id": "TOX-003"
+        }
+      }
+    }
+  ]
+}

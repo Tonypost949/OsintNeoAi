@@ -1,0 +1,74 @@
+{
+  "type": "message",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "contentUrl": null,
+      "content": {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.4",
+        "fallbackText": "ArcGIS Spatial Alert: Newport Shell Cluster",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "ArcGIS Spatial Alert",
+            "weight": "Bolder",
+            "size": "Medium",
+            "color": "Attention"
+          },
+          {
+            "type": "TextBlock",
+            "text": "Newport Shell Cluster",
+            "weight": "Bolder",
+            "wrap": true
+          },
+          {
+            "type": "FactSet",
+            "facts": [
+              {
+                "title": "Target ID:",
+                "value": "BH-001"
+              },
+              {
+                "title": "Layer:",
+                "value": "BLACKHOLE"
+              },
+              {
+                "title": "Severity:",
+                "value": "HIGH"
+              },
+              {
+                "title": "Coordinates:",
+                "value": "33.65, -117.895"
+              },
+              {
+                "title": "Source:",
+                "value": "LLC filings"
+              }
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "text": "20341-71 Irvine Ave  |  CSJ Mgmt / PL Jetty  |  $0 transfers",
+            "wrap": true,
+            "size": "Small",
+            "isSubtle": true
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.OpenUrl",
+            "title": "Open in ArcGIS",
+            "url": "https://www.arcgis.com/home/webmap/viewer.html"
+          }
+        ],
+        "context": {
+          "generator": "arcgis_teams_card_generator.py",
+          "generated_utc": "2026-08-09T06:05:44Z",
+          "target_id": "BH-001"
+        }
+      }
+    }
+  ]
+}
