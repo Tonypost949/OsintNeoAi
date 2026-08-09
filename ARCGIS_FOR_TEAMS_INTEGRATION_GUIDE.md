@@ -21,8 +21,9 @@ It provides:
 ## 🛠️ Step 1: Import Spatial Layers into ArcGIS Online / Enterprise
 
 1. Sign in to your **ArcGIS Online / Enterprise** account.
-2. Navigate to **Content** → **Add Item** → **From Your Computer**.
-3. Select [`arcgis_for_teams_geojson.geojson`](file:///C:/Users/HP/osintneoai/arcgis_for_teams_geojson.geojson) or [`arcgis_for_teams_feature_collection.json`](file:///C:/Users/HP/osintneoai/arcgis_for_teams_feature_collection.json).
+2. Navigate to **Content** → **Add Item** → **From the Web** (or **From Your Computer**).
+3. URL for 24/7 direct GeoJSON sync (no local PC needed):
+   `https://tonypost949.github.io/OsintNeoAi/arcgis_for_teams_geojson.geojson`
 4. Choose **Publish this file as a hosted feature layer**.
 5. Give the item a title (e.g. `OSINT Neo AI Spatial Targets`) and click **Save & Publish**.
 6. Save the newly published Hosted Feature Layer into a Web Map.
@@ -40,13 +41,14 @@ It provides:
 
 ---
 
-## 📑 Step 3: Embed the Dedicated Dashboard in Teams
+## 📑 Step 3: Embed the Dedicated Dashboard in Teams (24/7 Cloud URL)
 
 To embed the custom interactive dashboard [`arcgis_teams_dashboard.html`](file:///C:/Users/HP/osintneoai/arcgis_teams_dashboard.html):
 1. In Microsoft Teams, click **+ Add a tab**.
-2. Select **Website** or **Custom App**.
+2. Select **Website**.
 3. Enter `ArcGIS Spatial Intel Hub` as the tab name.
-4. Set the URL to your local server / GitHub Pages hosted [`arcgis_teams_dashboard.html`](file:///C:/Users/HP/osintneoai/arcgis_teams_dashboard.html).
+4. Set the URL to:
+   `https://tonypost949.github.io/OsintNeoAi/arcgis_teams_dashboard.html`
 
 ---
 
