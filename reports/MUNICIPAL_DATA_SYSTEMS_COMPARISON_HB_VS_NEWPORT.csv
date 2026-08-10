@@ -1,0 +1,11 @@
+Infrastructure & Data Dimension,City of Huntington Beach (Audited),City of Newport Beach (Benchmark),Key Architectural Difference / Impact
+Hosting Architecture,"On-Premise Bare-Metal (Subnet 192.5.222.0/24)","Cloud-Native & Hybrid SaaS (AWS / Azure / ESRI Cloud)","HB exposed raw server racks; Newport abstracted via cloud edge"
+Web Application Firewall (WAF),"Split: Cloudflare on marketing; NONE on ArcGIS/Laserfiche","Full Edge WAF (Cloudflare / Cloud Armor on all subdomains)","HB leaves core databases naked; Newport protects 100% of endpoints"
+GIS & Spatial Data Portal,"Self-Hosted ArcGIS Server (Direct IP 192.5.222.153)","ArcGIS Online (SaaS) / Hosted Open Data Portal","HB open to bulk unauthenticated scraping; Newport managed via SaaS"
+Records & Document Vault,"Self-Hosted Laserfiche WebLink (Direct IP 192.5.222.218)","Laserfiche Cloud / CityView Enterprise EDMS","HB exposed over raw ASP.NET; Newport zero on-prem server exposure"
+Disaster Recovery & Backup,"Multi-Day Backup Latency (Local Disk/Tape)","Automated Real-Time Cloud Replication (RTO < 4 Hours)","HB faces weeks of recovery downtime; Newport has near-instant recovery"
+Cybersecurity & Endpoint,"Basic Host Antivirus / Legacy Agents","Enterprise EDR (CrowdStrike / Defender) + 100% MFA","HB vulnerable to network exploits; Newport has 24/7 telemetry"
+15-Year IT Capital Deficit,"$21,000,000 Deficit (Grade C Rating)","$0 Unfunded Backlog (Fully Funded IT Capital Reserve)","HB has $21M taxpayer backlog; Newport continuously replaces lifecycle"
+Annual IT Operating Budget,"~$4,000,000 / Year (Legacy Maintenance)","~$5,500,000 / Year (Modern SaaS Subscriptions)","HB spends on keeping lights on; Newport spends on modern software"
+Dedicated Infrastructure Lock,"Measure FF (15% General Fund Rolling Lock)","Capital Asset Replacement Fund (Annual CIP Allocation)","Both dedicate tax revenues; Newport modernized data layer"
+Population / Scope,"~195,000 Residents (25+ Sq Miles)","~85,000 Residents (15 Sq Miles)","HB manages larger legacy footprint with smaller relative IT reserve"
