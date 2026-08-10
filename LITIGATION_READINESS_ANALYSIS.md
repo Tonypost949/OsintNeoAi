@@ -133,3 +133,8 @@ If the objective is civil litigation, regulatory referral, or law-enforcement re
 3. **What remains investigative leads rather than admissible proof**
 
 That distinction tends to increase credibility because it prevents stronger documentary evidence from being weakened by allegations that still depend on future subpoenas or expert testimony.
+
+---
+
+**Disclaimer on Evidentiary Weight:**
+Nothing in the matrix alone establishes the truth of the underlying accusations; it maps evidence to allegations. Whether a court would find any particular allegation proven would depend on authentication, admissibility rulings, witness testimony, expert analysis, and the totality of the evidence presented.
