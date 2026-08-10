@@ -62,3 +62,19 @@ Use controlled labels rather than argumentative descriptions:
 | Alternative explanation | B was independently retained for an ordinary administrative task. |
 | Missing proof | Original message metadata and witness who can explain the payment purpose. |
 | Status | **2 — Supported inference; not yet attribution proof.** |
+
+---
+
+The matrix should distinguish **coordination evidence** from **predicate-act evidence**: proving that several people interacted does not, by itself, prove that a racketeering act occurred or that the enterprise caused the plaintiff’s injury.
+
+---
+
+### Citations
+[1] [PDF] CRIMINAL RICO: 18 U.S.C. §§1961-1968 A Manual For Federal ... https://www.justice.gov/d9/books/attachments/2018/12/07/_rico_manual_final_with_toa_05-12.pdf
+[2] Rule 9. Pleading Special Matters - Law.Cornell.Edu https://www.law.cornell.edu/rules/frcp/rule_9
+[3] A Fraudulent Scheme's Particularity Under Rule 9(b) of the Federal Rules of Civil Procedure https://digitalcommons.liberty.edu/cgi/viewcontent.cgi?article=1072&context=lu_law_review
+[4] Article: Pleading Common Law Fraud Under Rule 9(b) https://www.quinnemanuel.com/the-firm/publications/article-may-2016-pleading-common-law-fraud-under-rule-9-b-conflicting-circuit-court-interpretations/
+[5] [PDF] stringent particularity requirement of the rule 9(b) pleading standard as http://cardozolawreview.com/wp-content/uploads/2018/08/CHEN.36.1.pdf
+[6] Quick Tips for Pleading “Fraud” with Particularity https://www.americanbar.org/groups/litigation/resources/newsletters/business-torts-unfair-competition/quick-tips-for-pleading-fraud-with-particularity/
+[7] Specificity or Dismissal: The Improper Extension of Rule 9(b) to Negligent Misrepresentation as a Deprivation of Plaintiffs’ Procedural Due Process Rights https://scholarship.law.wm.edu/cgi/viewcontent.cgi?article=1699&context=wmborj
+[8] "Proper Pleading or Premature Proof? Rule 9(b)'s Particularity ... https://digitalcommons.law.uga.edu/glr/vol49/iss3/6/
