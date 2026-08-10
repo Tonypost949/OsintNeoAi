@@ -117,3 +117,19 @@ Next_Collection_Action
 The framework is strongest when presented as an **evidence-readiness and proof-gap assessment**, not as a prediction of admissibility or liability. The central operational rule should be:
 
 > **Each allegation must be decomposed into discrete propositions, and each proposition must be tied to a source, foundation witness, admissibility theory, opposing evidence, and next investigative action.**
+
+The principal remaining risk is the conversion of chronology into attribution, motive, conspiracy, or causation. Preserving the hierarchy of **documented fact → supported inference → expert interpretation → investigative lead** will help prevent overstatement and make the eventual case theory more resilient.
+
+---
+
+### Citations
+[1] Rule 901. Authenticating or Identifying Evidence https://www.law.cornell.edu/rules/fre/rule_901
+[2] FEDERAL RULES - United States Courts https://www.uscourts.gov/sites/default/files/2025-02/federal-rules-of-evidence-dec-1-2024_0.pdf
+[3] Fed. R. Civ. P. 9 — Pleading Special Matters | Federal Rules ... https://rulesofcivilprocedure.com/federal/rule-9/
+[4] 1 https://www.govinfo.gov/content/pkg/USCOURTS-mowd-4_07-cv-00728/pdf/USCOURTS-mowd-4_07-cv-00728-0.pdf
+[5] A Guide to Civil RICO Litigation in Federal Court https://www.jenner.com/a/web/taV21sfHsERD37g5Wk8dA6/4HRMZQ/2021_RICO_Guide.pdf
+[6] [PDF] In the Supreme Court of the United States - Justice Department https://www.justice.gov/osg/media/200571/dl?inline
+[7] Federal Rules of Evidence https://www.law.cornell.edu/rules/fre
+[8] FEDERAL RULES OF EVIDENCE https://uscode.house.gov/view.xhtml;jsessionid=A240D988E800524EDAD2BE2C9F025FC7?req=granuleid:USC-1999-title28a-node246&saved=%7CZ3JhbnVsZWlkOlVTQy0xOTk5LXRpdGxlMjhhLW5vZGUyNDYtYXJ0aWNsZTctcnVsZTcwMg==%7C%7C%7C0%7Cfalse%7C1999&edition=1999
+[9] 710.1 – Requirements, Methods [Rule 901] https://ncpro.sog.unc.edu/manual/710-1
+[10] RICO Pleading — 9 (b) Requirements for Alleging Mail/Wire ... https://jhany.com/2024/06/18/rico-pleading-9b-requirements-for-alleging-mail-wire-fraud/
