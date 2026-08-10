@@ -177,3 +177,5 @@ A credible case package would typically include:
 8. **Witness statements**.
 9. **Chain-of-custody records** for all evidence.
 10. **A forensic accounting report** independently tracing the money.
+
+Without those underlying documents, the summary remains an allegation or analytical hypothesis rather than proof. The key question investigators would ask is: **"Can each claim be tied to identifiable records that independently verify it?"** If the answer is yes, the case becomes much stronger. If not, the summary alone would not establish the alleged scheme.
