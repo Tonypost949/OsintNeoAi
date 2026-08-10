@@ -234,3 +234,5 @@ As currently structured, the most persuasive presentation would be to maintain a
 2. **Evidence-Supported Inferences**
 3. **Expert Conclusions**
 4. **Unverified Investigative Leads**
+
+Doing so strengthens credibility, makes evidentiary weaknesses easier to identify and cure, and reduces the risk that stronger documented facts become overshadowed by allegations that still require substantial corroboration.
