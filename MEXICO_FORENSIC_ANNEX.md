@@ -172,3 +172,8 @@ A credible case package would typically include:
 3. **Property ownership timelines**.
 4. **Beneficial ownership analyses**.
 5. **Corporate network charts**.
+6. **Registry audit evidence**.
+7. **Communications evidence** showing knowledge and intent.
+8. **Witness statements**.
+9. **Chain-of-custody records** for all evidence.
+10. **A forensic accounting report** independently tracing the money.
