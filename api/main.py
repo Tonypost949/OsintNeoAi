@@ -467,6 +467,7 @@ def resolve_pipeline():
         return jsonify({"error": str(e)}), 500
 
 # ── Status ─────────────────────────────────────────────────────
+@app.route("/")
 @app.route("/api/status")
 def status():
     return jsonify({
