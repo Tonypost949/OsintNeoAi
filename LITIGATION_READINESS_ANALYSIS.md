@@ -63,4 +63,73 @@ To establish attribution, investigators commonly seek:
 - SIM-change logs
 - IP allocation data
 - Platform preservation records
+
 ---
+
+Several exhibits are listed as screenshots, images, or exported files.
+Examples include:
+- IMG_*.jpeg
+- IMG_*.png
+- Screenshots
+- Intercept logs
+- Social media artifacts
+
+A court would typically expect:
+- Original source files
+- Metadata
+- Hash verification
+- Device extraction reports
+- Custodian testimony
+
+Otherwise opposing counsel may challenge authenticity.
+
+---
+
+## Key Litigation Risk
+The most significant weakness visible in the matrix is that some allegations are being treated as established conclusions while the underlying exhibits may only support parts of the claim.
+
+Examples include:
+| Allegation | Evidence May Establish | Additional Showing Needed |
+|------------|------------------------|---------------------------|
+| Perjury | Apparently inconsistent filing statements | Intentional false statement under oath |
+| Environmental concealment | Existence of well and contamination records | Knowledge and concealment by specific parties |
+| Laundering | Suspicious transactions | Criminal source of funds and laundering conduct |
+| Identity theft | Unauthorized access indicators | Attribution to identified actors |
+| Medical negligence | Adverse treatment outcomes | Departure from standard of care and causation |
+
+---
+
+## Evidence Readiness Ranking
+Based solely on the information presented:
+
+### Tier 1 (Most Litigation-Ready)
+- Court filings
+- Sheriff execution records
+- EPA GeoTracker contamination records
+- County health records
+- Certified medical records
+
+### Tier 2 (Requires Authentication)
+- Notices
+- Screenshots
+- Email exhibits
+- Internal ledgers
+- Photographs
+- Device logs
+
+### Tier 3 (Requires Subpoena-Based Corroboration)
+- Banking allegations
+- SWIFT transfer allegations
+- Meta account compromise attribution
+- SIM-swap attribution
+- Federal identity-system access allegations
+
+---
+
+## Strategic Observation
+If the objective is civil litigation, regulatory referral, or law-enforcement review, the strongest approach would likely be to separate:
+1. **What is directly proven by authenticated records**
+2. **What is strongly suggested but requires corroboration**
+3. **What remains investigative leads rather than admissible proof**
+
+That distinction tends to increase credibility because it prevents stronger documentary evidence from being weakened by allegations that still depend on future subpoenas or expert testimony.
