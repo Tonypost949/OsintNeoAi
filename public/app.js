@@ -758,6 +758,230 @@
         }
       }
     });
+
+    // View Mode Switching (Skills / Municipal / Dossiers)
+    const viewTabs = document.querySelectorAll('.view-tab-btn');
+    const skillsViewControls = document.querySelector('.control-section');
+    const skillsViewMain = document.getElementById('skills-grid')?.parentElement;
+    const municipalView = document.getElementById('municipal-view');
+    const dossiersView = document.getElementById('dossiers-view');
+
+    viewTabs.forEach(tab => {
+      tab.addEventListener('click', async () => {
+        const targetView = tab.dataset.view;
+        viewTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // Hide all views
+        if (skillsViewControls) skillsViewControls.classList.add('hidden');
+        if (skillsViewMain) skillsViewMain.classList.add('hidden');
+        if (municipalView) municipalView.classList.add('hidden');
+        if (dossiersView) dossiersView.classList.add('hidden');
+
+        if (targetView === 'skills') {
+          if (skillsViewControls) skillsViewControls.classList.remove('hidden');
+          if (skillsViewMain) skillsViewMain.classList.remove('hidden');
+        } else if (targetView === 'municipal') {
+          if (municipalView) municipalView.classList.remove('hidden');
+          await loadMunicipalView();
+        } else if (targetView === 'dossiers') {
+          if (dossiersView) dossiersView.classList.remove('hidden');
+          await loadDossiersView();
+        }
+        feather.replace();
+      });
+    });
+
+    // Municipal View Logic
+    let municipalData = [];
+    let citiesIpsData = [];
+    let isIpViewActive = false;
+
+    async function loadMunicipalView() {
+      if (municipalData.length === 0) {
+        try {
+          const res1 = await fetch('data/municipal_matrix.json');
+          municipalData = await res1.json();
+          const res2 = await fetch('data/cities_ips.json');
+          citiesIpsData = await res2.json();
+        } catch(e) {
+          console.error('Error loading municipal datasets:', e);
+        }
+      }
+      renderMunicipalTable(municipalData);
+      renderIpsGrid(citiesIpsData);
+      setupMunicipalControls();
+    }
+
+    function renderMunicipalTable(data) {
+      const tbody = document.getElementById('muni-table-body');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      data.forEach(row => {
+        const tr = document.createElement('tr');
+        const legacyClass = row['Windows NT / Legacy Server Lineage']?.startsWith('YES') ? 'legacy-tag-yes' :
+                            row['Windows NT / Legacy Server Lineage']?.startsWith('NO') ? 'legacy-tag-no' : 'legacy-tag-partial';
+
+        let gradeClass = 'grade-c';
+        const gradeText = row['Data Systems Grade'] || '';
+        if (gradeText.includes('Grade A')) gradeClass = 'grade-a';
+        else if (gradeText.includes('Grade B')) gradeClass = 'grade-b';
+        else if (gradeText.includes('Grade D')) gradeClass = 'grade-d';
+
+        tr.innerHTML = `
+          <td>
+            <strong class="city-cell-title">${row['City Name'] || ''}</strong>
+          </td>
+          <td><span class="font-mono text-muted">${row['IRC Report Years Available'] || 'N/A'}</span></td>
+          <td><span class="${legacyClass}">${row['Windows NT / Legacy Server Lineage'] || ''}</span></td>
+          <td><span class="grade-badge ${gradeClass}">${gradeText}</span></td>
+          <td><strong class="text-rose font-mono">${row['IT Capital Deficit'] || '$0'}</strong></td>
+          <td><span class="font-mono">${row['Annual IT Spent / Budget'] || ''}</span></td>
+          <td><span class="font-mono text-accent">${row['Annual Available Capital Capacity'] || ''}</span></td>
+          <td><span>${row['Backup Latency Window'] || ''}</span></td>
+          <td><span>${row['Antivirus / Security Posture'] || ''}</span></td>
+          <td><small class="font-mono">${row['Public IP / WAF Exposure'] || ''}</small></td>
+          <td><small>${row['Primary Tax Funding Source'] || ''}</small></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function renderIpsGrid(ips) {
+      const container = document.getElementById('muni-ips-container');
+      if (!container) return;
+      container.innerHTML = '';
+
+      ips.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'ip-card';
+        card.innerHTML = `
+          <div class="ip-card-header">
+            <div>
+              <div class="ip-card-host">${item['Domain / Hostname'] || 'Direct Subnet'}</div>
+              <div class="ip-card-city">${item['City / Agency'] || ''}</div>
+            </div>
+            <span class="grade-badge ${item['WAF / CDN Status']?.includes('NONE') ? 'grade-d' : 'grade-a'}">
+              ${item['WAF / CDN Status']?.includes('NONE') ? 'UNSHIELDED' : 'WAF ACTIVE'}
+            </span>
+          </div>
+          <div>
+            <span class="ip-card-addr">${item['Public IP Address / Range'] || ''}</span>
+          </div>
+          <div style="font-size: 0.82rem; color: var(--text-secondary);">
+            <strong>ASN:</strong> ${item['ASN & Carrier'] || ''}<br>
+            <strong>Service:</strong> ${item['Service Fingerprint'] || ''}<br>
+            <strong>Location:</strong> ${item['Hosting Location'] || ''}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function setupMunicipalControls() {
+      const searchInput = document.getElementById('muni-search-input');
+      const filterBtns = document.querySelectorAll('.muni-filter-btn');
+      const toggleIpBtn = document.getElementById('btn-toggle-ip-view');
+      const systemsContainer = document.getElementById('muni-systems-container');
+      const ipsContainer = document.getElementById('muni-ips-container');
+      const toggleText = document.getElementById('ip-view-toggle-text');
+
+      if (toggleIpBtn) {
+        toggleIpBtn.onclick = () => {
+          isIpViewActive = !isIpViewActive;
+          if (isIpViewActive) {
+            systemsContainer.classList.add('hidden');
+            ipsContainer.classList.remove('hidden');
+            toggleText.textContent = 'Show Systems Table';
+          } else {
+            systemsContainer.classList.remove('hidden');
+            ipsContainer.classList.add('hidden');
+            toggleText.textContent = 'Show Raw IP Mapping';
+          }
+          feather.replace();
+        };
+      }
+
+      if (searchInput) {
+        searchInput.oninput = (e) => {
+          const q = e.target.value.toLowerCase();
+          const filtered = municipalData.filter(r => JSON.stringify(r).toLowerCase().includes(q));
+          renderMunicipalTable(filtered);
+          const filteredIps = citiesIpsData.filter(i => JSON.stringify(i).toLowerCase().includes(q));
+          renderIpsGrid(filteredIps);
+        };
+      }
+
+      filterBtns.forEach(btn => {
+        btn.onclick = () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.muniFilter;
+
+          if (filter === 'all') {
+            renderMunicipalTable(municipalData);
+          } else if (filter === 'legacy') {
+            renderMunicipalTable(municipalData.filter(r => r['Windows NT / Legacy Server Lineage']?.startsWith('YES')));
+          } else if (filter === 'cloud') {
+            renderMunicipalTable(municipalData.filter(r => r['Windows NT / Legacy Server Lineage']?.startsWith('NO')));
+          } else if (filter === 'hybrid') {
+            renderMunicipalTable(municipalData.filter(r => r['Windows NT / Legacy Server Lineage']?.startsWith('PARTIAL')));
+          }
+        };
+      });
+    }
+
+    // Dossiers View Logic
+    const dossierFiles = {
+      executive: 'reports/EXECUTIVE_BRIEFING_MUNICIPAL_DATA_INFRASTRUCTURE_AUDIT.md',
+      '2024irc': 'opencode_work/extracted_text/HB_IRC_Report_v1.1.pdf.txt',
+      '2000iac': 'reports/HB_2000_IAC_INFRASTRUCTURE_REPORT_AND_MEASURE_FF.md',
+      vendors: 'reports/MUNICIPAL_IT_VENDORS_AND_BUDGET_CONTRACTS.md'
+    };
+
+    let currentDossierMarkdown = '';
+
+    async function loadDossiersView() {
+      const navBtns = document.querySelectorAll('.dossier-nav-btn');
+      const pane = document.getElementById('dossier-markdown-pane');
+      const title = document.getElementById('dossier-active-title');
+      const copyBtn = document.getElementById('btn-copy-dossier');
+
+      async function switchDossier(docKey, btn) {
+        navBtns.forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+
+        pane.innerHTML = '<div style="padding: 20px; color: var(--text-muted);">Loading dossier markdown...</div>';
+        try {
+          // Fetch raw markdown or file
+          const filePath = dossierFiles[docKey] || dossierFiles.executive;
+          const res = await fetch(`../${filePath}`);
+          const text = await res.text();
+          currentDossierMarkdown = text;
+          title.textContent = btn ? btn.querySelector('strong').textContent : 'Intelligence Dossier';
+          pane.innerHTML = marked.parse(text);
+        } catch(e) {
+          pane.innerHTML = `<div style="padding: 20px; color: var(--accent-rose);">Failed to load dossier: ${e.message}</div>`;
+        }
+        feather.replace();
+      }
+
+      navBtns.forEach(btn => {
+        btn.onclick = () => switchDossier(btn.dataset.doc, btn);
+      });
+
+      if (copyBtn) {
+        copyBtn.onclick = () => {
+          if (currentDossierMarkdown) {
+            copyToClipboard(currentDossierMarkdown, 'Dossier markdown copied to clipboard');
+          }
+        };
+      }
+
+      // Load initial executive briefing
+      await switchDossier('executive', navBtns[0]);
+    }
   }
 
   // Start app on DOMContentLoaded
@@ -767,4 +991,7 @@
     init();
   }
 
+  // Self-start
+  setupEventListeners();
+  init();
 })();

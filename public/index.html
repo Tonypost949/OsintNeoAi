@@ -86,7 +86,25 @@
           </button>
         </div>
       </div>
-    </header>
+    <!-- Top View Mode Switcher -->
+    <nav class="view-mode-nav">
+      <button class="view-tab-btn active" data-view="skills">
+        <i data-feather="cpu"></i>
+        <span>AI Skills Intelligence</span>
+        <span class="tab-pill-badge" id="tab-skills-badge">33</span>
+      </button>
+      <button class="view-tab-btn" data-view="municipal">
+        <i data-feather="server"></i>
+        <span>Municipal & IP Infrastructure</span>
+        <span class="tab-pill-badge badge-accent" id="tab-cities-badge">10 Cities &bull; 17 IPs</span>
+      </button>
+      <button class="view-tab-btn" data-view="dossiers">
+        <i data-feather="file-text"></i>
+        <span>Forensic Audit Dossiers</span>
+        <span class="tab-pill-badge">4 Reports</span>
+      </button>
+    </nav>
+
 
     <!-- Search, Filter & Control Hero Section -->
     <section class="control-section">
@@ -168,6 +186,140 @@
         </button>
       </div>
     </main>
+
+    <!-- Municipal & IP Infrastructure Matrix View (New) -->
+    <main id="municipal-view" class="municipal-view hidden">
+      <div class="municipal-header-card">
+        <div class="muni-header-left">
+          <div class="muni-badge"><i data-feather="database"></i> SOUTHERN CALIFORNIA MUNICIPAL IT AUDIT</div>
+          <h2 class="muni-title">Municipal Data Systems & IP Infrastructure Matrix</h2>
+          <p class="muni-subtitle">Cross-jurisdictional forensic audit of municipal data architecture, on-premise IP exposure, Windows NT legacy status, budgets, and Infrastructure Report Card (IRC) grades.</p>
+        </div>
+        <div class="muni-stats-grid">
+          <div class="muni-stat-card">
+            <span class="muni-stat-val text-accent">10</span>
+            <span class="muni-stat-lbl">Jurisdictions Tracked</span>
+          </div>
+          <div class="muni-stat-card">
+            <span class="muni-stat-val text-amber">17</span>
+            <span class="muni-stat-lbl">Public IP Endpoints</span>
+          </div>
+          <div class="muni-stat-card">
+            <span class="muni-stat-val text-rose">$52.7M</span>
+            <span class="muni-stat-lbl">Total IT Deficit Identified</span>
+          </div>
+          <div class="muni-stat-card">
+            <span class="muni-stat-val text-cyan">40%</span>
+            <span class="muni-stat-lbl">Legacy Windows On-Prem</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls & Toggle Bar -->
+      <div class="muni-controls-bar">
+        <div class="muni-search-box">
+          <i data-feather="search"></i>
+          <input type="text" id="muni-search-input" placeholder="Filter by City, IP (e.g. 192.5.222.153), ASN, Grade, or Platform..." autocomplete="off">
+        </div>
+        <div class="muni-filter-group">
+          <button class="muni-filter-btn active" data-muni-filter="all">All Cities (10)</button>
+          <button class="muni-filter-btn" data-muni-filter="legacy">Legacy Windows Only (4)</button>
+          <button class="muni-filter-btn" data-muni-filter="cloud">Cloud Modernized (4)</button>
+          <button class="muni-filter-btn" data-muni-filter="hybrid">Hybrid (2)</button>
+        </div>
+        <div class="muni-actions">
+          <button id="btn-toggle-ip-view" class="btn-secondary">
+            <i data-feather="network"></i>
+            <span id="ip-view-toggle-text">Show Raw IP Mapping</span>
+          </button>
+          <a href="data/municipal_matrix.json" download="municipal_matrix.json" class="btn-secondary">
+            <i data-feather="download"></i>
+            <span>Export Matrix</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- High-Level Municipal Systems Table View -->
+      <div id="muni-systems-container" class="muni-table-wrapper">
+        <table class="muni-table">
+          <thead>
+            <tr>
+              <th>City / Agency</th>
+              <th>IRC Years</th>
+              <th>Legacy Server Lineage</th>
+              <th>Data Grade</th>
+              <th>15-Yr IT Deficit</th>
+              <th>Annual IT Budget</th>
+              <th>Available Capacity</th>
+              <th>Backup Window</th>
+              <th>Security / Antivirus</th>
+              <th>IP Exposure & WAF</th>
+              <th>Funding Source</th>
+            </tr>
+          </thead>
+          <tbody id="muni-table-body">
+            <!-- Dynamic rows will be injected here -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Raw IP & Endpoint Grid View (Toggled) -->
+      <div id="muni-ips-container" class="muni-ips-grid hidden">
+        <!-- Dynamic IP cards will be injected here -->
+      </div>
+    </main>
+
+    <!-- Forensic Audit Dossiers View (New) -->
+    <main id="dossiers-view" class="dossiers-view hidden">
+      <div class="dossiers-sidebar">
+        <h3 class="dossiers-nav-title"><i data-feather="book-open"></i> Intelligence Dossiers</h3>
+        <div class="dossiers-nav-list" id="dossiers-nav-list">
+          <button class="dossier-nav-btn active" data-doc="executive">
+            <i data-feather="shield"></i>
+            <div>
+              <strong>Executive Forensic Briefing</strong>
+              <small>Capital Audit & Findings</small>
+            </div>
+          </button>
+          <button class="dossier-nav-btn" data-doc="2024irc">
+            <i data-feather="file-text"></i>
+            <div>
+              <strong>2024 Infrastructure Report Card</strong>
+              <small>City of HB (78 Pages)</small>
+            </div>
+          </button>
+          <button class="dossier-nav-btn" data-doc="2000iac">
+            <i data-feather="archive"></i>
+            <div>
+              <strong>2000 IAC Baseline & Measure FF</strong>
+              <small>Historical $1.37B Baseline</small>
+            </div>
+          </button>
+          <button class="dossier-nav-btn" data-doc="vendors">
+            <i data-feather="dollar-sign"></i>
+            <div>
+              <strong>Vendor Contracts & Budgets</strong>
+              <small>ESRI, Laserfiche, Tyler</small>
+            </div>
+          </button>
+        </div>
+      </div>
+      <div class="dossiers-content-pane">
+        <div class="dossier-content-header">
+          <h2 id="dossier-active-title">Executive Forensic Briefing</h2>
+          <div class="dossier-header-actions">
+            <button id="btn-copy-dossier" class="btn-secondary">
+              <i data-feather="copy"></i>
+              <span>Copy Markdown</span>
+            </button>
+          </div>
+        </div>
+        <div id="dossier-markdown-pane" class="markdown-body dossier-pane-body">
+          <!-- Loaded markdown content -->
+        </div>
+      </div>
+    </main>
+
 
     <!-- Footer -->
     <footer class="app-footer">
