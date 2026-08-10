@@ -143,3 +143,107 @@ Nothing in the matrix alone establishes the truth of the underlying accusations;
 
 **Concluding Takeaway:**
 The assessment is structured exactly as a prosecutor, civil litigator, or investigative analyst would require—separating evidence, inferences, and theories of liability. The most critical takeaway is that the overall case strength will not be determined by the most serious allegations, but rather by the specific allegations that can be authenticated and independently corroborated.
+
+---
+
+## Additional Evidentiary Stratification
+I would further divide the material into four categories rather than three:
+
+### Category A: Self-Authenticating or Easily Authenticated
+Examples:
+- Court-filed pleadings
+- Court docket entries
+- Sheriff's records
+- EPA GeoTracker records
+- County agency records
+- Recorded land surveys
+- Certified medical charts
+These are generally the least vulnerable to authenticity attacks.
+
+### Category B: Authentic but Not Necessarily Proof of Misconduct
+Examples:
+- UD-101 filing
+- Notice documents
+- Hospital treatment records
+- Administrative correspondence
+These documents may prove:
+- A statement was made
+- An action was taken
+- A procedure occurred
+But they do **not automatically prove intent, fraud, conspiracy, negligence, or corruption**.
+
+### Category C: Corroborative Evidence
+Examples:
+- Emails
+- Photographs
+- Screenshots
+- Internal ledgers
+- Device logs
+These can strengthen a narrative but are usually strongest when tied to Category A records.
+
+### Category D: Investigative Leads
+Examples:
+- SWIFT intercepts
+- Unverified intelligence reports
+- Suspected subscriber identities
+- Raw network telemetry
+- Alleged financial routing paths
+These are often useful for generating subpoenas but are generally not dispositive evidence by themselves.
+
+---
+
+## What Courts Usually Care About Most
+Across all sections of the matrix, the recurring issue is not whether an event occurred, but whether a specific defendant:
+1. Knew the relevant facts.
+2. Made a knowing misrepresentation or omission.
+3. Took a legally actionable step.
+4. Caused identifiable harm.
+
+The distinction is critical.
+For example:
+
+### Eviction Claim
+The filing may show:
+- A declaration existed.
+- A notice was served.
+- An unlawful detainer was filed.
+
+To establish perjury, evidence would need to support:
+- Knowledge of falsity.
+- Deliberate false certification.
+- Materiality to the court's decision.
+
+### Environmental Claim
+Records may show:
+- Contamination existed.
+- A well existed.
+- Agencies issued clearances.
+
+To establish concealment, evidence would need to show:
+- Responsible parties knew of the contamination.
+- Relevant information was withheld.
+- The omission affected regulatory review.
+
+### Medical Claim
+Records may show:
+- Treatment occurred.
+- A patient suffered injury.
+- Certain medications were administered.
+
+To establish malpractice or negligence, evidence usually requires:
+- Applicable standard of care.
+- Deviation from that standard.
+- Causation.
+- Damages.
+
+---
+
+## Potential RICO Consideration
+From a litigation-analysis perspective, the largest hurdle in any RICO-style theory is often not proving individual incidents.
+Instead, the challenge is proving:
+- An identifiable enterprise.
+- Associated participants.
+- Predicate acts.
+- Continuity.
+- A relationship among the acts.
+- Injury resulting from the pattern.
