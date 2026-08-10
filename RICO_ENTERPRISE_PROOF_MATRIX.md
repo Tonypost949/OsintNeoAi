@@ -78,3 +78,5 @@ The matrix should distinguish **coordination evidence** from **predicate-act evi
 [6] Quick Tips for Pleading “Fraud” with Particularity https://www.americanbar.org/groups/litigation/resources/newsletters/business-torts-unfair-competition/quick-tips-for-pleading-fraud-with-particularity/
 [7] Specificity or Dismissal: The Improper Extension of Rule 9(b) to Negligent Misrepresentation as a Deprivation of Plaintiffs’ Procedural Due Process Rights https://scholarship.law.wm.edu/cgi/viewcontent.cgi?article=1699&context=wmborj
 [8] "Proper Pleading or Premature Proof? Rule 9(b)'s Particularity ... https://digitalcommons.law.uga.edu/glr/vol49/iss3/6/
+[9] [PDF] Rule 9(b) Proposal - United States Courts https://www.uscourts.gov/sites/default/files/20-cv-z_suggestion_from_dean_a._benjamin_spencer_-_rule_9_0.pdf
+[10] Rule 9(b) Pleading Requirements Under the False Claims ... https://www.rivkinradler.com/publications/rule-9b-pleading-requirements-under-the-false-claims-act/
