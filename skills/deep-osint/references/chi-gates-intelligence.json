@@ -1,0 +1,146 @@
+{
+  "intelligence_package": {
+    "classification": "Civic accountability / fiduciary investigative file",
+    "operator": "Anthony Petruccio \u2013 futures broker and private fiduciary",
+    "last_updated": "2026-06-10",
+    "subjects": {
+      "oliver_chi": {
+        "full_name": "Oliver Chi",
+        "current_role": "City Manager, Santa Monica, CA",
+        "current_role_start": "2026-07-14",
+        "current_salary": "$410,604 annually",
+        "budget_oversight": "$789.9 million, 2000+ employees",
+        "prior_roles": [
+          {
+            "title": "City Manager",
+            "jurisdiction": "Huntington Beach, CA",
+            "dates": "2019\u20132021"
+          },
+          {
+            "title": "City Manager",
+            "jurisdiction": "Irvine, CA",
+            "dates": "2022\u20132024"
+          },
+          {
+            "title": "City Manager",
+            "jurisdiction": "Rosemead, CA",
+            "dates": "2007\u20132009"
+          },
+          {
+            "title": "City Manager",
+            "jurisdiction": "Claremont, CA",
+            "dates": "~2009\u20132019"
+          }
+        ],
+        "documented_misconduct": {
+          "email_surveillance_order": {
+            "tier": "A",
+            "description": "Chi ordered subordinate Behzad Zamanian (CIO) to secretly search City Attorney Michael Gates' emails. Zamanian refused and was retaliated against.",
+            "source": "Orange County Register, Oct 27 2020",
+            "url": "https://www.ocregister.com/2020/10/27/huntington-beach-city-manager-accused-of-cyber-spying-on-city-attorney/",
+            "potential_statutes": [
+              "CA Penal Code \u00a7502",
+              "18 U.S.C. \u00a71030 CFAA",
+              "18 U.S.C. \u00a71343 Wire Fraud"
+            ],
+            "gap": "Original Chi-to-Zamanian email not yet obtained as primary doc"
+          },
+          "unwanted_physical_contact": {
+            "tier": "B",
+            "description": "Chi gave unwanted hugs to executive assistant who filed formal complaint with City of Huntington Beach, 2020.",
+            "source": "Orange County Register, Oct 27 2020"
+          },
+          "federal_sexual_harassment_lawsuit": {
+            "tier": "B",
+            "description": "Federal lawsuit alleging sexual harassment of a secretary in Huntington Beach.",
+            "source": "Referenced in OC Register 2020 article, no case number confirmed",
+            "gap": "CASE NUMBER MISSING \u2013 priority PACER search C.D. Cal required"
+          }
+        },
+        "denial": "Chi denies all allegations, characterizes them as smear campaign by disgruntled employees.",
+        "investigative_priorities": [
+          "PACER C.D. Cal \u2013 Chi as defendant, sexual harassment/employment",
+          "CPRA to HB for original Chi-to-Zamanian email"
+        ]
+      },
+      "michael_gates": {
+        "full_name": "Michael Gates",
+        "current_status": "Running for California Attorney General, 2026",
+        "age": 50,
+        "prior_roles": [
+          {
+            "title": "City Attorney",
+            "jurisdiction": "Huntington Beach, CA",
+            "dates": "2014\u20132025"
+          },
+          {
+            "title": "DOJ official",
+            "jurisdiction": "U.S. Department of Justice",
+            "dates": "~2025 \u2013 terminated Nov 14 2025"
+          }
+        ],
+        "documented_misconduct": {
+          "age_discrimination_settlement": {
+            "tier": "A",
+            "description": "2019 federal lawsuit by two senior deputy city attorneys alleging Gates created hostile work environment and discriminated based on age. Huntington Beach paid $2.5M settlement in 2021.",
+            "source": "Mercury News, May 29 2021",
+            "url": "https://www.mercurynews.com/2021/05/29/huntington-beach-to-pay-2-5-million-to-settle-age-discrimination-lawsuit-against-city-attorney/",
+            "amount": "$2,500,000"
+          },
+          "doj_termination_for_cause": {
+            "tier": "A",
+            "description": "DOJ SF-52 form documents Gates was terminated 'for cause' November 14, 2025.",
+            "source": "Daily Breeze, Nov 14 2025",
+            "url": "https://www.dailybreeze.com/2025/11/14/huntington-beach-city-attorney-michael-gates-terminated-for-cause-from-doj-job/"
+          },
+          "doj_termination_reversal": {
+            "tier": "B",
+            "description": "DOJ rescinded 'for cause' termination on Nov 21, 2025, accepting resignation instead.",
+            "source": "LA Times, Nov 22 2025",
+            "url": "https://www.latimes.com/california/story/2025-11-22/doj-reverses-termination-of-huntington-beach-city-attorney",
+            "gap": "Authenticated DOJ rescission letter not yet obtained \u2013 CPRA to DOJ required"
+          }
+        },
+        "denial": "Gates denies hostile work environment allegations. Disputes DOJ termination, claims he resigned.",
+        "investigative_priorities": [
+          "CPRA to DOJ for complete SF-52 + Nov 21 rescission letter"
+        ]
+      }
+    },
+    "gaps": [
+      {
+        "priority": 1,
+        "gap": "Chi federal sexual harassment lawsuit case number",
+        "action": "PACER search C.D. Cal"
+      },
+      {
+        "priority": 2,
+        "gap": "Zamanian whistleblower lawsuit filing status (never filed)",
+        "action": "Resolved \u2013 no lawsuit"
+      },
+      {
+        "priority": 3,
+        "gap": "Authenticated DOJ rescission letter",
+        "action": "CPRA to DOJ"
+      },
+      {
+        "priority": 4,
+        "gap": "Craig Steele full identity and relationship to Chi",
+        "action": "Resolved \u2013 full mapping"
+      },
+      {
+        "priority": 5,
+        "gap": "Original Chi-to-Zamanian surveillance order email",
+        "action": "CPRA to HB IT"
+      },
+      {
+        "priority": 6,
+        "gap": "Mercy House Navigation Center total contract value",
+        "action": "CPRA for all Mercy House invoices"
+      }
+    ],
+    "caveats": [
+      "All allegations are disputed. No criminal convictions documented."
+    ]
+  }
+}
