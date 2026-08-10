@@ -580,3 +580,4 @@ That's exactly the right standard when evaluating:
 If I were reviewing this as an intelligence product, I would describe it as:
 
 > A structured RICO-style financial-crime hypothesis alleging diversion of Mexican funds through shell-company networks and cross-border transfers into U.S. real-estate holdings. The theory is coherent and investigative leads are identified, but the package remains an intelligence product rather than a prosecutorial evidentiary record because major attribution, authentication, and chain-of-custody requirements remain unresolved. The blockchain component in particular contains publicly verifiable inconsistencies that would require correction before relying on the package in any formal proceeding.
+\nIn short: **the theory is understandable; the evidence is not yet validated.**
