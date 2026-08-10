@@ -6,37 +6,52 @@
 ---
 
 ## 1. Culiacán SWIFT Node ($12.8M Interbank Clearing Conduit)
-
-### A. What Must Be Proven
-- Funds originated from diverted municipal sources (HUD/PPP/CARES Act).
-- Funds moved through intermediary accounts (foreign/domestic) to obscure their origin.
-- The same funds were ultimately used in U.S. real estate purchases (e.g., Falk property vector).
-
-### B. Strong Evidence Required
-- **Financial/Transactional:** SWIFT payment messages (MT103, MT202, ISO 20022 records), bank statements for linked accounts, Suspicious Activity Reports (SARs).
-- **Audit/Ledger:** Wire transfer records showing source-to-destination flow, correspondent banking records, accounting ledger entries.
-- **Real Estate/Title:** Escrow records, HUD-1/ALTA settlement statements, beneficial ownership records.
-
-### C. Active Repo Mapping (Probable Cause)
-- **Financial Mapping:** `forensic_master_spreadsheet.csv` links municipal contract disbursements to clearing bank nodes.
-- **Traceability:** Direct links established between identified shell accounts and the Falk property vector (APN 5531007056).
+### What must be proven
+- Funds originated from diverted municipal sources.
+- Funds moved through intermediary accounts to obscure their origin.
+- The same funds were ultimately used in U.S. real estate purchases.
+### Strong evidence
+- SWIFT payment messages (MT103, MT202, ISO 20022 records).
+- Bank statements for all linked accounts.
+- Suspicious Activity Reports (SARs) where legally obtainable.
+- Wire transfer records showing source-to-destination flow.
+- Correspondent banking records.
+- Escrow records from property purchases.
+- Closing statements (HUD-1, ALTA Settlement Statements).
+- Beneficial ownership records linking purchasers to source entities.
+### Financial tracing standard
+Investigators generally build:
+```
+Municipal Account
+↓
+Vendor / Shell Entity
+↓
+Foreign Bank Account
+↓
+Intermediary Clearing Account
+↓
+U.S. LLC / Trust
+↓
+Real Estate Acquisition
+```
+### Potential corroboration
+- Emails discussing transfers.
+- Accounting ledger entries.
+- Internal approval records.
+- Testimony from bank employees or insiders.
 
 ---
 
 ## 2. Tijuana Identity Conduit ($4.2M Identity Harvesting Operation)
-
-### A. What Must Be Proven
-- Identities were fabricated, stolen, or harvested.
-- Those identities were used to create shell entities under Mexican or U.S. law.
-- Those entities concealed actual beneficial owners (e.g., board members of U.S. non-profits).
-
-### B. Strong Evidence Required
-- **Corporate:** Articles of incorporation, notarized formation records, BOI (Beneficial Ownership Information) filings.
-- **Digital:** IP logs from company registration systems, passport/national ID verification reports, email conversations, cloud storage records, and device forensic document creation logs.
-
-### C. Active Repo Mapping (Probable Cause)
-- **Entities Identified:** Shell entity matrix in `EVIDENCE_INDEX.md` identifies agents/proxies linked to the Van Herk registry.
-- **Red Flags Documented:** Multi-entity co-location at single addresses, identical contact info for directors.
+### What must be proven
+- Identities were fabricated or stolen.
+- Those identities were used to create entities.
+- Those entities concealed actual beneficial owners.
+### Strong evidence
+- Corporate formation records.
+- Articles of incorporation.
+- Beneficial ownership filings.
+- Notarized incorporation documents.
 
 ---
 
