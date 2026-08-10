@@ -110,3 +110,65 @@ This category involves serious allegations of coercion or exploitation. Direct e
 ### Additional support
 - Expert analysis confirming unauthorized modifications.
 - Registry employee witness testimony.
+- Internal investigations.
+---
+# Evidence Needed to Connect the Four Nodes
+The biggest challenge is not proving each event individually. It is proving **they are part of the same coordinated network**.
+### Investigators would look for:
+#### Shared individuals
+- Same directors.
+- Same attorneys.
+- Same notaries.
+- Same intermediaries.
+- Family relationships.
+- Shared beneficial owners.
+#### Shared infrastructure
+- Common addresses.
+- Shared phone numbers.
+- Shared email domains.
+- Shared bank accounts.
+- Common payment processors.
+#### Shared financial flows
+- Repeated transfers between entities.
+- Matching transaction patterns.
+- Similar transfer timing.
+- Circular fund movements.
+#### Shared communications
+- Emails discussing multiple nodes.
+- Messaging records.
+- Meeting notes.
+- Internal memoranda.
+---
+# Evidence Hierarchy
+### Extremely strong
+- Bank records.
+- Registry audit logs.
+- Official government records.
+- Wire transfer documentation.
+- Court-certified documents.
+- Forensic accounting analysis.
+### Strong
+- Corporate records.
+- Escrow files.
+- Emails.
+- Text messages.
+- Witness testimony.
+### Moderate
+- Open-source intelligence.
+- Property databases.
+- Business directories.
+- Social media relationships.
+### Weak by themselves
+- Anonymous tips.
+- Rumors.
+- Unverified screenshots.
+- Unsupported summaries.
+- Speculative intelligence reports.
+---
+# What Would Turn the Summary Into a Credible Case?
+A credible case package would typically include:
+1. **Source documents** for every dollar amount mentioned.
+2. **Transaction maps** showing movement of funds.
+3. **Property ownership timelines**.
+4. **Beneficial ownership analyses**.
+5. **Corporate network charts**.
