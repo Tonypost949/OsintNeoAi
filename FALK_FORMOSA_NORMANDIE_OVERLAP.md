@@ -42,3 +42,10 @@ An important limitation in the current dataset includes:
 - No excerpt provided places **15 SWIFT LLC** or **Sammy Zreik** at the Normandie address.
 - No excerpt demonstrates ownership, control, agency, or operational overlap.
 - While a graph-database relationship analysis could identify potential logical links, it would still require independent source validation before any factual conclusion could be drawn.
+
+---
+
+## V. Defensible OSINT Conclusion
+A defensible OSINT conclusion would be:
+> The repository excerpts suggest a documented reference overlap between 1133 N Formosa Ave and a Normandie Ave address associated with Andrew Falk. However, the provided material does not independently establish wrongdoing, liability, ownership relationships involving 15 SWIFT LLC, or operational links to Sammy Zreik. Additional verified records would be required to substantiate those claims.
+
