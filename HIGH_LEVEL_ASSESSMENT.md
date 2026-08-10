@@ -186,3 +186,6 @@ A professional investigator would likely extract:
 5. Public records
 6. Digital evidence locations
 7. Witness statements
+and then independently verify each component before drawing conclusions about fraud, retaliation, RICO liability, environmental violations, or identity theft.
+
+The strongest path forward is not adding more narrative, but creating a **claim-to-evidence matrix** showing every allegation, the exact exhibit supporting it, whether it is independently verified, and what additional proof would be required to establish it in court.
