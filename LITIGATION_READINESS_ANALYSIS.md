@@ -138,3 +138,8 @@ That distinction tends to increase credibility because it prevents stronger docu
 
 **Disclaimer on Evidentiary Weight:**
 Nothing in the matrix alone establishes the truth of the underlying accusations; it maps evidence to allegations. Whether a court would find any particular allegation proven would depend on authentication, admissibility rulings, witness testimony, expert analysis, and the totality of the evidence presented.
+
+---
+
+**Concluding Takeaway:**
+The assessment is structured exactly as a prosecutor, civil litigator, or investigative analyst would require—separating evidence, inferences, and theories of liability. The most critical takeaway is that the overall case strength will not be determined by the most serious allegations, but rather by the specific allegations that can be authenticated and independently corroborated.
