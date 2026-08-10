@@ -52,41 +52,61 @@ Real Estate Acquisition
 - Articles of incorporation.
 - Beneficial ownership filings.
 - Notarized incorporation documents.
-
+- Copies of identification used in registration.
+- IP logs from company registration systems.
+- Passport and national ID verification reports.
+- Evidence showing one individual controls multiple supposedly unrelated entities.
+### Red flags
+- Multiple entities registered to same address.
+- Repeated use of identical contact information.
+- Nominee directors with no real business activity.
+- Formation agents involved in large numbers of entities.
+### Digital evidence
+- Email conversations.
+- Cloud storage records.
+- Messaging application evidence.
+- Device forensics showing document creation.
 ---
-
 ## 3. Juárez Transit Corridor ($3.1M Property Seizure Network)
-
-### A. What Must Be Proven
+### What must be proven
 - Individuals were pressured, threatened, deceived, or manipulated.
-- Property transfers occurred because of that conduct (forced eviction/disinheritance).
-- Financial beneficiaries of the transfers are identifiable.
-
-### B. Strong Evidence Required
-- **Court/Legal:** Eviction orders, filings, property transfer deeds.
-- **Witness/Communication:** Witness statements, affidavits, recorded threats/communications, payments tied to eviction events.
-- **Financial:** Property valuation reports showing sudden spikes in asset value following seizures.
-
-### C. Active Repo Mapping (Probable Cause)
-- **Coercion Mapping:** Eviction clusters mapped against vulnerable populations in `MISSING_CHILDREN_AND_FOSTER_CARE_AUDIT.md`.
-- **Conflict Vector:** Judicial interference (Judge Carmen R. Luege) in eviction processing mapped in `EVIDENCE_INDEX.md`.
-
+- Property transfers occurred because of that conduct.
+- Financial beneficiaries can be identified.
+### Strong evidence
+- Eviction orders and filings.
+- Property transfer deeds.
+- Court records.
+- Recorded threats or communications.
+- Witness statements.
+- Affidavits from affected occupants.
+- Property valuation reports.
+- Financial records showing who benefited.
+### Particularly persuasive evidence
+- Communications instructing eviction activity.
+- Payments tied to eviction events.
+- Sudden title changes following coercive acts.
+- Patterns affecting multiple victims.
+### Required caution
+This category involves serious allegations of coercion or exploitation. Direct evidence is usually required; circumstantial evidence alone is often insufficient.
 ---
-
 ## 4. CDMX Registry Exploit ($18.5M Registry Manipulation)
-
-### A. What Must Be Proven
-- Property registry data was altered improperly or without authority.
-- Alterations were intentional (not system errors).
-- Alterations aided asset concealment or transfers to U.S. shell entities.
-
-### B. Strong Evidence Required
-- **Registry/Notary:** Historical extracts, certified audit logs, original deeds, comparison of modified/unmodified filings.
-- **Digital/Systemic:** Database logs, admin access records, change tickets, approval workflows, forensic IT expert analysis.
-
-### C. Active Repo Mapping (Probable Cause)
-- **Asset Identification:** Node `MX-CDMX-RPP-0012` ($18.5M) documented in `MEXICO_FORENSIC_ANNEX.md`.
-- **System Exposure:** Correlated with municipal API gateway vulnerability at `api.huntingtonbeachca.gov`.
-
----
-**END ANNEX**
+### What must be proven
+- Registry data was altered improperly.
+- Alterations were intentional.
+- Alterations aided asset concealment or transfers.
+### Strong evidence
+- Historical registry extracts.
+- Audit logs from registry systems.
+- User access records.
+- Timestamped change histories.
+- Notary records.
+- Original deeds.
+- Comparison of prior and modified filings.
+### Digital forensic evidence
+- Registry database logs.
+- Administrator access records.
+- Authentication records.
+- Change tickets or approval workflows.
+### Additional support
+- Expert analysis confirming unauthorized modifications.
+- Registry employee witness testimony.
