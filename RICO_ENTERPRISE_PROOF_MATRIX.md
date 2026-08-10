@@ -35,3 +35,30 @@ For each major coordination proposition, seek:
 2. One **independent corroborator**—different custodian, witness, system, or record series.
 3. One **tested alternative explanation** documented in the case file.
 4. One **foundation path** identifying who can authenticate or explain the evidence.
+
+*For fraud-based allegations, preserve the details needed to identify the relevant actor, statement or act, time, place, method, and why it was false or wrongful; Rule 9(b) requires the circumstances of fraud to be pleaded with particularity, even though mental states may generally be alleged.*
+
+---
+
+## Case-File Status Labels
+Use controlled labels rather than argumentative descriptions:
+- **FACT:** Directly supported by a reliable source.
+- **CORROBORATED FACT:** Supported by independent sources.
+- **INFERENCE:** Reasonable interpretation, not directly established.
+- **DISPUTED:** Conflicting evidence exists.
+- **LEAD:** Requires investigation.
+- **EXPERT-DEPENDENT:** Meaning cannot be reliably assessed without specialized interpretation.
+- **UNSUPPORTED:** No presently adequate evidence.
+- **CONTRADICTED:** Available evidence materially undermines the proposition.
+
+---
+
+## Example Entry
+| Field | Example |
+|---|---|
+| Proposition | Actor B performed a supporting role for Actor A’s property-related act. |
+| Evidence | B’s message two days earlier, shared document template, payment from A, agency record showing B’s follow-up action. |
+| Coordination indicator | Timing, shared document, payment, and complementary conduct converge. |
+| Alternative explanation | B was independently retained for an ordinary administrative task. |
+| Missing proof | Original message metadata and witness who can explain the payment purpose. |
+| Status | **2 — Supported inference; not yet attribution proof.** |
