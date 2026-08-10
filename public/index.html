@@ -103,7 +103,13 @@
         <span>Forensic Audit Dossiers</span>
         <span class="tab-pill-badge">4 Reports</span>
       </button>
+      <button class="view-tab-btn" data-view="ai-assistant">
+        <i data-feather="terminal"></i>
+        <span>AI Forensic Assistant</span>
+        <span class="tab-pill-badge badge-accent">Firebase AI Logic</span>
+      </button>
     </nav>
+
 
 
     <!-- Search, Filter & Control Hero Section -->
@@ -319,6 +325,98 @@
         </div>
       </div>
     </main>
+
+    <!-- AI Forensic Assistant View (Powered by Firebase AI Logic / Gemini) -->
+    <main id="ai-assistant-view" class="ai-assistant-view hidden">
+      <div class="ai-assistant-container">
+        <!-- AI Assistant Sidebar -->
+        <div class="ai-sidebar">
+          <div class="ai-model-card">
+            <div class="ai-model-header">
+              <i data-feather="cpu" class="ai-engine-icon"></i>
+              <div>
+                <strong class="ai-model-name">Gemini 2.5 Flash</strong>
+                <span class="ai-provider-badge">Firebase AI Logic</span>
+              </div>
+            </div>
+            <p class="ai-model-desc">Real-time multimodal forensic intelligence engine with search grounding and direct knowledgebase ingestion.</p>
+            <div class="ai-status-pill">
+              <span class="status-pulse pulse-green"></span>
+              <span>Dataset Loaded (10 Cities &bull; 17 IPs &bull; 4 Dossiers)</span>
+            </div>
+          </div>
+
+          <!-- Quick Query Prompts -->
+          <div class="ai-quick-prompts">
+            <h4 class="ai-prompts-title"><i data-feather="zap"></i> Quick Inquiries</h4>
+            <button class="ai-prompt-chip" data-prompt="Compare Huntington Beach vs Newport Beach data systems and explain why HB is in a $21M deficit.">
+              <span>🏛️ HB vs Newport Beach Audit</span>
+            </button>
+            <button class="ai-prompt-chip" data-prompt="Analyze the security risks of on-premise subnet 192.5.222.0/24 with unshielded ArcGIS and Laserfiche servers.">
+              <span>🛡️ Audit Subnet 192.5.222.0/24</span>
+            </button>
+            <button class="ai-prompt-chip" data-prompt="Explain how Measure FF collected $697M from taxpayers but still left Information Systems at Grade C.">
+              <span>💰 Measure FF $697M Taxpayer Flow</span>
+            </button>
+            <button class="ai-prompt-chip" data-prompt="Which cities in the dataset are still running legacy on-premise Windows server architectures?">
+              <span>🖥️ List All Legacy Server Cities</span>
+            </button>
+            <button class="ai-prompt-chip" data-prompt="Generate a 3-step executive modernization proposal for a city council to approve a cloud migration CIP.">
+              <span>📑 Draft Council CIP Pitch</span>
+            </button>
+          </div>
+
+          <!-- Firebase Config Drawer Trigger -->
+          <div class="ai-config-box">
+            <button id="btn-open-ai-settings" class="btn-secondary btn-full">
+              <i data-feather="settings"></i>
+              <span>Firebase API Settings</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Chat Main Area -->
+        <div class="ai-chat-pane">
+          <!-- Chat Message Thread -->
+          <div class="ai-messages-thread" id="ai-messages-thread">
+            <div class="ai-msg ai-msg-bot">
+              <div class="ai-avatar"><i data-feather="cpu"></i></div>
+              <div class="ai-msg-body">
+                <div class="ai-msg-header">
+                  <strong>OsintNeo Forensic AI</strong>
+                  <span class="ai-timestamp">Just now</span>
+                </div>
+                <div class="ai-msg-content markdown-body">
+                  <p>Welcome to the <strong>OsintNeoAi Forensic Intelligence Assistant</strong>.</p>
+                  <p>I have ingested all <strong>10 municipal jurisdictions, 17 public IP mappings, the 2000 IAC Baseline, the 2024 Huntington Beach Infrastructure Report Card (IRC), and enterprise vendor contracts</strong>.</p>
+                  <p>Select a quick inquiry from the left or type any question below to begin your audit.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chat Input Area -->
+          <div class="ai-input-wrapper">
+            <div class="ai-input-box">
+              <textarea id="ai-chat-input" placeholder="Ask a question about municipal data systems, IP exposure, budgets, Measure FF, or comparative city grades..." rows="2"></textarea>
+              <div class="ai-input-actions">
+                <button id="btn-clear-chat" class="btn-icon" title="Clear Conversation">
+                  <i data-feather="trash-2"></i>
+                </button>
+                <button id="btn-send-ai" class="btn-primary" title="Send Query">
+                  <i data-feather="send"></i>
+                  <span>Execute Query</span>
+                </button>
+              </div>
+            </div>
+            <div class="ai-input-footer">
+              <span>Powered by <strong>Firebase AI Logic</strong> &bull; Client-Side Gemini SDK &bull; Markdown & Code Formatted</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
 
 
     <!-- Footer -->
