@@ -626,6 +626,29 @@ def public_investigations():
     investigations = [dict(r) for r in rows]
     return jsonify({"investigations": investigations})
 
+
+@app.route("/api/user/repos", methods=["GET", "POST"])
+@login_required
+def manage_repos():
+    conn = get_db()
+    c = conn.cursor()
+    if request.method == "POST":
+        data = request.get_json(silent=True) or {}
+        repo_url = data.get("repo_url", "").strip()
+        if not repo_url.startswith("https://github.com/"):
+            conn.close()
+            return jsonify({"error": "Must be a valid GitHub URL starting with https://github.com/"}), 400
+        repo_name = repo_url.split("/")[-1].replace(".git", "")
+        c.execute("INSERT INTO user_repos (user_id, repo_url, repo_name) VALUES (?, ?, ?)", (request.user_id, repo_url, repo_name))
+        conn.commit()
+        conn.close()
+        return jsonify({"status": "success", "repo_name": repo_name})
+    else:
+        c.execute("SELECT id, repo_url, repo_name, added_at FROM user_repos WHERE user_id = ?", (request.user_id,))
+        rows = c.fetchall()
+        conn.close()
+        return jsonify({"repos": [dict(r) for r in rows]})
+
 def init_db():
     conn = sqlite3.connect('osint_app.db')
     c = conn.cursor()
@@ -646,6 +669,14 @@ def init_db():
         summary TEXT,
         timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
         is_public BOOLEAN DEFAULT 1,
+        FOREIGN KEY(user_id) REFERENCES users(id)
+    )''')
+    c.execute('''CREATE TABLE IF NOT EXISTS user_repos (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER,
+        repo_url TEXT,
+        repo_name TEXT,
+        added_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY(user_id) REFERENCES users(id)
     )''')
     conn.commit()

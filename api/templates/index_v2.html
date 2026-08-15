@@ -616,3 +616,70 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Add "Link GitHub Repo" to the tools grid
+    const toolsGrid = document.getElementById('toolsGrid');
+    if (toolsGrid) {
+        const repoCard = document.createElement('div');
+        repoCard.className = 'tool-card';
+        repoCard.innerHTML = '<h3>Link GitHub Repo</h3><p>Save custom OSINT tools to your account</p>';
+        repoCard.onclick = async () => {
+            const token = localStorage.getItem('adminToken');
+            if (!token) {
+                alert('You must be logged in to link repos!');
+                return;
+            }
+            const repoUrl = prompt('Enter the full GitHub Repo URL (e.g., https://github.com/user/repo):');
+            if (!repoUrl) return;
+            
+            try {
+                const resp = await fetch('/api/user/repos', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + token
+                    },
+                    body: JSON.stringify({repo_url: repoUrl})
+                });
+                const data = await resp.json();
+                if (data.error) {
+                    alert('Error: ' + data.error);
+                } else {
+                    alert('Successfully linked: ' + data.repo_name);
+                }
+            } catch (e) {
+                alert('Failed to link repo: ' + e.message);
+            }
+        };
+        toolsGrid.appendChild(repoCard);
+        
+        // Add "My Repos" card to view them
+        const myReposCard = document.createElement('div');
+        myReposCard.className = 'tool-card';
+        myReposCard.innerHTML = '<h3>My OSINT Repos</h3><p>View your saved GitHub repositories</p>';
+        myReposCard.onclick = async () => {
+            const token = localStorage.getItem('adminToken');
+            if (!token) {
+                alert('You must be logged in to view your repos!');
+                return;
+            }
+            try {
+                const resp = await fetch('/api/user/repos', {
+                    headers: {'Authorization': 'Bearer ' + token}
+                });
+                const data = await resp.json();
+                if (data.repos && data.repos.length > 0) {
+                    const repoList = data.repos.map(r => r.repo_name + ' (' + r.repo_url + ')').join('\\n');
+                    alert('Your Linked Repos:\\n\\n' + repoList);
+                } else {
+                    alert('You have no linked repositories yet.');
+                }
+            } catch (e) {
+                alert('Failed to fetch repos: ' + e.message);
+            }
+        };
+        toolsGrid.appendChild(myReposCard);
+    }
+});
+</script>
