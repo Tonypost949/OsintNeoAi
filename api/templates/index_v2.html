@@ -542,32 +542,43 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // Inject Investigations Feed
-    const knowledgeContent = document.getElementById('knowledgeContent');
-    if (knowledgeContent) {
-        const newsHeader = document.createElement('h2');
-        newsHeader.innerText = 'Latest Public Investigations';
-        newsHeader.style.marginTop = '20px';
-        newsHeader.style.padding = '0 20px';
+    // Inject Investigations Feed on the front chat page
+    const welcomeMsg = document.getElementById('welcomeMsg');
+    if (welcomeMsg) {
+        const newsContainer = document.createElement('div');
+        newsContainer.style.marginTop = '20px';
+        newsContainer.style.borderTop = '1px solid var(--border)';
+        newsContainer.style.paddingTop = '15px';
+        
+        const newsHeader = document.createElement('h3');
+        newsHeader.innerText = '📰 Latest Public Investigations';
+        newsHeader.style.marginBottom = '10px';
+        newsHeader.style.color = 'var(--accent2)';
+        newsHeader.style.fontSize = '14px';
+        
         const newsFeed = document.createElement('div');
         newsFeed.className = 'knowledge-grid';
-        knowledgeContent.parentElement.insertBefore(newsFeed, knowledgeContent.nextSibling);
-        knowledgeContent.parentElement.insertBefore(newsHeader, newsFeed);
+        
+        newsContainer.appendChild(newsHeader);
+        newsContainer.appendChild(newsFeed);
+        welcomeMsg.appendChild(newsContainer);
 
         async function loadNews() {
             try {
                 const resp = await fetch('/api/investigations/public');
                 const data = await resp.json();
                 if (!data.investigations || data.investigations.length === 0) {
-                    newsFeed.innerHTML = '<div style="color:var(--text2);padding:20px;">No public investigations yet.</div>';
+                    newsFeed.innerHTML = '<div style="color:var(--text2);padding:10px;font-size:12px">No public investigations yet.</div>';
                     return;
                 }
                 let html = '';
                 for (const inv of data.investigations) {
-                    html += '<div class="knowledge-card"><h3>' + inv.title + '</h3><p>' + inv.summary + '</p><div style="font-size:10px;color:var(--accent);margin-top:4px">By ' + inv.username + ' on ' + inv.timestamp + '</div></div>';
+                    html += '<div class="knowledge-card" style="background:var(--surface2)"><h3>' + esc(inv.title) + '</h3><p>' + esc(inv.summary) + '</p><div style="font-size:10px;color:var(--accent);margin-top:6px;border-top:1px solid var(--border);padding-top:4px">By <strong>' + esc(inv.username) + '</strong> on ' + esc(inv.timestamp) + '</div></div>';
                 }
                 newsFeed.innerHTML = html;
-            } catch (e) {}
+            } catch (e) {
+                newsFeed.innerHTML = '<div style="color:var(--danger);font-size:12px">Failed to load news</div>';
+            }
         }
         loadNews();
     }
