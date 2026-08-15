@@ -124,6 +124,9 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 <div class="nav-item" data-panel="bq" onclick="switchPanel('bq');loadCatalog()">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>BigQuery
 </div>
+<div class="nav-item" data-panel="infra" onclick="switchPanel('infra');loadAudits()">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Infrastructure
+</div>
 <div class="nav-item" data-panel="tools" onclick="switchPanel('tools')">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Tools
 </div>
@@ -206,6 +209,18 @@ BigQuery Catalog & Query
 <div class="bq-results" id="bqResults"></div>
 </div>
 </div>
+</div>
+</div>
+
+<!-- INFRASTRUCTURE PANEL -->
+<div class="panel" id="panel-infra">
+<div class="section-title">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+Infrastructure Security Audits
+</div>
+<div class="subtitle">Vulnerability reports and exposed network nodes.</div>
+<div class="bq-results" id="infraResults">
+<div style="color:var(--text2);padding:20px;text-align:center">Loading audits...</div>
 </div>
 </div>
 
@@ -433,6 +448,34 @@ html+='</tbody></table>'
 }
 results.innerHTML=html
 }catch(e){loading(false);status.textContent='Error: '+e.message}
+}
+
+// ── INFRASTRUCTURE ──────────────────────────────────────────────
+async function loadAudits() {
+    const results = document.getElementById('infraResults');
+    try {
+        const resp = await fetch(API+'/api/audits/public');
+        const data = await resp.json();
+        if(data.error){results.innerHTML='<div style="color:var(--danger);padding:12px">Error: '+data.error+'</div>';return;}
+        if(data.audits.length===0){results.innerHTML='<div style="color:var(--text2);padding:12px">No audits found</div>';return;}
+        
+        let html='<table><thead><tr><th>Entity</th><th>Domain</th><th>IP</th><th>Port</th><th>Service</th><th>Status</th><th>Risk</th></tr></thead><tbody>';
+        for(const r of data.audits) {
+            html+='<tr>';
+            html+='<td>'+esc(r.entity)+'</td>';
+            html+='<td><code>'+esc(r.domain)+'</code></td>';
+            html+='<td><code>'+esc(r.ip)+'</code></td>';
+            html+='<td><strong>'+esc(r.port)+'</strong></td>';
+            html+='<td>'+esc(r.service)+'</td>';
+            html+='<td><span style="color:var(--danger)">'+esc(r.status)+'</span></td>';
+            html+='<td style="color:var(--warning)">'+esc(r.risk)+'</td>';
+            html+='</tr>';
+        }
+        html+='</tbody></table>';
+        results.innerHTML=html;
+    } catch(e) {
+        results.innerHTML='<div style="color:var(--danger);padding:12px">Error: '+e.message+'</div>';
+    }
 }
 
 // ── TOOLS ──────────────────────────────────────────────────────

@@ -695,6 +695,23 @@ def manage_repos():
         conn.close()
         return jsonify({"repos": [dict(r) for r in rows]})
 
+@app.route("/api/audits/public", methods=["GET"])
+def public_audits():
+    try:
+        conn = get_db()
+        c = conn.cursor()
+        c.execute("""
+            SELECT id, entity, domain, ip, port, service, status, risk
+            FROM infrastructure_audits
+            ORDER BY port ASC
+        """)
+        rows = c.fetchall()
+        conn.close()
+        audits = [dict(r) for r in rows]
+        return jsonify({"audits": audits})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 def init_db():
     conn = sqlite3.connect('osint_app.db')
     c = conn.cursor()
@@ -725,6 +742,48 @@ def init_db():
         added_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY(user_id) REFERENCES users(id)
     )''')
+    c.execute('''CREATE TABLE IF NOT EXISTS infrastructure_audits (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        entity TEXT,
+        domain TEXT,
+        ip TEXT,
+        port INTEGER,
+        service TEXT,
+        status TEXT,
+        risk TEXT
+    )''')
+    
+    # Seed Data
+    c.execute("SELECT COUNT(*) FROM infrastructure_audits")
+    if c.fetchone()[0] == 0:
+        seed_data = [
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 21, "FTP", "OPEN", "Plaintext Credential Theft"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 22, "SSH", "OPEN", "Brute-Force Entry Vector"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 23, "Telnet", "OPEN", "Plaintext Infrastructure Control"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 25, "SMTP", "OPEN", "Email Spoofing / Relay"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 53, "DNS", "OPEN", "DNS Poisoning / Amplification"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 80, "HTTP", "OPEN", "Unencrypted Web Traffic"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 110, "POP3", "OPEN", "Email Access"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 135, "RPC/SMB", "OPEN", "Lateral Movement / Ransomware"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 139, "RPC/SMB", "OPEN", "Lateral Movement / Ransomware"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 445, "RPC/SMB", "OPEN", "Lateral Movement / Ransomware"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 389, "LDAP/LDAPS", "OPEN", "Active Directory Enumeration"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 636, "LDAP/LDAPS", "OPEN", "Active Directory Enumeration"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 443, "HTTPS", "OPEN", "Secure Web Access"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 1433, "SQL", "OPEN", "Direct Database Manipulation"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 3306, "SQL", "OPEN", "Direct Database Manipulation"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 5432, "SQL", "OPEN", "Direct Database Manipulation"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 3389, "RDP", "OPEN", "Remote Desktop Hijacking"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 6379, "Redis", "OPEN", "Unauthenticated Data Access"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 9200, "Elasticsearch", "OPEN", "Big Data Exposure"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 9300, "Elasticsearch", "OPEN", "Big Data Exposure"),
+            ("Huntington Beach Police Department", "hbpd.org", "162.242.210.88", 27017, "MongoDB", "OPEN", "Database Exfiltration")
+        ]
+        c.executemany('''
+            INSERT INTO infrastructure_audits (entity, domain, ip, port, service, status, risk)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        ''', seed_data)
+
     conn.commit()
     conn.close()
 
