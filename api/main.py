@@ -144,6 +144,10 @@ def index():
 def static_assets(path):
     return send_from_directory(str(Path(__file__).parent / "templates"), path)
 
+@app.route("/forensic/<path:path>")
+def forensic_assets(path):
+    return send_from_directory(str(Path(__file__).parent.parent / "forensic"), path)
+
 # ── AI Chat ────────────────────────────────────────────────────
 @app.route("/api/chat", methods=["POST"])
 def chat():
