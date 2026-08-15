@@ -11,6 +11,34 @@ UPLOAD_DIR = Path("/app/uploads")
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 GCP_PROJECT = os.getenv("GCP_PROJECT", "project-743aab84-f9a5-4ec7-954")
+import sqlite3
+import hashlib
+import secrets
+from functools import wraps
+
+def get_db():
+    conn = sqlite3.connect('osint_app.db')
+    conn.row_factory = sqlite3.Row
+    return conn
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        auth = request.headers.get("Authorization")
+        if not auth or not auth.startswith("Bearer "):
+            return jsonify({"error": "Unauthorized"}), 401
+        token = auth.split(" ")[1]
+        conn = get_db()
+        c = conn.cursor()
+        c.execute("SELECT user_id FROM sessions WHERE token = ?", (token,))
+        row = c.fetchone()
+        conn.close()
+        if not row:
+            return jsonify({"error": "Unauthorized"}), 401
+        request.user_id = row['user_id']
+        return f(*args, **kwargs)
+    return decorated_function
+
 
 # ── In-Memory Knowledge Store ──────────────────────────────────
 knowledge_store = {
@@ -134,7 +162,7 @@ The user's GCP project is: {project}
 """
 
 # ── Frontend (SPA) ─────────────────────────────────────────────
-FRONTEND_HTML = (Path(__file__).parent / "templates" / "index.html").read_text(encoding="utf-8")
+FRONTEND_HTML = (Path(__file__).parent / "templates" / "index_v2.html").read_text(encoding="utf-8")
 
 @app.route("/")
 def index():
@@ -150,6 +178,7 @@ def forensic_assets(path):
 
 # ── AI Chat ────────────────────────────────────────────────────
 @app.route("/api/chat", methods=["POST"])
+@login_required
 def chat():
     data = request.get_json(silent=True) or {}
     message = data.get("message", "").strip()
@@ -206,6 +235,7 @@ def chat():
         return jsonify({"error": str(e)}), 500
 
 @app.route("/api/chat/stream", methods=["POST"])
+@login_required
 def chat_stream():
     data = request.get_json(silent=True) or {}
     message = data.get("message", "").strip()
@@ -485,15 +515,23 @@ def search_bookmarks():
 
 # ── Pipeline ───────────────────────────────────────────────────
 @app.route("/api/pipeline/run", methods=["POST"])
+@login_required
 def run_pipeline():
     from osint_pipeline.watcher import run_pipeline as rp
     try:
         rp()
+        conn = get_db()
+        c = conn.cursor()
+        c.execute("INSERT INTO investigations (user_id, title, summary, is_public) VALUES (?, ?, ?, 1)", 
+                 (request.user_id, "Pipeline Execution", "Data collection pipeline executed successfully."))
+        conn.commit()
+        conn.close()
         return jsonify({"status": "success"})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 @app.route("/api/pipeline/resolve", methods=["POST"])
+@login_required
 def resolve_pipeline():
     from osint_pipeline.watcher_v2 import run_phase2
     try:
@@ -503,7 +541,6 @@ def resolve_pipeline():
         return jsonify({"error": str(e)}), 500
 
 # ── Status ─────────────────────────────────────────────────────
-@app.route("/")
 @app.route("/api/status")
 def status():
     return jsonify({
@@ -528,6 +565,94 @@ def not_found(e):
 def server_error(e):
     return jsonify({"error": "Internal server error"}), 500
 
+
+# ── Auth & Investigations ────────────────────────────────────────
+
+@app.route("/api/auth/register", methods=["POST"])
+def register():
+    data = request.get_json(silent=True) or {}
+    username = data.get("username", "").strip()
+    password = data.get("password", "").strip()
+    if not username or not password:
+        return jsonify({"error": "Missing username or password"}), 400
+    
+    conn = get_db()
+    c = conn.cursor()
+    pwd_hash = hashlib.sha256(password.encode()).hexdigest()
+    try:
+        c.execute("INSERT INTO users (username, password_hash) VALUES (?, ?)", (username, pwd_hash))
+        conn.commit()
+    except sqlite3.IntegrityError:
+        conn.close()
+        return jsonify({"error": "Username already exists"}), 400
+    conn.close()
+    return jsonify({"status": "success"})
+
+@app.route("/api/auth/login", methods=["POST"])
+def login():
+    data = request.get_json(silent=True) or {}
+    username = data.get("username", "").strip()
+    password = data.get("password", "").strip()
+    pwd_hash = hashlib.sha256(password.encode()).hexdigest()
+    
+    conn = get_db()
+    c = conn.cursor()
+    c.execute("SELECT id FROM users WHERE username = ? AND password_hash = ?", (username, pwd_hash))
+    row = c.fetchone()
+    if not row:
+        conn.close()
+        return jsonify({"error": "Invalid credentials"}), 401
+    
+    token = secrets.token_hex(32)
+    c.execute("INSERT INTO sessions (token, user_id) VALUES (?, ?)", (token, row["id"]))
+    conn.commit()
+    conn.close()
+    return jsonify({"token": token, "username": username})
+
+@app.route("/api/investigations/public", methods=["GET"])
+def public_investigations():
+    conn = get_db()
+    c = conn.cursor()
+    c.execute("""
+        SELECT i.id, i.title, i.summary, i.timestamp, u.username
+        FROM investigations i
+        JOIN users u ON i.user_id = u.id
+        WHERE i.is_public = 1
+        ORDER BY i.timestamp DESC LIMIT 20
+    """)
+    rows = c.fetchall()
+    conn.close()
+    
+    investigations = [dict(r) for r in rows]
+    return jsonify({"investigations": investigations})
+
+def init_db():
+    conn = sqlite3.connect('osint_app.db')
+    c = conn.cursor()
+    c.execute('''CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT UNIQUE,
+        password_hash TEXT
+    )''')
+    c.execute('''CREATE TABLE IF NOT EXISTS sessions (
+        token TEXT PRIMARY KEY,
+        user_id INTEGER,
+        FOREIGN KEY(user_id) REFERENCES users(id)
+    )''')
+    c.execute('''CREATE TABLE IF NOT EXISTS investigations (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER,
+        title TEXT,
+        summary TEXT,
+        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+        is_public BOOLEAN DEFAULT 1,
+        FOREIGN KEY(user_id) REFERENCES users(id)
+    )''')
+    conn.commit()
+    conn.close()
+
 if __name__ == "__main__":
+    init_db()
     port = int(os.environ.get("PORT", 8080))
     app.run(host="0.0.0.0", port=port, debug=False)
+
