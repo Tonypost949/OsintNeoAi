@@ -1,4 +1,4 @@
-import json, os, sys, io, csv, uuid, re
+import json, os, sys, io, csv, uuid, re, subprocess, logging
 from datetime import datetime, timezone
 from pathlib import Path
 from flask import Flask, jsonify, request, send_from_directory
@@ -114,6 +114,7 @@ Your capabilities:
 3. Analyze uploaded documents for forensic intelligence
 4. Import and search through browser bookmarks
 5. Cross-reference data across datasets to find connections
+6. Run OSINT and security tools (nmap, whois, dnsrecon, hydra, traceroute, nc, curl) by outputting a bash block.
 
 When the user asks a question that requires data:
 1. First check the BigQuery catalog to find relevant tables
@@ -122,6 +123,12 @@ When the user asks a question that requires data:
 4. Suggest follow-up investigations
 
 When generating SQL, use the correct dataset.table references. Always EXPLAIN what the data means - don't just dump raw results.
+
+To run OSINT tools, output a bash script block like this:
+```bash
+nmap -sV -p- example.com
+```
+I will execute the script and return the output.
 
 The user's GCP project is: {project}
 """
@@ -156,6 +163,8 @@ def chat():
             sql_blocks = re.findall(r"```\n?(SELECT .*?;)```", text, re.DOTALL)
 
         result_data = None
+        bash_blocks = re.findall(r"```bash\n?(.*?)```", text, re.DOTALL | re.IGNORECASE)
+        
         if sql_blocks:
             try:
                 client = get_bq()
@@ -166,6 +175,20 @@ def chat():
                         result_data = {"sql": sql.strip(), "rows": rows[:100], "total": len(rows)}
             except Exception as e:
                 result_data = {"sql": sql_blocks[0].strip(), "error": str(e)}
+        elif bash_blocks:
+            try:
+                cmd = bash_blocks[0].strip()
+                process = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=60)
+                result_data = {
+                    "bash": cmd, 
+                    "stdout": process.stdout[:5000], 
+                    "stderr": process.stderr[:5000], 
+                    "exit_code": process.returncode
+                }
+            except subprocess.TimeoutExpired:
+                result_data = {"bash": cmd, "error": "Command timed out after 60 seconds."}
+            except Exception as e:
+                result_data = {"bash": bash_blocks[0].strip(), "error": str(e)}
 
         return jsonify({
             "response": text,
