@@ -753,6 +753,18 @@ def init_db():
         risk TEXT
     )''')
     
+    # Ensure admin user exists for the alert
+    c.execute("INSERT OR IGNORE INTO users (id, username, password_hash) VALUES (1, 'SystemAdmin', 'dummy_hash')")
+    
+    # Seed Taxpayer Alert
+    c.execute("SELECT COUNT(*) FROM investigations WHERE title LIKE '%TAXPAYER ALERT%'")
+    if c.fetchone()[0] == 0:
+        c.execute("""
+            INSERT INTO investigations (user_id, title, summary, is_public)
+            VALUES (1, '🚨 TAXPAYER ALERT: Critical Data Exposure at Huntington Beach Police Department', 
+            'A comprehensive public infrastructure audit has revealed 41 open network ports on the Huntington Beach Police Department (hbpd.org) servers. Taxpayer data, including potentially sensitive law enforcement databases (SQL, MongoDB) and remote access points (RDP, SSH), are currently exposed to the open internet. This represents a massive attack surface and a severe failure to secure public data. View the Infrastructure tab for full details.', 1)
+        """)
+    
     # Seed Data
     c.execute("SELECT COUNT(*) FROM infrastructure_audits")
     if c.fetchone()[0] == 0:
