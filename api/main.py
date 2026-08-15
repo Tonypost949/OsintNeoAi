@@ -226,6 +226,8 @@ def chat_stream():
 def bq_catalog():
     try:
         catalog = build_catalog()
+        if "_error" in catalog:
+            return jsonify({"error": catalog["_error"]})
         flat = []
         for ds, tables in catalog.items():
             for tbl, info in tables.items():
