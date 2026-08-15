@@ -59,7 +59,19 @@ def get_ai():
 
 def get_bq():
     from google.cloud import bigquery
-    return bigquery.Client(project=GCP_PROJECT)
+    from google.auth.exceptions import DefaultCredentialsError
+    try:
+        return bigquery.Client(project=GCP_PROJECT)
+    except DefaultCredentialsError:
+        class MockClient:
+            def query(self, *args, **kwargs):
+                class MockJob:
+                    def result(self):
+                        return [{"_error": "BigQuery credentials not configured. Please set GOOGLE_APPLICATION_CREDENTIALS in your deployment."}]
+                return MockJob()
+            def list_datasets(self):
+                return []
+        return MockClient()
 
 # ── BQ Catalog ─────────────────────────────────────────────────
 BQ_CATALOG_CACHE = None
@@ -72,6 +84,8 @@ def build_catalog(force=False):
     try:
         client = get_bq()
         catalog = {}
+        if hasattr(client, 'list_datasets') and len(client.list_datasets()) == 0:
+            return {"_error": "BigQuery credentials not configured or no datasets found."}
         for ds in client.list_datasets():
             ds_id = ds.dataset_id
             tables = {}
