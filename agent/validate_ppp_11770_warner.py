@@ -97,8 +97,10 @@ def validate(headers: list[str], rows: list[dict[str, str]]) -> list[dict[str, A
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Validate the fixed PPP 11770 Warner CSV without modifying source data.")
-    parser.add_argument("--output", type=Path, required=True, help="New JSON artifact path; source files are never overwritten.")
+    parser.add_argument("--output", type=Path, help="New JSON artifact path; source files are never overwritten.")
     args = parser.parse_args()
+    if args.output is None:
+        args.output = Path(__import__("os").environ.get("RUNNER_TEMP", ".")) / "ppp_11770_warner_validation.json"
     if args.output.resolve() in {INPUT_CSV.resolve(), SCHEMA_JSON.resolve()}:
         raise ValueError("The validation output must not overwrite a repository source file.")
     with INPUT_CSV.open("r", encoding="utf-8-sig", newline="") as stream:
@@ -127,6 +129,18 @@ def main() -> int:
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    print(json.dumps({"tool": result["tool"], "status": result["status"], "source_sha256": result["input"]["sha256"], "row_count": result["input"]["row_count"], "summary": result["summary"], "output": str(args.output)}, sort_keys=True))
+    summary_path = __import__("os").environ.get("GITHUB_STEP_SUMMARY")
+    if summary_path:
+        Path(summary_path).write_text(
+            "## PPP validation-only run\n\n"
+            f"- Input: `{result['input']['path']}`\n"
+            f"- Input SHA-256: `{result['input']['sha256']}`\n"
+            f"- Rows read: {result['input']['row_count']}\n"
+            f"- Flag summary: `{json.dumps(result['summary'], sort_keys=True)}`\n"
+            "- Status: validation-only; no source data was modified and no investigative conclusion was produced.\n",
+            encoding="utf-8",
+        )
     return 0
 
 
