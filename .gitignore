@@ -41,3 +41,10 @@ __pycache__/
 # Unscrubbed export data
 extracted_tasklets/deepseek_data-2026-08-06/
 deepseek_data-2026-08-06.zip
+
+# Docker and build artifacts
+reports_output/
+results/
+logs/
+.venv/
+venv/

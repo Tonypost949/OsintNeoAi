@@ -41,5 +41,9 @@ RUN mkdir -p /app/reports_output
 ENV PORT=10000
 EXPOSE 10000
 
+# Healthcheck
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+  CMD curl -f http://localhost:10000/health || exit 1
+
 # Run with gunicorn, pointing to the app in main.py
 CMD ["gunicorn", "--bind", "0.0.0.0:10000", "main:app", "--timeout", "300", "--workers", "4"]
