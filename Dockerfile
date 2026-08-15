@@ -46,4 +46,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
   CMD curl -f http://localhost:${PORT}/health || exit 1
 
 # Run with gunicorn, pointing to the app in main.py using dynamic PORT
-CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT:-10000} main:app --timeout 300 --workers 4"]
+CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT:-10000} main_v2:app --timeout 300 --workers 4"]
