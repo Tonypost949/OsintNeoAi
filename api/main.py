@@ -518,6 +518,30 @@ def status():
         }
     })
 
+@app.route("/api/pipeline/resolve", methods=["POST"])
+def pipeline_resolve():
+    try:
+        return jsonify({
+            "status": "success",
+            "message": "Entity Resolution pipeline triggered successfully. (Simulated execution)",
+            "resolved_entities": 24,
+            "anomalies_detected": 3
+        })
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/pipeline/run", methods=["POST"])
+def pipeline_run():
+    try:
+        return jsonify({
+            "status": "success",
+            "message": "Data collection pipeline executed successfully. (Simulated execution)",
+            "records_processed": 105,
+            "runtime_seconds": 4.2
+        })
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 @app.errorhandler(404)
 def not_found(e):
     return jsonify({"error": "Not found", "path": request.path}), 404
