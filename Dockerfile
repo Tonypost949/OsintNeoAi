@@ -37,13 +37,13 @@ COPY . .
 # Create reports processing directory
 RUN mkdir -p /app/reports_output
 
-# Expose port for Flask app
+# Expose port for Flask app (default, but Railway will override)
 ENV PORT=10000
-EXPOSE 10000
+EXPOSE $PORT
 
 # Healthcheck
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-  CMD curl -f http://localhost:10000/health || exit 1
+  CMD curl -f http://localhost:${PORT}/health || exit 1
 
-# Run with gunicorn, pointing to the app in main.py
-CMD ["gunicorn", "--bind", "0.0.0.0:10000", "main:app", "--timeout", "300", "--workers", "4"]
+# Run with gunicorn, pointing to the app in main.py using dynamic PORT
+CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT:-10000} main:app --timeout 300 --workers 4"]
