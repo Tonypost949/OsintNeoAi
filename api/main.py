@@ -20,14 +20,14 @@ knowledge_store = {
 }
 MAX_KNOWLEDGE_DOCS = 100
 
-# ── Vertex AI Client ───────────────────────────────────────────
+# ── Gemini AI Client (API Key) ────────────────────────────────
 def get_ai():
-    import google.auth
-    from vertexai import init
-    from vertexai.generative_models import GenerativeModel
-    credentials, _ = google.auth.default()
-    init(credentials=credentials, project=GCP_PROJECT, location="us-central1")
-    return GenerativeModel("gemini-2.0-flash")
+    import google.generativeai as genai
+    api_key = os.getenv("GEMINI_API_KEY")
+    if not api_key:
+        raise RuntimeError("GEMINI_API_KEY is not set")
+    genai.configure(api_key=api_key)
+    return genai.GenerativeModel("gemini-flash-latest")
 
 def get_bq():
     from google.cloud import bigquery
@@ -41,34 +41,41 @@ def build_catalog(force=False):
     global BQ_CATALOG_CACHE, BQ_CATALOG_CACHE_TIME
     if not force and BQ_CATALOG_CACHE and (datetime.now(timezone.utc) - BQ_CATALOG_CACHE_TIME).seconds < 300:
         return BQ_CATALOG_CACHE
-    client = get_bq()
-    catalog = {}
-    for ds in client.list_datasets():
-        ds_id = ds.dataset_id
-        tables = {}
-        for t in client.list_tables(ds.dataset_id):
-            table_ref = client.get_table(t.reference)
-            schema = [{"name": s.name, "type": s.field_type, "mode": s.mode, "description": s.description or ""} for s in table_ref.schema]
-            tables[t.table_id] = {
-                "type": str(table_ref.table_type),
-                "schema": schema,
-                "description": table_ref.description or "",
-                "created": str(table_ref.created),
-                "rows": table_ref.num_rows,
-                "size_bytes": table_ref.num_bytes,
-            }
-        catalog[ds_id] = tables
-    BQ_CATALOG_CACHE = catalog
-    BQ_CATALOG_CACHE_TIME = datetime.now(timezone.utc)
-    return catalog
+    try:
+        client = get_bq()
+        catalog = {}
+        for ds in client.list_datasets():
+            ds_id = ds.dataset_id
+            tables = {}
+            for t in client.list_tables(ds.dataset_id):
+                table_ref = client.get_table(t.reference)
+                schema = [{"name": s.name, "type": s.field_type, "mode": s.mode, "description": s.description or ""} for s in table_ref.schema]
+                tables[t.table_id] = {
+                    "type": str(table_ref.table_type),
+                    "schema": schema,
+                    "description": table_ref.description or "",
+                    "created": str(table_ref.created),
+                    "rows": table_ref.num_rows,
+                    "size_bytes": table_ref.num_bytes,
+                }
+            catalog[ds_id] = tables
+        BQ_CATALOG_CACHE = catalog
+        BQ_CATALOG_CACHE_TIME = datetime.now(timezone.utc)
+        return catalog
+    except Exception as e:
+        return {"_error": f"BigQuery unavailable: {e}"}
 
 def catalog_to_text(catalog):
+    if "_error" in catalog:
+        return f"BigQuery catalog unavailable: {catalog['_error']}"
     lines = ["Available BigQuery datasets and tables:"]
     for ds, tables in catalog.items():
         lines.append(f"\nDataset: {ds}")
+        if not isinstance(tables, dict):
+            continue
         for tbl, info in tables.items():
-            cols = ", ".join(f"{s['name']}:{s['type']}" for s in info["schema"][:10])
-            lines.append(f"  - {tbl} ({info['type']}, {info['rows']:,} rows) [{cols}]")
+            cols = ", ".join(f"{s['name']}:{s['type']}" for s in info.get("schema", [])[:10])
+            lines.append(f"  - {tbl} ({info.get('type','?')}, {info.get('rows',0):,} rows) [{cols}]")
     return "\n".join(lines)
 
 # ── RAG Context Builder ───────────────────────────────────────

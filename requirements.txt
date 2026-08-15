@@ -1,6 +1,6 @@
 Flask==3.0.0
 google-auth==2.26.1
-google-cloud-aiplatform==1.38.1
+google-generativeai==0.8.3
 google-cloud-bigquery==3.15.0
 pymupdf==1.23.8
 requests==2.31.0

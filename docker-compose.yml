@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: osintneoai-app
     ports:
-      - "10000:10000"
+      - "8080:10000"
     environment:
       - PORT=10000
       - ENVIRONMENT=production
