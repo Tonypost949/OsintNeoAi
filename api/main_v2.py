@@ -614,6 +614,10 @@ def server_error(e):
 
 # ── Auth & Investigations ────────────────────────────────────────
 
+@app.route("/playbook")
+def playbook():
+    return render_template("playbook.html")
+
 @app.route("/api/auth/register", methods=["POST"])
 def register():
     data = request.get_json(silent=True) or {}
@@ -804,4 +808,5 @@ init_db()
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
     app.run(host="0.0.0.0", port=port, debug=False)
+
 
