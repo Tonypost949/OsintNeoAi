@@ -186,8 +186,29 @@ def chat():
         return jsonify({"error": "Message is required"}), 400
     try:
         model = get_ai()
-        context = build_rag_context()
-        prompt = f"{SYSTEM_PROMPT.format(project=GCP_PROJECT)}\n\nCurrent context:\n{context}\n\nUser question: {message}\n\nReturn your answer. If you need to query BigQuery, include a SQL block with ```sql ... ``` that I can execute separately."
+        
+          conn = get_db()
+          c = conn.cursor()
+          c.execute("SELECT repo_url FROM user_repos WHERE user_id = ?", (request.user_id,))
+          repos = [r['repo_url'] for r in c.fetchall()]
+          conn.close()
+          
+          repo_text = ""
+          if repos:
+              repo_text = "
+
+[USER GITHUB REPOS]
+The user has linked the following GitHub repositories to their account:
+" + "
+".join(repos) + "
+
+You can use these custom OSINT tools by writing a bash block that git clones them to /tmp and runs them. E.g., git clone [url] /tmp/repo && /tmp/repo/script.sh"
+
+          context = build_rag_context()
+        prompt = f"{SYSTEM_PROMPT.format(project=GCP_PROJECT)}
+
+Current context:
+{context}{repo_text}\n\nUser question: {message}\n\nReturn your answer. If you need to query BigQuery, include a SQL block with ```sql ... ``` that I can execute separately."
         resp = model.generate_content(prompt)
         text = resp.text
 
@@ -244,8 +265,29 @@ def chat_stream():
     def generate():
         try:
             model = get_ai()
-            context = build_rag_context()
-            prompt = f"{SYSTEM_PROMPT.format(project=GCP_PROJECT)}\n\nCurrent context:\n{context}\n\nUser question: {message}"
+            
+          conn = get_db()
+          c = conn.cursor()
+          c.execute("SELECT repo_url FROM user_repos WHERE user_id = ?", (request.user_id,))
+          repos = [r['repo_url'] for r in c.fetchall()]
+          conn.close()
+          
+          repo_text = ""
+          if repos:
+              repo_text = "
+
+[USER GITHUB REPOS]
+The user has linked the following GitHub repositories to their account:
+" + "
+".join(repos) + "
+
+You can use these custom OSINT tools by writing a bash block that git clones them to /tmp and runs them. E.g., git clone [url] /tmp/repo && /tmp/repo/script.sh"
+
+          context = build_rag_context()
+            prompt = f"{SYSTEM_PROMPT.format(project=GCP_PROJECT)}
+
+Current context:
+{context}{repo_text}\n\nUser question: {message}"
             resp = model.generate_content(prompt, stream=True)
             for chunk in resp:
                 if chunk.text:
