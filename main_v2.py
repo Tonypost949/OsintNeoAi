@@ -7,7 +7,7 @@ from api.main_v2 import app as api_app
 
 app = api_app
 
-@app.route("/", methods=["GET"])
+@app.route("/api", methods=["GET"])
 def home():
     """Root route returning service health and API map."""
     return jsonify({

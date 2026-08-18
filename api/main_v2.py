@@ -1,6 +1,7 @@
 import json, os, sys, io, csv, uuid, re, subprocess, logging
 from datetime import datetime, timezone
 from pathlib import Path
+from flask_cors import CORS
 from flask import Flask, jsonify, request, send_from_directory
 
 sys.path.insert(0, str(Path(__file__).parent / "osint_pipeline"))
@@ -68,7 +69,11 @@ def get_bq():
     try:
         if creds_json:
             info = json.loads(creds_json)
-            creds = service_account.Credentials.from_service_account_info(info)
+            if info.get("type") == "authorized_user":
+                from google.oauth2.credentials import Credentials as OAuthCredentials
+                creds = OAuthCredentials.from_authorized_user_info(info)
+            else:
+                creds = service_account.Credentials.from_service_account_info(info)
             return bigquery.Client(project=GCP_PROJECT, credentials=creds)
         else:
             return bigquery.Client(project=GCP_PROJECT)
@@ -94,9 +99,13 @@ def build_catalog(force=False):
     try:
         client = get_bq()
         catalog = {}
-        if hasattr(client, 'list_datasets') and len(client.list_datasets()) == 0:
-            return {"_error": "BigQuery credentials not configured or no datasets found."}
-        for ds in client.list_datasets():
+        if hasattr(client, 'list_datasets'):
+            datasets = list(client.list_datasets())
+            if len(datasets) == 0:
+                return {"_error": "BigQuery credentials not configured or no datasets found."}
+        else:
+            datasets = []
+        for ds in datasets:
             ds_id = ds.dataset_id
             tables = {}
             for t in client.list_tables(ds.dataset_id):
@@ -808,6 +817,7 @@ init_db()
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
     app.run(host="0.0.0.0", port=port, debug=False)
+
 
 
 

@@ -21,7 +21,7 @@ key.json
 *.pem
 *.key
 
-# Large data dirs — not needed in the image
+# Large data dirs
 evidence/
 evidence*/
 drive-download*/
@@ -59,3 +59,4 @@ noble_beanbag_evidence/
 *.bin
 Antigravity_Resurrection_Protocol_makaveli.zip
 drive-download*
+Program Files/
