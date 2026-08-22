@@ -8,6 +8,15 @@ from email.mime.multipart import MIMEMultipart
 from datetime import datetime, timezone
 from pathlib import Path
 
+KNABB_CASE_INFO = {
+    "case_title": "Jesse Knabb v. City of Huntington Beach et al.",
+    "federal_docket": "8:2026-cv-00348 (C.D. Cal.)",
+    "waterboards_petition": "Petition A-2926",
+    "subject_situs": "8332 Swem Way, Huntington Beach, CA 92646",
+    "jurisdiction": "Orange County / City of Huntington Beach",
+    "status": "Active Judicial & Administrative Record"
+}
+
 def send_email_alert(report_date, report_time, records_count, total_exposure, anomalies, report_hash, recipient_email=None):
     recipient = recipient_email or os.getenv("ALERT_RECIPIENT_EMAIL", "amd949609@gmail.com")
     smtp_server = os.getenv("SMTP_SERVER", "smtp.gmail.com")
@@ -18,16 +27,15 @@ def send_email_alert(report_date, report_time, records_count, total_exposure, an
     print(f"[*] Preparing Email Dispatch to: {recipient}...")
     
     if not smtp_password:
-        print("ℹ️ Note: SMTP_PASSWORD / GMAIL_APP_PASSWORD not configured. Report generated locally. To enable live Gmail delivery, add your Gmail App Password to your environment or GitHub Secrets.")
+        print("ℹ️ Note: SMTP_PASSWORD / GMAIL_APP_PASSWORD not configured. To enable live Gmail delivery, add your Gmail App Password to your environment.")
         return False
 
     try:
         msg = MIMEMultipart("alternative")
-        msg["Subject"] = f"🚨 OSINT Daily Intelligence Dispatch — {report_date} ({report_time})"
+        msg["Subject"] = f"🚨 OSINT Daily Intelligence Dispatch — Knabb v. HB / Swem Way & RICO [{report_date}]"
         msg["From"] = f"OSINT Intelligence Bot <{smtp_user}>"
         msg["To"] = recipient
 
-        # Build Clean HTML Email Body
         table_rows = ""
         for a in anomalies[:7]:
             name = a.get("BorrowerName", a.get("entity_name", "Unknown Entity"))
@@ -46,9 +54,19 @@ def send_email_alert(report_date, report_time, records_count, total_exposure, an
         html_content = f"""
         <html>
         <body style="font-family: Arial, sans-serif; background-color: #0b131e; color: #e2e8f0; padding: 25px;">
-            <div style="max-width: 700px; margin: auto; background-color: #131d2e; border: 1px solid #1e293b; border-radius: 10px; padding: 25px;">
+            <div style="max-width: 750px; margin: auto; background-color: #131d2e; border: 1px solid #1e293b; border-radius: 10px; padding: 25px;">
                 <h2 style="color: #63b3ed; margin-top: 0;">🛰️ OSINT Autonomous Daily Intelligence Dispatch</h2>
                 <p style="color: #a0aec0; font-size: 14px;"><strong>Dispatch Date:</strong> {report_date} | <strong>Time:</strong> {report_time} | <strong>Target:</strong> noble-beanbag-497411-m4</p>
+                
+                <!-- Spotlight Case: Jesse Knabb v. City of HB -->
+                <div style="background-color: #1a202c; border-left: 4px solid #ecc94b; padding: 15px; border-radius: 6px; margin: 15px 0;">
+                    <h3 style="color: #ecc94b; margin-top: 0; margin-bottom: 8px;">⚖️ Case Spotlight: Jesse Knabb v. City of Huntington Beach</h3>
+                    <p style="margin: 4px 0; font-size: 13px;"><strong>Federal Docket:</strong> <span style="color: #63b3ed;">{KNABB_CASE_INFO['federal_docket']}</span></p>
+                    <p style="margin: 4px 0; font-size: 13px;"><strong>State Petition:</strong> <span style="color: #e2e8f0;">{KNABB_CASE_INFO['waterboards_petition']}</span></p>
+                    <p style="margin: 4px 0; font-size: 13px;"><strong>Situs Monitored:</strong> <span style="color: #68d391;">{KNABB_CASE_INFO['subject_situs']}</span></p>
+                    <p style="margin: 4px 0; font-size: 13px;"><strong>Jurisdiction:</strong> {KNABB_CASE_INFO['jurisdiction']}</p>
+                </div>
+
                 <hr style="border: 0; border-top: 1px solid #2d3748; margin: 20px 0;">
                 
                 <div style="display: flex; gap: 15px; margin-bottom: 20px;">
@@ -144,6 +162,15 @@ def run_daily_compilation():
 
 ---
 
+## ⚖️ Case Spotlight: Jesse Knabb v. City of Huntington Beach
+* **Federal Case Docket:** `{KNABB_CASE_INFO['federal_docket']}`
+* **State Administrative Action:** `{KNABB_CASE_INFO['waterboards_petition']}`
+* **Monitored Physical Situs:** `{KNABB_CASE_INFO['subject_situs']}`
+* **Jurisdiction:** `{KNABB_CASE_INFO['jurisdiction']}`
+* **Filing Status:** `{KNABB_CASE_INFO['status']}`
+
+---
+
 ## 📊 24-Hour Executive Snapshot
 * **Total High-Priority Entities Under Surveillance:** `{records_count:,}`
 * **Cumulative Exposure Traced:** `${total_exposure:,.2f}`
@@ -182,7 +209,6 @@ All underlying CSV matrices, parcel rolls, and government filings are cryptograp
     report_hash = hasher.hexdigest()
     print(f"🔒 Report SHA-256 Checksum: {report_hash}")
     
-    # Trigger automated email dispatch
     send_email_alert(report_date, report_time, records_count, total_exposure, anomalies, report_hash)
     
     print("🎉 Autonomous Daily Compilation Complete!")

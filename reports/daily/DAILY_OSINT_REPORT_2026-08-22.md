@@ -1,6 +1,15 @@
 # 🛰️ OSINT Autonomous Daily Intelligence Dispatch
-### Dispatch Date: **2026-08-22** | Time: `16:50 UTC`
+### Dispatch Date: **2026-08-22** | Time: `17:11 UTC`
 **Data Warehouse:** `noble-beanbag-497411-m4` | **Integrity Standard:** NIST SHA-256
+
+---
+
+## ⚖️ Case Spotlight: Jesse Knabb v. City of Huntington Beach
+* **Federal Case Docket:** `8:2026-cv-00348 (C.D. Cal.)`
+* **State Administrative Action:** `Petition A-2926`
+* **Monitored Physical Situs:** `8332 Swem Way, Huntington Beach, CA 92646`
+* **Jurisdiction:** `Orange County / City of Huntington Beach`
+* **Filing Status:** `Active Judicial & Administrative Record`
 
 ---
 
