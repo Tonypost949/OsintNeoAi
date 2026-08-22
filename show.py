@@ -33,7 +33,7 @@ col4.metric("Multi-State Entities", "100 Syndicates")
 # Init LightBox Engine
 edr_engine = LightBoxEDREngine()
 edr_stats = edr_engine.get_summary_stats()
-col5.metric("EDR Sites Audited", f"{edr_stats['total_cached_records']} Records", delta="Sanborn / Radius", delta_color="normal")
+col5.metric("EDR Sites Audited", f"{edr_stats['total_cached_records']} Records", delta="11 APIs Configured", delta_color="normal")
 
 st.divider()
 
@@ -66,7 +66,7 @@ with tab_evidence:
 with tab_lightbox:
     st.subheader("🏢 LightBox RE & EDR Environmental Intelligence Vault")
     st.markdown("""
-    Fuses **historical EDR radius reports**, **Sanborn map coordinates**, and **Live LightBox RE APIs** (Parcels, Tax Assessments, Structures, Zoning, and Environmental Reports).
+    Fuses **historical EDR radius reports**, **Sanborn map coordinates**, and **all 11 LightBox RE APIs** (Parcels, Tax Assessments, Structures, GeoJSON Geometry, Radius Search, Bounding Box, Zoning, Address Standardization, and Contaminated Sites).
     """)
     
     sub_col1, sub_col2 = st.columns([2, 1])
@@ -75,7 +75,7 @@ with tab_lightbox:
     with sub_col2:
         st.write("")
         st.write("")
-        st.caption(f"Cached EDR Audit Records: **{edr_stats['total_cached_records']}** | Unique Sites: **{edr_stats['unique_sites_audited']}**")
+        st.caption(f"Cached EDR Audit Records: **{edr_stats['total_cached_records']}** | Unique Sites: **{edr_stats['unique_sites_audited']}** | APIs: **11 Modules**")
 
     # Display EDR search matches
     matched_edr = edr_engine.search_edr_records(edr_query) if edr_query else edr_engine.edr_cache[:100]
@@ -86,38 +86,59 @@ with tab_lightbox:
         st.warning(f"No EDR records found matching '{edr_query}'.")
 
     st.divider()
-    st.markdown("#### 📡 Live LightBox RE API Suite Console")
+    st.markdown("#### 📡 Complete 11-API LightBox RE Console")
     
     api_col1, api_col2 = st.columns([1, 2])
     with api_col1:
         user_key = st.text_input("LightBox API Key (Optional Override):", type="password", placeholder="Enter key from developer.lightboxre.com")
         endpoint_choice = st.selectbox("Select LightBox API Endpoint:", [
-            "Parcels by Address (/v1/parcels/us/address)",
-            "Parcels by APN (/v1/parcels/us/{fips}/{apn})",
-            "Assessment & Tax (/v1/assessments/us/parcel/{id})",
-            "Structures Footprint (/v1/structures/us/parcel/{id})",
-            "EDR Environmental Reports (/v1/edr/reports/address)",
-            "Zoning & Land Use (/v1/zoning/us/parcel/{id})"
+            "1. Parcels by Address (/v1/parcels/us/address)",
+            "2. Parcels by FIPS & APN (/v1/parcels/us/{fips}/{apn})",
+            "3. Parcels by Spatial Radius (/v1/parcels/us/radius)",
+            "4. Parcels by Bounding Box (/v1/parcels/us/bbox)",
+            "5. Parcel Geometry GeoJSON (/v1/parcels/us/{id}/geometry)",
+            "6. Assessment & Property Tax (/v1/assessments/us/parcel/{id})",
+            "7. Structures & Footprints (/v1/structures/us/parcel/{id})",
+            "8. EDR Environmental Reports (/v1/edr/reports/address)",
+            "9. EDR Radius Contaminated Sites (/v1/edr/sites/radius)",
+            "10. Zoning & Land Use (/v1/zoning/us/parcel/{id})",
+            "11. Address Standardization (/v1/addresses/us)"
         ])
     
     with api_col2:
-        param_input = st.text_input("Query Parameter (Address, APN, or Parcel ID):", value="17642 Beach Blvd, Huntington Beach, CA 92647")
+        param_input = st.text_input("Query Parameter (Address, APN, Parcel ID, or Coords):", value="17642 Beach Blvd, Huntington Beach, CA 92647")
         if st.button("🚀 Execute Live LightBox API Query"):
-            if "Parcels by Address" in endpoint_choice:
+            if "1. Parcels by Address" in endpoint_choice:
                 res = edr_engine.search_parcel_by_address(param_input, custom_key=user_key)
-            elif "Parcels by APN" in endpoint_choice:
+            elif "2. Parcels by FIPS & APN" in endpoint_choice:
                 parts = param_input.split(",")
                 fips = parts[0].strip() if len(parts) > 0 else "06059"
                 apn = parts[1].strip() if len(parts) > 1 else param_input.strip()
                 res = edr_engine.search_parcel_by_apn(fips, apn, custom_key=user_key)
-            elif "Assessment" in endpoint_choice:
+            elif "3. Parcels by Spatial Radius" in endpoint_choice:
+                parts = [p.strip() for p in param_input.split(",")]
+                lat = float(parts[0]) if len(parts) > 0 else 33.7088
+                lon = float(parts[1]) if len(parts) > 1 else -117.9890
+                res = edr_engine.search_parcels_by_radius(lat, lon, custom_key=user_key)
+            elif "4. Parcels by Bounding Box" in endpoint_choice:
+                res = edr_engine.search_parcels_by_bbox(33.70, -117.99, 33.72, -117.97, custom_key=user_key)
+            elif "5. Parcel Geometry" in endpoint_choice:
+                res = edr_engine.get_parcel_geometry(param_input, custom_key=user_key)
+            elif "6. Assessment" in endpoint_choice:
                 res = edr_engine.get_assessment_data(param_input, custom_key=user_key)
-            elif "Structures" in endpoint_choice:
+            elif "7. Structures" in endpoint_choice:
                 res = edr_engine.get_structure_data(param_input, custom_key=user_key)
-            elif "EDR Environmental" in endpoint_choice:
+            elif "8. EDR Environmental Reports" in endpoint_choice:
                 res = edr_engine.fetch_edr_environmental_report(param_input, custom_key=user_key)
-            elif "Zoning" in endpoint_choice:
+            elif "9. EDR Radius Contaminated Sites" in endpoint_choice:
+                parts = [p.strip() for p in param_input.split(",")]
+                lat = float(parts[0]) if len(parts) > 0 else 33.7088
+                lon = float(parts[1]) if len(parts) > 1 else -117.9890
+                res = edr_engine.search_edr_sites_by_radius(lat, lon, custom_key=user_key)
+            elif "10. Zoning" in endpoint_choice:
                 res = edr_engine.get_zoning_data(param_input, custom_key=user_key)
+            elif "11. Address Standardization" in endpoint_choice:
+                res = edr_engine.verify_address(param_input, custom_key=user_key)
             
             if res.get("status_code") == 200:
                 st.success(f"HTTP 200 OK — Data Returned from LightBox RE:")
