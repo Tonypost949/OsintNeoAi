@@ -9,10 +9,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 def send_email_alert(report_date, report_time, records_count, total_exposure, anomalies, report_hash, recipient_email=None):
-    recipient = recipient_email or os.getenv("ALERT_RECIPIENT_EMAIL", "ironmandavinci@gmail.com")
+    recipient = recipient_email or os.getenv("ALERT_RECIPIENT_EMAIL", "amd949609@gmail.com")
     smtp_server = os.getenv("SMTP_SERVER", "smtp.gmail.com")
     smtp_port = int(os.getenv("SMTP_PORT", "587"))
-    smtp_user = os.getenv("SMTP_USER", os.getenv("GMAIL_USER", "ironmandavinci@gmail.com"))
+    smtp_user = os.getenv("SMTP_USER", os.getenv("GMAIL_USER", "amd949609@gmail.com"))
     smtp_password = os.getenv("SMTP_PASSWORD", os.getenv("GMAIL_APP_PASSWORD", ""))
 
     print(f"[*] Preparing Email Dispatch to: {recipient}...")

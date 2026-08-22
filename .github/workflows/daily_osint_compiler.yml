@@ -23,7 +23,7 @@ jobs:
 
       - name: Run Autonomous Compiler & Dispatch Email
         env:
-          ALERT_RECIPIENT_EMAIL: ironmandavinci@gmail.com
+          ALERT_RECIPIENT_EMAIL: amd949609@gmail.com
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           SMTP_SERVER: smtp.gmail.com
