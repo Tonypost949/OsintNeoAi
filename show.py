@@ -1,5 +1,6 @@
 ﻿import streamlit as st
 import pandas as pd
+import json
 from pathlib import Path
 from lightbox_edr_engine import LightBoxEDREngine
 
@@ -65,7 +66,7 @@ with tab_evidence:
 with tab_lightbox:
     st.subheader("🏢 LightBox RE & EDR Environmental Intelligence Vault")
     st.markdown("""
-    Fuses **historical EDR radius reports**, **Sanborn map coordinates**, and **LightBox RE property parcel endpoints** to identify environmental risk manipulation and asset transfers.
+    Fuses **historical EDR radius reports**, **Sanborn map coordinates**, and **Live LightBox RE APIs** (Parcels, Tax Assessments, Structures, Zoning, and Environmental Reports).
     """)
     
     sub_col1, sub_col2 = st.columns([2, 1])
@@ -85,16 +86,45 @@ with tab_lightbox:
         st.warning(f"No EDR records found matching '{edr_query}'.")
 
     st.divider()
-    st.markdown("#### 📡 Live LightBox API Parcel & Risk Lookup")
-    live_addr = st.text_input("Query Live Parcel API Endpoint (via LightBox RE):", placeholder="17642 Beach Blvd, Huntington Beach, CA 92647")
-    if st.button("Fetch Live LightBox Parcel"):
-        if live_addr:
-            live_res = edr_engine.query_live_parcel(live_addr)
-            if live_res:
-                st.success("Live Parcel Data Retrieved:")
-                st.json(live_res)
+    st.markdown("#### 📡 Live LightBox RE API Suite Console")
+    
+    api_col1, api_col2 = st.columns([1, 2])
+    with api_col1:
+        user_key = st.text_input("LightBox API Key (Optional Override):", type="password", placeholder="Enter key from developer.lightboxre.com")
+        endpoint_choice = st.selectbox("Select LightBox API Endpoint:", [
+            "Parcels by Address (/v1/parcels/us/address)",
+            "Parcels by APN (/v1/parcels/us/{fips}/{apn})",
+            "Assessment & Tax (/v1/assessments/us/parcel/{id})",
+            "Structures Footprint (/v1/structures/us/parcel/{id})",
+            "EDR Environmental Reports (/v1/edr/reports/address)",
+            "Zoning & Land Use (/v1/zoning/us/parcel/{id})"
+        ])
+    
+    with api_col2:
+        param_input = st.text_input("Query Parameter (Address, APN, or Parcel ID):", value="17642 Beach Blvd, Huntington Beach, CA 92647")
+        if st.button("🚀 Execute Live LightBox API Query"):
+            if "Parcels by Address" in endpoint_choice:
+                res = edr_engine.search_parcel_by_address(param_input, custom_key=user_key)
+            elif "Parcels by APN" in endpoint_choice:
+                parts = param_input.split(",")
+                fips = parts[0].strip() if len(parts) > 0 else "06059"
+                apn = parts[1].strip() if len(parts) > 1 else param_input.strip()
+                res = edr_engine.search_parcel_by_apn(fips, apn, custom_key=user_key)
+            elif "Assessment" in endpoint_choice:
+                res = edr_engine.get_assessment_data(param_input, custom_key=user_key)
+            elif "Structures" in endpoint_choice:
+                res = edr_engine.get_structure_data(param_input, custom_key=user_key)
+            elif "EDR Environmental" in endpoint_choice:
+                res = edr_engine.fetch_edr_environmental_report(param_input, custom_key=user_key)
+            elif "Zoning" in endpoint_choice:
+                res = edr_engine.get_zoning_data(param_input, custom_key=user_key)
+            
+            if res.get("status_code") == 200:
+                st.success(f"HTTP 200 OK — Data Returned from LightBox RE:")
+                st.json(res.get("data"))
             else:
-                st.info("Live API requires active subscription token ($env:LIGHTBOX_API_KEY). Showing local cached audit records above.")
+                st.error(f"HTTP {res.get('status_code')} Response from LightBox:")
+                st.write(res.get("data") or res.get("error"))
 
 with tab_daily:
     st.subheader("📅 Autonomous Daily Intelligence Dispatches")
@@ -130,6 +160,8 @@ with tab_verify:
     * 🏛️ **Michigan LARA:** [Corporate Registry Search](https://cofs.lara.state.mi.us/Search/Search)
     * 🏛️ **Alaska Division of Corporations:** [Entity Search Portal](https://www.commerce.alaska.gov/cbp/main/search/entities)
     * 🏛️ **Orange County Clerk-Recorder:** [Public Property Records](https://www.ocrecorder.com)
+    * 🏢 **LightBox RE Developer Portal:** [developer.lightboxre.com](https://developer.lightboxre.com)
+    * 📚 **LightBox API Docs:** [lightbox.document360.io/docs/apis](https://lightbox.document360.io/docs/apis)
     """)
 
 st.divider()

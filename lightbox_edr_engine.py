@@ -1,5 +1,7 @@
 ﻿"""LightBox & EDR Master Environmental Intelligence Engine
-Fuses local EDR radius reports, Sanborn map indices, and live LightBox RE API calls.
+Full API integration covering Parcels, Assessments, Structures, Zoning, and EDR Environmental Reports.
+Official Documentation: https://lightbox.document360.io/docs/apis
+Developer Portal: https://developer.lightboxre.com
 """
 
 import os
@@ -8,7 +10,6 @@ import requests
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 
-LIGHTBOX_API_KEY = os.getenv("LIGHTBOX_API_KEY", "")
 BASE_URL = "https://api.lightboxre.com/v1"
 
 class LightBoxEDREngine:
@@ -39,6 +40,14 @@ class LightBoxEDREngine:
                     pass
         return cached_records
 
+    def get_headers(self, custom_key: Optional[str] = None) -> Dict[str, str]:
+        key = custom_key or self.api_key or os.getenv("LIGHTBOX_API_KEY", "")
+        return {
+            "x-api-key": key,
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        }
+
     def get_summary_stats(self) -> Dict[str, Any]:
         unique_covers = set(r.get("cover_address", "").strip() for r in self.edr_cache if r.get("cover_address"))
         return {
@@ -58,18 +67,62 @@ class LightBoxEDREngine:
                 matches.append(r)
         return matches
 
-    def query_live_parcel(self, address_text: str) -> Optional[Dict[str, Any]]:
-        if not self.api_key:
-            return None
-        headers = {
-            "x-api-key": self.api_key,
-            "Accept": "application/json"
-        }
+    # 1. Parcels API: Search by Address
+    def search_parcel_by_address(self, address_text: str, custom_key: Optional[str] = None) -> Dict[str, Any]:
         url = f"{BASE_URL}/parcels/us/address"
+        headers = self.get_headers(custom_key)
         try:
-            resp = requests.get(url, headers=headers, params={"text": address_text}, timeout=10)
-            if resp.status_code == 200:
-                return resp.json()
-        except Exception:
-            pass
-        return None
+            resp = requests.get(url, headers=headers, params={"text": address_text}, timeout=15)
+            return {"status_code": resp.status_code, "data": resp.json() if resp.status_code == 200 else resp.text}
+        except Exception as e:
+            return {"status_code": 500, "error": str(e)}
+
+    # 2. Parcels API: Search by FIPS & APN
+    def search_parcel_by_apn(self, fips: str, apn: str, custom_key: Optional[str] = None) -> Dict[str, Any]:
+        url = f"{BASE_URL}/parcels/us/{fips}/{apn}"
+        headers = self.get_headers(custom_key)
+        try:
+            resp = requests.get(url, headers=headers, timeout=15)
+            return {"status_code": resp.status_code, "data": resp.json() if resp.status_code == 200 else resp.text}
+        except Exception as e:
+            return {"status_code": 500, "error": str(e)}
+
+    # 3. Assessment & Property Tax API
+    def get_assessment_data(self, parcel_id: str, custom_key: Optional[str] = None) -> Dict[str, Any]:
+        url = f"{BASE_URL}/assessments/us/parcel/{parcel_id}"
+        headers = self.get_headers(custom_key)
+        try:
+            resp = requests.get(url, headers=headers, timeout=15)
+            return {"status_code": resp.status_code, "data": resp.json() if resp.status_code == 200 else resp.text}
+        except Exception as e:
+            return {"status_code": 500, "error": str(e)}
+
+    # 4. Structures & Building Footprint API
+    def get_structure_data(self, parcel_id: str, custom_key: Optional[str] = None) -> Dict[str, Any]:
+        url = f"{BASE_URL}/structures/us/parcel/{parcel_id}"
+        headers = self.get_headers(custom_key)
+        try:
+            resp = requests.get(url, headers=headers, timeout=15)
+            return {"status_code": resp.status_code, "data": resp.json() if resp.status_code == 200 else resp.text}
+        except Exception as e:
+            return {"status_code": 500, "error": str(e)}
+
+    # 5. EDR Environmental Radius Reports API
+    def fetch_edr_environmental_report(self, address_text: str, custom_key: Optional[str] = None) -> Dict[str, Any]:
+        url = f"{BASE_URL}/edr/reports/address"
+        headers = self.get_headers(custom_key)
+        try:
+            resp = requests.get(url, headers=headers, params={"text": address_text}, timeout=15)
+            return {"status_code": resp.status_code, "data": resp.json() if resp.status_code == 200 else resp.text}
+        except Exception as e:
+            return {"status_code": 500, "error": str(e)}
+
+    # 6. Zoning API
+    def get_zoning_data(self, parcel_id: str, custom_key: Optional[str] = None) -> Dict[str, Any]:
+        url = f"{BASE_URL}/zoning/us/parcel/{parcel_id}"
+        headers = self.get_headers(custom_key)
+        try:
+            resp = requests.get(url, headers=headers, timeout=15)
+            return {"status_code": resp.status_code, "data": resp.json() if resp.status_code == 200 else resp.text}
+        except Exception as e:
+            return {"status_code": 500, "error": str(e)}
