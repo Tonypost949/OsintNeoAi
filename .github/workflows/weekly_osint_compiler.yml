@@ -1,0 +1,31 @@
+name: Autonomous Weekly OSINT Compilation
+
+on:
+  schedule:
+    - cron: '0 0 * * 1' # Every Monday at 00:00 UTC
+  workflow_dispatch: # Allow manual trigger on demand
+
+jobs:
+  compile_weekly_report:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Autonomous Weekly Compiler
+        run: python autonomous_weekly_compiler.py
+
+      - name: Commit & Push Weekly Report
+        run: |
+          git config --global user.name "OSINT Autonomous Bot"
+          git config --global user.email "bot@disoledesign.com"
+          git add reports/weekly/ EVIDENCE_CHAIN_OF_CUSTODY.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(auto): Weekly OSINT compilation for $(date +'%Y-W%W')" && git push)
