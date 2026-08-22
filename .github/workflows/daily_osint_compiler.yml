@@ -1,0 +1,31 @@
+name: Autonomous Daily OSINT Compilation
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Every Day at 00:00 UTC
+  workflow_dispatch: # Allow manual trigger on demand
+
+jobs:
+  compile_daily_report:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Autonomous Daily Compiler
+        run: python autonomous_daily_compiler.py
+
+      - name: Commit & Push Daily Report
+        run: |
+          git config --global user.name "OSINT Autonomous Bot"
+          git config --global user.email "bot@disoledesign.com"
+          git add reports/daily/ EVIDENCE_CHAIN_OF_CUSTODY.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(auto): Daily OSINT compilation for $(date +'%Y-%m-%d')" && git push)

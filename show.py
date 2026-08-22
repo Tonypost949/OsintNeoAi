@@ -31,9 +31,9 @@ col4.metric("Multi-State Entities", "100 Syndicates")
 st.divider()
 
 # Navigation Tabs
-tab_evidence, tab_weekly, tab_audio, tab_verify = st.tabs([
+tab_evidence, tab_daily, tab_audio, tab_verify = st.tabs([
     "🚨 Live Evidence Matrix", 
-    "📅 Weekly Progress Reports", 
+    "📅 Daily Intelligence Dispatches", 
     "🎙️ Audio Commentary Studio", 
     "🌐 Official .gov Verification"
 ])
@@ -55,19 +55,19 @@ with tab_evidence:
     else:
         st.info("Evidence matrix CSV populated from BigQuery warehouse sync.")
 
-with tab_weekly:
-    st.subheader("📅 Autonomous Weekly Intelligence Bulletins")
-    weekly_dir = Path("reports/weekly")
-    if weekly_dir.exists():
-        reports = sorted(list(weekly_dir.glob("*.md")), reverse=True)
+with tab_daily:
+    st.subheader("📅 Autonomous Daily Intelligence Dispatches")
+    daily_dir = Path("reports/daily")
+    if daily_dir.exists():
+        reports = sorted(list(daily_dir.glob("*.md")), reverse=True)
         if reports:
-            selected_report = st.selectbox("Select Reporting Week:", [r.name for r in reports])
-            selected_path = weekly_dir / selected_report
+            selected_report = st.selectbox("Select Dispatch Date:", [r.name for r in reports])
+            selected_path = daily_dir / selected_report
             st.markdown(selected_path.read_text(encoding="utf-8"))
         else:
-            st.info("No weekly reports compiled yet. Autonomous compiler runs every Monday.")
+            st.info("No daily dispatches compiled yet. Autonomous compiler runs daily at 00:00 UTC.")
     else:
-        st.info("Weekly bulletins directory will populate upon first automated cron run.")
+        st.info("Daily dispatches directory will populate upon daily cron run.")
 
 with tab_audio:
     st.subheader("🎙️ 30-Minute Audio Overview: 'Cabinet Maker vs. Ninety Million Dollar Fraud'")
