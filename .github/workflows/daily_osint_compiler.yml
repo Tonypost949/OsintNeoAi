@@ -1,12 +1,13 @@
-name: Autonomous Daily OSINT Compilation
+name: Autonomous Daily OSINT Compilation & Email Dispatch
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Every Day at 00:00 UTC
+    # Runs at 6:00 AM PDT (13:00 UTC) and 12:00 PM Noon PDT (19:00 UTC) every day
+    - cron: '0 13,19 * * *'
   workflow_dispatch: # Allow manual trigger on demand
 
 jobs:
-  compile_daily_report:
+  compile_and_email:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -20,12 +21,18 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run Autonomous Daily Compiler
+      - name: Run Autonomous Compiler & Dispatch Email
+        env:
+          ALERT_RECIPIENT_EMAIL: ironmandavinci@gmail.com
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          SMTP_SERVER: smtp.gmail.com
+          SMTP_PORT: 587
         run: python autonomous_daily_compiler.py
 
-      - name: Commit & Push Daily Report
+      - name: Commit & Push Daily Report to GitHub
         run: |
           git config --global user.name "OSINT Autonomous Bot"
           git config --global user.email "bot@disoledesign.com"
           git add reports/daily/ EVIDENCE_CHAIN_OF_CUSTODY.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(auto): Daily OSINT compilation for $(date +'%Y-%m-%d')" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(auto): Daily OSINT dispatch $(date +'%Y-%m-%d %H:%M UTC')" && git push)

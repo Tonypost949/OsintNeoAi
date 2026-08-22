@@ -1,5 +1,5 @@
 # 🛰️ OSINT Autonomous Daily Intelligence Dispatch
-### Dispatch Date: **2026-08-22** | Time: `15:58 UTC`
+### Dispatch Date: **2026-08-22** | Time: `16:50 UTC`
 **Data Warehouse:** `noble-beanbag-497411-m4` | **Integrity Standard:** NIST SHA-256
 
 ---
@@ -8,7 +8,7 @@
 * **Total High-Priority Entities Under Surveillance:** `152`
 * **Cumulative Exposure Traced:** `$0.00`
 * **Active Geographic Shell Hubs:** `Orange County, CA`, `Battle Creek, MI`, `Anchorage, AK`, `Saddle River, NJ`
-* **Automated Cycle:** `Daily 00:00 UTC Run`
+* **Schedule Cadence:** `Daily at 6:00 AM & 12:00 PM (Noon) Pacific`
 
 ---
 
