@@ -10,6 +10,7 @@ Access all live interactive dashboards, multi-agent swarms, and APIs directly fr
 
 | Live Service | Type | Full Mobile Access URL | Status |
 | :--- | :--- | :--- | :--- |
+| **Hercules App Instance** | High-Availability Cloud Hub | [https://osintneoai.onhercules.app/](https://osintneoai.onhercules.app/) | 🟢 LIVE |
 | **Streamlit Public Showcase** | Interactive Evidence Matrix | [https://github.com/Tonypost949/OsintNeoAi](https://github.com/Tonypost949/OsintNeoAi) | 🟢 LIVE |
 | **Azure Cloud Backend** | Public API & Container | [http://57.152.82.43:10000](http://57.152.82.43:10000) | 🟢 LIVE (HTTP 200) |
 | **GitHub Pages GIS Recon** | Interactive Spatial Map | [https://Tonypost949.github.io/OsintNeoAi/](https://Tonypost949.github.io/OsintNeoAi/) | 🟢 LIVE |
@@ -20,16 +21,29 @@ Access all live interactive dashboards, multi-agent swarms, and APIs directly fr
 
 ## 🏢 LightBox RE & EDR Environmental API Endpoints
 
-Integrated real-time real estate parcels, tax assessments, zoning, and historical EDR radius risk reports:
+Integrated real-time real estate parcels, tax assessments, zoning, historical EDR radius risk reports, and **Nevada Desert / MGM Grand exact GPS coordinates**:
 
 * 🌐 **LightBox Developer Portal:** [https://developer.lightboxre.com](https://developer.lightboxre.com)
 * 🔑 **App Management & Key Details:** [https://developer.lightboxre.com/apps/personal/lightbox/details](https://developer.lightboxre.com/apps/personal/lightbox/details)
 * 📚 **Official LightBox API Docs:** [https://lightbox.document360.io/docs/apis](https://lightbox.document360.io/docs/apis)
 * 📦 **Parcels API Base:** `https://api.lightboxre.com/v1/parcels/us`
+* 📍 **Spatial GPS Radius API:** `https://api.lightboxre.com/v1/parcels/us/radius`
 * 📑 **Assessments API Base:** `https://api.lightboxre.com/v1/assessments/us`
 * 🏭 **EDR Environmental Risk Reports:** `https://api.lightboxre.com/v1/edr/reports`
+* ☢️ **EDR Radius Contaminated Sites:** `https://api.lightboxre.com/v1/edr/sites/radius`
 * 🏗️ **Structures Footprint API:** `https://api.lightboxre.com/v1/structures/us`
 * 📐 **Zoning & Land Use API:** `https://api.lightboxre.com/v1/zoning/us`
+
+---
+
+## 📍 Nevada Desert & MGM Grand GPS Spatial Coordinate Hubs
+
+When street addresses are unassigned, raw desert parcels, or mismatched in legacy EDR documents, the system queries exact GPS coordinates:
+
+* 🎰 **MGM Grand Las Vegas Hub:** `36.1026° N, 115.1703° W` (3799 S Las Vegas Blvd, Clark County, NV)
+* 🏜️ **Apex Desert Industrial Corridor:** `36.3150° N, 114.9200° W` (Clark County, NV)
+* ⛏️ **Nye County Mining / Testing Corridor:** `36.9092° N, 116.7547° W` (Beatty Corridor, NV)
+* 🏭 **Tahoe-Reno / Storey County Industrial:** `39.5296° N, 119.8138° W` (USA Pkwy, NV)
 
 ---
 
@@ -38,6 +52,7 @@ Integrated real-time real estate parcels, tax assessments, zoning, and historica
 * 🏛️ **California Secretary of State:** [https://bizfileonline.sos.ca.gov/search/business](https://bizfileonline.sos.ca.gov/search/business)
 * 🏛️ **Michigan LARA Corporate Registry:** [https://cofs.lara.state.mi.us/Search/Search](https://cofs.lara.state.mi.us/Search/Search)
 * 🏛️ **Alaska Division of Corporations:** [https://www.commerce.alaska.gov/cbp/main/search/entities](https://www.commerce.alaska.gov/cbp/main/search/entities)
+* 🏛️ **Nevada Secretary of State (SilverFlume):** [https://www.nvsilverflume.gov](https://www.nvsilverflume.gov)
 * 🏛️ **Orange County Clerk-Recorder Property Search:** [https://www.ocrecorder.com](https://www.ocrecorder.com)
 * 🏛️ **USASpending.gov Award Search:** [https://www.usaspending.gov/search](https://www.usaspending.gov/search)
 
@@ -56,14 +71,14 @@ Integrated real-time real estate parcels, tax assessments, zoning, and historica
 ### 📄 Investigative Reports & Summaries
 | Evidence Document | Full GitHub Online Path | Description |
 | :--- | :--- | :--- |
+| **LightBox & Nevada GPS Audit** | [reports/LIGHTBOX_PARCEL_AUDIT_REPORT.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/reports/LIGHTBOX_PARCEL_AUDIT_REPORT.md) | Multi-API audit across CA & NV parcels |
+| **Master EDR Asset Index** | [reports/EDR_LIGHTBOX_MASTER_ASSET_INDEX.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/reports/EDR_LIGHTBOX_MASTER_ASSET_INDEX.md) | Complete EDR & Sanborn inventory |
 | **Daily OSINT Report (Latest)** | [reports/daily/DAILY_OSINT_REPORT_2026-08-22.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/reports/daily/DAILY_OSINT_REPORT_2026-08-22.md) | Autonomous daily dispatch (00:00 UTC) |
 | **Forensic Audit Report** | [FORENSIC_AUDIT_REPORT.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/FORENSIC_AUDIT_REPORT.md) | Full municipal & financial audit findings |
 | **Dehashed HBPD Scan Report** | [DEHASHED_HBPD_SCAN_REPORT.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/DEHASHED_HBPD_SCAN_REPORT.md) | Credential exposure & breach analysis |
 | **HBPD Port Scan Report** | [HBPD_PORT_SCAN_REPORT.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/HBPD_PORT_SCAN_REPORT.md) | Network port scan & vulnerability audit |
 | **Medical & Petruccio Summary** | [PETRUCCIO_MEDICAL_SUMMARY.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/PETRUCCIO_MEDICAL_SUMMARY.md) | Medical documentation & case evidence |
 | **BigQuery Ingestion Guide** | [OSINT_BIGQUERY_INGESTION_WALKTHROUGH_AND_PATHS.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/OSINT_BIGQUERY_INGESTION_WALKTHROUGH_AND_PATHS.md) | BigQuery schema & dataset mapping |
-| **Civil Rights Integration Guide** | [OSINT_Civil_Rights_Integration_Guide.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/OSINT_Civil_Rights_Integration_Guide.md) | Legal compliance & advocacy framework |
-| **Chokepoint Extraction Report** | [chokepoint_extraction_report.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/chokepoint_extraction_report.md) | Entity bottleneck analysis |
 
 ---
 
@@ -73,10 +88,7 @@ Integrated real-time real estate parcels, tax assessments, zoning, and historica
 | **Nationwide Smoking Guns Matrix** | [reports/NATIONWIDE_SMOKING_GUNS_MATRIX.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/reports/NATIONWIDE_SMOKING_GUNS_MATRIX.csv) | Primary audit figures & financial metrics |
 | **Audit Numbers (V2 Scan)** | [AUDIT_NUMBERS_v2_scan_july24.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/AUDIT_NUMBERS_v2_scan_july24.csv) | Secondary audit metrics |
 | **Forensic Master Spreadsheet** | [forensic_master_spreadsheet.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/forensic_master_spreadsheet.csv) | Cross-referenced forensic evidence |
-| **Mercy PPP RPM Records** | [ppp_mercy_rpm.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/ppp_mercy_rpm.csv) | Mercy House PPP funding correlation |
-| **PPP Target Addresses** | [ppp_target_addresses.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/ppp_target_addresses.csv) | Address verification matrix |
-| **Regional LLCs Summary** | [regional_llcs_summary.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/regional_llcs_summary.csv) | Shell LLC network breakdown |
-| **State Fraud Summary** | [state_fraud_summary.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/state_fraud_summary.csv) | Nationwide fraud pattern summary |
+| **Van Herk Network Matrix** | [VAN_HERK_NETWORK.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/VAN_HERK_NETWORK.csv) | Shell LLC network breakdown |
 
 ---
 

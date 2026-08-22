@@ -1,17 +1,21 @@
 # 🏢 LightBox RE & EDR Multi-API Forensic Audit Dossier
-**Generated:** 2026-08-22 09:45:55
-**Total Targets Audited:** 6
+**Generated:** 2026-08-22 10:07:38
+**Total Targets Audited:** 10 (California + Nevada Desert Hubs)
 
-## I. Target Audit Results Matrix
+## I. Target Audit Results Matrix (Address + Spatial GPS Coordinates)
 
-| Target Name | Address | Parcels API | EDR Environmental | Local EDR Matches |
-| :--- | :--- | :--- | :--- | :--- |
-| **Vagabond Inn / Casa Aliento (Mercy House CHDO)** | `17642 Beach Blvd, Huntington Beach, CA 92647` | HTTP 401 | HTTP 404 | **28 records** |
-| **Cameron Lane Property Hub** | `17631 Cameron Ln, Huntington Beach, CA 92647` | HTTP 401 | HTTP 404 | **15 records** |
-| **Beach Blvd Commercial Parcel** | `19102 Beach Blvd, Huntington Beach, CA 92648` | HTTP 401 | HTTP 404 | **0 records** |
-| **Garden Grove Blvd Asset** | `13252 Garden Grove Blvd, Garden Grove, CA 92843` | HTTP 401 | HTTP 404 | **2 records** |
-| **Huntington Beach Civic Center** | `2000 Main St, Huntington Beach, CA 92648` | HTTP 401 | HTTP 404 | **1 records** |
-| **Fair Drive County Hub** | `88 Fair Dr, Costa Mesa, CA 92626` | HTTP 401 | HTTP 404 | **0 records** |
+| Target Name | Address / GPS | Parcels API | GPS Radius API | EDR Environmental | Local EDR Matches |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Vagabond Inn / Casa Aliento (Mercy House CHDO)** | `17642 Beach Blvd, Huntington Beach, CA 92647`<br>📍 `33.7088, -117.989` | HTTP 401 | HTTP 401 | HTTP 404 | **28 records** |
+| **Cameron Lane Property Hub** | `17631 Cameron Ln, Huntington Beach, CA 92647`<br>📍 `33.7081, -117.9902` | HTTP 401 | HTTP 401 | HTTP 404 | **15 records** |
+| **Beach Blvd Commercial Parcel** | `19102 Beach Blvd, Huntington Beach, CA 92648`<br>📍 `33.6845, -117.9895` | HTTP 401 | HTTP 401 | HTTP 404 | **0 records** |
+| **Garden Grove Blvd Asset** | `13252 Garden Grove Blvd, Garden Grove, CA 92843`<br>📍 `33.7745, -117.9056` | HTTP 401 | HTTP 401 | HTTP 404 | **2 records** |
+| **Huntington Beach Civic Center** | `2000 Main St, Huntington Beach, CA 92648`<br>📍 `33.6603, -117.9992` | HTTP 401 | HTTP 401 | HTTP 404 | **1 records** |
+| **Fair Drive County Hub** | `88 Fair Dr, Costa Mesa, CA 92626`<br>📍 `33.6644, -117.8967` | HTTP 401 | HTTP 401 | HTTP 404 | **0 records** |
+| **MGM Grand Hotel & Casino (Nevada Hub)** | `3799 S Las Vegas Blvd, Las Vegas, NV 89109`<br>📍 `36.1026, -115.1703` | HTTP 401 | HTTP 401 | HTTP 404 | **0 records** |
+| **Apex Desert Industrial Corridor (Nevada)** | `Apex Desert Parcel, Clark County, NV`<br>📍 `36.315, -114.92` | HTTP 401 | HTTP 401 | HTTP 404 | **0 records** |
+| **Nye County Desert Mining / Testing Site** | `Beatty Corridor, Nye County, NV`<br>📍 `36.9092, -116.7547` | HTTP 401 | HTTP 401 | HTTP 404 | **0 records** |
+| **Storey County / Tahoe-Reno Industrial** | `USA Pkwy, Sparks, NV 89437`<br>📍 `39.5296, -119.8138` | HTTP 401 | HTTP 401 | HTTP 404 | **0 records** |
 
 ## II. Historical EDR Environmental Site Disclosures
 

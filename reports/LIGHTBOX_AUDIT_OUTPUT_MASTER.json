@@ -2,11 +2,23 @@
   {
     "target_name": "Vagabond Inn / Casa Aliento (Mercy House CHDO)",
     "address": "17642 Beach Blvd, Huntington Beach, CA 92647",
-    "timestamp": "2026-08-22 09:45:47",
+    "gps_coordinates": {
+      "latitude": 33.7088,
+      "longitude": -117.989
+    },
+    "timestamp": "2026-08-22 10:07:15",
     "endpoints": {
-      "parcels": {
+      "parcels_address": {
         "status_code": 401,
         "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "parcels_radius_gps": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "edr_sites_radius_gps": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
       },
       "edr_environmental": {
         "status_code": 404,
@@ -60,11 +72,23 @@
   {
     "target_name": "Cameron Lane Property Hub",
     "address": "17631 Cameron Ln, Huntington Beach, CA 92647",
-    "timestamp": "2026-08-22 09:45:48",
+    "gps_coordinates": {
+      "latitude": 33.7081,
+      "longitude": -117.9902
+    },
+    "timestamp": "2026-08-22 10:07:18",
     "endpoints": {
-      "parcels": {
+      "parcels_address": {
         "status_code": 401,
         "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "parcels_radius_gps": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "edr_sites_radius_gps": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
       },
       "edr_environmental": {
         "status_code": 404,
@@ -118,11 +142,23 @@
   {
     "target_name": "Beach Blvd Commercial Parcel",
     "address": "19102 Beach Blvd, Huntington Beach, CA 92648",
-    "timestamp": "2026-08-22 09:45:49",
+    "gps_coordinates": {
+      "latitude": 33.6845,
+      "longitude": -117.9895
+    },
+    "timestamp": "2026-08-22 10:07:19",
     "endpoints": {
-      "parcels": {
+      "parcels_address": {
         "status_code": 401,
         "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "parcels_radius_gps": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "edr_sites_radius_gps": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
       },
       "edr_environmental": {
         "status_code": 404,
@@ -135,11 +171,23 @@
   {
     "target_name": "Garden Grove Blvd Asset",
     "address": "13252 Garden Grove Blvd, Garden Grove, CA 92843",
-    "timestamp": "2026-08-22 09:45:51",
+    "gps_coordinates": {
+      "latitude": 33.7745,
+      "longitude": -117.9056
+    },
+    "timestamp": "2026-08-22 10:07:22",
     "endpoints": {
-      "parcels": {
+      "parcels_address": {
         "status_code": 401,
         "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "parcels_radius_gps": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "edr_sites_radius_gps": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
       },
       "edr_environmental": {
         "status_code": 404,
@@ -169,11 +217,23 @@
   {
     "target_name": "Huntington Beach Civic Center",
     "address": "2000 Main St, Huntington Beach, CA 92648",
-    "timestamp": "2026-08-22 09:45:52",
+    "gps_coordinates": {
+      "latitude": 33.6603,
+      "longitude": -117.9992
+    },
+    "timestamp": "2026-08-22 10:07:24",
     "endpoints": {
-      "parcels": {
+      "parcels_address": {
         "status_code": 401,
         "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "parcels_radius_gps": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "edr_sites_radius_gps": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
       },
       "edr_environmental": {
         "status_code": 404,
@@ -195,11 +255,139 @@
   {
     "target_name": "Fair Drive County Hub",
     "address": "88 Fair Dr, Costa Mesa, CA 92626",
-    "timestamp": "2026-08-22 09:45:54",
+    "gps_coordinates": {
+      "latitude": 33.6644,
+      "longitude": -117.8967
+    },
+    "timestamp": "2026-08-22 10:07:26",
     "endpoints": {
-      "parcels": {
+      "parcels_address": {
         "status_code": 401,
         "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "parcels_radius_gps": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "edr_sites_radius_gps": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
+      },
+      "edr_environmental": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
+      }
+    },
+    "local_edr_matches": 0,
+    "local_edr_records": []
+  },
+  {
+    "target_name": "MGM Grand Hotel & Casino (Nevada Hub)",
+    "address": "3799 S Las Vegas Blvd, Las Vegas, NV 89109",
+    "gps_coordinates": {
+      "latitude": 36.1026,
+      "longitude": -115.1703
+    },
+    "timestamp": "2026-08-22 10:07:28",
+    "endpoints": {
+      "parcels_address": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "parcels_radius_gps": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "edr_sites_radius_gps": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
+      },
+      "edr_environmental": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
+      }
+    },
+    "local_edr_matches": 0,
+    "local_edr_records": []
+  },
+  {
+    "target_name": "Apex Desert Industrial Corridor (Nevada)",
+    "address": "Apex Desert Parcel, Clark County, NV",
+    "gps_coordinates": {
+      "latitude": 36.315,
+      "longitude": -114.92
+    },
+    "timestamp": "2026-08-22 10:07:31",
+    "endpoints": {
+      "parcels_address": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "parcels_radius_gps": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "edr_sites_radius_gps": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
+      },
+      "edr_environmental": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
+      }
+    },
+    "local_edr_matches": 0,
+    "local_edr_records": []
+  },
+  {
+    "target_name": "Nye County Desert Mining / Testing Site",
+    "address": "Beatty Corridor, Nye County, NV",
+    "gps_coordinates": {
+      "latitude": 36.9092,
+      "longitude": -116.7547
+    },
+    "timestamp": "2026-08-22 10:07:33",
+    "endpoints": {
+      "parcels_address": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "parcels_radius_gps": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "edr_sites_radius_gps": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
+      },
+      "edr_environmental": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
+      }
+    },
+    "local_edr_matches": 0,
+    "local_edr_records": []
+  },
+  {
+    "target_name": "Storey County / Tahoe-Reno Industrial",
+    "address": "USA Pkwy, Sparks, NV 89437",
+    "gps_coordinates": {
+      "latitude": 39.5296,
+      "longitude": -119.8138
+    },
+    "timestamp": "2026-08-22 10:07:36",
+    "endpoints": {
+      "parcels_address": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "parcels_radius_gps": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "edr_sites_radius_gps": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
       },
       "edr_environmental": {
         "status_code": 404,
