@@ -1,0 +1,212 @@
+[
+  {
+    "target_name": "Vagabond Inn / Casa Aliento (Mercy House CHDO)",
+    "address": "17642 Beach Blvd, Huntington Beach, CA 92647",
+    "timestamp": "2026-08-22 09:45:47",
+    "endpoints": {
+      "parcels": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "edr_environmental": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
+      }
+    },
+    "local_edr_matches": 28,
+    "local_edr_records": [
+      {
+        "file": "7887036.12_1.pdf",
+        "cover_address": "17642 BEACH BLVD",
+        "latitude": "",
+        "longitude": "",
+        "real_physical_location": "Not listed in PDF text",
+        "source_file": "edr_all_gps_coordinates.json"
+      },
+      {
+        "file": "7887036.3 (1).pdf",
+        "cover_address": "17642 BEACH BLVD",
+        "latitude": "",
+        "longitude": "",
+        "real_physical_location": "Not listed in PDF text",
+        "source_file": "edr_all_gps_coordinates.json"
+      },
+      {
+        "file": "7887036.3.pdf",
+        "cover_address": "17642 BEACH BLVD",
+        "latitude": "",
+        "longitude": "",
+        "real_physical_location": "Not listed in PDF text",
+        "source_file": "edr_all_gps_coordinates.json"
+      },
+      {
+        "file": "7887036.4 (1).pdf",
+        "cover_address": "17642 BEACH BLVD",
+        "latitude": "",
+        "longitude": "",
+        "real_physical_location": "Not listed in PDF text",
+        "source_file": "edr_all_gps_coordinates.json"
+      },
+      {
+        "file": "7887036.4.pdf",
+        "cover_address": "17642 BEACH BLVD",
+        "latitude": "",
+        "longitude": "",
+        "real_physical_location": "Not listed in PDF text",
+        "source_file": "edr_all_gps_coordinates.json"
+      }
+    ]
+  },
+  {
+    "target_name": "Cameron Lane Property Hub",
+    "address": "17631 Cameron Ln, Huntington Beach, CA 92647",
+    "timestamp": "2026-08-22 09:45:48",
+    "endpoints": {
+      "parcels": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "edr_environmental": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
+      }
+    },
+    "local_edr_matches": 15,
+    "local_edr_records": [
+      {
+        "file": "7887036.15.pdf",
+        "cover_address": "17631 CAMERON LN",
+        "latitude": "",
+        "longitude": "",
+        "real_physical_location": "Not listed in PDF text",
+        "source_file": "edr_all_gps_coordinates.json"
+      },
+      {
+        "file": "7887036.16.pdf",
+        "cover_address": "17631 CAMERON LN",
+        "latitude": "",
+        "longitude": "",
+        "real_physical_location": "Not listed in PDF text",
+        "source_file": "edr_all_gps_coordinates.json"
+      },
+      {
+        "file": "7887036.24_1.pdf",
+        "cover_address": "17631 CAMERON LN",
+        "latitude": "",
+        "longitude": "",
+        "real_physical_location": "Not listed in PDF text",
+        "source_file": "edr_all_gps_coordinates.json"
+      },
+      {
+        "file": "788703618.PDF",
+        "cover_address": "17631 CAMERON LN",
+        "latitude": "",
+        "longitude": "",
+        "real_physical_location": "Not listed in PDF text",
+        "source_file": "edr_all_gps_coordinates.json"
+      },
+      {
+        "file": "788703618_2.PDF",
+        "cover_address": "17631 CAMERON LN",
+        "latitude": "",
+        "longitude": "",
+        "real_physical_location": "Not listed in PDF text",
+        "source_file": "edr_all_gps_coordinates.json"
+      }
+    ]
+  },
+  {
+    "target_name": "Beach Blvd Commercial Parcel",
+    "address": "19102 Beach Blvd, Huntington Beach, CA 92648",
+    "timestamp": "2026-08-22 09:45:49",
+    "endpoints": {
+      "parcels": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "edr_environmental": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
+      }
+    },
+    "local_edr_matches": 0,
+    "local_edr_records": []
+  },
+  {
+    "target_name": "Garden Grove Blvd Asset",
+    "address": "13252 Garden Grove Blvd, Garden Grove, CA 92843",
+    "timestamp": "2026-08-22 09:45:51",
+    "endpoints": {
+      "parcels": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "edr_environmental": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
+      }
+    },
+    "local_edr_matches": 2,
+    "local_edr_records": [
+      {
+        "file": "074-0125-014_Sanborn_7867953.3S.pdf",
+        "cover_address": "13252 Garden Grove Blvd",
+        "latitude": "",
+        "longitude": "",
+        "real_physical_location": "Not listed in PDF text",
+        "source_file": "edr_all_gps_coordinates.json"
+      },
+      {
+        "file": "074-0125-014_Sanborn_7867953.3S.pdf",
+        "cover_address": "13252 GARDEN GROVE BLVD",
+        "latitude": "N/A",
+        "longitude": "N/A",
+        "real_physical_location": "Unknown / Map Coordinates",
+        "source_file": "edr_gps_mapping_clean.json"
+      }
+    ]
+  },
+  {
+    "target_name": "Huntington Beach Civic Center",
+    "address": "2000 Main St, Huntington Beach, CA 92648",
+    "timestamp": "2026-08-22 09:45:52",
+    "endpoints": {
+      "parcels": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "edr_environmental": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
+      }
+    },
+    "local_edr_matches": 1,
+    "local_edr_records": [
+      {
+        "file": "Volume-III-Appendix-D-Historical-Survey.pdf",
+        "cover_address": "2000 Main Street",
+        "latitude": "",
+        "longitude": "",
+        "real_physical_location": "Not listed in PDF text",
+        "source_file": "edr_all_gps_coordinates.json"
+      }
+    ]
+  },
+  {
+    "target_name": "Fair Drive County Hub",
+    "address": "88 Fair Dr, Costa Mesa, CA 92626",
+    "timestamp": "2026-08-22 09:45:54",
+    "endpoints": {
+      "parcels": {
+        "status_code": 401,
+        "data": "{\"error\":{\"code\":\"401\", \"message\":\"Unauthorized Request.\"}}"
+      },
+      "edr_environmental": {
+        "status_code": 404,
+        "data": "{\"error\":{\"code\":\"404\", \"message\":\"Not Found.\"}}"
+      }
+    },
+    "local_edr_matches": 0,
+    "local_edr_records": []
+  }
+]
