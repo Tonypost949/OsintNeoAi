@@ -2,9 +2,9 @@
 from google.cloud import bigquery
 
 # Initialize BigQuery client (uses Application Default Credentials)
-client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+client = bigquery.Client(project="noble-beanbag-497411-m4")
 
-DATASET = "project-743aab84-f9a5-4ec7-954.ai_sandbox"
+DATASET = "noble-beanbag-497411-m4.ai_sandbox"
 SOURCE_TABLE = "hb_surface_flow"
 DEST_FILE = r"C:\Users\HP\.gemini\antigravity-ide\brain\c370d570-1fbc-427b-a511-94af4ff83ad7\hb_surface_flow_wgs84.geojson"
 

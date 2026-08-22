@@ -3,7 +3,7 @@ from google.cloud import bigquery
 import csv
 
 def main():
-    gcp_project_id = "project-743aab84-f9a5-4ec7-954"
+    gcp_project_id = "noble-beanbag-497411-m4"
     client = bigquery.Client(project=gcp_project_id)
     
     exports = [
@@ -12,7 +12,7 @@ def main():
           FARM_FINGERPRINT(LOWER(organization_name)) AS id,
           organization_name AS name,
           'Organization' AS label
-        FROM `project-743aab84-f9a5-4ec7-954.fraud_mart.fact_transactions`
+        FROM `noble-beanbag-497411-m4.fraud_mart.fact_transactions`
         WHERE organization_name IS NOT NULL;
         """),
         
@@ -21,7 +21,7 @@ def main():
           org_id AS source,
           indicator AS target,
           'HAS_INDICATOR' AS relationship
-        FROM `project-743aab84-f9a5-4ec7-954.fraud_mart.bridge_org_indicator`
+        FROM `noble-beanbag-497411-m4.fraud_mart.bridge_org_indicator`
         WHERE org_id IS NOT NULL;
         """),
         
@@ -30,7 +30,7 @@ def main():
           transaction_id AS source,
           'HIGH_RISK' AS target,
           NEAREST_CENTROIDS_DISTANCE[OFFSET(0)].DISTANCE AS fraud_distance
-        FROM `project-743aab84-f9a5-4ec7-954.fraud_mart.fraud_scores`
+        FROM `noble-beanbag-497411-m4.fraud_mart.fraud_scores`
         WHERE NEAREST_CENTROIDS_DISTANCE[OFFSET(0)].DISTANCE > 0.0;
         """)
     ]

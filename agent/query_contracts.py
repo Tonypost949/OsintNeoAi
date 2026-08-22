@@ -1,6 +1,6 @@
 ﻿from google.cloud import bigquery
 
-client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+client = bigquery.Client(project="noble-beanbag-497411-m4")
 
 contract_ids = [
     '23-12957', '311705', 
@@ -15,7 +15,7 @@ print("--- Searching rico_evidence_matrix for Contract IDs and Programs ---")
 # We will search the narrative, entity_name, and any other relevant fields in the matrix
 query = """
 SELECT entity_id, entity_name, category, authority_source, nexus_narrative
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.rico_evidence_matrix`
+FROM `noble-beanbag-497411-m4.ppp_rico.rico_evidence_matrix`
 WHERE 
 """
 
@@ -45,7 +45,7 @@ except Exception as e:
 print("\n--- Searching rico_matches for Contract IDs and Programs ---")
 query2 = """
 SELECT Entity, Match_Reason, Confidence_Score
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.rico_matches`
+FROM `noble-beanbag-497411-m4.ppp_rico.rico_matches`
 WHERE 
 """
 

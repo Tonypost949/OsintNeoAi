@@ -1,10 +1,10 @@
 ﻿from google.cloud import bigquery
 
-client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+client = bigquery.Client(project="noble-beanbag-497411-m4")
 
 # Query 1: Create and seed the Entity Resolution table
 ddl1 = """
-CREATE OR REPLACE TABLE `project-743aab84-f9a5-4ec7-954.forensic_layers.entity_resolution` (
+CREATE OR REPLACE TABLE `noble-beanbag-497411-m4.forensic_layers.entity_resolution` (
     canonical_id STRING,
     raw_name_variant STRING,
     resolved_group STRING,
@@ -13,7 +13,7 @@ CREATE OR REPLACE TABLE `project-743aab84-f9a5-4ec7-954.forensic_layers.entity_r
 """
 
 insert_sql = """
-INSERT INTO `project-743aab84-f9a5-4ec7-954.forensic_layers.entity_resolution` (canonical_id, raw_name_variant, resolved_group, associated_ein)
+INSERT INTO `noble-beanbag-497411-m4.forensic_layers.entity_resolution` (canonical_id, raw_name_variant, resolved_group, associated_ein)
 VALUES 
     ('ENT-NGUYEN-TAM', 'TAM NGUYEN', 'TAM NGUYEN NETWORK', NULL),
     ('ENT-NGUYEN-TAM', 'NGUYEN, TAM', 'TAM NGUYEN NETWORK', NULL),
@@ -29,7 +29,7 @@ VALUES
 
 # Query 2: Create the Property Timing View (corrected to map ppp_loans table schema)
 ddl2 = """
-CREATE OR REPLACE VIEW `project-743aab84-f9a5-4ec7-954.forensic_layers.ppp_property_timing` AS
+CREATE OR REPLACE VIEW `noble-beanbag-497411-m4.forensic_layers.ppp_property_timing` AS
 SELECT
     er.resolved_group AS entity_identity,
     prop.Owner1 AS property_wrapper,
@@ -39,10 +39,10 @@ SELECT
     bridge.ppp_loan_1_amount AS loan_amount,
     bridge.ppp_loan_1_date AS ppp_loan_date,
     DATE_DIFF(SAFE.PARSE_DATE('%m/%d/%Y', prop.LastSaleDate), SAFE.PARSE_DATE('%m/%d/%Y', bridge.ppp_loan_1_date), DAY) AS days_delta
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_llcs` prop
-JOIN `project-743aab84-f9a5-4ec7-954.forensic_layers.ppp_loans` bridge 
+FROM `noble-beanbag-497411-m4.ppp_rico.hb_llcs` prop
+JOIN `noble-beanbag-497411-m4.forensic_layers.ppp_loans` bridge 
     ON UPPER(prop.Owner1) LIKE CONCAT('%', UPPER(bridge.entity_name), '%')
-JOIN `project-743aab84-f9a5-4ec7-954.forensic_layers.entity_resolution` er 
+JOIN `noble-beanbag-497411-m4.forensic_layers.entity_resolution` er 
     ON UPPER(bridge.entity_name) LIKE CONCAT('%', UPPER(er.raw_name_variant), '%')
 WHERE prop.LastSaleValue = 0 
   AND ABS(DATE_DIFF(SAFE.PARSE_DATE('%m/%d/%Y', prop.LastSaleDate), SAFE.PARSE_DATE('%m/%d/%Y', bridge.ppp_loan_1_date), DAY)) <= 180;

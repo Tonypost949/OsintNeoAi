@@ -2,11 +2,11 @@ from google.cloud import bigquery
 import pandas as pd
 
 def trace_orr_grants():
-    client = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
+    client = bigquery.Client(project='noble-beanbag-497411-m4')
     
     query = """
     SELECT state, coc_name, coc_funding, pipeline_hhs, gap 
-    FROM `project-743aab84-f9a5-4ec7-954.forensic_layers.national_pipeline_map`
+    FROM `noble-beanbag-497411-m4.forensic_layers.national_pipeline_map`
     WHERE pipeline_hhs = TRUE
     ORDER BY gap DESC
     LIMIT 100

@@ -51,11 +51,11 @@ CSV data:
 
 def main():
     tables = {
-        "rico_matches": "project-743aab84-f9a5-4ec7-954.ppp_rico.rico_matches",
-        "rico_evidence_matrix": "project-743aab84-f9a5-4ec7-954.ppp_rico.rico_evidence_matrix",
-        "hb_llcs": "project-743aab84-f9a5-4ec7-954.ppp_rico.hb_llcs",
-        "ppp_150k_plus": "project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_150k_plus",
-        "ppp_up_to_150k": "project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_up_to_150k",
+        "rico_matches": "noble-beanbag-497411-m4.ppp_rico.rico_matches",
+        "rico_evidence_matrix": "noble-beanbag-497411-m4.ppp_rico.rico_evidence_matrix",
+        "hb_llcs": "noble-beanbag-497411-m4.ppp_rico.hb_llcs",
+        "ppp_150k_plus": "noble-beanbag-497411-m4.ppp_rico.ppp_150k_plus",
+        "ppp_up_to_150k": "noble-beanbag-497411-m4.ppp_rico.ppp_up_to_150k",
     }
     for name, table_id in tables.items():
         print(f"\n=== Analyzing {name} ({table_id}) ===")

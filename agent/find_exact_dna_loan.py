@@ -1,11 +1,11 @@
 ﻿from google.cloud import bigquery
 
-client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+client = bigquery.Client(project="noble-beanbag-497411-m4")
 
 print("--- Querying ppp_up_to_150k for loan amount 2452 ---")
 q1 = """
 SELECT BorrowerName, BorrowerAddress, BorrowerCity, BorrowerState, InitialApprovalAmount, DateApproved, OriginatingLender
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_up_to_150k`
+FROM `noble-beanbag-497411-m4.ppp_rico.ppp_up_to_150k`
 WHERE InitialApprovalAmount = 2452 OR CurrentApprovalAmount = 2452
 """
 try:

@@ -37,8 +37,8 @@ def ingest_ammunition_bid():
     
     df = pd.DataFrame(records)
     
-    bq = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
-    table_id = "project-743aab84-f9a5-4ec7-954.unclaimed_property.oc_ammunition_bids"
+    bq = bigquery.Client(project="noble-beanbag-497411-m4")
+    table_id = "noble-beanbag-497411-m4.unclaimed_property.oc_ammunition_bids"
     
     print(f"Loading ammunition bid data into BigQuery table {table_id}...")
     job_config = bigquery.LoadJobConfig(

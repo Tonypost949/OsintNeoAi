@@ -31,7 +31,7 @@ Executing a structural takedown of the Orange County municipal RICO network & cr
 - **The Dark Anomaly:** 29,300 child discrepancy between CPS dispatches (~30k/yr) and homeless PIT counts (~700).
 
 ## DATA INFRASTRUCTURE & BACKENDS
-- **BigQuery Project:** `project-743aab84-f9a5-4ec7-954`
+- **BigQuery Project:** `noble-beanbag-497411-m4`
 - **Primary GitHub:** `https://github.com/Tonypost949/OsintNeoAi`
 - **Master Files Directory:** `/tasklet/agent/home/` & `C:\Users\HP\osintneoai`
 ```
@@ -44,7 +44,7 @@ Executing a structural takedown of the Orange County municipal RICO network & cr
 | :--- | :--- | :--- |
 | **Tasklet Workspace** | `ws_70075mwacncdba2sez9k` | AI Command Center & Agent Orchestration |
 | **GitHub Engine** | `Tonypost949/OsintNeoAi` | Automated evidence vault & markdown synchronization |
-| **BigQuery Analytics** | `project-743aab84-f9a5-4ec7-954` | SQL cross-joining across `national_audits` & `onedrive_forensics` |
+| **BigQuery Analytics** | `noble-beanbag-497411-m4` | SQL cross-joining across `national_audits` & `onedrive_forensics` |
 | **Gmail Trigger** | `amd949609@gmail.com` | Incoming evidence OCR, classification & distribution wave automation |
 | **Google Tasks / Drive** | Connected Account | Action queue synchronization & `sharedall` backup |
 

@@ -11,12 +11,12 @@ creds = Credentials.from_authorized_user_file(TOKEN_FILE, ["https://www.googleap
 gmail_service = build("gmail", "v1", credentials=creds)
 
 # Connect to BigQuery
-bq_client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+bq_client = bigquery.Client(project="noble-beanbag-497411-m4")
 
 # Query the priority hits
 query = """
 SELECT message_id, subject, date_header 
-FROM `project-743aab84-f9a5-4ec7-954.national_audits.gmail_index`
+FROM `noble-beanbag-497411-m4.national_audits.gmail_index`
 WHERE REGEXP_CONTAINS(subject, r'8:26-cv-00348|OC SSA|Mercy House charity fraud|Child Deaths|Parallel Qui Tam|Supplemental Qui Tam')
    OR message_id = '19e9dabdb83a65f8'
 """

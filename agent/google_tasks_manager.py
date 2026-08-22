@@ -59,7 +59,7 @@ INVESTIGATION_LISTS = [
         "tasks": [
             {"title": "Disable billing on unused GCP projects", "due": None, "notes": "project-9c94c2fa-3af4-49f1-a7b and others"},
             {"title": "Consolidate billing under james account", "due": None, "notes": "Needs browser access to original billing owner"},
-            {"title": "Enable Tasks API on GCP project", "due": None, "notes": "gcloud services enable tasks.googleapis.com --project=project-743aab84-f9a5-4ec7-954"},
+            {"title": "Enable Tasks API on GCP project", "due": None, "notes": "gcloud services enable tasks.googleapis.com --project=noble-beanbag-497411-m4"},
         ],
     },
     {

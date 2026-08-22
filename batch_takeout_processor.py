@@ -3,7 +3,7 @@ import subprocess, zipfile, json, os, glob, time
 REMOTE_BASE = "gdrive:Sharedall/takeouts all 22226"
 LOCAL_CHUNK_DIR = r"G:\OsintNeoAi\takeout_chunks"
 EXTRACT_DIR = r"G:\OsintNeoAi\takeout_metadata_extracted"
-PROJECT_ID = "project-743aab84-f9a5-4ec7-954"
+PROJECT_ID = "noble-beanbag-497411-m4"
 
 os.makedirs(LOCAL_CHUNK_DIR, exist_ok=True)
 os.makedirs(EXTRACT_DIR, exist_ok=True)

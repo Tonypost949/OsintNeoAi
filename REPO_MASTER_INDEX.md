@@ -134,7 +134,7 @@ All previous versions preserved in git history:
 
 ### Google Cloud Run
 - **Status:** Configured (optional)
-- **Project ID:** project-743aab84-f9a5-4ec7-954
+- **Project ID:** noble-beanbag-497411-m4
 - **Region:** us-central1
 - **Documentation:** DEPLOYMENT_GUIDE.md
 

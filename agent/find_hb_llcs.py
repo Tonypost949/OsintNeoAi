@@ -1,9 +1,9 @@
 ﻿from google.cloud import bigquery
 
-client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+client = bigquery.Client(project="noble-beanbag-497411-m4")
 
 def main():
-    print("Scanning datasets in project project-743aab84-f9a5-4ec7-954...")
+    print("Scanning datasets in project noble-beanbag-497411-m4...")
     datasets = list(client.list_datasets())
     for dataset in datasets:
         ds_id = dataset.dataset_id

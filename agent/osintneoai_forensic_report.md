@@ -1,4 +1,4 @@
-**INTERNAL SYSTEM CORE:** `project-743aab84-f9a5-4ec7-954.national_audits.all_state_records`
+**INTERNAL SYSTEM CORE:** `noble-beanbag-497411-m4.national_audits.all_state_records`
 **INVESTIGATIVE AGENT:** OSINTNeoAi (NWORICO Data Engine)
 
 ---
@@ -52,7 +52,7 @@ WITH state_audit_parameters AS (
     audit.report_num,
     audit.report_title,
     audit.taxpayer_funds_reviewed AS state_untracked_footprint
-  FROM `project-743aab84-f9a5-4ec7-954.national_audits.all_state_records`,
+  FROM `noble-beanbag-497411-m4.national_audits.all_state_records`,
   UNNEST(performance_audit_list) AS audit
   WHERE state = 'CA' 
     AND audit.report_num = '2023-102.1'
@@ -66,7 +66,7 @@ mercy_house_target AS (
     npi.opencorporates_url,
     npi.cms_billing_code,
     npi.unaccounted_fund_delta
-  FROM `project-743aab84-f9a5-4ec7-954.national_audits.all_state_records`,
+  FROM `noble-beanbag-497411-m4.national_audits.all_state_records`,
   UNNEST(non_profiteers_index) AS npi
   WHERE state = 'CA' 
     AND UPPER(npi.organization_name) LIKE '%MERCY HOUSE%'
@@ -77,7 +77,7 @@ coc_funding_footprint AS (
   SELECT 
     state,
     SUM(coc.award_amount) AS total_coc_award_pool
-  FROM `project-743aab84-f9a5-4ec7-954.national_audits.all_state_records`,
+  FROM `noble-beanbag-497411-m4.national_audits.all_state_records`,
   UNNEST(coc_continuum_list) AS coc
   WHERE state = 'CA'
   GROUP BY state
@@ -92,7 +92,7 @@ SELECT
   cf.total_coc_award_pool,
   mh.unaccounted_fund_delta AS baseline_target_delta,
   -- Apply the registered Mathematical Ingestion UDF to calculate real leakage
-  `project-743aab84-f9a5-4ec7-954.national_audits.calculate_fund_leakage`(
+  `noble-beanbag-497411-m4.national_audits.calculate_fund_leakage`(
     cf.total_coc_award_pool, 
     (cf.total_coc_award_pool - mh.unaccounted_fund_delta)
   ) AS verified_leakage_delta

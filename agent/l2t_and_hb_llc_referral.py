@@ -2,13 +2,13 @@
 import json, sys
 
 sys.stdout.reconfigure(encoding='utf-8')
-client = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
+client = bigquery.Client(project='noble-beanbag-497411-m4')
 
 print("=== L2T MEDIA LLC — FULL CROSS-REFERENCE ===\n")
 
 # PPP data
 for t in ['ppp_150k_plus', 'ppp_up_to_150k']:
-    q = f"SELECT * FROM project-743aab84-f9a5-4ec7-954.ppp_rico.{t} WHERE UPPER(BorrowerName) LIKE '%L2T%MEDIA%' ORDER BY DateApproved"
+    q = f"SELECT * FROM noble-beanbag-497411-m4.ppp_rico.{t} WHERE UPPER(BorrowerName) LIKE '%L2T%MEDIA%' ORDER BY DateApproved"
     rows = list(client.query(q).result())
     if rows:
         print(f"[{t}] {len(rows)} loan(s):")
@@ -18,7 +18,7 @@ for t in ['ppp_150k_plus', 'ppp_up_to_150k']:
             print(f"    Lender: {r.OriginatingLender} ({r.OriginatingLenderState}) | NAICS: {r.NAICSCode} | Jobs: {r.JobsReported} | Type: {r.BusinessType}")
 
 # HB property
-q = "SELECT * FROM project-743aab84-f9a5-4ec7-954.ppp_rico.hb_llcs WHERE UPPER(Owner1) LIKE '%L2T%' OR UPPER(Owner1) LIKE '%MEDIA%'"
+q = "SELECT * FROM noble-beanbag-497411-m4.ppp_rico.hb_llcs WHERE UPPER(Owner1) LIKE '%L2T%' OR UPPER(Owner1) LIKE '%MEDIA%'"
 rows = list(client.query(q).result())
 if rows:
     print(f"\nHB property matches: {len(rows)}")
@@ -30,7 +30,7 @@ else:
 
 # RICO matrix
 for kw in ['L2T', 'MEDIA']:
-    q = f"SELECT * FROM project-743aab84-f9a5-4ec7-954.ppp_rico.rico_evidence_matrix WHERE UPPER(llc_name) LIKE '%{kw}%'"
+    q = f"SELECT * FROM noble-beanbag-497411-m4.ppp_rico.rico_evidence_matrix WHERE UPPER(llc_name) LIKE '%{kw}%'"
     rows = list(client.query(q).result())
     if rows:
         print(f"\nRICO matrix '{kw}': {len(rows)} match(es)")
@@ -41,7 +41,7 @@ for kw in ['L2T', 'MEDIA']:
 # Suspicious HB network
 for kw in ['L2T', 'MEDIA']:
     try:
-        q = f"SELECT * FROM project-743aab84-f9a5-4ec7-954.ppp_rico.suspicious_hb_network WHERE UPPER(owner_name) LIKE '%{kw}%' OR UPPER(ppp_borrower_name) LIKE '%{kw}%'"
+        q = f"SELECT * FROM noble-beanbag-497411-m4.ppp_rico.suspicious_hb_network WHERE UPPER(owner_name) LIKE '%{kw}%' OR UPPER(ppp_borrower_name) LIKE '%{kw}%'"
         rows = list(client.query(q).result())
         if rows:
             print(f"\nSuspicious network '{kw}': {len(rows)}")

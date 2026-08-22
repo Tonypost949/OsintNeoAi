@@ -24,7 +24,7 @@ try:
 except Exception:
     project_id = "project-9c94c2fa-3af4-49f1-a7b"
 
-if not project_id or project_id == "project-743aab84-f9a5-4ec7-954":
+if not project_id or project_id == "noble-beanbag-497411-m4":
     project_id = "project-9c94c2fa-3af4-49f1-a7b"
 
 client = genai.Client(
@@ -145,7 +145,7 @@ def main():
     print("=" * 60)
     print("RICO NETWORK GRAPH GENERATOR")
     print(f"Model: {MODEL} via Vertex AI")
-    print(f"Project: project-743aab84-f9a5-4ec7-954")
+    print(f"Project: noble-beanbag-497411-m4")
     print("=" * 60)
 
     csv_context = build_csv_context()

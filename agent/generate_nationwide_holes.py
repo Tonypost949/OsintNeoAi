@@ -13,7 +13,7 @@ for city in cities:
     markdown_content += f"## {city.upper()}\n"
     query = f"""
     SELECT BorrowerAddress, COUNT(*) as loan_count, SUM(CurrentApprovalAmount) as total_amount 
-    FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_up_to_150k` 
+    FROM `noble-beanbag-497411-m4.ppp_rico.ppp_up_to_150k` 
     WHERE LOWER(BorrowerCity) = '{city}' 
     GROUP BY BorrowerAddress 
     HAVING loan_count > 10 

@@ -17,7 +17,7 @@ for p in [config_path, alt_config]:
 
 endpoint = config.get("search_endpoint") or os.environ.get("AZURE_SEARCH_ENDPOINT")
 key = config.get("search_key") or os.environ.get("AZURE_SEARCH_KEY")
-PROJECT = "project-743aab84-f9a5-4ec7-954"
+PROJECT = "noble-beanbag-497411-m4"
 
 if not endpoint or not key:
     print("Azure Search not configured. Run azure_setup.py --provision first.")
@@ -67,7 +67,7 @@ bq = bigquery.Client(project=PROJECT)
 from azure.search.documents import SearchClient
 gmail_client = SearchClient(endpoint, "gmail-index", credential)
 
-q_gmail = """SELECT message_id, thread_id, subject, sender, date_header, snippet, label_ids FROM `project-743aab84-f9a5-4ec7-954.national_audits.gmail_index` LIMIT 30000"""
+q_gmail = """SELECT message_id, thread_id, subject, sender, date_header, snippet, label_ids FROM `noble-beanbag-497411-m4.national_audits.gmail_index` LIMIT 30000"""
 print("  Pulling gmail data from BigQuery...")
 batch = []
 count = 0
@@ -112,7 +112,7 @@ except Exception as e:
     print(f"  drive-index: {e}")
 
 drive_client = SearchClient(endpoint, "drive-index", credential)
-q_drive = """SELECT file_id, file_name, mime_type, owner_emails, created_time, size_bytes, is_shared, web_view_link FROM `project-743aab84-f9a5-4ec7-954.national_audits.drive_file_index` WHERE NOT is_trashed ORDER BY created_time DESC LIMIT 50000"""
+q_drive = """SELECT file_id, file_name, mime_type, owner_emails, created_time, size_bytes, is_shared, web_view_link FROM `noble-beanbag-497411-m4.national_audits.drive_file_index` WHERE NOT is_trashed ORDER BY created_time DESC LIMIT 50000"""
 print("  Pulling drive file data from BigQuery...")
 batch = []
 count = 0

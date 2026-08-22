@@ -1,9 +1,9 @@
 ﻿"""Build Out-of-State LLC Timing Matrix: Property → PPP delta analysis"""
 import os, pandas as pd
-os.environ["GOOGLE_CLOUD_PROJECT"] = "project-743aab84-f9a5-4ec7-954"
+os.environ["GOOGLE_CLOUD_PROJECT"] = "noble-beanbag-497411-m4"
 from google.cloud import bigquery
 client = bigquery.Client()
-PRJ = "project-743aab84-f9a5-4ec7-954"
+PRJ = "noble-beanbag-497411-m4"
 
 q = f"""
 WITH llc_base AS (

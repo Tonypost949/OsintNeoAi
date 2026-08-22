@@ -8,7 +8,7 @@ SELECT
     npi.organization_name,
     npi.unaccounted_fund_delta
 FROM 
-    `project-743aab84-f9a5-4ec7-954.national_audits.all_state_records` AS t,
+    `noble-beanbag-497411-m4.national_audits.all_state_records` AS t,
     UNNEST(t.non_profiteers_index) as npi
 WHERE
     npi.organization_name IS NOT NULL
@@ -20,7 +20,7 @@ LIMIT 100;
 def execute_query():
     """Executes the BigQuery script and prints the results."""
     try:
-        client = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
+        client = bigquery.Client(project='noble-beanbag-497411-m4')
         query_job = client.query(sql_query)  # API request
 
         print("Executing query to sample organization names...")

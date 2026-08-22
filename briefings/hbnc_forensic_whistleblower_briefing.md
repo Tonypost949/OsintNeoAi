@@ -4,7 +4,7 @@
 **Date of Investigation**: July 1, 2026  
 **Investigating Unit**: Antigravity OSINT Team  
 **Case Classification**: Federal Whistleblower Case (Public Corruption & Environmental RICO Cover-up)  
-**Target Accounts**: `amd949609@gmail.com` (Anthony Michael DiMarcello III) | `project-743aab84-f9a5-4ec7-954`  
+**Target Accounts**: `amd949609@gmail.com` (Anthony Michael DiMarcello III) | `noble-beanbag-497411-m4`  
 
 ---
 

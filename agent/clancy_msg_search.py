@@ -1,31 +1,31 @@
 from google.cloud import bigquery
 
-client = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
+client = bigquery.Client(project='noble-beanbag-497411-m4')
 
 print("=== SEARCHING BIGQUERY DATASETS FOR CLANCY / ZOLOFT ===")
 
 queries = {
     "deepseek_conversations": """
         SELECT 'deepseek_conversations' as source, title as subject, messages_raw as snippet, create_time as date
-        FROM `project-743aab84-f9a5-4ec7-954.national_audits.deepseek_conversations`
+        FROM `noble-beanbag-497411-m4.national_audits.deepseek_conversations`
         WHERE UPPER(messages_raw) LIKE '%CLANCY%' OR UPPER(messages_raw) LIKE '%ZOLOFT%'
         LIMIT 10
     """,
     "local_scan_emails": """
         SELECT 'local_scan_emails' as source, 'Email content' as subject, email as snippet, '' as date
-        FROM `project-743aab84-f9a5-4ec7-954.national_audits.local_scan_emails`
+        FROM `noble-beanbag-497411-m4.national_audits.local_scan_emails`
         WHERE UPPER(email) LIKE '%CLANCY%' OR UPPER(email) LIKE '%ZOLOFT%'
         LIMIT 10
     """,
     "takeout_documents": """
         SELECT 'takeout_documents' as source, file_name as subject, extracted_text as snippet, CAST(ingest_timestamp AS STRING) as date
-        FROM `project-743aab84-f9a5-4ec7-954.national_audits.takeout_documents`
+        FROM `noble-beanbag-497411-m4.national_audits.takeout_documents`
         WHERE UPPER(extracted_text) LIKE '%CLANCY%' OR UPPER(extracted_text) LIKE '%ZOLOFT%'
         LIMIT 10
     """,
     "onedrive_documents": """
         SELECT 'onedrive_documents' as source, file_name as subject, content_preview as snippet, CAST(ingestion_timestamp AS STRING) as date
-        FROM `project-743aab84-f9a5-4ec7-954.onedrive_forensics.onedrive_documents`
+        FROM `noble-beanbag-497411-m4.onedrive_forensics.onedrive_documents`
         WHERE UPPER(content_preview) LIKE '%CLANCY%' OR UPPER(content_preview) LIKE '%ZOLOFT%'
         LIMIT 10
     """

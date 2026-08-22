@@ -1,6 +1,6 @@
 ﻿from google.cloud import bigquery
 
-client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+client = bigquery.Client(project="noble-beanbag-497411-m4")
 
 def safe_money(val):
     if val is None:
@@ -8,7 +8,7 @@ def safe_money(val):
     return f"${float(val):,.2f}"
 
 print("=== CHDO Real Estate Transactions ===")
-q_chdo = "SELECT * FROM `project-743aab84-f9a5-4ec7-954.forensic_layers.chdo_real_estate_transactions`"
+q_chdo = "SELECT * FROM `noble-beanbag-497411-m4.forensic_layers.chdo_real_estate_transactions`"
 try:
     results_chdo = list(client.query(q_chdo).result())
     print(f"Found {len(results_chdo)} records:")
@@ -21,7 +21,7 @@ except Exception as e:
     print(f"Error querying chdo_real_estate_transactions: {e}")
 
 print("\n=== Mercy House Schedule I ===")
-q_mercy = "SELECT * FROM `project-743aab84-f9a5-4ec7-954.national_audits.mercy_house_schedule_i`"
+q_mercy = "SELECT * FROM `noble-beanbag-497411-m4.national_audits.mercy_house_schedule_i`"
 try:
     results_mercy = list(client.query(q_mercy).result())
     print(f"Found {len(results_mercy)} records:")

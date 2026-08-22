@@ -22,9 +22,9 @@ SELECT
   failures.created_at AS failure_timestamp,
   SUBSTR(failures.contents_raw, 1, 500) AS failure_context
 FROM 
-  `project-743aab84-f9a5-4ec7-954.national_audits.local_scan_matches` AS matches
+  `noble-beanbag-497411-m4.national_audits.local_scan_matches` AS matches
 JOIN 
-  `project-743aab84-f9a5-4ec7-954.national_audits.orange_county_structural_failure` AS failures
+  `noble-beanbag-497411-m4.national_audits.orange_county_structural_failure` AS failures
 ON 
   LOWER(failures.contents_raw) LIKE CONCAT('%', LOWER(matches.value), '%')
 WHERE 

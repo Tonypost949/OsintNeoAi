@@ -51,8 +51,8 @@ def download_and_ingest():
             df[col] = df[col].astype(str).replace('nan', None)
             
         # Ingest to BigQuery
-        bq = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
-        table_id = "project-743aab84-f9a5-4ec7-954.unclaimed_property.ca_unclaimed_raw"
+        bq = bigquery.Client(project="noble-beanbag-497411-m4")
+        table_id = "noble-beanbag-497411-m4.unclaimed_property.ca_unclaimed_raw"
         
         print(f"Loading {len(df)} records into BigQuery table {table_id}...")
         job_config = bigquery.LoadJobConfig(

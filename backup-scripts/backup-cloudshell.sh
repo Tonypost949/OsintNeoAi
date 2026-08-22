@@ -5,7 +5,7 @@ set -euo pipefail
 # Uses GCE backup VM + gcloud alpha cloud-shell with access tokens
 # Bypasses ADC quota project issue by using CLOUDSDK_AUTH_ACCESS_TOKEN
 
-PROJECT_ID="project-743aab84-f9a5-4ec7-954"
+PROJECT_ID="noble-beanbag-497411-m4"
 BACKUP_DIR="/home/anthonymichaeldimarcello/cloudshell-backups"
 DATE=$(date +%Y%m%d)
 

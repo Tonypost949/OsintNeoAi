@@ -1,8 +1,8 @@
 from google.cloud import bigquery
 import sys
 
-bq = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
-PROJECT = "project-743aab84-f9a5-4ec7-954"
+bq = bigquery.Client(project="noble-beanbag-497411-m4")
+PROJECT = "noble-beanbag-497411-m4"
 
 print("=== Bridge Table Summary ===")
 summary = bq.query(f"""

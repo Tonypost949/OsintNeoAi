@@ -7,7 +7,7 @@ from google.genai import types
 
 sys.stdout.reconfigure(encoding="utf-8")
 
-GCP_PROJECT = os.environ.get("GOOGLE_PROJECT_ID", "project-743aab84-f9a5-4ec7-954")
+GCP_PROJECT = os.environ.get("GOOGLE_PROJECT_ID", "noble-beanbag-497411-m4")
 BQ_DATASET = "national_audits"
 PDF_PATH = r"C:\Users\HP\.gemini\antigravity-ide\brain\c370d570-1fbc-427b-a511-94af4ff83ad7\2022-MERCY_HOUSE_PUBLIC_RETURN.pdf"
 

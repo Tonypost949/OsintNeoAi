@@ -5,7 +5,7 @@ import os
 
 def generate_official_bq_map():
     print("[+] Initializing Live BigQuery Map Generator...")
-    client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+    client = bigquery.Client(project="noble-beanbag-497411-m4")
     
     # Query the newly loaded forensic layers
     query = """
@@ -16,7 +16,7 @@ def generate_official_bq_map():
         ppp_loan_1_amount, 
         total_forgiven, 
         naics_description 
-    FROM `project-743aab84-f9a5-4ec7-954.forensic_layers.ppp_loans`
+    FROM `noble-beanbag-497411-m4.forensic_layers.ppp_loans`
     """
     print("[~] Executing query on forensic_layers.ppp_loans...")
     df = client.query(query).to_dataframe()

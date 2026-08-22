@@ -9,7 +9,7 @@ import os
 # Texas, Florida, and New York publish their unclaimed datasets on state open data portals.
 
 def download_state_datasets():
-    bq = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+    bq = bigquery.Client(project="noble-beanbag-497411-m4")
     ctx = ssl.create_default_context()
     ctx.check_hostname = False
     ctx.verify_mode = ssl.CERT_NONE
@@ -50,7 +50,7 @@ def download_state_datasets():
             for col in df.columns:
                 df[col] = df[col].astype(str).replace('nan', None)
                 
-            table_id = f"project-743aab84-f9a5-4ec7-954.unclaimed_property.{state}_unclaimed_raw"
+            table_id = f"noble-beanbag-497411-m4.unclaimed_property.{state}_unclaimed_raw"
             print(f"Loading {len(df)} rows into table {table_id}...")
             
             job_config = bigquery.LoadJobConfig(

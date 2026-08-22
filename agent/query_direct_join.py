@@ -1,6 +1,6 @@
 ﻿from google.cloud import bigquery
 
-GCP_PROJECT = "project-743aab84-f9a5-4ec7-954"
+GCP_PROJECT = "noble-beanbag-497411-m4"
 client = bigquery.Client(project=GCP_PROJECT)
 
 query = """
@@ -13,8 +13,8 @@ SELECT
     bridge.ppp_loan_1_amount AS loan_amount,
     bridge.ppp_loan_1_date AS ppp_loan_date,
     DATE_DIFF(SAFE.PARSE_DATE('%m/%d/%Y', prop.LastSaleDate), SAFE.PARSE_DATE('%m/%d/%Y', bridge.ppp_loan_1_date), DAY) AS days_delta
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_llcs` prop
-JOIN `project-743aab84-f9a5-4ec7-954.forensic_layers.ppp_loans` bridge 
+FROM `noble-beanbag-497411-m4.ppp_rico.hb_llcs` prop
+JOIN `noble-beanbag-497411-m4.forensic_layers.ppp_loans` bridge 
     ON UPPER(prop.Owner1) LIKE CONCAT('%', UPPER(bridge.entity_name), '%')
 LIMIT 10
 """

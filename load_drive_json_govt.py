@@ -3,7 +3,7 @@ import json
 import datetime
 from google.cloud import bigquery
 
-PROJECT_ID = "project-743aab84-f9a5-4ec7-954"
+PROJECT_ID = "noble-beanbag-497411-m4"
 DATASET_ID = "ai_sandbox_2"
 TABLE_ID = "gmail_govt_responses_hits"
 FILE_PATH = "gmail_govt_responses_hits.json"

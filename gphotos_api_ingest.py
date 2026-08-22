@@ -6,7 +6,7 @@ config.read(r"C:\Users\HP\AppData\Roaming\rclone\rclone.conf")
 token_data = json.loads(config.get("gphotos", "token"))
 access_token = token_data["access_token"]
 
-PROJECT = "project-743aab84-f9a5-4ec7-954"
+PROJECT = "noble-beanbag-497411-m4"
 TABLE = f"{PROJECT}.national_audits.google_photos_index"
 client = bigquery.Client(project=PROJECT)
 

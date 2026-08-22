@@ -46,8 +46,8 @@ def extract_and_load_all_attachments():
         
     df = pd.DataFrame(parsed_docs)
     
-    bq = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
-    table_id = "project-743aab84-f9a5-4ec7-954.orange_county_procurement.oc_ammunition_attachments_text"
+    bq = bigquery.Client(project="noble-beanbag-497411-m4")
+    table_id = "noble-beanbag-497411-m4.orange_county_procurement.oc_ammunition_attachments_text"
     
     print(f"Loading extracted document text into BigQuery table {table_id}...")
     job_config = bigquery.LoadJobConfig(

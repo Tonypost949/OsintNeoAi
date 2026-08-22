@@ -1,11 +1,11 @@
 ﻿from google.cloud import bigquery
 
-client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+client = bigquery.Client(project="noble-beanbag-497411-m4")
 
 print("--- Querying ppp_loans for Westminster addresses ---")
 q1 = f"""
 SELECT BorrowerName, BorrowerAddress, BorrowerCity, BorrowerState, InitialApprovalAmount, ForgivenessAmount
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_150k_plus`
+FROM `noble-beanbag-497411-m4.ppp_rico.ppp_150k_plus`
 WHERE BorrowerAddress LIKE '%15822%' OR BorrowerAddress LIKE '%GARNET%'
 """
 try:
@@ -17,7 +17,7 @@ except Exception as e:
 
 q2 = f"""
 SELECT BorrowerName, BorrowerAddress, BorrowerCity, BorrowerState, InitialApprovalAmount, ForgivenessAmount
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_up_to_150k`
+FROM `noble-beanbag-497411-m4.ppp_rico.ppp_up_to_150k`
 WHERE BorrowerAddress LIKE '%15822%' OR BorrowerAddress LIKE '%GARNET%'
 """
 try:
@@ -30,7 +30,7 @@ except Exception as e:
 print("\n--- Querying hb_llcs for DYLAN & ANDREW ---")
 q3 = f"""
 SELECT Owner1, Owner2, SiteAddress, MailAddress, MailCity, APN, LastSeller, LastSaleValue
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_llcs`
+FROM `noble-beanbag-497411-m4.ppp_rico.hb_llcs`
 WHERE Owner1 LIKE '%DYLAN%' OR Owner1 LIKE '%ANDREW%'
 """
 try:

@@ -7,11 +7,11 @@ def query_offshore_borrowers():
     offshore-related keywords.
     """
     try:
-        client = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
+        client = bigquery.Client(project='noble-beanbag-497411-m4')
         
         tables_to_query = [
-            "project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_150k_plus",
-            "project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_up_to_150k"
+            "noble-beanbag-497411-m4.ppp_rico.ppp_150k_plus",
+            "noble-beanbag-497411-m4.ppp_rico.ppp_up_to_150k"
         ]
         
         offshore_keywords = r'(remit|overseas|foreign|international|philippines|manila)'

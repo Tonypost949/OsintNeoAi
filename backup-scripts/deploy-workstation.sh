@@ -5,7 +5,7 @@ set -euo pipefail
 # This VM serves as a Linux jump box to bypass Windows firewall issues
 # with gcloud cloud-shell SSH tunnel (WinError 10053)
 
-PROJECT_ID="project-743aab84-f9a5-4ec7-954"
+PROJECT_ID="noble-beanbag-497411-m4"
 ZONE="us-central1-a"
 VM_NAME="backup-vm"
 

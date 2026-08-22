@@ -18,7 +18,7 @@ def extract_nationwide_names():
         BorrowerState, 
         BusinessType,
         COUNT(*) OVER(PARTITION BY BorrowerAddress) as cluster_size
-    FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_up_to_150k`
+    FROM `noble-beanbag-497411-m4.ppp_rico.ppp_up_to_150k`
     WHERE BusinessType IN ('Independent Contractors', 'Sole Proprietorship', 'Self-Employed Individuals')
       AND BorrowerAddress IS NOT NULL AND BorrowerAddress != ''
     """

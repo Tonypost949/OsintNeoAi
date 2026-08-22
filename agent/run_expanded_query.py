@@ -2,7 +2,7 @@
 from google.cloud import bigquery
 
 def main():
-    gcp_project_id = "project-743aab84-f9a5-4ec7-954"
+    gcp_project_id = "noble-beanbag-497411-m4"
     client = bigquery.Client(project=gcp_project_id)
     
     # Corrected state_code to state to match schema, and implemented the user's upgraded multi-label extraction architecture.
@@ -21,7 +21,7 @@ def main():
         npi.cms_billing_code,
         SAFE_CAST(npi.unaccounted_fund_delta AS NUMERIC) AS fund_delta
       FROM
-        `project-743aab84-f9a5-4ec7-954.national_audits.all_state_records` AS base_records
+        `noble-beanbag-497411-m4.national_audits.all_state_records` AS base_records
       CROSS JOIN
         UNNEST(base_records.non_profiteers_index) AS npi
     ),
@@ -71,10 +71,10 @@ def main():
         
         # Update/create the view in BigQuery
         view_ddl = f"""
-        CREATE OR REPLACE VIEW `project-743aab84-f9a5-4ec7-954.forensic_layers.v_expanded_structural_audit` AS
+        CREATE OR REPLACE VIEW `noble-beanbag-497411-m4.forensic_layers.v_expanded_structural_audit` AS
         {query}
         """
-        print("[*] Materializing upgraded query as view: `project-743aab84-f9a5-4ec7-954.forensic_layers.v_expanded_structural_audit`...")
+        print("[*] Materializing upgraded query as view: `noble-beanbag-497411-m4.forensic_layers.v_expanded_structural_audit`...")
         client.query(view_ddl).result()
         print("[+] View created/updated successfully in BigQuery!")
         

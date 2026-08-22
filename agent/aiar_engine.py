@@ -20,7 +20,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 class AIAREngine:
     def __init__(self):
         print("[+] Initializing AIAR (Augmented Reality) Engine...")
-        self.osint_db = "project-743aab84-f9a5-4ec7-954"
+        self.osint_db = "noble-beanbag-497411-m4"
         self.active_layers = ["SHODAN", "ZILLOW", "MUNICIPAL", "FORENSIC"]
 
     def process_camera_frame(self, image_frame, gps_coords):

@@ -6,7 +6,7 @@ This document contains the complete operational record, BigQuery table summaries
 
 ## 1. Master Summary of Ingested Datasets
 
-All records have been processed and loaded live into your BigQuery dataset `national_audits` under project **`project-743aab84-f9a5-4ec7-954`**:
+All records have been processed and loaded live into your BigQuery dataset `national_audits` under project **`noble-beanbag-497411-m4`**:
 
 | BigQuery Target Table | Content Description | Ingested Count | Data Volume | Status |
 | :--- | :--- | :--- | :--- | :--- |
@@ -49,7 +49,7 @@ SELECT
   row_count, 
   size_bytes, 
   SUBSTR(extracted_text, 1, 300) as preview 
-FROM `project-743aab84-f9a5-4ec7-954.national_audits.takeout_documents`
+FROM `noble-beanbag-497411-m4.national_audits.takeout_documents`
 WHERE LOWER(extracted_text) LIKE '%mercy house%' OR LOWER(extracted_text) LIKE '%orange county%'
 ORDER BY size_bytes DESC;
 ```
@@ -57,7 +57,7 @@ ORDER BY size_bytes DESC;
 ### Search Chrome History Timeline
 ```sql
 SELECT visit_time, title, url 
-FROM `project-743aab84-f9a5-4ec7-954.national_audits.takeout_chrome_history`
+FROM `noble-beanbag-497411-m4.national_audits.takeout_chrome_history`
 ORDER BY visit_time DESC
 LIMIT 20;
 ```

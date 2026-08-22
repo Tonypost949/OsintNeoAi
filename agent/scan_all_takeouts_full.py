@@ -9,7 +9,7 @@ from google.cloud import bigquery
 
 sys.stdout.reconfigure(encoding="utf-8")
 
-GCP_PROJECT = "project-743aab84-f9a5-4ec7-954"
+GCP_PROJECT = "noble-beanbag-497411-m4"
 DATASET_ID = "national_audits"
 TABLE_ID = "google_photos_index"
 FULL_TABLE_ID = f"{GCP_PROJECT}.{DATASET_ID}.{TABLE_ID}"

@@ -61,7 +61,7 @@ graph TD
 ## III. GITHUB ACTIONS & CI/CD WORKFLOWS (`.github/workflows/`)
 
 1. **`webapp-deploy.yml`:** Automated Vite/Node.js build pipeline deploying static assets to GitHub Pages.
-2. **`deploy-google-cloud.yml`:** Automated Cloud Build & Cloud Run deployment pushing containerized microservices to GCP project `project-743aab84-f9a5-4ec7-954`.
+2. **`deploy-google-cloud.yml`:** Automated Cloud Build & Cloud Run deployment pushing containerized microservices to GCP project `noble-beanbag-497411-m4`.
 3. **`auto-commit.yml`:** Automated hourly evidence sync and directory tracker.
 4. **CodeQL Static Security Analysis:** Custom CodeQL queries for Python and GitHub Actions inspecting secret exposures and dependency security.
 

@@ -1,9 +1,9 @@
 from google.cloud import bigquery
 
-bq = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+bq = bigquery.Client(project="noble-beanbag-497411-m4")
 
 SQL = """
-CREATE OR REPLACE TABLE `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_ppp_bridge` AS
+CREATE OR REPLACE TABLE `noble-beanbag-497411-m4.ppp_rico.hb_ppp_bridge` AS
 
 WITH hb AS (
   SELECT
@@ -22,7 +22,7 @@ WITH hb AS (
     (LastSaleValue = 0)                               AS is_zero_dollar_transfer,
     -- Post-PPP acquisition (after Jan 1 2021)
     (SAFE.PARSE_DATE('%m/%d/%Y', LastSaleDate) > DATE '2021-01-01') AS is_post_ppp_property_acquisition
-  FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_llcs`
+  FROM `noble-beanbag-497411-m4.ppp_rico.hb_llcs`
   WHERE Owner1 IS NOT NULL OR Owner2 IS NOT NULL
 ),
 
@@ -45,7 +45,7 @@ rm AS (
       ARRAY(SELECT DISTINCT TRIM(REGEXP_EXTRACT(loc, r',\\s*([A-Z]{2})$'))
             FROM UNNEST(SPLIT(loan_locations, ';')) AS loc)
     ) > 1)                                            AS is_multi_state_ppp
-  FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.rico_matches`
+  FROM `noble-beanbag-497411-m4.ppp_rico.rico_matches`
 ),
 
 joined AS (
@@ -106,7 +106,7 @@ SELECT
   COUNTIF(is_post_ppp_property_acquisition) AS post_ppp_acquisitions,
   ROUND(SUM(ppp_total_amount), 2) AS total_ppp_dollars,
   ROUND(SUM(ppp_total_forgiven), 2) AS total_ppp_forgiven
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_ppp_bridge`
+FROM `noble-beanbag-497411-m4.ppp_rico.hb_ppp_bridge`
 """).to_dataframe()
 
 print("\n── Bridge Table Summary ──")
@@ -126,7 +126,7 @@ SELECT
   is_mailbox_address,
   is_zero_dollar_transfer,
   is_post_ppp_property_acquisition
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_ppp_bridge`
+FROM `noble-beanbag-497411-m4.ppp_rico.hb_ppp_bridge`
 WHERE ppp_total_amount IS NOT NULL
 ORDER BY ppp_total_amount DESC
 LIMIT 20

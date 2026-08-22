@@ -3,7 +3,7 @@
 **Relator / Architect:** Anthony Michael DeMarcello III  
 **System Title:** Antigravity / Makaveli Multi-Agent AI OSINT Architecture  
 **Primary AI Engine Models:** Gemini 1.5 Pro, Gemini 3.6 Flash (High), Gemini 2.5 Flash, DeepSeek-R1 / V3, OpenCode, Tasklet.ai Cloud Agents  
-**Backend Project:** `project-743aab84-f9a5-4ec7-954`  
+**Backend Project:** `noble-beanbag-497411-m4`  
 **API Copilot Server:** [`agent/ai_connector.py`](https://github.com/Tonypost949/OsintNeoAi/blob/main/agent/ai_connector.py)  
 **Extraction Date:** August 07, 2026  
 

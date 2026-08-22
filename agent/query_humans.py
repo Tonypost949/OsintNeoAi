@@ -4,7 +4,7 @@ from google.cloud import bigquery
 bq = bigquery.Client()
 q = """
 SELECT DISTINCT clean_owner 
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.v_rico_enterprise_master`
+FROM `noble-beanbag-497411-m4.ppp_rico.v_rico_enterprise_master`
 WHERE clean_owner IS NOT NULL
   AND UPPER(clean_owner) NOT LIKE '%LLC%'
   AND UPPER(clean_owner) NOT LIKE '%INC%'

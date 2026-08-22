@@ -1,8 +1,8 @@
 from google.cloud import bigquery
 import pandas as pd
 
-bq = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
-P = "project-743aab84-f9a5-4ec7-954"
+bq = bigquery.Client(project="noble-beanbag-497411-m4")
+P = "noble-beanbag-497411-m4"
 
 tribal_terms = [
     "KUMEYAAY", "LUISENO", "LUISEÑO", "TONGVA", "CAHUILLA", "SOBOBA", "PECHANGA",

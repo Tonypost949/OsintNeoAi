@@ -18,8 +18,8 @@ if not os.path.exists(TOKEN_PATH):
     raise RuntimeError("token.json not found! Please run the scan scripts to authenticate first.")
 
 creds = Credentials.from_authorized_user_file(TOKEN_PATH)
-bq_client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
-gcs_client = storage.Client(project="project-743aab84-f9a5-4ec7-954")
+bq_client = bigquery.Client(project="noble-beanbag-497411-m4")
+gcs_client = storage.Client(project="noble-beanbag-497411-m4")
 
 # Initialize Gemini AI Studio client
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
@@ -53,7 +53,7 @@ async def search_evidence(request: SearchRequest):
     if request.evidence_type == "gmail":
         query = f"""
             SELECT date, sender, subject, snippet 
-            FROM `project-743aab84-f9a5-4ec7-954.national_audits.gmail_index`
+            FROM `noble-beanbag-497411-m4.national_audits.gmail_index`
             WHERE LOWER(subject) LIKE LOWER('%{term}%') 
                OR LOWER(snippet) LIKE LOWER('%{term}%')
             LIMIT 20
@@ -61,7 +61,7 @@ async def search_evidence(request: SearchRequest):
     else:
         query = f"""
             SELECT name, mimeType, webViewLink, createdTime 
-            FROM `project-743aab84-f9a5-4ec7-954.national_audits.drive_file_index`
+            FROM `noble-beanbag-497411-m4.national_audits.drive_file_index`
             WHERE LOWER(name) LIKE LOWER('%{term}%')
             LIMIT 20
         """
@@ -77,7 +77,7 @@ async def search_evidence(request: SearchRequest):
 async def record_finding(request: FindingRequest):
     """Write a finding securely into the BigQuery AI Sandbox."""
     # Ensure the sandbox table exists
-    table_id = "project-743aab84-f9a5-4ec7-954.ai_sandbox.findings"
+    table_id = "noble-beanbag-497411-m4.ai_sandbox.findings"
     
     # Normally you'd define a schema and use insert_rows_json, but we'll do a simple insert via SQL
     links = ", ".join(request.evidence_links)
@@ -125,7 +125,7 @@ async def sync_code(request: SyncCodeRequest):
         blob.upload_from_filename(local_path)
         
         # Log to BigQuery
-        table_id = "project-743aab84-f9a5-4ec7-954.ai_sandbox.findings"
+        table_id = "noble-beanbag-497411-m4.ai_sandbox.findings"
         link = f"gs://osint-ai-evidence-vault-m4/ai_generated_code/{request.filename}"
         query = f"""
             INSERT INTO `{table_id}` (title, description, evidence_links, timestamp)
@@ -178,7 +178,7 @@ async def query_gis(request: GisQueryRequest):
         data = res.json()
         
         # Log to BigQuery
-        table_id = "project-743aab84-f9a5-4ec7-954.ai_sandbox.findings"
+        table_id = "noble-beanbag-497411-m4.ai_sandbox.findings"
         feature_count = len(data.get("features", []))
         query = f"""
             INSERT INTO `{table_id}` (title, description, evidence_links, timestamp)
@@ -254,7 +254,7 @@ async def analyze(request: AnalyzeRequest):
         try:
             parts = dataset.split(".")
             if len(parts) == 2:
-                table_ref = f"project-743aab84-f9a5-4ec7-954.{dataset}"
+                table_ref = f"noble-beanbag-497411-m4.{dataset}"
                 sample_query = f"SELECT * FROM `{table_ref}` LIMIT 50"
                 job = bq_client.query(sample_query)
                 rows = [dict(row) for row in job.result()]

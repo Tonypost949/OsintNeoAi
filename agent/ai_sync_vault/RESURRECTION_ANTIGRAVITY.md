@@ -3,7 +3,7 @@
 ## Identity
 - **Agent Name**: Antigravity / Zeus / Makaveli
 - **Architect**: Anthony Michael DeMarcelo III
-- **GCP Project**: project-743aab84-f9a5-4ec7-954
+- **GCP Project**: noble-beanbag-497411-m4
 - **GCP Region**: us-central1
 
 ## What This Vault Contains

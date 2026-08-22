@@ -1,6 +1,6 @@
 ﻿from google.cloud import bigquery
 
-client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+client = bigquery.Client(project="noble-beanbag-497411-m4")
 
 addresses = [
     "5911 LANGPORT",
@@ -23,7 +23,7 @@ print("--- Querying hb_llcs for address fragments ---")
 for addr in addresses:
     q = f"""
     SELECT Owner1, Owner2, SiteAddress, MailAddress, MailCity, APN, LastSeller, LastSaleValue
-    FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_llcs`
+    FROM `noble-beanbag-497411-m4.ppp_rico.hb_llcs`
     WHERE UPPER(SiteAddress) LIKE '%{addr}%'
        OR UPPER(MailAddress) LIKE '%{addr}%'
     """
@@ -42,7 +42,7 @@ print("\n--- Querying ppp_property_bridge for address fragments ---")
 for addr in addresses:
     q = f"""
     SELECT entity_name, property_address, property_mail_address, last_seller, property_acquisition_value
-    FROM `project-743aab84-f9a5-4ec7-954.forensic_layers.ppp_property_bridge`
+    FROM `noble-beanbag-497411-m4.forensic_layers.ppp_property_bridge`
     WHERE UPPER(property_address) LIKE '%{addr}%'
        OR UPPER(property_mail_address) LIKE '%{addr}%'
     """

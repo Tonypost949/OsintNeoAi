@@ -1,11 +1,11 @@
 ﻿from google.cloud import bigquery
 
-client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+client = bigquery.Client(project="noble-beanbag-497411-m4")
 
 restore_query = """
-    CREATE OR REPLACE TABLE `project-743aab84-f9a5-4ec7-954.national_audits.gmail_index` AS 
+    CREATE OR REPLACE TABLE `noble-beanbag-497411-m4.national_audits.gmail_index` AS 
     SELECT * 
-    FROM `project-743aab84-f9a5-4ec7-954.national_audits.gmail_index` 
+    FROM `noble-beanbag-497411-m4.national_audits.gmail_index` 
     FOR SYSTEM_TIME AS OF TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 48 HOUR)
 """
 
@@ -16,7 +16,7 @@ try:
     print("Successfully restored!")
     
     # Verify count
-    count_job = client.query("SELECT COUNT(*) as count FROM `project-743aab84-f9a5-4ec7-954.national_audits.gmail_index`")
+    count_job = client.query("SELECT COUNT(*) as count FROM `noble-beanbag-497411-m4.national_audits.gmail_index`")
     count = list(count_job.result())[0].count
     print(f"Current rows in gmail_index: {count}")
 except Exception as e:

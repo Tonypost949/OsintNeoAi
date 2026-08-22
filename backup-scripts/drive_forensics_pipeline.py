@@ -26,7 +26,7 @@ DRIVE_SCOPES = ["https://www.googleapis.com/auth/drive.metadata.readonly",
                 "https://www.googleapis.com/auth/drive.readonly",
                 "https://www.googleapis.com/auth/drive.file"]
 
-BQ_PROJECT = "project-743aab84-f9a5-4ec7-954"
+BQ_PROJECT = "noble-beanbag-497411-m4"
 BQ_DATASET = "drive_forensics"
 BQ_TABLE = "drive_documents"
 

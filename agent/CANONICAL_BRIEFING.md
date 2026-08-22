@@ -1,6 +1,6 @@
 # RICO Enterprise Investigation — Canonical Briefing Exhibit
 **Generated:** 2026-06-22 12:19:15 UTC
-**Source:** BigQuery `project-743aab84-f9a5-4ec7-954.ppp_rico` permanent views
+**Source:** BigQuery `noble-beanbag-497411-m4.ppp_rico` permanent views
 **Scope:** Public record data only — PPP loans, property records, GeoTracker, IRS 990
 
 ---
@@ -121,5 +121,5 @@
 | 2025 | Andrew Do sentenced to 5 years; $8.85M restitution default |
 
 ---
-**Generated:** 2026-06-22 12:19:26 | **Project:** project-743aab84-f9a5-4ec7-954 | **Dataset:** ppp_rico
+**Generated:** 2026-06-22 12:19:26 | **Project:** noble-beanbag-497411-m4 | **Dataset:** ppp_rico
 **Data sources:** PPP (SBA), GeoTracker (CA Water Board), IRS 990 (ProPublica), OC Assessor (GIS), Phase I ESA (EEC Environmental)

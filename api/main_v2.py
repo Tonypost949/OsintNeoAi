@@ -11,7 +11,7 @@ START_TIME = datetime.now(timezone.utc)
 UPLOAD_DIR = Path("/app/uploads")
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
-GCP_PROJECT = os.getenv("GCP_PROJECT", "project-743aab84-f9a5-4ec7-954")
+GCP_PROJECT = os.getenv("GCP_PROJECT", "noble-beanbag-497411-m4")
 import sqlite3
 import hashlib
 import secrets

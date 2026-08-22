@@ -16,7 +16,7 @@ except ImportError:
 app = Flask(__name__)
 
 DB_PATH = r"c:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\master_index_v2.db"
-GCP_PROJECT = "project-743aab84-f9a5-4ec7-954"
+GCP_PROJECT = "noble-beanbag-497411-m4"
 
 # HTML Template with premium CSS (dark theme, glassmorphism, responsive tabs)
 TEMPLATE = """
@@ -235,7 +235,7 @@ TEMPLATE = """
         <!-- BigQuery Tab -->
         <div id="bigquery" class="tab-content">
             <div class="card">
-                <h2>BigQuery Cloud Analytics (project-743aab84-f9a5-4ec7-954)</h2>
+                <h2>BigQuery Cloud Analytics (noble-beanbag-497411-m4)</h2>
                 <div class="form-group">
                     <select id="bq-query-select">
                         <option value="uploads">Newly Uploaded & Indexed Files</option>
@@ -490,7 +490,7 @@ def api_bigquery():
         if query_type == "uploads":
             sql = """
             SELECT file_name, mime_type, size_bytes, web_view_link
-            FROM `project-743aab84-f9a5-4ec7-954.national_audits.drive_file_index`
+            FROM `noble-beanbag-497411-m4.national_audits.drive_file_index`
             WHERE '1q5bmZJQ9IuSudsie1KNuMWZ0mbfu6-gE' IN UNNEST(parent_folder_ids)
             ORDER BY scan_timestamp DESC
             LIMIT 20
@@ -498,14 +498,14 @@ def api_bigquery():
         elif query_type == "timing":
             sql = """
             SELECT entity_identity, property_wrapper, property_address, days_delta, loan_amount
-            FROM `project-743aab84-f9a5-4ec7-954.forensic_layers.ppp_property_timing`
+            FROM `noble-beanbag-497411-m4.forensic_layers.ppp_property_timing`
             ORDER BY ABS(days_delta) ASC
             LIMIT 20
             """
         else: # convergence points
             sql = """
             SELECT unit, owner, acquired_date, price, mail_address, flags
-            FROM `project-743aab84-f9a5-4ec7-954.forensic_layers.hbnc_convergence_points`
+            FROM `noble-beanbag-497411-m4.forensic_layers.hbnc_convergence_points`
             ORDER BY unit ASC
             """
             

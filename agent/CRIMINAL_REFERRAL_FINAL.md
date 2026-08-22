@@ -95,7 +95,7 @@ This referral documents a coordinated racketeering enterprise operating across 3
 ### BigQuery Verification
 
 All data is live and queryable at:
-- **Project:** `project-743aab84-f9a5-4ec7-954`
+- **Project:** `noble-beanbag-497411-m4`
 - **Dataset:** `ppp_rico` (5 permanent views)
 - **Dataset:** `national_audits` (11 tables)
 - **Dataset:** `forensic_layers` (national_pipeline_map)

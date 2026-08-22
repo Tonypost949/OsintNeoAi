@@ -1,6 +1,6 @@
 from google.cloud import bigquery
 
-client = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
+client = bigquery.Client(project='noble-beanbag-497411-m4')
 
 tables = [
     "national_audits.deepseek_conversations",

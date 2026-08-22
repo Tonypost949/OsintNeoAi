@@ -19,7 +19,7 @@ KNOWN_CLIS = [
     
     # Google Cloud CLI Standalone & Python SDKs
     {"name": "Google Cloud CLI (gcloud)", "cmd": "gcloud", "category": "Google Cloud SDK", "test": "gcloud version", "example": "gcloud auth list", "fallback_paths": [os.path.expanduser(r"~\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin\gcloud.cmd"), r"C:\google-cloud-sdk\bin\gcloud.cmd", r"C:\Program Files\Google\Cloud SDK\google-cloud-sdk\bin\gcloud.cmd"]},
-    {"name": "Google BigQuery (bq)", "cmd": "bq", "category": "Google Cloud SDK", "test": "bq version", "example": "bq ls --project_id=gen-lang-client-0516646771", "fallback_paths": [os.path.expanduser(r"~\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin\bq.cmd"), r"C:\google-cloud-sdk\bin\bq.cmd", r"C:\Program Files\Google\Cloud SDK\google-cloud-sdk\bin\bq.cmd"]},
+    {"name": "Google BigQuery (bq)", "cmd": "bq", "category": "Google Cloud SDK", "test": "bq version", "example": "bq ls --project_id=noble-beanbag-497411-m4", "fallback_paths": [os.path.expanduser(r"~\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin\bq.cmd"), r"C:\google-cloud-sdk\bin\bq.cmd", r"C:\Program Files\Google\Cloud SDK\google-cloud-sdk\bin\bq.cmd"]},
     {"name": "Google Storage Tool (gsutil)", "cmd": "gsutil", "category": "Google Cloud SDK", "test": "gsutil version", "example": "gsutil ls", "fallback_paths": [os.path.expanduser(r"~\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin\gsutil.cmd"), r"C:\google-cloud-sdk\bin\gsutil.cmd", r"C:\Program Files\Google\Cloud SDK\google-cloud-sdk\bin\gsutil.cmd"]},
     
     # Python Google Cloud Libraries

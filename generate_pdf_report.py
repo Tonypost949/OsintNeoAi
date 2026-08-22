@@ -49,7 +49,7 @@ def create_pdf_report():
         ['Date:', datetime.datetime.now().strftime('%B %d, %Y')],
         ['Classification:', 'Confidential - Investigative Use Only'],
         ['Project:', 'OsintNeoAi Municipal Infrastructure Assessment'],
-        ['BigQuery Project:', 'project-743aab84-f9a5-4ec7-954'],
+        ['BigQuery Project:', 'noble-beanbag-497411-m4'],
     ]
     
     meta_table = Table(meta_data, colWidths=[2*inch, 4*inch])

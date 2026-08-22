@@ -2,7 +2,7 @@ import pandas as pd
 from google.cloud import bigquery
 
 bq = bigquery.Client()
-project_dataset = 'project-743aab84-f9a5-4ec7-954.ppp_rico'
+project_dataset = 'noble-beanbag-497411-m4.ppp_rico'
 
 def execute(query):
     print(f"Executing: {query[:100]}...")

@@ -1,11 +1,11 @@
 from google.cloud import bigquery
 
-client = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
+client = bigquery.Client(project='noble-beanbag-497411-m4')
 
 print("=== EXTRACTING OC FRAUD NETWORK REPORT V13 CONTENTS ===")
 
 q = """SELECT file_name, file_path, extracted_text
-FROM `project-743aab84-f9a5-4ec7-954.national_audits.takeout_documents`
+FROM `noble-beanbag-497411-m4.national_audits.takeout_documents`
 WHERE UPPER(file_name) LIKE '%OC_FRAUD_NETWORK_OSINT_REPORT_V13%'"""
 
 results = list(client.query(q).result())
@@ -25,7 +25,7 @@ else:
     print("No direct match found for the V13 report file name. Trying broader search...")
     # Broader search for Childnet Youth And Family Services
     q2 = """SELECT file_name, extracted_text 
-            FROM `project-743aab84-f9a5-4ec7-954.national_audits.takeout_documents`
+            FROM `noble-beanbag-497411-m4.national_audits.takeout_documents`
             WHERE UPPER(extracted_text) LIKE '%CHILDNET%' LIMIT 3"""
     r2 = list(client.query(q2).result())
     for r in r2:

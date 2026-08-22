@@ -1,11 +1,11 @@
 ﻿from google.cloud import bigquery
 
-client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+client = bigquery.Client(project="noble-beanbag-497411-m4")
 
 print("--- Querying hb_llcs for CP PREMIER CAPITAL LLC ---")
 q = """
 SELECT Owner1, Owner2, SiteAddress, MailAddress, MailCity, LastSeller, LastSaleValue, APN
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_llcs`
+FROM `noble-beanbag-497411-m4.ppp_rico.hb_llcs`
 WHERE UPPER(Owner1) LIKE '%CP PREMIER%' OR UPPER(Owner2) LIKE '%CP PREMIER%'
 """
 try:

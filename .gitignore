@@ -51,3 +51,42 @@ venv/
 
 # GCP Credentials
 gcp_adc.json
+
+# Azure
+*.dll
+*.exe
+node_modules/
+dist/
+build/
+*.log
+
+# Large data files
+*.zip
+*.tar.gz
+*.csv
+*.xlsx
+Program Files/
+*.dll
+*.exe
+*.iso
+*.zip
+*.tar.gz
+*.m4a
+*.mp4
+.venv/
+__pycache__/
+*.pyc
+logs/
+Program Files/
+*.dll
+*.exe
+*.iso
+*.zip
+*.tar.gz
+*.m4a
+*.mp4
+.venv/
+__pycache__/
+*.pyc
+logs/
+*onedrive_documents_full.csv*

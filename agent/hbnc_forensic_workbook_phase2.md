@@ -93,9 +93,9 @@ SELECT
     h.ExitDestination,
     p.ProjectName,
     p.VendorName
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.client_demographics` c
-JOIN `project-743aab84-f9a5-4ec7-954.ppp_rico.household_enrollments` h ON c.ClientID = h.ClientID
-JOIN `project-743aab84-f9a5-4ec7-954.ppp_rico.project_registry` p ON h.ProjectID = p.ProjectID
+FROM `noble-beanbag-497411-m4.ppp_rico.client_demographics` c
+JOIN `noble-beanbag-497411-m4.ppp_rico.household_enrollments` h ON c.ClientID = h.ClientID
+JOIN `noble-beanbag-497411-m4.ppp_rico.project_registry` p ON h.ProjectID = p.ProjectID
 WHERE c.AgeAtEntry < 18
   AND h.ProjectExitDate IS NOT NULL
   AND h.ExitDestination IN ('Data not collected', 'Client doesn\'t know', 'Other', 'No exit interview completed')

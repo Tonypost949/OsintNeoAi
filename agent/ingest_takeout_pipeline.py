@@ -7,7 +7,7 @@ from google.cloud import bigquery
 
 sys.stdout.reconfigure(encoding="utf-8")
 
-GCP_PROJECT = os.environ.get("GOOGLE_PROJECT_ID", "project-743aab84-f9a5-4ec7-954")
+GCP_PROJECT = os.environ.get("GOOGLE_PROJECT_ID", "noble-beanbag-497411-m4")
 BQ_DATASET = "national_audits"
 CHROME_HISTORY_TABLE = "takeout_chrome_history"
 FULL_CHROME_TABLE_ID = f"{GCP_PROJECT}.{BQ_DATASET}.{CHROME_HISTORY_TABLE}"

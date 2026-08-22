@@ -3,8 +3,8 @@ from google.cloud import bigquery
 import ast
 import os
 
-bq = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
-TABLE = "project-743aab84-f9a5-4ec7-954.ppp_rico.hb_ppp_bridge"
+bq = bigquery.Client(project="noble-beanbag-497411-m4")
+TABLE = "noble-beanbag-497411-m4.ppp_rico.hb_ppp_bridge"
 
 # ── Find the CSV ──────────────────────────────────────────────────────────────
 CSV_CANDIDATES = [

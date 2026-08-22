@@ -6,7 +6,7 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 bq = bigquery.Client()
-project_dataset = 'project-743aab84-f9a5-4ec7-954.ppp_rico'
+project_dataset = 'noble-beanbag-497411-m4.ppp_rico'
 
 # Complete domain list from "html big search.html" (+www variants)
 city_domains = [

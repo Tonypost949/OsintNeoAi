@@ -6607,9 +6607,9 @@ The bridge CSV doesn't exist locally. The data is probably already in BigQuery. 
 
 Ran command: `.\venv\Scripts\python.exe -c "
 from google.cloud import bigquery
-bq = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
+bq = bigquery.Client(project='noble-beanbag-497411-m4')
 # Check what tables exist in ppp_rico
-tables = list(bq.list_tables('project-743aab84-f9a5-4ec7-954.ppp_rico'))
+tables = list(bq.list_tables('noble-beanbag-497411-m4.ppp_rico'))
 for t in tables:
     print(t.table_id)
 "`
@@ -6637,7 +6637,7 @@ The table WAS built — it only failed printing a checkmark emoji. Let me just p
 
 Ran command: `.\venv\Scripts\python.exe -c "
 from google.cloud import bigquery
-bq = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
+bq = bigquery.Client(project='noble-beanbag-497411-m4')
 
 print('=== Bridge Table Summary ===')
 summary = bq.query('''
@@ -6650,7 +6650,7 @@ SELECT
   COUNTIF(is_post_ppp_property_acquisition) AS post_ppp_acquisitions,
   ROUND(SUM(ppp_total_amount), 2) AS total_ppp_dollars,
   ROUND(SUM(ppp_total_forgiven), 2) AS total_ppp_forgiven
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_ppp_bridge`
+FROM `noble-beanbag-497411-m4.ppp_rico.hb_ppp_bridge`
 ''').to_dataframe()
 print(summary.to_string(index=False))
 
@@ -6668,7 +6668,7 @@ SELECT
   is_mailbox_address,
   is_zero_dollar_transfer,
   is_post_ppp_property_acquisition
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_ppp_bridge`
+FROM `noble-beanbag-497411-m4.ppp_rico.hb_ppp_bridge`
 WHERE ppp_total_amount IS NOT NULL
 ORDER BY ppp_total_amount DESC
 LIMIT 20

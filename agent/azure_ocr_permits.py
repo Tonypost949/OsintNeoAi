@@ -18,7 +18,7 @@ for p in [config_path, alt]:
 
 endpoint = config.get("doc_intel_endpoint") or os.environ.get("AZURE_DOC_INTEL_ENDPOINT")
 key = config.get("doc_intel_key") or os.environ.get("AZURE_DOC_INTEL_KEY")
-PROJECT = "project-743aab84-f9a5-4ec7-954"
+PROJECT = "noble-beanbag-497411-m4"
 MANIFEST = r"C:\Users\HP\OneDrive\Documents\opencode_work\permit_backups_manifest.txt"
 
 if not endpoint or not key:

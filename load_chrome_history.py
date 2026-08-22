@@ -2,7 +2,7 @@ import zipfile, json, os, subprocess, sys
 
 ZIP_PATH = r"G:\OsintNeoAi\takeout_chunks\takeout-20241120T035242Z-001.zip"
 EXTRACT_DIR = r"G:\OsintNeoAi\takeout_metadata_extracted"
-PROJECT_ID = "project-743aab84-f9a5-4ec7-954"
+PROJECT_ID = "noble-beanbag-497411-m4"
 
 os.makedirs(EXTRACT_DIR, exist_ok=True)
 

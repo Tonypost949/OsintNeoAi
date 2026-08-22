@@ -102,9 +102,9 @@ def main():
     print()
     print("=" * 65)
     print(f"  RUN COMPLETE: {success} succeeded, {fail} failed")
-    print(f"  Drive metadata:  project-743aab84-f9a5-4ec7-954.national_audits.drive_file_index")
-    print(f"  Google Photos:   project-743aab84-f9a5-4ec7-954.national_audits.google_photos_index")
-    print(f"  Drive content:   project-743aab84-f9a5-4ec7-954.drive_forensics.drive_documents")
+    print(f"  Drive metadata:  noble-beanbag-497411-m4.national_audits.drive_file_index")
+    print(f"  Google Photos:   noble-beanbag-497411-m4.national_audits.google_photos_index")
+    print(f"  Drive content:   noble-beanbag-497411-m4.drive_forensics.drive_documents")
     print("=" * 65)
 
 

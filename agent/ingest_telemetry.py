@@ -30,15 +30,15 @@ def ingest_file(client, file_path, table_id):
     print(f"Ingested {table_id} successfully.")
 
 def main():
-    client = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
+    client = bigquery.Client(project='noble-beanbag-497411-m4')
     
     base_dir = r"C:\Users\HP\.gemini\antigravity\brain\71e7b1d1-f50b-477e-a713-942e8319b97d\scratch\extracted\APT2024filesfull (Unzipped Files)\TXT"
     
     files_to_ingest = {
-        "beeline-crm.txt": "project-743aab84-f9a5-4ec7-954.ppp_rico.beeline_crm",
-        "beeline-lbs.txt": "project-743aab84-f9a5-4ec7-954.ppp_rico.beeline_lbs",
-        "beeline-cdr.txt": "project-743aab84-f9a5-4ec7-954.ppp_rico.beeline_cdr",
-        "IDNET.txt": "project-743aab84-f9a5-4ec7-954.ppp_rico.idnet",
+        "beeline-crm.txt": "noble-beanbag-497411-m4.ppp_rico.beeline_crm",
+        "beeline-lbs.txt": "noble-beanbag-497411-m4.ppp_rico.beeline_lbs",
+        "beeline-cdr.txt": "noble-beanbag-497411-m4.ppp_rico.beeline_cdr",
+        "IDNET.txt": "noble-beanbag-497411-m4.ppp_rico.idnet",
     }
     
     for file_name, table_id in files_to_ingest.items():

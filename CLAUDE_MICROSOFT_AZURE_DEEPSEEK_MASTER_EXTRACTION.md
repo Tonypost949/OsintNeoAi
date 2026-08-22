@@ -46,7 +46,7 @@ graph TD
 - **Azure Speech Services:** `osint-speech` (Kind: `SpeechServices`, SKU: `F0`) — Transcribing 4-minute HBNC audio confession (Lowenberg homicide / Beebe interview).
 
 ### 2. Microsoft OneDrive Corpus (`onedrive_forensics.onedrive_documents`)
-- **BigQuery Corpus:** `project-743aab84-f9a5-4ec7-954.onedrive_forensics.onedrive_documents` (72.8 MB uncompressed file index).
+- **BigQuery Corpus:** `noble-beanbag-497411-m4.onedrive_forensics.onedrive_documents` (72.8 MB uncompressed file index).
 - **Function:** Cross-indexing Microsoft Office documents (.docx, .xlsx, .pdf) against SBA PPP loan records and municipal grant disbursements.
 
 ---

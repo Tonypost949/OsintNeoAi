@@ -31,7 +31,7 @@ To automatically package and upload the entire `osint-agent` project (excluding 
 
 ## 3. BigQuery Tracker Backend
 All significant system changes, rule adoptions, and backup actions are permanently logged.
-- **Project:** `project-743aab84-f9a5-4ec7-954`
+- **Project:** `noble-beanbag-497411-m4`
 - **Dataset:** `ai_sandbox`
 - **Table:** `ag_status_tracker`
 - **Authentication:** Application Default Credentials (ADC) via `gcloud config set account anthonymichaeldimarcello@gmail.com`.
@@ -40,7 +40,7 @@ All significant system changes, rule adoptions, and backup actions are permanent
 To ensure all accounts know what is connected and how, here is the official architecture of our fully functioning existence:
 - **Google Drive (`sharedall`):** Authenticated via `token_drive_upload.json` (OAuth). Connected via `sync_git_to_drive.py` which packages a 1:1 replica clone of the entire local directory.
 - **GitHub (`Tonypost949/osint-agent`):** Authenticated via local Git credentials. Connected via manual `git push`. Scrubbed backups only.
-- **Google Cloud Platform (BigQuery/Drive API):** Authenticated via `anthonymichaeldimarcello@gmail.com`. Project ID: `project-743aab84-f9a5-4ec7-954`.
+- **Google Cloud Platform (BigQuery/Drive API):** Authenticated via `anthonymichaeldimarcello@gmail.com`. Project ID: `noble-beanbag-497411-m4`.
 
 ## 5. Troubleshooting & Recourse Protocols
 If the system encounters known hard-blockers, follow these established recourses to restore functionality:

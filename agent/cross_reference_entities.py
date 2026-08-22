@@ -3,7 +3,7 @@ import re
 from google.cloud import bigquery
 
 LOCAL_DIR = r"c:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent"
-GCP_PROJECT_ID = "project-743aab84-f9a5-4ec7-954"
+GCP_PROJECT_ID = "noble-beanbag-497411-m4"
 BQ_TABLE = f"{GCP_PROJECT_ID}.national_audits.all_state_records"
 
 def extract_local_entities(directory):

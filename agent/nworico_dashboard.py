@@ -135,7 +135,7 @@ with head_left:
         ◆ <span class="brand-name">NWORICO Data Engine</span>
     </div>
     <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 5px; margin-bottom: 20px;">
-        OSINTNeoAi Target Intelligence Matrix • Project: project-743aab84-f9a5-4ec7-954
+        OSINTNeoAi Target Intelligence Matrix • Project: noble-beanbag-497411-m4
     </div>
     """, unsafe_allow_html=True)
 with head_right:
@@ -205,7 +205,7 @@ with tab_chat:
 
 with tab_map:
     st.markdown("### 50-State Environmental & Corporate GIS Matrix")
-    st.info("Loading geographical proxy coordinates from BigQuery: `project-743aab84-f9a5-4ec7-954.national_audits.environmental_site_assessments`...")
+    st.info("Loading geographical proxy coordinates from BigQuery: `noble-beanbag-497411-m4.national_audits.environmental_site_assessments`...")
     # Base coordinate map for the Huntington Beach core template
     map_data = pd.DataFrame({'lat': [33.684], 'lon': [-117.994], 'site': ['Huntington Beach Nav Center']})
     st.map(map_data, zoom=10, use_container_width=True)
@@ -220,6 +220,6 @@ with tab_tools:
     5. **Environmental Site Assessments (GeoTracker):** Maps physical footprints against toxic limits.
     
     **Engineered Tools:**
-    - `project-743aab84-f9a5-4ec7-954.national_audits.calculate_fund_leakage(total_funds, reported_expenditure)` Mathematical UDF
+    - `noble-beanbag-497411-m4.national_audits.calculate_fund_leakage(total_funds, reported_expenditure)` Mathematical UDF
     - Anti-Duplication Single-Array SQL Cross-referencing Protocol
     """)

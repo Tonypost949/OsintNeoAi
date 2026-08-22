@@ -97,7 +97,7 @@ if __name__ == "__main__":
         from google.cloud import storage
         print("Uploading to Cloud Vault...")
         try:
-            client = storage.Client(project="project-743aab84-f9a5-4ec7-954")
+            client = storage.Client(project="noble-beanbag-497411-m4")
             bucket = client.bucket("osint-ai-evidence-vault-m4")
             blob = bucket.blob("imagery/HB_1994_Ortho_Target.jpg")
             blob.upload_from_filename(image_path)

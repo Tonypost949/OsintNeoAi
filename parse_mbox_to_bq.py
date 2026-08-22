@@ -1,6 +1,6 @@
 # parse_mbox_to_bq.py - Parse the downloaded Gmail mbox and load to BigQuery
 # Reads: C:/Users/HP/OneDrive/Apps/Google Download Your Data/All mail mbox
-# Loads to: project-743aab84-f9a5-4ec7-954:national_audits.gmail_index
+# Loads to: noble-beanbag-497411-m4:national_audits.gmail_index
 
 import mailbox, json, os, subprocess, re
 from datetime import datetime
@@ -9,7 +9,7 @@ from email.utils import parsedate_to_datetime
 
 MBOX_PATH = r"C:\Users\HP\OneDrive\Apps\Google? Download Your Data\All mail Including Spam and Trash-002.mbox"
 OUT_NDJSON = r"C:\OsintNeoAi\takeout_raw\gmail_index.ndjson"
-BQ_PROJECT = "project-743aab84-f9a5-4ec7-954"
+BQ_PROJECT = "noble-beanbag-497411-m4"
 BQ_TABLE   = "national_audits.gmail_index"
 
 os.makedirs(r"C:\OsintNeoAi\takeout_raw", exist_ok=True)

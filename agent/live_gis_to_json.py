@@ -5,7 +5,7 @@ Run this whenever BigQuery data updates to regenerate osint_geo_data.js.
 from google.cloud import bigquery
 import json, os
 
-PROJECT = "project-743aab84-f9a5-4ec7-954"
+PROJECT = "noble-beanbag-497411-m4"
 OUTPUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "osint_geo_data.js")
 
 client = bigquery.Client(project=PROJECT)

@@ -5,7 +5,7 @@ from google.cloud import bigquery
 from google.api_core.exceptions import Conflict
 
 # Project and Dataset configs
-PROJECT_ID = "project-743aab84-f9a5-4ec7-954"
+PROJECT_ID = "noble-beanbag-497411-m4"
 DATASET_ID = "npi_forensic"
 WORKSPACE = r"C:\Users\HP\OneDrive\Documents\AG2OSINTNEOMAXX"
 

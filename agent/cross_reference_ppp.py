@@ -1,7 +1,7 @@
 ﻿import os
 from google.cloud import bigquery
 
-client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+client = bigquery.Client(project="noble-beanbag-497411-m4")
 
 # List of target search terms
 targets = [
@@ -26,7 +26,7 @@ print("--- Searching ppp_150k_plus for audit targets ---")
 for target in targets:
     q = f"""
     SELECT BorrowerName, BorrowerAddress, BorrowerCity, BorrowerState, InitialApprovalAmount, JobsReported, OriginatingLender, ForgivenessAmount
-    FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_150k_plus`
+    FROM `noble-beanbag-497411-m4.ppp_rico.ppp_150k_plus`
     WHERE UPPER(BorrowerName) LIKE '%{target}%'
        OR UPPER(BorrowerAddress) LIKE '%{target}%'
     """
@@ -44,7 +44,7 @@ print("\n--- Searching ppp_up_to_150k for audit targets ---")
 for target in targets:
     q = f"""
     SELECT BorrowerName, BorrowerAddress, BorrowerCity, BorrowerState, InitialApprovalAmount, JobsReported, OriginatingLender, ForgivenessAmount
-    FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_up_to_150k`
+    FROM `noble-beanbag-497411-m4.ppp_rico.ppp_up_to_150k`
     WHERE UPPER(BorrowerName) LIKE '%{target}%'
        OR UPPER(BorrowerAddress) LIKE '%{target}%'
     """
@@ -62,7 +62,7 @@ print("\n--- Searching hb_llcs / ppp_property_bridge for matches ---")
 for target in targets:
     q = f"""
     SELECT Owner1, SiteAddress, MailAddress, MailCity, LastSeller, LastSaleValue
-    FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_llcs`
+    FROM `noble-beanbag-497411-m4.ppp_rico.hb_llcs`
     WHERE UPPER(Owner1) LIKE '%{target}%'
        OR UPPER(SiteAddress) LIKE '%{target}%'
        OR UPPER(MailAddress) LIKE '%{target}%'

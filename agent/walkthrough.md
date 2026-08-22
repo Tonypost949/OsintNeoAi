@@ -19,7 +19,7 @@ I scanned 23 sensitive paths (`/.env`, `/backup`, `/phpmyadmin`, `/admin`) for e
 **The result:** I discovered **147 exposed endpoints** returning HTTP 200, 301, or 302 codes. 
 
 I took all 147 of these exposed paths and loaded them directly into a brand new BigQuery table:
-`project-743aab84-f9a5-4ec7-954.ppp_rico.city_cyber_recon`
+`noble-beanbag-497411-m4.ppp_rico.city_cyber_recon`
 
 ### Sample of Uploaded Katana Data:
 | Domain | Exposed Path | HTTP Status |

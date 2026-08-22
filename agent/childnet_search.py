@@ -1,11 +1,11 @@
 from google.cloud import bigquery
 
-client = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
+client = bigquery.Client(project='noble-beanbag-497411-m4')
 
 print("=== SEARCHING DOCUMENTS FOR CHILDNET & PRESCRIBERS ===")
 
 q = """SELECT file_name, file_path, extracted_text
-FROM `project-743aab84-f9a5-4ec7-954.national_audits.takeout_documents`
+FROM `noble-beanbag-497411-m4.national_audits.takeout_documents`
 WHERE UPPER(file_name) LIKE '%CHILDNET%' 
    OR UPPER(file_name) LIKE '%FRAUD%' 
    OR UPPER(extracted_text) LIKE '%CHILDNET%'

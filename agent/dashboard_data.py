@@ -7,7 +7,7 @@ import json, os, sys
 from google.cloud import bigquery
 from datetime import datetime
 
-PROJECT = "project-743aab84-f9a5-4ec7-954"
+PROJECT = "noble-beanbag-497411-m4"
 client = bigquery.Client(project=PROJECT)
 
 stats = {"generated_at": datetime.now().isoformat(), "tables": {}}

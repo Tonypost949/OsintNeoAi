@@ -60,10 +60,10 @@ client = bigquery.Client()
 
 query = """
 SELECT BorrowerName, BorrowerAddress, BorrowerCity, BorrowerState, COUNT(*) OVER(PARTITION BY BorrowerAddress) as loan_count
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_up_to_150k`
+FROM `noble-beanbag-497411-m4.ppp_rico.ppp_up_to_150k`
 WHERE BorrowerAddress IN (
     SELECT BorrowerAddress
-    FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_up_to_150k`
+    FROM `noble-beanbag-497411-m4.ppp_rico.ppp_up_to_150k`
     WHERE BorrowerAddress IS NOT NULL AND BorrowerAddress != ''
     GROUP BY BorrowerAddress
     HAVING COUNT(*) >= 15

@@ -7,7 +7,7 @@
 - Works with: Drive API, Photos API, Cloud Platform
 - Does NOT work with: Tasks API
 - Location: `agent/client_secret.json`
-- Project: project-743aab84-f9a5-4ec7-954 (Owner: txtdjdrop)
+- Project: noble-beanbag-497411-m4 (Owner: txtdjdrop)
 
 ## client_secret_tasks.json (NEW — for Tasks API ONLY)
 - Client ID: `1717842843-37k6bdt8ed3k31adjntq2tgiojrn1l9i.apps.googleusercontent.com`
@@ -22,7 +22,7 @@
 
 ## GCP Accounts & Projects
 
-| Account | Role in project-743aab84 | Owns separate projects |
+| Account | Role in noble-beanbag-497411-m4 | Owns separate projects |
 |---------|--------------------------|----------------------|
 | txtdjdrop@gmail.com | Owner | Various |
 | osintneoai@gmail.com | Owner | Various |

@@ -5,11 +5,11 @@ import os
 import io
 from googleapiclient.http import MediaIoBaseDownload
 
-bq_client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+bq_client = bigquery.Client(project="noble-beanbag-497411-m4")
 
 query = """
 SELECT file_id, file_name, mime_type, web_view_link
-FROM `project-743aab84-f9a5-4ec7-954.national_audits.drive_file_index`
+FROM `noble-beanbag-497411-m4.national_audits.drive_file_index`
 WHERE LOWER(file_name) LIKE '%apt%2024%'
    OR LOWER(file_name) LIKE '%isoont%'
    OR LOWER(file_name) LIKE '%osint%'

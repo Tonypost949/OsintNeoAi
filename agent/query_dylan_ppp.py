@@ -1,12 +1,12 @@
 ﻿from google.cloud import bigquery
 
-client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+client = bigquery.Client(project="noble-beanbag-497411-m4")
 
 print("--- Querying PPP tables for DYLAN or ANDREW HOLDINGS ---")
 
 q_150k = """
 SELECT BorrowerName, BorrowerAddress, BorrowerCity, InitialApprovalAmount, ForgivenessAmount
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_150k_plus`
+FROM `noble-beanbag-497411-m4.ppp_rico.ppp_150k_plus`
 WHERE UPPER(BorrowerName) LIKE '%DYLAN%' OR UPPER(BorrowerName) LIKE '%ANDREW HOLDINGS%'
 """
 try:
@@ -19,7 +19,7 @@ except Exception as e:
 
 q_under150k = """
 SELECT BorrowerName, BorrowerAddress, BorrowerCity, InitialApprovalAmount, ForgivenessAmount
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_up_to_150k`
+FROM `noble-beanbag-497411-m4.ppp_rico.ppp_up_to_150k`
 WHERE UPPER(BorrowerName) LIKE '%DYLAN%' OR UPPER(BorrowerName) LIKE '%ANDREW HOLDINGS%'
 """
 try:

@@ -1,7 +1,7 @@
 ﻿import os
 from google.cloud import bigquery
 
-client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+client = bigquery.Client(project="noble-beanbag-497411-m4")
 
 # Compile targets into a regex pattern
 patterns = [
@@ -44,7 +44,7 @@ def safe_int(val):
 print("\n--- Querying ppp_150k_plus ---")
 q1 = f"""
 SELECT BorrowerName, BorrowerAddress, BorrowerCity, BorrowerState, InitialApprovalAmount, JobsReported, OriginatingLender, ForgivenessAmount
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_150k_plus`
+FROM `noble-beanbag-497411-m4.ppp_rico.ppp_150k_plus`
 WHERE REGEXP_CONTAINS(BorrowerName, r'{regex_pattern}')
    OR REGEXP_CONTAINS(BorrowerAddress, r'{regex_pattern}')
 """
@@ -65,7 +65,7 @@ except Exception as e:
 print("\n--- Querying ppp_up_to_150k ---")
 q2 = f"""
 SELECT BorrowerName, BorrowerAddress, BorrowerCity, BorrowerState, InitialApprovalAmount, JobsReported, OriginatingLender, ForgivenessAmount
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_up_to_150k`
+FROM `noble-beanbag-497411-m4.ppp_rico.ppp_up_to_150k`
 WHERE REGEXP_CONTAINS(BorrowerName, r'{regex_pattern}')
    OR REGEXP_CONTAINS(BorrowerAddress, r'{regex_pattern}')
 """
@@ -86,7 +86,7 @@ except Exception as e:
 print("\n--- Querying hb_llcs ---")
 q3 = f"""
 SELECT Owner1, SiteAddress, MailAddress, MailCity, LastSeller, LastSaleValue
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_llcs`
+FROM `noble-beanbag-497411-m4.ppp_rico.hb_llcs`
 WHERE REGEXP_CONTAINS(Owner1, r'{regex_pattern}')
    OR REGEXP_CONTAINS(SiteAddress, r'{regex_pattern}')
    OR REGEXP_CONTAINS(MailAddress, r'{regex_pattern}')

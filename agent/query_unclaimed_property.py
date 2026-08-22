@@ -1,7 +1,7 @@
 from google.cloud import bigquery
 
-bq = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
-P = "project-743aab84-f9a5-4ec7-954"
+bq = bigquery.Client(project="noble-beanbag-497411-m4")
+P = "noble-beanbag-497411-m4"
 
 print("=== CHECKING UNCLAIMED PROPERTY DATASET SCHEMA ===")
 # List tables in the unclaimed_property dataset

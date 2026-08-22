@@ -134,7 +134,7 @@ def analyze_ppp_hubs(df: pd.DataFrame):
 def main():
     print("Fetching RICO evidence matrix from BigQuery...")
     # Fetch from the evidence matrix table
-    table_id = "project-743aab84-f9a5-4ec7-954.ppp_rico.rico_evidence_matrix"
+    table_id = "noble-beanbag-497411-m4.ppp_rico.rico_evidence_matrix"
     try:
         df = fetch(table_id, limit=5000)
         print(f"Successfully loaded {len(df)} rows.")

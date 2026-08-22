@@ -1,11 +1,11 @@
 ﻿from google.cloud import bigquery
 
-client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+client = bigquery.Client(project="noble-beanbag-497411-m4")
 
 print("--- Querying hb_llcs for MailAddress = 15822 Garnet ---")
 q = """
 SELECT Owner1, Owner2, SiteAddress, MailAddress, MailCity, APN, LastSeller, LastSaleValue
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_llcs`
+FROM `noble-beanbag-497411-m4.ppp_rico.hb_llcs`
 WHERE UPPER(MailAddress) LIKE '%15822%GARNET%'
 """
 

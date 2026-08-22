@@ -6,7 +6,7 @@ from googleapiclient.discovery import build
 from google.cloud import bigquery
 from google.oauth2.credentials import Credentials
 
-GCP_PROJECT = "project-743aab84-f9a5-4ec7-954"
+GCP_PROJECT = "noble-beanbag-497411-m4"
 BQ_DATASET = "national_audits"
 BQ_TABLE = "drive_file_index"
 FULL_TABLE_ID = f"{GCP_PROJECT}.{BQ_DATASET}.{BQ_TABLE}"

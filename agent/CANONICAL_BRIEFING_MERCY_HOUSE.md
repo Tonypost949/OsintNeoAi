@@ -245,10 +245,10 @@ The following require additional public records to confirm:
 |---|---|---|
 | IRS Form 990 — Mercy House Living Centers (FY2023) | `mercy_house_990_parsed_*.txt` | ✅ |
 | Weaver & Tidwell GSA Audit FY2024 | `mercy_house_gsa_audit_2024.txt` | ✅ |
-| SBA PPP Loan Data (ppp_150k_plus) | BigQuery: `project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_150k_plus` | ✅ |
-| CA SOS LLC Records | BigQuery: `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_llcs` | ✅ |
-| NPPES Provider Registry | BigQuery: `project-743aab84-f9a5-4ec7-954.nppes_export.oc_lb_orgs` | ✅ |
-| Church/OSINT Entity Registry | BigQuery: `project-743aab84-f9a5-4ec7-954.hb_church_osint.entities` | ✅ |
+| SBA PPP Loan Data (ppp_150k_plus) | BigQuery: `noble-beanbag-497411-m4.ppp_rico.ppp_150k_plus` | ✅ |
+| CA SOS LLC Records | BigQuery: `noble-beanbag-497411-m4.ppp_rico.hb_llcs` | ✅ |
+| NPPES Provider Registry | BigQuery: `noble-beanbag-497411-m4.nppes_export.oc_lb_orgs` | ✅ |
+| Church/OSINT Entity Registry | BigQuery: `noble-beanbag-497411-m4.hb_church_osint.entities` | ✅ |
 | CHDO Transactions | BigQuery: `mercy_house_chdo_transactions.csv` (extracted from audit) | ✅ |
 | Environmental (GeoTracker) | `geotracker/permitted_ust_clean.txt` | ✅ |
 

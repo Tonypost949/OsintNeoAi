@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 
 # BigQuery client
 BQ_CLIENT = bigquery.Client()
-PROJECT_ID = "project-743aab84-f9a5-4ec7-954"
+PROJECT_ID = "noble-beanbag-497411-m4"
 DATASET_ID = "national_audits"
 TABLE_ID = f"{PROJECT_ID}.{DATASET_ID}.ip_geolocation_index"
 

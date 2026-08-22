@@ -1,12 +1,12 @@
 ﻿from google.cloud import bigquery
 
-GCP_PROJECT = "project-743aab84-f9a5-4ec7-954"
+GCP_PROJECT = "noble-beanbag-497411-m4"
 client = bigquery.Client(project=GCP_PROJECT)
 
 # Query to list files uploaded to the sharedall folder
 query = """
 SELECT file_name, mime_type, size_bytes, web_view_link, scan_timestamp
-FROM `project-743aab84-f9a5-4ec7-954.national_audits.drive_file_index`
+FROM `noble-beanbag-497411-m4.national_audits.drive_file_index`
 WHERE '1q5bmZJQ9IuSudsie1KNuMWZ0mbfu6-gE' IN UNNEST(parent_folder_ids)
 ORDER BY scan_timestamp DESC
 LIMIT 15

@@ -12,9 +12,9 @@ def main():
     print("Fetching regional holes data (Mercy House, Covenant House, Illumination Foundation)...")
     
     # Fetch data
-    df_master = fetch(bq, "project-743aab84-f9a5-4ec7-954.ppp_rico.v_rico_enterprise_master", limit=10000)
-    df_mail = fetch(bq, "project-743aab84-f9a5-4ec7-954.ppp_rico.v_mailbox_cluster_hubs", limit=1000)
-    df_self = fetch(bq, "project-743aab84-f9a5-4ec7-954.ppp_rico.v_nonprofit_board_ppp_self_dealing", limit=1000)
+    df_master = fetch(bq, "noble-beanbag-497411-m4.ppp_rico.v_rico_enterprise_master", limit=10000)
+    df_mail = fetch(bq, "noble-beanbag-497411-m4.ppp_rico.v_mailbox_cluster_hubs", limit=1000)
+    df_self = fetch(bq, "noble-beanbag-497411-m4.ppp_rico.v_nonprofit_board_ppp_self_dealing", limit=1000)
     
     # Filter for regional targets
     target_names = ['mercy house', 'covenant house', 'illumination foundation']

@@ -7,7 +7,7 @@ from google.cloud import bigquery
 query_params = st.query_params
 if "api" in query_params and query_params["api"] == "search":
     q = query_params.get("q", "").lower()
-    gcp_project_id = os.environ.get("GOOGLE_PROJECT_ID", "project-743aab84-f9a5-4ec7-954")
+    gcp_project_id = os.environ.get("GOOGLE_PROJECT_ID", "noble-beanbag-497411-m4")
     client = bigquery.Client(project=gcp_project_id)
     query = f"""
         SELECT state_code, non_profiteers_index 
@@ -54,7 +54,7 @@ if prompt := st.chat_input("Enter target or query (e.g., 'Newark', 'Andrew Do', 
         
         bq_results = ""
         try:
-            gcp_project_id = os.environ.get("GOOGLE_PROJECT_ID", "project-743aab84-f9a5-4ec7-954")
+            gcp_project_id = os.environ.get("GOOGLE_PROJECT_ID", "noble-beanbag-497411-m4")
             client = bigquery.Client(project=gcp_project_id)
             query = f"""
                 SELECT state_code, non_profiteers_index 

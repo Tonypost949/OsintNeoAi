@@ -10,7 +10,7 @@ import json, sys
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-client = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
+client = bigquery.Client(project='noble-beanbag-497411-m4')
 
 print("=== PPP <-> PROPERTY TIMING CROSS-JOIN ===\n")
 
@@ -24,7 +24,7 @@ SELECT
     CAST(LastSaleValue AS FLOAT64) AS sale_value,
     MailAddress,
     MailCity
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_llcs`
+FROM `noble-beanbag-497411-m4.ppp_rico.hb_llcs`
 WHERE LastSaleDate IS NOT NULL
   AND LastSaleDate != ''
   AND Owner1 LIKE '%LLC%'
@@ -52,7 +52,7 @@ SELECT
     OriginatingLenderState,
     ProjectCity,
     ProjectState
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_150k_plus`
+FROM `noble-beanbag-497411-m4.ppp_rico.ppp_150k_plus`
 WHERE CurrentApprovalAmount > 50000
 """
 print("Fetching PPP data...")

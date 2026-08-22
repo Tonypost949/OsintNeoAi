@@ -4,8 +4,8 @@ from google.cloud import bigquery
 def list_dataset_tables():
     """Lists all tables in a given BigQuery dataset."""
     try:
-        client = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
-        dataset_id = "project-743aab84-f9a5-4ec7-954.ppp_rico"
+        client = bigquery.Client(project='noble-beanbag-497411-m4')
+        dataset_id = "noble-beanbag-497411-m4.ppp_rico"
 
         print(f"Listing tables in dataset: {dataset_id}")
         print("-" * 50)

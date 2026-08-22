@@ -2,7 +2,7 @@
 from google.cloud import bigquery
 
 def run_queries():
-    gcp_project_id = "project-743aab84-f9a5-4ec7-954"
+    gcp_project_id = "noble-beanbag-497411-m4"
     client = bigquery.Client(project=gcp_project_id)
     
     # 1. IIM Trust Fund Depth Probe

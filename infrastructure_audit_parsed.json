@@ -1,0 +1,191 @@
+[
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 21,
+    "service": "FTP",
+    "status": "OPEN",
+    "risk": "Plaintext Credential Theft"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 22,
+    "service": "SSH",
+    "status": "OPEN",
+    "risk": "Brute-Force Entry Vector"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 23,
+    "service": "Telnet",
+    "status": "OPEN",
+    "risk": "Plaintext Infrastructure Control"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 25,
+    "service": "SMTP",
+    "status": "OPEN",
+    "risk": "Email Spoofing / Relay"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 53,
+    "service": "DNS",
+    "status": "OPEN",
+    "risk": "DNS Poisoning / Amplification"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 80,
+    "service": "HTTP",
+    "status": "OPEN",
+    "risk": "Unencrypted Web Traffic"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 110,
+    "service": "POP3",
+    "status": "OPEN",
+    "risk": "Email Access"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 135,
+    "service": "RPC/SMB",
+    "status": "OPEN",
+    "risk": "Lateral Movement / Ransomware"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 139,
+    "service": "RPC/SMB",
+    "status": "OPEN",
+    "risk": "Lateral Movement / Ransomware"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 445,
+    "service": "RPC/SMB",
+    "status": "OPEN",
+    "risk": "Lateral Movement / Ransomware"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 389,
+    "service": "LDAP/LDAPS",
+    "status": "OPEN",
+    "risk": "Active Directory Enumeration"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 636,
+    "service": "LDAP/LDAPS",
+    "status": "OPEN",
+    "risk": "Active Directory Enumeration"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 443,
+    "service": "HTTPS",
+    "status": "OPEN",
+    "risk": "Secure Web Access"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 1433,
+    "service": "SQL",
+    "status": "OPEN",
+    "risk": "Direct Database Manipulation"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 3306,
+    "service": "SQL",
+    "status": "OPEN",
+    "risk": "Direct Database Manipulation"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 5432,
+    "service": "SQL",
+    "status": "OPEN",
+    "risk": "Direct Database Manipulation"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 3389,
+    "service": "RDP",
+    "status": "OPEN",
+    "risk": "Remote Desktop Hijacking"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 6379,
+    "service": "Redis",
+    "status": "OPEN",
+    "risk": "Unauthenticated Data Access"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 9200,
+    "service": "Elasticsearch",
+    "status": "OPEN",
+    "risk": "Big Data Exposure"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 9300,
+    "service": "Elasticsearch",
+    "status": "OPEN",
+    "risk": "Big Data Exposure"
+  },
+  {
+    "entity": "Huntington Beach Police Department",
+    "domain": "hbpd.org",
+    "ip": "162.242.210.88",
+    "port": 27017,
+    "service": "MongoDB",
+    "status": "OPEN",
+    "risk": "Database Exfiltration"
+  }
+]

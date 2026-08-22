@@ -30,7 +30,7 @@ except ImportError:
 
 CACHE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'opencode_work')
 CACHE_FILE = os.path.join(CACHE_DIR, 'city_markers_cache.json')
-BQ_PROJECT = 'project-743aab84-f9a5-4ec7-954'
+BQ_PROJECT = 'noble-beanbag-497411-m4'
 
 
 def get_bq_targets() -> List[Dict]:

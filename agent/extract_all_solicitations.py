@@ -95,8 +95,8 @@ def extract_all_solicitations():
             ]
             
         df = pd.DataFrame(records)
-        bq = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
-        table_id = "project-743aab84-f9a5-4ec7-954.unclaimed_property.oc_solicitations_all"
+        bq = bigquery.Client(project="noble-beanbag-497411-m4")
+        table_id = "noble-beanbag-497411-m4.unclaimed_property.oc_solicitations_all"
         
         print(f"Loading {len(df)} records into table {table_id}...")
         job_config = bigquery.LoadJobConfig(

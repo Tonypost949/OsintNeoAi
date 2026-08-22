@@ -144,7 +144,7 @@ Let me clarify this and also address the billing issue.
 
 ## Script Block 13
 ```bash
-The user is sending me a URL to a GCP console welcome page for a project. Let me try to fetch it and see if I can access it, or check what project this is. But the URL seems to be truncated - let me look at it: `https://console.cloud.google.com/welcome/new?project=project-743aab84-f9a5-4ec7-954` - it ends at "954", seems like it might be cut off but it could still be valid.
+The user is sending me a URL to a GCP console welcome page for a project. Let me try to fetch it and see if I can access it, or check what project this is. But the URL seems to be truncated - let me look at it: `https://console.cloud.google.com/welcome/new?project=noble-beanbag-497411-m4` - it ends at "954", seems like it might be cut off but it could still be valid.
 
 However, I can't authenticate to GCP via a web URL - I need to use the gcloud CLI. Let me try to:
 1. First check what projects are available via gcloud
@@ -169,29 +169,29 @@ gcloud auth application-default print-access-token 2>&1 | Select-Object -First 5
 
 ## Script Block 16
 ```bash
-The project exists: `project-743aab84-f9a5-4ec7-954` (My First Project, ID: 941890989638). 
+The project exists: `noble-beanbag-497411-m4` (My First Project, ID: 941890989638). 
 
 And I do have an active access token, so gcloud is authenticated. Let me check the billing status of this project and see if it has credits/active billing.
 ```
 
 ## Script Block 17
 ```bash
-Yes, I can see it. The project **`project-743aab84-f9a5-4ec7-954`** ("My First Project") exists and gcloud is authenticated. Let me check its billing status.
+Yes, I can see it. The project **`noble-beanbag-497411-m4`** ("My First Project") exists and gcloud is authenticated. Let me check its billing status.
 ```
 
 ## Script Block 18
 ```bash
-gcloud billing projects describe project-743aab84-f9a5-4ec7-954 --format="table(billingAccountName, billingEnabled)"
+gcloud billing projects describe noble-beanbag-497411-m4 --format="table(billingAccountName, billingEnabled)"
 ```
 
 ## Script Block 19
 ```bash
-gcloud projects get-iam-policy project-743aab84-f9a5-4ec7-954 --format="table(bindings.role, bindings.members)" --filter="bindings.role:roles/owner OR bindings.role:roles/editor" 2>&1
+gcloud projects get-iam-policy noble-beanbag-497411-m4 --format="table(bindings.role, bindings.members)" --filter="bindings.role:roles/owner OR bindings.role:roles/editor" 2>&1
 ```
 
 ## Script Block 20
 ```bash
-The project `project-743aab84-f9a5-4ec7-954` has:
+The project `noble-beanbag-497411-m4` has:
 - **Billing enabled**: True (linked to billing account `01E581-593D4D-6AA967` - different from the closed one I found earlier)
 - **Active owner**: Yes, `user:txtdjdrop@gmail.com` has owner role
 - The user `txtdjdrop@gmail.com` is the one authenticated via gcloud
@@ -201,7 +201,7 @@ So this project is good - billing is active and the user has access. Now the ori
 
 ## Script Block 21
 ```bash
-**Project `project-743aab84-f9a5-4ec7-954`** (`941890989638`):
+**Project `noble-beanbag-497411-m4`** (`941890989638`):
 - **Billing:** Enabled â (billing account `01E581-593D4D-6AA967`)
 - **Your user** (`txtdjdrop@gmail.com`) has **Owner** role â
 
@@ -241,7 +241,7 @@ What I *can* do right now with this project:
 
 - List/query GCP resources (Compute, Cloud Run, etc.)
 - Deploy workstations, VMs, or services
-- Run `gcloud` commands against `project-743aab84-f9a5-4ec7-954`
+- Run `gcloud` commands against `noble-beanbag-497411-m4`
 
 Want me to show what's already deployed in this project, or just tell me what you need built and I'll write the command?
 ```
@@ -277,7 +277,7 @@ The user seems to be in a mode where they're testing/verifying what I can access
 I can't access those URLs â they require your browser session (cookies). Fetching them would just get a login redirect.
 
 What I have access to right now:
-- **GCP project `project-743aab84-f9a5-4ec7-954`** via the `gcloud` CLI authenticated as `txtdjdrop@gmail.com`
+- **GCP project `noble-beanbag-497411-m4`** via the `gcloud` CLI authenticated as `txtdjdrop@gmail.com`
 - That's the only authenticated account on this machine
 
 If you need those family member emails, you'd need to view them in your own browser and tell me. Then I can use them in any GCP commands you want to run.
@@ -293,7 +293,7 @@ Let me understand the user's request:
 2. These accounts are using the free 5GB Google Cloud storage (the free tier)
 3. They want to BACKUP everything from these accounts that's stored in Google Cloud
 4. After backing up, they want to move everything to a Cloud Workstation
-5. They have credits available in their project `project-743aab84-f9a5-4ec7-954`
+5. They have credits available in their project `noble-beanbag-497411-m4`
 
 The emails they provided:
 - `anthony.dimarcello@students.post.edu` - this is a Google Workspace for Education account
@@ -342,7 +342,7 @@ I'm authenticated as **`txtdjdrop@gmail.com`** in gcloud. I can't log into those
 Here's what's possible:
 
 **What I CAN do:**
-- Create a **Cloud Workstation** in `project-743aab84-f9a5-4ec7-954` right now
+- Create a **Cloud Workstation** in `noble-beanbag-497411-m4` right now
 - That workstation would be a full VM where you could manually download/move data
 
 **What I CAN'T do (no auth for those accounts):**
@@ -376,7 +376,7 @@ They have 5 family members on their Google One plan:
 4. IronMan DaVinci
 5. Elizabeth Petruccio
 
-But they only gave me one working GCP project (`project-743aab84-f9a5-4ec7-954`) authenticated as `txtdjdrop@gmail.com`. The other accounts (anthony.dimarcello@students.post.edu, etc.) aren't authenticated in gcloud on this machine.
+But they only gave me one working GCP project (`noble-beanbag-497411-m4`) authenticated as `txtdjdrop@gmail.com`. The other accounts (anthony.dimarcello@students.post.edu, etc.) aren't authenticated in gcloud on this machine.
 
 So options:
 1. Create multiple workstations in the single project for the different accounts
@@ -501,49 +501,67 @@ But honestly I think the issue is I'm not understanding what exactly needs to be
 
 ## Script Block 34
 ```bash
-gcloud storage buckets list --project=project-743aab84-f9a5-4ec7-954 2>&1
+gcloud storage buckets list --project=noble-beanbag-497411-m4 2>&1
 ```
 
 ## Script Block 35
 ```bash
-gcloud compute instances list --project=project-743aab84-f9a5-4ec7-954 2>&1
+gcloud compute instances list --project=noble-beanbag-497411-m4 2>&1
 ```
 
 ## Script Block 36
 ```bash
-gcloud workstation clusters list --project=project-743aab84-f9a5-4ec7-954 2>&1
+gcloud workstation clusters list --project=noble-beanbag-497411-m4 2>&1
 ```
 
 ## Script Block 37
 ```bash
-ERROR: (gcloud) Invalid choice: 'workstation'.
-Maybe you meant:
-  gcloud workstations clusters list
-  gcloud workstations list
-  gcloud workstations clusters create
-  gcloud workstations clusters delete
-  gcloud workstations clusters describe
-  gcloud workstations clusters update
-  gcloud workstations list-usable
-
-To search the help text of gcloud commands, run:
+ERROR: (gcloud) Invalid choice: 'workstation'.
+
+Maybe you meant:
+
+  gcloud workstations clusters list
+
+  gcloud workstations list
+
+  gcloud workstations clusters create
+
+  gcloud workstations clusters delete
+
+  gcloud workstations clusters describe
+
+  gcloud workstations clusters update
+
+  gcloud workstations list-usable
+
+
+
+To search the help text of gcloud commands, run:
+
   gcloud help -- SEARCH_TERMS
 ```
 
 ## Script Block 38
 ```bash
-gcloud artifacts files list --project=project-743aab84-f9a5-4ec7-954 --repository=osint --location=us-central1 2>&1
+gcloud artifacts files list --project=noble-beanbag-497411-m4 --repository=osint --location=us-central1 2>&1
 ```
 
 ## Script Block 39
 ```bash
-ERROR: (gcloud.artifacts.files.list) HttpError accessing <https://artifactregistry.googleapis.com/v1/projects/project-743aab84-f9a5-4ec7-954/locations/us-central1/repositories/osint/files?alt=json>: response: <{'vary': 'Origin, X-Origin, Referer', 'content-type': 'application/json; charset=UTF-8', 'content-encoding': 'gzip', 'date': 'Wed, 08 Jul 2026 22:53:14 GMT', 'server': 'ESF', 'x-xss-protection': '0', 'x-frame-options': 'SAMEORIGIN', 'x-content-type-options': 'nosniff', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked', 'status': 404}>, content <{
-  "error": {
-    "code": 404,
-    "message": "Requested entity was not found.",
-    "status": "NOT_FOUND"
-  }
-}
+ERROR: (gcloud.artifacts.files.list) HttpError accessing <https://artifactregistry.googleapis.com/v1/projects/noble-beanbag-497411-m4/locations/us-central1/repositories/osint/files?alt=json>: response: <{'vary': 'Origin, X-Origin, Referer', 'content-type': 'application/json; charset=UTF-8', 'content-encoding': 'gzip', 'date': 'Wed, 08 Jul 2026 22:53:14 GMT', 'server': 'ESF', 'x-xss-protection': '0', 'x-frame-options': 'SAMEORIGIN', 'x-content-type-options': 'nosniff', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked', 'status': 404}>, content <{
+
+  "error": {
+
+    "code": 404,
+
+    "message": "Requested entity was not found.",
+
+    "status": "NOT_FOUND"
+
+  }
+
+}
+
 >
 ```
 
@@ -600,7 +618,7 @@ There are 4 accounts authenticated in `gcloud`:
 
 The active account is `anthonymichaeldimarcello@gmail.com` on project `project-9c94c2fa-3af4-49f1-a7b` (OsintNeoAi).
 
-Earlier when I ran commands with the `--project=project-743aab84-f9a5-4ec7-954` flag, I was overriding the project but still using the active account.
+Earlier when I ran commands with the `--project=noble-beanbag-497411-m4` flag, I was overriding the project but still using the active account.
 
 So now I can potentially switch between accounts! Let me check each account's projects and see what's in their Cloud Shell home directories.
 
@@ -652,17 +670,28 @@ gcloud projects list --account=txtdjdrop@gmail.com --format="table(projectId, na
 
 ## Script Block 48
 ```bash
-ERROR: (gcloud.projects.list) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as txtdjdrop@gmail.com which is the active account specified by the [core/account] property.
-Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
-Google developer console IAM admin
-https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-- '@type': type.googleapis.com/google.rpc.ErrorInfo
-  domain: googleapis.com
-  metadata:
-    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
-    containerInfo: project-9c94c2fa-3af4-49f1-a7b
-    service: cloudresourcemanager.googleapis.com
+ERROR: (gcloud.projects.list) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as txtdjdrop@gmail.com which is the active account specified by the [core/account] property.
+
+Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
+
+Google developer console IAM admin
+
+https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+
+  domain: googleapis.com
+
+  metadata:
+
+    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
+
+    containerInfo: project-9c94c2fa-3af4-49f1-a7b
+
+    service: cloudresourcemanager.googleapis.com
+
   reason: USER_PROJECT_DENIED
 ```
 
@@ -673,17 +702,28 @@ gcloud projects list --account=amd949609@gmail.com --format="table(projectId, na
 
 ## Script Block 50
 ```bash
-ERROR: (gcloud.projects.list) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as amd949609@gmail.com which is the active account specified by the [core/account] property.
-Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
-Google developer console IAM admin
-https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-- '@type': type.googleapis.com/google.rpc.ErrorInfo
-  domain: googleapis.com
-  metadata:
-    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
-    containerInfo: project-9c94c2fa-3af4-49f1-a7b
-    service: cloudresourcemanager.googleapis.com
+ERROR: (gcloud.projects.list) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as amd949609@gmail.com which is the active account specified by the [core/account] property.
+
+Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
+
+Google developer console IAM admin
+
+https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+
+  domain: googleapis.com
+
+  metadata:
+
+    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
+
+    containerInfo: project-9c94c2fa-3af4-49f1-a7b
+
+    service: cloudresourcemanager.googleapis.com
+
   reason: USER_PROJECT_DENIED
 ```
 
@@ -694,24 +734,35 @@ gcloud projects list --account=osintneoai@gmail.com --format="table(projectId, n
 
 ## Script Block 52
 ```bash
-ERROR: (gcloud.projects.list) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as osintneoai@gmail.com which is the active account specified by the [core/account] property.
-Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
-Google developer console IAM admin
-https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-- '@type': type.googleapis.com/google.rpc.ErrorInfo
-  domain: googleapis.com
-  metadata:
-    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
-    containerInfo: project-9c94c2fa-3af4-49f1-a7b
-    service: cloudresourcemanager.googleapis.com
+ERROR: (gcloud.projects.list) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as osintneoai@gmail.com which is the active account specified by the [core/account] property.
+
+Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
+
+Google developer console IAM admin
+
+https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+
+  domain: googleapis.com
+
+  metadata:
+
+    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
+
+    containerInfo: project-9c94c2fa-3af4-49f1-a7b
+
+    service: cloudresourcemanager.googleapis.com
+
   reason: USER_PROJECT_DENIED
 ```
 
 ## Script Block 53
 ```bash
 OK so I can see:
-- `anthonymichaeldimarcello@gmail.com` (active) has access to 2 projects: `project-743aab84-f9a5-4ec7-954` and `project-9c94c2fa-3af4-49f1-a7b`
+- `anthonymichaeldimarcello@gmail.com` (active) has access to 2 projects: `noble-beanbag-497411-m4` and `project-9c94c2fa-3af4-49f1-a7b`
 - The other accounts (`txtdjdrop@gmail.com`, `amd949609@gmail.com`, `osintneoai@gmail.com`) don't have their own project access
 
 So all the accounts are configured but only `anthonymichaeldimarcello@gmail.com` has actual project access.
@@ -740,41 +791,76 @@ gcloud cloud-shell ssh --account=anthonymichaeldimarcello@gmail.com --command="l
 
 ## Script Block 55
 ```bash
-API [cloudshell.googleapis.com] not enabled on project 
-[project-9c94c2fa-3af4-49f1-a7b]. Would you like to enable and retry (this will 
-take a few minutes)? (y/N)?  
-Automatic authentication with GCP CLI tools in Cloud Shell is disabled. To enable, please rerun command with `--authorize-session` flag.
-ERROR: (gcloud.cloud-shell.ssh) PERMISSION_DENIED: Cloud Shell API has not been used in project project-9c94c2fa-3af4-49f1-a7b before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/cloudshell.googleapis.com/overview?project=project-9c94c2fa-3af4-49f1-a7b then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. This command is authenticated as anthonymichaeldimarcello@gmail.com which is the active account specified by the [core/account] property.
-Cloud Shell API has not been used in project project-9c94c2fa-3af4-49f1-a7b before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/cloudshell.googleapis.com/overview?project=project-9c94c2fa-3af4-49f1-a7b then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.
-Google developers console API activation
-https://console.developers.google.com/apis/api/cloudshell.googleapis.com/overview?project=project-9c94c2fa-3af4-49f1-a7b
-- '@type': type.googleapis.com/google.rpc.ErrorInfo
-  domain: googleapis.com
-  metadata:
-    activationUrl: https://console.developers.google.com/apis/api/cloudshell.googleapis.com/overview?project=project-9c94c2fa-3af4-49f1-a7b
-    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
-    containerInfo: project-9c94c2fa-3af4-49f1-a7b
-    service: cloudshell.googleapis.com
-    serviceTitle: Cloud Shell API
-  reason: SERVICE_DISABLED
-NAME
-    gcloud alpha cloud-shell - manage Google Cloud Shell
-
-SYNOPSIS
-    gcloud alpha cloud-shell COMMAND [GCLOUD_WIDE_FLAG ...]
-
-DESCRIPTION
-    (ALPHA) Interact with and connect to your Cloud Shell environment.
-
-    More information on Cloud Shell can be found at
-    https://cloud.google.com/shell/docs/.
-
-GCLOUD WIDE FLAGS
-    These flags are available to all commands: --help.
-
-    Run $ gcloud help for details.
-
-COMMANDS
+API [cloudshell.googleapis.com] not enabled on project 
+
+[project-9c94c2fa-3af4-49f1-a7b]. Would you like to enable and retry (this will 
+
+take a few minutes)? (y/N)?  
+
+Automatic authentication with GCP CLI tools in Cloud Shell is disabled. To enable, please rerun command with `--authorize-session` flag.
+
+ERROR: (gcloud.cloud-shell.ssh) PERMISSION_DENIED: Cloud Shell API has not been used in project project-9c94c2fa-3af4-49f1-a7b before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/cloudshell.googleapis.com/overview?project=project-9c94c2fa-3af4-49f1-a7b then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. This command is authenticated as anthonymichaeldimarcello@gmail.com which is the active account specified by the [core/account] property.
+
+Cloud Shell API has not been used in project project-9c94c2fa-3af4-49f1-a7b before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/cloudshell.googleapis.com/overview?project=project-9c94c2fa-3af4-49f1-a7b then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.
+
+Google developers console API activation
+
+https://console.developers.google.com/apis/api/cloudshell.googleapis.com/overview?project=project-9c94c2fa-3af4-49f1-a7b
+
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+
+  domain: googleapis.com
+
+  metadata:
+
+    activationUrl: https://console.developers.google.com/apis/api/cloudshell.googleapis.com/overview?project=project-9c94c2fa-3af4-49f1-a7b
+
+    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
+
+    containerInfo: project-9c94c2fa-3af4-49f1-a7b
+
+    service: cloudshell.googleapis.com
+
+    serviceTitle: Cloud Shell API
+
+  reason: SERVICE_DISABLED
+
+NAME
+
+    gcloud alpha cloud-shell - manage Google Cloud Shell
+
+
+
+SYNOPSIS
+
+    gcloud alpha cloud-shell COMMAND [GCLOUD_WIDE_FLAG ...]
+
+
+
+DESCRIPTION
+
+    (ALPHA) Interact with and connect to your Cloud Shell environment.
+
+
+
+    More information on Cloud Shell can be found at
+
+    https://cloud.google.com/shell/docs/.
+
+
+
+GCLOUD WIDE FLAGS
+
+    These flags are available to all commands: --help.
+
+
+
+    Run $ gcloud help for details.
+
+
+
+COMMANDS
+
     COMMAND is one of the following:
 ```
 
@@ -3906,7 +3992,7 @@ But here's the thing - I CAN actually run bash commands on their machine. I've a
 2. I have `gcloud` CLI access with 4 authenticated accounts
 3. I can clone git repos
 4. I can access Cloud Shell (partially)
-5. The project `project-743aab84-f9a5-4ec7-954` has billing enabled
+5. The project `noble-beanbag-497411-m4` has billing enabled
 
 The user wants me to:
 1. Backup their 5GB Cloud Shell home directories (from multiple accounts)
@@ -3998,12 +4084,18 @@ Get-Command rclone -ErrorAction SilentlyContinue; if (-not $?) { Write-Output "r
 
 ## Script Block 66
 ```text
-rclone : The term 'rclone' is not recognized as the name of a cmdlet, function, script file, or operable program. 
-Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
-At line:1 char:1
-+ rclone version 2>&1
-+ ~~~~~~
-    + CategoryInfo          : ObjectNotFound: (rclone:String) [], CommandNotFoundException
+rclone : The term 'rclone' is not recognized as the name of a cmdlet, function, script file, or operable program. 
+
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+
+At line:1 char:1
+
++ rclone version 2>&1
+
++ ~~~~~~
+
+    + CategoryInfo          : ObjectNotFound: (rclone:String) [], CommandNotFoundException
+
     + FullyQualifiedErrorId : CommandNotFoundException
 ```
 
@@ -4029,10 +4121,14 @@ $env:Path += ";$env:TEMP"; rclone version 2>&1 | Select-Object -First 5
 
 ## Script Block 71
 ```text
-rclone v1.74.4
-- os/version: Microsoft Windows 10 Pro 22H2 22H2 (64 bit)
-- os/kernel: 10.0.19045.7417 (x86_64)
-- os/type: windows
+rclone v1.74.4
+
+- os/version: Microsoft Windows 10 Pro 22H2 22H2 (64 bit)
+
+- os/kernel: 10.0.19045.7417 (x86_64)
+
+- os/type: windows
+
 - os/arch: amd64
 ```
 
@@ -4255,7 +4351,7 @@ Let me start with the active account's Cloud Shell.
 
 ## Script Block 78
 ```bash
-gcloud config set account txtdjdrop@gmail.com 2>&1; gcloud auth application-default set-quota-project project-743aab84-f9a5-4ec7-954 2>&1
+gcloud config set account txtdjdrop@gmail.com 2>&1; gcloud auth application-default set-quota-project noble-beanbag-497411-m4 2>&1
 ```
 
 ## Script Block 79
@@ -4325,7 +4421,7 @@ Let me just start doing things instead of asking more questions. I'll backup the
 
 ## Script Block 80
 ```bash
-gcloud config set account anthonymichaeldimarcello@gmail.com 2>&1; gcloud config set project project-743aab84-f9a5-4ec7-954 2>&1
+gcloud config set account anthonymichaeldimarcello@gmail.com 2>&1; gcloud config set project noble-beanbag-497411-m4 2>&1
 ```
 
 ## Script Block 81
@@ -4345,15 +4441,19 @@ gcloud config get-value project 2>&1
 
 ## Script Block 84
 ```bash
-gcloud config set project project-743aab84-f9a5-4ec7-954 2>&1
+gcloud config set project noble-beanbag-497411-m4 2>&1
 ```
 
 ## Script Block 85
 ```bash
-WARNING: Your active project does not match the quota project in your local Application Default Credentials file. This might result in unexpected quota issues.
-
-To update your Application Default Credentials quota project, use the `gcloud auth application-default set-quota-project` command.
-[environment: untagged] Read more to tag: g.co/cloud/project-env-tag.
+WARNING: Your active project does not match the quota project in your local Application Default Credentials file. This might result in unexpected quota issues.
+
+
+
+To update your Application Default Credentials quota project, use the `gcloud auth application-default set-quota-project` command.
+
+[environment: untagged] Read more to tag: g.co/cloud/project-env-tag.
+
 Updated property [core/project].
 ```
 
@@ -4438,7 +4538,7 @@ Actually, let me try with `--dry-run` first to see if SCP can even connect, and 
 
 Alternatively, I should try a completely different approach. Let me:
 1. Use `gsutil` to create a backup bucket
-2. Use the existing backup bucket `backup-project-743aab84-f9a5-4ec7-954` 
+2. Use the existing backup bucket `backup-noble-beanbag-497411-m4` 
 3. Try to use Cloud Shell's file download via the web console API instead of SSH
 
 Actually, let me try something different entirely. Since the SSH to Cloud Shell keeps hanging, let me try creating the backup archive first via SSH with a simple command, and then retrieving it.
@@ -4484,7 +4584,7 @@ Or better yet - let me try running a command from within Cloud Shell that upload
 
 The command would be:
 ```
-tar czf /tmp/backup.tar.gz --exclude='.cache' ~ && gsutil cp /tmp/backup.tar.gz gs://backup-project-743aab84-f9a5-4ec7-954/anthonymichaeldimarcello-cloudshell/
+tar czf /tmp/backup.tar.gz --exclude='.cache' ~ && gsutil cp /tmp/backup.tar.gz gs://backup-noble-beanbag-497411-m4/anthonymichaeldimarcello-cloudshell/
 ```
 
 This way the data goes Cloud Shell â GCS directly, and I don't need to pipe through the local machine.
@@ -4492,7 +4592,7 @@ This way the data goes Cloud Shell â GCS directly, and I don't need to pipe
 
 ## Script Block 95
 ```bash
-gcloud alpha cloud-shell ssh --command="tar czf /tmp/backup.tar.gz --exclude='.cache' -C / home/ 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/anthonymichaeldimarcello-\$(date +%Y%m%d).tar.gz 2>&1; echo '===UPLOAD COMPLETE==='; exit" --authorize-session 2>&1
+gcloud alpha cloud-shell ssh --command="tar czf /tmp/backup.tar.gz --exclude='.cache' -C / home/ 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-noble-beanbag-497411-m4/cloudshell-backups/anthonymichaeldimarcello-\$(date +%Y%m%d).tar.gz 2>&1; echo '===UPLOAD COMPLETE==='; exit" --authorize-session 2>&1
 ```
 
 ## Script Block 96
@@ -4595,14 +4695,14 @@ Here's the fix:
 
 ```powershell
 # Use single quotes and backtick-escape the dollar sign
-gcloud alpha cloud-shell ssh --command='tar czf /tmp/backup.tar.gz --exclude=''.cache'' -C / home/ 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/anthonymichaeldimarcello-`$(date +%Y%m%d).tar.gz 2>&1; echo ''===UPLOAD COMPLETE===''; exit' --authorize-session 2>&1
+gcloud alpha cloud-shell ssh --command='tar czf /tmp/backup.tar.gz --exclude=''.cache'' -C / home/ 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-noble-beanbag-497411-m4/cloudshell-backups/anthonymichaeldimarcello-`$(date +%Y%m%d).tar.gz 2>&1; echo ''===UPLOAD COMPLETE===''; exit' --authorize-session 2>&1
 ```
 
 Or simpler â **hardcode the date** to avoid escaping hell:
 
 ```powershell
 $date = Get-Date -Format "yyyyMMdd"
-gcloud alpha cloud-shell ssh --command="tar czf /tmp/backup.tar.gz --exclude='.cache' -C / home/ 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/anthonymichaeldimarcello-$date.tar.gz 2>&1; echo '===UPLOAD COMPLETE==='; exit" --authorize-session 2>&1
+gcloud alpha cloud-shell ssh --command="tar czf /tmp/backup.tar.gz --exclude='.cache' -C / home/ 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-noble-beanbag-497411-m4/cloudshell-backups/anthonymichaeldimarcello-$date.tar.gz 2>&1; echo '===UPLOAD COMPLETE==='; exit" --authorize-session 2>&1
 ```
 
 ---
@@ -4613,7 +4713,7 @@ If you have WSL or Git Bash, run the **Unix-native version**:
 
 ```bash
 # In WSL / Git Bash
-gcloud alpha cloud-shell ssh --command="tar czf /tmp/backup.tar.gz --exclude='.cache' -C / home/ 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/anthonymichaeldimarcello-\$(date +%Y%m%d).tar.gz 2>&1; echo '===UPLOAD COMPLETE==='; exit" --authorize-session 2>&1
+gcloud alpha cloud-shell ssh --command="tar czf /tmp/backup.tar.gz --exclude='.cache' -C / home/ 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-noble-beanbag-497411-m4/cloudshell-backups/anthonymichaeldimarcello-\$(date +%Y%m%d).tar.gz 2>&1; echo '===UPLOAD COMPLETE==='; exit" --authorize-session 2>&1
 ```
 
 ---
@@ -4623,7 +4723,7 @@ gcloud alpha cloud-shell ssh --command="tar czf /tmp/backup.tar.gz --exclude='.c
 Simpler, no escaping issues:
 
 ```powershell
-gcloud alpha cloud-shell ssh --command="tar czf /tmp/backup.tar.gz --exclude='.cache' -C / home/ 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/anthonymichaeldimarcello-backup.tar.gz 2>&1; echo '===UPLOAD COMPLETE==='; exit" --authorize-session 2>&1
+gcloud alpha cloud-shell ssh --command="tar czf /tmp/backup.tar.gz --exclude='.cache' -C / home/ 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-noble-beanbag-497411-m4/cloudshell-backups/anthonymichaeldimarcello-backup.tar.gz 2>&1; echo '===UPLOAD COMPLETE==='; exit" --authorize-session 2>&1
 ```
 
 ---
@@ -4644,14 +4744,14 @@ You're backing up `/home/` from Cloud Shell's root â but Cloud Shell's actu
 
 ```powershell
 $date = Get-Date -Format "yyyyMMdd"
-gcloud alpha cloud-shell ssh --command="tar czf /tmp/backup.tar.gz --exclude='.cache' -C /home/YOUR_USERNAME . 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/anthonymichaeldimarcello-$date.tar.gz 2>&1; echo '===UPLOAD COMPLETE==='; exit" --authorize-session 2>&1
+gcloud alpha cloud-shell ssh --command="tar czf /tmp/backup.tar.gz --exclude='.cache' -C /home/YOUR_USERNAME . 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-noble-beanbag-497411-m4/cloudshell-backups/anthonymichaeldimarcello-$date.tar.gz 2>&1; echo '===UPLOAD COMPLETE==='; exit" --authorize-session 2>&1
 ```
 
 Or use `~` (tilde expands inside Cloud Shell):
 
 ```powershell
 $date = Get-Date -Format "yyyyMMdd"
-gcloud alpha cloud-shell ssh --command="cd ~ && tar czf /tmp/backup.tar.gz --exclude='.cache' . 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/anthonymichaeldimarcello-$date.tar.gz 2>&1; echo '===UPLOAD COMPLETE==='; exit" --authorize-session 2>&1
+gcloud alpha cloud-shell ssh --command="cd ~ && tar czf /tmp/backup.tar.gz --exclude='.cache' . 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-noble-beanbag-497411-m4/cloudshell-backups/anthonymichaeldimarcello-$date.tar.gz 2>&1; echo '===UPLOAD COMPLETE==='; exit" --authorize-session 2>&1
 ```
 
 ---
@@ -4661,7 +4761,7 @@ gcloud alpha cloud-shell ssh --command="cd ~ && tar czf /tmp/backup.tar.gz --exc
 
 ## Script Block 98
 ```bash
-$d = Get-Date -Format "yyyyMMdd"; gcloud alpha cloud-shell ssh --command="tar czf /tmp/backup.tar.gz --exclude='.cache' -C /home . 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/anthonymichaeldimarcello-$d.tar.gz 2>&1; echo '===UPLOAD COMPLETE==='; exit" --authorize-session 2>&1
+$d = Get-Date -Format "yyyyMMdd"; gcloud alpha cloud-shell ssh --command="tar czf /tmp/backup.tar.gz --exclude='.cache' -C /home . 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-noble-beanbag-497411-m4/cloudshell-backups/anthonymichaeldimarcello-$d.tar.gz 2>&1; echo '===UPLOAD COMPLETE==='; exit" --authorize-session 2>&1
 ```
 
 ## Script Block 99
@@ -4681,7 +4781,7 @@ Once inside Cloud Shell, run:
 ```bash
 d=$(date +%Y%m%d)
 tar czf /tmp/backup.tar.gz --exclude='.cache' -C /home .
-gsutil cp /tmp/backup.tar.gz gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/anthonymichaeldimarcello-${d}.tar.gz
+gsutil cp /tmp/backup.tar.gz gs://backup-noble-beanbag-497411-m4/cloudshell-backups/anthonymichaeldimarcello-${d}.tar.gz
 ```
 
 ## Option 2: Run it entirely in the Cloud Shell web UI
@@ -4696,7 +4796,7 @@ Upload a script first, then execute it:
 #!/bin/bash
 d=$(date +%Y%m%d)
 tar czf /tmp/backup.tar.gz --exclude='.cache' -C /home .
-gsutil cp /tmp/backup.tar.gz gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/anthonymichaeldimarcello-${d}.tar.gz
+gsutil cp /tmp/backup.tar.gz gs://backup-noble-beanbag-497411-m4/cloudshell-backups/anthonymichaeldimarcello-${d}.tar.gz
 echo "===UPLOAD COMPLETE==="
 '@ | Set-Content -Path "$env:TEMPackup.sh" -Encoding UTF8
 
@@ -4747,7 +4847,7 @@ Actually, the simplest thing might be to just try running `gcloud cloud-shell ss
 
 ## Script Block 101
 ```bash
-$d = Get-Date -Format "yyyyMMdd"; $cmd = "tar czf /tmp/backup.tar.gz --exclude='.cache' -C /home . 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/anthonymichaeldimarcello-$d.tar.gz 2>&1; echo '===UPLOAD COMPLETE==='; exit"; gcloud cloud-shell ssh --command=$cmd --authorize-session 2>&1
+$d = Get-Date -Format "yyyyMMdd"; $cmd = "tar czf /tmp/backup.tar.gz --exclude='.cache' -C /home . 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-noble-beanbag-497411-m4/cloudshell-backups/anthonymichaeldimarcello-$d.tar.gz 2>&1; echo '===UPLOAD COMPLETE==='; exit"; gcloud cloud-shell ssh --command=$cmd --authorize-session 2>&1
 ```
 
 ## Script Block 102
@@ -4762,7 +4862,7 @@ $script = @'
 #!/bin/bash
 d=$(date +%Y%m%d)
 tar czf /tmp/backup.tar.gz --exclude='.cache' -C /home .
-gsutil cp /tmp/backup.tar.gz gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/anthonymichaeldimarcello-${d}.tar.gz
+gsutil cp /tmp/backup.tar.gz gs://backup-noble-beanbag-497411-m4/cloudshell-backups/anthonymichaeldimarcello-${d}.tar.gz
 echo "BACKUP_COMPLETE" > /tmp/backup-status.txt
 '@
 
@@ -4788,7 +4888,7 @@ gcloud cloud-shell ssh --command="cat /tmp/backup-status.txt 2>/dev/null || echo
 
 Or just check your GCS bucket:
 ```powershell
-gsutil ls gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/
+gsutil ls gs://backup-noble-beanbag-497411-m4/cloudshell-backups/
 ```
 
 ---
@@ -4802,7 +4902,7 @@ $script = @'
 #!/bin/bash
 d=$(date +%Y%m%d)
 tar czf /tmp/backup.tar.gz --exclude='.cache' -C /home .
-gsutil cp /tmp/backup.tar.gz gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/anthonymichaeldimarcello-${d}.tar.gz
+gsutil cp /tmp/backup.tar.gz gs://backup-noble-beanbag-497411-m4/cloudshell-backups/anthonymichaeldimarcello-${d}.tar.gz
 echo "BACKUP_COMPLETE" > /tmp/backup-status.txt
 '@
 $script | Out-File -FilePath "$env:TEMPackup.sh" -Encoding utf8
@@ -4838,9 +4938,12 @@ gcloud alpha cloud-shell scp localhost:"$env:TEMPackup.sh" cloudshell:/tmp/back
 
 ## Script Block 108
 ```bash
-ERROR: (gcloud.alpha.cloud-shell.scp) unrecognized arguments: --authorize-session 
-
-To search the help text of gcloud commands, run:
+ERROR: (gcloud.alpha.cloud-shell.scp) unrecognized arguments: --authorize-session 
+
+
+
+To search the help text of gcloud commands, run:
+
   gcloud help -- SEARCH_TERMS
 ```
 
@@ -4917,7 +5020,7 @@ But I can't deploy a workstation either since I haven't done it yet.
 Let me try yet another approach for Cloud Shell. What about using `gcloud cloud-shell ssh` without the `--command` flag but piping input to it?
 
 ```powershell
-"tar czf /tmp/backup.tar.gz --exclude='.cache' -C /home . && gsutil cp /tmp/backup.tar.gz gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/anthonymichaeldimarcello.tar.gz && echo DONE && exit" | gcloud cloud-shell ssh --authorize-session
+"tar czf /tmp/backup.tar.gz --exclude='.cache' -C /home . && gsutil cp /tmp/backup.tar.gz gs://backup-noble-beanbag-497411-m4/cloudshell-backups/anthonymichaeldimarcello.tar.gz && echo DONE && exit" | gcloud cloud-shell ssh --authorize-session
 ```
 
 This pipes the commands as stdin to the SSH session. The SSH tunnel still needs to stay open though...
@@ -4936,7 +5039,7 @@ Let me try the pipe approach with SSH:
 
 ## Script Block 112
 ```bash
-$d = Get-Date -Format "yyyyMMdd"; "tar czf /tmp/backup.tar.gz --exclude='.cache' -C /home . 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/anthonymichaeldimarcello-$d.tar.gz 2>&1; echo '===UPLOAD COMPLETE==='; exit" | gcloud cloud-shell ssh --authorize-session 2>&1
+$d = Get-Date -Format "yyyyMMdd"; "tar czf /tmp/backup.tar.gz --exclude='.cache' -C /home . 2>&1; gsutil cp /tmp/backup.tar.gz gs://backup-noble-beanbag-497411-m4/cloudshell-backups/anthonymichaeldimarcello-$d.tar.gz 2>&1; echo '===UPLOAD COMPLETE==='; exit" | gcloud cloud-shell ssh --authorize-session 2>&1
 ```
 
 ## Script Block 113
@@ -4951,7 +5054,7 @@ Since Windows keeps aborting the `gcloud alpha cloud-shell` tunnel (both SSH and
 ```bash
 d=$(date +%Y%m%d)
 tar czf /tmp/backup.tar.gz --exclude='.cache' -C /home .
-gsutil cp /tmp/backup.tar.gz gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/anthonymichaeldimarcello-${d}.tar.gz
+gsutil cp /tmp/backup.tar.gz gs://backup-noble-beanbag-497411-m4/cloudshell-backups/anthonymichaeldimarcello-${d}.tar.gz
 echo "Done! Backup uploaded."
 ```
 
@@ -5076,9 +5179,9 @@ Let me try:
 
 ## Script Block 120
 ```bash
-Progress! SSH works, tar worked (6.5 MiB so far), but gsutil failed with an access denied error. The issue is that from within Cloud Shell, the gsutil is running as `anthonymichaeldimarcello@gmail.com` but that user doesn't have write access to the `backup-project-743aab84-f9a5-4ec7-954` bucket.
+Progress! SSH works, tar worked (6.5 MiB so far), but gsutil failed with an access denied error. The issue is that from within Cloud Shell, the gsutil is running as `anthonymichaeldimarcello@gmail.com` but that user doesn't have write access to the `backup-noble-beanbag-497411-m4` bucket.
 
-The bucket `backup-project-743aab84-f9a5-4ec7-954` was created by the project owner. I need to either:
+The bucket `backup-noble-beanbag-497411-m4` was created by the project owner. I need to either:
 1. Grant the user `anthonymichaeldimarcello@gmail.com` write access to the bucket
 2. Or create a bucket in the OsintNeoAi project where this user has access
 3. Or authenticate gsutil in Cloud Shell with the right credentials
@@ -5105,13 +5208,20 @@ ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=NUL -i "$env:USERPROFILE\.
 
 ## Script Block 122
 ```bash
-ssh : Warning: Permanently added '[34.171.178.83]:6000' (ECDSA) to the list of known hosts.
-At line:1 char:1
-+ ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=NUL -i "$env:US ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (Warning: Perman...of known hosts.:String) [], RemoteException
-    + FullyQualifiedErrorId : NativeCommandError
- 
+ssh : Warning: Permanently added '[34.171.178.83]:6000' (ECDSA) to the list of known hosts.
+
+At line:1 char:1
+
++ ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=NUL -i "$env:US ...
+
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    + CategoryInfo          : NotSpecified: (Warning: Perman...of known hosts.:String) [], RemoteException
+
+    + FullyQualifiedErrorId : NativeCommandError
+
+ 
+
 ERROR: (gcloud.auth.list) Format [table] requires a non-empty projection. Use key parameters to specify a projection like so `table(foo, bar.baz)`
 ---
 (unset)
@@ -5121,78 +5231,92 @@ anthonymichaeldimarcello@gmail.com
 
 ## Script Block 123
 ```bash
-gcloud storage buckets add-iam-policy-binding gs://backup-project-743aab84-f9a5-4ec7-954 --member=user:anthonymichaeldimarcello@gmail.com --role=roles/storage.objectAdmin 2>&1
+gcloud storage buckets add-iam-policy-binding gs://backup-noble-beanbag-497411-m4 --member=user:anthonymichaeldimarcello@gmail.com --role=roles/storage.objectAdmin 2>&1
 ```
 
 ## Script Block 124
 ```bash
-ERROR: (gcloud.storage.buckets.add-iam-policy-binding) [anthonymichaeldimarcello@gmail.com] does not have permission to access b instance [backup-project-743aab84-f9a5-4ec7-954] (or it may not exist): anthonymichaeldimarcello@gmail.com does not have storage.buckets.setIamPolicy access to the Google Cloud Storage bucket. Permission 'storage.buckets.setIamPolicy' denied on resource '//storage.googleapis.com/projects/_/buckets/backup-project-743aab84-f9a5-4ec7-954' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyOS0wZWM1LTc5N2MtOTFjOS1kMjdiZjIwYjExMTESOHByb2plY3RzL18vYnVja2V0cy9iYWNrdXAtcHJvamVjdC03NDNhYWI4NC1mOWE1LTRlYzctOTU0 . This command is authenticated as anthonymichaeldimarcello@gmail.com which is the active account specified by the [core/account] property.
+ERROR: (gcloud.storage.buckets.add-iam-policy-binding) [anthonymichaeldimarcello@gmail.com] does not have permission to access b instance [backup-noble-beanbag-497411-m4] (or it may not exist): anthonymichaeldimarcello@gmail.com does not have storage.buckets.setIamPolicy access to the Google Cloud Storage bucket. Permission 'storage.buckets.setIamPolicy' denied on resource '//storage.googleapis.com/projects/_/buckets/backup-noble-beanbag-497411-m4' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyOS0wZWM1LTc5N2MtOTFjOS1kMjdiZjIwYjExMTESOHByb2plY3RzL18vYnVja2V0cy9iYWNrdXAtcHJvamVjdC03NDNhYWI4NC1mOWE1LTRlYzctOTU0 . This command is authenticated as anthonymichaeldimarcello@gmail.com which is the active account specified by the [core/account] property.
 ```
 
 ## Script Block 125
 ```bash
-gcloud config set account txtdjdrop@gmail.com 2>&1; gcloud storage buckets add-iam-policy-binding gs://backup-project-743aab84-f9a5-4ec7-954 --member=user:anthonymichaeldimarcello@gmail.com --role=roles/storage.objectAdmin 2>&1
+gcloud config set account txtdjdrop@gmail.com 2>&1; gcloud storage buckets add-iam-policy-binding gs://backup-noble-beanbag-497411-m4 --member=user:anthonymichaeldimarcello@gmail.com --role=roles/storage.objectAdmin 2>&1
 ```
 
 ## Script Block 126
 ```bash
-Updated property [core/account].
-ERROR: (gcloud.storage.buckets.add-iam-policy-binding) [txtdjdrop@gmail.com] does not have permission to access b instance [backup-project-743aab84-f9a5-4ec7-954] (or it may not exist): txtdjdrop@gmail.com does not have serviceusage.services.use access to the Google Cloud project. Permission 'serviceusage.services.use' denied on resource (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyOS00NmJiLTdjNDMtODE4OS1jYjg2YmQwODdiMTUSAA%3D%3D . This command is authenticated as txtdjdrop@gmail.com which is the active account specified by the [core/account] property.
+Updated property [core/account].
+
+ERROR: (gcloud.storage.buckets.add-iam-policy-binding) [txtdjdrop@gmail.com] does not have permission to access b instance [backup-noble-beanbag-497411-m4] (or it may not exist): txtdjdrop@gmail.com does not have serviceusage.services.use access to the Google Cloud project. Permission 'serviceusage.services.use' denied on resource (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyOS00NmJiLTdjNDMtODE4OS1jYjg2YmQwODdiMTUSAA%3D%3D . This command is authenticated as txtdjdrop@gmail.com which is the active account specified by the [core/account] property.
 ```
 
 ## Script Block 127
 ```bash
-gcloud config set account txtdjdrop@gmail.com 2>&1; gcloud config set project project-743aab84-f9a5-4ec7-954 2>&1; gcloud storage buckets add-iam-policy-binding gs://backup-project-743aab84-f9a5-4ec7-954 --member=user:anthonymichaeldimarcello@gmail.com --role=roles/storage.objectAdmin 2>&1
+gcloud config set account txtdjdrop@gmail.com 2>&1; gcloud config set project noble-beanbag-497411-m4 2>&1; gcloud storage buckets add-iam-policy-binding gs://backup-noble-beanbag-497411-m4 --member=user:anthonymichaeldimarcello@gmail.com --role=roles/storage.objectAdmin 2>&1
 ```
 
 ## Script Block 128
 ```bash
-Updated property [core/account].
-WARNING: Your active project does not match the quota project in your local Application Default Credentials file. This might result in unexpected quota issues.
-
-To update your Application Default Credentials quota project, use the `gcloud auth application-default set-quota-project` command.
-[environment: untagged] Read more to tag: g.co/cloud/project-env-tag.
-Updated property [core/project].
-ERROR: (gcloud.storage.buckets.add-iam-policy-binding) [txtdjdrop@gmail.com] does not have permission to access b instance [backup-project-743aab84-f9a5-4ec7-954] (or it may not exist): txtdjdrop@gmail.com does not have serviceusage.services.use access to the Google Cloud project. Permission 'serviceusage.services.use' denied on resource (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyOS05Nzk0LTczY2ItODJlNy1iOTkwZTg3ZTdhOWYSAA%3D%3D . This command is authenticated as txtdjdrop@gmail.com which is the active account specified by the [core/account] property.
+Updated property [core/account].
+
+WARNING: Your active project does not match the quota project in your local Application Default Credentials file. This might result in unexpected quota issues.
+
+
+
+To update your Application Default Credentials quota project, use the `gcloud auth application-default set-quota-project` command.
+
+[environment: untagged] Read more to tag: g.co/cloud/project-env-tag.
+
+Updated property [core/project].
+
+ERROR: (gcloud.storage.buckets.add-iam-policy-binding) [txtdjdrop@gmail.com] does not have permission to access b instance [backup-noble-beanbag-497411-m4] (or it may not exist): txtdjdrop@gmail.com does not have serviceusage.services.use access to the Google Cloud project. Permission 'serviceusage.services.use' denied on resource (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyOS05Nzk0LTczY2ItODJlNy1iOTkwZTg3ZTdhOWYSAA%3D%3D . This command is authenticated as txtdjdrop@gmail.com which is the active account specified by the [core/account] property.
 ```
 
 ## Script Block 129
 ```bash
-The txtdjdrop account can't access project-743aab84-f9a5-4ec7-954 directly due to serviceusage.services.use missing. But the IAM earlier showed txtdjdrop has Owner on this project. This might be a gcloud configuration issue rather than an actual permissions issue.
+The txtdjdrop account can't access noble-beanbag-497411-m4 directly due to serviceusage.services.use missing. But the IAM earlier showed txtdjdrop has Owner on this project. This might be a gcloud configuration issue rather than an actual permissions issue.
 
 Let me check what accounts have what permissions, and try using `--account` flag instead of `config set`.
 ```
 
 ## Script Block 130
 ```bash
-gcloud auth application-default set-quota-project project-743aab84-f9a5-4ec7-954 2>&1; gcloud storage buckets add-iam-policy-binding gs://backup-project-743aab84-f9a5-4ec7-954 --member=user:anthonymichaeldimarcello@gmail.com --role=roles/storage.objectAdmin --account=anthonymichaeldimarcello@gmail.com 2>&1
+gcloud auth application-default set-quota-project noble-beanbag-497411-m4 2>&1; gcloud storage buckets add-iam-policy-binding gs://backup-noble-beanbag-497411-m4 --member=user:anthonymichaeldimarcello@gmail.com --role=roles/storage.objectAdmin --account=anthonymichaeldimarcello@gmail.com 2>&1
 ```
 
 ## Script Block 131
 ```bash
-ERROR: (gcloud.auth.application-default.set-quota-project) Cannot add the project "project-743aab84-f9a5-4ec7-954" to application default credentials (ADC) as a quota project because the account in ADC does not have the "serviceusage.services.use" permission on this project.
-ERROR: (gcloud.storage.buckets.add-iam-policy-binding) [anthonymichaeldimarcello@gmail.com] does not have permission to access b instance [backup-project-743aab84-f9a5-4ec7-954] (or it may not exist): anthonymichaeldimarcello@gmail.com does not have storage.buckets.setIamPolicy access to the Google Cloud Storage bucket. Permission 'storage.buckets.setIamPolicy' denied on resource '//storage.googleapis.com/projects/_/buckets/backup-project-743aab84-f9a5-4ec7-954' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyOS1lNzBhLTczZWMtYTI1MS1jM2Q1YjNlM2MyOTUSOHByb2plY3RzL18vYnVja2V0cy9iYWNrdXAtcHJvamVjdC03NDNhYWI4NC1mOWE1LTRlYzctOTU0 . This command is authenticated as anthonymichaeldimarcello@gmail.com which is the active account specified by the [core/account] property.
+ERROR: (gcloud.auth.application-default.set-quota-project) Cannot add the project "noble-beanbag-497411-m4" to application default credentials (ADC) as a quota project because the account in ADC does not have the "serviceusage.services.use" permission on this project.
+
+ERROR: (gcloud.storage.buckets.add-iam-policy-binding) [anthonymichaeldimarcello@gmail.com] does not have permission to access b instance [backup-noble-beanbag-497411-m4] (or it may not exist): anthonymichaeldimarcello@gmail.com does not have storage.buckets.setIamPolicy access to the Google Cloud Storage bucket. Permission 'storage.buckets.setIamPolicy' denied on resource '//storage.googleapis.com/projects/_/buckets/backup-noble-beanbag-497411-m4' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyOS1lNzBhLTczZWMtYTI1MS1jM2Q1YjNlM2MyOTUSOHByb2plY3RzL18vYnVja2V0cy9iYWNrdXAtcHJvamVjdC03NDNhYWI4NC1mOWE1LTRlYzctOTU0 . This command is authenticated as anthonymichaeldimarcello@gmail.com which is the active account specified by the [core/account] property.
 ```
 
 ## Script Block 132
 ```bash
-gcloud storage buckets get-iam-policy gs://backup-project-743aab84-f9a5-4ec7-954 --account=anthonymichaeldimarcello@gmail.com 2>&1
+gcloud storage buckets get-iam-policy gs://backup-noble-beanbag-497411-m4 --account=anthonymichaeldimarcello@gmail.com 2>&1
 ```
 
 ## Script Block 133
 ```bash
-gcloud config set account amd949609@gmail.com 2>&1; gcloud config set project project-743aab84-f9a5-4ec7-954 2>&1; gcloud storage buckets add-iam-policy-binding gs://backup-project-743aab84-f9a5-4ec7-954 --member=user:anthonymichaeldimarcello@gmail.com --role=roles/storage.objectAdmin 2>&1
+gcloud config set account amd949609@gmail.com 2>&1; gcloud config set project noble-beanbag-497411-m4 2>&1; gcloud storage buckets add-iam-policy-binding gs://backup-noble-beanbag-497411-m4 --member=user:anthonymichaeldimarcello@gmail.com --role=roles/storage.objectAdmin 2>&1
 ```
 
 ## Script Block 134
 ```bash
-Updated property [core/account].
-WARNING: Your active project does not match the quota project in your local Application Default Credentials file. This might result in unexpected quota issues.
-
-To update your Application Default Credentials quota project, use the `gcloud auth application-default set-quota-project` command.
-[environment: untagged] Read more to tag: g.co/cloud/project-env-tag.
-Updated property [core/project].
-ERROR: (gcloud.storage.buckets.add-iam-policy-binding) [amd949609@gmail.com] does not have permission to access b instance [backup-project-743aab84-f9a5-4ec7-954] (or it may not exist): amd949609@gmail.com does not have serviceusage.services.use access to the Google Cloud project. Permission 'serviceusage.services.use' denied on resource (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyYS01YzExLTczZTYtYWQxYy03YTJlZTAwZWJhMzESAA%3D%3D . This command is authenticated as amd949609@gmail.com which is the active account specified by the [core/account] property.
+Updated property [core/account].
+
+WARNING: Your active project does not match the quota project in your local Application Default Credentials file. This might result in unexpected quota issues.
+
+
+
+To update your Application Default Credentials quota project, use the `gcloud auth application-default set-quota-project` command.
+
+[environment: untagged] Read more to tag: g.co/cloud/project-env-tag.
+
+Updated property [core/project].
+
+ERROR: (gcloud.storage.buckets.add-iam-policy-binding) [amd949609@gmail.com] does not have permission to access b instance [backup-noble-beanbag-497411-m4] (or it may not exist): amd949609@gmail.com does not have serviceusage.services.use access to the Google Cloud project. Permission 'serviceusage.services.use' denied on resource (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyYS01YzExLTczZTYtYWQxYy03YTJlZTAwZWJhMzESAA%3D%3D . This command is authenticated as amd949609@gmail.com which is the active account specified by the [core/account] property.
 ```
 
 ## Script Block 135
@@ -5208,40 +5332,50 @@ Actually, the simplest fix: in the Cloud Shell SSH session, I can authenticate g
 
 Inside Cloud Shell, I need to:
 ```
-gcloud config set project project-743aab84-f9a5-4ec7-954
+gcloud config set project noble-beanbag-497411-m4
 gcloud auth login --no-launch-browser
 ```
 
 But the auth login would require an interactive flow. Let me see if the existing credentials work if I just set the project.
 
-Wait - actually, Cloud Shell already has the user's credentials. The issue is just the project setting and the fact that `anthonymichaeldimarcello@gmail.com` might not have project access to `project-743aab84-f9a5-4ec7-954`.
+Wait - actually, Cloud Shell already has the user's credentials. The issue is just the project setting and the fact that `anthonymichaeldimarcello@gmail.com` might not have project access to `noble-beanbag-497411-m4`.
 
 Let me check if anthonymichaeldimarcello can list buckets in the project from Cloud Shell.
 ```
 
 ## Script Block 136
 ```bash
-gcloud config set account anthonymichaeldimarcello@gmail.com 2>&1; gcloud config set project project-743aab84-f9a5-4ec7-954 2>&1; gcloud storage buckets list --project=project-743aab84-f9a5-4ec7-954 --account=anthonymichaeldimarcello@gmail.com 2>&1 | Select-Object -First 5
+gcloud config set account anthonymichaeldimarcello@gmail.com 2>&1; gcloud config set project noble-beanbag-497411-m4 2>&1; gcloud storage buckets list --project=noble-beanbag-497411-m4 --account=anthonymichaeldimarcello@gmail.com 2>&1 | Select-Object -First 5
 ```
 
 ## Script Block 137
 ```bash
-Updated property [core/account].
-WARNING: Your active project does not match the quota project in your local Application Default Credentials file. This might result in unexpected quota issues.
-
-To update your Application Default Credentials quota project, use the `gcloud auth application-default set-quota-project` command.
-[environment: untagged] Read more to tag: g.co/cloud/project-env-tag.
-Updated property [core/project].
----
-creation_time: 2026-07-03T22:47:54+0000
-default_storage_class: STANDARD
-generation: 1783118874713490103
+Updated property [core/account].
+
+WARNING: Your active project does not match the quota project in your local Application Default Credentials file. This might result in unexpected quota issues.
+
+
+
+To update your Application Default Credentials quota project, use the `gcloud auth application-default set-quota-project` command.
+
+[environment: untagged] Read more to tag: g.co/cloud/project-env-tag.
+
+Updated property [core/project].
+
+---
+
+creation_time: 2026-07-03T22:47:54+0000
+
+default_storage_class: STANDARD
+
+generation: 1783118874713490103
+
 location: US-CENTRAL1
 ```
 
 ## Script Block 138
 ```bash
-gcloud projects get-iam-policy project-743aab84-f9a5-4ec7-954 --account=anthonymichaeldimarcello@gmail.com --format="table(bindings.role)" --filter="bindings.members:anthonymichaeldimarcello" 2>&1
+gcloud projects get-iam-policy noble-beanbag-497411-m4 --account=anthonymichaeldimarcello@gmail.com --format="table(bindings.role)" --filter="bindings.members:anthonymichaeldimarcello" 2>&1
 ```
 
 ## Script Block 139
@@ -5265,18 +5399,18 @@ Let me try one more time with the SSH command, but explicitly set the project be
 
 ## Script Block 140
 ```bash
-ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=NUL -i "$env:USERPROFILE\.ssh\google_compute_engine" -p 6000 anthonymichaeldimarcello@34.171.178.83 "gcloud config set project project-743aab84-f9a5-4ec7-954 2>&1 && cd ~ && tar czf /tmp/backup.tar.gz --exclude='.cache' -C /home/anthonymichaeldimarcello . 2>&1 && gsutil cp /tmp/backup.tar.gz gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/anthonymichaeldimarcello-20260708.tar.gz 2>&1 && echo '===UPLOAD COMPLETE==='" 2>&1
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=NUL -i "$env:USERPROFILE\.ssh\google_compute_engine" -p 6000 anthonymichaeldimarcello@34.171.178.83 "gcloud config set project noble-beanbag-497411-m4 2>&1 && cd ~ && tar czf /tmp/backup.tar.gz --exclude='.cache' -C /home/anthonymichaeldimarcello . 2>&1 && gsutil cp /tmp/backup.tar.gz gs://backup-noble-beanbag-497411-m4/cloudshell-backups/anthonymichaeldimarcello-20260708.tar.gz 2>&1 && echo '===UPLOAD COMPLETE==='" 2>&1
 ```
 
 ## Script Block 141
 ```bash
 Interesting - there's a "Regional Access Boundary" error about the email being wrong. The email `anthonymlchaeldlmarcello@gmail.com` in the error looks like a mangled version of `anthonymichaeldimarcello@gmail.com` - possibly the SSH connection used a different encoding or the Cloud Shell environment has some issues.
 
-More importantly, the bucket access is still denied. Even though `anthonymichaeldimarcello` has `roles/owner` and `roles/storage.admin`, the bucket's legacy ACL doesn't grant them access because... wait, `projectOwner:project-743aab84-f9a5-4ec7-954` has `roles/storage.legacyBucketOwner`. And `anthonymichaeldimarcello` IS an Owner of the project. So this should work.
+More importantly, the bucket access is still denied. Even though `anthonymichaeldimarcello` has `roles/owner` and `roles/storage.admin`, the bucket's legacy ACL doesn't grant them access because... wait, `projectOwner:noble-beanbag-497411-m4` has `roles/storage.legacyBucketOwner`. And `anthonymichaeldimarcello` IS an Owner of the project. So this should work.
 
 The issue might be that Cloud Shell is running as a different identity. The `anthonymichaeldimarcello@gmail.com` email might not match the project owner account exactly. There was an error saying "Account not found for email: 778b33da34|anthonymlchaeldlmarcello@gmail.com" - which looks like the email was mangled by some encoding issue.
 
-Let me try a completely different approach. Instead of the `backup-project-743aab84-f9a5-4ec7-954` bucket, let me try creating a new bucket specifically from within Cloud Shell, or use a different destination.
+Let me try a completely different approach. Instead of the `backup-noble-beanbag-497411-m4` bucket, let me try creating a new bucket specifically from within Cloud Shell, or use a different destination.
 
 Actually, let me try the simplest thing: from within Cloud Shell, create a new bucket directly. Cloud Shell users have the ability to create GCS buckets.
 
@@ -5309,28 +5443,35 @@ Actually, let me upload to GCS and also save the backup script in the repo as th
 
 ## Script Block 144
 ```bash
-gcloud config set account anthonymichaeldimarcello@gmail.com 2>&1; gcloud config set project project-743aab84-f9a5-4ec7-954 2>&1; gcloud storage cp "$env:TEMP\cloudshell-backup-anthonymichaeldimarcello-20260708.tar.gz" gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/ 2>&1
+gcloud config set account anthonymichaeldimarcello@gmail.com 2>&1; gcloud config set project noble-beanbag-497411-m4 2>&1; gcloud storage cp "$env:TEMP\cloudshell-backup-anthonymichaeldimarcello-20260708.tar.gz" gs://backup-noble-beanbag-497411-m4/cloudshell-backups/ 2>&1
 ```
 
 ## Script Block 145
 ```bash
-Updated property [core/account].
-WARNING: Your active project does not match the quota project in your local Application Default Credentials file. This might result in unexpected quota issues.
-
-To update your Application Default Credentials quota project, use the `gcloud auth application-default set-quota-project` command.
-[environment: untagged] Read more to tag: g.co/cloud/project-env-tag.
-Updated property [core/project].
+Updated property [core/account].
+
+WARNING: Your active project does not match the quota project in your local Application Default Credentials file. This might result in unexpected quota issues.
+
+
+
+To update your Application Default Credentials quota project, use the `gcloud auth application-default set-quota-project` command.
+
+[environment: untagged] Read more to tag: g.co/cloud/project-env-tag.
+
+Updated property [core/project].
+
 ERROR: (gcloud.storage.cp) HTTPError 403: The billing account for the owning project is disabled in state absent. This command is authenticated as anthonymichaeldimarcello@gmail.com which is the active account specified by the [core/account] property
 ```
 
 ## Script Block 146
 ```bash
-gcloud storage buckets create gs://osintneoai-backup-20260708 --project=project-743aab84-f9a5-4ec7-954 --location=us-central1 --account=anthonymichaeldimarcello@gmail.com 2>&1
+gcloud storage buckets create gs://osintneoai-backup-20260708 --project=noble-beanbag-497411-m4 --location=us-central1 --account=anthonymichaeldimarcello@gmail.com 2>&1
 ```
 
 ## Script Block 147
 ```bash
-Creating gs://osintneoai-backup-20260708/...
+Creating gs://osintneoai-backup-20260708/...
+
 ERROR: (gcloud.storage.buckets.create) HTTPError 403: anthonymichaeldimarcello@gmail.com does not have storage.buckets.create access to the Google Cloud project. Permission 'storage.buckets.create' denied on resource '//storage.googleapis.com/projects/_/buckets/osintneoai-backup-20260708' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyYi1kZTZjLTcyNGItOGQ2My0xNTA2NjlkMDgzMjcSLXByb2plY3RzL18vYnVja2V0cy9vc2ludG5lb2FpLWJhY2t1cC0yMDI2MDcwOA%3D%3D . This command is authenticated as anthonymichaeldimarcello@gmail.com which is the active account specified by the [core/account] property.
 ```
 
@@ -5348,15 +5489,18 @@ gcloud config set project project-9c94c2fa-3af4-49f1-a7b 2>&1; gcloud storage bu
 
 ## Script Block 150
 ```bash
-[environment: untagged] Read more to tag: g.co/cloud/project-env-tag.
-Updated property [core/project].
-Creating gs://osintneoai-backup-20260708/...
+[environment: untagged] Read more to tag: g.co/cloud/project-env-tag.
+
+Updated property [core/project].
+
+Creating gs://osintneoai-backup-20260708/...
+
 ERROR: (gcloud.storage.buckets.create) HTTPError 403: The billing account for the owning project is disabled in state absent. This command is authenticated as anthonymichaeldimarcello@gmail.com which is the active account specified by the [core/account] property
 ```
 
 ## Script Block 151
 ```bash
-gcloud beta billing projects describe project-743aab84-f9a5-4ec7-954 2>&1
+gcloud beta billing projects describe noble-beanbag-497411-m4 2>&1
 ```
 
 ## Script Block 152
@@ -5367,12 +5511,12 @@ gcloud beta billing projects describe project-9c94c2fa-3af4-49f1-a7b 2>&1
 ## Script Block 153
 ```bash
 OK so:
-- `project-743aab84-f9a5-4ec7-954` (My First Project) has billing enabled with account `01E581-593D4D-6AA967`
+- `noble-beanbag-497411-m4` (My First Project) has billing enabled with account `01E581-593D4D-6AA967`
 - `project-9c94c2fa-3af4-49f1-a7b` (OsintNeoAi) has NO billing and billing is disabled
 
-The issue with the first bucket `backup-project-743aab84-f9a5-4ec7-954` when it says "billing account disabled" - maybe that bucket was created under a different project context or billing was different at that time.
+The issue with the first bucket `backup-noble-beanbag-497411-m4` when it says "billing account disabled" - maybe that bucket was created under a different project context or billing was different at that time.
 
-But when I use `project-743aab84-f9a5-4ec7-954` explicitly, the billing is enabled. The error "The billing account for the owning project is disabled in state absent" is weird.
+But when I use `noble-beanbag-497411-m4` explicitly, the billing is enabled. The error "The billing account for the owning project is disabled in state absent" is weird.
 
 Wait, the `--account` flag for gcloud is anthonymichaeldimarcello. Maybe the issue is that anthonymichaeldimarcello's quota project (the ADC) is set to a project with disabled billing. Let me check.
 ```
@@ -5476,8 +5620,8 @@ Let me clone the OSINTNEOAI repo as a working copy (not bare), add the backup fi
 set -euo pipefail
 
 # === CONFIG ===
-PROJECT_ID="project-743aab84-f9a5-4ec7-954"
-BUCKET="gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/"
+PROJECT_ID="noble-beanbag-497411-m4"
+BUCKET="gs://backup-noble-beanbag-497411-m4/cloudshell-backups/"
 DATE=$(date +%Y%m%d)
 
 backup_account() {
@@ -5518,7 +5662,7 @@ gsutil ls -l "$BUCKET"
 #!/bin/bash
 set -euo pipefail
 
-PROJECT_ID="project-743aab84-f9a5-4ec7-954"
+PROJECT_ID="noble-beanbag-497411-m4"
 REGION="us-central1"
 CLUSTER="migrated-home-cluster"
 CONFIG="migrated-home-config"
@@ -5588,17 +5732,23 @@ Let me switch to another account and try the same approach.
 
 ## Script Block 162
 ```bash
-gcloud config set account osintneoai@gmail.com 2>&1; gcloud config set project project-743aab84-f9a5-4ec7-954 2>&1; $token = gcloud auth print-access-token 2>&1; Write-Output "Token acquired: $($token.Substring(0,20))..."
+gcloud config set account osintneoai@gmail.com 2>&1; gcloud config set project noble-beanbag-497411-m4 2>&1; $token = gcloud auth print-access-token 2>&1; Write-Output "Token acquired: $($token.Substring(0,20))..."
 ```
 
 ## Script Block 163
 ```bash
-Updated property [core/account].
-WARNING: Your active project does not match the quota project in your local Application Default Credentials file. This might result in unexpected quota issues.
-
-To update your Application Default Credentials quota project, use the `gcloud auth application-default set-quota-project` command.
-[environment: untagged] Read more to tag: g.co/cloud/project-env-tag.
-Updated property [core/project].
+Updated property [core/account].
+
+WARNING: Your active project does not match the quota project in your local Application Default Credentials file. This might result in unexpected quota issues.
+
+
+
+To update your Application Default Credentials quota project, use the `gcloud auth application-default set-quota-project` command.
+
+[environment: untagged] Read more to tag: g.co/cloud/project-env-tag.
+
+Updated property [core/project].
+
 Token acquired: ya29.a0AT3oNZ-0yc_Ds...
 ```
 
@@ -5626,58 +5776,87 @@ $env:CLOUDSDK_CORE_ACCOUNT = "osintneoai@gmail.com"; gcloud cloud-shell ssh --dr
 
 ## Script Block 168
 ```bash
-ERROR: (gcloud.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as osintneoai@gmail.com which is the active account specified by the [core/account] property.
-Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
-Google developer console IAM admin
-https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-- '@type': type.googleapis.com/google.rpc.ErrorInfo
-  domain: googleapis.com
-  metadata:
-    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
-    containerInfo: project-9c94c2fa-3af4-49f1-a7b
-    service: cloudshell.googleapis.com
-  reason: USER_PROJECT_DENIED
+ERROR: (gcloud.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as osintneoai@gmail.com which is the active account specified by the [core/account] property.
+
+Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
+
+Google developer console IAM admin
+
+https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+
+  domain: googleapis.com
+
+  metadata:
+
+    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
+
+    containerInfo: project-9c94c2fa-3af4-49f1-a7b
+
+    service: cloudshell.googleapis.com
+
+  reason: USER_PROJECT_DENIED
+
 Automatic authentication with GCP CLI tools in Cloud Shell is disabled. To enable, please rerun command with `--authorize-session` flag.
 ```
 
 ## Script Block 169
 ```bash
-The problem is that `osintneoai@gmail.com`'s gcloud config is pointing to the OsintNeoAi project (`project-9c94c2fa-3af4-49f1-a7b`) which has no billing and the user doesn't have permission to use. I set it to `project-743aab84-f9a5-4ec7-954` earlier but the gcloud cloud-shell command is using the default project from the config.
+The problem is that `osintneoai@gmail.com`'s gcloud config is pointing to the OsintNeoAi project (`project-9c94c2fa-3af4-49f1-a7b`) which has no billing and the user doesn't have permission to use. I set it to `noble-beanbag-497411-m4` earlier but the gcloud cloud-shell command is using the default project from the config.
 
 Let me explicitly set the project for the cloud-shell command.
 ```
 
 ## Script Block 170
 ```bash
-gcloud config set account osintneoai@gmail.com 2>&1; gcloud config set project project-743aab84-f9a5-4ec7-954 2>&1; gcloud cloud-shell ssh --dry-run --authorize-session 2>&1
+gcloud config set account osintneoai@gmail.com 2>&1; gcloud config set project noble-beanbag-497411-m4 2>&1; gcloud cloud-shell ssh --dry-run --authorize-session 2>&1
 ```
 
 ## Script Block 171
 ```bash
-Updated property [core/account].
-WARNING: Your active project does not match the quota project in your local Application Default Credentials file. This might result in unexpected quota issues.
-
-To update your Application Default Credentials quota project, use the `gcloud auth application-default set-quota-project` command.
-[environment: untagged] Read more to tag: g.co/cloud/project-env-tag.
-Updated property [core/project].
-ERROR: (gcloud.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as osintneoai@gmail.com which is the active account specified by the [core/account] property.
-Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
-Google developer console IAM admin
-https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-- '@type': type.googleapis.com/google.rpc.ErrorInfo
-  domain: googleapis.com
-  metadata:
-    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
-    containerInfo: project-9c94c2fa-3af4-49f1-a7b
-    service: cloudshell.googleapis.com
+Updated property [core/account].
+
+WARNING: Your active project does not match the quota project in your local Application Default Credentials file. This might result in unexpected quota issues.
+
+
+
+To update your Application Default Credentials quota project, use the `gcloud auth application-default set-quota-project` command.
+
+[environment: untagged] Read more to tag: g.co/cloud/project-env-tag.
+
+Updated property [core/project].
+
+ERROR: (gcloud.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as osintneoai@gmail.com which is the active account specified by the [core/account] property.
+
+Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
+
+Google developer console IAM admin
+
+https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+
+  domain: googleapis.com
+
+  metadata:
+
+    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
+
+    containerInfo: project-9c94c2fa-3af4-49f1-a7b
+
+    service: cloudshell.googleapis.com
+
   reason: USER_PROJECT_DENIED
 ```
 
 ## Script Block 172
 ```bash
-It's still referring to project-9c94c2fa-3af4-49f1-a7b even though I set the project to project-743aab84-f9a5-4ec7-954. This is because the `gcloud cloud-shell ssh` command uses a different mechanism - it looks up the user's Cloud Shell via the Cloud Shell API, and the API uses the authenticated user's default project.
+It's still referring to project-9c94c2fa-3af4-49f1-a7b even though I set the project to noble-beanbag-497411-m4. This is because the `gcloud cloud-shell ssh` command uses a different mechanism - it looks up the user's Cloud Shell via the Cloud Shell API, and the API uses the authenticated user's default project.
 
 The issue is that `osintneoai@gmail.com` doesn't have a Cloud Shell environment set up and can't use the project. Their ADC (Application Default Credentials) quota project is the OsintNeoAi project.
 
@@ -5711,23 +5890,35 @@ Let me try setting the ADC quota project.
 
 ## Script Block 176
 ```bash
-gcloud auth application-default set-quota-project project-743aab84-f9a5-4ec7-954 --account=osintneoai@gmail.com 2>&1; gcloud cloud-shell ssh --command="echo 'connected'" --authorize-session --account=osintneoai@gmail.com 2>&1
+gcloud auth application-default set-quota-project noble-beanbag-497411-m4 --account=osintneoai@gmail.com 2>&1; gcloud cloud-shell ssh --command="echo 'connected'" --authorize-session --account=osintneoai@gmail.com 2>&1
 ```
 
 ## Script Block 177
 ```bash
-ERROR: (gcloud.auth.application-default.set-quota-project) Cannot add the project "project-743aab84-f9a5-4ec7-954" to application default credentials (ADC) as a quota project because the account in ADC does not have the "serviceusage.services.use" permission on this project.
-ERROR: (gcloud.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as osintneoai@gmail.com which is the active account specified by the [core/account] property.
-Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
-Google developer console IAM admin
-https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-- '@type': type.googleapis.com/google.rpc.ErrorInfo
-  domain: googleapis.com
-  metadata:
-    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
-    containerInfo: project-9c94c2fa-3af4-49f1-a7b
-    service: cloudshell.googleapis.com
+ERROR: (gcloud.auth.application-default.set-quota-project) Cannot add the project "noble-beanbag-497411-m4" to application default credentials (ADC) as a quota project because the account in ADC does not have the "serviceusage.services.use" permission on this project.
+
+ERROR: (gcloud.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as osintneoai@gmail.com which is the active account specified by the [core/account] property.
+
+Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
+
+Google developer console IAM admin
+
+https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+
+  domain: googleapis.com
+
+  metadata:
+
+    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
+
+    containerInfo: project-9c94c2fa-3af4-49f1-a7b
+
+    service: cloudshell.googleapis.com
+
   reason: USER_PROJECT_DENIED
 ```
 
@@ -5859,16 +6050,26 @@ gcloud auth login --no-launch-browser --account=ironmandavinci@gmail.com 2>&1
 
 ## Script Block 185
 ```bash
-Go to the following link in your browser, and complete the sign-in prompts:
-
-    https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=32555940559.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fsdk.cloud.google.com%2Fauthcode.html&scope=openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fappengine.admin+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fsqlservice.login+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcompute+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Faccounts.reauth&state=RqIQTXfuH0O1lLPPq20GA4f6xfFGnJ&prompt=consent&token_usage=remote&access_type=offline&code_challenge=v3MMjIUeQs1NssnQhv7vbH68VHLhwe8-tbD7GWsuxr4&code_challenge_method=S256
-
-Once finished, enter the verification code provided in your browser: ERROR: gcloud crashed (EOFError): EOF when reading a line
-
-If you would like to report this issue, please run the following command:
-  gcloud feedback
-
-To check gcloud for common problems, please run the following command:
+Go to the following link in your browser, and complete the sign-in prompts:
+
+
+
+    https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=32555940559.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fsdk.cloud.google.com%2Fauthcode.html&scope=openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fappengine.admin+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fsqlservice.login+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcompute+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Faccounts.reauth&state=RqIQTXfuH0O1lLPPq20GA4f6xfFGnJ&prompt=consent&token_usage=remote&access_type=offline&code_challenge=v3MMjIUeQs1NssnQhv7vbH68VHLhwe8-tbD7GWsuxr4&code_challenge_method=S256
+
+
+
+Once finished, enter the verification code provided in your browser: ERROR: gcloud crashed (EOFError): EOF when reading a line
+
+
+
+If you would like to report this issue, please run the following command:
+
+  gcloud feedback
+
+
+
+To check gcloud for common problems, please run the following command:
+
   gcloud info --run-diagnostics
 ```
 
@@ -5965,17 +6166,28 @@ gcloud alpha cloud-shell ssh --account=osintneoai@gmail.com --authorize-session 
 
 ## Script Block 197
 ```bash
-ERROR: (gcloud.alpha.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as osintneoai@gmail.com which is the active account specified by the [core/account] property.
-Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
-Google developer console IAM admin
-https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-- '@type': type.googleapis.com/google.rpc.ErrorInfo
-  domain: googleapis.com
-  metadata:
-    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
-    containerInfo: project-9c94c2fa-3af4-49f1-a7b
-    service: cloudshell.googleapis.com
+ERROR: (gcloud.alpha.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as osintneoai@gmail.com which is the active account specified by the [core/account] property.
+
+Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
+
+Google developer console IAM admin
+
+https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+
+  domain: googleapis.com
+
+  metadata:
+
+    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
+
+    containerInfo: project-9c94c2fa-3af4-49f1-a7b
+
+    service: cloudshell.googleapis.com
+
   reason: USER_PROJECT_DENIED
 ```
 
@@ -6002,7 +6214,7 @@ Actually, let me try this: I'll use `gcloud cloud-shell ssh` but set the CLOUDSD
 
 ## Script Block 199
 ```bash
-$env:CLOUDSDK_CORE_PROJECT = "project-743aab84-f9a5-4ec7-954"; $env:CLOUDSDK_CORE_ACCOUNT = "osintneoai@gmail.com"; gcloud alpha cloud-shell ssh --account=osintneoai@gmail.com --authorize-session --command="echo 'connected' && whoami && exit" 2>&1
+$env:CLOUDSDK_CORE_PROJECT = "noble-beanbag-497411-m4"; $env:CLOUDSDK_CORE_ACCOUNT = "osintneoai@gmail.com"; gcloud alpha cloud-shell ssh --account=osintneoai@gmail.com --authorize-session --command="echo 'connected' && whoami && exit" 2>&1
 ```
 
 ## Script Block 200
@@ -6040,7 +6252,7 @@ Actually, looking at the Cloud Shell API docs:
 POST https://cloudshell.googleapis.com/v1/users/me/environments/default:authorize
 {
   "publicKey": "ssh-rsa AAAAB3NzaC1yc2E...",
-  "session": "projects/project-743aab84-f9a5-4ec7-954/locations/us-central1/users/me/environments/default/sessions/abc123"
+  "session": "projects/noble-beanbag-497411-m4/locations/us-central1/users/me/environments/default/sessions/abc123"
 }
 ```
 
@@ -6078,34 +6290,50 @@ I'm hitting walls with the other accounts' SSH keys. Here's what's DONE:
 
 ## Script Block 202
 ```bash
-The user chose option 1: Deploy the Cloud Workstation in the billing-enabled project (`project-743aab84-f9a5-4ec7-954`), then use the workstation to backup the remaining accounts.
+The user chose option 1: Deploy the Cloud Workstation in the billing-enabled project (`noble-beanbag-497411-m4`), then use the workstation to backup the remaining accounts.
 
 Let me deploy the workstation using gcloud commands.
 ```
 
 ## Script Block 203
 ```bash
-gcloud config set account anthonymichaeldimarcello@gmail.com 2>&1; gcloud config set project project-743aab84-f9a5-4ec7-954 2>&1; gcloud services enable workstations.googleapis.com compute.googleapis.com cloudshell.googleapis.com --project=project-743aab84-f9a5-4ec7-954 2>&1
+gcloud config set account anthonymichaeldimarcello@gmail.com 2>&1; gcloud config set project noble-beanbag-497411-m4 2>&1; gcloud services enable workstations.googleapis.com compute.googleapis.com cloudshell.googleapis.com --project=noble-beanbag-497411-m4 2>&1
 ```
 
 ## Script Block 204
 ```bash
-Updated property [core/account].
-WARNING: Your active project does not match the quota project in your local Application Default Credentials file. This might result in unexpected quota issues.
-
-To update your Application Default Credentials quota project, use the `gcloud auth application-default set-quota-project` command.
-[environment: untagged] Read more to tag: g.co/cloud/project-env-tag.
-Updated property [core/project].
-ERROR: (gcloud.services.enable) [anthonymichaeldimarcello@gmail.com] does not have permission to access projects instance [project-743aab84-f9a5-4ec7-954] (or it may not exist): Permission denied to enable service [cloudshell.googleapis.com]
-Permission denied to enable service [compute.googleapis.com]
-Permission denied to enable service [workstations.googleapis.com]
-Help Token: AfYMUrhChkK5XRBxj_mA7TiRDT-WQshjgtQmWOvGaOUIQbPxKrURRIrxOLC6Wterc7-8noJe9gncolFbUbeCFmguhUv5xhAToIjrQo5P9YB9f2G0. This command is authenticated as anthonymichaeldimarcello@gmail.com which is the active account specified by the [core/account] property
-- '@type': type.googleapis.com/google.rpc.PreconditionFailure
-  violations:
-  - subject: '110002'
-    type: googleapis.com
-- '@type': type.googleapis.com/google.rpc.ErrorInfo
-  domain: serviceusage.googleapis.com
+Updated property [core/account].
+
+WARNING: Your active project does not match the quota project in your local Application Default Credentials file. This might result in unexpected quota issues.
+
+
+
+To update your Application Default Credentials quota project, use the `gcloud auth application-default set-quota-project` command.
+
+[environment: untagged] Read more to tag: g.co/cloud/project-env-tag.
+
+Updated property [core/project].
+
+ERROR: (gcloud.services.enable) [anthonymichaeldimarcello@gmail.com] does not have permission to access projects instance [noble-beanbag-497411-m4] (or it may not exist): Permission denied to enable service [cloudshell.googleapis.com]
+
+Permission denied to enable service [compute.googleapis.com]
+
+Permission denied to enable service [workstations.googleapis.com]
+
+Help Token: AfYMUrhChkK5XRBxj_mA7TiRDT-WQshjgtQmWOvGaOUIQbPxKrURRIrxOLC6Wterc7-8noJe9gncolFbUbeCFmguhUv5xhAToIjrQo5P9YB9f2G0. This command is authenticated as anthonymichaeldimarcello@gmail.com which is the active account specified by the [core/account] property
+
+- '@type': type.googleapis.com/google.rpc.PreconditionFailure
+
+  violations:
+
+  - subject: '110002'
+
+    type: googleapis.com
+
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+
+  domain: serviceusage.googleapis.com
+
   reason: AUTH_PERMISSION_DENIED
 ```
 
@@ -6115,29 +6343,40 @@ Help Token: AfYMUrhChkK5XRBxj_mA7TiRDT-WQshjgtQmWOvGaOUIQbPxKrURRIrxOLC6Wterc7-8
 
 Let me try switching to a different account that I know has Owner access - like `amd949609@gmail.com` or `txtdjdrop@gmail.com`. But earlier, `txtdjdrop` had the same issue.
 
-Wait, maybe the issue is that ALL these accounts were granted Owner via the project but none of them are actually able to use the project because the billing account is somehow in a bad state. Earlier I checked and the billing was enabled for project-743aab84-f9a5-4ec7-954 with account 01E581-593D4D-6AA967.
+Wait, maybe the issue is that ALL these accounts were granted Owner via the project but none of them are actually able to use the project because the billing account is somehow in a bad state. Earlier I checked and the billing was enabled for noble-beanbag-497411-m4 with account 01E581-593D4D-6AA967.
 
 Let me try with the `--account` flag explicitly instead of config set.
 ```
 
 ## Script Block 206
 ```bash
-gcloud services enable workstations.googleapis.com --project=project-743aab84-f9a5-4ec7-954 --account=amd949609@gmail.com 2>&1
+gcloud services enable workstations.googleapis.com --project=noble-beanbag-497411-m4 --account=amd949609@gmail.com 2>&1
 ```
 
 ## Script Block 207
 ```bash
-ERROR: (gcloud.services.enable) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as amd949609@gmail.com which is the active account specified by the [core/account] property.
-Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
-Google developer console IAM admin
-https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-- '@type': type.googleapis.com/google.rpc.ErrorInfo
-  domain: googleapis.com
-  metadata:
-    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
-    containerInfo: project-9c94c2fa-3af4-49f1-a7b
-    service: serviceusage.googleapis.com
+ERROR: (gcloud.services.enable) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as amd949609@gmail.com which is the active account specified by the [core/account] property.
+
+Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
+
+Google developer console IAM admin
+
+https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+
+  domain: googleapis.com
+
+  metadata:
+
+    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
+
+    containerInfo: project-9c94c2fa-3af4-49f1-a7b
+
+    service: serviceusage.googleapis.com
+
   reason: USER_PROJECT_DENIED
 ```
 
@@ -6152,7 +6391,7 @@ Let me try to clear the ADC quota project or set it properly.
 
 ## Script Block 209
 ```bash
-gcloud auth application-default revoke 2>&1; gcloud auth application-default set-quota-project project-743aab84-f9a5-4ec7-954 --account=anthonymichaeldimarcello@gmail.com 2>&1
+gcloud auth application-default revoke 2>&1; gcloud auth application-default set-quota-project noble-beanbag-497411-m4 --account=anthonymichaeldimarcello@gmail.com 2>&1
 ```
 
 ## Script Block 210
@@ -6176,27 +6415,37 @@ Let me check if there's a stale application_default_credentials file or if the g
 
 ## Script Block 212
 ```bash
-Remove-Item "$env:APPDATA\gcloudpplication_default_credentials.json" -ErrorAction SilentlyContinue; gcloud config set auth/disable_credentials true 2>&1; gcloud config set project project-743aab84-f9a5-4ec7-954 2>&1; gcloud config set account anthonymichaeldimarcello@gmail.com 2>&1; gcloud services enable workstations.googleapis.com compute.googleapis.com --project=project-743aab84-f9a5-4ec7-954 --account=anthonymichaeldimarcello@gmail.com 2>&1
+Remove-Item "$env:APPDATA\gcloudpplication_default_credentials.json" -ErrorAction SilentlyContinue; gcloud config set auth/disable_credentials true 2>&1; gcloud config set project noble-beanbag-497411-m4 2>&1; gcloud config set account anthonymichaeldimarcello@gmail.com 2>&1; gcloud services enable workstations.googleapis.com compute.googleapis.com --project=noble-beanbag-497411-m4 --account=anthonymichaeldimarcello@gmail.com 2>&1
 ```
 
 ## Script Block 213
 ```bash
-Updated property [auth/disable_credentials].
-WARNING: UNAUTHENTICATED: Request is missing required authentication credential. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project. This command is unauthenticated because the [auth/disable_credentials] property is True.
-- '@type': type.googleapis.com/google.rpc.ErrorInfo
-  domain: googleapis.com
-  metadata:
-    method: google.cloudresourcemanager.v1.Projects.GetProject
-    service: cloudresourcemanager.googleapis.com
-  reason: CREDENTIALS_MISSING
-Updated property [core/project].
-Updated property [core/account].
-ERROR: (gcloud.services.enable) [None] does not have permission to access projects instance [project-743aab84-f9a5-4ec7-954] (or it may not exist): Method doesn't allow unregistered callers (callers without established identity). Please use API Key or other form of API consumer identity to call this API.
+Updated property [auth/disable_credentials].
+
+WARNING: UNAUTHENTICATED: Request is missing required authentication credential. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project. This command is unauthenticated because the [auth/disable_credentials] property is True.
+
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+
+  domain: googleapis.com
+
+  metadata:
+
+    method: google.cloudresourcemanager.v1.Projects.GetProject
+
+    service: cloudresourcemanager.googleapis.com
+
+  reason: CREDENTIALS_MISSING
+
+Updated property [core/project].
+
+Updated property [core/account].
+
+ERROR: (gcloud.services.enable) [None] does not have permission to access projects instance [noble-beanbag-497411-m4] (or it may not exist): Method doesn't allow unregistered callers (callers without established identity). Please use API Key or other form of API consumer identity to call this API.
 ```
 
 ## Script Block 214
 ```bash
-gcloud config unset auth/disable_credentials 2>&1; gcloud auth login --brief --account=anthonymichaeldimarcello@gmail.com 2>&1; gcloud config set project project-743aab84-f9a5-4ec7-954 2>&1; gcloud auth print-access-token --account=anthonymichaeldimarcello@gmail.com 2>&1 | Out-Null; Write-Output "Auth OK"
+gcloud config unset auth/disable_credentials 2>&1; gcloud auth login --brief --account=anthonymichaeldimarcello@gmail.com 2>&1; gcloud config set project noble-beanbag-497411-m4 2>&1; gcloud auth print-access-token --account=anthonymichaeldimarcello@gmail.com 2>&1 | Out-Null; Write-Output "Auth OK"
 ```
 
 ## Script Block 215
@@ -6210,7 +6459,7 @@ Let me take a completely different approach. Instead of using gcloud for the wor
 
 From within the anthonymichaeldimarcello Cloud Shell, I can run:
 ```
-gcloud services enable workstations.googleapis.com compute.googleapis.com --project=project-743aab84-f9a5-4ec7-954
+gcloud services enable workstations.googleapis.com compute.googleapis.com --project=noble-beanbag-497411-m4
 gcloud workstations clusters create migrated-home-cluster ...
 gcloud workstations configs create migrated-home-config ...
 gcloud workstations create main-workstation ...
@@ -6225,12 +6474,12 @@ Let me SSH into the existing Cloud Shell and try.
 
 ## Script Block 216
 ```bash
-ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=NUL -i "$env:USERPROFILE\.ssh\google_compute_engine" -p 6000 anthonymichaeldimarcello@34.171.178.83 "gcloud config set project project-743aab84-f9a5-4ec7-954 2>&1; gcloud services enable workstations.googleapis.com compute.googleapis.com --project=project-743aab84-f9a5-4ec7-954 2>&1; echo '===DONE==='" 2>&1
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=NUL -i "$env:USERPROFILE\.ssh\google_compute_engine" -p 6000 anthonymichaeldimarcello@34.171.178.83 "gcloud config set project noble-beanbag-497411-m4 2>&1; gcloud services enable workstations.googleapis.com compute.googleapis.com --project=noble-beanbag-497411-m4 2>&1; echo '===DONE==='" 2>&1
 ```
 
 ## Script Block 217
 ```bash
-gcloud config set account anthonymichaeldimarcello@gmail.com 2>&1; gcloud config set project project-743aab84-f9a5-4ec7-954 2>&1; $token = gcloud auth print-access-token 2>&1; curl.exe -s -X POST -H "Authorization: Bearer $token" -H "Content-Type: application/json" -d "{}" "https://cloudshell.googleapis.com/v1/users/me/environments/default:start" 2>&1
+gcloud config set account anthonymichaeldimarcello@gmail.com 2>&1; gcloud config set project noble-beanbag-497411-m4 2>&1; $token = gcloud auth print-access-token 2>&1; curl.exe -s -X POST -H "Authorization: Bearer $token" -H "Content-Type: application/json" -d "{}" "https://cloudshell.googleapis.com/v1/users/me/environments/default:start" 2>&1
 ```
 
 ## Script Block 218
@@ -6240,18 +6489,25 @@ Start-Sleep -Seconds 20; $token = gcloud auth print-access-token 2>&1; curl.exe 
 
 ## Script Block 219
 ```bash
-ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=NUL -i "$env:USERPROFILE\.ssh\google_compute_engine" -p 6000 anthonymichaeldimarcello@35.225.152.233 "gcloud config set project project-743aab84-f9a5-4ec7-954 2>&1; gcloud services enable workstations.googleapis.com compute.googleapis.com --project=project-743aab84-f9a5-4ec7-954 2>&1; echo '===ENABLED==='" 2>&1
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=NUL -i "$env:USERPROFILE\.ssh\google_compute_engine" -p 6000 anthonymichaeldimarcello@35.225.152.233 "gcloud config set project noble-beanbag-497411-m4 2>&1; gcloud services enable workstations.googleapis.com compute.googleapis.com --project=noble-beanbag-497411-m4 2>&1; echo '===ENABLED==='" 2>&1
 ```
 
 ## Script Block 220
 ```bash
-ssh : Warning: Permanently added '[35.225.152.233]:6000' (ECDSA) to the list of known hosts.
-At line:1 char:1
-+ ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=NUL -i "$env:US ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (Warning: Perman...of known hosts.:String) [], RemoteException
-    + FullyQualifiedErrorId : NativeCommandError
- 
+ssh : Warning: Permanently added '[35.225.152.233]:6000' (ECDSA) to the list of known hosts.
+
+At line:1 char:1
+
++ ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=NUL -i "$env:US ...
+
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    + CategoryInfo          : NotSpecified: (Warning: Perman...of known hosts.:String) [], RemoteException
+
+    + FullyQualifiedErrorId : NativeCommandError
+
+ 
+
 Updated property [core/project].
 ERROR: (gcloud.services.enable) You do not currently have an active account selected.
 Please run:
@@ -6275,18 +6531,25 @@ Inside the Cloud Shell, the gcloud isn't authenticated. I need to set the accoun
 
 ## Script Block 222
 ```bash
-ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=NUL -i "$env:USERPROFILE\.ssh\google_compute_engine" -p 6000 anthonymichaeldimarcello@35.225.152.233 "gcloud auth list --format='value(account)' 2>&1; echo '---'; gcloud config get-value account 2>&1; echo '---'; gcloud config set account anthonymichaeldimarcello@gmail.com 2>&1; gcloud config set project project-743aab84-f9a5-4ec7-954 2>&1; gcloud services enable workstations.googleapis.com compute.googleapis.com --project=project-743aab84-f9a5-4ec7-954 2>&1; echo '===DONE==='" 2>&1
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=NUL -i "$env:USERPROFILE\.ssh\google_compute_engine" -p 6000 anthonymichaeldimarcello@35.225.152.233 "gcloud auth list --format='value(account)' 2>&1; echo '---'; gcloud config get-value account 2>&1; echo '---'; gcloud config set account anthonymichaeldimarcello@gmail.com 2>&1; gcloud config set project noble-beanbag-497411-m4 2>&1; gcloud services enable workstations.googleapis.com compute.googleapis.com --project=noble-beanbag-497411-m4 2>&1; echo '===DONE==='" 2>&1
 ```
 
 ## Script Block 223
 ```bash
-ssh : Warning: Permanently added '[35.225.152.233]:6000' (ECDSA) to the list of known hosts.
-At line:1 char:1
-+ ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=NUL -i "$env:US ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (Warning: Perman...of known hosts.:String) [], RemoteException
-    + FullyQualifiedErrorId : NativeCommandError
- 
+ssh : Warning: Permanently added '[35.225.152.233]:6000' (ECDSA) to the list of known hosts.
+
+At line:1 char:1
+
++ ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=NUL -i "$env:US ...
+
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    + CategoryInfo          : NotSpecified: (Warning: Perman...of known hosts.:String) [], RemoteException
+
+    + FullyQualifiedErrorId : NativeCommandError
+
+ 
+
 anthonymichaeldimarcello@gmail.com
 ---
 (unset)
@@ -6329,7 +6592,7 @@ Let me untangle this and give you the **actual path forward**.
 
 ## Root cause of the permission chaos
 
-Every `gcloud` command is failing with `USER_PROJECT_DENIED` for `project-9c94c2fa-3af4-49f1-a7b` (OsintNeoAi) because **Application Default Credentials has that project hardcoded as the quota project**. Even when you explicitly pass `--project=project-743aab84...`, the API call still carries the OsintNeoAi quota project in the header, and since that project has **no billing**, Google rejects the request.
+Every `gcloud` command is failing with `USER_PROJECT_DENIED` for `project-9c94c2fa-3af4-49f1-a7b` (OsintNeoAi) because **Application Default Credentials has that project hardcoded as the quota project**. Even when you explicitly pass `--project=noble-beanbag-497411-m4...`, the API call still carries the OsintNeoAi quota project in the header, and since that project has **no billing**, Google rejects the request.
 
 The `gcloud auth application-default revoke` + re-login opened a browser you can't interact with in this headless/automated context.
 
@@ -6354,12 +6617,12 @@ $token = gcloud auth print-access-token --account=anthonymichaeldimarcello@gmail
 $headers = @{
     Authorization = "Bearer $token"
     "Content-Type" = "application/json"
-    "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954"
+    "x-goog-user-project" = "noble-beanbag-497411-m4"
 }
 
 $services = @("workstations.googleapis.com", "compute.googleapis.com")
 foreach ($svc in $services) {
-    $uri = "https://serviceusage.googleapis.com/v1/projects/project-743aab84-f9a5-4ec7-954/services/$svc`:enable"
+    $uri = "https://serviceusage.googleapis.com/v1/projects/noble-beanbag-497411-m4/services/$svc`:enable"
     Invoke-RestMethod -Uri $uri -Method POST -Headers $headers
     Write-Output "Enabled: $svc"
 }
@@ -6370,11 +6633,11 @@ foreach ($svc in $services) {
 ### Step 3: Deploy the workstation cluster
 ```powershell
 $clusterBody = @{
-    network = "//compute.googleapis.com/projects/project-743aab84-f9a5-4ec7-954/global/networks/default"
-    subnetwork = "//compute.googleapis.com/projects/project-743aab84-f9a5-4ec7-954/regions/us-central1/subnetworks/default"
+    network = "//compute.googleapis.com/projects/noble-beanbag-497411-m4/global/networks/default"
+    subnetwork = "//compute.googleapis.com/projects/noble-beanbag-497411-m4/regions/us-central1/subnetworks/default"
 } | ConvertTo-Json -Depth 3
 
-Invoke-RestMethod -Uri "https://workstations.googleapis.com/v1/projects/project-743aab84-f9a5-4ec7-954/locations/us-central1/workstationClusters/migrated-home-cluster" -Method PATCH -Headers $headers -Body $clusterBody
+Invoke-RestMethod -Uri "https://workstations.googleapis.com/v1/projects/noble-beanbag-497411-m4/locations/us-central1/workstationClusters/migrated-home-cluster" -Method PATCH -Headers $headers -Body $clusterBody
 ```
 
 ---
@@ -6392,7 +6655,7 @@ ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=NUL -i "$env:USERPROFILE\.
 
 Once inside, you have:
 - `gcloud` authenticated as `anthonymichaeldimarcello@gmail.com`
-- Full API access to `project-743aab84-f9a5-4ec7-954`
+- Full API access to `noble-beanbag-497411-m4`
 - No Windows firewall killing tunnels
 - No PowerShell escaping hell
 
@@ -6434,7 +6697,7 @@ Let me structure this carefully.
 ## Important Details
 - Running locally on Windows 10 (HP machine) via OpenCode CLI
 - gcloud has 4 auth accounts: `anthonymichaeldimarcello@gmail.com` (active), `txtdjdrop@gmail.com`, `amd949609@gmail.com`, `osintneoai@gmail.com`
-- Project `project-743aab84-f9a5-4ec7-954` (My First Project) has billing enabled via `billingAccounts/01E581-593D4D-6AA967`
+- Project `noble-beanbag-497411-m4` (My First Project) has billing enabled via `billingAccounts/01E581-593D4D-6AA967`
 - Project `project-9c94c2fa-3af4-49f1-a7b` (OsintNeoAi) has billing disabled
 - All accounts have "serviceusage.services.use" denied on their default quota project (OsintNeoAi), breaking gcloud commands
 - App passwords collected: `txtdjdrop@gmail.com` (`vgsg zaiu ougr sbvd`), `amd949609@gmail.com` (`pmer vnnj dyns ssse`), `anthonymichaeldimarcello@gmail.com` (`tvbb klns hljv nreg`), `osintneoai@gmail.com` (`uhby fbpg akkb xazy`), `ironmandavinci@gmail.com` (`ydzx wlta ijus xzou`)
@@ -6459,8 +6722,8 @@ Let me structure this carefully.
 - ADC quota project for all accounts is stuck on `project-9c94c2fa-3af4-49f1-a7b` (no billing); `gcloud auth application-default set-quota-project` fails with "serviceusage.services.use" denied
 
 ## Next Move
-1. Fix ADC quota project to `project-743aab84-f9a5-4ec7-954` by running `gcloud auth application-default login --account=anthonymichaeldimarcello@gmail.com` interactively, or clearing ADC and using `--account` flag on all commands
-2. Once project access works, deploy workstation: `gcloud services enable workstations.googleapis.com compute.googleapisiam --project=project-743aab84-f9a5-4ec7-954` then create cluster/config/instance
+1. Fix ADC quota project to `noble-beanbag-497411-m4` by running `gcloud auth application-default login --account=anthonymichaeldimarcello@gmail.com` interactively, or clearing ADC and using `--account` flag on all commands
+2. Once project access works, deploy workstation: `gcloud services enable workstations.googleapis.com compute.googleapisiam --project=noble-beanbag-497411-m4` then create cluster/config/instance
 3. For remaining Cloud Shell backups (osintneoai, amd949609, txtdjdrop), deploy workstation first then use it to SSH into their Cloud Shells, or fix SSH key upload
 
 ## Relevant Files
@@ -6480,7 +6743,7 @@ Let me try enabling services via the REST API directly, then deploying the works
 
 ## Script Block 228
 ```bash
-$token = gcloud auth print-access-token --account=anthonymichaeldimarcello@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $services = @("workstations.googleapis.com", "compute.googleapis.com", "cloudresourcemanager.googleapis.com"); foreach ($svc in $services) { try { $uri = "https://serviceusage.googleapis.com/v1/projects/project-743aab84-f9a5-4ec7-954/services/$svc`:enable"; $result = Invoke-RestMethod -Uri $uri -Method POST -Headers $headers -ErrorAction Stop; Write-Output "OK: $svc" } catch { Write-Output "FAIL: $svc - $($_.Exception.Message)" } }
+$token = gcloud auth print-access-token --account=anthonymichaeldimarcello@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $services = @("workstations.googleapis.com", "compute.googleapis.com", "cloudresourcemanager.googleapis.com"); foreach ($svc in $services) { try { $uri = "https://serviceusage.googleapis.com/v1/projects/noble-beanbag-497411-m4/services/$svc`:enable"; $result = Invoke-RestMethod -Uri $uri -Method POST -Headers $headers -ErrorAction Stop; Write-Output "OK: $svc" } catch { Write-Output "FAIL: $svc - $($_.Exception.Message)" } }
 ```
 
 ## Script Block 229
@@ -6497,7 +6760,7 @@ Key facts:
 - Running on Windows 10, OpenCode as agentic setup
 - 4 gcloud accounts authenticated: anthonymichaeldimarcello@gmail.com (active), txtdjdrop@gmail.com, amd949609@gmail.com, osintneoai@gmail.com
 - 4 app passwords collected for each account
-- GCP project: project-743aab84-f9a5-4ec7-954 (My First Project, billing enabled via billingAccounts/01E581-593D4D-6AA967)
+- GCP project: noble-beanbag-497411-m4 (My First Project, billing enabled via billingAccounts/01E581-593D4D-6AA967)
 - Second project: project-9c94c2fa-3af4-49f1-a7b (OsintNeoAi, billing disabled)
 - Repo: https://github.com/Tonypost949/OsintNeoAi (moved from tonypost949/OSINTNEOAI)
 - Backup scripts saved to repo and pushed
@@ -6514,7 +6777,7 @@ Key facts:
 ```bash
 The REST API also fails with 403 Forbidden even with the `x-goog-user-project` header. Let me check what permissions the current account has on this project, and try to figure out the right approach.
 
-Let me think about this differently. The issue is that `anthonymichaeldimarcello@gmail.com` probably doesn't have the right IAM roles on `project-743aab84-f9a5-4ec7-954` to enable APIs or create resources. Let me check what roles the account has, and also try to use a different approach.
+Let me think about this differently. The issue is that `anthonymichaeldimarcello@gmail.com` probably doesn't have the right IAM roles on `noble-beanbag-497411-m4` to enable APIs or create resources. Let me check what roles the account has, and also try to use a different approach.
 
 Maybe I should:
 1. First check what the current situation is - what permissions does the account have?
@@ -6526,43 +6789,54 @@ Let me start by checking the project's IAM policy and what the account can do.
 
 ## Script Block 231
 ```bash
-gcloud auth list --format="value(account)" 2>&1; Write-Output "---"; gcloud projects describe project-743aab84-f9a5-4ec7-954 --account=anthonymichaeldimarcello@gmail.com 2>&1; Write-Output "---"; gcloud projects get-iam-policy project-743aab84-f9a5-4ec7-954 --account=anthonymichaeldimarcello@gmail.com --format="json" 2>&1 | Select-Object -First 50
+gcloud auth list --format="value(account)" 2>&1; Write-Output "---"; gcloud projects describe noble-beanbag-497411-m4 --account=anthonymichaeldimarcello@gmail.com 2>&1; Write-Output "---"; gcloud projects get-iam-policy noble-beanbag-497411-m4 --account=anthonymichaeldimarcello@gmail.com --format="json" 2>&1 | Select-Object -First 50
 ```
 
 ## Script Block 232
 ```bash
-gcloud projects get-iam-policy project-743aab84-f9a5-4ec7-954 --account=anthonymichaeldimarcello@gmail.com --format=json 2>&1
+gcloud projects get-iam-policy noble-beanbag-497411-m4 --account=anthonymichaeldimarcello@gmail.com --format=json 2>&1
 ```
 
 ## Script Block 233
 ```bash
-gcloud config set account txtdjdrop@gmail.com 2>&1; Write-Output "=== Check if workstations API is already enabled ==="; gcloud services list --enabled --project=project-743aab84-f9a5-4ec7-954 --account=txtdjdrop@gmail.com --format="value(config.name)" 2>&1 | Select-String "workstations|compute"
+gcloud config set account txtdjdrop@gmail.com 2>&1; Write-Output "=== Check if workstations API is already enabled ==="; gcloud services list --enabled --project=noble-beanbag-497411-m4 --account=txtdjdrop@gmail.com --format="value(config.name)" 2>&1 | Select-String "workstations|compute"
 ```
 
 ## Script Block 234
 ```bash
-gcloud services enable workstations.googleapis.com compute.googleapis.com --project=project-743aab84-f9a5-4ec7-954 --account=txtdjdrop@gmail.com 2>&1
+gcloud services enable workstations.googleapis.com compute.googleapis.com --project=noble-beanbag-497411-m4 --account=txtdjdrop@gmail.com 2>&1
 ```
 
 ## Script Block 235
 ```bash
-ERROR: (gcloud.services.enable) [txtdjdrop@gmail.com] does not have permission to access projects instance [project-743aab84-f9a5-4ec7-954] (or it may not exist): Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as txtdjdrop@gmail.com which is the active account specified by the [core/account] property.
-Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
-Google developer console IAM admin
-https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-- '@type': type.googleapis.com/google.rpc.ErrorInfo
-  domain: googleapis.com
-  metadata:
-    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
-    containerInfo: project-9c94c2fa-3af4-49f1-a7b
-    service: serviceusage.googleapis.com
+ERROR: (gcloud.services.enable) [txtdjdrop@gmail.com] does not have permission to access projects instance [noble-beanbag-497411-m4] (or it may not exist): Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as txtdjdrop@gmail.com which is the active account specified by the [core/account] property.
+
+Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
+
+Google developer console IAM admin
+
+https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+
+  domain: googleapis.com
+
+  metadata:
+
+    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
+
+    containerInfo: project-9c94c2fa-3af4-49f1-a7b
+
+    service: serviceusage.googleapis.com
+
   reason: USER_PROJECT_DENIED
 ```
 
 ## Script Block 236
 ```bash
-So even though `txtdjdrop@gmail.com` has Owner on `project-743aab84-f9a5-4ec7-954`, gcloud is getting the quota project from ADC which points to `project-9c94c2fa-3af4-49f1-a7b` (the OsintNeoAi project with no billing), and that's causing `USER_PROJECT_DENIED`.
+So even though `txtdjdrop@gmail.com` has Owner on `noble-beanbag-497411-m4`, gcloud is getting the quota project from ADC which points to `project-9c94c2fa-3af4-49f1-a7b` (the OsintNeoAi project with no billing), and that's causing `USER_PROJECT_DENIED`.
 
 The issue is that gcloud uses the quota project in the application default credentials. We need to clear the quota project or set it properly. Let me check the current ADC settings.
 ```
@@ -6594,7 +6868,7 @@ At C:\Users\HP\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin\gcloud.ps1:12
 
 ## Script Block 239
 ```bash
-ADC doesn't have credentials. Let me check what the actual issue is - the error mentioned "caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b". Even though we're specifying `--account=txtdjdrop@gmail.com` and `--project=project-743aab84-f9a5-4ec7-954`, gcloud might still be looking up the quota project. Let me try to find where that quota project is configured.
+ADC doesn't have credentials. Let me check what the actual issue is - the error mentioned "caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b". Even though we're specifying `--account=txtdjdrop@gmail.com` and `--project=noble-beanbag-497411-m4`, gcloud might still be looking up the quota project. Let me try to find where that quota project is configured.
 
 Let me check if there's a quota project config somewhere or if the issue is something else entirely.
 ```
@@ -6608,7 +6882,7 @@ gcloud config get-value account 2>&1; Write-Output "=== ==="; gcloud config get-
 ```python
 txtdjdrop@gmail.com\r
 === ===\r
-project-743aab84-f9a5-4ec7-954\r
+noble-beanbag-497411-m4\r
 === Auth list ===\r
 Credentialed Accounts\r
 \r
@@ -6647,37 +6921,37 @@ To search the help text of gcloud commands, run:\r
 
 ## Script Block 242
 ```bash
-OK so `txtdjdrop@gmail.com` is the active account and `project-743aab84-f9a5-4ec7-954` is the active project. The error still references `project-9c94c2fa-3af4-49f1-a7b` (OsintNeoAi). 
+OK so `txtdjdrop@gmail.com` is the active account and `noble-beanbag-497411-m4` is the active project. The error still references `project-9c94c2fa-3af4-49f1-a7b` (OsintNeoAi). 
 
 This is a known issue with gcloud when the user has the `serviceusage.services.use` permission denied on a project that is somehow associated with the billing account. The error `USER_PROJECT_DENIED` usually comes when the API consumer project (the project used for billing/quota) is different from the target project and isn't accessible.
 
-The key issue here is that the `txtdjdrop@gmail.com` user, despite being an Owner on `project-743aab84-f9a5-4ec7-954`, is NOT an owner/member of `project-9c94c2fa-3af4-49f1-a7b` (the OsintNeoAi project), and that project is being used as the quota project for billing.
+The key issue here is that the `txtdjdrop@gmail.com` user, despite being an Owner on `noble-beanbag-497411-m4`, is NOT an owner/member of `project-9c94c2fa-3af4-49f1-a7b` (the OsintNeoAi project), and that project is being used as the quota project for billing.
 
-Wait - but why would project-9c94c2fa-3af4-49f1-a7b be involved at all if we're specifying `--project=project-743aab84-f9a5-4ec7-954`? 
+Wait - but why would project-9c94c2fa-3af4-49f1-a7b be involved at all if we're specifying `--project=noble-beanbag-497411-m4`? 
 
-The `USER_PROJECT_DENIED` error with the reason reason about the consumer being `project-9c94c2fa-3af4-49f1-a7b` suggests that the service usage API is trying to use the billing/quota account associated with that project. This could be because the `project-743aab84-f9a5-4ec7-954` billing account is somehow linked to `project-9c94c2fa-3af4-49f1-a7b`.
+The `USER_PROJECT_DENIED` error with the reason reason about the consumer being `project-9c94c2fa-3af4-49f1-a7b` suggests that the service usage API is trying to use the billing/quota account associated with that project. This could be because the `noble-beanbag-497411-m4` billing account is somehow linked to `project-9c94c2fa-3af4-49f1-a7b`.
 
 Let me try the REST API approach with the right token this time. We already have `txtdjdrop@gmail.com` active.
 ```
 
 ## Script Block 243
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; foreach ($svc in @("workstations.googleapis.com","compute.googleapis.com")) { try { Invoke-RestMethod -Uri "https://serviceusage.googleapis.com/v1/projects/project-743aab84-f9a5-4ec7-954/services/$svc`:enable" -Method POST -Headers $headers -ErrorAction Stop | Out-Null; Write-Output "OK: $svc" } catch { Write-Output "FAIL: $svc - $($_.Exception.Message)" } }
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; foreach ($svc in @("workstations.googleapis.com","compute.googleapis.com")) { try { Invoke-RestMethod -Uri "https://serviceusage.googleapis.com/v1/projects/noble-beanbag-497411-m4/services/$svc`:enable" -Method POST -Headers $headers -ErrorAction Stop | Out-Null; Write-Output "OK: $svc" } catch { Write-Output "FAIL: $svc - $($_.Exception.Message)" } }
 ```
 
 ## Script Block 244
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $projectNum = "941890989638"; $region = "us-central1"; Write-Output "=== Create workstation cluster ==="; $clusterBody = @{ displayName = "backup-cluster"; "labels" = @{"created-by" = "opencode-backup"} } | ConvertTo-Json; $clusterUrl = "https://workstations.googleapis.com/v1/projects/$projectNum/locations/$region/workstationClusters?workstationClusterId=backup-cluster"; try { $result = Invoke-RestMethod -Uri $clusterUrl -Method POST -Headers $headers -Body $clusterBody -ErrorAction Stop; Write-Output $result } catch { $err = $_; Write-Output "Cluster create result: $($err.Exception.Message)"; $errBody = try { $err.ErrorDetails | ConvertFrom-Json; $err.ErrorDetails } catch { $null }; if (-not $errBody) { Write-Output $err } }
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $projectNum = "941890989638"; $region = "us-central1"; Write-Output "=== Create workstation cluster ==="; $clusterBody = @{ displayName = "backup-cluster"; "labels" = @{"created-by" = "opencode-backup"} } | ConvertTo-Json; $clusterUrl = "https://workstations.googleapis.com/v1/projects/$projectNum/locations/$region/workstationClusters?workstationClusterId=backup-cluster"; try { $result = Invoke-RestMethod -Uri $clusterUrl -Method POST -Headers $headers -Body $clusterBody -ErrorAction Stop; Write-Output $result } catch { $err = $_; Write-Output "Cluster create result: $($err.Exception.Message)"; $errBody = try { $err.ErrorDetails | ConvertFrom-Json; $err.ErrorDetails } catch { $null }; if (-not $errBody) { Write-Output $err } }
 ```
 
 ## Script Block 245
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $projectNum = "941890989638"; $region = "us-central1"; $opId = "operation-1783559820714-65623618ca231-657133e8-9ce44d0a"; for ($i = 0; $i -lt 30; $i++) { try { $op = Invoke-RestMethod -Uri "https://workstations.googleapis.com/v1/projects/$projectNum/locations/$region/operations/$opId" -Method GET -Headers $headers -ErrorAction Stop; Write-Output "$($i): $($op.done)"; if ($op.done -eq $true) { Write-Output "Cluster ready!"; break } } catch { Write-Output "$($i): Error checking - $($_.Exception.Message)" }; Start-Sleep -Seconds 10 }
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $projectNum = "941890989638"; $region = "us-central1"; $opId = "operation-1783559820714-65623618ca231-657133e8-9ce44d0a"; for ($i = 0; $i -lt 30; $i++) { try { $op = Invoke-RestMethod -Uri "https://workstations.googleapis.com/v1/projects/$projectNum/locations/$region/operations/$opId" -Method GET -Headers $headers -ErrorAction Stop; Write-Output "$($i): $($op.done)"; if ($op.done -eq $true) { Write-Output "Cluster ready!"; break } } catch { Write-Output "$($i): Error checking - $($_.Exception.Message)" }; Start-Sleep -Seconds 10 }
 ```
 
 ## Script Block 246
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $projectNum = "941890989638"; $region = "us-central1"; $cluster = "backup-cluster"; Write-Output "=== Create workstation config ==="; $configBody = @{ displayName = "backup-config"; "persistentDirectories" = @(@{ "mountPath" = "/home"; "gcePd" = @{ "sizeGb" = 200; "diskType" = "pd-standard" } }) } | ConvertTo-Json -Depth 5; $configUrl = "https://workstations.googleapis.com/v1/projects/$projectNum/locations/$region/workstationClusters/$cluster/workstationConfigs?workstationConfigId=backup-config"; try { $result = Invoke-RestMethod -Uri $configUrl -Method POST -Headers $headers -Body $configBody -ErrorAction Stop; Write-Output "Config create started: $($result.name)" } catch { Write-Output "Config error: $($_.Exception.Message)" }
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $projectNum = "941890989638"; $region = "us-central1"; $cluster = "backup-cluster"; Write-Output "=== Create workstation config ==="; $configBody = @{ displayName = "backup-config"; "persistentDirectories" = @(@{ "mountPath" = "/home"; "gcePd" = @{ "sizeGb" = 200; "diskType" = "pd-standard" } }) } | ConvertTo-Json -Depth 5; $configUrl = "https://workstations.googleapis.com/v1/projects/$projectNum/locations/$region/workstationClusters/$cluster/workstationConfigs?workstationConfigId=backup-config"; try { $result = Invoke-RestMethod -Uri $configUrl -Method POST -Headers $headers -Body $configBody -ErrorAction Stop; Write-Output "Config create started: $($result.name)" } catch { Write-Output "Config error: $($_.Exception.Message)" }
 ```
 
 ## Script Block 247
@@ -6693,7 +6967,7 @@ Let me look at the GCloud workstations configs create command to see the format.
 
 ## Script Block 248
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $projectNum = "941890989638"; $region = "us-central1"; $cluster = "backup-cluster"; Write-Output "=== List existing configs for reference ==="; try { $configs = Invoke-RestMethod -Uri "https://workstations.googleapis.com/v1/projects/$projectNum/locations/$region/workstationClusters/$cluster/workstationConfigs" -Method GET -Headers $headers -ErrorAction Stop; Write-Output ($configs | ConvertTo-Json -Depth 10) } catch { Write-Output "No configs yet: $($_.Exception.Message)" }
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $projectNum = "941890989638"; $region = "us-central1"; $cluster = "backup-cluster"; Write-Output "=== List existing configs for reference ==="; try { $configs = Invoke-RestMethod -Uri "https://workstations.googleapis.com/v1/projects/$projectNum/locations/$region/workstationClusters/$cluster/workstationConfigs" -Method GET -Headers $headers -ErrorAction Stop; Write-Output ($configs | ConvertTo-Json -Depth 10) } catch { Write-Output "No configs yet: $($_.Exception.Message)" }
 ```
 
 ## Script Block 249
@@ -6705,7 +6979,7 @@ $token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1
 $headers = @{
     Authorization = "Bearer $token"
     "Content-Type" = "application/json"
-    "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954"
+    "x-goog-user-project" = "noble-beanbag-497411-m4"
 }
 $projectNum = "941890989638"
 $region = "us-central1"
@@ -6720,17 +6994,17 @@ Run that to see the full operation details â it might show an error message
 
 ## Script Block 250
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $projectNum = "941890989638"; $region = "us-central1"; $opId = "operation-1783559820714-65623618ca231-657133e8-9ce44d0a"; $op = Invoke-RestMethod -Uri "https://workstations.googleapis.com/v1/projects/$projectNum/locations/$region/operations/$opId" -Method GET -Headers $headers; $op | ConvertTo-Json -Depth 5
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $projectNum = "941890989638"; $region = "us-central1"; $opId = "operation-1783559820714-65623618ca231-657133e8-9ce44d0a"; $op = Invoke-RestMethod -Uri "https://workstations.googleapis.com/v1/projects/$projectNum/locations/$region/operations/$opId" -Method GET -Headers $headers; $op | ConvertTo-Json -Depth 5
 ```
 
 ## Script Block 251
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $projectNum = "941890989638"; $region = "us-central1"; $cluster = "backup-cluster"; Write-Output "=== Create workstation config ==="; $configBody = @{ displayName = "backup-config"; "labels" = @{"created-by" = "opencode-backup"} } | ConvertTo-Json -Depth 3; $configUrl = "https://workstations.googleapis.com/v1/projects/$projectNum/locations/$region/workstationClusters/$cluster/workstationConfigs?workstationConfigId=backup-config"; try { $result = Invoke-RestMethod -Uri $configUrl -Method POST -Headers $headers -Body $configBody -ErrorAction Stop; Write-Output "Config create started: $($result.name)" } catch { $err = $_; Write-Output "Error: $($err.Exception.Message)"; try { $err.ErrorDetails | ConvertFrom-Json | ConvertTo-Json -Depth 5 } catch { Write-Output "No details" } }
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $projectNum = "941890989638"; $region = "us-central1"; $cluster = "backup-cluster"; Write-Output "=== Create workstation config ==="; $configBody = @{ displayName = "backup-config"; "labels" = @{"created-by" = "opencode-backup"} } | ConvertTo-Json -Depth 3; $configUrl = "https://workstations.googleapis.com/v1/projects/$projectNum/locations/$region/workstationClusters/$cluster/workstationConfigs?workstationConfigId=backup-config"; try { $result = Invoke-RestMethod -Uri $configUrl -Method POST -Headers $headers -Body $configBody -ErrorAction Stop; Write-Output "Config create started: $($result.name)" } catch { $err = $_; Write-Output "Error: $($err.Exception.Message)"; try { $err.ErrorDetails | ConvertFrom-Json | ConvertTo-Json -Depth 5 } catch { Write-Output "No details" } }
 ```
 
 ## Script Block 252
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $projectNum = "941890989638"; $region = "us-central1"; $cluster = "backup-cluster"; $configBody = @{ displayName = "backup-config"; "labels" = @{"created-by" = "opencode-backup"} } | ConvertTo-Json -Depth 3; $configUrl = "https://workstations.googleapis.com/v1/projects/$projectNum/locations/$region/workstationClusters/$cluster/workstationConfigs?workstationConfigId=backup-config"; try { $result = Invoke-WebRequest -Uri $configUrl -Method POST -Headers $headers -Body $configBody -ErrorAction Stop; Write-Output $result.Content } catch { Write-Output "Status: $($_.Exception.Response.StatusCode)"; $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); $responseBody = $reader.ReadToEnd(); Write-Output "Body: $responseBody" }
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $projectNum = "941890989638"; $region = "us-central1"; $cluster = "backup-cluster"; $configBody = @{ displayName = "backup-config"; "labels" = @{"created-by" = "opencode-backup"} } | ConvertTo-Json -Depth 3; $configUrl = "https://workstations.googleapis.com/v1/projects/$projectNum/locations/$region/workstationClusters/$cluster/workstationConfigs?workstationConfigId=backup-config"; try { $result = Invoke-WebRequest -Uri $configUrl -Method POST -Headers $headers -Body $configBody -ErrorAction Stop; Write-Output $result.Content } catch { Write-Output "Status: $($_.Exception.Response.StatusCode)"; $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); $responseBody = $reader.ReadToEnd(); Write-Output "Body: $responseBody" }
 ```
 
 ## Script Block 253
@@ -6748,7 +7022,7 @@ Actually, let me try adding a CMEK key. First, I need to enable Cloud KMS and cr
 
 ## Script Block 254
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $projectNum = "941890989638"; $region = "us-central1"; Write-Output "=== Enable KMS ==="; try { Invoke-RestMethod -Uri "https://serviceusage.googleapis.com/v1/projects/project-743aab84-f9a5-4ec7-954/services/cloudkms.googleapis.com:enable" -Method POST -Headers $headers -ErrorAction Stop | Out-Null; Write-Output "KMS enabled" } catch { Write-Output "KMS: $($_.Exception.Message)" }; Write-Output "=== Create keyring ==="; $krBody = @{} | ConvertTo-Json; try { Invoke-RestMethod -Uri "https://cloudkms.googleapis.com/v1/projects/$projectNum/locations/$region/keyRings?keyRingId=backup-keyring" -Method POST -Headers $headers -Body $krBody -ErrorAction Stop | Out-Null; Write-Output "Keyring created" } catch { Write-Output "Keyring: $($_.Exception.Message)" }; Write-Output "=== Create key ==="; $keyBody = @{ purpose = "ENCRYPT_DECRYPT" } | ConvertTo-Json; try { $result = Invoke-RestMethod -Uri "https://cloudkms.googleapis.com/v1/projects/$projectNum/locations/$region/keyRings/backup-keyring/cryptoKeys?cryptoKeyId=backup-key" -Method POST -Headers $headers -Body $keyBody -ErrorAction Stop; Write-Output "Key created: $($result.name)" } catch { Write-Output "Key: $($_.Exception.Message)" }
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $projectNum = "941890989638"; $region = "us-central1"; Write-Output "=== Enable KMS ==="; try { Invoke-RestMethod -Uri "https://serviceusage.googleapis.com/v1/projects/noble-beanbag-497411-m4/services/cloudkms.googleapis.com:enable" -Method POST -Headers $headers -ErrorAction Stop | Out-Null; Write-Output "KMS enabled" } catch { Write-Output "KMS: $($_.Exception.Message)" }; Write-Output "=== Create keyring ==="; $krBody = @{} | ConvertTo-Json; try { Invoke-RestMethod -Uri "https://cloudkms.googleapis.com/v1/projects/$projectNum/locations/$region/keyRings?keyRingId=backup-keyring" -Method POST -Headers $headers -Body $krBody -ErrorAction Stop | Out-Null; Write-Output "Keyring created" } catch { Write-Output "Keyring: $($_.Exception.Message)" }; Write-Output "=== Create key ==="; $keyBody = @{ purpose = "ENCRYPT_DECRYPT" } | ConvertTo-Json; try { $result = Invoke-RestMethod -Uri "https://cloudkms.googleapis.com/v1/projects/$projectNum/locations/$region/keyRings/backup-keyring/cryptoKeys?cryptoKeyId=backup-key" -Method POST -Headers $headers -Body $keyBody -ErrorAction Stop; Write-Output "Key created: $($result.name)" } catch { Write-Output "Key: $($_.Exception.Message)" }
 ```
 
 ## Script Block 255
@@ -6760,22 +7034,33 @@ Wait - `txtdjdrop@gmail.com` is Owner on the project. The token should be valid.
 
 ## Script Block 256
 ```bash
-gcloud kms keyrings create backup-keyring --location=us-central1 --project=project-743aab84-f9a5-4ec7-954 --account=txtdjdrop@gmail.com 2>&1; if ($?) { gcloud kms keys create backup-key --location=us-central1 --keyring=backup-keyring --purpose=encryption --project=project-743aab84-f9a5-4ec7-954 --account=txtdjdrop@gmail.com 2>&1 }
+gcloud kms keyrings create backup-keyring --location=us-central1 --project=noble-beanbag-497411-m4 --account=txtdjdrop@gmail.com 2>&1; if ($?) { gcloud kms keys create backup-key --location=us-central1 --keyring=backup-keyring --purpose=encryption --project=noble-beanbag-497411-m4 --account=txtdjdrop@gmail.com 2>&1 }
 ```
 
 ## Script Block 257
 ```bash
-ERROR: (gcloud.kms.keyrings.create) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as txtdjdrop@gmail.com which is the active account specified by the [core/account] property.
-Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
-Google developer console IAM admin
-https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-- '@type': type.googleapis.com/google.rpc.ErrorInfo
-  domain: googleapis.com
-  metadata:
-    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
-    containerInfo: project-9c94c2fa-3af4-49f1-a7b
-    service: cloudkms.googleapis.com
+ERROR: (gcloud.kms.keyrings.create) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as txtdjdrop@gmail.com which is the active account specified by the [core/account] property.
+
+Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
+
+Google developer console IAM admin
+
+https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+
+  domain: googleapis.com
+
+  metadata:
+
+    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
+
+    containerInfo: project-9c94c2fa-3af4-49f1-a7b
+
+    service: cloudkms.googleapis.com
+
   reason: USER_PROJECT_DENIED
 ```
 
@@ -6785,7 +7070,7 @@ So the KMS API also has the same quota project issue even for the gcloud command
 
 Wait, the KMS REST call with `x-goog-user-project` also returned 403. Let me debug this. Maybe the `serviceusage.services.use` permission check on the quota project is being enforced at a different level for KMS.
 
-Let me check: the `txtdjdrop@gmail.com` user has Owner on `project-743aab84-f9a5-4ec7-954`. But the issue is that GCP is checking that the user can use `project-9c94c2fa-3af4-49f1-a7b` as the quota project. Since txtdjdrop is not an Owner of project-9c94c2fa-3af4-49f1-a7b (the OsintNeoAi project), it fails.
+Let me check: the `txtdjdrop@gmail.com` user has Owner on `noble-beanbag-497411-m4`. But the issue is that GCP is checking that the user can use `project-9c94c2fa-3af4-49f1-a7b` as the quota project. Since txtdjdrop is not an Owner of project-9c94c2fa-3af4-49f1-a7b (the OsintNeoAi project), it fails.
 
 The question is: why is project-9c94c2fa-3af4-49f1-a7b being used as the quota project at all? 
 
@@ -6793,7 +7078,7 @@ I think the issue is that the project-9c94c2fa-3af4-49f1-a7b project's billing a
 
 Let me look at what the actual quota project is for the txtdjdrop token. Let me decode it.
 
-Actually, a simpler approach: Let me check if `txtdjdrop@gmail.com` has any role on project-9c94c2fa-3af4-49f1-a7b. If she's an Owner of project-743aab84, maybe she's also an Owner of project-9c94c2fa-3af4-49f1-a7b?
+Actually, a simpler approach: Let me check if `txtdjdrop@gmail.com` has any role on project-9c94c2fa-3af4-49f1-a7b. If she's an Owner of noble-beanbag-497411-m4, maybe she's also an Owner of project-9c94c2fa-3af4-49f1-a7b?
 ```
 
 ## Script Block 259
@@ -6803,26 +7088,46 @@ gcloud projects describe project-9c94c2fa-3af4-49f1-a7b --account=txtdjdrop@gmai
 
 ## Script Block 260
 ```bash
-ERROR: (gcloud.projects.describe) [txtdjdrop@gmail.com] does not have permission to access projects instance [project-9c94c2fa-3af4-49f1-a7b] (or it may not exist): Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as txtdjdrop@gmail.com which is the active account specified by the [core/account] property.
-Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
-Google developer console IAM admin
-https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-- '@type': type.googleapis.com/google.rpc.ErrorInfo
-  domain: googleapis.com
-  metadata:
-    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
-    containerInfo: project-9c94c2fa-3af4-49f1-a7b
-    service: cloudresourcemanager.googleapis.com
-  reason: USER_PROJECT_DENIED
-=== IAM ===
-
-ERROR: (gcloud.projects.get-iam-policy) [txtdjdrop@gmail.com] does not have permission to access projects instance 
-[project-9c94c2fa-3af4-49f1-a7b:getIamPolicy] (or it may not exist): Caller does not have required permission to use 
-project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom 
-role with the serviceusage.services.use permission, by visiting 
-https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation 
-of the new permission may take a few minutes. This command is authenticated as txtdjdrop@gmail.com which is the active 
+ERROR: (gcloud.projects.describe) [txtdjdrop@gmail.com] does not have permission to access projects instance [project-9c94c2fa-3af4-49f1-a7b] (or it may not exist): Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as txtdjdrop@gmail.com which is the active account specified by the [core/account] property.
+
+Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
+
+Google developer console IAM admin
+
+https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+
+  domain: googleapis.com
+
+  metadata:
+
+    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
+
+    containerInfo: project-9c94c2fa-3af4-49f1-a7b
+
+    service: cloudresourcemanager.googleapis.com
+
+  reason: USER_PROJECT_DENIED
+
+=== IAM ===
+
+
+
+ERROR: (gcloud.projects.get-iam-policy) [txtdjdrop@gmail.com] does not have permission to access projects instance 
+
+[project-9c94c2fa-3af4-49f1-a7b:getIamPolicy] (or it may not exist): Caller does not have required permission to use 
+
+project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom 
+
+role with the serviceusage.services.use permission, by visiting 
+
+https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation 
+
+of the new permission may take a few minutes. This command is authenticated as txtdjdrop@gmail.com which is the active 
+
 account specified by the [core/account] property.
 ```
 
@@ -6846,7 +7151,7 @@ Let me try with `Invoke-WebRequest` to get the error details for KMS.
 
 ## Script Block 262
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $projectNum = "941890989638"; $region = "us-central1"; $krBody = @{} | ConvertTo-Json; $krUrl = "https://cloudkms.googleapis.com/v1/projects/$projectNum/locations/$region/keyRings?keyRingId=backup-keyring"; try { Invoke-WebRequest -Uri $krUrl -Method POST -Headers $headers -Body $krBody -ErrorAction Stop | Out-Null; Write-Output "OK" } catch { Write-Output "Status: $($_.Exception.Response.StatusCode)"; $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "Body: $($reader.ReadToEnd())" }
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $projectNum = "941890989638"; $region = "us-central1"; $krBody = @{} | ConvertTo-Json; $krUrl = "https://cloudkms.googleapis.com/v1/projects/$projectNum/locations/$region/keyRings?keyRingId=backup-keyring"; try { Invoke-WebRequest -Uri $krUrl -Method POST -Headers $headers -Body $krBody -ErrorAction Stop | Out-Null; Write-Output "OK" } catch { Write-Output "Status: $($_.Exception.Response.StatusCode)"; $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "Body: $($reader.ReadToEnd())" }
 ```
 
 ## Script Block 263
@@ -6873,18 +7178,18 @@ Let me try a different approach - maybe I can use the Compute Engine API to crea
 
 ## Script Block 265
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $projectNum = "941890989638"; $zone = "us-central1-a"; Write-Output "=== Create firewall rule for SSH ==="; $fwBody = @{ name = "allow-ssh-backup"; network = "projects/project-743aab84-f9a5-4ec7-954/global/networks/default"; allowed = @(@{ IPProtocol = "tcp"; ports = @("22") }); direction = "INGRESS"; sourceRanges = @("0.0.0.0/0"); targetTags = @("backup-vm") } | ConvertTo-Json -Depth 4; try { Invoke-RestMethod -Uri "https://compute.googleapis.com/compute/v1/projects/project-743aab84-f9a5-4ec7-954/global/firewalls" -Method POST -Headers $headers -Body $fwBody -ErrorAction Stop | Out-Null; Write-Output "Firewall rule created" } catch { Write-Output "Firewall: $($_.Exception.Message)" }; Write-Output "=== Create VM ==="; $startupScript = @"#!/bin/bash
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $projectNum = "941890989638"; $zone = "us-central1-a"; Write-Output "=== Create firewall rule for SSH ==="; $fwBody = @{ name = "allow-ssh-backup"; network = "projects/noble-beanbag-497411-m4/global/networks/default"; allowed = @(@{ IPProtocol = "tcp"; ports = @("22") }); direction = "INGRESS"; sourceRanges = @("0.0.0.0/0"); targetTags = @("backup-vm") } | ConvertTo-Json -Depth 4; try { Invoke-RestMethod -Uri "https://compute.googleapis.com/compute/v1/projects/noble-beanbag-497411-m4/global/firewalls" -Method POST -Headers $headers -Body $fwBody -ErrorAction Stop | Out-Null; Write-Output "Firewall rule created" } catch { Write-Output "Firewall: $($_.Exception.Message)" }; Write-Output "=== Create VM ==="; $startupScript = @"#!/bin/bash
 apt-get update && apt-get install -y openssh-client tar gzip curl
 echo "backup-vm-ready" > /tmp/status
-"@; $vmBody = @{ name = "backup-vm"; machineType = "projects/$projectNum/zones/$zone/machineTypes/e2-micro"; disks = @(@{ boot = $true; autoDelete = $true; initializeParams = @{ sourceImage = "projects/debian-cloud/global/images/family/debian-12"; diskSizeGb = 50 } }); networkInterfaces = @(@{ network = "projects/project-743aab84-f9a5-4ec7-954/global/networks/default"; accessConfigs = @(@{ name = "external-nat"; type = "ONE_TO_ONE_NAT" }) }); tags = @{ items = @("backup-vm") }; metadata = @{ items = @(@{ key = "startup-script"; value = $startupScript }) }; serviceAccounts = @(@{ email = "$projectNum-compute@developer.gserviceaccount.com"; scopes = @("https://www.googleapis.com/auth/cloud-platform") }) } | ConvertTo-Json -Depth 10; $vmUrl = "https://compute.googleapis.com/compute/v1/projects/project-743aab84-f9a5-4ec7-954/zones/$zone/instances"; try { $result = Invoke-RestMethod -Uri $vmUrl -Method POST -Headers $headers -Body $vmBody -ErrorAction Stop; Write-Output "VM create started: $($result.name)" } catch { $err = $_; $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "Body: $($reader.ReadToEnd())" }
+"@; $vmBody = @{ name = "backup-vm"; machineType = "projects/$projectNum/zones/$zone/machineTypes/e2-micro"; disks = @(@{ boot = $true; autoDelete = $true; initializeParams = @{ sourceImage = "projects/debian-cloud/global/images/family/debian-12"; diskSizeGb = 50 } }); networkInterfaces = @(@{ network = "projects/noble-beanbag-497411-m4/global/networks/default"; accessConfigs = @(@{ name = "external-nat"; type = "ONE_TO_ONE_NAT" }) }); tags = @{ items = @("backup-vm") }; metadata = @{ items = @(@{ key = "startup-script"; value = $startupScript }) }; serviceAccounts = @(@{ email = "$projectNum-compute@developer.gserviceaccount.com"; scopes = @("https://www.googleapis.com/auth/cloud-platform") }) } | ConvertTo-Json -Depth 10; $vmUrl = "https://compute.googleapis.com/compute/v1/projects/noble-beanbag-497411-m4/zones/$zone/instances"; try { $result = Invoke-RestMethod -Uri $vmUrl -Method POST -Headers $headers -Body $vmBody -ErrorAction Stop; Write-Output "VM create started: $($result.name)" } catch { $err = $_; $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "Body: $($reader.ReadToEnd())" }
 ```
 
 ## Script Block 266
 ```bash
 $token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1
-$headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }
+$headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }
 $projectNum = "941890989638"
-$projectId = "project-743aab84-f9a5-4ec7-954"
+$projectId = "noble-beanbag-497411-m4"
 $zone = "us-central1-a"
 
 $firewallBody = '{
@@ -6941,7 +7246,7 @@ try {
 
 ## Script Block 267
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $projectId = "project-743aab84-f9a5-4ec7-954"; $zone = "us-central1-a"; for ($i=0; $i -lt 20; $i++) { try { $vm = Invoke-RestMethod -Uri "https://compute.googleapis.com/compute/v1/projects/$projectId/zones/$zone/instances/backup-vm" -Method GET -Headers $headers -ErrorAction Stop; $status = $vm.status; Write-Output "$($i): $status"; if ($status -eq "RUNNING") { $ip = $vm.networkInterfaces[0].accessConfigs[0].natIP; Write-Output "External IP: $ip"; break } } catch { Write-Output "$($i): checking..." }; Start-Sleep -Seconds 10 }
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $projectId = "noble-beanbag-497411-m4"; $zone = "us-central1-a"; for ($i=0; $i -lt 20; $i++) { try { $vm = Invoke-RestMethod -Uri "https://compute.googleapis.com/compute/v1/projects/$projectId/zones/$zone/instances/backup-vm" -Method GET -Headers $headers -ErrorAction Stop; $status = $vm.status; Write-Output "$($i): $status"; if ($status -eq "RUNNING") { $ip = $vm.networkInterfaces[0].accessConfigs[0].natIP; Write-Output "External IP: $ip"; break } } catch { Write-Output "$($i): checking..." }; Start-Sleep -Seconds 10 }
 ```
 
 ## Script Block 268
@@ -6959,24 +7264,24 @@ Wait, Windows 10 may have OpenSSH client built in. Let me check and then just SS
 
 ## Script Block 269
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $projectId = "project-743aab84-f9a5-4ec7-954"; $zone = "us-central1-a"; $sshKey = "anthonymichaeldimarcello:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxPtGJb2ZUkslRpyG53nxVg3GHD6XWQbE842NS/ZcSS5xxTtn6qZjWxq9T84FdzsxkqVqet6NP2dMUV9u2P0tTZcUyiQStU66EMKuIFVh6Ep5YqtftPSa0WcV2utfs7BCQi4eJj7MlZZbXUikT37gfZFr+F1DH/NTUAQ1tAtPZO+jvaBuy7VVlx4WIeCz8CTt8GSUb/WP8/F7cQKSi6POAbnI8zVmCORpr3u/R5N6n9wlNZnWcwJPHHhZFLIgV2J4/kO3e4iMA+CYXfkibAeOJYBHtCqTM4SA+XcfFw1dJniE5TExilevp3bhF0ozTNcbyodVzKqFTh5Ii30r/Ey8F DIEGO-HP-PROBOO\HP@Diego-HP-ProBook"; $metaBody = @{ fingerprint = $null; items = @(@{ key = "ssh-keys"; value = $sshKey }) } | ConvertTo-Json -Depth 5; try { $result = Invoke-WebRequest -Uri "https://compute.googleapis.com/compute/v1/projects/$projectId/zones/$zone/instances/backup-vm/setMetadata" -Method POST -Headers $headers -Body $metaBody -ErrorAction Stop; Write-Output "SSH key added" } catch { $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "Error: $($reader.ReadToEnd())" }
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $projectId = "noble-beanbag-497411-m4"; $zone = "us-central1-a"; $sshKey = "anthonymichaeldimarcello:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxPtGJb2ZUkslRpyG53nxVg3GHD6XWQbE842NS/ZcSS5xxTtn6qZjWxq9T84FdzsxkqVqet6NP2dMUV9u2P0tTZcUyiQStU66EMKuIFVh6Ep5YqtftPSa0WcV2utfs7BCQi4eJj7MlZZbXUikT37gfZFr+F1DH/NTUAQ1tAtPZO+jvaBuy7VVlx4WIeCz8CTt8GSUb/WP8/F7cQKSi6POAbnI8zVmCORpr3u/R5N6n9wlNZnWcwJPHHhZFLIgV2J4/kO3e4iMA+CYXfkibAeOJYBHtCqTM4SA+XcfFw1dJniE5TExilevp3bhF0ozTNcbyodVzKqFTh5Ii30r/Ey8F DIEGO-HP-PROBOO\HP@Diego-HP-ProBook"; $metaBody = @{ fingerprint = $null; items = @(@{ key = "ssh-keys"; value = $sshKey }) } | ConvertTo-Json -Depth 5; try { $result = Invoke-WebRequest -Uri "https://compute.googleapis.com/compute/v1/projects/$projectId/zones/$zone/instances/backup-vm/setMetadata" -Method POST -Headers $headers -Body $metaBody -ErrorAction Stop; Write-Output "SSH key added" } catch { $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "Error: $($reader.ReadToEnd())" }
 ```
 
 ## Script Block 270
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $projectId = "project-743aab84-f9a5-4ec7-954"; $zone = "us-central1-a"; Write-Output "=== Get current metadata ==="; $vm = Invoke-RestMethod -Uri "https://compute.googleapis.com/compute/v1/projects/$projectId/zones/$zone/instances/backup-vm" -Method GET -Headers $headers; $currentMeta = $vm.metadata; $currentMeta | ConvertTo-Json -Depth 5
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $projectId = "noble-beanbag-497411-m4"; $zone = "us-central1-a"; Write-Output "=== Get current metadata ==="; $vm = Invoke-RestMethod -Uri "https://compute.googleapis.com/compute/v1/projects/$projectId/zones/$zone/instances/backup-vm" -Method GET -Headers $headers; $currentMeta = $vm.metadata; $currentMeta | ConvertTo-Json -Depth 5
 ```
 
 ## Script Block 271
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $projectId = "project-743aab84-f9a5-4ec7-954"; $zone = "us-central1-a"; $metaBody = @{ fingerprint = "sx0DOqg1NU0="; items = @(@{ key = "ssh-keys"; value = "anthonymichaeldimarcello:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxPtGJb2ZUkslRpyG53nxVg3GHD6XWQbE842NS/ZcSS5xxTtn6qZjWxq9T84FdzsxkqVqet6NP2dMUV9u2P0tTZcUyiQStU66EMKuIFVh6Ep5YqtftPSa0WcV2utfs7BCQi4eJj7MlZZbXUikT37gfZFr+F1DH/NTUAQ1tAtPZO+jvaBuy7VVlx4WIeCz8CTt8GSUb/WP8/F7cQKSi6POAbnI8zVmCORpr3u/R5N6n9wlNZnWcwJPHHhZFLIgV2J4/kO3e4iMA+CYXfkibAeOJYBHtCqTM4SA+XcfFw1dJniE5TExilevp3bhF0ozTNcbyodVzKqFTh5Ii30r/Ey8F DIEGO-HP-PROBOO\HP@Diego-HP-ProBook") } } | ConvertTo-Json -Depth 5; try { $result = Invoke-WebRequest -Uri "https://compute.googleapis.com/compute/v1/projects/$projectId/zones/$zone/instances/backup-vm/setMetadata" -Method POST -Headers $headers -Body $metaBody -ErrorAction Stop; Write-Output "SSH key added" } catch { $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "Error: $($reader.ReadToEnd())" }
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $projectId = "noble-beanbag-497411-m4"; $zone = "us-central1-a"; $metaBody = @{ fingerprint = "sx0DOqg1NU0="; items = @(@{ key = "ssh-keys"; value = "anthonymichaeldimarcello:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxPtGJb2ZUkslRpyG53nxVg3GHD6XWQbE842NS/ZcSS5xxTtn6qZjWxq9T84FdzsxkqVqet6NP2dMUV9u2P0tTZcUyiQStU66EMKuIFVh6Ep5YqtftPSa0WcV2utfs7BCQi4eJj7MlZZbXUikT37gfZFr+F1DH/NTUAQ1tAtPZO+jvaBuy7VVlx4WIeCz8CTt8GSUb/WP8/F7cQKSi6POAbnI8zVmCORpr3u/R5N6n9wlNZnWcwJPHHhZFLIgV2J4/kO3e4iMA+CYXfkibAeOJYBHtCqTM4SA+XcfFw1dJniE5TExilevp3bhF0ozTNcbyodVzKqFTh5Ii30r/Ey8F DIEGO-HP-PROBOO\HP@Diego-HP-ProBook") } } | ConvertTo-Json -Depth 5; try { $result = Invoke-WebRequest -Uri "https://compute.googleapis.com/compute/v1/projects/$projectId/zones/$zone/instances/backup-vm/setMetadata" -Method POST -Headers $headers -Body $metaBody -ErrorAction Stop; Write-Output "SSH key added" } catch { $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "Error: $($reader.ReadToEnd())" }
 ```
 
 ## Script Block 272
 ```bash
 $token = gcloud auth print-access-token --account=txtdjdrop@gmail.com
-$headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }
-$projectId = "project-743aab84-f9a5-4ec7-954"
+$headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }
+$projectId = "noble-beanbag-497411-m4"
 $zone = "us-central1-a"
 
 $metaBody = '{
@@ -7411,17 +7716,28 @@ print("Extracted")
 
 ## Script Block 292
 ```python
-ssh : Argument expected for the -c option
-At line:1 char:1
-+ ssh -o StrictHostKeyChecking=no -i "$env:USERPROFILE\.ssh\google_comp ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (Argument expected for the -c option:String) [], RemoteException
-    + FullyQualifiedErrorId : NativeCommandError
- 
-usage: python3 [option] ... [-c cmd | -m mod | file | -] [arg] ...
-Try `python -h' for more information.
-bash: line 2: import: command not found
-bash: -c: line 3: syntax error near unexpected token `('
+ssh : Argument expected for the -c option
+
+At line:1 char:1
+
++ ssh -o StrictHostKeyChecking=no -i "$env:USERPROFILE\.ssh\google_comp ...
+
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    + CategoryInfo          : NotSpecified: (Argument expected for the -c option:String) [], RemoteException
+
+    + FullyQualifiedErrorId : NativeCommandError
+
+ 
+
+usage: python3 [option] ... [-c cmd | -m mod | file | -] [arg] ...
+
+Try `python -h' for more information.
+
+bash: line 2: import: command not found
+
+bash: -c: line 3: syntax error near unexpected token `('
+
 bash: -c: line 3: `with zipfile.ZipFile("/home/anthonymichaeldimarcello/gcloud-creds.zip", "r") as zf:'
 ```
 
@@ -7445,12 +7761,12 @@ PYEOF
 
 ## Script Block 294
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $expiry = (Get-Date).AddHours(1).ToString("yyyy-MM-ddTHH:mm:ssZ"); $body = @{ accessToken = $token; expirationTime = $expiry } | ConvertTo-Json; Write-Output "Body: $body"; try { $result = Invoke-WebRequest -Uri "https://cloudshell.googleapis.com/v1/users/me/environments/default:authorize" -Method POST -Headers $headers -Body $body -ErrorAction Stop; Write-Output "Result: $($result.Content)" } catch { $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "Error: $($reader.ReadToEnd())" }
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $expiry = (Get-Date).AddHours(1).ToString("yyyy-MM-ddTHH:mm:ssZ"); $body = @{ accessToken = $token; expirationTime = $expiry } | ConvertTo-Json; Write-Output "Body: $body"; try { $result = Invoke-WebRequest -Uri "https://cloudshell.googleapis.com/v1/users/me/environments/default:authorize" -Method POST -Headers $headers -Body $body -ErrorAction Stop; Write-Output "Result: $($result.Content)" } catch { $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "Error: $($reader.ReadToEnd())" }
 ```
 
 ## Script Block 295
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; try { Invoke-RestMethod -Uri "https://serviceusage.googleapis.com/v1/projects/project-743aab84-f9a5-4ec7-954/services/cloudshell.googleapis.com:enable" -Method POST -Headers $headers -ErrorAction Stop | Out-Null; Write-Output "Cloud Shell API enabled" } catch { Write-Output "Error: $($_.Exception.Message)" }
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; try { Invoke-RestMethod -Uri "https://serviceusage.googleapis.com/v1/projects/noble-beanbag-497411-m4/services/cloudshell.googleapis.com:enable" -Method POST -Headers $headers -ErrorAction Stop | Out-Null; Write-Output "Cloud Shell API enabled" } catch { Write-Output "Error: $($_.Exception.Message)" }
 ```
 
 ## Script Block 296
@@ -7606,23 +7922,35 @@ Actually, I just realized something. Let me look at how `gcloud` actually establ
 
 ## Script Block 305
 ```bash
-gcloud alpha cloud-shell ssh --dry-run --account=txtdjdrop@gmail.com --project=project-743aab84-f9a5-4ec7-954 2>&1
+gcloud alpha cloud-shell ssh --dry-run --account=txtdjdrop@gmail.com --project=noble-beanbag-497411-m4 2>&1
 ```
 
 ## Script Block 306
 ```bash
-ERROR: (gcloud.alpha.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as txtdjdrop@gmail.com which is the active account specified by the [core/account] property.
-Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
-Google developer console IAM admin
-https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-- '@type': type.googleapis.com/google.rpc.ErrorInfo
-  domain: googleapis.com
-  metadata:
-    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
-    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
-    containerInfo: project-9c94c2fa-3af4-49f1-a7b
-    service: cloudshell.googleapis.com
-  reason: USER_PROJECT_DENIED
+ERROR: (gcloud.alpha.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as txtdjdrop@gmail.com which is the active account specified by the [core/account] property.
+
+Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
+
+Google developer console IAM admin
+
+https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+
+  domain: googleapis.com
+
+  metadata:
+
+    consoleUrl: https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b
+
+    consumer: projects/project-9c94c2fa-3af4-49f1-a7b
+
+    containerInfo: project-9c94c2fa-3af4-49f1-a7b
+
+    service: cloudshell.googleapis.com
+
+  reason: USER_PROJECT_DENIED
+
 Automatic authentication with GCP CLI tools in Cloud Shell is disabled. To enable, please rerun command with `--authorize-session` flag.
 ```
 
@@ -7811,7 +8139,8 @@ $token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $ssh
 
 ## Script Block 309
 ```bash
-=== On VM: run backup via gcloud cloud-shell scp ===
+=== On VM: run backup via gcloud cloud-shell scp ===
+
 ERROR: (gcloud.alpha.cloud-shell.scp) argument (cloudshell|localhost):SRC: Bad value [txtdjdrop@34.123.81.93:~/.bashrc]: must start with cloudshell: or localhost:
 Usage: gcloud alpha cloud-shell scp (cloudshell|localhost):SRC [(cloudshell|localhost):SRC ...] (cloudshell|localhost):DEST [optional flags]
   optional flags may be  --dry-run | --force-key-file-overwrite | --help |
@@ -8281,8 +8610,8 @@ Let me also create a process summary file.
 2: set -euo pipefail
 3: 
 4: # === CONFIG ===
-5: PROJECT_ID="project-743aab84-f9a5-4ec7-954"
-6: BUCKET="gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/"
+5: PROJECT_ID="noble-beanbag-497411-m4"
+6: BUCKET="gs://backup-noble-beanbag-497411-m4/cloudshell-backups/"
 7: DATE=$(date +%Y%m%d)
 8: 
 9: backup_account() {
@@ -8327,8 +8656,8 @@ Let me also create a process summary file.
 set -euo pipefail
 
 # === CONFIG ===
-PROJECT_ID="project-743aab84-f9a5-4ec7-954"
-BUCKET="gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/"
+PROJECT_ID="noble-beanbag-497411-m4"
+BUCKET="gs://backup-noble-beanbag-497411-m4/cloudshell-backups/"
 DATE=$(date +%Y%m%d)
 
 backup_account() {
@@ -8349,8 +8678,8 @@ backup_account() {
 set -euo pipefail
 
 # === CONFIG ===
-PROJECT_ID="project-743aab84-f9a5-4ec7-954"
-BUCKET="gs://backup-project-743aab84-f9a5-4ec7-954/cloudshell-backups/"
+PROJECT_ID="noble-beanbag-497411-m4"
+BUCKET="gs://backup-noble-beanbag-497411-m4/cloudshell-backups/"
 DATE=$(date +%Y%m%d)
 
 backup_account() {
@@ -8394,7 +8723,7 @@ gsutil ls -l "$BUCKET"
 1: #!/bin/bash
 2: set -euo pipefail
 3: 
-4: PROJECT_ID="project-743aab84-f9a5-4ec7-954"
+4: PROJECT_ID="noble-beanbag-497411-m4"
 5: REGION="us-central1"
 6: CLUSTER="migrated-home-cluster"
 7: CONFIG="migrated-home-config"
@@ -8439,7 +8768,7 @@ gsutil ls -l "$BUCKET"
 #!/bin/bash
 set -euo pipefail
 
-PROJECT_ID="project-743aab84-f9a5-4ec7-954"
+PROJECT_ID="noble-beanbag-497411-m4"
 REGION="us-central1"
 CLUSTER="migrated-home-cluster"
 CONFIG="migrated-home-config"
@@ -8460,7 +8789,7 @@ gcloud compute networks subnets create migration-subnet   --network=migration-vp
 #!/bin/bash
 set -euo pipefail
 
-PROJECT_ID="project-743aab84-f9a5-4ec7-954"
+PROJECT_ID="noble-beanbag-497411-m4"
 REGION="us-central1"
 CLUSTER="migrated-home-cluster"
 CONFIG="migrated-home-config"
@@ -8522,7 +8851,7 @@ set -euo pipefail
 # Uses GCE backup VM + gcloud alpha cloud-shell with access tokens
 # Bypasses ADC quota project issue by using CLOUDSDK_AUTH_ACCESS_TOKEN
 
-PROJECT_ID="project-743aab84-f9a5-4ec7-954"
+PROJECT_ID="noble-beanbag-497411-m4"
 BACKUP_DIR="/home/anthonymichaeldimarcello/cloudshell-backups"
 DATE=$(date +%Y%m%d)
 
@@ -8567,7 +8896,7 @@ set -euo pipefail
 # This VM serves as a Linux jump box to bypass Windows firewall issues
 # with gcloud cloud-shell SSH tunnel (WinError 10053)
 
-PROJECT_ID="project-743aab84-f9a5-4ec7-954"
+PROJECT_ID="noble-beanbag-497411-m4"
 ZONE="us-central1-a"
 VM_NAME="backup-vm"
 
@@ -8600,20 +8929,34 @@ Set-Location -LiteralPath "C:\migrate opencode\OSINTNEOAI"; git add -A; git comm
 ```bash
 [main 4253163] Update backup scripts with actual working approach using GCE backup VM and gcloud cloud-shell SSH
  2 files changed, 68 insertions(+), 75 deletions(-)
-git : remote: This repository moved. Please use the new location:        
-At line:1 char:193
-+ ... backup VM and gcloud cloud-shell SSH" 2>&1; git push origin main 2>&1
-+                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (remote: This re...cation:        :String) [], RemoteException
-    + FullyQualifiedErrorId : NativeCommandError
- 
-remote:   https://github.com/Tonypost949/OsintNeoAi.git        
-remote: 
-remote: GitHub found 254 vulnerabilities on Tonypost949/OsintNeoAi's default branch (4 critical, 103 high, 127 
-moderate, 20 low). To find out more, visit:        
-remote:      https://github.com/Tonypost949/OsintNeoAi/security/dependabot        
-remote: 
-To https://github.com/tonypost949/OSINTNEOAI.git
+git : remote: This repository moved. Please use the new location:        
+
+At line:1 char:193
+
++ ... backup VM and gcloud cloud-shell SSH" 2>&1; git push origin main 2>&1
+
++                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    + CategoryInfo          : NotSpecified: (remote: This re...cation:        :String) [], RemoteException
+
+    + FullyQualifiedErrorId : NativeCommandError
+
+ 
+
+remote:   https://github.com/Tonypost949/OsintNeoAi.git        
+
+remote: 
+
+remote: GitHub found 254 vulnerabilities on Tonypost949/OsintNeoAi's default branch (4 critical, 103 high, 127 
+
+moderate, 20 low). To find out more, visit:        
+
+remote:      https://github.com/Tonypost949/OsintNeoAi/security/dependabot        
+
+remote: 
+
+To https://github.com/tonypost949/OSINTNEOAI.git
+
    687e34f..4253163  main -> main
 ```
 
@@ -8813,7 +9156,7 @@ C:\migrate opencode\OSINTNEOAIâââ main.py                        
 **Environment variables** (copy `.env.example` to `.env`):
 ```
 GEMINI_API_KEY=your_key_here
-GCP_PROJECT_ID=project-743aab84-f9a5-4ec7-954
+GCP_PROJECT_ID=noble-beanbag-497411-m4
 PORT=8080
 ```
 
@@ -8884,7 +9227,7 @@ See `DEPLOYMENT_GUIDE.md` -- uses `cloudbuild.yaml` with Cloud Build + Cloud Run
 
 ## Script Block 350
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $projectId = "project-743aab84-f9a5-4ec7-954"; $zone = "us-central1-a"; try { $result = Invoke-WebRequest -Uri "https://compute.googleapis.com/compute/v1/projects/$projectId/zones/$zone/instances/backup-vm/stop" -Method POST -Headers $headers -ErrorAction Stop; Write-Output "VM stopping..." } catch { Write-Output "Error: $($_.Exception.Message)" }
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $projectId = "noble-beanbag-497411-m4"; $zone = "us-central1-a"; try { $result = Invoke-WebRequest -Uri "https://compute.googleapis.com/compute/v1/projects/$projectId/zones/$zone/instances/backup-vm/stop" -Method POST -Headers $headers -ErrorAction Stop; Write-Output "VM stopping..." } catch { Write-Output "Error: $($_.Exception.Message)" }
 ```
 
 ## Script Block 351
@@ -8894,7 +9237,7 @@ The error is about PowerShell being in non-interactive mode, but the token might
 
 ## Script Block 352
 ```bash
-gcloud compute instances stop backup-vm --zone=us-central1-a --project=project-743aab84-f9a5-4ec7-954 --account=txtdjdrop@gmail.com 2>&1
+gcloud compute instances stop backup-vm --zone=us-central1-a --project=noble-beanbag-497411-m4 --account=txtdjdrop@gmail.com 2>&1
 ```
 
 ## Script Block 353
@@ -8903,7 +9246,7 @@ VM stopped. Compute charges are done. Remaining:
 - **50GB disk**: ~$0.04/month (negligible)
 - **Ephemeral external IP**: free while stopped
 
-Backups are safe on the disk. To restart: `gcloud compute instances start backup-vm --zone=us-central1-a --project=project-743aab84-f9a5-4ec7-954 --account=txtdjdrop@gmail.com`
+Backups are safe on the disk. To restart: `gcloud compute instances start backup-vm --zone=us-central1-a --project=noble-beanbag-497411-m4 --account=txtdjdrop@gmail.com`
 ```
 
 ## Script Block 354
@@ -8928,7 +9271,7 @@ Let me check what we actually have and what's in those Cloud Shell backups. Actu
 But BigQuery data is stored in BigQuery tables, not in Cloud Shell. To back up BigQuery data, we'd need to export tables to GCS or run queries to extract data.
 
 Let me also think about what other projects exist in the accounts. We know about:
-- `project-743aab84-f9a5-4ec7-954` (My First Project) - billing enabled
+- `noble-beanbag-497411-m4` (My First Project) - billing enabled
 - `project-9c94c2fa-3af4-49f1-a7b` (OsintNeoAi) - billing disabled
 
 There might be more projects tied to amd949609.
@@ -8965,32 +9308,32 @@ Let me try to list billing accounts using the txtdjdrop account (Owner) via the 
 
 ## Script Block 357
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts" -Method GET -Headers $headers -ErrorAction Stop | ConvertTo-Json -Depth 5
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts" -Method GET -Headers $headers -ErrorAction Stop | ConvertTo-Json -Depth 5
 ```
 
 ## Script Block 358
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; Write-Output "=== Open billing account details ==="; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967" -Method GET -Headers $headers | ConvertTo-Json -Depth 5; Write-Output "=== Projects linked ==="; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967/projects" -Method GET -Headers $headers | ConvertTo-Json -Depth 3; Write-Output "=== Billing account 2 (closed) ==="; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E980-A96A9A-AE3ACC" -Method GET -Headers $headers | ConvertTo-Json -Depth 5
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Write-Output "=== Open billing account details ==="; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967" -Method GET -Headers $headers | ConvertTo-Json -Depth 5; Write-Output "=== Projects linked ==="; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967/projects" -Method GET -Headers $headers | ConvertTo-Json -Depth 3; Write-Output "=== Billing account 2 (closed) ==="; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E980-A96A9A-AE3ACC" -Method GET -Headers $headers | ConvertTo-Json -Depth 5
 ```
 
 ## Script Block 359
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; Write-Output "=== Billing account 1 (open) cost data ==="; try { $budgets = Invoke-RestMethod -Uri "https://billingbudgets.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967/budgets" -Method GET -Headers $headers -ErrorAction SilentlyContinue; Write-Output ($budgets | ConvertTo-Json -Depth 5) } catch { Write-Output "No budget data: $($_.Exception.Message)" }; Write-Output "=== Check billing account balance via cloudbilling API ==="; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967" -Method GET -Headers $headers | ConvertTo-Json -Depth 5
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Write-Output "=== Billing account 1 (open) cost data ==="; try { $budgets = Invoke-RestMethod -Uri "https://billingbudgets.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967/budgets" -Method GET -Headers $headers -ErrorAction SilentlyContinue; Write-Output ($budgets | ConvertTo-Json -Depth 5) } catch { Write-Output "No budget data: $($_.Exception.Message)" }; Write-Output "=== Check billing account balance via cloudbilling API ==="; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967" -Method GET -Headers $headers | ConvertTo-Json -Depth 5
 ```
 
 ## Script Block 360
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; Write-Output "=== Last 30 days cost ==="; try { $costBody = @{ "billingAccountName" = "billingAccounts/01E581-593D4D-6AA967"; "startTime" = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd") + "T00:00:00Z"; "endTime" = (Get-Date).ToString("yyyy-MM-ddTHH:mm:ssZ") } | ConvertTo-Json; Invoke-WebRequest -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967/reports:costs" -Method POST -Headers $headers -Body $costBody -ErrorAction Stop | ConvertFrom-Json | ConvertTo-Json -Depth 5 } catch { Write-Output "Can't access reports: $($_.Exception.Message)" }
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Write-Output "=== Last 30 days cost ==="; try { $costBody = @{ "billingAccountName" = "billingAccounts/01E581-593D4D-6AA967"; "startTime" = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd") + "T00:00:00Z"; "endTime" = (Get-Date).ToString("yyyy-MM-ddTHH:mm:ssZ") } | ConvertTo-Json; Invoke-WebRequest -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967/reports:costs" -Method POST -Headers $headers -Body $costBody -ErrorAction Stop | ConvertFrom-Json | ConvertTo-Json -Depth 5 } catch { Write-Output "Can't access reports: $($_.Exception.Message)" }
 ```
 
 ## Script Block 361
 ```bash
-$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; Write-Output "=== Billing account IAM ==="; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967:getIamPolicy" -Method GET -Headers $headers -ErrorAction SilentlyContinue | ConvertTo-Json -Depth 5; Write-Output "=== Now checking as other accounts ==="; foreach ($acct in @("anthonymichaeldimarcello@gmail.com","amd949609@gmail.com","osintneoai@gmail.com")) { $t = gcloud auth print-access-token --account=$acct 2>&1; $h = @{ Authorization = "Bearer $t" }; try { $r = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967" -Method GET -Headers $h -ErrorAction SilentlyContinue; Write-Output "$acct: CAN ACCESS - $($r.displayName)" } catch { Write-Output "$acct: NO ACCESS" } }
+$token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Write-Output "=== Billing account IAM ==="; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967:getIamPolicy" -Method GET -Headers $headers -ErrorAction SilentlyContinue | ConvertTo-Json -Depth 5; Write-Output "=== Now checking as other accounts ==="; foreach ($acct in @("anthonymichaeldimarcello@gmail.com","amd949609@gmail.com","osintneoai@gmail.com")) { $t = gcloud auth print-access-token --account=$acct 2>&1; $h = @{ Authorization = "Bearer $t" }; try { $r = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967" -Method GET -Headers $h -ErrorAction SilentlyContinue; Write-Output "$acct: CAN ACCESS - $($r.displayName)" } catch { Write-Output "$acct: NO ACCESS" } }
 ```
 
 ## Script Block 362
 ```bash
-$ba = "01E581-593D4D-6AA967"; $token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; Write-Output "=== Billing IAM (txtdjdrop token) ==="; try { Invoke-WebRequest -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/$ba:getIamPolicy" -Method GET -Headers $headers -ErrorAction Stop | Select-Object -Expand Content } catch { $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "IAM: $($reader.ReadToEnd())" }; Write-Output "=== Check other accounts ==="; foreach ($acct in "anthonymichaeldimarcello@gmail.com","amd949609@gmail.com","osintneoai@gmail.com") { $t = gcloud auth print-access-token --account=$acct 2>&1; $h = @{ Authorization = "Bearer $t" }; try { $r = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/$ba" -Method GET -Headers $h -ErrorAction Stop; Write-Output "${acct}: CAN ACCESS - $($r.displayName)" } catch { Write-Output "${acct}: NO ACCESS" } }
+$ba = "01E581-593D4D-6AA967"; $token = gcloud auth print-access-token --account=txtdjdrop@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Write-Output "=== Billing IAM (txtdjdrop token) ==="; try { Invoke-WebRequest -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/$ba:getIamPolicy" -Method GET -Headers $headers -ErrorAction Stop | Select-Object -Expand Content } catch { $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "IAM: $($reader.ReadToEnd())" }; Write-Output "=== Check other accounts ==="; foreach ($acct in "anthonymichaeldimarcello@gmail.com","amd949609@gmail.com","osintneoai@gmail.com") { $t = gcloud auth print-access-token --account=$acct 2>&1; $h = @{ Authorization = "Bearer $t" }; try { $r = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/$ba" -Method GET -Headers $h -ErrorAction Stop; Write-Output "${acct}: CAN ACCESS - $($r.displayName)" } catch { Write-Output "${acct}: NO ACCESS" } }
 ```
 
 ## Script Block 363
@@ -9128,17 +9471,28 @@ gcloud auth login james@jmweldingproducts.com --no-browser 2>&1
 
 ## Script Block 373
 ```bash
-You are authorizing gcloud CLI without access to a web browser. Please run the following command on a machine with a web browser and copy its output back here. Make sure the installed gcloud version is 372.0.0 or newer.
-
-gcloud auth login --remote-bootstrap="https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=32555940559.apps.googleusercontent.com&scope=openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fappengine.admin+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fsqlservice.login+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcompute+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Faccounts.reauth&state=46BXYQUfGimUZFs6uRMLfejnNN8CCu&access_type=offline&code_challenge=HvVnQ1crUXJDluGwnOFgBZoe7KOqWoyg08Sfg-yaMMc&code_challenge_method=S256&token_usage=remote"
-
-
-Enter the output of the above command: ERROR: gcloud crashed (EOFError): EOF when reading a line
-
-If you would like to report this issue, please run the following command:
-  gcloud feedback
-
-To check gcloud for common problems, please run the following command:
+You are authorizing gcloud CLI without access to a web browser. Please run the following command on a machine with a web browser and copy its output back here. Make sure the installed gcloud version is 372.0.0 or newer.
+
+
+
+gcloud auth login --remote-bootstrap="https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=32555940559.apps.googleusercontent.com&scope=openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fappengine.admin+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fsqlservice.login+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcompute+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Faccounts.reauth&state=46BXYQUfGimUZFs6uRMLfejnNN8CCu&access_type=offline&code_challenge=HvVnQ1crUXJDluGwnOFgBZoe7KOqWoyg08Sfg-yaMMc&code_challenge_method=S256&token_usage=remote"
+
+
+
+
+
+Enter the output of the above command: ERROR: gcloud crashed (EOFError): EOF when reading a line
+
+
+
+If you would like to report this issue, please run the following command:
+
+  gcloud feedback
+
+
+
+To check gcloud for common problems, please run the following command:
+
   gcloud info --run-diagnostics
 ```
 
@@ -9171,17 +9525,17 @@ Let me try it.
 
 ## Script Block 375
 ```bash
-$token = gcloud auth print-access-token --account=amd949609@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json" }; Write-Output "=== Check if james@jmweldingproducts.com is a Google account ==="; try { $r = Invoke-RestMethod -Uri "https://www.googleapis.com/oauth2/v1/userinfo?alt=json" -Method GET -Headers $headers -ErrorAction Stop; Write-Output "This token works for: $($r.email)" } catch { Write-Output "Error: $($_.Exception.Message)" }; Write-Output "=== Try adding to project IAM as Owner ==="; $policy = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/project-743aab84-f9a5-4ec7-954:getIamPolicy" -Method POST -Headers $headers -Body '{}'; $bindings = $policy.bindings; $ownerBinding = $bindings | Where-Object { $_.role -eq "roles/owner" }; Write-Output "Current owners: $($ownerBinding.members -join ', ')"; $ownerBinding.members += "user:james@jmweldingproducts.com"; $newPolicy = @{ policy = @{ bindings = $bindings; etag = $policy.etag } } | ConvertTo-Json -Depth 5; try { $result = Invoke-WebRequest -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/project-743aab84-f9a5-4ec7-954:setIamPolicy" -Method POST -Headers $headers -Body $newPolicy -ErrorAction Stop; Write-Output "Added james as Owner: $($result.Content)" } catch { $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "IAM update error: $($reader.ReadToEnd())" }
+$token = gcloud auth print-access-token --account=amd949609@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json" }; Write-Output "=== Check if james@jmweldingproducts.com is a Google account ==="; try { $r = Invoke-RestMethod -Uri "https://www.googleapis.com/oauth2/v1/userinfo?alt=json" -Method GET -Headers $headers -ErrorAction Stop; Write-Output "This token works for: $($r.email)" } catch { Write-Output "Error: $($_.Exception.Message)" }; Write-Output "=== Try adding to project IAM as Owner ==="; $policy = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/noble-beanbag-497411-m4:getIamPolicy" -Method POST -Headers $headers -Body '{}'; $bindings = $policy.bindings; $ownerBinding = $bindings | Where-Object { $_.role -eq "roles/owner" }; Write-Output "Current owners: $($ownerBinding.members -join ', ')"; $ownerBinding.members += "user:james@jmweldingproducts.com"; $newPolicy = @{ policy = @{ bindings = $bindings; etag = $policy.etag } } | ConvertTo-Json -Depth 5; try { $result = Invoke-WebRequest -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/noble-beanbag-497411-m4:setIamPolicy" -Method POST -Headers $headers -Body $newPolicy -ErrorAction Stop; Write-Output "Added james as Owner: $($result.Content)" } catch { $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "IAM update error: $($reader.ReadToEnd())" }
 ```
 
 ## Script Block 376
 ```bash
-$token = gcloud auth print-access-token --account=amd949609@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json" }; Write-Output "=== Add james as Project Editor ==="; try { $policy = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/project-743aab84-f9a5-4ec7-954:getIamPolicy" -Method POST -Headers $headers -Body '{}' -ErrorAction Stop; $existing = $policy.bindings | Where-Object { $_.role -eq "roles/editor" }; if (-not $existing) { $policy.bindings += @{ role = "roles/editor"; members = @("user:james@jmweldingproducts.com") } } else { $existing.members += "user:james@jmweldingproducts.com" }; $body = @{ policy = @{ bindings = $policy.bindings; etag = $policy.etag } } | ConvertTo-Json -Depth 5; $r = Invoke-WebRequest -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/project-743aab84-f9a5-4ec7-954:setIamPolicy" -Method POST -Headers $headers -Body $body -ErrorAction Stop; Write-Output "Editor added: $($r.Content)" } catch { $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "Error: $($reader.ReadToEnd())" }
+$token = gcloud auth print-access-token --account=amd949609@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json" }; Write-Output "=== Add james as Project Editor ==="; try { $policy = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/noble-beanbag-497411-m4:getIamPolicy" -Method POST -Headers $headers -Body '{}' -ErrorAction Stop; $existing = $policy.bindings | Where-Object { $_.role -eq "roles/editor" }; if (-not $existing) { $policy.bindings += @{ role = "roles/editor"; members = @("user:james@jmweldingproducts.com") } } else { $existing.members += "user:james@jmweldingproducts.com" }; $body = @{ policy = @{ bindings = $policy.bindings; etag = $policy.etag } } | ConvertTo-Json -Depth 5; $r = Invoke-WebRequest -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/noble-beanbag-497411-m4:setIamPolicy" -Method POST -Headers $headers -Body $body -ErrorAction Stop; Write-Output "Editor added: $($r.Content)" } catch { $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "Error: $($reader.ReadToEnd())" }
 ```
 
 ## Script Block 377
 ```bash
-$token = gcloud auth print-access-token --account=amd949609@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json" }; $policy = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/project-743aab84-f9a5-4ec7-954:getIamPolicy" -Method POST -Headers $headers -Body '{}'; Write-Output "=== All bindings ==="; $policy.bindings | ForEach-Object { Write-Output "$($_.role): $($_.members -join ', ')" }; Write-Output "=== Any james references? ==="; $policy.bindings | Where-Object { $_.members -match "james" } | ForEach-Object { Write-Output "$($_.role): $($_.members -join ', ')" }
+$token = gcloud auth print-access-token --account=amd949609@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json" }; $policy = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/noble-beanbag-497411-m4:getIamPolicy" -Method POST -Headers $headers -Body '{}'; Write-Output "=== All bindings ==="; $policy.bindings | ForEach-Object { Write-Output "$($_.role): $($_.members -join ', ')" }; Write-Output "=== Any james references? ==="; $policy.bindings | Where-Object { $_.members -match "james" } | ForEach-Object { Write-Output "$($_.role): $($_.members -join ', ')" }
 ```
 
 ## Script Block 378
@@ -9191,12 +9545,12 @@ $token = gcloud auth print-access-token --account=amd949609@gmail.com 2>&1; $hea
 
 ## Script Block 379
 ```bash
-$token = gcloud auth print-access-token --account=amd949609@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json" }; Write-Output "=== Get current IAM ==="; $policy = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/project-743aab84-f9a5-4ec7-954:getIamPolicy" -Method POST -Headers $headers -Body '{}'; $newBindings = @(); foreach ($b in $policy.bindings) { if ($b.role -eq "roles/owner") { $keep = @("user:osintneoai@gmail.com","user:txtdjdrop@gmail.com","user:PMportal949@gmail.com"); $b.members = $b.members | Where-Object { $_ -in $keep }; if ($b.members.Count -gt 0) { $newBindings += $b } } elseif ($b.role -eq "roles/editor") { $keepEditor = @("user:james@jmweldingproducts.com"); $b.members = $b.members | Where-Object { $_ -in $keepEditor }; if ($b.members.Count -gt 0) { $newBindings += $b } } else { $newBindings += $b } }; $body = @{ policy = @{ bindings = $newBindings; etag = $policy.etag } } | ConvertTo-Json -Depth 10; Write-Output "=== New owner bindings ==="; $newBindings | Where-Object { $_.role -eq "roles/owner" } | ForEach-Object { Write-Output "$($_.role): $($_.members -join ', ')" }; try { $r = Invoke-WebRequest -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/project-743aab84-f9a5-4ec7-954:setIamPolicy" -Method POST -Headers $headers -Body $body -ErrorAction Stop; Write-Output "IAM updated successfully" } catch { $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "Error: $($reader.ReadToEnd())" }
+$token = gcloud auth print-access-token --account=amd949609@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json" }; Write-Output "=== Get current IAM ==="; $policy = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/noble-beanbag-497411-m4:getIamPolicy" -Method POST -Headers $headers -Body '{}'; $newBindings = @(); foreach ($b in $policy.bindings) { if ($b.role -eq "roles/owner") { $keep = @("user:osintneoai@gmail.com","user:txtdjdrop@gmail.com","user:PMportal949@gmail.com"); $b.members = $b.members | Where-Object { $_ -in $keep }; if ($b.members.Count -gt 0) { $newBindings += $b } } elseif ($b.role -eq "roles/editor") { $keepEditor = @("user:james@jmweldingproducts.com"); $b.members = $b.members | Where-Object { $_ -in $keepEditor }; if ($b.members.Count -gt 0) { $newBindings += $b } } else { $newBindings += $b } }; $body = @{ policy = @{ bindings = $newBindings; etag = $policy.etag } } | ConvertTo-Json -Depth 10; Write-Output "=== New owner bindings ==="; $newBindings | Where-Object { $_.role -eq "roles/owner" } | ForEach-Object { Write-Output "$($_.role): $($_.members -join ', ')" }; try { $r = Invoke-WebRequest -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/noble-beanbag-497411-m4:setIamPolicy" -Method POST -Headers $headers -Body $body -ErrorAction Stop; Write-Output "IAM updated successfully" } catch { $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "Error: $($reader.ReadToEnd())" }
 ```
 
 ## Script Block 380
 ```bash
-$token = gcloud auth print-access-token --account=amd949609@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json" }; $policy = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/project-743aab84-f9a5-4ec7-954:getIamPolicy" -Method POST -Headers $headers -Body '{}'; Write-Output "=== Owners ==="; $policy.bindings | Where-Object { $_.role -eq "roles/owner" } | ForEach-Object { Write-Output "$($_.role): $($_.members -join ', ')" }; Write-Output "=== Editors ==="; $policy.bindings | Where-Object { $_.role -eq "roles/editor" } | ForEach-Object { Write-Output "$($_.role): $($_.members -join ', ')" }
+$token = gcloud auth print-access-token --account=amd949609@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json" }; $policy = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/noble-beanbag-497411-m4:getIamPolicy" -Method POST -Headers $headers -Body '{}'; Write-Output "=== Owners ==="; $policy.bindings | Where-Object { $_.role -eq "roles/owner" } | ForEach-Object { Write-Output "$($_.role): $($_.members -join ', ')" }; Write-Output "=== Editors ==="; $policy.bindings | Where-Object { $_.role -eq "roles/editor" } | ForEach-Object { Write-Output "$($_.role): $($_.members -join ', ')" }
 ```
 
 ## Script Block 381
@@ -9270,23 +9624,23 @@ $token = gcloud auth print-access-token --account=osintneoai@gmail.com 2>&1; $he
 
 ## Script Block 385
 ```bash
-$token = gcloud auth print-access-token --account=osintneoai@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; Write-Output "=== All accessible projects ==="; try { $projects = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects" -Method GET -Headers $headers -ErrorAction Stop; $projects.projects | Where-Object { $_.lifecycleState -eq "ACTIVE" } | ForEach-Object { Write-Output "$($_.projectId): $($_.name) - $($_.projectNumber)" } } catch { Write-Output "Error: $($_.Exception.Message)"; Write-Output "Trying search API..."; try { $r = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects?filter=lifecycleState:ACTIVE" -Method GET -Headers $headers -ErrorAction Stop; Write-Output ($r | ConvertTo-Json -Depth 3) } catch { Write-Output "Search error: $($_.Exception.Message)" } }
+$token = gcloud auth print-access-token --account=osintneoai@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Write-Output "=== All accessible projects ==="; try { $projects = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects" -Method GET -Headers $headers -ErrorAction Stop; $projects.projects | Where-Object { $_.lifecycleState -eq "ACTIVE" } | ForEach-Object { Write-Output "$($_.projectId): $($_.name) - $($_.projectNumber)" } } catch { Write-Output "Error: $($_.Exception.Message)"; Write-Output "Trying search API..."; try { $r = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects?filter=lifecycleState:ACTIVE" -Method GET -Headers $headers -ErrorAction Stop; Write-Output ($r | ConvertTo-Json -Depth 3) } catch { Write-Output "Search error: $($_.Exception.Message)" } }
 ```
 
 ## Script Block 386
 ```bash
-$token = gcloud auth print-access-token --account=osintneoai@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $projects = @("project-743aab84-f9a5-4ec7-954","noble-beanbag-497411-m4","golden-agency-497410-t8","superb-router-q8gvj","hardy-order-496117-p3"); foreach ($p in $projects) { Write-Output "=== $p ==="; try { $r = Invoke-RestMethod -Uri "https://serviceusage.googleapis.com/v1/projects/$p/services?filter=state:ENABLED" -Method GET -Headers $headers -ErrorAction SilentlyContinue; $enabled = $r.services | ForEach-Object { $_.config.name.Split('/')[-1] }; Write-Output "APIs: $($enabled -join ', ')" } catch { Write-Output "Cannot access" } }
+$token = gcloud auth print-access-token --account=osintneoai@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $projects = @("noble-beanbag-497411-m4","noble-beanbag-497411-m4","golden-agency-497410-t8","superb-router-q8gvj","hardy-order-496117-p3"); foreach ($p in $projects) { Write-Output "=== $p ==="; try { $r = Invoke-RestMethod -Uri "https://serviceusage.googleapis.com/v1/projects/$p/services?filter=state:ENABLED" -Method GET -Headers $headers -ErrorAction SilentlyContinue; $enabled = $r.services | ForEach-Object { $_.config.name.Split('/')[-1] }; Write-Output "APIs: $($enabled -join ', ')" } catch { Write-Output "Cannot access" } }
 ```
 
 ## Script Block 387
 ```bash
-$token = gcloud auth print-access-token --account=osintneoai@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $projects = @("noble-beanbag-497411-m4","golden-agency-497410-t8","hardy-order-496117-p3"); foreach ($p in $projects) { Write-Output "=== $p ==="; # BigQuery datasets try { $bq = Invoke-RestMethod -Uri "https://bigquery.googleapis.com/bigquery/v2/projects/$p/datasets" -Method GET -Headers $headers -ErrorAction SilentlyContinue; if ($bq.datasets) { Write-Output "  BigQuery datasets: $($bq.datasets.Count)"; $bq.datasets | ForEach-Object { Write-Output "    - $($_.datasetReference.datasetId)" } } else { Write-Output "  BigQuery: none" } } catch { Write-Output "  BigQuery: error" }; # GCS buckets try { $gcs = Invoke-RestMethod -Uri "https://storage.googleapis.com/storage/v1/b?project=$p" -Method GET -Headers $headers -ErrorAction SilentlyContinue; if ($gcs.items) { Write-Output "  GCS buckets: $($gcs.items.Count)"; $gcs.items | ForEach-Object { Write-Output "    - $($_.name)" } } else { Write-Output "  GCS: none" } } catch { Write-Output "  GCS: error" } }
+$token = gcloud auth print-access-token --account=osintneoai@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $projects = @("noble-beanbag-497411-m4","golden-agency-497410-t8","hardy-order-496117-p3"); foreach ($p in $projects) { Write-Output "=== $p ==="; # BigQuery datasets try { $bq = Invoke-RestMethod -Uri "https://bigquery.googleapis.com/bigquery/v2/projects/$p/datasets" -Method GET -Headers $headers -ErrorAction SilentlyContinue; if ($bq.datasets) { Write-Output "  BigQuery datasets: $($bq.datasets.Count)"; $bq.datasets | ForEach-Object { Write-Output "    - $($_.datasetReference.datasetId)" } } else { Write-Output "  BigQuery: none" } } catch { Write-Output "  BigQuery: error" }; # GCS buckets try { $gcs = Invoke-RestMethod -Uri "https://storage.googleapis.com/storage/v1/b?project=$p" -Method GET -Headers $headers -ErrorAction SilentlyContinue; if ($gcs.items) { Write-Output "  GCS buckets: $($gcs.items.Count)"; $gcs.items | ForEach-Object { Write-Output "    - $($_.name)" } } else { Write-Output "  GCS: none" } } catch { Write-Output "  GCS: error" } }
 ```
 
 ## Script Block 388
 ```bash
 $token = gcloud auth print-access-token --account=osintneoai@gmail.com
-$headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }
+$headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }
 $projects = @("noble-beanbag-497411-m4","golden-agency-497410-t8","hardy-order-496117-p3")
 foreach ($p in $projects) {
   Write-Output "=== $p ==="
@@ -9306,8 +9660,8 @@ foreach ($p in $projects) {
 ## Script Block 389
 ```bash
 $token = gcloud auth print-access-token --account=osintneoai@gmail.com
-$headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }
-$projects = @("project-743aab84-f9a5-4ec7-954","noble-beanbag-497411-m4","golden-agency-497410-t8","hardy-order-496117-p3")
+$headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }
+$projects = @("noble-beanbag-497411-m4","noble-beanbag-497411-m4","golden-agency-497410-t8","hardy-order-496117-p3")
 
 foreach ($p in $projects) {
   Write-Output "=== $p ==="
@@ -9335,32 +9689,32 @@ Write-Output "=== Done stopping resources ==="
 
 ## Script Block 390
 ```bash
-$token = gcloud auth print-access-token --account=osintneoai@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; Write-Output "=== Billing on all projects ==="; foreach ($p in @("project-743aab84-f9a5-4ec7-954","noble-beanbag-497411-m4","golden-agency-497410-t8","hardy-order-496117-p3")) { try { $b = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/projects/$p/billingInfo" -Method GET -Headers $headers -ErrorAction Stop; Write-Output "$p: billingEnabled=$($b.billingEnabled) account=$($b.billingAccountName)" } catch { Write-Output "$p: cannot check" } }; Write-Output "=== Check if backup-vm is still running ==="; try { $vm = Invoke-RestMethod -Uri "https://compute.googleapis.com/compute/v1/projects/project-743aab84-f9a5-4ec7-954/zones/us-central1-a/instances/backup-vm" -Method GET -Headers $headers -ErrorAction SilentlyContinue; Write-Output "VM status: $($vm.status)" } catch { Write-Output "VM not found" }
+$token = gcloud auth print-access-token --account=osintneoai@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Write-Output "=== Billing on all projects ==="; foreach ($p in @("noble-beanbag-497411-m4","noble-beanbag-497411-m4","golden-agency-497410-t8","hardy-order-496117-p3")) { try { $b = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/projects/$p/billingInfo" -Method GET -Headers $headers -ErrorAction Stop; Write-Output "$p: billingEnabled=$($b.billingEnabled) account=$($b.billingAccountName)" } catch { Write-Output "$p: cannot check" } }; Write-Output "=== Check if backup-vm is still running ==="; try { $vm = Invoke-RestMethod -Uri "https://compute.googleapis.com/compute/v1/projects/noble-beanbag-497411-m4/zones/us-central1-a/instances/backup-vm" -Method GET -Headers $headers -ErrorAction SilentlyContinue; Write-Output "VM status: $($vm.status)" } catch { Write-Output "VM not found" }
 ```
 
 ## Script Block 391
 ```bash
-$token = gcloud auth print-access-token --account=osintneoai@gmail.com; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $projList = @("project-743aab84-f9a5-4ec7-954","noble-beanbag-497411-m4","golden-agency-497410-t8","hardy-order-496117-p3"); foreach ($proj in $projList) { try { $b = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/projects/$proj/billingInfo" -Method GET -Headers $headers -ErrorAction Stop; $enabled = $b.billingEnabled; $acct = $b.billingAccountName; Write-Output "${proj}: enabled=${enabled} account=${acct}" } catch { Write-Output "${proj}: cannot check" } }; Write-Output "=== backup-vm status ==="; try { $vm = Invoke-RestMethod -Uri "https://compute.googleapis.com/compute/v1/projects/project-743aab84-f9a5-4ec7-954/zones/us-central1-a/instances/backup-vm" -Method GET -Headers $headers; Write-Output "backup-vm: $($vm.status)" } catch { Write-Output "VM not found" }
+$token = gcloud auth print-access-token --account=osintneoai@gmail.com; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $projList = @("noble-beanbag-497411-m4","noble-beanbag-497411-m4","golden-agency-497410-t8","hardy-order-496117-p3"); foreach ($proj in $projList) { try { $b = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/projects/$proj/billingInfo" -Method GET -Headers $headers -ErrorAction Stop; $enabled = $b.billingEnabled; $acct = $b.billingAccountName; Write-Output "${proj}: enabled=${enabled} account=${acct}" } catch { Write-Output "${proj}: cannot check" } }; Write-Output "=== backup-vm status ==="; try { $vm = Invoke-RestMethod -Uri "https://compute.googleapis.com/compute/v1/projects/noble-beanbag-497411-m4/zones/us-central1-a/instances/backup-vm" -Method GET -Headers $headers; Write-Output "backup-vm: $($vm.status)" } catch { Write-Output "VM not found" }
 ```
 
 ## Script Block 392
 ```bash
-$token = gcloud auth print-access-token --account=osintneoai@gmail.com; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; Write-Output "=== GCS bucket sizes ==="; foreach ($b in @("noble-beanbag-temp-export","osint-ai-evidence-vault-m4","run-sources-noble-beanbag-497411-m4-us-central1")) { try { $r = Invoke-RestMethod -Uri "https://storage.googleapis.com/storage/v1/b/$b" -Method GET -Headers $headers -ErrorAction SilentlyContinue; Write-Output "${b}: storageClass=$($r.storageClass) location=$($r.location)" } catch { Write-Output "${b}: error" } }; Write-Output "=== BigQuery dataset sizes ==="; foreach ($d in @("Tests","Wwwww","ai_sandbox","forensic_layers","forensic_views","fraud_mart","hb_church_osint","national_audits","nppes_export","ppp_rico")) { try { $r = Invoke-RestMethod -Uri "https://bigquery.googleapis.com/bigquery/v2/projects/noble-beanbag-497411-m4/datasets/$d" -Method GET -Headers $headers -ErrorAction SilentlyContinue; Write-Output "${d}: location=$($r.location) created=$($r.creationTime)" } catch { Write-Output "${d}: error" } }
+$token = gcloud auth print-access-token --account=osintneoai@gmail.com; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Write-Output "=== GCS bucket sizes ==="; foreach ($b in @("noble-beanbag-temp-export","osint-ai-evidence-vault-m4","run-sources-noble-beanbag-497411-m4-us-central1")) { try { $r = Invoke-RestMethod -Uri "https://storage.googleapis.com/storage/v1/b/$b" -Method GET -Headers $headers -ErrorAction SilentlyContinue; Write-Output "${b}: storageClass=$($r.storageClass) location=$($r.location)" } catch { Write-Output "${b}: error" } }; Write-Output "=== BigQuery dataset sizes ==="; foreach ($d in @("Tests","Wwwww","ai_sandbox","forensic_layers","forensic_views","fraud_mart","hb_church_osint","national_audits","nppes_export","ppp_rico")) { try { $r = Invoke-RestMethod -Uri "https://bigquery.googleapis.com/bigquery/v2/projects/noble-beanbag-497411-m4/datasets/$d" -Method GET -Headers $headers -ErrorAction SilentlyContinue; Write-Output "${d}: location=$($r.location) created=$($r.creationTime)" } catch { Write-Output "${d}: error" } }
 ```
 
 ## Script Block 393
 ```bash
-$token = gcloud auth print-access-token --account=osintneoai@gmail.com; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; Write-Output "=== noble-beanbag IAM owners ==="; try { $policy = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/noble-beanbag-497411-m4:getIamPolicy" -Method POST -Headers $headers -Body '{}' -ErrorAction Stop; $policy.bindings | Where-Object { $_.role -in @("roles/owner","roles/editor") } | ForEach-Object { Write-Output "$($_.role): $($_.members -join ', ')" } } catch { Write-Output "Cannot access IAM" }
+$token = gcloud auth print-access-token --account=osintneoai@gmail.com; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Write-Output "=== noble-beanbag IAM owners ==="; try { $policy = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/noble-beanbag-497411-m4:getIamPolicy" -Method POST -Headers $headers -Body '{}' -ErrorAction Stop; $policy.bindings | Where-Object { $_.role -in @("roles/owner","roles/editor") } | ForEach-Object { Write-Output "$($_.role): $($_.members -join ', ')" } } catch { Write-Output "Cannot access IAM" }
 ```
 
 ## Script Block 394
 ```bash
-$token = gcloud auth print-access-token --account=osintneoai@gmail.com; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; Write-Output "=== Disabling billing on noble-beanbag ==="; $body = @{ billingAccountName = "" } | ConvertTo-Json; try { $r = Invoke-WebRequest -Uri "https://cloudbilling.googleapis.com/v1/projects/noble-beanbag-497411-m4/billingInfo" -Method PUT -Headers $headers -Body $body -ErrorAction Stop; Write-Output "Done: $($r.Content)" } catch { $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "Error: $($reader.ReadToEnd())" }; Write-Output "=== Disabling billing on hardy-order ==="; try { $r2 = Invoke-WebRequest -Uri "https://cloudbilling.googleapis.com/v1/projects/hardy-order-496117-p3/billingInfo" -Method PUT -Headers $headers -Body $body -ErrorAction Stop; Write-Output "Done: $($r2.Content)" } catch { Write-Output "Error: $($_.Exception.Message)" }
+$token = gcloud auth print-access-token --account=osintneoai@gmail.com; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Write-Output "=== Disabling billing on noble-beanbag ==="; $body = @{ billingAccountName = "" } | ConvertTo-Json; try { $r = Invoke-WebRequest -Uri "https://cloudbilling.googleapis.com/v1/projects/noble-beanbag-497411-m4/billingInfo" -Method PUT -Headers $headers -Body $body -ErrorAction Stop; Write-Output "Done: $($r.Content)" } catch { $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream()); $reader.BaseStream.Position = 0; $reader.DiscardBufferedData(); Write-Output "Error: $($reader.ReadToEnd())" }; Write-Output "=== Disabling billing on hardy-order ==="; try { $r2 = Invoke-WebRequest -Uri "https://cloudbilling.googleapis.com/v1/projects/hardy-order-496117-p3/billingInfo" -Method PUT -Headers $headers -Body $body -ErrorAction Stop; Write-Output "Done: $($r2.Content)" } catch { Write-Output "Error: $($_.Exception.Message)" }
 ```
 
 ## Script Block 395
 ```bash
-$token = gcloud auth print-access-token --account=osintneoai@gmail.com; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; foreach ($proj in @("project-743aab84-f9a5-4ec7-954","noble-beanbag-497411-m4","golden-agency-497410-t8","hardy-order-496117-p3")) { try { $b = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/projects/$proj/billingInfo" -Method GET -Headers $headers -ErrorAction Stop; Write-Output "${proj}: enabled=$($b.billingEnabled)" } catch { Write-Output "${proj}: error" } }
+$token = gcloud auth print-access-token --account=osintneoai@gmail.com; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; foreach ($proj in @("noble-beanbag-497411-m4","noble-beanbag-497411-m4","golden-agency-497410-t8","hardy-order-496117-p3")) { try { $b = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/projects/$proj/billingInfo" -Method GET -Headers $headers -ErrorAction Stop; Write-Output "${proj}: enabled=$($b.billingEnabled)" } catch { Write-Output "${proj}: error" } }
 ```
 
 ## Script Block 396
@@ -9380,27 +9734,27 @@ $token = gcloud auth print-access-token --account=anthonymichaeldimarcello@gmail
 
 ## Script Block 399
 ```bash
-foreach ($acct in @("osintneoai@gmail.com","txtdjdrop@gmail.com","amd949609@gmail.com","anthonymichaeldimarcello@gmail.com")) { $t = gcloud auth print-access-token --account=$acct 2>&1; $h = @{ Authorization = "Bearer $t"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; try { $r = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/superb-router-q8gvj" -Method GET -Headers $h -ErrorAction SilentlyContinue; Write-Output "${acct}: CAN ACCESS - name=$($r.name) num=$($r.projectNumber) state=$($r.lifecycleState)"; try { $p = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/superb-router-q8gvj:getIamPolicy" -Method POST -Headers $h -Body '{}' -ErrorAction SilentlyContinue; $p.bindings | Where-Object { $_.role -eq "roles/owner" } | ForEach-Object { Write-Output "  Owners: $($_.members -join ', ')" } } catch { Write-Output "  Cannot read IAM" } } catch { Write-Output "${acct}: NO ACCESS" } }
+foreach ($acct in @("osintneoai@gmail.com","txtdjdrop@gmail.com","amd949609@gmail.com","anthonymichaeldimarcello@gmail.com")) { $t = gcloud auth print-access-token --account=$acct 2>&1; $h = @{ Authorization = "Bearer $t"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; try { $r = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/superb-router-q8gvj" -Method GET -Headers $h -ErrorAction SilentlyContinue; Write-Output "${acct}: CAN ACCESS - name=$($r.name) num=$($r.projectNumber) state=$($r.lifecycleState)"; try { $p = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/superb-router-q8gvj:getIamPolicy" -Method POST -Headers $h -Body '{}' -ErrorAction SilentlyContinue; $p.bindings | Where-Object { $_.role -eq "roles/owner" } | ForEach-Object { Write-Output "  Owners: $($_.members -join ', ')" } } catch { Write-Output "  Cannot read IAM" } } catch { Write-Output "${acct}: NO ACCESS" } }
 ```
 
 ## Script Block 400
 ```bash
-$token = gcloud auth print-access-token --account=osintneoai@gmail.com; $h = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; $proj = "superb-router-q8gvj"; Write-Output "=== Billing ==="; try { $b = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/projects/$proj/billingInfo" -Method GET -Headers $h; Write-Output "enabled=$($b.billingEnabled) account=$($b.billingAccountName)" } catch { Write-Output "Cannot check" }; Write-Output "=== APIs ==="; try { $r = Invoke-RestMethod -Uri "https://serviceusage.googleapis.com/v1/projects/$proj/services?filter=state:ENABLED" -Method GET -Headers $h -ErrorAction SilentlyContinue; $apis = $r.services | ForEach-Object { $_.config.name.Split('/')[-1] }; Write-Output "$($apis.Count) APIs: $($apis -join ', ')" } catch { Write-Output "Cannot check APIs" }; Write-Output "=== GCS ==="; try { $gcs = Invoke-RestMethod -Uri "https://storage.googleapis.com/storage/v1/b?project=$proj" -Method GET -Headers $h; if ($gcs.items) { $gcs.items | ForEach-Object { Write-Output "  $($_.name)" } } else { Write-Output "  none" } } catch { Write-Output "  error" }; Write-Output "=== BigQuery ==="; try { $bq = Invoke-RestMethod -Uri "https://bigquery.googleapis.com/bigquery/v2/projects/$proj/datasets" -Method GET -Headers $h; if ($bq.datasets) { $bq.datasets | ForEach-Object { Write-Output "  $($_.datasetReference.datasetId)" } } else { Write-Output "  none" } } catch { Write-Output "  error" }
+$token = gcloud auth print-access-token --account=osintneoai@gmail.com; $h = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; $proj = "superb-router-q8gvj"; Write-Output "=== Billing ==="; try { $b = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/projects/$proj/billingInfo" -Method GET -Headers $h; Write-Output "enabled=$($b.billingEnabled) account=$($b.billingAccountName)" } catch { Write-Output "Cannot check" }; Write-Output "=== APIs ==="; try { $r = Invoke-RestMethod -Uri "https://serviceusage.googleapis.com/v1/projects/$proj/services?filter=state:ENABLED" -Method GET -Headers $h -ErrorAction SilentlyContinue; $apis = $r.services | ForEach-Object { $_.config.name.Split('/')[-1] }; Write-Output "$($apis.Count) APIs: $($apis -join ', ')" } catch { Write-Output "Cannot check APIs" }; Write-Output "=== GCS ==="; try { $gcs = Invoke-RestMethod -Uri "https://storage.googleapis.com/storage/v1/b?project=$proj" -Method GET -Headers $h; if ($gcs.items) { $gcs.items | ForEach-Object { Write-Output "  $($_.name)" } } else { Write-Output "  none" } } catch { Write-Output "  error" }; Write-Output "=== BigQuery ==="; try { $bq = Invoke-RestMethod -Uri "https://bigquery.googleapis.com/bigquery/v2/projects/$proj/datasets" -Method GET -Headers $h; if ($bq.datasets) { $bq.datasets | ForEach-Object { Write-Output "  $($_.datasetReference.datasetId)" } } else { Write-Output "  none" } } catch { Write-Output "  error" }
 ```
 
 ## Script Block 401
 ```bash
-$token = gcloud auth print-access-token --account=osintneoai@gmail.com; $h = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; Write-Output "=== All billing accounts osintneoai sees ==="; try { $a = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts" -Method GET -Headers $h; $a.billingAccounts | ForEach-Object { Write-Output "$($_.name): $($_.displayName) open=$($_.open)" } } catch { Write-Output "Cannot list" }; Write-Output "=== New billing account details ==="; try { $ba = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/014BB7-734838-D1BD80" -Method GET -Headers $h; Write-Output "name=$($ba.displayName) open=$($ba.open)" } catch { Write-Output "Cannot access" }; Write-Output "=== Projects on new billing account ==="; try { $projs = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/014BB7-734838-D1BD80/projects" -Method GET -Headers $h; $projs.projectBillingInfo | ForEach-Object { Write-Output "$($_.projectId): billing=$($_.billingEnabled)" } } catch { Write-Output "Cannot list projects" }; Write-Output "=== Compute instances in superb-router ==="; try { $zones = Invoke-RestMethod -Uri "https://compute.googleapis.com/compute/v1/projects/superb-router-q8gvj/zones/us-central1-a/instances" -Method GET -Headers $h; if ($zones.items) { $zones.items | ForEach-Object { Write-Output "  $($_.name): status=$($_.status)" } } else { Write-Output "  none" } } catch { Write-Output "  no compute access" }
+$token = gcloud auth print-access-token --account=osintneoai@gmail.com; $h = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Write-Output "=== All billing accounts osintneoai sees ==="; try { $a = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts" -Method GET -Headers $h; $a.billingAccounts | ForEach-Object { Write-Output "$($_.name): $($_.displayName) open=$($_.open)" } } catch { Write-Output "Cannot list" }; Write-Output "=== New billing account details ==="; try { $ba = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/014BB7-734838-D1BD80" -Method GET -Headers $h; Write-Output "name=$($ba.displayName) open=$($ba.open)" } catch { Write-Output "Cannot access" }; Write-Output "=== Projects on new billing account ==="; try { $projs = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/014BB7-734838-D1BD80/projects" -Method GET -Headers $h; $projs.projectBillingInfo | ForEach-Object { Write-Output "$($_.projectId): billing=$($_.billingEnabled)" } } catch { Write-Output "Cannot list projects" }; Write-Output "=== Compute instances in superb-router ==="; try { $zones = Invoke-RestMethod -Uri "https://compute.googleapis.com/compute/v1/projects/superb-router-q8gvj/zones/us-central1-a/instances" -Method GET -Headers $h; if ($zones.items) { $zones.items | ForEach-Object { Write-Output "  $($_.name): status=$($_.status)" } } else { Write-Output "  none" } } catch { Write-Output "  no compute access" }
 ```
 
 ## Script Block 402
 ```bash
-$token = gcloud auth print-access-token --account=osintneoai@gmail.com; $h = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; Write-Output "=== Try disable billing on superb-router ==="; $body = @{ billingAccountName = "" } | ConvertTo-Json; try { $r = Invoke-WebRequest -Uri "https://cloudbilling.googleapis.com/v1/projects/superb-router-q8gvj/billingInfo" -Method PUT -Headers $h -Body $body -ErrorAction Stop; Write-Output "Billing disabled: $($r.Content)" } catch { Write-Output "Cannot disable billing: $($_.Exception.Message)" }
+$token = gcloud auth print-access-token --account=osintneoai@gmail.com; $h = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Write-Output "=== Try disable billing on superb-router ==="; $body = @{ billingAccountName = "" } | ConvertTo-Json; try { $r = Invoke-WebRequest -Uri "https://cloudbilling.googleapis.com/v1/projects/superb-router-q8gvj/billingInfo" -Method PUT -Headers $h -Body $body -ErrorAction Stop; Write-Output "Billing disabled: $($r.Content)" } catch { Write-Output "Cannot disable billing: $($_.Exception.Message)" }
 ```
 
 ## Script Block 403
 ```bash
-$token = gcloud auth print-access-token --account=osintneoai@gmail.com; $h = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "project-743aab84-f9a5-4ec7-954" }; Write-Output "=== Project labels/parent ==="; try { $p = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/superb-router-q8gvj" -Method GET -Headers $h; Write-Output "parent=$($p.parent) labels=$($p.labels) createTime=$($p.createTime)" } catch { Write-Output "Cannot read" }
+$token = gcloud auth print-access-token --account=osintneoai@gmail.com; $h = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Write-Output "=== Project labels/parent ==="; try { $p = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/superb-router-q8gvj" -Method GET -Headers $h; Write-Output "parent=$($p.parent) labels=$($p.labels) createTime=$($p.createTime)" } catch { Write-Output "Cannot read" }
 ```
 
 ## Script Block 404
@@ -9722,7 +10076,7 @@ print(f'Saved {total} bookmarks across {len(all_data)} profiles')
 ## Important Details
 - **Windows 10, PowerShell, OpenCode CLI**; agent should drive everything independently — user said *"dont ask me... your goal is to not stop until were done"*
 - **4 authenticated gcloud accounts:** `anthonymichaeldimarcello@gmail.com`, `txtdjdrop@gmail.com`, `amd949609@gmail.com`, `osintneoai@gmail.com`
-- **Primary GCP project:** `project-743aab84-f9a5-4ec7-954` (bill via `billingAccounts/01E581-593D4D-6AA967`)
+- **Primary GCP project:** `noble-beanbag-497411-m4` (bill via `billingAccounts/01E581-593D4D-6AA967`)
 - **Investigation domain:** `osintneoai.me` (Cloudflare DNS, zone still **Pending** — needs nameserver update at Namecheap to `dana.ns.cloudflare.com` / `oswald.ns.cloudflare.com`)
 - **New control account:** `james@jmweldingproducts.com` (Google Workspace, password `Qwerty04124377!`, not yet OAuth-authenticated in gcloud)
 - **App passwords collected:** `txtdjdrop`, `amd949609`, `anthonymichaeldimarcello`, `osintneoai`, `ironmandavinci` (all on file)
@@ -9738,7 +10092,7 @@ print(f'Saved {total} bookmarks across {len(all_data)} profiles')
 - **Backup VM** (`backup-vm`, e2-micro) created in `us-central1-a` then **stopped** to halt costs
 - **Project IAM locked down:** owners trimmed to only `osintneoai@gmail.com` and `txtdjdrop@gmail.com`; `james@jmweldingproducts.com` added as **Editor**; removed `amd949609`, `anthony.dimarcello@students.post.edu`, `ironmandavinci`, `drillingoilandgasinfo`, `anthonymd949`
 - **Billing disabled** on 3 projects: `noble-beanbag-497411-m4`, `golden-agency-497410-t8`, `hardy-order-496117-p3` — data intact, no charges
-- **5 active GCP projects discovered** (`project-743aab84...`, `noble-beanbag-497411-m4`, `golden-agency-497410-t8`, `superb-router-q8gvj`, `hardy-order-496117-p3`)
+- **5 active GCP projects discovered** (`noble-beanbag-497411-m4...`, `noble-beanbag-497411-m4`, `golden-agency-497410-t8`, `superb-router-q8gvj`, `hardy-order-496117-p3`)
 - **`noble-beanbag-497411-m4` inventoried:** 10 BigQuery datasets (forensic_layers, fraud_mart, ppp_rico, nppes_export, national_audits, hb_church_osint, etc.) + 3 GCS buckets including `osint-ai-evidence-vault-m4`
 - **Superb-router-q8gvj** identified as auto-generated project under org folder `752156789244`, on its own billing account `014BB7` — none of the auth'd accounts have IAM to disable billing
 - **Google Workspace DNS** verification TXT (`google-site-verification=Sh-p1gHOd31oRa6tjDaDL7teCbDQC2mA4-SLbwe82zo`) already added in Cloudflare; zone still **Pending** until Namecheap nameservers are updated

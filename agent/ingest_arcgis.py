@@ -3,8 +3,8 @@ import json
 from google.cloud import bigquery
 
 # Initialize BigQuery Client (using Application Default Credentials)
-bq_client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
-DATASET_ID = "project-743aab84-f9a5-4ec7-954.ai_sandbox"
+bq_client = bigquery.Client(project="noble-beanbag-497411-m4")
+DATASET_ID = "noble-beanbag-497411-m4.ai_sandbox"
 
 def ingest_arcgis_layer(layer_url, table_name, max_features=2000):
     """

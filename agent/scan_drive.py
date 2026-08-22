@@ -4,7 +4,7 @@ scan_drive.py — Google Drive Scanner for OSINTNeoAi (Safe Incremental Version)
 Scans the authenticated user's Google Drive, catalogues every file,
 and ingests the metadata into BigQuery for forensic cross-referencing.
 
-Target table: project-743aab84-f9a5-4ec7-954.national_audits.drive_file_index
+Target table: noble-beanbag-497411-m4.national_audits.drive_file_index
 """
 
 import os
@@ -23,7 +23,7 @@ from google.cloud import bigquery
 # ---------------------------------------------------------------------------
 # CONFIG
 # ---------------------------------------------------------------------------
-GCP_PROJECT = os.environ.get("GOOGLE_PROJECT_ID", "project-743aab84-f9a5-4ec7-954")
+GCP_PROJECT = os.environ.get("GOOGLE_PROJECT_ID", "noble-beanbag-497411-m4")
 BQ_DATASET = "national_audits"
 BQ_TABLE = "drive_file_index"
 FULL_TABLE_ID = f"{GCP_PROJECT}.{BQ_DATASET}.{BQ_TABLE}"

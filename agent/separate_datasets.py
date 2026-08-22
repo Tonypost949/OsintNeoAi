@@ -2,8 +2,8 @@ from google.cloud import bigquery
 import pandas as pd
 
 def separate_datasets():
-    bq = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
-    P = "project-743aab84-f9a5-4ec7-954"
+    bq = bigquery.Client(project="noble-beanbag-497411-m4")
+    P = "noble-beanbag-497411-m4"
     
     # 1. Create a dedicated Orange County Procurement dataset
     new_dataset_id = f"{P}.orange_county_procurement"

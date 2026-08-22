@@ -1,7 +1,7 @@
 """
 create_oauth_client.py — Automate Google Cloud Console to create an OAuth client
 ==============================================================================
-Launches Chrome with Profile 8 (txtdjdrop@gmail.com — Owner of project-743aab84-f9a5-4ec7-954)
+Launches Chrome with Profile 8 (txtdjdrop@gmail.com — Owner of noble-beanbag-497411-m4)
 and navigates to the OAuth client creation page.
 
 Usage: python create_oauth_client.py
@@ -10,7 +10,7 @@ import os, sys, json, time
 from playwright.sync_api import sync_playwright
 
 PROFILE_PATH = os.path.expanduser(r"~\AppData\Local\Google\Chrome\User Data\Profile 8")
-PROJECT_ID = "project-743aab84-f9a5-4ec7-954"
+PROJECT_ID = "noble-beanbag-497411-m4"
 CLIENT_NAME = "Tasks Desktop Client"
 OUTPUT_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "client_secret_tasks.json")

@@ -100,7 +100,7 @@ def main():
     # 1. Fetch from v_rico_enterprise_master
     try:
         print("Fetching master enterprise view...")
-        df_master = fetch("project-743aab84-f9a5-4ec7-954.ppp_rico.v_rico_enterprise_master", limit=3000)
+        df_master = fetch("noble-beanbag-497411-m4.ppp_rico.v_rico_enterprise_master", limit=3000)
         analyze_site_address_clustering(df_master)
         analyze_nonprofit_entities(df_master)
     except Exception as e:
@@ -109,7 +109,7 @@ def main():
     # 2. Fetch from v_mailbox_cluster_hubs
     try:
         print("\nFetching mailbox cluster hubs view...")
-        df_mail = fetch("project-743aab84-f9a5-4ec7-954.ppp_rico.v_mailbox_cluster_hubs", limit=50)
+        df_mail = fetch("noble-beanbag-497411-m4.ppp_rico.v_mailbox_cluster_hubs", limit=50)
         analyze_mailbox_hubs(df_mail)
     except Exception as e:
         print(f"Error analyzing mailbox cluster hubs: {e}")
@@ -117,7 +117,7 @@ def main():
     # 3. Fetch from v_nonprofit_board_ppp_self_dealing
     try:
         print("\nFetching nonprofit self-dealing view...")
-        df_self = fetch("project-743aab84-f9a5-4ec7-954.ppp_rico.v_nonprofit_board_ppp_self_dealing", limit=50)
+        df_self = fetch("noble-beanbag-497411-m4.ppp_rico.v_nonprofit_board_ppp_self_dealing", limit=50)
         analyze_self_dealing(df_self)
     except Exception as e:
         print(f"Error analyzing self dealing: {e}")

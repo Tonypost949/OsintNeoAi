@@ -24,10 +24,10 @@ if prompt := st.chat_input("Enter target or query (e.g., 'Newark', 'Andrew Do', 
         
         bq_results = ""
         try:
-            client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+            client = bigquery.Client(project="noble-beanbag-497411-m4")
             query = f"""
                 SELECT state_code, non_profiteers_index 
-                FROM `project-743aab84-f9a5-4ec7-954.national_audits.all_state_records`
+                FROM `noble-beanbag-497411-m4.national_audits.all_state_records`
                 WHERE LOWER(TO_JSON_STRING(non_profiteers_index)) LIKE '%{prompt.lower()}%'
             """
             results = client.query(query).result()

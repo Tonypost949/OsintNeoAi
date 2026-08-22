@@ -5,8 +5,8 @@ from google.api_core.exceptions import NotFound
 def inspect_table_schema():
     """Connects to BigQuery and prints the schema of the specified table."""
     try:
-        client = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
-        table_id = "project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_150k_plus"
+        client = bigquery.Client(project='noble-beanbag-497411-m4')
+        table_id = "noble-beanbag-497411-m4.ppp_rico.ppp_150k_plus"
 
         print(f"Inspecting schema for table: {table_id}")
         table = client.get_table(table_id)  # API request

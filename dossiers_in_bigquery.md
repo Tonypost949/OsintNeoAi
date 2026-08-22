@@ -1,11 +1,11 @@
 # Forensic Dossiers in BigQuery
 
-The BigQuery dataset `ppp_rico` in project `project-743aab84-f9a5-4ec7-954` contains a table named `forensic_investigative_dossier` containing 13 forensic dossiers and briefs.
+The BigQuery dataset `ppp_rico` in project `noble-beanbag-497411-m4` contains a table named `forensic_investigative_dossier` containing 13 forensic dossiers and briefs.
 
 Below is the mapping of the table rows (`section_name`), including their associated source filenames, document titles, character lengths, and snippets of their content.
 
 ## Table Details
-- **Project ID**: `project-743aab84-f9a5-4ec7-954`
+- **Project ID**: `noble-beanbag-497411-m4`
 - **Dataset ID**: `ppp_rico`
 - **Table ID**: `forensic_investigative_dossier`
 - **Region**: `us-west1`
@@ -43,6 +43,6 @@ SELECT
   JSON_VALUE(parsed_metadata, '$.file_name') AS file_name, 
   LENGTH(content) AS content_length, 
   SUBSTR(content, 1, 150) AS content_preview 
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.forensic_investigative_dossier`
+FROM `noble-beanbag-497411-m4.ppp_rico.forensic_investigative_dossier`
 ORDER BY section_name;
 ```

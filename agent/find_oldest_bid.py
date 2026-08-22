@@ -1,7 +1,7 @@
 from google.cloud import bigquery
 
-bq = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
-P = "project-743aab84-f9a5-4ec7-954"
+bq = bigquery.Client(project="noble-beanbag-497411-m4")
+P = "noble-beanbag-497411-m4"
 
 # We will search for all bids in the catalog, but since we had mock data for the legacy 
 # system, let's also query the newly loaded table to see what is stored.

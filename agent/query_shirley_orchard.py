@@ -1,6 +1,6 @@
 ﻿from google.cloud import bigquery
 
-client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+client = bigquery.Client(project="noble-beanbag-497411-m4")
 
 print("--- Querying PPP tables for Orchard, Shirley, and Cerritos addresses ---")
 addresses = ["ORCHARD", "SHIRLEY", "CERRITOS"]
@@ -9,7 +9,7 @@ for addr in addresses:
     print(f"\nAddress keyword: {addr}")
     q_150k = f"""
     SELECT BorrowerName, BorrowerAddress, BorrowerCity, InitialApprovalAmount, ForgivenessAmount
-    FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_150k_plus`
+    FROM `noble-beanbag-497411-m4.ppp_rico.ppp_150k_plus`
     WHERE UPPER(BorrowerAddress) LIKE '%{addr}%'
     """
     try:
@@ -22,7 +22,7 @@ for addr in addresses:
 
     q_under150k = f"""
     SELECT BorrowerName, BorrowerAddress, BorrowerCity, InitialApprovalAmount, ForgivenessAmount
-    FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_up_to_150k`
+    FROM `noble-beanbag-497411-m4.ppp_rico.ppp_up_to_150k`
     WHERE UPPER(BorrowerAddress) LIKE '%{addr}%'
     """
     try:

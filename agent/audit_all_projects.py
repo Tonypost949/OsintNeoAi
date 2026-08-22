@@ -3,8 +3,8 @@
 projects = [
     "golden-agency-497410-t8",
     "hardy-order-496117-p3",
-    "project-743aab84-f9a5-4ec7-954",
-    "project-743aab84-f9a5-4ec7-954",
+    "noble-beanbag-497411-m4",
+    "noble-beanbag-497411-m4",
     "superb-router-q8gvj"
 ]
 

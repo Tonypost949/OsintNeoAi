@@ -1,18 +1,18 @@
 from google.cloud import bigquery
 
-client = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
+client = bigquery.Client(project='noble-beanbag-497411-m4')
 
 print("--- Searching for Immigrant/Migrant/Unaccompanied Data in BQ ---")
 
 queries = [
     """
     SELECT * 
-    FROM `project-743aab84-f9a5-4ec7-954.forensic_layers.cps_trafficking_layer`
+    FROM `noble-beanbag-497411-m4.forensic_layers.cps_trafficking_layer`
     WHERE LOWER(entity) LIKE '%immigrant%' OR LOWER(entity) LIKE '%migrant%' OR LOWER(entity) LIKE '%unaccompanied%' OR LOWER(entity) LIKE '%border%' OR LOWER(role) LIKE '%immigrant%' OR LOWER(role) LIKE '%migrant%' OR LOWER(role) LIKE '%unaccompanied%'
     """,
     """
     SELECT * 
-    FROM `project-743aab84-f9a5-4ec7-954.forensic_layers.national_pipeline_map`
+    FROM `noble-beanbag-497411-m4.forensic_layers.national_pipeline_map`
     WHERE LOWER(forensic_flags) LIKE '%immigrant%' OR LOWER(forensic_flags) LIKE '%migrant%' OR LOWER(forensic_flags) LIKE '%unaccompanied%'
     """
 ]

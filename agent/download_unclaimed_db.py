@@ -9,10 +9,10 @@ from google.cloud import bigquery
 # Since we need to pull the actual CA controller raw files, let's locate the public datasets first.
 
 def download_and_ingest_unclaimed():
-    bq = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+    bq = bigquery.Client(project="noble-beanbag-497411-m4")
     
     # Target table
-    table_id = "project-743aab84-f9a5-4ec7-954.unclaimed_property.ca_unclaimed_raw"
+    table_id = "noble-beanbag-497411-m4.unclaimed_property.ca_unclaimed_raw"
     
     # We will search the web or public mirrors for the direct download link 
     # of the California unclaimed property raw database dumps (CSV/JSON/ZIP).

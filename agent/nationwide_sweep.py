@@ -2,7 +2,7 @@
 import json, sys
 
 sys.stdout.reconfigure(encoding='utf-8')
-client = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
+client = bigquery.Client(project='noble-beanbag-497411-m4')
 
 print("=== NATIONWIDE SWEEP: PPP OUT-OF-STATE vs PROPERTY LOCATION ===\n")
 
@@ -14,8 +14,8 @@ SELECT
     COUNT(*) AS matches,
     SUM(p.CurrentApprovalAmount) AS total_ppp,
     SUM(p.ForgivenessAmount) AS total_forgiven
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_150k_plus` p
-INNER JOIN `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_llcs` h 
+FROM `noble-beanbag-497411-m4.ppp_rico.ppp_150k_plus` p
+INNER JOIN `noble-beanbag-497411-m4.ppp_rico.hb_llcs` h 
     ON UPPER(REGEXP_REPLACE(h.Owner1, r'[^A-Z0-9]', '')) = 
        UPPER(REGEXP_REPLACE(p.BorrowerName, r'[^A-Z0-9]', ''))
 WHERE p.BorrowerState NOT IN ('CA', '')
@@ -41,7 +41,7 @@ SELECT
     COUNT(*) AS entity_count,
     COUNT(DISTINCT Owner1) AS unique_owners,
     COUNT(DISTINCT APN) AS unique_properties
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_llcs`
+FROM `noble-beanbag-497411-m4.ppp_rico.hb_llcs`
 WHERE MailCity IS NOT NULL 
   AND MailCity != ''
   AND UPPER(MailCity) NOT IN ('HUNTINGTON BEACH', 'NEWPORT BEACH', 'FOUNTAIN VALLEY', 
@@ -69,7 +69,7 @@ SELECT
     COUNT(*) AS loan_count,
     SUM(CurrentApprovalAmount) AS total_amount,
     SUM(ForgivenessAmount) AS total_forgiven
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.ppp_150k_plus`
+FROM `noble-beanbag-497411-m4.ppp_rico.ppp_150k_plus`
 WHERE BorrowerName LIKE '%LLC%'
   AND CurrentApprovalAmount > 50000
 GROUP BY clean_name, BorrowerName
@@ -93,7 +93,7 @@ SELECT
     MailCity,
     COUNT(*) AS entity_count,
     COUNT(DISTINCT Owner1) AS unique_owners
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_llcs`
+FROM `noble-beanbag-497411-m4.ppp_rico.hb_llcs`
 WHERE MailAddress IS NOT NULL 
   AND MailAddress != ''
   AND UPPER(MailCity) NOT IN ('HUNTINGTON BEACH', 'NEWPORT BEACH', 'FOUNTAIN VALLEY',

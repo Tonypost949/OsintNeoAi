@@ -1,13 +1,13 @@
 from google.cloud import bigquery
 
-client = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
+client = bigquery.Client(project='noble-beanbag-497411-m4')
 
 print("=== SEARCHING EMAILS & DOCUMENTS FOR FAKE PRESCRIPTIONS / MEDICAL FRAUD ===")
 
 queries = {
     "gmail_index_prescriptions": """
         SELECT 'gmail_index' as source, subject, snippet, date_header as date
-        FROM `project-743aab84-f9a5-4ec7-954.national_audits.gmail_index`
+        FROM `noble-beanbag-497411-m4.national_audits.gmail_index`
         WHERE UPPER(subject) LIKE '%PRESCRIPTION%' OR UPPER(snippet) LIKE '%PRESCRIPTION%'
            OR UPPER(subject) LIKE '%PHARMACY%' OR UPPER(snippet) LIKE '%PHARMACY%'
            OR UPPER(subject) LIKE '% CLINIC%' OR UPPER(snippet) LIKE '% CLINIC%'
@@ -19,7 +19,7 @@ queries = {
     """,
     "takeout_documents_prescriptions": """
         SELECT 'takeout_documents' as source, file_name as subject, extracted_text as snippet, '' as date
-        FROM `project-743aab84-f9a5-4ec7-954.national_audits.takeout_documents`
+        FROM `noble-beanbag-497411-m4.national_audits.takeout_documents`
         WHERE UPPER(extracted_text) LIKE '%PRESCRIPTION%' 
            OR UPPER(extracted_text) LIKE '%PHARMACY%'
            OR UPPER(extracted_text) LIKE '%MEDICAL FRAUD%'

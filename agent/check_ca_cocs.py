@@ -2,10 +2,10 @@ from google.cloud import bigquery
 import pandas as pd
 
 def check_ca_cocs():
-    client = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
+    client = bigquery.Client(project='noble-beanbag-497411-m4')
     query = """
     SELECT coc_number, coc_name, pit_count, coc_funding, cps_est, gap 
-    FROM `project-743aab84-f9a5-4ec7-954.forensic_layers.national_pipeline_map`
+    FROM `noble-beanbag-497411-m4.forensic_layers.national_pipeline_map`
     WHERE state = 'CA'
     """
     try:

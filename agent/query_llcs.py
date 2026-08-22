@@ -1,10 +1,10 @@
 ﻿from google.cloud import bigquery
 
-client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+client = bigquery.Client(project="noble-beanbag-497411-m4")
 
 query = """
 SELECT llc_name, principal_address, mailing_address, agent_of_service 
-FROM `project-743aab84-f9a5-4ec7-954.forensic_layers.hb_llcs` 
+FROM `noble-beanbag-497411-m4.forensic_layers.hb_llcs` 
 WHERE UPPER(mailing_address) LIKE '%9874 RARITAN%' 
    OR UPPER(principal_address) LIKE '%20951 BROOKHURST%'
    OR UPPER(principal_address) LIKE '%20951 BROOKHURST%';

@@ -58,7 +58,7 @@ def process_evidence_with_ai(org_data):
     }}
     """
     
-    gcp_project_id = os.environ.get("GOOGLE_PROJECT_ID", "project-743aab84-f9a5-4ec7-954")
+    gcp_project_id = os.environ.get("GOOGLE_PROJECT_ID", "noble-beanbag-497411-m4")
     ai_client = genai.Client(vertexai=True, project=gcp_project_id, location="global")
     
     try:
@@ -77,7 +77,7 @@ def process_evidence_with_ai(org_data):
 
 def inject_to_database(finding):
     print("[DATABASE] Injecting parsed evidence directly into BigQuery...")
-    gcp_project_id = os.environ.get("GOOGLE_PROJECT_ID", "project-743aab84-f9a5-4ec7-954")
+    gcp_project_id = os.environ.get("GOOGLE_PROJECT_ID", "noble-beanbag-497411-m4")
     client = bigquery.Client(project=gcp_project_id)
     
     # We'll inject this into the "CA" row for testing purposes or "UNKNOWN" state.

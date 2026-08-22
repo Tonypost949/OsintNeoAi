@@ -16,7 +16,7 @@ from google.cloud import bigquery
 # ==============================================================================
 
 # Project and Dataset configurations
-PHASE2_PROJECT = "project-743aab84-f9a5-4ec7-954"
+PHASE2_PROJECT = "noble-beanbag-497411-m4"
 DATASET_ID = "npi_forensic"
 BASELINE_PROJECT = "noble-beanbag-497411-m4"
 ACTIVE_WORKSPACE = r"C:\Users\HP\OneDrive\Documents\AG2OSINTNEOMAXX"

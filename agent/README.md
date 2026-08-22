@@ -17,4 +17,4 @@ To run this agent:
 ## Notes
 - **Model**: `gemini-3.5-flash` (using the `GlobalGemini` class to pin Vertex AI to the `global` location).
 - **Primary Function**: Forensic data analysis specialized in corporate shell mapping, public fund leakage, and environmental crime tracking.
-- **Database Context**: `project-743aab84-f9a5-4ec7-954.national_audits.all_state_records`
+- **Database Context**: `noble-beanbag-497411-m4.national_audits.all_state_records`

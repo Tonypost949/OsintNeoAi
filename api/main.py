@@ -10,7 +10,7 @@ START_TIME = datetime.now(timezone.utc)
 UPLOAD_DIR = Path("/app/uploads")
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
-GCP_PROJECT = os.getenv("GCP_PROJECT", "project-743aab84-f9a5-4ec7-954")
+GCP_PROJECT = os.getenv("GCP_PROJECT", "noble-beanbag-497411-m4")
 
 # ── In-Memory Knowledge Store ──────────────────────────────────
 knowledge_store = {
@@ -134,7 +134,10 @@ The user's GCP project is: {project}
 """
 
 # ── Frontend (SPA) ─────────────────────────────────────────────
-FRONTEND_HTML = (Path(__file__).parent / "templates" / "index.html").read_text(encoding="utf-8")
+try:
+    FRONTEND_HTML = (Path(__file__).parent / "templates" / "index.html").read_text(encoding="utf-8")
+except Exception:
+    FRONTEND_HTML = "<h1>OSINT Neo AI</h1><p>Frontend template not found.</p>"
 
 @app.route("/")
 def index():

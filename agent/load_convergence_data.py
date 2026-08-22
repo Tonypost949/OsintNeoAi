@@ -1,7 +1,7 @@
 ﻿import sqlite3
 from google.cloud import bigquery
 
-GCP_PROJECT = "project-743aab84-f9a5-4ec7-954"
+GCP_PROJECT = "noble-beanbag-497411-m4"
 DB_PATH = r"c:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\master_index_v2.db"
 
 # 7561 Center Ave Convergence Data

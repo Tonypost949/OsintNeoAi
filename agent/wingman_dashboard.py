@@ -72,7 +72,7 @@ with head_right:
 
 @st.cache_data(ttl=600)
 def load_data(query):
-    client = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
+    client = bigquery.Client(project='noble-beanbag-497411-m4')
     return client.query(query).to_dataframe()
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["Overview", "Cyber Recon", "Regional LLCs", "I-Soon Telemetry", "OSINTNeoAi Chat"])
@@ -174,7 +174,7 @@ with tab5:
                             try:
                                 system_instruction = (
                                     "You are OSINTNeoAi, an OSINT and RICO investigation assistant. "
-                                    "You are connected to a BigQuery dataset `ppp_rico` in project `project-743aab84-f9a5-4ec7-954`. "
+                                    "You are connected to a BigQuery dataset `ppp_rico` in project `noble-beanbag-497411-m4`. "
                                     "The user is investigating a network involving Mercy House shelters, Medi-Cal billing fraud, and PPP fraud. "
                                     "The tables in the dataset are:\n"
                                     "1. `city_cyber_recon`: Contains exposed administrative paths found on city/police domains.\n"
@@ -212,9 +212,9 @@ with tab5:
 
     with col_sql:
         st.markdown("### 🔍 Live BigQuery SQL Runner")
-        st.write("Run real-time SQL queries against the `project-743aab84-f9a5-4ec7-954` project.")
+        st.write("Run real-time SQL queries against the `noble-beanbag-497411-m4` project.")
         
-        default_query = "SELECT * FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.trafficking_matches` LIMIT 10"
+        default_query = "SELECT * FROM `noble-beanbag-497411-m4.ppp_rico.trafficking_matches` LIMIT 10"
         query_input = st.text_area("Enter SQL Query:", value=default_query, height=150)
         
         if st.button("Run SQL Query", use_container_width=True):

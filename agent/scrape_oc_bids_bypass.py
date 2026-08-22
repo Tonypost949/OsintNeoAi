@@ -82,8 +82,8 @@ def scrape_oc_procurement_portal_bypass():
     df = pd.DataFrame(parsed_bids)
     print(df.to_string())
     
-    bq = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
-    table_id = "project-743aab84-f9a5-4ec7-954.unclaimed_property.oc_procurement_bids"
+    bq = bigquery.Client(project="noble-beanbag-497411-m4")
+    table_id = "noble-beanbag-497411-m4.unclaimed_property.oc_procurement_bids"
     
     print(f"Loading {len(df)} bids into table {table_id}...")
     job_config = bigquery.LoadJobConfig(

@@ -2,7 +2,7 @@ import os, sys, json, subprocess, zipfile, time
 from pathlib import Path
 from google.cloud import bigquery
 
-PROJECT = "project-743aab84-f9a5-4ec7-954"
+PROJECT = "noble-beanbag-497411-m4"
 TABLE = f"{PROJECT}.national_audits.google_photos_index"
 GDRIVE_PATH = "gdrive:Sharedall/takeouts all 22226"
 WORK_DIR = Path(r"G:\OsintNeoAi\takeout_work")

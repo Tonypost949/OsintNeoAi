@@ -1,12 +1,12 @@
 from google.cloud import bigquery
 import pandas as pd
 
-client = bigquery.Client(project='project-743aab84-f9a5-4ec7-954')
+client = bigquery.Client(project='noble-beanbag-497411-m4')
 
 print("--- National Pipeline Map Math (Adult Gap + Demographics) ---")
 q1 = """
 SELECT state, pit_count, sheltered, unsheltered, cps_est, gap 
-FROM `project-743aab84-f9a5-4ec7-954.forensic_layers.national_pipeline_map`
+FROM `noble-beanbag-497411-m4.forensic_layers.national_pipeline_map`
 WHERE state = 'CA'
 """
 res1 = client.query(q1).result()
@@ -16,7 +16,7 @@ for r in res1:
 print("\n--- Demographics / Race Math (PPP Loans or other tables) ---")
 q2 = """
 SELECT demographics, count(*) as cnt 
-FROM `project-743aab84-f9a5-4ec7-954.forensic_layers.ppp_loans`
+FROM `noble-beanbag-497411-m4.forensic_layers.ppp_loans`
 GROUP BY demographics
 """
 try:

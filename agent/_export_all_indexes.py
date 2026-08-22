@@ -5,9 +5,9 @@ from google.oauth2.credentials import Credentials
 gcloud = os.path.expanduser(r'~\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin\gcloud.cmd')
 token = subprocess.check_output([gcloud, 'auth', 'print-access-token', '--account=txtdjdrop@gmail.com'], shell=True).decode().strip()
 creds = Credentials(token=token)
-client = bigquery.Client(project='project-743aab84-f9a5-4ec7-954', credentials=creds)
+client = bigquery.Client(project='noble-beanbag-497411-m4', credentials=creds)
 
-PROJ = "project-743aab84-f9a5-4ec7-954"
+PROJ = "noble-beanbag-497411-m4"
 BASE = r"C:\migrate opencode\OSINTNEOAI\agent"
 
 # OneDrive columns

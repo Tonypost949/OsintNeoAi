@@ -1,11 +1,11 @@
 ﻿from google.cloud import bigquery
 
-client = bigquery.Client(project="project-743aab84-f9a5-4ec7-954")
+client = bigquery.Client(project="noble-beanbag-497411-m4")
 
 print("--- Query 1: Getting Agents for DRT, JEK, RAV ---")
 query1 = """
 SELECT Owner1, agent_of_service, principal_address, mailing_address
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_llcs`
+FROM `noble-beanbag-497411-m4.ppp_rico.hb_llcs`
 WHERE UPPER(Owner1) LIKE '%DRT%' 
    OR UPPER(Owner1) LIKE '%JEK%' 
    OR UPPER(Owner1) LIKE '%RAV%';
@@ -25,10 +25,10 @@ except Exception as e:
 print("\n--- Query 2: Finding shared agents ---")
 query2 = """
 SELECT agent_of_service, COUNT(*) as count
-FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_llcs`
+FROM `noble-beanbag-497411-m4.ppp_rico.hb_llcs`
 WHERE agent_of_service IN (
     SELECT agent_of_service
-    FROM `project-743aab84-f9a5-4ec7-954.ppp_rico.hb_llcs`
+    FROM `noble-beanbag-497411-m4.ppp_rico.hb_llcs`
     WHERE Owner1 IN ('DRT INVESTMENTS LLC', 'JEK INVESTMENTS LLC', 'RAV LLC')
 )
 AND agent_of_service IS NOT NULL

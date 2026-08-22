@@ -20,7 +20,7 @@ ONEDRIVE_DIRS = [
 ]
 
 # Destination Configurations
-PROJECT_ID = "project-743aab84-f9a5-4ec7-954"
+PROJECT_ID = "noble-beanbag-497411-m4"
 DATASET_ID = "onedrive_forensics"
 FULL_DATASET = f"{PROJECT_ID}.{DATASET_ID}"
 
