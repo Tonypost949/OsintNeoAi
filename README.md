@@ -6,104 +6,68 @@ Welcome to the **OSINTNeoAi** official investigation repository, live forensic s
 
 ## 📱 Mobile Quick Access & Live Cloud Command Endpoints
 
-Access all live interactive dashboards, multi-agent swarms, and APIs directly from your phone, tablet, or browser:
-
-| Live Service | Type | Full Mobile Access URL | Status |
-| :--- | :--- | :--- | :--- |
-| **Hercules App Instance** | High-Availability Cloud Hub | [https://osintneoai.onhercules.app/](https://osintneoai.onhercules.app/) | 🟢 LIVE |
-| **Streamlit Public Showcase** | Interactive Evidence Matrix | [https://github.com/Tonypost949/OsintNeoAi](https://github.com/Tonypost949/OsintNeoAi) | 🟢 LIVE |
-| **Azure Cloud Backend** | Public API & Container | [http://57.152.82.43:10000](http://57.152.82.43:10000) | 🟢 LIVE (HTTP 200) |
-| **GitHub Pages GIS Recon** | Interactive Spatial Map | [https://Tonypost949.github.io/OsintNeoAi/](https://Tonypost949.github.io/OsintNeoAi/) | 🟢 LIVE |
-| **Public Recon Audit Landing** | Threat & Audit Summary | [https://Tonypost949.github.io/OsintNeoAi/PUBLIC_RECON_AUDIT.html](https://Tonypost949.github.io/OsintNeoAi/PUBLIC_RECON_AUDIT.html) | 🟢 LIVE |
-| **Master Evidence Index** | Single-Page Web Viewer | [https://github.com/Tonypost949/OsintNeoAi/blob/main/index.html](https://github.com/Tonypost949/OsintNeoAi/blob/main/index.html) | 🟢 LIVE |
+* 🚀 **Hercules App Instance:** https://osintneoai.onhercules.app/
+* ⚡ **Azure Live Backend (Port 10000):** http://57.152.82.43:10000
+* 📊 **Streamlit Public Showcase:** https://github.com/Tonypost949/OsintNeoAi
+* 🗺️ **GitHub Pages GIS Recon Map:** https://Tonypost949.github.io/OsintNeoAi/
+* 🛡️ **Public Recon Audit Landing:** https://Tonypost949.github.io/OsintNeoAi/PUBLIC_RECON_AUDIT.html
 
 ---
 
-## 🏢 LightBox RE & EDR Environmental API Endpoints
+## 🗺️ Badass Interactive GIS Maps & Spatial Layers
 
-Integrated real-time real estate parcels, tax assessments, zoning, historical EDR radius risk reports, and **Nevada Desert / MGM Grand exact GPS coordinates**:
-
-* 🌐 **LightBox Developer Portal:** [https://developer.lightboxre.com](https://developer.lightboxre.com)
-* 🔑 **App Management & Key Details:** [https://developer.lightboxre.com/apps/personal/lightbox/details](https://developer.lightboxre.com/apps/personal/lightbox/details)
-* 📚 **Official LightBox API Docs:** [https://lightbox.document360.io/docs/apis](https://lightbox.document360.io/docs/apis)
-* 📦 **Parcels API Base:** `https://api.lightboxre.com/v1/parcels/us`
-* 📍 **Spatial GPS Radius API:** `https://api.lightboxre.com/v1/parcels/us/radius`
-* 📑 **Assessments API Base:** `https://api.lightboxre.com/v1/assessments/us`
-* 🏭 **EDR Environmental Risk Reports:** `https://api.lightboxre.com/v1/edr/reports`
-* ☢️ **EDR Radius Contaminated Sites:** `https://api.lightboxre.com/v1/edr/sites/radius`
-* 🏗️ **Structures Footprint API:** `https://api.lightboxre.com/v1/structures/us`
-* 📐 **Zoning & Land Use API:** `https://api.lightboxre.com/v1/zoning/us`
+* 🛰️ **Badass OSINT Master Tactical Map:** https://github.com/Tonypost949/OsintNeoAi/blob/main/badass_osint_map.html
+* 🏢 **HBNC RICO GIS Spatial Parcel Map:** https://github.com/Tonypost949/OsintNeoAi/blob/main/hbnc_rico_gis.html
+* ⛓️ **Nationwide Chain of Custody Flow Map:** https://github.com/Tonypost949/OsintNeoAi/blob/main/nationwide_coc_map.html
+* 💸 **Nationwide Money Pipeline Vector Map:** https://github.com/Tonypost949/OsintNeoAi/blob/main/nationwide_pipeline_map.html
+* 📊 **ArcGIS Teams Forensic Dashboard:** https://github.com/Tonypost949/OsintNeoAi/blob/main/arcgis_teams_dashboard.html
 
 ---
 
-## 📍 Nevada Desert & MGM Grand GPS Spatial Coordinate Hubs
+## 📂 Full Direct URLs to Google Drive Primary Evidence Documents
 
-When street addresses are unassigned, raw desert parcels, or mismatched in legacy EDR documents, the system queries exact GPS coordinates:
+* 🌾 **Buck Ranch / Callens Ranch GIS Analysis:** https://drive.google.com/file/d/1AcgqV5AOt2nl6njJLFn3HAcE-Z_5kPb7/view?usp=drivesdk
+* 🪦 **Indian Burial Search Report 1:** https://drive.google.com/file/d/1i0MDI9bHPIV2WSwFLtnRsuYXMzJUognX/view?usp=drivesdk
+* 🧪 **Soil & Burial Verification Report:** https://drive.google.com/file/d/1X11aun23RkIOrMSfXQhlPUUjGx0Do4X-/view?usp=drivesdk
+* 📜 **SoCal Tribal Trustees Matrix (CSV):** https://drive.google.com/file/d/1W1dXpsnGdO_slXj_JipvosEqYUgT0U1q/view?usp=drivesdk
+* 💻 **Tribal Trust Extraction Script 1:** https://drive.google.com/file/d/1ZHi6lkNAVHUQ3jf9axsgL_FPWR_eeXwe/view?usp=drivesdk
+* 💻 **Tribal Trust Extraction Script 2:** https://drive.google.com/file/d/1ZrHNJ1x-ZyA6cbWKBNCQMY35dBlXLI0J/view?usp=drivesdk
 
-* 🎰 **MGM Grand Las Vegas Hub:** `36.1026° N, 115.1703° W` (3799 S Las Vegas Blvd, Clark County, NV)
-* 🏜️ **Apex Desert Industrial Corridor:** `36.3150° N, 114.9200° W` (Clark County, NV)
-* ⛏️ **Nye County Mining / Testing Corridor:** `36.9092° N, 116.7547° W` (Beatty Corridor, NV)
-* 🏭 **Tahoe-Reno / Storey County Industrial:** `39.5296° N, 119.8138° W` (USA Pkwy, NV)
+---
+
+## 💧 Full Direct URLs to State GeoTracker Deliverables & Groundwater Testing
+
+* 📄 **17642 Beach Blvd Site Summary & Recommendations:** https://documents.geotracker.waterboards.ca.gov/regulators/deliverable_documents/8173352897/17642%20Beach%20Blvd-%20Site%20Summary%20and%20Recommendations%20Final.pdf
+* 📄 **17642 Beach Blvd Additional Assessment Report:** https://documents.geotracker.waterboards.ca.gov/regulators/deliverable_documents/9565320670/Additonal%20Assessment%20Report%2017642%20Beach%20Boulevard%20(003).pdf
+* 📄 **17631 Cameron Ln Site Assessment Report:** https://documents.geotracker.waterboards.ca.gov/regulators/deliverable_documents/1147596061/Site%20Assessment%20Report%20-%2017631%20Cameron%20Ln..pdf
+* 📄 **17631 Cameron Ln Property Summary & Recommendations:** https://documents.geotracker.waterboards.ca.gov/regulators/deliverable_documents/8599347770/Cameron%20Ln%20Property%20Site%20Summary%20and%20Recommendation.pdf
+* 📄 **Phase I ESA Deliverable (T10000018579):** https://documents.geotracker.waterboards.ca.gov/regulators/deliverable_documents/8203290641/T10000018579.20200318.Phase%20I%20Environmental%20Site%20Assessment.pdf
+* 🧪 **Hexavalent Chromium (CR6) GAMA Water Quality Line Chart:** https://gamagroundwater.waterboards.ca.gov/gama/gamamap/public/linechart.asp?dataset=DHS&global_id=W0603000618&locid=CA3000618%5F001%5F001&parlabel=CR6
+
+---
+
+## 🏢 LightBox RE Developer Portals & Order Systems
+
+* 🌐 **LightBox Developer Portal:** https://developer.lightboxre.com
+* 🔑 **Personal App Management:** https://developer.lightboxre.com/apps/personal/lightbox/details
+* 📚 **Official LightBox API Docs:** https://lightbox.document360.io/docs/apis
+* 📦 **EDRnet Order Status (Session 1):** https://www.web.edrnet.com/Ordering/OrderStatus/status.aspx?O=1&lsessguid=7ce4ba6b-006c-4314-9e5f-81fcaa9f8aed
+* 📦 **EDRnet Order Status (Session 2):** https://www.web.edrnet.com/Ordering/OrderStatus/status.aspx?lsessguid=8772a597-d32d-4ef8-96fc-2c2f472809aa
+* 🔍 **ParcelQuest Statewide Property Lookup:** https://assr.parcelquest.com/Statewide/Estimate/0
 
 ---
 
 ## 🏛️ Official Government Corporate & Property Portals
 
-* 🏛️ **California Secretary of State:** [https://bizfileonline.sos.ca.gov/search/business](https://bizfileonline.sos.ca.gov/search/business)
-* 🏛️ **Michigan LARA Corporate Registry:** [https://cofs.lara.state.mi.us/Search/Search](https://cofs.lara.state.mi.us/Search/Search)
-* 🏛️ **Alaska Division of Corporations:** [https://www.commerce.alaska.gov/cbp/main/search/entities](https://www.commerce.alaska.gov/cbp/main/search/entities)
-* 🏛️ **Nevada Secretary of State (SilverFlume):** [https://www.nvsilverflume.gov](https://www.nvsilverflume.gov)
-* 🏛️ **Orange County Clerk-Recorder Property Search:** [https://www.ocrecorder.com](https://www.ocrecorder.com)
-* 🏛️ **USASpending.gov Award Search:** [https://www.usaspending.gov/search](https://www.usaspending.gov/search)
+* 🏛️ **California Secretary of State:** https://bizfileonline.sos.ca.gov/search/business
+* 🏛️ **Nevada Secretary of State (SilverFlume):** https://www.nvsilverflume.gov
+* 🏛️ **Orange County Clerk-Recorder:** https://www.ocrecorder.com
+* 🏛️ **USASpending.gov Award Search:** https://www.usaspending.gov/search
 
 ---
 
-## 🔗 Master GitHub Repositories Map
+## 🔗 Master GitHub Repositories
 
-* 📂 **Primary Investigation & Web App:** [https://github.com/Tonypost949/OsintNeoAi](https://github.com/Tonypost949/OsintNeoAi)
-* 🤖 **Autonomous Multi-Agent Engine:** [https://github.com/Tonypost949/osint-agent](https://github.com/Tonypost949/osint-agent)
-* ⚖️ **RICO Evidence Matrix & Filings:** [https://github.com/Tonypost949/riconow](https://github.com/Tonypost949/riconow)
-
----
-
-## 📋 Comprehensive Evidence Index
-
-### 📄 Investigative Reports & Summaries
-| Evidence Document | Full GitHub Online Path | Description |
-| :--- | :--- | :--- |
-| **LightBox & Nevada GPS Audit** | [reports/LIGHTBOX_PARCEL_AUDIT_REPORT.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/reports/LIGHTBOX_PARCEL_AUDIT_REPORT.md) | Multi-API audit across CA & NV parcels |
-| **Master EDR Asset Index** | [reports/EDR_LIGHTBOX_MASTER_ASSET_INDEX.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/reports/EDR_LIGHTBOX_MASTER_ASSET_INDEX.md) | Complete EDR & Sanborn inventory |
-| **Daily OSINT Report (Latest)** | [reports/daily/DAILY_OSINT_REPORT_2026-08-22.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/reports/daily/DAILY_OSINT_REPORT_2026-08-22.md) | Autonomous daily dispatch (00:00 UTC) |
-| **Forensic Audit Report** | [FORENSIC_AUDIT_REPORT.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/FORENSIC_AUDIT_REPORT.md) | Full municipal & financial audit findings |
-| **Dehashed HBPD Scan Report** | [DEHASHED_HBPD_SCAN_REPORT.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/DEHASHED_HBPD_SCAN_REPORT.md) | Credential exposure & breach analysis |
-| **HBPD Port Scan Report** | [HBPD_PORT_SCAN_REPORT.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/HBPD_PORT_SCAN_REPORT.md) | Network port scan & vulnerability audit |
-| **Medical & Petruccio Summary** | [PETRUCCIO_MEDICAL_SUMMARY.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/PETRUCCIO_MEDICAL_SUMMARY.md) | Medical documentation & case evidence |
-| **BigQuery Ingestion Guide** | [OSINT_BIGQUERY_INGESTION_WALKTHROUGH_AND_PATHS.md](https://github.com/Tonypost949/OsintNeoAi/blob/main/OSINT_BIGQUERY_INGESTION_WALKTHROUGH_AND_PATHS.md) | BigQuery schema & dataset mapping |
-
----
-
-### 📊 Master Data Spreadsheets & Manifests
-| Dataset / Manifest | Full GitHub Online Path | Description |
-| :--- | :--- | :--- |
-| **Nationwide Smoking Guns Matrix** | [reports/NATIONWIDE_SMOKING_GUNS_MATRIX.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/reports/NATIONWIDE_SMOKING_GUNS_MATRIX.csv) | Primary audit figures & financial metrics |
-| **Audit Numbers (V2 Scan)** | [AUDIT_NUMBERS_v2_scan_july24.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/AUDIT_NUMBERS_v2_scan_july24.csv) | Secondary audit metrics |
-| **Forensic Master Spreadsheet** | [forensic_master_spreadsheet.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/forensic_master_spreadsheet.csv) | Cross-referenced forensic evidence |
-| **Van Herk Network Matrix** | [VAN_HERK_NETWORK.csv](https://github.com/Tonypost949/OsintNeoAi/blob/main/VAN_HERK_NETWORK.csv) | Shell LLC network breakdown |
-
----
-
-### 🕸️ Graph Networks, EDR Datasets & Data Dumps
-| Data Structure | Full GitHub Online Path | Description |
-| :--- | :--- | :--- |
-| **EDR All GPS Coordinates** | [edr_all_gps_coordinates.json](https://github.com/Tonypost949/OsintNeoAi/blob/main/edr_all_gps_coordinates.json) | Environmental due diligence GPS mapping |
-| **EDR Clean GPS Mapping** | [edr_gps_mapping_clean.json](https://github.com/Tonypost949/OsintNeoAi/blob/main/edr_gps_mapping_clean.json) | Cleaned Sanborn & EDR site list |
-| **Graph Nodes (Entities)** | [nodes.json](https://github.com/Tonypost949/OsintNeoAi/blob/main/nodes.json) | Complete entity node definitions |
-| **Graph Edges (Relationships)** | [edges.json](https://github.com/Tonypost949/OsintNeoAi/blob/main/edges.json) | Complete entity relationship edges |
-| **Gmail Government Hits** | [gmail_govt_responses_hits.json](https://github.com/Tonypost949/OsintNeoAi/blob/main/gmail_govt_responses_hits.json) | Public records & email disclosures |
-
----
-
-## 🔒 Cloud Database & Integrity Verification
-* **Data Warehouse Project:** `noble-beanbag-497411-m4` / `project-743aab84-f9a5-4ec7-954`
-* **Primary BigQuery Dataset:** `national_audits`
-* **Cryptographic Standard:** All exhibits, ledgers, and dispatches are cryptographically verified with **NIST SHA-256 Checksums**.
+* 📂 **Master Investigation Repository:** https://github.com/Tonypost949/OsintNeoAi
+* 🤖 **Autonomous Multi-Agent Engine:** https://github.com/Tonypost949/osint-agent
+* ⚖️ **RICO Evidence Matrix & Filings:** https://github.com/Tonypost949/riconow

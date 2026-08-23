@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>GOLD DIGGER AI — INFINITY POOL MAP</title>
+  <script src="https://unpkg.com/react@16.8.4/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16.8.4/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/redux@3.7.2/dist/redux.js"></script>
+  <script src="https://unpkg.com/react-redux@7.1.3/dist/react-redux.min.js"></script>
+  <script src="https://unpkg.com/styled-components@4.1.3/dist/styled-components.min.js"></script>
+  <script src="https://unpkg.com/kepler.gl@2.5.5/umd/keplergl.min.js"></script>
+  <style type="text/css">
+    body, html { margin: 0; padding: 0; overflow: hidden; height: 100vh; width: 100vw; background: #000; }
+    /* Hide the side panel by default for the infinity pool feel, but allow toggle */
+    .kepler-gl__side-panel { opacity: 0.85; transition: opacity 0.3s; }
+    .kepler-gl__side-panel:hover { opacity: 1; }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    const reducers = (function(keplerGl, redux) {
+      return redux.combineReducers({
+        keplerGl: keplerGl.keplerGlReducer
+      });
+    })(KeplerGl, Redux);
+
+    const store = Redux.createStore(reducers, {}, Redux.applyMiddleware(KeplerGl.taskMiddleware));
+
+    const App = (function(react, keplerGl, reactRedux) {
+      var KeplerGlComponent = keplerGl.KeplerGl;
+      return function() {
+        return react.createElement(
+          'div',
+          {style: {position: 'absolute', left: 0, top: 0, width: '100vw', height: '100vh'}},
+          react.createElement(KeplerGlComponent, {
+            mapboxApiAccessToken: 'YOUR_MAPBOX_TOKEN',
+            id: 'map',
+            width: window.innerWidth,
+            height: window.innerHeight
+          })
+        );
+      }
+    })(React, KeplerGl, ReactRedux);
+
+    const ConnectedApp = ReactRedux.connect(state => state)(App);
+
+    ReactDOM.render(
+      React.createElement(ReactRedux.Provider, {store}, React.createElement(ConnectedApp)),
+      document.getElementById('app')
+    );
+
+    // Inject our multi-layered datasets
+    setTimeout(() => {
+      const dataToLoad = [
+        {
+          info: { label: 'Entity Nodes', id: 'osint_nodes' },
+          data: {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [-117.9881801, 33.7064036]}, "properties": {"id": "HBNC", "target": "HBNC Toxic Site", "type": "Environmental Hazard", "color": [230, 57, 70]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-117.9945, 33.7317]}, "properties": {"id": "7561_CENTER", "target": "7561 Center Ave (Steering Hub)", "type": "Shell LLC Hub", "color": [255, 183, 3]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-117.9885, 33.706]}, "properties": {"id": "17642_BEACH", "target": "17642 Beach Blvd (Acquisition)", "type": "Real Estate Absorption", "color": [114, 9, 183]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-118.0142, 33.732]}, "properties": {"id": "3311_BOUNTY", "target": "3311 Bounty Cir (Stewart Ind)", "type": "$0 Transfer Layer", "color": [67, 170, 139]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-118.0053, 33.8248]}, "properties": {"id": "7100_CERRITOS", "target": "7100 Cerritos Ave (Pham LLC)", "type": "$0 Transfer Layer", "color": [67, 170, 139]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-117.9988, 33.6595]}, "properties": {"id": "CITY_HALL", "target": "City of HB / Govt Node", "type": "Government Entity", "color": [255, 255, 255]}}]}
+        },
+        {
+          info: { label: 'Maltego Linkages', id: 'osint_arcs' },
+          data: {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[-117.9881801, 33.7064036], [-117.9885, 33.706]]}, "properties": {"label": "Adjacent Expansion / Lease", "source_target": "HBNC Toxic Site", "target_target": "17642 Beach Blvd (Acquisition)"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[-117.9988, 33.6595], [-117.9881801, 33.7064036]]}, "properties": {"label": "Fraudulent CEQA / RPM Contract", "source_target": "City of HB / Govt Node", "target_target": "HBNC Toxic Site"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[-117.9945, 33.7317], [-117.9885, 33.706]]}, "properties": {"label": "Grant Diversion / Absorption", "source_target": "7561 Center Ave (Steering Hub)", "target_target": "17642 Beach Blvd (Acquisition)"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[-117.9945, 33.7317], [-118.0142, 33.732]]}, "properties": {"label": "PPP / Structuring Loop", "source_target": "7561 Center Ave (Steering Hub)", "target_target": "3311 Bounty Cir (Stewart Ind)"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[-117.9945, 33.7317], [-118.0053, 33.8248]]}, "properties": {"label": "$0 Conveyance Loop (Peter Pham)", "source_target": "7561 Center Ave (Steering Hub)", "target_target": "7100 Cerritos Ave (Pham LLC)"}}]}
+        }
+      ];
+      
+      const config = {"version": "v1", "config": {"visState": {"filters": [], "layers": [{"id": "osint_nodes_layer", "type": "point", "config": {"dataId": "osint_nodes", "label": "Entity Nodes", "color": [255, 183, 3], "columns": {"lat": "lat", "lng": "lon", "altitude": null}, "isVisible": true, "visConfig": {"radius": 20, "fixedRadius": false, "opacity": 0.8, "outline": false}}}, {"id": "osint_links_layer", "type": "arc", "config": {"dataId": "osint_arcs", "label": "Maltego Connections", "color": [114, 9, 183], "columns": {"lat0": "source_lat", "lng0": "source_lon", "lat1": "target_lat", "lng1": "target_lon"}, "isVisible": true, "visConfig": {"opacity": 0.8, "thickness": 3, "colorRange": {"name": "Global Warming", "type": "sequential", "category": "Uber", "colors": ["#5A1846", "#900C3F", "#C70039", "#E3611C", "#F1920E", "#FFC300"]}}}}], "interactionConfig": {"tooltip": {"fieldsToShow": {"osint_nodes": ["target", "type"], "osint_arcs": ["label"]}}, "brush": {"enabled": false}}, "layerBlending": "additive", "splitMaps": []}, "mapState": {"bearing": 24, "dragRotate": true, "latitude": 33.74, "longitude": -118.0, "pitch": 45, "zoom": 11.5, "isSplit": false}, "mapStyle": {"styleType": "dark", "topLayerGroups": {}, "visibleLayerGroups": {"label": true, "road": true, "border": false, "building": true, "water": true, "land": true, "3d building": true}}}};
+
+      store.dispatch(KeplerGl.addDataToMap({
+        datasets: dataToLoad,
+        config: config
+      }));
+      
+      // Auto-hide the sidebar after load to maximize map space for tablets
+      setTimeout(() => {
+        store.dispatch(KeplerGl.toggleSidePanel(''));
+      }, 1500);
+      
+    }, 800);
+  </script>
+</body>
+</html>
