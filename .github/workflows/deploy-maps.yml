@@ -1,17 +1,16 @@
-﻿name: Deploy Maps to Azure & Docker
+﻿name: Deploy Maps to Docker & Azure
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  packages: write
+permissions: write-all
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -23,28 +22,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Set lower case owner name
+        run: |
+          echo "OWNER_LC=${OWNER,,}" >> ${GITHUB_ENV}
+        env:
+          OWNER: '${{ github.repository_owner }}'
+
       - name: Build & Push GHCR Docker Image
         run: |
-          docker build -f Dockerfile.maps -t ghcr.io/${{ github.repository_owner }}/osintneoai-maps:latest .
-          docker push ghcr.io/${{ github.repository_owner }}/osintneoai-maps:latest
-
-      - name: Azure Login
-        uses: azure/login@v1
-        continue-on-error: true
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - name: Deploy to Azure Container Instances
-        continue-on-error: true
-        run: |
-          az container create \
-            --resource-group osintneoai-rg \
-            --name osintneoai-maps \
-            --image ghcr.io/${{ github.repository_owner }}/osintneoai-maps:latest \
-            --os-type Linux \
-            --cpu 1.0 \
-            --memory 1.0 \
-            --ports 10000 \
-            --ip-address public \
-            --environment-variables PORT=10000 \
-            --no-wait || true
+          docker build -f Dockerfile.maps -t ghcr.io/${{ env.OWNER_LC }}/osintneoai-maps:latest .
+          docker push ghcr.io/${{ env.OWNER_LC }}/osintneoai-maps:latest
