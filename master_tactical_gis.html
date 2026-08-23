@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>OSINTNeoAi — Next-Gen 3D & Ultra-HD Satellite Tactical GIS</title>
-<!-- Leaflet CSS & JS -->
+<title>OSINTNeoAi — Autopilot 3D Flying Tactical GIS Engine</title>
+<!-- Leaflet & Full Plugins -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet-fullscreen@1.0.2/dist/leaflet.fullscreen.css" />
@@ -28,6 +28,23 @@ html, body, #map { width:100%; height:100%; background:#020617; font-family:'Seg
 #hud-panel .stat-row { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding: 4px 0; }
 #hud-panel .stat-val { font-weight: bold; color: #00ffaa; }
 
+/* CINEMATIC AUTOPILOT CONTROLLER TOP CENTER */
+#autopilot-bar {
+    position: fixed; top: 12px; left: 50%; transform: translateX(-50%); z-index: 1000;
+    background: rgba(2, 6, 23, 0.95); border: 2px solid #00ffaa;
+    border-radius: 30px; padding: 8px 20px; color: #00ffaa; font-family: monospace;
+    font-size: 12px; font-weight: bold; backdrop-filter: blur(14px);
+    box-shadow: 0 0 25px rgba(0, 255, 170, 0.4), 0 10px 30px rgba(0, 0, 0, 0.9);
+    display: flex; align-items: center; gap: 14px;
+}
+#autopilot-bar button {
+    background: #0f172a; color: #00ffaa; border: 1px solid #00ffaa66; padding: 6px 14px;
+    border-radius: 20px; font-family: monospace; font-size: 11px; font-weight: bold;
+    cursor: pointer; transition: all 0.2s ease; outline: none;
+}
+#autopilot-bar button:hover { background: #00ffaa; color: #020617; box-shadow: 0 0 15px #00ffaa; }
+#autopilot-status { color: #f8fafc; font-size: 11px; }
+
 /* QUICK JUMP COCKPIT TOP RIGHT */
 #cockpit-jump {
     position: fixed; top: 12px; right: 12px; z-index: 1000;
@@ -49,16 +66,6 @@ html, body, #map { width:100%; height:100%; background:#020617; font-family:'Seg
     border-radius: 6px; padding: 6px 14px; color: #94a3b8; font-family: monospace;
     font-size: 11px; backdrop-filter: blur(8px);
 }
-
-/* EXTERNAL ENGINES BAR BOTTOM RIGHT */
-#external-engines {
-    position: fixed; bottom: 12px; right: 12px; z-index: 1000;
-    background: rgba(2, 6, 23, 0.92); border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 6px; padding: 6px 12px; color: #94a3b8; font-family: monospace; font-size: 10px;
-    display: flex; gap: 10px; backdrop-filter: blur(8px);
-}
-#external-engines a { color: #38bdf8; text-decoration: none; font-weight: bold; }
-#external-engines a:hover { color: #00ffaa; text-decoration: underline; }
 
 /* POPUP CUSTOM STYLING */
 .leaflet-popup-content-wrapper {
@@ -86,21 +93,28 @@ html, body, #map { width:100%; height:100%; background:#020617; font-family:'Seg
 
 <!-- HUD -->
 <div id="hud-panel">
-    <h1>🛰️ OSINTNeoAi 3D ULTRA-HD GIS <span class="badge">TACTICAL</span></h1>
-    <div style="color:#94a3b8; font-size:10px; margin-bottom:8px;">Sub-Meter Satellite, Historical Surveys & Multi-State Plumes</div>
-    <div class="stat-row"><span>Cartography Engine:</span><span class="stat-val">ESRI Clarity & OpenHistorical</span></div>
-    <div class="stat-row"><span>Total Audited Records:</span><span class="stat-val">10,499,686</span></div>
-    <div class="stat-row"><span>Estimated Exposure:</span><span class="stat-val" style="color:#f43f5e">$90,000,000+ USD</span></div>
-    <div class="stat-row"><span>Superfund / Plumes:</span><span class="stat-val" style="color:#fbbf24">Ascon, CR6 Plume, Plume 18</span></div>
-    <div class="stat-row"><span>Historical Surveys:</span><span class="stat-val" style="color:#facc15">Buck Ranch / Callens 1867</span></div>
-    <div class="stat-row"><span>Nevada Desert Corridors:</span><span class="stat-val" style="color:#c084fc">MGM / Apex / Nye / Tahoe</span></div>
+    <h1>🛰️ 3D CINEMATIC FLYING GIS <span class="badge">AUTOPILOT</span></h1>
+    <div style="color:#94a3b8; font-size:10px; margin-bottom:8px;">Real-Time Drone Orbit & Autonomous Camera Flight Engine</div>
+    <div class="stat-row"><span>Flight Status:</span><span class="stat-val" id="flight-status-val">READY</span></div>
+    <div class="stat-row"><span>Active Target:</span><span class="stat-val" id="flight-target-val" style="color:#38bdf8">High Orbit</span></div>
+    <div class="stat-row"><span>Cartography:</span><span class="stat-val">ESRI Clarity Sub-Meter</span></div>
+    <div class="stat-row"><span>Superfund Plumes:</span><span class="stat-val" style="color:#fbbf24">Ascon / CR6 Plume</span></div>
+    <div class="stat-row"><span>Nevada Corridors:</span><span class="stat-val" style="color:#c084fc">MGM / Apex / Nye / Tahoe</span></div>
+</div>
+
+<!-- CINEMATIC AUTOPILOT CONTROLLER -->
+<div id="autopilot-bar">
+    <span>🚁 DRONE AUTOPILOT:</span>
+    <button id="btn-autopilot" onclick="toggleAutopilot()">▶️ START CINEMATIC FLIGHT</button>
+    <button onclick="nextFlightWaypoint()">⏭️ NEXT SECTOR</button>
+    <span id="autopilot-status">Sector: 1 / 10</span>
 </div>
 
 <!-- QUICK JUMP COCKPIT -->
 <div id="cockpit-jump">
-    <label style="color:#94a3b8; font-size:10px; font-weight:bold;">📍 QUICK TACTICAL FLY-TO:</label>
+    <label style="color:#94a3b8; font-size:10px; font-weight:bold;">📍 DIRECT PINPOINT FLY-TO:</label>
     <select id="jump-select" onchange="jumpToTarget(this.value)">
-        <option value="all">🌐 Nationwide Overview (50 States)</option>
+        <option value="all">🌐 High Orbit Overview (50 States)</option>
         <option value="ascon">☣️ Ascon Landfill Superfund & Plumes (CA)</option>
         <option value="vagabond">📍 17642 Beach Blvd (Vagabond / Casa Aliento)</option>
         <option value="cameron">📍 17631 Cameron Ln Property Hub</option>
@@ -115,21 +129,13 @@ html, body, #map { width:100%; height:100%; background:#020617; font-family:'Seg
     </select>
 </div>
 
-<!-- EXTERNAL SATELLITE PLATFORMS -->
-<div id="external-engines">
-    <span>🌐 3D GLOBE FEEDS:</span>
-    <a href="https://www.openhistoricalmap.org" target="_blank">OpenHistoricalMap</a> |
-    <a href="https://stadiamaps.com" target="_blank">Stadia 30cm Satellite</a> |
-    <a href="https://mapsplatform.google.com/demos/3d-maps/" target="_blank">Google 3D Tiles</a>
-</div>
-
 <!-- COORDINATES -->
 <div id="coord-hud">CURSOR: <span id="mouse-coords">33.708800° N, -117.989000° W</span> | ZOOM: <span id="zoom-level">6</span></div>
 
 <script>
 // BASE CARTOGRAPHY FEEDS
-const esriSat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, attribution: 'ESRI World Imagery' });
 const esriClarity = L.tileLayer('https://clarity.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, attribution: 'ESRI Clarity Ultra-HD' });
+const esriSat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, attribution: 'ESRI World Imagery' });
 const darkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19, attribution: 'CartoDB Dark Matter' });
 const openHistorical = L.tileLayer('https://tile.openhistoricalmap.org/ohm_historic/{z}/{x}/{y}.png', { maxZoom: 18, attribution: 'OpenHistoricalMap' });
 const topoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', { maxZoom: 17, attribution: 'OpenTopoMap' });
@@ -195,7 +201,7 @@ L.polyline([
 .bindPopup("<b>⚠️ Regional Migration Corridor:</b> South-to-North Toxic Soil Vapor Vector along Beach Blvd");
 
 // 2. TARGET PARCELS (Vagabond Inn / Cameron / Garden Grove)
-const vagabondMarker = L.circleMarker([33.7088, -117.9890], { radius: 11, color: '#f43f5e', fillColor: '#f43f5e', fillOpacity: 0.85, weight: 2 }).addTo(layerParcels);
+const vagabondMarker = L.circleMarker([33.7088, -117.9890], { radius: 12, color: '#f43f5e', fillColor: '#f43f5e', fillOpacity: 0.85, weight: 2 }).addTo(layerParcels);
 vagabondMarker.bindPopup(`
     <div class="popup-title">📍 VAGABOND INN / CASA ALIENTO</div>
     <span class="popup-tag tag-superfund">MERCY HOUSE CHDO CONDUIT</span><br>
@@ -205,7 +211,7 @@ vagabondMarker.bindPopup(`
     <div class="popup-field"><b>Funding Traced:</b> $14.68M Federal PPP / HUD ESG Funds</div>
 `);
 
-const cameronMarker = L.circleMarker([33.7081, -117.9902], { radius: 9, color: '#38bdf8', fillColor: '#0284c7', fillOpacity: 0.85, weight: 2 }).addTo(layerParcels);
+const cameronMarker = L.circleMarker([33.7081, -117.9902], { radius: 10, color: '#38bdf8', fillColor: '#0284c7', fillOpacity: 0.85, weight: 2 }).addTo(layerParcels);
 cameronMarker.bindPopup(`
     <div class="popup-title">📍 CAMERON LANE PROPERTY HUB</div>
     <span class="popup-tag tag-superfund">SITE ASSESSMENT AUDIT</span><br>
@@ -215,7 +221,7 @@ cameronMarker.bindPopup(`
 `);
 
 // 3. GAMA GROUNDWATER WELLS (CR6 Plume)
-const wellMarker = L.circleMarker([33.6950, -117.9880], { radius: 9, color: '#06b6d4', fillColor: '#06b6d4', fillOpacity: 0.9, weight: 2 }).addTo(layerWells);
+const wellMarker = L.circleMarker([33.6950, -117.9880], { radius: 10, color: '#06b6d4', fillColor: '#06b6d4', fillOpacity: 0.9, weight: 2 }).addTo(layerWells);
 wellMarker.bindPopup(`
     <div class="popup-title">💧 GAMA GROUNDWATER MONITORING WELL</div>
     <span class="popup-tag tag-well">WELL ID: W0603000618</span><br>
@@ -241,7 +247,7 @@ buckPolygon.bindPopup(`
 `);
 
 // 5. NEVADA DESERT & MGM GRAND HUBS
-const mgmMarker = L.circleMarker([36.1026, -115.1703], { radius: 12, color: '#c084fc', fillColor: '#9333ea', fillOpacity: 0.9, weight: 2 }).addTo(layerNevada);
+const mgmMarker = L.circleMarker([36.1026, -115.1703], { radius: 13, color: '#c084fc', fillColor: '#9333ea', fillOpacity: 0.9, weight: 2 }).addTo(layerNevada);
 mgmMarker.bindPopup(`
     <div class="popup-title">🎰 MGM GRAND CASINO & HOTEL HUB</div>
     <span class="popup-tag tag-nevada">NEVADA SPATIAL NODE</span><br>
@@ -250,7 +256,7 @@ mgmMarker.bindPopup(`
     <div class="popup-field"><b>LightBox Radius:</b> 500m Parcel Mesh Active</div>
 `);
 
-const apexMarker = L.circleMarker([36.3150, -114.9200], { radius: 10, color: '#c084fc', fillColor: '#7e22ce', fillOpacity: 0.85, weight: 2 }).addTo(layerNevada);
+const apexMarker = L.circleMarker([36.3150, -114.9200], { radius: 11, color: '#c084fc', fillColor: '#7e22ce', fillOpacity: 0.85, weight: 2 }).addTo(layerNevada);
 apexMarker.bindPopup(`
     <div class="popup-title">🏜️ APEX DESERT INDUSTRIAL CORRIDOR</div>
     <span class="popup-tag tag-nevada">RAW DESERT PARCEL APN</span><br>
@@ -259,7 +265,7 @@ apexMarker.bindPopup(`
     <div class="popup-field"><b>Resolution:</b> Resolved via Exact Spatial Radius API</div>
 `);
 
-const nyeMarker = L.circleMarker([36.9092, -116.7547], { radius: 10, color: '#c084fc', fillColor: '#7e22ce', fillOpacity: 0.85, weight: 2 }).addTo(layerNevada);
+const nyeMarker = L.circleMarker([36.9092, -116.7547], { radius: 11, color: '#c084fc', fillColor: '#7e22ce', fillOpacity: 0.85, weight: 2 }).addTo(layerNevada);
 nyeMarker.bindPopup(`
     <div class="popup-title">⛏️ NYE COUNTY DESERT CORRIDOR</div>
     <span class="popup-tag tag-nevada">MINING & TESTING SECTOR</span><br>
@@ -267,7 +273,7 @@ nyeMarker.bindPopup(`
     <div class="popup-field"><b>GPS Coordinates:</b> 36.9092° N, 116.7547° W</div>
 `);
 
-const tahoeMarker = L.circleMarker([39.5296, -119.8138], { radius: 10, color: '#c084fc', fillColor: '#7e22ce', fillOpacity: 0.85, weight: 2 }).addTo(layerNevada);
+const tahoeMarker = L.circleMarker([39.5296, -119.8138], { radius: 11, color: '#c084fc', fillColor: '#7e22ce', fillOpacity: 0.85, weight: 2 }).addTo(layerNevada);
 tahoeMarker.bindPopup(`
     <div class="popup-title">🏭 TAHOE-RENO INDUSTRIAL CENTER</div>
     <span class="popup-tag tag-nevada">STOREY COUNTY MEGA-CAMPUS</span><br>
@@ -284,7 +290,7 @@ const nationSites = [
 ];
 
 nationSites.forEach(s => {
-    L.circleMarker([s.lat, s.lon], { radius: 8, color: '#fbbf24', fillColor: '#d97706', fillOpacity: 0.85, weight: 2 }).addTo(layerNationwide)
+    L.circleMarker([s.lat, s.lon], { radius: 9, color: '#fbbf24', fillColor: '#d97706', fillOpacity: 0.85, weight: 2 }).addTo(layerNationwide)
     .bindPopup(`
         <div class="popup-title">🏢 ${s.name}</div>
         <div class="popup-field"><b>Description:</b> ${s.desc}</div>
@@ -292,24 +298,85 @@ nationSites.forEach(s => {
     `);
 });
 
-// INTERACTIVE FLY-TO HANDLER
+// CINEMATIC AUTOPILOT FLIGHT ENGINE
+const flightWaypoints = [
+    { name: "High Orbit (50 States)", center: [37.5, -100.0], zoom: 4, duration: 2.5, pause: 3000 },
+    { name: "Ascon Landfill Superfund", center: [33.6522, -117.9855], zoom: 16, duration: 3.0, pause: 4000, marker: asconPolygon },
+    { name: "17642 Beach Blvd (Vagabond)", center: [33.7088, -117.9890], zoom: 17, duration: 2.5, pause: 4000, marker: vagabondMarker },
+    { name: "17631 Cameron Ln Property", center: [33.7081, -117.9902], zoom: 17, duration: 1.5, pause: 3500, marker: cameronMarker },
+    { name: "GAMA Monitoring Well (CR6)", center: [33.6950, -117.9880], zoom: 16, duration: 2.0, pause: 3000, marker: wellMarker },
+    { name: "Buck Ranch / Native GIS Sector", center: [33.6760, -117.9685], zoom: 15, duration: 2.0, pause: 3500, marker: buckPolygon },
+    { name: "MGM Grand Las Vegas Hub", center: [36.1026, -115.1703], zoom: 16, duration: 3.5, pause: 4000, marker: mgmMarker },
+    { name: "Apex Desert Industrial Hub", center: [36.3150, -114.9200], zoom: 14, duration: 2.0, pause: 3000, marker: apexMarker },
+    { name: "Nye County Mining Corridor", center: [36.9092, -116.7547], zoom: 13, duration: 2.5, pause: 3000, marker: nyeMarker },
+    { name: "Tahoe-Reno Mega-Campus", center: [39.5296, -119.8138], zoom: 14, duration: 3.0, pause: 3500, marker: tahoeMarker }
+];
+
+let currentWaypointIndex = 0;
+let isAutopilotRunning = false;
+let flightTimer = null;
+
+function flyToWaypoint(index) {
+    const wp = flightWaypoints[index];
+    document.getElementById('flight-status-val').innerText = "FLYING...";
+    document.getElementById('flight-status-val').style.color = "#00ffaa";
+    document.getElementById('flight-target-val').innerText = wp.name;
+    document.getElementById('autopilot-status').innerText = `Sector: ${index + 1} / ${flightWaypoints.length} (${wp.name})`;
+
+    map.flyTo(wp.center, wp.zoom, {
+        duration: wp.duration,
+        easeLinearity: 0.25
+    });
+
+    if (wp.marker && wp.marker.openPopup) {
+        setTimeout(() => { wp.marker.openPopup(); }, wp.duration * 1000 + 200);
+    }
+}
+
+function nextFlightWaypoint() {
+    currentWaypointIndex = (currentWaypointIndex + 1) % flightWaypoints.length;
+    flyToWaypoint(currentWaypointIndex);
+}
+
+function toggleAutopilot() {
+    isAutopilotRunning = !isAutopilotRunning;
+    const btn = document.getElementById('btn-autopilot');
+    
+    if (isAutopilotRunning) {
+        btn.innerText = "⏸️ PAUSE FLIGHT";
+        btn.style.background = "#f43f5e";
+        btn.style.color = "#fff";
+        btn.style.borderColor = "#f43f5e";
+        
+        function runLoop() {
+            if (!isAutopilotRunning) return;
+            flyToWaypoint(currentWaypointIndex);
+            const pauseTime = (flightWaypoints[currentWaypointIndex].duration * 1000) + flightWaypoints[currentWaypointIndex].pause;
+            currentWaypointIndex = (currentWaypointIndex + 1) % flightWaypoints.length;
+            flightTimer = setTimeout(runLoop, pauseTime);
+        }
+        runLoop();
+    } else {
+        btn.innerText = "▶️ START CINEMATIC FLIGHT";
+        btn.style.background = "#0f172a";
+        btn.style.color = "#00ffaa";
+        btn.style.borderColor = "#00ffaa66";
+        clearTimeout(flightTimer);
+        document.getElementById('flight-status-val').innerText = "PAUSED (MANUAL PILOT)";
+        document.getElementById('flight-status-val').style.color = "#fbbf24";
+    }
+}
+
+// DIRECT PINPOINT JUMP
 function jumpToTarget(target) {
-    const targets = {
-        "all": { center: [37.5, -100.0], zoom: 4 },
-        "ascon": { center: [33.6522, -117.9855], zoom: 15 },
-        "vagabond": { center: [33.7088, -117.9890], zoom: 17 },
-        "cameron": { center: [33.7081, -117.9902], zoom: 17 },
-        "buck": { center: [33.6760, -117.9685], zoom: 15 },
-        "well": { center: [33.6950, -117.9880], zoom: 16 },
-        "mgm": { center: [36.1026, -115.1703], zoom: 16 },
-        "apex": { center: [36.3150, -114.9200], zoom: 14 },
-        "nye": { center: [36.9092, -116.7547], zoom: 13 },
-        "tahoe": { center: [39.5296, -119.8138], zoom: 14 },
-        "michigan": { center: [42.3211, -85.1797], zoom: 12 },
-        "alaska": { center: [61.2181, -149.9003], zoom: 12 }
+    if (isAutopilotRunning) toggleAutopilot();
+    const mapIndices = {
+        "all": 0, "ascon": 1, "vagabond": 2, "cameron": 3,
+        "well": 4, "buck": 5, "mgm": 6, "apex": 7, "nye": 8, "tahoe": 9
     };
-    if (targets[target]) {
-        map.flyTo(targets[target].center, targets[target].zoom, { duration: 1.5 });
+    if (mapIndices[target] !== undefined) {
+        currentWaypointIndex = mapIndices[target];
+        flyToWaypoint(currentWaypointIndex);
     }
 }
 
