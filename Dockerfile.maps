@@ -1,14 +1,17 @@
-FROM python:3.11-slim
+﻿FROM python:3.11-slim
 
 WORKDIR /app
 
-# Copy only what's needed for maps
+# Copy all map assets and servers
 COPY master_tactical_gis.html .
+COPY maplibre_3d_tactical.html .
+COPY index.html .
 COPY badass_osint_map.html .
 COPY hbnc_rico_gis.html .
 COPY nationwide_coc_map.html .
 COPY nationwide_pipeline_map.html .
 COPY comparison_swipe_map.html .
+COPY OSINT_MASTER_3D_SURVEILLANCE.kml .
 COPY simple_map_server.py .
 
 ENV PORT=10000

@@ -1,62 +1,13 @@
-# Python
-__pycache__
-*.pyc
-*.pyo
-*.egg-info
+﻿.git
 .venv
-venv
-.pytest_cache
-
-# Git / IDE
-.git
-.github
-.gitignore
-.idea
-.vscode
-.circleci
-
-# Secrets
-.env
-key.json
-*.pem
-*.key
-
-# Large data dirs
-evidence/
-evidence*/
-drive-download*/
-extracted_documents/
-extracted_home_data/
-extracted_tasklets/
-ppp_data/
-master_osint_sheet/
-briefings/
-briefs/
-reports/
-results/
-logs/
-archive/
-backup-scripts/
-scratch/
-opencode_work/
-new_program_scratch/
-FEDERAL_SUBMISSION/
-noble_beanbag_evidence/
-
-# Large files
-*.pdf
+archive
+copilot-worktrees
+tasklet_export
+hub
+workspaces
+node_modules
+*.m4a
 *.zip
-*.xlsx
+*.tar.gz
 *.csv
-*.jsonl
-*.mbox
-*.tar
-*.gz
-
-# Misc
-.DS_Store
-*.log
-*.bin
-Antigravity_Resurrection_Protocol_makaveli.zip
-drive-download*
-Program Files/
+__pycache__
