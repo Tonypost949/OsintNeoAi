@@ -1,4 +1,4 @@
-name: Deploy GitHub Pages Spatial Maps
+﻿name: Deploy GitHub Pages Spatial Maps
 
 on:
   push:
@@ -31,7 +31,7 @@ jobs:
       - name: Upload Artifacts for Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: './docs'
 
       - name: Deploy to GitHub Pages
         id: deployment

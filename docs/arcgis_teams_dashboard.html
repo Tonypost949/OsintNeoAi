@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSINT Neo AI Spatial Dashboard</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body,#map{width:100%;height:100%;background:#0b0f0b;font-family:Segoe UI,system-ui,sans-serif}
+#list{position:fixed;top:0;left:0;bottom:0;width:330px;background:rgba(8,12,8,0.97);border-right:1px solid #223;z-index:1000;overflow-y:auto}
+#list h1{padding:14px;font-size:13px;color:#7ef07e;border-bottom:1px solid #223a22;letter-spacing:1px}
+#list h1 small{display:block;color:#556;font-weight:400;font-size:10px;margin-top:4px;letter-spacing:0}
+.entry{padding:10px 14px;border-bottom:1px solid #162216;cursor:pointer}
+.entry:hover{background:#12221a}
+.entry .sev{display:inline-block;padding:1px 8px;border-radius:10px;color:#000;font-size:9px;font-weight:800;margin-right:8px}
+.entry .nm{color:#dfe;font-size:12px}
+.entry .dst{color:#778;font-size:10px;margin-top:3px}
+.entry .ly{color:#4a4;font-size:9px;text-transform:uppercase;letter-spacing:1px;margin-top:3px}
+#card{position:fixed;bottom:12px;left:12px;width:300px;background:#202a20;border:1px solid #3a553a;border-radius:12px;padding:12px 14px;z-index:1500;box-shadow:0 6px 24px #000c;display:none}
+#card h3{color:#ff6b6b;font-size:13px;margin-bottom:6px}
+#card .r{font-size:11px;color:#cde;margin:2px 0}
+#card .r b{color:#fff;display:inline-block;width:92px}
+#card a{display:inline-block;margin-top:8px;color:#6f6;font-size:11px;text-decoration:none}
+#legend{position:fixed;right:12px;bottom:12px;background:rgba(8,12,8,.9);border:1px solid #223;border-radius:8px;padding:8px 10px;font-size:10px;color:#9aa;z-index:1000;line-height:1.8}
+#legend .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+@media(max-width:700px){#list{width:100%;height:45%}#map{top:45%}}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div id="list">
+<h1>OSINT NEO AI — SPATIAL TARGETS<small>__META__ features | severity-ranked | ArcGIS for Teams ready</small></h1>
+</div>
+<div id="legend">
+<span><span class="dot" style="background:#ff3b3b"></span>CRITICAL</span>
+<span><span class="dot" style="background:#ff9500"></span>HIGH</span>
+<span><span class="dot" style="background:#ffd60a"></span>MEDIUM</span>
+<span><span class="dot" style="background:#4a2ff"></span>INFO</span>
+</div>
+<div id="card"></div>
+<script>
+const ROWS = [
+  {id:'TOX-001', nm:'HBNC Toxic Site', layer:'TOXIC', sev:'CRITICAL', lat:33.6775, lng:-118.0012, desc:'17642 Beach Blvd / 17631 Cameron Ln | Cr-VI 980 ug/kg (49x limit) | Asphalt cap FAILING | 2,247 cu f', src:'CERCLA / Phase I ESA T10000018579'},
+  {id:'TOX-003', nm:'7561 Center Ave Vaults', layer:'TOXIC', sev:'CRITICAL', lat:33.6927, lng:-117.9974, desc:'Units D1-E1-G1-J1 | 4 shell LLCs | Underground concrete coffins | Chen-Yamada pipeline | $1.47M PPP ', src:'Parcel + PPP records'},
+  {id:'SINK-002', nm:'HBNC Excavation', layer:'SINKHOLE', sev:'CRITICAL', lat:33.6778, lng:-118.0015, desc:'Asphalt cap failure / Cr-VI soil disturbance / 2,247 cu ft HDPE chambers', src:'Site assessment'},
+  {id:'SINK-004', nm:'Stormtech Chamber Field', layer:'SINKHOLE', sev:'CRITICAL', lat:33.6773, lng:-118.001, desc:'HDPE Stormtech SC-740 / 2,247 cu ft / PVC manifold / corrosive soil', src:'Stormtech spec'},
+  {id:'FCA-HIT-001', nm:'USDC CD CA — Knabb v. HB RICO / Qui Tam coordination', layer:'FCA', sev:'CRITICAL', lat:33.748, lng:-117.87, desc:'', src:'Federal docket'},
+  {id:'FCA-HIT-007', nm:'USDC CD CA LA — EPA OIG referral', layer:'FCA', sev:'CRITICAL', lat:34.05, lng:-118.25, desc:'', src:'OIG referral'},
+  {id:'FCA-HIT-019', nm:'Qui Tam complaint under seal', layer:'FCA', sev:'CRITICAL', lat:33.748, lng:-117.87, desc:'', src:'Sealed complaint'},
+  {id:'CPS-001', nm:'HBNC Child Deaths', layer:'CPS', sev:'CRITICAL', lat:33.6775, lng:-118.0012, desc:'4 confirmed deaths | 279 emergencies | CERCLA toxics exposure', src:'OC HCA 20IC002'},
+  {id:'PROC-005', nm:'HBNC 155M Remediation', layer:'PROCUREMENT', sev:'CRITICAL', lat:33.6775, lng:-118.0012, desc:'OCHCA/DPW VOID $155,000,000', src:'Procurement portal'},
+  {id:'TOX-002', nm:'Cameron Ln Parcel', layer:'TOXIC', sev:'HIGH', lat:33.677, lng:-118.0015, desc:'17631 Cameron Ln | Asbestos/Lead paint | Former ag pesticides | Yamada Trustee 1998', src:'Parcel survey'},
+  {id:'SINK-001', nm:'7561 Center Ave Vaults', layer:'SINKHOLE', sev:'HIGH', lat:33.693, lng:-117.9975, desc:'Underground concrete coffins / Chen-Yamada / 1960s-70s construction', src:'Site assessment'},
+  {id:'BH-001', nm:'Newport Shell Cluster', layer:'BLACKHOLE', sev:'HIGH', lat:33.65, lng:-117.895, desc:'20341-71 Irvine Ave | CSJ Mgmt / PL Jetty | $0 transfers', src:'LLC filings'},
+  {id:'BH-002', nm:'Pham Quitclaim Nexus', layer:'BLACKHOLE', sev:'HIGH', lat:33.745, lng:-117.8125, desc:'2614 Orchard Dr / 7100 Cerritos #108 / 13801 Shirley #85 | $0 quitclaims', src:'Deed records'},
+  {id:'BH-004', nm:'PCH CMRA', layer:'BLACKHOLE', sev:'HIGH', lat:33.7505, lng:-118.0955, desc:'1077 Pacific Coast Hwy #247 | Stewart mailbox | Battle Creek MI', src:'PPP addresses'},
+  {id:'LLC-001', nm:'Triumvirate LLC', layer:'LLC', sev:'HIGH', lat:33.707, lng:-117.958, desc:'21951 Brookhurst St | PPP $1,471,840 | Anchorage AK mailbox', src:'PPP/SBA'},
+  {id:'LLC-002', nm:'Stewart Industrial', layer:'LLC', sev:'HIGH', lat:33.753, lng:-118.072, desc:'3311 Bounty Cir | PPP $1,128,327 | 1076 PCH #247 CMRA', src:'PPP/SBA'},
+  {id:'LLC-003', nm:'CP Premier 1', layer:'LLC', sev:'HIGH', lat:33.808, lng:-118.002, desc:'7100 Cerritos Ave #108 | Peter Pham $0 quitclaim', src:'Deed'},
+  {id:'LLC-004', nm:'CP Premier 2', layer:'LLC', sev:'HIGH', lat:33.774, lng:-117.987, desc:'13801 Shirley St #85 | Peter Pham $0 quitclaim', src:'Deed'},
+  {id:'LLC-010', nm:'ONNI HB LLC', layer:'LLC', sev:'HIGH', lat:33.687, lng:-117.988, desc:'$97.25M | 17011 Beach Blvd | Phoenix mail', src:'PPP/SBA'},
+  {id:'LLC-011', nm:'Corte Bella TruAmerica', layer:'LLC', sev:'HIGH', lat:33.683, lng:-117.994, desc:'$85.75M | 9543 Dixie St | Woodland Hills mail', src:'PPP/SBA'},
+  {id:'LLC-012', nm:'Sendero Riverbend', layer:'LLC', sev:'HIGH', lat:33.683, lng:-117.994, desc:'$70M | 8955 Riverbend Dr | LA mail', src:'PPP/SBA'},
+  {id:'LLC-013', nm:'SCG Edinger Plaza', layer:'LLC', sev:'HIGH', lat:33.689, lng:-117.985, desc:'$65.5M | 7542 Edinger Ave | SF mail', src:'PPP/SBA'},
+  {id:'FCA-HIT-012', nm:'DOJ Civil Division — qui tam notice', layer:'FCA', sev:'HIGH', lat:38.907, lng:-77.037, desc:'', src:'DOJ notice'},
+  {id:'FCA-HIT-024', nm:'Relator disclosure served', layer:'FCA', sev:'HIGH', lat:33.676, lng:-118.0015, desc:'', src:'Relator disclosure'},
+  {id:'CPS-002', nm:'OC DA Block', layer:'CPS', sev:'HIGH', lat:33.748, lng:-117.87, desc:'No action on trafficking referrals', src:'Referral log'},
+  {id:'CPS-003', nm:'HB City Hall', layer:'CPS', sev:'HIGH', lat:33.676, lng:-118.0015, desc:'CEQA exemption fraud | Blocked reporting', src:'Ordinance 4289'},
+  {id:'CPS-004', nm:'Anaheim CPS Hub', layer:'CPS', sev:'HIGH', lat:33.835, lng:-117.91, desc:'Shelter billing cluster | COVID fraud', src:'Licensing'},
+  {id:'CPS-005', nm:'LA County IV-E', layer:'CPS', sev:'HIGH', lat:34.05, lng:-118.25, desc:'IV-E billing nexus', src:'IV-E claims'},
+  {id:'SINK-003', nm:'El Toro Hangars', layer:'SINKHOLE', sev:'MEDIUM', lat:33.6755, lng:-117.7305, desc:'Contaminated fill burial / Decommissioned MCAS El Toro / PFAS migration', src:'Base closure'},
+  {id:'BH-003', nm:'Garnet St Routing', layer:'BLACKHOLE', sev:'MEDIUM', lat:33.753, lng:-117.9905, desc:'15822 Garnet St | CMRA layer | Dylan & Andrew mailbox', src:'Mail routing'},
+  {id:'LLC-005', nm:'Garnet Drop', layer:'LLC', sev:'MEDIUM', lat:33.753, lng:-117.99, desc:'15821-15822 Garnet St | Dylan & Andrew mailbox CMRA', src:'Mail routing'},
+  {id:'LLC-006', nm:'Newport LLC Cluster', layer:'LLC', sev:'MEDIUM', lat:33.65, lng:-117.89, desc:'20341-91 Irvine Ave | CSJ/PL Jetty shell cluster', src:'LLC filings'},
+  {id:'LLC-007', nm:'Pham Residence', layer:'LLC', sev:'MEDIUM', lat:33.745, lng:-117.812, desc:'2614 Orchard Dr Tustin | Peter Pham nexus', src:'Deed'},
+  {id:'LLC-008', nm:'Stewart PPP', layer:'LLC', sev:'MEDIUM', lat:33.755, lng:-117.99, desc:'PPP $1,128,327 | Bounty Cir | Battle Creek MI', src:'PPP/SBA'},
+  {id:'LLC-009', nm:'Triumvirate PPP', layer:'LLC', sev:'MEDIUM', lat:33.725, lng:-117.97, desc:'PPP $1,471,840 | Brookhurst | 3705 Arctic Blvd AK', src:'PPP/SBA'},
+  {id:'PROC-001', nm:'OC Sheriff Body Cams', layer:'PROCUREMENT', sev:'MEDIUM', lat:33.715, lng:-117.85, desc:'Sheriff Open $8,500,000', src:'Procurement portal'},
+  {id:'PROC-002', nm:'County IT Security', layer:'PROCUREMENT', sev:'MEDIUM', lat:33.748, lng:-117.87, desc:'IT Open $2,500,000', src:'Procurement portal'},
+  {id:'PROC-003', nm:'HB Coastal Infrastructure', layer:'PROCUREMENT', sev:'MEDIUM', lat:33.676, lng:-118.0, desc:'Public Works Under Review $12,000,000', src:'Procurement portal'},
+  {id:'PROC-004', nm:'Anaheim Housing RFQ', layer:'PROCUREMENT', sev:'INFO', lat:33.835, lng:-117.91, desc:'Housing Closed $4,500,000', src:'Procurement portal'}
+];
+const COLORS = {"CRITICAL":"#ff3b3b","HIGH":"#ff9500","MEDIUM":"#ffd60a","INFO":"#4ad2ff"};
+const map = L.map('map',{zoomControl:true}).setView([33.6775,-118.0012],16);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:20}).addTo(map);
+const markers = {};
+ROWS.forEach(r=>{
+  const color = COLORS[r.sev]||'#777';
+  const m = L.circleMarker([r.lat,r.lng],{radius:r.sev==='CRITICAL'?11:8,color:'#fff'===color?'#1a1a1a':'#fff',weight:1.2,fillColor:color,fillOpacity:0.9})
+    .bindPopup('<b>'+r.name+'</b><br/><span style="color:'+color+'">'+r.sev+'</span> — '+r.layer+'<br/>'+r.dst+'<br/><i>'+r.src+'</i>');
+  m.addTo(map);
+  markers[r.lat+','+r.lng]=m;
+});
+const list=document.getElementById('list');
+ROWS.forEach(r=>{
+  const d=document.createElement('div');d.className='entry';
+  d.innerHTML='<span class="sev" style="background:'+(COLORS[r.sev]||'#777')+'">'+r.sev+'</span><span class="nm">'+r.name+'</span><div class="dst">'+r.dst+'</div><div class="ly">'+r.layer+'</div>';
+  d.onclick=function(){map.setView([r.lat,r.lng],16);(markers[r.lat+','+r.lng]).openPopup();showCard(r);};
+  list.appendChild(d);
+});
+function showCard(r){
+  const c=document.getElementById('card');c.style.display='block';
+  c.innerHTML='<h3>SPATIAL ALERT — '+r.sev+'</h3>'+
+   '<div class="r"><b>Target:</b>'+r.name+'</div>'+
+   '<div class="r"><b>Name:</b>'+r.name+'</div>'+
+   '<div class="r"><b>Severity:</b>'+r.sev+'</div>'+
+   '<div class="r"><b>Coordinates:</b>'+r.lat+', '+r.lng+'</div>'+
+   '<div class="r"><b>Evidence:</b>'+r.src+'</div>'+
+   '<a href="https://www.arcgis.com/home/webmap/viewer.html" target="_blank">Open in ArcGIS &rarr;</a>';
+}
+</script>
+</body>
+</html>
