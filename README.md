@@ -1,4 +1,4 @@
-﻿# ⚖️ OSINTNeoAi — Master Investigation, Evidence Clearinghouse & Mobile Command Center
+# ⚖️ OSINTNeoAi — Master Investigation, Evidence Clearinghouse & Mobile Command Center
 
 Welcome to the **OSINTNeoAi** official investigation repository, live forensic showcase, and cloud intelligence clearinghouse.
 
@@ -6,6 +6,10 @@ Welcome to the **OSINTNeoAi** official investigation repository, live forensic s
 
 ## 📱 Mobile Quick Access & Live Cloud Command Endpoints
 
+* 🔥 **Firebase Live Cloud Hub (`blah-905ad`):** https://blah-905ad.web.app
+* 🛰️ **Firebase 3D Tactical GIS Engine:** https://blah-905ad.web.app/master_tactical_gis.html
+* 🗺️ **Firebase Spatial Evidence Dashboard:** https://blah-905ad.web.app/arcgis_teams_dashboard.html
+* 🏢 **Firebase HBNC RICO GIS Map:** https://blah-905ad.web.app/hbnc_rico_gis.html
 * 🚀 **Hercules App Instance:** https://osintneoai.onhercules.app/
 * ⚡ **Azure Live Backend (Port 10000):** http://57.152.82.43:10000
 * 📊 **Streamlit Public Showcase:** https://github.com/Tonypost949/OsintNeoAi
@@ -16,11 +20,12 @@ Welcome to the **OSINTNeoAi** official investigation repository, live forensic s
 
 ## 🗺️ Badass Interactive GIS Maps & Spatial Layers
 
+* 🛰️ **3D WebGL Vector & Satellite Tactical Engine:** [master_tactical_gis.html](https://blah-905ad.web.app/master_tactical_gis.html) / [Local](file:///C:/OsintNeoAi/master_tactical_gis.html)
+* 📊 **ArcGIS Teams Forensic Dashboard:** [arcgis_teams_dashboard.html](https://blah-905ad.web.app/arcgis_teams_dashboard.html) / [Local](file:///C:/OsintNeoAi/arcgis_teams_dashboard.html)
+* 🏢 **HBNC RICO GIS Spatial Parcel Map:** [hbnc_rico_gis.html](https://blah-905ad.web.app/hbnc_rico_gis.html) / [Local](file:///C:/OsintNeoAi/hbnc_rico_gis.html)
 * 🛰️ **Badass OSINT Master Tactical Map:** https://github.com/Tonypost949/OsintNeoAi/blob/main/badass_osint_map.html
-* 🏢 **HBNC RICO GIS Spatial Parcel Map:** https://github.com/Tonypost949/OsintNeoAi/blob/main/hbnc_rico_gis.html
 * ⛓️ **Nationwide Chain of Custody Flow Map:** https://github.com/Tonypost949/OsintNeoAi/blob/main/nationwide_coc_map.html
 * 💸 **Nationwide Money Pipeline Vector Map:** https://github.com/Tonypost949/OsintNeoAi/blob/main/nationwide_pipeline_map.html
-* 📊 **ArcGIS Teams Forensic Dashboard:** https://github.com/Tonypost949/OsintNeoAi/blob/main/arcgis_teams_dashboard.html
 
 ---
 

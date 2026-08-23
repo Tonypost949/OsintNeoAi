@@ -8,9 +8,10 @@
 ## 🔗 LIVE ACCESS URLS
 
 ### Primary Dashboard
+- **Live Web App (Firebase Hosting):** https://blah-905ad.web.app
 - **Live Web App (GitHub Pages):** https://Tonypost949.github.io/OsintNeoAi/
 - **Status:** Active / Deployed
-- **Branch:** Deployed from `main` via GitHub Actions
+- **Branch:** Deployed from `main` via Firebase / GitHub Actions
 
 ### Evidence Repository
 - **Master Evidence Index:** https://github.com/Tonypost949/OsintNeoAi/blob/feat/city-cyber-recon-map/evidence/EVIDENCE_INDEX_CLEAN.md
