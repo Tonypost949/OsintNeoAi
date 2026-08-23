@@ -1,0 +1,1488 @@
+{
+  "type": "FeatureCollection",
+  "name": "OSINT Neo AI Spatial Targets",
+  "generated_utc": "2026-08-23T21:34:00Z",
+  "source_document": "hbnc_rico_gis.html (repo root)",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0012,
+          33.6775
+        ]
+      },
+      "properties": {
+        "TargetID": "TOX-001",
+        "Name": "HBNC Toxic Site",
+        "Layer": "TOXIC",
+        "Severity": "CRITICAL",
+        "SeverityRank": 1,
+        "Description": "17642 Beach Blvd / 17631 Cameron Ln | Cr-VI 980 ug/kg (49x limit) | Asphalt cap FAILING | 2,247 cu ft HDPE Stormtech chambers | Void ab initio clearance | $155M COC liability",
+        "Source": "CERCLA / Phase I ESA T10000018579",
+        "Latitude": 33.6775,
+        "Longitude": -118.0012
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0015,
+          33.677
+        ]
+      },
+      "properties": {
+        "TargetID": "TOX-002",
+        "Name": "Cameron Ln Parcel",
+        "Layer": "TOXIC",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "17631 Cameron Ln | Asbestos/Lead paint | Former ag pesticides | Yamada Trustee 1998",
+        "Source": "Parcel survey",
+        "Latitude": 33.677,
+        "Longitude": -118.0015
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.9974,
+          33.6927
+        ]
+      },
+      "properties": {
+        "TargetID": "TOX-003",
+        "Name": "7561 Center Ave Vaults",
+        "Layer": "TOXIC",
+        "Severity": "CRITICAL",
+        "SeverityRank": 1,
+        "Description": "Units D1-E1-G1-J1 | 4 shell LLCs | Underground concrete coffins | Chen-Yamada pipeline | $1.47M PPP / $1.13M PPP routing",
+        "Source": "Parcel + PPP records",
+        "Latitude": 33.6927,
+        "Longitude": -117.9974
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.9975,
+          33.693
+        ]
+      },
+      "properties": {
+        "TargetID": "SINK-001",
+        "Name": "7561 Center Ave Vaults",
+        "Layer": "SINKHOLE",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "Underground concrete coffins / Chen-Yamada / 1960s-70s construction",
+        "Source": "Site assessment",
+        "Latitude": 33.693,
+        "Longitude": -117.9975
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0015,
+          33.6778
+        ]
+      },
+      "properties": {
+        "TargetID": "SINK-002",
+        "Name": "HBNC Excavation",
+        "Layer": "SINKHOLE",
+        "Severity": "CRITICAL",
+        "SeverityRank": 1,
+        "Description": "Asphalt cap failure / Cr-VI soil disturbance / 2,247 cu ft HDPE chambers",
+        "Source": "Site assessment",
+        "Latitude": 33.6778,
+        "Longitude": -118.0015
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.7305,
+          33.6755
+        ]
+      },
+      "properties": {
+        "TargetID": "SINK-003",
+        "Name": "El Toro Hangars",
+        "Layer": "SINKHOLE",
+        "Severity": "MEDIUM",
+        "SeverityRank": 3,
+        "Description": "Contaminated fill burial / Decommissioned MCAS El Toro / PFAS migration",
+        "Source": "Base closure",
+        "Latitude": 33.6755,
+        "Longitude": -117.7305
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.001,
+          33.6773
+        ]
+      },
+      "properties": {
+        "TargetID": "SINK-004",
+        "Name": "Stormtech Chamber Field",
+        "Layer": "SINKHOLE",
+        "Severity": "CRITICAL",
+        "SeverityRank": 1,
+        "Description": "HDPE Stormtech SC-740 / 2,247 cu ft / PVC manifold / corrosive soil",
+        "Source": "Stormtech spec",
+        "Latitude": 33.6773,
+        "Longitude": -118.001
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.895,
+          33.65
+        ]
+      },
+      "properties": {
+        "TargetID": "BH-001",
+        "Name": "Newport Shell Cluster",
+        "Layer": "BLACKHOLE",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "20341-71 Irvine Ave | CSJ Mgmt / PL Jetty | $0 transfers",
+        "Source": "LLC filings",
+        "Latitude": 33.65,
+        "Longitude": -117.895
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.8125,
+          33.745
+        ]
+      },
+      "properties": {
+        "TargetID": "BH-002",
+        "Name": "Pham Quitclaim Nexus",
+        "Layer": "BLACKHOLE",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "2614 Orchard Dr / 7100 Cerritos #108 / 13801 Shirley #85 | $0 quitclaims",
+        "Source": "Deed records",
+        "Latitude": 33.745,
+        "Longitude": -117.8125
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.9905,
+          33.753
+        ]
+      },
+      "properties": {
+        "TargetID": "BH-003",
+        "Name": "Garnet St Routing",
+        "Layer": "BLACKHOLE",
+        "Severity": "MEDIUM",
+        "SeverityRank": 3,
+        "Description": "15822 Garnet St | CMRA layer | Dylan & Andrew mailbox",
+        "Source": "Mail routing",
+        "Latitude": 33.753,
+        "Longitude": -117.9905
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0955,
+          33.7505
+        ]
+      },
+      "properties": {
+        "TargetID": "BH-004",
+        "Name": "PCH CMRA",
+        "Layer": "BLACKHOLE",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "1077 Pacific Coast Hwy #247 | Stewart mailbox | Battle Creek MI",
+        "Source": "PPP addresses",
+        "Latitude": 33.7505,
+        "Longitude": -118.0955
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.958,
+          33.707
+        ]
+      },
+      "properties": {
+        "TargetID": "LLC-001",
+        "Name": "Triumvirate LLC",
+        "Layer": "LLC",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "21951 Brookhurst St | PPP $1,471,840 | Anchorage AK mailbox",
+        "Source": "PPP/SBA",
+        "Latitude": 33.707,
+        "Longitude": -117.958
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.072,
+          33.753
+        ]
+      },
+      "properties": {
+        "TargetID": "LLC-002",
+        "Name": "Stewart Industrial",
+        "Layer": "LLC",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "3311 Bounty Cir | PPP $1,128,327 | 1076 PCH #247 CMRA",
+        "Source": "PPP/SBA",
+        "Latitude": 33.753,
+        "Longitude": -118.072
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.002,
+          33.808
+        ]
+      },
+      "properties": {
+        "TargetID": "LLC-003",
+        "Name": "CP Premier 1",
+        "Layer": "LLC",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "7100 Cerritos Ave #108 | Peter Pham $0 quitclaim",
+        "Source": "Deed",
+        "Latitude": 33.808,
+        "Longitude": -118.002
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.987,
+          33.774
+        ]
+      },
+      "properties": {
+        "TargetID": "LLC-004",
+        "Name": "CP Premier 2",
+        "Layer": "LLC",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "13801 Shirley St #85 | Peter Pham $0 quitclaim",
+        "Source": "Deed",
+        "Latitude": 33.774,
+        "Longitude": -117.987
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.99,
+          33.753
+        ]
+      },
+      "properties": {
+        "TargetID": "LLC-005",
+        "Name": "Garnet Drop",
+        "Layer": "LLC",
+        "Severity": "MEDIUM",
+        "SeverityRank": 3,
+        "Description": "15821-15822 Garnet St | Dylan & Andrew mailbox CMRA",
+        "Source": "Mail routing",
+        "Latitude": 33.753,
+        "Longitude": -117.99
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.89,
+          33.65
+        ]
+      },
+      "properties": {
+        "TargetID": "LLC-006",
+        "Name": "Newport LLC Cluster",
+        "Layer": "LLC",
+        "Severity": "MEDIUM",
+        "SeverityRank": 3,
+        "Description": "20341-91 Irvine Ave | CSJ/PL Jetty shell cluster",
+        "Source": "LLC filings",
+        "Latitude": 33.65,
+        "Longitude": -117.89
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.812,
+          33.745
+        ]
+      },
+      "properties": {
+        "TargetID": "LLC-007",
+        "Name": "Pham Residence",
+        "Layer": "LLC",
+        "Severity": "MEDIUM",
+        "SeverityRank": 3,
+        "Description": "2614 Orchard Dr Tustin | Peter Pham nexus",
+        "Source": "Deed",
+        "Latitude": 33.745,
+        "Longitude": -117.812
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.99,
+          33.755
+        ]
+      },
+      "properties": {
+        "TargetID": "LLC-008",
+        "Name": "Stewart PPP",
+        "Layer": "LLC",
+        "Severity": "MEDIUM",
+        "SeverityRank": 3,
+        "Description": "PPP $1,128,327 | Bounty Cir | Battle Creek MI",
+        "Source": "PPP/SBA",
+        "Latitude": 33.755,
+        "Longitude": -117.99
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.97,
+          33.725
+        ]
+      },
+      "properties": {
+        "TargetID": "LLC-009",
+        "Name": "Triumvirate PPP",
+        "Layer": "LLC",
+        "Severity": "MEDIUM",
+        "SeverityRank": 3,
+        "Description": "PPP $1,471,840 | Brookhurst | 3705 Arctic Blvd AK",
+        "Source": "PPP/SBA",
+        "Latitude": 33.725,
+        "Longitude": -117.97
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.988,
+          33.687
+        ]
+      },
+      "properties": {
+        "TargetID": "LLC-010",
+        "Name": "ONNI HB LLC",
+        "Layer": "LLC",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "$97.25M | 17011 Beach Blvd | Phoenix mail",
+        "Source": "PPP/SBA",
+        "Latitude": 33.687,
+        "Longitude": -117.988
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.994,
+          33.683
+        ]
+      },
+      "properties": {
+        "TargetID": "LLC-011",
+        "Name": "Corte Bella TruAmerica",
+        "Layer": "LLC",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "$85.75M | 9543 Dixie St | Woodland Hills mail",
+        "Source": "PPP/SBA",
+        "Latitude": 33.683,
+        "Longitude": -117.994
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.994,
+          33.683
+        ]
+      },
+      "properties": {
+        "TargetID": "LLC-012",
+        "Name": "Sendero Riverbend",
+        "Layer": "LLC",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "$70M | 8955 Riverbend Dr | LA mail",
+        "Source": "PPP/SBA",
+        "Latitude": 33.683,
+        "Longitude": -117.994
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.985,
+          33.689
+        ]
+      },
+      "properties": {
+        "TargetID": "LLC-013",
+        "Name": "SCG Edinger Plaza",
+        "Layer": "LLC",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "$65.5M | 7542 Edinger Ave | SF mail",
+        "Source": "PPP/SBA",
+        "Latitude": 33.689,
+        "Longitude": -117.985
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.87,
+          33.748
+        ]
+      },
+      "properties": {
+        "TargetID": "FCA-HIT-001",
+        "Name": "USDC CD CA — Knabb v. HB RICO / Qui Tam coordination",
+        "Layer": "FCA",
+        "Severity": "CRITICAL",
+        "SeverityRank": 1,
+        "Description": "",
+        "Source": "Federal docket",
+        "Latitude": 33.748,
+        "Longitude": -117.87
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.25,
+          34.05
+        ]
+      },
+      "properties": {
+        "TargetID": "FCA-HIT-007",
+        "Name": "USDC CD CA LA — EPA OIG referral",
+        "Layer": "FCA",
+        "Severity": "CRITICAL",
+        "SeverityRank": 1,
+        "Description": "",
+        "Source": "OIG referral",
+        "Latitude": 34.05,
+        "Longitude": -118.25
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.037,
+          38.907
+        ]
+      },
+      "properties": {
+        "TargetID": "FCA-HIT-012",
+        "Name": "DOJ Civil Division — qui tam notice",
+        "Layer": "FCA",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "",
+        "Source": "DOJ notice",
+        "Latitude": 38.907,
+        "Longitude": -77.037
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.87,
+          33.748
+        ]
+      },
+      "properties": {
+        "TargetID": "FCA-HIT-019",
+        "Name": "Qui Tam complaint under seal",
+        "Layer": "FCA",
+        "Severity": "CRITICAL",
+        "SeverityRank": 1,
+        "Description": "",
+        "Source": "Sealed complaint",
+        "Latitude": 33.748,
+        "Longitude": -117.87
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0015,
+          33.676
+        ]
+      },
+      "properties": {
+        "TargetID": "FCA-HIT-024",
+        "Name": "Relator disclosure served",
+        "Layer": "FCA",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "",
+        "Source": "Relator disclosure",
+        "Latitude": 33.676,
+        "Longitude": -118.0015
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0012,
+          33.6775
+        ]
+      },
+      "properties": {
+        "TargetID": "CPS-001",
+        "Name": "HBNC Child Deaths",
+        "Layer": "CPS",
+        "Severity": "CRITICAL",
+        "SeverityRank": 1,
+        "Description": "4 confirmed deaths | 279 emergencies | CERCLA toxics exposure",
+        "Source": "OC HCA 20IC002",
+        "Latitude": 33.6775,
+        "Longitude": -118.0012
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.87,
+          33.748
+        ]
+      },
+      "properties": {
+        "TargetID": "CPS-002",
+        "Name": "OC DA Block",
+        "Layer": "CPS",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "No action on trafficking referrals",
+        "Source": "Referral log",
+        "Latitude": 33.748,
+        "Longitude": -117.87
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0015,
+          33.676
+        ]
+      },
+      "properties": {
+        "TargetID": "CPS-003",
+        "Name": "HB City Hall",
+        "Layer": "CPS",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "CEQA exemption fraud | Blocked reporting",
+        "Source": "Ordinance 4289",
+        "Latitude": 33.676,
+        "Longitude": -118.0015
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.91,
+          33.835
+        ]
+      },
+      "properties": {
+        "TargetID": "CPS-004",
+        "Name": "Anaheim CPS Hub",
+        "Layer": "CPS",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "Shelter billing cluster | COVID fraud",
+        "Source": "Licensing",
+        "Latitude": 33.835,
+        "Longitude": -117.91
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.25,
+          34.05
+        ]
+      },
+      "properties": {
+        "TargetID": "CPS-005",
+        "Name": "LA County IV-E",
+        "Layer": "CPS",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "IV-E billing nexus",
+        "Source": "IV-E claims",
+        "Latitude": 34.05,
+        "Longitude": -118.25
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.85,
+          33.715
+        ]
+      },
+      "properties": {
+        "TargetID": "PROC-001",
+        "Name": "OC Sheriff Body Cams",
+        "Layer": "PROCUREMENT",
+        "Severity": "MEDIUM",
+        "SeverityRank": 3,
+        "Description": "Sheriff Open $8,500,000",
+        "Source": "Procurement portal",
+        "Latitude": 33.715,
+        "Longitude": -117.85,
+        "AmountUSD": 8500000,
+        "Status": "Open",
+        "Dept": "Sheriff"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.87,
+          33.748
+        ]
+      },
+      "properties": {
+        "TargetID": "PROC-002",
+        "Name": "County IT Security",
+        "Layer": "PROCUREMENT",
+        "Severity": "MEDIUM",
+        "SeverityRank": 3,
+        "Description": "IT Open $2,500,000",
+        "Source": "Procurement portal",
+        "Latitude": 33.748,
+        "Longitude": -117.87,
+        "AmountUSD": 2500000,
+        "Status": "Open",
+        "Dept": "IT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0,
+          33.676
+        ]
+      },
+      "properties": {
+        "TargetID": "PROC-003",
+        "Name": "HB Coastal Infrastructure",
+        "Layer": "PROCUREMENT",
+        "Severity": "MEDIUM",
+        "SeverityRank": 3,
+        "Description": "Public Works Under Review $12,000,000",
+        "Source": "Procurement portal",
+        "Latitude": 33.676,
+        "Longitude": -118.0,
+        "AmountUSD": 12000000,
+        "Status": "Under Review",
+        "Dept": "Public Works"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.91,
+          33.835
+        ]
+      },
+      "properties": {
+        "TargetID": "PROC-004",
+        "Name": "Anaheim Housing RFQ",
+        "Layer": "PROCUREMENT",
+        "Severity": "INFO",
+        "SeverityRank": 4,
+        "Description": "Housing Closed $4,500,000",
+        "Source": "Procurement portal",
+        "Latitude": 33.835,
+        "Longitude": -117.91,
+        "AmountUSD": 4500000,
+        "Status": "Closed",
+        "Dept": "Housing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0012,
+          33.6775
+        ]
+      },
+      "properties": {
+        "TargetID": "PROC-005",
+        "Name": "HBNC 155M Remediation",
+        "Layer": "PROCUREMENT",
+        "Severity": "CRITICAL",
+        "SeverityRank": 1,
+        "Description": "OCHCA/DPW VOID $155,000,000",
+        "Source": "Procurement portal",
+        "Latitude": 33.6775,
+        "Longitude": -118.0012,
+        "AmountUSD": 155000000,
+        "Status": "VOID",
+        "Dept": "OCHCA/DPW"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -118.0,
+            33.65
+          ],
+          [
+            -117.99,
+            33.73
+          ]
+        ]
+      },
+      "properties": {
+        "TargetID": "I-405_FREEWAY_CORRIDOR",
+        "Name": "I-405 Freeway Corridor",
+        "Layer": "INFRA",
+        "Severity": "INFO",
+        "SeverityRank": 4,
+        "Description": "I-405 Freeway Corridor",
+        "Source": "Transport"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -118.0,
+            33.65
+          ],
+          [
+            -117.98,
+            33.73
+          ]
+        ]
+      },
+      "properties": {
+        "TargetID": "PACIFIC_COAST_HWY_(PCH)",
+        "Name": "Pacific Coast Hwy (PCH)",
+        "Layer": "INFRA",
+        "Severity": "INFO",
+        "SeverityRank": 4,
+        "Description": "Pacific Coast Hwy (PCH)",
+        "Source": "Transport"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -118.001,
+            33.677
+          ],
+          [
+            -117.99,
+            33.73
+          ]
+        ]
+      },
+      "properties": {
+        "TargetID": "BEACH_BOULEVARD",
+        "Name": "Beach Boulevard",
+        "Layer": "INFRA",
+        "Severity": "INFO",
+        "SeverityRank": 4,
+        "Description": "Beach Boulevard",
+        "Source": "Transport"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -118.0013,
+            33.6773
+          ],
+          [
+            -118.0015,
+            33.6778
+          ]
+        ]
+      },
+      "properties": {
+        "TargetID": "HDPE_STORMTECH_CHAMBERS",
+        "Name": "HDPE Stormtech Chambers",
+        "Layer": "INFRA",
+        "Severity": "CRITICAL",
+        "SeverityRank": 1,
+        "Description": "HDPE Stormtech Chambers",
+        "Source": "Concealed infrastructure"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -118.0013,
+            33.6773
+          ],
+          [
+            -118.0017,
+            33.67762
+          ],
+          [
+            -118.0021,
+            33.67794
+          ],
+          [
+            -118.0025,
+            33.67826
+          ],
+          [
+            -118.0029,
+            33.67858
+          ],
+          [
+            -118.0033,
+            33.6789
+          ],
+          [
+            -118.0037,
+            33.67922
+          ]
+        ]
+      },
+      "properties": {
+        "TargetID": "PLUME-001",
+        "Name": "Cr-VI plume vector 1",
+        "Layer": "PLUME",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+        "Source": "Phase I ESA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -118.0013,
+            33.6773
+          ],
+          [
+            -118.00162,
+            33.67778
+          ],
+          [
+            -118.00194,
+            33.67826
+          ],
+          [
+            -118.00226,
+            33.67874
+          ],
+          [
+            -118.00258,
+            33.67922
+          ],
+          [
+            -118.0029,
+            33.6797
+          ],
+          [
+            -118.00322,
+            33.68018
+          ]
+        ]
+      },
+      "properties": {
+        "TargetID": "PLUME-002",
+        "Name": "Cr-VI plume vector 2",
+        "Layer": "PLUME",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+        "Source": "Phase I ESA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -118.0013,
+            33.6773
+          ],
+          [
+            -118.00146,
+            33.67794
+          ],
+          [
+            -118.00162,
+            33.67858
+          ],
+          [
+            -118.00178,
+            33.67922
+          ],
+          [
+            -118.00194,
+            33.67986
+          ],
+          [
+            -118.0021,
+            33.6805
+          ],
+          [
+            -118.00226,
+            33.68114
+          ]
+        ]
+      },
+      "properties": {
+        "TargetID": "PLUME-003",
+        "Name": "Cr-VI plume vector 3",
+        "Layer": "PLUME",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+        "Source": "Phase I ESA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -118.0013,
+            33.6773
+          ],
+          [
+            -118.00186,
+            33.6777
+          ],
+          [
+            -118.00242,
+            33.6781
+          ],
+          [
+            -118.00298,
+            33.6785
+          ],
+          [
+            -118.00354,
+            33.6789
+          ],
+          [
+            -118.0041,
+            33.6793
+          ],
+          [
+            -118.00466,
+            33.6797
+          ]
+        ]
+      },
+      "properties": {
+        "TargetID": "PLUME-004",
+        "Name": "Cr-VI plume vector 4",
+        "Layer": "PLUME",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+        "Source": "Phase I ESA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -118.0013,
+            33.6773
+          ],
+          [
+            -118.00178,
+            33.67706
+          ],
+          [
+            -118.00226,
+            33.67682
+          ],
+          [
+            -118.00274,
+            33.67658
+          ],
+          [
+            -118.00322,
+            33.67634
+          ],
+          [
+            -118.0037,
+            33.6761
+          ],
+          [
+            -118.00418,
+            33.67586
+          ]
+        ]
+      },
+      "properties": {
+        "TargetID": "PLUME-005",
+        "Name": "Cr-VI plume vector 5",
+        "Layer": "PLUME",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+        "Source": "Phase I ESA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -118.0013,
+            33.6773
+          ],
+          [
+            -118.00162,
+            33.6769
+          ],
+          [
+            -118.00194,
+            33.6765
+          ],
+          [
+            -118.00226,
+            33.6761
+          ],
+          [
+            -118.00258,
+            33.6757
+          ],
+          [
+            -118.0029,
+            33.6753
+          ],
+          [
+            -118.00322,
+            33.6749
+          ]
+        ]
+      },
+      "properties": {
+        "TargetID": "PLUME-006",
+        "Name": "Cr-VI plume vector 6",
+        "Layer": "PLUME",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+        "Source": "Phase I ESA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -118.0013,
+            33.6773
+          ],
+          [
+            -118.00138,
+            33.67674
+          ],
+          [
+            -118.00146,
+            33.67618
+          ],
+          [
+            -118.00154,
+            33.67562
+          ],
+          [
+            -118.00162,
+            33.67506
+          ],
+          [
+            -118.0017,
+            33.6745
+          ],
+          [
+            -118.00178,
+            33.67394
+          ]
+        ]
+      },
+      "properties": {
+        "TargetID": "PLUME-007",
+        "Name": "Cr-VI plume vector 7",
+        "Layer": "PLUME",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+        "Source": "Phase I ESA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -118.0013,
+            33.6773
+          ],
+          [
+            -118.00202,
+            33.67746
+          ],
+          [
+            -118.00274,
+            33.67762
+          ],
+          [
+            -118.00346,
+            33.67778
+          ],
+          [
+            -118.00418,
+            33.67794
+          ],
+          [
+            -118.0049,
+            33.6781
+          ],
+          [
+            -118.00562,
+            33.67826
+          ]
+        ]
+      },
+      "properties": {
+        "TargetID": "PLUME-008",
+        "Name": "Cr-VI plume vector 8",
+        "Layer": "PLUME",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+        "Source": "Phase I ESA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -118.0013,
+            33.6773
+          ],
+          [
+            -118.00122,
+            33.67802
+          ],
+          [
+            -118.00114,
+            33.67874
+          ],
+          [
+            -118.00106,
+            33.67946
+          ],
+          [
+            -118.00098,
+            33.68018
+          ],
+          [
+            -118.0009,
+            33.6809
+          ],
+          [
+            -118.00082,
+            33.68162
+          ]
+        ]
+      },
+      "properties": {
+        "TargetID": "PLUME-009",
+        "Name": "Cr-VI plume vector 9",
+        "Layer": "PLUME",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+        "Source": "Phase I ESA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -118.0013,
+            33.6773
+          ],
+          [
+            -118.00146,
+            33.6781
+          ],
+          [
+            -118.00162,
+            33.6789
+          ],
+          [
+            -118.00178,
+            33.6797
+          ],
+          [
+            -118.00194,
+            33.6805
+          ],
+          [
+            -118.0021,
+            33.6813
+          ],
+          [
+            -118.00226,
+            33.6821
+          ]
+        ]
+      },
+      "properties": {
+        "TargetID": "PLUME-010",
+        "Name": "Cr-VI plume vector 10",
+        "Layer": "PLUME",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+        "Source": "Phase I ESA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -118.0013,
+            33.6773
+          ],
+          [
+            -118.00154,
+            33.67666
+          ],
+          [
+            -118.00178,
+            33.67602
+          ],
+          [
+            -118.00202,
+            33.67538
+          ],
+          [
+            -118.00226,
+            33.67474
+          ],
+          [
+            -118.0025,
+            33.6741
+          ],
+          [
+            -118.00274,
+            33.67346
+          ]
+        ]
+      },
+      "properties": {
+        "TargetID": "PLUME-011",
+        "Name": "Cr-VI plume vector 11",
+        "Layer": "PLUME",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+        "Source": "Phase I ESA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -118.0013,
+            33.6773
+          ],
+          [
+            -118.00194,
+            33.67698
+          ],
+          [
+            -118.00258,
+            33.67666
+          ],
+          [
+            -118.00322,
+            33.67634
+          ],
+          [
+            -118.00386,
+            33.67602
+          ],
+          [
+            -118.0045,
+            33.6757
+          ],
+          [
+            -118.00514,
+            33.67538
+          ]
+        ]
+      },
+      "properties": {
+        "TargetID": "PLUME-012",
+        "Name": "Cr-VI plume vector 12",
+        "Layer": "PLUME",
+        "Severity": "HIGH",
+        "SeverityRank": 2,
+        "Description": "Groundwater flow vector (SW) from HBNC per Phase I ESA",
+        "Source": "Phase I ESA"
+      }
+    }
+  ]
+}
