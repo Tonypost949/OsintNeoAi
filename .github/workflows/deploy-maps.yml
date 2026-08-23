@@ -1,0 +1,65 @@
+name: Deploy Maps to Azure
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'master_tactical_gis.html'
+      - 'badass_osint_map.html'
+      - 'hbnc_rico_gis.html'
+      - 'nationwide_coc_map.html'
+      - 'nationwide_pipeline_map.html'
+      - 'comparison_swipe_map.html'
+      - 'simple_map_server.py'
+      - 'Dockerfile.maps'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build & Push to ACR
+        uses: azure/docker-login@v1
+        with:
+          login-server: osintneoairegistry2391.azurecr.io
+          username: ${{ secrets.AZURE_REGISTRY_USERNAME }}
+          password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
+
+      - name: Build Docker image
+        run: |
+          docker build -f Dockerfile.maps -t osintneoairegistry2391.azurecr.io/osintneoai:maps-latest .
+          docker push osintneoairegistry2391.azurecr.io/osintneoai:maps-latest
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy to Azure Container Instances
+        run: |
+          az container create \
+            --resource-group osintneoai-rg \
+            --name osintneoai-maps \
+            --image osintneoairegistry2391.azurecr.io/osintneoai:maps-latest \
+            --registry-login-server osintneoairegistry2391.azurecr.io \
+            --registry-username ${{ secrets.AZURE_REGISTRY_USERNAME }} \
+            --registry-password ${{ secrets.AZURE_REGISTRY_PASSWORD }} \
+            --os-type Linux \
+            --cpu 1.0 \
+            --memory 1.0 \
+            --ports 10000 \
+            --ip-address public \
+            --environment-variables PORT=10000 \
+            --no-wait || true
+
+      - name: Get Container IP
+        run: |
+          echo "Waiting for container to be provisioned..."
+          sleep 20
+          IP=$(az container show --resource-group osintneoai-rg --name osintneoai-maps --query ipAddress.ip -o tsv 2>/dev/null)
+          if [ -z "$IP" ]; then
+            echo "Container still provisioning, check Azure portal"
+          else
+            echo "Maps server deployed at: http://$IP:10000/"
+          fi
