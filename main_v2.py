@@ -1,6 +1,6 @@
-import os
+﻿import os
 import sys
-from flask import Flask, jsonify, send_from_directory, render_template_string
+from flask import Flask, jsonify, send_from_directory, render_template_string, send_file
 
 # Import API app from api.main
 from api.main_v2 import app as api_app
@@ -22,19 +22,21 @@ def home():
             "arcgis_dashboard": "/arcgis",
             "arcgis_geojson": "/arcgis/geojson",
             "maps": {
-                "master_tactical": "/map/master",
+                "master_tactical_3d": "/map/master",
+                "maplibre_3d": "/map/3d",
+                "comparison_swipe": "/map/swipe",
+                "kml_3d_model": "/map/kml",
                 "badass_osint": "/map/badass",
                 "hbnc_rico": "/map/hbnc",
                 "nationwide_coc": "/map/coc",
-                "nationwide_pipeline": "/map/pipeline",
-                "comparison_swipe": "/map/comparison"
+                "nationwide_pipeline": "/map/pipeline"
             }
         }
     })
 
 @app.route("/health", methods=["GET"])
 def health():
-    return jsonify({"status": "healthy"}), 200
+    return jsonify({"status": "healthy", "engine": "MapLibre GL 3D WebGL"}), 200
 
 @app.route("/arcgis", methods=["GET"])
 def arcgis_dashboard():
@@ -51,15 +53,37 @@ def arcgis_geojson():
         return send_from_directory(os.path.dirname(__file__), "arcgis_for_teams_geojson.geojson", mimetype="application/geo+json")
     return jsonify({"error": "GeoJSON not found"}), 404
 
-# Tactical GIS Maps with Multiple Route Aliases
+# Tactical 3D GIS Maps
 @app.route("/map/master", methods=["GET"])
+@app.route("/map/3d", methods=["GET"])
 @app.route("/maps/master_tactical_gis.html", methods=["GET"])
+@app.route("/maps/maplibre_3d_tactical.html", methods=["GET"])
 def master_tactical_map():
-    map_file = os.path.join(os.path.dirname(__file__), "master_tactical_gis.html")
+    map_file = os.path.join(os.path.dirname(__file__), "maplibre_3d_tactical.html")
+    if not os.path.exists(map_file):
+        map_file = os.path.join(os.path.dirname(__file__), "master_tactical_gis.html")
     if os.path.exists(map_file):
         with open(map_file, "r", encoding="utf-8") as f:
             return render_template_string(f.read())
-    return jsonify({"error": "Master tactical map not found"}), 404
+    return jsonify({"error": "3D tactical map not found"}), 404
+
+@app.route("/map/comparison", methods=["GET"])
+@app.route("/map/swipe", methods=["GET"])
+@app.route("/maps/comparison_swipe_map.html", methods=["GET"])
+def comparison_swipe_map():
+    map_file = os.path.join(os.path.dirname(__file__), "comparison_swipe_map.html")
+    if os.path.exists(map_file):
+        with open(map_file, "r", encoding="utf-8") as f:
+            return render_template_string(f.read())
+    return jsonify({"error": "Comparison swipe map not found"}), 404
+
+@app.route("/map/kml", methods=["GET"])
+@app.route("/OSINT_MASTER_3D_SURVEILLANCE.kml", methods=["GET"])
+def kml_surveillance_model():
+    kml_file = os.path.join(os.path.dirname(__file__), "OSINT_MASTER_3D_SURVEILLANCE.kml")
+    if os.path.exists(kml_file):
+        return send_file(kml_file, mimetype="application/vnd.google-earth.kml+xml")
+    return jsonify({"error": "KML model not found"}), 404
 
 @app.route("/map/badass", methods=["GET"])
 @app.route("/maps/badass_osint_map.html", methods=["GET"])
@@ -86,7 +110,7 @@ def nationwide_coc_map():
     if os.path.exists(map_file):
         with open(map_file, "r", encoding="utf-8") as f:
             return render_template_string(f.read())
-    return jsonify({"error": "Chain of custody map not found"}), 404
+    return jsonify({"error": "Nationwide CoC map not found"}), 404
 
 @app.route("/map/pipeline", methods=["GET"])
 @app.route("/maps/nationwide_pipeline_map.html", methods=["GET"])
@@ -95,17 +119,8 @@ def nationwide_pipeline_map():
     if os.path.exists(map_file):
         with open(map_file, "r", encoding="utf-8") as f:
             return render_template_string(f.read())
-    return jsonify({"error": "Pipeline map not found"}), 404
-
-@app.route("/map/comparison", methods=["GET"])
-@app.route("/maps/comparison_swipe_map.html", methods=["GET"])
-def comparison_swipe_map():
-    map_file = os.path.join(os.path.dirname(__file__), "comparison_swipe_map.html")
-    if os.path.exists(map_file):
-        with open(map_file, "r", encoding="utf-8") as f:
-            return render_template_string(f.read())
-    return jsonify({"error": "Comparison map not found"}), 404
+    return jsonify({"error": "Nationwide Pipeline map not found"}), 404
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))
+    port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port, debug=False)
