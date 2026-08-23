@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OsintNeoAi - Maps Hub</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0a0a0a; color: #e0e0e0; min-height: 100vh; }
+.header { background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 30px 40px; border-bottom: 2px solid #0f3460; }
+.header h1 { font-size: 28px; color: #00d4ff; letter-spacing: 2px; }
+.header p { color: #888; margin-top: 5px; font-size: 14px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; padding: 30px 40px; max-width: 1400px; }
+.card { background: #111; border: 1px solid #222; border-radius: 12px; padding: 24px; transition: all 0.3s; cursor: pointer; text-decoration: none; color: inherit; display: block; }
+.card:hover { border-color: #00d4ff; transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,212,255,0.15); }
+.card .icon { font-size: 36px; margin-bottom: 12px; }
+.card h3 { color: #00d4ff; font-size: 18px; margin-bottom: 8px; }
+.card p { color: #999; font-size: 13px; line-height: 1.5; }
+.card .tag { display: inline-block; background: #1a1a2e; color: #00d4ff; padding: 3px 10px; border-radius: 20px; font-size: 11px; margin-top: 10px; border: 1px solid #0f3460; }
+.section-title { color: #555; font-size: 12px; text-transform: uppercase; letter-spacing: 3px; padding: 20px 40px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>OSINTNEOAI MAPS HUB</h1>
+  <p>All intelligence maps in one place</p>
+</div>
+
+<div class="section-title">Primary Intelligence Maps</div>
+<div class="grid">
+  <a class="card" href="/maps/badass_osint_map.html">
+    <div class="icon">&#127758;</div>
+    <h3>Badass OSINT Map</h3>
+    <p>Master OSINT intelligence map with entity tracking and network analysis.</p>
+    <span class="tag">OSINT</span>
+  </a>
+  <a class="card" href="/maps/nationwide_pipeline_map.html">
+    <div class="icon">&#128666;</div>
+    <h3>Nationwide Pipeline Map</h3>
+    <p>Pipeline infrastructure tracking across all states.</p>
+    <span class="tag">PIPELINE</span>
+  </a>
+  <a class="card" href="/maps/nationwide_coc_map.html">
+    <div class="icon">&#127970;</div>
+    <h3>Nationwide COC Map</h3>
+    <p>Chain of command vulnerability matrix visualization.</p>
+    <span class="tag">COC</span>
+  </a>
+  <a class="card" href="/maps/maplibre_3d_tactical.html">
+    <div class="icon">&#128187;</div>
+    <h3>3D Tactical Map</h3>
+    <p>MapLibre 3D tactical visualization with building extrusion.</p>
+    <span class="tag">3D</span>
+  </a>
+  <a class="card" href="/maps/comparison_swipe_map.html">
+    <div class="icon">&#128256;</div>
+    <h3>Comparison Swipe Map</h3>
+    <p>Side-by-side map comparison tool.</p>
+    <span class="tag">COMPARE</span>
+  </a>
+  <a class="card" href="/maps/hbnc_rico_gis.html">
+    <div class="icon">&#128270;</div>
+    <h3>HBNC RICO GIS</h3>
+    <p>HBNC RICO investigation GIS analysis.</p>
+    <span class="tag">RICO</span>
+  </a>
+</div>
+
+<div class="section-title">Forensic & Evidence Maps</div>
+<div class="grid">
+  <a class="card" href="/maps/hbnc_live_map.html">
+    <div class="icon">&#128308;</div>
+    <h3>HBNC Live Map</h3>
+    <p>Live HBNC investigation tracking map.</p>
+    <span class="tag">LIVE</span>
+  </a>
+  <a class="card" href="/maps/official_forensic_map.html">
+    <div class="icon">&#128269;</div>
+    <h3>Official Forensic Map</h3>
+    <p>Official forensic intelligence map.</p>
+    <span class="tag">FORENSIC</span>
+  </a>
+  <a class="card" href="/maps/rico_entity_map.html">
+    <div class="icon">&#128279;</div>
+    <h3>RICO Entity Map</h3>
+    <p>RICO entity relationship and network map.</p>
+    <span class="tag">ENTITY</span>
+  </a>
+  <a class="card" href="/maps/port_heatmap.html">
+    <div class="icon">&#127777;</div>
+    <h3>Port Heatmap</h3>
+    <p>Port activity heatmap visualization.</p>
+    <span class="tag">HEATMAP</span>
+  </a>
+  <a class="card" href="/maps/cluster_map.html">
+    <div class="icon">&#128200;</div>
+    <h3>Cluster Map</h3>
+    <p>Entity clustering analysis map.</p>
+    <span class="tag">CLUSTER</span>
+  </a>
+  <a class="card" href="/maps/geo_map.html">
+    <div class="icon">&#128506;</div>
+    <h3>Geo Map</h3>
+    <p>Geographic intelligence visualization.</p>
+    <span class="tag">GEO</span>
+  </a>
+</div>
+
+<div class="section-title">External Resources</div>
+<div class="grid">
+  <a class="card" href="https://www.arcgis.com" target="_blank">
+    <div class="icon">&#127757;</div>
+    <h3>ArcGIS Online</h3>
+    <p>Enterprise GIS platform.</p>
+    <span class="tag">EXTERNAL</span>
+  </a>
+  <a class="card" href="https://www.openstreetmap.org" target="_blank">
+    <div class="icon">&#127759;</div>
+    <h3>OpenStreetMap</h3>
+    <p>Open source world map.</p>
+    <span class="tag">EXTERNAL</span>
+  </a>
+  <a class="card" href="https://apps.sentinel-hub.com/eo-browser/" target="_blank">
+    <div class="icon">&#128752;</div>
+    <h3>Sentinel Hub EO Browser</h3>
+    <p>Satellite imagery browser.</p>
+    <span class="tag">SATELLITE</span>
+  </a>
+  <a class="card" href="https://maps.google.com" target="_blank">
+    <div class="icon">&#128205;</div>
+    <h3>Google Maps</h3>
+    <p>Google Maps satellite & street view.</p>
+    <span class="tag">EXTERNAL</span>
+  </a>
+</div>
+
+<script>
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('mouseenter', () => card.style.borderColor = '#00d4ff');
+  card.addEventListener('mouseleave', () => card.style.borderColor = '#222');
+});
+</script>
+</body>
+</html>
