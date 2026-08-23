@@ -1,0 +1,318 @@
+﻿"""generate_master_kml.py — Master 3D Google Earth Pro KML/KMZ Exporter
+Generates full 3D extruded polygons, toxic plume migration paths, well stratigraphy,
+and pre-programmed 3D cinematic fly-over tours for Google Earth Pro.
+"""
+
+import xml.etree.ElementTree as ET
+from pathlib import Path
+
+kml_content = """<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+<Document>
+  <name>OSINTNeoAi — Master 3D Tactical Surveillance & Environmental Clearinghouse</name>
+  <open>1</open>
+  <description>Complete 3D forensic models, Superfund boundaries, toxic plume corridors, and drone flight tours.</description>
+
+  <!-- STYLES -->
+  <Style id="superfundStyle">
+    <LineStyle><color>ff0000ff</color><width>3</width></LineStyle>
+    <PolyStyle><color>7f0000ff</color></PolyStyle>
+  </Style>
+
+  <Style id="plumeStyle">
+    <LineStyle><color>ff00aaff</color><width>5</width></LineStyle>
+  </Style>
+
+  <Style id="parcelStyle">
+    <LineStyle><color>ffff00ff</color><width>3</width></LineStyle>
+    <PolyStyle><color>7fff00aa</color></PolyStyle>
+  </Style>
+
+  <Style id="wellStyle">
+    <IconStyle>
+      <scale>1.3</scale>
+      <Icon><href>http://maps.google.com/mapfiles/kml/shapes/water.png</href></Icon>
+    </IconStyle>
+  </Style>
+
+  <Style id="targetPin">
+    <IconStyle>
+      <scale>1.4</scale>
+      <Icon><href>http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png</href></Icon>
+    </IconStyle>
+  </Style>
+
+  <!-- 1. FOLDER: ASCON LANDFILL SUPERFUND & PLUMES -->
+  <Folder>
+    <name>☣️ Ascon Landfill Superfund & Toxic Plumes (Huntington Beach)</name>
+    <open>1</open>
+    
+    <Placemark>
+      <name>Ascon Landfill 38-Acre Superfund Boundary</name>
+      <description><![CDATA[
+        <h3>☣️ ASCON LANDFILL SUPERFUND (EPA CERCLA NPL)</h3>
+        <p><b>Location:</b> Hamilton Ave & Magnolia St, Huntington Beach, CA</p>
+        <p><b>Acreage:</b> 38 Acres (Industrial waste pits, styrene lagoons, heavy metals)</p>
+        <p><b>Status:</b> Active Superfund remediation directly adjacent to residential and shelter projects.</p>
+      ]]></description>
+      <styleUrl>#superfundStyle</styleUrl>
+      <Polygon>
+        <extrude>1</extrude>
+        <altitudeMode>relativeToGround</altitudeMode>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>
+              -117.9890,33.6495,25
+              -117.9890,33.6550,25
+              -117.9820,33.6550,25
+              -117.9820,33.6495,25
+              -117.9890,33.6495,25
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+
+    <Placemark>
+      <name>Beach Blvd Soil Vapor & Chemical Plume Migration Vector</name>
+      <description><![CDATA[
+        <h3>⚠️ Toxic Vapor Migration Vector</h3>
+        <p>South-to-North migration path carrying volatile organic compounds along the Beach Blvd corridor toward inland parcels.</p>
+      ]]></description>
+      <styleUrl>#plumeStyle</styleUrl>
+      <LineString>
+        <extrude>1</extrude>
+        <tessellate>1</tessellate>
+        <altitudeMode>relativeToGround</altitudeMode>
+        <coordinates>
+          -117.9855,33.6522,30
+          -117.9895,33.6845,30
+          -117.9890,33.7088,30
+        </coordinates>
+      </LineString>
+    </Placemark>
+  </Folder>
+
+  <!-- 2. FOLDER: TARGET PROPERTIES & APN PARCELS -->
+  <Folder>
+    <name>🏢 Target Real Estate & Conduit Parcels</name>
+    <open>1</open>
+
+    <Placemark>
+      <name>17642 Beach Blvd (Vagabond Inn / Casa Aliento)</name>
+      <description><![CDATA[
+        <h3>📍 17642 Beach Blvd, Huntington Beach, CA 92647</h3>
+        <p><b>APN:</b> 102-121-04</p>
+        <p><b>EDR Inquiry:</b> 7887036 (28 Historical Environmental Filings)</p>
+        <p><b>Conduit Role:</b> Mercy House CHDO conversion site; $14.68M federal funding recipient.</p>
+      ]]></description>
+      <styleUrl>#parcelStyle</styleUrl>
+      <Polygon>
+        <extrude>1</extrude>
+        <altitudeMode>relativeToGround</altitudeMode>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>
+              -117.9895,33.7084,18
+              -117.9895,33.7092,18
+              -117.9885,33.7092,18
+              -117.9885,33.7084,18
+              -117.9895,33.7084,18
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+
+    <Placemark>
+      <name>17631 Cameron Ln Property Hub</name>
+      <description><![CDATA[
+        <h3>📍 17631 Cameron Ln, Huntington Beach, CA 92647</h3>
+        <p><b>GeoTracker Deliverable:</b> 8599347770 / 1147596061</p>
+        <p><b>Status:</b> Site Assessment & Recommendation Deliverable Filed with State Regulators.</p>
+      ]]></description>
+      <styleUrl>#targetPin</styleUrl>
+      <Point>
+        <coordinates>-117.9902,33.7081,10</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>GAMA Groundwater Well W0603000618 (Hexavalent Chromium)</name>
+      <description><![CDATA[
+        <h3>💧 GAMA Drinking Water Monitoring Well</h3>
+        <p><b>State ID:</b> CA3000618_001_001</p>
+        <p><b>Contaminant:</b> Hexavalent Chromium (CR6) Line Chart Monitoring Point</p>
+      ]]></description>
+      <styleUrl>#wellStyle</styleUrl>
+      <Point>
+        <coordinates>-117.9880,33.6950,15</coordinates>
+      </Point>
+    </Placemark>
+  </Folder>
+
+  <!-- 3. FOLDER: BUCK RANCH & NATIVE AMERICAN BURIAL SECTOR -->
+  <Folder>
+    <name>🌾 Buck Ranch / Callens Ranch & Native Historical Sector</name>
+    <open>1</open>
+
+    <Placemark>
+      <name>Buck Ranch Historical Grant Boundary</name>
+      <description><![CDATA[
+        <h3>🌾 Buck Ranch aka Callens Ranch Sector</h3>
+        <p><b>Classification:</b> Historical GIS Boundary Only (Doc 1AcgqV...)</p>
+        <p><b>Archaeological Survey:</b> Indian Burial Ground Search 1 (Doc 1i0MDI...)</p>
+        <p><b>Tribal Matrix:</b> Southern California Tribal Trustees Asset Pool (Doc 1W1dXp...)</p>
+      ]]></description>
+      <styleUrl>#parcelStyle</styleUrl>
+      <Polygon>
+        <extrude>1</extrude>
+        <altitudeMode>relativeToGround</altitudeMode>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>
+              -117.9750,33.6700,20
+              -117.9750,33.6820,20
+              -117.9620,33.6820,20
+              -117.9620,33.6700,20
+              -117.9750,33.6700,20
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+  </Folder>
+
+  <!-- 4. FOLDER: NEVADA DESERT CORRIDORS -->
+  <Folder>
+    <name>🎰 Nevada Desert & Spatial Corridors</name>
+    <open>1</open>
+
+    <Placemark>
+      <name>MGM Grand Resort & Casino Spatial Hub</name>
+      <description><![CDATA[
+        <h3>🎰 MGM Grand Las Vegas</h3>
+        <p><b>Address:</b> 3799 S Las Vegas Blvd, Las Vegas, NV 89109</p>
+        <p><b>GPS:</b> 36.1026° N, 115.1703° W</p>
+      ]]></description>
+      <styleUrl>#targetPin</styleUrl>
+      <Point>
+        <coordinates>-115.1703,36.1026,20</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Apex Desert Industrial Mesh (Clark County)</name>
+      <description><![CDATA[
+        <h3>🏜️ Apex Desert Industrial Corridor</h3>
+        <p><b>GPS:</b> 36.3150° N, 114.9200° W</p>
+        <p><b>Resolution:</b> Raw desert APN parcels resolved via LightBox Spatial Radius API.</p>
+      ]]></description>
+      <styleUrl>#targetPin</styleUrl>
+      <Point>
+        <coordinates>-114.9200,36.3150,15</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Nye County Mining & Testing Corridor</name>
+      <description><![CDATA[
+        <h3>⛏️ Nye County Desert Hub</h3>
+        <p><b>GPS:</b> 36.9092° N, 116.7547° W</p>
+      ]]></description>
+      <styleUrl>#targetPin</styleUrl>
+      <Point>
+        <coordinates>-116.7547,36.9092,15</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Tahoe-Reno Industrial Center (Storey County)</name>
+      <description><![CDATA[
+        <h3>🏭 Tahoe-Reno Mega-Campus</h3>
+        <p><b>GPS:</b> 39.5296° N, 119.8138° W</p>
+      ]]></description>
+      <styleUrl>#targetPin</styleUrl>
+      <Point>
+        <coordinates>-119.8138,39.5296,15</coordinates>
+      </Point>
+    </Placemark>
+  </Folder>
+
+  <!-- 5. CINEMATIC 3D FLIGHT TOUR (GOOGLE EARTH PRO) -->
+  <gx:Tour>
+    <name>🎬 3D CINEMATIC DRONE FLIGHT TOUR</name>
+    <gx:Playlist>
+      <!-- 1. HIGH ORBIT -->
+      <gx:FlyTo>
+        <gx:duration>4.0</gx:duration>
+        <gx:flyToMode>smooth</gx:flyToMode>
+        <LookAt>
+          <longitude>-100.0</longitude>
+          <latitude>37.5</latitude>
+          <altitude>0</altitude>
+          <heading>0</heading>
+          <tilt>20</tilt>
+          <range>4500000</range>
+          <altitudeMode>relativeToGround</altitudeMode>
+        </LookAt>
+      </gx:FlyTo>
+      <gx:Wait><gx:duration>2.0</gx:duration></gx:Wait>
+
+      <!-- 2. DIVE TO ASCON LANDFILL -->
+      <gx:FlyTo>
+        <gx:duration>6.0</gx:duration>
+        <gx:flyToMode>smooth</gx:flyToMode>
+        <LookAt>
+          <longitude>-117.9855</longitude>
+          <latitude>33.6522</latitude>
+          <altitude>0</altitude>
+          <heading>320</heading>
+          <tilt>65</tilt>
+          <range>1200</range>
+          <altitudeMode>relativeToGround</altitudeMode>
+        </LookAt>
+      </gx:FlyTo>
+      <gx:Wait><gx:duration>3.0</gx:duration></gx:Wait>
+
+      <!-- 3. GLIDE TO 17642 BEACH BLVD -->
+      <gx:FlyTo>
+        <gx:duration>4.5</gx:duration>
+        <gx:flyToMode>smooth</gx:flyToMode>
+        <LookAt>
+          <longitude>-117.9890</longitude>
+          <latitude>33.7088</latitude>
+          <altitude>0</altitude>
+          <heading>350</heading>
+          <tilt>70</tilt>
+          <range>600</range>
+          <altitudeMode>relativeToGround</altitudeMode>
+        </LookAt>
+      </gx:FlyTo>
+      <gx:Wait><gx:duration>3.0</gx:duration></gx:Wait>
+
+      <!-- 4. ROCKET TO LAS VEGAS & MGM GRAND -->
+      <gx:FlyTo>
+        <gx:duration>5.5</gx:duration>
+        <gx:flyToMode>smooth</gx:flyToMode>
+        <LookAt>
+          <longitude>-115.1703</longitude>
+          <latitude>36.1026</latitude>
+          <altitude>0</altitude>
+          <heading>45</heading>
+          <tilt>65</tilt>
+          <range>1500</range>
+          <altitudeMode>relativeToGround</altitudeMode>
+        </LookAt>
+      </gx:FlyTo>
+      <gx:Wait><gx:duration>3.0</gx:duration></gx:Wait>
+    </gx:Playlist>
+  </gx:Tour>
+
+</Document>
+</kml>
+"""
+
+out_file = Path("C:/OsintNeoAi/OSINT_MASTER_3D_SURVEILLANCE.kml")
+out_file.write_text(kml_content, encoding="utf-8")
+print(f"Master Google Earth Pro 3D KML generated: {out_file} ({out_file.stat().st_size} bytes)")

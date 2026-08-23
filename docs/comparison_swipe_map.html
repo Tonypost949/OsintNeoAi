@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>OSINTNeoAi — Sub-Meter Satellite vs. Historical Swipe Comparison</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-splitmap@0.0.1/leaflet-splitmap.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet-splitmap@0.0.1/leaflet-splitmap.css" />
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body, #map { width:100%; height:100%; background:#020617; font-family:monospace; overflow:hidden; }
+
+#swipe-hud {
+    position: fixed; top: 14px; left: 50%; transform: translateX(-50%); z-index: 1000;
+    background: rgba(2, 6, 23, 0.95); border: 2px solid #38bdf8;
+    border-radius: 30px; padding: 8px 24px; color: #f8fafc; font-family: monospace;
+    font-size: 12px; font-weight: bold; backdrop-filter: blur(12px);
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.4), 0 10px 30px rgba(0, 0, 0, 0.9);
+    display: flex; gap: 20px; align-items: center;
+}
+.hud-label-left { color: #facc15; }
+.hud-label-right { color: #38bdf8; }
+
+#jump-dock {
+    position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); z-index: 1000;
+    background: rgba(2, 6, 23, 0.92); border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px; padding: 8px 16px; display: flex; gap: 10px;
+}
+#jump-dock select {
+    background: #0f172a; color: #00ffaa; border: 1px solid #334155; padding: 6px 12px;
+    border-radius: 4px; font-family: monospace; font-size: 11px; outline: none; cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<div id="swipe-hud">
+    <span class="hud-label-left">◀️ HISTORICAL / OPENHISTORICAL (1867)</span>
+    <span>| 🔀 DRAG SPLIT BAR |</span>
+    <span class="hud-label-right">2026 SUB-METER CLARITY SATELLITE ▶️</span>
+</div>
+
+<div id="jump-dock">
+    <span style="color:#94a3b8; font-size:11px; font-weight:bold; align-self:center;">📍 SWIPE INSPECTION TARGET:</span>
+    <select onchange="jumpSwipe(this.value)">
+        <option value="ascon">☣️ Ascon Landfill Superfund (Huntington Beach)</option>
+        <option value="vagabond">📍 17642 Beach Blvd (Vagabond Inn / Casa Aliento)</option>
+        <option value="buck">🌾 Buck Ranch / Callens Historical Native Boundary</option>
+        <option value="mgm">🎰 MGM Grand Las Vegas Corridor (Nevada)</option>
+        <option value="apex">🏜️ Apex Desert Industrial Mesh (Clark County)</option>
+    </select>
+</div>
+
+<script>
+// Left Layer (Historical Topo / OpenHistorical)
+const histLayer = L.tileLayer('https://tile.openhistoricalmap.org/ohm_historic/{z}/{x}/{y}.png', { maxZoom: 19, attribution: 'OpenHistoricalMap' });
+
+// Right Layer (ESRI Clarity Ultra-HD Satellite)
+const satLayer = L.tileLayer('https://clarity.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, attribution: 'ESRI Clarity Ultra-HD' });
+
+const map = L.map('map', {
+    center: [33.6522, -117.9855],
+    zoom: 16
+});
+
+// Add SplitMap Swipe Control
+L.splitMap(histLayer, satLayer).addTo(map);
+
+// Ascon Boundary Polygon on Map
+const asconPolygon = L.polygon([
+    [33.6495, -117.9890],
+    [33.6550, -117.9890],
+    [33.6550, -117.9820],
+    [33.6495, -117.9820]
+], { color: '#ef4444', fillColor: '#ef4444', fillOpacity: 0.35, weight: 2, dashArray: '5, 5' }).addTo(map);
+
+asconPolygon.bindPopup("<b>☣️ ASCON LANDFILL 38-ACRE SUPERFUND SITE</b><br>Drag swipe bar to compare historical lagoons vs current aerial cleanup state.");
+
+function jumpSwipe(target) {
+    const coords = {
+        "ascon": { center: [33.6522, -117.9855], zoom: 16 },
+        "vagabond": { center: [33.7088, -117.9890], zoom: 17 },
+        "buck": { center: [33.6760, -117.9685], zoom: 15 },
+        "mgm": { center: [36.1026, -115.1703], zoom: 16 },
+        "apex": { center: [36.3150, -114.9200], zoom: 14 }
+    };
+    if (coords[target]) {
+        map.flyTo(coords[target].center, coords[target].zoom, { duration: 1.5 });
+    }
+}
+</script>
+</body>
+</html>
