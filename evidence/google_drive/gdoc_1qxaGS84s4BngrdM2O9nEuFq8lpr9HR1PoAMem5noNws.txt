@@ -1,0 +1,36 @@
+﻿Image The AI Agent Tinkerer’s Manual: 2026 Edition
+This manual provides the step-by-step technical implementation for the Advanced AI Agent Architecture shown in the infographic. It is designed for developers and "AI tinkerers" looking to move beyond simple chat-and-response into robust, production-grade autonomous systems.
+Section 1: The Reasoning Layer (Foundational Strategy)
+Before writing a line of code, you must decide how the agent will "think."
+* The ReAct Pattern (Reason + Act): Best for open-ended exploration. The agent observes a problem, thinks about it, takes an action, and repeats.
+   * Tinkerer's Tip: Use this for tasks where you don’t know the exact sequence of steps beforehand (e.g., "Find the best flight for my budget and constraints").
+* Plan-and-Execute Architecture: The agent creates a full step-by-step list before taking any actions.
+   * Tinkerer's Tip: Use this for mission-critical tasks where you want to review the plan before the agent starts burning through tokens.
+Section 2: Tiered Memory Stack
+A "Goldfish" agent (short-term only) is a liability. You need a three-layered approach:
+1. Short-Term (Buffer): Use a sliding window of the last 10-15 messages to keep the agent focused.
+2. Episodic Memory (The "Experience" Log): Store previous task successes and failures in a database. Before starting a new task, the agent should query: "Have I done something like this before?"
+3. Semantic Memory (RAG): This is your traditional Vector Database (Pinecone, Weaviate) where the agent retrieves technical documentation or facts.
+Section 3: MCP Tooling (Interoperability)
+Stop building custom "tool-calling" functions for every agent. Use the Model Context Protocol (MCP).
+* Implementation: Build a standalone "Tool Server" that follows the MCP standard. This allows your agent to "plug and play" with any database, API, or local file system regardless of whether you are using Claude, GPT-5, or a local LLaMA model.
+* Why it works: It separates the "intelligence" (the model) from the "capability" (the tools).
+Section 4: Multi-Agent Orchestration
+Don’t build one giant "God Agent." Build a "Crew."
+* The Orchestrator Model: One agent acts as the project manager, assigning tasks to "Worker Agents" (e.g., a "Coder Agent," a "Researcher Agent," and a "Reviewer Agent").
+* Communication: Define clear handoff points. A "Reviewer Agent" should be the only one allowed to finalize a task.
+Section 5: Agentic Evaluations (LLM-as-a-Judge)
+Standard unit tests (True/False) don't work for agents.
+* Trajectory Scoring: Use a separate, high-reasoning model (like Claude 3.5 Sonnet or GPT-4o) to review the entire path the agent took.
+* Scoring Rubric:
+   1. Efficiency: Did it take 20 steps to do a 3-step task?
+   2. Tool Accuracy: Did it try to use a "Calculator" for a "Google Search" task?
+   3. Hallucination Check: Did it invent a tool that doesn't exist?
+Section 6: Deployment & Context Pruning
+As agents run longer, "Context Bloat" occurs, slowing them down and increasing costs.
+* Dynamic Pruning: Implement a function that automatically removes redundant reasoning or old tool outputs from the context window once they are no longer relevant to the current objective.
+* The "Final Output" Rule: Always have the agent provide a clean, human-readable summary that strips away all the internal "thought" logs unless requested.
+Quickstart Toolbox
+* Frameworks: LangGraph (best for complex state control), CrewAI (best for multi-agent collaboration).
+* Models: Use Claude 3.5 Sonnet for the "Orchestrator" and Llama 3 (local) for simple "Worker" tasks to save cost.
+* Memory: Zep or Mem0 for persistent episodic memory.

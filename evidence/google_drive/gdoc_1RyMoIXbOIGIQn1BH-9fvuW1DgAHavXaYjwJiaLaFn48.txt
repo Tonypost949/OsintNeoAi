@@ -1,0 +1,40 @@
+﻿In Maltego: App menu → Import/Export → Import Graph from Table → select this file → map col A as Entity Type, col B as value, col D as Entity Type, col E as value, col C as link label → Finish. 
+
+Got it. Maltego's "Import a 3rd Party Table" wizard lets you select an XLSX, map columns to entity types, and auto-generate links. The trick is the XLSX needs to be structured so each row is a relationship — From entity, To entity — and Maltego maps columns during import. Building it now.
+Ran a command, read a file
+Ran a command, read a file
+Two tabs:
+Maltego_Import — 27 relationship rows, structured exactly for Maltego's Import Graph from Table wizard. Columns are From_Type | From_Value | Link_Label | To_Type | To_Value | Notes | Layer | Confirmed. The From/To Type columns use real Maltego entity type strings (maltego.Person, maltego.Organization, maltego.Document, maltego.EmailAddress).
+HOW TO IMPORT — step by step instructions for your exact version. The critical steps are 5 and 6 where you map the columns.
+In Maltego: App menu → Import/Export → Import Graph from Table → select this file → map col A as Entity Type, col B as value, col D as Entity Type, col E as value, col C as link label → Finish.
+Your full graph with 27 links loads in one shot.
+
+
+
+
+The document contains instructions for importing a graph from a table into Maltego:
+
+
+In Maltego, use the following steps to import the graph from the selected file:
+* Go to App menu → Import/Export → Import Graph from Table.
+* Select the file.
+* Map the columns as follows:
+   * Col A as Entity Type
+   * Col B as value
+   * Col D as Entity Type
+   * Col E as value
+   * Col C as link label
+* Click Finish.
+
+
+
+
+https://docs.google.com/document/d/1RyMoIXbOIGIQn1BH-9fvuW1DgAHavXaYjwJiaLaFn48/edit?tab=t.0
+
+
+Untitled document
+
+
+Untitled document
+Untitled document
+Untitled document
