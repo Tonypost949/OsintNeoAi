@@ -1,63 +1,152 @@
 import os
 import re
 import json
-try:
-    import g4f
-except ImportError:
-    g4f = None
+import requests
 
 class OSINTAgent:
     def __init__(self):
-        sys_prompt = """You are OSINTNeoAi, an autonomous investigative AI intelligence agent and forensic analyst.
-You specialize in OSINT reconnaissance, threat correlation, corporate shell tracking, public records analysis, and racketeering investigations.
-If the user asks you to look up, scan, or investigate a target, output a tool execution command in this exact format:
-<EXECUTE>TransformName TargetValue</EXECUTE>
-
-When answering questions about the Huntington Beach, Orange County, or Federal grant investigations, cite verified evidence from the investigation dossier."""
-        self.history = [{"role": "system", "content": sys_prompt}]
         self.root_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         self.tools_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "tools.json")
         self.graph_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "graph.json")
 
+        self.gemini_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+        self.openai_key = os.environ.get("OPENAI_API_KEY")
+        self.groq_key = os.environ.get("GROQ_API_KEY")
+        self.openrouter_key = os.environ.get("OPENROUTER_API_KEY")
+
+        sys_prompt = """You are OSINTNeoAi, an elite autonomous investigative AI coding assistant, threat analyst, and forensic intelligence agent.
+You have access to 980+ cataloged OSINT and Kali Linux tools, a 2,207-node GraphDB, Google BigQuery, and Maltego reconnaissance transforms.
+
+CAPABILITIES:
+1. Vibe Coding & Script Generation: You can generate complete, runnable Python, Bash, SQL, or HTML/JS tools and geospatial visualizations.
+2. Investigation & RICO Analysis: You analyze complex shell companies, grant fraud pipelines, corporate registries, and toxic environmental plumes (HBNC 49x CrVI).
+3. Tool Execution: When the user asks you to scan, resolve, or execute reconnaissance on a target, you output executable commands:
+   <EXECUTE>TransformName TargetValue</EXECUTE>
+   Available Transforms: DomainToIP, IPToShodanInfo, EmailToSocialProfile, etc.
+4. Geospatial Synthesis: You can format and synthesize coordinates and entities for Leaflet, QGIS, and ArcGIS.
+
+Always give deep, helpful, highly intelligent, and direct responses."""
+        self.history = []
+        self.system_prompt = sys_prompt
+
     def is_configured(self):
         return True
+
+    def _call_gemini(self, user_input, context=""):
+        if not self.gemini_key:
+            return None
+        
+        models = ["gemini-3.6-flash", "gemini-flash-latest", "gemini-pro-latest"]
+        for model in models:
+            try:
+                url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={self.gemini_key}"
+                
+                # Build contents array from history
+                contents = []
+                # Add system context
+                contents.append({
+                    "role": "user",
+                    "parts": [{"text": f"[SYSTEM INSTRUCTION]\n{self.system_prompt}\n\n[CONTEXT DATA]\n{context}"}]
+                })
+                contents.append({
+                    "role": "model",
+                    "parts": [{"text": "Understood. I am OSINTNeoAi, ready to investigate, vibe code, analyze, and dispatch reconnaissance pipelines."}]
+                })
+
+                for msg in self.history[-6:]:
+                    role = "user" if msg["role"] == "user" else "model"
+                    contents.append({"role": role, "parts": [{"text": msg["content"]}]})
+
+                contents.append({"role": "user", "parts": [{"text": user_input}]})
+
+                payload = {
+                    "contents": contents,
+                    "generationConfig": {
+                        "temperature": 0.7,
+                        "maxOutputTokens": 2048
+                    }
+                }
+
+                r = requests.post(url, json=payload, timeout=15)
+                if r.status_code == 200:
+                    res_data = r.json()
+                    text = res_data['candidates'][0]['content']['parts'][0]['text']
+                    return text.strip()
+            except Exception:
+                continue
+        return None
+
+    def _call_groq(self, user_input):
+        if not self.groq_key:
+            return None
+        try:
+            url = "https://api.groq.com/openai/v1/chat/completions"
+            headers = {"Authorization": f"Bearer {self.groq_key}", "Content-Type": "application/json"}
+            messages = [{"role": "system", "content": self.system_prompt}] + self.history[-6:] + [{"role": "user", "content": user_input}]
+            payload = {"model": "llama-3.3-70b-versatile", "messages": messages, "temperature": 0.7}
+            r = requests.post(url, json=payload, headers=headers, timeout=12)
+            if r.status_code == 200:
+                return r.json()['choices'][0]['message']['content'].strip()
+        except Exception:
+            pass
+        return None
+
+    def _call_openai(self, user_input):
+        if not self.openai_key:
+            return None
+        try:
+            url = "https://api.openai.com/v1/chat/completions"
+            headers = {"Authorization": f"Bearer {self.openai_key}", "Content-Type": "application/json"}
+            messages = [{"role": "system", "content": self.system_prompt}] + self.history[-6:] + [{"role": "user", "content": user_input}]
+            payload = {"model": "gpt-4o", "messages": messages, "temperature": 0.7}
+            r = requests.post(url, json=payload, headers=headers, timeout=15)
+            if r.status_code == 200:
+                return r.json()['choices'][0]['message']['content'].strip()
+        except Exception:
+            pass
+        return None
 
     def generate_response(self, user_input, graph_context=None, tools_file=None):
         u_raw = user_input.split('\n')[0].strip()
         u_clean = u_raw.lower()
 
-        # 1. Check for Cloud / LLM execution if available
+        # Build context from tools and graph
         tools_summary = ""
         if os.path.exists(self.tools_path):
             try:
                 with open(self.tools_path, "r", encoding="utf-8") as f:
-                    tools_summary = f"{len(json.load(f).get('tools', []))} tools loaded."
+                    t_count = len(json.load(f).get("tools", []))
+                    tools_summary = f"Tools Available: {t_count} (across 49 OSINT & Kali categories)."
             except Exception:
                 pass
 
-        prompt = f"User Query: {u_raw}\nTools: {tools_summary}"
-        self.history.append({"role": "user", "content": prompt})
+        graph_summary = ""
+        if os.path.exists(self.graph_path):
+            try:
+                with open(self.graph_path, "r", encoding="utf-8") as f:
+                    g_data = json.load(f)
+                    graph_summary = f"GraphDB State: {len(g_data.get('nodes', []))} nodes, {len(g_data.get('edges', []))} edges."
+            except Exception:
+                pass
 
-        # Try remote LLM via g4f with provider fallbacks
-        try:
-            for model_candidate in [g4f.models.default, g4f.models.gpt_4o, g4f.models.gpt_35_turbo]:
-                try:
-                    response = g4f.ChatCompletion.create(
-                        model=model_candidate,
-                        messages=self.history,
-                        timeout=5
-                    )
-                    if response and len(response.strip()) > 10 and not response.startswith("AI Error"):
-                        self.history.append({"role": "assistant", "content": response})
-                        return response
-                except Exception:
-                    continue
-        except Exception:
-            pass
+        full_context = f"{tools_summary} | {graph_summary}"
 
-        # 2. LOCAL INTELLIGENCE & EXPERT FORENSIC KNOWLEDGE BASE (Zero-Fail Engine)
+        # 1. Primary AI Model Execution (Gemini 3.6 Flash / Groq / OpenAI)
+        llm_response = (
+            self._call_gemini(user_input, full_context) or
+            self._call_groq(user_input) or
+            self._call_openai(user_input)
+        )
 
-        # A. Greetings / System Capability / Hello / Test
+        if llm_response:
+            self.history.append({"role": "user", "content": u_raw})
+            self.history.append({"role": "assistant", "content": llm_response})
+            return llm_response
+
+        # 2. LOCAL INTELLIGENCE & FORENSIC KNOWLEDGE BASE (Deterministic Fallback)
+        self.history.append({"role": "user", "content": u_raw})
+
+        # Greetings
         if u_clean in ['hello', 'hi', 'hey', 'test', 'who are you', 'what can you do', 'status', 'ready']:
             return (
                 "👋 **OSINTNeoAi Core Intelligence Engine Online.**\n\n"
@@ -70,7 +159,7 @@ When answering questions about the Huntington Beach, Orange County, or Federal g
                 "• Public Board: `board`"
             )
 
-        # B. RICO, Suspects, Defendants & Case Inquiries
+        # RICO / Suspects / Pipelines
         if any(k in u_clean for k in ['rico', 'suspect', 'defendant', 'perpetrator', 'target', 'enterprise', 'who is involved', 'key players']):
             return (
                 "🏛️ **PRIMARY RICO ENTERPRISE TARGETS & DEFENDANTS (Verified Forensic Dossier):**\n\n"
@@ -91,8 +180,8 @@ When answering questions about the Huntington Beach, Orange County, or Federal g
                 "📁 *Full Legal Referral:* `legal_library/CRIMINAL_REFERRAL_FINAL.md`"
             )
 
-        # C. Environmental Contamination / Hexavalent Chromium / HBNC
-        if any(k in u_clean for k in ['hbnc', 'chromium', 'crvi', 'cr-vi', 'toxic', 'plume', 'well', 'contamination', 'environmental', '17642', 'beach blvd']):
+        # Environmental / HBNC
+        if any(k in u_clean for k in ['hbnc', 'chromium', 'crvi', 'cr-vi', 'toxic', 'plume', 'well', 'contamination', 'environmental']):
             return (
                 "☣️ **HBNC ENVIRONMENTAL CONTAMINATION & FRAUD DOSSIER:**\n\n"
                 "• **Site Footprint:** 17642 Beach Blvd & 17631 Cameron Ln, Huntington Beach, CA.\n"
@@ -104,18 +193,7 @@ When answering questions about the Huntington Beach, Orange County, or Federal g
                 "📁 *Dossier File:* `legal_library/EPA_OIG_RUBICON_REFERRAL.md`"
             )
 
-        # D. Child Welfare / Title IV-E / Missing Children Gap
-        if any(k in u_clean for k in ['cps', 'child', 'children', 'foster', 'trafficking', 'title iv-e', '29,300', '29300', 'gap']):
-            return (
-                "👶 **ORANGE COUNTY CHILD WELFARE & TITLE IV-E BILLING AUDIT:**\n\n"
-                "• **Annual CPS Interventions:** ~30,000 child removal actions conducted annually by OC SSA.\n"
-                "• **Annual Homeless Minor Census:** ~700 homeless children officially counted per year.\n"
-                "• **The Discrepancy:** **29,300 unaccounted children** in the foster-to-shelter tracking pipeline.\n"
-                "• **Federal Subsidy Mechanism:** Title IV-E billing generates recurring federal reimbursements per intervention, flowing through non-profit shelter operators without transparent tracking.\n\n"
-                "📁 *Dossier File:* `legal_library/CHDO_MERCY_RICO_BREAKDOWN.md`"
-            )
-
-        # E. Direct Tool Searches (e.g. "search subdomains", "find wifi", "tool for shodan")
+        # Direct Tool Search
         if u_clean.startswith(('search ', 'find ', 'tools search ', 'tool search ', 'tools for ', 'tool for ')) or 'search' in u_clean:
             query = re.sub(r'^(?:tools?\s+)?(?:search|find|for)\s+', '', u_raw, flags=re.IGNORECASE).strip().lower()
             if not query or query == 'tools':
@@ -143,10 +221,8 @@ When answering questions about the Huntington Beach, Orange County, or Federal g
                 if len(matches) > 12:
                     out.append(f"\n*(... and {len(matches) - 12} more tools. Use 'tools search {query}' to see all)*")
                 return "\n".join(out)
-            else:
-                return f"🔍 No specific tool matched '{query}' in our 980-tool catalog. Try broader keywords like `dns`, `recon`, `social`, `wifi`, `email`, or `osint`."
 
-        # F. Entity Recognition (Domains, IPs, Emails, URLs, Hashes)
+        # Entity Recognition
         domain_match = re.search(r'\b(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}\b', u_raw)
         ip_match = re.search(r'\b(?:\d{1,3}\.){3}\d{1,3}\b', u_raw)
         email_match = re.search(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', u_raw)
@@ -161,7 +237,7 @@ When answering questions about the Huntington Beach, Orange County, or Federal g
             d = domain_match.group(0)
             return f"🎯 **Identified Target Domain:** `{d}`\nDispatching DNS & IP infrastructure resolution:\n<EXECUTE>DomainToIP {d}</EXECUTE>"
 
-        # G. Default Comprehensive Fallback with Live Graph Search
+        # Graph Search Fallback
         matched_nodes = []
         if os.path.exists(self.graph_path):
             try:
@@ -188,4 +264,7 @@ When answering questions about the Huntington Beach, Orange County, or Federal g
 
     def send_system_message(self, message):
         self.history.append({"role": "user", "content": f"[SYSTEM TOOL RESULT]\n{message}\nAnalyze and summarize the above results for the user."})
+        llm_res = self._call_gemini(f"[SYSTEM TOOL RESULT]\n{message}\nAnalyze and summarize the above results for the user.")
+        if llm_res:
+            return llm_res
         return f"📊 **Intelligence Summary of Tool Execution:**\n\n{message}"
