@@ -40,21 +40,30 @@ PYTHON_BIN="$VENV_DIR/bin/python3"
 
 echo -e "\033[1;33m[*] Configuring Python execution environment...\033[0m"
 
-# Try standard venv
-python3 -m venv "$VENV_DIR" 2>/dev/null || true
+# If an existing venv is broken (missing pip), clean it up
+if [ -f "$PYTHON_BIN" ] && ! "$PYTHON_BIN" -m pip --version &>/dev/null; then
+    echo -e "\033[1;33m[*] Detected incomplete virtual environment without pip. Bootstrapping pip...\033[0m"
+    curl -sS https://bootstrap.pypa.io/get-pip.py | "$PYTHON_BIN" 2>/dev/null || rm -rf "$VENV_DIR"
+fi
 
-# If venv failed (missing python3-venv / ensurepip on Kali)
+# Try creating venv if not present
 if [ ! -f "$PYTHON_BIN" ]; then
-    echo -e "\033[1;33m[*] Standard venv unavailable. Trying minimal venv + get-pip...\033[0m"
+    python3 -m venv "$VENV_DIR" 2>/dev/null || true
+fi
+
+# If standard venv failed to create or has no pip, try minimal venv + get-pip
+if [ ! -f "$PYTHON_BIN" ] || ! "$PYTHON_BIN" -m pip --version &>/dev/null; then
+    echo -e "\033[1;33m[*] Setting up lightweight environment with get-pip...\033[0m"
     python3 -m venv --without-pip "$VENV_DIR" 2>/dev/null || true
     if [ -f "$PYTHON_BIN" ]; then
         curl -sS https://bootstrap.pypa.io/get-pip.py | "$PYTHON_BIN" 2>/dev/null || true
     fi
 fi
 
-# If venv still unavailable, fallback to direct system python3 (PEP 668 safe)
-if [ ! -f "$PYTHON_BIN" ]; then
-    echo -e "\033[1;33m[*] Using system python3 with user packages fallback...\033[0m"
+# If venv still has no working pip, fallback to direct system python3
+if [ ! -f "$PYTHON_BIN" ] || ! "$PYTHON_BIN" -m pip --version &>/dev/null; then
+    echo -e "\033[1;33m[*] Using system python3 (PEP 668 compatible)...\033[0m"
+    rm -rf "$VENV_DIR" 2>/dev/null || true
     PYTHON_BIN="python3"
 fi
 
