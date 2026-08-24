@@ -407,6 +407,18 @@ def chat(args=None):
                 else:
                     print(f"[-] azure_runner.py not found at {azure_script}")
                 continue
+
+            elif cmd in ['psa', 'social', 'broadcast']:
+                print("\n" + "=" * 60)
+                print("      OSINT PSA & MULTI-PLATFORM SOCIAL BROADCAST ENGINE")
+                print("=" * 60)
+                print("  • Public Service Announcement Server : osint_psa_server.py (Port 8080)")
+                print("  • Reddit Social Recon                : osint_api_integrations.py")
+                print("  • Instagram & Profile Carving        : instaloader / osint_workbook_engine.py")
+                print("  • Facebook Graph & Roster Lookup     : osint_api_integrations.py")
+                print("  • Federal Evidence Bulletin          : EVIDENCE_FBI_EPA_PSA_HBNC_PLC_COMPROMISE.md")
+                print("=" * 60 + "\n")
+                continue
                 
             elif cmd.startswith('tools search '):
                 query = cmd.replace('tools search ', '').strip().lower()
