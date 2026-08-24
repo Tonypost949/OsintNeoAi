@@ -344,6 +344,15 @@ def chat(args=None):
                 else:
                     print("[-] Please provide a valid Gemini API key (e.g. set key AIzaSy...)")
                 continue
+
+            if cmd in ['/model', '/models', 'model', 'models']:
+                print(agent.list_models_status())
+                continue
+
+            elif cmd.startswith(('/model ', 'model ')):
+                m_target = user_input.split(' ', 1)[1].strip()
+                print(agent.set_model(m_target))
+                continue
             
             if cmd in ['help', '?']:
                 print("\n[*] Available Commands:")

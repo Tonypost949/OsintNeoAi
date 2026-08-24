@@ -35,6 +35,24 @@ class OSINTAgent:
         self.groq_key = os.environ.get("GROQ_API_KEY")
         self.openrouter_key = os.environ.get("OPENROUTER_API_KEY")
 
+        self.models_catalog = {
+            "gemini": {"id": "gemini-3.6-flash", "desc": "Google Gemini 3.6 Flash (Fast, Free, Vibe Coding)", "provider": "Google", "key": self.gemini_key, "key_var": "GEMINI_API_KEY"},
+            "gemini-pro": {"id": "gemini-pro-latest", "desc": "Google Gemini Pro Latest (Deep Reasoning)", "provider": "Google", "key": self.gemini_key, "key_var": "GEMINI_API_KEY"},
+            "gpt-4o": {"id": "gpt-4o", "desc": "OpenAI GPT-4o Flagship", "provider": "OpenAI", "key": self.openai_key, "key_var": "OPENAI_API_KEY"},
+            "groq": {"id": "llama-3.3-70b-versatile", "desc": "Groq Llama 3.3 70B (500+ tokens/sec, Free)", "provider": "Groq", "key": self.groq_key, "key_var": "GROQ_API_KEY"},
+            "local": {"id": "local-forensic", "desc": "Offline Deterministic Forensic Knowledge Engine (0 Tokens/No Key)", "provider": "Local", "key": True, "key_var": None}
+        }
+
+        # Active model selection
+        if self.gemini_key:
+            self.active_model = "gemini"
+        elif self.groq_key:
+            self.active_model = "groq"
+        elif self.openai_key:
+            self.active_model = "gpt-4o"
+        else:
+            self.active_model = "local"
+
         sys_prompt = """You are OSINTNeoAi, an elite autonomous investigative AI coding assistant, threat analyst, and forensic intelligence agent.
 You have access to 980+ cataloged OSINT and Kali Linux tools, a 2,207-node GraphDB, Google BigQuery, and Maltego reconnaissance transforms.
 
@@ -49,6 +67,49 @@ CAPABILITIES:
 Always give deep, helpful, highly intelligent, and direct responses."""
         self.history = []
         self.system_prompt = sys_prompt
+
+    def set_model(self, model_query):
+        q = model_query.strip().lower()
+        if q in self.models_catalog:
+            self.active_model = q
+            m_info = self.models_catalog[q]
+            has_key = bool(m_info["key"])
+            status = "✅ READY" if has_key else f"⚠️ (Requires {m_info['key_var']})"
+            return f"[+] Active AI model switched to: {m_info['desc']} [{status}]"
+        
+        # Fuzzy match
+        for k, v in self.models_catalog.items():
+            if q in k or q in v["id"].lower():
+                self.active_model = k
+                has_key = bool(v["key"])
+                status = "✅ READY" if has_key else f"⚠️ (Requires {v['key_var']})"
+                return f"[+] Active AI model switched to: {v['desc']} [{status}]"
+
+        valid = ", ".join(self.models_catalog.keys())
+        return f"[-] Unknown model '{model_query}'. Available models: {valid}"
+
+    def list_models_status(self):
+        out = [
+            "\n" + "=" * 65,
+            "      OSINTNeoAi AI MODEL MATRIX & SELECTION",
+            "=" * 65
+        ]
+        for k, m in self.models_catalog.items():
+            is_active = (k == self.active_model)
+            prefix = "👉 [ACTIVE] " if is_active else "   [      ] "
+            has_key = bool(m["key"])
+            if k == "local":
+                key_stat = "Offline / 0 Tokens"
+            elif has_key:
+                key_stat = "Key Active"
+            else:
+                key_stat = f"Needs {m['key_var']}"
+            
+            out.append(f"{prefix} /model {k:<10} : {m['desc']} ({key_stat})")
+        out.append("-" * 65)
+        out.append("Usage: Type '/model <name>' to switch active model (e.g. /model gemini)")
+        out.append("=" * 65 + "\n")
+        return "\n".join(out)
 
     def is_configured(self):
         return True
