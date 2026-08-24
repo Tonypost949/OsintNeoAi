@@ -42,14 +42,25 @@ PYTHON_BIN="$VENV_DIR/bin/python3"
 
 if [ ! -f "$PYTHON_BIN" ]; then
     echo -e "\033[1;33m[*] Creating Python virtual environment...\033[0m"
-    python3 -m venv "$VENV_DIR"
+    if ! python3 -m venv "$VENV_DIR" 2>/dev/null; then
+        echo -e "\033[1;33m[*] Standard venv bootstrap failed. Attempting alternative venv initialization...\033[0m"
+        python3 -m venv --without-pip "$VENV_DIR" || virtualenv "$VENV_DIR" || true
+        if [ -f "$PYTHON_BIN" ]; then
+            curl -sS https://bootstrap.pypa.io/get-pip.py | "$PYTHON_BIN" || true
+        fi
+    fi
+fi
+
+# Fallback to system python3 if venv failed
+if [ ! -f "$PYTHON_BIN" ]; then
+    PYTHON_BIN="python3"
 fi
 
 # Install dependencies
 echo -e "\033[1;33m[*] Installing dependencies...\033[0m"
-"$PYTHON_BIN" -m pip install --upgrade pip --quiet
+"$PYTHON_BIN" -m pip install --upgrade pip --quiet 2>/dev/null || true
 if [ -f "$INSTALL_DIR/cli/requirements.txt" ]; then
-    "$PYTHON_BIN" -m pip install -r "$INSTALL_DIR/cli/requirements.txt" --quiet
+    "$PYTHON_BIN" -m pip install -r "$INSTALL_DIR/cli/requirements.txt" --quiet 2>/dev/null || "$PYTHON_BIN" -m pip install -r "$INSTALL_DIR/cli/requirements.txt" --break-system-packages --quiet 2>/dev/null || true
 fi
 
 # Global command wrapper
@@ -57,12 +68,24 @@ BIN_DIR="$HOME/.local/bin"
 mkdir -p "$BIN_DIR"
 WRAPPER="$BIN_DIR/osintneoai"
 
-cat << 'EOF' > "$WRAPPER"
+cat << EOF > "$WRAPPER"
 #!/usr/bin/env bash
-INSTALL_DIR="$HOME/OsintNeoAi"
-"$INSTALL_DIR/cli/.venv/bin/python3" "$INSTALL_DIR/cli/cli.py" "$@"
+INSTALL_DIR="\$HOME/OsintNeoAi"
+if [ -f "\$INSTALL_DIR/cli/.venv/bin/python3" ]; then
+    "\$INSTALL_DIR/cli/.venv/bin/python3" "\$INSTALL_DIR/cli/cli.py" "\$@"
+else
+    python3 "\$INSTALL_DIR/cli/cli.py" "\$@"
+fi
 EOF
 chmod +x "$WRAPPER"
+
+# Add ~/.local/bin to PATH in .bashrc and .zshrc
+for rc in "$HOME/.bashrc" "$HOME/.zshrc"; do
+    if [ -f "$rc" ] && ! grep -q '\.local/bin' "$rc"; then
+        echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$rc"
+    fi
+done
+export PATH="$HOME/.local/bin:$PATH"
 
 echo -e "\n\033[1;32m[+] Installation Complete!\033[0m"
 echo -e "\033[1;36m👉 You can now run 'osintneoai' from any terminal.\033[0m\n"
