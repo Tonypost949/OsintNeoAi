@@ -466,10 +466,14 @@ def chat(args=None):
                 print("=" * 70 + "\n")
                 continue
 
-            elif cmd in ['emergency', 'victim', 'victims', 'outreach', 'activists', 'reddit']:
+            elif cmd in ['emergency', 'victim', 'victims', 'outreach', 'activists', 'reddit', 'board', 'victims board']:
                 print("\n" + "=" * 75)
                 print("   🚨 EMERGENCY VICTIMS, RELATORS & ACTIVIST RAPID OUTREACH HUB")
                 print("=" * 75)
+                print("  🌐 LIVE OPEN VICTIMS MUTUAL AID BOARD (NO LOGIN REQUIRED):")
+                print("  👉 Live Web URL: http://127.0.0.1:5052/victims-board")
+                print("     (Accessible on phones, tablets, and PCs to submit, read, or export testimony)")
+                print("-" * 75)
                 print("  📢 ACTIVE REDDIT DISCUSSION COMMUNITIES (POST YOUR WITNESS STORY/QUESTIONS):")
                 print("  • r/orangecounty         : https://www.reddit.com/r/orangecounty/ (Local OC discussions)")
                 print("  • r/huntingtonbeach      : https://www.reddit.com/r/huntingtonbeach/ (HB municipal issues)")
@@ -493,6 +497,7 @@ def chat(args=None):
                 print("-" * 75)
                 print("  🆘 24/7 CRISIS & RELIEF: Dial 211 or visit https://211oc.org")
                 print("  📄 Full Guide: legal_library/EMERGENCY_VICTIMS_ACTIVIST_OUTREACH_HUB.md")
+                print("  📄 Local Web App: victims_board.html")
                 print("=" * 75 + "\n")
                 continue
                 
