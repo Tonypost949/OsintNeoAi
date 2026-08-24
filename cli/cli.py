@@ -298,6 +298,7 @@ def chat(args=None):
     print("  transforms list      : List available transforms.")
     print("  correlate / aegis    : Run Aegis Continuous Threat Correlation Engine.")
     print("  tools search <query> : Search across 980+ cataloged OSINT/Kali tools.")
+    print("  local map / system   : Scan local host PC and generate Interactive Local Tactical Map.")
     print("  maps / gis           : Open Tactical Map Hub (8 Interactive GIS Dashboards).")
     print("  hub / web            : Open Web Discovery Hub on port 5052.")
     print("  scan / clis          : Scan local developer CLIs & Google Cloud SDK tools.")
@@ -393,6 +394,37 @@ def chat(args=None):
                 print("=" * 70 + "\n")
                 try:
                     webbrowser.open("http://127.0.0.1:5052")
+                except Exception:
+                    pass
+                continue
+
+            elif cmd in ['local map', 'system map', 'system', 'my map', 'scan system']:
+                import webbrowser
+                from core.local_scanner import scan_local_system, generate_local_system_map_html
+                print("\n[*] Scanning local system hardware, network telemetry, and tactical maps...")
+                telemetry = scan_local_system(root_dir)
+                map_html = generate_local_system_map_html(telemetry)
+                local_map_file = os.path.join(root_dir, "local_system_map.html")
+                with open(local_map_file, "w", encoding="utf-8") as f:
+                    f.write(map_html)
+                
+                print("\n" + "=" * 70)
+                print("      🖥️  LOCAL SYSTEM & HOST INTELLIGENCE SCAN")
+                print("=" * 70)
+                print(f"  • Hostname             : {telemetry['hostname']}")
+                print(f"  • Operating System     : {telemetry['os']}")
+                print(f"  • Local Network IP     : {telemetry['local_ip']}")
+                print(f"  • Public WAN IP        : {telemetry['geo']['public_ip']}")
+                print(f"  • Geolocation Node     : {telemetry['geo']['city']}, {telemetry['geo']['region']} ({telemetry['geo']['lat']:.4f}, {telemetry['geo']['lon']:.4f})")
+                print(f"  • ISP / Carrier        : {telemetry['geo']['isp']}")
+                print(f"  • Local Developer CLIs : {len([c for c in telemetry['clis'] if c['installed']])}/{len(telemetry['clis'])} Ready")
+                print(f"  • Available GIS Maps   : {len(telemetry['maps'])} Maps Indexed")
+                print("-" * 70)
+                print("  🌐 Generated Tactical Map : http://127.0.0.1:5052/local-map")
+                print(f"  📁 Local HTML File        : {local_map_file}")
+                print("=" * 70 + "\n")
+                try:
+                    webbrowser.open("http://127.0.0.1:5052/local-map")
                 except Exception:
                     pass
                 continue

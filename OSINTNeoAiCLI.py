@@ -261,6 +261,26 @@ def victims_board():
                 return f.read()
     return "<h3>Victims Board template not found</h3>", 404
 
+@app.route("/local-map")
+@app.route("/system-map")
+def local_system_map_route():
+    try:
+        sys.path.insert(0, os.path.join(ROOT_DIR, "cli"))
+        from core.local_scanner import scan_local_system, generate_local_system_map_html
+        telemetry = scan_local_system(ROOT_DIR)
+        return generate_local_system_map_html(telemetry)
+    except Exception as e:
+        return f"<h3>Error generating local system map: {e}</h3>", 500
+
+@app.route("/api/system")
+def api_system():
+    try:
+        sys.path.insert(0, os.path.join(ROOT_DIR, "cli"))
+        from core.local_scanner import scan_local_system
+        return jsonify(scan_local_system(ROOT_DIR))
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 @app.route("/api/scan")
 def api_scan():
     return jsonify(scan_clis())
