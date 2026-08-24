@@ -88,10 +88,76 @@ def learn(args):
     
     if source.startswith("http://") or source.startswith("https://"):
         print(f"[*] Fetching material from {source}...")
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.9'
+        }
         try:
-            response = requests.get(source)
+            response = requests.get(source, headers=headers, timeout=15)
             response.raise_for_status()
             content = response.text
+            
+            # Special handling for Start.me dashboards
+            if "start.me/p/" in source:
+                import re
+                import json
+                print("[*] Detecting Start.me OSINT dashboard. Fetching structured widget payload...")
+                slug_match = re.search(r"start\.me/p/([a-zA-Z0-9_-]+)", source)
+                if slug_match:
+                    slug = slug_match.group(1)
+                    api_url = f"https://api.start.me/p/{slug}"
+                    api_headers = {
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+                        'Accept': 'application/json',
+                        'Origin': 'https://start.me',
+                        'Referer': 'https://start.me/'
+                    }
+                    try:
+                        api_res = requests.get(api_url, headers=api_headers, timeout=15)
+                        if api_res.status_code == 200:
+                            api_data = api_res.json()
+                            columns = api_data.get('page', {}).get('columns', [])
+                            tools_file = "data/tools.json"
+                            existing_tools = {"tools": []}
+                            if os.path.exists(tools_file):
+                                try:
+                                    with open(tools_file, "r", encoding="utf-8") as f:
+                                        existing_tools = json.load(f)
+                                except Exception:
+                                    pass
+                            
+                            existing_names = {t.get("name", "").lower() for t in existing_tools.get("tools", [])}
+                            added = 0
+                            parsed_summary = []
+                            
+                            for col in columns:
+                                for w in col.get('widgets', []):
+                                    sec_title = w.get('title', 'OSINT Tools').strip() or "General Tools"
+                                    items = w.get('items', {})
+                                    links = items.get('links', []) if isinstance(items, dict) else []
+                                    for l in links:
+                                        t_title = (l.get('title') or "").strip()
+                                        t_url = (l.get('url') or "").strip()
+                                        t_desc = (l.get('description') or "").strip()
+                                        if t_title and t_url and t_title.lower() not in existing_names:
+                                            existing_tools["tools"].append({
+                                                "name": t_title,
+                                                "category": sec_title,
+                                                "description": t_desc or f"OSINT resource under {sec_title}",
+                                                "url": t_url
+                                            })
+                                            existing_names.add(t_title.lower())
+                                            added += 1
+                                            parsed_summary.append(f"[{sec_title}] {t_title}: {t_url}")
+                            
+                            if added > 0:
+                                with open(tools_file, "w", encoding="utf-8") as f:
+                                    json.dump(existing_tools, f, indent=2)
+                                print(f"[+] Successfully extracted {added} OSINT tools into data/tools.json across {len(columns)} columns!")
+                            content = f"Nixintel OSINT Resource List Dashboard ({source})\nTotal Tools Extracted: {len(parsed_summary)}\n\n" + "\n".join(parsed_summary)
+                    except Exception as e:
+                        print(f"[-] Failed to fetch structured Start.me API: {e}")
             
             # Special handling for Claude artifacts
             if "claude.ai/public/artifacts/" in source:
