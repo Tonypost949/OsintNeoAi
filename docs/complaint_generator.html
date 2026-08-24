@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>⚖️ Automated Legal Complaint & Whistleblower Referral Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Manrope', sans-serif; background-color: #080d1a; color: #e2e8f0; }
+    .font-mono { font-family: 'DM Mono', monospace; }
+    .font-cinzel { font-family: 'Cinzel', serif; }
+  </style>
+</head>
+<body class="min-h-screen p-6 md:p-10">
+  <div class="max-w-5xl mx-auto space-y-8">
+    <!-- Header -->
+    <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-6">
+      <div class="flex items-center space-x-4">
+        <div class="w-12 h-12 rounded-xl bg-amber-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-amber-600/30">
+          <i class="fa-solid fa-scale-balanced"></i>
+        </div>
+        <div>
+          <h1 class="text-2xl font-bold text-white tracking-tight">Whistleblower & Legal Complaint Generator</h1>
+          <p class="text-xs text-slate-400">Automated Federal RICO, False Claims Act (Qui Tam), and Retaliation Pleading Drafter</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="/" class="bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold px-3.5 py-2 rounded-lg transition">
+          <i class="fa-solid fa-arrow-left"></i> Hub
+        </a>
+        <a href="/victims-board" class="bg-red-950/70 border border-red-500/30 text-red-300 text-xs font-bold px-3.5 py-2 rounded-lg transition">
+          <i class="fa-solid fa-bullhorn"></i> Victims Board
+        </a>
+      </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="md:col-span-1 bg-slate-900/90 border border-slate-800 p-5 rounded-2xl space-y-4 shadow-xl">
+        <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
+          <i class="fa-solid fa-gavel"></i> 1. Statutory Claim Type
+        </h3>
+        
+        <div>
+          <label class="text-[11px] font-mono text-slate-400">Select Legal Framework:</label>
+          <select id="claimType" class="w-full mt-1 bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-slate-200 focus:border-amber-500 outline-none">
+            <option value="rico">Federal Civil/Criminal RICO (18 U.S.C. §§ 1961–1968)</option>
+            <option value="fca">Federal False Claims Act Qui Tam (31 U.S.C. § 3729)</option>
+            <option value="retaliation">Whistleblower Retaliation (31 U.S.C. § 3730(h) & 18 U.S.C. § 1513)</option>
+            <option value="env">RCRA/CERCLA Toxic Environmental Crimes (42 U.S.C. § 6901)</option>
+            <option value="civil_rights">Civil Rights Deprivation Under Color of Law (42 U.S.C. § 1983)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="text-[11px] font-mono text-slate-400">Plaintiff / Relator / Victim Name:</label>
+          <input id="plaintiffName" type="text" placeholder="e.g. Relator John Doe / Victim Name" class="w-full mt-1 bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-slate-200 focus:border-amber-500 outline-none" />
+        </div>
+
+        <div>
+          <label class="text-[11px] font-mono text-slate-400">Defendant Entities / Perpetrators:</label>
+          <input id="defendantNames" type="text" placeholder="e.g. City of HB, OCSD, Mercy House, LLCs" class="w-full mt-1 bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-slate-200 focus:border-amber-500 outline-none" />
+        </div>
+
+        <div>
+          <label class="text-[11px] font-mono text-slate-400">Key Facts & Overt Acts:</label>
+          <textarea id="factsText" rows="4" placeholder="Detail the false claims, retaliation lockouts, toxic exposure (490 ppb CrVI), or fraudulent vendor kickbacks..." class="w-full mt-1 bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-slate-200 focus:border-amber-500 outline-none"></textarea>
+        </div>
+
+        <div>
+          <label class="text-[11px] font-mono text-slate-400">Evidence Records / GeoTracker IDs:</label>
+          <input id="evidenceIds" type="text" placeholder="e.g. GeoTracker T10000018579, IA Case #2021-084" class="w-full mt-1 bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-slate-200 focus:border-amber-500 outline-none" />
+        </div>
+
+        <button onclick="generateDraft()" class="w-full bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold py-3 rounded-xl shadow-lg shadow-amber-600/30 transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-file-signature"></i> Generate Formal Pleading Draft
+        </button>
+      </div>
+
+      <!-- Preview Section -->
+      <div class="md:col-span-2 bg-slate-900/90 border border-slate-800 p-6 rounded-2xl space-y-4 shadow-xl flex flex-col">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <h3 class="text-sm font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-file-lines text-amber-400"></i> Generated Legal Pleading & Law Enforcement Referral Draft
+          </h3>
+          <div class="flex items-center gap-2">
+            <button onclick="copyPleading()" class="bg-slate-800 hover:bg-slate-700 text-amber-400 text-xs font-bold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+              <i class="fa-solid fa-copy"></i> Copy Pleading
+            </button>
+            <button onclick="downloadMarkdown()" class="bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+              <i class="fa-solid fa-download"></i> Download .MD
+            </button>
+          </div>
+        </div>
+
+        <div id="outputArea" class="flex-1 bg-slate-950 p-5 rounded-xl border border-slate-800/90 text-xs font-mono text-slate-300 leading-relaxed overflow-y-auto max-h-[560px] whitespace-pre-wrap select-all">
+Click "Generate Formal Pleading Draft" to compile an official statutory legal complaint draft with Federal/State citations and evidentiary exhibits.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function generateDraft() {
+      const claim = document.getElementById('claimType').value;
+      const plaintiff = document.getElementById('plaintiffName').value || "[RELATOR / VICTIM NAME]";
+      const defendants = document.getElementById('defendantNames').value || "[DEFENDANT ENTITIES / MUNICIPAL OFFICIALS]";
+      const facts = document.getElementById('factsText').value || "[INSERT OPERATIVE FACTS AND PREDICATE ACTS OF FRAUD, RETALIATION, OR CONTAMINATION]";
+      const evidence = document.getElementById('evidenceIds').value || "State Water Board GeoTracker T10000018579, HUD Grant Audit Records";
+
+      let statuteHeader = "";
+      let statuteCounts = "";
+
+      if (claim === "rico") {
+        statuteHeader = "VIOLATIONS OF THE RACKETEER INFLUENCED AND CORRUPT ORGANIZATIONS ACT (RICO)\\n18 U.S.C. §§ 1961, 1962(c), 1962(d), 1964(c)";
+        statuteCounts = `COUNT I: 18 U.S.C. § 1962(c) — Conducting Enterprise Through Pattern of Racketeering Activity (Mail Fraud 18 U.S.C. § 1341, Wire Fraud 18 U.S.C. § 1343, Witness Tampering 18 U.S.C. § 1512).
+COUNT II: 18 U.S.C. § 1962(d) — Conspiracy to Violate RICO.
+PRAYER FOR RELIEF: Treble damages pursuant to 18 U.S.C. § 1964(c), attorney's fees, and injunctive divestiture.`;
+      } else if (claim === "fca") {
+        statuteHeader = "UNITED STATES FALSE CLAIMS ACT (QUI TAM ACTION)\\n31 U.S.C. §§ 3729–3733 & CAL. GOV. CODE § 12650 ET SEQ.";
+        statuteCounts = `COUNT I: 31 U.S.C. § 3729(a)(1)(A) — Knowingly Presenting False and Fraudulent Claims for Federal/HUD/SBA Funds.
+COUNT II: 31 U.S.C. § 3729(a)(1)(B) — Making and Using False Records Material to a False Claim.
+COUNT III: 31 U.S.C. § 3730(h) — Whistleblower Anti-Retaliation Relief (Reinstatement, 2x Back Pay, Special Damages).`;
+      } else if (claim === "retaliation") {
+        statuteHeader = "WHISTLEBLOWER RETALIATION & WITNESS TAMPERING ACTION\\n31 U.S.C. § 3730(h), 18 U.S.C. § 1513(e), 42 U.S.C. § 1983";
+        statuteCounts = `COUNT I: 31 U.S.C. § 3730(h) — Retaliation for Protected Investigative Disclosures.
+COUNT II: 42 U.S.C. § 1983 — Deprivation of First and Fourteenth Amendment Rights Under Color of State Law.
+COUNT III: 18 U.S.C. § 1513(e) / Cal. Lab. Code § 1102.5 — Unlawful Retaliation and Constructive/Actual Eviction.`;
+      } else if (claim === "env") {
+        statuteHeader = "CITIZEN SUIT & STATUTORY ENVIRONMENTAL TORT ACTION\\nRCRA 42 U.S.C. § 6972(a)(1)(B) & CERCLA 42 U.S.C. § 9607";
+        statuteCounts = `COUNT I: RCRA 42 U.S.C. § 6972(a)(1)(B) — Imminent and Substantial Endangerment to Health and the Environment (490 ppb Hexavalent Chromium / 49x Drinking Water Standard).
+COUNT II: CERCLA 42 U.S.C. § 9607(a) — Recovery of Response Costs and Strict Liability for Facility Releases.
+COUNT III: Public Nuisance and Fraudulent CEQA Class 1 Exemption Concealment.`;
+      } else {
+        statuteHeader = "DEPRIVATION OF CIVIL RIGHTS UNDER COLOR OF LAW\\n42 U.S.C. § 1983 & FOURTH / FOURTEENTH AMENDMENTS";
+        statuteCounts = `COUNT I: 42 U.S.C. § 1983 — Retaliatory Deprivation of Property and Due Process.
+COUNT II: Monell Municipal Liability against City and County Entities for Custom and Policy of Retaliation.`;
+      }
+
+      const draft = `======================================================================
+UNITED STATES DISTRICT COURT / STATUTORY INVESTIGATIVE REFERRAL
+======================================================================
+
+${plaintiff},
+        Plaintiff / Relator,
+
+    v.                                      CASE NO. [ASSIGNED UPON FILING]
+                                            VERIFIED STATUTORY COMPLAINT & 
+${defendants},                              FORMAL LAW ENFORCEMENT DISCLOSURE
+        Defendants.
+
+----------------------------------------------------------------------
+${statuteHeader}
+----------------------------------------------------------------------
+
+JURISDICTION AND VENUE
+1. This Court has subject matter jurisdiction pursuant to 28 U.S.C. § 1331 (Federal Question) and statutory jurisdiction under 18 U.S.C. § 1964, 31 U.S.C. § 3732, and 42 U.S.C. § 1983.
+2. Venue is proper in this judicial district pursuant to 28 U.S.C. § 1391(b) and 18 U.S.C. § 1965 because a substantial part of the predicate acts and unlawful retaliation occurred in this district.
+
+PARTIES
+3. Plaintiff/Relator ${plaintiff} is an individual and protected whistleblower who performed protected investigatory disclosures regarding public health, statutory compliance, and misuse of public funds.
+4. Defendants ${defendants} are corporate entities, municipalities, and designated agents who engaged in coordinated predicate acts, unlawful retaliation, and continuous concealment.
+
+OPERATIVE FACTUAL ALLEGATIONS
+5. In furtherance of the ongoing unlawful enterprise, Defendants engaged in the following specific acts:
+   ${facts}
+
+PRIMARY EVIDENCE AND STATUTORY EXHIBITS
+6. Operative records confirming the predicate violations include:
+   • Evidence Reference: ${evidence}
+   • Cross-Referenced Forensic GraphDB Node IDs and Certified Agency Filings.
+
+CAUSES OF ACTION
+${statuteCounts}
+
+DEMAND FOR JURY TRIAL
+Plaintiff/Relator hereby demands a trial by jury on all triable claims.
+
+DATED: ${new Date().toISOString().split('T')[0]}
+
+Respectfully submitted,
+/s/ ${plaintiff}
+Protected Whistleblower & Pro Se Relator / Relator's Counsel`;
+
+      document.getElementById('outputArea').innerText = draft;
+    }
+
+    function copyPleading() {
+      const text = document.getElementById('outputArea').innerText;
+      navigator.clipboard.writeText(text);
+      alert('Official Legal Pleading copied to clipboard! Ready to paste into Word, Court filing, or Markdown.');
+    }
+
+    function downloadMarkdown() {
+      const text = document.getElementById('outputArea').innerText;
+      const blob = new Blob([text], { type: 'text/markdown' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `COMPLAINT_DRAFT_${new Date().toISOString().split('T')[0]}.md`;
+      a.click();
+    }
+  </script>
+</body>
+</html>

@@ -310,6 +310,58 @@ def submit_victim():
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
+@app.route("/generator")
+@app.route("/complaint-generator")
+def complaint_generator_route():
+    p = os.path.join(ROOT_DIR, "complaint_generator.html")
+    if os.path.exists(p):
+        with open(p, "r", encoding="utf-8") as f:
+            return f.read()
+    return "<h3>Complaint generator template not found</h3>", 404
+
+@app.route("/api/search")
+def api_search():
+    q = request.args.get("q", "").strip().lower()
+    if not q:
+        return jsonify({"results": [], "query": ""})
+    
+    results = []
+    # Search GraphDB
+    graph_path = os.path.join(DATA_DIR, "graph.json")
+    if os.path.exists(graph_path):
+        try:
+            with open(graph_path, "r", encoding="utf-8") as f:
+                g_data = json.load(f)
+                for n in g_data.get("nodes", []):
+                    if q in str(n.get("value", "")).lower() or q in str(n.get("type", "")).lower():
+                        results.append({
+                            "type": "Graph Entity",
+                            "label": n.get("value"),
+                            "category": n.get("type"),
+                            "id": n.get("id")
+                        })
+        except Exception:
+            pass
+
+    # Search Tools
+    tools_path = os.path.join(DATA_DIR, "tools.json")
+    if os.path.exists(tools_path):
+        try:
+            with open(tools_path, "r", encoding="utf-8") as f:
+                for t in json.load(f).get("tools", []):
+                    if q in t.get("name", "").lower() or q in t.get("description", "").lower():
+                        results.append({
+                            "type": "OSINT/Kali Tool",
+                            "label": t.get("name"),
+                            "category": t.get("category"),
+                            "url": t.get("url"),
+                            "description": t.get("description")
+                        })
+        except Exception:
+            pass
+
+    return jsonify({"results": results[:50], "total_matches": len(results), "query": q})
+
 if __name__ == "__main__":
     port = 5052
     print(f"\n🚀 OSINTNeoAi Master Hub active at http://127.0.0.1:{port}")
