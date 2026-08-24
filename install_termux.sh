@@ -69,4 +69,10 @@ fi
 
 # 7. Start Foreground Interactive CLI Session
 echo -e "\033[1;32m[*] Starting OSINTNeoAi Mobile Intelligence Session...\033[0m\n"
-python3 "$INSTALL_DIR/cli/cli.py" chat
+if [ -t 0 ]; then
+    python3 "$INSTALL_DIR/cli/cli.py" chat
+elif [ -e /dev/tty ]; then
+    python3 "$INSTALL_DIR/cli/cli.py" chat < /dev/tty
+else
+    echo -e "\033[1;36m👉 To start the interactive chat session, run: osintneoai chat\033[0m"
+fi
