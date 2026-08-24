@@ -11139,6 +11139,222 @@
       "id": "hitech-supply-chain-032dd7d0",
       "type": "maltego.Infrastructure",
       "value": "Offshore / Domestic Industrial Pill Press Supply Chain (Belize/GA/MA Matrix)"
+    },
+    {
+      "id": "loc-8681dbe4",
+      "type": "maltego.Location",
+      "value": "17642 Beach Blvd, Huntington Beach, CA 92647 (HBNC / 490 ppb Cr-VI Plume)",
+      "lat": 33.7064036,
+      "lng": -117.9881801,
+      "category": "TOXIC_SUPERFUND_PLUME",
+      "description": "Primary HBNC site over 490 ppb Hexavalent Chromium plume (GeoTracker T10000018579). APN: 102-121-04."
+    },
+    {
+      "id": "loc-40aeaef3",
+      "type": "maltego.Location",
+      "value": "17631 Cameron Ln, Huntington Beach, CA 92647 (Yamada Trustee Parcel)",
+      "lat": 33.70625,
+      "lng": -117.99015,
+      "category": "REAL_ESTATE_PARCEL",
+      "description": "Parcel on East side of Cameron Ln behind HBNC. Asbestos, lead, legacy agricultural pesticides. APN: 102-121-05."
+    },
+    {
+      "id": "loc-7cd472d9",
+      "type": "maltego.Location",
+      "value": "Toxic Drainage Sink & Infiltration Basin (West of Cameron Ln, HB, CA)",
+      "lat": 33.70625,
+      "lng": -117.9909,
+      "category": "TOXIC_SINKHOLE",
+      "description": "Depression and unsealed stormwater runoff infiltration zone across Cameron Ln from 17631 parcel."
+    },
+    {
+      "id": "loc-a872f2ce",
+      "type": "maltego.Location",
+      "value": "212 Southbrook, Irvine, CA 92604 (Shea Properties Lockout Site)",
+      "lat": 33.6934,
+      "lng": -117.7818,
+      "category": "CRIME_SCENE_LOCKOUT",
+      "description": "August 4, 2021 non-judicial surprise lockout and asset stripping site targeting relator Anthony DiMarcello III."
+    },
+    {
+      "id": "loc-0efde03f",
+      "type": "maltego.Location",
+      "value": "7561 Center Ave, Huntington Beach, CA 92647 (Yamada/Chen Underground Vaults)",
+      "lat": 33.6927,
+      "lng": -117.9974,
+      "category": "UNDERGROUND_VAULT",
+      "description": "Units D1-E1-G3-J1 underground concrete coffins (1960s-70s) linked to 4 shell LLCs and $1.47M PPP loans."
+    },
+    {
+      "id": "loc-bbe7fa9e",
+      "type": "maltego.Location",
+      "value": "333 Washington Blvd #142-409, Marina del Rey, CA 90292 (Registered Agent Hub)",
+      "lat": 33.9806,
+      "lng": -118.4556,
+      "category": "SHELL_ENTITY_HUB",
+      "description": "Virtual office registered agent hub for 19822 Brookhurst LLC, RAI Partners LLC, and CM Cleaning Solutions."
+    },
+    {
+      "id": "loc-5f57e0e5",
+      "type": "maltego.Location",
+      "value": "19822 Brookhurst St, Huntington Beach, CA 92646 ($12.7M Acquisition)",
+      "lat": 33.6738,
+      "lng": -117.9542,
+      "category": "REAL_ESTATE_ACQUISITION",
+      "description": "$12.7M commercial real estate acquisition funded via siphoned PPP/grant pipelines (19822 Brookhurst LLC)."
+    },
+    {
+      "id": "loc-c5a3f0f7",
+      "type": "maltego.Location",
+      "value": "21951 Brookhurst St, Fountain Valley, CA 92708 ($2.8M Triumvirate Acquisition)",
+      "lat": 33.6781,
+      "lng": -117.9545,
+      "category": "REAL_ESTATE_ACQUISITION",
+      "description": "$2.8M property acquired by Triumvirate LLC from Rosell family in 2021."
+    },
+    {
+      "id": "loc-899a7362",
+      "type": "maltego.Location",
+      "value": "20002/20052 Brookhurst St, Huntington Beach, CA 92646 ($18.5M TS Marketplace)",
+      "lat": 33.6715,
+      "lng": -117.954,
+      "category": "REAL_ESTATE_ACQUISITION",
+      "description": "$18.5M commercial center acquisition by TS Marketplace LLC."
+    },
+    {
+      "id": "loc-8ff9b012",
+      "type": "maltego.Location",
+      "value": "19001 Brookhurst St, Huntington Beach, CA 92646 ($11.2M HRAPTS1 Acquisition)",
+      "lat": 33.6845,
+      "lng": -117.9548,
+      "category": "REAL_ESTATE_ACQUISITION",
+      "description": "$11.2M commercial property acquisition by HRAPTS1 LLC."
+    },
+    {
+      "id": "loc-e69f3c6e",
+      "type": "maltego.Location",
+      "value": "3311 Bounty Cir, Seal Beach, CA 90740 (Stewart Industries Headquarters)",
+      "lat": 33.7548,
+      "lng": -118.0932,
+      "category": "SHELL_ENTITY_HUB",
+      "description": "Stewart family residence and registered headquarters for Stewart Industries LLC ($0 transfer 2021)."
+    },
+    {
+      "id": "loc-9c6341f3",
+      "type": "maltego.Location",
+      "value": "Ascon Superfund Site, Hamilton & Magnolia, Huntington Beach, CA 92646",
+      "lat": 33.6536,
+      "lng": -117.9712,
+      "category": "TOXIC_SUPERFUND_PLUME",
+      "description": "38-acre hazardous industrial waste landfill with unsealed emergency waste pit and volatile organic sludge."
+    },
+    {
+      "id": "loc-82c20972",
+      "type": "maltego.Location",
+      "value": "Buck Jones Oil Wells & Gothard Corridor, Huntington Beach, CA 92648",
+      "lat": 33.7145,
+      "lng": -117.9995,
+      "category": "TOXIC_OIL_CORRIDOR",
+      "description": "Unplugged methane and H2S legacy oil wells and solvent burial pits across Gothard industrial corridor."
+    },
+    {
+      "id": "loc-e3997cc9",
+      "type": "maltego.Location",
+      "value": "MCAS El Toro Superfund Site, Irvine, CA 92618",
+      "lat": 33.6755,
+      "lng": -117.7305,
+      "category": "TOXIC_SUPERFUND_PLUME",
+      "description": "Decommissioned military air station with massive TCE/PCE groundwater solvent plumes and buried fill."
+    },
+    {
+      "id": "loc-51e7d10e",
+      "type": "maltego.Location",
+      "value": "Orange County Social Services Agency (SSA) HQ, Orange, CA 92868",
+      "lat": 33.7745,
+      "lng": -117.8825,
+      "category": "GOVERNMENT_AGENCY",
+      "description": "Administration hub for county child welfare removals and Title IV-E federal placement billing (29,300 gap)."
+    },
+    {
+      "id": "loc-06b18b6a",
+      "type": "maltego.Location",
+      "value": "Huntington Beach Civic Center, 2000 Main St, Huntington Beach, CA 92648",
+      "lat": 33.6685,
+      "lng": -117.9985,
+      "category": "GOVERNMENT_AGENCY",
+      "description": "City Hall, City Attorney, and procurement administration overseeing HBNC shelter operator contracts."
+    },
+    {
+      "id": "loc-7de6a199",
+      "type": "maltego.Location",
+      "value": "Whitman Counterfeit Pill Lab & Andrew Billings, Whitman, MA 02382",
+      "lat": 42.0809,
+      "lng": -70.9334,
+      "category": "COUNTERFEIT_DRUG_LAB",
+      "description": "Raided Dec 2023. Industrial pill press lab operating in Plymouth County: 27 lbs fake Xanax (meth) & 6 lbs fake Adderall (fentanyl)."
+    },
+    {
+      "id": "loc-c53a9fd9",
+      "type": "maltego.Location",
+      "value": "Duxbury Residential Location (Lindsay Clancy Residence), Duxbury, MA 02332",
+      "lat": 42.0418,
+      "lng": -70.672,
+      "category": "CASE_LOCATION",
+      "description": "Site of January 2023 acute polypharmacy toxic delirium, akathisia, and involuntary intoxication crisis."
+    },
+    {
+      "id": "loc-86135555",
+      "type": "maltego.Location",
+      "value": "Plymouth County District Attorney Office (DA Timothy Cruz), Brockton, MA 02301",
+      "lat": 42.0834,
+      "lng": -71.0184,
+      "category": "GOVERNMENT_AGENCY",
+      "description": "Prosecutorial office deploying Park Dietz expert Dr. Avram Mack and gatekeeping counterfeit pill evidence."
+    },
+    {
+      "id": "loc-d8f9be4f",
+      "type": "maltego.Location",
+      "value": "North Shore Drug Trafficking Organization / Lynn Hub, Lynn, MA 01902",
+      "lat": 42.4668,
+      "lng": -70.9495,
+      "category": "COUNTERFEIT_DRUG_LAB",
+      "description": "Interdicted 2022-2023: 74,000+ counterfeit Adderall pills pressed with methamphetamine and 230 lbs pill seizure network."
+    },
+    {
+      "id": "loc-11aa99a5",
+      "type": "maltego.Location",
+      "value": "Park Dietz & Associates Forensic Network, Newport Beach, CA 92660",
+      "lat": 33.6189,
+      "lng": -117.9289,
+      "category": "FORENSIC_GATEKEEPER",
+      "description": "Closed-loop forensic psychiatric expert witness monopoly deploying Dr. Mack and Dr. Resnick in state/federal trials."
+    },
+    {
+      "id": "loc-50f8348d",
+      "type": "maltego.Location",
+      "value": "Case Western Reserve University (Dr. Phillip Resnick), Cleveland, OH 44106",
+      "lat": 41.5043,
+      "lng": -81.6084,
+      "category": "ACADEMIC_GATEKEEPER",
+      "description": "Academic base of defense gatekeeper Dr. Phillip Resnick; nexus of whistleblower Dr. Ann Verma disclosures."
+    },
+    {
+      "id": "loc-db333d56",
+      "type": "maltego.Location",
+      "value": "Drexel University College of Medicine (Dr. Donald Kushon), Philadelphia, PA 19129",
+      "lat": 40.015,
+      "lng": -75.187,
+      "category": "ACADEMIC_GATEKEEPER",
+      "description": "Institutional enforcer overseeing state psychiatric hospital pipelines and whistleblower silencing."
+    },
+    {
+      "id": "loc-7c2b428d",
+      "type": "maltego.Location",
+      "value": "Hi-Tech Pharmaceuticals Headquarters, Norcross, GA 30071",
+      "lat": 33.9412,
+      "lng": -84.2135,
+      "category": "COUNTERFEIT_DRUG_LAB",
+      "description": "Jared Wheat corporate headquarters and domestic distribution hub for counterfeit generic prescription pills (Belize/GA)."
     }
   ],
   "links": [
