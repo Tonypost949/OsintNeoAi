@@ -11124,6 +11124,21 @@
       "id": "p4-conservatorship-59d7d01d",
       "type": "maltego.LegalMechanism",
       "value": "Involuntary Incapacity Conservatorships & Probate Dispossession Mechanism"
+    },
+    {
+      "id": "hitech-corp-592b431a",
+      "type": "maltego.Company",
+      "value": "Hi-Tech Pharmaceuticals, Inc. (Jared Wheat Counterfeit Pill Precedent)"
+    },
+    {
+      "id": "hitech-wheat-2ff3ce2a",
+      "type": "maltego.Person",
+      "value": "Jared Wheat (Federal Convict & Offshore Counterfeit Generic Operator)"
+    },
+    {
+      "id": "hitech-supply-chain-032dd7d0",
+      "type": "maltego.Infrastructure",
+      "value": "Offshore / Domestic Industrial Pill Press Supply Chain (Belize/GA/MA Matrix)"
     }
   ],
   "links": [
@@ -26243,6 +26258,21 @@
       "from": "p4-lockout-asset-8c4d3ef1",
       "to": "p4-hub-577311de",
       "relationship": "SILENCES_EVIDENCE_COLLECTION"
+    },
+    {
+      "from": "hitech-wheat-2ff3ce2a",
+      "to": "hitech-corp-592b431a",
+      "relationship": "OPERATOR_AND_CEO"
+    },
+    {
+      "from": "hitech-corp-592b431a",
+      "to": "hitech-supply-chain-032dd7d0",
+      "relationship": "ILLICIT_MANUFACTURING_NETWORK"
+    },
+    {
+      "from": "hitech-supply-chain-032dd7d0",
+      "to": "Whitman Counterfeit Pill Lab & Andrew Billings (Plymouth County 2023)",
+      "relationship": "DOMESTIC_SUPPLY_CHAIN_PARALLEL"
     }
   ]
 }
