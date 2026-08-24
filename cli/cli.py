@@ -357,8 +357,14 @@ def chat(args=None):
                 print("--------------------------------\n")
                 continue
                 
-            elif cmd in ['correlate', 'aegis', 'threats']:
-                print("[*] Launching Aegis Threat Correlation Engine...")
+            elif cmd in ['update', 'git pull', 'upgrade']:
+                print("[*] Pulling latest updates from GitHub origin/main...")
+                subprocess.run(["git", "pull", "origin", "main"], cwd=root_dir)
+                print("[+] Updated successfully. Please type 'exit' and re-run 'osintneoai chat' to reload.")
+                continue
+
+            elif any(phrase in cmd for phrase in ['correlate', 'aegis', 'threats', 'use all tools', 'map suspects', 'find new connections', 'run all tools']):
+                print("[*] Launching Aegis Continuous Threat Correlation & GIS Mapping Engine...")
                 aegis_script = os.path.join(root_dir, "aegis_correlation_engine.py")
                 if os.path.exists(aegis_script):
                     subprocess.run([os.sys.executable, aegis_script, "--once"])
