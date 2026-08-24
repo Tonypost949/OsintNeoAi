@@ -61,7 +61,7 @@ def report(args):
     print("\n--- Investigation Report ---")
     db.load()
     nodes = db.data.get("nodes", [])
-    edges = db.data.get("links", []) or db.data.get("edges", [])
+    edges = db.data.get("edges", []) if len(db.data.get("edges", [])) >= len(db.data.get("links", [])) else db.data.get("links", [])
     if nodes:
         print(f"Total Persistent Graph Entities: {len(nodes)}")
         print(f"Total Graph Relations/Edges: {len(edges)}")
