@@ -11064,6 +11064,41 @@
       "id": "clancy-fca-c8bb00f0",
       "type": "maltego.StatuteViolation",
       "value": "31 U.S.C. 3729 False Claims Act (Off-Label Psychiatric Polypharmacy Fraud)"
+    },
+    {
+      "id": "dr-mack-c3f7db52",
+      "type": "maltego.Person",
+      "value": "Dr. Avram Mack (Prosecution Rebuttal Expert / Park Dietz & Associates)"
+    },
+    {
+      "id": "dr-resnick-fd58486f",
+      "type": "maltego.Person",
+      "value": "Dr. Phillip Resnick (Defense Gatekeeper / Case Western Reserve University / Park Dietz)"
+    },
+    {
+      "id": "dr-kushon-59c2d69b",
+      "type": "maltego.Person",
+      "value": "Dr. Donald Kushon (Drexel University / Institutional Enforcer)"
+    },
+    {
+      "id": "dr-verma-9b1f6bab",
+      "type": "maltego.Person",
+      "value": "Dr. Ann Verma (Case Western Medical Whistleblower)"
+    },
+    {
+      "id": "firm-park-dietz-48945560",
+      "type": "maltego.Company",
+      "value": "Park Dietz & Associates (Forensic Psychiatric Network)"
+    },
+    {
+      "id": "seizure-whitman-c004e1fe",
+      "type": "maltego.Location",
+      "value": "Whitman Counterfeit Pill Lab & Andrew Billings (Plymouth County 2023)"
+    },
+    {
+      "id": "seizure-north-shore-49aef822",
+      "type": "maltego.Location",
+      "value": "North Shore Drug Trafficking Organization (74,000+ Fake Pills 2022-2023)"
     }
   ],
   "links": [
@@ -26128,6 +26163,31 @@
       "from": "clancy-da-5911fc37",
       "to": "clancy-rico-4f79b48c",
       "relationship": "CONCEALMENT_OF_EXCULPATORY_ADVERSE_EVENTS"
+    },
+    {
+      "from": "dr-mack-c3f7db52",
+      "to": "firm-park-dietz-48945560",
+      "relationship": "AFFILIATED_FORENSIC_EXPERT"
+    },
+    {
+      "from": "dr-resnick-fd58486f",
+      "to": "firm-park-dietz-48945560",
+      "relationship": "AFFILIATED_FORENSIC_EXPERT"
+    },
+    {
+      "from": "dr-resnick-fd58486f",
+      "to": "dr-verma-9b1f6bab",
+      "relationship": "INSTITUTIONAL_SUPPRESSION_TARGET"
+    },
+    {
+      "from": "dr-kushon-59c2d69b",
+      "to": "dr-verma-9b1f6bab",
+      "relationship": "RETALIATORY_ENFORCER"
+    },
+    {
+      "from": "seizure-whitman-c004e1fe",
+      "to": "seizure-north-shore-49aef822",
+      "relationship": "REGIONAL_ILLICIT_SUPPLY_CHAIN"
     }
   ]
 }
