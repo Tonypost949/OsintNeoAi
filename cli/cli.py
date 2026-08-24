@@ -419,6 +419,27 @@ def chat(args=None):
                 print("  • Federal Evidence Bulletin          : EVIDENCE_FBI_EPA_PSA_HBNC_PLC_COMPROMISE.md")
                 print("=" * 60 + "\n")
                 continue
+
+            elif cmd in ['legal', 'cite', 'cites', 'statutes', 'referrals']:
+                print("\n" + "=" * 65)
+                print("      STATUTORY AUTHORITY & LEGAL CITATION REPOSITORY")
+                print("=" * 65)
+                print("  ⚖️ Federal Criminal RICO     : 18 U.S.C. §§ 1961–1968 (Mail/Wire Fraud & Money Laundering)")
+                print("  ⚖️ False Claims Act (CFCA)   : 31 U.S.C. § 3729 et seq. / Cal. Gov. Code § 12650")
+                print("  ⚖️ Environmental Crimes      : RCRA 42 U.S.C. § 6901 / CERCLA 42 U.S.C. § 9601")
+                print("  ⚖️ Federal Housing Fraud     : 24 C.F.R. Part 570 & Part 58 (HUD Environmental Review)")
+                print("  ⚖️ SBA / PPP Loan Fraud      : 15 U.S.C. § 645 (False Statements to SBA)")
+                print("  ⚖️ Financial Crimes (FinCEN) : Bank Secrecy Act / 31 U.S.C. § 5318(g)")
+                print("  ⚖️ Civil Rights Violations   : 42 U.S.C. § 1983 (Jesse Knabb v. City of HB)")
+                print("-" * 65)
+                leg_dir = os.path.join(root_dir, "legal_library")
+                if os.path.exists(leg_dir):
+                    leg_files = os.listdir(leg_dir)
+                    print(f"[*] Dossiers in legal_library/ ({len(leg_files)} files):")
+                    for lf in leg_files:
+                        print(f"  • {lf}")
+                print("=" * 65 + "\n")
+                continue
                 
             elif cmd.startswith('tools search '):
                 query = cmd.replace('tools search ', '').strip().lower()
