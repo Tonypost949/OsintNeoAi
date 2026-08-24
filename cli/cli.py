@@ -298,6 +298,8 @@ def chat(args=None):
     print("  transforms list      : List available transforms.")
     print("  correlate / aegis    : Run Aegis Continuous Threat Correlation Engine.")
     print("  tools search <query> : Search across 980+ cataloged OSINT/Kali tools.")
+    print("  maps / gis           : Open Tactical Map Hub (8 Interactive GIS Dashboards).")
+    print("  hub / web            : Open Web Discovery Hub on port 5052.")
     print("  scan / clis          : Scan local developer CLIs & Google Cloud SDK tools.")
     print("  /model [name]        : Inspect or switch active AI model (gemini, groq, local).")
     print("  clear case           : Clear NWO-RICO graph to start your own custom investigation.")
@@ -356,6 +358,43 @@ def chat(args=None):
             elif cmd.startswith(('/model ', 'model ')):
                 m_target = user_input.split(' ', 1)[1].strip()
                 print(agent.set_model(m_target))
+                continue
+
+            elif cmd in ['map', 'maps', 'map hub', 'maps hub', 'gis']:
+                import webbrowser
+                print("\n" + "=" * 70)
+                print("      🗺️  OSINTNEOAI TACTICAL MAP HUB & GIS DASHBOARDS")
+                print("=" * 70)
+                print("  🌐 Master Tactical Map Hub : http://127.0.0.1:5052/maps")
+                print("-" * 70)
+                print("  Available Tactical Maps on Port 5052:")
+                print("  • Badass OSINT Map        : http://127.0.0.1:5052/maps/badass_osint_map.html")
+                print("  • Master Tactical GIS     : http://127.0.0.1:5052/maps/master_tactical_gis.html")
+                print("  • HBNC Cr-VI Plume GIS    : http://127.0.0.1:5052/maps/hbnc_rico_gis.html")
+                print("  • Nationwide Pipeline Map : http://127.0.0.1:5052/maps/nationwide_pipeline_map.html")
+                print("  • Nationwide COC Map      : http://127.0.0.1:5052/maps/nationwide_coc_map.html")
+                print("  • MapLibre 3D Tactical    : http://127.0.0.1:5052/maps/maplibre_3d_tactical.html")
+                print("  • ArcGIS Teams Dashboard  : http://127.0.0.1:5052/maps/arcgis_teams_dashboard.html")
+                print("=" * 70 + "\n")
+                try:
+                    webbrowser.open("http://127.0.0.1:5052/maps")
+                except Exception:
+                    pass
+                continue
+
+            elif cmd in ['hub', 'web', 'dashboard', 'gui']:
+                import webbrowser
+                print("\n" + "=" * 70)
+                print("      🌐 OSINTNEOAI DISCOVERY HUB & SYSTEM DASHBOARD")
+                print("=" * 70)
+                print("  • CLI & Cloud SDK Hub     : http://127.0.0.1:5052")
+                print("  • Tactical Map Hub        : http://127.0.0.1:5052/maps")
+                print("  • Public Victims Board    : http://127.0.0.1:5052/victims-board")
+                print("=" * 70 + "\n")
+                try:
+                    webbrowser.open("http://127.0.0.1:5052")
+                except Exception:
+                    pass
                 continue
 
             elif cmd in ['scan', 'clis', '/scan', 'gcloud scan', 'scan clis', 'scan gcloud', 'tools scan']:
