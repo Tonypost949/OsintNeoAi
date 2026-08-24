@@ -440,6 +440,28 @@ def chat(args=None):
                         print(f"  • {lf}")
                 print("=" * 65 + "\n")
                 continue
+
+            elif cmd in ['retaliation', 'whistleblower', 'relator', 'qui tam']:
+                print("\n" + "=" * 70)
+                print("   WHISTLEBLOWER & FEDERAL RELATOR RETALIATION EVIDENCE VAULT")
+                print("=" * 70)
+                print("  🛡️ Federal Relator Protection   : 31 U.S.C. § 3730(h) (False Claims Act Anti-Retaliation)")
+                print("  🛡️ State Whistleblower Protection: Cal. Gov. Code § 12653 / Cal. Labor Code § 1102.5")
+                print("  🛡️ Criminal Witness Retaliation : 18 U.S.C. § 1513(e) / 18 U.S.C. § 1512 (Witness Tampering)")
+                print("  🛡️ Civil Rights Deprivation     : 42 U.S.C. § 1983 / 18 U.S.C. § 241 & § 242 (Color of Law)")
+                print("-" * 70)
+                print("  [DOCUMENTED RETALIATORY CHRONOLOGY]:")
+                print("  1. Jan-Feb 2021: Relator intercedes for Dr. Ann Verma; files formal OCSD IA report.")
+                print("  2. Apr-Aug 2021: Shea Properties & OCSD coordinate illegal surprise lockout (212 Southbrook).")
+                print("  3. Aug 2021-Pres: Continuous obstruction, storage unit interference, and evidentiary tampering.")
+                print("-" * 70)
+                print("  [PRIMARY RETALIATION DOSSIERS]:")
+                print("  • legal_library/qui_tam_rico_referral_draft.md")
+                print("  • legal_library/CFCA_Qui_Tam_Complaint_Draft.md")
+                print("  • legal_library/qui_tam_email_inventory.md")
+                print("  • legal_library/CRIMINAL_REFERRAL_FINAL.md")
+                print("=" * 70 + "\n")
+                continue
                 
             elif cmd.startswith('tools search '):
                 query = cmd.replace('tools search ', '').strip().lower()
