@@ -15,6 +15,7 @@ Welcome to the **OSINTNeoAi** official investigation repository, live forensic s
 * 📊 **Streamlit Public Showcase:** https://github.com/Tonypost949/OsintNeoAi
 * 🗺️ **GitHub Pages GIS Recon Map:** https://Tonypost949.github.io/OsintNeoAi/
 * 🛡️ **Public Recon Audit Landing:** https://Tonypost949.github.io/OsintNeoAi/PUBLIC_RECON_AUDIT.html
+* 💻 **OSINTNeoAiCLI Dashboard:** http://127.0.0.1:5052
 
 ---
 
