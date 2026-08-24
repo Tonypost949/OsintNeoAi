@@ -269,8 +269,12 @@ def local_system_map_route():
         from core.local_scanner import scan_local_system, generate_local_system_map_html
         telemetry = scan_local_system(ROOT_DIR)
         return generate_local_system_map_html(telemetry)
-    except Exception as e:
-        return f"<h3>Error generating local system map: {e}</h3>", 500
+    except Exception:
+        local_map_file = os.path.join(ROOT_DIR, "local_system_map.html")
+        if os.path.exists(local_map_file):
+            with open(local_map_file, "r", encoding="utf-8") as f:
+                return f.read()
+        return "<h3>Local system map template not found</h3>", 404
 
 @app.route("/api/system")
 def api_system():
