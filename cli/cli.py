@@ -298,7 +298,8 @@ def chat(args=None):
     print("  transforms list      : List available transforms.")
     print("  correlate / aegis    : Run Aegis Continuous Threat Correlation Engine.")
     print("  tools search <query> : Search across 980+ cataloged OSINT/Kali tools.")
-    print("  set key <API_KEY>    : Set Google Gemini API key for live vibe coding.")
+    print("  scan / clis          : Scan local developer CLIs & Google Cloud SDK tools.")
+    print("  /model [name]        : Inspect or switch active AI model (gemini, groq, local).")
     print("  status / report      : View live GraphDB and system metrics.")
     print("  legal / statutes     : Statutory authority matrix & federal legal library.")
     print("  retaliation / relator: Whistleblower protections & retaliation evidence.")
@@ -352,6 +353,47 @@ def chat(args=None):
             elif cmd.startswith(('/model ', 'model ')):
                 m_target = user_input.split(' ', 1)[1].strip()
                 print(agent.set_model(m_target))
+                continue
+
+            elif cmd in ['scan', 'clis', '/scan', 'gcloud scan', 'scan clis', 'scan gcloud', 'tools scan']:
+                print("\n" + "=" * 70)
+                print("      DEVELOPER CLIS & GOOGLE CLOUD SDK SYSTEM SCANNER")
+                print("=" * 70)
+                clis = [
+                    {"name": "Google Cloud CLI (gcloud)", "cmd": "gcloud"},
+                    {"name": "Google BigQuery (bq)", "cmd": "bq"},
+                    {"name": "Google Storage (gsutil)", "cmd": "gsutil"},
+                    {"name": "GitHub CLI (gh)", "cmd": "gh"},
+                    {"name": "Git", "cmd": "git"},
+                    {"name": "Azure CLI (az)", "cmd": "az"},
+                    {"name": "Docker", "cmd": "docker"},
+                    {"name": "Docker Compose", "cmd": "docker-compose"},
+                    {"name": "Kubernetes (kubectl)", "cmd": "kubectl"},
+                    {"name": "Terraform", "cmd": "terraform"},
+                    {"name": "Python", "cmd": "python3" if shutil.which("python3") else "python"},
+                    {"name": "Node.js", "cmd": "node"},
+                    {"name": "NPM", "cmd": "npm"},
+                    {"name": "Antigravity CLI (agy)", "cmd": "agy"},
+                    {"name": "cURL", "cmd": "curl"},
+                    {"name": "WSL", "cmd": "wsl"}
+                ]
+                for item in clis:
+                    p = shutil.which(item["cmd"])
+                    if p:
+                        print(f"  🟢 [IN PATH]  {item['name']:<28} : {p}")
+                    else:
+                        print(f"  ⚪ [MISSING]  {item['name']:<28} : Not in PATH")
+                
+                print("-" * 70)
+                print("  📦 Python Cloud & OSINT Libraries:")
+                py_libs = ["google.cloud.bigquery", "google.cloud.storage", "google.cloud.firestore", "g4f", "shodan", "maltego_trx"]
+                for lib in py_libs:
+                    try:
+                        __import__(lib)
+                        print(f"  🟢 [INSTALLED] {lib:<28} : Ready")
+                    except ImportError:
+                        print(f"  ⚪ [NOT FOUND] {lib:<28} : Missing")
+                print("=" * 70 + "\n")
                 continue
             
             if cmd in ['help', '?']:
