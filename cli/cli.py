@@ -278,15 +278,35 @@ def learn(args):
 def chat(args=None):
     # Interactive session for the OSINT agent
     import shlex
+    import subprocess
+    import json
+    import os
     from core.ai_agent import OSINTAgent
     
     agent = OSINTAgent()
-    print("Starting OSINTNeoAiCLI chat session...")
-    print("Type 'exit' or 'quit' to end. Commands:")
-    print("  learn <url>          : Scrape a URL for entities.")
-    print("  transform <name> <v> : Execute a real Maltego transform on a value.")
-    print("  transforms list      : List available Maltego transforms.")
+    print("\n" + "=" * 65)
+    print("      OSINTNeoAi MASTER INTERACTIVE INTELLIGENCE CLI")
+    print("=" * 65)
+    print("Commands:")
+    print("  learn <url/file>     : Ingest URL, artifact, or file into GraphDB.")
+    print("  transform <name> <v> : Execute transform on target value.")
+    print("  transforms list      : List available transforms.")
+    print("  correlate / aegis    : Run Aegis Continuous Threat Correlation Engine.")
+    print("  tools search <query> : Search across 980+ cataloged OSINT/Kali tools.")
+    print("  tools list [cat]     : Browse tools by category.")
+    print("  ingest bookmarks     : Ingest all 11,824 Chrome bookmarks.")
+    print("  ingest edr / rico    : Cross-correlate EDR parcels & RICO shell entities.")
+    print("  ingest kali          : Ingest 500+ Kali Linux security utilities.")
+    print("  status / report      : View live GraphDB and system metrics.")
+    print("  investigate <t> <v>  : Seed new target node in graph.")
     print("  del <id>             : Delete a specific node.")
+    print("  help / ?             : Display this command menu.")
+    print("  exit / quit          : Exit interactive session.")
+    print("-" * 65)
+    
+    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    tools_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "tools.json")
+
     while True:
         try:
             user_input = input("OSINT> ").strip()
@@ -294,10 +314,122 @@ def chat(args=None):
                 user_input = "[USER HIT ENTER]"
             
             if user_input.lower() in ['exit', 'quit']:
+                print("[*] Exiting OSINTNeoAi session.")
                 break
             
             cmd = user_input.lower()
-            if cmd.startswith('del '):
+            
+            if cmd in ['help', '?']:
+                print("\n[*] Available Commands:")
+                print("  learn <url/file>     : Scrape and ingest target into GraphDB.")
+                print("  transform <name> <v> : Execute a transform on a target.")
+                print("  transforms list      : List all Maltego & custom transforms.")
+                print("  correlate / aegis    : Execute Aegis BigQuery & Graph Threat Engine.")
+                print("  tools search <query> : Search 980+ OSINT & Kali tools.")
+                print("  tools list [cat]     : List tools by category.")
+                print("  ingest bookmarks     : Re-run mass Chrome bookmarks parser.")
+                print("  ingest edr / rico    : Re-run EDR parcel & RICO Shell LLC correlation.")
+                print("  ingest kali          : Ingest full Kali Linux security suite.")
+                print("  status / report      : Display graph and knowledge statistics.")
+                print("  investigate <t> <v>  : Start targeted investigation on an entity.")
+                print("  del <id>             : Delete a graph node.")
+                print("  exit / quit          : Exit CLI.\n")
+                continue
+                
+            elif cmd in ['status', 'info']:
+                db.load()
+                nodes = db.data.get("nodes", [])
+                edges = db.data.get("edges", []) if len(db.data.get("edges", [])) >= len(db.data.get("links", [])) else db.data.get("links", [])
+                t_count = 0
+                if os.path.exists(tools_path):
+                    with open(tools_path, "r", encoding="utf-8") as f:
+                        t_count = len(json.load(f).get("tools", []))
+                k_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "knowledge")
+                k_count = len(os.listdir(k_dir)) if os.path.exists(k_dir) else 0
+                print("\n--- OSINTNeoAi System Status ---")
+                print(f"  • Persistent Graph Nodes : {len(nodes):,}")
+                print(f"  • Interconnected Edges   : {len(edges):,}")
+                print(f"  • Available Tools Matrix : {t_count:,} OSINT/Kali tools")
+                print(f"  • Knowledge Digests      : {k_count:,} files in data/knowledge")
+                print("--------------------------------\n")
+                continue
+                
+            elif cmd in ['correlate', 'aegis', 'threats']:
+                print("[*] Launching Aegis Threat Correlation Engine...")
+                aegis_script = os.path.join(root_dir, "aegis_correlation_engine.py")
+                if os.path.exists(aegis_script):
+                    subprocess.run([os.sys.executable, aegis_script, "--once"])
+                else:
+                    print(f"[-] aegis_correlation_engine.py not found at {aegis_script}")
+                continue
+                
+            elif cmd in ['ingest bookmarks', 'bookmarks']:
+                print("[*] Launching Mass Bookmarks Ingestion Engine...")
+                bm_script = os.path.join(root_dir, "ingest_all_bookmarks.py")
+                if os.path.exists(bm_script):
+                    subprocess.run([os.sys.executable, bm_script])
+                else:
+                    print(f"[-] ingest_all_bookmarks.py not found at {bm_script}")
+                continue
+                
+            elif cmd in ['ingest edr', 'ingest rico', 'edr', 'rico']:
+                print("[*] Launching EDR & RICO Shell LLC Vault Correlation...")
+                rico_script = os.path.join(root_dir, "analyze_rico_edr_vault.py")
+                if os.path.exists(rico_script):
+                    subprocess.run([os.sys.executable, rico_script])
+                else:
+                    print(f"[-] analyze_rico_edr_vault.py not found at {rico_script}")
+                continue
+                
+            elif cmd in ['ingest kali', 'kali']:
+                print("[*] Launching Kali Linux Tool Suite Ingest Engine...")
+                kali_script = os.path.join(root_dir, "ingest_kali_linux_suite.py")
+                if os.path.exists(kali_script):
+                    subprocess.run([os.sys.executable, kali_script])
+                else:
+                    print(f"[-] ingest_kali_linux_suite.py not found at {kali_script}")
+                continue
+                
+            elif cmd.startswith('tools search '):
+                query = cmd.replace('tools search ', '').strip().lower()
+                if os.path.exists(tools_path):
+                    with open(tools_path, "r", encoding="utf-8") as f:
+                        t_data = json.load(f).get("tools", [])
+                    matches = [t for t in t_data if query in t.get("name", "").lower() or query in t.get("description", "").lower() or query in t.get("category", "").lower()]
+                    print(f"\n[*] Found {len(matches)} matching tools for '{query}':")
+                    for m in matches[:25]:
+                        print(f"  • [{m.get('category')}] {m.get('name')}: {m.get('url')}")
+                        if m.get('description'):
+                            print(f"    ↳ {m.get('description')}")
+                    if len(matches) > 25:
+                        print(f"  ... and {len(matches) - 25} more tools.")
+                    print("")
+                continue
+                
+            elif cmd.startswith('tools list'):
+                parts = cmd.split(' ', 2)
+                cat_filter = parts[2].lower() if len(parts) > 2 else None
+                if os.path.exists(tools_path):
+                    with open(tools_path, "r", encoding="utf-8") as f:
+                        t_data = json.load(f).get("tools", [])
+                    cats = {}
+                    for t in t_data:
+                        cats.setdefault(t.get("category", "General"), []).append(t)
+                    if cat_filter:
+                        matched_cats = {k: v for k, v in cats.items() if cat_filter in k.lower()}
+                        print(f"\n[*] Tools matching category '{cat_filter}':")
+                        for c_name, t_list in matched_cats.items():
+                            print(f"  [{c_name}] ({len(t_list)} tools):")
+                            for t in t_list[:15]:
+                                print(f"    - {t.get('name')}: {t.get('url')}")
+                    else:
+                        print(f"\n[*] Tool Categories in Catalog ({len(t_data)} total tools):")
+                        for c_name, t_list in cats.items():
+                            print(f"  • {c_name}: {len(t_list)} tools")
+                        print("\nUse 'tools list <category>' to inspect tools in a specific category.\n")
+                continue
+
+            elif cmd.startswith('del '):
                 entity_id = cmd.split(' ', 1)[1].strip()
                 if db.delete_entity(entity_id):
                     print(f"[*] Deleted entity {entity_id}")

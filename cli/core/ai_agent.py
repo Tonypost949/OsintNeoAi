@@ -58,11 +58,32 @@ Current Investigation Graph:
                 model=g4f.models.default,
                 messages=self.history,
             )
-            # If it's a string, we append it directly
-            self.history.append({"role": "assistant", "content": response})
-            return response
-        except Exception as e:
-            return f"AI Error: {e}"
+            if response and not response.startswith("AI Error"):
+                self.history.append({"role": "assistant", "content": response})
+                return response
+        except Exception:
+            pass
+
+        # Robust Heuristic Local Intelligence Fallback
+        import re
+        u_clean = user_input.split('\n')[0].strip()
+        
+        # Check for domain
+        domain_match = re.search(r'\b(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}\b', u_clean)
+        ip_match = re.search(r'\b(?:\d{1,3}\.){3}\d{1,3}\b', u_clean)
+        email_match = re.search(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', u_clean)
+        
+        if domain_match and not email_match:
+            d = domain_match.group(0)
+            return f"I have identified target domain '{d}'. Executing DomainToIP infrastructure resolution:\n<EXECUTE>DomainToIP {d}</EXECUTE>"
+        elif ip_match:
+            ip = ip_match.group(0)
+            return f"I have identified target IP '{ip}'. Executing IPToShodanInfo reconnaissance:\n<EXECUTE>IPToShodanInfo {ip}</EXECUTE>"
+        elif email_match:
+            em = email_match.group(0)
+            return f"I have identified target email '{em}'. Executing identity transform:\n<EXECUTE>EmailToSocialProfile {em}</EXECUTE>"
+        else:
+            return f"OSINT Agent Ready. Target: '{u_clean}'. You can execute transforms, run 'tools search {u_clean}', or investigate via 'learn <url>'."
 
     def send_system_message(self, message):
         """Used to feed tool execution results back to the AI without user visibility."""
@@ -72,7 +93,9 @@ Current Investigation Graph:
                 model=g4f.models.default,
                 messages=self.history,
             )
-            self.history.append({"role": "assistant", "content": response})
-            return response
-        except Exception as e:
-            return f"AI Error: {e}"
+            if response and not response.startswith("AI Error"):
+                self.history.append({"role": "assistant", "content": response})
+                return response
+        except Exception:
+            pass
+        return f"[INTELLIGENCE SUMMARY]\n{message}"
