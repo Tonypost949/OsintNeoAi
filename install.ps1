@@ -70,6 +70,15 @@ if ($UserPath -notlike "*$BinDir*") {
 Write-Host "`n[+] Installation Complete!" -ForegroundColor Green
 Write-Host "👉 You can now run 'osintneoai' or 'osintneoai chat' from ANY terminal.`n" -ForegroundColor Cyan
 
-# 7. Start Interactive Session
-Write-Host "[*] Starting interactive CLI session...`n" -ForegroundColor Green
+# 7. Start OSINTNeoAiCLI Web Discovery Hub & Public Victims Board (Background)
+$WebScript = Join-Path $InstallDir "OSINTNeoAiCLI.py"
+if (Test-Path $WebScript) {
+    Write-Host "[*] Launching OSINTNeoAiCLI Web Server & Public Victims Board..." -ForegroundColor Yellow
+    Start-Process -FilePath $PythonExe -ArgumentList "`"$WebScript`"" -WindowStyle Hidden
+    Write-Host "🌐 Web Discovery Hub: http://127.0.0.1:5052" -ForegroundColor Green
+    Write-Host "📢 Public Victims Board: http://127.0.0.1:5052/victims-board`n" -ForegroundColor Green
+}
+
+# 8. Start Interactive CLI Session (Foreground)
+Write-Host "[*] Starting OSINTNeoAi interactive CLI session...`n" -ForegroundColor Green
 & $PythonExe (Join-Path $InstallDir "cli\cli.py") chat

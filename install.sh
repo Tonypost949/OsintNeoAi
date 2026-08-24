@@ -67,5 +67,14 @@ chmod +x "$WRAPPER"
 echo -e "\n\033[1;32m[+] Installation Complete!\033[0m"
 echo -e "\033[1;36m👉 You can now run 'osintneoai' from any terminal.\033[0m\n"
 
-# Launch
+# Launch OSINTNeoAiCLI Web Discovery Hub & Victims Board (Background)
+if [ -f "$INSTALL_DIR/OSINTNeoAiCLI.py" ]; then
+    echo -e "\033[1;33m[*] Launching OSINTNeoAiCLI Web Server & Public Victims Board...\033[0m"
+    nohup "$PYTHON_BIN" "$INSTALL_DIR/OSINTNeoAiCLI.py" > /dev/null 2>&1 &
+    echo -e "\033[1;32m🌐 Web Discovery Hub: http://127.0.0.1:5052\033[0m"
+    echo -e "\033[1;32m📢 Public Victims Board: http://127.0.0.1:5052/victims-board\033[0m\n"
+fi
+
+# Launch Interactive CLI Session (Foreground)
+echo -e "\033[1;32m[*] Starting OSINTNeoAi interactive CLI session...\033[0m\n"
 "$PYTHON_BIN" "$INSTALL_DIR/cli/cli.py" chat
