@@ -116,8 +116,8 @@ L.control.zoom({position:'bottomright'}).addTo(map);
 
 // TOXIC (red glow)
 const TOXIC=[  
-  [33.6775,-118.0012,'HBNC TOXIC','17642 Beach Blvd / Cr-VI 49x / Disputed Closure / $155M COC'],
-  [33.6770,-118.0015,'Cameron Ln','17631 Cameron Ln / Asphalt cap failure'],
+  [33.7064036,-117.9881801,'HBNC TOXIC','17642 Beach Blvd / Cr-VI 49x / Disputed Closure / $155M COC'],
+  [33.7062500,-117.9901500,'Cameron Ln','17631 Cameron Ln / Asphalt cap failure'],
   [33.6927,-117.9974,'7561 Center Ave','Units D1-E1-G3-J1 / 4 shell LLCs / Chen Yamada'],
 ];
 // SUSPECT (amber glow)
@@ -133,7 +133,7 @@ const SUSPECT=[
 const OTHER=[
   [33.8000,-118.0500,'NAS Los Alamitos','Navy base / CERCLA party'],
   [33.6750,-117.7300,'El Toro MCAS','Contaminated fill storage / Decommissioned 1999'],
-  [33.6760,-118.0015,'HB City Hall','2000 Main St / CEQA exemption fraud'],
+  [33.6760,-117.9901500,'HB City Hall','2000 Main St / CEQA exemption fraud'],
   [33.7450,-117.8700,'OC DA','300 N Flower St / Todd Spitzer / No action'],
   [33.7480,-117.8700,'USDC CD CA','411 W 4th St / Knabb v. HB RICO'],
 ];
@@ -198,7 +198,7 @@ all.forEach(([lat,lng,label,desc,type,color])=>{
 
 // === WATER FLOW / PLUME ARROWS ===
 // Groundwater in HB flows SW toward ocean. Arrows fan from HBNC outward.
-const plumeOrigin = [33.6773,-118.0013];
+const plumeOrigin = [33.70625003,-118.0013];
 const flowVectors = [
   [0.004,-0.005],[0.006,-0.004],[0.008,-0.002],[0.005,-0.007],
   [-0.003,-0.006],[-0.005,-0.004],[-0.007,-0.001],[0.002,-0.009],
@@ -228,7 +228,7 @@ plumeRadii.forEach((r,i)=>{
 // === SINKHOLES ===
 const sinkholes = [
   [33.6930,-117.9975,'7561 Center vaults','Underground concrete coffins / Chen / 1960s-70s excavation'],
-  [33.6778,-118.0015,'HBNC excavation','Asphalt cap failure / Cr-VI soil disturbance / Phase I ESA'],
+  [33.70625008,-117.9901500,'HBNC excavation','Asphalt cap failure / Cr-VI soil disturbance / Phase I ESA'],
   [33.6755,-117.7305,'El Toro hangars','Contaminated fill burial / decommissioned MCAS / no inspection'],
 ];
 
@@ -262,8 +262,8 @@ const veins = [
   [[33.7530,-117.9905],[33.6927,-117.9974],'Garnet Drop &#8594; 7561 Center'],
   [[33.8080,-118.0020],[33.7740,-117.9870],'CP Premier 1 &#8594; CP Premier 2'],
   [[33.7740,-117.9870],[33.7450,-117.8125],'CP Premier &#8594; Pham Residence'],
-  [[33.6927,-117.9974],[33.6775,-118.0012],'7561 Center &#8594; HBNC'],
-  [[33.6775,-118.0012],[33.6755,-117.7305],'HBNC &#8594; El Toro'],
+  [[33.6927,-117.9974],[33.7064036,-117.9881801],'7561 Center &#8594; HBNC'],
+  [[33.7064036,-117.9881801],[33.6755,-117.7305],'HBNC &#8594; El Toro'],
 ];
 
 veins.forEach(([a,b,label])=>{

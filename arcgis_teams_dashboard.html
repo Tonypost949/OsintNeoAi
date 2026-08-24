@@ -42,16 +42,16 @@ html,body,#map{width:100%;height:100%;background:#0b0f0b;font-family:Segoe UI,sy
 <div id="card"></div>
 <script>
 const ROWS = [
-  {id:'TOX-001', nm:'HBNC Toxic Site', layer:'TOXIC', sev:'CRITICAL', lat:33.6775, lng:-118.0012, desc:'17642 Beach Blvd / 17631 Cameron Ln | Cr-VI 980 ug/kg (49x limit) | Asphalt cap FAILING | 2,247 cu f', src:'CERCLA / Phase I ESA T10000018579'},
+  {id:'TOX-001', nm:'HBNC Toxic Site', layer:'TOXIC', sev:'CRITICAL', lat:33.7064036, lng:-117.9881801, desc:'17642 Beach Blvd / 17631 Cameron Ln | Cr-VI 980 ug/kg (49x limit) | Asphalt cap FAILING | 2,247 cu f', src:'CERCLA / Phase I ESA T10000018579'},
   {id:'TOX-003', nm:'7561 Center Ave Vaults', layer:'TOXIC', sev:'CRITICAL', lat:33.6927, lng:-117.9974, desc:'Units D1-E1-G1-J1 | 4 shell LLCs | Underground concrete coffins | Chen-Yamada pipeline | $1.47M PPP ', src:'Parcel + PPP records'},
-  {id:'SINK-002', nm:'HBNC Excavation', layer:'SINKHOLE', sev:'CRITICAL', lat:33.6778, lng:-118.0015, desc:'Asphalt cap failure / Cr-VI soil disturbance / 2,247 cu ft HDPE chambers', src:'Site assessment'},
-  {id:'SINK-004', nm:'Stormtech Chamber Field', layer:'SINKHOLE', sev:'CRITICAL', lat:33.6773, lng:-118.001, desc:'HDPE Stormtech SC-740 / 2,247 cu ft / PVC manifold / corrosive soil', src:'Stormtech spec'},
+  {id:'SINK-002', nm:'HBNC Excavation', layer:'SINKHOLE', sev:'CRITICAL', lat:33.70625008, lng:-117.9901500, desc:'Asphalt cap failure / Cr-VI soil disturbance / 2,247 cu ft HDPE chambers', src:'Site assessment'},
+  {id:'SINK-004', nm:'Stormtech Chamber Field', layer:'SINKHOLE', sev:'CRITICAL', lat:33.70625003, lng:-118.001, desc:'HDPE Stormtech SC-740 / 2,247 cu ft / PVC manifold / corrosive soil', src:'Stormtech spec'},
   {id:'FCA-HIT-001', nm:'USDC CD CA — Knabb v. HB RICO / Qui Tam coordination', layer:'FCA', sev:'CRITICAL', lat:33.748, lng:-117.87, desc:'', src:'Federal docket'},
   {id:'FCA-HIT-007', nm:'USDC CD CA LA — EPA OIG referral', layer:'FCA', sev:'CRITICAL', lat:34.05, lng:-118.25, desc:'', src:'OIG referral'},
   {id:'FCA-HIT-019', nm:'Qui Tam complaint under seal', layer:'FCA', sev:'CRITICAL', lat:33.748, lng:-117.87, desc:'', src:'Sealed complaint'},
-  {id:'CPS-001', nm:'HBNC Child Deaths', layer:'CPS', sev:'CRITICAL', lat:33.6775, lng:-118.0012, desc:'4 confirmed deaths | 279 emergencies | CERCLA toxics exposure', src:'OC HCA 20IC002'},
-  {id:'PROC-005', nm:'HBNC 155M Remediation', layer:'PROCUREMENT', sev:'CRITICAL', lat:33.6775, lng:-118.0012, desc:'OCHCA/DPW VOID $155,000,000', src:'Procurement portal'},
-  {id:'TOX-002', nm:'Cameron Ln Parcel', layer:'TOXIC', sev:'HIGH', lat:33.677, lng:-118.0015, desc:'17631 Cameron Ln | Asbestos/Lead paint | Former ag pesticides | Yamada Trustee 1998', src:'Parcel survey'},
+  {id:'CPS-001', nm:'HBNC Child Deaths', layer:'CPS', sev:'CRITICAL', lat:33.7064036, lng:-117.9881801, desc:'4 confirmed deaths | 279 emergencies | CERCLA toxics exposure', src:'OC HCA 20IC002'},
+  {id:'PROC-005', nm:'HBNC 155M Remediation', layer:'PROCUREMENT', sev:'CRITICAL', lat:33.7064036, lng:-117.9881801, desc:'OCHCA/DPW VOID $155,000,000', src:'Procurement portal'},
+  {id:'TOX-002', nm:'Cameron Ln Parcel', layer:'TOXIC', sev:'HIGH', lat:33.7062500, lng:-117.9901500, desc:'17631 Cameron Ln | Asbestos/Lead paint | Former ag pesticides | Yamada Trustee 1998', src:'Parcel survey'},
   {id:'SINK-001', nm:'7561 Center Ave Vaults', layer:'SINKHOLE', sev:'HIGH', lat:33.693, lng:-117.9975, desc:'Underground concrete coffins / Chen-Yamada / 1960s-70s construction', src:'Site assessment'},
   {id:'BH-001', nm:'Newport Shell Cluster', layer:'BLACKHOLE', sev:'HIGH', lat:33.65, lng:-117.895, desc:'20341-71 Irvine Ave | CSJ Mgmt / PL Jetty | $0 transfers', src:'LLC filings'},
   {id:'BH-002', nm:'Pham Quitclaim Nexus', layer:'BLACKHOLE', sev:'HIGH', lat:33.745, lng:-117.8125, desc:'2614 Orchard Dr / 7100 Cerritos #108 / 13801 Shirley #85 | $0 quitclaims', src:'Deed records'},
@@ -65,9 +65,9 @@ const ROWS = [
   {id:'LLC-012', nm:'Sendero Riverbend', layer:'LLC', sev:'HIGH', lat:33.683, lng:-117.994, desc:'$70M | 8955 Riverbend Dr | LA mail', src:'PPP/SBA'},
   {id:'LLC-013', nm:'SCG Edinger Plaza', layer:'LLC', sev:'HIGH', lat:33.689, lng:-117.985, desc:'$65.5M | 7542 Edinger Ave | SF mail', src:'PPP/SBA'},
   {id:'FCA-HIT-012', nm:'DOJ Civil Division — qui tam notice', layer:'FCA', sev:'HIGH', lat:38.907, lng:-77.037, desc:'', src:'DOJ notice'},
-  {id:'FCA-HIT-024', nm:'Relator disclosure served', layer:'FCA', sev:'HIGH', lat:33.676, lng:-118.0015, desc:'', src:'Relator disclosure'},
+  {id:'FCA-HIT-024', nm:'Relator disclosure served', layer:'FCA', sev:'HIGH', lat:33.676, lng:-117.9901500, desc:'', src:'Relator disclosure'},
   {id:'CPS-002', nm:'OC DA Block', layer:'CPS', sev:'HIGH', lat:33.748, lng:-117.87, desc:'No action on trafficking referrals', src:'Referral log'},
-  {id:'CPS-003', nm:'HB City Hall', layer:'CPS', sev:'HIGH', lat:33.676, lng:-118.0015, desc:'CEQA exemption fraud | Blocked reporting', src:'Ordinance 4289'},
+  {id:'CPS-003', nm:'HB City Hall', layer:'CPS', sev:'HIGH', lat:33.676, lng:-117.9901500, desc:'CEQA exemption fraud | Blocked reporting', src:'Ordinance 4289'},
   {id:'CPS-004', nm:'Anaheim CPS Hub', layer:'CPS', sev:'HIGH', lat:33.835, lng:-117.91, desc:'Shelter billing cluster | COVID fraud', src:'Licensing'},
   {id:'CPS-005', nm:'LA County IV-E', layer:'CPS', sev:'HIGH', lat:34.05, lng:-118.25, desc:'IV-E billing nexus', src:'IV-E claims'},
   {id:'SINK-003', nm:'El Toro Hangars', layer:'SINKHOLE', sev:'MEDIUM', lat:33.6755, lng:-117.7305, desc:'Contaminated fill burial / Decommissioned MCAS El Toro / PFAS migration', src:'Base closure'},
@@ -83,7 +83,7 @@ const ROWS = [
   {id:'PROC-004', nm:'Anaheim Housing RFQ', layer:'PROCUREMENT', sev:'INFO', lat:33.835, lng:-117.91, desc:'Housing Closed $4,500,000', src:'Procurement portal'}
 ];
 const COLORS = {"CRITICAL":"#ff3b3b","HIGH":"#ff9500","MEDIUM":"#ffd60a","INFO":"#4ad2ff"};
-const map = L.map('map',{zoomControl:true}).setView([33.6775,-118.0012],16);
+const map = L.map('map',{zoomControl:true}).setView([33.7064036,-117.9881801],16);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:20}).addTo(map);
 const markers = {};
 ROWS.forEach(r=>{

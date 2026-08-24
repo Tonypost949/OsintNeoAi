@@ -773,7 +773,7 @@
                 </div>
                 <div class="fact-box">
                     <div class="fact-title">GPS Coordinates</div>
-                    <div class="fact-val" id="dossier-coords">33.6775, -118.0012</div>
+                    <div class="fact-val" id="dossier-coords">33.7064036, -117.9881801</div>
                 </div>
                 <div class="fact-box">
                     <div class="fact-title">Evidence Source</div>
@@ -864,8 +864,8 @@
     "name": "HBNC Toxic Site",
     "layer": "TOXIC",
     "severity": "CRITICAL",
-    "lat": 33.6775,
-    "lon": -118.0012,
+    "lat": 33.7064036,
+    "lon": -117.9881801,
     "source": "CERCLA / Phase I ESA T10000018579",
     "description": "17642 Beach Blvd / 17631 Cameron Ln  |  Cr-VI 980 ug/kg (49x limit)  |  Asphalt cap FAILING  |  2,247 cu ft HDPE Stormtech chambers  |  Void ab initio clearance  |  $155M COC liability"
   },
@@ -874,8 +874,8 @@
     "name": "Cameron Ln Parcel",
     "layer": "TOXIC",
     "severity": "HIGH",
-    "lat": 33.677,
-    "lon": -118.0015,
+    "lat": 33.7062500,
+    "lon": -117.9901500,
     "source": "Parcel survey",
     "description": "17631 Cameron Ln  |  Asbestos/Lead paint  |  Former ag pesticides  |  Yamada Trustee 1998"
   },
@@ -904,8 +904,8 @@
     "name": "HBNC Excavation",
     "layer": "SINKHOLE",
     "severity": "CRITICAL",
-    "lat": 33.6778,
-    "lon": -118.0015,
+    "lat": 33.70625008,
+    "lon": -117.9901500,
     "source": "Site assessment",
     "description": "Asphalt cap failure / Cr-VI soil disturbance / 2,247 cu ft HDPE chambers"
   },
@@ -924,7 +924,7 @@
     "name": "Stormtech Chamber Field",
     "layer": "SINKHOLE",
     "severity": "CRITICAL",
-    "lat": 33.6773,
+    "lat": 33.70625003,
     "lon": -118.001,
     "source": "Stormtech spec",
     "description": "HDPE Stormtech SC-740 / 2,247 cu ft / PVC manifold / corrosive soil"
@@ -1145,7 +1145,7 @@
     "layer": "FCA",
     "severity": "HIGH",
     "lat": 33.676,
-    "lon": -118.0015,
+    "lon": -117.9901500,
     "source": "Relator disclosure",
     "description": ""
   },
@@ -1154,8 +1154,8 @@
     "name": "HBNC Child Deaths",
     "layer": "CPS",
     "severity": "CRITICAL",
-    "lat": 33.6775,
-    "lon": -118.0012,
+    "lat": 33.7064036,
+    "lon": -117.9881801,
     "source": "OC HCA 20IC002",
     "description": "4 confirmed deaths  |  279 emergencies  |  CERCLA toxics exposure"
   },
@@ -1175,7 +1175,7 @@
     "layer": "CPS",
     "severity": "HIGH",
     "lat": 33.676,
-    "lon": -118.0015,
+    "lon": -117.9901500,
     "source": "Ordinance 4289",
     "description": "CEQA exemption fraud  |  Blocked reporting"
   },
@@ -1244,8 +1244,8 @@
     "name": "HBNC 155M Remediation",
     "layer": "PROCUREMENT",
     "severity": "CRITICAL",
-    "lat": 33.6775,
-    "lon": -118.0012,
+    "lat": 33.7064036,
+    "lon": -117.9881801,
     "source": "Procurement portal",
     "description": "OCHCA/DPW VOID $155,000,000"
   },
@@ -1548,8 +1548,8 @@
   },
   {
     "src": [
-      33.6775,
-      -118.0012
+      33.7064036,
+      -117.9881801
     ],
     "dst": [
       33.6599,
@@ -1561,8 +1561,8 @@
   },
   {
     "src": [
-      33.6775,
-      -118.0012
+      33.7064036,
+      -117.9881801
     ],
     "dst": [
       41.8781,
@@ -1574,8 +1574,8 @@
   },
   {
     "src": [
-      33.6775,
-      -118.0012
+      33.7064036,
+      -117.9881801
     ],
     "dst": [
       32.2226,
@@ -1587,8 +1587,8 @@
   },
   {
     "src": [
-      33.6775,
-      -118.0012
+      33.7064036,
+      -117.9881801
     ],
     "dst": [
       35.1495,
@@ -1600,8 +1600,8 @@
   },
   {
     "src": [
-      33.6775,
-      -118.0012
+      33.7064036,
+      -117.9881801
     ],
     "dst": [
       39.7392,
@@ -1613,8 +1613,8 @@
   },
   {
     "src": [
-      33.6775,
-      -118.0012
+      33.7064036,
+      -117.9881801
     ],
     "dst": [
       40.7128,
@@ -1626,8 +1626,8 @@
   },
   {
     "src": [
-      33.6775,
-      -118.0012
+      33.7064036,
+      -117.9881801
     ],
     "dst": [
       38.8951,
@@ -1641,7 +1641,7 @@
 
         // Map Initialization with Esri ArcGIS Basemaps
         const map = L.map('map', {
-            center: [33.6775, -118.0012],
+            center: [33.7064036, -117.9881801],
             zoom: 14,
             zoomControl: false,
             attributionControl: false
@@ -1905,7 +1905,7 @@
         function flyToPreset(preset) {
             playTacticalBeep(1000, 'triangle', 0.12);
             if (preset === 'epicenter') {
-                map.flyTo([33.6775, -118.0012], 15, { duration: 1.8 });
+                map.flyTo([33.7064036, -117.9881801], 15, { duration: 1.8 });
             } else if (preset === 'oc') {
                 map.flyTo([33.7250, -117.9500], 11, { duration: 2.0 });
             } else if (preset === 'nationwide') {

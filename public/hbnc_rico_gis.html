@@ -62,8 +62,8 @@ html,body,#map{width:100%;height:100%;background:#000;font-family:monospace;over
   <input id="search-input" placeholder="Search entity, address, APN, $amount..." oninput="doSearch()" onkeydown="if(event.key==='Escape')document.getElementById('search').classList.remove('show')">
   <div class="results" id="search-results"></div>
 </div>
-<div class="scale-bar">Scale: <span id="scale-text">~50m</span> | <span id="coord-readout">Lat: 33.6775 Lng: -118.0012</span></div>
-<div class="coord-readout" id="coord-readout-main">Lat: 33.677500 | Lng: -118.001200 | Zoom: 17</div>
+<div class="scale-bar">Scale: <span id="scale-text">~50m</span> | <span id="coord-readout">Lat: 33.7064036 Lng: -117.9881801</span></div>
+<div class="coord-readout" id="coord-readout-main">Lat: 33.706403600 | Lng: -117.988180100 | Zoom: 17</div>
 
 <script>
 // === LAYER GROUPS ===
@@ -77,7 +77,7 @@ function toggle(key){
 }
 
 // === MAP ===
-const map = L.map('map', {zoomControl:false, attributionControl:false}).setView([33.6775, -118.0012], 17);
+const map = L.map('map', {zoomControl:false, attributionControl:false}).setView([33.7064036, -117.9881801], 17);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {maxZoom:20}).addTo(map);
 L.control.zoom({position:'bottomleft'}).addTo(map);
 
@@ -90,12 +90,12 @@ const INFRA_ICON = '<div style="color:#0f0;font-size:12px;text-align:center">⬢
 const CPS_ICON = '<div style="color:#f44;font-size:14px;text-align:center">☠</div>';
 
 // === HBNC TOXIC SITE (17642 Beach Blvd / 17631 Cameron Ln) ===
-const HBNC = [33.6775, -118.0012];
-const CAMERON = [33.6770, -118.0015];
+const HBNC = [33.7064036, -117.9881801];
+const CAMERON = [33.7062500, -117.9901500];
 
 const toxic = [
-  [33.6775, -118.0012, 'HBNC TOXIC SITE', '17642 Beach Blvd / 17631 Cameron Ln | Cr-VI 980 µg/kg (49x RSL) | Asphalt cap FAILING | 2,247 cu ft HDPE Stormtech chambers | Void ab initio clearance | $155M COC liability'],
-  [33.6770, -118.0015, 'Cameron Ln Parcel', '17631 Cameron Ln | Asbestos/Lead paint | Former ag pesticides | Yamada Trustee 1998 | Uneven topography SE corner'],
+  [33.7064036, -117.9881801, 'HBNC TOXIC SITE', '17642 Beach Blvd / 17631 Cameron Ln | Cr-VI 980 µg/kg (49x RSL) | Asphalt cap FAILING | 2,247 cu ft HDPE Stormtech chambers | Void ab initio clearance | $155M COC liability'],
+  [33.7062500, -117.9901500, 'Cameron Ln Parcel', '17631 Cameron Ln | Asbestos/Lead paint | Former ag pesticides | Yamada Trustee 1998 | Uneven topography SE corner'],
   [33.6927, -117.9974, '7561 Center Ave — Yamada/Chen Vaults', 'Units D1-E1-G3-J1 | 4 shell LLCs | Underground concrete coffins (1960s-70s) | Chen-Yamada pipeline | $1.47M PPP / $1.13M PPP routing'],
 ];
 toxic.forEach(([lat,lng,label,desc])=>{
@@ -106,7 +106,7 @@ toxic.forEach(([lat,lng,label,desc])=>{
 });
 
 // PLUME VECTORS (groundwater flow SW per Phase I ESA)
-const plumeOrigin = [33.6773, -118.0013];
+const plumeOrigin = [33.70625003, -118.0013];
 const flowVectors = [
   [0.0004,-0.0005],[0.0006,-0.0004],[0.0008,-0.0002],[0.0005,-0.0007],
   [-0.0003,-0.0006],[-0.0005,-0.0004],[-0.0007,-0.0001],[0.0002,-0.0009],
@@ -126,9 +126,9 @@ flowVectors.forEach(([dy,dx])=>{
 // SINKHOLES / SUBSURFACE ANOMALIES
 const sinkholes = [
   [33.6930, -117.9975, '7561 Center Vaults', 'Underground concrete coffins / Chen-Yamada / 1960s-70s construction / D1-E1-G3-J1 units'],
-  [33.6778, -118.0015, 'HBNC Excavation', 'Asphalt cap failure / Cr-VI soil disturbance / 2,247 cu ft HDPE Stormtech chambers misrepresented as temporary'],
+  [33.70625008, -117.9901500, 'HBNC Excavation', 'Asphalt cap failure / Cr-VI soil disturbance / 2,247 cu ft HDPE Stormtech chambers misrepresented as temporary'],
   [33.6755, -117.7305, 'El Toro Hangars', 'Contaminated fill burial / Decommissioned MCAS El Toro / PFAS plume migration'],
-  [33.6773, -118.0010, 'Stormtech Chamber Field', 'HDPE Stormtech SC-740 chambers / 2,247 cu ft / PVC manifold / Corrosive soil accelerating failure'],
+  [33.70625003, -118.0010, 'Stormtech Chamber Field', 'HDPE Stormtech SC-740 chambers / 2,247 cu ft / PVC manifold / Corrosive soil accelerating failure'],
 ];
 sinkholes.forEach(([lat,lng,label,desc])=>{
   const m = L.circleMarker([lat,lng],{radius:10,color:'#000',fillColor:'#111',fillOpacity:0.95,weight:2})
@@ -161,10 +161,10 @@ const veins = [
   [[33.753,-117.9905],[33.6927,-117.9974],'Garnet St → 7561 Center Ave'],
   [[33.808,-118.002],[33.774,-117.987],'CP Premier 1 → CP Premier 2'],
   [[33.774,-117.987],[33.745,-117.8125],'CP Premier → Pham Residence'],
-  [[33.6927,-117.9974],[33.6775,-118.0012],'7561 Center → HBNC'],
-  [[33.6775,-118.0012],[33.6755,-117.7305],'HBNC → El Toro'],
-  [[33.755,-117.990],[33.6775,-118.0012],'Stewart PPP $1.13M → HBNC'],
-  [[33.707,-117.958],[33.6775,-118.0012],'Triumvirate PPP $1.47M → HBNC'],
+  [[33.6927,-117.9974],[33.7064036,-117.9881801],'7561 Center → HBNC'],
+  [[33.7064036,-117.9881801],[33.6755,-117.7305],'HBNC → El Toro'],
+  [[33.755,-117.990],[33.7064036,-117.9881801],'Stewart PPP $1.13M → HBNC'],
+  [[33.707,-117.958],[33.7064036,-117.9881801],'Triumvirate PPP $1.47M → HBNC'],
 ];
 veins.forEach(([a,b,label])=>{
   const l = L.polyline([a,b],{color:'#f0f',weight:1.5,opacity:0.4,dashArray:'5,10'});
@@ -201,12 +201,12 @@ const infra = [
   // PCH line
   [[33.65,-118.00],[33.73,-117.98],'Pacific Coast Hwy (PCH)', '#f93'],
   // Beach Blvd
-  [[33.677,-118.001],[33.73,-117.99],'Beach Boulevard', '#f44'],
+  [[33.7062500,-118.001],[33.73,-117.99],'Beach Boulevard', '#f44'],
   // Stormtech chamber field at HBNC
-  [[33.6773,-118.0013],[33.6778,-118.0015],'HDPE Stormtech Chambers (2,247 cu ft)', '#0f0'],
+  [[33.70625003,-118.0013],[33.70625008,-117.9901500],'HDPE Stormtech Chambers (2,247 cu ft)', '#0f0'],
   // Groundwater monitoring wells
-  [33.6775,-118.0012,'MW-1 (Cr-VI 980 µg/kg)', '#f44'],
-  [33.6770,-118.0015,'MW-2 (Asbestos/Lead)', '#f93'],
+  [33.7064036,-117.9881801,'MW-1 (Cr-VI 980 µg/kg)', '#f44'],
+  [33.7062500,-117.9901500,'MW-2 (Asbestos/Lead)', '#f93'],
   [33.6780,-118.0005,'MW-3 (Pesticides)', '#fc0'],
   [33.6765,-118.0020,'MW-4 (Background)', '#0ff'],
 ];
@@ -224,9 +224,9 @@ infra.forEach(item=>{
 
 // CPS CHILD TRAFFICKING EVENTS
 const cpsEvents = [
-  [33.6775,-118.0012,'HBNC Child Deaths','4 confirmed deaths | 279 emergencies | CERCLA toxics exposure | #f44','CHILD_DEATH'],
+  [33.7064036,-117.9881801,'HBNC Child Deaths','4 confirmed deaths | 279 emergencies | CERCLA toxics exposure | #f44','CHILD_DEATH'],
   [33.748,-117.870,'OC DA / Spitzer','No action on CPS trafficking referrals | Political protection','TRAFFICKING'],
-  [33.676,-118.0015,'HB City Hall','CEQA exemption fraud | Blocked reporting | Ordinance 4289','BLOCKED_REPORTING'],
+  [33.676,-117.9901500,'HB City Hall','CEQA exemption fraud | Blocked reporting | Ordinance 4289','BLOCKED_REPORTING'],
   [33.835,-117.91,'Anaheim CPS Hub','Multi-LLC shelter billing cluster | COVID fraud','COVID_FRAUD'],
   [34.05,-118.25,'LA County CPS','Largest CPS system | IV-E billing nexus | $200M-$512M alleged','IV_E_FRAUD'],
 ];
@@ -243,7 +243,7 @@ const fcaEvents = [
   [34.05,-118.25,'USDC CD CA LA','FCA-HIT-007: EPA OIG referral filed','#ff0','CRITICAL'],
   [38.907,-77.037,'FCA DC Filing','FCA-HIT-012: DOJ Civil Division notice','#f0f','HIGH'],
   [33.748,-117.870,'FCA-HIT-019','FCA-HIT-019: Qui Tam complaint under seal','#ff0','CRITICAL'],
-  [33.676,-118.0015,'FCA-HIT-024','FCA-HIT-024: Relator disclosure served','#fa0','HIGH'],
+  [33.676,-117.9901500,'FCA-HIT-024','FCA-HIT-024: Relator disclosure served','#fa0','HIGH'],
 ];
 fcaEvents.forEach(([lat,lng,label,desc,color,risk])=>{
   const sz = risk==='CRITICAL'?16:12;
@@ -261,7 +261,7 @@ const procurements = [
   {lat:33.748,lng:-117.87,title:'County IT Security Assessment',dept:'IT',status:'Open',amount:2500000},
   {lat:33.676,lng:-118.00,title:'HB Coastal Infrastructure',dept:'Public Works',status:'Under Review',amount:12000000},
   {lat:33.835,lng:-117.91,title:'Anaheim Housing Services RFP',dept:'Housing',status:'Closed',amount:4500000},
-  {lat:33.6775,lng:-118.0012,title:'HBNC Remediation Contract',dept:'OCHCA/DPW',status:'Void',amount:155000000},
+  {lat:33.7064036,lng:-117.9881801,title:'HBNC Remediation Contract',dept:'OCHCA/DPW',status:'Void',amount:155000000},
 ];
 procurements.forEach(p=>{
   const color = p.status==='Open'?'#0f0':p.status==='Under Review'?'#fc0':p.status==='Void'?'#f44':'#888';
@@ -279,8 +279,8 @@ const allSearchable = [];
 });
 // Add parcels from search
 allSearchable.push(
-  {type:'PARCEL',name:'HBNC 17642 Beach Blvd',desc:'Cr-VI 980 µg/kg | Asphalt cap | $155M COC',lat:33.6775,lng:-118.0012},
-  {type:'PARCEL',name:'Cameron Ln 17631',desc:'Asbestos/Lead | Yamada Trustee | Ag pesticides',lat:33.6770,lng:-118.0015},
+  {type:'PARCEL',name:'HBNC 17642 Beach Blvd',desc:'Cr-VI 980 µg/kg | Asphalt cap | $155M COC',lat:33.7064036,lng:-117.9881801},
+  {type:'PARCEL',name:'Cameron Ln 17631',desc:'Asbestos/Lead | Yamada Trustee | Ag pesticides',lat:33.7062500,lng:-117.9901500},
   {type:'PARCEL',name:'7561 Center Ave',desc:'Yamada/Chen vaults | 4 shell LLCs | $1.47M PPP',lat:33.6927,lng:-117.9974}
 );
 
@@ -347,7 +347,7 @@ map.on('mousemove',e=>{
   document.getElementById('coord-readout').textContent=`Lat: ${e.latlng.lat.toFixed(6)} | Lng: ${e.latlng.lng.toFixed(6)}`;
 });
 
-function resetView(){map.setView([33.6775,-118.0012],17);}
+function resetView(){map.setView([33.7064036,-117.9881801],17);}
 let threatActive=false;
 function threatMode(){
   threatActive=!threatActive;
