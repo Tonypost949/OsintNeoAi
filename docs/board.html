@@ -249,9 +249,10 @@
             </div>
             <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                 <button class="btn btn-primary" onclick="openModal()">+ Post Submission / Help Request</button>
+                <button class="btn" style="background:#b45309; border-color:#d97706; color:#fff;" onclick="openComplaintModal()">⚖️ Draft Legal Complaint</button>
+                <a class="btn" href="/maps" style="background:#0369a1; border-color:#0284c7; color:#fff;">🗺️ Tactical Maps</a>
                 <a class="btn btn-reddit" href="https://www.reddit.com/r/orangecounty/" target="_blank">r/orangecounty</a>
                 <a class="btn btn-reddit" href="https://www.reddit.com/r/whistleblowers/" target="_blank">r/whistleblowers</a>
-                <a class="btn btn-reddit" href="https://www.reddit.com/r/legaladvice/" target="_blank">r/legaladvice</a>
             </div>
         </div>
 
@@ -492,6 +493,10 @@
             navigator.clipboard.writeText(md).then(() => {
                 alert("📋 Markdown copied to clipboard! You can now paste it directly into Reddit, Twitter/X, or an email.");
             });
+        }
+
+        function openComplaintModal() {
+            window.location.href = "/generator";
         }
 
         function escapeHtml(str) {
