@@ -1,4 +1,4 @@
-﻿# 🏢 EDR & LightBox Master Environmental Asset & Forensics Index
+# 🏢 EDR & LightBox Master Environmental Asset & Forensics Index
 
 Comprehensive inventory of all **EDR Environmental Risk Reports**, **Buck Ranch / Native Incident Files**, **Drinking Water Well Assessments**, **GeoTracker Deliverables**, and **Nevada / Desert GPS Coordinates** across the OSINTNeoAi repository.
 
@@ -8,13 +8,13 @@ Comprehensive inventory of all **EDR Environmental Risk Reports**, **Buck Ranch 
 
 Historical GIS surveys, Native American burial site investigations, and Southern California tribal trustee matrices:
 
-| Document / Asset | Description | Direct Access Link |
+| Document / Asset | Description | Local Repository File & Direct Access |
 | :--- | :--- | :--- |
-| **Buck Ranch aka Callens Ranch GIS Analysis** | Official historical GIS boundary report establishing parcel status | [Google Drive PDF (AcgqV5...)](https://drive.google.com/file/d/1AcgqV5AOt2nl6njJLFn3HAcE-Z_5kPb7/view?usp=drivesdk) |
-| **Indian Burial Search Report 1** | Primary archaeological & archival survey regarding burial ground presence | [Google Drive PDF (1i0MDI...)](https://drive.google.com/file/d/1i0MDI9bHPIV2WSwFLtnRsuYXMzJUognX/view?usp=drivesdk) |
-| **Soil Analysis & Burial Ground Verification** | Scientific analysis evaluating soil markers vs historical burial claims | [Google Drive PDF (1X11au...)](https://drive.google.com/file/d/1X11aun23RkIOrMSfXQhlPUUjGx0Do4X-/view?usp=drivesdk) |
-| **SoCal Tribal Trustees Matrix** | Cross-referenced list of Southern California tribal trustees and contacts | [Google Drive CSV (1W1dXp...)](https://drive.google.com/file/d/1W1dXpsnGdO_slXj_JipvosEqYUgT0U1q/view?usp=drivesdk) |
-| **Tribal Property Scripts** | Python extraction engines for tribal trusts | [`query_tribal_unclaimed.py`](https://drive.google.com/file/d/1ZHi6lkNAVHUQ3jf9axsgL_FPWR_eeXwe/view?usp=drivesdk) & [`trace_tribal_trustees.py`](https://drive.google.com/file/d/1ZrHNJ1x-ZyA6cbWKBNCQMY35dBlXLI0J/view?usp=drivesdk) |
+| **Buck Ranch aka Callens Ranch GIS Analysis** | Official historical GIS boundary report establishing parcel status | [`BUCK_RANCH_CALLENS_RANCH_GIS_ANALYSIS.pdf`](file:///C:/Users/Amd949609/OsintNeoAi-1/evidence/google_drive/BUCK_RANCH_CALLENS_RANCH_GIS_ANALYSIS.pdf) |
+| **Indian Burial Search Report 1** | Primary archaeological & archival survey regarding burial ground presence | [`INDIAN_BURIAL_SEARCH_REPORT_1.pdf`](file:///C:/Users/Amd949609/OsintNeoAi-1/evidence/google_drive/INDIAN_BURIAL_SEARCH_REPORT_1.pdf) |
+| **Soil Analysis & Burial Ground Verification** | Scientific analysis evaluating soil markers vs historical burial claims | [`SOIL_ANALYSIS_BURIAL_GROUND_VERIFICATION.pdf`](file:///C:/Users/Amd949609/OsintNeoAi-1/evidence/google_drive/SOIL_ANALYSIS_BURIAL_GROUND_VERIFICATION.pdf) |
+| **SoCal Tribal Trustees Matrix** | Cross-referenced list of Southern California tribal trustees and contacts | [`SOCAL_TRIBAL_TRUSTEES_MATRIX.csv`](file:///C:/Users/Amd949609/OsintNeoAi-1/evidence/google_drive/SOCAL_TRIBAL_TRUSTEES_MATRIX.csv) |
+| **Tribal Property Scripts** | Python extraction engines for tribal trusts | [`query_tribal_unclaimed.py`](file:///C:/Users/Amd949609/OsintNeoAi-1/evidence/google_drive/query_tribal_unclaimed.py) & [`trace_tribal_trustees.py`](file:///C:/Users/Amd949609/OsintNeoAi-1/evidence/google_drive/trace_tribal_trustees.py) |
 
 ---
 

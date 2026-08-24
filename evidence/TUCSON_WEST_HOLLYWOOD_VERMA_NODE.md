@@ -178,7 +178,7 @@ Correct spelling: **Andrew Falk** (no 'u'). Confirmed by email (drewfalk@me.com)
 | Drive Index (1133 N Formosa doc) | C:\migrate opencode\OSINTNEOAI\agent\drive_file_index_full.csv (line 5358) |
 | Drive Index (andrewfalk.png copy 1) | C:\migrate opencode\OSINTNEOAI\agent\drive_file_index_full.csv (line 9730) — Drive ID: 1MoCBkApx1ZwJRKVbuPLaTjJ0POXIY6cJ |
 | Drive Index (andrewfalk.png copy 2) | C:\migrate opencode\OSINTNEOAI\agent\drive_file_index_full.csv (line 9731) — Drive ID: 1jx3O7LpcGqqNbM_Zpq0K5JKTnweE91V2 |
-| Google Doc (Rescission Notice) | https://docs.google.com/document/d/1ZfxgYiowD_svrrLCxgIMPDv-aHTNfjSDxIC6PclDVFE/edit |
+| Google Doc (Rescission Notice) | [`DR_ANN_VERMA_RESCISSION_NOTICE.docx`](file:///C:/Users/Amd949609/OsintNeoAi-1/evidence/google_drive/DR_ANN_VERMA_RESCISSION_NOTICE.docx) (Archived locally from `1ZfxgYiowD_svrrLCxgIMPDv-aHTNfjSDxIC6PclDVFE`) |
 | Federal Criminal Referral | C:\migrate opencode\OSINTNEOAI\gmail_amd949609_hits.json (line 1183) |
 | Mandatory Reporter Notice | C:\migrate opencode\OSINTNEOAI\gmail_amd949609_hits.json (line 1211) |
 | Headway Issues | C:\migrate opencode\OSINTNEOAI\agent\deepseek_session_dehashed_hbpd.txt (line 2787+) |
