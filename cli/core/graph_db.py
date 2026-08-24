@@ -61,3 +61,36 @@ class GraphDB:
         
         self.save()
         return True
+
+    def clear(self):
+        """Clears all nodes, edges, and relationships for a fresh custom investigation."""
+        self.data = {"nodes": [], "edges": [], "links": []}
+        self.save()
+
+    def save_case(self, case_name):
+        """Saves current graph snapshot to data/cases/<case_name>.json."""
+        case_dir = os.path.join(os.path.dirname(os.path.abspath(self.db_file)), "cases")
+        os.makedirs(case_dir, exist_ok=True)
+        target = os.path.join(case_dir, f"{case_name}.json")
+        with open(target, "w", encoding="utf-8") as f:
+            json.dump(self.data, f, indent=2)
+        return target
+
+    def load_case(self, case_name):
+        """Loads a saved case from data/cases/<case_name>.json."""
+        case_dir = os.path.join(os.path.dirname(os.path.abspath(self.db_file)), "cases")
+        target = os.path.join(case_dir, f"{case_name}.json")
+        if os.path.exists(target):
+            with open(target, "r", encoding="utf-8") as f:
+                self.data = json.load(f)
+            self.save()
+            return True
+        return False
+
+    def list_cases(self):
+        """Lists all available case snapshots."""
+        case_dir = os.path.join(os.path.dirname(os.path.abspath(self.db_file)), "cases")
+        if not os.path.exists(case_dir):
+            return []
+        return [f.replace(".json", "") for f in os.listdir(case_dir) if f.endswith(".json")]
+

@@ -300,6 +300,9 @@ def chat(args=None):
     print("  tools search <query> : Search across 980+ cataloged OSINT/Kali tools.")
     print("  scan / clis          : Scan local developer CLIs & Google Cloud SDK tools.")
     print("  /model [name]        : Inspect or switch active AI model (gemini, groq, local).")
+    print("  clear case           : Clear NWO-RICO graph to start your own custom investigation.")
+    print("  load case <name>     : Restore a case snapshot (e.g. load case nworico).")
+    print("  cases list           : View all saved investigation snapshots.")
     print("  status / report      : View live GraphDB and system metrics.")
     print("  legal / statutes     : Statutory authority matrix & federal legal library.")
     print("  retaliation / relator: Whistleblower protections & retaliation evidence.")
@@ -394,6 +397,65 @@ def chat(args=None):
                     except ImportError:
                         print(f"  ⚪ [NOT FOUND] {lib:<28} : Missing")
                 print("=" * 70 + "\n")
+                continue
+
+            elif cmd in ['clear case', 'clear data', 'reset case', 'reset investigation', 'new case'] or cmd.startswith('new case '):
+                case_name = user_input.split(' ', 2)[-1].strip() if cmd.startswith('new case ') else "nworico"
+                db.save_case(case_name)
+                db.clear()
+                agent.history = []
+                print("\n" + "=" * 65)
+                print("   🧹 ACTIVE INVESTIGATION GRAPH CLEARED")
+                print("=" * 65)
+                print(f"  • Saved previous case snapshot to : data/cases/{case_name}.json")
+                print("  • Current Active Graph Canvas     : 0 nodes, 0 edges (Clean Slate)")
+                print("  • OSINT & Kali Tool Matrix        : 980+ Tools (100% Active)")
+                print("-" * 65)
+                print("  👉 Start your custom investigation:")
+                print("     • investigate maltego.Domain your-target.com")
+                print("     • transform DomainToIP your-target.com")
+                print("     • learn https://target-domain.com")
+                print("-" * 65)
+                print("  ℹ️ To restore the NWO-RICO showcase at any time: load case nworico")
+                print("=" * 65 + "\n")
+                continue
+
+            elif cmd in ['cases', 'cases list', 'list cases']:
+                saved_cases = db.list_cases()
+                print("\n" + "=" * 60)
+                print("      SAVED INVESTIGATION CASE SNAPSHOTS")
+                print("=" * 60)
+                print(f"  • Current Graph State : {len(db.data.get('nodes', []))} nodes, {len(db.data.get('edges', []))} edges")
+                print("-" * 60)
+                if saved_cases:
+                    for sc in saved_cases:
+                        tag = " [Pre-loaded Showcase]" if sc == "nworico" else ""
+                        print(f"  📁 {sc}{tag}")
+                else:
+                    print("  No saved case snapshots found.")
+                print("-" * 60)
+                print("  Commands:")
+                print("    load case <name>   : Restore a saved case (e.g. load case nworico)")
+                print("    save case <name>   : Save current graph to a case snapshot")
+                print("    clear case         : Clear graph for a brand new investigation")
+                print("=" * 60 + "\n")
+                continue
+
+            elif cmd.startswith(('load case ', 'case load ', 'restore ')):
+                c_name = re.sub(r'^(?:load\s+case|case\s+load|restore)\s+', '', user_input, flags=re.IGNORECASE).strip().lower()
+                if db.load_case(c_name):
+                    db.load()
+                    n_cnt = len(db.data.get('nodes', []))
+                    e_cnt = len(db.data.get('edges', []))
+                    print(f"\n[+] Successfully loaded case '{c_name}' with {n_cnt:,} nodes and {e_cnt:,} edges into active GraphDB!\n")
+                else:
+                    print(f"\n[-] Case '{c_name}' not found. Type 'cases list' to see available cases.\n")
+                continue
+
+            elif cmd.startswith('save case '):
+                c_name = user_input.split(' ', 2)[-1].strip().lower()
+                target_path = db.save_case(c_name)
+                print(f"\n[+] Successfully saved active investigation to: {target_path}\n")
                 continue
             
             if cmd in ['help', '?']:
