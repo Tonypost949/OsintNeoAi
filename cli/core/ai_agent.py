@@ -9,6 +9,27 @@ class OSINTAgent:
         self.tools_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "tools.json")
         self.graph_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "graph.json")
 
+        # Automatically load .env from workspace or user home directory
+        env_candidates = [
+            os.path.join(self.root_dir, ".env"),
+            os.path.join(os.path.expanduser("~"), "OsintNeoAi", ".env"),
+            os.path.join(os.path.expanduser("~"), ".env")
+        ]
+        for env_file in env_candidates:
+            if os.path.exists(env_file):
+                try:
+                    with open(env_file, "r", encoding="utf-8") as f:
+                        for line in f:
+                            line = line.strip()
+                            if line and not line.startswith("#") and "=" in line:
+                                k, v = line.split("=", 1)
+                                k = k.strip()
+                                v = v.strip().strip('"').strip("'")
+                                if k and not os.environ.get(k):
+                                    os.environ[k] = v
+                except Exception:
+                    pass
+
         self.gemini_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
         self.openai_key = os.environ.get("OPENAI_API_KEY")
         self.groq_key = os.environ.get("GROQ_API_KEY")
