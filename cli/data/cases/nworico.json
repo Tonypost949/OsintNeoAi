@@ -11099,6 +11099,31 @@
       "id": "seizure-north-shore-49aef822",
       "type": "maltego.Location",
       "value": "North Shore Drug Trafficking Organization (74,000+ Fake Pills 2022-2023)"
+    },
+    {
+      "id": "p4-hub-577311de",
+      "type": "maltego.RicoPipeline",
+      "value": "Pipeline 4: Psychiatric Discreditation, Asset Stripping & Subsidized Tax Extraction Network"
+    },
+    {
+      "id": "p4-tax-billing-493a5661",
+      "type": "maltego.FinancialEntity",
+      "value": "Medicaid & Medicare Inpatient Upcoding & Off-Label Polypharmacy Billing Funnel"
+    },
+    {
+      "id": "p4-lockout-asset-8c4d3ef1",
+      "type": "maltego.CrimePattern",
+      "value": "Non-Judicial Surprise Lockouts & Asset Stripping (Shea Properties / 212 Southbrook)"
+    },
+    {
+      "id": "p4-weaponized-eval-1c08cce1",
+      "type": "maltego.CrimePattern",
+      "value": "Weaponized Psychiatric Evaluations & Whistleblower Discreditation (Park Dietz Monopoly)"
+    },
+    {
+      "id": "p4-conservatorship-59d7d01d",
+      "type": "maltego.LegalMechanism",
+      "value": "Involuntary Incapacity Conservatorships & Probate Dispossession Mechanism"
     }
   ],
   "links": [
@@ -26188,6 +26213,36 @@
       "from": "seizure-whitman-c004e1fe",
       "to": "seizure-north-shore-49aef822",
       "relationship": "REGIONAL_ILLICIT_SUPPLY_CHAIN"
+    },
+    {
+      "from": "p4-hub-577311de",
+      "to": "p4-weaponized-eval-1c08cce1",
+      "relationship": "DISCREDITATION_SUBSYSTEM"
+    },
+    {
+      "from": "p4-hub-577311de",
+      "to": "p4-lockout-asset-8c4d3ef1",
+      "relationship": "ASSET_STRIPPING_SUBSYSTEM"
+    },
+    {
+      "from": "p4-hub-577311de",
+      "to": "p4-conservatorship-59d7d01d",
+      "relationship": "LEGAL_DISPOSSESSION_SUBSYSTEM"
+    },
+    {
+      "from": "p4-hub-577311de",
+      "to": "p4-tax-billing-493a5661",
+      "relationship": "TAX_DOLLAR_EXTRACTION_SUBSYSTEM"
+    },
+    {
+      "from": "p4-weaponized-eval-1c08cce1",
+      "to": "p4-tax-billing-493a5661",
+      "relationship": "MAXIMIZES_MEDICAID_MEDICARE_BILLING"
+    },
+    {
+      "from": "p4-lockout-asset-8c4d3ef1",
+      "to": "p4-hub-577311de",
+      "relationship": "SILENCES_EVIDENCE_COLLECTION"
     }
   ]
 }
