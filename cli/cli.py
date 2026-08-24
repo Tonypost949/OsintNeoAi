@@ -287,22 +287,22 @@ def chat(args=None):
     print("\n" + "=" * 65)
     print("      OSINTNeoAi MASTER INTERACTIVE INTELLIGENCE CLI")
     print("=" * 65)
+    if agent.gemini_key:
+        print("✨ AI Engine: Google Gemini 3.6 Flash (Active - Full Vibe Coding)")
+    else:
+        print("🛡️ AI Engine: Local Forensic Intelligence (Type 'set key <KEY>' to enable Gemini)")
+    print("-" * 65)
     print("Commands:")
-    print("  learn <url/file>     : Ingest URL, artifact, or file into GraphDB.")
+    print("  learn <topic/url>    : Ingest URL, file, or concept into GraphDB.")
     print("  transform <name> <v> : Execute transform on target value.")
     print("  transforms list      : List available transforms.")
     print("  correlate / aegis    : Run Aegis Continuous Threat Correlation Engine.")
     print("  tools search <query> : Search across 980+ cataloged OSINT/Kali tools.")
-    print("  tools list [cat]     : Browse tools by category.")
-    print("  ingest bookmarks     : Ingest all 11,824 Chrome bookmarks.")
-    print("  ingest edr / rico    : Cross-correlate EDR parcels & RICO shell entities.")
-    print("  ingest kali          : Ingest 500+ Kali Linux security utilities.")
+    print("  set key <API_KEY>    : Set Google Gemini API key for live vibe coding.")
     print("  status / report      : View live GraphDB and system metrics.")
     print("  legal / statutes     : Statutory authority matrix & federal legal library.")
     print("  retaliation / relator: Whistleblower protections & retaliation evidence.")
     print("  emergency / victims  : Rapid outreach hub (Reddit, legal clinics, newsrooms).")
-    print("  investigate <t> <v>  : Seed new target node in graph.")
-    print("  del <id>             : Delete a specific node.")
     print("  help / ?             : Display this command menu.")
     print("  exit / quit          : Exit interactive session.")
     print("-" * 65)
@@ -319,8 +319,31 @@ def chat(args=None):
             if user_input.lower() in ['exit', 'quit']:
                 print("[*] Exiting OSINTNeoAi session.")
                 break
-            
+
+            # Direct Shell Command Passthrough (if user pastes bash/shell commands into OSINT>)
+            if user_input.startswith(('cd ', 'git ', 'ls ', 'pwd', 'curl ', 'npm ', 'cat ', 'grep ', 'rm ', 'mkdir ', 'pip ')) or '&&' in user_input:
+                print(f"[*] Executing shell command: {user_input}")
+                try:
+                    subprocess.run(user_input, shell=True, cwd=root_dir)
+                except Exception as e:
+                    print(f"[-] Shell execution error: {e}")
+                continue
+
             cmd = user_input.lower()
+
+            if cmd.startswith(('set key ', 'key ', 'api key ', 'set gemini ')):
+                new_key = user_input.split(' ', 2)[-1].strip().strip('"').strip("'")
+                if len(new_key) > 5:
+                    agent.gemini_key = new_key
+                    os.environ["GEMINI_API_KEY"] = new_key
+                    env_file = os.path.join(root_dir, ".env")
+                    with open(env_file, "w", encoding="utf-8") as f:
+                        f.write(f"GEMINI_API_KEY={new_key}\n")
+                    print(f"[+] Successfully saved GEMINI_API_KEY to {env_file}")
+                    print("✨ Google Gemini 3.6 Flash engine is now ACTIVE!")
+                else:
+                    print("[-] Please provide a valid Gemini API key (e.g. set key AIzaSy...)")
+                continue
             
             if cmd in ['help', '?']:
                 print("\n[*] Available Commands:")
@@ -586,10 +609,18 @@ def chat(args=None):
                     print("[-] No entities found.")
                     
             elif cmd.startswith("learn "):
-                parts = shlex.split(user_input)
-                class DummyArgs:
-                    source = parts[1]
-                learn(DummyArgs())
+                topic_or_src = user_input[6:].strip()
+                if topic_or_src.startswith("http://") or topic_or_src.startswith("https://") or os.path.exists(topic_or_src):
+                    class DummyArgs:
+                        source = topic_or_src
+                    learn(DummyArgs())
+                else:
+                    print(f"[*] Learning and synthesizing concept: '{topic_or_src}'...")
+                    node_id = db.add_entity("maltego.Phrase", topic_or_src)
+                    ai_resp = agent.generate_response(f"Explain, define, and synthesize key investigative and coding knowledge for: {topic_or_src}")
+                    print(f"\n{ai_resp}\n")
+                    db.save()
+                    print(f"[+] Ingested '{topic_or_src}' concept into GraphDB (Node ID: {node_id[:8]}...).")
             elif cmd.startswith("investigate "):
                 parts = shlex.split(user_input)
                 class DummyArgs:
