@@ -1,7 +1,28 @@
 import os
 import sys
 import importlib.util
-from maltego_trx.maltego import MaltegoMsg, MaltegoTransform
+try:
+    from maltego_trx.maltego import MaltegoMsg, MaltegoTransform
+except ImportError:
+    class MaltegoMsg:
+        def __init__(self, Value="", Type="", Weight=100, Slider=100):
+            self.Value = Value
+            self.Type = Type
+            self.Weight = Weight
+            self.Slider = Slider
+
+    class MaltegoTransform:
+        def __init__(self):
+            self.entities = []
+        def addEntity(self, entityType, value, weight=100):
+            class Entity:
+                def __init__(self, t, v, w):
+                    self.entityType = t
+                    self.value = v
+                    self.weight = w
+            e = Entity(entityType, value, weight)
+            self.entities.append(e)
+            return e
 
 class LocalTRXExecutor:
     def __init__(self, transforms_dir="transforms"):

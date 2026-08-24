@@ -37,6 +37,9 @@ agent/ai_sync_vault/comprehensive_backup/antigravity/brain/
 Thumbs.db
 __pycache__/
 *.pyc
+.venv/
+*/.venv/
+*.log
 
 # Unscrubbed export data
 extracted_tasklets/deepseek_data-2026-08-06/

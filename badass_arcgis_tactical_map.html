@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCGIS C4ISR // BADASS GEOSPATIAL INTELLIGENCE VISUALIZER</title>
+    
+    <!-- Leaflet & Esri ArcGIS CSS/JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/esri-leaflet@3.0.12/dist/esri-leaflet.js"></script>
+    
+    <!-- Lucide Icons & Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700;800&family=Orbitron:wght@400;600;800;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --bg-deep: #05070d;
+            --bg-panel: rgba(10, 15, 26, 0.92);
+            --bg-card: rgba(16, 24, 40, 0.88);
+            --border-glow: rgba(0, 243, 255, 0.35);
+            --cyan: #00f3ff;
+            --cyan-glow: rgba(0, 243, 255, 0.6);
+            --red: #ff0055;
+            --red-glow: rgba(255, 0, 85, 0.6);
+            --amber: #ffb703;
+            --amber-glow: rgba(255, 183, 3, 0.6);
+            --green: #00ff88;
+            --green-glow: rgba(0, 255, 136, 0.6);
+            --purple: #a855f7;
+            --purple-glow: rgba(168, 85, 247, 0.6);
+            --blue: #3a86ff;
+            --text-main: #e2e8f0;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            user-select: none;
+        }
+
+        /* Map Container */
+        #map {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #060911;
+            z-index: 1;
+        }
+
+        /* Tactical HUD Overlays */
+        .hud-scanline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background-size: 100% 3px, 6px 100%;
+            z-index: 99;
+            opacity: 0.6;
+        }
+
+        .hud-vignette {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            box-shadow: inset 0 0 140px rgba(0, 0, 0, 0.88);
+            z-index: 98;
+        }
+
+        /* Top C4ISR Command Bar */
+        .top-command-bar {
+            position: absolute;
+            top: 16px;
+            left: 20px;
+            right: 20px;
+            height: 64px;
+            background: var(--bg-panel);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 243, 255, 0.15);
+        }
+
+        .brand-section {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .radar-badge {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid var(--cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 0 15px var(--cyan-glow);
+        }
+
+        .radar-badge::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px dashed var(--cyan);
+            animation: radarRotate 4s linear infinite;
+        }
+
+        .brand-title {
+            font-family: 'Orbitron', monospace;
+            font-weight: 900;
+            font-size: 16px;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 0 12px var(--cyan-glow);
+        }
+
+        .brand-subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--cyan);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Stats Pill Strip */
+        .stats-strip {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .stat-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 6px 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-val {
+            font-family: 'Orbitron', monospace;
+            font-weight: 800;
+            font-size: 15px;
+            color: var(--cyan);
+        }
+
+        .stat-val.critical {
+            color: var(--red);
+            text-shadow: 0 0 8px var(--red-glow);
+        }
+
+        .stat-val.gold {
+            color: var(--amber);
+            text-shadow: 0 0 8px var(--amber-glow);
+        }
+
+        .stat-lbl {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: var(--text-dim);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* View Presets & Controls */
+        .controls-strip {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-hud {
+            background: rgba(0, 243, 255, 0.08);
+            border: 1px solid var(--border-glow);
+            color: var(--text-main);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-hud:hover, .btn-hud.active {
+            background: var(--cyan);
+            color: #000;
+            box-shadow: 0 0 16px var(--cyan-glow);
+            border-color: var(--cyan);
+            font-weight: 700;
+        }
+
+        .btn-hud.red:hover, .btn-hud.red.active {
+            background: var(--red);
+            color: #fff;
+            box-shadow: 0 0 16px var(--red-glow);
+            border-color: var(--red);
+        }
+
+        /* Left Tactical Control Sidebar */
+        .left-sidebar {
+            position: absolute;
+            top: 96px;
+            left: 20px;
+            bottom: 20px;
+            width: 330px;
+            background: var(--bg-panel);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+        }
+
+        .sidebar-header {
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .sidebar-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            color: var(--cyan);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-box {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .search-input-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input-wrap input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            border-radius: 6px;
+            padding: 8px 12px 8px 34px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: #fff;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-input-wrap input:focus {
+            border-color: var(--cyan);
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            color: var(--cyan);
+            pointer-events: none;
+        }
+
+        .filter-section {
+            padding: 10px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .filter-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .layer-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .chip {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--text-dim);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s;
+        }
+
+        .chip.active {
+            background: rgba(0, 243, 255, 0.15);
+            border-color: var(--cyan);
+            color: #fff;
+            box-shadow: 0 0 8px rgba(0, 243, 255, 0.25);
+        }
+
+        .chip.active.red { border-color: var(--red); color: var(--red); background: rgba(255, 0, 85, 0.15); }
+        .chip.active.amber { border-color: var(--amber); color: var(--amber); background: rgba(255, 183, 3, 0.15); }
+        .chip.active.green { border-color: var(--green); color: var(--green); background: rgba(0, 255, 136, 0.15); }
+        .chip.active.purple { border-color: var(--purple); color: var(--purple); background: rgba(168, 85, 247, 0.15); }
+
+        .target-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 8px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .target-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-left: 4px solid var(--cyan);
+            border-radius: 6px;
+            padding: 10px 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .target-item:hover, .target-item.selected {
+            background: rgba(0, 243, 255, 0.12);
+            border-color: var(--cyan);
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .target-item.sev-critical { border-left-color: var(--red); }
+        .target-item.sev-high { border-left-color: var(--amber); }
+        .target-item.sev-medium { border-left-color: var(--green); }
+        .target-item.sev-info { border-left-color: var(--cyan); }
+
+        .item-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+
+        .item-id {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 11px;
+            color: var(--cyan);
+        }
+
+        .item-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge-critical { background: rgba(255, 0, 85, 0.3); color: var(--red); border: 1px solid var(--red); }
+        .badge-high { background: rgba(255, 183, 3, 0.3); color: var(--amber); border: 1px solid var(--amber); }
+        .badge-medium { background: rgba(0, 255, 136, 0.3); color: var(--green); border: 1px solid var(--green); }
+        .badge-info { background: rgba(0, 243, 255, 0.3); color: var(--cyan); border: 1px solid var(--cyan); }
+
+        .item-name {
+            font-weight: 600;
+            font-size: 12px;
+            color: #fff;
+            margin-bottom: 3px;
+        }
+
+        .item-desc {
+            font-size: 10px;
+            color: var(--text-dim);
+            line-height: 1.3;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        /* Right Target Dossier Inspector Drawer */
+        .right-drawer {
+            position: absolute;
+            top: 96px;
+            right: 20px;
+            width: 380px;
+            max-height: calc(100vh - 120px);
+            background: var(--bg-panel);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+            overflow-y: auto;
+            transform: translateX(420px);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .right-drawer.open {
+            transform: translateX(0);
+        }
+
+        .drawer-banner {
+            background: linear-gradient(135deg, rgba(255, 0, 85, 0.25), rgba(0, 243, 255, 0.1));
+            padding: 16px;
+            border-bottom: 1px solid var(--border-glow);
+            position: relative;
+        }
+
+        .drawer-close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dossier-id {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--cyan);
+            letter-spacing: 1px;
+        }
+
+        .dossier-title {
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            font-size: 16px;
+            color: #fff;
+            margin-top: 4px;
+        }
+
+        .drawer-content {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .dossier-fact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .fact-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            padding: 8px 10px;
+        }
+
+        .fact-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .fact-val {
+            font-weight: 600;
+            font-size: 11px;
+            color: #fff;
+            margin-top: 2px;
+            word-break: break-all;
+        }
+
+        .dossier-desc-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            padding: 12px;
+            font-size: 11px;
+            line-height: 1.5;
+            color: #cbd5e1;
+        }
+
+        .action-button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .btn-action-primary {
+            background: var(--cyan);
+            color: #000;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 0 16px var(--cyan-glow);
+            text-decoration: none;
+        }
+
+        /* Bottom Floating Mode Bar */
+        .bottom-mode-bar {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 48px;
+            background: var(--bg-panel);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glow);
+            border-radius: 24px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            padding: 4px 8px;
+            gap: 6px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+        }
+
+        .mode-tab {
+            padding: 6px 14px;
+            border-radius: 18px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-dim);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .mode-tab.active {
+            background: var(--cyan);
+            color: #000;
+            box-shadow: 0 0 12px var(--cyan-glow);
+            font-weight: 700;
+        }
+
+        /* Pulsing Radar Animations */
+        @keyframes radarRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulseRing {
+            0% { transform: scale(0.6); opacity: 1; }
+            100% { transform: scale(2.4); opacity: 0; }
+        }
+
+        .pulse-marker {
+            width: 24px;
+            height: 24px;
+            position: relative;
+        }
+
+        .pulse-core {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            box-shadow: 0 0 12px currentColor;
+        }
+
+        .pulse-wave {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 2px solid currentColor;
+            animation: pulseRing 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 243, 255, 0.3);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--cyan);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Tactical Overlay -->
+    <div class="hud-scanline"></div>
+    <div class="hud-vignette"></div>
+
+    <!-- Map Canvas -->
+    <div id="map"></div>
+
+    <!-- Top Command Bar -->
+    <div class="top-command-bar">
+        <div class="brand-section">
+            <div class="radar-badge">
+                <i data-lucide="crosshair" style="width: 18px; height: 18px; color: var(--cyan);"></i>
+            </div>
+            <div>
+                <div class="brand-title">ARCGIS C4ISR // TACTICAL MAP</div>
+                <div class="brand-subtitle">OSINT NEOMAXX SPATIAL SURVEILLANCE &amp; THREAT MATRIX</div>
+            </div>
+        </div>
+
+        <div class="stats-strip">
+            <div class="stat-card">
+                <div class="stat-val" id="stat-total">62</div>
+                <div class="stat-lbl">Spatial Nodes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val critical" id="stat-critical">14</div>
+                <div class="stat-lbl">Critical Risks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val gold" id="stat-liability">$155M+</div>
+                <div class="stat-lbl">Tracked Liability</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val" style="color: var(--green);">12</div>
+                <div class="stat-lbl">Plume Vectors</div>
+            </div>
+        </div>
+
+        <div class="controls-strip">
+            <button class="btn-hud" id="btn-sound" onclick="toggleAudio()">
+                <i data-lucide="volume-2" style="width: 14px; height: 14px;"></i> AUDIO SFX
+            </button>
+            <button class="btn-hud red" onclick="flyToPreset('epicenter')">
+                <i data-lucide="target" style="width: 14px; height: 14px;"></i> GROUND ZERO
+            </button>
+            <button class="btn-hud" onclick="flyToPreset('oc')">
+                <i data-lucide="map" style="width: 14px; height: 14px;"></i> OC CORRIDOR
+            </button>
+            <button class="btn-hud" onclick="flyToPreset('nationwide')">
+                <i data-lucide="globe" style="width: 14px; height: 14px;"></i> NATIONWIDE
+            </button>
+        </div>
+    </div>
+
+    <!-- Left Controls Sidebar -->
+    <div class="left-sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-title">
+                <i data-lucide="layers" style="width: 14px; height: 14px;"></i> INTEL RECON
+            </div>
+            <span id="node-count-badge" style="font-family: 'JetBrains Mono'; font-size: 10px; color: var(--cyan);">62 TARGETS</span>
+        </div>
+
+        <div class="search-box">
+            <div class="search-input-wrap">
+                <i data-lucide="search" class="search-icon" style="width: 14px; height: 14px;"></i>
+                <input type="text" id="target-search" placeholder="Search target, ID, APN, vector..." oninput="handleSearch(this.value)">
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-label">Filter Threat Layer</div>
+            <div class="layer-chips">
+                <div class="chip active red" onclick="toggleLayerFilter('ALL', this)">ALL</div>
+                <div class="chip active" onclick="toggleLayerFilter('TOXIC', this)">🔴 TOXIC</div>
+                <div class="chip active" onclick="toggleLayerFilter('SINKHOLE', this)">🕳️ SINKHOLE</div>
+                <div class="chip active" onclick="toggleLayerFilter('PLUME', this)">☣️ PLUME</div>
+                <div class="chip active" onclick="toggleLayerFilter('LLC', this)">🟣 SHELL LLC</div>
+                <div class="chip active" onclick="toggleLayerFilter('PROCUREMENT', this)">🟢 FRAUD</div>
+                <div class="chip active" onclick="toggleLayerFilter('CPS', this)">🔵 CPS / MUNI</div>
+                <div class="chip active" onclick="toggleLayerFilter('FCA', this)">🟡 FCA QUI TAM</div>
+                <div class="chip active" onclick="toggleLayerFilter('NATIONWIDE', this)">🌐 STRIKE</div>
+            </div>
+        </div>
+
+        <div class="target-list" id="target-list-container">
+            <!-- Dynamic Target Items Rendered Here -->
+        </div>
+    </div>
+
+    <!-- Right Target Dossier Drawer -->
+    <div class="right-drawer" id="right-drawer">
+        <div class="drawer-banner">
+            <button class="drawer-close" onclick="closeDossier()">
+                <i data-lucide="x" style="width: 14px; height: 14px;"></i>
+            </button>
+            <div class="dossier-id" id="dossier-id">TARGET DOSSIER</div>
+            <div class="dossier-title" id="dossier-title">HBNC Toxic Site</div>
+        </div>
+        <div class="drawer-content">
+            <div class="dossier-fact-grid">
+                <div class="fact-box">
+                    <div class="fact-title">Threat Layer</div>
+                    <div class="fact-val" id="dossier-layer" style="color: var(--red);">TOXIC</div>
+                </div>
+                <div class="fact-box">
+                    <div class="fact-title">Severity Level</div>
+                    <div class="fact-val" id="dossier-severity" style="color: var(--red);">CRITICAL</div>
+                </div>
+                <div class="fact-box">
+                    <div class="fact-title">GPS Coordinates</div>
+                    <div class="fact-val" id="dossier-coords">33.6775, -118.0012</div>
+                </div>
+                <div class="fact-box">
+                    <div class="fact-title">Evidence Source</div>
+                    <div class="fact-val" id="dossier-source">CERCLA / Phase I ESA</div>
+                </div>
+            </div>
+
+            <div class="dossier-desc-box" id="dossier-desc">
+                17642 Beach Blvd / 17631 Cameron Ln | Cr-VI 980 ug/kg (49x limit) | Asphalt cap FAILING | 2,247 cu ft HDPE Stormtech chambers | Void ab initio clearance | $155M COC liability
+            </div>
+
+            <div class="action-button-group">
+                <a id="dossier-arcgis-link" href="https://www.arcgis.com/home/webmap/viewer.html" target="_blank" class="btn-action-primary">
+                    <i data-lucide="external-link" style="width: 14px; height: 14px;"></i> LAUNCH IN ARCGIS PORTAL
+                </a>
+                <button class="btn-hud" onclick="focusCurrentTarget()">
+                    <i data-lucide="navigation" style="width: 14px; height: 14px;"></i> TACTICAL CAMERA ZOOM
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Basemap Mode Switcher -->
+    <div class="bottom-mode-bar">
+        <div class="mode-tab active" onclick="switchBasemap('dark', this)">
+            <i data-lucide="moon" style="width: 12px; height: 12px;"></i> ESRI DARK CANVAS
+        </div>
+        <div class="mode-tab" onclick="switchBasemap('satellite', this)">
+            <i data-lucide="globe-2" style="width: 12px; height: 12px;"></i> SATELLITE HYBRID
+        </div>
+        <div class="mode-tab" onclick="switchBasemap('streets', this)">
+            <i data-lucide="map-pin" style="width: 12px; height: 12px;"></i> ESRI STREETS NIGHT
+        </div>
+        <div class="mode-tab active" onclick="toggleFlowArcs(this)">
+            <i data-lucide="activity" style="width: 12px; height: 12px;"></i> MONEY FLOW ARCS
+        </div>
+        <div class="mode-tab active" onclick="togglePlumeHeatmap(this)">
+            <i data-lucide="flame" style="width: 12px; height: 12px;"></i> PLUME DISPERSION
+        </div>
+    </div>
+
+    <script>
+        // Audio Synthesizer Engine
+        let audioCtx = null;
+        let audioEnabled = true;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        function playTacticalBeep(freq = 880, type = 'sine', duration = 0.08) {
+            if (!audioEnabled) return;
+            try {
+                initAudio();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = type;
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch(e) {}
+        }
+
+        function toggleAudio() {
+            audioEnabled = !audioEnabled;
+            const btn = document.getElementById('btn-sound');
+            if (audioEnabled) {
+                btn.classList.remove('active');
+                btn.innerHTML = '<i data-lucide="volume-2" style="width: 14px; height: 14px;"></i> AUDIO SFX';
+                playTacticalBeep(1200, 'triangle', 0.1);
+            } else {
+                btn.classList.add('active');
+                btn.innerHTML = '<i data-lucide="volume-x" style="width: 14px; height: 14px;"></i> MUTED';
+            }
+            lucide.createIcons();
+        }
+
+        // Data Injection
+        const TARGETS = [
+  {
+    "id": "TOX-001",
+    "name": "HBNC Toxic Site",
+    "layer": "TOXIC",
+    "severity": "CRITICAL",
+    "lat": 33.6775,
+    "lon": -118.0012,
+    "source": "CERCLA / Phase I ESA T10000018579",
+    "description": "17642 Beach Blvd / 17631 Cameron Ln  |  Cr-VI 980 ug/kg (49x limit)  |  Asphalt cap FAILING  |  2,247 cu ft HDPE Stormtech chambers  |  Void ab initio clearance  |  $155M COC liability"
+  },
+  {
+    "id": "TOX-002",
+    "name": "Cameron Ln Parcel",
+    "layer": "TOXIC",
+    "severity": "HIGH",
+    "lat": 33.677,
+    "lon": -118.0015,
+    "source": "Parcel survey",
+    "description": "17631 Cameron Ln  |  Asbestos/Lead paint  |  Former ag pesticides  |  Yamada Trustee 1998"
+  },
+  {
+    "id": "TOX-003",
+    "name": "7561 Center Ave Vaults",
+    "layer": "TOXIC",
+    "severity": "CRITICAL",
+    "lat": 33.6927,
+    "lon": -117.9974,
+    "source": "Parcel + PPP records",
+    "description": "Units D1-E1-G1-J1  |  4 shell LLCs  |  Underground concrete coffins  |  Chen-Yamada pipeline  |  $1.47M PPP / $1.13M PPP routing"
+  },
+  {
+    "id": "SINK-001",
+    "name": "7561 Center Ave Vaults",
+    "layer": "SINKHOLE",
+    "severity": "HIGH",
+    "lat": 33.693,
+    "lon": -117.9975,
+    "source": "Site assessment",
+    "description": "Underground concrete coffins / Chen-Yamada / 1960s-70s construction"
+  },
+  {
+    "id": "SINK-002",
+    "name": "HBNC Excavation",
+    "layer": "SINKHOLE",
+    "severity": "CRITICAL",
+    "lat": 33.6778,
+    "lon": -118.0015,
+    "source": "Site assessment",
+    "description": "Asphalt cap failure / Cr-VI soil disturbance / 2,247 cu ft HDPE chambers"
+  },
+  {
+    "id": "SINK-003",
+    "name": "El Toro Hangars",
+    "layer": "SINKHOLE",
+    "severity": "MEDIUM",
+    "lat": 33.6755,
+    "lon": -117.7305,
+    "source": "Base closure",
+    "description": "Contaminated fill burial / Decommissioned MCAS El Toro / PFAS migration"
+  },
+  {
+    "id": "SINK-004",
+    "name": "Stormtech Chamber Field",
+    "layer": "SINKHOLE",
+    "severity": "CRITICAL",
+    "lat": 33.6773,
+    "lon": -118.001,
+    "source": "Stormtech spec",
+    "description": "HDPE Stormtech SC-740 / 2,247 cu ft / PVC manifold / corrosive soil"
+  },
+  {
+    "id": "BH-001",
+    "name": "Newport Shell Cluster",
+    "layer": "BLACKHOLE",
+    "severity": "HIGH",
+    "lat": 33.65,
+    "lon": -117.895,
+    "source": "LLC filings",
+    "description": "20341-71 Irvine Ave  |  CSJ Mgmt / PL Jetty  |  $0 transfers"
+  },
+  {
+    "id": "BH-002",
+    "name": "Pham Quitclaim Nexus",
+    "layer": "BLACKHOLE",
+    "severity": "HIGH",
+    "lat": 33.745,
+    "lon": -117.8125,
+    "source": "Deed records",
+    "description": "2614 Orchard Dr / 7100 Cerritos #108 / 13801 Shirley #85  |  $0 quitclaims"
+  },
+  {
+    "id": "BH-003",
+    "name": "Garnet St Routing",
+    "layer": "BLACKHOLE",
+    "severity": "MEDIUM",
+    "lat": 33.753,
+    "lon": -117.9905,
+    "source": "Mail routing",
+    "description": "15822 Garnet St  |  CMRA layer  |  Dylan & Andrew mailbox"
+  },
+  {
+    "id": "BH-004",
+    "name": "PCH CMRA",
+    "layer": "BLACKHOLE",
+    "severity": "HIGH",
+    "lat": 33.7505,
+    "lon": -118.0955,
+    "source": "PPP addresses",
+    "description": "1077 Pacific Coast Hwy #247  |  Stewart mailbox  |  Battle Creek MI"
+  },
+  {
+    "id": "LLC-001",
+    "name": "Triumvirate LLC",
+    "layer": "LLC",
+    "severity": "HIGH",
+    "lat": 33.707,
+    "lon": -117.958,
+    "source": "PPP/SBA",
+    "description": "21951 Brookhurst St  |  PPP $1,471,840  |  Anchorage AK mailbox"
+  },
+  {
+    "id": "LLC-002",
+    "name": "Stewart Industrial",
+    "layer": "LLC",
+    "severity": "HIGH",
+    "lat": 33.753,
+    "lon": -118.072,
+    "source": "PPP/SBA",
+    "description": "3311 Bounty Cir  |  PPP $1,128,327  |  1076 PCH #247 CMRA"
+  },
+  {
+    "id": "LLC-003",
+    "name": "CP Premier 1",
+    "layer": "LLC",
+    "severity": "HIGH",
+    "lat": 33.808,
+    "lon": -118.002,
+    "source": "Deed",
+    "description": "7100 Cerritos Ave #108  |  Peter Pham $0 quitclaim"
+  },
+  {
+    "id": "LLC-004",
+    "name": "CP Premier 2",
+    "layer": "LLC",
+    "severity": "HIGH",
+    "lat": 33.774,
+    "lon": -117.987,
+    "source": "Deed",
+    "description": "13801 Shirley St #85  |  Peter Pham $0 quitclaim"
+  },
+  {
+    "id": "LLC-005",
+    "name": "Garnet Drop",
+    "layer": "LLC",
+    "severity": "MEDIUM",
+    "lat": 33.753,
+    "lon": -117.99,
+    "source": "Mail routing",
+    "description": "15821-15822 Garnet St  |  Dylan & Andrew mailbox CMRA"
+  },
+  {
+    "id": "LLC-006",
+    "name": "Newport LLC Cluster",
+    "layer": "LLC",
+    "severity": "MEDIUM",
+    "lat": 33.65,
+    "lon": -117.89,
+    "source": "LLC filings",
+    "description": "20341-91 Irvine Ave  |  CSJ/PL Jetty shell cluster"
+  },
+  {
+    "id": "LLC-007",
+    "name": "Pham Residence",
+    "layer": "LLC",
+    "severity": "MEDIUM",
+    "lat": 33.745,
+    "lon": -117.812,
+    "source": "Deed",
+    "description": "2614 Orchard Dr Tustin  |  Peter Pham nexus"
+  },
+  {
+    "id": "LLC-008",
+    "name": "Stewart PPP",
+    "layer": "LLC",
+    "severity": "MEDIUM",
+    "lat": 33.755,
+    "lon": -117.99,
+    "source": "PPP/SBA",
+    "description": "PPP $1,128,327  |  Bounty Cir  |  Battle Creek MI"
+  },
+  {
+    "id": "LLC-009",
+    "name": "Triumvirate PPP",
+    "layer": "LLC",
+    "severity": "MEDIUM",
+    "lat": 33.725,
+    "lon": -117.97,
+    "source": "PPP/SBA",
+    "description": "PPP $1,471,840  |  Brookhurst  |  3705 Arctic Blvd AK"
+  },
+  {
+    "id": "LLC-010",
+    "name": "ONNI HB LLC",
+    "layer": "LLC",
+    "severity": "HIGH",
+    "lat": 33.687,
+    "lon": -117.988,
+    "source": "PPP/SBA",
+    "description": "$97.25M  |  17011 Beach Blvd  |  Phoenix mail"
+  },
+  {
+    "id": "LLC-011",
+    "name": "Corte Bella TruAmerica",
+    "layer": "LLC",
+    "severity": "HIGH",
+    "lat": 33.683,
+    "lon": -117.994,
+    "source": "PPP/SBA",
+    "description": "$85.75M  |  9543 Dixie St  |  Woodland Hills mail"
+  },
+  {
+    "id": "LLC-012",
+    "name": "Sendero Riverbend",
+    "layer": "LLC",
+    "severity": "HIGH",
+    "lat": 33.683,
+    "lon": -117.994,
+    "source": "PPP/SBA",
+    "description": "$70M  |  8955 Riverbend Dr  |  LA mail"
+  },
+  {
+    "id": "LLC-013",
+    "name": "SCG Edinger Plaza",
+    "layer": "LLC",
+    "severity": "HIGH",
+    "lat": 33.689,
+    "lon": -117.985,
+    "source": "PPP/SBA",
+    "description": "$65.5M  |  7542 Edinger Ave  |  SF mail"
+  },
+  {
+    "id": "FCA-HIT-001",
+    "name": "USDC CD CA \u2014 Knabb v. HB RICO / Qui Tam coordination",
+    "layer": "FCA",
+    "severity": "CRITICAL",
+    "lat": 33.748,
+    "lon": -117.87,
+    "source": "Federal docket",
+    "description": ""
+  },
+  {
+    "id": "FCA-HIT-007",
+    "name": "USDC CD CA LA \u2014 EPA OIG referral",
+    "layer": "FCA",
+    "severity": "CRITICAL",
+    "lat": 34.05,
+    "lon": -118.25,
+    "source": "OIG referral",
+    "description": ""
+  },
+  {
+    "id": "FCA-HIT-012",
+    "name": "DOJ Civil Division \u2014 qui tam notice",
+    "layer": "FCA",
+    "severity": "HIGH",
+    "lat": 38.907,
+    "lon": -77.037,
+    "source": "DOJ notice",
+    "description": ""
+  },
+  {
+    "id": "FCA-HIT-019",
+    "name": "Qui Tam complaint under seal",
+    "layer": "FCA",
+    "severity": "CRITICAL",
+    "lat": 33.748,
+    "lon": -117.87,
+    "source": "Sealed complaint",
+    "description": ""
+  },
+  {
+    "id": "FCA-HIT-024",
+    "name": "Relator disclosure served",
+    "layer": "FCA",
+    "severity": "HIGH",
+    "lat": 33.676,
+    "lon": -118.0015,
+    "source": "Relator disclosure",
+    "description": ""
+  },
+  {
+    "id": "CPS-001",
+    "name": "HBNC Child Deaths",
+    "layer": "CPS",
+    "severity": "CRITICAL",
+    "lat": 33.6775,
+    "lon": -118.0012,
+    "source": "OC HCA 20IC002",
+    "description": "4 confirmed deaths  |  279 emergencies  |  CERCLA toxics exposure"
+  },
+  {
+    "id": "CPS-002",
+    "name": "OC DA Block",
+    "layer": "CPS",
+    "severity": "HIGH",
+    "lat": 33.748,
+    "lon": -117.87,
+    "source": "Referral log",
+    "description": "No action on trafficking referrals"
+  },
+  {
+    "id": "CPS-003",
+    "name": "HB City Hall",
+    "layer": "CPS",
+    "severity": "HIGH",
+    "lat": 33.676,
+    "lon": -118.0015,
+    "source": "Ordinance 4289",
+    "description": "CEQA exemption fraud  |  Blocked reporting"
+  },
+  {
+    "id": "CPS-004",
+    "name": "Anaheim CPS Hub",
+    "layer": "CPS",
+    "severity": "HIGH",
+    "lat": 33.835,
+    "lon": -117.91,
+    "source": "Licensing",
+    "description": "Shelter billing cluster  |  COVID fraud"
+  },
+  {
+    "id": "CPS-005",
+    "name": "LA County IV-E",
+    "layer": "CPS",
+    "severity": "HIGH",
+    "lat": 34.05,
+    "lon": -118.25,
+    "source": "IV-E claims",
+    "description": "IV-E billing nexus"
+  },
+  {
+    "id": "PROC-001",
+    "name": "OC Sheriff Body Cams",
+    "layer": "PROCUREMENT",
+    "severity": "MEDIUM",
+    "lat": 33.715,
+    "lon": -117.85,
+    "source": "Procurement portal",
+    "description": "Sheriff Open $8,500,000"
+  },
+  {
+    "id": "PROC-002",
+    "name": "County IT Security",
+    "layer": "PROCUREMENT",
+    "severity": "MEDIUM",
+    "lat": 33.748,
+    "lon": -117.87,
+    "source": "Procurement portal",
+    "description": "IT Open $2,500,000"
+  },
+  {
+    "id": "PROC-003",
+    "name": "HB Coastal Infrastructure",
+    "layer": "PROCUREMENT",
+    "severity": "MEDIUM",
+    "lat": 33.676,
+    "lon": -118.0,
+    "source": "Procurement portal",
+    "description": "Public Works Under Review $12,000,000"
+  },
+  {
+    "id": "PROC-004",
+    "name": "Anaheim Housing RFQ",
+    "layer": "PROCUREMENT",
+    "severity": "INFO",
+    "lat": 33.835,
+    "lon": -117.91,
+    "source": "Procurement portal",
+    "description": "Housing Closed $4,500,000"
+  },
+  {
+    "id": "PROC-005",
+    "name": "HBNC 155M Remediation",
+    "layer": "PROCUREMENT",
+    "severity": "CRITICAL",
+    "lat": 33.6775,
+    "lon": -118.0012,
+    "source": "Procurement portal",
+    "description": "OCHCA/DPW VOID $155,000,000"
+  },
+  {
+    "id": "I-405_FREEWAY_CORRIDOR",
+    "name": "I-405 Freeway Corridor",
+    "layer": "INFRA",
+    "severity": "INFO",
+    "lat": 0.0,
+    "lon": 0.0,
+    "source": "Transport",
+    "description": "I-405 Freeway Corridor"
+  },
+  {
+    "id": "PACIFIC_COAST_HWY_(PCH)",
+    "name": "Pacific Coast Hwy (PCH)",
+    "layer": "INFRA",
+    "severity": "INFO",
+    "lat": 0.0,
+    "lon": 0.0,
+    "source": "Transport",
+    "description": "Pacific Coast Hwy (PCH)"
+  },
+  {
+    "id": "BEACH_BOULEVARD",
+    "name": "Beach Boulevard",
+    "layer": "INFRA",
+    "severity": "INFO",
+    "lat": 0.0,
+    "lon": 0.0,
+    "source": "Transport",
+    "description": "Beach Boulevard"
+  },
+  {
+    "id": "HDPE_STORMTECH_CHAMBERS",
+    "name": "HDPE Stormtech Chambers",
+    "layer": "INFRA",
+    "severity": "CRITICAL",
+    "lat": 0.0,
+    "lon": 0.0,
+    "source": "Concealed infrastructure",
+    "description": "HDPE Stormtech Chambers"
+  },
+  {
+    "id": "PLUME-001",
+    "name": "Cr-VI plume vector 1",
+    "layer": "PLUME",
+    "severity": "HIGH",
+    "lat": 0.0,
+    "lon": 0.0,
+    "source": "Phase I ESA",
+    "description": "Groundwater flow vector (SW) from HBNC per Phase I ESA"
+  },
+  {
+    "id": "PLUME-002",
+    "name": "Cr-VI plume vector 2",
+    "layer": "PLUME",
+    "severity": "HIGH",
+    "lat": 0.0,
+    "lon": 0.0,
+    "source": "Phase I ESA",
+    "description": "Groundwater flow vector (SW) from HBNC per Phase I ESA"
+  },
+  {
+    "id": "PLUME-003",
+    "name": "Cr-VI plume vector 3",
+    "layer": "PLUME",
+    "severity": "HIGH",
+    "lat": 0.0,
+    "lon": 0.0,
+    "source": "Phase I ESA",
+    "description": "Groundwater flow vector (SW) from HBNC per Phase I ESA"
+  },
+  {
+    "id": "PLUME-004",
+    "name": "Cr-VI plume vector 4",
+    "layer": "PLUME",
+    "severity": "HIGH",
+    "lat": 0.0,
+    "lon": 0.0,
+    "source": "Phase I ESA",
+    "description": "Groundwater flow vector (SW) from HBNC per Phase I ESA"
+  },
+  {
+    "id": "PLUME-005",
+    "name": "Cr-VI plume vector 5",
+    "layer": "PLUME",
+    "severity": "HIGH",
+    "lat": 0.0,
+    "lon": 0.0,
+    "source": "Phase I ESA",
+    "description": "Groundwater flow vector (SW) from HBNC per Phase I ESA"
+  },
+  {
+    "id": "PLUME-006",
+    "name": "Cr-VI plume vector 6",
+    "layer": "PLUME",
+    "severity": "HIGH",
+    "lat": 0.0,
+    "lon": 0.0,
+    "source": "Phase I ESA",
+    "description": "Groundwater flow vector (SW) from HBNC per Phase I ESA"
+  },
+  {
+    "id": "PLUME-007",
+    "name": "Cr-VI plume vector 7",
+    "layer": "PLUME",
+    "severity": "HIGH",
+    "lat": 0.0,
+    "lon": 0.0,
+    "source": "Phase I ESA",
+    "description": "Groundwater flow vector (SW) from HBNC per Phase I ESA"
+  },
+  {
+    "id": "PLUME-008",
+    "name": "Cr-VI plume vector 8",
+    "layer": "PLUME",
+    "severity": "HIGH",
+    "lat": 0.0,
+    "lon": 0.0,
+    "source": "Phase I ESA",
+    "description": "Groundwater flow vector (SW) from HBNC per Phase I ESA"
+  },
+  {
+    "id": "PLUME-009",
+    "name": "Cr-VI plume vector 9",
+    "layer": "PLUME",
+    "severity": "HIGH",
+    "lat": 0.0,
+    "lon": 0.0,
+    "source": "Phase I ESA",
+    "description": "Groundwater flow vector (SW) from HBNC per Phase I ESA"
+  },
+  {
+    "id": "PLUME-010",
+    "name": "Cr-VI plume vector 10",
+    "layer": "PLUME",
+    "severity": "HIGH",
+    "lat": 0.0,
+    "lon": 0.0,
+    "source": "Phase I ESA",
+    "description": "Groundwater flow vector (SW) from HBNC per Phase I ESA"
+  },
+  {
+    "id": "PLUME-011",
+    "name": "Cr-VI plume vector 11",
+    "layer": "PLUME",
+    "severity": "HIGH",
+    "lat": 0.0,
+    "lon": 0.0,
+    "source": "Phase I ESA",
+    "description": "Groundwater flow vector (SW) from HBNC per Phase I ESA"
+  },
+  {
+    "id": "PLUME-012",
+    "name": "Cr-VI plume vector 12",
+    "layer": "PLUME",
+    "severity": "HIGH",
+    "lat": 0.0,
+    "lon": 0.0,
+    "source": "Phase I ESA",
+    "description": "Groundwater flow vector (SW) from HBNC per Phase I ESA"
+  },
+  {
+    "id": "STRIKE-COOK",
+    "name": "Cook County Sheriff Hub",
+    "layer": "NATIONWIDE",
+    "severity": "CRITICAL",
+    "lat": 41.8781,
+    "lon": -87.6298,
+    "source": "Federal Audit Taskforce",
+    "description": "Cook County Intercept Hub | Subpoena Trail Active | CoC Grant Audit Nexus"
+  },
+  {
+    "id": "STRIKE-PIMA",
+    "name": "Pima County FBI Probe Node",
+    "layer": "NATIONWIDE",
+    "severity": "HIGH",
+    "lat": 32.2226,
+    "lon": -110.9747,
+    "source": "DOJ Cross-Reference",
+    "description": "Arizona Out-of-State LLC Entity Pivot | Property Conduit Transfer Node"
+  },
+  {
+    "id": "STRIKE-SHELBY",
+    "name": "Shelby County Sheriff Nexus",
+    "layer": "NATIONWIDE",
+    "severity": "HIGH",
+    "lat": 35.1495,
+    "lon": -90.049,
+    "source": "SBA OIG Matrix",
+    "description": "Shelby County Divergence Point | Cross-Jurisdictional PPP Conduit"
+  },
+  {
+    "id": "STRIKE-LA",
+    "name": "LA County Sheriff Exposure Node",
+    "layer": "NATIONWIDE",
+    "severity": "CRITICAL",
+    "lat": 34.0522,
+    "lon": -118.2437,
+    "source": "IV-E & Civil Audit",
+    "description": "LA Regional Corridor | Title IV-E Pipeline Divergence & Municipal Cross-Match"
+  },
+  {
+    "id": "STRIKE-DENVER",
+    "name": "Denver PPP Shell Cluster",
+    "layer": "NATIONWIDE",
+    "severity": "HIGH",
+    "lat": 39.7392,
+    "lon": -104.9903,
+    "source": "Financial Intelligence Unit",
+    "description": "Denver Asset Shuffle Conduit | Outbound Shell Flow Route"
+  },
+  {
+    "id": "STRIKE-NYC",
+    "name": "NYC Multi-Entity Lender Node",
+    "layer": "NATIONWIDE",
+    "severity": "HIGH",
+    "lat": 40.7128,
+    "lon": -74.006,
+    "source": "FinCEN / Wire Recon",
+    "description": "East Coast Banking Pivot | $0 Conveyance Syndicate Clearinghouse"
+  },
+  {
+    "id": "STRIKE-DC",
+    "name": "US DOJ & EPA OIG Headquarters",
+    "layer": "FCA",
+    "severity": "CRITICAL",
+    "lat": 38.8951,
+    "lon": -77.0364,
+    "source": "USDC Qui Tam Docket",
+    "description": "USDC CD CA Knabb v. HB Qui Tam / EPA OIG Referral Primary Nexus"
+  }
+];
+        const ARCS = [
+  {
+    "src": [
+      33.7064,
+      -117.9882
+    ],
+    "dst": [
+      33.706,
+      -117.9885
+    ],
+    "label": "Adjacent Expansion / Lease",
+    "type": "LOCAL",
+    "color": "#ff0055"
+  },
+  {
+    "src": [
+      33.6595,
+      -117.9988
+    ],
+    "dst": [
+      33.7064,
+      -117.9882
+    ],
+    "label": "CEQA / RPM Contract Conduit",
+    "type": "MUNI",
+    "color": "#00f3ff"
+  },
+  {
+    "src": [
+      33.7317,
+      -117.9945
+    ],
+    "dst": [
+      33.706,
+      -117.9885
+    ],
+    "label": "Grant Diversion / Absorption",
+    "type": "FRAUD",
+    "color": "#ffb703"
+  },
+  {
+    "src": [
+      33.7317,
+      -117.9945
+    ],
+    "dst": [
+      33.732,
+      -118.0142
+    ],
+    "label": "PPP / Structuring Loop",
+    "type": "SHELL",
+    "color": "#a855f7"
+  },
+  {
+    "src": [
+      33.7317,
+      -117.9945
+    ],
+    "dst": [
+      33.8248,
+      -118.0053
+    ],
+    "label": "$0 Conveyance Loop (Peter Pham)",
+    "type": "SHELL",
+    "color": "#a855f7"
+  },
+  {
+    "src": [
+      33.6775,
+      -118.0012
+    ],
+    "dst": [
+      33.6599,
+      -117.9992
+    ],
+    "label": "Subsurface Cr-VI Leaching Vector",
+    "type": "TOXIC",
+    "color": "#00ff88"
+  },
+  {
+    "src": [
+      33.6775,
+      -118.0012
+    ],
+    "dst": [
+      41.8781,
+      -87.6298
+    ],
+    "label": "Cross-State Strike Conduit (Cook Co)",
+    "type": "NATIONWIDE",
+    "color": "#ff0055"
+  },
+  {
+    "src": [
+      33.6775,
+      -118.0012
+    ],
+    "dst": [
+      32.2226,
+      -110.9747
+    ],
+    "label": "Arizona Asset Shell Link (Pima)",
+    "type": "NATIONWIDE",
+    "color": "#ffb703"
+  },
+  {
+    "src": [
+      33.6775,
+      -118.0012
+    ],
+    "dst": [
+      35.1495,
+      -90.049
+    ],
+    "label": "Midwest SBA Loan Divergence (Shelby)",
+    "type": "NATIONWIDE",
+    "color": "#ffb703"
+  },
+  {
+    "src": [
+      33.6775,
+      -118.0012
+    ],
+    "dst": [
+      39.7392,
+      -104.9903
+    ],
+    "label": "Colorado Conduit Link (Denver)",
+    "type": "NATIONWIDE",
+    "color": "#a855f7"
+  },
+  {
+    "src": [
+      33.6775,
+      -118.0012
+    ],
+    "dst": [
+      40.7128,
+      -74.006
+    ],
+    "label": "East Coast Lender Factory (NYC)",
+    "type": "NATIONWIDE",
+    "color": "#3b82f6"
+  },
+  {
+    "src": [
+      33.6775,
+      -118.0012
+    ],
+    "dst": [
+      38.8951,
+      -77.0364
+    ],
+    "label": "DOJ Civil / EPA OIG Qui Tam Docket",
+    "type": "FEDERAL",
+    "color": "#00f3ff"
+  }
+];
+
+        // Map Initialization with Esri ArcGIS Basemaps
+        const map = L.map('map', {
+            center: [33.6775, -118.0012],
+            zoom: 14,
+            zoomControl: false,
+            attributionControl: false
+        });
+
+        // Basemap Layers
+        const basemaps = {
+            dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }),
+            satellite: L.esri.basemapLayer('ImageryClarity'),
+            satelliteLabels: L.esri.basemapLayer('ImageryLabels'),
+            streets: L.esri.basemapLayer('DarkGray')
+        };
+
+        let currentBasemap = 'dark';
+        basemaps.dark.addTo(map);
+
+        function switchBasemap(type, el) {
+            playTacticalBeep(600, 'square', 0.05);
+            document.querySelectorAll('.bottom-mode-bar .mode-tab').forEach(t => {
+                if (t.innerText.includes('ESRI') || t.innerText.includes('SATELLITE')) t.classList.remove('active');
+            });
+            if (el) el.classList.add('active');
+
+            map.eachLayer(layer => {
+                if (layer === basemaps.dark || layer === basemaps.satellite || layer === basemaps.satelliteLabels || layer === basemaps.streets) {
+                    map.removeLayer(layer);
+                }
+            });
+
+            if (type === 'dark') {
+                basemaps.dark.addTo(map);
+            } else if (type === 'satellite') {
+                basemaps.satellite.addTo(map);
+                basemaps.satelliteLabels.addTo(map);
+            } else if (type === 'streets') {
+                basemaps.streets.addTo(map);
+            }
+            currentBasemap = type;
+        }
+
+        // Layer Markers Store
+        let markerGroup = L.layerGroup().addTo(map);
+        let arcGroup = L.layerGroup().addTo(map);
+        let plumeGroup = L.layerGroup().addTo(map);
+        let activeFilter = 'ALL';
+        let currentSelectedTarget = null;
+
+        // Color Mapping
+        function getLayerColor(layer, severity) {
+            if (severity === 'CRITICAL') return '#ff0055';
+            switch (layer) {
+                case 'TOXIC': return '#ff0055';
+                case 'SINKHOLE': return '#ff0055';
+                case 'PLUME': return '#00ff88';
+                case 'LLC': return '#a855f7';
+                case 'BLACKHOLE': return '#a855f7';
+                case 'PROCUREMENT': return '#00f3ff';
+                case 'CPS': return '#3a86ff';
+                case 'FCA': return '#ffb703';
+                case 'NATIONWIDE': return '#ff0055';
+                default: return '#00f3ff';
+            }
+        }
+
+        // Custom Pulsing Div Icon
+        function createPulseIcon(color, isCritical) {
+            return L.divIcon({
+                className: 'custom-pulse-marker',
+                html: `
+                    <div class="pulse-marker" style="color: ${color};">
+                        <div class="pulse-core" style="background: ${color};"></div>
+                        ${isCritical ? '<div class="pulse-wave"></div>' : ''}
+                    </div>
+                `,
+                iconSize: [24, 24],
+                iconAnchor: [12, 12]
+            });
+        }
+
+        // Render Targets on Map and List
+        function renderTargets(filter = 'ALL', searchQuery = '') {
+            markerGroup.clearLayers();
+            const listContainer = document.getElementById('target-list-container');
+            listContainer.innerHTML = '';
+
+            let count = 0;
+            let criticalCount = 0;
+
+            TARGETS.forEach(target => {
+                // Filtering
+                if (filter !== 'ALL' && target.layer !== filter) return;
+                if (searchQuery && !target.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
+                    !target.id.toLowerCase().includes(searchQuery.toLowerCase()) &&
+                    !target.description.toLowerCase().includes(searchQuery.toLowerCase())) return;
+
+                count++;
+                if (target.severity === 'CRITICAL') criticalCount++;
+
+                const color = getLayerColor(target.layer, target.severity);
+                const isCritical = target.severity === 'CRITICAL';
+
+                // Map Marker
+                const marker = L.marker([target.lat, target.lon], {
+                    icon: createPulseIcon(color, isCritical)
+                });
+
+                marker.on('click', () => {
+                    playTacticalBeep(980, 'sine', 0.1);
+                    openDossier(target);
+                });
+
+                marker.bindTooltip(`<b>[${target.id}]</b> ${target.name}`, {
+                    direction: 'top',
+                    className: 'hud-tooltip',
+                    offset: [0, -10]
+                });
+
+                markerGroup.addLayer(marker);
+
+                // List Card
+                const card = document.createElement('div');
+                card.className = `target-item sev-${target.severity.toLowerCase()}`;
+                card.id = `item-${target.id}`;
+                card.innerHTML = `
+                    <div class="item-top">
+                        <span class="item-id" style="color: ${color};">${target.id}</span>
+                        <span class="item-badge badge-${target.severity.toLowerCase()}">${target.severity}</span>
+                    </div>
+                    <div class="item-name">${target.name}</div>
+                    <div class="item-desc">${target.description || 'Spatial reconnaissance coordinate logged.'}</div>
+                `;
+
+                card.onclick = () => {
+                    playTacticalBeep(880, 'sine', 0.08);
+                    openDossier(target);
+                    map.flyTo([target.lat, target.lon], 16, { duration: 1.2 });
+                };
+
+                listContainer.appendChild(card);
+            });
+
+            document.getElementById('node-count-badge').innerText = `${count} TARGETS`;
+        }
+
+        // Render Arcs
+        function renderArcs() {
+            arcGroup.clearLayers();
+            ARCS.forEach(arc => {
+                const polyline = L.polyline([arc.src, arc.dst], {
+                    color: arc.color,
+                    weight: 2.5,
+                    opacity: 0.85,
+                    dashArray: '6, 8',
+                    lineCap: 'round'
+                });
+
+                polyline.bindTooltip(`<b>${arc.type} VECTOR:</b> ${arc.label}`, {
+                    direction: 'center',
+                    sticky: true
+                });
+
+                arcGroup.addLayer(polyline);
+            });
+        }
+
+        let arcsVisible = true;
+        function toggleFlowArcs(el) {
+            playTacticalBeep(700, 'sawtooth', 0.06);
+            arcsVisible = !arcsVisible;
+            if (arcsVisible) {
+                map.addLayer(arcGroup);
+                el.classList.add('active');
+            } else {
+                map.removeLayer(arcGroup);
+                el.classList.remove('active');
+            }
+        }
+
+        // Render Plume Hazard Dispersion Area
+        function renderPlumePolygons() {
+            plumeGroup.clearLayers();
+            // Hexavalent Chromium Plume Envelope
+            const plumePolygon = L.polygon([
+                [33.6790, -118.0030],
+                [33.6760, -117.9990],
+                [33.6720, -118.0050],
+                [33.6680, -118.0120],
+                [33.6730, -118.0160]
+            ], {
+                color: '#00ff88',
+                fillColor: '#00ff88',
+                fillOpacity: 0.22,
+                weight: 2,
+                dashArray: '4, 4'
+            });
+
+            plumePolygon.bindTooltip('<b>☣️ CR-VI GROUNDWATER CONTAMINATION ZONE</b><br>Concentration: 980 ug/kg (49x State Limit)', {
+                direction: 'top'
+            });
+
+            plumeGroup.addLayer(plumePolygon);
+            plumeGroup.addTo(map);
+        }
+
+        let plumeVisible = true;
+        function togglePlumeHeatmap(el) {
+            playTacticalBeep(750, 'sawtooth', 0.06);
+            plumeVisible = !plumeVisible;
+            if (plumeVisible) {
+                map.addLayer(plumeGroup);
+                el.classList.add('active');
+            } else {
+                map.removeLayer(plumeGroup);
+                el.classList.remove('active');
+            }
+        }
+
+        // Target Dossier Controls
+        function openDossier(target) {
+            currentSelectedTarget = target;
+            const drawer = document.getElementById('right-drawer');
+            document.getElementById('dossier-id').innerText = `TARGET RECON // ${target.id}`;
+            document.getElementById('dossier-title').innerText = target.name;
+            document.getElementById('dossier-layer').innerText = target.layer;
+            document.getElementById('dossier-layer').style.color = getLayerColor(target.layer, target.severity);
+            document.getElementById('dossier-severity').innerText = target.severity;
+            document.getElementById('dossier-severity').className = `fact-val badge-${target.severity.toLowerCase()}`;
+            document.getElementById('dossier-coords').innerText = `${target.lat.toFixed(4)}, ${target.lon.toFixed(4)}`;
+            document.getElementById('dossier-source').innerText = target.source || 'Public Records / ArcGIS Index';
+            document.getElementById('dossier-desc').innerText = target.description || 'High-priority spatial target identified in intelligence database.';
+            
+            // ArcGIS Deep-link
+            document.getElementById('dossier-arcgis-link').href = `https://www.arcgis.com/home/webmap/viewer.html?center=${target.lon},${target.lat}&level=16`;
+
+            drawer.classList.add('open');
+
+            // Highlight selected item in list
+            document.querySelectorAll('.target-item').forEach(el => el.classList.remove('selected'));
+            const listItem = document.getElementById(`item-${target.id}`);
+            if (listItem) {
+                listItem.classList.add('selected');
+                listItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function closeDossier() {
+            playTacticalBeep(500, 'sine', 0.05);
+            document.getElementById('right-drawer').classList.remove('open');
+            document.querySelectorAll('.target-item').forEach(el => el.classList.remove('selected'));
+            currentSelectedTarget = null;
+        }
+
+        function focusCurrentTarget() {
+            if (currentSelectedTarget) {
+                playTacticalBeep(1100, 'sine', 0.1);
+                map.flyTo([currentSelectedTarget.lat, currentSelectedTarget.lon], 17, { duration: 1.5 });
+            }
+        }
+
+        // Camera Presets
+        function flyToPreset(preset) {
+            playTacticalBeep(1000, 'triangle', 0.12);
+            if (preset === 'epicenter') {
+                map.flyTo([33.6775, -118.0012], 15, { duration: 1.8 });
+            } else if (preset === 'oc') {
+                map.flyTo([33.7250, -117.9500], 11, { duration: 2.0 });
+            } else if (preset === 'nationwide') {
+                map.flyTo([38.5000, -96.0000], 4, { duration: 2.5 });
+            }
+        }
+
+        // Filters & Search
+        function toggleLayerFilter(layer, el) {
+            playTacticalBeep(800, 'sine', 0.05);
+            activeFilter = layer;
+            document.querySelectorAll('.layer-chips .chip').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
+            renderTargets(activeFilter, document.getElementById('target-search').value);
+        }
+
+        function handleSearch(query) {
+            renderTargets(activeFilter, query);
+        }
+
+        // Init
+        window.addEventListener('DOMContentLoaded', () => {
+            renderTargets('ALL');
+            renderArcs();
+            renderPlumePolygons();
+            lucide.createIcons();
+            
+            // Auto open epicenter target for badass initial impact
+            const epic = TARGETS.find(t => t.id === 'TOX-001');
+            if (epic) {
+                setTimeout(() => openDossier(epic), 600);
+            }
+        });
+    </script>
+</body>
+</html>

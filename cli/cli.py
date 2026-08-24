@@ -40,6 +40,10 @@ def run_transform(args):
         target_entity = Domain(value=args.target)
     elif "email" in transform_name:
         target_entity = Email(value=args.target)
+    elif "ip" in transform_name:
+        target_entity = IPAddress(value=args.target)
+    elif "person" in transform_name:
+        target_entity = Person(value=args.target)
     else:
         target_entity = Domain(value=args.target)
 
@@ -122,9 +126,13 @@ def learn(args):
                     # Also save the raw text to knowledge base
                     content = f"Imported {len(matches)} OSINT tools from Claude Artifact: {source}"
             elif "text/html" in response.headers.get("Content-Type", ""):
-                from bs4 import BeautifulSoup
-                soup = BeautifulSoup(content, 'html.parser')
-                content = soup.get_text(separator='\n', strip=True)
+                try:
+                    from bs4 import BeautifulSoup
+                    soup = BeautifulSoup(content, 'html.parser')
+                    content = soup.get_text(separator='\n', strip=True)
+                except ImportError:
+                    import re
+                    content = re.sub(r'<[^>]+>', ' ', content)
         except Exception as e:
             print(f"[-] Failed to fetch from URL: {e}")
             return

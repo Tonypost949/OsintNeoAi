@@ -1,6 +1,7 @@
+import os
 import socket
 import random
-from .entities import Entity, IPAddress, SocialProfile
+from .entities import Entity, IPAddress, SocialProfile, ServiceInfo, ThreatScore
 
 class Transform:
     name = "BaseTransform"
