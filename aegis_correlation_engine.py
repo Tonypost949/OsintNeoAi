@@ -5,7 +5,10 @@ import re
 import time
 import uuid
 from datetime import datetime
-from google.cloud import bigquery
+try:
+    from google.cloud import bigquery
+except ImportError:
+    bigquery = None
 
 # ==============================================================================
 #                      AEGIS-RICO CONTINUOUS CORRELATION ENGINE (ASCII-SAFE)
@@ -19,7 +22,7 @@ from google.cloud import bigquery
 PHASE2_PROJECT = "noble-beanbag-497411-m4"
 DATASET_ID = "npi_forensic"
 BASELINE_PROJECT = "noble-beanbag-497411-m4"
-ACTIVE_WORKSPACE = r"C:\OsintNeoAi"
+ACTIVE_WORKSPACE = r"C:\OsintNeoAi" if os.path.exists(r"C:\OsintNeoAi") else os.path.dirname(os.path.abspath(__file__))
 BRAIN_DIR = r"C:\Users\HP\.gemini\antigravity\brain\71e7b1d1-f50b-477e-a713-942e8319b97d"
 REFERRAL_FILE = os.path.join(BRAIN_DIR, "federal_criminal_referral_briefing.md")
 INDEX_HTML = os.path.join(ACTIVE_WORKSPACE, "index.html")
@@ -78,9 +81,14 @@ def print_hud_header():
 class AegisEngine:
     def __init__(self):
         try:
-            self.client = bigquery.Client()
-            self.bq_available = True
-            safe_print(f"{GREEN}[OK] Connected to Google Cloud BigQuery client successfully.{RESET}")
+            if bigquery is not None:
+                self.client = bigquery.Client()
+                self.bq_available = True
+                safe_print(f"{GREEN}[OK] Connected to Google Cloud BigQuery client successfully.{RESET}")
+            else:
+                self.bq_available = False
+                self.client = None
+                safe_print(f"{YELLOW}[!] google-cloud-bigquery package not found. Running in Offline Local Mode.{RESET}")
         except Exception as e:
             self.bq_available = False
             self.client = None

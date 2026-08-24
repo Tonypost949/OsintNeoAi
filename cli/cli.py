@@ -59,10 +59,21 @@ def run_transform(args):
 
 def report(args):
     print("\n--- Investigation Report ---")
-    if not investigation_graph:
+    db.load()
+    nodes = db.data.get("nodes", [])
+    edges = db.data.get("links", []) or db.data.get("edges", [])
+    if nodes:
+        print(f"Total Persistent Graph Entities: {len(nodes)}")
+        print(f"Total Graph Relations/Edges: {len(edges)}")
+        print("\n--- Discovered Entities (Sample) ---")
+        for e in nodes[:40]:
+            print(f"  - [{e.get('type')}] {e.get('value')}")
+        if len(nodes) > 40:
+            print(f"  ... and {len(nodes) - 40} more entities in data/graph.json")
+    elif not investigation_graph:
         print("No entities found. The graph is empty.")
     else:
-        print(f"Total entities: {len(investigation_graph)}")
+        print(f"Total session entities: {len(investigation_graph)}")
         for e in investigation_graph:
             print(f"  - {e}")
     print("----------------------------\n")
