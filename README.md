@@ -4,8 +4,31 @@ Welcome to the **OSINTNeoAi** official investigation repository, live forensic s
 
 ---
 
+## ⚡ Quickstart & One-Line Terminal Installers
+
+Install and launch the complete intelligence suite, web discovery hub, and interactive AI CLI with a single command on any device:
+
+### 🪟 Windows (PowerShell):
+```powershell
+irm https://raw.githubusercontent.com/Tonypost949/OsintNeoAi/main/install.ps1 | iex
+```
+
+### 🐧 Linux / macOS / Kali WSL (Bash/Zsh):
+```bash
+curl -sSL https://raw.githubusercontent.com/Tonypost949/OsintNeoAi/main/install.sh | bash
+```
+
+### 📱 Android (Termux):
+```bash
+pkg update -y && pkg install -y git python curl && curl -sSL https://raw.githubusercontent.com/Tonypost949/OsintNeoAi/main/install_termux.sh | bash
+```
+
+---
+
 ## 📱 Mobile Quick Access & Live Cloud Command Endpoints
 
+* 📢 **Public Emergency Victims Board (Zero Login):** http://127.0.0.1:5052/victims-board / [`victims_board.html`](victims_board.html)
+* 💻 **OSINTNeoAiCLI Discovery Hub:** http://127.0.0.1:5052
 * 🔥 **Firebase Live Cloud Hub (`blah-905ad`):** https://blah-905ad.web.app
 * 🛰️ **Firebase 3D Tactical GIS Engine:** https://blah-905ad.web.app/master_tactical_gis.html
 * 🗺️ **Firebase Spatial Evidence Dashboard:** https://blah-905ad.web.app/arcgis_teams_dashboard.html
@@ -15,7 +38,6 @@ Welcome to the **OSINTNeoAi** official investigation repository, live forensic s
 * 📊 **Streamlit Public Showcase:** https://github.com/Tonypost949/OsintNeoAi
 * 🗺️ **GitHub Pages GIS Recon Map:** https://Tonypost949.github.io/OsintNeoAi/
 * 🛡️ **Public Recon Audit Landing:** https://Tonypost949.github.io/OsintNeoAi/PUBLIC_RECON_AUDIT.html
-* 💻 **OSINTNeoAiCLI Dashboard:** http://127.0.0.1:5052
 
 ---
 
