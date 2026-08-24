@@ -117,6 +117,12 @@ if [ -f "$INSTALL_DIR/OSINTNeoAiCLI.py" ]; then
     echo -e "\033[1;32m📢 Public Victims Board: http://127.0.0.1:5052/victims-board\033[0m\n"
 fi
 
-# Launch Interactive CLI Session in Foreground
+# Launch Interactive CLI Session in Foreground (Attaching to /dev/tty if stdin was piped)
 echo -e "\033[1;32m[*] Starting OSINTNeoAi interactive CLI session...\033[0m\n"
-"$PYTHON_BIN" "$INSTALL_DIR/cli/cli.py" chat
+if [ -t 0 ]; then
+    "$PYTHON_BIN" "$INSTALL_DIR/cli/cli.py" chat
+elif [ -e /dev/tty ]; then
+    "$PYTHON_BIN" "$INSTALL_DIR/cli/cli.py" chat < /dev/tty
+else
+    echo -e "\033[1;36m👉 To start the interactive chat session, run: osintneoai chat\033[0m"
+fi
