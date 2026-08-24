@@ -1,0 +1,129 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "OSINTNeoAi Azure Cloud Intelligence API",
+    "description": "Custom Power Apps and Power Automate connector for OSINTNeoAi Master Hub, Public Victims Board, and Tactical Maps.",
+    "version": "1.0.0"
+  },
+  "host": "osintneoai-app-949.azurewebsites.net",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/scan": {
+      "get": {
+        "summary": "Scan Developer CLIs & Cloud SDKs",
+        "description": "Scans and returns the status of all developer CLIs, runtimes, and Google Cloud SDKs.",
+        "operationId": "ScanCLIs",
+        "responses": {
+          "200": {
+            "description": "List of discovered CLIs and status",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "cmd": { "type": "string" },
+                  "category": { "type": "string" },
+                  "status": { "type": "string" },
+                  "path": { "type": "string" },
+                  "version": { "type": "string" },
+                  "fix_cmd": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/maps": {
+      "get": {
+        "summary": "List Tactical Intelligence Maps",
+        "description": "Returns all available interactive GIS maps and dashboards.",
+        "operationId": "ListMaps",
+        "responses": {
+          "200": {
+            "description": "List of maps",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "filename": { "type": "string" },
+                  "name": { "type": "string" },
+                  "url": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/submit-victim": {
+      "post": {
+        "summary": "Submit Victim & Mutual Aid Case",
+        "description": "Submits a new victim assistance report into the persistent mutual aid database.",
+        "operationId": "SubmitVictimReport",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "victim_name": { "type": "string", "example": "Jane Doe" },
+                "contact_info": { "type": "string", "example": "jane@proton.me" },
+                "incident_type": { "type": "string", "example": "Whistleblower Retaliation / Illegal Eviction" },
+                "location": { "type": "string", "example": "Huntington Beach, CA" },
+                "date": { "type": "string", "example": "2026-08-24" },
+                "summary": { "type": "string", "example": "Witness tampering after filing internal affairs report." }
+              },
+              "required": ["incident_type", "summary"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Submission confirmation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string" },
+                "id": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/system": {
+      "get": {
+        "summary": "Get System Telemetry & Coordinates",
+        "description": "Returns host machine specs, IP geolocation coordinates, and network topology.",
+        "operationId": "GetSystemTelemetry",
+        "responses": {
+          "200": {
+            "description": "System telemetry object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "hostname": { "type": "string" },
+                "os": { "type": "string" },
+                "local_ip": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
