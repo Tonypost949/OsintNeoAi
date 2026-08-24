@@ -501,8 +501,8 @@ def chat(args=None):
                 print("=" * 75 + "\n")
                 continue
                 
-            elif cmd.startswith('tools search '):
-                query = cmd.replace('tools search ', '').strip().lower()
+            elif cmd.startswith(('tools search ', 'search ', 'find ', 'tools find ')):
+                query = re.sub(r'^(?:tools\s+)?(?:search|find)\s+', '', user_input, flags=re.IGNORECASE).strip().lower()
                 if os.path.exists(tools_path):
                     with open(tools_path, "r", encoding="utf-8") as f:
                         t_data = json.load(f).get("tools", [])
