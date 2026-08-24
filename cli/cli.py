@@ -390,6 +390,24 @@ def chat(args=None):
                     print(f"[-] ingest_kali_linux_suite.py not found at {kali_script}")
                 continue
                 
+            elif cmd in ['grants', 'nonprofit', 'orr', 'fed grant']:
+                print("[*] Launching Federal Grant & Non-Profit Pipeline Analysis...")
+                grant_script = os.path.join(root_dir, "trace_orr_grants.py")
+                if os.path.exists(grant_script):
+                    subprocess.run([os.sys.executable, grant_script])
+                else:
+                    print(f"[-] trace_orr_grants.py not found at {grant_script}")
+                continue
+
+            elif cmd in ['azure', 'azure runner']:
+                print("[*] Launching Azure AI Multi-Service Runner...")
+                azure_script = os.path.join(root_dir, "azure_runner.py")
+                if os.path.exists(azure_script):
+                    subprocess.run([os.sys.executable, azure_script])
+                else:
+                    print(f"[-] azure_runner.py not found at {azure_script}")
+                continue
+                
             elif cmd.startswith('tools search '):
                 query = cmd.replace('tools search ', '').strip().lower()
                 if os.path.exists(tools_path):
