@@ -251,6 +251,27 @@ def serve_map_file(filename):
         return send_from_directory(ROOT_DIR, filename)
     abort(404)
 
+@app.route("/chat")
+@app.route("/chat.html")
+@app.route("/chat_export_latest.html")
+def chat_route():
+    for candidate in [
+        os.path.join(ROOT_DIR, "exports", "chat_export_latest.html"),
+        os.path.join(ROOT_DIR, "chat.html"),
+        os.path.join(ROOT_DIR, "docs", "chat.html")
+    ]:
+        if os.path.exists(candidate):
+            with open(candidate, "r", encoding="utf-8") as f:
+                return f.read()
+    return "<h3>Chat export not found</h3>", 404
+
+@app.route("/exports/<path:filename>")
+def serve_export_file(filename):
+    export_dir = os.path.join(ROOT_DIR, "exports")
+    if os.path.exists(os.path.join(export_dir, filename)):
+        return send_from_directory(export_dir, filename)
+    abort(404)
+
 @app.route("/victims-board")
 @app.route("/board")
 def victims_board():
@@ -318,6 +339,15 @@ def complaint_generator_route():
         with open(p, "r", encoding="utf-8") as f:
             return f.read()
     return "<h3>Complaint generator template not found</h3>", 404
+
+@app.route("/chat")
+@app.route("/chat.html")
+def chat_export_route():
+    p = os.path.join(ROOT_DIR, "exports", "chat_export_latest.html")
+    if os.path.exists(p):
+        with open(p, "r", encoding="utf-8") as f:
+            return f.read()
+    return "<h3>Chat export not found</h3>", 404
 
 @app.route("/api/search")
 def api_search():
