@@ -1,0 +1,2011 @@
+Source: https://huntingtonbeachca.gov
+----------------------------------------
+
+
+ 
+ 
+ 
+	 
+	 
+	 
+	 
+
+	
+
+	 
+	 
+	 Welcome to Huntington Beach, CA 
+	 
+	 
+	 
+
+
+	
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+	
+	 
+	 
+	 
+	 
+	 
+	 
+
+	 
+	 
+	 
+	 
+	 
+
+
+	 
+ 
+ 
+ 
+ 
+  
+	var defaultCalendarColor = "#3788d8";
+	var ImportCals = [];
+	var calendarProps = {'1' : { 'color' : '#61acc6' , 'name' : 'Events' },
+'3' : { 'color' : '#fec55b' , 'name' : 'Meetings' },
+'4' : { 'color' : '#f89a49' , 'name' : 'Recreation' },
+};
+	var RZCalendarTimezone = "";
+ 
+
+
+
+
+ 
+ 
+
+
+
+
+ 
+if (typeof(RZ) == 'undefined') RZ = {};
+if (!RZ.link) RZ.link = new Object();
+RZ.pagetype = 'template'
+RZ.baseurlprefix = ''
+RZ.baseurlpath = ''
+RZ.protocolRelativeRevizeBaseUrl='//cms3.revize.com'
+
+RZ.pagetemplatename = 'index'
+RZ.pagetemplateid = '21'
+RZ.pagemodule = ''
+RZ.pagemoduleid = ''
+RZ.pagerecordid = '';
+
+RZ.pageid = 'index';
+RZ.pageparentid = '';
+RZ.pagesectionid = '0';
+RZ.pagesectionname = 'Home Page';
+RZ.pagesectionlevel = '0';
+RZ.pagesectionfolder = '';
+RZ.pagesectionfilter = 'sectionid=0';
+RZ.pagelinkfilter = 'linklevel=0 and linksectionid=0';
+RZ.pagelinklevel = '0';
+RZ.pagelinkid = '-1';
+RZ.pageidfield = '';
+
+RZ.isnewrecord = false;
+RZ.editmodule = '';
+RZ.editrecordid = '';
+RZ.editrecordversion = '';
+RZ.editversion = '';
+RZ.editaction = '';
+
+RZ.page_roles = ''
+RZ.page_users = '1cc5b33ea808353964637e07ee9903f84e20209fe39ad3667b55cd2c3fc95583'
+RZ.page_key = 'index[]'
+RZ.parent_key = ''
+RZ.inherit_key = 'index[]'
+RZ.workflowname = ''
+RZ.permissions_options = 'warningsOFF'
+RZ.permissions_module = 'webspace_page_permissions'
+RZ.webspace = 'huntingtonbeachca'
+RZ.webspacedesc = "";
+
+RZ.featurespattern = '(EZ)';
+null
+
+RZ.webspacelinksurl = ''
+RZ.webspacelinksurl = './webspace/links.html'
+RZ.workflowlist = ''
+RZ.revizeserverurl = 'https://cms3.revize.com/revize/huntingtonbeachca';
+
+if (!RZ.nextseq) RZ.nextseq = {linknames:{},modules:{}};
+
+RZ.webspace_config = new Object();
+RZ.webspace_config.admin_email = "noreply@revize.com";
+RZ.webspace_config.calendar_options = "max_events=6";
+RZ.webspace_config.form_captcha = "yes";
+RZ.webspace_config.form_server = "revizeserver";
+RZ.webspace_config.form_technology = "jsp";
+RZ.webspace_config.formwizard_ftp_password = "";
+RZ.webspace_config.formwizard_ftp_port = "";
+RZ.webspace_config.formwizard_ftp_server = "";
+RZ.webspace_config.formwizard_ftp_user = "";
+RZ.webspace_config.formwizard_setup = "yes";
+RZ.webspace_config.formwizard_smtp_password = "xxx";
+RZ.webspace_config.formwizard_smtp_server = "xxx";
+RZ.webspace_config.formwizard_smtp_user = "xxx";
+RZ.webspace_config.google_analytics = "G-2K8WJQZB2T";
+RZ.webspace_config.home_pageid = "0";
+RZ.webspace_config.home_sectionid = "0";
+RZ.webspace_config.home_template = "home,index,sitemap";
+RZ.webspace_config.icon_email = " ";
+RZ.webspace_config.image_maxheight = "3000";
+RZ.webspace_config.image_maxwidth = "3000";
+RZ.webspace_config.image_setup = "yes";
+RZ.webspace_config.livesite_url = "";
+RZ.webspace_config.menu_links_module = "links";
+RZ.webspace_config.menu_newsection = "";
+RZ.webspace_config.menu_nexturl = "webspace_menu-editform.jsp";
+RZ.webspace_config.menu_sections_module = "sections";
+RZ.webspace_config.menu_system = "custom";
+RZ.webspace_config.menu_version = "1.00";
+RZ.webspace_config.new_menu_manager_enabled = "yes";
+RZ.webspace_config.notify_options = "hide_text=no";
+RZ.webspace_config.notify_return_url = "enotify/index.php";
+RZ.webspace_config.rte_setup = "yes";
+RZ.webspace_config.to_email = "webpageupdate_subscribers@revize.com";
+RZ.webspace_config.use_folders = "1";
+
+RZ.isauthenticationactive = true
+RZ.warning = ""
+RZ.adminwinmsg = null
+
+RZ.channels = 'revize,Production';
+RZ.jsversion = 1.2 
+  
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+	 Skip to main content 
+	
+
+	 
+		  
+		  
+	  
+
+	 
+		 
+			 
+				
+
+
+
+
+
+
+
+ 
+ 
+	  Home  
+	  Government 
+		 
+			  Agendas & Minutes  
+			  Boards & Commissions 
+				 
+					  CIAB/Public Works Commission  
+					  Citizen Participation Advisory Board  
+					  City Celebration Committee  
+					  Community & Library Services Commission  
+					  Finance Commission  
+					  Harbour Commission  
+					  Historic Resources Board  
+					  Independence Day Event Task Force  
+					  Investment Advisory Board  
+					  Oak View Community Meetings  
+					  Personnel Commission  
+					  Planning Commission  
+					  School District/City Committee  
+					  Sunset Beach Local Coastal Program Review Board  
+					  Youth Collaborative  
+					  Notice of Vacancies  
+					  Zoning Administrator  
+				 
+			 
+			  Charter & Codes 
+				 
+					  City Administrative Regulations  
+					  City Charter  
+					  Municipal Codes  
+					  Zoning Code  
+				 
+			 
+			  About HB 
+				 
+					  Economy  
+					  Education  
+				 
+			 
+			  City Council 
+				 
+					  Council Committees  
+					  Previous City Mayors  
+				 
+			 
+			  City Attorney 
+				 
+					  Administration Citation  
+					  Frequently Asked Questions  
+				 
+			 
+			  City Clerk 
+				 
+					  Meeting Decorum & Agenda Comments  
+					  Election, Voter, & Campaign Information  
+					  Fireworks Information  
+					  Passport Services  
+				 
+			 
+			  City Treasurer 
+				 
+					  Investments  
+				 
+			 
+			  Public Records  
+			  Transparency Portal  
+		 
+	 
+	  Departments 
+		 
+			  City Manager 
+				 
+					  Strategic Plan  
+					  Homeless Solutions  
+					  Office of Communications  
+				 
+			 
+			  Community Development 
+				 
+					  Permit Center Portal  
+					  Affordable Housing  
+					  Building & Inspections  
+					  Code Enforcement  
+					  Economic Development  
+					  Major Projects  
+					  Planning & Zoning  
+					  Get In Line  
+					  ACA Help Center  
+				 
+			 
+			  Community & Library Services 
+				 
+					  Library  
+					  Parks & Recreation  
+					  Special Events  
+					  Field Reservation  
+					  Film Permits  
+				 
+			 
+			  Finance 
+				 
+					  Budget & Financial Reports  
+					  Master Fee & Charges Schedule  
+					  Municipal Billing  
+					  Purchasing  
+					  Unclaimed Funds  
+				 
+			 
+			  Fire 
+				 
+					  About HBFD  
+					  Community Risk Reduction  
+					  Emergency Management  
+					  FireMed  
+					  Marine Safety  
+					  Recruitment  
+				 
+			 
+			  Human Resources 
+				 
+					  Careers  
+					  Benefits  
+					  Employee Salaries & Benefits  
+					  Memoranda of Understandings  
+				 
+			 
+			  Information Services 
+				 
+					  About IT Services  
+					  What We Do  
+					  IS by the Numbers  
+					  Accomplishments & Goals  
+				 
+			 
+			  Library 
+				 
+					  Using the Library  
+					  Events  
+					  Youth  
+					  Library Services  
+					  Support HBPL  
+					  About HBPL  
+				 
+			 
+			  Parks & Recreation 
+				 
+					  Register & Search SANDS Programs  
+					  Independence Day Event  
+					  Beach Information  
+					  Parks & Facilities  
+					  Sports Complex  
+				 
+			 
+			  Police 
+				 
+					  About HBPD  
+					  Get Involved  
+					  Join HBPD  
+					  Public Information  
+				 
+			 
+			  Public Works 
+				 
+					  Bids  
+					  Development Services  
+					  Engineering  
+					  Maintenance  
+					  Sandbags  
+					  Trash & Recycling  
+					  Water & Sewer  
+				 
+			 
+			  Volunteer Opportunities  
+		 
+	 
+	  Services 
+		 
+			  Ask a Question  
+			  Report An Issue  
+			  Make a City Payment 
+				 
+					  Auto Pay  
+					  Vendor Payment Application  
+					  MyMeter  
+				 
+			 
+			  Parking 
+				 
+					  HBRV Campground  
+					  Rates & Fees  
+				 
+			 
+			  Senior Services 
+				 
+					  HB Council on Aging  
+					  Hoag Health & Wellness Pavilion  
+					  Senior Services Provided  
+				 
+			 
+			  Animal Control  
+			  Library Catalog  
+			  Parks & Facilities  
+			  Beach Information  
+			  Business License  
+			  Permit Center  
+			  Homeless Solutions  
+			  News & Media  
+			  Passport Services  
+			  Email alerts  
+			  Oversized Vehicle Permits  
+			  Trash & Recycling  
+			  Water & Sewer  
+			  Register & Search SANDS Programs  
+			  HBTV  
+			  Street Sweeping  
+		 
+	 
+	  Business 
+		 
+			  Available Commercial Properties  
+			  Business Assistance 
+				 
+					  Business Assistance Programs  
+					  Partners & Resources  
+					  Opportunity Zones  
+				 
+			 
+			  Business Directory  
+			  Business Improvement Districts 
+				 
+					  Downtown BID  
+					  Tourism BID  
+				 
+			 
+			  Business License  
+			  Demographics  
+			  Economic Development 
+				 
+					  Economic Development Strategy  
+				 
+			 
+			  Film Permits  
+			  New Business & Certificate of Occupancy  
+			  Planning Services  
+			  Shop Local 
+				 
+					  What's New in Surf City  
+					  Buy Local, Park Free  
+				 
+			 
+			  Starting a Business in Huntington Beach  
+			  Streamline Surf City  
+			  Vendor Registration  
+		 
+	 
+ 
+
+ .department #slider .tns-lazy-img{filter: brightness(50%);}tr.fc-limited { display: none!important; }#entry table td span{line-height:unset!important;}#breadcrumbs a, #breadcrumbs a:after, #breadcrumbs li {font-size:18px;}#breadcrumbs a:after{right: 25px;}#breadcrumbs a{padding-right:55px;}.footerBtm div:not(#revize){font-size:18px!important;}@media only screen and (max-width: 991px) {#breadcrumbs li {display: inline!important;}}.sldCnt h3 {padding: 0 0 0 25px;color: #fff;font-size: 24px;font-family: 'Bebas Neue', sans-serif;margin: 0 0 20px;}.sldCnt h4 {padding:unset!important;font-family:unset!important;}@media only screen and (min-width: 992px) {#nav > li > .mega-wrapper > ul .divider-wrap {position: absolute;width: 100%;top: 50%;transform: translateY(-50%);left: 0;right: 0;height: 100%;display: flex;justify-content: space-between;padding: 0 19% 0 19%;z-index: 0;}  #nav > li > .mega-wrapper > ul .divider-wrap .divider {width: 1px;height: 100%;background: #acd8eb;margin-left: 20px;padding: 0;}}
+ 
+  
+  
+ 
+  (function (s, i, l, k, y) {
+    s[i] = s[i] || y;
+    s[l] = s[l] || [];
+    s[k] = function(e, p) {
+      p = p || {};
+      p.event = e;
+      p.time = Date.now();
+      s[l].push(p);
+    };
+    s[k]('page_load');
+  })(window, 'stConfig', 'stEvents', 'silktide', {});
+ 
+
+
+
+
+
+			 
+			 
+				 
+					
+						
+					   facebook   
+					
+					
+						
+					   twitter   
+					
+					
+						
+					   instagram   
+					
+					  
+			 
+		  
+	  
+
+  
+ 
+
+			 
+			RZ.module = 'revize_topnav';
+			RZ.nexturl = "/revize/plugins/menus/webspace_menu-editlist.jsp?pageid=header&"
+					+ "linksfilter=linkplacement=topnav and linkparentid=0&"
+					+ "numberoflevels=3&"
+					+ "linkoptions=url,template,file&"
+					+ "linknewsection=*all*";
+			RZ.img = ' Edit Top Nav ';
+			RZ.caption = '';
+			RZ.set="links.linkplacement=topnav";
+			RZ.options = '';
+			if (typeof RZaction != 'undefined') RZaction('editlist');
+		 
+		 
+			RZ.module = 'freeform';
+			RZ.nexturl = 'editforms/metadata-editform.jsp';
+			RZ.img = ' Edit Metadata ';
+			RZ.set = 'pageid=index';
+			RZ.options = '';
+			if (typeof RZaction != 'undefined') RZaction('editform');
+		 
+		 
+			RZ.nexturl = '';
+			RZ.img = '   ';
+			RZ.options = '';
+			if (typeof RZaction != 'undefined') RZaction('permissions');
+		 
+		 
+			RZ.module = 'global';
+			RZ.nexturl = 'editforms/socials-editform.jsp?';
+			RZ.img = ' Edit Social ';
+			RZ.set = 'pageid=social';
+			RZ.options = '';
+			if (typeof RZaction != 'undefined') RZaction('editform');
+		 											
+		
+	 
+
+
+
+ 
+	 
+		 
+        			 
+				RZ.module = 'synonyms';
+				RZ.nexturl = 'editforms/synonyms-editlist.jsp?pageid=index';
+				RZ.img = ' Edit Search Synonyms ';
+				RZ.set = '';
+				RZ.options = '';
+				if (typeof RZaction != 'undefined') RZaction('editlist');
+			 
+			 
+				RZ.module = 'curated_search';
+				RZ.nexturl = 'editforms/curated_search-editlist.jsp?pageid=index';
+				RZ.img = ' Edit Search Items ';
+				RZ.set = '';
+				RZ.options = '';
+				if (typeof RZaction != 'undefined') RZaction('editlist');
+			 
+			 
+				RZ.module = 'curated_depts';
+				RZ.nexturl = 'editforms/curated_dept-editlist.jsp?pageid=index';
+				RZ.img = ' Edit Department Contacts ';
+				RZ.set = '';
+				RZ.options = '';
+				if (typeof RZaction != 'undefined') RZaction('editlist');
+			 
+        		  
+		 
+			    
+			 Services 
+			 Forms 
+			 All of Huntington Beach 
+		 
+		 
+			 
+				 Services 
+				  
+			 
+			 
+				 Forms 
+				  
+			 
+			 
+				 All of huntington Beach 
+				  
+			 
+		  
+	  
+  
+
+ 
+if (typeof RZlistbegin != 'undefined') RZlistbegin(1)
+ 
+ 
+if (typeof RZlinktemplate != 'undefined') RZlinktemplate('slider','','')
+if (typeof RZ.nextseq != 'undefined') RZ.nextseq.modules['slider_1']={field:'seq_no',seq:'8.00'};
+ 
+
+
+
+ 
+	 
+		 
+			   	
+			 
+				 
+					 
+						 
+							    Search Huntington Beach California  
+							 
+							 GO 
+						 
+					  
+				  
+			  
+			 
+				 
+					function googleTranslateElementInit() {
+						new google.translate.TranslateElement({pagelanguage: 'en',
+							layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
+							'google-translate');
+					}
+				 
+			  
+			 
+					 Translate 
+					 
+						   English   
+						  Afrikaans  
+						  Albanian  
+						  Arabic  
+						  Armenian  
+						  Azerbaijani  
+						  Basque  
+						  Belarusian  
+						  Bengali  
+						  Bosnian  
+						  Bulgarian  
+						  Catalan  
+						  Cebuano  
+						  Chinese (Simplified)  
+						  Chinese (Traditional)  
+						  Croatian  
+						  Czech  
+						  Danish  
+						  Dutch  
+						  Esperanto  
+						  Estonian  
+						  Filipino  
+						  Finnish  
+						  French  
+						  Galician  
+						  Georgian  
+						  German  
+						  Greek  
+						  Gujarati  
+						  Haitian Creole  
+						  Hausa  
+						  Hebrew  
+						  Hindi  
+						  Hmong  
+						  Hungarian  
+						  Icelandic  
+						  Igbo  
+						  Indonesian  
+						  Irish  
+						  Italian  
+						  Japanese  
+						  Javanese  
+						  Kannada  
+						  Khmer  
+						  Korean  
+						  Lao  
+						  Latin  
+						  Latvian  
+						  Lithuanian  
+						  Macedonian  
+						  Malay  
+						  Maltese  
+						  Maori  
+						  Marathi  
+						  Mongolian  
+						  Nepali  
+						  Norwegian  
+						  Persian  
+						  Polish  
+						  Portuguese  
+						  Punjabi  
+						  Romanian  
+						  Russian  
+						  Serbian  
+						  Slovak  
+						  Slovenian  
+						  Somali  
+						  Spanish  
+						  Swahili  
+						  Swedish  
+						  Tamil  
+						  Telugu  
+						  Thai  
+						  Turkish  
+						  Ukrainian  
+						  Urdu  
+						  Vietnamese  
+						  Welsh  
+						  Yiddish  
+						  Yoruba  
+						  Zulu  
+					 
+				  	
+		  
+	  
+	 
+		                            
+	  
+	 
+		 
+			  Welcome To Huntington Beach 
+		 
+	  
+	 
+  
+	 
+		 
+			RZ.module = 'slider';
+			
+			RZ.nexturl = 'editforms/slider_images-editlist.jsp?width=1700&height=700&pageid=index';
+			RZ.img = ' Edit Slides ';
+			RZ.set = '';
+			RZ.options = '';
+			if (typeof RZaction != 'undefined') RZaction('editform');
+		 
+		 
+			RZ.module = 'global';
+			RZ.nexturl = 'editforms/text_subtext-editform.jsp?';
+			RZ.img = ' Edit Slider Caption ';
+			RZ.set = 'pageid=index-title';
+			RZ.options = '';
+			if (typeof RZaction != 'undefined') RZaction('editform');
+		 
+	 
+
+
+
+ 
+	 
+		 
+			 
+				 
+					RZ.module = 'quick_links';
+					RZ.nexturl = 'editforms/quick_links-editlist.jsp?width=54&height=66&pageid=quicklinks';
+					RZ.img = ' Edit Quicklinks ';
+					RZ.set = '';
+					RZ.options = '';
+					if (typeof RZaction != 'undefined') RZaction('editform');
+				 
+			 
+			 
+				 
+				
+
+					
+						
+							 
+							 
+							 
+								 
+									  
+									 Request a Service 
+								  
+							  
+						
+					
+						
+							 
+							 
+							 
+								 
+									  
+									 Make A City Payment 
+								  
+							  
+						
+					
+						
+							 
+							 
+							 
+								 
+									  
+									 Permit Center Portal 
+								  
+							  
+						
+					
+						
+							 
+							 
+							 
+								 
+									  
+									 Agendas & Minutes 
+								  
+							  
+						
+					
+						
+							 
+							 
+							 
+								 
+									  
+									 Contact City Council 
+								  
+							  
+						
+					
+						
+							 
+							 
+							 
+								 
+									  
+									 Careers 
+								  
+							  
+						
+					
+				
+				  
+			  
+		  
+		 
+	  
+
+		 
+			 
+				 
+					
+				 
+				 
+					 
+						  Stay up-to-date Latest News 
+					  
+				  
+			  
+			 
+				 
+				 
+						RZ.module = 'global';
+						RZ.nexturl = 'editforms/text_subtext-editform.jsp?';
+						RZ.img = ' Edit News Header ';
+						RZ.set = 'pageid=newsheader';
+						RZ.options = '';
+						if (typeof RZaction != 'undefined') RZaction('editform');
+					 
+					 
+						RZ.module = 'news';
+						RZ.nexturl = "editforms/news-editlist.jsp?width=370&height=244&pageid=main";
+						RZ.popupwidth = ''; RZ.popupheight = ''; RZ.popupscroll = '';
+						RZ.img = ' Edit News List ';
+						RZ.caption = '';
+						RZ.options = '';
+						if (typeof RZaction != 'undefined') RZaction('editlist');
+					 
+				 
+				 
+					 
+					
+						
+						
+
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+									
+								
+									
+								
+							 
+								
+								 
+								
+									  
+									 
+										 August 20, 2026 
+										 City Celebration - The Coast Guard: Always Ready, Always There 
+									  
+								  
+							  
+						
+						
+						
+
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+									
+								
+									
+								
+							 
+								
+								 
+								
+									  
+									 
+										 August 13, 2026 
+										 City Celebration - Honor & Valor: Huntington Beach Remembers Our Purple Heart Recipients 
+									  
+								  
+							  
+						
+						
+						
+
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+									
+								
+									
+								
+							 
+								
+								 
+								
+									  
+									 
+										 August 13, 2026 
+										 Celebrating the Best of HB - Photo Contest Winners 
+									  
+								  
+							  
+						
+						
+						
+
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+									
+								
+									
+								
+							 
+								
+								 
+								
+									  
+									 
+										 August 12, 2026 
+										 National Senior Citizen Day - August 21 Celebrating Seniors in HB 
+									  
+								  
+							  
+						
+						
+						
+
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+									
+								
+									
+								
+							 
+								
+								 
+								
+									  
+									 
+										 August 12, 2026 
+										 Junior Citizens Academy in Huntington Beach: Growing Tomorrow&#8217;s Civic Leaders 
+									  
+								  
+							  
+						
+						
+						
+
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+									
+								
+									
+								
+							 
+								
+								 
+								
+									  
+									 
+										 July 23, 2026 
+										 Zack Zithisakthanakul Named Chief Financial Officer for the City of Huntington Beach 
+									  
+								  
+							  
+						
+						
+						
+
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+									
+								
+									
+								
+							 
+								
+								 
+								
+									  
+									 
+										 July 21, 2026 
+										 City Celebration - America 250: More Than One Day 
+									  
+								  
+							  
+						
+						
+						
+
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+									
+								
+									
+								
+							 
+								
+								 
+								
+									  
+									 
+										 July 15, 2026 
+										 The US Open of Surfing Returns to Huntington Beach 
+									  
+								  
+							  
+						
+						
+						
+
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+									
+								
+									
+								
+							 
+								
+								 
+								
+									  
+									 
+										 July 15, 2026 
+										 International Surfing Museum Celebrates Grand Opening July 24 
+									  
+								  
+							  
+						
+						
+						
+
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+									
+								
+									
+								
+							 
+								
+								 
+								
+									  
+									 
+										 July 13, 2026 
+										 Celebrate the End of Summer at the Huntington Beach Public Library 
+									  
+								  
+							  
+						
+						
+					
+					  
+				  
+			  
+		 
+		 
+					 
+						RZ.module = 'global';
+						RZ.nexturl = 'editforms/text-editform.jsp';
+						RZ.img = ' Edit News Button ';
+						RZ.set = 'pageid=newsheaderbtn';
+						RZ.options = '';
+						if (typeof RZaction != 'undefined') RZaction('editform');
+					 
+					 
+					
+			 See All News 
+		 
+	  
+
+	 
+		 
+		 
+				  
+				  
+						RZ.module = 'global';
+						RZ.nexturl = 'editforms/text_subtext-editform.jsp';
+						RZ.img = ' Edit Event Header ';
+						RZ.set = 'pageid=eventheadr';
+						RZ.options = '';
+						if (typeof RZaction != 'undefined') RZaction('editform');
+					 
+					  
+						RZ.module = 'global';
+						RZ.nexturl = 'editforms/tab-editform.jsp';
+						RZ.img = ' Edit Tab Header ';
+						RZ.set = 'pageid=eventtab';
+						RZ.options = '';
+						if (typeof RZaction != 'undefined') RZaction('editform');
+					 
+					 
+			 
+				 
+					  Get Involved upcoming events 
+					 
+						 Meetings 
+						 Events 
+						 Recreation 
+					  
+					  
+					 
+					 
+					 
+						RZ.module = 'global';
+						RZ.nexturl = 'editforms/text-editform.jsp';
+						RZ.img = ' Edit Button Text ';
+						RZ.set = 'pageid=eventbtn';
+						RZ.options = '';
+						if (typeof RZaction != 'undefined') RZaction('editform');
+					 
+				 
+				
+						 See Full Calendar 
+					 
+				  
+			  
+		  
+	  
+
+	 
+         
+         
+		 
+				  
+						RZ.module = 'global';
+						RZ.nexturl = 'editforms/text_subtext-editform.jsp';
+						RZ.img = ' Edit Container Header ';
+						RZ.set = 'pageid=conheadr';
+						RZ.options = '';
+						if (typeof RZaction != 'undefined') RZaction('editform');
+					 
+					 
+             
+                 
+                     
+                          Explore Huntington Beach 
+                         
+						 
+							 
+								RZ.module = 'quick_links';
+								RZ.nexturl = 'editforms/quick_links-editlist.jsp?width=235&height=235&pageid=explorelinks';
+								RZ.img = ' Edit explore Box ';
+								RZ.set = '';
+								RZ.options = '';
+								if (typeof RZaction != 'undefined') RZaction('editform');
+							 
+						 
+						
+						
+
+							
+							
+								
+									 
+									 
+									 
+										 
+											 
+												  
+												 LIVE HERE 
+											 
+										 
+									  
+								
+							
+								
+									 
+									 
+									 
+										 
+											 
+												  
+												 WORK HERE 
+											 
+										 
+									  
+								
+							
+								
+									 
+									 
+									 
+										 
+											 
+												  
+												 PLAY HERE 
+											 
+										 
+									  
+								
+							
+						
+                          
+                      
+                 
+              
+          
+      
+
+
+	
+
+
+
+
+ 
+
+   
+    
+     
+      RZ.module = 'alert';
+      RZ.nexturl = "editforms/alert-editform.jsp";
+      RZ.img = ' Edit Alert ';
+      RZ.set = 'alert.pageid=alert';
+      RZ.options = '';
+      if (typeof RZaction != 'undefined') RZaction('editform');
+     
+   
+   
+   
+     &times; 
+   
+   Sign Up for the HB Newsletter 
+  Stay informed with weekly updates on city news, events, and announcements.   Sign Up!   &nbsp;
+  
+
+ 
+
+
+	 
+	 
+		 
+		  
+		  this page  
+	 
+
+	 
+		 
+			 
+				 
+					 Share this page 
+					  &times;  
+				 
+				 
+					 
+						 Copy and paste this code into your website. 
+						 &lt;a href="http://huntingtonbeachca.gov/">Your Link Name&lt;/a&gt; 
+					  
+					 
+						 Share this page on your favorite Social network 
+						 
+							 
+								 
+									   Facebook
+								 
+							 
+							 
+								 
+								  Twitter
+								 
+							 
+							 
+								 
+									   Reddit
+								 
+							 
+						  
+					  
+					 Close 
+				  
+			 
+		  
+	  
+  
+
+ 
+    (function(d){
+       var s = d.createElement("script");
+       s.setAttribute("data-position", 5);
+       s.setAttribute("data-color", '#1D418E');
+       s.setAttribute("data-account", "sudb1U5E4V");
+       s.setAttribute("src", "https://cdn.userway.org/widget.js");
+       (d.body || d.head).appendChild(s);})(document)
+ 
+ 
+Please ensure Javascript is enabled for purposes of 
+ website accessibility 
+ 
+	 
+
+ 
+
+
+
+
+
+
+ 
+
+ 
+	 
+		 
+			 
+				 
+					 
+					 
+					
+					
+						   facebook   
+					
+					
+					
+						   twitter   
+					
+					
+					
+						   instagram   
+					
+					  
+												 
+								 
+									RZ.module = 'global';
+									RZ.nexturl = 'editforms/footer_text-editform.jsp?';
+									RZ.img = ' Edit Footer ';
+									RZ.set = 'pageid=fottercon';
+									RZ.options = '';
+									if (typeof RZaction != 'undefined') RZaction('editform');
+								 
+							 
+												 QUESTIONS?  (714) 536-5511  
+				 
+				 
+									 
+						 
+							RZ.module = 'global';
+							RZ.nexturl = 'editforms/text-editform.jsp?';
+							RZ.img = ' Edit Header 1 ';
+							RZ.set = 'pageid=footerh';
+							RZ.options = '';
+							if (typeof RZaction != 'undefined') RZaction('editform');
+						 
+					 
+									 Government 
+											 
+								 
+									RZ.module = 'links';
+									RZ.nexturl = "/revize/plugins/menus/webspace_menu-editlist.jsp?&"
+										+ "linksfilter=linkplacement=toplinks and linkparentid=0&"
+										+ "linkoptions=url"
+										+ "toplevel=0&"
+										+ "bottomlevel=0&"
+										+ "linknewsection=*all*&"
+									RZ.img = ' Edit Links List 1 ';
+									RZ.caption = '';
+									RZ.set = "links.linkplacement = toplinks";
+									RZ.options = '';
+									if (typeof RZaction != 'undefined') RZaction('editlist');
+								 
+							 
+												
+							
+								 
+									
+											
+											 Agendas and Minutes 
+										
+							
+							
+								 
+									
+											
+											 Boards & Commissions 
+										
+							
+							
+								 
+									
+											
+											 City Administrative Regulations 
+										
+							
+							
+								 
+									
+											
+											 City Council 
+										
+							
+							
+								 
+									
+											
+											 Public Records 
+										
+							
+							
+						
+				 
+				 
+					 
+										 
+						 
+							RZ.module = 'global';
+							RZ.nexturl = 'editforms/text-editform.jsp?';
+							RZ.img = ' Edit Header 2 ';
+							RZ.set = 'pageid=footerh2';
+							RZ.options = '';
+							if (typeof RZaction != 'undefined') RZaction('editform');
+						 
+					 
+										 Services 
+						 
+							 
+								 
+																	 
+											 
+												RZ.module = 'links';
+												RZ.nexturl = "/revize/plugins/menus/webspace_menu-editlist.jsp?&"
+													+ "linksfilter=linkplacement=toplinks2 and linkparentid=0&"
+													+ "linkoptions=url"
+													+ "toplevel=0&"
+													+ "bottomlevel=0&"
+													+ "linknewsection=*all*&"
+												RZ.img = ' Edit Links List 2 ';
+												RZ.caption = '';
+												RZ.set = "links.linkplacement = toplinks";
+												RZ.options = '';
+												if (typeof RZaction != 'undefined') RZaction('editlist');
+											 
+										 
+															
+							
+								 
+									
+											
+											 Ask a Question 
+										
+							
+							
+								 
+									
+											
+											 Homeless Solutions 
+										
+							
+							
+								 
+									
+											
+											 Job Opportunities 
+										
+							
+							
+								 
+									
+											
+											 Permit Center 
+										
+							
+							
+								 
+									
+											
+											 Report an Issue 
+										
+							
+							
+						
+								 
+								 
+													 
+							 
+								RZ.module = 'links';
+								RZ.nexturl = "/revize/plugins/menus/webspace_menu-editlist.jsp?&"
+									+ "linksfilter=linkplacement=toplinks3 and linkparentid=0&"
+									+ "linkoptions=url"
+									+ "toplevel=0&"
+									+ "bottomlevel=0&"
+									+ "linknewsection=*all*&"
+								RZ.img = ' Edit Links List 3 ';
+								RZ.caption = '';
+								RZ.set = "links.linkplacement = toplinks";
+								RZ.options = '';
+								if (typeof RZaction != 'undefined') RZaction('editlist');
+							 
+						 
+										
+							
+								 
+									
+											
+											 Business License 
+										
+							
+							
+								 
+									
+											
+											 News & Announcements 
+										
+							
+							
+								 
+									
+											
+											 Register & Search HB SANDS Programs 
+										
+							
+							
+								 
+									
+											
+											 Volunteer Opportunities 
+										
+							
+							
+						
+								 
+							  
+						  
+					 
+				  
+				 
+					 
+					 
+												 
+								 
+									RZ.module = 'global';
+									RZ.nexturl = 'editforms/footercon-editform.jsp?';
+									RZ.img = ' Edit Footer text ';
+									RZ.set = 'pageid=fottertext';
+									RZ.options = '';
+									if (typeof RZaction != 'undefined') RZaction('editform');
+								 
+							 
+													
+						 City of Huntington Beach 
+						
+
+						 2000 Main Street 
+						 Huntington Beach, CA 92648 
+					  
+				 
+			  
+		  
+	  
+	 
+		 
+						 
+				 
+					RZ.module = 'global';
+					RZ.nexturl = 'editforms/text-editform.jsp?';
+					RZ.img = ' Edit Copyright ';
+					RZ.set = 'pageid=copyrighttext';
+					RZ.options = '';
+					if (typeof RZaction != 'undefined') RZaction('editform');
+				 
+			 
+						 &copy Copyright 2026 All rights reserved. 2000 Main Street, Huntington Beach, California 92648. Powered by  revize.    
+			  Website Terms of Use &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Accessibility Statement &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AB 2854 Compliance &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Privacy Policy &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Login  
+		  
+	  				
+  
+
+
+
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+ 
+  
+ 
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2K8WJQZB2T');
+ 
+
+
+	 
+   
+     
+	   
+		   
+			  
+			  
+		   
+       
+	   
+		   
+		   
+		   
+		   
+	   
+       
+         Close 
+         Read More 
+       
+     
+   
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+ 
+	var searchJson = [{
+	'header': 'Oversized/RV Vehicle Parking Permit',
+	'description': '',
+	'tags': 'Oversize, Oversized, RV, Parking, Permit',
+	'url': 'departments/transportation/parking/oversized_vehicle_parking_permits.php',
+	'target': '_blank',
+	'terms': 'oversized/rv vehicle parking permit  oversize, oversized, rv, parking, permit ',
+	'subheader': '',
+	'email': '',
+	'phone': '',
+	'address': '',
+	'deptUrl': '#',
+	'deptTarget': '_self'
+},
+{
+	'header': 'Make a City Payment',
+	'description': '',
+	'tags': 'Pay, Payment, Billing, Utilities, Water, Sewer, Ticket, Citation, Fee, Fees, Invoice, OneTime, Credit Card',
+	'url': 'services/make_a_city_payment/index.php',
+	'target': '_blank',
+	'terms': 'make a city payment  pay, payment, billing, utilities, water, sewer, ticket, citation, fee, fees, invoice, onetime, credit card ',
+	'subheader': '',
+	'email': '',
+	'phone': '',
+	'address': '',
+	'deptUrl': '#',
+	'deptTarget': '_self'
+},
+{
+	'header': 'Beach Information',
+	'description': '',
+	'tags': 'Beach, Conditions, Information, Camera, Pier, Waves, Water Quality, Beach Cam, Pier Cam,',
+	'url': 'departments/parks_recreation/beach_information/index.php',
+	'target': '_blank',
+	'terms': 'beach information  beach, conditions, information, camera, pier, waves, water quality, beach cam, pier cam, ',
+	'subheader': '',
+	'email': '',
+	'phone': '',
+	'address': '',
+	'deptUrl': '#',
+	'deptTarget': '_self'
+},
+{
+	'header': 'Report an Issue',
+	'description': '',
+	'tags': 'Issue, Fix, Service, Maintenance, Illegal Dumping, Report, Concern, Complaint, Removal, Graffiti, Coyote',
+	'url': 'services/report_an_issue/index.php',
+	'target': '_blank',
+	'terms': 'report an issue  issue, fix, service, maintenance, illegal dumping, report, concern, complaint, removal, graffiti, coyote ',
+	'subheader': '',
+	'email': '',
+	'phone': '',
+	'address': '',
+	'deptUrl': '#',
+	'deptTarget': '_self'
+},
+{
+	'header': 'Water &amp; Sewer Information',
+	'description': '',
+	'tags': 'Water, Wastewater, Sewer, Utility, Utilities, Billing, Stormwater, Water Conservation, Water Meter, Water Quality, Rates',
+	'url': 'departments/public_works/water_and_sewer/index.php',
+	'target': '_blank',
+	'terms': 'water &amp; sewer information  water, wastewater, sewer, utility, utilities, billing, stormwater, water conservation, water meter, water quality, rates ',
+	'subheader': '',
+	'email': '',
+	'phone': '',
+	'address': '',
+	'deptUrl': '#',
+	'deptTarget': '_self'
+},
+{
+	'header': 'Homeless Solutions',
+	'description': '',
+	'tags': 'Homeless, Homelessness, Navigation Center, Unhoused, System of Care, Volunteer, Be Well, Homeless Task Force, Social Workers',
+	'url': 'departments/city_manager/homeless_solutions/index.php',
+	'target': '_blank',
+	'terms': 'homeless solutions  homeless, homelessness, navigation center, unhoused, system of care, volunteer, be well, homeless task force, social workers ',
+	'subheader': '',
+	'email': '',
+	'phone': '',
+	'address': '',
+	'deptUrl': '#',
+	'deptTarget': '_self'
+},
+{
+	'header': 'Access Permit Center',
+	'description': '',
+	'tags': 'Permit, Accela, Permit Center, Building, Planning, Zoning, Construction, Code, Codes, Records, Lookup, Inspection, Fees, Business License, ACA',
+	'url': 'departments/community_development/apply_now/index.php',
+	'target': '_blank',
+	'terms': 'access permit center  permit, accela, permit center, building, planning, zoning, construction, code, codes, records, lookup, inspection, fees, business license, aca ',
+	'subheader': '',
+	'email': '',
+	'phone': '',
+	'address': '',
+	'deptUrl': '#',
+	'deptTarget': '_self'
+},
+{
+	'header': 'Trash &amp; Recycling Information',
+	'description': '',
+	'tags': 'Trash, Refuse, Collection, Pickup, Pickup, Recycling, Compost, Organics, Illegal Dumping, Holiday, Hazardous Waste, HHW, Bulky Items, Solid Waste, Republic, Rainbow, Schedule',
+	'url': 'departments/public_works/trash_recycling.php',
+	'target': '_blank',
+	'terms': 'trash &amp; recycling information  trash, refuse, collection, pickup, pickup, recycling, compost, organics, illegal dumping, holiday, hazardous waste, hhw, bulky items, solid waste, republic, rainbow, schedule ',
+	'subheader': '',
+	'email': '',
+	'phone': '',
+	'address': '',
+	'deptUrl': '#',
+	'deptTarget': '_self'
+},
+{
+	'header': 'Office of Communications',
+	'description': '',
+	'tags': 'Communications, Press Release, Advisory, Public Information, Social Media, Post, News, Event, Events, Information, Updates, Press, Media, HBTV, Announcements',
+	'url': 'departments/city_manager/office_of_communications/index.php',
+	'target': '_blank',
+	'terms': 'office of communications  communications, press release, advisory, public information, social media, post, news, event, events, information, updates, press, media, hbtv, announcements ',
+	'subheader': '',
+	'email': '',
+	'phone': '',
+	'address': '',
+	'deptUrl': '#',
+	'deptTarget': '_self'
+},
+{
+	'header': 'Request Public Records',
+	'description': '',
+	'tags': 'Public Records, Request, Records, PRA, CRPA, Public Information, Access, Documents',
+	'url': 'government/public_records.php',
+	'target': '_blank',
+	'terms': 'request public records  public records, request, records, pra, crpa, public information, access, documents ',
+	'subheader': '',
+	'email': '',
+	'phone': '',
+	'address': '',
+	'deptUrl': '#',
+	'deptTarget': '_self'
+},
+{
+	'header': 'Street Sweeping',
+	'description': '',
+	'tags': 'Street Sweeping, Street Sweeper, Sweeping, Street Cleaning, Parking Citation, Schedule, Holiday, Sweeper,',
+	'url': 'https://huntingtonbeachca.gov/departments/public_works/maintenance.php#collapse53441b5',
+	'target': '_blank',
+	'terms': 'street sweeping  street sweeping, street sweeper, sweeping, street cleaning, parking citation, schedule, holiday, sweeper, ',
+	'subheader': '',
+	'email': '',
+	'phone': '',
+	'address': '',
+	'deptUrl': '#',
+	'deptTarget': '_self'
+},
+{
+	'header': 'City Charter',
+	'description': '',
+	'tags': 'Charter, City Charter, Laws, Law, City Constitution, Rules, Regulations',
+	'url': 'https://huntingtonbeachca.gov/government/charter_codes/city_charter.php',
+	'target': '_blank',
+	'terms': 'city charter  charter, city charter, laws, law, city constitution, rules, regulations ',
+	'subheader': '',
+	'email': '',
+	'phone': '',
+	'address': '',
+	'deptUrl': '#',
+	'deptTarget': '_self'
+},
+{
+	'header': 'Short Term Rentals',
+	'description': '',
+	'tags': 'Short Term Rental, STR, STRs, Short Term Rentals, Vacation Property, Rental Property, Rental, VRBO, Airbnb, Hosted, Unhosted, Home Rental',
+	'url': 'https://www.huntingtonbeachca.gov/departments/community_development/building_inspection/permit_center/short-term_rentals.php',
+	'target': '_blank',
+	'terms': 'short term rentals  short term rental, str, strs, short term rentals, vacation property, rental property, rental, vrbo, airbnb, hosted, unhosted, home rental ',
+	'subheader': '',
+	'email': '',
+	'phone': '',
+	'address': '',
+	'deptUrl': '#',
+	'deptTarget': '_self'
+},
+{
+	'header': 'Volunteer Opportunities',
+	'description': '',
+	'tags': 'volunteer, volunteer opportunities, CERT, library, senior center, police, homelessness',
+	'url': 'https://www.huntingtonbeachca.gov/departments/volunteer_opportunities/index.php',
+	'target': '_blank',
+	'terms': 'volunteer opportunities  volunteer, volunteer opportunities, cert, library, senior center, police, homelessness ',
+	'subheader': '',
+	'email': '',
+	'phone': '',
+	'address': '',
+	'deptUrl': '#',
+	'deptTarget': '_self'
+},
+{
+	'header': 'Sober Living',
+	'description': '',
+	'tags': 'Sober Living Matrix',
+	'url': 'https://huntingtonbeachca.gov/departments/community_development/planning_zoning/group_homes_sober_living_homes.php',
+	'target': '_blank',
+	'terms': 'sober living  sober living matrix ',
+	'subheader': '',
+	'email': '',
+	'phone': '',
+	'address': '',
+	'deptUrl': '#',
+	'deptTarget': '_self'
+},
+{
+	'header': 'Sober Living',
+	'description': '',
+	'tags': 'Sober Living',
+	'url': 'https://huntingtonbeachca.gov/departments/community_development/planning_zoning/group_homes_sober_living_homes.php',
+	'target': '_blank',
+	'terms': 'sober living  sober living ',
+	'subheader': '',
+	'email': '',
+	'phone': '',
+	'address': '',
+	'deptUrl': '#',
+	'deptTarget': '_self'
+},
+
+];
+	
+
+ 
+
+
+
+
+
+ 
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'G-2K8WJQZB2T']);
+_gaq.push(['_trackPageview']);
+(function() { var ga = document.createElement('script'); ga.type = 'text/javascript';
+ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+:'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(ga, s);
+})();
+ 
+
+
+
+ 
+ 

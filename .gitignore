@@ -67,6 +67,8 @@ build/
 *.zip
 *.tar.gz
 *.csv
+!evidence/google_drive/*.csv
+!docs/evidence/google_drive/*.csv
 *.xlsx
 Program Files/
 *.dll
