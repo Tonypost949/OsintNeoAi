@@ -10,11 +10,11 @@
 
 | Category | Service / Resource | Updated Status | Live Verified Link | Notes / Fix Applied |
 |---|---|---|---|---|
-| **Public Live HTTPS** | Master OSINT Hub | ✅ **200 OK** | [**`https://cdfadfa71b3458.lhr.life/`**](https://cdfadfa71b3458.lhr.life/) | Primary global public live HTTPS tunnel (Active). |
-| **Public Live HTTPS** | Victims Mutual Aid Board | ✅ **200 OK** | [**`https://cdfadfa71b3458.lhr.life/victims-board`**](https://cdfadfa71b3458.lhr.life/victims-board) | Live public reporting and mutual aid submissions. |
-| **Public Live HTTPS** | Automated Complaint Drafter | ✅ **200 OK** | [**`https://cdfadfa71b3458.lhr.life/generator`**](https://cdfadfa71b3458.lhr.life/generator) | Automated RICO/FCA/Retaliation pleading generator. |
-| **Public Live HTTPS** | Master 3D Tactical GIS Map | ✅ **200 OK** | [**`https://cdfadfa71b3458.lhr.life/maps/master_tactical_gis.html`**](https://cdfadfa71b3458.lhr.life/maps/master_tactical_gis.html) | All 24 nationwide targets mapped in 3D WebGL. |
-| **Public Live HTTPS** | HBNC Toxic RICO Map | ✅ **200 OK** | [**`https://cdfadfa71b3458.lhr.life/maps/hbnc_rico_gis.html`**](https://cdfadfa71b3458.lhr.life/maps/hbnc_rico_gis.html) | Precise 17642 Beach & Cameron Ln parcel GIS. |
+| **Public Live HTTPS** | Master OSINT Hub | ✅ **200 OK** | [**`https://0b9cee941741b0.lhr.life/`**](https://0b9cee941741b0.lhr.life/) | Primary global public live HTTPS tunnel (Active). |
+| **Public Live HTTPS** | Victims Mutual Aid Board | ✅ **200 OK** | [**`https://0b9cee941741b0.lhr.life/victims-board`**](https://0b9cee941741b0.lhr.life/victims-board) | Live public reporting and mutual aid submissions. |
+| **Public Live HTTPS** | Automated Complaint Drafter | ✅ **200 OK** | [**`https://0b9cee941741b0.lhr.life/generator`**](https://0b9cee941741b0.lhr.life/generator) | Automated RICO/FCA/Retaliation pleading generator. |
+| **Public Live HTTPS** | Master 3D Tactical GIS Map | ✅ **200 OK** | [**`https://0b9cee941741b0.lhr.life/maps/master_tactical_gis.html`**](https://0b9cee941741b0.lhr.life/maps/master_tactical_gis.html) | All 24 nationwide targets mapped in 3D WebGL. |
+| **Public Live HTTPS** | HBNC Toxic RICO Map | ✅ **200 OK** | [**`https://0b9cee941741b0.lhr.life/maps/hbnc_rico_gis.html`**](https://0b9cee941741b0.lhr.life/maps/hbnc_rico_gis.html) | Precise 17642 Beach & Cameron Ln parcel GIS. |
 | **Firebase Mirror** | Firebase WebApp (Main) | ✅ **200 OK** | [`https://blah-905ad.web.app/`](https://blah-905ad.web.app/) | Secondary static cloud mirror. |
 | **Firebase Mirror** | Master Tactical GIS (Firebase) | ✅ **200 OK** | [`https://blah-905ad.web.app/master_tactical_gis.html`](https://blah-905ad.web.app/master_tactical_gis.html) | Firebase hosted 3D tactical map. |
 | **Hercules Cloud** | Hercules App Mirror | ✅ **200 OK** | [`https://osintneoai.onhercules.app/`](https://osintneoai.onhercules.app/) | Alternative containerized deployment. |
