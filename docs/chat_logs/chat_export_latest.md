@@ -1,7 +1,7 @@
 # 📜 OSINTNeoAi Session Chat Export
 **Session ID:** `e0259c57-0b03-45f8-956f-927ea22d1195`  
-**Export Date:** August 25, 2026 12:09:54 PM  
-**Total Conversation Turns:** `235`
+**Export Date:** August 25, 2026 12:11:51 PM  
+**Total Conversation Turns:** `236`
 
 ---
 
@@ -12550,6 +12550,58 @@ Want a CSV/Anki deck of all 60+ databases with Subject/Type/Vendor and direct pr
 </USER_REQUEST>
 <ADDITIONAL_METADATA>
 The current local time is: 2026-08-25T12:07:49-07:00.
+</ADDITIONAL_METADATA>
+```
+
+**🤖 Assistant:**
+
+### 🎓 Post University Library Mastery Deck & Study Guide Created
+
+I have created a structured **Anki Flashcard Deck (CSV)** and a master **Research Study Guide** formatted with direct institutional proxy links and tailored Boolean recipes for **Legal Studies**, **Business/Forensics**, and **Nursing/Healthcare**:
+
+---
+
+### 📦 Generated Study Assets:
+
+1. 🗂️ **Anki / CSV Flashcard Dataset:**  
+   [`docs/POST_UNIVERSITY_LIBRARY_DATABASE_MASTERY_DECK.csv`](file:///C:/Users/Amd949609/OsintNeoAi-1/docs/POST_UNIVERSITY_LIBRARY_DATABASE_MASTERY_DECK.csv)  
+   * Columns: `Deck`, `DatabaseTitle`, `Vendor`, `Subject`, `Type`, `WhenToUse`, `DirectProxyURL`, `ExampleBooleanQuery`.
+   * Ready for direct 1-click import into **Anki**, **Quizlet**, **Excel**, or **Power BI**.
+
+2. 📖 **15-Minute Mastery & Filter Guide:**  
+   [`docs/POST_UNIVERSITY_LIBRARY_STUDY_GUIDE.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/docs/POST_UNIVERSITY_LIBRARY_STUDY_GUIDE.md)  
+   * Details the 4-step drill, subject/type/vendor filter matrices, and Boolean syntax differences across EBSCOhost (`N5`) and ProQuest (`NEAR/3`).
+
+---
+
+### 🔍 Quick Reference: Top 3 Core Databases by Discipline
+
+| Discipline | #1 Database (SSO Link) | Vendor | Best Investigative Application |
+|---|---|---|---|
+| **⚖️ Legal Studies** | [**Nexis Uni**](https://postu.idm.oclc.org/login?auth=prodbb&url=https://www.nexisuni.com) | LexisNexis | State & federal caselaw, Cal. PUC § 851, CEQA rulings, and court dockets. |
+| **💼 Business & Forensics** | [**Mergent Online**](https://postu.idm.oclc.org/login?auth=prodbb&url=https://www.mergentonline.com) | Mergent / FTSE | SEC 10-K filings, corporate parent-subsidiary trees, and executive boards. |
+| **🏥 Nursing & Health** | [**CINAHL Complete**](https://postu.idm.oclc.org/login?auth=prodbb&url=https://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=c8h) | EBSCOhost | Hospice per-diem regulations, palliative care standards, and clinical protocols. |
+| **🌐 Federated Search** | [**Eagles E-Search**](https://postu.idm.oclc.org/login?auth=prodbb&url=https://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=eds) | EBSCO Discovery | Instant broad sweep across all 45 university EBSCO databases simultaneously. |
+
+---
+
+### 🚀 Git & Azure Deployment Status:
+* **Commit:** [`d395c9a`](https://github.com/Tonypost949/OsintNeoAi/commit/d395c9a2c3554eeff82bcdd3769c3629472e382b)
+* **Pushed to:** GitHub `main` & Synced to Azure App Service
+* **Live Chat Web Transcript (245 Turns):** [**`https://osintneoai-app-949.azurewebsites.net/chat`**](https://osintneoai-app-949.azurewebsites.net/chat)
+
+---
+
+### Turn 236
+*Time:* `2026-08-25T19:11:23Z`
+
+**👤 User:**
+```
+<USER_REQUEST>
+https://advance.lexis.com/bisnexishome/?pdmfid=1519360&crid=72b89992-7055-4d9b-93c0-cec9876f38d9
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-08-25T12:11:23-07:00.
 </ADDITIONAL_METADATA>
 ```
 
