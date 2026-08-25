@@ -1,6 +1,6 @@
 # 📜 OSINTNeoAi Session Chat Export
 **Session ID:** `e0259c57-0b03-45f8-956f-927ea22d1195`  
-**Export Date:** August 25, 2026 11:16:04 AM  
+**Export Date:** August 25, 2026 11:25:36 AM  
 **Total Conversation Turns:** `232`
 
 ---
@@ -12316,7 +12316,48 @@ The current local time is: 2026-08-25T11:08:25-07:00.
 </ADDITIONAL_METADATA>
 ```
 
-**🤖 Assistant:** *(Tool Execution Step)*
+**🤖 Assistant:**
+
+### 🧠 Google Cloud Generative AI Suite Cloned & Integrated
+
+I have cloned **[`GoogleCloudPlatform/generative-ai`](https://github.com/GoogleCloudPlatform/generative-ai)** (2,780 files of official Gemini / Vertex AI sample code & production patterns) into [`external_tools/gcp_genai/generative-ai/`](file:///C:/Users/Amd949609/OsintNeoAi-1/external_tools/gcp_genai/generative-ai/) and built the master **[`tools/gemini_forensic_extractor.py`](file:///C:/Users/Amd949609/OsintNeoAi-1/tools/gemini_forensic_extractor.py)** tool.
+
+---
+
+### 📦 Key Capabilities:
+
+```
++---------------------------------------------------------------------------------------------------------+
+|                                GEMINI FORENSIC EXTRACTOR TOOLSET                                        |
++---------------------------------------------------------------------------------------------------------+
+|  1. [analyze] MULTIMODAL DOCUMENT / PDF FORENSIC PARSER:                                                |
+|     • Ingests court dockets, $0 recorded deeds, and PDF whitepapers directly.                           |
+|     • Extracts structured tables of APNs, grantors, grantees, LLCs, and dollar amounts.                 |
+|                                                                                                         |
+|  2. [search ] SEMANTIC NATURAL LANGUAGE SEARCH:                                                         |
+|     • Performs deep semantic contextual queries across all 71 legal library dossiers & 17,488 nodes.     |
++---------------------------------------------------------------------------------------------------------+
+```
+
+---
+
+### 💻 How to Run:
+
+```bash
+# 1. Semantic Search across all 71 dossiers (e.g. searching for "edison", "pham", "hospice"):
+python tools/gemini_forensic_extractor.py search "edison"
+python tools/gemini_forensic_extractor.py search "unclaimed property structuring"
+
+# 2. Multimodal Document Analysis on any PDF or Image:
+python tools/gemini_forensic_extractor.py analyze "C:\Users\Amd949609\Downloads\Rethinking_Fraud_in_the_AI_Era.pdf"
+```
+
+---
+
+### 🚀 Git & Azure Deployment Status:
+* **Commit:** [`d899a31`](https://github.com/Tonypost949/OsintNeoAi/commit/d899a31a9cbb3b9fa76a147e45214feae6223e75)
+* **Pushed to:** GitHub `main` & Synced to Azure App Service
+* **Live Chat Web Transcript (237 Turns):** [**`https://osintneoai-app-949.azurewebsites.net/chat`**](https://osintneoai-app-949.azurewebsites.net/chat)
 
 ---
 
