@@ -1,11 +1,11 @@
 # OSINTNeoAi — MASTER INVESTIGATION REPORTS & DOSSIERS DIRECTORY
-**Total Verified Investigation Reports:** `412`  
+**Total Verified Investigation Reports:** `414`  
 **Access Mode:** Relator & Law Enforcement Privileged  
 **All documents are hyperlinked directly to local file paths.**
 
 ---
 
-## 🏛️ Master RICO & Statutory Pleadings (305 Documents)
+## 🏛️ Master RICO & Statutory Pleadings (307 Documents)
 
 | Document Name | File Path | Size | Summary / Title |
 |---|---|---|---|
@@ -52,10 +52,12 @@
 | [`IDENTITY_THEFT_DEEP_RESEARCH.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/evidence/IDENTITY_THEFT_DEEP_RESEARCH.md) | `evidence/IDENTITY_THEFT_DEEP_RESEARCH.md` | `24.6 KB` | **Identity Theft Deep Research Report: Anthony Michael DiMarcello III**<br><sub>*Executive Summary*</sub> |
 | [`INDIAN_BURIAL_SEARCH_REPORT_1.pdf`](file:///C:/Users/Amd949609/OsintNeoAi-1/docs/evidence/google_drive/INDIAN_BURIAL_SEARCH_REPORT_1.pdf) | `docs/evidence/google_drive/INDIAN_BURIAL_SEARCH_REPORT_1.pdf` | `469.3 KB` | **INDIAN_BURIAL_SEARCH_REPORT_1.pdf** |
 | [`INDIAN_BURIAL_SEARCH_REPORT_1.pdf`](file:///C:/Users/Amd949609/OsintNeoAi-1/evidence/google_drive/INDIAN_BURIAL_SEARCH_REPORT_1.pdf) | `evidence/google_drive/INDIAN_BURIAL_SEARCH_REPORT_1.pdf` | `469.3 KB` | **INDIAN_BURIAL_SEARCH_REPORT_1.pdf** |
-| [`INVESTIGATION_REPORTS_INDEX.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/docs/INVESTIGATION_REPORTS_INDEX.md) | `docs/INVESTIGATION_REPORTS_INDEX.md` | `112.0 KB` | **OSINTNeoAi — MASTER INVESTIGATION REPORTS & DOSSIERS DIRECTORY**<br><sub>*🏛️ Master RICO & Statutory Pleadings (305 Documents)*</sub> |
-| [`INVESTIGATION_REPORTS_INDEX.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/legal_library/INVESTIGATION_REPORTS_INDEX.md) | `legal_library/INVESTIGATION_REPORTS_INDEX.md` | `112.0 KB` | **OSINTNeoAi — MASTER INVESTIGATION REPORTS & DOSSIERS DIRECTORY**<br><sub>*🏛️ Master RICO & Statutory Pleadings (305 Documents)*</sub> |
-| [`LIVE_INVESTIGATION_CHAT_TRANSCRIPT.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/docs/chat_logs/LIVE_INVESTIGATION_CHAT_TRANSCRIPT.md) | `docs/chat_logs/LIVE_INVESTIGATION_CHAT_TRANSCRIPT.md` | `252.9 KB` | **💬 LIVE INVESTIGATION CHAT TRANSCRIPT & DIRECTIVE LOG**<br><sub>*Dependency Manager Detection*</sub> |
-| [`LIVE_INVESTIGATION_CHAT_TRANSCRIPT.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/legal_library/LIVE_INVESTIGATION_CHAT_TRANSCRIPT.md) | `legal_library/LIVE_INVESTIGATION_CHAT_TRANSCRIPT.md` | `252.9 KB` | **💬 LIVE INVESTIGATION CHAT TRANSCRIPT & DIRECTIVE LOG**<br><sub>*Dependency Manager Detection*</sub> |
+| [`INVESTIGATION_REPORTS_INDEX.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/docs/INVESTIGATION_REPORTS_INDEX.md) | `docs/INVESTIGATION_REPORTS_INDEX.md` | `112.9 KB` | **OSINTNeoAi — MASTER INVESTIGATION REPORTS & DOSSIERS DIRECTORY**<br><sub>*🏛️ Master RICO & Statutory Pleadings (305 Documents)*</sub> |
+| [`INVESTIGATION_REPORTS_INDEX.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/legal_library/INVESTIGATION_REPORTS_INDEX.md) | `legal_library/INVESTIGATION_REPORTS_INDEX.md` | `112.9 KB` | **OSINTNeoAi — MASTER INVESTIGATION REPORTS & DOSSIERS DIRECTORY**<br><sub>*🏛️ Master RICO & Statutory Pleadings (305 Documents)*</sub> |
+| [`LIVE_INVESTIGATION_CHAT_TRANSCRIPT.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/docs/chat_logs/LIVE_INVESTIGATION_CHAT_TRANSCRIPT.md) | `docs/chat_logs/LIVE_INVESTIGATION_CHAT_TRANSCRIPT.md` | `256.8 KB` | **💬 LIVE INVESTIGATION CHAT TRANSCRIPT & DIRECTIVE LOG**<br><sub>*Dependency Manager Detection*</sub> |
+| [`LIVE_INVESTIGATION_CHAT_TRANSCRIPT.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/legal_library/LIVE_INVESTIGATION_CHAT_TRANSCRIPT.md) | `legal_library/LIVE_INVESTIGATION_CHAT_TRANSCRIPT.md` | `256.8 KB` | **💬 LIVE INVESTIGATION CHAT TRANSCRIPT & DIRECTIVE LOG**<br><sub>*Dependency Manager Detection*</sub> |
+| [`MASTER_PROVENANCE_AND_AUTHORITIES_REGISTRY.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/docs/MASTER_PROVENANCE_AND_AUTHORITIES_REGISTRY.md) | `docs/MASTER_PROVENANCE_AND_AUTHORITIES_REGISTRY.md` | `9.8 KB` | **🏛️ MASTER PROVENANCE, PUBLIC CITATIONS & STATUTORY AUTHORITIES REGISTRY**<br><sub>*Universal Verification Index for the Entire OSINTNeoAi Forensic Repository*</sub> |
+| [`MASTER_PROVENANCE_AND_AUTHORITIES_REGISTRY.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/legal_library/MASTER_PROVENANCE_AND_AUTHORITIES_REGISTRY.md) | `legal_library/MASTER_PROVENANCE_AND_AUTHORITIES_REGISTRY.md` | `9.8 KB` | **🏛️ MASTER PROVENANCE, PUBLIC CITATIONS & STATUTORY AUTHORITIES REGISTRY**<br><sub>*Universal Verification Index for the Entire OSINTNeoAi Forensic Repository*</sub> |
 | [`MOTION_TO_INTERVENE.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/opencode_work/MOTION_TO_INTERVENE.md) | `opencode_work/MOTION_TO_INTERVENE.md` | `13.1 KB` | **UNITED STATES DISTRICT COURT — EVIDENCE SUBMISSION**<br><sub>*CENTRAL DISTRICT OF CALIFORNIA*</sub> |
 | [`NAMES.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/opencode_work/NAMES.md) | `opencode_work/NAMES.md` | `4.5 KB` | **NAMES — HB OSINT Investigation Master Roster**<br><sub>*PEOPLE*</sub> |
 | [`NATIONWIDE_FOOTPRINT.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/opencode_work/NATIONWIDE_FOOTPRINT.md) | `opencode_work/NATIONWIDE_FOOTPRINT.md` | `4.8 KB` | **NATIONWIDE FOOTPRINT — Huntington Beach RICO Investigation**<br><sub>*2,696 Out-of-State LLCs Across 39 States*</sub> |
