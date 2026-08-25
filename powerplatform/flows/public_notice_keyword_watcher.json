@@ -1,0 +1,50 @@
+{
+  "name": "OSINT_Public_Notice_Keyword_Watcher",
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "triggers": {
+      "Recurrence": {
+        "type": "Recurrence",
+        "recurrence": {
+          "frequency": "Hour",
+          "interval": 4
+        }
+      }
+    },
+    "actions": {
+      "HTTP_Query_Azure_Backend": {
+        "type": "Http",
+        "inputs": {
+          "method": "GET",
+          "uri": "https://osintneoai-app-949.azurewebsites.net/api/correlate"
+        }
+      },
+      "Condition_Check_New_Findings": {
+        "type": "If",
+        "expression": {
+          "greater": [
+            "@length(body('HTTP_Query_Azure_Backend')?['medical_sample'])",
+            0
+          ]
+        },
+        "actions": {
+          "Send_Push_Notification": {
+            "type": "ApiConnection",
+            "inputs": {
+              "host": {
+                "connection": {
+                  "name": "@parameters('$connections')['powerappsnotification']['connectionId']"
+                }
+              },
+              "method": "post",
+              "body": {
+                "message": "OSINT Alert: New Healthcare & Utility Shell Correlations Detected!",
+                "targetUrl": "https://osintneoai-app-949.azurewebsites.net/mobile_app.html"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

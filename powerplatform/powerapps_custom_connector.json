@@ -1,0 +1,94 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "OSINT Neo AI Master Investigation API",
+    "description": "Microsoft Power Apps & Power Automate Custom Connector for OSINT Neo AI Azure backend.",
+    "version": "1.0.0"
+  },
+  "host": "osintneoai-app-949.azurewebsites.net",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/search": {
+      "get": {
+        "summary": "Search Entities & APNs",
+        "description": "Searches 17,488 nodes, APN parcel records, and corporate entities.",
+        "operationId": "SearchEntities",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "Search keyword (e.g. edison, warner, hospice, pham)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful search results"
+          }
+        }
+      }
+    },
+    "/api/correlate": {
+      "get": {
+        "summary": "Get Cross-Domain Correlations",
+        "description": "Returns statistical cross-domain correlation metrics and healthcare shell concentrations.",
+        "operationId": "GetCorrelations",
+        "responses": {
+          "200": {
+            "description": "Correlation metrics"
+          }
+        }
+      }
+    },
+    "/api/dossiers": {
+      "get": {
+        "summary": "List Legal Dossiers",
+        "description": "Returns the complete catalog of 70+ forensic dossiers and legal briefs.",
+        "operationId": "ListDossiers",
+        "responses": {
+          "200": {
+            "description": "List of available dossiers"
+          }
+        }
+      }
+    },
+    "/api/submit-victim": {
+      "post": {
+        "summary": "Submit Case Lead / Victim Report",
+        "description": "Submits a new investigation lead or intake report directly to the evidence vault.",
+        "operationId": "SubmitVictimReport",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "details": { "type": "string" },
+                "location": { "type": "string" },
+                "category": { "type": "string" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Submission success response"
+          }
+        }
+      }
+    }
+  }
+}

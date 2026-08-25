@@ -236,6 +236,16 @@ HTML_APP = """<!DOCTYPE html>
 def home():
     return render_template_string(HTML_APP)
 
+@app.route("/mobile")
+@app.route("/app")
+@app.route("/mobile_app.html")
+def mobile_route():
+    p = os.path.join(ROOT_DIR, "public", "mobile_app.html")
+    if os.path.exists(p):
+        with open(p, "r", encoding="utf-8") as f:
+            return f.read()
+    return "<h3>Mobile app template not found</h3>", 404
+
 @app.route("/maps")
 @app.route("/map-hub")
 def map_hub():
@@ -244,6 +254,7 @@ def map_hub():
         with open(hub_path, "r", encoding="utf-8") as f:
             return f.read()
     return "<h3>Maps hub template not found</h3>", 404
+
 
 @app.route("/maps/<path:filename>")
 def serve_map_file(filename):
