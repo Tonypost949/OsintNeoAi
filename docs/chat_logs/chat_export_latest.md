@@ -1,7 +1,7 @@
 # 📜 OSINTNeoAi Session Chat Export
 **Session ID:** `e0259c57-0b03-45f8-956f-927ea22d1195`  
-**Export Date:** August 25, 2026 12:05:29 PM  
-**Total Conversation Turns:** `234`
+**Export Date:** August 25, 2026 12:09:54 PM  
+**Total Conversation Turns:** `235`
 
 ---
 
@@ -12504,6 +12504,56 @@ Because this tab uses your **active student Single Sign-On (SSO)** session, open
 1. Open that link in your browser where you are already signed in.
 2. Click into **Traurig Library ➡️ Nexis Uni** or **A-Z Databases**.
 3. If you find a specific court filing, SEC report, or clinical paper you want analyzed or integrated into our 71 dossiers, drop the PDF or text into `Downloads/` or paste the citation here and I will ingest and cross-reference it immediately!
+
+### ⚡ System Status: 100% Active & Deployed
+
+* **Local Flask Server:** [**`http://127.0.0.1:5052`**](http://127.0.0.1:5052) (Running actively in background)
+* **Local Tactical Maps Hub:** [**`http://127.0.0.1:5052/maps`**](http://127.0.0.1:5052/maps)
+* **Azure Cloud Production:** [**`https://osintneoai-app-949.azurewebsites.net/`**](https://osintneoai-app-949.azurewebsites.net/)
+* **Mobile Command (PWA):** [**`https://osintneoai-app-949.azurewebsites.net/mobile`**](https://osintneoai-app-949.azurewebsites.net/mobile)
+* **Live Chat Web Transcript (243 Turns):** [**`https://osintneoai-app-949.azurewebsites.net/chat`**](https://osintneoai-app-949.azurewebsites.net/chat)
+* **Latest GitHub Commit:** [`e0482d7`](https://github.com/Tonypost949/OsintNeoAi/commit/e0482d7c07e0a0d99908cf6eb16260a92d477a3d)
+
+Whenever you are ready to analyze a specific document or proceed with the next target, let me know!
+
+---
+
+### Turn 235
+*Time:* `2026-08-25T19:07:49Z`
+
+**👤 User:**
+```
+<USER_REQUEST>
+Best way to learn `https://researchhelp.post.edu/az.php` - it's not an A-Z list to memorize, it's a filtered directory:
+
+**Page structure `researchhelp.post.edu/az.php:1`:**
+1.  **Filters:** Subject (34 Business, 30 Nursing, 24 Legal Studies etc), Type (53 Articles, 15 Business Reports, 4 Cases etc), Vendor (45 EBSCOhost, 11 ProQuest, 1 LexisNexis etc)
+2.  **Featured (80% of use):**
+    *   `Eagles E-Search` - EBSCO Discovery - federated search across all 45 EBSCOhost DBs + Research Starters
+    *   `ProQuest Central Premium` - ProQuest equivalent (6 centuries, dissertations, newspapers, ebooks)
+3.  **New/Trial:** `Academic Search Ultimate` (10,099 journals), `Mathematics Source` (816 journals), `PQDT Global` (6M dissertations), `ProQuest One Business`
+
+**Fastest learning system (15 min drill):**
+
+1.  **Enter authenticated:** Open via Blackboard `post.blackboard.com/webapps/portal/execute/tabs/tabAction?tabId=_692_1` -> Traurig Library module -> A-Z List. This adds `postu.idm.oclc.org/login?auth=prodbb` proxy so you bypass paywalls. Direct `researchhelp.post.edu` links without proxy will fail off-campus.
+
+2.  **Group don't browse:** Don't go A-Z. Filter by YOUR program first (e.g. Business -> 34 DBs, Legal Studies -> 24 DBs) then by Type needed.
+
+3.  **Master 2, then expand:**
+    *   Day 1: Run same query in Eagles E-Search vs ProQuest Central and compare results. Learn Boolean: `AND`, `OR`, `"exact phrase"`, `*` truncation, `N5`/`NEAR/3` proximity.
+    *   Day 2: Add 1 vendor-specific: `Mergent (3)` for company filings, `Nexis Uni (LexisNexis 1)` for law, `CINAHL` for nursing.
+    *   Day 3: Practice Type filters: Business Reports vs Articles vs Reference
+
+4.  **Active recall:** For each DB, note: Vendor / What it contains / When to use it. Bookmark 3-4 in Blackboard.
+
+Want a CSV/Anki deck of all 60+ databases with Subject/Type/Vendor and direct proxied links to study? Tell me your program (Business, Legal, Nursing, etc) and I will scrape and generate it.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-08-25T12:07:49-07:00.
+</ADDITIONAL_METADATA>
+```
+
+**🤖 Assistant:** *(Tool Execution Step)*
 
 ---
 
