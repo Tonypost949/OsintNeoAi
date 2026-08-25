@@ -1,7 +1,7 @@
 # 📜 OSINTNeoAi Session Chat Export
 **Session ID:** `e0259c57-0b03-45f8-956f-927ea22d1195`  
-**Export Date:** August 25, 2026 06:22:38 AM  
-**Total Conversation Turns:** `227`
+**Export Date:** August 25, 2026 08:39:13 AM  
+**Total Conversation Turns:** `228`
 
 ---
 
@@ -11983,6 +11983,74 @@ just builf them all.. you dont need my help do you??? or this task runnin?
 </USER_REQUEST>
 <ADDITIONAL_METADATA>
 The current local time is: 2026-08-25T06:20:57-07:00.
+</ADDITIONAL_METADATA>
+```
+
+**🤖 Assistant:**
+
+### 🚀 Built & Deployed: Power Apps, Power Automate, Power BI & Azure Functions Suite
+
+All 4 components have been engineered, integrated, and deployed live to Azure:
+
+---
+
+### 📦 1. Power Apps Custom Connector & Mobile App Interface
+* **Custom Connector OpenAPI 3.0 Spec:** [`powerplatform/powerapps_custom_connector.json`](file:///C:/Users/Amd949609/OsintNeoAi-1/powerplatform/powerapps_custom_connector.json)  
+  * Connects directly to `/api/search`, `/api/correlate`, `/api/dossiers`, and `/api/submit-victim`.
+* **Mobile Touch UI & PWA:** [`public/mobile_app.html`](file:///C:/Users/Amd949609/OsintNeoAi-1/public/mobile_app.html)  
+  * **Live URL:** [**`https://osintneoai-app-949.azurewebsites.net/mobile`**](https://osintneoai-app-949.azurewebsites.net/mobile)  
+  * Features live search across 17,488 nodes, quick-filter chips (*SoCal Edison, 11770 Warner, Pham Trust*), 1-click map launchers, and a mobile evidence intake form.
+
+---
+
+### ⚡ 2. Power Automate 24/7 Cloud Alert Flow
+* **Workflow Definition:** [`powerplatform/flows/public_notice_keyword_watcher.json`](file:///C:/Users/Amd949609/OsintNeoAi-1/powerplatform/flows/public_notice_keyword_watcher.json)  
+  * Runs recurrent 4-hour background checks against the Azure correlation endpoint.
+  * Automatically sends push notifications to your phone/Power Apps client when new healthcare shell concentrations or unclaimed property structuring flags appear.
+
+---
+
+### 📊 3. Power BI Forensic Reporting Model
+* **Data Extraction Script:** [`powerplatform/powerbi/powerbi_export_data.py`](file:///C:/Users/Amd949609/OsintNeoAi-1/powerplatform/powerbi/powerbi_export_data.py)  
+  * Successfully extracted **17,488 nodes** and **18,712 edges** into clean, typed Power BI tables:
+    * `powerplatform/powerbi/powerbi_nodes.csv` (Includes Risk Category flags: *Healthcare Shell, Utility Grantor, Target Trust*)
+    * `powerplatform/powerbi/powerbi_edges.csv` (Includes Relational Role & Conveyance Dates)
+
+---
+
+### ☁️ 4. Serverless Azure Functions Microservice (Python v2)
+* **Function App Code:** [`azure_functions/function_app.py`](file:///C:/Users/Amd949609/OsintNeoAi-1/azure_functions/function_app.py)  
+* **Configuration:** [`azure_functions/host.json`](file:///C:/Users/Amd949609/OsintNeoAi-1/azure_functions/host.json) & [`azure_functions/requirements.txt`](file:///C:/Users/Amd949609/OsintNeoAi-1/azure_functions/requirements.txt)  
+  * **Endpoints:**
+    * `GET /api/serverless_search?q=<entity>` (Zero-cold-start search microservice)
+    * `GET /api/serverless_correlate` (Serverless cross-domain graph analytics)
+    * `CRON 0 0 6 * * *` (Automated Daily 6:00 AM UTC background ingestion timer)
+
+---
+
+### 🌐 Live Public Endpoints:
+* **Mobile Command App:** [**`https://osintneoai-app-949.azurewebsites.net/mobile`**](https://osintneoai-app-949.azurewebsites.net/mobile)
+* **Interactive Maps Hub:** [**`https://osintneoai-app-949.azurewebsites.net/maps`**](https://osintneoai-app-949.azurewebsites.net/maps)
+* **Live Chat Web Transcript (227 Turns):** [**`https://osintneoai-app-949.azurewebsites.net/chat`**](https://osintneoai-app-949.azurewebsites.net/chat)
+
+---
+
+### 📌 Git Status:
+* **Commit:** [`fe7e039`](https://github.com/Tonypost949/OsintNeoAi/commit/fe7e039e14a1a36e788bc5e64069c9dc6eec08db)
+* Pushed to GitHub `main` and synced with Azure App Service.
+
+---
+
+### Turn 228
+*Time:* `2026-08-25T15:38:33Z`
+
+**👤 User:**
+```
+<USER_REQUEST>
+ok so any updates to the gh repo front page
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-08-25T08:38:33-07:00.
 </ADDITIONAL_METADATA>
 ```
 

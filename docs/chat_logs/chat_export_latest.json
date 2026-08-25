@@ -1,7 +1,7 @@
 {
   "session_id": "e0259c57-0b03-45f8-956f-927ea22d1195",
-  "export_timestamp": "2026-08-25T06:22:39.063987",
-  "total_turns": 227,
+  "export_timestamp": "2026-08-25T08:39:13.933299",
+  "total_turns": 228,
   "turns": [
     {
       "user": "<USER_REQUEST>\npython OSINTNeoAiCLI.py\n</USER_REQUEST>\n<ADDITIONAL_METADATA>\nThe current local time is: 2026-08-23T21:48:32-07:00.\n</ADDITIONAL_METADATA>\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 3.7 Flash (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>",
@@ -1135,8 +1135,13 @@
     },
     {
       "user": "<USER_REQUEST>\njust builf them all.. you dont need my help do you??? or this task runnin?\n</USER_REQUEST>\n<ADDITIONAL_METADATA>\nThe current local time is: 2026-08-25T06:20:57-07:00.\n</ADDITIONAL_METADATA>",
-      "agent": null,
+      "agent": "### \ud83d\ude80 Built & Deployed: Power Apps, Power Automate, Power BI & Azure Functions Suite\n\nAll 4 components have been engineered, integrated, and deployed live to Azure:\n\n---\n\n### \ud83d\udce6 1. Power Apps Custom Connector & Mobile App Interface\n* **Custom Connector OpenAPI 3.0 Spec:** [`powerplatform/powerapps_custom_connector.json`](file:///C:/Users/Amd949609/OsintNeoAi-1/powerplatform/powerapps_custom_connector.json)  \n  * Connects directly to `/api/search`, `/api/correlate`, `/api/dossiers`, and `/api/submit-victim`.\n* **Mobile Touch UI & PWA:** [`public/mobile_app.html`](file:///C:/Users/Amd949609/OsintNeoAi-1/public/mobile_app.html)  \n  * **Live URL:** [**`https://osintneoai-app-949.azurewebsites.net/mobile`**](https://osintneoai-app-949.azurewebsites.net/mobile)  \n  * Features live search across 17,488 nodes, quick-filter chips (*SoCal Edison, 11770 Warner, Pham Trust*), 1-click map launchers, and a mobile evidence intake form.\n\n---\n\n### \u26a1 2. Power Automate 24/7 Cloud Alert Flow\n* **Workflow Definition:** [`powerplatform/flows/public_notice_keyword_watcher.json`](file:///C:/Users/Amd949609/OsintNeoAi-1/powerplatform/flows/public_notice_keyword_watcher.json)  \n  * Runs recurrent 4-hour background checks against the Azure correlation endpoint.\n  * Automatically sends push notifications to your phone/Power Apps client when new healthcare shell concentrations or unclaimed property structuring flags appear.\n\n---\n\n### \ud83d\udcca 3. Power BI Forensic Reporting Model\n* **Data Extraction Script:** [`powerplatform/powerbi/powerbi_export_data.py`](file:///C:/Users/Amd949609/OsintNeoAi-1/powerplatform/powerbi/powerbi_export_data.py)  \n  * Successfully extracted **17,488 nodes** and **18,712 edges** into clean, typed Power BI tables:\n    * `powerplatform/powerbi/powerbi_nodes.csv` (Includes Risk Category flags: *Healthcare Shell, Utility Grantor, Target Trust*)\n    * `powerplatform/powerbi/powerbi_edges.csv` (Includes Relational Role & Conveyance Dates)\n\n---\n\n### \u2601\ufe0f 4. Serverless Azure Functions Microservice (Python v2)\n* **Function App Code:** [`azure_functions/function_app.py`](file:///C:/Users/Amd949609/OsintNeoAi-1/azure_functions/function_app.py)  \n* **Configuration:** [`azure_functions/host.json`](file:///C:/Users/Amd949609/OsintNeoAi-1/azure_functions/host.json) & [`azure_functions/requirements.txt`](file:///C:/Users/Amd949609/OsintNeoAi-1/azure_functions/requirements.txt)  \n  * **Endpoints:**\n    * `GET /api/serverless_search?q=<entity>` (Zero-cold-start search microservice)\n    * `GET /api/serverless_correlate` (Serverless cross-domain graph analytics)\n    * `CRON 0 0 6 * * *` (Automated Daily 6:00 AM UTC background ingestion timer)\n\n---\n\n### \ud83c\udf10 Live Public Endpoints:\n* **Mobile Command App:** [**`https://osintneoai-app-949.azurewebsites.net/mobile`**](https://osintneoai-app-949.azurewebsites.net/mobile)\n* **Interactive Maps Hub:** [**`https://osintneoai-app-949.azurewebsites.net/maps`**](https://osintneoai-app-949.azurewebsites.net/maps)\n* **Live Chat Web Transcript (227 Turns):** [**`https://osintneoai-app-949.azurewebsites.net/chat`**](https://osintneoai-app-949.azurewebsites.net/chat)\n\n---\n\n### \ud83d\udccc Git Status:\n* **Commit:** [`fe7e039`](https://github.com/Tonypost949/OsintNeoAi/commit/fe7e039e14a1a36e788bc5e64069c9dc6eec08db)\n* Pushed to GitHub `main` and synced with Azure App Service.",
       "timestamp": "2026-08-25T13:20:57Z"
+    },
+    {
+      "user": "<USER_REQUEST>\nok so any updates to the gh repo front page\n</USER_REQUEST>\n<ADDITIONAL_METADATA>\nThe current local time is: 2026-08-25T08:38:33-07:00.\n</ADDITIONAL_METADATA>",
+      "agent": null,
+      "timestamp": "2026-08-25T15:38:33Z"
     }
   ]
 }
