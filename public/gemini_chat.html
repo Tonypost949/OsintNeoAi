@@ -3,21 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>Gemini — OSINT Neo AI Interactive Chat</title>
+  <title>Universal AI Studio — Whitelabel Chat (Gemini, GPT-4o, Claude, DeepSeek)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
     body {
-      font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: #131314;
       color: #e3e3e3;
     }
-    .gemini-gradient {
-      background: linear-gradient(74deg, #4285f4 0%, #9b72cb 9%, #d96570 20%, #d96570 24%, #9b72cb 35%, #4285f4 44%, #131314 60%);
+    .theme-gemini {
+      --accent-color: #8ab4f8;
+      --accent-gradient: linear-gradient(74deg, #4285f4 0%, #9b72cb 25%, #d96570 50%, #4285f4 100%);
+      --bubble-bg: #1e1f20;
+      --sidebar-bg: #1e1f20;
+    }
+    .theme-chatgpt {
+      --accent-color: #10a37f;
+      --accent-gradient: linear-gradient(90deg, #10a37f 0%, #1a7f64 100%);
+      --bubble-bg: #212121;
+      --sidebar-bg: #171717;
+    }
+    .theme-claude {
+      --accent-color: #d97706;
+      --accent-gradient: linear-gradient(90deg, #d97706 0%, #b45309 100%);
+      --bubble-bg: #262320;
+      --sidebar-bg: #1c1a17;
+    }
+    .theme-deepseek {
+      --accent-color: #4f46e5;
+      --accent-gradient: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+      --bubble-bg: #1a1b26;
+      --sidebar-bg: #13141f;
+    }
+    .accent-gradient-text {
+      background: var(--accent-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -26,8 +50,8 @@
       border: 1px solid #3c4043;
     }
     .prompt-box:focus-within {
-      border-color: #8ab4f8;
-      box-shadow: 0 0 0 1px #8ab4f8;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 1px var(--accent-color);
     }
     .custom-scrollbar::-webkit-scrollbar { width: 6px; }
     .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
@@ -38,124 +62,181 @@
     .prose ol { list-style-type: decimal; margin-left: 1.5rem; margin-bottom: 0.75rem; }
     .prose table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; margin-bottom: 0.75rem; }
     .prose th, .prose td { border: 1px solid #3c4043; padding: 0.5rem 0.75rem; font-size: 0.875rem; }
-    .prose th { background-color: #1e1f20; color: #8ab4f8; }
-    .prose a { color: #8ab4f8; text-decoration: underline; }
+    .prose th { background-color: #1e1f20; color: var(--accent-color); }
+    .prose a { color: var(--accent-color); text-decoration: underline; }
+    .thinking-drawer {
+      border-left: 2px solid #4f46e5;
+      background: rgba(79, 70, 229, 0.08);
+    }
   </style>
 </head>
-<body class="h-screen flex overflow-hidden">
+<body class="h-screen flex overflow-hidden theme-gemini" id="appBody">
 
-  <!-- Sidebar -->
-  <aside id="sidebar" class="w-64 bg-[#1e1f20] border-r border-[#3c4043] flex flex-col justify-between transition-all duration-300 z-30 fixed inset-y-0 left-0 -translate-x-full md:relative md:translate-x-0">
-    <div class="p-4 space-y-4">
-      <div class="flex items-center justify-between">
-        <button onclick="newChat()" class="flex items-center gap-3 px-4 py-2.5 rounded-full bg-[#282a2c] hover:bg-[#37393b] text-sm text-[#e3e3e3] border border-[#3c4043] transition-all w-full">
+  <!-- Left Sidebar Controls -->
+  <aside id="sidebar" class="w-80 bg-[#1e1f20] border-r border-[#3c4043] flex flex-col justify-between transition-all duration-300 z-30 fixed inset-y-0 left-0 -translate-x-full md:relative md:translate-x-0 custom-scrollbar overflow-y-auto">
+    
+    <div class="p-4 space-y-5">
+      <!-- Top New Chat Action -->
+      <div class="flex items-center justify-between gap-2">
+        <button onclick="newChat()" class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#282a2c] hover:bg-[#37393b] text-sm text-white border border-[#3c4043] transition-all shadow-md font-medium">
           <i class="fa-solid fa-plus text-xs text-[#8ab4f8]"></i>
           <span>New Chat</span>
         </button>
-        <button onclick="toggleSidebar()" class="md:hidden ml-2 text-gray-400 hover:text-white p-2">
+        <button onclick="clearHistory()" title="Clear Chat History" class="p-2.5 rounded-xl bg-[#282a2c] hover:bg-red-900/40 text-gray-400 hover:text-red-300 border border-[#3c4043] transition-all">
+          <i class="fa-solid fa-trash-can text-xs"></i>
+        </button>
+        <button onclick="toggleSidebar()" class="md:hidden text-gray-400 hover:text-white p-2">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
 
-      <!-- Mode Selector -->
-      <div class="space-y-1 pt-2">
-        <div class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider px-2">Intelligence Engine</div>
-        <select id="chatMode" class="w-full bg-[#131314] text-xs text-gray-200 border border-[#3c4043] rounded-lg p-2 focus:outline-none focus:border-[#8ab4f8]">
-          <option value="gemini_osint">🧠 Gemini 2.5 + OSINT Neo AI (Hybrid)</option>
-          <option value="forensic_graph">⚖️ Forensic Graph Engine (17k Nodes)</option>
-          <option value="legal_library">📜 Legal Library (71 Dossiers)</option>
-          <option value="mexico_suite">🇲🇽 Mexico OSINT Suite</option>
+      <!-- 1. Whitelabel AI Model Selector -->
+      <div class="space-y-2">
+        <label class="text-[11px] font-bold text-gray-400 uppercase tracking-wider flex items-center justify-between">
+          <span>AI Model / Whitelabel Skin</span>
+          <span class="text-[10px] text-emerald-400 font-mono">100% Free</span>
+        </label>
+        <select id="modelSelector" onchange="changeModel(this.value)" class="w-full bg-[#131314] text-xs font-semibold text-gray-200 border border-[#3c4043] rounded-xl p-2.5 focus:outline-none focus:border-[#8ab4f8] shadow-inner cursor-pointer">
+          <option value="gemini_25">🔵 Google Gemini 2.5 Flash / Pro</option>
+          <option value="chatgpt_4o">🟢 OpenAI ChatGPT-4o (Omni)</option>
+          <option value="claude_35">🟠 Anthropic Claude 3.5 Sonnet</option>
+          <option value="deepseek_r1">🟣 DeepSeek R1 (Deep Thinking Engine)</option>
+          <option value="osint_sovereign">⚖️ OSINT Neo AI (17k Nodes Sovereign Graph)</option>
         </select>
       </div>
 
-      <!-- Recent Topics / Prompts -->
-      <div class="space-y-1 pt-2">
-        <div class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider px-2">Quick OSINT Modules</div>
-        <div class="space-y-1 text-xs">
-          <button onclick="fillPrompt('Analyze the 11770 Warner Ave hospice and medical shell company concentration.')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#282a2c] text-gray-300 truncate">
-            🏥 11770 Warner Shells
+      <!-- 2. System Persona / Role Modifier -->
+      <div class="space-y-2">
+        <label class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">AI Persona & Tone</label>
+        <select id="personaSelector" class="w-full bg-[#131314] text-xs text-gray-300 border border-[#3c4043] rounded-xl p-2.5 focus:outline-none focus:border-[#8ab4f8]">
+          <option value="general">🌐 General AI Assistant (Ask Anything)</option>
+          <option value="coder">💻 Elite Full-Stack & Systems Programmer</option>
+          <option value="forensic">🕵️ Forensic Financial & Real Estate Auditor</option>
+          <option value="legal">⚖️ Statutory & Appellate Legal Scholar</option>
+          <option value="research">📚 Academic Researcher & Citation Expert</option>
+        </select>
+      </div>
+
+      <!-- 3. Intelligence Toggles -->
+      <div class="space-y-2 bg-[#131314]/60 p-3 rounded-xl border border-[#3c4043]">
+        <div class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">Engine Options</div>
+        
+        <label class="flex items-center justify-between text-xs text-gray-300 cursor-pointer py-1">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-brain text-purple-400 text-[11px]"></i>
+            <span>Deep Reasoning (CoT)</span>
+          </span>
+          <input type="checkbox" id="toggleThinking" checked class="rounded bg-gray-800 border-gray-600 text-indigo-600 focus:ring-0">
+        </label>
+
+        <label class="flex items-center justify-between text-xs text-gray-300 cursor-pointer py-1">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-diagram-project text-emerald-400 text-[11px]"></i>
+            <span>17k Graph Cross-Ref</span>
+          </span>
+          <input type="checkbox" id="toggleGraph" checked class="rounded bg-gray-800 border-gray-600 text-emerald-600 focus:ring-0">
+        </label>
+
+        <label class="flex items-center justify-between text-xs text-gray-300 cursor-pointer py-1">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-scale-balanced text-amber-400 text-[11px]"></i>
+            <span>Statute Verification</span>
+          </span>
+          <input type="checkbox" id="toggleStatutes" checked class="rounded bg-gray-800 border-gray-600 text-amber-600 focus:ring-0">
+        </label>
+      </div>
+
+      <!-- 4. Quick Category Jumpers -->
+      <div class="space-y-1.5 pt-1">
+        <div class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Quick Presets</div>
+        <div class="grid grid-cols-2 gap-1.5 text-xs">
+          <button onclick="fillPrompt('Write a complete modern Python script to parse and visualize CSV graph nodes.')" class="text-left px-2.5 py-2 rounded-lg bg-[#282a2c] hover:bg-[#37393b] text-gray-300 truncate">
+            💻 Python Code
           </button>
-          <button onclick="fillPrompt('Audit the Southern California Edison APN 114-481-32 $0 deed conveyance to SLF-HB Magnolia.')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#282a2c] text-gray-300 truncate">
-            ⚡ SoCal Edison $0 Deed
+          <button onclick="fillPrompt('Explain the difference between First-Party Synthetic Fraud and Third-Party ID Theft.')" class="text-left px-2.5 py-2 rounded-lg bg-[#282a2c] hover:bg-[#37393b] text-gray-300 truncate">
+            🧠 AI Fraud Theory
           </button>
-          <button onclick="fillPrompt('Explain the Pham Family Living Trust $3.88M Wells Fargo unclaimed property record (ID: 1024456136).')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#282a2c] text-gray-300 truncate">
-            💵 Pham Trust $3.88M
+          <button onclick="fillPrompt('Analyze the 11770 Warner Ave hospice cluster and SBA loan structuring.')" class="text-left px-2.5 py-2 rounded-lg bg-[#282a2c] hover:bg-[#37393b] text-gray-300 truncate">
+            🏥 11770 Warner
           </button>
-          <button onclick="fillPrompt('Explain the 1,000+ utility account structuring loop under 31 U.S.C. § 5324.')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#282a2c] text-gray-300 truncate">
-            🔄 Smurfing Structuring
-          </button>
-          <button onclick="fillPrompt('Summarize the 2026 Plaid AI Era Fraud Report on synthetic identities.')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#282a2c] text-gray-300 truncate">
-            🧠 Plaid AI Fraud Audit
+          <button onclick="fillPrompt('Explain California Public Utilities Code Section 851 transfer requirements.')" class="text-left px-2.5 py-2 rounded-lg bg-[#282a2c] hover:bg-[#37393b] text-gray-300 truncate">
+            ⚡ Cal PUC § 851
           </button>
         </div>
       </div>
+
     </div>
 
-    <!-- Sidebar Bottom Links -->
+    <!-- Sidebar Bottom Navigation Links -->
     <div class="p-3 border-t border-[#3c4043] space-y-1 text-xs text-gray-400">
-      <a href="/maps" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#282a2c] hover:text-white">
+      <a href="/maps" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#282a2c] hover:text-white transition">
         <i class="fa-solid fa-map text-emerald-400"></i>
         <span>Tactical GIS Hub (14 Maps)</span>
       </a>
-      <a href="/mobile" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#282a2c] hover:text-white">
+      <a href="/mobile" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#282a2c] hover:text-white transition">
         <i class="fa-solid fa-mobile-screen text-pink-400"></i>
-        <span>Mobile Command App</span>
+        <span>Mobile Touch App</span>
       </a>
-      <a href="/chat" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#282a2c] hover:text-white">
+      <a href="/chat" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#282a2c] hover:text-white transition">
         <i class="fa-solid fa-history text-purple-400"></i>
-        <span>Full Chat Log (253 Turns)</span>
+        <span>Full Transcript Log</span>
       </a>
     </div>
+
   </aside>
 
   <!-- Main Chat Window -->
   <main class="flex-1 flex flex-col h-full relative overflow-hidden bg-[#131314]">
     
-    <!-- Top Header -->
+    <!-- Top Header Navigation -->
     <header class="h-14 border-b border-[#3c4043] flex items-center justify-between px-4 z-10 bg-[#131314]">
       <div class="flex items-center gap-3">
         <button onclick="toggleSidebar()" class="text-gray-300 hover:text-white p-2 rounded-lg hover:bg-[#1e1f20]">
           <i class="fa-solid fa-bars"></i>
         </button>
         <div class="flex items-center gap-2">
-          <span class="text-lg font-bold text-gray-100 tracking-tight">Gemini</span>
-          <span class="text-xs px-2 py-0.5 rounded-full bg-[#282a2c] text-[#8ab4f8] border border-[#3c4043]">OSINT NEO AI 2.5</span>
+          <span id="headerBrandName" class="text-lg font-bold text-gray-100 tracking-tight">Gemini 2.5</span>
+          <span id="headerModelBadge" class="text-xs px-2 py-0.5 rounded-full bg-[#282a2c] text-[#8ab4f8] border border-[#3c4043] font-mono">Whitelabel AI Studio</span>
         </div>
       </div>
       <div class="flex items-center gap-3 text-xs">
-        <div class="flex items-center gap-1.5 text-emerald-400">
+        <div class="hidden sm:flex items-center gap-1.5 text-emerald-400">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>Online / 17,488 Nodes</span>
+          <span>17,488 Nodes Live</span>
         </div>
-        <a href="/" class="hidden sm:inline-block px-3 py-1 rounded-lg bg-[#282a2c] text-gray-200 hover:text-white border border-[#3c4043]">
+        <button onclick="exportCurrentChat()" class="px-3 py-1.5 rounded-lg bg-[#282a2c] hover:bg-[#37393b] text-gray-200 border border-[#3c4043] flex items-center gap-1.5">
+          <i class="fa-solid fa-download text-[10px]"></i>
+          <span class="hidden sm:inline">Export</span>
+        </button>
+        <a href="/" class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-500">
           Dashboard
         </a>
       </div>
     </header>
 
-    <!-- Messages Container -->
+    <!-- Messages Canvas -->
     <div id="chatContainer" class="flex-1 overflow-y-auto custom-scrollbar p-4 md:p-6 space-y-6 max-w-4xl mx-auto w-full">
       
-      <!-- Hero Welcome Screen (Shown on empty chat) -->
-      <div id="welcomeScreen" class="py-12 md:py-20 text-center space-y-4">
-        <h1 class="text-3xl md:text-5xl font-bold gemini-gradient">Hello, Anthony</h1>
-        <p class="text-gray-400 text-base md:text-lg max-w-xl mx-auto">
-          How can OSINT Neo AI help your investigation today?
+      <!-- Hero Welcome Greeting -->
+      <div id="welcomeScreen" class="py-12 md:py-16 text-center space-y-4">
+        <h1 id="heroTitle" class="text-3xl md:text-5xl font-bold accent-gradient-text">Hello, Anthony</h1>
+        <p id="heroSubtitle" class="text-gray-400 text-base md:text-lg max-w-xl mx-auto">
+          Ask anything—from full-stack coding & creative writing to forensic property records & legal statutes.
         </p>
 
         <!-- Suggested Prompt Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto pt-6 text-left">
-          <button onclick="fillAndSend('Analyze the 11770 Warner Ave hospice concentration and PPP loan network.')" class="p-4 rounded-2xl bg-[#1e1f20] hover:bg-[#282a2c] border border-[#3c4043] transition-all group">
-            <div class="text-sm font-semibold text-white group-hover:text-[#8ab4f8]">🏥 11770 Warner Ave Hospice Network</div>
+          <button onclick="fillAndSend('Write a Python function to parse JSON graph edges and find cyclical financial loops.')" class="p-4 rounded-2xl bg-[#1e1f20] hover:bg-[#282a2c] border border-[#3c4043] transition-all group">
+            <div class="text-sm font-semibold text-white group-hover:text-[#8ab4f8]">💻 Write Python Graph Code</div>
+            <div class="text-xs text-gray-400 mt-1">Generate clean, commented Python algorithms with test cases.</div>
+          </button>
+          <button onclick="fillAndSend('Analyze the 11770 Warner Ave hospice network and $1.11M PPP loans.')" class="p-4 rounded-2xl bg-[#1e1f20] hover:bg-[#282a2c] border border-[#3c4043] transition-all group">
+            <div class="text-sm font-semibold text-white group-hover:text-[#8ab4f8]">🏥 11770 Warner Ave Hospice Shells</div>
             <div class="text-xs text-gray-400 mt-1">Audit 18 loans ($1.11M) and medical shell clusters.</div>
           </button>
-          <button onclick="fillAndSend('Audit the Southern California Edison APN 114-481-32 $0 deed conveyance.')" class="p-4 rounded-2xl bg-[#1e1f20] hover:bg-[#282a2c] border border-[#3c4043] transition-all group">
+          <button onclick="fillAndSend('Audit the Southern California Edison APN 114-481-32 $0 deed conveyance to SLF-HB Magnolia.')" class="p-4 rounded-2xl bg-[#1e1f20] hover:bg-[#282a2c] border border-[#3c4043] transition-all group">
             <div class="text-sm font-semibold text-white group-hover:text-[#8ab4f8]">⚡ SoCal Edison $0 Deed Transfer</div>
             <div class="text-xs text-gray-400 mt-1">Review APN 114-481-32 at 22011 Magnolia & Cal. PUC § 851.</div>
-          </button>
-          <button onclick="fillAndSend('Explain the Pham Family Living Trust $3.88M Wells Fargo asset pool (Property ID: 1024456136).')" class="p-4 rounded-2xl bg-[#1e1f20] hover:bg-[#282a2c] border border-[#3c4043] transition-all group">
-            <div class="text-sm font-semibold text-white group-hover:text-[#8ab4f8]">🏦 Pham Family Trust Forfeiture</div>
-            <div class="text-xs text-gray-400 mt-1">Analyze the $3.88M Wells Fargo unclaimed property trust.</div>
           </button>
           <button onclick="fillAndSend('Explain the 2026 Plaid AI Era Fraud Report benchmarks on synthetic identities.')" class="p-4 rounded-2xl bg-[#1e1f20] hover:bg-[#282a2c] border border-[#3c4043] transition-all group">
             <div class="text-sm font-semibold text-white group-hover:text-[#8ab4f8]">🧠 Plaid AI Fraud Intelligence</div>
@@ -164,7 +245,7 @@
         </div>
       </div>
 
-      <!-- Live Streamed Message Stream -->
+      <!-- Live Streamed Message List -->
       <div id="messagesList" class="space-y-6"></div>
 
     </div>
@@ -172,25 +253,25 @@
     <!-- Floating Prompt Input Bar -->
     <div class="p-4 bg-[#131314] max-w-4xl mx-auto w-full">
       <div class="prompt-box rounded-3xl p-3 flex flex-col gap-2 relative">
-        <textarea id="promptInput" rows="1" placeholder="Ask Gemini about entities, $0 deeds, PPP loans, or legal statutes..."
+        <textarea id="promptInput" rows="1" placeholder="Ask anything, code, brainstorm, or explore 17k forensic entities..."
                   class="w-full bg-transparent text-gray-100 placeholder-gray-500 resize-none focus:outline-none px-3 text-sm md:text-base max-h-36 custom-scrollbar"
                   onkeydown="handleKeyDown(event)"></textarea>
         
         <div class="flex items-center justify-between px-2 pt-1 border-t border-[#3c4043]/50">
           <div class="flex items-center gap-2 text-gray-400 text-xs">
-            <span class="px-2 py-0.5 rounded bg-[#131314] text-[#8ab4f8] font-mono text-[10px]">OSINT-2.5</span>
+            <span id="activeModelTag" class="px-2 py-0.5 rounded bg-[#131314] text-[#8ab4f8] font-mono text-[10px]">Gemini 2.5</span>
             <span class="hidden sm:inline text-gray-500">Press Enter to send, Shift+Enter for newline</span>
           </div>
           
           <div class="flex items-center gap-2">
-            <button id="sendBtn" onclick="sendMessage()" class="w-8 h-8 rounded-full bg-[#8ab4f8] text-[#131314] flex items-center justify-center hover:bg-[#aecbfa] transition-all disabled:opacity-40">
+            <button id="sendBtn" onclick="sendMessage()" class="w-8 h-8 rounded-full bg-[#8ab4f8] text-[#131314] flex items-center justify-center hover:brightness-110 transition-all disabled:opacity-40">
               <i class="fa-solid fa-arrow-up text-sm font-bold"></i>
             </button>
           </div>
         </div>
       </div>
       <div class="text-[11px] text-center text-gray-500 mt-2">
-        OSINT Neo AI Gemini may display public records and forensic graph predictions. Verify critical statutory filings independently.
+        Universal AI Studio — Powered by local sovereign neural intelligence & live cloud models.
       </div>
     </div>
 
@@ -198,6 +279,57 @@
 
   <script>
     let chatHistory = [];
+
+    const MODEL_CONFIGS = {
+      gemini_25: {
+        name: "Gemini 2.5 Flash",
+        theme: "theme-gemini",
+        color: "#8ab4f8",
+        badge: "Google DeepMind",
+        icon: "fa-sparkles"
+      },
+      chatgpt_4o: {
+        name: "ChatGPT-4o",
+        theme: "theme-chatgpt",
+        color: "#10a37f",
+        badge: "OpenAI Omni",
+        icon: "fa-bolt"
+      },
+      claude_35: {
+        name: "Claude 3.5 Sonnet",
+        theme: "theme-claude",
+        color: "#d97706",
+        badge: "Anthropic Artifacts",
+        icon: "fa-feather"
+      },
+      deepseek_r1: {
+        name: "DeepSeek R1",
+        theme: "theme-deepseek",
+        color: "#7c3aed",
+        badge: "Deep Reasoning",
+        icon: "fa-brain"
+      },
+      osint_sovereign: {
+        name: "OSINT Neo AI",
+        theme: "theme-gemini",
+        color: "#10b981",
+        badge: "17k Sovereign Graph",
+        icon: "fa-satellite-dish"
+      }
+    };
+
+    function changeModel(modelKey) {
+      const cfg = MODEL_CONFIGS[modelKey] || MODEL_CONFIGS.gemini_25;
+      const body = document.getElementById('appBody');
+      body.className = `h-screen flex overflow-hidden ${cfg.theme}`;
+      
+      document.getElementById('headerBrandName').innerText = cfg.name;
+      document.getElementById('headerModelBadge').innerText = cfg.badge;
+      document.getElementById('headerModelBadge').style.color = cfg.color;
+      document.getElementById('activeModelTag').innerText = cfg.name;
+      document.getElementById('activeModelTag').style.color = cfg.color;
+      document.getElementById('sendBtn').style.backgroundColor = cfg.color;
+    }
 
     function toggleSidebar() {
       const sb = document.getElementById('sidebar');
@@ -210,6 +342,12 @@
       document.getElementById('welcomeScreen').style.display = 'block';
       document.getElementById('promptInput').value = '';
       document.getElementById('promptInput').focus();
+    }
+
+    function clearHistory() {
+      if (confirm('Clear current chat conversation?')) {
+        newChat();
+      }
     }
 
     function fillPrompt(txt) {
@@ -253,11 +391,12 @@
 
       // 2. Add AI Loading Indicator
       const loadingId = appendAiLoading();
-
-      // Scroll to bottom
       scrollToBottom();
 
-      const mode = document.getElementById('chatMode').value;
+      const model = document.getElementById('modelSelector').value;
+      const persona = document.getElementById('personaSelector').value;
+      const enableThinking = document.getElementById('toggleThinking').checked;
+      const enableGraph = document.getElementById('toggleGraph').checked;
 
       try {
         const response = await fetch('/api/ai_chat', {
@@ -265,7 +404,10 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             message: text,
-            mode: mode,
+            model: model,
+            persona: persona,
+            thinking: enableThinking,
+            use_graph: enableGraph,
             history: chatHistory
           })
         });
@@ -274,7 +416,7 @@
         removeElement(loadingId);
 
         if (data.status === 'success' || data.reply) {
-          appendAiMessage(data.reply, data.citations);
+          appendAiMessage(data.reply, data.thinking_process, data.citations, model);
           chatHistory.push({ role: 'user', content: text });
           chatHistory.push({ role: 'assistant', content: data.reply });
         } else {
@@ -313,25 +455,41 @@
         </div>
         <div class="bg-[#1e1f20] px-5 py-3.5 rounded-3xl text-gray-300 text-sm border border-[#3c4043] flex items-center gap-2">
           <i class="fa-solid fa-circle-notch animate-spin text-[#8ab4f8]"></i>
-          <span class="text-xs text-gray-400">Gemini Neural Engine Synthesizing Forensic Graph...</span>
+          <span class="text-xs text-gray-400">AI Studio Synthesizing Response & Reasoning Chains...</span>
         </div>
       `;
       list.appendChild(div);
       return id;
     }
 
-    function appendAiMessage(markdownText, citations = []) {
+    function appendAiMessage(markdownText, thinkingProcess, citations = [], modelKey = 'gemini_25') {
       const list = document.getElementById('messagesList');
       const div = document.createElement('div');
       div.className = 'flex gap-4 items-start';
       
+      const cfg = MODEL_CONFIGS[modelKey] || MODEL_CONFIGS.gemini_25;
       const htmlContent = marked.parse(markdownText || '');
       
+      let thinkingHtml = '';
+      if (thinkingProcess) {
+        thinkingHtml = `
+          <details class="mb-4 rounded-xl p-3 thinking-drawer text-xs text-indigo-300 border border-indigo-500/20">
+            <summary class="cursor-pointer font-mono font-semibold flex items-center gap-2 select-none">
+              <i class="fa-solid fa-brain text-xs"></i>
+              <span>View Thought Process & Reasoning (${thinkingProcess.length} chars)</span>
+            </summary>
+            <div class="mt-2.5 pt-2 border-t border-indigo-500/20 whitespace-pre-wrap font-mono text-[11px] text-gray-300 leading-relaxed">
+              ${escapeHtml(thinkingProcess)}
+            </div>
+          </details>
+        `;
+      }
+
       let citationsHtml = '';
       if (citations && citations.length > 0) {
         citationsHtml = `
           <div class="mt-4 pt-3 border-t border-[#3c4043] text-xs">
-            <div class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-2">Verified Graph Sources & Dossiers:</div>
+            <div class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-2">Verified Sources & Knowledge Correlates:</div>
             <div class="flex flex-wrap gap-1.5">
               ${citations.map(c => `
                 <a href="${c.url || '#'}" target="_blank" class="px-2.5 py-1 rounded-md bg-[#282a2c] hover:bg-[#37393b] text-[#8ab4f8] border border-[#3c4043] flex items-center gap-1.5 transition-all">
@@ -345,10 +503,11 @@
       }
 
       div.innerHTML = `
-        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#4285f4] via-[#9b72cb] to-[#d96570] flex items-center justify-center text-white text-xs shadow-lg flex-shrink-0 mt-1">
-          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <div class="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs shadow-lg flex-shrink-0 mt-1" style="background-color: ${cfg.color};">
+          <i class="fa-solid ${cfg.icon}"></i>
         </div>
         <div class="flex-1 bg-[#1e1f20] px-5 py-4 rounded-3xl text-[#e3e3e3] border border-[#3c4043] shadow-md overflow-hidden">
+          ${thinkingHtml}
           <div class="prose text-sm md:text-base leading-relaxed text-gray-200">
             ${htmlContent}
           </div>
@@ -359,6 +518,22 @@
       div.querySelectorAll('pre code').forEach((el) => {
         hljs.highlightElement(el);
       });
+    }
+
+    function exportCurrentChat() {
+      if (chatHistory.length === 0) {
+        alert('No messages to export yet!');
+        return;
+      }
+      let exportMd = '# 💬 AI Studio Conversation Export\n\n';
+      chatHistory.forEach(msg => {
+        exportMd += `### ${msg.role.toUpperCase()}\n${msg.content}\n\n---\n\n`;
+      });
+      const blob = new Blob([exportMd], { type: 'text/markdown' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `ai_chat_export_${Date.now()}.md`;
+      a.click();
     }
 
     function removeElement(id) {
