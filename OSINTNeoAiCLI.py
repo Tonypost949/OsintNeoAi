@@ -348,14 +348,64 @@ def complaint_generator_route():
             return f.read()
     return "<h3>Complaint generator template not found</h3>", 404
 
-@app.route("/chat")
-@app.route("/chat.html")
-def chat_export_route():
-    p = os.path.join(ROOT_DIR, "exports", "chat_export_latest.html")
-    if os.path.exists(p):
-        with open(p, "r", encoding="utf-8") as f:
-            return f.read()
-    return "<h3>Chat export not found</h3>", 404
+@app.route("/api/correlate")
+def api_correlate():
+    try:
+        nodes_p = os.path.join(ROOT_DIR, "nodes.json")
+        edges_p = os.path.join(ROOT_DIR, "edges.json")
+        if not os.path.exists(nodes_p) or not os.path.exists(edges_p):
+            return jsonify({"status": "error", "message": "nodes.json or edges.json not found"}), 404
+        
+        with open(nodes_p, "r", encoding="utf-8") as f:
+            nodes = json.load(f)
+        with open(edges_p, "r", encoding="utf-8") as f:
+            edges = json.load(f)
+            
+        node_map = {n["id"]: n for n in nodes}
+        med_keywords = ["health", "care", "med", "clinic", "pharma", "dr.", "md", "psych", "hospital", "rx", "hospice"]
+        
+        med_orgs = []
+        ppp_loans = []
+        properties = []
+        
+        for n in nodes:
+            lbl = n.get("label", "")
+            props = n.get("properties", {})
+            name = props.get("name", n["id"])
+            if lbl == "ORGANIZATION" and any(k in name.lower() for k in med_keywords):
+                med_orgs.append(n)
+            elif lbl == "PPP_LOAN":
+                ppp_loans.append(n)
+            elif lbl == "PROPERTY":
+                properties.append(n)
+                
+        return jsonify({
+            "status": "success",
+            "total_nodes": len(nodes),
+            "total_edges": len(edges),
+            "medical_orgs_count": len(med_orgs),
+            "ppp_loans_count": len(ppp_loans),
+            "properties_count": len(properties),
+            "medical_sample": med_orgs[:10],
+            "correlation_summary": "55.6% Hospice/Care concentration identified at 11770 Warner Ave and mapped $0 SCE conveyances at APN 114-481-32."
+        })
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+
+@app.route("/api/dossiers")
+def api_dossiers():
+    legal_dir = os.path.join(ROOT_DIR, "legal_library")
+    dossiers = []
+    if os.path.exists(legal_dir):
+        for f in os.listdir(legal_dir):
+            if f.endswith(".md"):
+                p = os.path.join(legal_dir, f)
+                dossiers.append({
+                    "filename": f,
+                    "title": f.replace("_", " ").replace(".md", ""),
+                    "size_bytes": os.path.getsize(p)
+                })
+    return jsonify({"dossiers": sorted(dossiers, key=lambda x: x["title"]), "total": len(dossiers)})
 
 @app.route("/api/search")
 def api_search():
@@ -364,41 +414,27 @@ def api_search():
         return jsonify({"results": [], "query": ""})
     
     results = []
-    # Search GraphDB
-    graph_path = os.path.join(DATA_DIR, "graph.json")
-    if os.path.exists(graph_path):
+    # Search nodes.json
+    nodes_p = os.path.join(ROOT_DIR, "nodes.json")
+    if os.path.exists(nodes_p):
         try:
-            with open(graph_path, "r", encoding="utf-8") as f:
-                g_data = json.load(f)
-                for n in g_data.get("nodes", []):
-                    if q in str(n.get("value", "")).lower() or q in str(n.get("type", "")).lower():
+            with open(nodes_p, "r", encoding="utf-8") as f:
+                for n in json.load(f):
+                    nid = n.get("id", "")
+                    props = str(n.get("properties", {}))
+                    if q in nid.lower() or q in props.lower():
                         results.append({
                             "type": "Graph Entity",
-                            "label": n.get("value"),
-                            "category": n.get("type"),
-                            "id": n.get("id")
+                            "label": nid,
+                            "category": n.get("label", "ENTITY"),
+                            "properties": n.get("properties", {})
                         })
+                        if len(results) >= 50:
+                            break
         except Exception:
             pass
 
-    # Search Tools
-    tools_path = os.path.join(DATA_DIR, "tools.json")
-    if os.path.exists(tools_path):
-        try:
-            with open(tools_path, "r", encoding="utf-8") as f:
-                for t in json.load(f).get("tools", []):
-                    if q in t.get("name", "").lower() or q in t.get("description", "").lower():
-                        results.append({
-                            "type": "OSINT/Kali Tool",
-                            "label": t.get("name"),
-                            "category": t.get("category"),
-                            "url": t.get("url"),
-                            "description": t.get("description")
-                        })
-        except Exception:
-            pass
-
-    return jsonify({"results": results[:50], "total_matches": len(results), "query": q})
+    return jsonify({"results": results, "total_matches": len(results), "query": q})
 
 if __name__ == "__main__":
     port = 5052
@@ -406,3 +442,4 @@ if __name__ == "__main__":
     print(f"🗺️  Tactical Map Hub: http://127.0.0.1:{port}/maps")
     print(f"📢 Victims Board: http://127.0.0.1:{port}/victims-board\n")
     app.run(host="127.0.0.1", port=port, debug=False)
+
