@@ -20,8 +20,10 @@ This document provides a unified reference catalog of all **70 investigative dos
 ---
 
 ## 💵 Pillar 3: FinTech Corporate Automation & Tax Allocations
+* [PLAID_AI_ERA_FRAUD_NETWORK_ANALYSIS.md](file:///C:/Users/Amd949609/OsintNeoAi-1/legal_library/PLAID_AI_ERA_FRAUD_NETWORK_ANALYSIS.md) — Forensic audit of Plaid's 2026 report *"The New Identity Crisis: Rethinking Fraud in the AI Era"* on synthetic identity explosion, $40B fraud losses, and cross-institutional network intelligence.
 * [NATIONWIDE_PUBLIC_FUNDS_AND_TAX_DOLLAR_FLOW_AUDIT.md](file:///C:/Users/Amd949609/OsintNeoAi-1/legal_library/NATIONWIDE_PUBLIC_FUNDS_AND_TAX_DOLLAR_FLOW_AUDIT.md) — Exhaustive accounting of $5T federal emergency allocations (PPP, ARPA SLFRF, CMS per-diem hospice) and 55.6% hospice shell concentration at 11770 Warner Ave.
 * [SOUTHERN_CALIFORNIA_EDISON_MAGNOLIA_PARCEL_AUDIT.md](file:///C:/Users/Amd949609/OsintNeoAi-1/legal_library/SOUTHERN_CALIFORNIA_EDISON_MAGNOLIA_PARCEL_AUDIT.md) — Audit of Southern California Edison (SCE) $0 deed conveyance of APN 114-481-32 at 22011 Magnolia St under Cal. Pub. Util. Code § 851.
+
 
 ---
 
