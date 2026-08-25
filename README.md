@@ -4,20 +4,34 @@ Welcome to the **OSINTNeoAi** official investigation repository, live forensic s
 
 ---
 
-## ⚡ Instant 1-Line Quickstart & AI Resume (Shortest Path)
+## ⚡ Instant AI Chat & System Setup Across All 5 Platforms
 
-### 1️⃣ Launch Full System on Any New Computer (One Copy-Paste):
-Open PowerShell, Bash, or Terminal on any machine and run:
-```bash
-git clone https://github.com/Tonypost949/OsintNeoAi.git; cd OsintNeoAi; pip install -r requirements.txt; python OSINTNeoAiCLI.py
+Get into **this exact interactive AI chat session** and launch the full intelligence suite on any device:
+
+### 💻 1. Windows (PowerShell):
+```powershell
+git clone https://github.com/Tonypost949/OsintNeoAi.git; cd OsintNeoAi; pip install -r requirements.txt; python OSINTNeoAiCLI.py; agy
 ```
-* **Local Web Hub:** Opens automatically at [**`http://127.0.0.1:5052`**](http://127.0.0.1:5052) (Maps, Victims Board, Knowledge Vault, and Chat Logs).
-* **Live Azure Web App:** [**`https://osintneoai-app-949.azurewebsites.net/`**](https://osintneoai-app-949.azurewebsites.net/)
+* **AI Catch-Up Prompt:** Paste *"Read `exports/chat_export_latest.md` and `legal_library/` to resume our session."*
+* **Local Web Hub:** [**`http://127.0.0.1:5052`**](http://127.0.0.1:5052)
 
-### 2️⃣ Resume This Exact AI Coding Assistant Session:
-Open **Antigravity CLI** (`agy`) or any AI coding tool in the cloned `OsintNeoAi` folder and paste:
-> **"Read `exports/chat_export_latest.md` and `legal_library/` to resume our exact session."**
-*(The AI will immediately read the full 166+ turn history, knowledge graphs, and legal dossiers with 100% memory continuity).*
+### 🍏 2. macOS (Terminal):
+```bash
+git clone https://github.com/Tonypost949/OsintNeoAi.git && cd OsintNeoAi && pip3 install -r requirements.txt && python3 OSINTNeoAiCLI.py && agy
+```
+* **AI Catch-Up Prompt:** Paste *"Read `exports/chat_export_latest.md` and `legal_library/` to resume our session."*
+
+### 🐧 3. Linux / Kali / WSL (Bash):
+```bash
+git clone https://github.com/Tonypost949/OsintNeoAi.git && cd OsintNeoAi && pip install -r requirements.txt && python3 OSINTNeoAiCLI.py && agy
+```
+* **AI Catch-Up Prompt:** Paste *"Read `exports/chat_export_latest.md` and `legal_library/` to resume our session."*
+
+### 📱 4. iOS (iPhone / iPad) & Android (Zero App Install — 100% Browser):
+1. Open this repository on GitHub: [**`github.com/Tonypost949/OsintNeoAi`**](https://github.com/Tonypost949/OsintNeoAi)
+2. Tap **`Code`** ➡️ **`Codespaces`** ➡️ **`Create codespace on main`**.
+3. It launches a full interactive AI terminal and coding chat directly inside Safari/Chrome on your phone.
+4. Paste: *"Read `exports/chat_export_latest.md` to resume our session."*
 
 ---
 
