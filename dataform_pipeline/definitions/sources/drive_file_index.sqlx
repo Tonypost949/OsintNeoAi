@@ -1,0 +1,7 @@
+config {
+  type: "declaration",
+  database: "noble-beanbag-497411-m4",
+  schema: "national_audits",
+  name: "drive_file_index",
+  description: "National audit Google Drive file index"
+}

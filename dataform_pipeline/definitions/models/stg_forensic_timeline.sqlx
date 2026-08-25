@@ -1,0 +1,13 @@
+config {
+  type: "view",
+  schema: "dataform_analytics",
+  name: "stg_forensic_timeline",
+  description: "Staging view aggregating forensic timeline events across sources",
+  tags: ["forensics", "timeline"]
+}
+
+SELECT
+  CURRENT_TIMESTAMP() AS compilation_timestamp,
+  "noble-beanbag-497411-m4" AS project_id,
+  "dataform_analytics" AS target_dataset,
+  "Active" AS pipeline_status

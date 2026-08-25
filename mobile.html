@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>OSINTNeoAi — Mobile Tactical Field Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Manrope', sans-serif; background-color: #050912; color: #e2e8f0; }
+    .font-mono { font-family: 'DM Mono', monospace; }
+    .touch-card:active { transform: scale(0.98); }
+    .glass-nav { background: rgba(11, 19, 34, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+  </style>
+</head>
+<body class="min-h-screen pb-24 text-slate-200">
+  
+  <!-- Mobile Header -->
+  <header class="sticky top-0 z-50 glass-nav border-b border-slate-800/80 px-4 py-3.5 flex items-center justify-between">
+    <div class="flex items-center space-x-2.5">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 to-cyan-500 flex items-center justify-center text-white text-sm shadow-md shadow-indigo-600/30">
+        <i class="fa-solid fa-satellite-dish"></i>
+      </div>
+      <div>
+        <h1 class="text-sm font-extrabold text-white tracking-tight leading-tight">OSINTNeoAi Mobile</h1>
+        <p class="text-[10px] text-cyan-400 font-mono">Field Intelligence HUD</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-1.5">
+      <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-mono font-bold flex items-center gap-1">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Port 5052
+      </span>
+      <a href="/" class="text-slate-400 hover:text-white p-1.5" title="Full Desktop View">
+        <i class="fa-solid fa-desktop text-xs"></i>
+      </a>
+    </div>
+  </header>
+
+  <main class="p-4 space-y-4 max-w-lg mx-auto">
+    
+    <!-- Quick Status Hero -->
+    <div class="bg-gradient-to-br from-indigo-950/60 via-slate-900 to-cyan-950/40 border border-indigo-500/30 rounded-2xl p-4 shadow-xl">
+      <div class="flex items-center justify-between text-xs mb-2">
+        <span class="font-bold text-indigo-400 uppercase tracking-wider text-[11px]"><i class="fa-solid fa-bolt mr-1"></i> Tactical Command</span>
+        <span class="font-mono text-[10px] bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded">61 Tools Active</span>
+      </div>
+      <p class="text-xs text-slate-300 leading-relaxed">
+        Full OSINT intelligence suite, real-time tactical maps, Dataform BigQuery pipeline, and mutual aid network.
+      </p>
+      <div class="grid grid-cols-2 gap-2 mt-3 pt-3 border-t border-slate-800/80">
+        <a href="/gemini" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 text-center touch-card transition">
+          <i class="fa-solid fa-brain"></i> Gemini GIS
+        </a>
+        <a href="/maps" class="bg-slate-800 hover:bg-slate-700 text-cyan-400 border border-cyan-500/30 text-xs font-bold py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 text-center touch-card transition">
+          <i class="fa-solid fa-map-location-dot"></i> Tactical Maps
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Navigation Grid -->
+    <div class="grid grid-cols-2 gap-3">
+      
+      <!-- Gemini GIS Card -->
+      <a href="/gemini" class="bg-slate-900/90 border border-purple-500/30 rounded-2xl p-3.5 space-y-2 touch-card block hover:border-purple-400 transition">
+        <div class="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-sm">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+        <div>
+          <h2 class="text-xs font-bold text-white">Gemini AI GIS</h2>
+          <p class="text-[10px] text-slate-400 mt-0.5">Interactive tactical layer & prompts</p>
+        </div>
+      </a>
+
+      <!-- Victims Board Card -->
+      <a href="/victims-board" class="bg-slate-900/90 border border-red-500/30 rounded-2xl p-3.5 space-y-2 touch-card block hover:border-red-400 transition">
+        <div class="w-8 h-8 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center text-sm">
+          <i class="fa-solid fa-bullhorn"></i>
+        </div>
+        <div>
+          <h2 class="text-xs font-bold text-white">Victims Board</h2>
+          <p class="text-[10px] text-slate-400 mt-0.5">Mutual aid & verified case ledger</p>
+        </div>
+      </a>
+
+      <!-- Complaint Generator Card -->
+      <a href="/generator" class="bg-slate-900/90 border border-emerald-500/30 rounded-2xl p-3.5 space-y-2 touch-card block hover:border-emerald-400 transition">
+        <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm">
+          <i class="fa-solid fa-file-signature"></i>
+        </div>
+        <div>
+          <h2 class="text-xs font-bold text-white">Legal Generator</h2>
+          <p class="text-[10px] text-slate-400 mt-0.5">1-click complaint drafting</p>
+        </div>
+      </a>
+
+      <!-- Tactical Maps Hub Card -->
+      <a href="/maps" class="bg-slate-900/90 border border-cyan-500/30 rounded-2xl p-3.5 space-y-2 touch-card block hover:border-cyan-400 transition">
+        <div class="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-sm">
+          <i class="fa-solid fa-layer-group"></i>
+        </div>
+        <div>
+          <h2 class="text-xs font-bold text-white">12 Tactical Maps</h2>
+          <p class="text-[10px] text-slate-400 mt-0.5">ArcGIS, 3D MapLibre, Plume</p>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Direct Tactical Maps Carousel -->
+    <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 space-y-3">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xs font-bold text-white flex items-center gap-1.5">
+          <i class="fa-solid fa-map-pin text-cyan-400"></i> Direct Tactical Maps
+        </h2>
+        <a href="/maps" class="text-[10px] text-indigo-400 hover:text-indigo-300 font-mono">View All 12 &rarr;</a>
+      </div>
+
+      <div class="space-y-2 text-xs">
+        <a href="/maps/badass_osint_map.html" class="flex items-center justify-between p-2.5 bg-slate-950 rounded-xl border border-slate-800/80 hover:border-cyan-500/40 transition">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-crosshairs text-red-400 text-xs"></i>
+            <span class="font-medium text-slate-200">Badass OSINT Tactical Map</span>
+          </div>
+          <i class="fa-solid fa-chevron-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="/maps/maplibre_3d_tactical.html" class="flex items-center justify-between p-2.5 bg-slate-950 rounded-xl border border-slate-800/80 hover:border-cyan-500/40 transition">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-cube text-indigo-400 text-xs"></i>
+            <span class="font-medium text-slate-200">3D MapLibre Tactical Globe</span>
+          </div>
+          <i class="fa-solid fa-chevron-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="/maps/hbnc_rico_gis.html" class="flex items-center justify-between p-2.5 bg-slate-950 rounded-xl border border-slate-800/80 hover:border-cyan-500/40 transition">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-smog text-amber-400 text-xs"></i>
+            <span class="font-medium text-slate-200">HBNC Plume RICO GIS</span>
+          </div>
+          <i class="fa-solid fa-chevron-right text-slate-500 text-[10px]"></i>
+        </a>
+        <a href="/maps/arcgis_teams_dashboard.html" class="flex items-center justify-between p-2.5 bg-slate-950 rounded-xl border border-slate-800/80 hover:border-cyan-500/40 transition">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-users text-emerald-400 text-xs"></i>
+            <span class="font-medium text-slate-200">ArcGIS Teams Tactical Dashboard</span>
+          </div>
+          <i class="fa-solid fa-chevron-right text-slate-500 text-[10px]"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Cloud & CLI Status Summary -->
+    <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 space-y-2.5">
+      <h2 class="text-xs font-bold text-white flex items-center gap-1.5">
+        <i class="fa-solid fa-terminal text-emerald-400"></i> Core CLIs in PATH
+      </h2>
+      <div class="grid grid-cols-3 gap-2 text-center text-[10px] font-mono">
+        <div class="bg-slate-950 p-2 rounded-lg border border-slate-800 text-emerald-400">gcloud &bull; Ready</div>
+        <div class="bg-slate-950 p-2 rounded-lg border border-slate-800 text-emerald-400">bq &bull; Ready</div>
+        <div class="bg-slate-950 p-2 rounded-lg border border-slate-800 text-emerald-400">dataform &bull; Ready</div>
+        <div class="bg-slate-950 p-2 rounded-lg border border-slate-800 text-emerald-400">gsutil &bull; Ready</div>
+        <div class="bg-slate-950 p-2 rounded-lg border border-slate-800 text-emerald-400">agy &bull; Ready</div>
+        <div class="bg-slate-950 p-2 rounded-lg border border-slate-800 text-emerald-400">docker &bull; Ready</div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Mobile Bottom Sticky Navigation -->
+  <nav class="fixed bottom-0 left-0 right-0 z-50 glass-nav border-t border-slate-800/80 py-2 px-4 flex items-center justify-around text-center">
+    <a href="/" class="text-slate-400 hover:text-indigo-400 flex flex-col items-center gap-1 transition">
+      <i class="fa-solid fa-terminal text-sm"></i>
+      <span class="text-[9px] font-medium">CLI Hub</span>
+    </a>
+    <a href="/gemini" class="text-purple-400 flex flex-col items-center gap-1 transition">
+      <i class="fa-solid fa-brain text-sm"></i>
+      <span class="text-[9px] font-bold">Gemini GIS</span>
+    </a>
+    <a href="/maps" class="text-cyan-400 flex flex-col items-center gap-1 transition">
+      <i class="fa-solid fa-map-location-dot text-sm"></i>
+      <span class="text-[9px] font-medium">Maps</span>
+    </a>
+    <a href="/victims-board" class="text-red-400 flex flex-col items-center gap-1 transition">
+      <i class="fa-solid fa-bullhorn text-sm"></i>
+      <span class="text-[9px] font-medium">Victims</span>
+    </a>
+    <a href="/generator" class="text-emerald-400 flex flex-col items-center gap-1 transition">
+      <i class="fa-solid fa-file-signature text-sm"></i>
+      <span class="text-[9px] font-medium">Generator</span>
+    </a>
+  </nav>
+
+</body>
+</html>

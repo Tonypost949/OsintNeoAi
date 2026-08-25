@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚨 Public Emergency Victims & Whistleblower Mutual Aid Board</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --surface: #161b22;
+            --surface-hover: #21262d;
+            --border: #30363d;
+            --text: #c9d1d9;
+            --text-bright: #f0f6fc;
+            --accent: #58a6ff;
+            --accent-glow: rgba(88, 166, 255, 0.15);
+            --danger: #f85149;
+            --danger-bg: rgba(248, 81, 73, 0.1);
+            --warning: #e3b341;
+            --success: #3fb950;
+            --reddit: #ff4500;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { background: var(--bg); color: var(--text); line-height: 1.5; padding-bottom: 60px; }
+        
+        .header {
+            background: linear-gradient(180deg, #1f1414 0%, var(--surface) 100%);
+            border-bottom: 2px solid var(--danger);
+            padding: 24px 20px;
+            text-align: center;
+        }
+        .header h1 { font-size: 1.8rem; color: var(--text-bright); margin-bottom: 8px; }
+        .header p { font-size: 0.95rem; color: #8b949e; max-width: 800px; margin: 0 auto; }
+        .badge-open { display: inline-block; background: var(--success); color: #000; font-weight: bold; font-size: 0.75rem; padding: 3px 8px; border-radius: 12px; margin-bottom: 10px; text-transform: uppercase; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+        /* Top Action Bar */
+        .action-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        .btn {
+            background: var(--surface-hover);
+            color: var(--text-bright);
+            border: 1px solid var(--border);
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .btn:hover { background: var(--border); color: #fff; }
+        .btn-primary { background: var(--danger); border-color: var(--danger); color: #fff; }
+        .btn-primary:hover { background: #d73a49; }
+        .btn-reddit { background: var(--reddit); border-color: var(--reddit); color: #fff; }
+        .btn-reddit:hover { opacity: 0.9; }
+
+        /* Emergency Hotlines Bar */
+        .hotlines-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .hotline-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            padding: 12px 16px;
+            border-radius: 6px;
+        }
+        .hotline-card.danger { border-left-color: var(--danger); }
+        .hotline-card h4 { font-size: 0.85rem; color: #8b949e; text-transform: uppercase; }
+        .hotline-card .phone { font-size: 1.1rem; font-weight: bold; color: var(--text-bright); margin: 4px 0; }
+        .hotline-card a { color: var(--accent); text-decoration: none; font-size: 0.85rem; }
+        .hotline-card a:hover { text-decoration: underline; }
+
+        /* Search & Filter */
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .search-box {
+            flex: 1;
+            min-width: 260px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        .category-select {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* Submissions Feed */
+        .feed { display: flex; flex-direction: column; gap: 16px; }
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.15s ease, border-color 0.15s ease;
+        }
+        .card:hover { border-color: var(--accent); }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .card-title { font-size: 1.2rem; color: var(--text-bright); font-weight: 600; }
+        .card-meta { font-size: 0.8rem; color: #8b949e; margin-bottom: 12px; display: flex; flex-wrap: wrap; gap: 12px; }
+        .urgency-badge {
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+        .urgency-CRITICAL { background: var(--danger-bg); color: var(--danger); border: 1px solid var(--danger); }
+        .urgency-HIGH { background: rgba(227, 179, 65, 0.1); color: var(--warning); border: 1px solid var(--warning); }
+        .urgency-STANDARD { background: rgba(88, 166, 255, 0.1); color: var(--accent); border: 1px solid var(--accent); }
+        
+        .card-desc { font-size: 0.95rem; color: #d0d7de; margin-bottom: 16px; white-space: pre-wrap; }
+        
+        .evidence-box {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px dashed var(--border);
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            font-size: 0.85rem;
+        }
+        .evidence-box strong { color: var(--accent); }
+
+        .card-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            border-top: 1px solid var(--border);
+            padding-top: 12px;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        .modal {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            max-width: 650px;
+            margin: 40px auto;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .modal h2 { color: var(--text-bright); margin-bottom: 16px; font-size: 1.4rem; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 0.85rem; color: #8b949e; margin-bottom: 6px; font-weight: 600; }
+        .form-control {
+            width: 100%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        .form-control:focus { border-color: var(--accent); outline: none; }
+        textarea.form-control { min-height: 120px; resize: vertical; }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.4rem; }
+            .card-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="badge-open">🌐 Zero-Login • Fully Open • Accessible from Any Device</div>
+        <h1>🚨 Public Emergency Victims & Whistleblower Mutual Aid Board</h1>
+        <p>A decentralized, open-access public ledger for reporting retaliatory evictions, whistleblower targeting, toxic environmental exposure, and government corruption. Anyone can read, submit, and broadcast evidence.</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Emergency Hotlines -->
+        <div class="hotlines-bar">
+            <div class="hotline-card danger">
+                <h4>Immediate Crisis / Shelter Triage</h4>
+                <div class="phone">Dial 2-1-1</div>
+                <a href="https://211oc.org" target="_blank">Orange County 24/7 Helpline &rarr;</a>
+            </div>
+            <div class="hotline-card">
+                <h4>Pro Bono Eviction & Legal Aid</h4>
+                <div class="phone">(800) 834-5001</div>
+                <a href="https://www.communitylegalsocal.org" target="_blank">Community Legal Aid SoCal &rarr;</a>
+            </div>
+            <div class="hotline-card">
+                <h4>Whistleblower Defense Hotline</h4>
+                <div class="phone">National Whistleblower Ctr</div>
+                <a href="https://www.whistleblowers.org/find-an-attorney/" target="_blank">Request Pro Bono Counsel &rarr;</a>
+            </div>
+            <div class="hotline-card">
+                <h4>Investigative Newsroom Tips</h4>
+                <div class="phone">Voice of OC / LA Times</div>
+                <a href="https://voiceofoc.org/contact/" target="_blank">Submit Secure Evidence &rarr;</a>
+            </div>
+        </div>
+
+        <!-- Top Action Bar -->
+        <div class="action-bar">
+            <div>
+                <strong style="color: var(--text-bright); font-size: 1.1rem;">Public Mutual Aid Submissions</strong>
+                <span id="count-badge" style="margin-left: 8px; color: #8b949e; font-size: 0.9rem;">(Loading...)</span>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <button class="btn btn-primary" onclick="openModal()">+ Post Submission / Help Request</button>
+                <button class="btn" style="background:#b45309; border-color:#d97706; color:#fff;" onclick="openComplaintModal()">⚖️ Draft Legal Complaint</button>
+                <a class="btn" href="/maps" style="background:#0369a1; border-color:#0284c7; color:#fff;">🗺️ Tactical Maps</a>
+                <a class="btn btn-reddit" href="https://www.reddit.com/r/orangecounty/" target="_blank">r/orangecounty</a>
+                <a class="btn btn-reddit" href="https://www.reddit.com/r/whistleblowers/" target="_blank">r/whistleblowers</a>
+            </div>
+        </div>
+
+        <!-- Search & Filter Controls -->
+        <div class="controls">
+            <input type="text" id="search-input" class="search-box" placeholder="🔍 Search victim testimony, agencies involved, keywords, locations..." oninput="filterPosts()">
+            <select id="category-filter" class="category-select" onchange="filterPosts()">
+                <option value="ALL">All Categories</option>
+                <option value="Whistleblower Retaliation">Whistleblower Retaliation</option>
+                <option value="Toxic Exposure & Environmental">Toxic Exposure & Environmental</option>
+                <option value="Illegal Eviction & Housing">Illegal Eviction & Housing</option>
+                <option value="CPS / Mutual Aid">CPS / Mutual Aid</option>
+                <option value="Municipal Corruption">Municipal Corruption</option>
+            </select>
+        </div>
+
+        <!-- Feed List -->
+        <div id="submissions-feed" class="feed">
+            <!-- Rendered by JS -->
+        </div>
+
+    </div>
+
+    <!-- Submit Modal -->
+    <div id="submit-modal" class="modal-overlay">
+        <div class="modal">
+            <h2>📢 Submit Help Request / Witness Testimony</h2>
+            <p style="color: #8b949e; font-size: 0.85rem; margin-bottom: 16px;">No login required. Submissions are public and can be shared across legal clinics, newsrooms, and Reddit forums.</p>
+            
+            <form id="submission-form" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label>Incident / Submission Title *</label>
+                    <input type="text" id="post-title" class="form-control" placeholder="e.g., Unlawful lockout after reporting toxic contamination" required>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div class="form-group">
+                        <label>Category *</label>
+                        <select id="post-category" class="form-control" required>
+                            <option value="Whistleblower Retaliation">Whistleblower Retaliation</option>
+                            <option value="Toxic Exposure & Environmental">Toxic Exposure & Environmental</option>
+                            <option value="Illegal Eviction & Housing">Illegal Eviction & Housing</option>
+                            <option value="CPS / Mutual Aid">CPS / Mutual Aid</option>
+                            <option value="Municipal Corruption">Municipal Corruption</option>
+                            <option value="General Mutual Aid Request">General Mutual Aid Request</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Urgency Level</label>
+                        <select id="post-urgency" class="form-control">
+                            <option value="CRITICAL">Critical (Immediate Danger / Retaliation)</option>
+                            <option value="HIGH">High (Active Eviction / Legal Deadline)</option>
+                            <option value="STANDARD">Standard (Witness Account / Documentation)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Location / Agencies / Entities Involved *</label>
+                    <input type="text" id="post-location" class="form-control" placeholder="e.g., Huntington Beach, CA / OCSD / Shea Properties" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Detailed Testimony / Incident Summary *</label>
+                    <textarea id="post-description" class="form-control" placeholder="Describe the incident, dates, involved personnel, retaliatory actions taken against you, and specific help needed..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Evidence Files / Reference Links (Optional)</label>
+                    <input type="text" id="post-evidence" class="form-control" placeholder="Links to documents, case dockets, GeoTracker IDs, photos...">
+                </div>
+
+                <div class="form-group">
+                    <label>Submitter Handle / Contact (Optional / Anonymous)</label>
+                    <input type="text" id="post-author" class="form-control" placeholder="Anonymous Witness / Email or Phone for Mutual Aid">
+                </div>
+
+                <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+                    <button type="button" class="btn" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Post to Public Board</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Baseline Verified Submissions
+        const defaultSubmissions = [
+            {
+                id: "SUB-202608-001",
+                timestamp: "2026-08-24T08:15:00Z",
+                title: "Documented Illegal Lockout & Evidentiary Retaliation After IA Whistleblower Filing",
+                category: "Whistleblower Retaliation",
+                urgency: "CRITICAL",
+                location: "Irvine & Orange County, CA (212 Southbrook / OCSD / Shea Properties)",
+                description: "After reporting OCSD misconduct and protecting medical whistleblower Dr. Ann Verma, Shea Properties and OCSD executed an unannounced surprise lockout on August 4, 2021 without lawful process, targeting a federally registered commodities fiduciary to disrupt active whistleblower evidence collection.",
+                evidence_links: "legal_library/qui_tam_rico_referral_draft.md, CRIMINAL_REFERRAL_FINAL.md",
+                author: "Federal Relator (Anthony DiMarcello III)"
+            },
+            {
+                id: "SUB-202608-002",
+                timestamp: "2026-08-23T19:30:00Z",
+                title: "49x Hexavalent Chromium Plume Concealment Under HB Homeless Navigation Center",
+                category: "Toxic Exposure & Environmental",
+                urgency: "CRITICAL",
+                location: "Huntington Beach, CA (17642 Beach Blvd / 17631 Cameron Ln)",
+                description: "Municipal officials and contractor EEC fast-tracked shelter construction over unsealed 1947 artesian well with documented Cr-VI levels at 490 ppb (49x EPA safety limit), exposing hundreds of vulnerable unhoused residents and shelter staff to aerosolized carcinogens via high-pressure floor sprayers.",
+                evidence_links: "GeoTracker Global ID T10000018579, EPA_OIG_RUBICON_REFERRAL.md",
+                author: "Environmental Whistleblower Network"
+            },
+            {
+                id: "SUB-202608-003",
+                timestamp: "2026-08-22T14:10:00Z",
+                title: "Orange County Title IV-E CPS-to-Shelter Placement Gap (29,300 Unaccounted Children)",
+                category: "CPS / Mutual Aid",
+                urgency: "HIGH",
+                location: "Orange County Social Services Agency / Mercy House Network",
+                description: "Cross-reference of county foster care removal billing against shelter beds reveals an unaccounted gap of 29,300 children flowing through subsidized billing funnels, with board vendor conflicts of interest and lack of independent oversight.",
+                evidence_links: "HUD_OIG_REFERRAL_MERCY_HOUSE.md, CHDO_MERCY_RICO_BREAKDOWN.md",
+                author: "Child Welfare Forensic Audit Team"
+            },
+            {
+                id: "SUB-202608-004",
+                timestamp: "2026-08-24T14:50:00Z",
+                title: "Lindsay Clancy Psychiatric Polypharmacy Involuntary Intoxication & Prosecutorial Concealment",
+                category: "Whistleblower Retaliation",
+                urgency: "CRITICAL",
+                location: "Plymouth County, MA (DA Timothy Cruz / Mass General Brigham / McLean Network)",
+                description: "Over 13 distinct psychiatric drugs prescribed within 4 months (Zoloft, Remeron, Seroquel, Klonopin, Valium, Ativan, Ambien, Trintellix, Lamictal, Prozac, Trazodone) resulting in acute drug-induced akathisia and postpartum psychosis. DA office and hospital networks suppressed exculpatory clinical polypharmacy data and adverse event reports to insulate healthcare donors from False Claims Act and wrongful death liability.",
+                evidence_links: "legal_library/PHARMACEUTICAL_OVERMEDICATION_PROSECUTORIAL_RICO.md, DeepSeek 13nlhy5y05g1cfj5j3, Gemini OtHGZ9TRdJB0",
+                author: "Institutional Accountability & Relator Network"
+            }
+        ];
+
+        let allPosts = [];
+
+        function loadPosts() {
+            const saved = localStorage.getItem("victim_board_posts");
+            if (saved) {
+                try {
+                    allPosts = JSON.parse(saved);
+                } catch(e) {
+                    allPosts = defaultSubmissions;
+                }
+            } else {
+                allPosts = defaultSubmissions;
+            }
+            renderPosts(allPosts);
+        }
+
+        function savePosts() {
+            localStorage.setItem("victim_board_posts", JSON.stringify(allPosts));
+        }
+
+        function renderPosts(posts) {
+            const feed = document.getElementById("submissions-feed");
+            const badge = document.getElementById("count-badge");
+            badge.textContent = `(${posts.length} Active Submissions)`;
+
+            if (posts.length === 0) {
+                feed.innerHTML = `<div class="card" style="text-align: center; color: #8b949e;">No submissions match your search query. Click "+ Post Submission" to add one.</div>`;
+                return;
+            }
+
+            feed.innerHTML = posts.map(p => {
+                const dateStr = new Date(p.timestamp).toLocaleDateString() + ' ' + new Date(p.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                const redditText = encodeURIComponent(`**${p.title}**\n\n*Location/Agency:* ${p.location}\n*Category:* ${p.category} | *Urgency:* ${p.urgency}\n\n${p.description}\n\n*Evidence:* ${p.evidence_links || 'Documented on Public Victim Board'}`);
+                const redditUrl = `https://www.reddit.com/r/orangecounty/submit?title=${encodeURIComponent(p.title)}&text=${redditText}`;
+                
+                return `
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">${escapeHtml(p.title)}</div>
+                            <div class="card-meta">
+                                <span>📍 ${escapeHtml(p.location)}</span>
+                                <span>🏷️ ${escapeHtml(p.category)}</span>
+                                <span>🕒 ${dateStr}</span>
+                                <span>👤 ${escapeHtml(p.author || 'Anonymous')}</span>
+                            </div>
+                        </div>
+                        <span class="urgency-badge urgency-${p.urgency}">${p.urgency}</span>
+                    </div>
+                    
+                    <div class="card-desc">${escapeHtml(p.description)}</div>
+                    
+                    ${p.evidence_links ? `
+                    <div class="evidence-box">
+                        <strong>📎 Attached Evidence & References:</strong> ${escapeHtml(p.evidence_links)}
+                    </div>` : ''}
+
+                    <div class="card-actions">
+                        <a class="btn btn-reddit" href="${redditUrl}" target="_blank">Post to Reddit</a>
+                        <button class="btn" onclick="copyRedditMarkdown('${p.id}')">📋 Copy Reddit Markdown</button>
+                        <a class="btn" href="mailto:?subject=${encodeURIComponent('Public Victim Submission: ' + p.title)}&body=${encodeURIComponent(p.description + '\n\nLocation: ' + p.location)}">✉️ Email Evidence</a>
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        function filterPosts() {
+            const query = document.getElementById("search-input").value.toLowerCase();
+            const category = document.getElementById("category-filter").value;
+
+            const filtered = allPosts.filter(p => {
+                const matchesCat = category === "ALL" || p.category === category;
+                const matchesText = (p.title + " " + p.description + " " + p.location + " " + (p.author || "")).toLowerCase().includes(query);
+                return matchesCat && matchesText;
+            });
+
+            renderPosts(filtered);
+        }
+
+        function openModal() {
+            document.getElementById("submit-modal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("submit-modal").style.display = "none";
+            document.getElementById("submission-form").reset();
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const newPost = {
+                id: "SUB-" + Date.now(),
+                timestamp: new Date().toISOString(),
+                title: document.getElementById("post-title").value.trim(),
+                category: document.getElementById("post-category").value,
+                urgency: document.getElementById("post-urgency").value,
+                location: document.getElementById("post-location").value.trim(),
+                description: document.getElementById("post-description").value.trim(),
+                evidence_links: document.getElementById("post-evidence").value.trim(),
+                author: document.getElementById("post-author").value.trim() || "Anonymous Victim / Witness"
+            };
+
+            allPosts.unshift(newPost);
+            savePosts();
+            closeModal();
+            renderPosts(allPosts);
+            alert("✅ Submission posted successfully to the public board!");
+        }
+
+        function copyRedditMarkdown(id) {
+            const p = allPosts.find(item => item.id === id);
+            if (!p) return;
+            const md = `### 🚨 ${p.title}\n\n**Location/Agency Involved:** ${p.location}\n**Category:** ${p.category} | **Urgency:** ${p.urgency}\n**Submitter:** ${p.author}\n\n---\n\n${p.description}\n\n**Attached Evidence / Links:**\n${p.evidence_links || 'Documented on Public Victim Board'}\n\n*Source: Public Emergency Victims & Whistleblower Mutual Aid Board*`;
+            navigator.clipboard.writeText(md).then(() => {
+                alert("📋 Markdown copied to clipboard! You can now paste it directly into Reddit, Twitter/X, or an email.");
+            });
+        }
+
+        function openComplaintModal() {
+            window.location.href = "/generator";
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', loadPosts);
+    </script>
+</body>
+</html>

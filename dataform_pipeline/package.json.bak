@@ -1,0 +1,11 @@
+{
+  "name": "osintneoai-dataform-pipeline",
+  "version": "1.0.0",
+  "description": "Dataform BigQuery transformation pipeline for OSINTNeoAi forensic datasets",
+  "dependencies": {
+    "@dataform/core": "3.0.0"
+  },
+  "devDependencies": {
+    "@dataform/cli": "^3.0.0"
+  }
+}

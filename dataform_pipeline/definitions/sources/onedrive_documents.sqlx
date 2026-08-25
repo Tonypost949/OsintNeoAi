@@ -1,0 +1,7 @@
+config {
+  type: "declaration",
+  database: "noble-beanbag-497411-m4",
+  schema: "onedrive_forensics",
+  name: "onedrive_documents",
+  description: "Raw ingested OneDrive forensic documents index"
+}
