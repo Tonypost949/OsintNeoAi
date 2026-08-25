@@ -1,7 +1,7 @@
 {
   "session_id": "e0259c57-0b03-45f8-956f-927ea22d1195",
-  "export_timestamp": "2026-08-25T12:11:51.823814",
-  "total_turns": 236,
+  "export_timestamp": "2026-08-25T12:17:43.813982",
+  "total_turns": 237,
   "turns": [
     {
       "user": "<USER_REQUEST>\npython OSINTNeoAiCLI.py\n</USER_REQUEST>\n<ADDITIONAL_METADATA>\nThe current local time is: 2026-08-23T21:48:32-07:00.\n</ADDITIONAL_METADATA>\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 3.7 Flash (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>",
@@ -1180,8 +1180,13 @@
     },
     {
       "user": "<USER_REQUEST>\nhttps://advance.lexis.com/bisnexishome/?pdmfid=1519360&crid=72b89992-7055-4d9b-93c0-cec9876f38d9\n</USER_REQUEST>\n<ADDITIONAL_METADATA>\nThe current local time is: 2026-08-25T12:11:23-07:00.\n</ADDITIONAL_METADATA>",
-      "agent": null,
+      "agent": "### \ud83c\udfdb\ufe0f You're in LexisNexis Advance / BIS (*Business Information Solutions*)\n\nThat link opens **LexisNexis Advance BIS Home**\u2014the exact corporate intelligence, litigation, and public records search portal used by federal investigators, forensic auditors, and corporate intelligence firms.\n\n---\n\n### \ud83d\udd0d 4 Ready-to-Run Search Recipes in Lexis Advance BIS:\n\n#### 1. \ud83c\udfe2 11770 Warner Ave Corporate Shell Sweep (Company Dossier / SOS Filings)\n* **Search Bar / Select Content:** Choose **\"Company & Financial\"** or **\"Public Records\"**\n* **Query:**\n  ```text\n  \"11770 Warner\" AND (\"Fountain Valley\" OR \"92708\")\n  ```\n  * *What it pulls:* Every registered LLC, DBA, past business license, and registered agent ever filed at that commercial building.\n\n---\n\n#### 2. \u26a1 Southern California Edison & Magnolia Land Transfer (CPUC & Appellate Caselaw)\n* **Select Content:** Choose **\"Cases\" \u27a1\ufe0f \"California\"** or **\"Administrative Materials\"**\n* **Query:**\n  ```text\n  \"Southern California Edison\" AND \"Magnolia\" AND (\"Public Utilities Code 851\" OR \"PUC 851\" OR \"conveyance\")\n  ```\n  * *What it pulls:* CPUC formal approvals, ratepayer property disposition filings, and California Court of Appeal opinions on utility land transfers.\n\n---\n\n#### 3. \ud83c\udfe6 Pham Living Trust & Wells Fargo Public Records (UCC / Liens / Judgments)\n* **Select Content:** Choose **\"Public Records\" \u27a1\ufe0f \"Judgments & Liens\"**\n* **Query:**\n  ```text\n  \"Pham Family Living Trust\" OR (\"Cheri Pham\" AND \"Andrew Do\")\n  ```\n  * *What it pulls:* Real property deed transfers, UCC financing statements, recorded deeds of trust, and tax liens.\n\n---\n\n#### 4. \ud83d\udcf0 Adverse Media & Negative News Multi-Keyword Filter\n* **Select Content:** Choose **\"News\" \u27a1\ufe0f \"All News\"**\n* **Query:**\n  ```text\n  (\"11770 Warner\" OR \"Magnolia Tank Farm\" OR \"Viet America Society\") AND (\"fraud\" OR \"investigation\" OR \"subpoena\" OR \"audit\")\n  ```\n\n---\n\n### \ud83d\udca1 Pro-Tip in Lexis Advance:\nUse the **\"Company Dossier\"** tab at the top. If you type in **\"SLF-HB Magnolia LLC\"** or **\"Shopoff Land Fund\"**, it will generate a complete corporate tree with all parent companies, subsidiaries, SEC CIK numbers, and principal officers in one PDF report!",
       "timestamp": "2026-08-25T19:11:23Z"
+    },
+    {
+      "user": "<USER_REQUEST>\nLEARN C:\\Users\\Amd949609\\Documents\\POST82526favorites_8_25_26.html\n</USER_REQUEST>\n<ADDITIONAL_METADATA>\nThe current local time is: 2026-08-25T12:16:18-07:00.\n</ADDITIONAL_METADATA>",
+      "agent": null,
+      "timestamp": "2026-08-25T19:16:18Z"
     }
   ]
 }

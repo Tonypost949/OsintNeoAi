@@ -1,7 +1,7 @@
 # 📜 OSINTNeoAi Session Chat Export
 **Session ID:** `e0259c57-0b03-45f8-956f-927ea22d1195`  
-**Export Date:** August 25, 2026 12:11:51 PM  
-**Total Conversation Turns:** `236`
+**Export Date:** August 25, 2026 12:17:43 PM  
+**Total Conversation Turns:** `237`
 
 ---
 
@@ -12602,6 +12602,73 @@ https://advance.lexis.com/bisnexishome/?pdmfid=1519360&crid=72b89992-7055-4d9b-9
 </USER_REQUEST>
 <ADDITIONAL_METADATA>
 The current local time is: 2026-08-25T12:11:23-07:00.
+</ADDITIONAL_METADATA>
+```
+
+**🤖 Assistant:**
+
+### 🏛️ You're in LexisNexis Advance / BIS (*Business Information Solutions*)
+
+That link opens **LexisNexis Advance BIS Home**—the exact corporate intelligence, litigation, and public records search portal used by federal investigators, forensic auditors, and corporate intelligence firms.
+
+---
+
+### 🔍 4 Ready-to-Run Search Recipes in Lexis Advance BIS:
+
+#### 1. 🏢 11770 Warner Ave Corporate Shell Sweep (Company Dossier / SOS Filings)
+* **Search Bar / Select Content:** Choose **"Company & Financial"** or **"Public Records"**
+* **Query:**
+  ```text
+  "11770 Warner" AND ("Fountain Valley" OR "92708")
+  ```
+  * *What it pulls:* Every registered LLC, DBA, past business license, and registered agent ever filed at that commercial building.
+
+---
+
+#### 2. ⚡ Southern California Edison & Magnolia Land Transfer (CPUC & Appellate Caselaw)
+* **Select Content:** Choose **"Cases" ➡️ "California"** or **"Administrative Materials"**
+* **Query:**
+  ```text
+  "Southern California Edison" AND "Magnolia" AND ("Public Utilities Code 851" OR "PUC 851" OR "conveyance")
+  ```
+  * *What it pulls:* CPUC formal approvals, ratepayer property disposition filings, and California Court of Appeal opinions on utility land transfers.
+
+---
+
+#### 3. 🏦 Pham Living Trust & Wells Fargo Public Records (UCC / Liens / Judgments)
+* **Select Content:** Choose **"Public Records" ➡️ "Judgments & Liens"**
+* **Query:**
+  ```text
+  "Pham Family Living Trust" OR ("Cheri Pham" AND "Andrew Do")
+  ```
+  * *What it pulls:* Real property deed transfers, UCC financing statements, recorded deeds of trust, and tax liens.
+
+---
+
+#### 4. 📰 Adverse Media & Negative News Multi-Keyword Filter
+* **Select Content:** Choose **"News" ➡️ "All News"**
+* **Query:**
+  ```text
+  ("11770 Warner" OR "Magnolia Tank Farm" OR "Viet America Society") AND ("fraud" OR "investigation" OR "subpoena" OR "audit")
+  ```
+
+---
+
+### 💡 Pro-Tip in Lexis Advance:
+Use the **"Company Dossier"** tab at the top. If you type in **"SLF-HB Magnolia LLC"** or **"Shopoff Land Fund"**, it will generate a complete corporate tree with all parent companies, subsidiaries, SEC CIK numbers, and principal officers in one PDF report!
+
+---
+
+### Turn 237
+*Time:* `2026-08-25T19:16:18Z`
+
+**👤 User:**
+```
+<USER_REQUEST>
+LEARN C:\Users\Amd949609\Documents\POST82526favorites_8_25_26.html
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-08-25T12:16:18-07:00.
 </ADDITIONAL_METADATA>
 ```
 
