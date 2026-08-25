@@ -1,82 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>GOLD DIGGER AI  INFINITY POOL MAP</title>
-  <script src="https://unpkg.com/react@16.8.4/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@16.8.4/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/redux@3.7.2/dist/redux.js"></script>
-  <script src="https://unpkg.com/react-redux@7.1.3/dist/react-redux.min.js"></script>
-  <script src="https://unpkg.com/styled-components@4.1.3/dist/styled-components.min.js"></script>
-  <script src="https://unpkg.com/kepler.gl@2.5.5/umd/keplergl.min.js"></script>
-  <style type="text/css">
-    body, html { margin: 0; padding: 0; overflow: hidden; height: 100vh; width: 100vw; background: #000; }
-    /* Hide the side panel by default for the infinity pool feel, but allow toggle */
-    .kepler-gl__side-panel { opacity: 0.85; transition: opacity 0.3s; }
-    .kepler-gl__side-panel:hover { opacity: 1; }
+  <title>GOLD DIGGER AI ❖ INFINITY POOL MAP</title>
+  
+  <!-- Leaflet Core CSS & JS (100% Free & Open Source, Zero API Keys Required) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body, #map { width: 100vw; height: 100vh; background: #07090e; font-family: 'Segoe UI', monospace, sans-serif; overflow: hidden; }
+    
+    /* Tactical HUD */
+    .hud-panel {
+      position: absolute; top: 16px; left: 16px; z-index: 1000;
+      background: rgba(10, 14, 23, 0.92); border: 1px solid #00d4ff;
+      border-radius: 8px; padding: 14px 18px; color: #f8fafc;
+      font-family: monospace; font-size: 11px; backdrop-filter: blur(10px);
+      box-shadow: 0 0 25px rgba(0, 212, 255, 0.25), 0 10px 30px rgba(0,0,0,0.8);
+      max-width: 360px; pointer-events: auto;
+    }
+    .hud-panel h1 { font-size: 14px; font-weight: 800; color: #00d4ff; letter-spacing: 1.5px; margin-bottom: 6px; }
+    .hud-panel .sub { color: #94a3b8; font-size: 10px; margin-bottom: 10px; border-bottom: 1px solid #1e293b; padding-bottom: 6px; }
+    .hud-stat { display: flex; justify-content: space-between; margin-bottom: 4px; }
+    .hud-stat span:first-child { color: #64748b; }
+    .hud-stat span:last-child { color: #38bdf8; font-weight: bold; }
+    
+    /* Neon Pulsing Marker Animation */
+    .pulse-marker {
+      width: 16px; height: 16px; border-radius: 50%;
+      position: relative; box-shadow: 0 0 12px currentColor;
+    }
+    .pulse-marker::after {
+      content: ''; position: absolute; top: -6px; left: -6px;
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 2px solid currentColor; opacity: 0.8;
+      animation: pulse 1.8s infinite ease-out;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.5); opacity: 1; }
+      100% { transform: scale(1.6); opacity: 0; }
+    }
+    
+    /* Custom Popups */
+    .leaflet-popup-content-wrapper {
+      background: rgba(15, 23, 42, 0.95); color: #e2e8f0;
+      border: 1px solid #00d4ff; border-radius: 8px;
+      font-family: monospace; font-size: 11px; box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    }
+    .leaflet-popup-tip { background: #0f172a; border: 1px solid #00d4ff; }
   </style>
 </head>
 <body>
-  <div id="app"></div>
+  <div id="map"></div>
+  
+  <div class="hud-panel">
+    <h1>❖ GOLD DIGGER AI FORENSIC MAP</h1>
+    <div class="sub">Maltego Entity Linkages & Spatial Absorption Network</div>
+    <div class="hud-stat"><span>TARGET NODES:</span><span>6 Verified</span></div>
+    <div class="hud-stat"><span>LINKAGE ARCS:</span><span>5 Vectors</span></div>
+    <div class="hud-stat"><span>BASMAP ENGINE:</span><span>CartoDB Dark Matter</span></div>
+    <div class="hud-stat"><span>STATUS:</span><span style="color:#00ffaa;">ONLINE / 100% VISIBLE</span></div>
+  </div>
+
   <script>
-    const reducers = (function(keplerGl, redux) {
-      return redux.combineReducers({
-        keplerGl: keplerGl.keplerGlReducer
+    const map = L.map('map', { zoomControl: true }).setView([33.73, -117.995], 12);
+    
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; CARTO &copy; OpenStreetMap',
+      maxZoom: 19,
+      subdomains: 'abcd'
+    }).addTo(map);
+
+    const nodes = [
+      { name: "HBNC Toxic Site", type: "Environmental Hazard", coords: [33.7064036, -117.9881801], color: "#ef4444" },
+      { name: "7561 Center Ave (Steering Hub)", type: "Shell LLC Hub", coords: [33.7317, -117.9945], color: "#f59e0b" },
+      { name: "17642 Beach Blvd (Acquisition)", type: "Real Estate Absorption", coords: [33.706, -117.9885], color: "#a855f7" },
+      { name: "3311 Bounty Cir (Stewart Ind)", type: "$0 Transfer Layer", coords: [33.732, -118.0142], color: "#10b981" },
+      { name: "7100 Cerritos Ave (Pham LLC)", type: "$0 Transfer Layer", coords: [33.8248, -118.0053], color: "#10b981" },
+      { name: "City of HB / Govt Node", type: "Government Entity", coords: [33.6595, -117.9988], color: "#38bdf8" }
+    ];
+
+    nodes.forEach(n => {
+      const icon = L.divIcon({
+        className: 'custom-icon',
+        html: `<div class="pulse-marker" style="background:${n.color}; color:${n.color};"></div>`,
+        iconSize: [16, 16],
+        iconAnchor: [8, 8]
       });
-    })(KeplerGl, Redux);
-
-    const store = Redux.createStore(reducers, {}, Redux.applyMiddleware(KeplerGl.taskMiddleware));
-
-    const App = (function(react, keplerGl, reactRedux) {
-      var KeplerGlComponent = keplerGl.KeplerGl;
-      return function() {
-        return react.createElement(
-          'div',
-          {style: {position: 'absolute', left: 0, top: 0, width: '100vw', height: '100vh'}},
-          react.createElement(KeplerGlComponent, {
-            mapboxApiAccessToken: 'YOUR_MAPBOX_TOKEN',
-            id: 'map',
-            width: window.innerWidth,
-            height: window.innerHeight
-          })
-        );
-      }
-    })(React, KeplerGl, ReactRedux);
-
-    const ConnectedApp = ReactRedux.connect(state => state)(App);
-
-    ReactDOM.render(
-      React.createElement(ReactRedux.Provider, {store}, React.createElement(ConnectedApp)),
-      document.getElementById('app')
-    );
-
-    // Inject our multi-layered datasets
-    setTimeout(() => {
-      const dataToLoad = [
-        {
-          info: { label: 'Entity Nodes', id: 'osint_nodes' },
-          data: {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [-117.9881801, 33.7064036]}, "properties": {"id": "HBNC", "target": "HBNC Toxic Site", "type": "Environmental Hazard", "color": [230, 57, 70]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-117.9945, 33.7317]}, "properties": {"id": "7561_CENTER", "target": "7561 Center Ave (Steering Hub)", "type": "Shell LLC Hub", "color": [255, 183, 3]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-117.9885, 33.706]}, "properties": {"id": "17642_BEACH", "target": "17642 Beach Blvd (Acquisition)", "type": "Real Estate Absorption", "color": [114, 9, 183]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-118.0142, 33.732]}, "properties": {"id": "3311_BOUNTY", "target": "3311 Bounty Cir (Stewart Ind)", "type": "$0 Transfer Layer", "color": [67, 170, 139]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-118.0053, 33.8248]}, "properties": {"id": "7100_CERRITOS", "target": "7100 Cerritos Ave (Pham LLC)", "type": "$0 Transfer Layer", "color": [67, 170, 139]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-117.9988, 33.6595]}, "properties": {"id": "CITY_HALL", "target": "City of HB / Govt Node", "type": "Government Entity", "color": [255, 255, 255]}}]}
-        },
-        {
-          info: { label: 'Maltego Linkages', id: 'osint_arcs' },
-          data: {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[-117.9881801, 33.7064036], [-117.9885, 33.706]]}, "properties": {"label": "Adjacent Expansion / Lease", "source_target": "HBNC Toxic Site", "target_target": "17642 Beach Blvd (Acquisition)"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[-117.9988, 33.6595], [-117.9881801, 33.7064036]]}, "properties": {"label": "Fraudulent CEQA / RPM Contract", "source_target": "City of HB / Govt Node", "target_target": "HBNC Toxic Site"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[-117.9945, 33.7317], [-117.9885, 33.706]]}, "properties": {"label": "Grant Diversion / Absorption", "source_target": "7561 Center Ave (Steering Hub)", "target_target": "17642 Beach Blvd (Acquisition)"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[-117.9945, 33.7317], [-118.0142, 33.732]]}, "properties": {"label": "PPP / Structuring Loop", "source_target": "7561 Center Ave (Steering Hub)", "target_target": "3311 Bounty Cir (Stewart Ind)"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[-117.9945, 33.7317], [-118.0053, 33.8248]]}, "properties": {"label": "$0 Conveyance Loop (Peter Pham)", "source_target": "7561 Center Ave (Steering Hub)", "target_target": "7100 Cerritos Ave (Pham LLC)"}}]}
-        }
-      ];
       
-      const config = {"version": "v1", "config": {"visState": {"filters": [], "layers": [{"id": "osint_nodes_layer", "type": "point", "config": {"dataId": "osint_nodes", "label": "Entity Nodes", "color": [255, 183, 3], "columns": {"lat": "lat", "lng": "lon", "altitude": null}, "isVisible": true, "visConfig": {"radius": 20, "fixedRadius": false, "opacity": 0.8, "outline": false}}}, {"id": "osint_links_layer", "type": "arc", "config": {"dataId": "osint_arcs", "label": "Maltego Connections", "color": [114, 9, 183], "columns": {"lat0": "source_lat", "lng0": "source_lon", "lat1": "target_lat", "lng1": "target_lon"}, "isVisible": true, "visConfig": {"opacity": 0.8, "thickness": 3, "colorRange": {"name": "Global Warming", "type": "sequential", "category": "Uber", "colors": ["#5A1846", "#900C3F", "#C70039", "#E3611C", "#F1920E", "#FFC300"]}}}}], "interactionConfig": {"tooltip": {"fieldsToShow": {"osint_nodes": ["target", "type"], "osint_arcs": ["label"]}}, "brush": {"enabled": false}}, "layerBlending": "additive", "splitMaps": []}, "mapState": {"bearing": 24, "dragRotate": true, "latitude": 33.74, "longitude": -118.0, "pitch": 45, "zoom": 11.5, "isSplit": false}, "mapStyle": {"styleType": "dark", "topLayerGroups": {}, "visibleLayerGroups": {"label": true, "road": true, "border": false, "building": true, "water": true, "land": true, "3d building": true}}}};
+      L.marker(n.coords, { icon: icon })
+        .addTo(map)
+        .bindPopup(`
+          <div style="font-size:12px; font-weight:bold; color:${n.color}; margin-bottom:4px;">${n.name}</div>
+          <div><strong>Type:</strong> ${n.type}</div>
+          <div><strong>Coordinates:</strong> ${n.coords[0].toFixed(4)}, ${n.coords[1].toFixed(4)}</div>
+        `);
+    });
 
-      store.dispatch(KeplerGl.addDataToMap({
-        datasets: dataToLoad,
-        config: config
-      }));
-      
-      // Auto-hide the sidebar after load to maximize map space for tablets
-      setTimeout(() => {
-        store.dispatch(KeplerGl.toggleSidePanel(''));
-      }, 1500);
-      
-    }, 800);
+    const links = [
+      { from: [33.7064036, -117.9881801], to: [33.706, -117.9885], label: "Adjacent Expansion / Lease", color: "#ef4444" },
+      { from: [33.6595, -117.9988], to: [33.7064036, -117.9881801], label: "Fraudulent CEQA / RPM Contract", color: "#38bdf8" },
+      { from: [33.7317, -117.9945], to: [33.706, -117.9885], label: "Grant Diversion / Absorption", color: "#f59e0b" },
+      { from: [33.7317, -117.9945], to: [33.732, -118.0142], label: "PPP / Structuring Loop", color: "#10b981" },
+      { from: [33.7317, -117.9945], to: [33.8248, -118.0053], label: "$0 Conveyance Loop (Peter Pham)", color: "#a855f7" }
+    ];
+
+    links.forEach(l => {
+      L.polyline([l.from, l.to], {
+        color: l.color,
+        weight: 3,
+        opacity: 0.85,
+        dashArray: '6, 8'
+      }).addTo(map).bindPopup(`<strong>Linkage:</strong> ${l.label}`);
+    });
   </script>
 </body>
 </html>
