@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Gemini — OSINT Neo AI Interactive Chat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap');
+    body {
+      font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #131314;
+      color: #e3e3e3;
+    }
+    .gemini-gradient {
+      background: linear-gradient(74deg, #4285f4 0%, #9b72cb 9%, #d96570 20%, #d96570 24%, #9b72cb 35%, #4285f4 44%, #131314 60%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .prompt-box {
+      background-color: #1e1f20;
+      border: 1px solid #3c4043;
+    }
+    .prompt-box:focus-within {
+      border-color: #8ab4f8;
+      box-shadow: 0 0 0 1px #8ab4f8;
+    }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #3c4043; border-radius: 4px; }
+    pre code { border-radius: 0.75rem; }
+    .prose p { margin-bottom: 0.75rem; line-height: 1.6; }
+    .prose ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 0.75rem; }
+    .prose ol { list-style-type: decimal; margin-left: 1.5rem; margin-bottom: 0.75rem; }
+    .prose table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; margin-bottom: 0.75rem; }
+    .prose th, .prose td { border: 1px solid #3c4043; padding: 0.5rem 0.75rem; font-size: 0.875rem; }
+    .prose th { background-color: #1e1f20; color: #8ab4f8; }
+    .prose a { color: #8ab4f8; text-decoration: underline; }
+  </style>
+</head>
+<body class="h-screen flex overflow-hidden">
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="w-64 bg-[#1e1f20] border-r border-[#3c4043] flex flex-col justify-between transition-all duration-300 z-30 fixed inset-y-0 left-0 -translate-x-full md:relative md:translate-x-0">
+    <div class="p-4 space-y-4">
+      <div class="flex items-center justify-between">
+        <button onclick="newChat()" class="flex items-center gap-3 px-4 py-2.5 rounded-full bg-[#282a2c] hover:bg-[#37393b] text-sm text-[#e3e3e3] border border-[#3c4043] transition-all w-full">
+          <i class="fa-solid fa-plus text-xs text-[#8ab4f8]"></i>
+          <span>New Chat</span>
+        </button>
+        <button onclick="toggleSidebar()" class="md:hidden ml-2 text-gray-400 hover:text-white p-2">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Mode Selector -->
+      <div class="space-y-1 pt-2">
+        <div class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider px-2">Intelligence Engine</div>
+        <select id="chatMode" class="w-full bg-[#131314] text-xs text-gray-200 border border-[#3c4043] rounded-lg p-2 focus:outline-none focus:border-[#8ab4f8]">
+          <option value="gemini_osint">🧠 Gemini 2.5 + OSINT Neo AI (Hybrid)</option>
+          <option value="forensic_graph">⚖️ Forensic Graph Engine (17k Nodes)</option>
+          <option value="legal_library">📜 Legal Library (71 Dossiers)</option>
+          <option value="mexico_suite">🇲🇽 Mexico OSINT Suite</option>
+        </select>
+      </div>
+
+      <!-- Recent Topics / Prompts -->
+      <div class="space-y-1 pt-2">
+        <div class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider px-2">Quick OSINT Modules</div>
+        <div class="space-y-1 text-xs">
+          <button onclick="fillPrompt('Analyze the 11770 Warner Ave hospice and medical shell company concentration.')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#282a2c] text-gray-300 truncate">
+            🏥 11770 Warner Shells
+          </button>
+          <button onclick="fillPrompt('Audit the Southern California Edison APN 114-481-32 $0 deed conveyance to SLF-HB Magnolia.')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#282a2c] text-gray-300 truncate">
+            ⚡ SoCal Edison $0 Deed
+          </button>
+          <button onclick="fillPrompt('Explain the Pham Family Living Trust $3.88M Wells Fargo unclaimed property record (ID: 1024456136).')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#282a2c] text-gray-300 truncate">
+            💵 Pham Trust $3.88M
+          </button>
+          <button onclick="fillPrompt('Explain the 1,000+ utility account structuring loop under 31 U.S.C. § 5324.')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#282a2c] text-gray-300 truncate">
+            🔄 Smurfing Structuring
+          </button>
+          <button onclick="fillPrompt('Summarize the 2026 Plaid AI Era Fraud Report on synthetic identities.')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#282a2c] text-gray-300 truncate">
+            🧠 Plaid AI Fraud Audit
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar Bottom Links -->
+    <div class="p-3 border-t border-[#3c4043] space-y-1 text-xs text-gray-400">
+      <a href="/maps" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#282a2c] hover:text-white">
+        <i class="fa-solid fa-map text-emerald-400"></i>
+        <span>Tactical GIS Hub (14 Maps)</span>
+      </a>
+      <a href="/mobile" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#282a2c] hover:text-white">
+        <i class="fa-solid fa-mobile-screen text-pink-400"></i>
+        <span>Mobile Command App</span>
+      </a>
+      <a href="/chat" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#282a2c] hover:text-white">
+        <i class="fa-solid fa-history text-purple-400"></i>
+        <span>Full Chat Log (253 Turns)</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Chat Window -->
+  <main class="flex-1 flex flex-col h-full relative overflow-hidden bg-[#131314]">
+    
+    <!-- Top Header -->
+    <header class="h-14 border-b border-[#3c4043] flex items-center justify-between px-4 z-10 bg-[#131314]">
+      <div class="flex items-center gap-3">
+        <button onclick="toggleSidebar()" class="text-gray-300 hover:text-white p-2 rounded-lg hover:bg-[#1e1f20]">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="flex items-center gap-2">
+          <span class="text-lg font-bold text-gray-100 tracking-tight">Gemini</span>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-[#282a2c] text-[#8ab4f8] border border-[#3c4043]">OSINT NEO AI 2.5</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 text-xs">
+        <div class="flex items-center gap-1.5 text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Online / 17,488 Nodes</span>
+        </div>
+        <a href="/" class="hidden sm:inline-block px-3 py-1 rounded-lg bg-[#282a2c] text-gray-200 hover:text-white border border-[#3c4043]">
+          Dashboard
+        </a>
+      </div>
+    </header>
+
+    <!-- Messages Container -->
+    <div id="chatContainer" class="flex-1 overflow-y-auto custom-scrollbar p-4 md:p-6 space-y-6 max-w-4xl mx-auto w-full">
+      
+      <!-- Hero Welcome Screen (Shown on empty chat) -->
+      <div id="welcomeScreen" class="py-12 md:py-20 text-center space-y-4">
+        <h1 class="text-3xl md:text-5xl font-bold gemini-gradient">Hello, Anthony</h1>
+        <p class="text-gray-400 text-base md:text-lg max-w-xl mx-auto">
+          How can OSINT Neo AI help your investigation today?
+        </p>
+
+        <!-- Suggested Prompt Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto pt-6 text-left">
+          <button onclick="fillAndSend('Analyze the 11770 Warner Ave hospice concentration and PPP loan network.')" class="p-4 rounded-2xl bg-[#1e1f20] hover:bg-[#282a2c] border border-[#3c4043] transition-all group">
+            <div class="text-sm font-semibold text-white group-hover:text-[#8ab4f8]">🏥 11770 Warner Ave Hospice Network</div>
+            <div class="text-xs text-gray-400 mt-1">Audit 18 loans ($1.11M) and medical shell clusters.</div>
+          </button>
+          <button onclick="fillAndSend('Audit the Southern California Edison APN 114-481-32 $0 deed conveyance.')" class="p-4 rounded-2xl bg-[#1e1f20] hover:bg-[#282a2c] border border-[#3c4043] transition-all group">
+            <div class="text-sm font-semibold text-white group-hover:text-[#8ab4f8]">⚡ SoCal Edison $0 Deed Transfer</div>
+            <div class="text-xs text-gray-400 mt-1">Review APN 114-481-32 at 22011 Magnolia & Cal. PUC § 851.</div>
+          </button>
+          <button onclick="fillAndSend('Explain the Pham Family Living Trust $3.88M Wells Fargo asset pool (Property ID: 1024456136).')" class="p-4 rounded-2xl bg-[#1e1f20] hover:bg-[#282a2c] border border-[#3c4043] transition-all group">
+            <div class="text-sm font-semibold text-white group-hover:text-[#8ab4f8]">🏦 Pham Family Trust Forfeiture</div>
+            <div class="text-xs text-gray-400 mt-1">Analyze the $3.88M Wells Fargo unclaimed property trust.</div>
+          </button>
+          <button onclick="fillAndSend('Explain the 2026 Plaid AI Era Fraud Report benchmarks on synthetic identities.')" class="p-4 rounded-2xl bg-[#1e1f20] hover:bg-[#282a2c] border border-[#3c4043] transition-all group">
+            <div class="text-sm font-semibold text-white group-hover:text-[#8ab4f8]">🧠 Plaid AI Fraud Intelligence</div>
+            <div class="text-xs text-gray-400 mt-1">Review $40B global losses and cross-network graph proof.</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Streamed Message Stream -->
+      <div id="messagesList" class="space-y-6"></div>
+
+    </div>
+
+    <!-- Floating Prompt Input Bar -->
+    <div class="p-4 bg-[#131314] max-w-4xl mx-auto w-full">
+      <div class="prompt-box rounded-3xl p-3 flex flex-col gap-2 relative">
+        <textarea id="promptInput" rows="1" placeholder="Ask Gemini about entities, $0 deeds, PPP loans, or legal statutes..."
+                  class="w-full bg-transparent text-gray-100 placeholder-gray-500 resize-none focus:outline-none px-3 text-sm md:text-base max-h-36 custom-scrollbar"
+                  onkeydown="handleKeyDown(event)"></textarea>
+        
+        <div class="flex items-center justify-between px-2 pt-1 border-t border-[#3c4043]/50">
+          <div class="flex items-center gap-2 text-gray-400 text-xs">
+            <span class="px-2 py-0.5 rounded bg-[#131314] text-[#8ab4f8] font-mono text-[10px]">OSINT-2.5</span>
+            <span class="hidden sm:inline text-gray-500">Press Enter to send, Shift+Enter for newline</span>
+          </div>
+          
+          <div class="flex items-center gap-2">
+            <button id="sendBtn" onclick="sendMessage()" class="w-8 h-8 rounded-full bg-[#8ab4f8] text-[#131314] flex items-center justify-center hover:bg-[#aecbfa] transition-all disabled:opacity-40">
+              <i class="fa-solid fa-arrow-up text-sm font-bold"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="text-[11px] text-center text-gray-500 mt-2">
+        OSINT Neo AI Gemini may display public records and forensic graph predictions. Verify critical statutory filings independently.
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    let chatHistory = [];
+
+    function toggleSidebar() {
+      const sb = document.getElementById('sidebar');
+      sb.classList.toggle('-translate-x-full');
+    }
+
+    function newChat() {
+      chatHistory = [];
+      document.getElementById('messagesList').innerHTML = '';
+      document.getElementById('welcomeScreen').style.display = 'block';
+      document.getElementById('promptInput').value = '';
+      document.getElementById('promptInput').focus();
+    }
+
+    function fillPrompt(txt) {
+      const inp = document.getElementById('promptInput');
+      inp.value = txt;
+      inp.focus();
+    }
+
+    function fillAndSend(txt) {
+      fillPrompt(txt);
+      sendMessage();
+    }
+
+    function handleKeyDown(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    }
+
+    // Auto-resize textarea
+    const tx = document.getElementById('promptInput');
+    tx.addEventListener("input", function() {
+      this.style.height = "auto";
+      this.style.height = (this.scrollHeight) + "px";
+    });
+
+    async function sendMessage() {
+      const input = document.getElementById('promptInput');
+      const text = input.value.trim();
+      if (!text) return;
+
+      document.getElementById('welcomeScreen').style.display = 'none';
+      const sendBtn = document.getElementById('sendBtn');
+      sendBtn.disabled = true;
+
+      // 1. Add User Message Bubble
+      appendUserMessage(text);
+      input.value = '';
+      input.style.height = 'auto';
+
+      // 2. Add AI Loading Indicator
+      const loadingId = appendAiLoading();
+
+      // Scroll to bottom
+      scrollToBottom();
+
+      const mode = document.getElementById('chatMode').value;
+
+      try {
+        const response = await fetch('/api/ai_chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: text,
+            mode: mode,
+            history: chatHistory
+          })
+        });
+
+        const data = await response.json();
+        removeElement(loadingId);
+
+        if (data.status === 'success' || data.reply) {
+          appendAiMessage(data.reply, data.citations);
+          chatHistory.push({ role: 'user', content: text });
+          chatHistory.push({ role: 'assistant', content: data.reply });
+        } else {
+          appendAiMessage('**Notice:** ' + (data.message || 'Unable to process prompt.'));
+        }
+      } catch (err) {
+        removeElement(loadingId);
+        appendAiMessage('**Connection Error:** Unable to reach AI backend server (' + err.message + ').');
+      } finally {
+        sendBtn.disabled = false;
+        scrollToBottom();
+      }
+    }
+
+    function appendUserMessage(text) {
+      const list = document.getElementById('messagesList');
+      const div = document.createElement('div');
+      div.className = 'flex justify-end';
+      div.innerHTML = `
+        <div class="bg-[#282a2c] text-[#e3e3e3] px-5 py-3.5 rounded-3xl max-w-[85%] text-sm md:text-base border border-[#3c4043] shadow-md">
+          ${escapeHtml(text)}
+        </div>
+      `;
+      list.appendChild(div);
+    }
+
+    function appendAiLoading() {
+      const id = 'loading_' + Date.now();
+      const list = document.getElementById('messagesList');
+      const div = document.createElement('div');
+      div.id = id;
+      div.className = 'flex gap-4 items-start';
+      div.innerHTML = `
+        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#4285f4] via-[#9b72cb] to-[#d96570] flex items-center justify-center text-white text-xs shadow-lg flex-shrink-0">
+          <i class="fa-solid fa-sparkles"></i>
+        </div>
+        <div class="bg-[#1e1f20] px-5 py-3.5 rounded-3xl text-gray-300 text-sm border border-[#3c4043] flex items-center gap-2">
+          <i class="fa-solid fa-circle-notch animate-spin text-[#8ab4f8]"></i>
+          <span class="text-xs text-gray-400">Gemini Neural Engine Synthesizing Forensic Graph...</span>
+        </div>
+      `;
+      list.appendChild(div);
+      return id;
+    }
+
+    function appendAiMessage(markdownText, citations = []) {
+      const list = document.getElementById('messagesList');
+      const div = document.createElement('div');
+      div.className = 'flex gap-4 items-start';
+      
+      const htmlContent = marked.parse(markdownText || '');
+      
+      let citationsHtml = '';
+      if (citations && citations.length > 0) {
+        citationsHtml = `
+          <div class="mt-4 pt-3 border-t border-[#3c4043] text-xs">
+            <div class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-2">Verified Graph Sources & Dossiers:</div>
+            <div class="flex flex-wrap gap-1.5">
+              ${citations.map(c => `
+                <a href="${c.url || '#'}" target="_blank" class="px-2.5 py-1 rounded-md bg-[#282a2c] hover:bg-[#37393b] text-[#8ab4f8] border border-[#3c4043] flex items-center gap-1.5 transition-all">
+                  <i class="fa-solid fa-file-lines text-[10px]"></i>
+                  <span>${c.title}</span>
+                </a>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+      div.innerHTML = `
+        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#4285f4] via-[#9b72cb] to-[#d96570] flex items-center justify-center text-white text-xs shadow-lg flex-shrink-0 mt-1">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+        <div class="flex-1 bg-[#1e1f20] px-5 py-4 rounded-3xl text-[#e3e3e3] border border-[#3c4043] shadow-md overflow-hidden">
+          <div class="prose text-sm md:text-base leading-relaxed text-gray-200">
+            ${htmlContent}
+          </div>
+          ${citationsHtml}
+        </div>
+      `;
+      list.appendChild(div);
+      div.querySelectorAll('pre code').forEach((el) => {
+        hljs.highlightElement(el);
+      });
+    }
+
+    function removeElement(id) {
+      const el = document.getElementById(id);
+      if (el) el.remove();
+    }
+
+    function scrollToBottom() {
+      const container = document.getElementById('chatContainer');
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function escapeHtml(text) {
+      return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    }
+  </script>
+</body>
+</html>

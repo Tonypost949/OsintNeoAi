@@ -106,6 +106,10 @@
 
   <!-- Bottom Navigation Bar -->
   <nav class="fixed bottom-0 left-0 right-0 glass border-t border-gray-800 flex justify-around py-2 z-50">
+    <a href="/gemini" class="flex flex-col items-center text-purple-400 font-bold">
+      <i class="fa-solid fa-sparkles text-lg"></i>
+      <span class="text-[10px] mt-0.5">Gemini AI</span>
+    </a>
     <button onclick="switchTab('search')" id="nav-search" class="flex flex-col items-center text-emerald-400">
       <i class="fa-solid fa-magnifying-glass text-lg"></i>
       <span class="text-[10px] mt-0.5">Search</span>
@@ -120,9 +124,10 @@
     </button>
     <a href="/chat" class="flex flex-col items-center text-gray-400">
       <i class="fa-solid fa-terminal text-lg"></i>
-      <span class="text-[10px] mt-0.5">Terminal</span>
+      <span class="text-[10px] mt-0.5">Log</span>
     </a>
   </nav>
+
 
   <script>
     function switchTab(tabId) {
