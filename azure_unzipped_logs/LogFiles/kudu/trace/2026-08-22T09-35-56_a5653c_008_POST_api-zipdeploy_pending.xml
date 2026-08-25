@@ -1,0 +1,25 @@
+<step title="Incoming Request" date="2026-08-22T09:35:56.655" instance="a5653c" url="/api/zipdeploy?isAsync=true" method="POST" type="request" pid="831,1,18" Accept="*/*" Host="osintneoai-app-949.scm.azurewebsites.net" User-Agent="AZURECLI/2.89.1 (MSI)" Accept-Encoding="gzip, deflate, zstd" Authorization="Bea..." Cache-Control="no-cache" Content-Type="application/octet-stream" Content-Length="54488" x-ms-client-request-id="dd4b1bd4-9e0c-11f1-9c26-40ec99f6b778" x-ms-artifact-checksum="6008d13c2b63b05972f96d9e13fd53eb0b8b174d7294a56a8fab23c373bbea8e" X-ARR-LOG-ID="dd4b1bd4-9e0c-11f1-9c26-40ec99f6b778" CLIENT-IP="201.142.151.43:55090" X-SITE-DEPLOYMENT-ID="osintneoai-app-949" WAS-DEFAULT-HOSTNAME="osintneoai-app-949.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/zipdeploy?isAsync=true" X-Client-IP="201.142.151.43" X-Client-Port="55090" >
+  <step title="ZipPushDeploy" date="2026-08-22T09:35:56.684" >
+    <step title="ZipDeploy. Extract zip. Remote build." date="2026-08-22T09:35:56.703" /><!-- duration: 14ms -->
+    <step title="None repository commit" date="2026-08-22T09:35:56.724" >
+      <step title="Commit id: 5eb1faed-2343-4cfa-a16d-5cb6573a2d3f" date="2026-08-22T09:35:56.730" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 6ms -->
+    </step><!-- duration: 18ms -->
+    <step title="Starting PushDeployAsync" date="2026-08-22T09:35:56.749" /><!-- duration: 7ms -->
+    <step title="Writing artifact to /tmp/zipdeploy/f7ca8191-2cec-4c99-9bc1-3fceaafabf43.zip" date="2026-08-22T09:35:56.784" >
+      <step title="Writing multipart request body to /tmp/zipdeploy/f7ca8191-2cec-4c99-9bc1-3fceaafabf43.zip" date="2026-08-22T09:35:56.807" /><!-- duration: 31ms -->
+      <step title="Writing zip file to /tmp/zipdeploy/f7ca8191-2cec-4c99-9bc1-3fceaafabf43.zip" date="2026-08-22T09:35:56.845" /><!-- duration: 62ms -->
+    </step><!-- duration: 152ms -->
+    <step title="Removing previous build artifact&apos;s manifest file" date="2026-08-22T09:35:56.944" >
+      <step title="None repository commit" date="2026-08-22T09:35:56.957" >
+        <step title="Commit id: 5eb1faed-2343-4cfa-a16d-5cb6573a2d3f" date="2026-08-22T09:35:56.963" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 6ms -->
+      </step><!-- duration: 32ms -->
+      <step title="Start deployment in the background" date="2026-08-22T09:35:57.018" >
+        <step title="None repository commit" date="2026-08-22T09:35:57.122" >
+          <step title="Commit id: 5eb1faed-2343-4cfa-a16d-5cb6573a2d3f" date="2026-08-22T09:35:57.129" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 6ms -->
+        </step><!-- duration: 19ms -->
+        <step title="Acquiring Deployment Lock" date="2026-08-22T09:35:57.147" /><!-- duration: 6ms -->
+        <step title="Acquired Deployment Lock" date="2026-08-22T09:35:57.236" /><!-- duration: 6ms -->
+      </step><!-- duration: 347ms -->
+    </step><!-- duration: 429ms -->
+    <step title="Outgoing response" date="2026-08-22T09:35:57.386" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 18ms -->
+  </step><!-- duration: 726ms -->

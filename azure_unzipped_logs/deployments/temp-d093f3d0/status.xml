@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<deployment>
+  <id>temp-d093f3d0</id>
+  <author>N/A</author>
+  <deployer>GitHub</deployer>
+  <authorEmail>N/A</authorEmail>
+  <message>Fetch from https://github.com/Tonypost949/OsintNeoAi.git</message>
+  <progress></progress>
+  <status>Failed</status>
+  <statusText>Deployment has been stopped due to SCM container restart. The restart can happen due to a management operation on site. Do not perform a management operation and a deployment operation in quick succession. Adding a small delay can help avoid any conflicts.</statusText>
+  <lastSuccessEndTime />
+  <receivedTime>2026-08-24T19:38:32.4357087Z</receivedTime>
+  <startTime>2026-08-24T19:38:32.4357087Z</startTime>
+  <endTime>2026-08-24T19:59:07.153145Z</endTime>
+  <complete>True</complete>
+  <is_temp>True</is_temp>
+  <is_readonly>False</is_readonly>
+  <containerId>bab2a0c69389</containerId>
+  <buildSummary />
+</deployment>

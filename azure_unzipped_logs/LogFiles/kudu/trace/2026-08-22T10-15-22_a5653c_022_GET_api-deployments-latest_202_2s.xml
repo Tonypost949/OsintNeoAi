@@ -1,0 +1,8 @@
+<step title="Incoming Request" date="2026-08-22T10:15:22.934" instance="a5653c" url="/api/deployments/latest" method="GET" type="request" pid="831,1,26" Accept="*/*" Host="osintneoai-app-949.scm.azurewebsites.net" User-Agent="AZURECLI/2.89.1 (MSI)" Accept-Encoding="gzip, deflate, zstd" Authorization="Bea..." x-ms-client-request-id="54ed9e93-9e12-11f1-a408-40ec99f6b778" X-ARR-LOG-ID="54ed9e93-9e12-11f1-a408-40ec99f6b778" CLIENT-IP="201.142.151.43:59681" X-SITE-DEPLOYMENT-ID="osintneoai-app-949" WAS-DEFAULT-HOSTNAME="osintneoai-app-949.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/deployments/latest" X-Client-IP="201.142.151.43" X-Client-Port="59681" >
+  <step title="DeploymentService.GetResult" date="2026-08-22T10:15:23.004" >
+    <step title="DeploymentService.GetLatestDeployment" date="2026-08-22T10:15:23.086" >
+      <step title="DeploymentManager.GetResults" date="2026-08-22T10:15:23.124" /><!-- duration: 1971ms -->
+    </step><!-- duration: 2068ms -->
+  </step><!-- duration: 2162ms -->
+  <step title="Outgoing response" date="2026-08-22T10:15:25.183" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 14ms -->
+</step><!-- duration: 2283ms -->

@@ -1,0 +1,25 @@
+<step title="Incoming Request" date="2026-08-22T09:14:00.215" instance="a5653c" url="/api/zipdeploy?isAsync=true" method="POST" type="request" pid="835,1,21" Accept="*/*" Host="osintneoai-app-949.scm.azurewebsites.net" User-Agent="AZURECLI/2.89.1 (MSI)" Accept-Encoding="gzip, deflate, zstd" Authorization="Bea..." Cache-Control="no-cache" Content-Type="application/octet-stream" Content-Length="54488" x-ms-client-request-id="cc7805d4-9e09-11f1-8045-40ec99f6b778" x-ms-artifact-checksum="6008d13c2b63b05972f96d9e13fd53eb0b8b174d7294a56a8fab23c373bbea8e" X-ARR-LOG-ID="cc7805d4-9e09-11f1-8045-40ec99f6b778" CLIENT-IP="201.142.151.43:64044" X-SITE-DEPLOYMENT-ID="osintneoai-app-949" WAS-DEFAULT-HOSTNAME="osintneoai-app-949.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/zipdeploy?isAsync=true" X-Client-IP="201.142.151.43" X-Client-Port="64044" >
+  <step title="ZipPushDeploy" date="2026-08-22T09:14:00.274" >
+    <step title="ZipDeploy. Extract zip. Remote build." date="2026-08-22T09:14:00.286" /><!-- duration: 10ms -->
+    <step title="None repository commit" date="2026-08-22T09:14:00.335" >
+      <step title="Commit id: 0887e930-7aae-415c-a45a-75afe59f6b9c" date="2026-08-22T09:14:00.346" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 13ms -->
+    </step><!-- duration: 39ms -->
+    <step title="Starting PushDeployAsync" date="2026-08-22T09:14:00.394" /><!-- duration: 33ms -->
+    <step title="Writing artifact to /tmp/zipdeploy/5f25688a-dbbe-4335-a327-486475d3f91f.zip" date="2026-08-22T09:14:00.544" >
+      <step title="Writing multipart request body to /tmp/zipdeploy/5f25688a-dbbe-4335-a327-486475d3f91f.zip" date="2026-08-22T09:14:00.565" /><!-- duration: 21ms -->
+      <step title="Writing zip file to /tmp/zipdeploy/5f25688a-dbbe-4335-a327-486475d3f91f.zip" date="2026-08-22T09:14:00.615" /><!-- duration: 23ms -->
+    </step><!-- duration: 105ms -->
+    <step title="Removing previous build artifact&apos;s manifest file" date="2026-08-22T09:14:00.658" >
+      <step title="None repository commit" date="2026-08-22T09:14:00.690" >
+        <step title="Commit id: 0887e930-7aae-415c-a45a-75afe59f6b9c" date="2026-08-22T09:14:00.695" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 6ms -->
+      </step><!-- duration: 17ms -->
+      <step title="Start deployment in the background" date="2026-08-22T09:14:00.716" >
+        <step title="None repository commit" date="2026-08-22T09:14:00.790" >
+          <step title="Commit id: 0887e930-7aae-415c-a45a-75afe59f6b9c" date="2026-08-22T09:14:00.795" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 6ms -->
+        </step><!-- duration: 17ms -->
+        <step title="Acquiring Deployment Lock" date="2026-08-22T09:14:00.812" /><!-- duration: 5ms -->
+        <step title="Acquired Deployment Lock" date="2026-08-22T09:14:00.874" /><!-- duration: 6ms -->
+      </step><!-- duration: 337ms -->
+    </step><!-- duration: 403ms -->
+    <step title="Outgoing response" date="2026-08-22T09:14:01.067" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 6ms -->
+  </step><!-- duration: 804ms -->

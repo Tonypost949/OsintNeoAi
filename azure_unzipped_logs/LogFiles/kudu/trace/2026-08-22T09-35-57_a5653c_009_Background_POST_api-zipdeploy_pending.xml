@@ -1,0 +1,19 @@
+<step title="BackgroundTrace" date="2026-08-22T09:35:57.037" instance="a5653c" url="/api/zipdeploy" method="POST" >
+  <step title="Creating temporary deployment - FetchDeploymentManager" date="2026-08-22T09:35:57.248" /><!-- duration: 5ms -->
+  <step title="Creating temporary deployment" date="2026-08-22T09:35:57.260" /><!-- duration: 98ms -->
+  <step title="Performing fetch based deployment" date="2026-08-22T09:35:57.418" >
+    <step title="Cleaning up temp folders from previous zip deployments and extracting pushed zip file /tmp/zipdeploy/f7ca8191-2cec-4c99-9bc1-3fceaafabf43.zip (0.05 MB) to /tmp/zipdeploy/extracted" date="2026-08-22T09:35:58.671" >
+      <step title="ChmodRecursive Process exited with total time taken in ms: 68" date="2026-08-22T09:35:58.817" /><!-- duration: 29ms -->
+    </step><!-- duration: 196ms -->
+    <step title="Deployment timer started" date="2026-08-22T09:36:00.949" >
+      <step title="DeploymentManager.Deploy(id:5eb1faed-2343-4cfa-a16d-5cb6573a2d3f)" date="2026-08-22T09:36:00.964" >
+        <step title="Collecting changeset information" date="2026-08-22T09:36:01.044" /><!-- duration: 147ms -->
+        <step title="Updating submodules" date="2026-08-22T09:36:01.207" /><!-- duration: 1545ms -->
+        <step title="Determining deployment builder" date="2026-08-22T09:36:03.406" >
+          <step title="Specific project was specified: home/site/wwwroot" date="2026-08-22T09:36:03.445" /><!-- duration: 30ms -->
+          <step title="Builder is OryxBuilder" date="2026-08-22T09:36:03.497" /><!-- duration: 20ms -->
+        </step><!-- duration: 131ms -->
+        <step title="PreDeployment: context.CleanOutputPath False" date="2026-08-22T09:36:03.845" >
+          <step title="PreDeployment: context.OutputPath /home/site/wwwroot" date="2026-08-22T09:36:04.247" >
+            <step title="Building" date="2026-08-22T09:36:04.579" >
+              <step title="Executing external process" date="2026-08-22T09:36:05.193" type="process" path="bash" arguments="-c &quot;oryx build /tmp/zipdeploy/extracted -o /home/site/wwwroot --platform python --platform-version 3.10 -p virtualenv_name=antenv --log-file /tmp/build-debug.log  -i /tmp/8df0030c8b4373c --compress-destination-dir | tee /tmp/oryx-build.log ; exit $PIPESTATUS &quot;" 

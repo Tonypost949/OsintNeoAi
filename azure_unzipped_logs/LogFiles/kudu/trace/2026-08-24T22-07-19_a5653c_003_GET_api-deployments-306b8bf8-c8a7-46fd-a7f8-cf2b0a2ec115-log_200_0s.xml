@@ -1,0 +1,6 @@
+<step title="Incoming Request" date="2026-08-24T22:07:19.690" instance="a5653c" url="/api/deployments/306b8bf8-c8a7-46fd-a7f8-cf2b0a2ec115/log" method="GET" type="request" pid="831,1,7" Accept="*/*" Host="osintneoai-app-949.scm.azurewebsites.net" User-Agent="AZURECLI/2.89.1 (MSI)" Accept-Encoding="gzip, deflate, zstd" Authorization="Bea..." x-ms-client-request-id="21c5774e-a008-11f1-8207-40ec99f6b778" X-ARR-LOG-ID="21c5774e-a008-11f1-8207-40ec99f6b778" CLIENT-IP="201.142.151.43:51717" X-SITE-DEPLOYMENT-ID="osintneoai-app-949" WAS-DEFAULT-HOSTNAME="osintneoai-app-949.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/deployments/306b8bf8-c8a7-46fd-a7f8-cf2b0a2ec115/log" X-Client-IP="201.142.151.43" X-Client-Port="51717" >
+  <step title="DeploymentService.GetLogEntry" date="2026-08-24T22:07:19.736" >
+    <step title="DeploymentManager.GetLogEntries(id:306b8bf8-c8a7-46fd-a7f8-cf2b0a2ec115)" date="2026-08-24T22:07:19.743" /><!-- duration: 21ms -->
+  </step><!-- duration: 35ms -->
+  <step title="Outgoing response" date="2026-08-24T22:07:19.786" type="response" statusCode="200" statusText="OK" /><!-- duration: 7ms -->
+</step><!-- duration: 110ms -->

@@ -1,0 +1,25 @@
+<step title="Incoming Request" date="2026-08-22T09:28:00.407" instance="a5653c" url="/api/zipdeploy?isAsync=true" method="POST" type="request" pid="831,1,10" Accept="*/*" Host="osintneoai-app-949.scm.azurewebsites.net" User-Agent="AZURECLI/2.89.1 (MSI)" Accept-Encoding="gzip, deflate, zstd" Authorization="Bea..." Cache-Control="no-cache" Content-Type="application/octet-stream" Content-Length="55009" x-ms-client-request-id="c1043f99-9e0b-11f1-9f13-40ec99f6b778" x-ms-artifact-checksum="5a86f544eba3b2290efb2b1b32bf6792cd58ba9929da948eed2371d73f4f168c" X-ARR-LOG-ID="c1043f99-9e0b-11f1-9f13-40ec99f6b778" CLIENT-IP="201.142.151.43:63205" X-SITE-DEPLOYMENT-ID="osintneoai-app-949" WAS-DEFAULT-HOSTNAME="osintneoai-app-949.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/zipdeploy?isAsync=true" X-Client-IP="201.142.151.43" X-Client-Port="63205" >
+  <step title="ZipPushDeploy" date="2026-08-22T09:28:02.447" >
+    <step title="ZipDeploy. Extract zip. Remote build." date="2026-08-22T09:28:02.525" /><!-- duration: 32ms -->
+    <step title="None repository commit" date="2026-08-22T09:28:02.596" >
+      <step title="Commit id: 45db4581-890e-4c09-b6a0-5e421a704e0f" date="2026-08-22T09:28:02.617" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 51ms -->
+    </step><!-- duration: 109ms -->
+    <step title="Starting PushDeployAsync" date="2026-08-22T09:28:02.725" /><!-- duration: 22ms -->
+    <step title="Writing artifact to /tmp/zipdeploy/1f12de83-87ce-4ff3-a75f-d5552c04a068.zip" date="2026-08-22T09:28:02.967" >
+      <step title="Writing multipart request body to /tmp/zipdeploy/1f12de83-87ce-4ff3-a75f-d5552c04a068.zip" date="2026-08-22T09:28:03.005" /><!-- duration: 50ms -->
+      <step title="Writing zip file to /tmp/zipdeploy/1f12de83-87ce-4ff3-a75f-d5552c04a068.zip" date="2026-08-22T09:28:03.087" /><!-- duration: 109ms -->
+    </step><!-- duration: 299ms -->
+    <step title="Removing previous build artifact&apos;s manifest file" date="2026-08-22T09:28:03.347" >
+      <step title="None repository commit" date="2026-08-22T09:28:03.475" >
+        <step title="Commit id: 45db4581-890e-4c09-b6a0-5e421a704e0f" date="2026-08-22T09:28:03.506" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 18ms -->
+      </step><!-- duration: 63ms -->
+      <step title="Start deployment in the background" date="2026-08-22T09:28:03.566" >
+        <step title="None repository commit" date="2026-08-22T09:28:03.746" >
+          <step title="Commit id: 45db4581-890e-4c09-b6a0-5e421a704e0f" date="2026-08-22T09:28:03.878" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 29ms -->
+        </step><!-- duration: 210ms -->
+        <step title="Acquiring Deployment Lock" date="2026-08-22T09:28:04.005" /><!-- duration: 22ms -->
+        <step title="Acquired Deployment Lock" date="2026-08-22T09:28:04.488" /><!-- duration: 68ms -->
+      </step><!-- duration: 1572ms -->
+    </step><!-- duration: 1851ms -->
+    <step title="Outgoing response" date="2026-08-22T09:28:05.246" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 12ms -->
+  </step><!-- duration: 2828ms -->

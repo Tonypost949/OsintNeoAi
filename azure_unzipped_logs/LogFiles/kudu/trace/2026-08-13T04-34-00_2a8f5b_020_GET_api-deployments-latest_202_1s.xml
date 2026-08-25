@@ -1,0 +1,8 @@
+<step title="Incoming Request" date="2026-08-13T04:34:00.376" instance="2a8f5b" url="/api/deployments/latest?deployer=GitHub&amp;time=2026-08-13_04-31-16Z" method="GET" type="request" pid="833,1,25" Host="osintneoai-app-949.scm.azurewebsites.net" User-Agent="Azure-WebSites-Controller/109.0.7.36" Authorization="Bas..." x-ms-request-id="62c90286-5699-479e-88e7-feb07b48eb1e" X-ARR-LOG-ID="62c90286-5699-479e-88e7-feb07b48eb1e" CLIENT-IP="20.119.16.58:25153" X-SITE-DEPLOYMENT-ID="osintneoai-app-949" WAS-DEFAULT-HOSTNAME="osintneoai-app-949.scm.azurewebsites.net" X-MS-PLATFORM-INTERNAL="True" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/deployments/latest?deployer=GitHub&amp;time=2026-08-13_04-31-16Z" X-Client-IP="20.119.16.58" X-Client-Port="25153" >
+  <step title="DeploymentService.GetResult" date="2026-08-13T04:34:00.708" >
+    <step title="DeploymentService.GetLatestDeployment" date="2026-08-13T04:34:00.719" >
+      <step title="DeploymentManager.GetResults" date="2026-08-13T04:34:00.759" /><!-- duration: 515ms -->
+    </step><!-- duration: 742ms -->
+  </step><!-- duration: 828ms -->
+  <step title="Outgoing response" date="2026-08-13T04:34:01.549" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 10ms -->
+</step><!-- duration: 1194ms -->

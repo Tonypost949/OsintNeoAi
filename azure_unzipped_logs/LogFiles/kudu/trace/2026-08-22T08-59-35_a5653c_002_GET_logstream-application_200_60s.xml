@@ -1,0 +1,5 @@
+<step title="Incoming Request" date="2026-08-22T08:59:35.558" instance="a5653c" url="/logstream/application" method="GET" type="request" pid="835,1,7" Host="osintneoai-app-949.scm.azurewebsites.net" User-Agent="AZURECLI/2.89.1 (MSI)" Accept-Encoding="identity" Authorization="Bea..." x-ms-client-request-id="c6f0c40f-9e07-11f1-ad03-40ec99f6b778" X-ARR-LOG-ID="c6f0c40f-9e07-11f1-ad03-40ec99f6b778" CLIENT-IP="201.142.151.43:49402" X-SITE-DEPLOYMENT-ID="osintneoai-app-949" WAS-DEFAULT-HOSTNAME="osintneoai-app-949.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/logstream/application" X-Client-IP="201.142.151.43" X-Client-Port="49402" >
+  <step title="LogStreamHandlerMiddleware.Invoke" date="2026-08-22T08:59:35.597" /><!-- duration: 164ms -->
+  <step title="Error occurred" date="2026-08-22T09:00:35.760" type="error" text="LogStreamManager: ProcessRequest end" /><!-- duration: 6ms -->
+  <step title="Outgoing response" date="2026-08-22T09:00:35.779" type="response" statusCode="200" statusText="OK" /><!-- duration: 6ms -->
+</step><!-- duration: 60233ms -->

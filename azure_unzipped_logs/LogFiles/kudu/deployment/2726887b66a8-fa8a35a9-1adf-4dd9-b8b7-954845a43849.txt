@@ -1,0 +1,53 @@
+2026-08-24T19:47:47  Fetching changes.
+2026-08-24T19:47:47    Starting  LocalZipHandler
+2026-08-24T19:47:47    Cleaning up temp folders from previous zip deployments and extracting pushed zip file /tmp/zipdeploy/8c2e33b2-3505-4849-8b4e-d0486d6d5bd4.zip (0.96 MB) to /tmp/zipdeploy/extracted
+2026-08-24T19:47:51  Updating submodules.
+2026-08-24T19:47:51  Preparing deployment for commit id '306b8bf8-c'.
+2026-08-24T19:47:52  PreDeployment: context.CleanOutputPath False
+2026-08-24T19:47:52  PreDeployment: context.OutputPath /home/site/wwwroot
+2026-08-24T19:47:52  Repository path is /tmp/zipdeploy/extracted
+2026-08-24T19:47:52  Running oryx build...
+2026-08-24T19:47:52    Command: oryx build /tmp/zipdeploy/extracted -o /home/site/wwwroot --platform python --platform-version 3.10 -p virtualenv_name=antenv --log-file /tmp/build-debug.log  -i /tmp/8df02189571e48a --compress-destination-dir | tee /tmp/oryx-build.log
+2026-08-24T19:47:54    Operation performed by Microsoft Oryx, https://github.com/Microsoft/Oryx
+2026-08-24T19:47:54    You can report issues at https://github.com/Microsoft/Oryx/issues
+2026-08-24T19:47:54    
+2026-08-24T19:47:54    Oryx Version: 0.2.20260513.1+5c94136d0d5c06204a00d688dc7aea902452e52c, Commit: 5c94136d0d5c06204a00d688dc7aea902452e52c, ReleaseTagName: 20260513.1
+2026-08-24T19:47:54    
+2026-08-24T19:47:54    Build Operation ID: 107ea28169431c4b
+2026-08-24T19:47:54    Repository Commit : 306b8bf8-c8a7-46fd-a7f8-cf2b0a2ec115
+2026-08-24T19:47:54    OS Type           : bullseye
+2026-08-24T19:47:54    Image Type        : githubactions
+2026-08-24T19:47:54    
+2026-08-24T19:47:54    Primary SDK Storage URL: https://oryx-cdn.microsoft.io
+2026-08-24T19:47:54    Backup SDK Storage URL: 
+2026-08-24T19:47:54    ACR SDK Registry URL: (not set)
+2026-08-24T19:47:54    SDK provider status:
+2026-08-24T19:47:54      External ACR SDK provider: Enabled
+2026-08-24T19:47:54      External SDK provider: Enabled
+2026-08-24T19:47:55      Direct ACR SDK provider: Disabled
+2026-08-24T19:47:55      Blob SDK provider: Enabled
+2026-08-24T19:47:55    External ACR SDK provider is enabled. Only using user-specified platform: python
+2026-08-24T19:47:55    Detecting platforms...
+2026-08-24T19:47:55    External ACR provider resolved version '3.10.20' for python.
+2026-08-24T19:47:55    Version resolved using external ACR SDK provider.
+2026-08-24T19:47:55    Detected following platforms:
+2026-08-24T19:47:55      python: 3.10.20
+2026-08-24T19:47:55    Requesting SDK from ACR via external provider: python 3.10.20 (bullseye)
+2026-08-24T19:47:57    Successfully pulled SDK from ACR via external provider: python 3.10.20
+2026-08-24T19:47:57    SDK for 'python' version '3.10.20' fetched via external ACR provider.
+2026-08-24T19:47:57    Version '3.10.20' of platform 'python' is not installed. Generating script to install it...
+2026-08-24T19:47:58    
+2026-08-24T19:47:58    Using intermediate directory '/tmp/8df02189571e48a'.
+2026-08-24T19:47:58    
+2026-08-24T19:47:58    Copying files to the intermediate directory...
+2026-08-24T19:47:58    Copying files to intermediate directory done in 0 sec(s).
+2026-08-24T19:47:58    
+2026-08-24T19:47:58    Source directory     : /tmp/8df02189571e48a
+2026-08-24T19:47:58    Destination directory: /home/site/wwwroot
+2026-08-24T19:47:58    
+2026-08-24T19:47:59    Installing platform...
+2026-08-24T19:47:59    
+2026-08-24T19:47:59    Downloading and extracting 'python' version '3.10.20' to '/tmp/oryx/platforms/python/3.10.20'...
+2026-08-24T19:47:59    Detected image debian flavor: bullseye.
+2026-08-24T19:47:59    SDK binary download was skipped. Looking for cached tarball...
+2026-08-24T19:47:59    Found tarball at /var/OryxAcrSdks/python/python-bullseye-3.10.20.tar.gz
