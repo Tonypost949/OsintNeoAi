@@ -262,11 +262,16 @@ def gemini_chat_route():
 @app.route("/app")
 @app.route("/mobile_app.html")
 def mobile_route():
-    p = os.path.join(ROOT_DIR, "public", "mobile_app.html")
-    if os.path.exists(p):
-        with open(p, "r", encoding="utf-8") as f:
-            return f.read()
+    for candidate in [
+        os.path.join(ROOT_DIR, "public", "mobile_app.html"),
+        os.path.join(ROOT_DIR, "mobile_app.html"),
+        os.path.join(ROOT_DIR, "docs", "mobile_app.html")
+    ]:
+        if os.path.exists(candidate):
+            with open(candidate, "r", encoding="utf-8") as f:
+                return f.read()
     return "<h3>Mobile app template not found</h3>", 404
+
 
 
 @app.route("/maps")
@@ -279,8 +284,23 @@ def map_hub():
     return "<h3>Maps hub template not found</h3>", 404
 
 
+@app.route("/osint_geo_data.js")
+def serve_osint_geo_data():
+    candidate_dirs = [
+        ROOT_DIR,
+        os.path.join(ROOT_DIR, "public"),
+        os.path.join(ROOT_DIR, "agent"),
+        os.path.join(ROOT_DIR, "opencode_work")
+    ]
+    for d in candidate_dirs:
+        target = os.path.join(d, "osint_geo_data.js")
+        if os.path.exists(target):
+            return send_from_directory(d, "osint_geo_data.js", mimetype="application/javascript")
+    abort(404)
+
 @app.route("/maps/<path:filename>")
 def serve_map_file(filename):
+
     candidate_dirs = [
         ROOT_DIR,
         os.path.join(ROOT_DIR, "evidence", "visualizations"),
