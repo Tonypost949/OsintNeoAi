@@ -1,5 +1,5 @@
 # OSINTNeoAi — MASTER INVESTIGATION REPORTS & DOSSIERS DIRECTORY
-**Total Verified Investigation Reports:** `394`  
+**Total Verified Investigation Reports:** `396`  
 **Access Mode:** Relator & Law Enforcement Privileged  
 **All documents are hyperlinked directly to local file paths.**
 
@@ -52,8 +52,8 @@
 | [`IDENTITY_THEFT_DEEP_RESEARCH.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/evidence/IDENTITY_THEFT_DEEP_RESEARCH.md) | `evidence/IDENTITY_THEFT_DEEP_RESEARCH.md` | `24.6 KB` | **Identity Theft Deep Research Report: Anthony Michael DiMarcello III**<br><sub>*Executive Summary*</sub> |
 | [`INDIAN_BURIAL_SEARCH_REPORT_1.pdf`](file:///C:/Users/Amd949609/OsintNeoAi-1/docs/evidence/google_drive/INDIAN_BURIAL_SEARCH_REPORT_1.pdf) | `docs/evidence/google_drive/INDIAN_BURIAL_SEARCH_REPORT_1.pdf` | `469.3 KB` | **INDIAN_BURIAL_SEARCH_REPORT_1.pdf** |
 | [`INDIAN_BURIAL_SEARCH_REPORT_1.pdf`](file:///C:/Users/Amd949609/OsintNeoAi-1/evidence/google_drive/INDIAN_BURIAL_SEARCH_REPORT_1.pdf) | `evidence/google_drive/INDIAN_BURIAL_SEARCH_REPORT_1.pdf` | `469.3 KB` | **INDIAN_BURIAL_SEARCH_REPORT_1.pdf** |
-| [`INVESTIGATION_REPORTS_INDEX.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/docs/INVESTIGATION_REPORTS_INDEX.md) | `docs/INVESTIGATION_REPORTS_INDEX.md` | `84.8 KB` | **OSINTNeoAi — MASTER INVESTIGATION REPORTS & DOSSIERS DIRECTORY**<br><sub>*🏛️ Master RICO & Statutory Pleadings (251 Documents)*</sub> |
-| [`INVESTIGATION_REPORTS_INDEX.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/legal_library/INVESTIGATION_REPORTS_INDEX.md) | `legal_library/INVESTIGATION_REPORTS_INDEX.md` | `84.8 KB` | **OSINTNeoAi — MASTER INVESTIGATION REPORTS & DOSSIERS DIRECTORY**<br><sub>*🏛️ Master RICO & Statutory Pleadings (251 Documents)*</sub> |
+| [`INVESTIGATION_REPORTS_INDEX.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/docs/INVESTIGATION_REPORTS_INDEX.md) | `docs/INVESTIGATION_REPORTS_INDEX.md` | `105.4 KB` | **OSINTNeoAi — MASTER INVESTIGATION REPORTS & DOSSIERS DIRECTORY**<br><sub>*🏛️ Master RICO & Statutory Pleadings (303 Documents)*</sub> |
+| [`INVESTIGATION_REPORTS_INDEX.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/legal_library/INVESTIGATION_REPORTS_INDEX.md) | `legal_library/INVESTIGATION_REPORTS_INDEX.md` | `105.4 KB` | **OSINTNeoAi — MASTER INVESTIGATION REPORTS & DOSSIERS DIRECTORY**<br><sub>*🏛️ Master RICO & Statutory Pleadings (303 Documents)*</sub> |
 | [`MOTION_TO_INTERVENE.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/opencode_work/MOTION_TO_INTERVENE.md) | `opencode_work/MOTION_TO_INTERVENE.md` | `13.1 KB` | **UNITED STATES DISTRICT COURT — EVIDENCE SUBMISSION**<br><sub>*CENTRAL DISTRICT OF CALIFORNIA*</sub> |
 | [`NAMES.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/opencode_work/NAMES.md) | `opencode_work/NAMES.md` | `4.5 KB` | **NAMES — HB OSINT Investigation Master Roster**<br><sub>*PEOPLE*</sub> |
 | [`NATIONWIDE_FOOTPRINT.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/opencode_work/NATIONWIDE_FOOTPRINT.md) | `opencode_work/NATIONWIDE_FOOTPRINT.md` | `4.8 KB` | **NATIONWIDE FOOTPRINT — Huntington Beach RICO Investigation**<br><sub>*2,696 Out-of-State LLCs Across 39 States*</sub> |
@@ -313,10 +313,12 @@
 | [`waymakers.org.txt`](file:///C:/Users/Amd949609/OsintNeoAi-1/evidence/whois/waymakers.org.txt) | `evidence/whois/waymakers.org.txt` | `1.4 KB` | **waymakers.org.txt** |
 | [`www.libertyseniorliving.com_wp-admin.txt`](file:///C:/Users/Amd949609/OsintNeoAi-1/evidence/web_content/www.libertyseniorliving.com_wp-admin.txt) | `evidence/web_content/www.libertyseniorliving.com_wp-admin.txt` | `8.2 KB` | **www.libertyseniorliving.com_wp-admin.txt** |
 
-## 💊 Counterfeit Pills, Forensic Doctors & Psychiatric Silencing (26 Documents)
+## 💊 Counterfeit Pills, Forensic Doctors & Psychiatric Silencing (28 Documents)
 
 | Document Name | File Path | Size | Summary / Title |
 |---|---|---|---|
+| [`CLANCY_EXACT_MEDICATION_CHRONOLOGY.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/docs/CLANCY_EXACT_MEDICATION_CHRONOLOGY.md) | `docs/CLANCY_EXACT_MEDICATION_CHRONOLOGY.md` | `9.8 KB` | **📋 FORENSIC MEDICAL CHRONOLOGY: LINDSAY CLANCY (DUXBURY, MA)**<br><sub>*Exact Day-by-Day & Phase-by-Phase Psychiatric Medication Cascade (May 2022 – January 2023)*</sub> |
+| [`CLANCY_EXACT_MEDICATION_CHRONOLOGY.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/legal_library/CLANCY_EXACT_MEDICATION_CHRONOLOGY.md) | `legal_library/CLANCY_EXACT_MEDICATION_CHRONOLOGY.md` | `9.8 KB` | **📋 FORENSIC MEDICAL CHRONOLOGY: LINDSAY CLANCY (DUXBURY, MA)**<br><sub>*Exact Day-by-Day & Phase-by-Phase Psychiatric Medication Cascade (May 2022 – January 2023)*</sub> |
 | [`CLANCY_SUBPOENA_DUCES_TECUM_MATRIX.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/docs/CLANCY_SUBPOENA_DUCES_TECUM_MATRIX.md) | `docs/CLANCY_SUBPOENA_DUCES_TECUM_MATRIX.md` | `8.1 KB` | **⚖️ SUBPOENA DUCES TECUM & RULE 26 EVIDENTIARY DEMAND MATRIX**<br><sub>*Case Focus: Lindsay Clancy Investigation (Duxbury, MA) • Involuntary Intoxication & Counterfeit Pill Vector*</sub> |
 | [`CLANCY_SUBPOENA_DUCES_TECUM_MATRIX.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/legal_library/CLANCY_SUBPOENA_DUCES_TECUM_MATRIX.md) | `legal_library/CLANCY_SUBPOENA_DUCES_TECUM_MATRIX.md` | `8.1 KB` | **⚖️ SUBPOENA DUCES TECUM & RULE 26 EVIDENTIARY DEMAND MATRIX**<br><sub>*Case Focus: Lindsay Clancy Investigation (Duxbury, MA) • Involuntary Intoxication & Counterfeit Pill Vector*</sub> |
 | [`DR_ANN_VERMA_RESCISSION_NOTICE.docx`](file:///C:/Users/Amd949609/OsintNeoAi-1/docs/evidence/google_drive/DR_ANN_VERMA_RESCISSION_NOTICE.docx) | `docs/evidence/google_drive/DR_ANN_VERMA_RESCISSION_NOTICE.docx` | `9.1 KB` | **DR_ANN_VERMA_RESCISSION_NOTICE.docx** |
