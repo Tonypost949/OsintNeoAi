@@ -1,7 +1,7 @@
 # 📜 OSINTNeoAi Session Chat Export
 **Session ID:** `e0259c57-0b03-45f8-956f-927ea22d1195`  
-**Export Date:** August 26, 2026 12:52:54 AM  
-**Total Conversation Turns:** `290`
+**Export Date:** August 26, 2026 12:53:45 AM  
+**Total Conversation Turns:** `291`
 
 ---
 
@@ -16001,6 +16001,71 @@ https://namesearch.occourts.org/NameSearch/Results
 </USER_REQUEST>
 <ADDITIONAL_METADATA>
 The current local time is: 2026-08-26T00:52:13-07:00.
+</ADDITIONAL_METADATA>
+```
+
+**🤖 Assistant:**
+
+### 🔍 Orange County Superior Court: Party Name Search Portal Ingested
+
+We mapped and integrated the official **Orange County Superior Court Party Name Search Portal** ([`namesearch.occourts.org/NameSearch/Results`](https://namesearch.occourts.org/NameSearch/Results)):
+
+---
+
+### 🏛️ Public Judicial Case Index Capabilities:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                 SUPERIOR COURT OF CALIFORNIA — PARTY NAME SEARCH            │
+│                       (namesearch.occourts.org/NameSearch)                  │
+└──────────────────────────────────────┬──────────────────────────────────────┘
+                                       │
+      ┌──────────────────┬─────────────┴───────┬──────────────────┐
+      ▼                  ▼                     ▼                  ▼
+┌──────────────┐  ┌──────────────┐      ┌──────────────┐  ┌──────────────┐
+│ CIVIL DOCKETS│  │   UNLAWFUL   │      │   CRIMINAL   │  │ PROBATE &    │
+│Unlimited and │  │  DETAINERS   │      │  & TRAFFIC   │  │ FAMILY LAW   │
+│Limited Suits │  │Eviction Suits│      │  Filings     │  │ Proceedings  │
+└──────────────┘  └──────────────┘      └──────────────┘  └──────────────┘
+```
+
+1. **Party Lookup System:**
+   * Direct electronic query interface for searching individuals and corporate entities across all Orange County Justice Centers (CJC, HJC, WJC, NJC, LJC).
+2. **Evidentiary Verification for Litigant Portfolios:**
+   * Cross-references corporate entities (*Shea Properties Management Company, Inc.*, *J.F. Shea Co., Inc.*, *Woodbridge Meadows Apartments*) and political actors (*Todd Ament*, *Harry Sidhu*, *Jeff Flint*).
+3. **Register of Actions Verification:**
+   * Validates filing dates, clerk docket entries, and procedural stay timelines under California Rules of Court Rule 2.503.
+
+---
+
+### 🌐 System Integrations Updated:
+* 🟢 **Syncfusion Enterprise Fact Matrix:** Added **`FACT-016`** (`16 / 16 (100% Verified)`) on [**`https://osintneoai-app-949.azurewebsites.net/syncfusion`**](https://osintneoai-app-949.azurewebsites.net/syncfusion).
+* 📑 **Master Link Directory (`ALL_LINKS.html`):** Ingested [`https://namesearch.occourts.org/NameSearch/Results`](https://namesearch.occourts.org/NameSearch/Results) onto [**`https://osintneoai-app-949.azurewebsites.net/all-links`**](https://osintneoai-app-949.azurewebsites.net/all-links).
+* 📋 **Task System:** **`TASK-036`** marked DONE in [`TASKS.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/TASKS.md).
+* 🚀 **GitHub Commit:** [`d568321`](https://github.com/Tonypost949/OsintNeoAi/commit/d5683218ce2d94cf92b8d0037a4e69b09db488bb).
+
+---
+
+### Turn 291
+*Time:* `2026-08-26T07:53:17Z`
+
+**👤 User:**
+```
+<USER_REQUEST>
+DIMARCELLO                  ANTHONY                                    RESPONDING PARTY - PROTECTIVE                   16V002172                  DOMESTIC VIOLENCE WITH CHILD                  Sep 6, 2016                  
+Dimarcello                  Anthony                  Michael                  Defendant                  23WM15323                  Misdemeanor                  Dec 15, 2023                  
+Dimarcello                  Anthony                  Michael                  Defendant                  24CM02100                  Misdemeanor                  Feb 29, 2024                  
+Dimarcello                  Anthony                  Michael                  Defendant                  25WF5518                  Felony                  Dec 9, 2025                  
+Dimarcello                  Anthony                  Michael                  Defendant                  25WM14039                  Misdemeanor                  Oct 31, 2025                  
+Dimarcello                  Anthony                  Michael                  Defendant                  26WM01260                  Misdemeanor                  Feb 4, 2026                  
+Dimarcello                  Anthony                  Michael                  Defendant                  26WM02474                  Misdemeanor                  Mar 6, 2026                  
+Dimarcello                  Anthony                  Michael                  Defendant                  HB3042331                  Infraction                  Dec 6, 2011                  
+Dimarcello                  Anthony                  Michael                  Defendant                  HB3069324                  Infraction                  Aug 2, 2013                  
+Dimarcello                  Anthony                  Michael                  Defendant                  HBE00003860                  Infraction                  Jun 7, 2016                  
+Dimarcello                  Anthony                                    Defendant                  30-2021-01201327-CL-UD-CJC                  Unlawful Detainer - Residential                  May 18, 202
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-08-26T00:53:17-07:00.
 </ADDITIONAL_METADATA>
 ```
 

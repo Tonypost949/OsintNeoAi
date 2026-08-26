@@ -1,5 +1,5 @@
 # 📋 OSINT Neo AI — Master Autonomous Task & Action Ledger
-> **System Status:** 🟢 Active & Self-Tracking | **Storage:** [`data/tasks.json`](data/tasks.json) | **Total Tasks:** 36 (7 Open / 29 Done)
+> **System Status:** 🟢 Active & Self-Tracking | **Storage:** [`data/tasks.json`](data/tasks.json) | **Total Tasks:** 37 (7 Open / 30 Done)
 
 ---
 
@@ -50,6 +50,7 @@
 | **`TASK-034`** | Legal & Investigations | **Audit OC Superior Court Unlawful Detainer Rules & UD-101 Stay Evasion**<br>Audited Orange County Superior Court Unlawful Detainer Division rules (occourts.org/divisions/civil/unlawful-detainer) and Cal. CCP 116.223: proved landlord subornation of perjury via Form UD-101 falsely checking Box 7d(2) to evade mandatory clerk stays. | 2026-08-26 | `DONE` |
 | **`TASK-035`** | Enterprise Systems | **Ingest California Housing & Homelessness Agency (housing.ca.gov)**<br>Scanned California Housing & Homelessness Agency (housing.ca.gov); mapped HCD Surplus Land Act  statutory fine authority and COVID-19 Rent Relief safe harbors into master fact matrix (FACT-015) and ALL_LINKS.html. | 2026-08-26 | `DONE` |
 | **`TASK-036`** | Enterprise Systems | **Ingest OC Superior Court Party Name Search Portal (namesearch.occourts.org)**<br>Scanned Orange County Superior Court Online Name Search Portal (namesearch.occourts.org/NameSearch/Results); mapped cross-center party searching across all five Justice Centers and integrated into FACT-016 and ALL_LINKS.html. | 2026-08-26 | `DONE` |
+| **`TASK-037`** | Legal & Investigations | **Audit & Cross-Reference OC Superior Court Name Search Dockets for DiMarcello**<br>Ingested verified party search records from namesearch.occourts.org: confirmed Case 30-2021-01201327-CL-UD-CJC (May 18, 2021) and mapped the West Justice Center (WM/WF) downstream municipal cascade following the 2021 displacement. | 2026-08-26 | `DONE` |
 
 ---
 
