@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-26T07:19:43.538489+00:00",
-  "total": 28,
+  "updated_at": "2026-08-26T07:26:18.822665+00:00",
+  "total": 29,
   "tasks": [
     {
       "id": "TASK-001",
@@ -404,6 +404,19 @@
         "Legal & Investigations"
       ],
       "action_url": "https://osintneoai-app-949.azurewebsites.net/grand-jury"
+    },
+    {
+      "id": "TASK-029",
+      "title": "Integrate Universal Terminal AI Agent Swarm & Dispatcher",
+      "category": "Multi-Agent Systems",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Integrated 13+ terminal AI coding agent launch profiles (Qwen Code, Claude Code, OpenCode, Cline, Hermes, Droid, DeepSeek Harness, OpenClaw) via interactive CLI (agent_launcher.py) and live web hub (/agents).",
+      "created_at": "2026-08-26T07:26:16.107367+00:00",
+      "tags": [
+        "Multi-Agent Systems"
+      ],
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/agents"
     }
   ]
 }

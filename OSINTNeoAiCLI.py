@@ -1411,6 +1411,14 @@ def grand_jury_page():
         return send_from_directory(os.path.join(ROOT_DIR, "public"), "grand_jury_packet.html")
     return jsonify({"status": "error", "message": "grand_jury_packet.html not found"}), 404
 
+@app.route("/agents")
+@app.route("/agent-hub")
+def agent_hub_page():
+    hub_html = os.path.join(ROOT_DIR, "public", "agent_hub.html")
+    if os.path.exists(hub_html):
+        return send_from_directory(os.path.join(ROOT_DIR, "public"), "agent_hub.html")
+    return jsonify({"status": "error", "message": "agent_hub.html not found"}), 404
+
 @app.route("/exports/<path:filename>")
 def serve_export_file(filename):
     exp_dir = os.path.join(ROOT_DIR, "exports")
