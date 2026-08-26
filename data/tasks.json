@@ -1,7 +1,131 @@
 {
-  "updated_at": "2026-08-26T08:20:28.169005+00:00",
-  "total": 41,
+  "updated_at": "2026-08-26T12:12:50.984107Z",
+  "total": 49,
   "tasks": [
+    {
+      "id": "TASK-VSDE-001",
+      "title": "Claim Syncfusion Essential Studio Enterprise ,995",
+      "category": "VSDE Benefits",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Order W753756 licensed key registered in public/syncfusion_grid.html_v2 with zero watermark.",
+      "created_at": "2026-08-26T12:12:50.983923Z",
+      "tags": [
+        "Syncfusion",
+        "VSDE",
+        "Enterprise",
+        "Grid"
+      ],
+      "action_url": "https://www.syncfusion.com/account/downloads"
+    },
+    {
+      "id": "TASK-VSDE-002",
+      "title": "Activate Azure for Students /mo Credit",
+      "category": "VSDE Benefits",
+      "priority": "HIGH",
+      "status": "DONE",
+      "description": "Subscription f055033f-83fb-4ae9-9c36-be48f0c86158 hosting live app osintneoai-app-949.",
+      "created_at": "2026-08-26T12:12:50.983997Z",
+      "tags": [
+        "Azure",
+        "VSDE",
+        "Cloud",
+        "AppService"
+      ],
+      "action_url": "https://portal.azure.com"
+    },
+    {
+      "id": "TASK-VSDE-003",
+      "title": "Claim JetBrains All Products Pack + GitHub Copilot",
+      "category": "VSDE Benefits",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Claim IDE suite via anthony.dimarcello@students.post.edu on benefits portal.",
+      "created_at": "2026-08-26T12:12:50.984004Z",
+      "tags": [
+        "JetBrains",
+        "Copilot",
+        "IDE",
+        "VSDE"
+      ],
+      "action_url": "https://my.visualstudio.com/benefits"
+    },
+    {
+      "id": "TASK-VSDE-004",
+      "title": "Claim Pluralsight + LinkedIn Learning + DataCamp Bundle",
+      "category": "VSDE Benefits",
+      "priority": "MEDIUM",
+      "status": "TODO",
+      "description": "Enterprise training passes for cloud architecture and OSINT.",
+      "created_at": "2026-08-26T12:12:50.984009Z",
+      "tags": [
+        "Pluralsight",
+        "LinkedIn",
+        "Certifications"
+      ],
+      "action_url": "https://my.visualstudio.com/benefits"
+    },
+    {
+      "id": "TASK-VSDE-005",
+      "title": "Claim Parasoft / Code Climate / SQL Sentry / Termius Pro",
+      "category": "VSDE Benefits",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Developer pack security scanners and database profilers.",
+      "created_at": "2026-08-26T12:12:50.984020Z",
+      "tags": [
+        "Security",
+        "DevOps",
+        "Termius"
+      ],
+      "action_url": "https://my.visualstudio.com/benefits"
+    },
+    {
+      "id": "TASK-VSDE-006",
+      "title": "Claim MongoDB Atlas / Datadog / Namecheap / DigitalOcean",
+      "category": "VSDE Benefits",
+      "priority": "MEDIUM",
+      "status": "TODO",
+      "description": "Student developer pack cloud overflow resources.",
+      "created_at": "2026-08-26T12:12:50.984025Z",
+      "tags": [
+        "MongoDB",
+        "Datadog",
+        "DigitalOcean"
+      ],
+      "action_url": "https://education.github.com/pack"
+    },
+    {
+      "id": "TASK-VSDE-007",
+      "title": "Verify Post University Entra SSO Federation",
+      "category": "VSDE Benefits",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Confirmed federated student credentials valid and benefits portal unlocked.",
+      "created_at": "2026-08-26T12:12:50.984030Z",
+      "tags": [
+        "EntraID",
+        "SSO",
+        "PostUniversity"
+      ],
+      "action_url": "https://my.visualstudio.com/benefits"
+    },
+    {
+      "id": "TASK-VSDE-008",
+      "title": "Deploy /syncfusion + /tasks Live on Azure",
+      "category": "VSDE Benefits",
+      "priority": "HIGH",
+      "status": "DONE",
+      "description": "Linked endpoints and licensed Syncfusion grid to live web server.",
+      "created_at": "2026-08-26T12:12:50.984035Z",
+      "tags": [
+        "Deploy",
+        "Azure",
+        "Syncfusion",
+        "Tasks"
+      ],
+      "action_url": "http://127.0.0.1:5052/syncfusion"
+    },
     {
       "id": "TASK-001",
       "title": "SCORE & California SBDC Free Mentor Onboarding",

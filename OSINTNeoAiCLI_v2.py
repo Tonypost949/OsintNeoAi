@@ -778,8 +778,14 @@ HTML_APP = """<!DOCTYPE html>
         <a href="/" class="bg-indigo-600 text-white text-xs font-bold px-3.5 py-2 rounded-xl flex items-center gap-2 shadow-md shadow-indigo-600/20">
           <i class="fa-solid fa-terminal"></i> CLI Hub
         </a>
+        <a href="/syncfusion" class="bg-emerald-950/60 hover:bg-emerald-900/60 border border-emerald-500/30 text-emerald-300 text-xs font-bold px-3.5 py-2 rounded-xl flex items-center gap-2 transition">
+          <i class="fa-solid fa-table-cells"></i> Syncfusion Hub
+        </a>
+        <a href="/tasks" class="bg-blue-950/60 hover:bg-blue-900/60 border border-blue-500/30 text-blue-300 text-xs font-bold px-3.5 py-2 rounded-xl flex items-center gap-2 transition">
+          <i class="fa-solid fa-list-check"></i> Tasks Engine
+        </a>
         <a href="/maps" class="bg-slate-800 hover:bg-slate-700 text-cyan-400 text-xs font-bold px-3.5 py-2 rounded-xl flex items-center gap-2 transition">
-          <i class="fa-solid fa-map-location-dot"></i> Tactical Maps (12)
+          <i class="fa-solid fa-map-location-dot"></i> Tactical Maps (14)
         </a>
         <a href="/gemini" class="bg-slate-800 hover:bg-slate-700 text-purple-400 text-xs font-bold px-3.5 py-2 rounded-xl flex items-center gap-2 transition">
           <i class="fa-solid fa-brain"></i> Gemini GIS
@@ -1150,7 +1156,38 @@ def mobile_hud_route():
         if os.path.exists(p):
             with open(p, "r", encoding="utf-8") as f:
                 return f.read()
-    return "<h3>Mobile HUD template not found</h3>", 404
+@app.route("/syncfusion")
+@app.route("/syncfusion-grid")
+@app.route("/grid")
+def syncfusion_grid_route():
+    for candidate in [os.path.join("public", "syncfusion_grid.html_v2"), os.path.join("public", "syncfusion_grid.html"), "syncfusion_grid.html"]:
+        p = os.path.join(ROOT_DIR, candidate)
+        if os.path.exists(p):
+            with open(p, "r", encoding="utf-8") as f:
+                return f.read()
+    return "<h3>Syncfusion Grid template not found</h3>", 404
+
+@app.route("/tasks")
+@app.route("/tasks-engine")
+@app.route("/roadmap")
+def tasks_route():
+    for candidate in [os.path.join("public", "tasks.html"), "tasks.html"]:
+        p = os.path.join(ROOT_DIR, candidate)
+        if os.path.exists(p):
+            with open(p, "r", encoding="utf-8") as f:
+                return f.read()
+    return "<h3>Tasks Engine template not found</h3>", 404
+
+@app.route("/api/tasks")
+def api_tasks():
+    tasks_file = os.path.join(ROOT_DIR, "data", "tasks.json")
+    if os.path.exists(tasks_file):
+        try:
+            with open(tasks_file, "r", encoding="utf-8") as f:
+                return jsonify(json.load(f))
+        except Exception as e:
+            return jsonify({"status": "error", "message": str(e)}), 500
+    return jsonify({"tasks": [], "total": 0, "status": "empty"})
 
 @app.route("/osint_geo_data.js")
 def serve_osint_geo_data():
