@@ -73,12 +73,14 @@ git clone https://github.com/Tonypost949/OsintNeoAi.git && cd OsintNeoAi && pip 
 
 ---
 
-## 🛠️ Microsoft Power Platform, Power BI & Azure Functions Suite
+## 🛠️ Microsoft Power Platform, Graph Explorer & Azure Functions Suite
 
+* ⚡ **Microsoft Graph Explorer Client:** [`scripts/microsoft_graph_client.py`](scripts/microsoft_graph_client.py) & [Integration Guide](docs/MICROSOFT_GRAPH_EXPLORER_AND_ENTRA_INTEGRATION_GUIDE.md) — Connects Entra ID users, directory audits, and Defender security alerts directly into the OSINT Neo AI graph.
 * 🔌 **Power Apps Custom Connector:** [`powerplatform/powerapps_custom_connector.json`](powerplatform/powerapps_custom_connector.json) — 1-click OpenAPI 3.0 import for Microsoft Power Apps and Power Automate.
 * ⚡ **Power Automate 24/7 Cloud Alert Flow:** [`powerplatform/flows/public_notice_keyword_watcher.json`](powerplatform/flows/public_notice_keyword_watcher.json) — Automated background keyword and correlation monitor.
 * 📊 **Power BI Forensic Data Model:** [`powerplatform/powerbi/powerbi_export_data.py`](powerplatform/powerbi/powerbi_export_data.py) — Exports 17,488 nodes and 18,712 edges into typed tabular models.
 * ☁️ **Azure Functions Python v2 App:** [`azure_functions/function_app.py`](azure_functions/function_app.py) — Serverless search, correlation, and daily 6:00 AM UTC timer triggers.
+
 
 ---
 

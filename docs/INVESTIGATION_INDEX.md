@@ -36,6 +36,8 @@ This document provides a unified reference catalog of all **70 investigative dos
 ## 🌐 Pillar 5: Master Nationwide Integration
 * [NATIONWIDE_FORENSIC_MASTER_INTEGRATION_AUDIT.md](file:///C:/Users/Amd949609/OsintNeoAi-1/legal_library/NATIONWIDE_FORENSIC_MASTER_INTEGRATION_AUDIT.md) — The unified 5-pillar nationwide synthesis.
 * [MOBILE_VIBE_CODING_GUIDE.md](file:///C:/Users/Amd949609/OsintNeoAi-1/docs/MOBILE_VIBE_CODING_GUIDE.md) — Mobile developer guide for Android Termux, iOS Codespaces, and live Azure terminals.
+* [MICROSOFT_GRAPH_EXPLORER_AND_ENTRA_INTEGRATION_GUIDE.md](file:///C:/Users/Amd949609/OsintNeoAi-1/docs/MICROSOFT_GRAPH_EXPLORER_AND_ENTRA_INTEGRATION_GUIDE.md) — Microsoft Graph REST API, Entra ID directory queries, Security Alerts v2, and Power Platform automation guide.
+
 
 ---
 
