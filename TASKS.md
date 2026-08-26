@@ -1,5 +1,5 @@
 # 📋 OSINT Neo AI — Master Autonomous Task & Action Ledger
-> **System Status:** 🟢 Active & Self-Tracking | **Storage:** [`data/tasks.json`](data/tasks.json) | **Total Tasks:** 35 (7 Open / 28 Done)
+> **System Status:** 🟢 Active & Self-Tracking | **Storage:** [`data/tasks.json`](data/tasks.json) | **Total Tasks:** 36 (7 Open / 29 Done)
 
 ---
 
@@ -49,6 +49,7 @@
 | **`TASK-033`** | Legal & Investigations | **Ingest Orange County Public Law Library Sitemap & Research Hub (ocpll.org)**<br>Scanned Orange County Public Law Library (ocpll.org/sitemap/) at 515 N. Flower St, Santa Ana; mapped legal research databases (Trellis, Lexis Digital Library, EBSCO) and integrated into master ALL_LINKS.html directory. | 2026-08-26 | `DONE` |
 | **`TASK-034`** | Legal & Investigations | **Audit OC Superior Court Unlawful Detainer Rules & UD-101 Stay Evasion**<br>Audited Orange County Superior Court Unlawful Detainer Division rules (occourts.org/divisions/civil/unlawful-detainer) and Cal. CCP 116.223: proved landlord subornation of perjury via Form UD-101 falsely checking Box 7d(2) to evade mandatory clerk stays. | 2026-08-26 | `DONE` |
 | **`TASK-035`** | Enterprise Systems | **Ingest California Housing & Homelessness Agency (housing.ca.gov)**<br>Scanned California Housing & Homelessness Agency (housing.ca.gov); mapped HCD Surplus Land Act  statutory fine authority and COVID-19 Rent Relief safe harbors into master fact matrix (FACT-015) and ALL_LINKS.html. | 2026-08-26 | `DONE` |
+| **`TASK-036`** | Enterprise Systems | **Ingest OC Superior Court Party Name Search Portal (namesearch.occourts.org)**<br>Scanned Orange County Superior Court Online Name Search Portal (namesearch.occourts.org/NameSearch/Results); mapped cross-center party searching across all five Justice Centers and integrated into FACT-016 and ALL_LINKS.html. | 2026-08-26 | `DONE` |
 
 ---
 
