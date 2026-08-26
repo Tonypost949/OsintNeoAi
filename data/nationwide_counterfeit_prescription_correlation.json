@@ -281,9 +281,46 @@
             "criminal_exposure": "Up to 20 Years Imprisonment & $5,000,000 individual fines for counterfeit pharmaceutical marks"
         },
         {
-            "statute": "18 U.S.C. \u00a7 1961 et seq. (RICO)",
+            "statute": "18 U.S.C. § 1961 et seq. (RICO)",
             "title": "Racketeer Influenced and Corrupt Organizations Act",
             "criminal_exposure": "Treble civil damages & 20-year criminal sentences for enterprise distribution conspiracies"
         }
-    ]
+    ],
+    "clancy_trial_polypharmacy_correlation": {
+        "case_caption": "Commonwealth v. Lindsay Clancy (Plymouth County Superior Court, MA)",
+        "correlation_type": "Iatrogenic Clinical Polypharmacy vs. Illicit Counterfeit Trafficking",
+        "prescribing_providers_audited": [
+            {
+                "name": "Dr. Jennifer Tufts",
+                "role": "Outpatient Psychiatrist (Primary prescriber / outpatient titration)",
+                "criminal_counterfeit_nexus": "None (Licensed physician operating in legitimate clinical capacity)",
+                "polypharmacy_exposure": "Rapid sequential titration of multiple psychiatric compounds across < 100 days"
+            },
+            {
+                "name": "Dr. Alia Goodheart",
+                "role": "Attending Inpatient Psychiatrist (McLean Hospital / Harvard Medical School affiliate)",
+                "criminal_counterfeit_nexus": "None (Authorized inpatient facility clinician)",
+                "polypharmacy_exposure": "Inpatient discharge summary & medication transition protocols"
+            },
+            {
+                "name": "Dr. Zobeida M. Diaz",
+                "role": "Psychiatrist (Women & Infants Hospital Day Hospital Program, Providence, RI)",
+                "criminal_counterfeit_nexus": "None (Hospital partial day program evaluator)",
+                "polypharmacy_exposure": "Specialized perinatal psychiatric evaluation"
+            },
+            {
+                "name": "Rebecca Jollotta, PMHNP-BC",
+                "role": "Psychiatric Mental Health Nurse Practitioner (South Shore Medical Center)",
+                "criminal_counterfeit_nexus": "None (Licensed nurse practitioner)",
+                "polypharmacy_exposure": "Late 2022 medication management and patient-reported side effect tracking"
+            }
+        ],
+        "prescribed_compounds_overlapping_counterfeit_targets": [
+            "Lorazepam (Ativan) — Target of CRX-002 Counterfeit Benzodiazepine Pressing",
+            "Clonazepam (Klonopin) — Target of CRX-002 Counterfeit Benzodiazepine Pressing",
+            "Diazepam (Valium) — Target of CRX-002 Counterfeit Benzodiazepine Pressing",
+            "Zolpidem (Ambien) — Target of CRX-002 Counterfeit Sedative/Hypnotic Pressing"
+        ],
+        "key_forensic_distinction": "The Clancy trial prescribers operated entirely within the regulated clinical healthcare system and are NOT cartel operators or counterfeit pressers; however, their case exemplifies the clinical iatrogenic crisis (severe polypharmacy, akathisia, and involuntary intoxication) that mirrors the molecular receptor targets of illicit counterfeit cartels."
+    }
 }

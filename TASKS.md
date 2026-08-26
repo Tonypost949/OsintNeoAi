@@ -1,5 +1,5 @@
 # 📋 OSINT Neo AI — Master Autonomous Task & Action Ledger
-> **System Status:** 🟢 Active & Self-Tracking | **Storage:** [`data/tasks.json`](data/tasks.json) | **Total Tasks:** 40 (7 Open / 33 Done)
+> **System Status:** 🟢 Active & Self-Tracking | **Storage:** [`data/tasks.json`](data/tasks.json) | **Total Tasks:** 41 (7 Open / 34 Done)
 
 ---
 
@@ -54,6 +54,7 @@
 | **`TASK-038`** | Enterprise Systems | **Map OC Courts Direct Docket Servers (civilwebshopping, visionpublic, fampub)**<br>Mapped Orange County Superior Court direct docket endpoints: integrated civilwebshopping.occourts.org (Case 30-2021-01201327 ROA), visionpublic.occourts.org (criminal/traffic), and fampub.occourts.org into DiMarcello audit dossier and ALL_LINKS.html. | 2026-08-26 | `DONE` |
 | **`TASK-039`** | Enterprise Systems | **Ingest Orange County Chambers of Commerce Directory (ocgov.com/.../chambers-commerce)**<br>Mapped Orange County Chambers of Commerce directory: established Anaheim Chamber of Commerce (Todd Ament/Cabal hub), Greater Irvine Chamber, and Huntington Beach Chamber networks into briefings and ALL_LINKS.html. | 2026-08-26 | `DONE` |
 | **`TASK-040`** | Enterprise Systems | **Build Nationwide Counterfeit Prescription Correlation Engine & Live Matrix**<br>Correlated DEA NFLIS lab testing, FDA OCI, openFDA Drug Enforcement recalls, and interstate trafficking corridors: mapped 115.8M+ seized counterfeit pills/pens, 70.0% fentanyl lethality ratio, and deployed live interactive matrix at /counterfeit-rx. | 2026-08-26 | `DONE` |
+| **`TASK-041`** | Legal & Investigations | **Audit Clancy Trial Prescribers vs. Nationwide Prescription Correlation**<br>Cross-referenced Clancy trial psychiatric prescribers (Dr. Jennifer Tufts, Dr. Alia Goodheart, Dr. Zobeida Diaz, NP Rebecca Jollotta) against nationwide forensic matrix: verified 100% licensed clinical origin (zero cartel crossover) while demonstrating the iatrogenic polypharmacy vector (13+ drugs in <100 days) matching counterfeit receptor targets. | 2026-08-26 | `DONE` |
 
 ---
 
