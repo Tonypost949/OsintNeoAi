@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-26T07:49:59.940727+00:00",
-  "total": 34,
+  "updated_at": "2026-08-26T07:51:37.958482+00:00",
+  "total": 35,
   "tasks": [
     {
       "id": "TASK-001",
@@ -480,6 +480,19 @@
       "created_at": "2026-08-26T07:49:59.310238+00:00",
       "tags": [
         "Legal & Investigations"
+      ],
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/syncfusion"
+    },
+    {
+      "id": "TASK-035",
+      "title": "Ingest California Housing & Homelessness Agency (housing.ca.gov)",
+      "category": "Enterprise Systems",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Scanned California Housing & Homelessness Agency (housing.ca.gov); mapped HCD Surplus Land Act  statutory fine authority and COVID-19 Rent Relief safe harbors into master fact matrix (FACT-015) and ALL_LINKS.html.",
+      "created_at": "2026-08-26T07:51:37.209043+00:00",
+      "tags": [
+        "Enterprise Systems"
       ],
       "action_url": "https://osintneoai-app-949.azurewebsites.net/syncfusion"
     }
