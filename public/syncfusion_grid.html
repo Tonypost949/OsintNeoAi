@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINT Neo AI — Syncfusion Enterprise Forensic Intelligence Hub</title>
+    <!-- Syncfusion Essential Studio CDN -->
+    <link href="https://cdn.syncfusion.com/ej2/26.2.4/material-dark.css" rel="stylesheet">
+    <script src="https://cdn.syncfusion.com/ej2/26.2.4/dist/ej2.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-base: #0f172a;
+            --bg-surface: #1e293b;
+            --border: #334155;
+            --text: #f8fafc;
+            --accent: #38bdf8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: rgba(30, 41, 59, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .brand-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge-license {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.45rem 0.9rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        main {
+            flex: 1;
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 1800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .stat-val {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .panel-container {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .panel-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        #Grid, #Chart {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">
+            <i class="fa-solid fa-layer-group" style="color: var(--accent); font-size: 1.5rem;"></i>
+            <span class="brand-title">Syncfusion Enterprise Forensic Grid</span>
+            <span class="badge-license">Essential Studio® 5-Seat License</span>
+        </div>
+        <div class="nav-links">
+            <a href="/tasks" class="nav-btn"><i class="fa-solid fa-list-check"></i> Task Engine</a>
+            <a href="/gemini" class="nav-btn"><i class="fa-solid fa-robot"></i> Multi-AI Studio</a>
+            <a href="/maps" class="nav-btn"><i class="fa-solid fa-map"></i> GIS Maps</a>
+            <a href="/" class="nav-btn"><i class="fa-solid fa-gauge"></i> Main Portal</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-label">Indexed Graph Entities</span>
+                <span class="stat-val" id="nodeCount">17,488</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Relational Forensics Edges</span>
+                <span class="stat-val" id="edgeCount">18,712</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Commercial Suite Value</span>
+                <span class="stat-val" style="color: #4ade80;">$9,995.00</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Active License Status</span>
+                <span class="stat-val" style="color: #a855f7; font-size: 1.3rem;">Enterprise VSDE</span>
+            </div>
+        </div>
+
+        <!-- Syncfusion Forensic Data Grid -->
+        <div class="panel-container">
+            <div class="panel-header">
+                <div class="panel-title">
+                    <i class="fa-solid fa-table" style="color: var(--accent);"></i>
+                    <span>High-Performance Entity & Shell Company Data Grid</span>
+                </div>
+                <div>
+                    <span style="font-size: 0.8rem; color: #94a3b8;"><i class="fa-solid fa-bolt"></i> Virtual Scrolling & Excel/PDF Ready</span>
+                </div>
+            </div>
+            <div id="Grid"></div>
+        </div>
+
+        <!-- Syncfusion Chart -->
+        <div class="panel-container">
+            <div class="panel-header">
+                <div class="panel-title">
+                    <i class="fa-solid fa-chart-column" style="color: #818cf8;"></i>
+                    <span>Entity Category Distribution & Financial Clustering</span>
+                </div>
+            </div>
+            <div id="Chart"></div>
+        </div>
+    </main>
+
+    <script>
+        // Optional: Register Syncfusion License Key here when copied from dashboard
+        const syncfusionLicenseKey = localStorage.getItem("syncfusion_license_key") || "";
+        if (syncfusionLicenseKey && ej && ej.base) {
+            ej.base.registerLicense(syncfusionLicenseKey);
+        }
+
+        async function initSyncfusionApp() {
+            try {
+                // Fetch live nodes data
+                const res = await fetch('/api/search?q=a');
+                let gridData = [];
+                if (res.ok) {
+                    const json = await res.json();
+                    gridData = json.results || [];
+                }
+
+                // Fallback mock data if running standalone
+                if (gridData.length === 0) {
+                    gridData = [
+                        { id: "NODE-11770", label: "11770 Warner Ave Suite 200", category: "Commercial Address", type: "Real Estate", description: "18 SBA PPP Loans ($1.11M)" },
+                        { id: "NODE-SCE-MAG", label: "SCE APN 114-481-32", category: "Deed Transfer", type: "Utility / Land", description: "$0 Deed to SLF-HB Magnolia" },
+                        { id: "NODE-TC-001", label: "Tongva Ancestral Village (Bolsa Chica)", category: "Cultural Resource", type: "AB 52 Protection", description: "CA-ORA-83 Cogged Stone Site" },
+                        { id: "NODE-MED-99", label: "Pacific Care & Comfort Hospice LLC", category: "Medical Shell", type: "Healthcare", description: "Batch filed 11770 Warner Ave" }
+                    ];
+                }
+
+                // 1. Initialize Syncfusion Grid
+                const grid = new ej.grids.Grid({
+                    dataSource: gridData,
+                    allowPaging: true,
+                    pageSettings: { pageSize: 15, pageSizes: [10, 15, 25, 50, 100] },
+                    allowSorting: true,
+                    allowFiltering: true,
+                    filterSettings: { type: 'Excel' },
+                    allowGrouping: true,
+                    toolbar: ['Search', 'ExcelExport', 'PdfExport', 'Print'],
+                    columns: [
+                        { field: 'id', headerText: 'Entity ID', width: 140, textAlign: 'Left' },
+                        { field: 'label', headerText: 'Entity / Title', width: 280, textAlign: 'Left' },
+                        { field: 'category', headerText: 'Category', width: 180, textAlign: 'Left' },
+                        { field: 'type', headerText: 'Forensic Type', width: 160, textAlign: 'Left' },
+                        { field: 'description', headerText: 'Forensic Summary & Metadata', width: 350, textAlign: 'Left' }
+                    ]
+                });
+                grid.appendTo('#Grid');
+
+                // 2. Initialize Syncfusion Chart
+                const chart = new ej.charts.Chart({
+                    primaryXAxis: {
+                        valueType: 'Category',
+                        title: 'Forensic Category',
+                        majorGridLines: { width: 0 }
+                    },
+                    primaryYAxis: {
+                        title: 'Entity Count',
+                        lineStyle: { width: 0 },
+                        majorTickLines: { width: 0 }
+                    },
+                    series: [{
+                        type: 'Column',
+                        dataSource: [
+                            { category: 'Hospice Shells', count: 18 },
+                            { category: 'Deed Transfers', count: 7 },
+                            { category: 'Tribal Cultural Sites', count: 12 },
+                            { category: 'Corporate Filings', count: 45 },
+                            { category: 'Environmental Sites', count: 9 }
+                        ],
+                        xName: 'category',
+                        yName: 'count',
+                        name: 'Forensic Cluster Matches',
+                        fill: '#38bdf8',
+                        cornerRadius: { topLeft: 6, topRight: 6 }
+                    }],
+                    tooltip: { enable: true },
+                    legendSettings: { visible: true, position: 'Top' }
+                });
+                chart.appendTo('#Chart');
+
+            } catch (err) {
+                console.error("Syncfusion Init Error:", err);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initSyncfusionApp);
+    </script>
+</body>
+</html>

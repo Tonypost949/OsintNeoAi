@@ -1396,6 +1396,13 @@ def tasks_page():
         return send_from_directory(os.path.join(ROOT_DIR, "public"), "tasks.html")
     return jsonify({"status": "error", "message": "tasks.html not found"}), 404
 
+@app.route("/syncfusion")
+def syncfusion_page():
+    sync_html = os.path.join(ROOT_DIR, "public", "syncfusion_grid.html")
+    if os.path.exists(sync_html):
+        return send_from_directory(os.path.join(ROOT_DIR, "public"), "syncfusion_grid.html")
+    return jsonify({"status": "error", "message": "syncfusion_grid.html not found"}), 404
+
 @app.route("/api/tasks", methods=["GET", "POST"])
 def api_tasks():
     tasks_file = os.path.join(ROOT_DIR, "data", "tasks.json")
