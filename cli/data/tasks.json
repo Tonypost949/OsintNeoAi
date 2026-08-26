@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-26T07:18:03.437628+00:00",
-  "total": 27,
+  "updated_at": "2026-08-26T07:19:43.538489+00:00",
+  "total": 28,
   "tasks": [
     {
       "id": "TASK-001",
@@ -391,6 +391,19 @@
         "Data Science & Graph"
       ],
       "action_url": "https://osintneoai-app-949.azurewebsites.net/syncfusion"
+    },
+    {
+      "id": "TASK-028",
+      "title": "Generate Court-Ready Grand Jury & DOJ Evidentiary Submission Packet",
+      "category": "Legal & Investigations",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Generated multi-sheet court-ready Excel workbook (GRAND_JURY_DOJ_EVIDENTIARY_PACKET_2026.xlsx), interactive legal binder portal (/grand-jury), and verified exhibit index for U.S. Attorney, DOJ, and Grand Jury submission.",
+      "created_at": "2026-08-26T07:19:42.854144+00:00",
+      "tags": [
+        "Legal & Investigations"
+      ],
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/grand-jury"
     }
   ]
 }

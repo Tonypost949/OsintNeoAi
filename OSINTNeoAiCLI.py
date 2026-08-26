@@ -1403,6 +1403,19 @@ def syncfusion_page():
         return send_from_directory(os.path.join(ROOT_DIR, "public"), "syncfusion_grid.html")
     return jsonify({"status": "error", "message": "syncfusion_grid.html not found"}), 404
 
+@app.route("/grand-jury")
+@app.route("/grand-jury-packet")
+def grand_jury_page():
+    gj_html = os.path.join(ROOT_DIR, "public", "grand_jury_packet.html")
+    if os.path.exists(gj_html):
+        return send_from_directory(os.path.join(ROOT_DIR, "public"), "grand_jury_packet.html")
+    return jsonify({"status": "error", "message": "grand_jury_packet.html not found"}), 404
+
+@app.route("/exports/<path:filename>")
+def serve_export_file(filename):
+    exp_dir = os.path.join(ROOT_DIR, "exports")
+    return send_from_directory(exp_dir, filename)
+
 @app.route("/stadium-forensics")
 def stadium_forensics_doc():
     doc_path = os.path.join(ROOT_DIR, "briefings", "Forensic_Analysis_Anaheim_Stadium_Whistleblower_Interventions.md")
