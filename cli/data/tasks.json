@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-26T03:36:57.591198+00:00",
-  "total": 17,
+  "updated_at": "2026-08-26T03:51:53.586194+00:00",
+  "total": 18,
   "tasks": [
     {
       "id": "TASK-001",
@@ -261,6 +261,19 @@
         "Public Safety & PSA"
       ],
       "action_url": "/psa"
+    },
+    {
+      "id": "TASK-018",
+      "title": "Multi-Platform & Reddit Broadcast Publisher for u/OSINTNeoAi",
+      "category": "Public Safety & PSA",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Equipped /psa studio with 1-click Reddit Markdown generators and direct submission routes to r/orangecounty and r/Whistleblowers under official identity u/OSINTNeoAi.",
+      "created_at": "2026-08-26T03:51:41.956286+00:00",
+      "tags": [
+        "Public Safety & PSA"
+      ],
+      "action_url": "https://www.reddit.com/user/OSINTNeoAi"
     }
   ]
 }

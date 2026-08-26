@@ -1,5 +1,5 @@
 # 📋 OSINT Neo AI — Master Autonomous Task & Action Ledger
-> **System Status:** 🟢 Active & Self-Tracking | **Storage:** [`data/tasks.json`](data/tasks.json) | **Total Tasks:** 17 (7 Open / 10 Done)
+> **System Status:** 🟢 Active & Self-Tracking | **Storage:** [`data/tasks.json`](data/tasks.json) | **Total Tasks:** 18 (7 Open / 11 Done)
 
 ---
 
@@ -31,6 +31,7 @@
 | **`TASK-012`** | Tactical & Geospatial | **Tactical GIS Map Hub Multi-Layer Coordination**<br>Maintained all 14 tactical geospatial map layers across Huntington Beach, coastal corridors, environmental hazards, and aerial feeds. | 2026-08-25 | `DONE` |
 | **`TASK-014`** | Core Infrastructure | **Evaluate Syncfusion Essential Studio Enterprise UI Suite (,995 Value)**<br>Integrate enterprise data grids, financial charts, and PDF/Excel document viewers from licensed Essential Studio suite. | 2026-08-26 | `DONE` |
 | **`TASK-017`** | Public Safety & PSA | **Deploy Broadcast PSA & Legal Evidence Dispatcher Studio**<br>Deployed /psa Broadcast Studio with 4 investigation templates (Pill Tox, Hospice Shells, SCE  Deed, Tribal Rights), high-res PDF generation, and social/press dispatch. | 2026-08-26 | `DONE` |
+| **`TASK-018`** | Public Safety & PSA | **Multi-Platform & Reddit Broadcast Publisher for u/OSINTNeoAi**<br>Equipped /psa studio with 1-click Reddit Markdown generators and direct submission routes to r/orangecounty and r/Whistleblowers under official identity u/OSINTNeoAi. | 2026-08-26 | `DONE` |
 
 ---
 
