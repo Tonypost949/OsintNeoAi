@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-26T07:02:54.597669+00:00",
-  "total": 24,
+  "updated_at": "2026-08-26T07:08:36.767177+00:00",
+  "total": 25,
   "tasks": [
     {
       "id": "TASK-001",
@@ -348,6 +348,19 @@
       "status": "DONE",
       "description": "Cross-referenced and audited Orange County Sheriff Levying Officer File No. 2021102780 (Aug 4 2021 armed lockout under Sheriff Don Barnes) and perjured UD-101 verification in Syncfusion 10K Enterprise Fact-Checking Matrix.",
       "created_at": "2026-08-26T07:02:53.457032+00:00",
+      "tags": [
+        "Legal & Investigations"
+      ],
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/syncfusion"
+    },
+    {
+      "id": "TASK-025",
+      "title": "Map OCSD Court Operations & Civil Process Division for File 2021102780",
+      "category": "Legal & Investigations",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Mapped Orange County Sheriff organizational structure (Sheriff Don Barnes -> Court Operations Command -> Civil Process Services / Levying Officer Unit -> Central Justice Center / Harbor Justice Center) and CFD developer bond conflicts.",
+      "created_at": "2026-08-26T07:08:36.298324+00:00",
       "tags": [
         "Legal & Investigations"
       ],
