@@ -1,7 +1,7 @@
 # 📜 OSINTNeoAi Session Chat Export
 **Session ID:** `e0259c57-0b03-45f8-956f-927ea22d1195`  
-**Export Date:** August 26, 2026 12:41:28 AM  
-**Total Conversation Turns:** `286`
+**Export Date:** August 26, 2026 12:47:42 AM  
+**Total Conversation Turns:** `287`
 
 ---
 
@@ -15777,6 +15777,67 @@ occourts
 </USER_REQUEST>
 <ADDITIONAL_METADATA>
 The current local time is: 2026-08-26T00:40:28-07:00.
+</ADDITIONAL_METADATA>
+```
+
+**🤖 Assistant:**
+
+### ⚖️ Orange County Superior Court (`occourts.org`) Judicial Infrastructure Mapped
+
+We mapped and integrated the official **Orange County Superior Court** ([`occourts.org`](https://www.occourts.org/)) judicial system, online case access portals, and justice center venues across your repository:
+
+📄 **Judicial Mapping Dossier:** [`briefings/Orange_County_Superior_Court_Judicial_Infrastructure_Mapping.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/briefings/Orange_County_Superior_Court_Judicial_Infrastructure_Mapping.md)
+
+---
+
+### 🏛️ Justice Center Venues & Case Jurisdiction:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                 SUPERIOR COURT OF CALIFORNIA, COUNTY OF ORANGE              │
+│                              (occourts.org)                                 │
+└──────────────────────────────────────┬──────────────────────────────────────┘
+                                       │
+      ┌──────────────────┬─────────────┴───────┬──────────────────┐
+      ▼                  ▼                     ▼                  ▼
+┌──────────────┐  ┌──────────────┐      ┌──────────────┐  ┌──────────────┐
+│ CENTRAL (CJC)│  │ HARBOR (HJC) │      │  WEST (WJC)  │  │ NORTH (NJC)  │
+│  Santa Ana   │  │Newport Beach │      │ Westminster  │  │  Fullerton   │
+└──────────────┘  └──────────────┘      └──
+<truncated 372 bytes>
+L-UD-CJC`** (*Woodbridge Meadows v. DiMarcello*)<br>• Venue for *HCD v. City of Anaheim* (`30-2020-01131102`) |
+| **Harbor Justice Center (HJC)** | 4601 Jamboree Rd, Newport Beach, CA 92660 | • Coastal & South County Civil / Criminal<br>• Newport Beach, Irvine, Laguna Beach jurisdiction<br>• Hoag Memorial Hospital medical zone |
+| **West Justice Center (WJC)** | 8141 13th St, Westminster, CA 92683 | • West County Civil / Criminal<br>• Huntington Beach (HBNC / Beach Blvd site), Seal Beach, Westminster |
+| **North Justice Center (NJC)** | 1275 N Berkeley Ave, Fullerton, CA 92832 | • North County Civil / Criminal<br>• City of Anaheim, Fullerton, Brea, Buena Park, Placentia |
+
+---
+
+### 💻 Key Online Systems on `occourts.org`:
+* 🔍 **Online Case Access & Register of Actions Search:** [`occourts.org/online-services/case-access`](https://www.occourts.org/online-services/case-access)
+* 📜 **Civil Division & Unlawful Detainer Guidelines:** [`occourts.org/divisions/civil`](https://www.occourts.org/divisions/civil)
+* ⚖️ **Tentative Rulings Portal (Daily 2:00 PM):** [`occourts.org/online-services/tentative-rulings`](https://www.occourts.org/online-services/tentative-rulings)
+* 📑 **Court Records & Register of Actions Purchasing (Form #L-3009):** [`occourts.org/online-services/court-records`](https://www.occourts.org/online-services/court-records)
+* ⚡ **Electronic Filing (eFiling EFSP Gateway):** [`occourts.org/online-services/efiling`](https://www.occourts.org/online-services/efiling)
+
+---
+
+### 🌐 System Updates:
+* 📑 **Master Link Index (`ALL_LINKS.html`):** Ingested all `occourts.org` justice centers and case search portals onto [**`https://osintneoai-app-949.azurewebsites.net/all-links`**](https://osintneoai-app-949.azurewebsites.net/all-links).
+* 📋 **Task System:** **`TASK-032`** marked DONE in [`TASKS.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/TASKS.md).
+* 🚀 **GitHub Commit:** [`3d01de0`](https://github.com/Tonypost949/OsintNeoAi/commit/3d01de0ec449c4eb5e7631379b398ca8a05c7a5f).
+
+---
+
+### Turn 287
+*Time:* `2026-08-26T07:46:21Z`
+
+**👤 User:**
+```
+<USER_REQUEST>
+https://www.ocpll.org/sitemap/
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-08-26T00:46:21-07:00.
 </ADDITIONAL_METADATA>
 ```
 
