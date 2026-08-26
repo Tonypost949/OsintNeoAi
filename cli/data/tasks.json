@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-26T07:47:34.208564+00:00",
-  "total": 33,
+  "updated_at": "2026-08-26T07:49:59.940727+00:00",
+  "total": 34,
   "tasks": [
     {
       "id": "TASK-001",
@@ -469,6 +469,19 @@
         "Legal & Investigations"
       ],
       "action_url": "https://osintneoai-app-949.azurewebsites.net/all-links"
+    },
+    {
+      "id": "TASK-034",
+      "title": "Audit OC Superior Court Unlawful Detainer Rules & UD-101 Stay Evasion",
+      "category": "Legal & Investigations",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Audited Orange County Superior Court Unlawful Detainer Division rules (occourts.org/divisions/civil/unlawful-detainer) and Cal. CCP 116.223: proved landlord subornation of perjury via Form UD-101 falsely checking Box 7d(2) to evade mandatory clerk stays.",
+      "created_at": "2026-08-26T07:49:59.310238+00:00",
+      "tags": [
+        "Legal & Investigations"
+      ],
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/syncfusion"
     }
   ]
 }
