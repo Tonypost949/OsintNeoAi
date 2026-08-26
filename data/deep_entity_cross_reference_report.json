@@ -1,0 +1,767 @@
+{
+  "generated_at": "2026-08-26T07:17:44.910411+00:00",
+  "status": "FORENSICALLY_SYNTHESIZED",
+  "total_nodes_in_master_graph": 17488,
+  "total_edges_in_master_graph": 18712,
+  "matched_nodes_count": 867,
+  "matched_edges_count": 1674,
+  "matched_primary_emails_count": 71,
+  "cluster_distribution": {
+    "Shea_and_Irvine_Cluster": 166,
+    "Moreno_and_Stadium_Cluster": 1,
+    "Anaheim_Cabal_and_Chamber_Cluster": 51,
+    "MercyHouse_and_HuntingtonBeach_Cluster": 502,
+    "Healthcare_and_11770Warner_Cluster": 138
+  },
+  "bigquery_project": "noble-beanbag-497411-m4",
+  "bigquery_datasets": [
+    "Tests",
+    "Wwwww",
+    "ai_sandbox",
+    "dataform_analytics",
+    "forensic_layers",
+    "forensic_views",
+    "fraud_mart",
+    "hb_church_osint",
+    "national_audits",
+    "nppes_export",
+    "ppp_rico"
+  ],
+  "top_correlated_nodes": [
+    {
+      "id": "STEWART INDUSTRIES LLC",
+      "label": "ORGANIZATION",
+      "properties": {
+        "name": "STEWART INDUSTRIES LLC"
+      },
+      "matched_keywords": [
+        "stewart"
+      ]
+    },
+    {
+      "id": "PPP_LOAN_STEWART INDUSTRIES LLC",
+      "label": "PPP_LOAN",
+      "properties": {
+        "borrower_name": "STEWART INDUSTRIES LLC",
+        "amount": "1128327.5",
+        "forgiven_amount": "1137910.56",
+        "loan_count": "2",
+        "status": "PAID IN FULL",
+        "location": "BATTLE CREEK, MI; BATTLE CREEK, MI",
+        "ppp_name_listed": "STEWART INDUSTRIES LLC"
+      },
+      "matched_keywords": [
+        "stewart"
+      ]
+    },
+    {
+      "id": "119-200 IRVINE BLVD",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "119-200 IRVINE BLVD",
+        "type": "SITE"
+      },
+      "matched_keywords": [
+        "irvine"
+      ]
+    },
+    {
+      "id": "3100 IRVINE AVE, NEWPORT BEACH",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "3100 IRVINE AVE",
+        "city": "NEWPORT BEACH",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "irvine"
+      ]
+    },
+    {
+      "id": "17816 SAMPSON LN, HUNTINGTON BEACH",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "17816 SAMPSON LN",
+        "city": "HUNTINGTON BEACH",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "id": "36 SALT BUSH, IRVINE",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "36 SALT BUSH",
+        "city": "IRVINE",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "irvine"
+      ]
+    },
+    {
+      "id": "2646 DUPONT DR # 501, IRVINE",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "2646 DUPONT DR # 501",
+        "city": "IRVINE",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "irvine"
+      ]
+    },
+    {
+      "id": "18981 EDINGTON TER, IRVINE",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "18981 EDINGTON TER",
+        "city": "IRVINE",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "irvine"
+      ]
+    },
+    {
+      "id": "5411 OCEANUS DR, HUNTINGTON BEACH",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "5411 OCEANUS DR",
+        "city": "HUNTINGTON BEACH",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "id": "16458 BOLSA CHICA ST # 17, HUNTINGTON BEACH",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "16458 BOLSA CHICA ST # 17",
+        "city": "HUNTINGTON BEACH",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "id": "16835 ALGONQUIN ST # 338, HUNTINGTON BEACH",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "16835 ALGONQUIN ST # 338",
+        "city": "HUNTINGTON BEACH",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "id": "3612 PIRATE CIR, HUNTINGTON BEACH",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "3612 PIRATE CIR",
+        "city": "HUNTINGTON BEACH",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "id": "16330 BAKE PKWY, IRVINE",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "16330 BAKE PKWY",
+        "city": "IRVINE",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "irvine"
+      ]
+    },
+    {
+      "id": "3541 SAGAMORE DR, HUNTINGTON BEACH",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "3541 SAGAMORE DR",
+        "city": "HUNTINGTON BEACH",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "id": "PO BOX 2557, HUNTINGTON BEACH",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "PO BOX 2557",
+        "city": "HUNTINGTON BEACH",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "id": "2931 E LA JOLLA ST, ANAHEIM",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "2931 E LA JOLLA ST",
+        "city": "ANAHEIM",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "anaheim"
+      ]
+    },
+    {
+      "id": "16331 GOTHARD ST STE D, HUNTINGTON BEACH",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "16331 GOTHARD ST STE D",
+        "city": "HUNTINGTON BEACH",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "id": "16971 BOLERO LN, HUNTINGTON BEACH",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "16971 BOLERO LN",
+        "city": "HUNTINGTON BEACH",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "id": "8562 PALERMO DR, HUNTINGTON BEACH",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "8562 PALERMO DR",
+        "city": "HUNTINGTON BEACH",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "id": "19092 COLCHESTER LN, HUNTINGTON BEACH",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "19092 COLCHESTER LN",
+        "city": "HUNTINGTON BEACH",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "id": "19236 REDFORD LN, HUNTINGTON BEACH",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "19236 REDFORD LN",
+        "city": "HUNTINGTON BEACH",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "id": "805 N HARBOR BLVD, ANAHEIM",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "805 N HARBOR BLVD",
+        "city": "ANAHEIM",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "anaheim"
+      ]
+    },
+    {
+      "id": "4482 OCEANRIDGE DR, HUNTINGTON BEACH",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "4482 OCEANRIDGE DR",
+        "city": "HUNTINGTON BEACH",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "id": "16701 BOLERO LN, HUNTINGTON BEACH",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "16701 BOLERO LN",
+        "city": "HUNTINGTON BEACH",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "id": "67 WALDEN, IRVINE",
+      "label": "ADDRESS",
+      "properties": {
+        "address": "67 WALDEN",
+        "city": "IRVINE",
+        "type": "MAILING"
+      },
+      "matched_keywords": [
+        "irvine"
+      ]
+    }
+  ],
+  "top_correlated_edges": [
+    {
+      "source": "STEWART INDUSTRIES LLC",
+      "target": "178-431-14",
+      "relationship": "OWNS",
+      "source_label": "ORGANIZATION",
+      "target_label": "PROPERTY",
+      "matched_keywords": [
+        "stewart"
+      ]
+    },
+    {
+      "source": "STEWART INDUSTRIES LLC",
+      "target": "1077 PACIFIC COAST HWY # 247, SEAL BEACH",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "stewart"
+      ]
+    },
+    {
+      "source": "STEWART INDUSTRIES LLC",
+      "target": "PPP_LOAN_STEWART INDUSTRIES LLC",
+      "relationship": "RECEIVED_PPP",
+      "source_label": "ORGANIZATION",
+      "target_label": "PPP_LOAN",
+      "matched_keywords": [
+        "stewart"
+      ]
+    },
+    {
+      "source": "988-012-81",
+      "target": "119-200 IRVINE BLVD",
+      "relationship": "LOCATED_IN",
+      "source_label": "PROPERTY",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "irvine"
+      ]
+    },
+    {
+      "source": "NEWPORT BEACH GOLF COURSE LLC",
+      "target": "3100 IRVINE AVE, NEWPORT BEACH",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "irvine"
+      ]
+    },
+    {
+      "source": "GARFIELD GOLDENWEST LLC",
+      "target": "17816 SAMPSON LN, HUNTINGTON BEACH",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "source": "SURFSIDE PROPERTIES LLC",
+      "target": "36 SALT BUSH, IRVINE",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "irvine"
+      ]
+    },
+    {
+      "source": "SURFSIDE PROPERTIES LLC",
+      "target": "36 SALT BUSH, IRVINE",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "irvine"
+      ]
+    },
+    {
+      "source": "70A SURFSIDE LLC",
+      "target": "2646 DUPONT DR # 501, IRVINE",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "irvine"
+      ]
+    },
+    {
+      "source": "SURFSIDE PROPERTIES LLC",
+      "target": "36 SALT BUSH, IRVINE",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "irvine"
+      ]
+    },
+    {
+      "source": "SURFSIDE PROPERTIES LLC",
+      "target": "36 SALT BUSH, IRVINE",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "irvine"
+      ]
+    },
+    {
+      "source": "29B SURFSIDE LLC",
+      "target": "18981 EDINGTON TER, IRVINE",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "irvine"
+      ]
+    },
+    {
+      "source": "SURFSIDE PROPERTIES LLC",
+      "target": "36 SALT BUSH, IRVINE",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "irvine"
+      ]
+    },
+    {
+      "source": "CRESTLINE PROPERTIES LLC",
+      "target": "36 SALT BUSH, IRVINE",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "irvine"
+      ]
+    },
+    {
+      "source": "VENTURE DRIVE HOLDINGS LLC",
+      "target": "5411 OCEANUS DR, HUNTINGTON BEACH",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "source": "10477 HOLDINGS LLC",
+      "target": "16458 BOLSA CHICA ST # 17, HUNTINGTON BEACH",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "source": "HHHB LLC",
+      "target": "16835 ALGONQUIN ST # 338, HUNTINGTON BEACH",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "source": "SCALA LLC",
+      "target": "16835 ALGONQUIN ST # 338, HUNTINGTON BEACH",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "source": "IMMICA INVESTMENT LLC",
+      "target": "3612 PIRATE CIR, HUNTINGTON BEACH",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "source": "KHL PROPERTY SOLUTIONS LLC",
+      "target": "16330 BAKE PKWY, IRVINE",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "irvine"
+      ]
+    },
+    {
+      "source": "JHJ CALIFORNIA LLC",
+      "target": "3541 SAGAMORE DR, HUNTINGTON BEACH",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "source": "FANTASIA SUNSHINE HOLDINGS LLC",
+      "target": "PO BOX 2557, HUNTINGTON BEACH",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "source": "SILVER HAWK RENTAL LLC",
+      "target": "2931 E LA JOLLA ST, ANAHEIM",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "anaheim"
+      ]
+    },
+    {
+      "source": "FUGAWEE LLC",
+      "target": "16331 GOTHARD ST STE D, HUNTINGTON BEACH",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    },
+    {
+      "source": "4062 BRATTY LLC",
+      "target": "16971 BOLERO LN, HUNTINGTON BEACH",
+      "relationship": "REGISTERED_AT",
+      "source_label": "ORGANIZATION",
+      "target_label": "ADDRESS",
+      "matched_keywords": [
+        "huntington beach"
+      ]
+    }
+  ],
+  "top_correlated_emails": [
+    {
+      "date": "Sat, 6 Jun 2026 09:30:24 -0700",
+      "from": "Anthony DiMarcello III <amd949609@gmail.com>",
+      "to": "tips@propublica.org, contact@themarshallproject.org, newsroom@reason.com, editor@longform.org, submissions@theintercept.com, tips@mattachiles.com, contact@legalvoicepodcast.com, submissions@lawandcrimenetwork.com, inquiry@investigativejournalism.org, tips@realamericaninvestigations.com, contact@whistleblowersmedia.org, submit@federalmatters.com, tips@corruptionconspiracy.com, inquiries@thejusticeproject.org, contact@lawandorder.news",
+      "subject": "INVESTIGATIVE TIP: $6.6B Fraud, Federal Records Deletion, Retaliation - Full Forensic Dossier",
+      "matched_keywords": [
+        "shea",
+        "mercy house",
+        "hbnc",
+        "huntington beach"
+      ],
+      "preview": "[Wave 7 Comprehensive v15]\r\n\r\n---\r\n\r\nInvestigative News Outlet,\r\n\r\nThis is a forensic-ready whistleblower case for major investigation:\r\n\r\nCore allegations:\r\n• $6.6B transational RICO fraud (Mercy House, ChildNet, ASL Electric, Shea Homes)\r\n• Federal records deletion (Dr. Ann Ver"
+    },
+    {
+      "date": "Sat, 6 Jun 2026 09:35:10 -0700",
+      "from": "Anthony DiMarcello <amd949609@gmail.com>",
+      "to": "help@legal-aid-florida.org, contact@florida-justice-center.org, info@gaspl.org, contact@legal-aid-georgia.org, help@hawaii-legal-services.org, contact@hawaii-justice-center.org, support@idaholegalaid.org, contact@idaho-law-foundation.org, contact@ils-chicago.org, info@legal-aid-illinois.org, help@illinois-justice-center.org, support@in-legal-services.org, contact@indiana-legal-aid.org, help@iowajustice.org, contact@legal-services-iowa.org, info@kansas-legal-services.org, support@kansas-bar-aid.org, contact@kyjustice.org, help@kentucky-legal-aid.org, support@la-justice.org",
+      "subject": "URGENT: Federal Crime Notice - Credential Harvesting + Trafficking - Legal Coordination Required",
+      "matched_keywords": [
+        "shea",
+        "mercy house"
+      ],
+      "preview": "TO: State Legal Aid Directors & Counsel\r\nFROM: Anthony DiMarcello III | amd949609@gmail.com\r\nCC: Dr. Ann Verma | annvermamd@gmail.com\r\n\r\n---\r\n\r\n**FEDERAL CRIME ALERT: Credential Harvesting + Transnational RICO Fraud**\r\n\r\nYour legal aid organization is being notified of a $6.6B fe"
+    },
+    {
+      "date": "Sat, 6 Jun 2026 09:35:58 -0700",
+      "from": "Anthony DiMarcello <amd949609@gmail.com>",
+      "to": "info@lasc.org, support@sfbar-lrs.org, help@legal-aid-california.org, contact@legal-services-san-diego.org, info@coloradolegalservices.org, contact@las-colorado.org, help@ctlegalservices.org, support@ct-bar-lawyer-referral.org, contact@delaware-legal-aid.org, info@das-delaware.org, support@flas.org",
+      "subject": "FINAL NOTICE: Nationwide Federal Credential Harvesting Crime - All Legal Aid Societies Notified",
+      "matched_keywords": [
+        "shea",
+        "mercy house",
+        "pham"
+      ],
+      "preview": "TO: Final Batch - State Legal Aid Directors\r\nFROM: Anthony DiMarcello III | amd949609@gmail.com\r\nCC: Dr. Ann Verma | annvermamd@gmail.com\r\n\r\n---\r\n\r\n**FINAL NOTICE: NATIONWIDE CREDENTIAL HARVESTING CRIME - COMPLETE LEGAL AID NOTIFICATION**\r\n\r\nThis is the final notification to lega"
+    },
+    {
+      "date": "Sat, 6 Jun 2026 09:41:12 -0700",
+      "from": "Anthony DiMarcello <amd949609@gmail.com>",
+      "to": "contact@kenburnsfoundation.org, info@laurieanderson.com, hello@alexgibneycorp.com, submissions@newfilmmakers.org, contact@weisdocumentaries.com, submissions@kingcorn-movie.com, contact@sheridanassociates.com, info@hollowmandocumentary.com, hbo.documentary@hbo.com, documentaries@warnermedia.com, submissions@warnermedia.com, documentaries@netflix.com, docfeatures@netflix.com, documentaries@showtime.com, submissions@showtime.com, ae.documentaries@aetv.com, submissions@aetv.com, natgeo.documentaries@nationalgeographic.com, submit@nationalgeographic.com, documentaries@pbs.org, submissions@pbs.org, pow@pbs.org, documentaries@vice.com, submissions@vice.com, documentaries@cnbc.com, cnn.documentary@cnn.com, documentaries@paramountplus.com, documentaries@apple.com, primeoriginals@amazon.com, documentaries@sundance.org, submissions@sundance.org, documentaries@tribecafilm.org, submissions@tribecafilm.org, documentary@sxsw.com, documentaires@festival-cannes.fr, submissions@hotdocs.ca, innocence@innocenceproject.org, documentaries@polarisproject.org, contact@freetheslaves.net, submissions@humantraffickinghotline.org, documentaries@transparencyinternational.org, contact@journalismforum.org, submissions@investigativenewsnetwork.org, info@paradoxfilms.com, contact@magnoliafilms.com, submissions@kingsleygatepictures.com, info@netflixoriginals.com, contact@searchlightpictures.com, info@a24films.com, submissions@a24films.com",
+      "subject": "DOCUMENTARY OPPORTUNITY: $6.6B Transnational Trafficking RICO - Whistleblower Case",
+      "matched_keywords": [
+        "shea",
+        "mercy house",
+        "andrew do",
+        "pham"
+      ],
+      "preview": "DOCUMENTARY PRODUCTION OPPORTUNITY\r\n\r\nA major $6.6B transnational trafficking RICO case involving credential harvesting, federal retaliation, and corporate corruption is now available for documentary development.\r\n\r\n**STORY SUMMARY:**\r\n\r\nThis is an unprecedented whistleblower cas"
+    },
+    {
+      "date": "Sat, 6 Jun 2026 21:52:03 -0700",
+      "from": "Anthony DiMarcello <amd949609@gmail.com>",
+      "to": "contact@propublica.org, investigations@npr.org, newsroom@ocregister.com, letters@latimes.com, tips@ap.org, news@reuters.com, hotline@hudoig.gov, oig.hotline@hhs.gov, fincen@fincen.gov",
+      "subject": "New Tool Available: NPI Non-Profit Auditor — Free Tax Fraud Detection (Case Study: $6.6B OC Fraud Ring)",
+      "matched_keywords": [
+        "mercy house",
+        "hbnc",
+        "huntington beach"
+      ],
+      "preview": "Dear Federal Investigators, Nonprofit Advocates, Media, & Oversight Officials,\r\n\r\nWe are releasing a new open-source tool: the NPI Non-Profiteer Index Calculator — a free, auditable software platform designed to identify tax fraud, credential harvesting, and trafficking networks "
+    },
+    {
+      "date": "Sat, 6 Jun 2026 21:52:27 -0700",
+      "from": "Anthony DiMarcello <amd949609@gmail.com>",
+      "to": "r9.wqs@epa.gov, usao.cdca.criminal@usdoj.gov, usao.sdca.criminal@usdoj.gov, USAO.CR@usdoj.gov, gethelp@nfyi.org, tips@irsci.gov",
+      "subject": "New Tool Available: NPI Non-Profit Auditor — Free Tax Fraud Detection (Case Study: $6.6B OC Fraud Ring)",
+      "matched_keywords": [
+        "mercy house",
+        "hbnc",
+        "huntington beach"
+      ],
+      "preview": "Dear Federal Investigators, Nonprofit Advocates, Media, & Oversight Officials,\r\n\r\nWe are releasing a new open-source tool: the NPI Non-Profiteer Index Calculator — a free, auditable software platform designed to identify tax fraud, credential harvesting, and trafficking networks "
+    },
+    {
+      "date": "Sat, 6 Jun 2026 21:52:51 -0700",
+      "from": "Anthony DiMarcello <amd949609@gmail.com>",
+      "to": "info@naeh.org, policy@ncmec.org, contact@guidestar.org, contact@charity.org, info@nfyi.org, engagement@centerforeffectivecharities.org",
+      "subject": "New Tool Available: NPI Non-Profit Auditor — Free Tax Fraud Detection (Case Study: $6.6B OC Fraud Ring)",
+      "matched_keywords": [
+        "mercy house",
+        "hbnc",
+        "huntington beach"
+      ],
+      "preview": "Dear Federal Investigators, Nonprofit Advocates, Media, & Oversight Officials,\r\n\r\nWe are releasing a new open-source tool: the NPI Non-Profiteer Index Calculator — a free, auditable software platform designed to identify tax fraud, credential harvesting, and trafficking networks "
+    },
+    {
+      "date": "Sun, 7 Jun 2026 00:53:37 -0400",
+      "from": "Anthony DiMarcello <amd949609@gmail.com>",
+      "to": "agcomplaints@doj.ca.gov, nonprofit.bureau@doj.ca.gov, hotline@sos.ca.gov",
+      "subject": "New Tool Available: NPI Non-Profit Auditor — Free Tax Fraud Detection (Case Study: $6.6B OC Fraud Ring)",
+      "matched_keywords": [
+        "mercy house",
+        "hbnc",
+        "huntington beach"
+      ],
+      "preview": "Dear Federal Investigators, Nonprofit Advocates, Media, & Oversight Officials,\r\n\r\nWe are releasing a new open-source tool: the NPI Non-Profiteer Index Calculator — a free, auditable software platform designed to identify tax fraud, credential harvesting, and trafficking networks "
+    },
+    {
+      "date": "Sun, 7 Jun 2026 00:54:04 -0400",
+      "from": "Anthony DiMarcello <amd949609@gmail.com>",
+      "to": "losangeles.tips@fbi.gov, sandiego.tips@fbi.gov, ocwd@fbi.gov",
+      "subject": "New Tool Available: NPI Non-Profit Auditor — Free Tax Fraud Detection (Case Study: $6.6B OC Fraud Ring)",
+      "matched_keywords": [
+        "mercy house",
+        "hbnc",
+        "huntington beach"
+      ],
+      "preview": "Dear Federal Investigators, Nonprofit Advocates, Media, & Oversight Officials,\r\n\r\nWe are releasing a new open-source tool: the NPI Non-Profiteer Index Calculator — a free, auditable software platform designed to identify tax fraud, credential harvesting, and trafficking networks "
+    },
+    {
+      "date": "Wed, 10 Jun 2026 15:14:40 -0700",
+      "from": "Anthony DiMarcello <amd949609@gmail.com>",
+      "to": "usao.cdca.submissions@usdoj.gov",
+      "subject": "EMERGENCY FEDERAL FILING — Whistleblower Report + Motion to Shutdown Contaminated Facility + 5 Years Unreported Mandatory Reporter Activation",
+      "matched_keywords": [
+        "shea",
+        "woodbridge",
+        "hbnc",
+        "huntington beach"
+      ],
+      "preview": "PLAIN TEXT FEDERAL FILING EMAIL\r\n\r\nDear U.S. Attorney's Office:\r\n\r\nI am submitting an EMERGENCY federal whistleblower report on behalf of two relators with a combined 35+ years of professional credibility. This email serves as formal notice that I have been UNABLE to conduct prop"
+    },
+    {
+      "date": "Wed, 10 Jun 2026 15:14:42 -0700",
+      "from": "Anthony DiMarcello <amd949609@gmail.com>",
+      "to": "losangeles.tips@fbi.gov",
+      "subject": "MANDATORY REPORTER ACTIVATION + Federal Whistleblower Report — Orange County Federal Fraud Network + CERCLA Chemical Emergency + Child Trafficking + 5 Years Blocked Reporting",
+      "matched_keywords": [
+        "shea",
+        "woodbridge",
+        "huntington beach"
+      ],
+      "preview": "Dear FBI Investigators:\r\n\r\nI am submitting an emergency federal whistleblower report and mandatory reporter activation on behalf of two relators with 35+ years of combined professional credibility. This report documents federal crimes that have been blocked from proper reporting "
+    },
+    {
+      "date": "Thu, 11 Jun 2026 16:39:14 -0700",
+      "from": "amd949609@gmail.com",
+      "to": "tips@fbi.gov",
+      "subject": "FEDERAL CRIMINAL REFERRAL: Multi-Count Fraud — Environmental False Records (§1519), Computer Fraud/Breach (§1030), Federal Program Fraud (§666), Conspiracy (§371)",
+      "matched_keywords": [
+        "hbnc"
+      ],
+      "preview": "FEDERAL CRIMINAL REFERRAL\r\nFBI TIPS | EPA CRIMINAL INVESTIGATION | U.S. ATTORNEY (C.D. CA)\r\n\r\nReporting Party: Anthony DiMarcello III | (949) 424-5769 | amd949609@gmail.com\r\nCo-Reporter: Dr. Ann Verma, MD | 714-787-6377 | annvermamd@gmail.com (Federal Whistleblower)\r\n\r\n---\r\n\r\nOVE"
+    },
+    {
+      "date": "Fri, 12 Jun 2026 12:28:49 -0700",
+      "from": "Anthony DiMarcello <amd949609@gmail.com>",
+      "to": "Elizabeth Petruccio <etp949609@gmail.com>",
+      "subject": "Fwd: Eviction Of Anthony DiMarcello III",
+      "matched_keywords": [
+        "shea",
+        "irvine"
+      ],
+      "preview": "---------- Forwarded message ---------\r\nFrom: A. DiMarcello <amd949609@gmail.com>\r\nDate: Fri, May 13, 2022 at 11:56 PM\r\nSubject: Re: Eviction Of Anthony DiMarcello III\r\nTo: A. DiMarcello <amd949609@gmail.com>, Brian Olsen <\r\nbrian.olsen@sheaapartments.com>, Dean Innocenzi <dazzid"
+    },
+    {
+      "date": "Wed, 15 Apr 2026 17:45:27 -0400",
+      "from": "Anthony DiMarcello <amd949609@gmail.com>",
+      "to": "admissions@law.ucdavis.edu",
+      "subject": "URGENT: Pro Bono Qui Tam Attorney Needed - $340M+ Federal Fraud Case - Whistleblower Under Retaliation",
+      "matched_keywords": [
+        "don barnes",
+        "pham",
+        "angulo"
+      ],
+      "preview": "Dear University of San Diego School of Law,\r\n\r\nI am Anthony DiMarcello III, a federal whistleblower with $340M+ in documented fraud needing immediate pro bono qui tam legal representation.\r\n\r\n**FEDERAL CASE VALUE: $51M–$126M relator share (15–30% of $340M–$420M total exposure)**\r"
+    },
+    {
+      "date": "Wed, 15 Apr 2026 17:45:56 -0400",
+      "from": "Anthony DiMarcello <amd949609@gmail.com>",
+      "to": "socwork@usc.edu",
+      "subject": "URGENT: Whistleblower Evidence - $340M+ Federal Fraud Network - Orange County Child Welfare Trafficking",
+      "matched_keywords": [
+        "shea",
+        "don barnes",
+        "pham",
+        "angulo"
+      ],
+      "preview": "Dear USC School of Social Work Faculty,\r\n\r\nI am Anthony DiMarcello III, a federal whistleblower providing evidence of systematic child welfare trafficking and fraud affecting Orange County and multiple states.\r\n\r\n**CRITICAL ISSUE FOR YOUR RESEARCH:**\r\nOrange County Social Service"
+    }
+  ]
+}

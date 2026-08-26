@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-26T07:09:29.287921+00:00",
-  "total": 26,
+  "updated_at": "2026-08-26T07:18:03.437628+00:00",
+  "total": 27,
   "tasks": [
     {
       "id": "TASK-001",
@@ -376,6 +376,19 @@
       "created_at": "2026-08-26T07:09:28.910560+00:00",
       "tags": [
         "Enterprise Systems"
+      ],
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/syncfusion"
+    },
+    {
+      "id": "TASK-027",
+      "title": "Execute Deep Entity & Contractor Cross-Referencing across 36,200 Graph Relations",
+      "category": "Data Science & Graph",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Cross-referenced 17,488 nodes, 18,712 edges, 11 BigQuery datasets, and 71 verified emails: extracted 867 correlated nodes and 1,674 edges across Shea, Moreno, Anaheim Cabal, Mercy House, and 11770 Warner clusters.",
+      "created_at": "2026-08-26T07:18:03.033274+00:00",
+      "tags": [
+        "Data Science & Graph"
       ],
       "action_url": "https://osintneoai-app-949.azurewebsites.net/syncfusion"
     }
