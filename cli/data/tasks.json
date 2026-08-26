@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-26T07:33:29.431525+00:00",
-  "total": 30,
+  "updated_at": "2026-08-26T07:38:11.890127+00:00",
+  "total": 31,
   "tasks": [
     {
       "id": "TASK-001",
@@ -430,6 +430,19 @@
         "Enterprise Systems"
       ],
       "action_url": "https://osintneoai-app-949.azurewebsites.net/all-links"
+    },
+    {
+      "id": "TASK-031",
+      "title": "Audit OC IAD HIPAA Policy & Medical Care Endangerment for File 2021102780",
+      "category": "Legal & Investigations",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Correlated Orange County Internal Audit Department (IAD) HIPAA compliance mandates (iad.oc.gov/page/hipaa) with OCSD File 2021102780: audited civil rights and medical endangerment torts regarding Hoag Hospital Newport Beach cardiac care displacement and IHSS caregiver disruption.",
+      "created_at": "2026-08-26T07:38:11.391194+00:00",
+      "tags": [
+        "Legal & Investigations"
+      ],
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/syncfusion"
     }
   ]
 }
