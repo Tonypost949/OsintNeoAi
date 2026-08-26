@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-26T05:08:54.934977+00:00",
-  "total": 20,
+  "updated_at": "2026-08-26T06:27:38.730940+00:00",
+  "total": 21,
   "tasks": [
     {
       "id": "TASK-001",
@@ -300,6 +300,19 @@
         "Legal & Investigations"
       ],
       "action_url": "https://osintneoai-app-949.azurewebsites.net/psa"
+    },
+    {
+      "id": "TASK-021",
+      "title": "Ingest Master Institutional Forensic Whitepaper on Angel Stadium & Whistleblower Retaliation",
+      "category": "Legal & Investigations",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Ingested complete academic & legal whitepaper analyzing statutory evasion (SLA/AB 1486), FBI wiretap probe, May 23 2022 whistleblower transmission, Lawson v PPG standard, and .4M-.3M damages recovery.",
+      "created_at": "2026-08-26T06:27:38.272529+00:00",
+      "tags": [
+        "Legal & Investigations"
+      ],
+      "action_url": "https://docs.google.com/document/d/1S6Fc-rFYSMXjLsXZDhetHxNLxYUgwT--cbywLuGsL8g/edit"
     }
   ]
 }
