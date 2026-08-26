@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-26T06:41:29.289246+00:00",
-  "total": 23,
+  "updated_at": "2026-08-26T07:02:54.597669+00:00",
+  "total": 24,
   "tasks": [
     {
       "id": "TASK-001",
@@ -335,6 +335,19 @@
       "status": "DONE",
       "description": "Compiled complete index of federal discovery filings: USA v. Harry Sidhu (8:23-cr-00115), USA v. Todd Ament (8:22-cr-00078), Jesse Knabb v. City of HB (8:26-cv-00348), HCD v. Anaheim ( fine), and May 23 2022 Whistleblower Transmission (MID 19e928d9).",
       "created_at": "2026-08-26T06:41:28.896727+00:00",
+      "tags": [
+        "Legal & Investigations"
+      ],
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/syncfusion"
+    },
+    {
+      "id": "TASK-024",
+      "title": "Verify & Audit OC Sheriff Levying Officer File 2021102780 in Syncfusion Matrix",
+      "category": "Legal & Investigations",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Cross-referenced and audited Orange County Sheriff Levying Officer File No. 2021102780 (Aug 4 2021 armed lockout under Sheriff Don Barnes) and perjured UD-101 verification in Syncfusion 10K Enterprise Fact-Checking Matrix.",
+      "created_at": "2026-08-26T07:02:53.457032+00:00",
       "tags": [
         "Legal & Investigations"
       ],
