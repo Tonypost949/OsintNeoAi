@@ -4,6 +4,7 @@ import shutil
 import subprocess
 import json
 import re
+from datetime import datetime, timezone
 from flask import Flask, jsonify, request, render_template_string, send_from_directory, abort
 
 app = Flask(__name__)
@@ -1388,10 +1389,110 @@ def api_search():
 
     return jsonify({"results": results[:50], "total_matches": len(results), "query": q})
 
+@app.route("/tasks")
+def tasks_page():
+    tasks_html = os.path.join(ROOT_DIR, "public", "tasks.html")
+    if os.path.exists(tasks_html):
+        return send_from_directory(os.path.join(ROOT_DIR, "public"), "tasks.html")
+    return jsonify({"status": "error", "message": "tasks.html not found"}), 404
+
+@app.route("/api/tasks", methods=["GET", "POST"])
+def api_tasks():
+    tasks_file = os.path.join(ROOT_DIR, "data", "tasks.json")
+    if request.method == "POST":
+        data = request.json or {}
+        if not data.get("title"):
+            return jsonify({"status": "error", "message": "Title required"}), 400
+        
+        # Load existing
+        current = {"tasks": []}
+        if os.path.exists(tasks_file):
+            try:
+                with open(tasks_file, "r", encoding="utf-8") as f:
+                    current = json.load(f)
+            except Exception:
+                pass
+        
+        tasks_list = current.get("tasks", [])
+        new_id = f"TASK-{len(tasks_list) + 1:03d}"
+        new_task = {
+            "id": new_id,
+            "title": data.get("title"),
+            "category": data.get("category", "General"),
+            "priority": data.get("priority", "HIGH"),
+            "status": data.get("status", "TODO"),
+            "description": data.get("description", ""),
+            "created_at": datetime.now(timezone.utc).isoformat() if 'datetime' in globals() else "2026-08-25T00:00:00Z",
+            "tags": data.get("tags", [data.get("category", "General")]),
+            "action_url": data.get("action_url", "#")
+        }
+        tasks_list.append(new_task)
+        current["tasks"] = tasks_list
+        current["total"] = len(tasks_list)
+        
+        os.makedirs(os.path.dirname(tasks_file), exist_ok=True)
+        with open(tasks_file, "w", encoding="utf-8") as f:
+            json.dump(current, f, indent=2)
+            
+        backup_file = os.path.join(DATA_DIR, "tasks.json")
+        os.makedirs(os.path.dirname(backup_file), exist_ok=True)
+        with open(backup_file, "w", encoding="utf-8") as f:
+            json.dump(current, f, indent=2)
+            
+        return jsonify({"status": "success", "task": new_task})
+        
+    # GET method
+    if os.path.exists(tasks_file):
+        try:
+            with open(tasks_file, "r", encoding="utf-8") as f:
+                return jsonify(json.load(f))
+        except Exception as e:
+            return jsonify({"status": "error", "message": str(e)}), 500
+    return jsonify({"total": 0, "tasks": []})
+
+@app.route("/api/tasks/<task_id>", methods=["PATCH", "PUT"])
+def api_update_task(task_id):
+    tasks_file = os.path.join(ROOT_DIR, "data", "tasks.json")
+    if not os.path.exists(tasks_file):
+        return jsonify({"status": "error", "message": "tasks.json not found"}), 404
+        
+    data = request.json or {}
+    try:
+        with open(tasks_file, "r", encoding="utf-8") as f:
+            current = json.load(f)
+        
+        updated = False
+        for t in current.get("tasks", []):
+            if t.get("id", "").upper() == task_id.upper():
+                if "status" in data:
+                    t["status"] = data["status"]
+                if "priority" in data:
+                    t["priority"] = data["priority"]
+                if "title" in data:
+                    t["title"] = data["title"]
+                if "description" in data:
+                    t["description"] = data["description"]
+                updated = True
+                break
+                
+        if updated:
+            with open(tasks_file, "w", encoding="utf-8") as f:
+                json.dump(current, f, indent=2)
+            backup_file = os.path.join(DATA_DIR, "tasks.json")
+            with open(backup_file, "w", encoding="utf-8") as f:
+                json.dump(current, f, indent=2)
+            return jsonify({"status": "success", "task_id": task_id})
+        else:
+            return jsonify({"status": "error", "message": "Task not found"}), 404
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+
 if __name__ == "__main__":
     port = 5052
     print(f"\n🚀 OSINTNeoAi Master Hub active at http://127.0.0.1:{port}")
     print(f"🗺️  Tactical Map Hub: http://127.0.0.1:{port}/maps")
     print(f"📢 Victims Board: http://127.0.0.1:{port}/victims-board")
+    print(f"📋 Autonomous Task Engine: http://127.0.0.1:{port}/tasks")
     print(f"🧠 Gemini AI Interactive Chat: http://127.0.0.1:{port}/gemini\n")
     app.run(host="127.0.0.1", port=port, debug=False)
+

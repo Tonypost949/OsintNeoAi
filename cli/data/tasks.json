@@ -1,0 +1,214 @@
+{
+  "updated_at": "2026-08-26T03:00:15.619149+00:00",
+  "total": 13,
+  "tasks": [
+    {
+      "id": "TASK-001",
+      "title": "SCORE & California SBDC Free Mentor Onboarding",
+      "category": "Venture & Grants",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Schedule initial 1-on-1 session with SCORE Orange County / SBDC for SBIR grant strategy review and pitch feedback.",
+      "created_at": "2026-08-25T19:57:00Z",
+      "tags": [
+        "SCORE",
+        "SBDC",
+        "Mentorship",
+        "SBIR"
+      ],
+      "action_url": "https://www.score.org"
+    },
+    {
+      "id": "TASK-002",
+      "title": "SBIR / STTR Phase I Proposal Architecture (-)",
+      "category": "Venture & Grants",
+      "priority": "CRITICAL",
+      "status": "IN_PROGRESS",
+      "description": "Draft non-dilutive dual-use intelligence & automated RegTech compliance proposal for NSF / DoD AFWERX topics.",
+      "created_at": "2026-08-25T19:57:00Z",
+      "tags": [
+        "SBIR",
+        "NSF",
+        "DoD",
+        "Non-Dilutive"
+      ],
+      "action_url": "https://www.sbir.gov"
+    },
+    {
+      "id": "TASK-003",
+      "title": "Sonatype Guide MCP Token & Package Firewall Config",
+      "category": "Security & Supply Chain",
+      "priority": "HIGH",
+      "status": "DONE",
+      "description": "Verified Sonatype Maven Central namespace io.github.tonypost949 and configured cloud MCP server bridge.",
+      "created_at": "2026-08-25T19:35:00Z",
+      "tags": [
+        "Sonatype",
+        "MCP",
+        "MavenCentral",
+        "SBOM"
+      ],
+      "action_url": "https://guide.sonatype.com/mcp"
+    },
+    {
+      "id": "TASK-004",
+      "title": "Microsoft Graph Explorer & Entra ID Live Integration",
+      "category": "Core Infrastructure",
+      "priority": "HIGH",
+      "status": "DONE",
+      "description": "Ingested Entra ID directory queries, Defender security alerts v2, and created Python ingest client scripts/microsoft_graph_client.py.",
+      "created_at": "2026-08-25T19:42:00Z",
+      "tags": [
+        "MicrosoftGraph",
+        "EntraID",
+        "Azure",
+        "Python"
+      ],
+      "action_url": "https://developer.microsoft.com/en-us/graph/graph-explorer"
+    },
+    {
+      "id": "TASK-005",
+      "title": "Pillar 6: Indigenous Tribal Sovereignty & Land Rights Dossier",
+      "category": "Legal & Investigations",
+      "priority": "HIGH",
+      "status": "DONE",
+      "description": "Compiled master audit on CEQA AB 52, NAHC Sacred Lands, Tongva/Acjachemen sacred sites, and NAGPRA federal statutory protections.",
+      "created_at": "2026-08-25T17:30:00Z",
+      "tags": [
+        "TribalSovereignty",
+        "AB52",
+        "NAHC",
+        "NAGPRA",
+        "Tongva"
+      ],
+      "action_url": "legal_library/INDIGENOUS_TRIBAL_LAND_RIGHTS_AND_CULTURAL_RESOURCES_AUDIT.md"
+    },
+    {
+      "id": "TASK-006",
+      "title": "Post University 50+ Library Database Mastery & Study Guide",
+      "category": "Legal & Investigations",
+      "priority": "HIGH",
+      "status": "DONE",
+      "description": "Ingested A-Z library directory, LexisNexis BIS corporate intelligence, and generated comprehensive mastery study guide + Anki CSV.",
+      "created_at": "2026-08-25T16:00:00Z",
+      "tags": [
+        "PostUniversity",
+        "Library",
+        "LexisNexis",
+        "StudyGuide"
+      ],
+      "action_url": "docs/POST_UNIVERSITY_LIBRARY_STUDY_GUIDE.md"
+    },
+    {
+      "id": "TASK-007",
+      "title": "Deploy Universal Whitelabel AI Studio with Multi-Skins",
+      "category": "Core Infrastructure",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Built public/gemini_chat.html with Gemini, ChatGPT, Claude, DeepSeek, and Tribal Sovereign skins + CoT thinking drawer + instant export.",
+      "created_at": "2026-08-25T17:00:00Z",
+      "tags": [
+        "UniversalAI",
+        "Gemini",
+        "ChatGPT",
+        "Claude",
+        "DeepSeek"
+      ],
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/gemini"
+    },
+    {
+      "id": "TASK-008",
+      "title": "Autonomous Task & Roadmap Engine Integration",
+      "category": "Core Infrastructure",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Build self-running, persistent task tracking system backed by data/tasks.json, TASKS.md, web UI /tasks, and CLI helper.",
+      "created_at": "2026-08-25T19:57:00Z",
+      "tags": [
+        "TaskManager",
+        "Autonomous",
+        "Roadmap",
+        "Kanban"
+      ],
+      "action_url": "public/tasks.html"
+    },
+    {
+      "id": "TASK-009",
+      "title": "B2B Forensic Due Diligence SaaS Landing & Outreach Pitch",
+      "category": "Enterprise & Commercial",
+      "priority": "MEDIUM",
+      "status": "TODO",
+      "description": "Package CEQA AB 52 compliance and corporate entity graphing as recurring ,500/mo subscription for environmental law firms.",
+      "created_at": "2026-08-25T19:57:00Z",
+      "tags": [
+        "B2B",
+        "RegTech",
+        "LawFirms",
+        "RecurringRevenue"
+      ],
+      "action_url": "docs/INVESTIGATION_INDEX.md"
+    },
+    {
+      "id": "TASK-010",
+      "title": "Publish First Maven Central SDK Package Under io.github.tonypost949",
+      "category": "Security & Supply Chain",
+      "priority": "MEDIUM",
+      "status": "TODO",
+      "description": "Configure build.gradle / pom.xml and GPG key signing to publish lightweight OsintNeoAi SDK client to Maven Central.",
+      "created_at": "2026-08-25T19:57:00Z",
+      "tags": [
+        "MavenCentral",
+        "SDK",
+        "GPG",
+        "Java",
+        "Kotlin"
+      ],
+      "action_url": "https://central.sonatype.com/publishing/namespaces"
+    },
+    {
+      "id": "TASK-011",
+      "title": "Continuous Git Sync & Azure Web App Auto-Deploy",
+      "category": "DevOps & Cloud",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Maintain proactive 100% autonomous conversation export, markdown sync, Git commit/push to main, and Azure deployment sync.",
+      "created_at": "2026-08-25T00:00:00Z",
+      "tags": [
+        "Azure",
+        "GitSync",
+        "CI/CD",
+        "Continuous"
+      ],
+      "action_url": "https://osintneoai-app-949.azurewebsites.net"
+    },
+    {
+      "id": "TASK-012",
+      "title": "Tactical GIS Map Hub Multi-Layer Coordination",
+      "category": "Tactical & Geospatial",
+      "priority": "HIGH",
+      "status": "DONE",
+      "description": "Maintained all 14 tactical geospatial map layers across Huntington Beach, coastal corridors, environmental hazards, and aerial feeds.",
+      "created_at": "2026-08-25T00:00:00Z",
+      "tags": [
+        "GIS",
+        "Leaflet",
+        "Maps",
+        "Geospatial"
+      ],
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/maps"
+    },
+    {
+      "id": "TASK-013",
+      "title": "Validate California Coastal Commission Public Record Filings",
+      "category": "Legal & Investigations",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Audit all pending coastal development permits along Huntington Beach Bolsa Chica wetlands.",
+      "created_at": "2026-08-26T02:59:54.134276+00:00",
+      "tags": [
+        "Legal & Investigations"
+      ],
+      "action_url": "legal_library/INDIGENOUS_TRIBAL_LAND_RIGHTS_AND_CULTURAL_RESOURCES_AUDIT.md"
+    }
+  ]
+}
