@@ -1403,6 +1403,46 @@ def syncfusion_page():
         return send_from_directory(os.path.join(ROOT_DIR, "public"), "syncfusion_grid.html")
     return jsonify({"status": "error", "message": "syncfusion_grid.html not found"}), 404
 
+@app.route("/psa")
+def psa_page():
+    psa_html = os.path.join(ROOT_DIR, "public", "psa_creator.html")
+    if os.path.exists(psa_html):
+        return send_from_directory(os.path.join(ROOT_DIR, "public"), "psa_creator.html")
+    return jsonify({"status": "error", "message": "psa_creator.html not found"}), 404
+
+@app.route("/api/psa/publish", methods=["POST"])
+def api_publish_psa():
+    data = request.json or {}
+    psa_file = os.path.join(ROOT_DIR, "data", "psa_dispatches.json")
+    current = {"dispatches": []}
+    if os.path.exists(psa_file):
+        try:
+            with open(psa_file, "r", encoding="utf-8") as f:
+                current = json.load(f)
+        except Exception:
+            pass
+    
+    dispatches = current.get("dispatches", [])
+    new_dispatch = {
+        "id": f"PSA-{len(dispatches) + 1:03d}",
+        "title": data.get("title", "Untitled Bulletin"),
+        "severity": data.get("severity", "CRITICAL PUBLIC HEALTH WARNING"),
+        "summary": data.get("summary", ""),
+        "location": data.get("location", ""),
+        "codes": data.get("codes", ""),
+        "actions": data.get("actions", ""),
+        "created_at": datetime.now(timezone.utc).isoformat()
+    }
+    dispatches.append(new_dispatch)
+    current["dispatches"] = dispatches
+    current["total"] = len(dispatches)
+    
+    os.makedirs(os.path.dirname(psa_file), exist_ok=True)
+    with open(psa_file, "w", encoding="utf-8") as f:
+        json.dump(current, f, indent=2)
+        
+    return jsonify({"status": "success", "dispatch": new_dispatch})
+
 @app.route("/api/tasks", methods=["GET", "POST"])
 def api_tasks():
     tasks_file = os.path.join(ROOT_DIR, "data", "tasks.json")

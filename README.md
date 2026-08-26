@@ -1,11 +1,12 @@
 # ⚖️ OSINTNeoAi — Master Investigation, Evidence Clearinghouse & Cloud Command Center
 
+[![PSA Dispatcher](https://img.shields.io/badge/PSA%20Dispatcher-Broadcast%20Studio-EF4444?style=for-the-badge&logo=rss&logoColor=white)](https://osintneoai-app-949.azurewebsites.net/psa)
 [![Syncfusion Grid](https://img.shields.io/badge/Syncfusion%20Grid-%249%2C995%20Enterprise-38BDF8?style=for-the-badge&logo=javascript&logoColor=white)](https://osintneoai-app-949.azurewebsites.net/syncfusion)
 [![Task Engine](https://img.shields.io/badge/Task%20Engine-Self--Running-06B6D4?style=for-the-badge&logo=trello&logoColor=white)](https://osintneoai-app-949.azurewebsites.net/tasks)
 [![Gemini AI Chat](https://img.shields.io/badge/Gemini%20AI%20Chat-Interactive%20Clone-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://osintneoai-app-949.azurewebsites.net/gemini)
 [![Azure App Service](https://img.shields.io/badge/Azure%20App%20Service-200%20OK-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)](https://osintneoai-app-949.azurewebsites.net/)
 [![Tactical Maps](https://img.shields.io/badge/GIS%20Maps%20Hub-14%20Active-10B981?style=for-the-badge&logo=leaflet&logoColor=white)](https://osintneoai-app-949.azurewebsites.net/maps)
-[![Live Chat Transcript](https://img.shields.io/badge/Chat%20Transcripts-289%20Turns-8B5CF6?style=for-the-badge&logo=terminal&logoColor=white)](https://osintneoai-app-949.azurewebsites.net/chat)
+[![Live Chat Transcript](https://img.shields.io/badge/Chat%20Transcripts-305%20Turns-8B5CF6?style=for-the-badge&logo=terminal&logoColor=white)](https://osintneoai-app-949.azurewebsites.net/chat)
 
 Welcome to the **OSINTNeoAi** official investigation repository, live forensic intelligence clearinghouse, and autonomous multi-platform command terminal.
 
@@ -13,13 +14,14 @@ Welcome to the **OSINTNeoAi** official investigation repository, live forensic i
 
 ## 🌐 Live Production Cloud Endpoints
 
+* 📢 **Broadcast PSA & Legal Evidence Dispatcher Studio:** [**`https://osintneoai-app-949.azurewebsites.net/psa`**](https://osintneoai-app-949.azurewebsites.net/psa)
 * 📊 **Syncfusion Enterprise Forensic Grid & Charts ($9,995 Suite):** [**`https://osintneoai-app-949.azurewebsites.net/syncfusion`**](https://osintneoai-app-949.azurewebsites.net/syncfusion)
 * 📋 **Autonomous Task & Roadmap Engine:** [**`https://osintneoai-app-949.azurewebsites.net/tasks`**](https://osintneoai-app-949.azurewebsites.net/tasks)
 * 🧠 **Gemini AI Interactive Chat Clone (Google Gemini 2.5 OSINT Neural Engine):** [**`https://osintneoai-app-949.azurewebsites.net/gemini`**](https://osintneoai-app-949.azurewebsites.net/gemini)
 * 🚀 **Master Web Intelligence Portal:** [**`https://osintneoai-app-949.azurewebsites.net/`**](https://osintneoai-app-949.azurewebsites.net/)
 * 📱 **Mobile Touch Command (PWA / PowerApp):** [**`https://osintneoai-app-949.azurewebsites.net/mobile`**](https://osintneoai-app-949.azurewebsites.net/mobile)
 * 🗺️ **Tactical GIS Maps Hub (All 14 Maps 200 OK):** [**`https://osintneoai-app-949.azurewebsites.net/maps`**](https://osintneoai-app-949.azurewebsites.net/maps)
-* 💬 **Live Full Conversation Transcript Portal (289+ Turns):** [**`https://osintneoai-app-949.azurewebsites.net/chat`**](https://osintneoai-app-949.azurewebsites.net/chat)
+* 💬 **Live Full Conversation Transcript Portal (305+ Turns):** [**`https://osintneoai-app-949.azurewebsites.net/chat`**](https://osintneoai-app-949.azurewebsites.net/chat)
 * 📢 **Public Victims & Evidence Board:** [**`https://osintneoai-app-949.azurewebsites.net/victims-board`**](https://osintneoai-app-949.azurewebsites.net/victims-board)
 
 

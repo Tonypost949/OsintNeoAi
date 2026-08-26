@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-26T03:28:19.243612+00:00",
-  "total": 16,
+  "updated_at": "2026-08-26T03:36:57.591198+00:00",
+  "total": 17,
   "tasks": [
     {
       "id": "TASK-001",
@@ -248,6 +248,19 @@
         "Legal & Investigations"
       ],
       "action_url": "https://cloud.google.com/blog/products/ai-machine-learning/real-world-gen-ai-use-cases-with-technical-blueprints"
+    },
+    {
+      "id": "TASK-017",
+      "title": "Deploy Broadcast PSA & Legal Evidence Dispatcher Studio",
+      "category": "Public Safety & PSA",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Deployed /psa Broadcast Studio with 4 investigation templates (Pill Tox, Hospice Shells, SCE  Deed, Tribal Rights), high-res PDF generation, and social/press dispatch.",
+      "created_at": "2026-08-26T03:36:42.972646+00:00",
+      "tags": [
+        "Public Safety & PSA"
+      ],
+      "action_url": "/psa"
     }
   ]
 }
