@@ -1,7 +1,7 @@
 {
   "session_id": "e0259c57-0b03-45f8-956f-927ea22d1195",
-  "export_timestamp": "2026-08-25T23:27:46.630292",
-  "total_turns": 271,
+  "export_timestamp": "2026-08-25T23:34:40.507736",
+  "total_turns": 272,
   "turns": [
     {
       "user": "<USER_REQUEST>\npython OSINTNeoAiCLI.py\n</USER_REQUEST>\n<ADDITIONAL_METADATA>\nThe current local time is: 2026-08-23T21:48:32-07:00.\n</ADDITIONAL_METADATA>\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 3.7 Flash (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>",
@@ -1355,8 +1355,13 @@
     },
     {
       "user": "<USER_REQUEST>\nhttps://docs.google.com/document/d/1S6Fc-rFYSMXjLsXZDhetHxNLxYUgwT--cbywLuGsL8g/edit?usp=sharing\n</USER_REQUEST>\n<ADDITIONAL_METADATA>\nThe current local time is: 2026-08-25T23:27:02-07:00.\n</ADDITIONAL_METADATA>",
-      "agent": null,
+      "agent": "### \ud83c\udfdb\ufe0f Ingested: Master Institutional Forensic Whitepaper\n\nWe fetched and ingested the complete Google Doc into your codebase and live cloud repositories:\n\n\ud83d\udcc4 **Ingested File:** [`briefings/Forensic_Analysis_Anaheim_Stadium_Whistleblower_Interventions.md`](file:///C:/Users/Amd949609/OsintNeoAi-1/briefings/Forensic_Analysis_Anaheim_Stadium_Whistleblower_Interventions.md)\n\n---\n\n### \ud83d\udcd1 Document Summary & Legal Highlights:\n\n1. **Title:**  \n   * *Forensic Analysis of the Anaheim Angel Stadium Transaction: Whistleblower Interventions, Statutory Evasion, and Retaliatory Liability*\n2. **Key Citations & Case Law:**\n   * \u2696\ufe0f **Unlawful Eviction / Retaliation:** *Case No. 30-2021-01201327-CL-UD-CJC (Motion to Vacate)*\n   * \u2696\ufe0f **Environmental & Shelter Fraud:** *Jesse Knabb v. City of Huntington Beach (Case No. 8:26-cv-00348)*\n   * \u2696\ufe0f **Whistleblower Burden Standard:** *Lawson v. PPG Architectural Finishes, Inc.* (12 Cal.5th 703) \u2014 Establishing the \"Contributing Factor\" standard under Cal. Labor Code \u00a7 1102.5\n   * \u2696\ufe0f **Statutory Presumption:** California Civil Code \u00a7 1942.5 (180-day presumption of retaliation)\n   * \u2696\ufe0f **Surplus Land Act (SLA / AB 1486):** Cal. Gov. Code \u00a7 54220 & the $96M HCD statutory penalty demand\n3. **The 24-Hour Whistleblower Strike:**\n   * Documents the **May 23, 2022 (10:16 PM)** transmission of *\"Shea, The Angels, Moreno and Roundtree\"* to over 40 federal, state, and local agencies.\n   * Documents the **May 24, 2022** unanimous 7-0 council vote terminating the $320M stadium transaction on grounds of honest services fraud.\n4. **Master Damages Matrix:**\n   * Formalizes the **$96.4M to $196.3M+** statutory, Qui Tam (15%-30%), tort endangerment, and punitive recovery ceiling.\n\n---\n\n### \ud83d\udccb Autonomous Task Engine Ledger:\n* \u2705 **Completed Task:** **`TASK-021`**: *Ingest Master Institutional Forensic Whitepaper on Angel Stadium & Whistleblower Retaliation*\n* \ud83d\udcbb **Live Kanban Dashboard:** [**`https://osintneoai-app-949.azurewebsites.net/tasks`**](https://osintneoai-app-949.azurewebsites.net/tasks)\n* \ud83d\ude80 **GitHub Commit:** [`c941337`](https://github.com/Tonypost949/OsintNeoAi/commit/c941337e61a6dcbfeb49ba7cbbfe7b2cb5d2c206)\n* \ud83d\udce2 **PSA Dispatch Studio:** [**`https://osintneoai-app-949.azurewebsites.net/psa`**](https://osintneoai-app-949.azurewebsites.net/psa)\n\nThe entire master legal dossier is now fully unified with your codebase, live database, and cloud services!",
       "timestamp": "2026-08-26T06:27:02Z"
+    },
+    {
+      "user": "<USER_REQUEST>\ncan we use that 10k system to fact check this situation\n</USER_REQUEST>\n<ADDITIONAL_METADATA>\nThe current local time is: 2026-08-25T23:32:35-07:00.\n</ADDITIONAL_METADATA>",
+      "agent": null,
+      "timestamp": "2026-08-26T06:32:35Z"
     }
   ]
 }

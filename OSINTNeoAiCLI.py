@@ -1403,6 +1403,15 @@ def syncfusion_page():
         return send_from_directory(os.path.join(ROOT_DIR, "public"), "syncfusion_grid.html")
     return jsonify({"status": "error", "message": "syncfusion_grid.html not found"}), 404
 
+@app.route("/stadium-forensics")
+def stadium_forensics_doc():
+    doc_path = os.path.join(ROOT_DIR, "briefings", "Forensic_Analysis_Anaheim_Stadium_Whistleblower_Interventions.md")
+    if os.path.exists(doc_path):
+        with open(doc_path, "r", encoding="utf-8") as f:
+            content = f.read()
+        return jsonify({"title": "Angel Stadium Forensics Whitepaper", "markdown": content})
+    return jsonify({"status": "error", "message": "Whitepaper not found"}), 404
+
 @app.route("/psa")
 def psa_page():
     psa_html = os.path.join(ROOT_DIR, "public", "psa_creator.html")
