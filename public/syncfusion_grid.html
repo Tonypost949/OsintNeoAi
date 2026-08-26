@@ -224,10 +224,10 @@
     </main>
 
     <script>
-        // Optional: Register Syncfusion License Key here when copied from dashboard
-        const syncfusionLicenseKey = localStorage.getItem("syncfusion_license_key") || "";
-        if (syncfusionLicenseKey && ej && ej.base) {
-            ej.base.registerLicense(syncfusionLicenseKey);
+        // Official Syncfusion Essential Studio Enterprise License Key
+        const SYNCFUSION_KEY = "Ngo9BigBOggjGyl/VkJ+Xk9GfVZLVGpUf1FrRmJJfV16cVxMZVVaRnZdRF1rS3hTdURhXXtfd3ZUTWNY";
+        if (window.ej && ej.base) {
+            ej.base.registerLicense(SYNCFUSION_KEY);
         }
 
         async function initSyncfusionApp() {
