@@ -1,7 +1,7 @@
 {
   "session_id": "e0259c57-0b03-45f8-956f-927ea22d1195",
-  "export_timestamp": "2026-08-25T20:53:17.514571",
-  "total_turns": 261,
+  "export_timestamp": "2026-08-25T20:55:55.012186",
+  "total_turns": 262,
   "turns": [
     {
       "user": "<USER_REQUEST>\npython OSINTNeoAiCLI.py\n</USER_REQUEST>\n<ADDITIONAL_METADATA>\nThe current local time is: 2026-08-23T21:48:32-07:00.\n</ADDITIONAL_METADATA>\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 3.7 Flash (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>",
@@ -1305,8 +1305,13 @@
     },
     {
       "user": "<USER_REQUEST>\nhttps://www.reddit.com/user/OSINTNeoAi/\n</USER_REQUEST>\n<ADDITIONAL_METADATA>\nThe current local time is: 2026-08-25T20:53:00-07:00.\n</ADDITIONAL_METADATA>",
-      "agent": null,
+      "agent": "### \ud83d\ude80 Reddit Profile Verified: [u/OSINTNeoAi](https://www.reddit.com/user/OSINTNeoAi/)\n\nI checked [**`reddit.com/user/OSINTNeoAi`**](https://www.reddit.com/user/OSINTNeoAi/). \n\nHere is the setup configuration to populate your official profile before dropping the first posts:\n\n---\n\n### \ud83c\udfa8 Recommended Profile Setup (In Reddit Settings):\n\n* **Display Name:** `OSINT NeoAI \u2014 Forensic Intelligence & Evidence Clearinghouse`\n* **About / Bio (Copy & Paste):**\n  > `Autonomous open-source forensic intelligence clearinghouse & public evidence ledger auditing 17,488 verified corporate, regulatory, and land conveyance nodes.`\n* **Social Links to Add:**\n  1. \ud83c\udf10 **Command Center:** `https://osintneoai-app-949.azurewebsites.net`\n  2. \ud83d\udce2 **PSA Studio:** `https://osintneoai-app-949.azurewebsites.net/psa`\n  3. \ud83d\udcca **Syncfusion Ledger ($9.9k Suite):** `https://osintneoai-app-949.azurewebsites.net/syncfusion`\n\n---\n\n### \ud83d\udccb Where to Post First:\n1. **[r/orangecounty/submit](https://www.reddit.com/r/orangecounty/submit)**: Use the 1-click template in [`/psa`](https://osintneoai-app-949.azurewebsites.net/psa) covering the **11770 Warner Ave medical shells** and **SCE APN 114-481-32 $0 deed conveyance**.\n2. **[r/Whistleblowers/submit](https://www.reddit.com/r/Whistleblowers/submit)**: Use the False Claims Act and SBA PPP loan ingestion dossier.\n\nAll tools, Markdown copiers, and direct links are live at: [**`https://osintneoai-app-949.azurewebsites.net/psa`**](https://osintneoai-app-949.azurewebsites.net/psa).",
       "timestamp": "2026-08-26T03:53:00Z"
+    },
+    {
+      "user": "<USER_REQUEST>\nok so for our first use of all these new expensive tools lets post a cocky answer ro rhis reddit https://www.reddit.com/r/orangecounty/comments/1vya4zn/four_years_later_anaheim_still_doesnt_know/  look up my interaction with shea and the angels stadium deal how i shiut it down after shea decided to start ignoring me fter the illegal eviction\n</USER_REQUEST>\n<ADDITIONAL_METADATA>\nThe current local time is: 2026-08-25T20:54:08-07:00.\n</ADDITIONAL_METADATA>",
+      "agent": null,
+      "timestamp": "2026-08-26T03:54:08Z"
     }
   ]
 }
