@@ -39,6 +39,12 @@ This document provides a unified reference catalog of all **70 investigative dos
 
 ---
 
+## 🪶 Pillar 6: Indigenous Tribal Sovereignty, Ancestral Land Rights & Cultural Resources
+* [INDIGENOUS_TRIBAL_LAND_RIGHTS_AND_CULTURAL_RESOURCES_AUDIT.md](file:///C:/Users/Amd949609/OsintNeoAi-1/legal_library/INDIGENOUS_TRIBAL_LAND_RIGHTS_AND_CULTURAL_RESOURCES_AUDIT.md) — Master forensic audit on California CEQA Tribal Cultural Resources (AB 52 / Cal. Pub. Res. Code § 21074), Native American Heritage Commission (NAHC) Sacred Lands File (SLF), Most Likely Descendant (MLD) statutory protocols (Cal. Pub. Res. Code § 5097.98), Tongva (*Tovaangar*) and Acjachemen ancestral land stewardship, Bolsa Chica sacred sites (CA-ORA-83 Cogged Stone Site), and Federal NAGPRA protections (25 U.S.C. § 3001).
+
+---
+
 ## 🗺️ Master Tactical GIS Hub (All 14 Maps 200 OK)
 * **Live GIS Map Hub:** [`https://osintneoai-app-949.azurewebsites.net/maps`](https://osintneoai-app-949.azurewebsites.net/maps)
 * **Live Conversation Transcript Web Portal:** [`https://osintneoai-app-949.azurewebsites.net/chat`](https://osintneoai-app-949.azurewebsites.net/chat)
+

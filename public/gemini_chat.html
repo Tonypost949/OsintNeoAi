@@ -40,6 +40,12 @@
       --bubble-bg: #1a1b26;
       --sidebar-bg: #13141f;
     }
+    .theme-tribal {
+      --accent-color: #f59e0b;
+      --accent-gradient: linear-gradient(90deg, #d97706 0%, #f59e0b 50%, #b45309 100%);
+      --bubble-bg: #241c14;
+      --sidebar-bg: #1a140e;
+    }
     .accent-gradient-text {
       background: var(--accent-gradient);
       -webkit-background-clip: text;
@@ -101,6 +107,7 @@
           <option value="chatgpt_4o">🟢 OpenAI ChatGPT-4o (Omni)</option>
           <option value="claude_35">🟠 Anthropic Claude 3.5 Sonnet</option>
           <option value="deepseek_r1">🟣 DeepSeek R1 (Deep Thinking Engine)</option>
+          <option value="tribal_sovereign">🪶 Indigenous & Tribal Sovereign Intel</option>
           <option value="osint_sovereign">⚖️ OSINT Neo AI (17k Nodes Sovereign Graph)</option>
         </select>
       </div>
@@ -110,6 +117,7 @@
         <label class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">AI Persona & Tone</label>
         <select id="personaSelector" class="w-full bg-[#131314] text-xs text-gray-300 border border-[#3c4043] rounded-xl p-2.5 focus:outline-none focus:border-[#8ab4f8]">
           <option value="general">🌐 General AI Assistant (Ask Anything)</option>
+          <option value="indigenous">🪶 Indigenous & Tribal Sovereign Rights Scholar</option>
           <option value="coder">💻 Elite Full-Stack & Systems Programmer</option>
           <option value="forensic">🕵️ Forensic Financial & Real Estate Auditor</option>
           <option value="legal">⚖️ Statutory & Appellate Legal Scholar</option>
@@ -150,17 +158,17 @@
       <div class="space-y-1.5 pt-1">
         <div class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Quick Presets</div>
         <div class="grid grid-cols-2 gap-1.5 text-xs">
+          <button onclick="fillPrompt('Audit Indigenous tribal land rights, Tongva/Acjachemen sacred sites, and CEQA AB 52 tribal consultation requirements in Orange County.')" class="text-left px-2.5 py-2 rounded-lg bg-[#282a2c] hover:bg-[#37393b] text-amber-300 truncate">
+            🪶 Tribal Land & AB 52
+          </button>
+          <button onclick="fillPrompt('Explain NAGPRA 25 U.S.C. 3001 protections for Native American burial remains and cultural patrimony.')" class="text-left px-2.5 py-2 rounded-lg bg-[#282a2c] hover:bg-[#37393b] text-amber-300 truncate">
+            🏺 NAGPRA Repatriation
+          </button>
           <button onclick="fillPrompt('Write a complete modern Python script to parse and visualize CSV graph nodes.')" class="text-left px-2.5 py-2 rounded-lg bg-[#282a2c] hover:bg-[#37393b] text-gray-300 truncate">
             💻 Python Code
           </button>
-          <button onclick="fillPrompt('Explain the difference between First-Party Synthetic Fraud and Third-Party ID Theft.')" class="text-left px-2.5 py-2 rounded-lg bg-[#282a2c] hover:bg-[#37393b] text-gray-300 truncate">
-            🧠 AI Fraud Theory
-          </button>
           <button onclick="fillPrompt('Analyze the 11770 Warner Ave hospice cluster and SBA loan structuring.')" class="text-left px-2.5 py-2 rounded-lg bg-[#282a2c] hover:bg-[#37393b] text-gray-300 truncate">
             🏥 11770 Warner
-          </button>
-          <button onclick="fillPrompt('Explain California Public Utilities Code Section 851 transfer requirements.')" class="text-left px-2.5 py-2 rounded-lg bg-[#282a2c] hover:bg-[#37393b] text-gray-300 truncate">
-            ⚡ Cal PUC § 851
           </button>
         </div>
       </div>
@@ -226,6 +234,10 @@
 
         <!-- Suggested Prompt Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto pt-6 text-left">
+          <button onclick="fillAndSend('Audit Indigenous tribal land rights, Tongva/Acjachemen sacred sites, and CEQA AB 52 tribal consultation requirements in Orange County.')" class="p-4 rounded-2xl bg-[#1e1f20] hover:bg-[#282a2c] border border-amber-800/40 transition-all group">
+            <div class="text-sm font-semibold text-amber-400 group-hover:text-amber-300">🪶 Indigenous Tribal Land & AB 52</div>
+            <div class="text-xs text-gray-400 mt-1">Audit Tongva & Acjachemen ancestral lands, NAHC sacred sites, and CEQA AB 52 mandates.</div>
+          </button>
           <button onclick="fillAndSend('Write a Python function to parse JSON graph edges and find cyclical financial loops.')" class="p-4 rounded-2xl bg-[#1e1f20] hover:bg-[#282a2c] border border-[#3c4043] transition-all group">
             <div class="text-sm font-semibold text-white group-hover:text-[#8ab4f8]">💻 Write Python Graph Code</div>
             <div class="text-xs text-gray-400 mt-1">Generate clean, commented Python algorithms with test cases.</div>
@@ -237,10 +249,6 @@
           <button onclick="fillAndSend('Audit the Southern California Edison APN 114-481-32 $0 deed conveyance to SLF-HB Magnolia.')" class="p-4 rounded-2xl bg-[#1e1f20] hover:bg-[#282a2c] border border-[#3c4043] transition-all group">
             <div class="text-sm font-semibold text-white group-hover:text-[#8ab4f8]">⚡ SoCal Edison $0 Deed Transfer</div>
             <div class="text-xs text-gray-400 mt-1">Review APN 114-481-32 at 22011 Magnolia & Cal. PUC § 851.</div>
-          </button>
-          <button onclick="fillAndSend('Explain the 2026 Plaid AI Era Fraud Report benchmarks on synthetic identities.')" class="p-4 rounded-2xl bg-[#1e1f20] hover:bg-[#282a2c] border border-[#3c4043] transition-all group">
-            <div class="text-sm font-semibold text-white group-hover:text-[#8ab4f8]">🧠 Plaid AI Fraud Intelligence</div>
-            <div class="text-xs text-gray-400 mt-1">Review $40B global losses and cross-network graph proof.</div>
           </button>
         </div>
       </div>
@@ -308,6 +316,13 @@
         color: "#7c3aed",
         badge: "Deep Reasoning",
         icon: "fa-brain"
+      },
+      tribal_sovereign: {
+        name: "Tribal Sovereign Intel",
+        theme: "theme-tribal",
+        color: "#f59e0b",
+        badge: "Indigenous Sovereignty & AB 52",
+        icon: "fa-feather"
       },
       osint_sovereign: {
         name: "OSINT Neo AI",

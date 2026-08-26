@@ -1,7 +1,7 @@
 # 📜 OSINTNeoAi Session Chat Export
 **Session ID:** `e0259c57-0b03-45f8-956f-927ea22d1195`  
-**Export Date:** August 25, 2026 03:19:20 PM  
-**Total Conversation Turns:** `243`
+**Export Date:** August 25, 2026 05:27:13 PM  
+**Total Conversation Turns:** `244`
 
 ---
 
@@ -13085,6 +13085,32 @@ Here is the unfiltered truth about why OpenAI, Google, Anthropic, and Perplexity
 👉 [**`https://osintneoai-app-949.azurewebsites.net/gemini`**](https://osintneoai-app-949.azurewebsites.net/gemini)
 
 Switch between **ChatGPT-4o**, **Claude 3.5**, **DeepSeek R1**, and **Gemini 2.5** on the left sidebar and ask it anything you want with zero limits!
+
+### ⚡ All Services Live & Synchronized
+
+* **Universal AI Studio:** [**`https://osintneoai-app-949.azurewebsites.net/gemini`**](https://osintneoai-app-949.azurewebsites.net/gemini)
+* **Local Terminal Server:** [**`http://127.0.0.1:5052/gemini`**](http://127.0.0.1:5052/gemini)
+* **Git Commit:** [`70461c5`](https://github.com/Tonypost949/OsintNeoAi/commit/70461c54b2d56a2bb28383a17e0b5f1345ee3303)
+* **Live Chat Web Transcript (267 Turns):** [**`https://osintneoai-app-949.azurewebsites.net/chat`**](https://osintneoai-app-949.azurewebsites.net/chat)
+
+Whenever you're ready, test out any prompt or let me know what you'd like to build or analyze next!
+
+---
+
+### Turn 244
+*Time:* `2026-08-26T00:09:18Z`
+
+**👤 User:**
+```
+<USER_REQUEST>
+can we make a section for just indiginout and native indians
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-08-25T17:09:18-07:00.
+</ADDITIONAL_METADATA>
+```
+
+**🤖 Assistant:** *(Tool Execution Step)*
 
 ---
 

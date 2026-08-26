@@ -40,13 +40,14 @@ graph TD
 ```
 
 ### 📚 Primary Master Dossiers & Legal Audits
-1. 💵 [**Nationwide Public Funds & Tax Dollar Flow Audit**](legal_library/NATIONWIDE_PUBLIC_FUNDS_AND_TAX_DOLLAR_FLOW_AUDIT.md) — Comprehensive accounting of $5T federal appropriations, Medicare Part A hospice per-diem billing models, and municipal procurement funnels.
-2. 🌐 [**Nationwide Forensic Master Integration Audit**](legal_library/NATIONWIDE_FORENSIC_MASTER_INTEGRATION_AUDIT.md) — Complete 5-pillar synthesis connecting clandestine pharma labs, psychiatric polypharmacy, and corporate structuring.
-3. ⚡ [**Southern California Edison (SCE) Magnolia Parcel Audit**](legal_library/SOUTHERN_CALIFORNIA_EDISON_MAGNOLIA_PARCEL_AUDIT.md) — Forensic audit of APN `114-481-32` (22011 Magnolia St) $0 deed transfer to `SLF-HB MAGNOLIA LLC`.
-4. 💊 [**Counterfeit Pill Circulation & Institutional Suppression Audit**](legal_library/COUNTERFEIT_PILLS_AND_INSTITUTIONAL_SUPPRESSION_MASTER_AUDIT.md) — Regional Massachusetts DEA/police seizures (Whitman, Lynn, Haverhill), Harvard research citations, and the 500k–1M patient exposure calculation.
-5. 🏦 [**Pham Family Living Trust ($3.88M) Civil Forfeiture Motion**](CIVIL_FORFEITURE_PHAM_WELLS_FARGO_DRAFT.md) — Federal seizure motion targeting Wells Fargo Property ID `1024456136` and $10.9M–$11.9M escheatment network.
-6. 🇲🇽 [**Mexico Cross-Border Independent Evidence Dossier**](MEXICO_CROSS_BORDER_INDEPENDENT_EVIDENCE_DOSSIER.md) — 5 proof pillars detailing Baja California *Fideicomiso* bank trusts, FinCEN San Ysidro remittances, and CBP flight logs.
-7. 📑 [**Master Investigation Index (70 Dossiers Catalog)**](docs/INVESTIGATION_INDEX.md) — Complete unified directory of all legal library documents.
+1. 🪶 [**Indigenous Tribal Sovereignty, Ancestral Land Rights & Cultural Resources Audit**](legal_library/INDIGENOUS_TRIBAL_LAND_RIGHTS_AND_CULTURAL_RESOURCES_AUDIT.md) — Master forensic audit on California CEQA Tribal Cultural Resources (AB 52 / Cal. Pub. Res. Code § 21074), Native American Heritage Commission (NAHC) Sacred Lands File (SLF), Most Likely Descendant (MLD) statutory protocols (Cal. Pub. Res. Code § 5097.98), Tongva (*Tovaangar*) and Acjachemen ancestral land stewardship, Bolsa Chica sacred sites (CA-ORA-83 Cogged Stone Site), and Federal NAGPRA protections (25 U.S.C. § 3001).
+2. 💵 [**Nationwide Public Funds & Tax Dollar Flow Audit**](legal_library/NATIONWIDE_PUBLIC_FUNDS_AND_TAX_DOLLAR_FLOW_AUDIT.md) — Comprehensive accounting of $5T federal appropriations, Medicare Part A hospice per-diem billing models, and municipal procurement funnels.
+3. 🌐 [**Nationwide Forensic Master Integration Audit**](legal_library/NATIONWIDE_FORENSIC_MASTER_INTEGRATION_AUDIT.md) — Complete 6-pillar synthesis connecting clandestine pharma labs, psychiatric polypharmacy, and corporate structuring.
+4. ⚡ [**Southern California Edison (SCE) Magnolia Parcel Audit**](legal_library/SOUTHERN_CALIFORNIA_EDISON_MAGNOLIA_PARCEL_AUDIT.md) — Forensic audit of APN `114-481-32` (22011 Magnolia St) $0 deed transfer to `SLF-HB MAGNOLIA LLC`.
+5. 💊 [**Counterfeit Pill Circulation & Institutional Suppression Audit**](legal_library/COUNTERFEIT_PILLS_AND_INSTITUTIONAL_SUPPRESSION_MASTER_AUDIT.md) — Regional Massachusetts DEA/police seizures (Whitman, Lynn, Haverhill), Harvard research citations, and the 500k–1M patient exposure calculation.
+6. 🏦 [**Pham Family Living Trust ($3.88M) Civil Forfeiture Motion**](CIVIL_FORFEITURE_PHAM_WELLS_FARGO_DRAFT.md) — Federal seizure motion targeting Wells Fargo Property ID `1024456136` and $10.9M–$11.9M escheatment network.
+7. 🇲🇽 [**Mexico Cross-Border Independent Evidence Dossier**](MEXICO_CROSS_BORDER_INDEPENDENT_EVIDENCE_DOSSIER.md) — 5 proof pillars detailing Baja California *Fideicomiso* bank trusts, FinCEN San Ysidro remittances, and CBP flight logs.
+8. 📑 [**Master Investigation Index (72 Dossiers Catalog)**](docs/INVESTIGATION_INDEX.md) — Complete unified directory of all legal library documents.
 
 ---
 
