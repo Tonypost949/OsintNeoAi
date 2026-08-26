@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-26T07:38:11.890127+00:00",
-  "total": 31,
+  "updated_at": "2026-08-26T07:41:23.427164+00:00",
+  "total": 32,
   "tasks": [
     {
       "id": "TASK-001",
@@ -443,6 +443,19 @@
         "Legal & Investigations"
       ],
       "action_url": "https://osintneoai-app-949.azurewebsites.net/syncfusion"
+    },
+    {
+      "id": "TASK-032",
+      "title": "Map Orange County Superior Court Judicial Infrastructure (occourts.org)",
+      "category": "Legal & Investigations",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Mapped Orange County Superior Court (occourts.org) justice centers (Central CJC, Harbor HJC, West WJC, North NJC), online case access portal, civil detainer rules, and Case 30-2021-01201327 into master briefing and ALL_LINKS.html.",
+      "created_at": "2026-08-26T07:41:23.041511+00:00",
+      "tags": [
+        "Legal & Investigations"
+      ],
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/all-links"
     }
   ]
 }
