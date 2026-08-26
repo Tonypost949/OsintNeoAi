@@ -521,6 +521,45 @@
                 verification_badge: "WELLS FARGO ESCROW",
                 evidence_source: "CA State Controller Unclaimed Property ID 1024456136",
                 audit_finding: "Unclaimed escrow balances held at Wells Fargo Bank matching structuring and smurfing transaction clusters across multiple nominee trusts."
+            },
+            {
+                fact_id: "FACT-006",
+                statutory_target: "212 Southbrook, Irvine Unlawful Detainer",
+                verified_exposure: "Cal. CCP § 1161 / § 1167 / § 585 Tort Liability",
+                statutory_hook: "Cal. Code Civ. Proc. § 415.20 / § 1169 / Cal. Civ. Code § 1942.5",
+                verification_level: "OFFICIAL_COURT_DOCKET",
+                verification_badge: "CJC DOCKET #30-2021-01201327",
+                evidence_source: "OC Superior Court Case #30-2021-01201327-CL-UD-CJC; Sheriff Levying #2021102780",
+                audit_finding: "Writ of Possession issued 06/29/2021 by Clerk David H. Yamasaki; Eviction lockout executed 08/04/2021 by Sheriff Don Barnes; Opposing Counsel Arden Hoang / Ruzicka, Wallace & Coughlin."
+            },
+            {
+                fact_id: "FACT-007",
+                statutory_target: "8 Lakeview, Irvine Non-Profit Residential Conduit",
+                verified_exposure: "$1,215,000",
+                statutory_hook: "26 U.S.C. § 501(c)(3) Inurement / 18 U.S.C. § 1956 (Money Laundering)",
+                verification_level: "RECORDED_PROPERTY_DEED",
+                verification_badge: "HOMI / MHI REAL HUB",
+                evidence_source: "OC Clerk-Recorder Doc #103664 (2022) & Doc #83410 (2007); CA SOS #955209 / #199922510007",
+                audit_finding: "Helping Of Mentally Ill Experienc (HOMI) purchased residential condo with 104% LTV $954k mortgage, held asset, and liquidated for $1.215M; co-located with MHI Real Co & Greenglass Associates at 1601 Dove St #145, Newport Beach."
+            },
+            {
+                fact_id: "FACT-008",
+                statutory_target: "17631 Cameron Ln / HBNC Shelter Site",
+                verified_exposure: "CEQA / Cal. Water Code § 13260 / Lead-Asbestos Violations",
+                statutory_hook: "Cal. Health & Safety Code § 25189 / 40 CFR § 763 (Asbestos Abatement)",
+                verification_level: "CIVIL_ENGINEERING_PLAN",
+                verification_badge: "HBNC GRADING PLAN",
+                evidence_source: "City of Huntington Beach Precise Grading Plan PW#_2; OCHCA & OCWD Well Records (714) 433-6287",
+                audit_finding: "Site contains an undestroyed abandoned water well 400ft N of Newman Ave / 25ft W of Cameron St, mandatory lead and asbestos abatement conditions, and restricted office trailers operated by Mercy House (Austin R. Drissen)."
+            },
+            {
+                fact_id: "FACT-009",
+                statutory_target: "Federal Interstate Narcotics & Evidence Trail",
+                verified_exposure: "18 U.S.C. § 1952 (ITAR) / 21 U.S.C. § 841 / 28 U.S.C. § 1746",
+                verification_level: "FEDERAL_CRIMINAL_AFFIDAVIT",
+                verification_badge: "FBI AFFIDAVIT / EWING PD",
+                evidence_source: "USDC D.N.J. Case 3:20-mj-05007-TJB Doc 1; Ewing PD Chain of Custody Case I-2019-001222",
+                audit_finding: "FBI Special Agent Bradley H. Zartman criminal affidavit and Ewing PD Chain of Custody Item 044.01 (Officers Ranker & Giovacchini) documenting postal funds and controlled delivery operations."
             }
         ];
 
