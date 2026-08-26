@@ -1,0 +1,72 @@
+{
+  "audit_title": "Nationwide Multi-State PPP Loan Fraud & Municipal Enterprise Correlation",
+  "version": "2026.1",
+  "states_covered_total": 12,
+  "core_jurisdictional_states": [
+    "CA",
+    "AZ",
+    "TX",
+    "FL",
+    "GA",
+    "NY",
+    "NV",
+    "OH",
+    "SD"
+  ],
+  "transit_corridor_states": [
+    "MA",
+    "IL",
+    "PA"
+  ],
+  "macro_metrics": {
+    "total_ppp_fraud_examined": ",900,000+",
+    "total_seized_counterfeit_pills": "115,800,000+",
+    "total_nationwide_cps_child_investigations": "3,180,000+",
+    "total_nationwide_school_homeless_students": "1,260,000+",
+    "total_hud_pit_homeless_minors": "118,500"
+  },
+  "dockets": [
+    {
+      "state": "CA",
+      "case": "USA v. Todd Ament",
+      "docket": "8:22-cr-00105-DOC",
+      "amount": ",500,000"
+    },
+    {
+      "state": "CA",
+      "case": "USA v. Harry Sidhu",
+      "docket": "8:23-cr-00115-DOC",
+      "amount": "Land Appraisal / Wire Fraud"
+    },
+    {
+      "state": "TX",
+      "case": "USA v. Amir Aqeel et al.",
+      "docket": "4:20-cr-00567",
+      "amount": ",000,000+"
+    },
+    {
+      "state": "FL",
+      "case": "USA v. David T. Hines",
+      "docket": "1:20-mj-03183",
+      "amount": ",500,000"
+    },
+    {
+      "state": "AZ",
+      "case": "USA v. Willie Mitchell",
+      "docket": "2:21-cr-00812",
+      "amount": ",500,000"
+    },
+    {
+      "state": "GA",
+      "case": "USA v. Mark Dawkins et al.",
+      "docket": "1:21-cr-00312",
+      "amount": ",000,000+"
+    },
+    {
+      "state": "NV",
+      "case": "USA v. Brandon Casutt",
+      "docket": "2:21-cr-00215",
+      "amount": ",700,000"
+    }
+  ]
+}
