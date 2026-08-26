@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-26T07:53:37.452722+00:00",
-  "total": 37,
+  "updated_at": "2026-08-26T07:54:37.574100+00:00",
+  "total": 38,
   "tasks": [
     {
       "id": "TASK-001",
@@ -519,6 +519,19 @@
       "created_at": "2026-08-26T07:53:37.046290+00:00",
       "tags": [
         "Legal & Investigations"
+      ],
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/all-links"
+    },
+    {
+      "id": "TASK-038",
+      "title": "Map OC Courts Direct Docket Servers (civilwebshopping, visionpublic, fampub)",
+      "category": "Enterprise Systems",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Mapped Orange County Superior Court direct docket endpoints: integrated civilwebshopping.occourts.org (Case 30-2021-01201327 ROA), visionpublic.occourts.org (criminal/traffic), and fampub.occourts.org into DiMarcello audit dossier and ALL_LINKS.html.",
+      "created_at": "2026-08-26T07:54:37.111984+00:00",
+      "tags": [
+        "Enterprise Systems"
       ],
       "action_url": "https://osintneoai-app-949.azurewebsites.net/all-links"
     }

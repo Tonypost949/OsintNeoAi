@@ -6,48 +6,61 @@
 
 ---
 
-## 🏛️ 1. COMPLETE JUDICIAL CASE INDEX & VENUE DECODING
+## 🏛️ 1. COMPLETE JUDICIAL CASE INDEX & DIRECT DOCKET LINKS
 
 ```
-┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                              ORANGE COUNTY SUPERIOR COURT — MASTER DOCKET LEDGER                                       │
-├────────────────────────────┬──────────────────────────────┬──────────────────┬──────────────┬──────────────────────────┤
-│ Case Number                │ Case Category / Type         │ Party Role       │ Filing Date  │ Judicial Center Venue    │
-├────────────────────────────┼──────────────────────────────┼──────────────────┼──────────────┼──────────────────────────┤
-│ 30-2021-01201327-CL-UD-CJC │ Unlawful Detainer - Resid.   │ Defendant        │ May 18, 2021 │ Central Justice Center   │
-│ 16V002172                  │ Domestic Violence w/ Child   │ Responding Party │ Sep 06, 2016 │ Lamoreaux Justice Center │
-│ 23WM15323                  │ Misdemeanor                  │ Defendant        │ Dec 15, 2023 │ West Justice Center (WM) │
-│ 24CM02100                  │ Misdemeanor                  │ Defendant        │ Feb 29, 2024 │ Central Justice Ctr (CM) │
-│ 25WF5518                   │ Felony                       │ Defendant        │ Dec 09, 2025 │ West Justice Center (WF) │
-│ 25WM14039                  │ Misdemeanor                  │ Defendant        │ Oct 31, 2025 │ West Justice Center (WM) │
-│ 26WM01260                  │ Misdemeanor                  │ Defendant        │ Feb 04, 2026 │ West Justice Center (WM) │
-│ 26WM02474                  │ Misdemeanor                  │ Defendant        │ Mar 06, 2026 │ West Justice Center (WM) │
-│ HB3042331                  │ Infraction                   │ Defendant        │ Dec 06, 2011 │ Huntington Beach Branch  │
-│ HB3069324                  │ Infraction                   │ Defendant        │ Aug 02, 2013 │ Huntington Beach Branch  │
-│ HBE00003860                │ Infraction                   │ Defendant        │ Jun 07, 2016 │ Huntington Beach Branch  │
-└────────────────────────────┴──────────────────────────────┴──────────────────┴──────────────┴──────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                 ORANGE COUNTY SUPERIOR COURT — MASTER DOCKET LEDGER                                                    │
+├────────────────────────────┬──────────────────────────────┬──────────────────┬──────────────┬──────────────────────────────────────────┤
+│ Case Number                │ Case Category / Type         │ Party Role       │ Filing Date  │ Direct Court Docket / ROA Portal Link    │
+├────────────────────────────┼──────────────────────────────┼──────────────────┼──────────────┼──────────────────────────────────────────┤
+│ 30-2021-01201327-CL-UD-CJC │ Unlawful Detainer - Resid.   │ Defendant        │ May 18, 2021 │ [Civil Web Shopping Direct Docket Link]  │
+│ 16V002172                  │ Domestic Violence w/ Child   │ Responding Party │ Sep 06, 2016 │ [FamPub Family Court Direct Link]        │
+│ 23WM15323                  │ Misdemeanor                  │ Defendant        │ Dec 15, 2023 │ [Vision Public Docket Link 23WM15323]    │
+│ 24CM02100                  │ Misdemeanor                  │ Defendant        │ Feb 29, 2024 │ [Vision Public Docket Link 24CM02100]    │
+│ 25WF5518                   │ Felony                       │ Defendant        │ Dec 09, 2025 │ [Vision Public Docket Link 25WF5518]     │
+│ 25WM14039                  │ Misdemeanor                  │ Defendant        │ Oct 31, 2025 │ [Vision Public Docket Link 25WM14039]    │
+│ 26WM01260                  │ Misdemeanor                  │ Defendant        │ Feb 04, 2026 │ [Vision Public Docket Link 26WM01260]    │
+│ 26WM02474                  │ Misdemeanor                  │ Defendant        │ Mar 06, 2026 │ [Vision Public Docket Link 26WM02474]    │
+│ HB3042331                  │ Infraction                   │ Defendant        │ Dec 06, 2011 │ [Vision Public Docket Link HB3042331]    │
+│ HB3069324                  │ Infraction                   │ Defendant        │ Aug 02, 2013 │ [Vision Public Docket Link HB3069324]    │
+│ HBE00003860                │ Infraction                   │ Defendant        │ Jun 07, 2016 │ [Vision Public Docket Link HBE00003860]  │
+└────────────────────────────┴──────────────────────────────┴──────────────────┴──────────────┴──────────────────────────────────────────┘
 ```
+
+### 🔗 Direct Judicial Docket Links:
+1. **Civil Unlawful Detainer Action (Core Matter):**
+   * Case `30-2021-01201327-CL-UD-CJC`: [https://civilwebshopping.occourts.org/NStoJDetails.do?isNS=y&nscid=30-2021-01201327-CL-UD-CJC&ln=Dimarcello&fn=Anthony#top_page](https://civilwebshopping.occourts.org/NStoJDetails.do?isNS=y&nscid=30-2021-01201327-CL-UD-CJC&ln=Dimarcello&fn=Anthony#top_page)
+2. **Family Law / Protective Record:**
+   * Case `16V002172`: [https://fampub.occourts.org/NStoJDetails.do?isNS=y&nscid=16V002172&tab=0#top](https://fampub.occourts.org/NStoJDetails.do?isNS=y&nscid=16V002172&tab=0#top)
+3. **Criminal & Municipal Dockets (West & Central Justice Centers):**
+   * Case `23WM15323`: [https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=23WM15323&ln=Dimarcello&fn=Anthony](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=23WM15323&ln=Dimarcello&fn=Anthony)
+   * Case `24CM02100`: [https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=24CM02100&ln=Dimarcello&fn=Anthony](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=24CM02100&ln=Dimarcello&fn=Anthony)
+   * Case `25WF5518`: [https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=25WF5518&ln=Dimarcello&fn=Anthony](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=25WF5518&ln=Dimarcello&fn=Anthony)
+   * Case `25WM14039`: [https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=25WM14039&ln=Dimarcello&fn=Anthony](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=25WM14039&ln=Dimarcello&fn=Anthony)
+   * Case `26WM01260`: [https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=26WM01260&ln=Dimarcello&fn=Anthony](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=26WM01260&ln=Dimarcello&fn=Anthony)
+   * Case `26WM02474`: [https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=26WM02474&ln=Dimarcello&fn=Anthony](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=26WM02474&ln=Dimarcello&fn=Anthony)
+   * Case `HB3042331`: [https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=HB3042331&ln=Dimarcello&fn=Anthony](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=HB3042331&ln=Dimarcello&fn=Anthony)
+   * Case `HB3069324`: [https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=HB3069324&ln=Dimarcello&fn=Anthony](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=HB3069324&ln=Dimarcello&fn=Anthony)
+   * Case `HBE00003860`: [https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=HBE00003860&ln=Dimarcello&fn=Anthony](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=HBE00003860&ln=Dimarcello&fn=Anthony)
 
 ---
 
-## 🔍 2. FORENSIC ANALYSIS OF CORE MATTERS
+## 🔍 2. FORENSIC MAPPING OF REVEALED COURT SERVERS
 
-### A. The Predicate Unlawful Detainer Action (`30-2021-01201327-CL-UD-CJC`)
-* **Filing Date:** May 18, 2021
-* **Venue:** Central Justice Center (CJC - 700 Civic Center Dr W, Santa Ana)
-* **Plaintiff:** Woodbridge Meadows Apartments / Shea Properties Management Company, Inc.
-* **The Smoking Gun:**
-  1. Shea’s Assistant Community Manager executed the **UD-101 Verification on May 15, 2021** (3 days before filing).
-  2. Falsely checked **Box 7d(2)** under penalty of perjury asserting no COVID financial distress declaration was delivered.
-  3. The clerk processed the filing on **May 18, 2021**, which subsequently led to the unlawful issuance of the writ executed by 8 armed deputies on **August 4, 2021** under **OCSD File No. 2021102780**.
+The deep links expose three dedicated database clusters utilized by the Superior Court of California, County of Orange:
 
-### B. The Post-Displacement Municipal & Criminal Cascade (2023–2026)
-* **Jurisdictional Shift:** Notice the sharp cluster of filings originating in the **West Justice Center (WM / WF - Westminster)** following the 2021 armed displacement.
-* **Causal Link:** Direct downstream manifestation of wrongful eviction, homelessness displacement into West Orange County (Huntington Beach / Westminster corridor), disruption of IHSS state caregiver services, and repeated law enforcement contact.
+1. **`civilwebshopping.occourts.org` (Civil Register of Actions & Document Purchasing Server):**
+   * Houses certified electronic dockets, register of actions, trial exhibits, and minute orders for all Civil and Unlawful Detainer cases.
+   * Direct access endpoint for Case `30-2021-01201327-CL-UD-CJC`.
+2. **`visionpublic.occourts.org` (Vision Criminal & Traffic Docket Server):**
+   * Primary repository for misdemeanor, felony, and infraction proceedings across West Justice Center (WM / WF) and Central Justice Center (CM / CF).
+3. **`fampub.occourts.org` (Family & Juvenile Case Access Server):**
+   * Specialized judicial server for domestic violence, family law, and juvenile court filings.
 
 ---
 
-## ⚖️ 3. DOJ / GRAND JURY EVIDENTIARY IMPACT
+## ⚖️ 3. DOJ / GRAND JURY EVIDENTIARY SUBMISSION VALUE
 
-1. **Official Judicial Confirmation:** This official record from `namesearch.occourts.org` irrefutably confirms the docket number, venue, and exact filing date (`May 18, 2021`) of Case `30-2021-01201327-CL-UD-CJC`.
-2. **Chain of Custody:** Integrates directly into **EXHIBIT A-2** of the Master Grand Jury Evidentiary Submission Packet.
+* **Instant Document Procurement:** Investigators and DOJ prosecutors can directly access the underlying Register of Actions for Case `30-2021-01201327-CL-UD-CJC` without manual records requests.
+* **Unbroken Chain of Custody:** Links directly establish the court clerk processing dates, confirming the May 18, 2021 filing following the May 15, 2021 perjured UD-101 verification.
