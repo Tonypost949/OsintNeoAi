@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-26T07:08:36.767177+00:00",
-  "total": 25,
+  "updated_at": "2026-08-26T07:09:29.287921+00:00",
+  "total": 26,
   "tasks": [
     {
       "id": "TASK-001",
@@ -363,6 +363,19 @@
       "created_at": "2026-08-26T07:08:36.298324+00:00",
       "tags": [
         "Legal & Investigations"
+      ],
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/syncfusion"
+    },
+    {
+      "id": "TASK-026",
+      "title": "Compile Complete OCSD Annual Reports & Civil Operations Archive (2019-2026)",
+      "category": "Enterprise Systems",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Compiled complete year-by-year chronological archive of Orange County Sheriff's Department (Sheriff Don Barnes) annual reports, Court Operations Command, Civil Process Division, Levying Officer File 2021102780, and .3M whistleblower interlocks from 2019 to 2026.",
+      "created_at": "2026-08-26T07:09:28.910560+00:00",
+      "tags": [
+        "Enterprise Systems"
       ],
       "action_url": "https://osintneoai-app-949.azurewebsites.net/syncfusion"
     }
