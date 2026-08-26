@@ -1162,14 +1162,31 @@ def serve_osint_geo_data():
 
 @app.route("/api/ai_chat", methods=["POST"])
 @app.route("/api/gemini/chat", methods=["POST"])
+@app.route("/api/chat", methods=["POST"])
 def api_ai_chat():
     try:
-        data = request.get_json() or {}
-        user_msg = data.get("message", "").strip()
+        data = request.get_json(silent=True) or request.form.to_dict() or {}
+        if isinstance(data, str):
+            try:
+                data = json.loads(data)
+            except Exception:
+                data = {"message": data}
+        user_msg = str(data.get("message") or data.get("prompt") or data.get("query") or data.get("input") or "").strip()
         model_name = data.get("model", "gemini_25")
         persona = data.get("persona", "general")
         enable_thinking = data.get("thinking", True)
         use_graph = data.get("use_graph", True)
+        
+        if not user_msg and request.data:
+            try:
+                raw_txt = request.data.decode("utf-8", errors="ignore").strip()
+                if raw_txt.startswith("{"):
+                    parsed = json.loads(raw_txt)
+                    user_msg = str(parsed.get("message") or parsed.get("prompt") or parsed.get("query") or "").strip()
+                else:
+                    user_msg = raw_txt
+            except Exception:
+                pass
 
         if not user_msg:
             return jsonify({"status": "error", "message": "Empty message received"}), 400
