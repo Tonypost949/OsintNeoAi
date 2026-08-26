@@ -1,5 +1,5 @@
 # 📋 OSINT Neo AI — Master Autonomous Task & Action Ledger
-> **System Status:** 🟢 Active & Self-Tracking | **Storage:** [`data/tasks.json`](data/tasks.json) | **Total Tasks:** 15 (6 Open / 9 Done)
+> **System Status:** 🟢 Active & Self-Tracking | **Storage:** [`data/tasks.json`](data/tasks.json) | **Total Tasks:** 16 (7 Open / 9 Done)
 
 ---
 
@@ -8,6 +8,7 @@
 | ID | Priority | Category | Task Description | Action Link / Ref | Status |
 | :--- | :---: | :--- | :--- | :--- | :---: |
 | **`TASK-002`** | 🔴 **CRITICAL** | Venture & Grants | **SBIR / STTR Phase I Proposal Architecture (-)**<br>Draft non-dilutive dual-use intelligence & automated RegTech compliance proposal for NSF / DoD AFWERX topics. | [SBIR](https://www.sbir.gov) | `IN_PROGRESS` |
+| **`TASK-016`** | 🔴 **CRITICAL** | Legal & Investigations | **Implement Google Cloud Gen AI Blueprint 39 & 41 (Legal Extraction & Anti-Fraud Graph)**<br>Map Google Cloud GenAI Blueprints #39 (Legal Document Extraction) and #41 (Anti-Fraud / Anti-Money Laundering Graph Engine) to OsintNeoAi. | [Legal & Investigations](https://cloud.google.com/blog/products/ai-machine-learning/real-world-gen-ai-use-cases-with-technical-blueprints) | `TODO` |
 | **`TASK-001`** | 🟡 **HIGH** | Venture & Grants | **SCORE & California SBDC Free Mentor Onboarding**<br>Schedule initial 1-on-1 session with SCORE Orange County / SBDC for SBIR grant strategy review and pitch feedback. | [SCORE](https://www.score.org) | `TODO` |
 | **`TASK-013`** | 🟡 **HIGH** | Legal & Investigations | **Validate California Coastal Commission Public Record Filings**<br>Audit all pending coastal development permits along Huntington Beach Bolsa Chica wetlands. | [Legal & Investigations](legal_library/INDIGENOUS_TRIBAL_LAND_RIGHTS_AND_CULTURAL_RESOURCES_AUDIT.md) | `TODO` |
 | **`TASK-015`** | 🟡 **HIGH** | Core Infrastructure | **Harness Google Cloud Free AI Quotas (Vision OCR, Speech-to-Text, Natural Language)**<br>Leverage 1k Vision OCR units/mo, 60 min Speech-to-Text, 5k NLP units/mo, and Gemini AI Studio free API tier. | [Core Infrastructure](https://cloud.google.com/use-cases/free-ai-tools) | `TODO` |
