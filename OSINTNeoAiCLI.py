@@ -1428,6 +1428,15 @@ def all_links_page():
         return send_from_directory(os.path.join(ROOT_DIR, "public"), "ALL_LINKS.html")
     return jsonify({"status": "error", "message": "ALL_LINKS.html not found"}), 404
 
+@app.route("/counterfeit-rx")
+@app.route("/counterfeit-prescriptions")
+@app.route("/rx-matrix")
+def counterfeit_rx_page():
+    rx_html = os.path.join(ROOT_DIR, "public", "counterfeit_rx_matrix.html")
+    if os.path.exists(rx_html):
+        return send_from_directory(os.path.join(ROOT_DIR, "public"), "counterfeit_rx_matrix.html")
+    return jsonify({"status": "error", "message": "counterfeit_rx_matrix.html not found"}), 404
+
 @app.route("/exports/<path:filename>")
 def serve_export_file(filename):
     exp_dir = os.path.join(ROOT_DIR, "exports")
