@@ -1419,6 +1419,15 @@ def agent_hub_page():
         return send_from_directory(os.path.join(ROOT_DIR, "public"), "agent_hub.html")
     return jsonify({"status": "error", "message": "agent_hub.html not found"}), 404
 
+@app.route("/links")
+@app.route("/all-links")
+@app.route("/sitemap-directory")
+def all_links_page():
+    links_html = os.path.join(ROOT_DIR, "public", "ALL_LINKS.html")
+    if os.path.exists(links_html):
+        return send_from_directory(os.path.join(ROOT_DIR, "public"), "ALL_LINKS.html")
+    return jsonify({"status": "error", "message": "ALL_LINKS.html not found"}), 404
+
 @app.route("/exports/<path:filename>")
 def serve_export_file(filename):
     exp_dir = os.path.join(ROOT_DIR, "exports")

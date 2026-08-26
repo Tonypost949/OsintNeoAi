@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-26T07:26:18.822665+00:00",
-  "total": 29,
+  "updated_at": "2026-08-26T07:33:29.431525+00:00",
+  "total": 30,
   "tasks": [
     {
       "id": "TASK-001",
@@ -417,6 +417,19 @@
         "Multi-Agent Systems"
       ],
       "action_url": "https://osintneoai-app-949.azurewebsites.net/agents"
+    },
+    {
+      "id": "TASK-030",
+      "title": "Build Master ALL_LINKS.html Index & Ingest OC Gov Sitemap",
+      "category": "Enterprise Systems",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Scanned Orange County Government sitemap (ocgov.com/contact/sitemap) and generated master searchable repository & agency directory (public/ALL_LINKS.html, docs/ALL_LINKS.html, root ALL_LINKS.html) with live search and 36+ verified nodes.",
+      "created_at": "2026-08-26T07:33:28.842953+00:00",
+      "tags": [
+        "Enterprise Systems"
+      ],
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/all-links"
     }
   ]
 }
