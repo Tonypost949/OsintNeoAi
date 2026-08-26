@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-26T07:54:37.574100+00:00",
-  "total": 38,
+  "updated_at": "2026-08-26T08:03:09.640545+00:00",
+  "total": 39,
   "tasks": [
     {
       "id": "TASK-001",
@@ -530,6 +530,19 @@
       "status": "DONE",
       "description": "Mapped Orange County Superior Court direct docket endpoints: integrated civilwebshopping.occourts.org (Case 30-2021-01201327 ROA), visionpublic.occourts.org (criminal/traffic), and fampub.occourts.org into DiMarcello audit dossier and ALL_LINKS.html.",
       "created_at": "2026-08-26T07:54:37.111984+00:00",
+      "tags": [
+        "Enterprise Systems"
+      ],
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/all-links"
+    },
+    {
+      "id": "TASK-039",
+      "title": "Ingest Orange County Chambers of Commerce Directory (ocgov.com/.../chambers-commerce)",
+      "category": "Enterprise Systems",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Mapped Orange County Chambers of Commerce directory: established Anaheim Chamber of Commerce (Todd Ament/Cabal hub), Greater Irvine Chamber, and Huntington Beach Chamber networks into briefings and ALL_LINKS.html.",
+      "created_at": "2026-08-26T08:03:09.225757+00:00",
       "tags": [
         "Enterprise Systems"
       ],
