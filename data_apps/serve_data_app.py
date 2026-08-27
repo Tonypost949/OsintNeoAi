@@ -22,6 +22,17 @@ def dashboard_view():
             return f.read()
     return "<h3>Data application dashboard not found</h3>", 404
 
+@app.route("/gods-eye-view")
+@app.route("/globe")
+@app.route("/3d")
+def gods_eye_view():
+    p = os.path.join(ROOT_DIR, "gods_eye_view.html")
+    if os.path.exists(p):
+        with open(p, "r", encoding="utf-8") as f:
+            return f.read()
+    return "<h3>God's Eye View 3D Globe not found</h3>", 404
+
+
 @app.route("/api/data/kpis")
 def kpis_endpoint():
     return jsonify(get_kpis())

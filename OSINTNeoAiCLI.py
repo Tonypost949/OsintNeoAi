@@ -1096,6 +1096,18 @@ def data_app_dashboard():
             return f.read()
     return "<h3>Data application dashboard template not found</h3>", 404
 
+@app.route("/gods-eye-view")
+@app.route("/globe")
+@app.route("/3d")
+def gods_eye_view_route():
+    for candidate in ["gods_eye_view.html", "data_apps/gods_eye_view.html", "public/gods_eye_view.html"]:
+        p = os.path.join(ROOT_DIR, candidate)
+        if os.path.exists(p):
+            with open(p, "r", encoding="utf-8") as f:
+                return f.read()
+    return "<h3>God's Eye View 3D Globe template not found</h3>", 404
+
+
 @app.route("/api/data/kpis")
 def api_data_kpis():
     try:
