@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINT Neo AI — Licensed Syncfusion Enterprise Grid & VSDE Hub</title>
+    <!-- Syncfusion Essential Studio CDN (Enterprise v26.2) -->
+    <link href="https://cdn.syncfusion.com/ej2/26.2.4/material-dark.css" rel="stylesheet">
+    <script src="https://cdn.syncfusion.com/ej2/26.2.4/dist/ej2.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-base: #090d16;
+            --bg-surface: #111827;
+            --border: #1f2937;
+            --text: #f8fafc;
+            --accent: #38bdf8;
+            --emerald: #10b981;
+            --amber: #f59e0b;
+            --rose: #f43f5e;
+            --purple: #c084fc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: rgba(17, 24, 39, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.85rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .brand-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge-license {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            padding: 0.25rem 0.65rem;
+            border-radius: 9999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .nav-btn {
+            background: #1e293b;
+            border: 1px solid var(--border);
+            color: #cbd5e1;
+            padding: 0.45rem 0.85rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: #24344d;
+        }
+
+        main {
+            flex: 1;
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 1800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(17, 24, 39, 0.9) 100%);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 16px;
+            padding: 1.25rem 1.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .hero-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .hero-subtitle {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-top: 0.25rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            transition: border-color 0.2s;
+        }
+
+        .stat-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        .stat-val {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .stat-label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: #94a3b8;
+        }
+
+        .panel-container {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .panel-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .view-toggle-group {
+            display: flex;
+            background: #1e293b;
+            border-radius: 10px;
+            padding: 3px;
+            border: 1px solid var(--border);
+        }
+
+        .toggle-btn {
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            padding: 0.4rem 0.9rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .toggle-btn.active {
+            background: var(--accent);
+            color: #090d16;
+            font-weight: 700;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .status-verified {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .status-plea {
+            background: rgba(244, 63, 94, 0.15);
+            color: #fb7185;
+            border: 1px solid rgba(244, 63, 94, 0.3);
+        }
+
+        .status-violation {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .status-claimed {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .e-grid {
+            border-radius: 10px !important;
+            border: 1px solid var(--border) !important;
+            background: #0f172a !important;
+        }
+
+        .e-grid .e-headercell {
+            background: #1e293b !important;
+            color: #f8fafc !important;
+            font-weight: 700 !important;
+            font-size: 0.8rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.04em !important;
+        }
+
+        .e-grid .e-rowcell {
+            color: #cbd5e1 !important;
+            font-size: 0.83rem !important;
+            border-color: #1e293b !important;
+        }
+
+        .e-grid .e-altrow {
+            background: #131d31 !important;
+        }
+
+        .e-grid .e-gridheader {
+            border-bottom: 2px solid var(--accent) !important;
+        }
+
+        .charts-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .charts-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="brand">
+            <i class="fa-solid fa-layer-group" style="color: var(--accent); font-size: 1.4rem;"></i>
+            <span class="brand-title">OSINT Neo AI</span>
+            <span class="badge-license"><i class="fa-solid fa-certificate"></i> Syncfusion Enterprise Licensed (W753756)</span>
+        </a>
+        <div class="nav-links">
+            <a href="/" class="nav-btn"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="/maps" class="nav-btn"><i class="fa-solid fa-map-location-dot"></i> GIS Maps</a>
+            <a href="/tasks" class="nav-btn"><i class="fa-solid fa-list-check"></i> Tasks</a>
+            <a href="/victims-board" class="nav-btn"><i class="fa-solid fa-shield-halved"></i> Victims Board</a>
+            <a href="/gemini" class="nav-btn"><i class="fa-solid fa-brain"></i> AI Studio</a>
+            <button onclick="exportGridExcel()" class="nav-btn" style="background:#065f46; border-color:#10b981; color:#fff;"><i class="fa-solid fa-file-excel"></i> Export Excel</button>
+            <button onclick="exportGridPDF()" class="nav-btn" style="background:#831843; border-color:#f43f5e; color:#fff;"><i class="fa-solid fa-file-pdf"></i> Export PDF</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero-banner">
+            <div>
+                <div class="hero-title">
+                    <i class="fa-solid fa-bolt-lightning" style="color: var(--accent);"></i>
+                    Syncfusion Essential Studio Enterprise Hub
+                </div>
+                <div class="hero-subtitle">
+                    Licensed EJ2 DataGrid with Virtualization, Column Grouping, Multi-Sorting, and Direct Excel/PDF Ledger Export.
+                </div>
+            </div>
+            <div class="view-toggle-group">
+                <button class="toggle-btn active" id="btnVsde" onclick="switchView('vsde')"><i class="fa-solid fa-gift"></i> VSDE Benefits Matrix</button>
+                <button class="toggle-btn" id="btnForensic" onclick="switchView('forensic')"><i class="fa-solid fa-scale-balanced"></i> Anaheim / Stadium Matrix</button>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-label">Enterprise License</span>
+                <span class="stat-val" style="color: var(--emerald);">$9,995 / yr</span>
+                <span style="font-size:0.75rem; color:#94a3b8;">Order W753756 • 0-Watermark Active</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Indexed Entities</span>
+                <span class="stat-val" style="color: var(--accent);">17,488 Nodes</span>
+                <span style="font-size:0.75rem; color:#94a3b8;">Cross-domain BigQuery & GraphDB</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Azure Student Benefit</span>
+                <span class="stat-val" style="color: var(--purple);">$100 / mo</span>
+                <span style="font-size:0.75rem; color:#94a3b8;">Live App: osintneoai-app-949</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Total Forensic Exposure</span>
+                <span class="stat-val" style="color: var(--rose);">$320,000,000</span>
+                <span style="font-size:0.75rem; color:#94a3b8;">Anaheim Stadium & HCD SLA Audit</span>
+            </div>
+        </div>
+
+        <div class="panel-container">
+            <div class="panel-header">
+                <div class="panel-title">
+                    <i class="fa-solid fa-table-cells" style="color: var(--accent);"></i>
+                    <span id="gridTitle">VSDE “Steroids” Benefits & Software Matrix</span>
+                </div>
+                <div style="font-size:0.8rem; color:#94a3b8;">
+                    <i class="fa-solid fa-filter"></i> Search & Filter enabled across all columns
+                </div>
+            </div>
+            <div id="MainGrid"></div>
+        </div>
+
+        <div class="charts-row">
+            <div class="panel-container">
+                <div class="panel-title">
+                    <i class="fa-solid fa-chart-column" style="color: var(--accent);"></i>
+                    Exposure & Recovery Ceiling ($M USD)
+                </div>
+                <div id="ValuationChart" style="height: 320px;"></div>
+            </div>
+            <div class="panel-container">
+                <div class="panel-title">
+                    <i class="fa-solid fa-chart-line" style="color: var(--emerald);"></i>
+                    Forensic Velocity Timeline
+                </div>
+                <div id="TimelineChart" style="height: 320px;"></div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Register Official Licensed Key (Order W753756)
+        ej.base.registerLicense("Ngo9BigBOggjGyl/Vkj+Xk9GfVZLVGpUf1FrRmJJfV16cVxMZVVaRnZdRF1rS3hTdURhXXtfd3ZUTWNY");
+
+        let gridInstance = null;
+        let currentMode = 'vsde';
+
+        const vsdeData = [
+            {
+                benefit_name: "Syncfusion Essential Studio Enterprise",
+                category: "Enterprise UI Suite",
+                value_usd: "$9,995.00",
+                status: "CLAIMED & ACTIVE",
+                license_key: "Ngo9BigBOggjGyl... (Registered)",
+                portal_url: "https://my.visualstudio.com/benefits",
+                description: "Full suite of 100+ high-performance JavaScript/Flutter/React grids, charts, Gantt, and PDF/Excel document engines."
+            },
+            {
+                benefit_name: "Azure for Students Cloud Credit",
+                category: "Cloud Infrastructure",
+                value_usd: "$100.00 / mo",
+                status: "CLAIMED & ACTIVE",
+                license_key: "Sub: f055033f-83fb-4ae9-9c36-be48f0c86158",
+                portal_url: "https://portal.azure.com",
+                description: "Hosts live web app osintneoai-app-949.azurewebsites.net, App Service B1, 1M serverless executions."
+            },
+            {
+                benefit_name: "JetBrains All Products Pack + GitHub Copilot",
+                category: "IDE & AI Pair Programmer",
+                value_usd: "$779.00 / yr",
+                status: "READY TO CLAIM",
+                license_key: "Via anthony.dimarcello@students.post.edu",
+                portal_url: "https://my.visualstudio.com/benefits",
+                description: "IntelliJ IDEA Ultimate, PyCharm Professional, WebStorm, DataGrip, CLion, and Copilot Pro."
+            },
+            {
+                benefit_name: "Pluralsight + LinkedIn Learning + DataCamp Bundle",
+                category: "Training & Certifications",
+                value_usd: "$1,200.00",
+                status: "READY TO CLAIM",
+                license_key: "Visual Studio Dev Essentials Partner Pass",
+                portal_url: "https://my.visualstudio.com/benefits",
+                description: "Full enterprise technical libraries for cloud architecture, AI/ML, OSINT, cybersecurity, and BigQuery data engineering."
+            },
+            {
+                benefit_name: "Parasoft / Code Climate / SQL Sentry / Termius Pro",
+                category: "Security & DevOps Suite",
+                value_usd: "$2,400.00",
+                status: "READY TO CLAIM",
+                license_key: "Developer Pack Activation",
+                portal_url: "https://my.visualstudio.com/benefits",
+                description: "Automated vulnerability scanner, code security audits, database performance monitoring, and secure SSH manager."
+            },
+            {
+                benefit_name: "MongoDB Atlas + Datadog + Namecheap + DigitalOcean",
+                category: "Cloud Ecosystem",
+                value_usd: "$500.00",
+                status: "READY TO CLAIM",
+                license_key: "GitHub Student Developer Pack Link",
+                portal_url: "https://education.github.com/pack",
+                description: "Managed Document DB clusters, APM observability, free SSL certificates, and VPS hosting droplets."
+            },
+            {
+                benefit_name: "Post University Entra SSO Federation",
+                category: "Identity & Trust",
+                value_usd: "Active",
+                status: "VERIFIED",
+                license_key: "anthony.dimarcello@students.post.edu",
+                portal_url: "https://myaccount.microsoft.com",
+                description: "Institutional federated login ensuring continuous unlocked status for Visual Studio Dev Essentials."
+            }
+        ];
+
+        const forensicData = [
+            {
+                fact_id: "FACT-001",
+                statutory_target: "Anaheim Stadium Land Sale Contract",
+                verified_exposure: "$320,000,000",
+                statutory_hook: "California Surplus Land Act (Gov. Code § 54222) / Qui Tam 31 U.S.C. § 3729",
+                verification_level: "CRIMINAL_GUILTY_PLEA",
+                verification_badge: "CRIMINAL PLEA (USA v. Sidhu)",
+                evidence_source: "Federal Plea Agreement CR No. 23-cr-00108-CJC; City Council Res. No. 2022-064",
+                audit_finding: "Mayor Harry Sidhu leaked confidential city appraisals to Arte Moreno's representatives to fix the land price at $150M cash + $170M phantom credits."
+            },
+            {
+                fact_id: "FACT-002",
+                statutory_target: "Surplus Land Act Mandatory 30% Penalty",
+                verified_exposure: "$96,000,000",
+                statutory_hook: "Cal. Gov. Code § 54230.5 (30% Gross Penalty for SLA Non-Compliance)",
+                verification_level: "CONFIRMED_STATUTE",
+                verification_badge: "HCD ENFORCEMENT NOTICE",
+                evidence_source: "HCD Notice of Violation (Dec 8, 2021); OAG Consent Decree",
+                audit_finding: "City failed to offer 150-acre parcel to affordable housing sponsors before entering private negotiations."
+            },
+            {
+                fact_id: "FACT-003",
+                statutory_target: "11770 Warner Ave Commercial Hub (Fountain Valley)",
+                verified_exposure: "$1,114,832",
+                statutory_hook: "18 U.S.C. § 1344 (Bank Fraud) / 18 U.S.C. § 1014 (False Statements)",
+                verification_level: "STATUTORY_TORT_EXPOSURE",
+                verification_badge: "FINTECH FRAUD CLUSTER",
+                evidence_source: "SBA FOIA PPP Master Database; CA Secretary of State Business Search",
+                audit_finding: "55.6% concentration of Hospice and Palliative Shell LLCs registered to identical shared office suites with zero genuine clinical footprint."
+            },
+            {
+                fact_id: "FACT-004",
+                statutory_target: "Southern California Edison (SCE) Magnolia APN 114-481-32",
+                verified_exposure: "Title Cloud / $0 Recorded",
+                statutory_hook: "Cal. Pub. Util. Code § 851 (CPUC Prior Approval) / Cal. Rev. & Tax Code § 11911",
+                verification_level: "CONFIRMED_STATUTE",
+                verification_badge: "CONVEYANCE CLOUD",
+                evidence_source: "Orange County Clerk-Recorder Doc #2016000381924; CPUC General Order 69-C",
+                audit_finding: "Utility right-of-way conveyed to Shopoff Land Fund entity for $0 recorded consideration without verified CPUC Section 851 approval."
+            },
+            {
+                fact_id: "FACT-005",
+                statutory_target: "Pham Family Living Trust Unclaimed Property",
+                verified_exposure: "$3,887,991",
+                statutory_hook: "31 U.S.C. § 5324 (Structuring) / 18 U.S.C. § 1956 (Money Laundering)",
+                verification_level: "STATUTORY_TORT_EXPOSURE",
+                verification_badge: "WELLS FARGO ESCROW",
+                evidence_source: "CA State Controller Unclaimed Property ID 1024456136",
+                audit_finding: "Unclaimed escrow balances held at Wells Fargo Bank matching structuring and smurfing transaction clusters across multiple nominee trusts."
+            },
+            {
+                fact_id: "FACT-006",
+                statutory_target: "212 Southbrook, Irvine Unlawful Detainer",
+                verified_exposure: "Cal. CCP § 1161 / § 1167 / § 585 Tort Liability",
+                statutory_hook: "Cal. Code Civ. Proc. § 415.20 / § 1169 / Cal. Civ. Code § 1942.5",
+                verification_level: "OFFICIAL_COURT_DOCKET",
+                verification_badge: "CJC DOCKET #30-2021-01201327",
+                evidence_source: "OC Superior Court Case #30-2021-01201327-CL-UD-CJC; Sheriff Levying #2021102780",
+                audit_finding: "Writ of Possession issued 06/29/2021 by Clerk David H. Yamasaki; Eviction lockout executed 08/04/2021 by Sheriff Don Barnes; Opposing Counsel Arden Hoang / Ruzicka, Wallace & Coughlin."
+            },
+            {
+                fact_id: "FACT-007",
+                statutory_target: "8 Lakeview, Irvine Non-Profit Residential Conduit",
+                verified_exposure: "$1,215,000",
+                statutory_hook: "26 U.S.C. § 501(c)(3) Inurement / 18 U.S.C. § 1956 (Money Laundering)",
+                verification_level: "RECORDED_PROPERTY_DEED",
+                verification_badge: "HOMI / MHI REAL HUB",
+                evidence_source: "OC Clerk-Recorder Doc #103664 (2022) & Doc #83410 (2007); CA SOS #955209 / #199922510007",
+                audit_finding: "Helping Of Mentally Ill Experienc (HOMI) purchased residential condo with 104% LTV $954k mortgage, held asset, and liquidated for $1.215M; co-located with MHI Real Co & Greenglass Associates at 1601 Dove St #145, Newport Beach."
+            },
+            {
+                fact_id: "FACT-008",
+                statutory_target: "17631 Cameron Ln / HBNC Shelter Site",
+                verified_exposure: "CEQA / Cal. Water Code § 13260 / Lead-Asbestos Violations",
+                statutory_hook: "Cal. Health & Safety Code § 25189 / 40 CFR § 763 (Asbestos Abatement)",
+                verification_level: "CIVIL_ENGINEERING_PLAN",
+                verification_badge: "HBNC GRADING PLAN",
+                evidence_source: "City of Huntington Beach Precise Grading Plan PW#_2; OCHCA & OCWD Well Records (714) 433-6287",
+                audit_finding: "Site contains an undestroyed abandoned water well 400ft N of Newman Ave / 25ft W of Cameron St, mandatory lead and asbestos abatement conditions, and restricted office trailers operated by Mercy House (Austin R. Drissen)."
+            },
+            {
+                fact_id: "FACT-009",
+                statutory_target: "Federal Interstate Narcotics & Evidence Trail",
+                verified_exposure: "18 U.S.C. § 1952 (ITAR) / 21 U.S.C. § 841 / 28 U.S.C. § 1746",
+                verification_level: "FEDERAL_CRIMINAL_AFFIDAVIT",
+                verification_badge: "FBI AFFIDAVIT / EWING PD",
+                evidence_source: "USDC D.N.J. Case 3:20-mj-05007-TJB Doc 1; Ewing PD Chain of Custody Case I-2019-001222",
+                audit_finding: "FBI Special Agent Bradley H. Zartman criminal affidavit and Ewing PD Chain of Custody Item 044.01 (Officers Ranker & Giovacchini) documenting postal funds and controlled delivery operations."
+            },
+            {
+                fact_id: "FACT-010",
+                statutory_target: "Anaheim Angel Stadium $320M Land Sale Wire Fraud",
+                verified_exposure: "$320,000,000 Nominal / $1,000,000 Quid Pro Quo",
+                statutory_hook: "18 U.S.C. § 1343 (Wire Fraud) / 18 U.S.C. § 1519 (Obstruction) / 18 U.S.C. § 1001",
+                verification_level: "FEDERAL_CRIMINAL_PLEA",
+                verification_badge: "USA v. SIDHU (8:23-CR-00108)",
+                evidence_source: "USDC CDCA Case 8:23-cr-00108-CJC; FBI SA Brian Adkins Search Warrant Affidavit (8:22-mj-00185)",
+                audit_finding: "Mayor Harry Sidhu pled guilty to wire fraud, obstruction, and false statements for leaking confidential appraisals and negotiation strategies to Angels representatives in expectation of a $1M campaign contribution."
+            },
+            {
+                fact_id: "FACT-011",
+                statutory_target: "California Surplus Land Act Statutory Penalty",
+                verified_exposure: "$96,000,000 (30% Mandatory Fine)",
+                statutory_hook: "Cal. Gov. Code § 54220 et seq. / Cal. Gov. Code § 54230.5",
+                verification_level: "STATE_REGULATORY_VIOLATION",
+                verification_badge: "HCD ENFORCEMENT ORDER",
+                evidence_source: "California HCD Notice of Violation (Dec 8, 2021); City of Anaheim Resolution No. 2022-064",
+                audit_finding: "California HCD found Anaheim violated the Surplus Land Act by failing to notice affordable housing sponsors prior to negotiating with SRB Management Co. LLC; Anaheim City Council enacted Resolution 2022-064 unanimously voiding the sale."
+            }
+        ];
+
+        function initSyncfusionApp() {
+            try {
+                gridInstance = new ej.grids.Grid({
+                    dataSource: vsdeData,
+                    allowPaging: true,
+                    pageSettings: { pageSize: 10, pageSizes: [5, 10, 20, 50] },
+                    allowSorting: true,
+                    allowFiltering: true,
+                    filterSettings: { type: 'Menu' },
+                    allowGrouping: true,
+                    allowResizing: true,
+                    allowPdfExport: true,
+                    allowExcelExport: true,
+                    toolbar: ['Search', 'ExcelExport', 'PdfExport', 'Print'],
+                    columns: getVsdeColumns()
+                });
+                gridInstance.appendTo('#MainGrid');
+
+                // Charts
+                initCharts();
+            } catch (err) {
+                console.error("Syncfusion Grid Init Error:", err);
+            }
+        }
+
+        function getVsdeColumns() {
+            return [
+                { field: 'benefit_name', headerText: 'Benefit / Asset Name', width: 220, textAlign: 'Left' },
+                { field: 'category', headerText: 'Category', width: 160, textAlign: 'Left' },
+                { field: 'value_usd', headerText: 'Market Value', width: 140, textAlign: 'Right' },
+                { 
+                    field: 'status', 
+                    headerText: 'Status', 
+                    width: 160, 
+                    textAlign: 'Center',
+                    template: function(data) {
+                        const cls = data.status.includes('CLAIMED') ? 'status-claimed' : (data.status.includes('VERIFIED') ? 'status-verified' : 'status-violation');
+                        return `<span class="status-badge ${cls}"><i class="fa-solid fa-check"></i> ${data.status}</span>`;
+                    }
+                },
+                { field: 'license_key', headerText: 'Key / Subscription Reference', width: 240, textAlign: 'Left' },
+                { field: 'description', headerText: 'Included Capabilities & Impact', width: 340, textAlign: 'Left' }
+            ];
+        }
+
+        function getForensicColumns() {
+            return [
+                { field: 'fact_id', headerText: 'Fact ID', width: 100, textAlign: 'Center' },
+                { field: 'statutory_target', headerText: 'Target Matter', width: 220, textAlign: 'Left' },
+                { field: 'verified_exposure', headerText: 'Exposure ($)', width: 140, textAlign: 'Right' },
+                { 
+                    field: 'verification_badge', 
+                    headerText: 'Verification Status', 
+                    width: 190, 
+                    textAlign: 'Center',
+                    template: function(data) {
+                        let cls = 'status-verified';
+                        if (data.verification_level === 'CRIMINAL_GUILTY_PLEA') cls = 'status-plea';
+                        else if (data.verification_level.includes('EXPOSURE')) cls = 'status-violation';
+                        return `<span class="status-badge ${cls}">${data.verification_badge}</span>`;
+                    }
+                },
+                { field: 'statutory_hook', headerText: 'Governing Statute', width: 220, textAlign: 'Left' },
+                { field: 'audit_finding', headerText: 'Audited Forensic Finding', width: 320, textAlign: 'Left' }
+            ];
+        }
+
+        function switchView(view) {
+            currentMode = view;
+            const btnVsde = document.getElementById('btnVsde');
+            const btnForensic = document.getElementById('btnForensic');
+            const gridTitle = document.getElementById('gridTitle');
+
+            if (view === 'vsde') {
+                btnVsde.classList.add('active');
+                btnForensic.classList.remove('active');
+                gridTitle.innerText = 'VSDE “Steroids” Benefits & Software Matrix';
+                gridInstance.columns = getVsdeColumns();
+                gridInstance.dataSource = vsdeData;
+            } else {
+                btnForensic.classList.add('active');
+                btnVsde.classList.remove('active');
+                gridTitle.innerText = 'Anaheim / Stadium Forensic Ledger & Fraud Matrix';
+                gridInstance.columns = getForensicColumns();
+                gridInstance.dataSource = forensicData;
+            }
+            gridInstance.refresh();
+        }
+
+        function initCharts() {
+            new ej.charts.Chart({
+                primaryXAxis: { valueType: 'Category', majorGridLines: { width: 0 } },
+                primaryYAxis: { title: '$ Millions USD', lineStyle: { width: 0 } },
+                series: [{
+                    type: 'Column',
+                    dataSource: [
+                        { pillar: 'Stadium Land Deal', val: 320, color: '#f43f5e' },
+                        { pillar: 'Phantom Credits', val: 170, color: '#fb7185' },
+                        { pillar: 'Cash Discounted', val: 150, color: '#f59e0b' },
+                        { pillar: 'HCD SLA Penalty', val: 96, color: '#e11d48' },
+                        { pillar: 'Qui Tam Relator Bounty', val: 96, color: '#38bdf8' },
+                        { pillar: 'Total Recovery Ceiling', val: 196.3, color: '#10b981' }
+                    ],
+                    xName: 'pillar', yName: 'val',
+                    fill: '#38bdf8',
+                    cornerRadius: { topLeft: 6, topRight: 6 },
+                    pointColorMapping: 'color'
+                }],
+                tooltip: { enable: true },
+                legendSettings: { visible: false }
+            }).appendTo('#ValuationChart');
+
+            new ej.charts.Chart({
+                primaryXAxis: { valueType: 'Category', majorGridLines: { width: 0 } },
+                primaryYAxis: { title: 'Impact Velocity (1-100)', minimum: 0, maximum: 100 },
+                series: [{
+                    type: 'SplineArea',
+                    dataSource: [
+                        { step: 'May 16 (FBI Pause)', score: 40 },
+                        { step: 'May 20 (Grand Jury)', score: 65 },
+                        { step: 'May 23 (Sidhu Resigns)', score: 80 },
+                        { step: 'May 23 10:16 PM (Whistleblower)', score: 98 },
+                        { step: 'May 24 (7-0 Unanimous Kill)', score: 100 }
+                    ],
+                    xName: 'step', yName: 'score',
+                    fill: 'rgba(16, 185, 129, 0.25)',
+                    border: { width: 3, color: '#10b981' },
+                    marker: { visible: true, width: 8, height: 8, fill: '#10b981' }
+                }],
+                tooltip: { enable: true },
+                legendSettings: { visible: false }
+            }).appendTo('#TimelineChart');
+        }
+
+        function exportGridPDF() {
+            if (gridInstance) {
+                gridInstance.pdfExport({
+                    fileName: "OSINTNeoAi_Syncfusion_Matrix.pdf",
+                    pageOrientation: 'Landscape'
+                });
+            }
+        }
+
+        function exportGridExcel() {
+            if (gridInstance) {
+                gridInstance.excelExport({
+                    fileName: "OSINTNeoAi_Syncfusion_Matrix.xlsx"
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initSyncfusionApp);
+    </script>
+</body>
+</html>
