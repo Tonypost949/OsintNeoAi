@@ -1,0 +1,187 @@
+{
+  "source_url": "https://researchhelp.post.edu/az.php",
+  "proxy_prefix": "https://postu.idm.oclc.org/login?auth=prodbb&url=",
+  "access_note": "Must access via Blackboard SSO tab https://post.blackboard.com/webapps/portal/execute/tabs/tabAction?tab_tab_group_id=_710_1 -> Traurig Library -> A-Z List to get authenticated proxy. Direct researchhelp links without postu.idm.oclc.org will fail off-campus.",
+  "featured": [
+    {
+      "name": "Eagles E-Search (EBSCOhost Discovery)",
+      "url": "https://postu.idm.oclc.org/login?auth=prodbb&url=https://research.ebsco.com/c/ickcqy",
+      "vendor": "EBSCOhost",
+      "purpose": "Federated search across all 45 EBSCOhost DBs + Research Starters + librarian content",
+      "when_to_use": "First stop for any topic - meta-search before drilling into specific DB"
+    },
+    {
+      "name": "ProQuest Central Premium",
+      "url": "https://postu.idm.oclc.org/login?auth=prodbb&url=https://search.proquest.com/index?accountid=39363",
+      "vendor": "ProQuest",
+      "purpose": "World's largest dissertation/thesis + 3 centuries newspapers + 450k ebooks + scholarly journals",
+      "when_to_use": "Historical, newspapers, dissertations, interdisciplinary"
+    },
+    {
+      "name": "Nexis+ AI Search Chat (LexisNexis AI)",
+      "url": "https://postu.idm.oclc.org/login?auth=prodbb&url=https://nexis.lexisnexis.com/aisearch/chat/819adcf0-2b9a-4c84-8501-3b789be09ca9",
+      "direct_url": "https://nexis.lexisnexis.com/aisearch/chat/819adcf0-2b9a-4c84-8501-3b789be09ca9",
+      "vendor": "LexisNexis",
+      "purpose": "Conversational AI over Nexis legal/news/company content - draft memos, summarize, natural language queries",
+      "when_to_use": "When user wants AI to do the research, not just search. Use alongside classic Nexis Uni (advance.lexis.com) for AI-synthesized answers."
+    },
+    {
+      "name": "EBSCOhost Discovery - Eagles E-Search (isEbscoSignIn=true)",
+      "url": "https://research-ebsco-com.postu.idm.oclc.org/c/ickcqy/search?isEbscoSignIn=true",
+      "direct_url": "https://research-ebsco-com.postu.idm.oclc.org/c/ickcqy/search?isEbscoSignIn=true",
+      "vendor": "EBSCOhost",
+      "purpose": "Federated SSO search - use isEbscoSignIn=true for authenticated session",
+      "when_to_use": "Primary search entry"
+    }
+  ],
+  "trial_new": [
+    {
+      "name": "Academic Search Ultimate",
+      "url": "https://postu.idm.oclc.org/login?auth=prodbb&url=https://research.ebsco.com/c/tobdjc?db=asn",
+      "vendor": "EBSCOhost",
+      "stats": "10,099 active full-text journals"
+    },
+    {
+      "name": "Mathematics Source",
+      "url": "https://postu.idm.oclc.org/login?auth=prodbb&url=https://research.ebsco.com/c/tobdjc?db=msf",
+      "vendor": "EBSCOhost",
+      "stats": "816 full-text journals"
+    },
+    {
+      "name": "ProQuest Dissertations & Theses Global",
+      "url": "https://www.proquest.com/pqdtglobal/dissertations/fromDatabasesLayer?accountid=39363",
+      "vendor": "ProQuest",
+      "stats": "6M records, 70 countries"
+    },
+    {
+      "name": "ProQuest One Business",
+      "url": "https://www.proquest.com/pq1business/business/fromDatabasesLayer?accountid=39363",
+      "vendor": "ProQuest",
+      "purpose": "Business: periodicals + newspapers + market reports + dissertations + books + videos"
+    }
+  ],
+  "filters": {
+    "subjects": [
+      "Accounting (18)",
+      "Applied Mathematics and Data Science (21)",
+      "Arts (16)",
+      "Biology (20)",
+      "Business Administration (34)",
+      "Career Resources (17)",
+      "Child Studies (25)",
+      "Communication and Media Studies (21)",
+      "Computer Information Systems (17)",
+      "Criminal Justice (19)",
+      "DBA (22)",
+      "Early Childhood Education (25)",
+      "Ebooks (12)",
+      "Education (26)",
+      "Emergency Management (17)",
+      "Equine Studies (22)",
+      "Finance (23)",
+      "Gaming (21)",
+      "Higher Education (22)",
+      "History (22)",
+      "HR Management (24)",
+      "Human Services (23)",
+      "Legal Studies (24)",
+      "Management (27)",
+      "Marketing (24)",
+      "Newspapers (12)",
+      "Nursing (30)",
+      "Psychology (26)",
+      "Science (30)",
+      "Sociology (22)",
+      "Sport Management (23)"
+    ],
+    "types": [
+      "Articles (53)",
+      "Books (24)",
+      "Business Reports- Tax, Company & Industry (15)",
+      "Cases (4)",
+      "Citation Guide - APA Style (1)",
+      "Language Learning (1)",
+      "Primary Documents (3)",
+      "Reference (13)",
+      "Videos & Film (10)"
+    ],
+    "vendors": [
+      "EBSCOhost (45)",
+      "ProQuest (11)",
+      "AtoZ (7)",
+      "Mergent (3)",
+      "Gale (1)",
+      "LexisNexis (1)",
+      "Bloomberg BNA (1)",
+      "Infobase (2)",
+      "Sage (1)",
+      "APA (1)"
+    ]
+  },
+  "investigative_pillars": [
+    {
+      "pillar": "Legal & Court Dockets",
+      "dbs": [
+        "LexisNexis Nexis Uni (1)",
+        "HeinOnline",
+        "ProQuest Criminal Justice"
+      ],
+      "use": "Caselaw, dockets, Cal. Pub. Util. Code §851, CEQA"
+    },
+    {
+      "pillar": "Corporate & Entity Intel",
+      "dbs": [
+        "Mergent (3)",
+        "ABI/INFORM",
+        "Business Source Complete"
+      ],
+      "use": "SEC 10-K, D&B, officer trees"
+    },
+    {
+      "pillar": "Healthcare & Hospice",
+      "dbs": [
+        "CINAHL Complete",
+        "PubMed/MEDLINE",
+        "ProQuest Health"
+      ],
+      "use": "Medicare per-diem, polypharmacy"
+    },
+    {
+      "pillar": "News & Archival",
+      "dbs": [
+        "ProQuest Historical Newspapers",
+        "Regional Business News"
+      ],
+      "use": "Orange County development, Ascon"
+    },
+    {
+      "pillar": "Statistical/Macro",
+      "dbs": [
+        "Statista",
+        "Academic Search Ultimate",
+        "JSTOR"
+      ],
+      "use": "Fraud recovery stats, PPP/ARPA"
+    }
+  ],
+  "search_syntax": {
+    "exact_phrase": "\"Southern California Edison\" AND \"Magnolia\"",
+    "proximity_ebsco": "hospice N5 \"billing fraud\"",
+    "proximity_proquest": "\"unclaimed property\" NEAR/3 trust",
+    "wildcard": "structur*",
+    "field": "AU(\"Author\") OR TI(\"Title\")"
+  },
+  "key_bookmark_links": [
+    "https://researchhelp.post.edu/az.php",
+    "https://researchhelp.post.edu/",
+    "https://post.blackboard.com/webapps/portal/execute/tabs/tabAction?tab_tab_group_id=_710_1",
+    "https://post.blackboard.com/ultra/institution-page",
+    "https://post.edu/student-services/library/apa-style-guides-student-resources-and-instructor-forms/",
+    "https://advance.lexis.com/bisnexishome/?pdmfid=1519360&crid=f99b3ecb-6312-4976-a9bc-a878a507ec7f",
+    "https://research-ebsco-com.postu.idm.oclc.org/c/ickcqy/search/results?q=Orange+County+CA+ARTESIAN",
+    "https://nexis.lexisnexis.com/aisearch/chat/819adcf0-2b9a-4c84-8501-3b789be09ca9",
+    "https://research-ebsco-com.postu.idm.oclc.org/c/ickcqy/search?isEbscoSignIn=true"
+  ],
+  "updated_v2": "2026-08-26T16:10:44.884049+00:00",
+  "updated_v3": "2026-08-27T07:55:06.899894+00:00"
+}
