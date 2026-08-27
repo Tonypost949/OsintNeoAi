@@ -56,3 +56,6 @@ python OSINTNeoAiCLI_v2.py
 python agent/google_tasks_manager.py list-lists
 python agent/google_tasks_manager.py create-list "6-VSDE Steroids Benefits"
 ```
+
+## Deploy Fix 2026-08-27 08:42 UTC - Trigger Azure Redeploy
+
