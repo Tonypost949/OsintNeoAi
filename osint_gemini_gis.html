@@ -111,7 +111,8 @@ document.getElementById('prompt').addEventListener('keydown',function(e){if(e.ke
 
 // MAP
 const map=L.map('map',{zoomControl:false,attributionControl:false}).setView([33.69,-118.0],14);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:19}).addTo(map);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {maxZoom:16, attribution:'Tiles &copy; Esri'}).addTo(map);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {maxZoom:16}).addTo(map);
 L.control.zoom({position:'bottomright'}).addTo(map);
 
 // TOXIC (red glow)

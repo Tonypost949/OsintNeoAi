@@ -68,7 +68,8 @@
   <script>
     const map = L.map('map', { zoomControl: true }).setView([33.73, -117.995], 12);
     
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri',
       attribution: '&copy; CARTO &copy; OpenStreetMap',
       maxZoom: 19,
       subdomains: 'abcd'

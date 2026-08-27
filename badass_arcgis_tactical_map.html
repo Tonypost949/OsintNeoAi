@@ -1649,7 +1649,8 @@
 
         // Basemap Layers
         const basemaps = {
-            dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }),
+            dark: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri', maxZoom: 19 }),
             satellite: L.esri.basemapLayer('ImageryClarity'),
             satelliteLabels: L.esri.basemapLayer('ImageryLabels'),
             streets: L.esri.basemapLayer('DarkGray')

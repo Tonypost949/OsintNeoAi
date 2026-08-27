@@ -78,7 +78,8 @@ function toggle(key){
 
 // === MAP ===
 const map = L.map('map', {zoomControl:false, attributionControl:false}).setView([33.7064036, -117.9881801], 17);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {maxZoom:20}).addTo(map);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {maxZoom:16, attribution:'Tiles &copy; Esri'}).addTo(map);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {maxZoom:16}).addTo(map);
 L.control.zoom({position:'bottomleft'}).addTo(map);
 
 // === ICONS ===
