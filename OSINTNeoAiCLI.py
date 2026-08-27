@@ -1086,6 +1086,43 @@ def local_system_map_route():
                 return f.read()
         return "<h3>Local system map template not found</h3>", 404
 
+@app.route("/dashboard")
+@app.route("/data-app")
+@app.route("/analytics")
+def data_app_dashboard():
+    p = os.path.join(ROOT_DIR, "data_apps", "dashboard.html")
+    if os.path.exists(p):
+        with open(p, "r", encoding="utf-8") as f:
+            return f.read()
+    return "<h3>Data application dashboard template not found</h3>", 404
+
+@app.route("/api/data/kpis")
+def api_data_kpis():
+    try:
+        sys.path.insert(0, ROOT_DIR)
+        from data_apps.data_service import get_kpis
+        return jsonify(get_kpis())
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/data/timeline")
+def api_data_timeline():
+    try:
+        sys.path.insert(0, ROOT_DIR)
+        from data_apps.data_service import get_timeline_data
+        return jsonify(get_timeline_data())
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/data/states")
+def api_data_states():
+    try:
+        sys.path.insert(0, ROOT_DIR)
+        from data_apps.data_service import get_state_disparity_data
+        return jsonify(get_state_disparity_data())
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 @app.route("/api/system")
 def api_system():
     try:
