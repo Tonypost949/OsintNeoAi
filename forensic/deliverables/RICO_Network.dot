@@ -1,0 +1,56 @@
+digraph RICONetwork {
+    rankdir=TB;
+    node [shape=box, style=filled, fontname="Helvetica", fontsize=10];
+    edge [fontname="Helvetica", fontsize=9, color="#555555"];
+
+    // Enterprise Hubs
+    node [fillcolor="#d32f2f", fontcolor="white"];
+    RICO001 [label="RICO-001\nMunicipal Enterprise Hub\n(Anaheim/Irvine/HB)"];
+    RICO002 [label="RICO-002\nJudicial Default Engine\n(OC CJC)"];
+    RICO003 [label="RICO-003\nGrant Fraud & Shell Conduit\n(1601 Dove St)"];
+    RICO004 [label="RICO-004\nPolitical & Logistics Conduit\n(Quantum Auto/NJ)"];
+    RICO005 [label="RICO-005\nEnvironmental Concealment\n(HB Nav Center)"];
+
+    // Persons & Officials
+    node [fillcolor="#f57c00", fontcolor="white"];
+    PER001 [label="PER-001: Harry Sidhu\n(Wire Fraud 8:23-cr-00108)"];
+    PER002 [label="PER-002: Todd Ament\n(Tax/Wire Fraud 8:22-cr-00078)"];
+    PER003 [label="PER-003: Melahat Rafiei\n(Bribery Conduit 8:23-cr-00009)"];
+    PER004 [label="PER-004: Jeffrey Flint\n(Cabal Strategist)"];
+
+    // Contractors & Nonprofits
+    node [fillcolor="#1976d2", fontcolor="white"];
+    PER005 [label="PER-005: Arden Hoang, Esq.\n(WRSL Eviction Mill)"];
+    PER007 [label="PER-007: Austin Drissen\n(Mercy House Ops)"];
+    PER010 [label="PER-010: Robert Greenglass\n(HOMI Non-Profit)"];
+
+    // Evidence
+    node [fillcolor="#455a64", fontcolor="white", shape=note];
+    EV001 [label="EV-001: HCD $96M Fine & Res 2022-064"];
+    EV002 [label="EV-002: Triple Void Defaults (CJC)"];
+    EV003 [label="EV-003: Quantum Auto Inv #14098"];
+    EV004 [label="EV-004: Cameron Ln Hazmat Reports"];
+    EV005 [label="EV-005: $1.2M 8 Lakeview Deed"];
+
+    // Connections
+    RICO001 -> PER001 [label="Leader"];
+    RICO001 -> PER002 [label="Operator"];
+    RICO001 -> PER004 [label="Strategist"];
+    PER001 -> EV001 [label="Guilty Plea"];
+
+    RICO001 -> RICO002 [label="Enforcement"];
+    RICO002 -> PER005 [label="Attorney"];
+    PER005 -> EV002 [label="Default Filings"];
+
+    RICO001 -> RICO003 [label="Finance"];
+    RICO003 -> PER010 [label="Nonprofit Real Estate"];
+    PER010 -> EV005 [label="Equity Extraction"];
+
+    RICO001 -> RICO004 [label="Conduit"];
+    RICO004 -> PER003 [label="Bribery Channel"];
+    RICO004 -> EV003 [label="Interstate Fleet"];
+
+    RICO001 -> RICO005 [label="Shelter Ops"];
+    RICO005 -> PER007 [label="Operations"];
+    RICO005 -> EV004 [label="Toxic Well Concealment"];
+}

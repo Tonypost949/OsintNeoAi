@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bgGrad)" />
+  <text x="600" y="45" fill="#f8fafc" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle">RICO ENTERPRISE TOPOLOGY &amp; EVIDENCE CORRELATION</text>
+  <text x="600" y="70" fill="#94a3b8" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">OSINT Neo AI Forensic Investigation Engine — 5 Operational Hubs</text>
+
+  <!-- Connectors -->
+  <g stroke="#64748b" stroke-width="2" opacity="0.6">
+    <line x1="600" y1="180" x2="200" y2="340" />
+    <line x1="600" y1="180" x2="400" y2="340" />
+    <line x1="600" y1="180" x2="600" y2="340" />
+    <line x1="600" y1="180" x2="800" y2="340" />
+    <line x1="600" y1="180" x2="1000" y2="340" />
+
+    <line x1="200" y1="410" x2="200" y2="520" />
+    <line x1="400" y1="410" x2="400" y2="520" />
+    <line x1="600" y1="410" x2="600" y2="520" />
+    <line x1="800" y1="410" x2="800" y2="520" />
+    <line x1="1000" y1="410" x2="1000" y2="520" />
+
+    <line x1="200" y1="590" x2="200" y2="670" />
+    <line x1="400" y1="590" x2="400" y2="670" />
+    <line x1="600" y1="590" x2="600" y2="670" />
+    <line x1="800" y1="590" x2="800" y2="670" />
+    <line x1="1000" y1="590" x2="1000" y2="670" />
+  </g>
+
+  <!-- Central Hub RICO-001 -->
+  <g filter="url(#shadow)">
+    <rect x="440" y="110" width="320" height="70" rx="10" fill="#dc2626" stroke="#f87171" stroke-width="2" />
+    <text x="600" y="138" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">RICO-001: MUNICIPAL ENTERPRISE HUB</text>
+    <text x="600" y="160" fill="#fecaca" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Anaheim / Irvine / HB Network &amp; Cabal</text>
+  </g>
+
+  <!-- Level 2: Hubs RICO 002-005 -->
+  <g filter="url(#shadow)">
+    <!-- RICO-002 -->
+    <rect x="110" y="340" width="180" height="70" rx="8" fill="#ea580c" stroke="#fb923c" stroke-width="2"/>
+    <text x="200" y="368" fill="#ffffff" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">RICO-002: JUDICIAL</text>
+    <text x="200" y="388" fill="#ffedd5" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Default Engine (CJC)</text>
+
+    <!-- RICO-003 -->
+    <rect x="310" y="340" width="180" height="70" rx="8" fill="#7c3aed" stroke="#a78bfa" stroke-width="2"/>
+    <text x="400" y="368" fill="#ffffff" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">RICO-003: NONPROFIT</text>
+    <text x="400" y="388" fill="#ede9fe" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">1601 Dove St Shell Hub</text>
+
+    <!-- Core Lead PER-001/PER-004 -->
+    <rect x="510" y="340" width="180" height="70" rx="8" fill="#b91c1c" stroke="#f87171" stroke-width="2"/>
+    <text x="600" y="368" fill="#ffffff" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">CABAL LEADERSHIP</text>
+    <text x="600" y="388" fill="#fee2e2" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Sidhu / Ament / Flint</text>
+
+    <!-- RICO-004 -->
+    <rect x="710" y="340" width="180" height="70" rx="8" fill="#0284c7" stroke="#38bdf8" stroke-width="2"/>
+    <text x="800" y="368" fill="#ffffff" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">RICO-004: CONDUITS</text>
+    <text x="800" y="388" fill="#e0f2fe" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Bribery / Quantum Fleet</text>
+
+    <!-- RICO-005 -->
+    <rect x="910" y="340" width="180" height="70" rx="8" fill="#059669" stroke="#34d399" stroke-width="2"/>
+    <text x="1000" y="368" fill="#ffffff" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">RICO-005: HAZMAT</text>
+    <text x="1000" y="388" fill="#d1fae5" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">HB Navigation Center</text>
+  </g>
+
+  <!-- Level 3: Operators & Contractors -->
+  <g filter="url(#shadow)">
+    <rect x="110" y="520" width="180" height="70" rx="8" fill="#334155" stroke="#64748b" stroke-width="2"/>
+    <text x="200" y="548" fill="#f8fafc" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Arden Hoang, Esq.</text>
+    <text x="200" y="568" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">WRSL LLP Eviction Mill</text>
+
+    <rect x="310" y="520" width="180" height="70" rx="8" fill="#334155" stroke="#64748b" stroke-width="2"/>
+    <text x="400" y="548" fill="#f8fafc" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">HOMI / Greenglass</text>
+    <text x="400" y="568" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">8 Lakeview $1.2M Flip</text>
+
+    <rect x="510" y="520" width="180" height="70" rx="8" fill="#334155" stroke="#64748b" stroke-width="2"/>
+    <text x="600" y="548" fill="#f8fafc" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Harry Sidhu / Ament</text>
+    <text x="600" y="568" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">Federal Wire Fraud Pleas</text>
+
+    <rect x="710" y="520" width="180" height="70" rx="8" fill="#334155" stroke="#64748b" stroke-width="2"/>
+    <text x="800" y="548" fill="#f8fafc" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Melahat Rafiei / FPS</text>
+    <text x="800" y="568" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">Cannabis &amp; Political Bribes</text>
+
+    <rect x="910" y="520" width="180" height="70" rx="8" fill="#334155" stroke="#64748b" stroke-width="2"/>
+    <text x="1000" y="548" fill="#f8fafc" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Austin Drissen / Mercy</text>
+    <text x="1000" y="568" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">Cameron Ln Shelter Ops</text>
+  </g>
+
+  <!-- Level 4: Evidentiary Anchors -->
+  <g filter="url(#shadow)">
+    <rect x="110" y="670" width="180" height="60" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <text x="200" y="695" fill="#60a5fa" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">EV-002: Case #1201327</text>
+    <text x="200" y="715" fill="#94a3b8" font-family="Arial, sans-serif" font-size="9" text-anchor="middle">Triple Void Default Judgments</text>
+
+    <rect x="310" y="670" width="180" height="60" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <text x="400" y="695" fill="#60a5fa" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">EV-005: 8 Lakeview Deed</text>
+    <text x="400" y="715" fill="#94a3b8" font-family="Arial, sans-serif" font-size="9" text-anchor="middle">IRS 990 Tax Inurement Records</text>
+
+    <rect x="510" y="670" width="180" height="60" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <text x="600" y="695" fill="#60a5fa" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">EV-001: HCD $96M Notice</text>
+    <text x="600" y="715" fill="#94a3b8" font-family="Arial, sans-serif" font-size="9" text-anchor="middle">Res. 2022-064 Voided Land Sale</text>
+
+    <rect x="710" y="670" width="180" height="60" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <text x="800" y="695" fill="#60a5fa" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">EV-003: Invoice #14098</text>
+    <text x="800" y="715" fill="#94a3b8" font-family="Arial, sans-serif" font-size="9" text-anchor="middle">Quantum Auto / NJ Fleet Conduit</text>
+
+    <rect x="910" y="670" width="180" height="60" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <text x="1000" y="695" fill="#60a5fa" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">EV-004: Hazmat &amp; Well Audit</text>
+    <text x="1000" y="715" fill="#94a3b8" font-family="Arial, sans-serif" font-size="9" text-anchor="middle">OCHCA 17631 Cameron Ln</text>
+  </g>
+</svg>

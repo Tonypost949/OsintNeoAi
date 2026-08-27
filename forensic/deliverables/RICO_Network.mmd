@@ -1,0 +1,56 @@
+graph TD
+    classDef hub fill:#d32f2f,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef official fill:#f57c00,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef shell fill:#7b1fa2,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef nonprofit fill:#1976d2,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef contractor fill:#388e3c,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef agency fill:#0097a7,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef evidence fill:#455a64,stroke:#fff,stroke-width:1px,color:#fff;
+
+    RICO001["RICO-001: Municipal Enterprise Hub<br/>(Anaheim / Irvine / HB)"]:::hub
+    RICO002["RICO-002: Judicial Default Engine<br/>(OC Superior Court CJC)"]:::hub
+    RICO003["RICO-003: Grant Fraud & Shell Conduit<br/>(1601 Dove St Hub)"]:::hub
+    RICO004["RICO-004: Political & Logistics Conduit<br/>(Quantum Auto / NJ / FL)"]:::hub
+    RICO005["RICO-005: Environmental Concealment<br/>(HB Navigation Center)"]:::hub
+
+    PER001["PER-001: Harry Sidhu<br/>(Wire Fraud 8:23-cr-00108)"]:::official
+    PER002["PER-002: Todd Ament<br/>(Tax / Wire Fraud 8:22-cr-00078)"]:::official
+    PER003["PER-003: Melahat Rafiei<br/>(Bribery Conduit 8:23-cr-00009)"]:::official
+    PER004["PER-004: Jeffrey Flint<br/>(Cabal Strategist)"]:::official
+    PER005["PER-005: Arden Hoang, Esq.<br/>(Eviction Mill Attorney)"]:::contractor
+    PER007["PER-007: Austin Drissen<br/>(Mercy House Ops)"]:::nonprofit
+    PER010["PER-010: Robert Greenglass<br/>(HOMI Non-Profit Conduit)"]:::nonprofit
+
+    EV001["EV-001: HCD $96M Fine & Res. 2022-064"]:::evidence
+    EV002["EV-002: Triple Void Default Records (CJC)"]:::evidence
+    EV003["EV-003: Quantum Auto Inv #14098 (NJ Hub)"]:::evidence
+    EV004["EV-004: Cameron Ln Toxic Well Reports"]:::evidence
+    EV005["EV-005: $1.2M 8 Lakeview Deed & IRS 990"]:::evidence
+
+    GOV001["GOV-001: Orange County Superior Court CJC"]:::agency
+    GOV002["GOV-002: California HCD"]:::agency
+    GOV003["GOV-003: OCHCA / Environmental Health"]:::agency
+
+    RICO001 --> PER001
+    RICO001 --> PER002
+    RICO001 --> PER004
+    PER001 --> EV001
+    GOV002 --> EV001
+
+    RICO001 --> RICO002
+    RICO002 --> PER005
+    RICO002 --> GOV001
+    GOV001 --> EV002
+
+    RICO001 --> RICO003
+    RICO003 --> PER010
+    PER010 --> EV005
+
+    RICO001 --> RICO004
+    RICO004 --> PER003
+    RICO004 --> EV003
+
+    RICO001 --> RICO005
+    RICO005 --> PER007
+    RICO005 --> GOV003
+    GOV003 --> EV004
