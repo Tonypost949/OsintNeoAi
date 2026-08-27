@@ -1,5 +1,5 @@
 # Repo AI Instruction Addendum — POST Library + OSINT Bookmarks (v1)
-Generated: 2026-08-25T22:20:46.581148+00:00
+Generated: 2026-08-27T04:27:20.799235+00:00
 Source: C:\Users\Amd949609\Documents\POST82526favorites_8_25_26.html (hash 70dcd940d5b63c19)
 
 ## How the AI has LEARNED the links
