@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-26T12:12:50.984107Z",
-  "total": 49,
+  "updated_at": "2026-08-27T07:38:06.146764+00:00",
+  "total": 52,
   "tasks": [
     {
       "id": "TASK-VSDE-001",
@@ -697,6 +697,51 @@
         "Legal & Investigations"
       ],
       "action_url": "https://osintneoai-app-949.azurewebsites.net/counterfeit-rx"
+    },
+    {
+      "id": "TASK-050",
+      "title": "Deploy BigQuery Vector Search & Semantic Embedding Pipeline (text-embedding-005)",
+      "description": "Constructed Vertex AI remote embedding model and VECTOR_SEARCH cosine similarity retrieval pipeline over national_audits.drive_file_index and onedrive_forensics on noble-beanbag-497411-m4.",
+      "status": "DONE",
+      "priority": "CRITICAL",
+      "category": "Enterprise Systems",
+      "tags": [
+        "BigQuery",
+        "Vector Search",
+        "ML"
+      ],
+      "created_at": "2026-08-27T07:38:06.146735+00:00",
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/syncfusion"
+    },
+    {
+      "id": "TASK-051",
+      "title": "Deploy TimesFM 2.5 Time-Series Anomaly Detection for PPP & Real Estate Syndicates",
+      "description": "Constructed AI.DETECT_ANOMALIES pipeline using TimesFM 2.5 over forensic_layers.ppp_loans to detect outlier loan distributions and fraudulent capital velocities across APN clusters.",
+      "status": "DONE",
+      "priority": "CRITICAL",
+      "category": "Data Science & Graph",
+      "tags": [
+        "BigQuery",
+        "Anomaly Detection",
+        "TimesFM"
+      ],
+      "created_at": "2026-08-27T07:38:06.146752+00:00",
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/syncfusion"
+    },
+    {
+      "id": "TASK-052",
+      "title": "Deploy BigQuery Automated Evidence Classification & Entity Extraction (gemini-2.5-flash)",
+      "description": "Deployed AI.CLASSIFY multi-label statutory categorization and structured entity extraction over OC court dockets and discovery records on noble-beanbag-497411-m4.",
+      "status": "DONE",
+      "priority": "CRITICAL",
+      "category": "Legal & Investigations",
+      "tags": [
+        "BigQuery",
+        "AI.CLASSIFY",
+        "Gemini"
+      ],
+      "created_at": "2026-08-27T07:38:06.146757+00:00",
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/syncfusion"
     }
   ]
 }
