@@ -560,6 +560,26 @@
                 verification_badge: "FBI AFFIDAVIT / EWING PD",
                 evidence_source: "USDC D.N.J. Case 3:20-mj-05007-TJB Doc 1; Ewing PD Chain of Custody Case I-2019-001222",
                 audit_finding: "FBI Special Agent Bradley H. Zartman criminal affidavit and Ewing PD Chain of Custody Item 044.01 (Officers Ranker & Giovacchini) documenting postal funds and controlled delivery operations."
+            },
+            {
+                fact_id: "FACT-010",
+                statutory_target: "Anaheim Angel Stadium $320M Land Sale Wire Fraud",
+                verified_exposure: "$320,000,000 Nominal / $1,000,000 Quid Pro Quo",
+                statutory_hook: "18 U.S.C. § 1343 (Wire Fraud) / 18 U.S.C. § 1519 (Obstruction) / 18 U.S.C. § 1001",
+                verification_level: "FEDERAL_CRIMINAL_PLEA",
+                verification_badge: "USA v. SIDHU (8:23-CR-00108)",
+                evidence_source: "USDC CDCA Case 8:23-cr-00108-CJC; FBI SA Brian Adkins Search Warrant Affidavit (8:22-mj-00185)",
+                audit_finding: "Mayor Harry Sidhu pled guilty to wire fraud, obstruction, and false statements for leaking confidential appraisals and negotiation strategies to Angels representatives in expectation of a $1M campaign contribution."
+            },
+            {
+                fact_id: "FACT-011",
+                statutory_target: "California Surplus Land Act Statutory Penalty",
+                verified_exposure: "$96,000,000 (30% Mandatory Fine)",
+                statutory_hook: "Cal. Gov. Code § 54220 et seq. / Cal. Gov. Code § 54230.5",
+                verification_level: "STATE_REGULATORY_VIOLATION",
+                verification_badge: "HCD ENFORCEMENT ORDER",
+                evidence_source: "California HCD Notice of Violation (Dec 8, 2021); City of Anaheim Resolution No. 2022-064",
+                audit_finding: "California HCD found Anaheim violated the Surplus Land Act by failing to notice affordable housing sponsors prior to negotiating with SRB Management Co. LLC; Anaheim City Council enacted Resolution 2022-064 unanimously voiding the sale."
             }
         ];
 
