@@ -1,0 +1,76 @@
+6:16
+T@wigle.net.
+API access verification is performed
+using the HTTP "Authorization" header
+(not an auth_token parameter) and Basic
+authentication. Using the 'User" and
+"Key" below as username and password
+in Basic authentication, you will be able
+to access to the API without session-
+based authentication. Many libraries
+support Basic authentication, but you
+can either use the 'Encoded for Use"
+token directly below, or perform the
+operation manually by concatenating
+them as <api user>:<api key> and Base64
+encoding the result. The encoded string
+must be placed in the Authorization
+HTTP Header in a string reading Basic
+<encoded string>.
+You can test your credentials by placing
+the API Name and API Token into the
+username and password inputs
+(respectively) in the Basic Authentication
+dialog you can access by clicking the
+Authorize button in our interactive API
+documentation. To avoid confusion
+during testing, we recommend that you
+log out, or test in a private/incognito
+window to ensure that you're accessing
+the system with your token, rather than
+session-based authentication as a web
+user.
+Encoded
+for use:
+Your
+Header
+Authorization: Basic
+value
+should
+be:
+To test
+curl -i -H 'Accept:application/json' -u
+with
+AIDfefe5448f097eb8cc3f7b2c276e66502:d13ad19798f9445c40de5a6effef4e16 --basic
+curl:
+https://api.wigle.net/api/v2/profile/user
+API
+AIDfefe5448f097eb8cc3f7b2c276e66502
+API Token:
+Name:
+d13ad19798f9445c40de5a6effef4e16
+Tools
+Reset API Credentials
+SOCIAL
+WIKI
+TWITTER
+IRC
+SITE INFORMATION
+FAQ
+END-USER AGREEMENT
+PRIVACY
+OUR TODO LIST
+/DEV/RANDOM
+CAFEPRESS GEAR
+LINKS
+USER MANAGEMENT
+PASSWORD CHANGE
+NEWS
+FORUMS
+NEWS RSS
+STATS RSS
+suggestons,
+send an email to: WiGLE-admin[at/WiGLE.net (plea:
+include BSSID (MAC) in removal requests). We're also on IRC: at
+WiGLE.net:6667
+Copyright 2001-2023 bobzilla && arkasha && uhtu
