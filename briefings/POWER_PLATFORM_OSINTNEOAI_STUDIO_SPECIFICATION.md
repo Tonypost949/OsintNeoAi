@@ -235,18 +235,65 @@ $$\text{Risk Score} = \min\left(100, (\text{Predicate Acts} \times 25) + (\text{
 
 ---
 
-## 6. Seed Data: Canonical Court Matters & Scenarios
+---
 
-| Case ID | Docket Number | Case Caption & Court | Key Statutory Exposure |
-| :--- | :--- | :--- | :--- |
-| **`CASE-001`** | `8:23-cr-00108-CJC` | *USA v. Harry Sidhu* (USDC C.D. Cal.) | 18 U.S.C. §§ 1343, 1519, 1001 (54 Yrs Max, $320M Land Deal) |
-| **`CASE-002`** | `8:22-cr-00078-CJC` | *USA v. Todd Ament* (USDC C.D. Cal.) | 18 U.S.C. §§ 1343, 1014, 26 U.S.C. § 7206(1) ($225k Slush Wire Fraud) |
-| **`CASE-003`** | `3:20-mj-05007-TJB` | *USA v. Christopher Ryan* (USDC D.N.J.) | 21 U.S.C. §§ 841(a)(1), 841(b)(1)(A) (435g Meth Assay, DEA Northeast) |
-| **`CASE-004`** | `30-2021-01201327-CL-UD-CJC` | *Woodbridge Meadows v. Dimarcello* (OC Superior Court) | Triple Void Defaults, Cal. CCP § 170.6 Strike, Cal. Civ. Code § 1942.5 |
+## 6. AI Provenance Standard & Workspace Isolation Architecture
+
+### 6.1 Objective AI Reasoning Standard (Zero Subjective Bias)
+* **Algorithmic Provenance**: All factual claims, entity links, mathematical penalties, and graph edges are derived deterministically by AI models from primary source documents (court filings, certified police logs, official regulatory notices, bank records, and authenticated photographs).
+* **Source Transparency**: No finding represents personal opinion; each node explicitly references its underlying judicial docket number, issuing agency citation, or NIST SHA-256 evidence hash.
+* **Non-Legal Advice Notice**: All statutory models and qui tam recovery ranges are labeled as automated heuristic scenarios for analytical purposes.
+
+### 6.2 Modular Workspace Isolation & Investigation Modes
+
+```text
+┌────────────────────────────────────────────────────────────────────────────────┐
+│                          OSINTNEOAI STUDIO WORKSPACE MODES                      │
+├────────────────────────────────────────────────────────────────────────────────┤
+│ [MODE A] Benchmark Reference Investigation (DiMarcello / Anaheim Cabal)         │
+│   • Pre-seeded reference dataset demonstrating full-cycle pipeline capabilities │
+│   • Tagged with is_sample_data: true for clear segregation                      │
+├────────────────────────────────────────────────────────────────────────────────┤
+│ [MODE B] Clean-Slate Independent Investigation Workspace                        │
+│   • Spin up brand-new investigations with ZERO pre-existing author data         │
+│   • All forensic tools, OCR pipelines, schemas, and connectors at default state │
+├────────────────────────────────────────────────────────────────────────────────┤
+│ [MODE C] Fork / Continuation with Automated Author Telemetry                    │
+│   • External investigators can fork or build upon the reference investigation   │
+│   • Dispatches real-time telemetry alert & audit log to admin dashboard        │
+├────────────────────────────────────────────────────────────────────────────────┤
+│ [MODE D] Safe Data-Layer Purge (Tool & Workflow Preservation)                   │
+│   • One-click wipe of investigative data records without resetting tools        │
+│   • Preserves Dataverse schemas, Power Fx rules, connectors, and workflows      │
+└────────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### Detailed Mode Operations:
+1. **Mode A: Seeded Reference / Benchmark Investigation**:
+   - The DiMarcello / Anaheim Municipal Cabal / 11770 Warner matter serves as the packaged reference investigation.
+   - All sample records carry the system tag `cr_issampledata = true` to prevent co-mingling with new user investigations.
+2. **Mode B: Clean Slate Workspace**:
+   - An investigator can initialize a blank workspace. The entire pipeline (neural OCR, entity extraction, NIST SHA-256 verifiers, and Power Platform connectors) starts fresh with empty tables.
+3. **Mode C: Continuation & Telemetry Alerting**:
+   - If an external user clones or continues the reference investigation, a Power Automate flow triggers an automated event in `cr_auditevents` and sends a webhook/notification alert to the solution owner (`anthony.dimarcello@students.post.edu`).
+4. **Mode D: Safe Purge (Tool Retention)**:
+   - Provides a controlled administrative action: `Purge Investigation Data`.
+   - Clears record rows in `cr_cases`, `cr_evidence`, `cr_entities`, and `cr_relationships` while leaving all connectors, UI forms, Dataverse table definitions, and automation flows 100% operational.
 
 ---
 
-## 7. Step-by-Step Deployment Instructions
+## 7. Seed Data: Canonical Court Matters & Scenarios
+
+| Case ID | Docket Number | Case Caption & Court | Key Statutory Exposure | Sample Tag |
+| :--- | :--- | :--- | :--- | :---: |
+| **`CASE-001`** | `8:23-cr-00108-CJC` | *USA v. Harry Sidhu* (USDC C.D. Cal.) | 18 U.S.C. §§ 1343, 1519, 1001 (54 Yrs Max, $320M Land Deal) | `REFERENCE` |
+| **`CASE-002`** | `8:22-cr-00078-CJC` | *USA v. Todd Ament* (USDC C.D. Cal.) | 18 U.S.C. §§ 1343, 1014, 26 U.S.C. § 7206(1) ($225k Slush Wire Fraud) | `REFERENCE` |
+| **`CASE-003`** | `3:20-mj-05007-TJB` | *USA v. Christopher Ryan* (USDC D.N.J.) | 21 U.S.C. §§ 841(a)(1), 841(b)(1)(A) (435g Meth Assay, DEA Northeast) | `REFERENCE` |
+| **`CASE-004`** | `30-2021-01201327-CL-UD-CJC` | *Woodbridge Meadows v. Dimarcello* (OC Superior Court) | Triple Void Defaults, Cal. CCP § 170.6 Strike, Cal. Civ. Code § 1942.5 | `REFERENCE` |
+
+---
+
+## 8. Step-by-Step Deployment Instructions
 
 1. **Sign into Power Apps**:
    - Access **[make.powerapps.com](https://make.powerapps.com)** using `anthony.dimarcello@students.post.edu`.
@@ -254,7 +301,8 @@ $$\text{Risk Score} = \min\left(100, (\text{Predicate Acts} \times 25) + (\text{
    - Navigate to **Solutions** ➔ Click **New Solution** ➔ Display Name: `OsintNeoAi Studio` ➔ Publisher: `OsintNeoAi`.
 3. **Bind Connectors**:
    - Go to **Connections** ➔ Add **GitHub** (Authorize `Tonypost949`) ➔ Add **Azure DevOps** (Organization `anthonydimarcello`).
-4. **Generate / Import App**:
-   - Create Model-Driven App or Canvas Page with navigation mapped to the schemas above.
+4. **Configure Workspace Mode**:
+   - Select either **Seeded Reference Mode** (loads the 4 canonical cases) or **Clean Slate Mode** (empty workspace).
 5. **Publish & Assign Roles**:
    - Assign `OsintNeoAi Administrator` or `Lead Investigator` role to student profile.
+
