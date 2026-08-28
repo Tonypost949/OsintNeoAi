@@ -148,6 +148,8 @@ If(
 | Parameter | Configuration Value |
 | :--- | :--- |
 | **Solution Name** | `OsintNeoAiStudio` (Version `1.1.0.0`) |
+| **Application ID** | `aea4876c-1dbb-4e7c-8024-79443ffb7e40` |
+| **Live Player URL** | [Launch OsintNeoAi Studio App](https://apps.powerapps.com/play/e/584c706d-38a2-e52e-b6e3-24a809f10508/app/aea4876c-1dbb-4e7c-8024-79443ffb7e40?tenantId=dc2273e5-b77e-4b19-ae61-f4b69fb7609c) |
 | **Dataverse Publisher** | `OsintNeoAi` (`osintneoai`) |
 | **Environment Name** | `Anthony DiMarcello's Environment` |
 | **Environment ID** | `584c706d-38a2-e52e-b6e3-24a809f10508` |
@@ -158,4 +160,5 @@ If(
 | **Power Apps Player Version**| `3.26082.6` |
 | **GitHub Repository** | `Tonypost949/OsintNeoAi` (`https://github.com/Tonypost949/OsintNeoAi`) |
 | **Azure DevOps Organization**| `anthonydimarcello` (`https://dev.azure.com/anthonydimarcello/osintneoai`) |
+
 
