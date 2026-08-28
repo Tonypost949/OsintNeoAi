@@ -1,7 +1,7 @@
 # ⚖️ ACADEMIC & STATUTORY LEGAL AUDIT REPORT
 **Platform / Standard:** University (.edu) & Continuing Education of the Bar (CEB) Legal Analysis System  
 **Jurisdiction:** California Superior Court (County of Orange - Central Justice Center) & Federal Judicial Precedent  
-**Date of Assessment:** 2026-08-26 16:04:07  
+**Date of Assessment:** 2026-08-28 12:29:14  
 **Subject Case Docket:** `30-2021-01201327-CL-UD-CJC` (`Woodbridge Meadows Apartments LLC v. Anthony Dimarcello`)  
 **Target Entities:** Woodbridge Meadows Apartments LLC, Ruzicka, Wallace & Coughlin LLP (now Wallace, Richardson, Sontag & Le LLP), MHI Real Co / Helping Of Mentally Ill Experienc (HOMI), Mercy House Living Centers  
 
