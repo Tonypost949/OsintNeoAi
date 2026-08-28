@@ -143,10 +143,19 @@ If(
 
 ---
 
-## 5. Deployment & Solution Binding
+## 5. Deployment & Target Environment Metadata
 
-1. **Solution Name**: `OsintNeoAiStudio` (Version `1.1.0.0`)
-2. **Dataverse Publisher**: `OsintNeoAi`
-3. **GitHub Binding**: `Tonypost949/OsintNeoAi` (Referencing commit `fb97af5`)
-4. **Azure DevOps Binding**: `anthonydimarcello/osintneoai`
-5. **Primary User**: `anthony.dimarcello@students.post.edu` (Post University Tenant)
+| Parameter | Configuration Value |
+| :--- | :--- |
+| **Solution Name** | `OsintNeoAiStudio` (Version `1.1.0.0`) |
+| **Dataverse Publisher** | `OsintNeoAi` (`osintneoai`) |
+| **Environment Name** | `Anthony DiMarcello's Environment` |
+| **Environment ID** | `584c706d-38a2-e52e-b6e3-24a809f10508` |
+| **Tenant ID** | `dc2273e5-b77e-4b19-ae61-f4b69fb7609c` (`Post University,inc.`) |
+| **User Principal Object ID** | `c5674a1f-1717-40d6-93c1-85db367b64d5` |
+| **User Email** | `anthony.dimarcello@students.post.edu` |
+| **Cluster Environment** | `Prod` (Geo: `US`, URI Suffix: `us-il107.gateway.prod.island`) |
+| **Power Apps Player Version**| `3.26082.6` |
+| **GitHub Repository** | `Tonypost949/OsintNeoAi` (`https://github.com/Tonypost949/OsintNeoAi`) |
+| **Azure DevOps Organization**| `anthonydimarcello` (`https://dev.azure.com/anthonydimarcello/osintneoai`) |
+
