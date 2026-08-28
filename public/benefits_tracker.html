@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSINT Neo AI — Student Benefits Subscription Tracker</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0f;color:#e0e0e0;font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh}
+.header{background:linear-gradient(135deg,#0d1117 0%,#161b22 100%);border-bottom:1px solid #30363d;padding:20px 30px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.header h1{font-size:1.4em;color:#58a6ff}
+.header .stats{display:flex;gap:20px;font-size:.9em}
+.stat{padding:6px 14px;border-radius:20px;font-weight:600}
+.stat.done{background:#1b4332;color:#2dd4bf}
+.stat.progress{background:#3b2f00;color:#fbbf24}
+.stat.todo{background:#1c1917;color:#a8a29e}
+.stat.total{background:#1e1b4b;color:#a78bfa}
+.stat.value{background:#14532d;color:#4ade80;font-size:1.1em}
+.controls{padding:15px 30px;background:#0d1117;border-bottom:1px solid #1e2228;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.controls input{background:#161b22;border:1px solid #30363d;color:#e0e0e0;padding:8px 14px;border-radius:6px;width:300px;font-size:.9em}
+.controls select{background:#161b22;border:1px solid #30363d;color:#e0e0e0;padding:8px 10px;border-radius:6px;font-size:.9em}
+.controls button{padding:8px 16px;border-radius:6px;border:none;cursor:pointer;font-weight:600;font-size:.85em}
+.btn-claim{background:#238636;color:#fff}
+.btn-claim:hover{background:#2ea043}
+.btn-export{background:#1f6feb;color:#fff}
+.btn-export:hover{background:#388bfd}
+.btn-reset{background:#da3633;color:#fff}
+.grid{padding:15px 30px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.85em}
+th{background:#161b22;color:#8b949e;text-align:left;padding:10px 12px;border-bottom:2px solid #30363d;position:sticky;top:0;cursor:pointer;user-select:none;white-space:nowrap}
+th:hover{color:#58a6ff}
+td{padding:9px 12px;border-bottom:1px solid #1e2228;vertical-align:middle}
+tr:hover{background:#161b22}
+tr.done{opacity:.7}
+tr.done td:first-child{text-decoration:line-through}
+.badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78em;font-weight:600;white-space:nowrap}
+.badge-done{background:#1b4332;color:#2dd4bf}
+.badge-progress{background:#3b2f00;color:#fbbf24}
+.badge-todo{background:#1c1917;color:#a8a29e}
+.badge-skip{background:#27272a;color:#71717a}
+.priority-critical{color:#f87171;font-weight:700}
+.priority-high{color:#fbbf24;font-weight:600}
+.priority-medium{color:#60a5fa}
+.priority-low{color:#a8a29e}
+.source-vsde{border-left:3px solid #a78bfa}
+.source-github{border-left:3px solid #2dd4bf}
+.source-edu{border-left:3px solid #f472b6}
+.source-azure{border-left:3px solid #38bdf8}
+a{color:#58a6ff;text-decoration:none}
+a:hover{text-decoration:underline}
+.value{color:#4ade80;font-weight:600}
+.action-btn{padding:4px 10px;border-radius:4px;border:1px solid #30363d;background:#21262d;color:#c9d1d9;cursor:pointer;font-size:.8em}
+.action-btn:hover{background:#30363d}
+.action-btn.claimed{background:#1b4332;border-color:#2dd4bf;color:#2dd4bf}
+.notes-cell{max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.notes-cell:hover{white-space:normal;overflow:visible}
+.footer{padding:15px 30px;text-align:center;color:#484f58;font-size:.8em;border-top:1px solid #1e2228}
+.category-tag{font-size:.75em;padding:2px 8px;border-radius:10px;background:#21262d;color:#8b949e;margin-left:4px}
+@media(max-width:768px){.controls input{width:100%}.grid{padding:10px}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🎓 Student Benefits Subscription Tracker</h1>
+  <div class="stats">
+    <span class="stat total" id="statTotal">0 Total</span>
+    <span class="stat done" id="statDone">0 Claimed</span>
+    <span class="stat progress" id="statProgress">0 In Progress</span>
+    <span class="stat todo" id="statTodo">0 Unclaimed</span>
+    <span class="stat value" id="statValue">$0 Total Value</span>
+  </div>
+</div>
+
+<div class="controls">
+  <input type="text" id="searchBox" placeholder="🔍 Search benefits... (name, category, source)" oninput="filterTable()">
+  <select id="filterStatus" onchange="filterTable()">
+    <option value="">All Status</option>
+    <option value="TODO">Unclaimed</option>
+    <option value="IN_PROGRESS">In Progress</option>
+    <option value="DONE">Claimed</option>
+    <option value="SKIP">Skipped</option>
+  </select>
+  <select id="filterSource" onchange="filterTable()">
+    <option value="">All Sources</option>
+    <option value="VSDE">VS Dev Essentials</option>
+    <option value="GitHub Student Pack">GitHub Student Pack</option>
+    <option value="Azure for Students">Azure for Students</option>
+    <option value=".edu Benefits">.edu Benefits</option>
+  </select>
+  <select id="filterCategory" onchange="filterTable()">
+    <option value="">All Categories</option>
+    <option value="IDE & Dev Tools">IDE & Dev Tools</option>
+    <option value="Cloud & Hosting">Cloud & Hosting</option>
+    <option value="Learning & Certs">Learning & Certs</option>
+    <option value="Security & DevOps">Security & DevOps</option>
+    <option value="Database & Data">Database & Data</option>
+    <option value="Design & UI">Design & UI</option>
+    <option value="Domains & DNS">Domains & DNS</option>
+    <option value="AI & ML">AI & ML</option>
+    <option value="Productivity">Productivity</option>
+    <option value="API & Integration">API & Integration</option>
+    <option value="Monitoring">Monitoring</option>
+    <option value="Communication">Communication</option>
+    <option value="Legal & Compliance">Legal & Compliance</option>
+  </select>
+  <button class="btn-export" onclick="exportCSV()">📥 Export CSV</button>
+  <button class="btn-export" onclick="exportJSON()">📥 Export JSON</button>
+  <button class="btn-export" onclick="copyClaimList()">📋 Copy Unclaimed</button>
+</div>
+
+<div class="grid">
+  <table id="benefitsTable">
+    <thead>
+      <tr>
+        <th onclick="sortTable(0)">#</th>
+        <th onclick="sortTable(1)">Benefit</th>
+        <th onclick="sortTable(2)">Source</th>
+        <th onclick="sortTable(3)">Category</th>
+        <th onclick="sortTable(4)">Value</th>
+        <th onclick="sortTable(5)">Priority</th>
+        <th onclick="sortTable(6)">Status</th>
+        <th>Claim URL</th>
+        <th>Action</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</div>
+
+<div class="footer">
+  OSINT Neo AI — Student Benefits Tracker | Account: anthony.dimarcello@students.post.edu | Auto-saves to localStorage
+</div>
+
+<script>
+const BENEFITS = [
+  // === VSDE Benefits (Visual Studio Dev Essentials) ===
+  {id:"VSDE-001",name:"Syncfusion Essential Studio Enterprise",source:"VSDE",cat:"Design & UI",value:9995,priority:"CRITICAL",status:"DONE",url:"https://www.syncfusion.com/account/downloads",notes:"Order W753756. Key in data/syncfusion_license.key_amd949609"},
+  {id:"VSDE-002",name:"Azure for Students $100/mo Credit",source:"Azure for Students",cat:"Cloud & Hosting",value:1200,priority:"CRITICAL",status:"DONE",url:"https://portal.azure.com",notes:"Sub f055033f hosting osintneoai-app-949"},
+  {id:"VSDE-003",name:"JetBrains All Products Pack",source:"VSDE",cat:"IDE & Dev Tools",value:649,priority:"HIGH",status:"DONE",url:"https://my.visualstudio.com/benefits?query=jetbrains",notes:"Key in data/jetbrains_license_amd949609.key"},
+  {id:"VSDE-004",name:"Pluralsight (6-month access)",source:"VSDE",cat:"Learning & Certs",value:174,priority:"MEDIUM",status:"TODO",url:"https://my.visualstudio.com/benefits?query=pluralsight",notes:""},
+  {id:"VSDE-005",name:"LinkedIn Learning (3-month)",source:"VSDE",cat:"Learning & Certs",value:90,priority:"MEDIUM",status:"TODO",url:"https://my.visualstudio.com/benefits?query=linkedin",notes:""},
+  {id:"VSDE-006",name:"DataCamp (3-month)",source:"VSDE",cat:"Learning & Certs",value:75,priority:"MEDIUM",status:"TODO",url:"https://my.visualstudio.com/benefits?query=datacamp",notes:""},
+  {id:"VSDE-007",name:"Visual Studio Community Edition",source:"VSDE",cat:"IDE & Dev Tools",value:0,priority:"LOW",status:"DONE",url:"https://visualstudio.microsoft.com/downloads/",notes:"Free, already installed"},
+  {id:"VSDE-008",name:"Visual Studio Code",source:"VSDE",cat:"IDE & Dev Tools",value:0,priority:"LOW",status:"DONE",url:"https://code.visualstudio.com",notes:"Already installed"},
+  {id:"VSDE-009",name:"SQL Server Developer Edition",source:"VSDE",cat:"Database & Data",value:0,priority:"MEDIUM",status:"TODO",url:"https://my.visualstudio.com/benefits?query=sql+server",notes:"Full enterprise features, free for dev"},
+  {id:"VSDE-010",name:"Power BI Desktop",source:"VSDE",cat:"Database & Data",value:0,priority:"MEDIUM",status:"TODO",url:"https://my.visualstudio.com/benefits?query=power+bi",notes:""},
+  {id:"VSDE-011",name:"Azure DevOps (5 users free)",source:"VSDE",cat:"Security & DevOps",value:150,priority:"HIGH",status:"TODO",url:"https://dev.azure.com",notes:"CI/CD pipelines, repos, boards"},
+  {id:"VSDE-012",name:"Parasoft Community Edition",source:"VSDE",cat:"Security & DevOps",value:2500,priority:"HIGH",status:"TODO",url:"https://my.visualstudio.com/benefits?query=parasoft",notes:"Static analysis + API testing"},
+  {id:"VSDE-013",name:"Syncfusion Succinctly E-books",source:"VSDE",cat:"Learning & Certs",value:0,priority:"LOW",status:"TODO",url:"https://www.syncfusion.com/succinctly-free-ebooks",notes:"130+ free technical e-books"},
+  {id:"VSDE-014",name:"Power Apps Community Plan",source:"VSDE",cat:"API & Integration",value:0,priority:"MEDIUM",status:"TODO",url:"https://powerapps.microsoft.com/communityplan/",notes:"Power Apps + Power Automate + Dataverse"},
+  {id:"VSDE-015",name:"Microsoft 365 Developer E5 Sandbox",source:"VSDE",cat:"Cloud & Hosting",value:0,priority:"HIGH",status:"TODO",url:"https://developer.microsoft.com/en-us/microsoft-365/dev-program",notes:"90-day renewable sandbox with 25 E5 licenses"},
+  // === GitHub Student Developer Pack ===
+  {id:"GH-001",name:"GitHub Pro",source:"GitHub Student Pack",cat:"IDE & Dev Tools",value:48,priority:"HIGH",status:"DONE",url:"https://education.github.com/pack",notes:"Auto-activated with student verification"},
+  {id:"GH-002",name:"GitHub Copilot Student",source:"GitHub Student Pack",cat:"AI & ML",value:120,priority:"CRITICAL",status:"DONE",url:"https://github.com/features/copilot",notes:"Active and integrated"},
+  {id:"GH-003",name:"GitHub Codespaces (90hrs/mo)",source:"GitHub Student Pack",cat:"Cloud & Hosting",value:0,priority:"HIGH",status:"TODO",url:"https://github.com/codespaces",notes:"Cloud dev environments"},
+  {id:"GH-004",name:"DigitalOcean $200 Credits",source:"GitHub Student Pack",cat:"Cloud & Hosting",value:200,priority:"HIGH",status:"TODO",url:"https://education.github.com/pack/offers#digitalocean",notes:"12-month validity"},
+  {id:"GH-005",name:"Heroku Platform Credits (24mo)",source:"GitHub Student Pack",cat:"Cloud & Hosting",value:312,priority:"HIGH",status:"TODO",url:"https://education.github.com/pack/offers#heroku",notes:"$13/mo for 24 months"},
+  {id:"GH-006",name:"MongoDB Atlas $50 Credits",source:"GitHub Student Pack",cat:"Database & Data",value:50,priority:"MEDIUM",status:"TODO",url:"https://education.github.com/pack/offers#mongodb",notes:"Plus free MongoDB certification"},
+  {id:"GH-007",name:"Namecheap .me Domain (1yr)",source:"GitHub Student Pack",cat:"Domains & DNS",value:10,priority:"MEDIUM",status:"TODO",url:"https://education.github.com/pack/offers#namecheap",notes:"Free .me domain + SSL cert"},
+  {id:"GH-008",name:".tech Domain (1yr)",source:"GitHub Student Pack",cat:"Domains & DNS",value:50,priority:"MEDIUM",status:"TODO",url:"https://education.github.com/pack/offers#dottech",notes:"Free .tech domain"},
+  {id:"GH-009",name:"Termius Pro SSH Client",source:"GitHub Student Pack",cat:"IDE & Dev Tools",value:100,priority:"HIGH",status:"TODO",url:"https://education.github.com/pack/offers#termius",notes:"Cross-platform SSH/SFTP client"},
+  {id:"GH-010",name:"GitKraken Pro",source:"GitHub Student Pack",cat:"IDE & Dev Tools",value:60,priority:"MEDIUM",status:"TODO",url:"https://education.github.com/pack/offers#gitkraken",notes:"Git GUI client pro tier"},
+  {id:"GH-011",name:"Canva Pro (12mo)",source:"GitHub Student Pack",cat:"Design & UI",value:120,priority:"MEDIUM",status:"TODO",url:"https://education.github.com/pack/offers#canva",notes:"Design platform pro access"},
+  {id:"GH-012",name:"Figma Professional (12mo)",source:"GitHub Student Pack",cat:"Design & UI",value:144,priority:"HIGH",status:"TODO",url:"https://education.github.com/pack/offers#figma",notes:"UI/UX design tool"},
+  {id:"GH-013",name:"Notion Pro",source:"GitHub Student Pack",cat:"Productivity",value:96,priority:"MEDIUM",status:"TODO",url:"https://education.github.com/pack/offers#notion",notes:"Workspace + wiki + docs"},
+  {id:"GH-014",name:"1Password (1yr)",source:"GitHub Student Pack",cat:"Security & DevOps",value:36,priority:"HIGH",status:"TODO",url:"https://education.github.com/pack/offers#1password",notes:"Password manager"},
+  {id:"GH-015",name:"Datadog Pro (10 servers, 2yr)",source:"GitHub Student Pack",cat:"Monitoring",value:3600,priority:"HIGH",status:"TODO",url:"https://education.github.com/pack/offers#datadog",notes:"APM + infrastructure monitoring"},
+  {id:"GH-016",name:"Educative (6mo unlimited)",source:"GitHub Student Pack",cat:"Learning & Certs",value:60,priority:"MEDIUM",status:"TODO",url:"https://education.github.com/pack/offers#educative",notes:"Interactive coding courses"},
+  {id:"GH-017",name:"Boot.dev (12mo)",source:"GitHub Student Pack",cat:"Learning & Certs",value:200,priority:"MEDIUM",status:"TODO",url:"https://education.github.com/pack/offers#bootdev",notes:"Backend dev courses"},
+  {id:"GH-018",name:"Codédex Pro (6mo)",source:"GitHub Student Pack",cat:"Learning & Certs",value:60,priority:"LOW",status:"TODO",url:"https://education.github.com/pack/offers#codedex",notes:"Gamified coding platform"},
+  {id:"GH-019",name:"Clerk Pro (12mo)",source:"GitHub Student Pack",cat:"API & Integration",value:300,priority:"HIGH",status:"TODO",url:"https://education.github.com/pack/offers#clerk",notes:"Auth/user management API"},
+  {id:"GH-020",name:"StreamYard Essential (6mo)",source:"GitHub Student Pack",cat:"Communication",value:120,priority:"LOW",status:"TODO",url:"https://education.github.com/pack/offers#streamyard",notes:"Live streaming studio"},
+  {id:"GH-021",name:"PomoDone Pro",source:"GitHub Student Pack",cat:"Productivity",value:36,priority:"LOW",status:"TODO",url:"https://education.github.com/pack/offers#pomodone",notes:"Pomodoro timer"},
+  {id:"GH-022",name:"Sentry 500K events/mo (12mo)",source:"GitHub Student Pack",cat:"Monitoring",value:312,priority:"HIGH",status:"TODO",url:"https://education.github.com/pack/offers#sentry",notes:"Error tracking & performance"},
+  {id:"GH-023",name:"New Relic (full student access)",source:"GitHub Student Pack",cat:"Monitoring",value:0,priority:"MEDIUM",status:"TODO",url:"https://education.github.com/pack/offers#newrelic",notes:"Observability platform"},
+  {id:"GH-024",name:"Mailgun 20K emails/mo (12mo)",source:"GitHub Student Pack",cat:"API & Integration",value:420,priority:"MEDIUM",status:"TODO",url:"https://education.github.com/pack/offers#mailgun",notes:"Email API service"},
+  {id:"GH-025",name:"Stripe $1000 waived processing",source:"GitHub Student Pack",cat:"API & Integration",value:1000,priority:"HIGH",status:"TODO",url:"https://education.github.com/pack/offers#stripe",notes:"Payment processing credits"},
+  {id:"GH-026",name:"Typeform Pro (12mo)",source:"GitHub Student Pack",cat:"Productivity",value:300,priority:"LOW",status:"TODO",url:"https://education.github.com/pack/offers#typeform",notes:"Form builder pro"},
+  {id:"GH-027",name:"Polypane Pro (12mo)",source:"GitHub Student Pack",cat:"IDE & Dev Tools",value:108,priority:"MEDIUM",status:"TODO",url:"https://education.github.com/pack/offers#polypane",notes:"Browser for responsive dev"},
+  {id:"GH-028",name:"BrowserStack Free Access",source:"GitHub Student Pack",cat:"IDE & Dev Tools",value:468,priority:"HIGH",status:"TODO",url:"https://education.github.com/pack/offers#browserstack",notes:"Cross-browser testing"},
+  {id:"GH-029",name:"Testmail.app Pro",source:"GitHub Student Pack",cat:"Security & DevOps",value:100,priority:"LOW",status:"TODO",url:"https://education.github.com/pack/offers#testmail",notes:"Email testing"},
+  {id:"GH-030",name:"SQLGate Developer",source:"GitHub Student Pack",cat:"Database & Data",value:0,priority:"LOW",status:"TODO",url:"https://education.github.com/pack/offers#sqlgate",notes:"Multi-database IDE"},
+  {id:"GH-031",name:"Imgbot Pro",source:"GitHub Student Pack",cat:"IDE & Dev Tools",value:60,priority:"LOW",status:"TODO",url:"https://education.github.com/pack/offers#imgbot",notes:"Image optimization bot for repos"},
+  {id:"GH-032",name:"DeepSource Business",source:"GitHub Student Pack",cat:"Security & DevOps",value:0,priority:"MEDIUM",status:"TODO",url:"https://education.github.com/pack/offers#deepsource",notes:"Code quality + security scanner"},
+  {id:"GH-033",name:"Resend Pro (12mo)",source:"GitHub Student Pack",cat:"API & Integration",value:240,priority:"MEDIUM",status:"TODO",url:"https://education.github.com/pack/offers#resend",notes:"Email API for developers"},
+  {id:"GH-034",name:"WorkOS Enterprise (12mo)",source:"GitHub Student Pack",cat:"API & Integration",value:0,priority:"MEDIUM",status:"TODO",url:"https://education.github.com/pack/offers#workos",notes:"Enterprise SSO/SCIM integration"},
+  {id:"GH-035",name:"Doppler Team (12mo)",source:"GitHub Student Pack",cat:"Security & DevOps",value:0,priority:"MEDIUM",status:"TODO",url:"https://education.github.com/pack/offers#doppler",notes:"Secrets manager"},
+  {id:"GH-036",name:"Codecov Pro (12mo)",source:"GitHub Student Pack",cat:"Security & DevOps",value:120,priority:"MEDIUM",status:"TODO",url:"https://education.github.com/pack/offers#codecov",notes:"Code coverage reports"},
+  {id:"GH-037",name:"Blacksmith 3000 min/mo CI (12mo)",source:"GitHub Student Pack",cat:"Security & DevOps",value:0,priority:"MEDIUM",status:"TODO",url:"https://education.github.com/pack/offers#blacksmith",notes:"Fast CI/CD runners"},
+  {id:"GH-038",name:"Raycast Pro (12mo)",source:"GitHub Student Pack",cat:"Productivity",value:96,priority:"MEDIUM",status:"TODO",url:"https://education.github.com/pack/offers#raycast",notes:"Mac productivity launcher"},
+  {id:"GH-039",name:"Tldraw Pro Classroom (12mo)",source:"GitHub Student Pack",cat:"Design & UI",value:0,priority:"LOW",status:"TODO",url:"https://education.github.com/pack/offers#tldraw",notes:"Collaborative whiteboard"},
+  {id:"GH-040",name:"Pieces for Developers Pro",source:"GitHub Student Pack",cat:"IDE & Dev Tools",value:0,priority:"LOW",status:"TODO",url:"https://education.github.com/pack/offers#pieces",notes:"Code snippet manager"},
+  // === .edu / Post University Benefits ===
+  {id:"EDU-001",name:"Post University Entra SSO Federation",source:".edu Benefits",cat:"Security & DevOps",value:0,priority:"CRITICAL",status:"DONE",url:"https://portal.azure.com",notes:"Verified active"},
+  {id:"EDU-002",name:"Microsoft 365 Education (Post Univ)",source:".edu Benefits",cat:"Productivity",value:0,priority:"HIGH",status:"DONE",url:"https://portal.office.com",notes:"Full M365 via .edu SSO"},
+  {id:"EDU-003",name:"LexisNexis Academic (via Post Library)",source:".edu Benefits",cat:"Legal & Compliance",value:3000,priority:"CRITICAL",status:"DONE",url:"https://www.post.edu/library",notes:"Full legal research database"},
+  {id:"EDU-004",name:"EBSCO Databases (via Post Library)",source:".edu Benefits",cat:"Learning & Certs",value:0,priority:"HIGH",status:"DONE",url:"https://www.post.edu/library",notes:"Academic journal access"},
+  {id:"EDU-005",name:"ProQuest (via Post Library)",source:".edu Benefits",cat:"Learning & Certs",value:0,priority:"MEDIUM",status:"TODO",url:"https://www.post.edu/library",notes:"Dissertations & theses"},
+  {id:"EDU-006",name:"Grammarly Premium (.edu)",source:".edu Benefits",cat:"Productivity",value:144,priority:"MEDIUM",status:"TODO",url:"https://www.grammarly.com/edu",notes:"Check if Post provides"},
+  {id:"EDU-007",name:"Adobe Creative Cloud (.edu discount)",source:".edu Benefits",cat:"Design & UI",value:240,priority:"HIGH",status:"TODO",url:"https://www.adobe.com/creativecloud/buy/students.html",notes:"60% student discount"},
+  {id:"EDU-008",name:"Autodesk (free student license)",source:".edu Benefits",cat:"Design & UI",value:1775,priority:"MEDIUM",status:"TODO",url:"https://www.autodesk.com/education/free-software",notes:"AutoCAD, Revit, Fusion 360"},
+  {id:"EDU-009",name:"Wolfram Mathematica (.edu)",source:".edu Benefits",cat:"AI & ML",value:350,priority:"MEDIUM",status:"TODO",url:"https://www.wolfram.com/mathematica/pricing/students/",notes:"Computational intelligence"},
+  {id:"EDU-010",name:"MATLAB Student License",source:".edu Benefits",cat:"AI & ML",value:50,priority:"MEDIUM",status:"TODO",url:"https://www.mathworks.com/academia/students.html",notes:"Check university site license"},
+  {id:"EDU-011",name:"Tableau Academic Program",source:".edu Benefits",cat:"Database & Data",value:0,priority:"HIGH",status:"TODO",url:"https://www.tableau.com/academic/students",notes:"Free Tableau Desktop"},
+  {id:"EDU-012",name:"AWS Educate Credits",source:".edu Benefits",cat:"Cloud & Hosting",value:100,priority:"HIGH",status:"TODO",url:"https://aws.amazon.com/education/awseducate/",notes:"AWS cloud credits for students"},
+  {id:"EDU-013",name:"Google Cloud for Education",source:".edu Benefits",cat:"Cloud & Hosting",value:0,priority:"HIGH",status:"TODO",url:"https://edu.google.com/intl/en_us/workspace-for-education/",notes:"Check edu.google.com"},
+  {id:"EDU-014",name:"Coursera for Campus",source:".edu Benefits",cat:"Learning & Certs",value:0,priority:"MEDIUM",status:"TODO",url:"https://www.coursera.org/campus",notes:"Check if Post Univ participates"},
+  {id:"EDU-015",name:"Apple Student Developer Program",source:".edu Benefits",cat:"IDE & Dev Tools",value:0,priority:"LOW",status:"TODO",url:"https://developer.apple.com",notes:"Reduced annual fee"},
+  // === Azure for Students Specific ===
+  {id:"AZ-001",name:"Azure AI Services Free Tier",source:"Azure for Students",cat:"AI & ML",value:0,priority:"HIGH",status:"TODO",url:"https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne",notes:"Vision, Speech, Language, Decision"},
+  {id:"AZ-002",name:"Azure OpenAI Service",source:"Azure for Students",cat:"AI & ML",value:0,priority:"CRITICAL",status:"TODO",url:"https://portal.azure.com",notes:"GPT-4o, DALL-E access (apply for access)"},
+  {id:"AZ-003",name:"Azure Static Web Apps (free)",source:"Azure for Students",cat:"Cloud & Hosting",value:0,priority:"MEDIUM",status:"TODO",url:"https://portal.azure.com/#create/Microsoft.StaticApp",notes:"Unlimited free static apps"},
+  {id:"AZ-004",name:"Azure Functions (1M free exec/mo)",source:"Azure for Students",cat:"Cloud & Hosting",value:0,priority:"HIGH",status:"TODO",url:"https://portal.azure.com",notes:"Serverless compute"},
+  {id:"AZ-005",name:"Azure Cosmos DB Free Tier (1000 RU/s)",source:"Azure for Students",cat:"Database & Data",value:0,priority:"MEDIUM",status:"TODO",url:"https://portal.azure.com",notes:"Multi-model NoSQL database"},
+  {id:"AZ-006",name:"Azure SQL Database (free tier)",source:"Azure for Students",cat:"Database & Data",value:0,priority:"MEDIUM",status:"TODO",url:"https://portal.azure.com",notes:"100K vCore seconds/mo free"},
+  {id:"AZ-007",name:"Azure Key Vault",source:"Azure for Students",cat:"Security & DevOps",value:0,priority:"HIGH",status:"TODO",url:"https://portal.azure.com",notes:"Secrets, keys, certs management"},
+  {id:"AZ-008",name:"Azure Container Apps",source:"Azure for Students",cat:"Cloud & Hosting",value:0,priority:"MEDIUM",status:"TODO",url:"https://portal.azure.com",notes:"Serverless containers"},
+  {id:"AZ-009",name:"Azure Logic Apps",source:"Azure for Students",cat:"API & Integration",value:0,priority:"MEDIUM",status:"TODO",url:"https://portal.azure.com",notes:"Workflow automation"},
+  {id:"AZ-010",name:"Azure Defender for Cloud (free tier)",source:"Azure for Students",cat:"Security & DevOps",value:0,priority:"HIGH",status:"TODO",url:"https://portal.azure.com",notes:"Cloud security posture management"},
+  // === Sonatype / Maven ===
+  {id:"MVN-001",name:"Maven Central io.github.tonypost949",source:"GitHub Student Pack",cat:"Security & DevOps",value:0,priority:"HIGH",status:"DONE",url:"https://central.sonatype.com/publishing/namespaces",notes:"Verified namespace"},
+  {id:"MVN-002",name:"Sonatype Guide MCP Server",source:"GitHub Student Pack",cat:"Security & DevOps",value:0,priority:"MEDIUM",status:"DONE",url:"https://guide.sonatype.com",notes:"Package firewall configured"}
+];
+
+// Load saved state from localStorage
+function loadState(){
+  const saved = localStorage.getItem('osint_benefits_state');
+  if(saved){
+    const state = JSON.parse(saved);
+    BENEFITS.forEach(b => {
+      if(state[b.id]){
+        b.status = state[b.id].status || b.status;
+        b.notes = state[b.id].notes || b.notes;
+      }
+    });
+  }
+}
+function saveState(){
+  const state = {};
+  BENEFITS.forEach(b => { state[b.id] = {status:b.status,notes:b.notes}; });
+  localStorage.setItem('osint_benefits_state', JSON.stringify(state));
+}
+
+function getStatusBadge(s){
+  const map = {DONE:'badge-done',IN_PROGRESS:'badge-progress',TODO:'badge-todo',SKIP:'badge-skip'};
+  const labels = {DONE:'✅ Claimed',IN_PROGRESS:'🔄 In Progress',TODO:'⬜ Unclaimed',SKIP:'⏭ Skipped'};
+  return `<span class="badge ${map[s]||'badge-todo'}">${labels[s]||s}</span>`;
+}
+function getPriorityClass(p){ return 'priority-'+(p||'low').toLowerCase(); }
+function getSourceClass(s){
+  if(s.includes('VSDE'))return 'source-vsde';
+  if(s.includes('GitHub'))return 'source-github';
+  if(s.includes('edu'))return 'source-edu';
+  if(s.includes('Azure'))return 'source-azure';
+  return '';
+}
+
+function cycleStatus(idx){
+  const order = ['TODO','IN_PROGRESS','DONE','SKIP'];
+  const cur = order.indexOf(BENEFITS[idx].status);
+  BENEFITS[idx].status = order[(cur+1)%order.length];
+  saveState();
+  renderTable();
+}
+
+function editNotes(idx){
+  const n = prompt('Notes for '+BENEFITS[idx].name+':', BENEFITS[idx].notes||'');
+  if(n!==null){ BENEFITS[idx].notes=n; saveState(); renderTable(); }
+}
+
+function renderTable(){
+  const body = document.getElementById('tableBody');
+  const search = document.getElementById('searchBox').value.toLowerCase();
+  const fStatus = document.getElementById('filterStatus').value;
+  const fSource = document.getElementById('filterSource').value;
+  const fCat = document.getElementById('filterCategory').value;
+  let html='', shown=0, done=0, prog=0, todo=0, totalVal=0;
+  BENEFITS.forEach((b,i) => {
+    const match = (!search || b.name.toLowerCase().includes(search) || b.cat.toLowerCase().includes(search) || b.source.toLowerCase().includes(search) || (b.notes||'').toLowerCase().includes(search))
+      && (!fStatus || b.status===fStatus)
+      && (!fSource || b.source===fSource)
+      && (!fCat || b.cat===fCat);
+    if(b.status==='DONE')done++;
+    if(b.status==='IN_PROGRESS')prog++;
+    if(b.status==='TODO')todo++;
+    totalVal += b.value||0;
+    if(!match)return;
+    shown++;
+    html += `<tr class="${b.status==='DONE'?'done':''} ${getSourceClass(b.source)}">
+      <td>${b.id}</td>
+      <td><strong>${b.name}</strong></td>
+      <td>${b.source}</td>
+      <td>${b.cat}</td>
+      <td class="value">${b.value>0?'$'+b.value.toLocaleString():'Free'}</td>
+      <td class="${getPriorityClass(b.priority)}">${b.priority}</td>
+      <td>${getStatusBadge(b.status)}</td>
+      <td><a href="${b.url}" target="_blank">Claim →</a></td>
+      <td>
+        <button class="action-btn ${b.status==='DONE'?'claimed':''}" onclick="cycleStatus(${i})">Toggle</button>
+        <button class="action-btn" onclick="editNotes(${i})">📝</button>
+      </td>
+      <td class="notes-cell" title="${(b.notes||'').replace(/"/g,'&quot;')}">${b.notes||'—'}</td>
+    </tr>`;
+  });
+  body.innerHTML = html;
+  document.getElementById('statTotal').textContent = BENEFITS.length+' Total';
+  document.getElementById('statDone').textContent = done+' Claimed';
+  document.getElementById('statProgress').textContent = prog+' In Progress';
+  document.getElementById('statTodo').textContent = todo+' Unclaimed';
+  document.getElementById('statValue').textContent = '$'+totalVal.toLocaleString()+' Total Value';
+}
+function filterTable(){ renderTable(); }
+
+let sortCol=-1, sortAsc=true;
+function sortTable(col){
+  if(sortCol===col)sortAsc=!sortAsc; else{sortCol=col;sortAsc=true;}
+  const keys = ['id','name','source','cat','value','priority','status'];
+  const k = keys[col];
+  BENEFITS.sort((a,b)=>{
+    let va=a[k],vb=b[k];
+    if(typeof va==='number')return sortAsc?va-vb:vb-va;
+    va=(va||'').toString().toLowerCase();vb=(vb||'').toString().toLowerCase();
+    return sortAsc?va.localeCompare(vb):vb.localeCompare(va);
+  });
+  renderTable();
+}
+
+function exportCSV(){
+  let csv='ID,Name,Source,Category,Value,Priority,Status,URL,Notes\n';
+  BENEFITS.forEach(b=>{csv+=`"${b.id}","${b.name}","${b.source}","${b.cat}",${b.value},"${b.priority}","${b.status}","${b.url}","${(b.notes||'').replace(/"/g,'""')}"\n`;});
+  const blob=new Blob([csv],{type:'text/csv'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='benefits_tracker.csv';a.click();
+}
+function exportJSON(){
+  const blob=new Blob([JSON.stringify(BENEFITS,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='benefits_tracker.json';a.click();
+}
+function copyClaimList(){
+  const unclaimed=BENEFITS.filter(b=>b.status==='TODO').map((b,i)=>`${i+1}. ${b.name} — ${b.url}`).join('\n');
+  navigator.clipboard.writeText(unclaimed).then(()=>alert('Copied '+BENEFITS.filter(b=>b.status==='TODO').length+' unclaimed benefits to clipboard!'));
+}
+
+loadState();
+renderTable();
+</script>
+</body>
+</html>

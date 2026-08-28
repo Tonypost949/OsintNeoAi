@@ -1,5 +1,5 @@
 """
-batch_photos_evidence_ocr.py — Batch multimodal OCR & evidence extraction optimized for gemini-3.5-flash-lite.
+batch_photos_album2_ocr.py — Multimodal OCR and evidence extraction for Google Photos Album #2 (300 items).
 """
 import os
 import sys
@@ -9,8 +9,8 @@ import re
 import requests
 import google.generativeai as genai
 
-MANIFEST_PATH = "data/google_photos_evidence_manifest.json"
-OUTPUT_PATH = "data/google_photos_evidence_ocr.json"
+MANIFEST_PATH = "data/google_photos_album2_manifest.json"
+OUTPUT_PATH = "data/google_photos_album2_ocr.json"
 
 FALLBACK_MODELS = [
     "gemini-3.5-flash-lite",
@@ -44,7 +44,7 @@ def main():
         except Exception:
             results = {}
 
-    print(f"[*] Total items in manifest: {len(manifest)}")
+    print(f"[*] Total items in Album #2 manifest: {len(manifest)}")
     print(f"[*] Already indexed items: {len(results)}")
 
     limit = int(sys.argv[1]) if len(sys.argv) > 1 else len(manifest)
@@ -124,7 +124,7 @@ Be thorough, precise, and objective."""
                     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
                         json.dump(list(results.values()), f, indent=2)
 
-                    time.sleep(2) # rate limit safety
+                    time.sleep(2)
                     break
 
                 except Exception as e:
@@ -145,7 +145,7 @@ Be thorough, precise, and objective."""
             print(f"[-] Error processing item {idx}: {e}")
             time.sleep(3)
 
-    print(f"\n[+] Batch complete. Total indexed items: {len(results)} saved to {OUTPUT_PATH}")
+    print(f"\n[+] Batch complete. Total indexed items in Album #2: {len(results)} saved to {OUTPUT_PATH}")
 
 if __name__ == "__main__":
     main()
