@@ -1,0 +1,73 @@
+# ==============================================================================
+# Azure Pipelines CI/CD: OsintNeoAi Forensic & Power Platform Solution Pipeline
+# Organization: anthonydimarcello | Project: osintneoai | Branch: main
+# ==============================================================================
+
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  PYTHON_VERSION: '3.11'
+  TENANT_ID: 'dc2273e5-b77e-4b19-ae61-f4b69fb7609c'
+  ENVIRONMENT_ID: '584c706d-38a2-e52e-b6e3-24a809f10508'
+  APP_ID: 'aea4876c-1dbb-4e7c-8024-79443ffb7e40'
+
+stages:
+  # ----------------------------------------------------------------------------
+  # Stage 1: Forensic Validation & Evidentiary Invariants
+  # ----------------------------------------------------------------------------
+  - stage: ForensicAuditAndTests
+    displayName: 'Forensic Audit & Invariant Testing'
+    jobs:
+      - job: RunForensicVerification
+        displayName: 'Execute 66-Test Pytest Verification Suite'
+        steps:
+          - task: UsePythonVersion@0
+            inputs:
+              versionSpec: '$(PYTHON_VERSION)'
+            displayName: 'Set Python $(PYTHON_VERSION)'
+
+          - script: |
+              python -m pip install --upgrade pip
+              pip install pytest pytest-cov
+            displayName: 'Install Test Dependencies'
+
+          - script: |
+              python -m pytest tests/ -v --tb=short --junitxml=test-results.xml
+            displayName: 'Execute Forensic Test Suite'
+
+          - task: PublishTestResults@2
+            condition: succeededOrFailed()
+            inputs:
+              testResultsFormat: 'JUnit'
+              testResultsFiles: '**/test-results.xml'
+              testRunTitle: 'OsintNeoAi Forensic Verification Results'
+            displayName: 'Publish Test Run Results'
+
+  # ----------------------------------------------------------------------------
+  # Stage 2: Power Platform Solution & Dataverse Integrity Checks
+  # ----------------------------------------------------------------------------
+  - stage: PowerPlatformALM
+    displayName: 'Power Platform ALM & Dataverse Validation'
+    dependsOn: ForensicAuditAndTests
+    condition: succeeded()
+    jobs:
+      - job: ValidateSolutionSpecs
+        displayName: 'Validate Solution Schema & Connectors'
+        steps:
+          - script: |
+              python -c "import os; assert os.path.exists('briefings/POWER_PLATFORM_OSINTNEOAI_STUDIO_SPECIFICATION.md'), 'Spec missing!'"
+            displayName: 'Check Power Platform Solution Specification'
+
+          - script: |
+              python scripts/seed_dataverse_cases.py --export-json --validate-only
+            displayName: 'Validate Dataverse 18-Entity Seed Data'
+
+          - publish: $(System.DefaultWorkingDirectory)/briefings
+            artifact: OsintNeoAi_Solution_Briefings
+            displayName: 'Publish Solution Artifacts'
