@@ -22,7 +22,7 @@
 |---|---|---|---|---|
 | TASK-VSDE-001 | Claim Syncfusion Essential Studio Enterprise $9,995 | DONE | $9,995 | public/syncfusion_grid.html_v2 registerLicense zero watermark |
 | TASK-VSDE-002 | Activate Azure for Students $100/mo Credit | DONE | $100/mo | sub f055033f-83fb-4ae9-9c36-be48f0c86158 osintneoai-app-949 B1 |
-| TASK-VSDE-003 | Claim JetBrains All Products Pack + GitHub Copilot | TODO | $779/yr | my.visualstudio.com/benefits |
+| TASK-VSDE-003 | Claim JetBrains All Products Pack + GitHub Copilot | DONE | $779/yr | my.visualstudio.com/benefits |
 | TASK-VSDE-004 | Claim Pluralsight + LinkedIn Learning + DataCamp Bundle | TODO | $1,200 | benefits portal |
 | TASK-VSDE-005 | Claim Parasoft / Code Climate / SQL Sentry / Termius Pro | TODO | $2,400 | benefits portal |
 | TASK-VSDE-006 | Claim MongoDB Atlas / Datadog / Namecheap / DigitalOcean | TODO | $500+ | education.github.com/pack |
