@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>OsintNeoAi Master Forensic Intelligence Layers</name>
+    <open>1</open>
+    <description>Court-verified geospatial layers, 3D boundaries, and flight vectors for OsintNeoAi.</description>
+    <Style id="redPin">
+      <IconStyle><color>ff0000ff</color><scale>1.2</scale></IconStyle>
+      <LabelStyle><scale>0.9</scale></LabelStyle>
+    </Style>
+    <Style id="cyanPin">
+      <IconStyle><color>ffffff00</color><scale>1.2</scale></IconStyle>
+      <LabelStyle><scale>0.9</scale></LabelStyle>
+    </Style>
+    <Style id="polygonStyle">
+      <LineStyle><color>ff00e5ff</color><width>3</width></LineStyle>
+      <PolyStyle><color>4d00e5ff</color></PolyStyle>
+    </Style>
+    <Style id="flightPathStyle">
+      <LineStyle><color>ffffaa00</color><width>4</width></LineStyle>
+    </Style>
+    <Folder>
+      <name>📍 Key Investigation Placemarks</name>
+      <Placemark>
+        <name>Angel Stadium 153-Acre Surplus Land Zone (USA v. Sidhu)</name>
+        <styleUrl>#cyanPin</styleUrl>
+        <description><![CDATA[<h3>Angel Stadium 153-Acre Surplus Land Zone (USA v. Sidhu)</h3><p><b>Category:</b> Surplus Land Act / Wire Fraud</p><p>Site of $320,000,000.00 land transaction voided unanimously under Anaheim City Resolution 2022-064 following FBI SA Brian Adkins wiretap intercepts and California HCD $96M SLA violation notice (Docket 8:23-cr-00108-CJC).</p>]]></description>
+        <Point>
+          <altitudeMode>relativeToGround</altitudeMode>
+          <coordinates>-117.8827,33.8003,48</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Anaheim City Hall & Chamber of Commerce (USA v. Ament)</name>
+        <styleUrl>#cyanPin</styleUrl>
+        <description><![CDATA[<h3>Anaheim City Hall & Chamber of Commerce (USA v. Ament)</h3><p><b>Category:</b> Municipal Bribery & Slush Fund Hub</p><p>Anaheim Chamber of Commerce operational hub and $225k slush wire fraud nexus (Docket 8:22-cr-00078-CJC).</p>]]></description>
+        <Point>
+          <altitudeMode>relativeToGround</altitudeMode>
+          <coordinates>-117.9145,33.8353,45</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>USDC Central District of California - Santa Ana Courthouse</name>
+        <styleUrl>#cyanPin</styleUrl>
+        <description><![CDATA[<h3>USDC Central District of California - Santa Ana Courthouse</h3><p><b>Category:</b> Federal Judicial District</p><p>Ronald Reagan Federal Building. Courtroom of Hon. Cormac J. Carney presiding over federal criminal matters 8:23-cr-00108-CJC and 8:22-cr-00078-CJC.</p>]]></description>
+        <Point>
+          <altitudeMode>relativeToGround</altitudeMode>
+          <coordinates>-117.8705,33.7486,40</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Orange County Superior Court - Central Justice Center (CJC)</name>
+        <styleUrl>#cyanPin</styleUrl>
+        <description><![CDATA[<h3>Orange County Superior Court - Central Justice Center (CJC)</h3><p><b>Category:</b> State Judicial Center</p><p>700 W Civic Center Dr, Santa Ana. Venue of Woodbridge Meadows v. Dimarcello (Docket 30-2021-01201327-CL-UD-CJC) featuring triple void defaults entered after 4:29 PM statutory stay under Cal. CCP § 170.6.</p>]]></description>
+        <Point>
+          <altitudeMode>relativeToGround</altitudeMode>
+          <coordinates>-117.8741,33.7533,42</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11770 Warner Ave Commercial Asset Hub</name>
+        <styleUrl>#cyanPin</styleUrl>
+        <description><![CDATA[<h3>11770 Warner Ave Commercial Asset Hub</h3><p><b>Category:</b> Commercial Real Estate Asset</p><p>Commercial parcel nexus connecting Fountain Valley and Garden Grove municipal asset corridors.</p>]]></description>
+        <Point>
+          <altitudeMode>relativeToGround</altitudeMode>
+          <coordinates>-117.9275,33.7161,25</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Corona Municipal Airport (KAJO) - Dogs Day Helicopter Hangar</name>
+        <styleUrl>#cyanPin</styleUrl>
+        <description><![CDATA[<h3>Corona Municipal Airport (KAJO) - Dogs Day Helicopter Hangar</h3><p><b>Category:</b> Aviation Asset Hub</p><p>Base of Dogs Day Productions helicopter assets ($158,875.00 value / $15,887.50 sales tax evasion audit).</p>]]></description>
+        <Point>
+          <altitudeMode>relativeToGround</altitudeMode>
+          <coordinates>-117.6322,33.8978,162</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>John Wayne Airport (KSNA)</name>
+        <styleUrl>#cyanPin</styleUrl>
+        <description><![CDATA[<h3>John Wayne Airport (KSNA)</h3><p><b>Category:</b> Aviation Transit Hub</p><p>Origin of commercial and charter flight segments linked to Orange County municipal leadership.</p>]]></description>
+        <Point>
+          <altitudeMode>relativeToGround</altitudeMode>
+          <coordinates>-117.8675,33.6762,17</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hamilton Township Police Department & Municipal Complex (NJ)</name>
+        <styleUrl>#cyanPin</styleUrl>
+        <description><![CDATA[<h3>Hamilton Township Police Department & Municipal Complex (NJ)</h3><p><b>Category:</b> Law Enforcement Nexus</p><p>Incident Report 2019-00053723 & ShopRite commercial nexus.</p>]]></description>
+        <Point>
+          <altitudeMode>relativeToGround</altitudeMode>
+          <coordinates>-74.7088,40.2315,30</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ewing Township Police Department (NJ)</name>
+        <styleUrl>#cyanPin</styleUrl>
+        <description><![CDATA[<h3>Ewing Township Police Department (NJ)</h3><p><b>Category:</b> Law Enforcement Nexus</p><p>Ewing Police Department tactical jurisdiction and FBI SA Bradley H. Zartman coordination.</p>]]></description>
+        <Point>
+          <altitudeMode>relativeToGround</altitudeMode>
+          <coordinates>-74.7985,40.2643,45</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>USDC District of New Jersey - Trenton Federal Courthouse</name>
+        <styleUrl>#cyanPin</styleUrl>
+        <description><![CDATA[<h3>USDC District of New Jersey - Trenton Federal Courthouse</h3><p><b>Category:</b> Federal Judicial District</p><p>Clarkson S. Fisher Federal Building & U.S. Courthouse. Venue of USA v. Christopher Ryan (Docket 3:20-mj-05007-TJB).</p>]]></description>
+        <Point>
+          <altitudeMode>relativeToGround</altitudeMode>
+          <coordinates>-74.7645,40.2206,18</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>🔷 Municipal Parcels & SLA Boundaries</name>
+      <Placemark>
+        <name>Angel Stadium 153-Acre Parcel Perimeter</name>
+        <styleUrl>#polygonStyle</styleUrl>
+        <description><![CDATA[<h3>Angel Stadium 153-Acre Parcel Perimeter</h3><p>Boundary polygon of the 153-acre Angel Stadium property subjected to California Surplus Land Act (SLA) $96,000,000.00 statutory penalty.</p>]]></description>
+        <Polygon>
+          <extrude>1</extrude>
+          <altitudeMode>relativeToGround</altitudeMode>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>-117.886,33.805,50 -117.878,33.8045,50 -117.8775,33.796,50 -117.8865,33.7965,50 -117.886,33.805,50</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>✈️ 3D Flight & Enforcement Corridors</name>
+      <Placemark>
+        <name>Helicopter Flight Corridor: KSNA to KAJO</name>
+        <styleUrl>#flightPathStyle</styleUrl>
+        <description><![CDATA[<h3>Helicopter Flight Corridor: KSNA to KAJO</h3><p>Aviation flight vector between John Wayne Airport and Corona Municipal Airport.</p>]]></description>
+        <LineString>
+          <extrude>1</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>relativeToGround</altitudeMode>
+          <coordinates>-117.8675,33.6762,500 -117.78,33.76,1200 -117.7,33.84,1500 -117.6322,33.8978,200</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Mercer County Law Enforcement Corridor (Hamilton -> Ewing -> Trenton)</name>
+        <styleUrl>#flightPathStyle</styleUrl>
+        <description><![CDATA[<h3>Mercer County Law Enforcement Corridor (Hamilton -> Ewing -> Trenton)</h3><p>Tactical law enforcement operational vector connecting Hamilton PD, Ewing PD, and Trenton Federal Courthouse.</p>]]></description>
+        <LineString>
+          <extrude>1</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>relativeToGround</altitudeMode>
+          <coordinates>-74.7088,40.2315,50 -74.75,40.25,100 -74.7985,40.2643,80 -74.7645,40.2206,30</coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>
