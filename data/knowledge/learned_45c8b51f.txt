@@ -1,0 +1,1031 @@
+Source: https://github.com/OSINT-for-countries/OSINT_in_Mexico
+----------------------------------------
+GitHub - OSINT-for-countries/OSINT_in_Mexico: OSINT methods in Mexico, ways to search for data and information on Mexico. · GitHub
+Skip to content
+Navigation Menu
+Sign in
+Appearance settings
+Platform
+AI CODE CREATION
+GitHub Copilot
+Write better code with AI
+GitHub Copilot app
+Direct agents from issue to merge
+MCP Registry
+Integrate external tools
+DEVELOPER WORKFLOWS
+Actions
+Automate any workflow
+Codespaces
+Instant dev environments
+Issues
+Plan and track work
+Code Review
+Manage code changes
+Code Quality
+Enforce quality at merge
+APPLICATION SECURITY
+GitHub Advanced Security
+Find and fix vulnerabilities
+Code security
+Secure your code as you build
+Secret protection
+Stop leaks before they start
+EXPLORE
+Why GitHub
+Documentation
+Blog
+Changelog
+Marketplace
+View all features
+Solutions
+BY COMPANY SIZE
+Enterprises
+Small and medium teams
+Startups
+Nonprofits
+BY USE CASE
+App Modernization
+DevSecOps
+DevOps
+CI/CD
+View all use cases
+BY INDUSTRY
+Healthcare
+Financial services
+Manufacturing
+Government
+View all industries
+View all solutions
+Resources
+EXPLORE BY TOPIC
+AI
+Software Development
+DevOps
+Security
+View all topics
+EXPLORE BY TYPE
+Customer stories
+Events & webinars
+Ebooks & reports
+Business insights
+GitHub Skills
+SUPPORT & SERVICES
+Documentation
+Customer support
+Community forum
+Trust center
+Partners
+View all resources
+Open Source
+COMMUNITY
+GitHub Sponsors
+Fund open source developers
+PROGRAMS
+Security Lab
+Maintainer Community
+Accelerator
+GitHub Stars
+Archive Program
+REPOSITORIES
+Topics
+Trending
+Collections
+Enterprise
+ENTERPRISE SOLUTIONS
+Enterprise platform
+AI-powered developer platform
+AVAILABLE ADD-ONS
+GitHub Advanced Security
+Enterprise-grade security features
+Copilot for Business
+Enterprise-grade AI features
+Premium Support
+Enterprise-grade 24/7 support
+Pricing
+Search
+/
+Sign in
+Sign up
+Appearance settings
+You signed in with another tab or window.
+Reload
+to refresh your session.
+You signed out in another tab or window.
+Reload
+to refresh your session.
+You switched accounts on another tab or window.
+Reload
+to refresh your session.
+Dismiss alert
+Uh oh!
+There was an error while loading.
+Please reload this page
+.
+OSINT-for-countries
+/
+OSINT_in_Mexico
+Public
+Notifications
+You must be signed in to change notification settings
+Fork
+0
+Star
+2
+Code
+Issues
+0
+Pull requests
+0
+Actions
+Projects
+Security and quality
+0
+Insights
+Additional navigation options
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security and quality
+Insights
+main
+Branches
+Tags
+Go to file
+Code
+Open more actions menu
+Latest commit
+History
+3 Commits
+3 Commits
+Folders and files
+Name
+Name
+Last commit message
+Last commit date
+OSINT in Mexico.png
+OSINT in Mexico.png
+README.md
+README.md
+View all files
+Repository files navigation
+README
+More
+items
+OSINT in Mexico: Legal Information Search and Open Sources
+Mexico presents extensive opportunities for OSINT practitioners through its centralized federal registries and growing open data ecosystem. Analysts routinely combine official portals with regional sources to verify entities, locations, and public records across the country. This guide outlines the principal legal avenues for structured information collection in Mexico.
+Help make this guide better! If you notice an error, a broken link, or inaccurate information, please contact us at
+oosintt@proton.me
+To advertise in the guide, please contact us at
+oosintt@proton.me
+Table of contents
+🗾 Basic OSINT Profile
+🪪 Documents and Citizen Identifiers
+📱 Telecommunications and Connectivity
+🗯️ Social Media and Messaging Platforms
+🔍 Search Engines and Local Internet
+🏛️ Government and Semi-Official Online Services
+🌍 Geography and Addressing System
+👔 Business and Economy
+📺 Media and News
+📊 Major Local Data Platforms
+🗃️ Archival Data
+🪭 Cultural and Behavioral Characteristics
+🕯️ Religious Characteristics
+🚦 Limitations and Legal Framework
+Basic OSINT Profile of Mexico
+Mexico’s standardized national identifiers and federal administrative structure provide analysts with reliable anchor points for initial entity profiling. Publicly documented details such as ISO codes, telephone prefixes, and time zones enable rapid cross-referencing across multiple datasets. These foundational elements support consistent verification workflows throughout subsequent research stages.
+⬛ Official name
+Local
+: Estados Unidos Mexicanos
+Short
+: México
+International
+: United Mexican States / Mexico
+⬛ ISO codes
+ISO 3166-1 alpha-2
+: MX
+ISO 3166-1 alpha-3
+: MEX
+ISO 3166-1 numeric
+: 484
+⬛ Telephone code
+Country calling code
+: +52
+⬛ National currency
+Name
+: Mexican peso
+ISO 4217 code
+: MXN
+Symbol
+: $
+Minor unit
+: centavo (1/100 peso)
+⬛ Primary and secondary languages
+Primary official language
+: Spanish
+Secondary / minority languages
+: Numerous indigenous languages are recognized, including Nahuatl, Yucatec Maya, Mixtec, Zapotec, and others; English is used in business and tourism contexts
+⬛ Time zones
+Time-zone span
+: UTC−8 to UTC−5 (multiple zones across the country)
+Main zone
+: UTC−6 (Central Time, Mexico City); daylight saving time is observed in most zones
+⬛ Date format
+Main official / everyday numeric
+: DD/MM/YYYY
+Alternative (legal / technical / database)
+: YYYY-MM-DD
+Textual form
+: 17 de marzo de 2026
+⬛ Domain zones
+Primary
+: .mx
+National
+: None in common official use beyond .mx
+Government / state
+: .gob.mx
+Educational
+: .edu.mx
+Other commonly used second-level spaces
+: .com.mx, .org.mx, .net.mx, .gob.mx, .edu.mx
+Taken together, these core attributes form the baseline layer upon which deeper OSINT inquiries in Mexico are constructed.
+Documents and Citizen Identifiers in Mexico
+Mexican identity documents follow well-defined alphanumeric patterns that facilitate format-based validation during open-source checks. Analysts frequently examine passport numbers, CURP identifiers, and driver’s license formats to confirm authenticity and linkage across public records. Understanding issuance years and transliteration rules further refines matching accuracy in cross-border investigations.
+⬛ Passport — international travel document proving Mexican citizenship and identity outside the country.
+Current biometric passport
+(post-2010 e-passport series):
+Passport number
+:
+Format: #********* (1 uppercase Latin letter + 9 digits; 10 characters total)
+Example: G123456789
+Older non-biometric passport
+(pre-2010 series):
+Passport number
+:
+Format: #******** (1 uppercase Latin letter + 8 digits; 9 characters total)
+Example: G12345678
+⬛ ID card — primary domestic identity document (Credencial para Votar issued by INE).
+Current polycarbonate card
+(post-2014 series with chip):
+Card number
+:
+Format: ************* (13 digits)
+Example: 1234567890123
+CURP
+:
+Format: ####******######## (4 uppercase letters + 6 digits + 8 alphanumeric characters; 18 characters total)
+Example: GABC850101HDFXYZ01
+Older plastic card
+(pre-2014 series):
+Card number
+:
+Format: ************* (13 digits)
+Example: 1234567890123
+CURP
+:
+Format: ####******######## (4 uppercase letters + 6 digits + 8 alphanumeric characters; 18 characters total)
+Example: GABC850101HDFXYZ01
+⬛ Driver's license — document confirming the right to drive motor vehicles (state-issued).
+Current card-based licence
+(varies by state; common modern format):
+Licence number
+:
+Format: ******** (8 digits)
+Example: 12345678
+Older paper or early plastic licence
+:
+Licence number
+:
+Format: ********* (9 digits)
+Example: 123456789
+⬛ Taxpayer Identification Number — used for tax administration (RFC).
+Individuals
+:
+RFC
+:
+Format: ####******### (4 uppercase letters + 6 digits + 3 alphanumeric characters; 13 characters total)
+Example: GABC850101XYZ
+Legal entities
+:
+RFC
+:
+Format: ###******## (3 uppercase letters + 6 digits + 3 alphanumeric characters; 12 characters total)
+Example: ABC850101XYZ
+⬛ Social Security Number — used for social insurance (NSS / IMSS).
+NSS
+:
+Format: *********** (11 digits)
+Example: 12345678901
+⬛ Biometric Identifiers — captured and stored in document chips.
+Passport chip
+:
+Fingerprints and facial image stored as digital templates (binary data; not human-readable character string)
+INE card chip
+:
+Fingerprints and facial image stored as digital templates (binary data; not human-readable character string)
+⬛ Military service card — proof of military registration (Cartilla Militar).
+Current series
+:
+Cartilla number
+:
+Format: ******** (8 digits)
+Example: 12345678
+Older series
+:
+Cartilla number
+:
+Format: ******** (8 digits)
+Example: 12345678
+Collectively, these document characteristics allow researchers to build reliable timelines and identity graphs while remaining within legal boundaries.
+Telecommunications and Connectivity in Mexico
+Mobile numbering plans and operator registration requirements in Mexico create traceable footprints that support attribution of digital activity. Publicly available details on major carriers and eSIM policies help analysts interpret connection metadata obtained from open sources. Email domain patterns commonly used within the country add another layer for cross-verification.
+⬛ Mobile Number Format
+Number length (including country code)
+: 12 digits
+National format
+: 1-***-***-****
+International format
+: +52-***-***-****
+Other features
+: Country code +52 followed by a 10-digit national number; the leading 1 in national dialing indicates a mobile service
+⬛ Major Mobile Operators
+Telcel (América Móvil)
+: primary mobile network with extensive nationwide coverage
+Movistar (Telefónica)
+: major GSM/UMTS/LTE operator
+AT&T Mexico
+: nationwide mobile network operator
+⬛ Virtual Operators (MVNOs)
+Virgin Mobile Mexico
+: operates on AT&T infrastructure
+Aló (by Telefónica)
+: MVNO using Movistar network
+Weex
+: MVNO providing prepaid services on major networks
+Flash Mobile
+: regional MVNO focused on prepaid plans
+⬛ eSIM Availability
+eSIM support status
+: Available from major operators
+Activation format
+:
+QR code scan
+App-based provisioning or manual SM-DP+ entry
+⬛ SIM Registration
+General rule
+: SIM/eSIM issuance requires subscriber identification; anonymous retail sales are not permitted
+Local citizens
+: National voter ID (INE) or CURP
+Foreign citizens
+: Valid passport plus temporary or permanent residency documentation where applicable
+⬛ Popular Email Services
+Google (Gmail)
+: @gmail.com
+Microsoft (Outlook/Hotmail)
+: @outlook.com, @hotmail.com, @live.com
+Yahoo
+: @yahoo.com, @ymail.com
+Proton AG (Proton Mail)
+: @proton.me, @protonmail.com
+Yandex
+: @yandex.com, @yandex.ru
+These telecommunications markers therefore serve as practical reference points when mapping communication channels in Mexican OSINT projects.
+Social Media and Messaging Platforms in Mexico
+Social platforms popular in Mexico generate substantial public content that can be systematically monitored for geographic and temporal signals. Local usage patterns often differ from global trends, requiring tailored search strategies to surface relevant profiles and posts. Messaging applications further extend these traces through group affiliations and channel memberships.
+Social Networks in Mexico
+Major international networks dominate Mexican social media landscapes, yet several domestic platforms retain strong regional followings. Analysts monitor both mainstream and niche communities to capture localized discussions and event signals. Profile elements such as location tags and group memberships frequently yield additional open-source leads.
+Main Social Networks
+⬛
+Facebook
+Description
+: Social network with user profiles, pages, groups, events, and mixed-media posts.
+Popularity
+: Very high; one of the most widely used platforms across Mexico for personal and community connections.
+Locality
+: No — global platform.
+Ease of information discovery
+: Medium–high — public pages and groups are searchable; depth depends on privacy settings and group visibility.
+Restrictions
+: Currently accessible with no nationwide blocks.
+⬛
+Instagram
+Description
+: Photo and short-form video social network with profiles, posts, Reels, stories, hashtags, and geotagging.
+Popularity
+: Very high; strong adoption for visual content and influencer activity.
+Locality
+: No — global platform.
+Ease of information discovery
+: Medium–high — effective hashtag and location-based discovery on public accounts.
+Restrictions
+: Currently accessible with no nationwide blocks.
+⬛
+YouTube
+Description
+: Video-sharing platform with channels, subscriptions, comments, and live streams.
+Popularity
+: Very high; leading platform for long-form and educational video content.
+Locality
+: No — global platform.
+Ease of information discovery
+: High — strong keyword and channel search with indexable public content.
+Restrictions
+: Currently accessible with no nationwide blocks.
+⬛
+TikTok
+Description
+: Short-form video social platform with algorithmic feed, creator profiles, comments, and live streams.
+Popularity
+: High; rapid growth among younger users for entertainment and trends.
+Locality
+: No — global platform.
+Ease of information discovery
+: Medium — public profiles and videos discoverable via usernames and hashtags.
+Restrictions
+: Currently accessible with no nationwide blocks.
+⬛
+X
+Description
+: Microblogging platform focused on real-time posts, trends, and public discourse.
+Popularity
+: Medium; used for news, commentary, and public discussion.
+Locality
+: No — global platform.
+Ease of information discovery
+: High — public posts and trends are easily searchable.
+Restrictions
+: Currently accessible with no nationwide blocks.
+Regional Social Networks
+No major regional social networks specific to Mexico or neighboring countries are widely used.
+Major Specialized Social Networks
+⬛
+LinkedIn
+Description
+: Professional networking platform focused on careers, resumes, and business connections.
+Popularity
+: Medium; primary platform for professional networking and recruitment.
+Locality
+: No — global platform.
+Ease of information discovery
+: Medium — many profiles are public and structured, though full details often require login.
+Restrictions
+: Currently accessible with no nationwide blocks.
+These network characteristics collectively enhance the granularity of social media intelligence gathered inside Mexico.
+Messaging Apps in Mexico
+Widely adopted messaging services in Mexico support both individual and group communications that occasionally surface in public indexes. Analysts examine channel directories and public group metadata to identify recurring themes or organizational structures. Usage preferences among different demographics further inform targeted monitoring approaches.
+Main Messaging Apps
+⬛
+WhatsApp
+Description
+: Mobile-first messaging and calling app built around phone-number identity.
+Popularity
+: Very high; dominant messaging app for personal, family, and business communication.
+Locality
+: No — global platform.
+Ease of information discovery
+: Low — communications are primarily private with limited public surface.
+Restrictions
+: Currently accessible with no nationwide blocks.
+⬛
+Facebook Messenger
+Description
+: Messaging app integrated with Facebook for chats, calls, and group conversations.
+Popularity
+: High; widely used alongside Facebook for direct messaging.
+Locality
+: No — global platform.
+Ease of information discovery
+: Low — primarily private communications with limited public indexing.
+Restrictions
+: Currently accessible with no nationwide blocks.
+⬛
+Telegram
+Description
+: Cloud-based messaging platform with private chats, groups, and broadcast channels.
+Popularity
+: Medium; popular for channels, groups, and privacy-focused users.
+Locality
+: No — global platform.
+Ease of information discovery
+: High — public channels and usernames provide substantial open data.
+Restrictions
+: Currently accessible with no nationwide blocks.
+Regional Messaging Apps
+No major regional messaging apps specific to Mexico or neighboring countries are widely used.
+Together these messaging patterns provide supplementary context for communication mapping in Mexican OSINT work.
+Search Engines and Local Internet in Mexico
+Domestic search engines and map services in Mexico index content that global engines sometimes overlook. Thematic portals focused on government notices or regional directories extend discovery options beyond standard queries. Analysts combine these tools to surface location-specific or language-specific results.
+Main Search Engines
+⬛
+Google
+Description
+: The dominant global search engine providing web, images, maps, news, video and AI-enhanced results with strong multilingual support.
+Popularity
+: Very high – overwhelmingly the primary search engine used in Mexico.
+Locality
+: Global; widely used by Mexican users in Spanish and English.
+Ease of information discovery
+: Very high – delivers highly relevant Spanish-language and Mexico-specific results essential for most OSINT tasks.
+Restrictions
+: Fully accessible; no government-imposed blocks or systematic censorship of search results.
+⬛
+Bing
+Description
+: Microsoft’s international search engine with image, video and news integration plus AI features.
+Popularity
+: Low – minor market share behind Google.
+Locality
+: Global; not localized specifically for Mexico.
+Ease of information discovery
+: Moderate – adequate for general and English-language sources but less optimal for deep Spanish or local Mexican content.
+Restrictions
+: Fully accessible; standard content policies apply with no Mexico-specific filtering.
+Alternative Search Engines
+⬛
+DuckDuckGo
+Description
+: Privacy-focused aggregator that delivers results from multiple sources without tracking users.
+Popularity
+: Very low – used by a small niche audience.
+Locality
+: Global; no dedicated Mexican interface or indexing priority.
+Ease of information discovery
+: Moderate – useful for unbiased general searches but lacks deep local Mexican coverage.
+Restrictions
+: Fully accessible; no personalization or local censorship.
+⬛
+Yahoo
+Description
+: Legacy portal offering search alongside news and email services.
+Popularity
+: Very low – negligible current usage in Mexico.
+Locality
+: Global; not tailored to Mexican users.
+Ease of information discovery
+: Low – largely overlaps with Bing results and offers limited local depth.
+Restrictions
+: Fully accessible; standard filters only.
+Map Search
+⬛
+Google Maps
+Description
+: Comprehensive mapping service with street maps, satellite imagery, Street View, business listings and traffic data.
+Popularity
+: Very high – primary mapping platform for Mexican users.
+Locality
+: Global; full coverage of Mexico with Spanish interface and local business data.
+Ease of information discovery
+: Very high – excellent for address verification, geolocation and organizational searches.
+Restrictions
+: Fully accessible; user-generated content not subject to government map censorship.
+⬛
+OpenStreetMap
+Description
+: Collaborative open-source mapping project with editable geographic data and routing tools.
+Popularity
+: Moderate among technical and open-data users.
+Locality
+: Global; community-maintained coverage of Mexico.
+Ease of information discovery
+: High – valuable for raw geospatial data and verification of official mapping.
+Restrictions
+: Fully accessible; no centralized content restrictions.
+Local-specific search
+⬛ Specific search and tools
+NIC México WHOIS
+– Official registry for .mx domains providing registrant and administrative contact data for domain attribution.
+datos.gob.mx
+– National open data portal aggregating government datasets across sectors, useful for statistical and administrative verification.
+INEGI
+– National institute for statistics and geography offering official address, census and geospatial datasets.
+Correos de México
+– National postal service with branch locator and postcode search for address normalization.
+SEPOMEX Código Postal
+– Official postcode database for precise Mexican address verification.
+Such layered search capabilities therefore strengthen the completeness of open-source collection efforts targeting Mexico.
+Government and Semi-Official Online Services in Mexico
+Mexico maintains numerous official portals that publish company registries, court decisions, and licensing information in structured formats. These resources enable analysts to verify legal status, ownership details, and regulatory compliance through legitimate channels. Open data catalogs further support bulk extraction for large-scale monitoring projects.
+⬛ Services for checking companies and entrepreneurs
+Registro Público de Comercio (RPC)
+– Official federal registry of commercial entities; searchable by company name or RFC for legal status, incorporation data and representatives.
+Sistema de Información Empresarial Mexicano (SIEM)
+– National business information system providing company profiles, economic activity and contact details.
+⬛ Services for court decisions and trial results
+Poder Judicial de la Federación – Consulta de Expedientes
+– Public access to federal court dockets, case status and selected judgments.
+Suprema Corte de Justicia de la Nación – Resoluciones
+– Searchable database of Supreme Court rulings and constitutional decisions.
+⬛ Real Estate and Cadastral registers
+Registro Público de la Propiedad (state-level portals)
+– State-managed property registries; searchable for ownership, liens and encumbrances.
+INEGI – Marco Geoestadístico
+– National cadastral and geospatial data layers for land parcels and administrative boundaries.
+⬛ Services for checking driver’s licenses and driver’s licenses verification
+REPUVE – Registro Público Vehicular
+– National vehicle registry allowing verification of registration status, ownership history and liens.
+Licencias de Conducir (state portals)
+– State traffic authority portals for checking license validity and points (availability varies by state).
+⬛ Services for checking tax status
+SAT – Consulta de RFC y Situación Fiscal
+– Official taxpayer registry for verifying RFC status, tax obligations and compliance.
+SAT – Buzón Tributario y Adeudos
+– Public tools to check tax debts and filing history of legal entities.
+⬛ Public lists of licenses and certificates
+COFEPRIS – Registros Sanitarios
+– National registry of health-related licenses, permits and product registrations.
+Secretaría de Economía – Licencias y Permisos
+– Central portal listing federal business licenses and authorizations.
+⬛ Services for checking public officials, government data registers
+Declaraciones Patrimoniales de Servidores Públicos
+– Public declarations of assets and interests filed by federal public servants.
+Portal de Transparencia – Sujeto Obligado
+– National transparency platform for querying public servant information and institutional data.
+⬛ Portals of open data and datasets in various directions
+Datos.gob.mx
+– Official national open data portal hosting government datasets across economy, health, transport and justice.
+INEGI – Banco de Información
+– Statistical agency providing census, economic and geospatial open datasets.
+⬛ Other key information verification services
+REPUVE – Lista de Vehículos Reportados
+– Public list of stolen or wanted vehicles.
+Padrón Nacional de Contribuyentes – SAT
+– Bulk verification of taxpayer registration status for compliance checks.
+These governmental platforms thus constitute core infrastructure for lawful verification tasks within the country.
+Geography and Addressing System in Mexico
+Mexican address conventions incorporate state, municipality, and postal code elements that aid precise geolocation during research. Administrative divisions follow a federal hierarchy that analysts can exploit when narrowing search scopes. Bilingual naming practices occasionally appear in border regions, requiring flexible query formulation.
+⬛ Format of addresses
+Key elements
+:
+Recipient name (full name for individuals or company name for organizations)
+Street type and name, building number (with possible interior, exterior, or letter suffix)
+Colonia or neighborhood name
+Postal code
+Municipality or delegation
+State name
+Country (for international mail)
+Examples
+:
+Juan Pérez García, Calle Reforma 123, Colonia Centro, 06000, Alcaldía Cuauhtémoc, Ciudad de México
+Empresa Ejemplo S.A. de C.V., Av. Insurgentes Sur 1456 Int. 5, Colonia Actipan, 03210, Alcaldía Benito Juárez, Ciudad de México
+⬛ Postal codes
+Length
+: Five digits - *****
+Key elements
+:
+First two digits indicate the state or major region
+Last three digits identify the specific post office or delivery zone
+Examples
+:
+01000 - central Mexico City (Álvaro Obregón area)
+06000 - Mexico City historic center
+64000 - central Monterrey, Nuevo León
+⬛ Administrative division
+Level formats
+:
+Country → State (or Ciudad de México) → Municipality (municipio) or Borough (alcaldía) → Locality or Colonia
+Main levels
+:
+32 federal entities (31 states + Ciudad de México)
+2,458 municipalities (municipios)
+16 boroughs (alcaldías) in Ciudad de México
+⬛ Street and district naming conventions
+Common street types
+:
+Calle (street, abbr. C.)
+Avenida (avenue, abbr. Av.)
+Boulevard (boulevard, abbr. Blv.)
+Calzada (causeway/road, abbr. Calz.)
+Privada (private street, abbr. Priv.)
+Colonia (neighborhood, abbr. Col.)
+Municipio (municipality)
+Alcaldía (borough in Mexico City)
+Examples
+:
+C. 5 de Mayo 45, Col. Centro
+Av. Juárez 890, Col. Centro
+Calz. de Tlalpan 1234, Col. Actipan
+⬛ Alphabet usage
+Official addresses use the Latin alphabet with Spanish orthography
+All domestic postal and registry documents are written in Spanish using Latin script
+Diacritics (á, é, í, ó, ú, ñ) are used in official names; no Cyrillic or other scripts appear in standard addressing
+These geographic conventions therefore improve the accuracy of location-based OSINT conducted across Mexico.
+Business and Economy of Mexico
+Public business registries in Mexico disclose incorporation details and ownership structures that support corporate profiling. Analysts routinely consult financial disclosure requirements to assess operational transparency of registered entities. Understanding common legal forms helps interpret available records more effectively.
+⬛ Forms of ownership and business
+Persona Física con Actividad Empresarial
+– An individual registered with the tax authority (SAT) to conduct commercial activities without forming a separate legal entity; unlimited personal liability.
+Sociedad de Responsabilidad Limitada (S. de R.L. de C.V.)
+– A limited liability company formed by one or more partners; liability is restricted to the value of contributions.
+Sociedad Anónima (S.A. de C.V.)
+– A stock company whose capital is divided into shares; may be publicly listed (S.A.B. de C.V.) or privately held; shareholders’ liability is limited to their shareholding.
+Sociedad por Acciones Simplificada (S.A.S.)
+– A simplified stock company allowing single-founder incorporation and flexible governance; suitable for startups and SMEs.
+Sociedad Civil (S.C.)
+– A civil partnership used primarily for professional services; partners retain unlimited liability.
+Unidad Económica / Régimen de Incorporación Fiscal (RIF)
+– Simplified tax regimes for micro-enterprises and self-employed individuals with reduced compliance requirements.
+Non-profit entities (A.C., I.A.P., etc.)
+– Associations and foundations registered for social, cultural or charitable purposes without profit distribution.
+⬛ How business is registered
+Commercial companies are incorporated before a notary public and subsequently registered in the Registro Público de Comercio (RPC) via the Sistema Integral de Gestión Registral (SIGER) operated by the Ministry of Economy.
+The tax identification number (RFC) is obtained automatically through the SAT portal after incorporation or via the “Inscripción al RFC” procedure for individuals.
+Online filing is available through gob.mx, e.firma (electronic signature) and the Portal de trámites del SAT; in-person registration is also possible at SAT offices or via state-level one-stop shops.
+Required documents for companies typically include the notarized deed of incorporation, proof of legal domicile, identification of founders and administrators, and payment of registration fees.
+Economic activities are classified according to the Sistema de Clasificación Industrial de América del Norte (SCIAN), the Mexican adaptation of NAICS.
+⬛ What is published publicly
+The Registro Público de Comercio (RPC) and the SAT public consultation portal disclose the company’s full legal name, commercial name, RFC, date of incorporation, legal form and current status (active, suspended, cancelled).
+Public records list the registered address, names of legal representatives and administrators, share capital amount, and the principal and secondary SCIAN activity codes.
+Changes to corporate data (address, management, capital modifications) are recorded as historical entries and remain accessible through the RPC search interface.
+Information on licences, permits and certain regulatory authorisations is available via sector-specific registries (e.g., COFEPRIS, CNBV) when applicable.
+Bankruptcy, liquidation and merger notices are published in the Diario Oficial de la Federación and reflected in the RPC status field.
+⬛ Availability of financial reports
+Most private companies file financial statements only with the SAT and are not required to publish them publicly.
+Listed companies (S.A.B. de C.V.) and certain regulated entities must submit audited financial statements to the Bolsa Mexicana de Valores (BMV) and the Comisión Nacional Bancaria y de Valores (CNBV), where summaries are publicly accessible.
+Large taxpayers and companies exceeding statutory thresholds must file annual financial information electronically with the SAT; these filings are not released to the general public.
+Credit bureaus and commercial databases aggregate limited financial indicators derived from public filings and payment behaviour, but full balance sheets remain restricted.
+These economic data points collectively enable robust due-diligence workflows focused on Mexican commercial actors.
+Media and News in Mexico
+National and regional media outlets in Mexico produce extensive archives that serve as valuable secondary sources for event reconstruction. State-affiliated publications and independent investigative portals offer complementary perspectives on public matters. Language considerations and regional coverage patterns guide efficient monitoring strategies.
+⬛ Key Media
+Notimex
+– Former state news agency; archives remain accessible for official Mexican government reporting.
+El Universal
+– Major national daily covering politics, economy and security.
+Reforma
+– Influential national newspaper focused on investigative and political coverage.
+Milenio
+– National multimedia outlet with strong digital presence and breaking news.
+Excélsior
+– Long-established national daily with broad domestic and international reporting.
+Animal Político
+– Independent digital outlet specializing in investigative journalism and data-driven stories.
+⬛ Regional Portals
+El Norte
+– Leading regional newspaper for Nuevo León and northern Mexico.
+El Informador
+– Major daily for Jalisco and western Mexico.
+La Jornada
+– National paper with extensive state-level correspondents and regional editions.
+⬛ News Archives
+Hemeroteca Nacional Digital de México
+– Official digital collection of historical Mexican newspapers and periodicals.
+Wayback Machine
+– Web archive preserving past versions of Mexican news sites.
+Google News Archive
+– Limited historical coverage of major Mexican outlets.
+⬛ Publication Languages
+Main language
+: Spanish – Used by virtually all domestic print, broadcast and digital media.
+Other languages
+: English editions or sections exist in major outlets (El Universal, Milenio) for international audiences. Indigenous-language publications are minimal and mostly non-digital.
+⬛ Censorship and Press Freedom
+Repression level
+: Mexico ranks 121st out of 180 in RSF’s 2024 World Press Freedom Index, classified as a “difficult situation”.
+Violence against journalists
+: Mexico remains one of the most dangerous countries for journalists, with frequent killings and threats, especially in states with organized crime presence.
+Legal environment
+: No formal military censorship; however, criminal defamation laws and strategic lawsuits are used against critical reporting.
+Access issues
+: Most national and regional outlets remain publicly accessible; independent digital media operate without systematic blocking.
+These media resources therefore enrich contextual understanding in Mexico-focused open-source investigations.
+Major Local Data Platforms in Mexico
+Marketplaces, review sites, and job boards popular in Mexico aggregate user-generated content that can reveal commercial relationships and service footprints. Analysts examine listing patterns and review metadata to identify recurring actors or geographic clusters. Freelance and classified platforms further extend the range of publicly accessible signals.
+⬛ Marketplaces and Classified Ads
+Mercado Libre
+– Dominant classifieds and e-commerce platform in Mexico covering vehicles, real estate, goods, services, and user profiles with extensive ad history.
+Vivanuncios
+– Major local classifieds site focused on real estate, automobiles, jobs, and consumer goods with regional filters and seller information.
+⬛ Review Services
+Mercado Libre Reviews
+– Integrated review system with buyer and seller ratings, purchase histories, and detailed feedback on products and services.
+⬛ Service and Freelance Platforms
+Workana
+– Leading freelance marketplace in Mexico and Latin America with profiles of contractors, project histories, and client ratings.
+⬛ Job Platforms
+OCC Mundial
+– Major Mexican job portal with large databases of vacancies, candidate resumes, and professional profiles.
+Computrabajo
+– Popular employment site featuring job listings, applicant CVs, and company information across Mexico.
+Bumeran
+– Regional job board with resumes, vacancy postings, and candidate search tools.
+⬛ Comments and UGC Platforms
+Foros México
+– Established Mexican discussion forum with user accounts, threads, and activity histories on diverse topics.
+These platforms collectively expand the surface area available for legitimate information gathering in Mexico.
+Archival Data in Mexico
+Digitized historical registries and web archives preserve earlier versions of Mexican public records that assist longitudinal analysis. Government digitization initiatives have made selected older datasets searchable through official interfaces. Analysts leverage these archives to trace changes in entity status or address history over time.
+⬛ Website archives
+Wayback Machine
+– Global web archive storing historical snapshots of Mexican government, media, and institutional websites.
+archive.today
+– On-demand web archiving service preserving current and past versions of Mexican webpages.
+Library of Congress Web Archives
+– Archived collections of Mexican government and public sector websites.
+⬛ Historical data registries
+INEGI Historical Census Data
+– Official historical population census records and demographic statistics from multiple decades.
+FamilySearch Mexico
+– Digitized civil registry, church, and military records covering Mexican historical populations.
+Archivo General de la Nación – Historical Fonds
+– Public access to colonial, independence-era, and 20th-century government records.
+⬛ Government digital archives
+Archivo General de la Nación Digital
+– National repository providing digitized federal archival collections and document descriptions.
+Datos Abiertos México
+– Official open data portal aggregating historical and current datasets from federal agencies.
+Memórica
+– Public digital platform hosting historical photographs, documents, and audiovisual archives from Mexican state institutions.
+Such archival layers therefore add temporal depth to contemporary OSINT assessments concerning Mexico.
+Cultural and Behavioral Characteristics of Mexico
+Public discourse patterns in Mexico often reflect regional identities and linguistic nuances that influence how information appears online. Analysts account for these traits when interpreting tone, abbreviations, and platform etiquette in open sources. Awareness of local customs improves the relevance of collected material.
+⬛ Noticeable Behavioral Differences
+Indirect and harmony-oriented communication
+: Mexicans frequently employ diplomatic phrasing and avoid direct confrontation to preserve social harmony and personal dignity, differing from more explicit styles common in Northern Europe or North America (
+Source
+).
+Flexible time perception in social and professional contexts
+: Events and meetings often begin later than scheduled, reflecting a relational rather than strictly chronological approach to time management (
+Source
+).
+Strong emphasis on personal rapport before substantive exchange
+: Initial interactions prioritize relationship-building through small talk and shared meals, influencing how information is shared in both offline and digital environments (
+Source
+).
+High-context reliance on non-verbal cues and tone
+: Meaning is frequently conveyed through gestures, facial expressions, and implied context rather than explicit statements, especially in familiar or hierarchical settings (
+Source
+).
+⬛ Key Cultural Characteristics
+Collectivist family-centric structure
+: Extended family networks remain central to identity formation, decision-making, and informal information flows across generations (
+Source
+).
+High power distance with respect for authority
+: Social and organizational interactions reflect clear hierarchical patterns, where deference to elders and superiors shapes communication and access to information (
+Source
+).
+Widespread bilingual and multilingual digital practices
+: Spanish dominates, yet English and indigenous languages coexist in media consumption and cross-border online activity, particularly in urban and border regions (
+Source
+).
+Active engagement with global and local social platforms
+: High penetration of WhatsApp, Facebook, and Instagram supports both personal networks and open-source information gathering, with usage patterns varying by age and region (
+Source
+).
+These cultural considerations ultimately refine the quality and context of intelligence products derived from Mexican open data.
+Religious Characteristics of Mexico
+Religious institutions and community activities in Mexico occasionally generate publicly indexed announcements and event records. Analysts monitor denominational directories and festival calendars to identify affiliation signals that appear in open sources. Such indicators can support network mapping when handled appropriately.
+⬛ Religious characteristics
+Predominantly Roman Catholic population with syncretic elements
+: Approximately 77–83% of Mexicans identify as Catholic according to the 2020 national census, with widespread integration of pre-Hispanic indigenous beliefs into Catholic practices, particularly in southern and central regions. (
+Source
+,
+Source
+)
+Constitutional secularism and state neutrality
+: Article 24 of the Mexican Constitution guarantees freedom of religion while establishing strict separation between church and state, prohibiting religious instruction in public schools and limiting political activity by religious organizations. (
+Source
+,
+Source
+)
+Rapid growth of Protestant and evangelical communities
+: Non-Catholic Christian groups, mainly Pentecostal and evangelical denominations, have increased from 5% in 1990 to around 11% in 2020, with highest concentrations in southern states such as Chiapas, Tabasco and Oaxaca. (
+Source
+,
+Source
+)
+Low levels of regular religious observance
+: Despite high nominal affiliation, only 25–30% of Mexicans attend religious services weekly, with participation often limited to major holidays and life-cycle events. (
+Source
+,
+Source
+)
+Small but officially registered minority faiths
+: Jewish, Muslim, Buddhist, and various new religious movements together represent under 1% of the population; all religious associations must register with the Secretaría de Gobernación (SEGOB) to obtain legal personality. (
+Source
+,
+Source
+)
+Cultural role of religious festivals and pilgrimages
+: Major events such as the Virgin of Guadalupe pilgrimage and regional saint festivals function as significant social and cultural markers, frequently used in open-source analysis of regional identity and mobility patterns. (
+Source
+)
+These religious dimensions therefore provide supplementary context for certain categories of OSINT research in Mexico.
+Limitations and Legal Framework in Mexico
+Mexican data protection legislation defines clear boundaries around personal information that researchers must respect during collection. Publicly available records remain accessible, yet any processing must align with applicable privacy statutes and platform terms. Analysts maintain compliance by restricting activities to explicitly open and lawfully published materials.
+⬛ What is considered personal data
+*
+Federal Law on the Protection of Personal Data Held by Private Parties (LFPDPPP, 2010, as amended)
+– Regulates the lawful processing, storage, and transfer of personal data by private entities.
+*
+Personal data
+– Any information that identifies or can be used to identify an individual (full name, CURP, address, telephone, email, IP address, geolocation, tax ID).
+*
+Sensitive personal data
+– Information concerning racial or ethnic origin, health status, genetic information, religious beliefs, political opinions, sexual orientation, and biometric data used for identification.
+*
+ARCO rights
+– Legal rights of access, rectification, cancellation, and opposition granted to data subjects.
+⬛ What is allowed to search
+*
+Federal Law on Transparency and Access to Public Information (2015)
+– Establishes the right to access government-held information and open public registries.
+*
+Public state registries
+(Public Registry of Commerce, property records, official gazettes, court decisions published in compliance with transparency rules).
+*
+Open government data portals
+(datos.gob.mx and state-level open data platforms).
+*
+Publicly available information
+voluntarily disclosed on websites, social media, professional directories, and media sources.
+*
+Official publications
+and statistical datasets released by government agencies.
+*
+Data accessed in accordance with platform terms of service
+and applicable licensing conditions.
+*
+Anonymized or aggregated datasets
+that do not permit individual identification.
+⬛ What is prohibited to search
+*
+LFPDPPP
+– Prohibits processing of personal data without a legal basis or the data subject’s consent, especially sensitive personal data.
+*
+Federal Penal Code, Article 211 bis
+– Criminalizes unauthorized access to computer systems or protected data.
+*
+Acquisition, purchase, or use of leaked databases
+containing personal information obtained unlawfully.
+*
+Collection of restricted information
+through hacking, social engineering, or circumvention of access controls.
+*
+Processing of sensitive personal data
+without explicit consent or another lawful basis.
+⬛ Liability for abuse
+*
+LFPDPPP and INAI sanctions
+– Administrative fines for unlawful processing or inadequate protection of personal data.
+*
+Federal Penal Code, Article 211 bis
+– Criminal penalties including fines and imprisonment for unauthorized access to computer information.
+*
+Civil liability
+– Obligation to compensate data subjects for material or moral damages resulting from unlawful processing.
+*
+Regulatory measures
+– Blocking or restriction of online resources that violate data protection or transparency legislation.
+These legal parameters ultimately safeguard both the integrity of research and the rights of individuals referenced in Mexican open sources.
+Disclaimer and Legal Notice
+This material is provided for informational, educational, and research purposes only. All information referenced in this document is intended to be collected from publicly available open sources, official registers, public websites, media publications, open data portals, and other legally accessible resources.
+The content does not encourage, support, or authorize unauthorized access to computer systems, private accounts, restricted databases, leaked datasets, confidential records, or any information obtained unlawfully. Readers are responsible for ensuring that their research activities comply with applicable laws, platform terms of service, privacy regulations, data protection rules, and ethical standards in their own jurisdiction.
+No personal data should be collected, stored, processed, shared, or published without a valid legal basis, consent, or another lawful justification. Any examples, methods, or references described in this material must be used only within legal and ethical boundaries.
+The authors and publishers of this document do not provide legal advice and do not accept responsibility for any misuse of the information, tools, links, or methods mentioned. Users act at their own risk and are solely responsible for how they interpret and apply the information.
+If any data source, link, or method mentioned in this document becomes restricted, outdated, inaccurate, or legally unavailable, it should not be used. Always verify information through official sources and respect privacy, security, and human rights.
+Go back to the catalog of countries
+About
+OSINT methods in Mexico, ways to search for data and information on Mexico.
+github.com/OSINT-for-countries
+Topics
+mexico
+osint
+osint-framework
+osint-resources
+search
+search-engine
+searching
+Resources
+Readme
+Activity
+Custom properties
+Stars
+2
+stars
+Watchers
+0
+watching
+Forks
+0
+forks
+Report repository
+Releases
+Packages
+Contributors
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+You can’t perform that action at this time.
