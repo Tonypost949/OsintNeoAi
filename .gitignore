@@ -22,9 +22,11 @@ token_live_agent.json
 credentials.json
 *.env
 .env
+.env*
 
 # Large chunk files
 opencode_work/chunk_*.dat
+copilot-worktrees/
 
 # Agent conversation logs with embedded secrets
 .system_generated/
