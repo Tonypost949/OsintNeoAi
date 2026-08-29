@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-08-29T09:04:25.670933",
+  "legal_extraction": {
+    "entities_extracted": 1,
+    "entity_graph": {
+      "nodes": [
+        {
+          "id": "BIA",
+          "type": "Trust",
+          "jurisdiction": "California",
+          "addresses": [],
+          "identifiers": {}
+        }
+      ],
+      "edges": [],
+      "metadata": {
+        "total_entities": 1,
+        "extracted_at": "2026-08-29T09:04:25.690974"
+      }
+    },
+    "bigquery_export": {
+      "entities": [
+        {
+          "name": "BIA",
+          "entity_type": "Trust",
+          "jurisdiction": "California",
+          "identifiers": {},
+          "addresses": [],
+          "relationships": [],
+          "documents_found": [],
+          "confidence_score": 0.75
+        }
+      ],
+      "document_index": {
+        "C:\\OsintNeoAi\\legal_library\\INDIGENOUS_TRIBAL_LAND_RIGHTS_AND_CULTURAL_RESOURCES_AUDIT.md": {
+          "type": "general",
+          "entities_found": 1,
+          "extracted_at": "2026-08-29T09:04:25.687180",
+          "file_size": 8971
+        },
+        "C:\\OsintNeoAi\\CIVIL_FORFEITURE_PHAM_WELLS_FARGO_DRAFT.md": {
+          "type": "general",
+          "entities_found": 0,
+          "extracted_at": "2026-08-29T09:04:25.690808",
+          "file_size": 1892
+        }
+      },
+      "extraction_date": "2026-08-29T09:04:25.691331",
+      "project_id": "noble-beanbag-497411-m4"
+    }
+  },
+  "fraud_detection": {
+    "shell_companies": [],
+    "bigquery_export": {
+      "patterns": [],
+      "risk_graph": {
+        "nodes": [],
+        "edges": [],
+        "risk_clusters": [],
+        "metadata": {
+          "patterns_detected": 0,
+          "high_risk_count": 0,
+          "generated_at": "2026-08-29T09:04:25.691705"
+        }
+      },
+      "detection_date": "2026-08-29T09:04:25.691894",
+      "project_id": "noble-beanbag-497411-m4"
+    }
+  },
+  "integrated_graph": {
+    "legal_entities": 1,
+    "fraud_patterns": 0,
+    "correlation_matrix": {
+      "total_entities": 1,
+      "correlations": [],
+      "metadata": {
+        "generated_at": "2026-08-29T09:04:25.692038",
+        "method": "Address/Identifier clustering"
+      }
+    }
+  }
+}
