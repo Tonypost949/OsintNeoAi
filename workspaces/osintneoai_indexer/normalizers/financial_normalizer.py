@@ -60,7 +60,7 @@ FINANCIAL_REGEX = re.compile(
     (?P<paren>\()?\s*
     (?:(?P<currency>[\$€£¥₩₹]|USD|EUR|GBP|CAD|AUD)\s*)?
     (?P<number>\d+(?:,\d{3})*(?:\.\d+)?|\d*\.\d+)\s*
-    (?P<multiplier>trillions?|billions?|millions?|thousands?|grand|mil|[kKmMgGbBtT])?\s*
+    (?P<multiplier>trillions?|billions?|millions?|thousands?|grand|mil|(?:[kKmMgGbB]|t|T)(?![a-zA-Z]))?\s*
     (?P<close_paren>\))?
     (?:\s*(?P<trailing_currency>USD|EUR|GBP|CAD|AUD|dollars?|cents?))?
     """,
@@ -182,6 +182,10 @@ def extract_financials(text: str, default_currency: str = "USD") -> List[Normali
         if not curr_raw and not mult_raw and not trailing_curr:
             if "," not in num_raw and "." not in num_raw:
                 continue
+
+        # Discard ordinals like 1st, 2nd, 3rd, 4th, 5th, 20th if without currency
+        if not curr_raw and re.search(r"^\d+(?:st|nd|rd|th)\b", text[match.start():match.start() + len(num_raw) + 3], re.IGNORECASE):
+            continue
 
         # Discard obvious phone number contexts e.g. (555) 123-4567
         start = match.start()

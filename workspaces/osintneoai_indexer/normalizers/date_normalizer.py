@@ -322,18 +322,10 @@ def normalize_dates_from_text(
     """
     meta = metadata or {}
 
-    # 1. Direct metadata check
-    for key in ("Date", "date", "created", "created_date", "filing_date", "timestamp"):
-        if key in meta and meta[key]:
-            val = str(meta[key]).strip()
-            norm = normalize_date(val, default_tz=default_tz)
-            if norm:
-                return (norm.iso_value, val)
-
-    # 2. Header stamp regex in first 2000 characters
+    # 1. Header stamp regex in first 2000 characters
     sample_text = text[:2000] if text else ""
     stamp_match = re.search(
-        r"(?:FILED|ENTERED|DECIDED|DATED|RECORDED|ORDERED|SIGNED)\s*[:\s]*([^\n\r,]+(?:,\s*\d{4}|\/\d{2,4}))",
+        r"(?:FILED|ENTERED|DECIDED|DATED|RECORDED|ORDERED|SIGNED|FILING\s+DATE|DATE\s+OF\s+ENACTMENT|DATE)\s*[:\s]*([^\n\r,]+(?:,\s*\d{4}|\/\d{2,4}|\s+\d{4}))",
         sample_text,
         re.IGNORECASE
     )
@@ -342,6 +334,14 @@ def normalize_dates_from_text(
         norm = normalize_date(stamp_raw, default_tz=default_tz)
         if norm:
             return (norm.iso_value, stamp_raw)
+
+    # 2. Direct metadata check
+    for key in ("Date", "date", "filing_date", "created_date", "created", "timestamp"):
+        if key in meta and meta[key]:
+            val = str(meta[key]).strip()
+            norm = normalize_date(val, default_tz=default_tz)
+            if norm:
+                return (norm.iso_value, val)
 
     # 3. First extracted date in text
     extracted = extract_dates(text, default_tz=default_tz)

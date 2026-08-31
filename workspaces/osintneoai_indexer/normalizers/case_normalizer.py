@@ -155,6 +155,11 @@ class NormalizedCaseCitation:
     start_char: int = 0
     end_char: int = 0
 
+    @property
+    def case_number(self) -> str:
+        """Alias returning canonical_id."""
+        return self.canonical_id
+
 
 def extract_case_citations(text: str) -> List[NormalizedCaseCitation]:
     """

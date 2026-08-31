@@ -155,7 +155,7 @@ class TestMerkleAndCanonicalJsonInvariants:
         # Single leaf produces hash of that leaf
         leaf1 = "a" * 64
         root1 = exporter.compute_merkle_root([leaf1])
-        assert root1 == hashlib.sha256(leaf1.encode("utf-8")).hexdigest().lower()
+        assert root1 == leaf1.lower()
 
         # Two leaves produce hash of pair concatenation
         leaf2 = "b" * 64

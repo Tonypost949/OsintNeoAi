@@ -22,6 +22,7 @@ class EnhancementProfile(str, Enum):
     PASSTHROUGH = "passthrough"
     LIGHT = "light"
     STANDARD = "standard"
+    DOCUMENT_CLEAN = "standard"
     HEAVY = "heavy"
     AUTO = "auto"
 

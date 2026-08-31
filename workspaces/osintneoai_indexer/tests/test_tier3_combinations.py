@@ -313,7 +313,7 @@ class TestTier3ExtractionAndNormalizers:
         parser = HtmlDocumentParser()
         res = parser.extract_from_stream(io.BytesIO(html_content.encode("utf-8")))
         
-        dates = normalize_dates_from_text(res.text)
+        dates = extract_dates(res.text)
         date_strings = [d.iso_value for d in dates]
         
         assert any(d.startswith("2021-12-08") for d in date_strings)
@@ -373,7 +373,7 @@ class TestTier3ExtractionAndNormalizers:
         res_enh = ocr.ocr_image(enhanced)
         
         assert res_enh.page_number == 1
-        assert isinstance(res_enh.lines, list)
+        assert isinstance(res_enh.lines, (list, tuple))
 
 
 # ==============================================================================

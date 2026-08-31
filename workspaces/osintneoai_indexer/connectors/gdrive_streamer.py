@@ -178,6 +178,7 @@ class GDriveStreamer:
                 export_format=fmt,
                 download_url=f"https://docs.google.com/document/d/{file_id}/export?format={fmt}",
                 original_url=url_or_id,
+                inferred_filename=f"{file_id}.{fmt}",
                 inferred_mime_type=WORKSPACE_EXPORT_MIMES["doc"].get(fmt, "application/pdf")
             )
 
@@ -195,6 +196,7 @@ class GDriveStreamer:
                 export_format=fmt,
                 download_url=f"https://docs.google.com/spreadsheets/d/{file_id}/export?format={fmt}",
                 original_url=url_or_id,
+                inferred_filename=f"{file_id}.{fmt}",
                 inferred_mime_type=WORKSPACE_EXPORT_MIMES["sheet"].get(fmt, "text/csv")
             )
 
@@ -209,6 +211,7 @@ class GDriveStreamer:
                 export_format=fmt,
                 download_url=f"https://docs.google.com/presentation/d/{file_id}/export?format={fmt}",
                 original_url=url_or_id,
+                inferred_filename=f"{file_id}.{fmt}",
                 inferred_mime_type="application/pdf"
             )
 
@@ -223,6 +226,7 @@ class GDriveStreamer:
                     export_format=None,
                     download_url=f"https://drive.google.com/uc?export=download&id={file_id}&confirm=t",
                     original_url=url_or_id,
+                    inferred_filename=file_id,
                     inferred_mime_type="application/octet-stream"
                 )
 

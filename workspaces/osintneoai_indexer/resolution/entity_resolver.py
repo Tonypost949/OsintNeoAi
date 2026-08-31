@@ -24,6 +24,7 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 from typing import Any, Callable, Dict, Iterable, List, Optional, Sequence, Set, Tuple, Union
 
+from normalizers.date_normalizer import extract_dates
 from normalizers.entity_normalizer import (
     CORP_SUFFIX_RE,
     HONORIFIC_PREFIX_RE,
@@ -256,13 +257,13 @@ def token_overlap_score(s1: str, s2: str) -> float:
 
 KNOWN_ENTITY_PATTERNS: List[Tuple[re.Pattern, EntityCategory, str]] = [
     # Individuals
-    (re.compile(r"\b(?:Mayor\s+)?Harry\s+(?:Singh\s+)?Sidhu\b", re.IGNORECASE), EntityCategory.INDIVIDUAL, "Harry Sidhu"),
+    (re.compile(r"\b(?:(?:Mayor\s+)?Harry\s+(?:Singh\s+)?Sidhu|Mayor\s+Sidhu)\b", re.IGNORECASE), EntityCategory.INDIVIDUAL, "Harry Sidhu"),
     (re.compile(r"\bTodd\s+(?:Stephen\s+)?Ament\b", re.IGNORECASE), EntityCategory.INDIVIDUAL, "Todd Ament"),
     (re.compile(r"\bMelahat\s+Rafiei\b", re.IGNORECASE), EntityCategory.INDIVIDUAL, "Melahat Rafiei"),
     (re.compile(r"\b(?:Jeff|Jeffrey)\s+Flint\b", re.IGNORECASE), EntityCategory.INDIVIDUAL, "Jeffrey Flint"),
-    (re.compile(r"\b(?:Special\s+Agent|SA)\s+Brian\s+Adkins\b", re.IGNORECASE), EntityCategory.INDIVIDUAL, "Brian Adkins"),
-    (re.compile(r"\b(?:Special\s+Agent|SA)\s+Bradley\s+H\.?\s+Zartman\b", re.IGNORECASE), EntityCategory.INDIVIDUAL, "Bradley H. Zartman"),
-    (re.compile(r"\b(?:Judge|Hon\.?)\s+Carmen\s+Luege\b", re.IGNORECASE), EntityCategory.INDIVIDUAL, "Carmen Luege"),
+    (re.compile(r"\b(?:(?:Special\s+Agent|SA)\s+)?Brian\s+Adkins\b", re.IGNORECASE), EntityCategory.INDIVIDUAL, "Brian Adkins"),
+    (re.compile(r"\b(?:(?:Special\s+Agent|SA)\s+)?Bradley\s+H\.?\s+Zartman\b", re.IGNORECASE), EntityCategory.INDIVIDUAL, "Bradley H. Zartman"),
+    (re.compile(r"\b(?:(?:Judge|Hon\.?)\s+)?Carmen\s+Luege\b", re.IGNORECASE), EntityCategory.INDIVIDUAL, "Carmen Luege"),
     (re.compile(r"\bRichard\s+(?:S\.?\s+)?Sontag(?:,\s*Esq\.?)?\b", re.IGNORECASE), EntityCategory.INDIVIDUAL, "Richard S. Sontag"),
     (re.compile(r"\bAnthony\s+(?:C\.?\s+)?DiMarcello\b", re.IGNORECASE), EntityCategory.INDIVIDUAL, "Anthony DiMarcello"),
     (re.compile(r"\bArden\s+Hoang\b", re.IGNORECASE), EntityCategory.INDIVIDUAL, "Arden Hoang"),
@@ -719,7 +720,56 @@ class EntityResolver:
                     ))
 
             # 3. Extract Timeline Events
-            if doc_date and len(text.strip()) > 0:
+            line_events: List[TimelineEvent] = []
+            seen_event_dates: Set[str] = set()
+
+            lines = [l.strip() for l in text.split("\n") if l.strip()]
+            for line in lines:
+                line_dates = extract_dates(line)
+                if line_dates:
+                    l_date = line_dates[0].iso_value
+                    if l_date in seen_event_dates:
+                        continue
+                    seen_event_dates.add(l_date)
+
+                    line_lower = line.lower()
+                    event_type = EventType.OTHER
+                    if any(kw in line_lower for kw in ["indictment", "plea", "plea agreement", "felony", "complaint", "docket", "summons", "warrant", "unlawful detainer", "writ", "judgment", "challenge", "stay order"]):
+                        event_type = EventType.JUDICIAL_FILING
+                    elif any(kw in line_lower for kw in ["resolution", "council", "ordinance", "city council", "disclosure"]):
+                        event_type = EventType.LEGISLATIVE_ACTION
+                    elif any(kw in line_lower for kw in ["notice of violation", "regulatory", "hcd", "surplus land act", "report", "violation"]):
+                        event_type = EventType.REGULATORY_NOTICE
+                    elif any(kw in line_lower for kw in ["incident", "police", "arrest", "search warrant", "chain of custody", "affidavit"]):
+                        event_type = EventType.INCIDENT_LOG
+
+                    parts = l_date.split("T")[0].split("-")
+                    yr = int(parts[0]) if len(parts) > 0 and parts[0].isdigit() else 2022
+                    mo = int(parts[1]) if len(parts) > 1 and parts[1].isdigit() else None
+                    dy = int(parts[2]) if len(parts) > 2 and parts[2].isdigit() else None
+
+                    event_id = f"EVT-{l_date.replace('-', '').replace(':', '')[:8]}-{uuid.uuid4().hex[:6].upper()}"
+                    clean_line = re.sub(r"<[^>]+>", " ", line).strip()
+                    title = f"{event_type.value}: {clean_line[:120].strip()}"
+                    description = clean_line
+
+                    line_events.append(TimelineEvent(
+                        event_id=event_id,
+                        document_id=doc_id,
+                        event_date_iso=l_date,
+                        event_year=yr,
+                        event_month=mo,
+                        event_day=dy,
+                        event_type=event_type,
+                        title=title,
+                        description=description,
+                        raw_snippet=clean_line[:300].strip(),
+                        confidence_score=1.0,
+                    ))
+
+            if len(line_events) > 1:
+                all_events.extend(line_events)
+            elif doc_date and len(text.strip()) > 0:
                 first_line = text.strip().split("\n")[0][:120].strip()
                 event_type = EventType.OTHER
                 text_lower = text.lower()
@@ -758,6 +808,8 @@ class EntityResolver:
                     confidence_score=1.0,
                 )
                 all_events.append(evt)
+            elif line_events:
+                all_events.extend(line_events)
 
             # 4. Extract Financial Transactions
             for idx, fin in enumerate(financial_amounts):

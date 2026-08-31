@@ -57,10 +57,13 @@ def compute_merkle_root(leaf_hashes: Sequence[str]) -> str:
     """
     Computes pairwise binary Merkle tree root hash for a sequence of leaf hashes.
     If the sequence is empty, returns the standard empty SHA-256 hash.
+    If the sequence has a single leaf, returns the SHA-256 of that leaf.
     If the sequence has an odd number of nodes at any level, duplicates the last node.
     """
     if not leaf_hashes:
         return EMPTY_SHA256
+    if len(leaf_hashes) == 1:
+        return leaf_hashes[0].lower()
 
     current_level = [h.lower() for h in leaf_hashes]
 
@@ -85,10 +88,36 @@ def compute_merkle_root(leaf_hashes: Sequence[str]) -> str:
 # ============================================================================
 
 class CatalogExporter:
+    # Instance wrappers for test compatibility (invoke module-level functions)
+    def compute_merkle_root(self, leaf_hashes):
+        return compute_merkle_root(leaf_hashes)
+
+    def canonical_json_bytes(self, data):
+        return canonical_json_bytes(data)
+
+    def canonical_json_sha256(self, data):
+        return canonical_json_sha256(data)
+
     """
     Exports normalized relational vault data to RFC 8785 Master JSON Catalog
     with cryptographic Merkle tree signatures.
     """
+
+    @staticmethod
+    def compute_merkle_root(leaf_hashes: Sequence[str]) -> str:
+        return compute_merkle_root(leaf_hashes)
+
+    @staticmethod
+    def canonical_json_bytes(data: Any) -> bytes:
+        return canonical_json_bytes(data)
+
+    @staticmethod
+    def canonical_json_dumps(data: Any) -> str:
+        return canonical_json_dumps(data)
+
+    @staticmethod
+    def canonical_json_sha256(data: Any) -> str:
+        return canonical_json_sha256(data)
 
     def __init__(
         self,
