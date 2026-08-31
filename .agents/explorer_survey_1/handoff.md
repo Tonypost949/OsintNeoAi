@@ -1,95 +1,86 @@
-# HANDOFF REPORT: FEDERAL COURT RECORDS & STATUTORY SURVEY
-**Agent:** Explorer 1 (Federal Records Explorer)  
-**Directory:** `C:\OsintNeoAi\.agents\explorer_survey_1\`  
-**Target Milestone:** Federal Records Investigation & Document Structuring  
-**Date:** August 27, 2026  
+# Handoff Report — Explorer Survey Phase (OsintNeoAi Indexer)
+
+**Agent:** Explorer Survey Agent (`explorer_survey_1`)  
+**Parent Agent:** `34f685b0-e5c3-4fa3-aac5-dc635a0add4e`  
+**Working Directory:** `C:\OsintNeoAi\.agents\explorer_survey_1\`  
+**Target Workspace:** `C:\OsintNeoAi\workspaces\osintneoai_indexer\`  
+**Date:** 2026-08-29  
 
 ---
 
-## 1. OBSERVATION
+## 1. Observation
 
-Direct forensic observations across the repository and evidence vaults:
+1. **Local Archive Paths & Media Counts**:
+   - `C:\OsintNeoAi\evidence`: 2,149 total files (384.46 MB) across 23 subdirectories.
+     - Extensions: `.txt` (1088), `.jpg` (936 in 8 batches, 326.2 MB), `.md` (29), `.pdf` (19, 17.77 MB), `.png` (13), `.cer` (13), `.bin` (12, 16.18 MB), `.docx` (12, 12.57 MB), `.csv` (9), `.html` (8), `.json` (7), `.py` (2), `.Zip` (1, 2.2 MB).
+     - Curated directories: `official_court_records/` (11 official filings and indexes), `google_drive/` (50 files), `lawsuit_info_full_dimarcello/` (21 files, 1 zip), `ocr_transcripts_photos/` (885 pre-computed transcripts).
+   - `C:\Users\Amd949609\Downloads`: 2,578 total files (7.62 GB), containing 283 evidentiary document/media files:
+     - Document/media files: `.pdf` (48, 25.48 MB), `.html` (51, 4.97 MB), `.png` (94, 5.98 MB), `.tif` / `.tiff` (12, 23.27 MB), `.jpg` (13, 10.48 MB), `.docx` (3, 0.08 MB), `.csv` (8, 0.02 MB), `.json` (7, 3.54 MB), `.zip` (28 archives, 2.4 GB), `.txt` (19).
+     - Key sample files: `CONSENT SURGERY OR SPECIAL PROCEDURES.TIF` (16.51 MB), `Hospital Conditions of Admission.HTML` (0.22 MB), `MyChart - Billing Account Details.html` (0.84 MB), `ED AVS Dec 14, 2025.PDF` (1.08 MB), `Whistleblower_Audit_and_Forensic_Dossier.png` (4.03 MB), `HealthSummary_Aug_29_2026.zip`.
 
-1. **United States v. Harish "Harry" Sidhu (USDC CDCA Santa Ana):**
-   * *Docket:* Case No. `8:23-cr-00108-CJC` *(Related Mag Search Warrant: `8:22-mj-00185`)*.
-   * *Presiding Judge:* Hon. Cormac J. Carney, U.S. District Judge.
-   * *Filing Date:* August 16, 2023.
-   * *Charges:* 4 Felony Counts — (1) Wire Fraud (18 U.S.C. § 1343); (2) Obstruction of Justice (18 U.S.C. § 1519); (3) False Statements to Federal Law Enforcement (18 U.S.C. § 1001(a)(2)); (4) False Statements to FAA (18 U.S.C. § 1001(a)(2)).
-   * *Affidavit & Verbatim Intercept:* FBI Special Agent Brian Adkins (36-page affidavit unsealed May 16, 2022). December 14, 2021 recorded admission: *"I am going to ask him for $1 million... I'll say, 'You know what? I'm going to need $1 million to get reelected... I have to raise it.'... We'll have to get it from Angels people."*
-   * *Repository Locations:* `C:\OsintNeoAi\evidence\official_court_records\01_USA_v_Harry_Sidhu_8_23_cr_00108_CJC.md` (lines 1–38), `C:\OsintNeoAi\briefings\Federal_Court_Discovery_and_Filings_Index.md` (lines 11–26), `C:\OsintNeoAi\briefings\Forensic_Analysis_Anaheim_Stadium_Whistleblower_Interventions.md` (lines 8, 52, 174).
+2. **Existing Repo Scripts & Tools**:
+   - `agent/entity_extractor.py` (lines 80–123): Full regex engines for person names, street addresses, dollar amounts, federal case numbers (`d{1,2}:\d{2}-(?:cv|cr|mc|mj|ml)-\d{3,6}`), organizations, and 30+ smoking gun keywords.
+   - `agent/batch_photos_evidence_ocr.py` (lines 75–84): 7-point forensic classification schema.
+   - `agent/_extract_text_content.py` (lines 40–96): MIME-type dispatch and PyMuPDF stream decoding.
+   - `agent/ingest_takeout_mail.py` (lines 83–100): `mailbox.mbox` stream processor with MIME header decoder and timestamp parser.
+   - `forensic/generate_all_deliverables.py` (lines 23–86): Canonical definitions for `RICO_NODES` (`RICO-001` to `005`), `PEOPLE` (`PER-001` to `010`), `GOV_AGENCIES`, `EVIDENCE_ITEMS`, and `LEGAL_EXPOSURE`.
 
-2. **United States v. Todd Ament (USDC CDCA Santa Ana):**
-   * *Docket:* Case No. `8:22-cr-00078-CJC` *(Originating Complaint: `8:22-mj-00187`)*.
-   * *Presiding Judge:* Hon. Cormac J. Carney, U.S. District Judge.
-   * *Filing Date:* July 1, 2022.
-   * *Charges:* 4 Felony Counts — (1) Wire Fraud (18 U.S.C. § 1343); (2) False Statements to a Financial Institution (18 U.S.C. § 1014); (3–4) Subscribing to False Tax Returns (26 U.S.C. § 7206(1)).
-   * *Factual Proffer:* Diverting $225,000 through `TA Group LLC` to buy a second home in Big Bear Lake; orchestrating the private Anaheim Chamber cabal.
-   * *Repository Locations:* `C:\OsintNeoAi\evidence\official_court_records\03_USA_v_Todd_Ament_and_Melahat_Rafiei.md` (lines 6–15), `C:\OsintNeoAi\briefings\Orange_County_Chambers_of_Commerce_Entity_Matrix.md` (lines 28–45).
-
-3. **United States v. Melahat Rafiei (USDC CDCA Santa Ana):**
-   * *Docket:* Case No. `8:23-cr-00009-CJC`.
-   * *Presiding Judge:* Hon. Cormac J. Carney, U.S. District Judge.
-   * *Filing Date:* January 19, 2023.
-   * *Charges:* Attempted Wire Fraud (18 U.S.C. §§ 1343, 1349) / Honest Services Fraud.
-   * *Factual Proffer:* Soliciting $20,000–$25,000+ bribes from commercial cannabis operators with promises to pass favorable City of Irvine cannabis retail/cultivation ordinances; subsequent FBI cooperation.
-   * *Repository Locations:* `C:\OsintNeoAi\evidence\official_court_records\03_USA_v_Todd_Ament_and_Melahat_Rafiei.md` (lines 17–23).
-
-4. **United States v. Christopher Ryan (USDC D.N.J. Trenton):**
-   * *Docket:* Case No. `3:20-mj-05007-TJB` *(Mag. No. 20-5007, Doc 1, Filed 03/16/20, PageID: 1–5)*.
-   * *Presiding Judge:* Hon. Tonianne J. Bongiovanni, U.S. Magistrate Judge.
-   * *Prosecution & Defense:* AUSA Eric Alwin Boden; Defense Counsel Timothy R. Anderson, Esq. (Bar #001112009).
-   * *Filing Dates:* Complaint & Affidavit filed March 16, 2020; Waiver of Preliminary Hearing (Form AO 18) filed May 18, 2020.
-   * *Charge:* Distribution and Possession with Intent to Distribute 50g+ Methamphetamine (21 U.S.C. §§ 841(a)(1), (b)(1)(A)).
-   * *Affidavit of SA Bradley H. Zartman:* Documents coded pricing via arena seating ("Best seats are in the 6100_6200 section" = $6,100–$6,200/lb); May 6–8, 2019 $3,000 USPS cash delivery to friend's residence in Huntington Beach, CA; May 20, 2019 courier shipment from Long Beach, CA to Trenton, NJ; DEA Northeast Laboratory chemical confirmation of 435 grams methamphetamine; November 20, 2019 confession by Ryan at Sunset Beach, CA residence.
-   * *Repository Locations:* `C:\OsintNeoAi\evidence\ocr_transcripts_photos\google_photos_evidence_photo_018.jpg.txt`, `google_photos_evidence_photo_016.jpg.txt`, `google_photos_evidence_photo_017.jpg.txt`, `google_photos_evidence_photo_015.jpg.txt`, `google_photos_evidence_photo_104.jpg.txt`, `C:\OsintNeoAi\evidence\PHOTOS_EVIDENCE_OCR_INDEX.md` (lines 75, 83, 373, 377).
+3. **Python Environment & Runtime Execution**:
+   - Python Version: `3.14.7 64-bit` (`C:\Users\Amd949609\AppData\Local\Python\pythoncore-3.14-64\python.exe`).
+   - Installed & Verified:
+     - `pymupdf` (1.28.2), `pypdf` (6.16.2), `rapidocr-onnxruntime` (1.2.3), `onnxruntime` (1.29.0), `opencv-python` (5.0.0.93), `pillow` (12.3.0), `python-docx` (1.2.0), `openpyxl` (3.1.5), `lxml` (6.1.1), `pydantic` (2.13.4), `pytest` (9.1.1), `google-cloud-bigquery` (3.43.0), `google-cloud-vision` (3.15.0), `sqlite3`, `mailbox`, `email`, `hashlib`, `tqdm` (4.70.0), `chardet` (5.2.0), `python-dateutil` (2.9.0.post0).
+   - Sanity Tests Executed:
+     - Stream SHA-256 calculation: `5e20af64d54bfc878c72e6d7a0928ae0461cb2632e09724c82de5b5167d47b52` on `9b4dd7da-fbac-499b-a44e-520945c7e823.pdf`.
+     - Scanned PDF Hybrid OCR: PyMuPDF pixmap rendering (150 DPI) + RapidOCR extracted 90 lines on Page 0 and 104 lines on Page 1.
+     - Multi-page TIFF: `General Consent for Treatment.TIF` opened (3 frames, size 2540x3288).
+     - HTML Parser: `Chaperone Policy.HTML` extracted 2,615 characters clean text.
+     - DOCX Parser: `DR_ANN_VERMA_RESCISSION_NOTICE.docx` extracted 4,454 characters.
 
 ---
 
-## 2. LOGIC CHAIN
+## 2. Logic Chain
 
-1. **Starting Point:** The task requested a thorough investigation of four federal criminal cases, including verifying the unnamed defendant in USDC D.N.J. Case `3:20-mj-05007-TJB` and cataloging all statutory violations, affidavits, transcripts, and repository evidence locations.
-2. **Identification of D.N.J. Defendant:** Ripgrep searches for "Zartman" and "3:20-mj-05007" located OCR text transcripts in `C:\OsintNeoAi\evidence\ocr_transcripts_photos\google_photos_evidence_photo_018.jpg.txt` and `photo_016.jpg.txt`. These documents conclusively identified the defendant as **Christopher Ryan**, charged under **21 U.S.C. §§ 841(a)(1), (b)(1)(A)** on March 16, 2020 before Magistrate Judge Tonianne J. Bongiovanni.
-3. **Extraction of Substantive Evidentiary Facts:** Additional OCR files (`photo_017.jpg.txt`, `photo_015.jpg.txt`, `photo_104.jpg.txt`) provided verbatim affidavit text by FBI SA Bradley H. Zartman detailing the Huntington Beach cash delivery, DEA 435-gram assay, and Sunset Beach confession.
-4. **Substantiation of CDCA Cases:** Cross-examination of `evidence/official_court_records/`, `briefings/`, and `scripts/` confirmed all 4 felony counts for Harry Sidhu (`8:23-cr-00108-CJC`), 4 counts for Todd Ament (`8:22-cr-00078-CJC`), and honest services wire fraud for Melahat Rafiei (`8:23-cr-00009-CJC`), alongside SA Brian Adkins' 36-page wiretap affidavit.
-5. **Synthesis & Structuring:** All verified findings were synthesized into `survey_report.md`, establishing an authenticated evidence chain connecting the federal actions.
-
----
-
-## 3. CAVEATS
-
-* **No Caveats:** All four federal cases were identified, verified, and cross-referenced against primary source charging documents, plea agreements, and affidavits present within the repository and public dockets.
-* **Scope Scope Distinction:** Other non-federal matters (e.g., Orange County Superior Court Unlawful Detainer Case No. 30-2021-01201327 and municipal police incident reports) are being investigated by companion survey agents.
+1. **Observation 1 & 2** show that evidentiary records span multiple disparate formats across `C:\OsintNeoAi\evidence` (2,149 files) and `C:\Users\Amd949609\Downloads` (283 files), ranging from lightweight HTML/markdown files to 16.5 MB TIFF files, multi-page PDFs, and 2.4 GB zip archives.
+2. If all files were loaded into memory simultaneously, a memory fault / OOM would occur due to multi-gigabyte zip payloads and uncompressed image buffers.
+3. Therefore, an iterator-based stream generator that hashes in 64 KB chunks, parses page-by-page (PDF), frame-by-frame (TIFF), or entry-by-entry (ZIP/MBOX) is required to guarantee strictly bounded $O(1)$ memory consumption.
+4. **Observation 3** confirms that Python 3.14.7 already has `pymupdf` (1.28.2), `rapidocr-onnxruntime` (1.2.3), `pillow` (12.3.0), `python-docx` (1.2.0), `lxml` (6.1.1), `sqlite3`, `mailbox`, and `pytest` (9.1.1) installed and operational.
+5. Missing modules (`bs4`, `pytesseract`, `pdfplumber`) are completely superseded by the installed stack (`lxml`/`html.parser`, `rapidocr-onnxruntime`, `pymupdf`), requiring zero additional third-party binary installations or network downloads.
+6. Existing assets in `agent/entity_extractor.py` and `forensic/generate_all_deliverables.py` provide verified regex extractors and entity schemas that can be directly mapped into the target SQLite database `timeline_vault.db` and `master_timeline_catalog.json`.
 
 ---
 
-## 4. CONCLUSION
+## 3. Caveats
 
-All requirements for Federal Records Explorer have been fully satisfied:
-1. Complete judicial metadata (case numbers, venues, presiding judges, counsel, filing dates) has been extracted and verified.
-2. Precise statutory citations (18 U.S.C. §§ 1343, 1349, 1519, 1001, 1014; 26 U.S.C. § 7206(1); 21 U.S.C. § 841) have been cataloged with exact charging facts.
-3. Transcripts of undercover recordings, consensual phone intercepts, and FBI search warrant affidavits (SA Brian Adkins, SA Bradley H. Zartman) have been compiled.
-4. An actionable survey report is published at `C:\OsintNeoAi\.agents\explorer_survey_1\survey_report.md`.
+1. **Pre-computed Transcripts**: `evidence/ocr_transcripts_photos/` contains 885 transcripts. The ingestion pipeline should use a cache-check mechanism (verify SHA-256 of image and existence of transcript) to avoid repeating hours of CPU inference, while retaining on-demand RapidOCR for new or untranscribed images.
+2. **External Google Drive Links**: Network access to remote Google Drive files depends on valid tokens / credentials. The pipeline must gracefully handle offline execution using the existing local mirrors in `evidence/google_drive/` and `evidence/google_photos/`.
+3. **ZIP Archives Filtering**: `Downloads/` contains large non-evidentiary archives (e.g. `datagrip-*.zip` 1.04 GB, `Goddy_5.3*.zip` 761 MB). Ingestion filters must explicitly ignore non-document binaries (`.exe`, `.dll`, `.jar`, `.pyc`, `.rpyc`) within zip streams.
 
 ---
 
-## 5. VERIFICATION METHOD
+## 4. Conclusion
 
-To independently verify these findings:
+- The Survey Phase investigation is complete.
+- All target archive paths (`C:\Users\Amd949609\Downloads`, `C:\OsintNeoAi\evidence`), file formats, and directory trees are cataloged.
+- The Python 3.14.7 runtime possesses 100% of required capabilities for streaming ingestion, neural offline OCR (RapidOCR ONNX), document parsing, SQLite relational persistence, and pytest invariant verification.
+- The comprehensive report has been documented in `C:\OsintNeoAi\.agents\explorer_survey_1\analysis.md`.
 
-1. **Verify D.N.J. Criminal Complaint & Affidavit:**
-   ```powershell
-   # Inspect verbatim OCR transcripts for Christopher Ryan (3:20-mj-05007-TJB)
-   Get-Content "C:\OsintNeoAi\evidence\ocr_transcripts_photos\google_photos_evidence_photo_018.jpg.txt"
-   Get-Content "C:\OsintNeoAi\evidence\ocr_transcripts_photos\google_photos_evidence_photo_015.jpg.txt"
+---
+
+## 5. Verification Method
+
+To independently verify the survey observations and parser functionality:
+
+1. **Verify Python Runtime & Packages**:
+   ```bash
+   python C:\OsintNeoAi\.agents\explorer_survey_1\test_env.py
    ```
-2. **Verify Central District of California Records:**
-   ```powershell
-   # Inspect verified records for Sidhu, Ament, and Rafiei
-   Get-Content "C:\OsintNeoAi\evidence\official_court_records\01_USA_v_Harry_Sidhu_8_23_cr_00108_CJC.md"
-   Get-Content "C:\OsintNeoAi\evidence\official_court_records\03_USA_v_Todd_Ament_and_Melahat_Rafiei.md"
+2. **Verify Hybrid Stream Extraction & RapidOCR**:
+   ```bash
+   python C:\OsintNeoAi\.agents\explorer_survey_1\test_parsers.py
+   python C:\OsintNeoAi\.agents\explorer_survey_1\test_pdf_hybrid.py
    ```
-3. **Verify Survey Report Artifact:**
-   ```powershell
-   # Confirm comprehensive survey report exists and contains full statutory and factual catalog
-   Test-Path "C:\OsintNeoAi\.agents\explorer_survey_1\survey_report.md"
-   ```
+3. **Inspect Investigation Deliverables**:
+   - `C:\OsintNeoAi\.agents\explorer_survey_1\analysis.md`
+   - `C:\OsintNeoAi\.agents\explorer_survey_1\inventory_evidence.json`
+   - `C:\OsintNeoAi\.agents\explorer_survey_1\inventory_downloads.json`
+   - `C:\OsintNeoAi\.agents\explorer_survey_1\evidentiary_files_list.json`

@@ -1,101 +1,159 @@
-# TEST INFRASTRUCTURE & AUTOMATION FRAMEWORK
-**Repository**: `C:\OsintNeoAi\`  
-**Target Test Suite**: `tests/test_official_documents.py`  
-**Test Framework**: `pytest` (with Python standard `unittest` / direct execution dual-compatibility)  
-**Track**: E2E Verification & Forensic Document Integrity  
-**Status**: ACTIVE / PASSING  
+# OsintNeoAi Indexer Test Infrastructure Specification
+
+**Document Version:** 1.0.0  
+**Project:** OsintNeoAi Forensic Document Processing & Timeline Reconciliation Pipeline  
+**Target Workspace:** `C:\OsintNeoAi\workspaces\osintneoai_indexer\`  
+**Compliance Standard:** RFC 8785 JSON Canonicalization, SQLite 3NF Schema Invariants, SHA-256 Stream Integrity, ISO 8601 Temporal Monotonicity  
 
 ---
 
-## 1. Architecture Overview
+## 1. Testing Philosophy & Core Invariants
 
-The testing infrastructure verifies the statutory, judicial, procedural, and evidentiary integrity of all 15 features (F1 through F15) defined in `PROJECT.md` and `ORIGINAL_REQUEST.md`.
+The OsintNeoAi Indexer processes evidentiary documents from high-stakes federal, state, and municipal investigations (e.g., Anaheim Angel Stadium public corruption, Orange County Unlawful Detainer court docket, and multi-state police/narcotics records). Because downstream consumers rely on these datasets for forensic auditing, whistleblower briefings, and courtroom-ready evidence presentation, the test infrastructure enforces zero-tolerance mathematical and evidentiary invariants:
+
+1. **Deterministic Cryptographic Verification (SHA-256 & RFC 8785):**
+   - Every raw artifact and extracted text stream is hashed using 64 KB block streaming SHA-256 algorithms.
+   - All exported JSON structures adhere to RFC 8785 JSON Canonicalization Scheme (JCS), ensuring deterministic byte-for-byte serialization across platforms.
+   - Master dataset state is cryptographically bound into a 256-bit hierarchical Merkle tree root.
+
+2. **Strict Chronological Monotonicity & Causal Precedence:**
+   - All timestamps parse into canonical ISO 8601 UTC representation (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM:SSZ`).
+   - Timeline events must maintain strictly non-decreasing chronological order when ordered by rank.
+   - Causal sequence invariants are verified (e.g., Regulatory Notices precede Council Voidance Resolutions; FBI Search Warrant Affidavits precede Guilty Pleas).
+
+3. **Relational Vault Integrity (SQLite 3NF):**
+   - Foreign key integrity is unconditionally enforced (`PRAGMA foreign_keys = ON;`).
+   - `PRAGMA foreign_key_check;` must return 0 violations across all tables.
+   - Unique constraints prevent duplicate document ingestion by `file_sha256`.
+   - Graph relationships disallow self-loops (`source_entity_id <> target_entity_id`).
+
+4. **Financial Conservatism & Precision:**
+   - Monetary amounts are parsed into exact float and integer cents representations.
+   - Financial transactions require strictly non-negative values (`amount >= 0.0`).
+   - Complex multipliers (`$320M`, `$96M`, `$50K`) and accounting parentheses `($10,000)` evaluate to exact mathematical values.
+
+5. **Opaque-Box & Multi-Tier Independence:**
+   - Tests do not assume or rely on external cloud dependencies; all fixtures are fully isolated, reproducible, and self-contained.
+   - Synthetic corpora mirror real-world forensic challenges (degraded OCR, skewed scans, Unicode surrogates, adversarial edge cases).
+
+---
+
+## 2. Four-Tier Testing Methodology
+
+The test suite is structured into four progressive validation tiers plus a dedicated Invariant Verification suite:
 
 ```
-========================================================================================
-                          4-TIER E2E TEST ARCHITECTURE
-========================================================================================
-+--------------------------------------------------------------------------------------+
-| TIER 1: FEATURE ISOLATION & UNIT COVERAGE (>=5 assertions per feature F1 - F15)     |
-| - Verifies case captions, docket numbers, judges, statutes, dates, and core facts    |
-+--------------------------------------------------------------------------------------+
-| TIER 2: BOUNDARY & CORNER CASES                                                      |
-| - Non-empty files, regex format checks, statutory citation syntax, chronological    |
-|   orderings, 61 ROA entry completeness, and statutory penalty/invoice arithmetic     |
-+--------------------------------------------------------------------------------------+
-| TIER 3: CROSS-FEATURE COMBINATIONS & EVIDENTIARY CONDUITS                           |
-| - Pairwise & multi-way interactions across federal, state, municipal, and police     |
-|   records (e.g., Ewing PD -> Zartman -> D.N.J. Complaint; Sidhu -> HCD -> Voidance) |
-+--------------------------------------------------------------------------------------+
-| TIER 4: REAL-WORLD ACCEPTANCE SCENARIOS & FULL PIPELINE VALIDATION                   |
-| - Primary document structure, Master Index link integrity, and repository forensics |
-+--------------------------------------------------------------------------------------+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ TIER 4: Real-World Investigative Scenarios (>= 9 E2E Workload Scenarios)     │
+│ End-to-end pipeline execution on domain corpora (Angel Stadium, Eviction)    │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ TIER 3: Cross-Feature Pairwise Combinations (>= 17 Integration Tests)         │
+│ Pairwise integration across connectors, extractors, normalizers, vault & JSON│
+├──────────────────────────────────────────────────────────────────────────────┤
+│ TIER 2: Comprehensive Boundary & Corner Cases (>= 85 Boundary Tests)         │
+│ 5+ edge tests per feature (empty files, corrupt streams, extreme values)     │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ TIER 1: Feature Unit Tests (>= 85 Unit Tests)                                │
+│ 5+ exhaustive unit tests per feature across all 17 features                  │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ INVARIANTS: Cryptographic & Relational Invariant Suite                       │
+│ FK checks, Merkle tree reduction, monotonic event ranking, schema checks     │
+└──────────────────────────────────────────────────────────────────────────────┘
 ```
 
+### 2.1 Tier Definitions
+
+- **Tier 1: Feature Unit Tests (`test_tier1_features.py`)**
+  - Scope: Exhaustive unit test coverage for every functional component.
+  - Requirement: At least 5 non-trivial unit tests per feature across all 17 features (Minimum 85 tests).
+  - Validation: Exact return values, dataclass contracts, regex matching precision, normalizer logic, and DDL execution.
+
+- **Tier 2: Boundary & Corner Cases (`test_tier2_boundaries.py`)**
+  - Scope: Robustness under stress, anomalous inputs, and adversarial conditions.
+  - Requirement: At least 5 boundary/corner tests per feature across all 17 features (Minimum 85 tests).
+  - Validation: Zero-byte files, massive 100MB+ virtual streams, Unicode surrogate pairs, corrupt ZIP/PDF headers, missing dates, malformed JSON, and concurrent DB locks.
+
+- **Tier 3: Cross-Feature Combinations (`test_tier3_combinations.py`)**
+  - Scope: Pairwise and multi-module integration across pipeline stages.
+  - Requirement: At least 17 cross-feature integration tests covering interface handoffs (e.g., Crawler -> Extractor -> Normalizer -> Resolver -> Vault -> Exporter).
+  - Validation: Data fidelity across transformations, cascade deletions, alias resolution linking to timeline events, and financial reconciliation.
+
+- **Tier 4: Real-World Scenarios (`test_tier4_scenarios.py`)**
+  - Scope: End-to-end investigative workload scenarios mirroring active federal and state cases.
+  - Requirement: At least 9 comprehensive domain scenarios:
+    1. *Angel Stadium Public Corruption Inquiry* (HCD SLA Violation, Council Resolution 2022-064, Sidhu Plea).
+    2. *Orange County Unlawful Detainer Docket* (Woodbridge Meadows v. Dimarcello, 61 ROAs, Triple Default Judgments, 170.6 Strike).
+    3. *Interstate Logistics & Law Enforcement Incident Logs* (Hamilton NJ Police logs, Ewing PD chain of custody, Quantum Auto Dismantler).
+    4. *Slush Fund & Political Conduit Flow* (TA Group, FPS Strategies, Chamber of Commerce $320M to $1.5M diversion).
+    5. *Degraded Document & OCR Recovery Pipeline* (Low-contrast, skewed, noise-corrupted scanned exhibits).
+    6. *Multi-Source GDrive and Local Archive Ingestion* (Mixed ZIP archives, EML headers, PDF briefs, DOCX contracts).
+    7. *Phonetic Alias Resolution & Entity Disambiguation* (OCR variations: Sldhu -> Sidhu, Melahat Rafiei -> Melahat Rafie).
+    8. *Whistleblower Retaliation & Timeline Reconstruction* (Chronological reconstruction of personnel and retaliatory actions).
+    9. *Full Vault Database to Master JSON Catalog Export* (Complete end-to-end catalog generation with Merkle verification).
+
+- **Indexer Invariant Suite (`test_indexer_invariants.py`)**
+  - Scope: Continuous mathematical verification of database consistency, Merkle tree calculations, and chronological ordering.
+  - Requirement: Verification of `PRAGMA foreign_key_check`, zero hash collisions, chronological monotonic order, non-negative monetary amounts, and Merkle root determinism.
+
 ---
 
-## 2. Test Suite Organization
+## 3. Feature Coverage Matrix (All 17 Features)
 
-| Tier | Test Class / Function Scope | Focus Area | Assertions |
-| :--- | :--- | :--- | :--- |
-| **Tier 1** | `TestTier1FeatureCoverage` | Isolated feature verification for F1 through F15 | >= 5 assertions per feature (>= 75 total) |
-| **Tier 2** | `TestTier2BoundaryAndCornerCases` | Data boundaries, regex formats, math, chronological sequences, 61 ROA continuity | Detailed edge-case assertions |
-| **Tier 3** | `TestTier3CrossFeatureCombinations` | Multi-jurisdiction inter-linkages and investigative conduits | End-to-end evidence pipelines |
-| **Tier 4** | `TestTier4RealWorldAcceptance` | System-wide schema conformity, master index completeness, zero orphaned links | Enterprise-grade acceptance |
+| # | Feature Name | Primary Module | Tier 1 (Unit) | Tier 2 (Boundary) | Tier 3 (Integration) | Tier 4 (Scenario) | Invariant Check |
+|---|---|---|:---:|:---:|:---:|:---:|:---:|
+| 1 | Stream Ingestion & Chunking | `connectors.local_crawler` | 5 | 5 | Yes | Yes | Zero Memory Leaks |
+| 2 | Google Drive Link Resolver | `connectors.gdrive_streamer` | 5 | 5 | Yes | Yes | Spool Cleanup |
+| 3 | Cryptographic SHA-256 Engine | `storage.hasher` | 5 | 5 | Yes | Yes | 64KB Block Streaming |
+| 4 | Multi-Format MIME Dispatcher | `config`, `connectors` | 5 | 5 | Yes | Yes | Magic Byte Sniffing |
+| 5 | Native Digital Text Extraction | `extractors.format_extractors` | 5 | 5 | Yes | Yes | Density Check |
+| 6 | Neural Offline OCR Engine | `extractors.ocr_engine` | 5 | 5 | Yes | Yes | Reading Order |
+| 7 | Image Preprocessing & Enhancement | `extractors.image_enhancer` | 5 | 5 | Yes | Yes | CLAHE & Deskew |
+| 8 | Timestamp Normalizer | `normalizers.date_normalizer` | 5 | 5 | Yes | Yes | ISO 8601 Format |
+| 9 | Financial Transaction Normalizer | `normalizers.financial_normalizer` | 5 | 5 | Yes | Yes | Dual Float + Cents |
+| 10 | Legal Case Identifier Normalizer | `normalizers.case_normalizer` | 5 | 5 | Yes | Yes | Docket Precision |
+| 11 | Communication Metadata Normalizer | `normalizers.entity_normalizer`, `connectors.mailbox_reader` | 5 | 5 | Yes | Yes | RFC 2047 Decoding |
+| 12 | 6-Category Entity Extractor | `resolution.taxonomy`, `resolution.entity_resolver` | 5 | 5 | Yes | Yes | Taxonomy Adherence |
+| 13 | Phonetic & Contextual Entity Resolver | `resolution.entity_resolver`, `normalizers.entity_normalizer` | 5 | 5 | Yes | Yes | DSU Graph Cluster |
+| 14 | SQLite Relational Vault | `storage.vault_db` | 5 | 5 | Yes | Yes | PRAGMA FK = 0 |
+| 15 | Master JSON Catalog Exporter | `storage.catalog_exporter` | 5 | 5 | Yes | Yes | RFC 8785 & Merkle |
+| 16 | E2E Test Suite (Tiers 1–4) | `tests.conftest`, `tests.*` | 5 | 5 | Yes | Yes | Fixture Isolation |
+| 17 | 100% Invariant Verification & Hardening | `pipeline`, `storage.catalog_exporter` | 5 | 5 | Yes | Yes | Master Root Hash |
 
 ---
 
-## 3. How to Run the Tests
+## 4. Test Suite Execution & Runner Commands
 
-### Primary Execution Method (pytest via uv runner):
+### 4.1 Running the Full Test Suite
+To execute all tests with detailed verbosity and summary reporting:
 ```powershell
-uv run --with pytest pytest tests/test_official_documents.py -v
+python -m pytest C:\OsintNeoAi\workspaces\osintneoai_indexer\tests\ -v
 ```
 
-### Standalone Python Unittest Fallback (zero external dependencies):
+### 4.2 Running Specific Test Tiers
 ```powershell
-python -m unittest tests/test_official_documents.py -v
+# Tier 1: Feature Unit Tests (85 tests)
+python -m pytest C:\OsintNeoAi\workspaces\osintneoai_indexer\tests\test_tier1_features.py -v
+
+# Tier 2: Boundary & Corner Cases (85 tests)
+python -m pytest C:\OsintNeoAi\workspaces\osintneoai_indexer\tests\test_tier2_boundaries.py -v
+
+# Tier 3: Cross-Feature Integration Tests (17+ tests)
+python -m pytest C:\OsintNeoAi\workspaces\osintneoai_indexer\tests\test_tier3_combinations.py -v
+
+# Tier 4: Real-World E2E Scenarios (9+ scenarios)
+python -m pytest C:\OsintNeoAi\workspaces\osintneoai_indexer\tests\test_tier4_scenarios.py -v
+
+# Invariants Suite: Schema, Crypto & Ordering Invariants
+python -m pytest C:\OsintNeoAi\workspaces\osintneoai_indexer\tests\test_indexer_invariants.py -v
 ```
 
-### Direct Script Execution:
+### 4.3 Running with Fail-Fast & Short Traceback
 ```powershell
-python tests/test_official_documents.py
+python -m pytest C:\OsintNeoAi\workspaces\osintneoai_indexer\tests\ -x --tb=short
 ```
 
----
-
-## 4. Authoritative Expected Output Derivation
-
-All expected values, docket numbers, statutory citations, and financial calculations are derived directly from authoritative primary sources:
-
-1. **Federal Judicial Records (F1, F2, F3, F4)**:
-   - *USA v. Sidhu*, Case No. `8:23-cr-00108-CJC` (USDC CDCA): 4 counts (18 U.S.C. §§ 1343, 1519, 1001(a)(2) x2), SA Brian Adkins affidavit (`8:22-mj-00185`), $1M bribery tape quote, $15,887.50 helicopter tax.
-   - *USA v. Ament*, Case No. `8:22-cr-00078-CJC`: 4 counts (18 U.S.C. §§ 1343, 1014; 26 U.S.C. § 7206(1)), TA Group LLC $225k Big Bear home wire fraud.
-   - *USA v. Rafiei*, Case No. `8:23-cr-00009-CJC`: 18 U.S.C. §§ 1343, 1349 (Irvine cannabis bribery).
-   - *USA v. Ryan*, Case No. `3:20-mj-05007-TJB` (USDC D.N.J.): 21 U.S.C. §§ 841(a)(1), (b)(1)(A), SA Bradley H. Zartman affidavit, "6100_6200 section" coded texts, $3,000 cash, 435g DEA lab confirmation.
-
-2. **State & Municipal Enforcement (F5, F6, F7)**:
-   - *HCD SLA Notice of Violation* (Dec 8, 2021): Cal. Gov. Code §§ 54220–54234, 30% statutory civil penalty on $320,000,000 = $96,000,000.00.
-   - *Anaheim Council Resolution 2022-064* (May 24, 2022): Unanimous 7-0 vote voiding stadium agreement, $50M escrow refunded.
-   - *JL Group Forensic Audit* (July 31, 2023): 353 pages, 157 interviews, 120+ witnesses, $1.5M COVID relief diversion to AEDF.
-
-3. **Superior Court Docket & Procedures (F8, F9, F10)**:
-   - *Woodbridge Meadows v. Dimarcello*, Case No. `30-2021-01201327-CL-UD-CJC`: Complete 61-entry Register of Actions (ROA 1–61).
-   - *Triple Defaults*: 06/29/2021 (Clerk), 12/22/2021 (Court), 02/04/2022 (Court) under *Rochin* and *Heidary* jurisdictional voidness.
-   - *Tactical § 170.6 Challenge*: Friday, August 20, 2021 — 3:11 PM Stay Order by Judge Carmen Luege -> 4:29 PM Peremptory Strike by Arden Hoang (78 minutes later).
-
-4. **Multi-State Police & Commercial Conduit (F11, F12, F13)**:
-   - *Hamilton Twp Police*: Case 2019-00053723 (Summons 1103-S-2019-002671, N.J.S.A. 2C:29-1a) & Case 2020-00008897 (Summons #2020-613, N.J.S.A. 2C:20-11b(1)).
-   - *Ewing Police*: Case I-2019-001222 (Items 044.01 and 046 turned over to FBI SA Bradley H. Zartman).
-   - *Quantum Auto Dismantler*: Invoice #14098 / WO #14509 ($546.25 cash paid, VIN 302796 shipped to 1456 Cedar Ln, Hamilton NJ) and Dog's Day Productions EIN SS-4 application.
-
-5. **Master Index & Repository Integrity (F14, F15)**:
-   - `OFFICIAL_DOCUMENTS_INDEX.md` catalog and AGENTS.md backup protocols.
-
----
-
-## 5. Maintenance & Expansion Guide
-
-- When new evidence files are added, update the file mapping dictionary in `tests/test_official_documents.py`.
-- Ensure all assertions validate both presence and structural validity of metadata tables, headers, and verbatim statutory texts.
-- Run `uv run --with pytest pytest tests/test_official_documents.py -v` prior to each Git commit.
+### 4.4 Automated Standalone Verification
+The pipeline CLI entrypoint also supports direct invariant audit execution:
+```powershell
+python C:\OsintNeoAi\workspaces\osintneoai_indexer\pipeline.py --verify-only
+```

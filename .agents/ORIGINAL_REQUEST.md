@@ -42,3 +42,35 @@ Enforce AGENTS.md protocol: all files saved under evidence/official_court_record
 - [ ] Every listed case includes verified case numbers, filing dates, judicial officers, and statutory violation citations.
 - [ ] Master index markdown file OFFICIAL_DOCUMENTS_INDEX.md catalogs every primary source document.
 - [ ] All records are pushed to GitHub origin/main without data loss or overwriting existing files.
+
+## 2026-08-29T17:34:35Z
+
+Build an automated document processing, OCR extraction, entity resolution, and timeline reconciliation pipeline to ingest, extract, and index records, financial transactions, and communications across local archives and external Google Drive links.
+
+Working directory: C:\OsintNeoAi\workspaces\osintneoai_indexer
+Integrity mode: development
+
+## Requirements
+
+### R1. Multi-Source Ingestion & Robust File Stream Handling
+Ingest PDFs, images, HTML documents, and mailbox files from local directories (C:\Users\Amd949609\Downloads, C:\OsintNeoAi\evidence) and external Google Drive links. The ingestion engine must use streaming/chunking to handle large archives without memory overflow.
+
+### R2. Deep Text Extraction & High-Accuracy OCR
+Execute neural/offline OCR and text extraction across all ingested files. Extract and normalize document timestamps, financial amounts, sender/recipient metadata, and case identifiers.
+
+### R3. Entity Extraction & Multi-Category Relational Indexing
+Identify and cross-reference key entities (individuals, municipal bodies, financial institutions, property management entities). Build a normalized SQLite relational database and structured JSON master catalog.
+
+### R4. Automated Invariant Testing & SHA-256 Verification
+Generate cryptographic SHA-256 signatures for every ingested artifact. Provide a programmatic test suite (pytest) that validates schema integrity, chronological ordering, and data consistency across 100% of records.
+
+## Acceptance Criteria
+
+### Execution & Ingestion
+- [ ] Pipeline executes to completion and processes all target files without unhandled exceptions or memory faults.
+- [ ] Every extracted record contains a unique ID, canonical SHA-256 hash, normalized ISO 8601 date, and extracted text body.
+
+### Database & Artifact Deliverables
+- [ ] SQLite database (timeline_vault.db) and master catalog (master_timeline_catalog.json) are generated in the working directory.
+- [ ] Automated verification script passes 100% of consistency and integrity assertions.
+

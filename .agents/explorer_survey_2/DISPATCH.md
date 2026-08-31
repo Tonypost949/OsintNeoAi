@@ -19,3 +19,20 @@ DELIVERABLES:
    - Verbatim provisions, findings of fact, audit methodologies, and existing file locations in the repo.
 3. Write handoff.md in working directory with structured findings and recommendations for Worker milestone.
 4. Send a message to parent when done.
+
+## 2026-08-29T17:35:38Z
+From: Parent Orchestrator (34f685b0-e5c3-4fa3-aac5-dc635a0add4e)
+Role: Explorer Survey 2 (Ingestion, OCR, Normalization & Invariant Analysis)
+Working directory: C:\OsintNeoAi\.agents\explorer_survey_2\
+
+MISSION:
+Survey Phase of the OsintNeoAi Indexer project:
+1. Investigate external Google Drive link ingestion mechanisms (public/shared drive link downloading, folder crawling, rclone gdrive remote if configured, direct stream handling).
+2. Investigate Deep Text Extraction & High-Accuracy OCR (R2): neural and offline OCR solutions (e.g., Tesseract OCR, EasyOCR, PyMuPDF text extraction, PIL preprocessing), fallback ladders, and handling multi-page documents.
+3. Detail normalization algorithms: Document timestamps (parsing various date formats into standard ISO 8601 UTC), financial amounts ($ parsing, currency symbols, floats, pennies/cents handling), sender/recipient metadata, and legal case identifiers (e.g., docket numbers, court citations).
+4. Identify constraints, potential failure modes, performance bottlenecks, and memory management strategies for large files.
+
+DELIVERABLES:
+- Write comprehensive investigation report to C:\OsintNeoAi\.agents\explorer_survey_2\analysis.md
+- Write handoff summary to C:\OsintNeoAi\.agents\explorer_survey_2\handoff.md
+- Send completion message back to orchestrator when finished.

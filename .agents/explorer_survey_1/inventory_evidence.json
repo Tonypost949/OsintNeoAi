@@ -1,0 +1,647 @@
+{
+  "base_path": "C:\\OsintNeoAi\\evidence",
+  "exists": true,
+  "total_files": 2149,
+  "total_size_bytes": 403135124,
+  "extensions": {
+    ".pdf": {
+      "count": 19,
+      "total_bytes": 18637719,
+      "samples": [
+        {
+          "rel_path": "9b4dd7da-fbac-499b-a44e-520945c7e823.pdf",
+          "size_bytes": 203744,
+          "name": "9b4dd7da-fbac-499b-a44e-520945c7e823.pdf"
+        },
+        {
+          "rel_path": "fs.pdf",
+          "size_bytes": 6210,
+          "name": "fs.pdf"
+        },
+        {
+          "rel_path": "google_drive\\BUCK_RANCH_CALLENS_RANCH_GIS_ANALYSIS.pdf",
+          "size_bytes": 51971,
+          "name": "BUCK_RANCH_CALLENS_RANCH_GIS_ANALYSIS.pdf"
+        },
+        {
+          "rel_path": "google_drive\\INDIAN_BURIAL_SEARCH_REPORT_1.pdf",
+          "size_bytes": 480549,
+          "name": "INDIAN_BURIAL_SEARCH_REPORT_1.pdf"
+        },
+        {
+          "rel_path": "google_drive\\SOIL_ANALYSIS_BURIAL_GROUND_VERIFICATION.pdf",
+          "size_bytes": 92540,
+          "name": "SOIL_ANALYSIS_BURIAL_GROUND_VERIFICATION.pdf"
+        },
+        {
+          "rel_path": "lawsuit_info_full_dimarcello\\1963-04-15 engineer yamada.pdf",
+          "size_bytes": 1993384,
+          "name": "1963-04-15 engineer yamada.pdf"
+        },
+        {
+          "rel_path": "lawsuit_info_full_dimarcello\\1964-06-01 yamada.pdf",
+          "size_bytes": 1250768,
+          "name": "1964-06-01 yamada.pdf"
+        },
+        {
+          "rel_path": "lawsuit_info_full_dimarcello\\1974-12-16 ten year service pin award yamada.pdf",
+          "size_bytes": 982280,
+          "name": "1974-12-16 ten year service pin award yamada.pdf"
+        },
+        {
+          "rel_path": "lawsuit_info_full_dimarcello\\1978-09-13.pdf",
+          "size_bytes": 672431,
+          "name": "1978-09-13.pdf"
+        },
+        {
+          "rel_path": "lawsuit_info_full_dimarcello\\2015-08-04 - Easement Yamada Family Trust.pdf",
+          "size_bytes": 265714,
+          "name": "2015-08-04 - Easement Yamada Family Trust.pdf"
+        }
+      ]
+    },
+    ".png": {
+      "count": 13,
+      "total_bytes": 6083163,
+      "samples": [
+        {
+          "rel_path": "andrewfalk.png",
+          "size_bytes": 591599,
+          "name": "andrewfalk.png"
+        },
+        {
+          "rel_path": "lawsuit_info_full_dimarcello\\17642 beach 1962.png",
+          "size_bytes": 68088,
+          "name": "17642 beach 1962.png"
+        },
+        {
+          "rel_path": "lawsuit_info_full_dimarcello\\3k units.png",
+          "size_bytes": 50341,
+          "name": "3k units.png"
+        },
+        {
+          "rel_path": "lawsuit_info_full_dimarcello\\5star login pass maybe 2.png",
+          "size_bytes": 42140,
+          "name": "5star login pass maybe 2.png"
+        },
+        {
+          "rel_path": "lawsuit_info_full_dimarcello\\5star login pass maybe.png",
+          "size_bytes": 34323,
+          "name": "5star login pass maybe.png"
+        },
+        {
+          "rel_path": "screenshots\\azure_devops_settings_view.png",
+          "size_bytes": 2715969,
+          "name": "azure_devops_settings_view.png"
+        },
+        {
+          "rel_path": "screenshots\\azure_student_sub.png",
+          "size_bytes": 192441,
+          "name": "azure_student_sub.png"
+        },
+        {
+          "rel_path": "screenshots\\azure_student_sub_2.png",
+          "size_bytes": 497325,
+          "name": "azure_student_sub_2.png"
+        },
+        {
+          "rel_path": "screenshots\\azure_student_sub_3.png",
+          "size_bytes": 261964,
+          "name": "azure_student_sub_3.png"
+        },
+        {
+          "rel_path": "screenshots\\azure_student_sub_4.png",
+          "size_bytes": 245919,
+          "name": "azure_student_sub_4.png"
+        }
+      ]
+    },
+    ".md": {
+      "count": 29,
+      "total_bytes": 666440,
+      "samples": [
+        {
+          "rel_path": "BATCH7_OCR_INDEX.md",
+          "size_bytes": 106050,
+          "name": "BATCH7_OCR_INDEX.md"
+        },
+        {
+          "rel_path": "BATCH8_OCR_INDEX.md",
+          "size_bytes": 99985,
+          "name": "BATCH8_OCR_INDEX.md"
+        },
+        {
+          "rel_path": "EMAIL_EVIDENTIARY_CHRONOLOGY_INDEX.md",
+          "size_bytes": 3911,
+          "name": "EMAIL_EVIDENTIARY_CHRONOLOGY_INDEX.md"
+        },
+        {
+          "rel_path": "EV053_WaterBoards_Petition_A2926_2026-08-07.md",
+          "size_bytes": 1641,
+          "name": "EV053_WaterBoards_Petition_A2926_2026-08-07.md"
+        },
+        {
+          "rel_path": "EVIDENCE_INDEX.md",
+          "size_bytes": 27386,
+          "name": "EVIDENCE_INDEX.md"
+        },
+        {
+          "rel_path": "EVIDENCE_INDEX_CLEAN.md",
+          "size_bytes": 26770,
+          "name": "EVIDENCE_INDEX_CLEAN.md"
+        },
+        {
+          "rel_path": "EVIDENCE_MANIFEST_20260829.md",
+          "size_bytes": 2655,
+          "name": "EVIDENCE_MANIFEST_20260829.md"
+        },
+        {
+          "rel_path": "FORENSIC_ANALYSIS_DIMARCELLO_RICO_2021-2026.md",
+          "size_bytes": 38701,
+          "name": "FORENSIC_ANALYSIS_DIMARCELLO_RICO_2021-2026.md"
+        },
+        {
+          "rel_path": "GMAIL_OUTREACH_FORENSICS_MASTER_REPORT.md",
+          "size_bytes": 12824,
+          "name": "GMAIL_OUTREACH_FORENSICS_MASTER_REPORT.md"
+        },
+        {
+          "rel_path": "IDENTITY_THEFT_DEEP_RESEARCH.md",
+          "size_bytes": 24726,
+          "name": "IDENTITY_THEFT_DEEP_RESEARCH.md"
+        }
+      ]
+    },
+    ".csv": {
+      "count": 9,
+      "total_bytes": 126690,
+      "samples": [
+        {
+          "rel_path": "EVIDENCE_MATRIX_20260829.csv",
+          "size_bytes": 816,
+          "name": "EVIDENCE_MATRIX_20260829.csv"
+        },
+        {
+          "rel_path": "google_drive\\gsheet_171xAuNcgcYP6-i4QJWKkZJE41l_jTa97mXpx5mnSWkU.csv",
+          "size_bytes": 9095,
+          "name": "gsheet_171xAuNcgcYP6-i4QJWKkZJE41l_jTa97mXpx5mnSWkU.csv"
+        },
+        {
+          "rel_path": "google_drive\\gsheet_18rtqh8EG2q1xBo2cLNyhIDuK9jrPGwYr9DI2UncoqJQ.csv",
+          "size_bytes": 1575,
+          "name": "gsheet_18rtqh8EG2q1xBo2cLNyhIDuK9jrPGwYr9DI2UncoqJQ.csv"
+        },
+        {
+          "rel_path": "google_drive\\gsheet_1hKx1-8YnvrvAv9H6AQunli3dFSwsyIB3rF1yluO2Y1U.csv",
+          "size_bytes": 39471,
+          "name": "gsheet_1hKx1-8YnvrvAv9H6AQunli3dFSwsyIB3rF1yluO2Y1U.csv"
+        },
+        {
+          "rel_path": "google_drive\\gsheet_1n0Ei1CjrROzQyE-PaGvsBRoQY6Hf8L5o9VJ5gRG6Jno.csv",
+          "size_bytes": 5797,
+          "name": "gsheet_1n0Ei1CjrROzQyE-PaGvsBRoQY6Hf8L5o9VJ5gRG6Jno.csv"
+        },
+        {
+          "rel_path": "google_drive\\gsheet_1O_19UfutQMD2rq18rFPnw7hsUf2tIvXn39hcQvWL5dY.csv",
+          "size_bytes": 2765,
+          "name": "gsheet_1O_19UfutQMD2rq18rFPnw7hsUf2tIvXn39hcQvWL5dY.csv"
+        },
+        {
+          "rel_path": "google_drive\\gsheet_1S0TVGS_Q299X6mft-HW2mvmWXuLRSp7SkFHHCER535k.csv",
+          "size_bytes": 56424,
+          "name": "gsheet_1S0TVGS_Q299X6mft-HW2mvmWXuLRSp7SkFHHCER535k.csv"
+        },
+        {
+          "rel_path": "google_drive\\gsheet_1wpalg8Oc0g1i6zEGYjLqiWFmO-oibG4zalPQWCHBS88.csv",
+          "size_bytes": 8024,
+          "name": "gsheet_1wpalg8Oc0g1i6zEGYjLqiWFmO-oibG4zalPQWCHBS88.csv"
+        },
+        {
+          "rel_path": "google_drive\\SOCAL_TRIBAL_TRUSTEES_MATRIX.csv",
+          "size_bytes": 2723,
+          "name": "SOCAL_TRIBAL_TRUSTEES_MATRIX.csv"
+        }
+      ]
+    },
+    ".json": {
+      "count": 7,
+      "total_bytes": 714718,
+      "samples": [
+        {
+          "rel_path": "jan2021_feb2022_master_vault.json",
+          "size_bytes": 3967,
+          "name": "jan2021_feb2022_master_vault.json"
+        },
+        {
+          "rel_path": "post_favorites_8_25_26.json",
+          "size_bytes": 279003,
+          "name": "post_favorites_8_25_26.json"
+        },
+        {
+          "rel_path": "dataverse_seed\\dataverse_benchmark_seed.json",
+          "size_bytes": 5733,
+          "name": "dataverse_benchmark_seed.json"
+        },
+        {
+          "rel_path": "google_drive\\GDRIVE_INGESTION_MANIFEST.json",
+          "size_bytes": 2635,
+          "name": "GDRIVE_INGESTION_MANIFEST.json"
+        },
+        {
+          "rel_path": "google_photos\\master_google_photos_index.json",
+          "size_bytes": 211544,
+          "name": "master_google_photos_index.json"
+        },
+        {
+          "rel_path": "google_photos\\shared_album_9xCvzdihZ64RxH4y7.json",
+          "size_bytes": 55751,
+          "name": "shared_album_9xCvzdihZ64RxH4y7.json"
+        },
+        {
+          "rel_path": "google_photos\\shared_album_exYCpbrYKtfu9V6E7.json",
+          "size_bytes": 156085,
+          "name": "shared_album_exYCpbrYKtfu9V6E7.json"
+        }
+      ]
+    },
+    ".html": {
+      "count": 8,
+      "total_bytes": 56295,
+      "samples": [
+        {
+          "rel_path": "OPEN_HERE.html",
+          "size_bytes": 2748,
+          "name": "OPEN_HERE.html"
+        },
+        {
+          "rel_path": "lawsuit_info_full_dimarcello\\7642 Wintersburg, California \u2022 Beyond Nevada Expeditions.html",
+          "size_bytes": 30522,
+          "name": "7642 Wintersburg, California \u2022 Beyond Nevada Expeditions.html"
+        },
+        {
+          "rel_path": "visualizations\\cluster_map.html",
+          "size_bytes": 5049,
+          "name": "cluster_map.html"
+        },
+        {
+          "rel_path": "visualizations\\geo_map.html",
+          "size_bytes": 3040,
+          "name": "geo_map.html"
+        },
+        {
+          "rel_path": "visualizations\\port_heatmap.html",
+          "size_bytes": 6061,
+          "name": "port_heatmap.html"
+        },
+        {
+          "rel_path": "visualizations\\rico_flow.html",
+          "size_bytes": 2176,
+          "name": "rico_flow.html"
+        },
+        {
+          "rel_path": "visualizations\\risk_matrix.html",
+          "size_bytes": 3960,
+          "name": "risk_matrix.html"
+        },
+        {
+          "rel_path": "visualizations\\timeline.html",
+          "size_bytes": 2739,
+          "name": "timeline.html"
+        }
+      ]
+    },
+    ".txt": {
+      "count": 1088,
+      "total_bytes": 2322769,
+      "samples": [
+        {
+          "rel_path": "dns\\advancedrealestate.com.txt",
+          "size_bytes": 3077,
+          "name": "advancedrealestate.com.txt"
+        },
+        {
+          "rel_path": "dns\\anaheim.net.txt",
+          "size_bytes": 3971,
+          "name": "anaheim.net.txt"
+        },
+        {
+          "rel_path": "dns\\anaheimpd.org.txt",
+          "size_bytes": 2221,
+          "name": "anaheimpd.org.txt"
+        },
+        {
+          "rel_path": "dns\\apcommunities.com.txt",
+          "size_bytes": 2927,
+          "name": "apcommunities.com.txt"
+        },
+        {
+          "rel_path": "dns\\atlanticpacific.com.txt",
+          "size_bytes": 2644,
+          "name": "atlanticpacific.com.txt"
+        },
+        {
+          "rel_path": "dns\\atlanticpacificcommunities.com.txt",
+          "size_bytes": 2642,
+          "name": "atlanticpacificcommunities.com.txt"
+        },
+        {
+          "rel_path": "dns\\carlisledev.com.txt",
+          "size_bytes": 2259,
+          "name": "carlisledev.com.txt"
+        },
+        {
+          "rel_path": "dns\\carlisledevelopment.com.txt",
+          "size_bytes": 3030,
+          "name": "carlisledevelopment.com.txt"
+        },
+        {
+          "rel_path": "dns\\cityofhuntingtonbeach.com.txt",
+          "size_bytes": 2550,
+          "name": "cityofhuntingtonbeach.com.txt"
+        },
+        {
+          "rel_path": "dns\\cookcountysheriff.org.txt",
+          "size_bytes": 3097,
+          "name": "cookcountysheriff.org.txt"
+        }
+      ]
+    },
+    ".docx": {
+      "count": 12,
+      "total_bytes": 13184781,
+      "samples": [
+        {
+          "rel_path": "google_drive\\DR_ANN_VERMA_RESCISSION_NOTICE.docx",
+          "size_bytes": 9358,
+          "name": "DR_ANN_VERMA_RESCISSION_NOTICE.docx"
+        },
+        {
+          "rel_path": "google_drive\\gdoc_1aiK_5Mf7a62r9E9iDX28BR-6KDw08q6Fa2UHigx2LbI.docx",
+          "size_bytes": 3042954,
+          "name": "gdoc_1aiK_5Mf7a62r9E9iDX28BR-6KDw08q6Fa2UHigx2LbI.docx"
+        },
+        {
+          "rel_path": "google_drive\\gdoc_1dqmhxxGqm4VwLcY2mZ0WNF4hE6qKKcf7uy3M4pYi2DU.docx",
+          "size_bytes": 3029574,
+          "name": "gdoc_1dqmhxxGqm4VwLcY2mZ0WNF4hE6qKKcf7uy3M4pYi2DU.docx"
+        },
+        {
+          "rel_path": "google_drive\\gdoc_1Jg5kWM-tODioiGrbIgjIkKy9eHNXpGQGuMvQ-bEeU-U.docx",
+          "size_bytes": 3029574,
+          "name": "gdoc_1Jg5kWM-tODioiGrbIgjIkKy9eHNXpGQGuMvQ-bEeU-U.docx"
+        },
+        {
+          "rel_path": "google_drive\\gdoc_1Jt9FIzGKOhx2A0J779dcSjKYr6Gvw5dKRbUP8qRsvmw.docx",
+          "size_bytes": 15130,
+          "name": "gdoc_1Jt9FIzGKOhx2A0J779dcSjKYr6Gvw5dKRbUP8qRsvmw.docx"
+        },
+        {
+          "rel_path": "google_drive\\gdoc_1OjKkzaFo2vnuQRX-Al9PTH9G2itc7blMao9wvva4WSA.docx",
+          "size_bytes": 31893,
+          "name": "gdoc_1OjKkzaFo2vnuQRX-Al9PTH9G2itc7blMao9wvva4WSA.docx"
+        },
+        {
+          "rel_path": "google_drive\\gdoc_1qxaGS84s4BngrdM2O9nEuFq8lpr9HR1PoAMem5noNws.docx",
+          "size_bytes": 222537,
+          "name": "gdoc_1qxaGS84s4BngrdM2O9nEuFq8lpr9HR1PoAMem5noNws.docx"
+        },
+        {
+          "rel_path": "google_drive\\gdoc_1RyMoIXbOIGIQn1BH-9fvuW1DgAHavXaYjwJiaLaFn48.docx",
+          "size_bytes": 673916,
+          "name": "gdoc_1RyMoIXbOIGIQn1BH-9fvuW1DgAHavXaYjwJiaLaFn48.docx"
+        },
+        {
+          "rel_path": "google_drive\\gdoc_1vMstdaAXVEfGmcYsyd_VcvolJMMOzg-cOGQhbKDQ6jU.docx",
+          "size_bytes": 15436,
+          "name": "gdoc_1vMstdaAXVEfGmcYsyd_VcvolJMMOzg-cOGQhbKDQ6jU.docx"
+        },
+        {
+          "rel_path": "google_drive\\gdoc_1YapNRDH0_cPwDDDedt-Q2hiPRvFqkZk-l1GtXzjrVX4.docx",
+          "size_bytes": 9694,
+          "name": "gdoc_1YapNRDH0_cPwDDDedt-Q2hiPRvFqkZk-l1GtXzjrVX4.docx"
+        }
+      ]
+    },
+    ".bin": {
+      "count": 12,
+      "total_bytes": 16962137,
+      "samples": [
+        {
+          "rel_path": "google_drive\\gfile_19YSnbXzlAxRkvRS6Qti-EgJRcJEGdIIo.bin",
+          "size_bytes": 2002104,
+          "name": "gfile_19YSnbXzlAxRkvRS6Qti-EgJRcJEGdIIo.bin"
+        },
+        {
+          "rel_path": "google_drive\\gfile_1AcgqV5AOt2nl6njJLFn3HAcE-Z_5kPb7.bin",
+          "size_bytes": 51971,
+          "name": "gfile_1AcgqV5AOt2nl6njJLFn3HAcE-Z_5kPb7.bin"
+        },
+        {
+          "rel_path": "google_drive\\gfile_1hg5XKsgJPNscCLzis4mXs8ybP27eu-Ds.bin",
+          "size_bytes": 2464,
+          "name": "gfile_1hg5XKsgJPNscCLzis4mXs8ybP27eu-Ds.bin"
+        },
+        {
+          "rel_path": "google_drive\\gfile_1i0MDI9bHPIV2WSwFLtnRsuYXMzJUognX.bin",
+          "size_bytes": 480549,
+          "name": "gfile_1i0MDI9bHPIV2WSwFLtnRsuYXMzJUognX.bin"
+        },
+        {
+          "rel_path": "google_drive\\gfile_1ITNzMbQkyAtftlRV50CHQ5zr0qmmzfI-.bin",
+          "size_bytes": 3074398,
+          "name": "gfile_1ITNzMbQkyAtftlRV50CHQ5zr0qmmzfI-.bin"
+        },
+        {
+          "rel_path": "google_drive\\gfile_1joj7klSzVrgq3vcBNmgoDM2JJMioZzdp.bin",
+          "size_bytes": 2438,
+          "name": "gfile_1joj7klSzVrgq3vcBNmgoDM2JJMioZzdp.bin"
+        },
+        {
+          "rel_path": "google_drive\\gfile_1TWPHhJSQoKvseLmJm5RkprQkF0iBQBAm.bin",
+          "size_bytes": 3074398,
+          "name": "gfile_1TWPHhJSQoKvseLmJm5RkprQkF0iBQBAm.bin"
+        },
+        {
+          "rel_path": "google_drive\\gfile_1W1dXpsnGdO_slXj_JipvosEqYUgT0U1q.bin",
+          "size_bytes": 2723,
+          "name": "gfile_1W1dXpsnGdO_slXj_JipvosEqYUgT0U1q.bin"
+        },
+        {
+          "rel_path": "google_drive\\gfile_1X11aun23RkIOrMSfXQhlPUUjGx0Do4X-.bin",
+          "size_bytes": 92540,
+          "name": "gfile_1X11aun23RkIOrMSfXQhlPUUjGx0Do4X-.bin"
+        },
+        {
+          "rel_path": "google_drive\\gfile_1yYfXiAeQPX8DnD7aS_RMtAA9CKbi7_1F.bin",
+          "size_bytes": 8173669,
+          "name": "gfile_1yYfXiAeQPX8DnD7aS_RMtAA9CKbi7_1F.bin"
+        }
+      ]
+    },
+    ".py": {
+      "count": 2,
+      "total_bytes": 4883,
+      "samples": [
+        {
+          "rel_path": "google_drive\\query_tribal_unclaimed.py",
+          "size_bytes": 2442,
+          "name": "query_tribal_unclaimed.py"
+        },
+        {
+          "rel_path": "google_drive\\trace_tribal_trustees.py",
+          "size_bytes": 2441,
+          "name": "trace_tribal_trustees.py"
+        }
+      ]
+    },
+    ".jpg": {
+      "count": 936,
+      "total_bytes": 342048956,
+      "samples": [
+        {
+          "rel_path": "google_photos_evidence\\photo_001.jpg",
+          "size_bytes": 258815,
+          "name": "photo_001.jpg"
+        },
+        {
+          "rel_path": "google_photos_evidence\\photo_002.jpg",
+          "size_bytes": 148917,
+          "name": "photo_002.jpg"
+        },
+        {
+          "rel_path": "google_photos_evidence\\photo_003.jpg",
+          "size_bytes": 274328,
+          "name": "photo_003.jpg"
+        },
+        {
+          "rel_path": "google_photos_evidence\\photo_004.jpg",
+          "size_bytes": 1052319,
+          "name": "photo_004.jpg"
+        },
+        {
+          "rel_path": "google_photos_evidence\\photo_005.jpg",
+          "size_bytes": 963172,
+          "name": "photo_005.jpg"
+        },
+        {
+          "rel_path": "google_photos_evidence\\photo_006.jpg",
+          "size_bytes": 924260,
+          "name": "photo_006.jpg"
+        },
+        {
+          "rel_path": "google_photos_evidence\\photo_007.jpg",
+          "size_bytes": 350503,
+          "name": "photo_007.jpg"
+        },
+        {
+          "rel_path": "google_photos_evidence\\photo_008.jpg",
+          "size_bytes": 380683,
+          "name": "photo_008.jpg"
+        },
+        {
+          "rel_path": "google_photos_evidence\\photo_009.jpg",
+          "size_bytes": 364858,
+          "name": "photo_009.jpg"
+        },
+        {
+          "rel_path": "google_photos_evidence\\photo_010.jpg",
+          "size_bytes": 138741,
+          "name": "photo_010.jpg"
+        }
+      ]
+    },
+    ".zip": {
+      "count": 1,
+      "total_bytes": 2308119,
+      "samples": [
+        {
+          "rel_path": "lawsuit_info_full_dimarcello\\17612 beach permits.Zip",
+          "size_bytes": 2308119,
+          "name": "17612 beach permits.Zip"
+        }
+      ]
+    },
+    ".cer": {
+      "count": 13,
+      "total_bytes": 18454,
+      "samples": [
+        {
+          "rel_path": "ssl\\anaheim.net.cer",
+          "size_bytes": 853,
+          "name": "anaheim.net.cer"
+        },
+        {
+          "rel_path": "ssl\\anaheimpd.org.cer",
+          "size_bytes": 907,
+          "name": "anaheimpd.org.cer"
+        },
+        {
+          "rel_path": "ssl\\atlanticpacificcommunities.com.cer",
+          "size_bytes": 1867,
+          "name": "atlanticpacificcommunities.com.cer"
+        },
+        {
+          "rel_path": "ssl\\carlisledev.com.cer",
+          "size_bytes": 1800,
+          "name": "carlisledev.com.cer"
+        },
+        {
+          "rel_path": "ssl\\hbpd.org.cer",
+          "size_bytes": 886,
+          "name": "hbpd.org.cer"
+        },
+        {
+          "rel_path": "ssl\\illuminationfoundation.org.cer",
+          "size_bytes": 1862,
+          "name": "illuminationfoundation.org.cer"
+        },
+        {
+          "rel_path": "ssl\\lacounty.gov.cer",
+          "size_bytes": 2123,
+          "name": "lacounty.gov.cer"
+        },
+        {
+          "rel_path": "ssl\\libertycare.com.cer",
+          "size_bytes": 1799,
+          "name": "libertycare.com.cer"
+        },
+        {
+          "rel_path": "ssl\\libertyhomes.org.cer",
+          "size_bytes": 1803,
+          "name": "libertyhomes.org.cer"
+        },
+        {
+          "rel_path": "ssl\\libertyseniorliving.com.cer",
+          "size_bytes": 927,
+          "name": "libertyseniorliving.com.cer"
+        }
+      ]
+    }
+  },
+  "subdirs": [
+    "dataverse_seed",
+    "dns",
+    "endpoint_captures",
+    "google_drive",
+    "google_photos",
+    "google_photos_evidence",
+    "google_photos_evidence_batch2",
+    "google_photos_evidence_batch3",
+    "google_photos_evidence_batch4",
+    "google_photos_evidence_batch5",
+    "google_photos_evidence_batch6",
+    "google_photos_evidence_batch7",
+    "google_photos_evidence_batch8",
+    "http_headers",
+    "lawsuit_info_full_dimarcello",
+    "ocr_transcripts_photos",
+    "official_court_records",
+    "port_scans",
+    "screenshots",
+    "ssl",
+    "visualizations",
+    "web_content",
+    "whois"
+  ],
+  "errors": []
+}
