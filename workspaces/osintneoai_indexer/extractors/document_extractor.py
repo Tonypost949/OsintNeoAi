@@ -202,72 +202,76 @@ class DocumentExtractor:
         try:
             total_pages = len(doc)
             for page_idx in range(total_pages):
-                page = doc[page_idx]
+                try:
+                    page = doc[page_idx]
 
-                # --- TIER 1: PyMuPDF Native Text Extraction ---
-                native_text = page.get_text("text").strip()
-                non_space_chars = len([c for c in native_text if c.isprintable() and not c.isspace()])
-                printable_all = len([c for c in native_text if c.isprintable()])
-                total_chars = len(native_text)
-                printable_ratio = (printable_all / total_chars) if total_chars > 0 else 0.0
+                    # --- TIER 1: PyMuPDF Native Text Extraction ---
+                    native_text = page.get_text("text").strip()
+                    non_space_chars = len([c for c in native_text if c.isprintable() and not c.isspace()])
+                    printable_all = len([c for c in native_text if c.isprintable()])
+                    total_chars = len(native_text)
+                    printable_ratio = (printable_all / total_chars) if total_chars > 0 else 0.0
 
-                # --- TIER 2: Density & Glyph Quality Heuristic ---
-                if non_space_chars >= self.config.min_digital_text_density and printable_ratio >= 0.85:
-                    page_results.append(PageExtractionResult(
-                        page_number=page_idx + 1,
-                        text=native_text,
-                        extraction_tier="tier1_digital",
-                        confidence=1.0,
-                        char_count=total_chars,
-                        printable_ratio=printable_ratio,
-                        elapse_seconds=0.001
-                    ))
-                    methods_used.add("pymupdf_native")
-                    total_conf += 1.0
-                else:
-                    # --- TIER 3: 300 DPI Rendering + RapidOCR ---
-                    pix = page.get_pixmap(dpi=self.config.ocr_dpi)
-                    img_np = np.frombuffer(pix.samples, dtype=np.uint8).reshape((pix.height, pix.width, pix.n))
-                    if pix.n == 4:
-                        img_np = cv2.cvtColor(img_np, cv2.COLOR_RGBA2RGB)
-                    elif pix.n == 1:
-                        img_np = cv2.cvtColor(img_np, cv2.COLOR_GRAY2RGB)
+                    # --- TIER 2: Density & Glyph Quality Heuristic ---
+                    if non_space_chars >= self.config.min_digital_text_density and printable_ratio >= 0.85:
+                        page_results.append(PageExtractionResult(
+                            page_number=page_idx + 1,
+                            text=native_text,
+                            extraction_tier="tier1_digital",
+                            confidence=1.0,
+                            char_count=total_chars,
+                            printable_ratio=printable_ratio,
+                            elapse_seconds=0.001
+                        ))
+                        methods_used.add("pymupdf_native")
+                        total_conf += 1.0
+                    else:
+                        # --- TIER 3: 300 DPI Rendering + RapidOCR ---
+                        pix = page.get_pixmap(dpi=self.config.ocr_dpi)
+                        img_np = np.frombuffer(pix.samples, dtype=np.uint8).reshape((pix.height, pix.width, pix.n))
+                        if pix.n == 4:
+                            img_np = cv2.cvtColor(img_np, cv2.COLOR_RGBA2RGB)
+                        elif pix.n == 1:
+                            img_np = cv2.cvtColor(img_np, cv2.COLOR_GRAY2RGB)
 
-                    # Explicitly destroy C-level pixmap
-                    del pix
+                        # Explicitly destroy C-level pixmap
+                        del pix
 
-                    ocr_res = self.ocr_engine.ocr_image(img_np, page_number=page_idx + 1)
-                    page_method = "rapidocr_onnx"
+                        ocr_res = self.ocr_engine.ocr_image(img_np, page_number=page_idx + 1)
+                        page_method = "rapidocr_onnx"
 
-                    # --- TIER 4: OpenCV CLAHE & Preprocessing (if Tier 3 is weak) ---
-                    if (not ocr_res.lines or ocr_res.avg_confidence < self.config.ocr_confidence_threshold):
-                        enhanced_img = self.image_enhancer.enhance(img_np, profile=EnhancementProfile.HEAVY)
-                        enhanced_ocr_res = self.ocr_engine.ocr_image(enhanced_img, page_number=page_idx + 1)
+                        # --- TIER 4: OpenCV CLAHE & Preprocessing (if Tier 3 is weak) ---
+                        if (not ocr_res.lines or ocr_res.avg_confidence < self.config.ocr_confidence_threshold):
+                            enhanced_img = self.image_enhancer.enhance(img_np, profile=EnhancementProfile.HEAVY)
+                            enhanced_ocr_res = self.ocr_engine.ocr_image(enhanced_img, page_number=page_idx + 1)
 
-                        if len(enhanced_ocr_res.full_text) > len(ocr_res.full_text) or enhanced_ocr_res.avg_confidence > ocr_res.avg_confidence:
-                            ocr_res = enhanced_ocr_res
-                            page_method = "rapidocr_enhanced"
-                        del enhanced_img
+                            if len(enhanced_ocr_res.full_text) > len(ocr_res.full_text) or enhanced_ocr_res.avg_confidence > ocr_res.avg_confidence:
+                                ocr_res = enhanced_ocr_res
+                                page_method = "rapidocr_enhanced"
+                            del enhanced_img
 
-                    methods_used.add(page_method)
+                        methods_used.add(page_method)
 
-                    # Explicitly destroy numpy image array
-                    del img_np
+                        # Explicitly destroy numpy image array
+                        del img_np
 
-                    page_results.append(PageExtractionResult(
-                        page_number=page_idx + 1,
-                        text=ocr_res.full_text,
-                        extraction_tier="tier4_enhanced_ocr" if page_method == "rapidocr_enhanced" else "tier3_ocr",
-                        confidence=ocr_res.avg_confidence,
-                        char_count=len(ocr_res.full_text),
-                        printable_ratio=1.0 if ocr_res.full_text else 0.0,
-                        elapse_seconds=ocr_res.total_time_sec
-                    ))
-                    total_conf += ocr_res.avg_confidence
+                        page_results.append(PageExtractionResult(
+                            page_number=page_idx + 1,
+                            text=ocr_res.full_text,
+                            extraction_tier="tier4_enhanced_ocr" if page_method == "rapidocr_enhanced" else "tier3_ocr",
+                            confidence=ocr_res.avg_confidence,
+                            char_count=len(ocr_res.full_text),
+                            printable_ratio=1.0 if ocr_res.full_text else 0.0,
+                            elapse_seconds=ocr_res.total_time_sec
+                        ))
+                        total_conf += ocr_res.avg_confidence
 
-                # Garbage collection every 10 pages
-                if (page_idx + 1) % 10 == 0:
-                    gc.collect()
+                    # Garbage collection every 10 pages
+                    if (page_idx + 1) % 10 == 0:
+                        gc.collect()
+                except Exception as page_err:
+                    logger.warning(f"Error reading PDF page {page_idx + 1} of artifact: {page_err}")
+                    continue
         finally:
             doc.close()
             gc.collect()

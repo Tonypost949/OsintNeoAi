@@ -458,6 +458,8 @@ class LocalCrawler:
         norm = filename.lower()
         if norm.startswith("~$") or norm.startswith("._"):
             return True
+        if any(ign in norm for ign in ["datagrip", "openjdk", "win.jdk", "mas_aio", "goddy", "platform-tools", "opencode-windows"]):
+            return True
         ext = os.path.splitext(norm)[1]
         return ext in self.excluded_extensions
 
