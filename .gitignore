@@ -1,99 +1,16 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
-
-# Remote repository ignores
-# Sensitive files - never commit
-rclone.conf
-client_secret*.json
-token_live_agent.json
-credentials.json
+# Credentials and Private Keys
 *.env
-.env
-.env*
+*.pem
+*.key
+credentials/
+secrets/
 
-# Large chunk files
-opencode_work/chunk_*.dat
-copilot-worktrees/
-
-# Agent conversation logs with embedded secrets
-.system_generated/
-
-# Brain backups - contain embedded OAuth tokens and secrets in transcripts
-agent/ai_sync_vault/comprehensive_backup/antigravity/brain/
-
-# OS
+# OS and Temp Files
 .DS_Store
 Thumbs.db
-__pycache__/
-*.pyc
-.venv/
-*/.venv/
+*.tmp
 *.log
 
-# Unscrubbed export data
-extracted_tasklets/deepseek_data-2026-08-06/
-deepseek_data-2026-08-06.zip
-
-# Docker and build artifacts
-reports_output/
-results/
-logs/
-.venv/
-venv/
-
-# GCP Credentials
-gcp_adc.json
-
-# Azure
-*.dll
-*.exe
-node_modules/
-dist/
-build/
-*.log
-
-# Large data files
-*.zip
-*.tar.gz
-*.csv
-!evidence/google_drive/*.csv
-!docs/evidence/google_drive/*.csv
-*.xlsx
-Program Files/
-*.dll
-*.exe
-*.iso
-*.zip
-*.tar.gz
-*.m4a
-*.mp4
-.venv/
-__pycache__/
-*.pyc
-logs/
-Program Files/
-*.dll
-*.exe
-*.iso
-*.zip
-*.tar.gz
-*.m4a
-*.mp4
-.venv/
-__pycache__/
-*.pyc
-logs/
-*onedrive_documents_full.csv*
+# Raw large media (use Git LFS or external secure storage)
+*.raw
+*.bin
