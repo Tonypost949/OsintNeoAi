@@ -1631,12 +1631,28 @@ def api_update_task(task_id):
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
+@app.route("/makavelli", methods=["GET"])
+@app.route("/makavelli/", methods=["GET"])
+@app.route("/makaveli", methods=["GET"])
+@app.route("/makaveli/", methods=["GET"])
+def serve_makaveli():
+    makaveli_dir = os.path.join(ROOT_DIR, "makavelli")
+    return send_from_directory(makaveli_dir, "index.html")
+
+@app.route("/makavelli/<path:filename>", methods=["GET"])
+@app.route("/makaveli/<path:filename>", methods=["GET"])
+def serve_makaveli_static(filename):
+    makaveli_dir = os.path.join(ROOT_DIR, "makavelli")
+    return send_from_directory(makaveli_dir, filename)
+
 if __name__ == "__main__":
     port = 5052
     print(f"\n🚀 OSINTNeoAi Master Hub active at http://127.0.0.1:{port}")
+    print(f"⚡ Makaveli OSINT Agent Live HUD: http://127.0.0.1:{port}/makavelli")
     print(f"🗺️  Tactical Map Hub: http://127.0.0.1:{port}/maps")
     print(f"📢 Victims Board: http://127.0.0.1:{port}/victims-board")
     print(f"📋 Autonomous Task Engine: http://127.0.0.1:{port}/tasks")
     print(f"🧠 Gemini AI Interactive Chat: http://127.0.0.1:{port}/gemini\n")
     app.run(host="127.0.0.1", port=port, debug=False)
+
 

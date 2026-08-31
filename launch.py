@@ -35,14 +35,16 @@ def main():
     
     time.sleep(2)
     local_url = "http://127.0.0.1:5052"
+    makaveli_url = "http://127.0.0.1:5052/makavelli"
     mobile_url = "http://127.0.0.1:5052/mobile"
     cloud_url = "https://osintneoai-app-949.azurewebsites.net/"
     
-    print(f"\n[+] 🟢 Local Command Hub:  {local_url}")
-    print(f"[+] 📱 Mobile Touch App:    {mobile_url}")
-    print(f"[+] ☁️ Azure Cloud Portal:  {cloud_url}")
-    print(f"[+] 🗺️ Maps Hub:            {local_url}/maps")
-    print(f"[+] 💬 Live AI Chat:        {local_url}/chat\n")
+    print(f"\n[+] 🟢 Local Command Hub:      {local_url}")
+    print(f"[+] ⚡ Makaveli OSINT Agent:    {makaveli_url}")
+    print(f"[+] 📱 Mobile Touch App:        {mobile_url}")
+    print(f"[+] ☁️ Azure Cloud Portal:      {cloud_url}")
+    print(f"[+] 🗺️ Maps Hub:                {local_url}/maps")
+    print(f"[+] 💬 Live AI Chat:            {local_url}/chat\n")
     
     print("[*] Opening your browser to the local command hub...")
     try:
