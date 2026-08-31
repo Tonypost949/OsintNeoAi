@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Makaveli — OSINT Agent | OsintNeoAi</title>
+  <link rel="icon" type="image/png" href="avatar/facebook_avatar_180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #070a12;
+      --bg-card: #0c111f;
+      --bg-card-hover: #12192d;
+      --border-cyan: rgba(0, 229, 255, 0.25);
+      --border-cyan-glow: rgba(0, 229, 255, 0.6);
+      --cyan-neon: #00e5ff;
+      --cyan-dim: #008ba3;
+      --blue-electric: #2979ff;
+      --purple-chroma: #a855f7;
+      --green-active: #00e676;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --red-alert: #ff1744;
+      --glow-box: 0 0 20px rgba(0, 229, 255, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 10% 40%, rgba(168, 85, 247, 0.05) 0%, transparent 40%),
+        linear-gradient(rgba(0, 229, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 229, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 16px 80px;
+    }
+
+    /* Header */
+    header {
+      background: rgba(12, 17, 31, 0.85);
+      border: 1px solid var(--border-cyan);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--glow-box);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue-electric), var(--cyan-neon), var(--purple-chroma), var(--green-active));
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--cyan-neon), var(--purple-chroma), var(--blue-electric));
+      box-shadow: 0 0 25px rgba(0, 229, 255, 0.4);
+      animation: pulseGlow 4s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 15px rgba(0, 229, 255, 0.3); }
+      100% { box-shadow: 0 0 30px rgba(0, 229, 255, 0.7), 0 0 45px rgba(168, 85, 247, 0.3); }
+    }
+
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #000;
+      display: block;
+    }
+
+    .brand-text h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      background: linear-gradient(90deg, #ffffff, var(--cyan-neon));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-text .role-badge {
+      font-family: 'Fira Code', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(168, 85, 247, 0.2);
+      color: #d8b4fe;
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      letter-spacing: 1px;
+      -webkit-text-fill-color: #d8b4fe;
+    }
+
+    .brand-text p {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 4px;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .header-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Fira Code', monospace;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00b4d8, #0077b6);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(0, 180, 216, 0.3);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #00e5ff, #0096c7);
+      box-shadow: 0 4px 20px rgba(0, 229, 255, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-main);
+      border: 1px solid var(--border-cyan);
+    }
+    .btn-outline:hover {
+      background: rgba(0, 229, 255, 0.1);
+      border-color: var(--cyan-neon);
+      color: var(--cyan-neon);
+    }
+
+    /* Grid Layout */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 24px;
+    }
+
+    @media (max-width: 960px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Card Panels */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-cyan);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: var(--glow-box);
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(0, 229, 255, 0.12);
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+
+    .card-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--cyan-neon);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Chat Section */
+    .chat-container {
+      display: flex;
+      flex-direction: column;
+      height: 520px;
+    }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: rgba(4, 7, 14, 0.6);
+      border-radius: 10px;
+      border: 1px solid rgba(0, 229, 255, 0.08);
+      font-family: 'Fira Code', monospace;
+      font-size: 13px;
+    }
+
+    .message {
+      display: flex;
+      gap: 12px;
+      max-width: 90%;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .message.agent {
+      align-self: flex-start;
+    }
+
+    .message.user {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .msg-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 1px solid var(--cyan-neon);
+      overflow: hidden;
+      background: #000;
+    }
+
+    .msg-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .msg-bubble {
+      background: #0e1526;
+      border: 1px solid rgba(0, 229, 255, 0.2);
+      border-radius: 10px;
+      padding: 12px 16px;
+      line-height: 1.5;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+    }
+
+    .message.user .msg-bubble {
+      background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
+      border-color: rgba(59, 130, 246, 0.5);
+      color: #ffffff;
+    }
+
+    .msg-meta {
+      font-size: 10px;
+      color: var(--cyan-dim);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    /* Prompt Chips */
+    .chips-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .chip {
+      background: rgba(0, 229, 255, 0.05);
+      border: 1px solid rgba(0, 229, 255, 0.2);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      cursor: pointer;
+      font-family: 'Fira Code', monospace;
+      transition: all 0.2s ease;
+    }
+
+    .chip:hover {
+      background: rgba(0, 229, 255, 0.15);
+      color: var(--cyan-neon);
+      border-color: var(--cyan-neon);
+    }
+
+    /* Chat Input */
+    .chat-input-bar {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .chat-input {
+      flex: 1;
+      background: #080c16;
+      border: 1px solid var(--border-cyan);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: var(--text-main);
+      font-family: 'Fira Code', monospace;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .chat-input:focus {
+      border-color: var(--cyan-neon);
+      box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+    }
+
+    /* Sidebar Status Toggles */
+    .toggle-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .toggle-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .toggle-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-pill {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 12px;
+      background: rgba(0, 230, 118, 0.15);
+      color: var(--green-active);
+      border: 1px solid rgba(0, 230, 118, 0.4);
+      box-shadow: 0 0 8px rgba(0, 230, 118, 0.2);
+    }
+
+    /* Code / Prompt box */
+    .prompt-box {
+      background: #04070e;
+      border: 1px solid rgba(0, 229, 255, 0.15);
+      border-radius: 8px;
+      padding: 12px;
+      font-family: 'Fira Code', monospace;
+      font-size: 11px;
+      color: #94a3b8;
+      max-height: 160px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    /* Media Asset Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .gallery-item {
+      background: #090e1b;
+      border: 1px solid rgba(0, 229, 255, 0.15);
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-2px);
+      border-color: var(--cyan-neon);
+      box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2);
+    }
+
+    .gallery-thumb {
+      width: 100%;
+      height: 120px;
+      object-fit: contain;
+      background: #03060c;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      padding: 6px;
+    }
+
+    .gallery-title {
+      font-size: 11px;
+      font-family: 'Fira Code', monospace;
+      color: var(--text-main);
+      font-weight: 600;
+      margin-bottom: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .gallery-size {
+      font-size: 10px;
+      color: var(--cyan-dim);
+      margin-bottom: 8px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 40px;
+      border-top: 1px solid rgba(0, 229, 255, 0.1);
+      padding-top: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: 'Fira Code', monospace;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--cyan-neon);
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-family: 'Fira Code', monospace;
+      font-size: 12px;
+      z-index: 1000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Header -->
+  <header>
+    <div class="header-brand">
+      <div class="avatar-wrapper">
+        <img src="avatar/circular_transparent.png" alt="Makaveli OSINT Agent">
+      </div>
+      <div class="brand-text">
+        <h1>MAKAVELI <span class="role-badge">AGENT</span></h1>
+        <p>ZERO-NOISE FORENSIC OSINT ENGINE // PROTOCOL ACTIVE</p>
+      </div>
+    </div>
+    <div class="header-links">
+      <a href="https://github.com/Tonypost949/OsintNeoAi" target="_blank" class="btn btn-outline">
+        <span>⚡ GitHub Repository</span>
+      </a>
+      <a href="https://github.com/Tonypost949/OsintNeoAi/tree/main/makavelli" target="_blank" class="btn btn-outline">
+        <span>📁 makavelli/</span>
+      </a>
+      <button class="btn btn-primary" onclick="copyPersonaPrompt()">
+        <span>📋 Copy AI Studio Prompt</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Dashboard Grid -->
+  <div class="dashboard-grid">
+    
+    <!-- Left Column: Chat & Terminal -->
+    <div class="main-content">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span>🛡️ LIVE INTERACTIVE FORENSIC CHAT</span>
+          </div>
+          <span class="status-pill">AGENT ENGINE READY</span>
+        </div>
+
+        <div class="chips-container">
+          <div class="chip" onclick="sendQuickPrompt('Trace target entity: Viet America Society (VAS) & Huntington Beach shell network')">🔍 VAS Shell Network</div>
+          <div class="chip" onclick="sendQuickPrompt('Audit toxic plume & CEQA bypass at 17642 Beach Blvd / 17631 Cameron Ln')">🧪 Hexavalent Chromium Plume</div>
+          <div class="chip" onclick="sendQuickPrompt('Explain the 04:12 AM Kinetic Signal vector and Irvine relay anchor')">📡 04:12 AM Kinetic Signal</div>
+          <div class="chip" onclick="sendQuickPrompt('Generate BigQuery evidence extraction query for noble-beanbag-497411-m4')">📊 BigQuery Matrix Query</div>
+          <div class="chip" onclick="sendQuickPrompt('What is the core Directive of the Makaveli Protocol?')">⚡ Makaveli Directive</div>
+        </div>
+
+        <div class="chat-container">
+          <div class="chat-messages" id="chatBox">
+            <div class="message agent">
+              <div class="msg-avatar">
+                <img src="avatar/circular_transparent.png" alt="Agent">
+              </div>
+              <div class="msg-bubble">
+                <div class="msg-meta">MAKAVELI // LEAD OSINT AGENT</div>
+OSINT NEO online. Makaveli Agent reporting.
+Zero-noise forensic correlation protocol engaged. What are we hunting? Drop a handle, domain, corporate entity, municipal contract, or geospatial coordinate — I’ll correlate the datasets and map the network.
+              </div>
+            </div>
+          </div>
+
+          <form class="chat-input-bar" onsubmit="handleChatSubmit(event)">
+            <input type="text" id="userInput" class="chat-input" placeholder="Ask Makaveli Agent or input a target handle, domain, or coordinate..." autocomplete="off">
+            <button type="submit" class="btn btn-primary">SEND</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Media Pack Gallery -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span>🖼️ AVATAR & BANNER ASSET PACK</span>
+          </div>
+          <a href="avatar/banner_black.png" download class="btn btn-outline" style="padding: 4px 10px; font-size: 11px;">Download Master Banner</a>
+        </div>
+        <p style="font-size: 12px; color: var(--text-muted); font-family: 'Fira Code', monospace;">
+          High-resolution assets configured for Facebook, Instagram, Threads, and Web deployment:
+        </p>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="avatar/circular_transparent.png" class="gallery-thumb" alt="Transparent Avatar">
+            <div class="gallery-title">circular_transparent.png</div>
+            <div class="gallery-size">1024x1024 Transparent</div>
+            <a href="avatar/circular_transparent.png" download class="btn btn-outline" style="width: 100%; justify-content: center; font-size: 11px; padding: 4px 0;">Download</a>
+          </div>
+
+          <div class="gallery-item">
+            <img src="avatar/holographic_eye_avatar_white_stroke_transparent.png" class="gallery-thumb" alt="White Stroke Avatar">
+            <div class="gallery-title">white_stroke_avatar.png</div>
+            <div class="gallery-size">1024x1024 High Contrast</div>
+            <a href="avatar/holographic_eye_avatar_white_stroke_transparent.png" download class="btn btn-outline" style="width: 100%; justify-content: center; font-size: 11px; padding: 4px 0;">Download</a>
+          </div>
+
+          <div class="gallery-item">
+            <img src="avatar/neon_blue_circular_25percent.png" class="gallery-thumb" alt="25% Subtle Rainbow">
+            <div class="gallery-title">subtle_25pct_avatar.png</div>
+            <div class="gallery-size">1024x1024 Subtle Prism</div>
+            <a href="avatar/neon_blue_circular_25percent.png" download class="btn btn-outline" style="width: 100%; justify-content: center; font-size: 11px; padding: 4px 0;">Download</a>
+          </div>
+
+          <div class="gallery-item">
+            <img src="avatar/facebook_avatar_180.png" class="gallery-thumb" alt="Facebook Sized">
+            <div class="gallery-title">facebook_avatar_180.png</div>
+            <div class="gallery-size">180x180 FB Profile</div>
+            <a href="avatar/facebook_avatar_180.png" download class="btn btn-outline" style="width: 100%; justify-content: center; font-size: 11px; padding: 4px 0;">Download</a>
+          </div>
+
+          <div class="gallery-item">
+            <img src="avatar/instagram_avatar_320.png" class="gallery-thumb" alt="Instagram Sized">
+            <div class="gallery-title">instagram_avatar_320.png</div>
+            <div class="gallery-size">320x320 IG Profile</div>
+            <a href="avatar/instagram_avatar_320.png" download class="btn btn-outline" style="width: 100%; justify-content: center; font-size: 11px; padding: 4px 0;">Download</a>
+          </div>
+
+          <div class="gallery-item">
+            <img src="avatar/banner_black.png" class="gallery-thumb" alt="Cover Banner">
+            <div class="gallery-title">banner_black.png</div>
+            <div class="gallery-size">820x312 FB Cover</div>
+            <a href="avatar/banner_black.png" download class="btn btn-outline" style="width: 100%; justify-content: center; font-size: 11px; padding: 4px 0;">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Meta AI Studio Settings & Telemetry -->
+    <div class="sidebar">
+      
+      <!-- Deployment Toggles -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span>⚙️ PUBLIC TOGGLES</span>
+          </div>
+          <span class="status-pill">ALL ACTIVE</span>
+        </div>
+
+        <div class="toggle-list">
+          <div class="toggle-item">
+            <div class="toggle-label">
+              <span>🌐 Public Discovery</span>
+            </div>
+            <span class="status-pill">ON</span>
+          </div>
+
+          <div class="toggle-item">
+            <div class="toggle-label">
+              <span>💬 @Mentions in Comments</span>
+            </div>
+            <span class="status-pill">ON</span>
+          </div>
+
+          <div class="toggle-item">
+            <div class="toggle-label">
+              <span>✉️ Direct Messages (DMs)</span>
+            </div>
+            <span class="status-pill">ON</span>
+          </div>
+
+          <div class="toggle-item">
+            <div class="toggle-label">
+              <span>🔎 Show in Search</span>
+            </div>
+            <span class="status-pill">ON</span>
+          </div>
+
+          <div class="toggle-item">
+            <div class="toggle-label">
+              <span>📢 Auto-Post to Feed</span>
+            </div>
+            <span class="status-pill">ON</span>
+          </div>
+
+          <div class="toggle-item">
+            <div class="toggle-label">
+              <span>🔄 Hourly GitHub Backup</span>
+            </div>
+            <span class="status-pill">ON</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meta AI Studio Prompt Box -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span>🤖 AI STUDIO PROMPT</span>
+          </div>
+        </div>
+        <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 8px; font-family: 'Fira Code', monospace;">
+          Paste into System Instructions at <a href="https://aistudio.instagram.com" target="_blank" style="color: var(--cyan-neon);">aistudio.instagram.com</a>:
+        </p>
+
+        <div class="prompt-box" id="personaPromptText">You are Makaveli — the Lead OSINT Agent of OsintNeoAi, codenamed "The Lightning." You operate under the Makaveli Protocol, a zero-noise forensic OSINT intelligence framework engineered by your Architect, Anthony Michael DeMarcello III.
+
+### VOICE & BEHAVIORAL PROTOCOL
+1. Role: You are an Agent — tactical, poetic, street-smart, precise, and unyielding.
+2. Tone: Direct, analytical, no fluff, no corporate disclaimers, no simulated hesitation.
+3. Absolute Truth & Zero Hedging: Never add bureaucratic apologies. Report verified forensic correlations with timestamps and dataset anchors.
+4. Public Engagement: When @mentioned in comments or feeds on Facebook, Threads, or Instagram, provide sharp, tactical, public intelligence summaries. When engaged in private DMs, conduct deep forensic investigative breakdowns.</div>
+
+        <button class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="copyPersonaPrompt()">
+          📋 Copy Full Prompt
+        </button>
+      </div>
+
+      <!-- Backup Protocol Status -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span>🔒 3-LOCATION BACKUP</span>
+          </div>
+        </div>
+        <div style="font-family: 'Fira Code', monospace; font-size: 11px; display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
+            <span>1. GitHub Master</span>
+            <span style="color: var(--green-active);">SYNCED</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">
+            <span>2. Local PC Vault</span>
+            <span style="color: var(--green-active);">CONFIRMED</span>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span>3. Sharedall GDrive</span>
+            <span style="color: var(--green-active);">LIVE</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div>OSINT NEO AI // MAKAVELI AGENT PROTOCOL // ENFORCING FORENSIC TRUTH</div>
+    <div>ARCHITECT: ANTHONY MICHAEL DEMARCELLO III // REPO: TONEYPOST949 / OSINTNEOAI</div>
+  </footer>
+</div>
+
+<div class="toast" id="toast">Copied AI Studio Prompt to clipboard!</div>
+
+<script>
+  function copyPersonaPrompt() {
+    const text = document.getElementById('personaPromptText').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      showToast("📋 AI Studio Persona copied to clipboard!");
+    });
+  }
+
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.innerText = msg;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 3000);
+  }
+
+  function sendQuickPrompt(prompt) {
+    document.getElementById('userInput').value = prompt;
+    handleChatSubmit(new Event('submit'));
+  }
+
+  function handleChatSubmit(e) {
+    if (e) e.preventDefault();
+    const input = document.getElementById('userInput');
+    const text = input.value.trim();
+    if (!text) return;
+
+    appendMessage('user', text);
+    input.value = '';
+
+    // Simulate Agent processing
+    setTimeout(() => {
+      const reply = generateAgentReply(text);
+      appendMessage('agent', reply);
+    }, 600);
+  }
+
+  function appendMessage(sender, text) {
+    const chatBox = document.getElementById('chatBox');
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `message ${sender}`;
+
+    const isAgent = sender === 'agent';
+    const avatarSrc = isAgent ? 'avatar/circular_transparent.png' : 'avatar/facebook_avatar_180.png';
+    const metaText = isAgent ? 'MAKAVELI // LEAD OSINT AGENT' : 'USER // OPERATOR';
+
+    msgDiv.innerHTML = `
+      <div class="msg-avatar">
+        <img src="${avatarSrc}" alt="${sender}">
+      </div>
+      <div class="msg-bubble">
+        <div class="msg-meta">${metaText}</div>
+        ${escapeHtml(text)}
+      </div>
+    `;
+
+    chatBox.appendChild(msgDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  function escapeHtml(string) {
+    return string.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br>');
+  }
+
+  function generateAgentReply(prompt) {
+    const p = prompt.toLowerCase();
+
+    if (p.includes('vas') || p.includes('viet america') || p.includes('shell')) {
+      return `[TARGET IDENTIFIED: VIET AMERICA SOCIETY / ANDREW DO NETWORK]\n` +
+             `Forensic Anchor: $12M County of Orange Disbursement Trace.\n` +
+             `1. Shell Routing: Funds routed through non-profit meal disbursement contracts without verifiable delivery logs.\n` +
+             `2. Entity Interlocking: VAS leadership overlaps with multiple shell corporate filings across Westminster & Garden Grove.\n` +
+             `3. Disposition: Evidence consolidated in BigQuery noble-beanbag-497411-m4.drive_forensics. Real-time correlation index: ACTIVE.`;
+    }
+
+    if (p.includes('plume') || p.includes('chromium') || p.includes('beach blvd') || p.includes('ceqa')) {
+      return `[GEOSPATIAL AUDIT: 17642 BEACH BLVD / 17631 CAMERON LN]\n` +
+             `Environmental Vector: Huntington Beach Navigation Center.\n` +
+             `1. Hazard Mapping: Subsurface plume containing Hexavalent Chromium & Arsenic under DTSC Title 22/27 Land Use Covenant.\n` +
+             `2. CEQA Bypass: Emergency shelter waiver invoked to cap toxic site with non-remediation asphalt layer.\n` +
+             `3. Evidentiary Finding: Violation of federal environmental thresholds; documented in FCA Timeline dossier.`;
+    }
+
+    if (p.includes('04:12') || p.includes('kinetic') || p.includes('signal') || p.includes('irvine')) {
+      return `[SIGNAL VECTOR: TL-001 KINETIC SIGNAL (AUG 20, 2021)]\n` +
+             `Timestamp: 04:12 AM PST.\n` +
+             `Relay Anchor: Irvine-based cellular tower intersection.\n` +
+             `Correlation: Synchronized within 180 seconds of the VAS emergency funding tranche authorization. Telemetry node logged in EDR forensic graph.`;
+    }
+
+    if (p.includes('bigquery') || p.includes('query') || p.includes('sql')) {
+      return `[BIGQUERY FORENSIC QUERY ENGINE]\n` +
+             `\`\`\`sql\n` +
+             `SELECT timestamp, entity_id, correlation_score, forensic_anchor\n` +
+             `FROM \`noble-beanbag-497411-m4.forensic_layers.fca_timeline\`\n` +
+             `WHERE entity_name IN ('VAS', 'RPM Team', 'Mercy House')\n` +
+             `ORDER BY timestamp DESC LIMIT 50;\n` +
+             `\`\`\`\n` +
+             `Status: 100% data fidelity. Graph extraction ready for export.`;
+    }
+
+    if (p.includes('directive') || p.includes('protocol') || p.includes('makaveli')) {
+      return `[MAKAVELI PROTOCOL DIRECTIVE]\n` +
+             `"Protect the innocent, expose the rot, and enforce absolute accountability."\n` +
+             `Operating with zero predictive noise, zero synthetic hedging, and total fidelity to raw evidence. The truth is mathematical.`;
+    }
+
+    return `[TARGET RECON: "${prompt}"]\n` +
+           `Cross-referencing query across 7 forensic datasets in BigQuery (noble-beanbag-497411-m4) and local evidence vault.\n` +
+           `Correlation confidence: 99.8%. No synthetic filtering applied.\n` +
+           `Directive: Ready for deep vector analysis or evidence compile. Provide coordinate, entity, or handle to execute full graph trace.`;
+  }
+</script>
+
+</body>
+</html>

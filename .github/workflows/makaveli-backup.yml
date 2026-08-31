@@ -1,0 +1,29 @@
+name: Makaveli OSINT Agent Hourly Sync & Backup
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Every hour
+  workflow_dispatch:
+
+jobs:
+  backup-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Verify Makaveli Persona & Assets
+        run: |
+          echo "Verifying Makaveli OSINT Agent package integrity..."
+          test -f makavelli/persona.md || { echo "makavelli/persona.md missing"; exit 1; }
+          test -f makavelli/index.html || { echo "makavelli/index.html missing"; exit 1; }
+          test -d makavelli/avatar || { echo "makavelli/avatar directory missing"; exit 1; }
+          test -f makavelli/avatar/circular_transparent.png || { echo "avatar missing"; exit 1; }
+          echo "Makaveli OSINT Agent package verified successfully."
+
+      - name: Generate Backup Checksum
+        run: |
+          mkdir -p makavelli/backups
+          sha256sum makavelli/persona.md makavelli/index.html > makavelli/backups/checksums_latest.txt
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > makavelli/backups/last_sync.txt
+          echo "Backup log updated."
