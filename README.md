@@ -4,14 +4,21 @@ A structured repository for tracking open-source intelligence (OSINT), fiduciary
 
 ---
 
-## Evidence Quick View (Kid-friendly)
+# Open Evidence — One click
 
-- God's Eye (3D map): https://osintneoai-app-949.azurewebsites.net/gods_eye_view.html
-- Simple Evidence Log: ./EVIDENCE_QUICK_VIEW.md (click to open)
-- Key evidence files: ./evidence/MASTER_WHISTLEBLOWER_EVIDENCE_BRIEFING_2026.md, ./evidence/FORENSIC_AUDIT_SUMMARY.md
-- Legal shortcuts: False Claims Act (31 U.S.C. § 3729) and RICO (18 U.S.C. § 1961)
+**God's Eye (3D Tactical Globe) — Open evidence map (no login required):**
+https://osintneoai-app-949.azurewebsites.net/gods_eye_view.html
 
-(Use the "QUICK ACCESS" table below for live app links and dashboards.)
+Quick access to key, kid-friendly evidence files:
+- Simple Evidence Log (bullet list): ./EVIDENCE_QUICK_VIEW.md
+- Key evidence: ./evidence/MASTER_WHISTLEBLOWER_EVIDENCE_BRIEFING_2026.md
+- Forensic Matrix (machine-readable): ./evidence/FORENSIC_CORRELATION_MATRIX.json
+
+Legal shortlinks:
+- False Claims Act (31 U.S.C. § 3729): https://www.law.cornell.edu/uscode/text/31/3729
+- RICO (18 U.S.C. § 1961): https://www.law.cornell.edu/uscode/text/18/1961
+
+(If the live site is temporarily unavailable, open the local evidence files listed above.)
 
 ---
 
