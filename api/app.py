@@ -270,7 +270,17 @@ def serve_maps_hub():
 @app.route("/gods_eye_view/", methods=["GET"])
 @app.route("/gods_eye_view.html", methods=["GET"])
 @app.route("/maps/gods_eye_view.html", methods=["GET"])
+@app.route("/gods-eye-view", methods=["GET"])
+@app.route("/gods-eye-max", methods=["GET"])
+@app.route("/gods-eye-max-data", methods=["GET"])
+@app.route("/globe", methods=["GET"])
+@app.route("/3d", methods=["GET"])
 def serve_gods_eye():
+    # Prioritize max data version (37403 bytes, repo-wide sync 2261 nodes/4077 edges)
+    for cand in ["public/gods_eye_view_max_data.html", "gods_eye_view.html", "data_apps/gods_eye_view.html", "public/gods_eye_view.html"]:
+        p = os.path.join(ROOT_DIR, cand)
+        if os.path.exists(p):
+            return send_from_directory(os.path.join(ROOT_DIR, os.path.dirname(cand)), os.path.basename(cand))
     return send_from_directory(ROOT_DIR, "gods_eye_view.html")
 
 @app.route("/maps/caltrans_d12_cctv.geojson", methods=["GET"])
