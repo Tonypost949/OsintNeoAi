@@ -4,6 +4,17 @@ A structured repository for tracking open-source intelligence (OSINT), fiduciary
 
 ---
 
+## Evidence Quick View (Kid-friendly)
+
+- God's Eye (3D map): https://osintneoai-app-949.azurewebsites.net/gods_eye_view.html
+- Simple Evidence Log: ./EVIDENCE_QUICK_VIEW.md (click to open)
+- Key evidence files: ./evidence/MASTER_WHISTLEBLOWER_EVIDENCE_BRIEFING_2026.md, ./evidence/FORENSIC_AUDIT_SUMMARY.md
+- Legal shortcuts: False Claims Act (31 U.S.C. § 3729) and RICO (18 U.S.C. § 1961)
+
+(Use the "QUICK ACCESS" table below for live app links and dashboards.)
+
+---
+
 ## 🚀 LIVE PRODUCTION DEPLOYMENT — VSDE Steroids Edition
 
 **Status:** ✅ LIVE & OPERATIONAL | **Sept 1, 2026** | **Value: $16,073** (8/8 Benefits Claimed)
