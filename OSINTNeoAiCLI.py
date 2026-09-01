@@ -1097,10 +1097,12 @@ def data_app_dashboard():
     return "<h3>Data application dashboard template not found</h3>", 404
 
 @app.route("/gods-eye-view")
+@app.route("/gods-eye-max")
+@app.route("/gods-eye-max-data")
 @app.route("/globe")
 @app.route("/3d")
 def gods_eye_view_route():
-    for candidate in ["gods_eye_view.html", "data_apps/gods_eye_view.html", "public/gods_eye_view.html"]:
+    for candidate in ["public/gods_eye_view_max_data.html", "gods_eye_view.html", "data_apps/gods_eye_view.html", "public/gods_eye_view.html"]:
         p = os.path.join(ROOT_DIR, candidate)
         if os.path.exists(p):
             with open(p, "r", encoding="utf-8") as f:

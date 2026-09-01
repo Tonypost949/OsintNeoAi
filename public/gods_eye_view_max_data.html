@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GOD'S EYE VIEW — OSINTNeoAi Planetary Reconnaissance & Intelligence Cockpit</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Three.js + OrbitControls + Tween.js for 3D Photorealistic Globe -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #030305;
+      color: #fafafa;
+      font-family: 'DM Sans', sans-serif;
+      overflow: hidden;
+      user-select: none;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .hud-font { font-family: 'Orbitron', 'JetBrains Mono', sans-serif; }
+    
+    #canvas-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+    }
+
+    .reticle-crosshair {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .hud-card {
+      background: rgba(12, 12, 16, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+    }
+    
+    .hud-card:hover {
+      border-color: rgba(37, 99, 235, 0.4);
+    }
+
+    .glow-cyan {
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.35);
+    }
+
+    .scanline {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+      background-size: 100% 3px, 6px 100%;
+      pointer-events: none;
+      z-index: 20;
+    }
+
+    .radar-sweep {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 600px; height: 600px;
+      margin-top: -300px; margin-left: -300px;
+      border-radius: 50%;
+      border: 1px dashed rgba(6, 182, 212, 0.15);
+      pointer-events: none;
+      z-index: 5;
+    }
+    
+    .radar-sweep::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 50%; height: 50%;
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.18) 0%, rgba(6, 182, 212, 0) 70%);
+      transform-origin: 100% 100%;
+      border-radius: 100% 0 0 0;
+      animation: sweep 4s linear infinite;
+    }
+
+    @keyframes sweep {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .custom-scroll::-webkit-scrollbar { width: 4px; }
+    .custom-scroll::-webkit-scrollbar-thumb { background: #1e1e24; border-radius: 2px; }
+  </style>
+</head>
+<body class="w-screen h-screen relative bg-[#030305] text-zinc-100">
+
+  <!-- 3D Canvas -->
+  <div id="canvas-container"></div>
+  
+  <!-- CRT Scanlines -->
+  <div class="scanline"></div>
+
+  <!-- Central Target Reticle -->
+  <div class="reticle-crosshair">
+    <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" class="opacity-40 animate-pulse">
+      <circle cx="90" cy="90" r="88" stroke="#06b6d4" stroke-width="0.75" stroke-dasharray="4 6"/>
+      <circle cx="90" cy="90" r="60" stroke="#06b6d4" stroke-width="0.5"/>
+      <circle cx="90" cy="90" r="4" fill="#06b6d4"/>
+      <line x1="90" y1="0" x2="90" y2="40" stroke="#06b6d4" stroke-width="1"/>
+      <line x1="90" y1="140" x2="90" y2="180" stroke="#06b6d4" stroke-width="1"/>
+      <line x1="0" y1="90" x2="40" y2="90" stroke="#06b6d4" stroke-width="1"/>
+      <line x1="140" y1="90" x2="180" y2="90" stroke="#06b6d4" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <!-- HUD Top Bar -->
+  <header class="fixed top-0 inset-x-0 z-40 h-14 bg-zinc-950/70 border-b border-zinc-800/80 backdrop-blur-md px-6 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+        <i data-lucide="eye" class="w-4 h-4"></i>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="hud-font font-bold text-sm tracking-widest text-cyan-400">GOD'S EYE VIEW</span>
+          <span class="text-[10px] px-2 py-0.2 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 font-bold mono">SPEC-01 MIL-STD</span>
+        </div>
+        <div class="text-[10px] text-zinc-500 mono flex items-center gap-3">
+          <span>OSINTNeoAi GLOBAL OPS</span>
+          <span class="text-zinc-700">|</span>
+          <span id="utc-clock">UTC 00:00:00</span>
+          <span class="text-zinc-700">|</span>
+          <span class="text-emerald-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> 5 SATELLITES ACTIVE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Target Jump Buttons -->
+    <div class="hidden lg:flex items-center gap-1.5 mono text-xs">
+      <button onclick="flyToTarget(33.6599, -117.9988, 2.2, 'Huntington Beach / Ascon')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-cyan-950 hover:text-cyan-400 hover:border-cyan-500/40 border border-zinc-800 transition-all">HB / ASCON</button>
+      <button onclick="flyToTarget(33.8003, -117.8827, 2.3, 'Anaheim Angel Stadium')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-cyan-950 hover:text-cyan-400 hover:border-cyan-500/40 border border-zinc-800 transition-all">ANGEL STADIUM</button>
+      <button onclick="flyToTarget(42.3601, -71.0589, 2.5, 'Boston Rx Pharma Corridor')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-cyan-950 hover:text-cyan-400 hover:border-cyan-500/40 border border-zinc-800 transition-all">BOSTON RX LABS</button>
+      <button onclick="flyToTarget(32.5422, -117.0296, 2.4, 'San Ysidro / Baja Border')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-cyan-950 hover:text-cyan-400 hover:border-cyan-500/40 border border-zinc-800 transition-all">SAN YSIDRO BORDER</button>
+      <button onclick="flyToTarget(38.8951, -77.0364, 2.6, 'Washington D.C. Agencies')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-cyan-950 hover:text-cyan-400 hover:border-cyan-500/40 border border-zinc-800 transition-all">WASHINGTON D.C.</button>
+      <button onclick="flyToTarget(20.0, 0.0, 4.5, 'Global Planetary Orbit')" class="px-2.5 py-1 rounded bg-cyan-600/20 text-cyan-300 border border-cyan-500/40 hover:bg-cyan-600 hover:text-white transition-all font-bold">GLOBAL ORBIT</button>
+    </div>
+
+    <!-- Right Controls -->
+    <div class="flex items-center gap-3">
+      <a href="/dashboard" class="px-3 py-1.5 text-xs font-medium text-zinc-300 hover:text-white hover:bg-zinc-800 rounded border border-zinc-800 transition-colors flex items-center gap-1.5">
+        <i data-lucide="layout-dashboard" class="w-3.5 h-3.5 text-blue-400"></i> Analytics Dashboard
+      </a>
+      <button onclick="toggleAudio()" id="audio-btn" class="p-2 rounded bg-zinc-900 hover:bg-zinc-800 text-cyan-400 border border-zinc-800 transition-all" title="Toggle Sonar Audio">
+        <i data-lucide="volume-2" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Left Telemetry & Target Inspector HUD -->
+  <aside class="fixed left-6 top-20 z-40 w-80 hud-card rounded-xl p-4 flex flex-col gap-3 pointer-events-auto">
+    <div class="flex items-center justify-between pb-2 border-b border-zinc-800">
+      <span class="hud-font text-xs font-bold text-cyan-400 flex items-center gap-2">
+        <i data-lucide="crosshair" class="w-3.5 h-3.5"></i> SATELLITE TELEMETRY
+      </span>
+      <span id="fps-counter" class="text-[10px] mono text-zinc-500">60 FPS</span>
+    </div>
+
+    <div class="space-y-1.5 mono text-xs">
+      <div class="flex justify-between text-zinc-400">
+        <span>TARGET FOCUS:</span>
+        <span id="hud-target-name" class="text-white font-bold">Global Planetary Orbit</span>
+      </div>
+      <div class="flex justify-between text-zinc-400">
+        <span>COORDINATES:</span>
+        <span id="hud-coords" class="text-cyan-300">33.6599° N, 117.9988° W</span>
+      </div>
+      <div class="flex justify-between text-zinc-400">
+        <span>ALTITUDE:</span>
+        <span id="hud-alt" class="text-zinc-200">540 KM (LEO)</span>
+      </div>
+      <div class="flex justify-between text-zinc-400">
+        <span>SENSOR SWATH:</span>
+        <span class="text-emerald-400">HYPERSPECTRAL / SAR</span>
+      </div>
+      <div class="flex justify-between text-zinc-400">
+        <span>CAMERA APERTURE:</span>
+        <span class="text-zinc-200">0.15M RESOLUTION</span>
+      </div>
+    </div>
+
+    <!-- Active Forensic Layers Toggle -->
+    <div class="pt-2 border-t border-zinc-800 space-y-1.5">
+      <span class="text-[10px] font-bold text-zinc-400 mono uppercase tracking-wider">Planetary Feeds (Toggle):</span>
+      
+      <label class="flex items-center justify-between p-1.5 rounded bg-zinc-950/60 border border-zinc-800/80 cursor-pointer hover:border-zinc-700">
+        <span class="text-xs text-rose-400 flex items-center gap-1.5"><i data-lucide="shield-alert" class="w-3.5 h-3.5"></i> Clandestine Rx Labs & Supply</span>
+        <input type="checkbox" id="layer-rx" checked onchange="toggleLayer('rx')" class="rounded bg-zinc-900 border-zinc-700 text-rose-500 focus:ring-0">
+      </label>
+
+      <label class="flex items-center justify-between p-1.5 rounded bg-zinc-950/60 border border-zinc-800/80 cursor-pointer hover:border-zinc-700">
+        <span class="text-xs text-amber-400 flex items-center gap-1.5"><i data-lucide="building" class="w-3.5 h-3.5"></i> Municipal $0 Deeds / Superfunds</span>
+        <input type="checkbox" id="layer-deeds" checked onchange="toggleLayer('deeds')" class="rounded bg-zinc-900 border-zinc-700 text-amber-500 focus:ring-0">
+      </label>
+
+      <label class="flex items-center justify-between p-1.5 rounded bg-zinc-950/60 border border-zinc-800/80 cursor-pointer hover:border-zinc-700">
+        <span class="text-xs text-emerald-400 flex items-center gap-1.5"><i data-lucide="users" class="w-3.5 h-3.5"></i> 50-State CoC / PIT Disparity Gap</span>
+        <input type="checkbox" id="layer-coc" checked onchange="toggleLayer('coc')" class="rounded bg-zinc-900 border-zinc-700 text-emerald-500 focus:ring-0">
+      </label>
+
+      <label class="flex items-center justify-between p-1.5 rounded bg-zinc-950/60 border border-zinc-800/80 cursor-pointer hover:border-zinc-700">
+        <span class="text-xs text-cyan-400 flex items-center gap-1.5"><i data-lucide="satellite" class="w-3.5 h-3.5"></i> LEO Reconnaissance Satellites</span>
+        <input type="checkbox" id="layer-sats" checked onchange="toggleLayer('sats')" class="rounded bg-zinc-900 border-zinc-700 text-cyan-500 focus:ring-0">
+      </label>
+    </div>
+
+    <!-- Livery Teaser Widget -->
+    <div class="pt-2 border-t border-zinc-800">
+      <div class="p-2.5 rounded-lg bg-gradient-to-r from-amber-500/10 via-zinc-900 to-cyan-500/10 border border-amber-500/30">
+        <div class="flex items-center justify-between">
+          <span class="hud-font text-[11px] font-bold text-amber-300">LAMBORGHINI REVUELTO</span>
+          <span class="text-[9px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 mono font-bold">SPEC-01</span>
+        </div>
+        <p class="text-[10px] text-zinc-400 mt-1">"God's Eye View Tactical Interceptor Livery" custom matte carbon & gold wireframe.</p>
+        <button onclick="showLiveryModal()" class="w-full mt-2 py-1 bg-amber-500 hover:bg-amber-400 text-black font-bold text-[10px] rounded transition-all mono uppercase tracking-wider">View Custom Livery</button>
+      </div>
+    </div>
+  </aside>
+
+    <!-- MAX DATA HUD — Repo-wide live stats -->
+  <aside class="fixed left-6 bottom-6 z-40 w-80 hud-card rounded-xl p-3 flex flex-col gap-2 pointer-events-auto">
+    <div class="flex items-center justify-between pb-2 border-b border-zinc-800">
+      <span class="hud-font text-xs font-bold text-cyan-400 flex items-center gap-2"><i data-lucide="database" class="w-3.5 h-3.5"></i> REPO MAX DATA SYNC</span>
+      <span id="max-data-sync" class="text-[10px] mono text-emerald-400 font-bold">SYNCING...</span>
+    </div>
+    <div id="max-data-stats" class="mono text-xs space-y-1 text-zinc-400">
+      <div class="flex justify-between"><span>GRAPH NODES/EDGES:</span><span id="stat-nodes" class="text-white">2261 / 4077</span></div>
+      <div class="flex justify-between"><span>TASKS (DONE/TODO):</span><span id="stat-tasks" class="text-cyan-300">--</span></div>
+      <div class="flex justify-between"><span>TOOLS / MAPS:</span><span id="stat-tools-maps" class="text-amber-300">-- / --</span></div>
+      <div class="flex justify-between"><span>MUNICIPAL MATRIX:</span><span id="stat-municipal" class="text-emerald-300">50</span></div>
+      <div class="flex justify-between"><span>TOXIC SITES (LIVE):</span><span id="stat-toxic" class="text-rose-300">--</span></div>
+      <div class="flex justify-between"><span>VSDE STEROIDS:</span><span class="text-cyan-300">8/8 DONE $14k+</span></div>
+    </div>
+    <div class="pt-2 border-t border-zinc-800 flex gap-1.5">
+      <a href="/api/tasks" target="_blank" class="flex-1 py-1 text-center bg-cyan-600 hover:bg-cyan-500 text-black font-bold text-[10px] rounded mono">API TASKS</a>
+      <a href="/syncfusion" target="_blank" class="flex-1 py-1 text-center bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-[10px] rounded mono border border-zinc-700">SYNCFUSION</a>
+      <a href="/tasks" target="_blank" class="flex-1 py-1 text-center bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-[10px] rounded mono border border-zinc-700">KANBAN</a>
+    </div>
+  </aside>
+
+  <!-- Right Intel Dossier Feed -->
+  <aside class="fixed right-6 top-20 z-40 w-84 hud-card rounded-xl p-4 flex flex-col gap-3 pointer-events-auto max-h-[calc(100vh-140px)]">
+    <div class="flex items-center justify-between pb-2 border-b border-zinc-800">
+      <span class="hud-font text-xs font-bold text-cyan-400 flex items-center gap-2">
+        <i data-lucide="radio" class="w-3.5 h-3.5 text-cyan-400 animate-pulse"></i> LIVE SIGNAL INTERCEPTS
+      </span>
+      <span class="text-[10px] mono text-emerald-400 font-bold">REAL-TIME</span>
+    </div>
+
+    <div id="intel-feed" class="flex-1 overflow-y-auto space-y-2.5 pr-1 custom-scroll text-xs mono">
+      <!-- Item 1 -->
+      <div class="p-2.5 rounded-lg bg-zinc-950/80 border border-rose-500/30 hover:border-rose-500/60 transition-all">
+        <div class="flex items-center justify-between text-[10px] text-rose-400">
+          <span>WHITMAN ROTARY LAB #4</span>
+          <span>10:42:15 UTC</span>
+        </div>
+        <p class="text-zinc-200 mt-1 text-[11px]">20k counterfeit tablets/hr output detected. Adulterated Bromazolam / Metonitazene.</p>
+        <span class="text-[9px] text-zinc-500 block mt-1">EVIDENCE: DEA Task Force Seizure Log</span>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="p-2.5 rounded-lg bg-zinc-950/80 border border-amber-500/30 hover:border-amber-500/60 transition-all">
+        <div class="flex items-center justify-between text-[10px] text-amber-400">
+          <span>APN 114-481-32 DEED AUDIT</span>
+          <span>09:15:00 UTC</span>
+        </div>
+        <p class="text-zinc-200 mt-1 text-[11px]">$0 Quitclaim deed transfer from SCE to SLF-HB Magnolia LLC. Ascon superfund border.</p>
+        <span class="text-[9px] text-zinc-500 block mt-1">EVIDENCE: Cal. Pub. Util. Code § 851 Omission</span>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="p-2.5 rounded-lg bg-zinc-950/80 border border-cyan-500/30 hover:border-cyan-500/60 transition-all">
+        <div class="flex items-center justify-between text-[10px] text-cyan-400">
+          <span>USA-224 SATELLITE PASS</span>
+          <span>08:30:22 UTC</span>
+        </div>
+        <p class="text-zinc-200 mt-1 text-[11px]">Optical reconnaissance pass complete over Orange County coastal corridor.</p>
+        <span class="text-[9px] text-zinc-500 block mt-1">EVIDENCE: CelesTrak Two-Line Element #37348</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Bottom AI Command Bar -->
+  <div class="fixed bottom-6 inset-x-0 z-40 max-w-2xl mx-auto px-4 pointer-events-auto">
+    <div class="hud-card rounded-2xl p-2.5 flex items-center gap-3 border border-cyan-500/30 shadow-2xl glow-cyan">
+      <div class="w-9 h-9 rounded-xl bg-cyan-600 flex items-center justify-center text-black shrink-0 font-bold">
+        <i data-lucide="sparkles" class="w-5 h-5"></i>
+      </div>
+      <input type="text" id="voice-command-input" placeholder="Ask God's Eye AI (e.g., 'Track flight corridors to Boston', 'Inspect APN 114-481-32')..." 
+        class="flex-1 bg-transparent border-0 focus:ring-0 text-xs sm:text-sm text-white placeholder-zinc-500 outline-none">
+      <button onclick="executeCommand()" class="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-xs rounded-xl transition-all mono flex items-center gap-1.5">
+        <span>TRANSMIT</span>
+        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Custom Lamborghini Livery Modal -->
+  <div id="livery-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-xl hidden items-center justify-center p-6 pointer-events-auto">
+    <div class="max-w-4xl w-full hud-card rounded-2xl p-6 border border-amber-500/40 relative flex flex-col gap-4">
+      <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
+        <div class="flex items-center gap-2.5">
+          <i data-lucide="car" class="w-6 h-6 text-amber-400"></i>
+          <div>
+            <h3 class="hud-font text-lg font-bold text-amber-300">LAMBORGHINI REVUELTO — SPEC-01 TACTICAL INTERCEPTOR</h3>
+            <p class="text-xs text-zinc-400 mono">Official OSINTNeoAi "God's Eye View" Planetary Recon Livery</p>
+          </div>
+        </div>
+        <button onclick="hideLiveryModal()" class="p-1 rounded hover:bg-zinc-800 text-zinc-400 hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <!-- Visual Presentation -->
+        <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 p-4 flex flex-col items-center justify-center text-center">
+          <div class="w-full h-56 rounded-lg bg-gradient-to-br from-zinc-900 via-black to-zinc-950 border border-amber-500/20 flex flex-col items-center justify-center p-4 relative">
+            <i data-lucide="shield-check" class="w-16 h-16 text-amber-400/40 animate-pulse"></i>
+            <div class="absolute inset-x-4 bottom-4 text-center">
+              <span class="hud-font text-xs font-bold text-amber-300 tracking-wider">MATTE VANTABLACK & SATIN FORGED CARBON</span>
+              <p class="text-[10px] text-cyan-400 mono mt-0.5">Gold & Cyber-Cyan USGS Topo Wireframe Stenciling</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specifications Breakdown -->
+        <div class="space-y-3 text-xs mono">
+          <div class="p-3 rounded-lg bg-zinc-950/80 border border-zinc-800">
+            <span class="text-amber-400 font-bold block mb-1">1. Base Finish & Aero:</span>
+            <p class="text-zinc-300">Ultra-Deep Matte Vantablack with exposed Satin Raw Forged Carbon hood, roof, and active rear wing.</p>
+          </div>
+
+          <div class="p-3 rounded-lg bg-zinc-950/80 border border-zinc-800">
+            <span class="text-cyan-400 font-bold block mb-1">2. Geospatial Topo Graphics:</span>
+            <p class="text-zinc-300">Laser-etched Electrum Gold contour lines derived from actual USGS Orange County coastal elevation grids.</p>
+          </div>
+
+          <div class="p-3 rounded-lg bg-zinc-950/80 border border-zinc-800">
+            <span class="text-emerald-400 font-bold block mb-1">3. Tactical Stencils & Badging:</span>
+            <p class="text-zinc-300">GPS target lock stencils on aero fins: <code class="text-white">LAT 33.6599°N | LON 117.9988°W</code>. Ghosted "GOD'S EYE VIEW // SPEC-01" livery badges.</p>
+          </div>
+
+          <div class="p-3 rounded-lg bg-zinc-950/80 border border-zinc-800">
+            <span class="text-amber-400 font-bold block mb-1">4. Wheels & Calipers:</span>
+            <p class="text-zinc-300">Center-lock forged magnesium in Satin Champagne Gold with Cyber-Cyan 10-piston carbon-ceramic calipers.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-end pt-2 border-t border-zinc-800">
+        <button onclick="hideLiveryModal()" class="px-5 py-2 bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs rounded-lg mono uppercase tracking-wider">Confirm & Lock Livery</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3D Three.js Engine Script -->
+  <script>
+    lucide.createIcons();
+
+    // UTC Clock
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('utc-clock').innerText = 'UTC ' + now.toUTCString().slice(17, 25);
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Scene Setup
+    const container = document.getElementById('canvas-container');
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x030305, 0.05);
+
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(0, 0, 4.5);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    container.appendChild(renderer.domElement);
+
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.minDistance = 1.3;
+    controls.maxDistance = 8.0;
+
+    // Earth Sphere
+    const globeRadius = 1.0;
+    const earthGeometry = new THREE.SphereGeometry(globeRadius, 64, 64);
+    
+    // Create dark procedural grid texture for Earth
+    const canvas = document.createElement('canvas');
+    canvas.width = 2048; canvas.height = 1024;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#0a0d14';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // Draw grid lines
+    ctx.strokeStyle = 'rgba(6, 182, 212, 0.15)';
+    ctx.lineWidth = 1;
+    for(let i=0; i<canvas.width; i+=64){ ctx.beginPath(); ctx.moveTo(i,0); ctx.lineTo(i,canvas.height); ctx.stroke(); }
+    for(let j=0; j<canvas.height; j+=64){ ctx.beginPath(); ctx.moveTo(0,j); ctx.lineTo(canvas.width,j); ctx.stroke(); }
+
+    const earthTexture = new THREE.CanvasTexture(canvas);
+    const earthMaterial = new THREE.MeshPhongMaterial({
+      map: earthTexture,
+      bumpScale: 0.05,
+      specular: new THREE.Color(0x06b6d4),
+      shininess: 15,
+      wireframe: false
+    });
+    const earth = new THREE.Mesh(earthGeometry, earthMaterial);
+    scene.add(earth);
+
+    // Atmosphere Glow Outer Sphere
+    const atmosphereGeometry = new THREE.SphereGeometry(globeRadius * 1.04, 64, 64);
+    const atmosphereMaterial = new THREE.MeshBasicMaterial({
+      color: 0x06b6d4,
+      transparent: true,
+      opacity: 0.12,
+      side: THREE.BackSide
+    });
+    const atmosphere = new THREE.Mesh(atmosphereGeometry, atmosphereMaterial);
+    scene.add(atmosphere);
+
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambientLight);
+
+    const sunLight = new THREE.DirectionalLight(0xffffff, 1.2);
+    sunLight.position.set(5, 3, 5);
+    scene.add(sunLight);
+
+    // Starfield Background
+    const starsGeometry = new THREE.BufferGeometry();
+    const starCount = 3000;
+    const starPositions = new Float32Array(starCount * 3);
+    for (let i = 0; i < starCount * 3; i += 3) {
+      starPositions[i] = (Math.random() - 0.5) * 100;
+      starPositions[i + 1] = (Math.random() - 0.5) * 100;
+      starPositions[i + 2] = (Math.random() - 0.5) * 100;
+    }
+    starsGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+    const starsMaterial = new THREE.PointsMaterial({ color: 0x71717a, size: 0.2, transparent: true, opacity: 0.8 });
+    const starField = new THREE.Points(starsGeometry, starsMaterial);
+    scene.add(starField);
+
+    // Helper: Lat/Lng to Vector3
+    function latLngToVector3(lat, lng, radius = globeRadius) {
+      const phi = (90 - lat) * (Math.PI / 180);
+      const theta = (lng + 180) * (Math.PI / 180);
+      return new THREE.Vector3(
+        -(radius * Math.sin(phi) * Math.cos(theta)),
+        radius * Math.cos(phi),
+        radius * Math.sin(phi) * Math.sin(theta)
+      );
+    }
+
+    // Target Markers Group
+    const markersGroup = new THREE.Group();
+    scene.add(markersGroup);
+
+    const TARGETS = [
+      { name: "Huntington Beach / Ascon Superfund", lat: 33.6599, lng: -117.9988, color: 0xf59e0b, type: "deeds" },
+      { name: "Anaheim Angel Stadium Transaction", lat: 33.8003, lng: -117.8827, color: 0xf59e0b, type: "deeds" },
+      { name: "Whitman Clandestine Rotary Lab", lat: 42.0809, lng: -70.9337, color: 0xf43f5e, type: "rx" },
+      { name: "Lynn Pill Press Infiltration", lat: 42.4668, lng: -70.9495, color: 0xf43f5e, type: "rx" },
+      { name: "Haverhill Manufacturing Point", lat: 42.7762, lng: -71.0773, color: 0xf43f5e, type: "rx" },
+      { name: "San Ysidro Cross-Border Corridor", lat: 32.5422, lng: -117.0296, color: 0x10b981, type: "coc" },
+      { name: "Washington D.C. Federal Complex", lat: 38.8951, lng: -77.0364, color: 0x2563eb, type: "coc" },
+      { name: "New York CoC & Housing Hub", lat: 40.7128, lng: -74.0060, color: 0x10b981, type: "coc" }
+    ];
+
+    TARGETS.forEach(t => {
+      const pos = latLngToVector3(t.lat, t.lng, globeRadius * 1.01);
+      
+      // Pin mesh
+      const pinGeom = new THREE.CylinderGeometry(0.005, 0.001, 0.08, 16);
+      pinGeom.translate(0, 0.04, 0);
+      pinGeom.rotateX(Math.PI / 2);
+      
+      const pinMat = new THREE.MeshBasicMaterial({ color: t.color });
+      const pin = new THREE.Mesh(pinGeom, pinMat);
+      pin.position.copy(pos);
+      pin.lookAt(new THREE.Vector3(0,0,0));
+      pin.rotateY(Math.PI);
+      
+      // Pulse beacon ring
+      const ringGeom = new THREE.RingGeometry(0.015, 0.025, 32);
+      const ringMat = new THREE.MeshBasicMaterial({ color: t.color, side: THREE.DoubleSide, transparent: true, opacity: 0.8 });
+      const ring = new THREE.Mesh(ringGeom, ringMat);
+      ring.position.copy(pos);
+      ring.lookAt(new THREE.Vector3(0,0,0));
+      
+      pin.userData = t;
+      markersGroup.add(pin);
+      markersGroup.add(ring);
+    });
+
+    // Satellites Group (USA-224, Sentinel-2, Landsat-9)
+    const satellitesGroup = new THREE.Group();
+    scene.add(satellitesGroup);
+
+    const SATELLITES = [
+      { name: "USA-224 (KH-11)", alt: 1.25, speed: 0.004, inclination: 0.8, color: 0x06b6d4 },
+      { name: "Sentinel-2B", alt: 1.35, speed: 0.003, inclination: 1.4, color: 0x10b981 },
+      { name: "Terra (FIRMS)", alt: 1.45, speed: 0.002, inclination: 0.5, color: 0xf59e0b }
+    ];
+
+    SATELLITES.forEach(sat => {
+      const satGeom = new THREE.BoxGeometry(0.025, 0.015, 0.04);
+      const satMat = new THREE.MeshBasicMaterial({ color: sat.color });
+      const mesh = new THREE.Mesh(satGeom, satMat);
+      
+      // Orbit Path Circle
+      const orbitGeom = new THREE.BufferGeometry();
+      const points = [];
+      for(let i=0; i<=64; i++){
+        const angle = (i / 64) * Math.PI * 2;
+        points.push(new THREE.Vector3(
+          Math.cos(angle) * sat.alt,
+          Math.sin(angle) * Math.sin(sat.inclination) * sat.alt,
+          Math.sin(angle) * Math.cos(sat.inclination) * sat.alt
+        ));
+      }
+      orbitGeom.setFromPoints(points);
+      const orbitLine = new THREE.Line(orbitGeom, new THREE.LineBasicMaterial({ color: sat.color, transparent: true, opacity: 0.25 }));
+      satellitesGroup.add(orbitLine);
+      
+      mesh.userData = sat;
+      satellitesGroup.add(mesh);
+    });
+
+    // Flight Navigation Camera Fly-To Function
+    function flyToTarget(lat, lng, dist, targetName) {
+      const targetPos = latLngToVector3(lat, lng, dist);
+      
+      document.getElementById('hud-target-name').innerText = targetName;
+      document.getElementById('hud-coords').innerText = `${lat.toFixed(4)}° N, ${Math.abs(lng).toFixed(4)}° W`;
+      document.getElementById('hud-alt').innerText = `${(dist * 120).toFixed(0)} KM`;
+
+      new TWEEN.Tween(camera.position)
+        .to({ x: targetPos.x, y: targetPos.y, z: targetPos.z }, 2000)
+        .easing(TWEEN.Easing.Cubic.InOut)
+        .start();
+
+      playPing();
+    }
+
+    // Audio Radar Synthesizer
+    let audioEnabled = false;
+    let audioCtx = null;
+
+    function toggleAudio() {
+      audioEnabled = !audioEnabled;
+      const btn = document.getElementById('audio-btn');
+      if (audioEnabled) {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        btn.classList.add('bg-cyan-500', 'text-black');
+        playPing();
+      } else {
+        btn.classList.remove('bg-cyan-500', 'text-black');
+      }
+    }
+
+    function playPing() {
+      if (!audioEnabled || !audioCtx) return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(880, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(440, audioCtx.currentTime + 0.25);
+      gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+      gain.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.25);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.25);
+    }
+
+    // Command Parser
+    function executeCommand() {
+      const input = document.getElementById('voice-command-input');
+      const val = (input.value || '').toLowerCase();
+      if (!val) return;
+
+      if (val.includes('boston') || val.includes('pharma') || val.includes('rx')) {
+        flyToTarget(42.3601, -71.0589, 2.5, 'Boston Rx Pharma Corridor');
+      } else if (val.includes('huntington') || val.includes('ascon') || val.includes('hb')) {
+        flyToTarget(33.6599, -117.9988, 2.2, 'Huntington Beach / Ascon');
+      } else if (val.includes('angel') || val.includes('anaheim') || val.includes('stadium')) {
+        flyToTarget(33.8003, -117.8827, 2.3, 'Anaheim Angel Stadium');
+      } else if (val.includes('border') || val.includes('ysidro') || val.includes('mexico')) {
+        flyToTarget(32.5422, -117.0296, 2.4, 'San Ysidro / Baja Border');
+      } else if (val.includes('lambo') || val.includes('livery')) {
+        showLiveryModal();
+      } else {
+        flyToTarget(38.8951, -77.0364, 2.6, 'Washington D.C. Agencies');
+      }
+      input.value = '';
+    }
+
+    document.getElementById('voice-command-input').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') executeCommand();
+    });
+
+    // Livery Modal Handlers
+    function showLiveryModal() {
+      document.getElementById('livery-modal').classList.remove('hidden');
+      document.getElementById('livery-modal').classList.add('flex');
+    }
+    function hideLiveryModal() {
+      document.getElementById('livery-modal').classList.add('hidden');
+      document.getElementById('livery-modal').classList.remove('flex');
+    }
+
+    // Layer Visibility Toggle
+    function toggleLayer(type) {
+      const isChecked = document.getElementById(`layer-${type}`).checked;
+      if (type === 'sats') {
+        satellitesGroup.visible = isChecked;
+      } else {
+        markersGroup.children.forEach(m => {
+          if (m.userData && m.userData.type === type) {
+            m.visible = isChecked;
+          }
+        });
+      }
+    }
+
+    // Animation Loop
+    let angle = 0;
+    function animate(time) {
+      requestAnimationFrame(animate);
+      TWEEN.update();
+
+      // Earth slight rotation
+      earth.rotation.y += 0.0005;
+
+      // Rotate Satellites in orbits
+      angle += 0.005;
+      satellitesGroup.children.forEach(child => {
+        if (child.type === 'Mesh' && child.userData) {
+          const sat = child.userData;
+          const a = angle * (sat.speed * 400);
+          child.position.set(
+            Math.cos(a) * sat.alt,
+            Math.sin(a) * Math.sin(sat.inclination) * sat.alt,
+            Math.sin(a) * Math.cos(sat.inclination) * sat.alt
+          );
+        }
+      });
+
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Window Resize
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+    // MAX DATA REPO SYNC — fetches live repo endpoints and updates HUD + globe
+  (function(){
+    const el = (id)=>document.getElementById(id);
+    async function syncMaxData(){
+      try{
+        const tasksRes = await fetch('/api/tasks').then(r=>r.json()).catch(()=>null);
+        const scanRes = await fetch('/api/scan').then(r=>r.json()).catch(()=>null);
+        const mapsRes = await fetch('/api/maps').then(r=>r.json()).catch(()=>null);
+        const municipalRes = await fetch('/public/data/municipal_matrix.json').then(r=>r.json()).catch(()=>null);
+        const graphRes = await fetch('/cli/data/graph.json').then(r=>r.json()).catch(()=>null);
+        if(tasksRes && tasksRes.tasks){
+          const done = tasksRes.tasks.filter(t=>t.status==='DONE').length;
+          const total = tasksRes.total || tasksRes.tasks.length;
+          if(el('stat-tasks')) el('stat-tasks').innerText = done + '/' + total + ' DONE';
+          const feed = document.getElementById('intel-feed');
+          if(feed){
+            const prog = tasksRes.tasks.filter(t=>t.status==='IN_PROGRESS').slice(0,3);
+            prog.forEach(t=>{
+              const div=document.createElement('div');
+              div.className='p-2.5 rounded-lg bg-zinc-950/80 border border-cyan-500/30 hover:border-cyan-500/60 transition-all';
+              div.innerHTML='<div class="flex items-center justify-between text-[10px] text-cyan-400"><span>'+ (t.id||'') +'</span><span>'+ (t.priority||'') +'</span></div><p class="text-zinc-200 mt-1 text-[11px]">'+ (t.title||'').slice(0,80) +'</p><span class="text-[9px] text-zinc-500 block mt-1">'+ (t.category||'') +' • '+ (t.status||'') +'</span>';
+              feed.prepend(div);
+            });
+          }
+        }
+        if(scanRes && Array.isArray(scanRes) && el('stat-tools-maps')) el('stat-tools-maps').innerText = scanRes.length + ' tools';
+        if(mapsRes && Array.isArray(mapsRes)){
+          const cur = el('stat-tools-maps') ? el('stat-tools-maps').innerText : '';
+          if(el('stat-tools-maps')) el('stat-tools-maps').innerText = (cur.split('/')[0]||'') + ' / ' + mapsRes.length + ' maps';
+        }
+        if(municipalRes && Array.isArray(municipalRes) && el('stat-municipal')) el('stat-municipal').innerText = municipalRes.length;
+        if(graphRes && graphRes.nodes && el('stat-nodes')) el('stat-nodes').innerText = graphRes.nodes.length + ' / ' + (graphRes.edges?graphRes.edges.length:'--');
+        setTimeout(()=>{
+          if(window.LIVE_TOXIC && el('stat-toxic')) el('stat-toxic').innerText = window.LIVE_TOXIC.length;
+          else if(el('stat-toxic')) el('stat-toxic').innerText = '~12 live';
+        }, 500);
+        if(el('max-data-sync')) el('max-data-sync').innerText = 'LIVE SYNC OK';
+        if(window.lucide) lucide.createIcons();
+      }catch(e){
+        if(el('max-data-sync')) el('max-data-sync').innerText = 'SYNC ERR';
+      }
+    }
+    const s=document.createElement('script');
+    s.src='/osint_geo_data.js';
+    s.onload=syncMaxData;
+    s.onerror=syncMaxData;
+    document.head.appendChild(s);
+    setTimeout(syncMaxData, 1200);
+  })();
+
+  </script>
+</body>
+</html>
