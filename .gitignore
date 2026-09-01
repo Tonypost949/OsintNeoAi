@@ -1,5 +1,7 @@
 # Credentials and Private Keys
 *.env
+*.env.*
+.env.*
 *.pem
 *.key
 credentials/
