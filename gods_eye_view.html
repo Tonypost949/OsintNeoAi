@@ -149,11 +149,10 @@
 
     <!-- Quick Target Jump Buttons -->
     <div class="hidden lg:flex items-center gap-1.5 mono text-xs">
-      <button onclick="flyToTarget(33.6599, -117.9988, 2.2, 'Huntington Beach / Ascon')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-cyan-950 hover:text-cyan-400 hover:border-cyan-500/40 border border-zinc-800 transition-all">HB / ASCON</button>
-      <button onclick="flyToTarget(33.8003, -117.8827, 2.3, 'Anaheim Angel Stadium')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-cyan-950 hover:text-cyan-400 hover:border-cyan-500/40 border border-zinc-800 transition-all">ANGEL STADIUM</button>
-      <button onclick="flyToTarget(42.3601, -71.0589, 2.5, 'Boston Rx Pharma Corridor')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-cyan-950 hover:text-cyan-400 hover:border-cyan-500/40 border border-zinc-800 transition-all">BOSTON RX LABS</button>
-      <button onclick="flyToTarget(32.5422, -117.0296, 2.4, 'San Ysidro / Baja Border')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-cyan-950 hover:text-cyan-400 hover:border-cyan-500/40 border border-zinc-800 transition-all">SAN YSIDRO BORDER</button>
-      <button onclick="flyToTarget(38.8951, -77.0364, 2.6, 'Washington D.C. Agencies')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-cyan-950 hover:text-cyan-400 hover:border-cyan-500/40 border border-zinc-800 transition-all">WASHINGTON D.C.</button>
+      <button onclick="flyToTarget(33.6599, -117.8682, 2.0, '1601 Dove Street Hub')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-cyan-950 hover:text-cyan-400 hover:border-cyan-500/40 border border-zinc-800 transition-all font-bold text-cyan-300">1601 DOVE ST</button>
+      <button onclick="flyToTarget(33.7042, -117.9893, 2.0, '17631 Cameron Lane Parcel')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-rose-950 hover:text-rose-400 hover:border-rose-500/40 border border-zinc-800 transition-all font-bold text-rose-300">17631 CAMERON</button>
+      <button onclick="flyToTarget(33.7383, -118.0016, 2.0, '7561 Center Ave Mailbox Node')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-amber-950 hover:text-amber-400 hover:border-amber-500/40 border border-zinc-800 transition-all font-bold text-amber-300">7561 CENTER</button>
+      <button onclick="flyToTarget(33.7039, -117.9881, 2.0, '17642 Beach Blvd (HBNC)')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-emerald-950 hover:text-emerald-400 hover:border-emerald-500/40 border border-zinc-800 transition-all font-bold text-emerald-300">17642 BEACH BLVD</button>
       <button onclick="flyToTarget(20.0, 0.0, 4.5, 'Global Planetary Orbit')" class="px-2.5 py-1 rounded bg-cyan-600/20 text-cyan-300 border border-cyan-500/40 hover:bg-cyan-600 hover:text-white transition-all font-bold">GLOBAL ORBIT</button>
     </div>
 
@@ -204,18 +203,23 @@
     <div class="pt-2 border-t border-zinc-800 space-y-1.5">
       <span class="text-[10px] font-bold text-zinc-400 mono uppercase tracking-wider">Planetary Feeds (Toggle):</span>
       
+      <label class="flex items-center justify-between p-1.5 rounded bg-zinc-950/60 border border-cyan-500/40 cursor-pointer hover:border-cyan-400">
+        <span class="text-xs text-cyan-400 flex items-center gap-1.5"><i data-lucide="video" class="w-3.5 h-3.5"></i> Caltrans D12 CCTV (288 Feeds)</span>
+        <input type="checkbox" id="layer-cctv" checked onchange="toggleLayer('cctv')" class="rounded bg-zinc-900 border-zinc-700 text-cyan-500 focus:ring-0">
+      </label>
+
+      <label class="flex items-center justify-between p-1.5 rounded bg-zinc-950/60 border border-amber-500/40 cursor-pointer hover:border-amber-400">
+        <span class="text-xs text-amber-400 flex items-center gap-1.5"><i data-lucide="crosshair" class="w-3.5 h-3.5"></i> OpenOSINT Investigated Hubs</span>
+        <input type="checkbox" id="layer-openosint" checked onchange="toggleLayer('openosint')" class="rounded bg-zinc-900 border-zinc-700 text-amber-500 focus:ring-0">
+      </label>
+
       <label class="flex items-center justify-between p-1.5 rounded bg-zinc-950/60 border border-zinc-800/80 cursor-pointer hover:border-zinc-700">
         <span class="text-xs text-rose-400 flex items-center gap-1.5"><i data-lucide="shield-alert" class="w-3.5 h-3.5"></i> Clandestine Rx Labs & Supply</span>
         <input type="checkbox" id="layer-rx" checked onchange="toggleLayer('rx')" class="rounded bg-zinc-900 border-zinc-700 text-rose-500 focus:ring-0">
       </label>
 
       <label class="flex items-center justify-between p-1.5 rounded bg-zinc-950/60 border border-zinc-800/80 cursor-pointer hover:border-zinc-700">
-        <span class="text-xs text-amber-400 flex items-center gap-1.5"><i data-lucide="building" class="w-3.5 h-3.5"></i> Municipal $0 Deeds / Superfunds</span>
-        <input type="checkbox" id="layer-deeds" checked onchange="toggleLayer('deeds')" class="rounded bg-zinc-900 border-zinc-700 text-amber-500 focus:ring-0">
-      </label>
-
-      <label class="flex items-center justify-between p-1.5 rounded bg-zinc-950/60 border border-zinc-800/80 cursor-pointer hover:border-zinc-700">
-        <span class="text-xs text-emerald-400 flex items-center gap-1.5"><i data-lucide="users" class="w-3.5 h-3.5"></i> 50-State CoC / PIT Disparity Gap</span>
+        <span class="text-xs text-emerald-400 flex items-center gap-1.5"><i data-lucide="users" class="w-3.5 h-3.5"></i> 50-State CoC / Disparity Gap</span>
         <input type="checkbox" id="layer-coc" checked onchange="toggleLayer('coc')" class="rounded bg-zinc-900 border-zinc-700 text-emerald-500 focus:ring-0">
       </label>
 
@@ -456,9 +460,13 @@
       );
     }
 
-    // Target Markers Group
+    // Target Markers Groups
     const markersGroup = new THREE.Group();
+    const cctvMarkersGroup = new THREE.Group();
+    const openosintMarkersGroup = new THREE.Group();
     scene.add(markersGroup);
+    scene.add(cctvMarkersGroup);
+    scene.add(openosintMarkersGroup);
 
     const TARGETS = [
       { name: "Huntington Beach / Ascon Superfund", lat: 33.6599, lng: -117.9988, color: 0xf59e0b, type: "deeds" },
@@ -471,31 +479,78 @@
       { name: "New York CoC & Housing Hub", lat: 40.7128, lng: -74.0060, color: 0x10b981, type: "coc" }
     ];
 
-    TARGETS.forEach(t => {
-      const pos = latLngToVector3(t.lat, t.lng, globeRadius * 1.01);
-      
-      // Pin mesh
-      const pinGeom = new THREE.CylinderGeometry(0.005, 0.001, 0.08, 16);
-      pinGeom.translate(0, 0.04, 0);
+    function createMarker(lat, lng, color, meta, parentGroup) {
+      const pos = latLngToVector3(lat, lng, globeRadius * 1.01);
+      const pinGeom = new THREE.CylinderGeometry(0.004, 0.001, 0.06, 12);
+      pinGeom.translate(0, 0.03, 0);
       pinGeom.rotateX(Math.PI / 2);
       
-      const pinMat = new THREE.MeshBasicMaterial({ color: t.color });
+      const pinMat = new THREE.MeshBasicMaterial({ color: color });
       const pin = new THREE.Mesh(pinGeom, pinMat);
       pin.position.copy(pos);
       pin.lookAt(new THREE.Vector3(0,0,0));
       pin.rotateY(Math.PI);
       
-      // Pulse beacon ring
-      const ringGeom = new THREE.RingGeometry(0.015, 0.025, 32);
-      const ringMat = new THREE.MeshBasicMaterial({ color: t.color, side: THREE.DoubleSide, transparent: true, opacity: 0.8 });
+      const ringGeom = new THREE.RingGeometry(0.01, 0.018, 24);
+      const ringMat = new THREE.MeshBasicMaterial({ color: color, side: THREE.DoubleSide, transparent: true, opacity: 0.75 });
       const ring = new THREE.Mesh(ringGeom, ringMat);
       ring.position.copy(pos);
       ring.lookAt(new THREE.Vector3(0,0,0));
       
-      pin.userData = t;
-      markersGroup.add(pin);
-      markersGroup.add(ring);
-    });
+      pin.userData = meta;
+      parentGroup.add(pin);
+      parentGroup.add(ring);
+      return pin;
+    }
+
+    TARGETS.forEach(t => createMarker(t.lat, t.lng, t.color, t, markersGroup));
+
+    // Dynamic Loader: Caltrans District 12 CCTV Feeds
+    fetch('/maps/caltrans_d12_cctv.geojson')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.features) {
+          data.features.forEach(f => {
+            const coords = f.geometry && f.geometry.coordinates;
+            if (coords && coords.length >= 2) {
+              const p = f.properties || {};
+              const meta = {
+                name: p.entity_name || "Caltrans CCTV",
+                type: "cctv",
+                image_url: p.image_url,
+                stream_url: p.stream_url,
+                route: p.route,
+                direction: p.direction,
+                lat: coords[1],
+                lng: coords[0]
+              };
+              createMarker(coords[1], coords[0], 0x06b6d4, meta, cctvMarkersGroup);
+            }
+          });
+          console.log(`[God's Eye View] Ingested ${data.features.length} Caltrans D12 CCTV Feeds.`);
+        }
+      }).catch(e => console.warn('CCTV GeoJSON fetch deferred:', e));
+
+    // Dynamic Loader: OpenOSINT Investigated Targets
+    fetch('/maps/openosint_nodes.json')
+      .then(res => res.json())
+      .then(data => {
+        const targets = data.targets || [];
+        targets.forEach(t => {
+          if (t.latitude && t.longitude) {
+            const meta = {
+              name: `${t.target} (${t.type})`,
+              type: "openosint",
+              full_address: t.full_address,
+              threat_score: t.threat_score,
+              lat: t.latitude,
+              lng: t.longitude
+            };
+            createMarker(t.latitude, t.longitude, 0xf59e0b, meta, openosintMarkersGroup);
+          }
+        });
+        console.log(`[God's Eye View] Ingested ${targets.length} OpenOSINT Profiled Targets.`);
+      }).catch(e => console.warn('OpenOSINT nodes fetch deferred:', e));
 
     // Satellites Group (USA-224, Sentinel-2, Landsat-9)
     const satellitesGroup = new THREE.Group();
@@ -619,6 +674,10 @@
       const isChecked = document.getElementById(`layer-${type}`).checked;
       if (type === 'sats') {
         satellitesGroup.visible = isChecked;
+      } else if (type === 'cctv') {
+        cctvMarkersGroup.visible = isChecked;
+      } else if (type === 'openosint') {
+        openosintMarkersGroup.visible = isChecked;
       } else {
         markersGroup.children.forEach(m => {
           if (m.userData && m.userData.type === type) {

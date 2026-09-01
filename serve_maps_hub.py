@@ -18,6 +18,7 @@ MAP_DIRS = [
     BASE,
     os.path.join(BASE, "docs"),
     os.path.join(BASE, "opencode_work"),
+    os.path.join(BASE, "evidence"),
     os.path.join(BASE, "evidence", "visualizations"),
     os.path.join(BASE, "workspaces", "osint-agent"),
 ]
