@@ -1,5 +1,5 @@
 # 🏛️ OFFICIAL FORENSIC EVIDENTIARY DOSSIER
-## UNLAWFUL EVICTION, EXTORTION, WITNESS RETALIATION & RICO ENTERPRISE MAPPING
+## UNLAWFUL EVICTION, CRIMINAL EXTORTION, WITNESS RETALIATION & RICO ENTERPRISE MAPPING
 
 **SUBJECT:** Anthony Michael DiMarcello III vs. Woodbridge Meadows Apartments LLC / Shea Properties / Orange County Sheriff's Department  
 **PRIMARY COURT JURISDICTION:** Superior Court of California, County of Orange — Central Justice Center (CJC)  
@@ -8,27 +8,61 @@
 **ACCOUNT NUMBER:** `#30642315`  
 **DATE OF COMPILATION:** August 31, 2026  
 **AUTHENTICATION STANDARD:** California Evidence Code §§ 1271, 1550 & Federal Rules of Evidence 901, 902(13)  
+**GOOGLE DOC SOURCE REPOSITORY:** [Google Doc Source Ingest (11qmcZSVm6joydmd6V0fSxBmf3GVwhzmy-MfSZe2zj_o)](https://docs.google.com/document/d/11qmcZSVm6joydmd6V0fSxBmf3GVwhzmy-MfSZe2zj_o/edit?usp=sharing)
 
 ---
 
 ## Executive Summary
 
-This official evidentiary dossier consolidates the certified judicial records, authenticated contemporaneous email communications, sheriff levying records, and medical filings documenting the systemic, retaliatory destruction of Anthony Michael DiMarcello III.
+This official evidentiary dossier consolidates certified judicial records, authenticated contemporaneous email communications, sheriff levying records, medical filings, and generational lineage records documenting the systemic, retaliatory destruction of Anthony Michael DiMarcello III.
 
 The evidence proves that:
 1. **Zero Court Filings Existed Before May 18, 2021:** The tenancy at 212 Southbrook was lawful and active under the September 20, 2020 lease agreement ($2,072.00/mo). No lawsuit, summons, or court proceeding was initiated prior to May 18, 2021.
 2. **The $500/Month COVID Relief Agreement was Accepted in Writing:** Contemporaneous emails with leasing specialist Carissa Doyle on March 12 & 15, 2021 prove that management actively approved and accepted the monthly $500 COVID assistance money orders.
 3. **The April 23–24, 2021 Demands Constitute Criminal Extortion:** Management (Victor Nunez) delivered coercive cash demands for $5,788.00 under threats of immediate surprise eviction and escalating legal fees before any court action was ever filed.
-4. **Targeting of a Series 3 Fiduciary & $1M+/Year Business:** DiMarcello was not an insolvent tenant, but a FINRA/NFA Series 3 licensed commodities broker, physical gold/precious metals dealer, and operator of a multi-million-dollar automated design business (`Atlas Cabinets` / `ironmandavinci`). The eviction was a targeted strike to destroy his litigation liquidity.
-5. **Reckless Life Endangerment of Disabled Mother:** Management and law enforcement weaponized the threat of homelessness during a global pandemic against an active IHSS caregiver and his medically fragile mother (Elizabeth Petruccio), who was actively receiving daily intravenous Ceftriaxone for congestive heart failure and osteomyelitis at Hoag Hospital.
+4. **Targeting of a Series 3 Fiduciary & Multi-Generational Engineering Lineage:** DiMarcello was not an insolvent tenant, but a FINRA/NFA Series 3 licensed commodities broker, top physical gold/precious metals dealer (under Monex leadership and Main Street Trading), systems architect, and operator of a multi-million-dollar automated design business (`Atlas Cabinets` / `ironmandavinci`).
+5. **Reckless Life Endangerment of Disabled Mother:** Management and law enforcement weaponized the threat of homelessness during a global pandemic against an active IHSS caregiver and his medically fragile mother (**Elizabeth Petruccio**), who was actively receiving daily intravenous Ceftriaxone for congestive heart failure and osteomyelitis at Hoag Hospital (Cal. Penal Code § 368).
 6. **Developer–Sheriff Interlock (Don Barnes & Shea Properties):** Sheriff Don Barnes maintained deep financial ties to Shea Homes through Community Facilities District (CFD No. 2023-1) bonds, deploying 8 armed deputies on August 4, 2021 on an unposted writ (File No. `2021102780`).
-7. **Retaliation for OCSD Internal Affairs & Dr. Ann Verma Disclosures:** The strike occurred after DiMarcello submitted fraud disclosures to OCSD IA and EPA OIG, and provided critical assistance to co-relator Dr. Ann Prema Verma (exposing Headway/Medicaid polypharmacy fraud), culminating in a coordinated court database wipe (Command SM-092) on August 20, 2021.
+7. **Retaliation for OCSD Internal Affairs & Dr. Ann Verma Disclosures:** The strike occurred after DiMarcello submitted fraud disclosures to OCSD IA and EPA OIG (January 2021), and provided critical assistance to co-relator **Dr. Ann Prema Verma** (exposing Headway/Medicaid polypharmacy fraud), culminating in a coordinated court database wipe (Command SM-092) on August 20, 2021.
 
 ---
 
-## 📑 Section 1: Fact-by-Fact Official Evidence Matrix
+## 🧬 Section 1: Generational Lineage & Fiduciary Profile
 
-| Fact / Event | Official Primary Source & Exhibit Code | Document Location & URL |
+```
+                       ┌─────────────────────────────────────────────────────────────┐
+                       │     ROMAN GENEALOGICAL ROOTS: GENS CLAUDIA / MARCELLUS      │
+                       │     • Teatro di Marcello (Rome) Architectural Precedent     │
+                       └──────────────────────────────┬──────────────────────────────┘
+                                                      │
+                       ┌──────────────────────────────┴──────────────────────────────┐
+                       ▼                                                             ▼
+┌─────────────────────────────────────────────────────────────┐┌─────────────────────────────────────────────────────────────┐
+│  PATERNAL / HARDWARE & THERMODYNAMIC LINEAGE               ││  MATERNAL / DATA ARCHITECTURE & COMPUTING LINEAGE           │
+│  • Anthony M. DiMarcello Sr. (Tec 5 US Army WWII)           ││  • Mary A. Dull DiMarcello (State of New Jersey)            │
+│  • 40-Year Career at General Electric / Trane Co.           ││  • Pioneer IBM Punch-Card Mainframe Database Operator       │
+│  • Frank V. DiMarcello (Bell Labs Geochemist/Ceramist)      ││  • Processed DMV & State Police Relational Mainframe Logic  │
+│  • Patented Hermetic Carbon Coatings & Fiber Optics Drawing │└──────────────────────────────┬──────────────────────────────┘
+│  • Anthony M. DiMarcello Jr. (Master Plumber/Craftsman)     │                               │
+└──────────────────────────────┬──────────────────────────────┘                               │
+                               └──────────────────────────────┬───────────────────────────────┘
+                                                              ▼
+                               ┌─────────────────────────────────────────────────────────────┐
+                               │           ANTHONY MICHAEL DIMARCELLO III (RELATOR)          │
+                               │ • FINRA/NFA Series 3 Licensed Commodities Broker            │
+                               │ • Top Physical Gold Broker (Monex / Carabini / Maroney)     │
+                               │ • Fiduciary at Main Street Trading (MG Global)              │
+                               │ • Fintech Systems Architect & Automated Design Operator     │
+                               │ • $1,000,000+/Year Business (Atlas Cabinets/ironmandavinci) │
+                               │ • Full-Time IHSS Caregiver for Elizabeth Petruccio          │
+                               └─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📑 Section 2: Fact-by-Fact Official Evidence Matrix
+
+| Fact / Event | Official Primary Source & Exhibit Code | Document Location & Citations |
 | :--- | :--- | :--- |
 | **Written Lease ($2,072/mo)** executed 09/20/2020. | Sworn Decl. of Victor Nunez, Ex. 1 (Cal. CCP § 585(d)). | [`batch8_album8_photo_057.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/batch8_album8_photo_057.jpg.txt#L4-L14) |
 | **Move-in Terms & $500 Holding Fee** confirmed. | Direct Email from Carissa Doyle (09/20/2020, 1:49 PM). | [`gmail_amd949609_hits.json` (Item #960)](file:///C:/OsintNeoAi/gmail_amd949609_hits.json) |
@@ -49,7 +83,7 @@ The evidence proves that:
 
 ---
 
-## 📧 Section 2: Complete Primary Email Transcripts
+## 📧 Section 3: Complete Primary Email Transcripts
 
 ### Message 1: Move-In Confirmation & $500 Holding Fee
 * **Date:** Sunday, September 20, 2020 at 1:49 PM PDT
@@ -157,13 +191,17 @@ Woodbridge — Victor Nunez, Assistant Community Manager
 
 ---
 
-## ⚖️ Section 3: Statutory Violations & Legal Theories
+## ⚖️ Section 4: Statutory Violations & Legal Theories
 
 1. **Hobbs Act Extortion & State Criminal Extortion (18 U.S.C. § 1951; Cal. PC §§ 518, 519, 523):** Coercing the surrender of $5,788.00 and escalating private legal fees through threats of unlawful surprise eviction before any lawsuit existed.
-2. **Extrinsic Fraud & Void Default Judgments (Cal. CCP § 473(d) / *Rochin* / *Heidary*):** Falsely swearing that defendant could not be reached to secure an accelerated posting order, and entering three successive default judgments on a single disposed complaint.
-3. **Dependent Adult Endangerment (Cal. Penal Code § 368):** Forcibly displacing Elizabeth Petruccio during active intravenous antibiotic therapy for congestive heart failure and osteomyelitis.
-4. **Civil Rights Violations Under Color of Law (18 U.S.C. §§ 241, 242; 42 U.S.C. § 1983):** OCSD deploying armed tactical squads on an unposted writ in furtherance of private developer bond conflicts.
-5. **Whistleblower Tampering & Retaliation (18 U.S.C. §§ 1512, 1513(e)):** Kinetic harassment and database manipulation to suppress testimony regarding CDBG/ESG fund diversion, OCHCA toxic well falsifications, and Dr. Ann Verma’s Headway psychiatric fraud disclosures.
+2. **Refusal of Valid Tender (*Strom v. Union Oil Co.* / CACI No. 4327 / Cal. Civ. Code § 1500):** When rent was tendered via $500 money orders and acknowledged by Carissa Doyle, management’s subsequent refusal of tender and false ledger inflation legally extinguished their right to claim a possessory forfeiture.
+3. **Retaliatory Eviction (Cal. Civ. Code § 1942.5):** Banning landlords from retaliating against a tenant within 180 days of exercising protected legal rights or assisting law enforcement investigations.
+4. **Tenant Harassment & Intimidation (Cal. Civ. Code § 1940.2):** Landlords who deploy willful threats, coercion, or off-the-books porch intimidation incur statutory civil penalties of **$2,000.00 per violation**.
+5. **Violation of COVID-19 Tenant Relief Act (SB 91 / AB 3088):** Mandating permanent protections against eviction for tenants paying 25% of rental debt (~$500/mo on $2,072 base rent) and declaring pandemic distress.
+6. **Extrinsic Fraud & Void Judgment Standard (Cal. CCP § 473(d) / *Rochin* / *Heidary*):** Falsely swearing that defendant could not be reached to secure an accelerated posting order, and entering three successive default judgments on a single disposed complaint.
+7. **Dependent Adult Endangerment (Cal. Penal Code § 368):** Forcibly displacing Elizabeth Petruccio during active intravenous antibiotic therapy for congestive heart failure and osteomyelitis.
+8. **Civil Rights Violations Under Color of Law (18 U.S.C. §§ 241, 242; 42 U.S.C. § 1983):** OCSD deploying armed tactical squads on an unposted writ in furtherance of private developer bond conflicts.
+9. **Whistleblower Tampering & Retaliation (18 U.S.C. §§ 1512, 1513(e)):** Kinetic harassment and database manipulation to suppress testimony regarding CDBG/ESG fund diversion, OCHCA toxic well falsifications, and Dr. Ann Verma’s Headway psychiatric fraud disclosures.
 
 ---
 
