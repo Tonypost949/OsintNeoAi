@@ -1,5 +1,5 @@
 # 🏛️ OFFICIAL FORENSIC EVIDENTIARY DOSSIER
-## UNLAWFUL EVICTION, CRIMINAL EXTORTION, WITNESS RETALIATION & RICO ENTERPRISE MAPPING
+## UNLAWFUL EVICTION, CRIMINAL EXTORTION, FIDUCIARY AGENCY, WITNESS RETALIATION & RICO ENTERPRISE MAPPING
 
 **SUBJECT:** Anthony Michael DiMarcello III vs. Woodbridge Meadows Apartments LLC / Shea Properties / Orange County Sheriff's Department  
 **PRIMARY COURT JURISDICTION:** Superior Court of California, County of Orange — Central Justice Center (CJC)  
@@ -8,26 +8,57 @@
 **ACCOUNT NUMBER:** `#30642315`  
 **DATE OF COMPILATION:** August 31, 2026  
 **AUTHENTICATION STANDARD:** California Evidence Code §§ 1271, 1550 & Federal Rules of Evidence 901, 902(13)  
-**GOOGLE DOC SOURCE REPOSITORY:** [Google Doc Source Ingest (11qmcZSVm6joydmd6V0fSxBmf3GVwhzmy-MfSZe2zj_o)](https://docs.google.com/document/d/11qmcZSVm6joydmd6V0fSxBmf3GVwhzmy-MfSZe2zj_o/edit?usp=sharing)
+**PRIMARY SOURCE REPOSITORIES:**  
+* [Google Doc Ingest 1: Lineage, Metallurgy & Woodbridge Eviction Analysis](https://docs.google.com/document/d/11qmcZSVm6joydmd6V0fSxBmf3GVwhzmy-MfSZe2zj_o/edit?usp=sharing)  
+* [Google Doc Ingest 2: The Code of the Gent Agent, Qui Tam Standing & Enforcement Matrices](https://docs.google.com/document/d/14KSgou9kMEBfU-yUYP9g-GVac9jFrMHLS3fN3JXLzCA/edit?usp=sharing)  
+* [Master Regulatory & Enforcement Matrix V5](https://docs.google.com/spreadsheets/d/17Q_nEpdYpRqVf-dsI2BZZ9COkiUtNRRCDPUfHabX83E/edit?usp=drive_link)
 
 ---
 
 ## Executive Summary
 
-This official evidentiary dossier consolidates certified judicial records, authenticated contemporaneous email communications, sheriff levying records, medical filings, and generational lineage records documenting the systemic, retaliatory destruction of Anthony Michael DiMarcello III.
+This official evidentiary dossier consolidates certified judicial records, authenticated contemporaneous email communications, sheriff levying records, medical filings, and universal agency and regulatory enforcement jurisprudence documenting the systemic, retaliatory destruction of Anthony Michael DiMarcello III.
 
 The evidence proves that:
 1. **Zero Court Filings Existed Before May 18, 2021:** The tenancy at 212 Southbrook was lawful and active under the September 20, 2020 lease agreement ($2,072.00/mo). No lawsuit, summons, or court proceeding was initiated prior to May 18, 2021.
 2. **The $500/Month COVID Relief Agreement was Accepted in Writing:** Contemporaneous emails with leasing specialist Carissa Doyle on March 12 & 15, 2021 prove that management actively approved and accepted the monthly $500 COVID assistance money orders.
 3. **The April 23–24, 2021 Demands Constitute Criminal Extortion:** Management (Victor Nunez) delivered coercive cash demands for $5,788.00 under threats of immediate surprise eviction and escalating legal fees before any court action was ever filed.
-4. **Targeting of a Series 3 Fiduciary & Multi-Generational Engineering Lineage:** DiMarcello was not an insolvent tenant, but a FINRA/NFA Series 3 licensed commodities broker, top physical gold/precious metals dealer (under Monex leadership and Main Street Trading), systems architect, and operator of a multi-million-dollar automated design business (`Atlas Cabinets` / `ironmandavinci`).
+4. **Fiduciary Agency & Qui Tam Standing (*Stevens*, 529 U.S. 765):** DiMarcello operated not merely as a tenant, but as a FINRA/NFA Series 3 licensed commodities broker, physical gold/precious metals dealer (Monex / Main Street Trading), systems architect, and designated qui tam relator / mandatory reporter under Cal. Welf. & Inst. Code § 15630. Under *Vermont Agency of Natural Resources v. United States ex rel. Stevens*, a relator holds Article III constitutional standing via partial assignment of the sovereign's claim.
 5. **Reckless Life Endangerment of Disabled Mother:** Management and law enforcement weaponized the threat of homelessness during a global pandemic against an active IHSS caregiver and his medically fragile mother (**Elizabeth Petruccio**), who was actively receiving daily intravenous Ceftriaxone for congestive heart failure and osteomyelitis at Hoag Hospital (Cal. Penal Code § 368).
 6. **Developer–Sheriff Interlock (Don Barnes & Shea Properties):** Sheriff Don Barnes maintained deep financial ties to Shea Homes through Community Facilities District (CFD No. 2023-1) bonds, deploying 8 armed deputies on August 4, 2021 on an unposted writ (File No. `2021102780`).
 7. **Retaliation for OCSD Internal Affairs & Dr. Ann Verma Disclosures:** The strike occurred after DiMarcello submitted fraud disclosures to OCSD IA and EPA OIG (January 2021), and provided critical assistance to co-relator **Dr. Ann Prema Verma** (exposing Headway/Medicaid polypharmacy fraud), culminating in a coordinated court database wipe (Command SM-092) on August 20, 2021.
 
 ---
 
-## 🧬 Section 1: Generational Lineage & Fiduciary Profile
+## 🏛️ Section 1: The Universal Code of the Agent & Relator Fiduciary Standing
+
+```
+                                  ┌─────────────────────────────────────────────────────────────┐
+                                  │       UNIVERSAL MAXIM: QUI FACIT PER ALIUM FACIT PER SE     │
+                                  │       ("He who acts through another acts for himself")      │
+                                  └──────────────────────────────┬──────────────────────────────┘
+                                                                 │
+                          ┌──────────────────────────────────────┴──────────────────────────────────────┐
+                          ▼                                                                             ▼
+┌──────────────────────────────────────────────────┐                          ┌──────────────────────────────────────────────────┐
+│      COMMERCIAL & FIDUCIARY AGENCY (SERIES 3)    │                          │      QUI TAM RELATOR & MANDATORY REPORTER        │
+│ • FINRA/NFA Series 3 Licensed Commodities Broker │                          │ • Standing under False Claims Act (31 U.S.C. 3730)│
+│ • 5 Fiduciary Duties: Loyalty, Care, Obedience,   │                          │ • S. Ct. Precedent: Stevens (529 U.S. 765)       │
+│   Accounting, Disclosure                         │                          │ • Partial Assignment of Sovereign Claim          │
+│ • Gold Dealer (Monex / Carabini / Maroney)       │                          │ • Cal. WIC § 15630 (Elder/Dependent Protection)  │
+└──────────────────────────────────────────────────┘                          └──────────────────────────────────────────────────┘
+```
+
+### The 5 Universal Fiduciary Obligations
+1. **Duty of Loyalty:** Absolute subordination of self-interest; zero secret self-dealing or undisclosed dual agency.
+2. **Duty of Care & Skill:** Executing financial transactions with the standard of an expert commodities practitioner.
+3. **Duty of Obedience:** Strict adherence to regulatory scopes under the Bank Secrecy Act (BSA) and Anti-Money Laundering (AML) mandates.
+4. **Duty of Accounting:** Complete, uncompromised documentation of all ledger transactions and tenders of payment.
+5. **Duty of Disclosure / Notice:** Prompt relay of material facts; notice to the agent constitutes legal notice to the principal.
+
+---
+
+## 🧬 Section 2: Generational Lineage & Technical Fiduciary Pedigree
 
 ```
                        ┌─────────────────────────────────────────────────────────────┐
@@ -60,7 +91,7 @@ The evidence proves that:
 
 ---
 
-## 📑 Section 2: Fact-by-Fact Official Evidence Matrix
+## 📑 Section 3: Fact-by-Fact Official Evidence Matrix
 
 | Fact / Event | Official Primary Source & Exhibit Code | Document Location & Citations |
 | :--- | :--- | :--- |
@@ -83,7 +114,7 @@ The evidence proves that:
 
 ---
 
-## 📧 Section 3: Complete Primary Email Transcripts
+## 📧 Section 4: Complete Primary Email Transcripts
 
 ### Message 1: Move-In Confirmation & $500 Holding Fee
 * **Date:** Sunday, September 20, 2020 at 1:49 PM PDT
@@ -191,17 +222,47 @@ Woodbridge — Victor Nunez, Assistant Community Manager
 
 ---
 
-## ⚖️ Section 4: Statutory Violations & Legal Theories
+## ⚖️ Section 5: Statutory Violations, Jurisprudence & Cause of Action Matrix
+
+```mermaid
+graph TD
+    subgraph Predicate Crimes & Civil Violations
+        EXT[Extortion - 18 U.S.C. § 1951 / Cal. PC § 518]
+        PERJ[Perjury on Court Verification - Cal. PC § 118 / Form UD-101]
+        FRAUD[Extrinsic Fraud on Service - Cal. CCP § 473.5 / § 415.45]
+        ABUSE[Elder & Dependent Adult Abuse - Cal. PC § 368]
+        RETAL[Statutory Retaliation - Cal. Civ. Code § 1942.5]
+        CIVIL[Deprivation of Civil Rights - 18 U.S.C. §§ 241, 242]
+        TENDER[Refusal of Tender - Strom v. Union Oil / Cal. Civ. Code § 1500]
+    end
+
+    subgraph The Enterprise
+        RICO[RICO Enterprise Liability - 18 U.S.C. § 1962 c]
+    end
+
+    EXT --> RICO
+    PERJ --> RICO
+    FRAUD --> RICO
+    ABUSE --> RICO
+    RETAL --> RICO
+    CIVIL --> RICO
+    TENDER --> RICO
+```
 
 1. **Hobbs Act Extortion & State Criminal Extortion (18 U.S.C. § 1951; Cal. PC §§ 518, 519, 523):** Coercing the surrender of $5,788.00 and escalating private legal fees through threats of unlawful surprise eviction before any lawsuit existed.
 2. **Refusal of Valid Tender (*Strom v. Union Oil Co.* / CACI No. 4327 / Cal. Civ. Code § 1500):** When rent was tendered via $500 money orders and acknowledged by Carissa Doyle, management’s subsequent refusal of tender and false ledger inflation legally extinguished their right to claim a possessory forfeiture.
-3. **Retaliatory Eviction (Cal. Civ. Code § 1942.5):** Banning landlords from retaliating against a tenant within 180 days of exercising protected legal rights or assisting law enforcement investigations.
-4. **Tenant Harassment & Intimidation (Cal. Civ. Code § 1940.2):** Landlords who deploy willful threats, coercion, or off-the-books porch intimidation incur statutory civil penalties of **$2,000.00 per violation**.
-5. **Violation of COVID-19 Tenant Relief Act (SB 91 / AB 3088):** Mandating permanent protections against eviction for tenants paying 25% of rental debt (~$500/mo on $2,072 base rent) and declaring pandemic distress.
-6. **Extrinsic Fraud & Void Judgment Standard (Cal. CCP § 473(d) / *Rochin* / *Heidary*):** Falsely swearing that defendant could not be reached to secure an accelerated posting order, and entering three successive default judgments on a single disposed complaint.
-7. **Dependent Adult Endangerment (Cal. Penal Code § 368):** Forcibly displacing Elizabeth Petruccio during active intravenous antibiotic therapy for congestive heart failure and osteomyelitis.
-8. **Civil Rights Violations Under Color of Law (18 U.S.C. §§ 241, 242; 42 U.S.C. § 1983):** OCSD deploying armed tactical squads on an unposted writ in furtherance of private developer bond conflicts.
-9. **Whistleblower Tampering & Retaliation (18 U.S.C. §§ 1512, 1513(e)):** Kinetic harassment and database manipulation to suppress testimony regarding CDBG/ESG fund diversion, OCHCA toxic well falsifications, and Dr. Ann Verma’s Headway psychiatric fraud disclosures.
+3. **Qui Tam Relator Standing & Whistleblower Protections (31 U.S.C. § 3730(b), (h); *Vermont Agency of Natural Resources v. United States ex rel. Stevens*, 529 U.S. 765 (2000)):** The U.S. Supreme Court confirmed that private relators possess Article III constitutional standing through partial sovereign assignment to hold fraudsters accountable.
+4. **Mandatory Reporting Protections (Cal. Welf. & Inst. Code § 15630; Cal. Lab. Code § 1102.5):** Disclosures regarding dependent adult endangerment and public fund diversion are protected under statutory safe harbors.
+5. **Retaliatory Eviction (Cal. Civ. Code § 1942.5):** Banning landlords from retaliating against a tenant within 180 days of exercising protected legal rights or assisting law enforcement investigations.
+6. **Tenant Harassment & Intimidation (Cal. Civ. Code § 1940.2):** Landlords who deploy willful threats, coercion, or off-the-books porch intimidation incur statutory civil penalties of **$2,000.00 per violation**.
+7. **Violation of COVID-19 Tenant Relief Act (SB 91 / AB 3088):** Mandating permanent protections against eviction for tenants paying 25% of rental debt (~$500/mo on $2,072 base rent) and declaring pandemic distress.
+8. **Extrinsic Fraud & Void Judgment Standard (Cal. CCP § 473(d) / *Rochin* / *Heidary*):** Falsely swearing that defendant could not be reached to secure an accelerated posting order, and entering three successive default judgments on a single disposed complaint.
+9. **Dependent Adult Endangerment (Cal. Penal Code § 368):** Forcibly displacing Elizabeth Petruccio during active intravenous antibiotic therapy for congestive heart failure and osteomyelitis.
+10. **Civil Rights Violations Under Color of Law (18 U.S.C. §§ 241, 242; 42 U.S.C. § 1983):** OCSD deploying armed tactical squads on an unposted writ in furtherance of private developer bond conflicts.
+11. **Federal Digital Evidence & Communications Protections:**
+   * **CalECPA (Cal. Penal Code § 1546 et seq.):** Search warrants required for cell metadata, digital records, and real-time location.
+   * **Stored Communications Act (18 U.S.C. § 2701):** Prohibiting unauthorized access to stored electronic communications.
+   * **FCC CPNI Rules (47 U.S.C. § 222 & 47 CFR Part 64):** Strict safeguards protecting subscriber call records, SIM identity, and carrier records from deceptive extractions.
 
 ---
 
