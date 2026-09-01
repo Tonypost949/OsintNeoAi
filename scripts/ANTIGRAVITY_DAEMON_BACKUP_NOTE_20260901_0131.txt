@@ -1,0 +1,11 @@
+﻿Antigravity Daemon Backup Sync — 2026-09-01 01:31 UTC
+Commit: 0c1971d
+Files synchronized to Sharedall/OsintNeoAi/scripts/:
+- antigravity_daemon_server.py (13148 bytes)
+- install_antigravity_daemon.ps1 (1999 bytes)
+- run_silent_antigravity_daemon.vbs (362 bytes)
+Daemon PID: 22392, Port 5052, agy v1.1.23, Health: healthy
+Task: OSINTNeoAi_Antigravity_Daemon_5052 (State: Ready, LastRun: 2026-09-01 01:17:53)
+GitHub: origin/main at 0c1971d (pushed)
+Local: C:\Users\HP\OneDrive\Documents\OsintNeoAi\backups\repo\backup_20260901_011821 (verified)
+GDrive: gdrive:Sharedall/OsintNeoAi/scripts/ (verified via rclone lsl)
