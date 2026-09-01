@@ -1,0 +1,80 @@
+name: Cloud Auto Leads Correlation (24/7)
+
+on:
+  schedule:
+    - cron: "17 */2 * * *"  # Every 2 hours at :17 UTC (staggered from other workflows)
+  workflow_dispatch:
+    inputs:
+      interval:
+        description: "Override interval seconds (not used here, for manual trigger)"
+        required: false
+        default: "7200"
+
+permissions:
+  contents: write
+
+jobs:
+  auto-leads:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps (minimal)
+        run: |
+          pip install --quiet --upgrade pip
+          pip install --quiet -r requirements.txt || echo "requirements optional"
+          # stdlib only for correlation engine - no extra deps
+
+      - name: Run Cloud Leads Correlation Engine
+        run: |
+          echo "Running auto_leads_correlation_v2..."
+          python scripts/auto_leads_correlation_v2.py 2>&1
+          echo "=== LEADS FEED PREVIEW ==="
+          cat data/leads_feed.json | head -n 120 || echo "no feed"
+          echo "=== REPORTS ==="
+          ls -lh reports/auto_leads/ || echo "no reports dir"
+          echo "=== LOG TAIL ==="
+          tail -n 50 logs/correlation_runs.log || echo "no log"
+
+      - name: Trigger Azure Live Correlation (async)
+        env:
+          APP_URL: https://osintneoai-app-949.azurewebsites.net
+        run: |
+          echo "Pinging Azure live endpoint (best-effort)..."
+          curl -s "$APP_URL/api/correlation/run?async=1" | head -n 200 || echo "Azure trigger skipped (app may be cold)"
+          curl -s "$APP_URL/api/correlation/status" | head -n 300 || true
+
+      - name: Commit & Push Leads (if changed)
+        run: |
+          git config user.name "OsintNeoAi Leads Bot"
+          git config user.email "leads-bot@osintneoai.com"
+          git add data/leads_feed.json reports/auto_leads/ logs/correlation_runs.log || true
+          # Don't fail if nothing to add
+          if git diff --staged --quiet; then
+            echo "No leads diff — nothing to commit"
+            exit 0
+          fi
+          git commit -m "chore(auto): cloud leads correlation $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          git push
+          echo "Pushed leads update"
+
+      - name: Job Summary
+        run: |
+          echo "### Cloud Auto Leads — Run Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Schedule:** Every 2h (GitHub Actions) + continuous in Azure App Service (ENABLE_AUTO_CORRELATION=1)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Engine:** scripts/auto_leads_correlation_v2.py" >> $GITHUB_STEP_SUMMARY
+          echo "- **Live Feed:** data/leads_feed.json -> /api/leads" >> $GITHUB_STEP_SUMMARY
+          cat data/leads_feed.json | python -c "import json,sys; d=json.load(open('data/leads_feed.json')); print(f\"- **Leads:** {len(d.get('leads',[]))}  | Nodes {d.get('graph_stats',{}).get('nodes')} Edges {d.get('graph_stats',{}).get('edges')}\")" >> $GITHUB_STEP_SUMMARY || true
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Live API: https://osintneoai-app-949.azurewebsites.net/api/leads" >> $GITHUB_STEP_SUMMARY
