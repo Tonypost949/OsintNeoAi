@@ -113,8 +113,8 @@ class MetaWebhookHandler(http.server.BaseHTTPRequestHandler):
                 comment_id = val.get("comment_id")
 
                 if item == "comment" and verb == "add" and comment_id:
-                    # Check if tagged or targeting Makaveli
-                    if "@makaveli" in msg.lower() or "@osintneoai" in msg.lower():
+                    # Check if tagged or targeting Makaveli / Makavelli
+                    if any(t in msg.lower() for t in ["@makavelli", "@makaveli", "@ makavelli", "@ makaveli", "makavelli", "makaveli", "@osintneoai"]):
                         print(f"[MENTION TRIGGER] Processing comment: {msg}")
                         reply_text = agent_loop.run(msg)
                         post_facebook_comment_reply(comment_id, reply_text)
@@ -124,7 +124,7 @@ class MetaWebhookHandler(http.server.BaseHTTPRequestHandler):
                 val = change.get("value", {})
                 text = val.get("text", "")
                 comment_id = val.get("id")
-                if comment_id and ("@makaveli" in text.lower() or "@osintneoai" in text.lower()):
+                if comment_id and any(t in text.lower() for t in ["@makavelli", "@makaveli", "@ makavelli", "@ makaveli", "makavelli", "makaveli", "@osintneoai"]):
                     print(f"[IG MENTION TRIGGER] Processing IG text: {text}")
                     reply_text = agent_loop.run(text)
                     post_instagram_reply(comment_id, reply_text)

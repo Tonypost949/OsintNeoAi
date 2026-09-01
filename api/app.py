@@ -109,7 +109,8 @@ def handle_webhook_event():
             comment_id = val.get("comment_id")
 
             if item == "comment" and verb == "add" and comment_id:
-                if any(tag in msg.lower() for tag in ["@osintneoai", "@makaveli", "trace", "audit"]):
+                triggers = ["@makavelli", "@makaveli", "@ makavelli", "@ makaveli", "makavelli", "makaveli", "@osintneoai", "trace", "audit"]
+                if any(tag in msg.lower() for tag in triggers):
                     print(f"[TAGGED COMMENT] {msg}")
                     reply = generate_makaveli_response(msg)
                     reply_facebook_comment(comment_id, reply)
