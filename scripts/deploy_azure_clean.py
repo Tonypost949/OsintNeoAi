@@ -11,8 +11,8 @@ import subprocess
 ROOT_DIR = r"C:\OSINTNEOAI"
 ZIP_PATH = os.path.join(ROOT_DIR, "azure_deploy.zip")
 
-INCLUDE_DIRS = ["api", "makavelli", "tools", "core"]
-INCLUDE_FILES = ["app.py", "requirements.txt"]
+INCLUDE_DIRS = ["api", "makavelli", "tools", "core", "public", "data"]
+INCLUDE_FILES = ["app.py", "OSINTNeoAiCLI.py", "gods_eye_view.html", "maps_hub.html", "requirements.txt"]
 
 print("[1/3] Packaging clean deployment zip...")
 with zipfile.ZipFile(ZIP_PATH, "w", compression=zipfile.ZIP_DEFLATED) as z:
@@ -46,7 +46,7 @@ cmd = [
     "--type", "zip"
 ]
 
-res = subprocess.run(cmd, capture_output=True, text=True)
+res = subprocess.run(cmd, capture_output=True, text=True, shell=True)
 print(res.stdout)
 if res.stderr:
     print("[STDERR]", res.stderr)

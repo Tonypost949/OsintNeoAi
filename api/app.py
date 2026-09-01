@@ -234,6 +234,48 @@ def handle_webhook_event():
 
     return "EVENT_RECEIVED", 200
 
+@app.route("/syncfusion", methods=["GET"])
+@app.route("/syncfusion/", methods=["GET"])
+def serve_syncfusion():
+    public_dir = os.path.join(ROOT_DIR, "public")
+    for f in ["syncfusion_grid_v3_steroids.html", "syncfusion_grid.html_v2", "syncfusion_grid.html"]:
+        fp = os.path.join(public_dir, f)
+        if os.path.exists(fp):
+            return send_from_directory(public_dir, f)
+    return "Syncfusion grid not found", 404
+
+@app.route("/tasks", methods=["GET"])
+@app.route("/tasks/", methods=["GET"])
+def serve_tasks():
+    public_dir = os.path.join(ROOT_DIR, "public")
+    return send_from_directory(public_dir, "tasks.html")
+
+@app.route("/api/tasks", methods=["GET"])
+def serve_api_tasks():
+    tasks_file = os.path.join(ROOT_DIR, "data", "tasks.json")
+    if os.path.exists(tasks_file):
+        with open(tasks_file, "r", encoding="utf-8") as f:
+            return jsonify(json.load(f))
+    return jsonify({"tasks": [], "status": "empty"}), 200
+
+@app.route("/maps", methods=["GET"])
+@app.route("/maps/", methods=["GET"])
+def serve_maps_hub():
+    maps_hub_file = os.path.join(ROOT_DIR, "maps_hub.html")
+    if os.path.exists(maps_hub_file):
+        return send_from_directory(ROOT_DIR, "maps_hub.html")
+    return "Maps hub not found", 404
+
+@app.route("/gods_eye_view.html", methods=["GET"])
+@app.route("/maps/gods_eye_view.html", methods=["GET"])
+def serve_gods_eye():
+    return send_from_directory(ROOT_DIR, "gods_eye_view.html")
+
+@app.route("/public/<path:filename>", methods=["GET"])
+def serve_public_files(filename):
+    public_dir = os.path.join(ROOT_DIR, "public")
+    return send_from_directory(public_dir, filename)
+
 @app.route("/makavelli", methods=["GET"])
 @app.route("/makavelli/", methods=["GET"])
 @app.route("/makaveli", methods=["GET"])
@@ -253,3 +295,4 @@ def serve_makaveli_static(filename):
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8000))
     app.run(host="0.0.0.0", port=port)
+
