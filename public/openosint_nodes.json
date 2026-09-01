@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "total_targets": 4,
+    "updated_at": "2026-09-01T07:59:32.681489+00:00",
+    "framework": "OpenOSINT / OsintNeoAi"
+  },
+  "targets": [
+    {
+      "target": "1601 Dove Street",
+      "full_address": "1601 Dove Street, Suite 200, Newport Beach, CA 92660",
+      "latitude": 33.6599,
+      "longitude": -117.8682,
+      "type": "Corporate Shell / Legal Service Hub",
+      "jurisdiction": "Newport Beach / Orange County",
+      "threat_score": 88,
+      "report_file": "C:\\OsintNeoAi\\evidence\\OPENOSINT_1601_Dove_Street.md",
+      "timestamp": "2026-09-01T07:59:32.533672+00:00"
+    },
+    {
+      "target": "17631 Cameron Lane",
+      "full_address": "17631 Cameron Lane, Huntington Beach, CA 92647",
+      "latitude": 33.7042,
+      "longitude": -117.9893,
+      "type": "Contaminated Residential Parcel / Boundary Manipulation",
+      "jurisdiction": "Huntington Beach / Orange County",
+      "threat_score": 95,
+      "report_file": "C:\\OsintNeoAi\\evidence\\OPENOSINT_17631_Cameron_Lane.md",
+      "timestamp": "2026-09-01T07:59:32.581495+00:00"
+    },
+    {
+      "target": "7561 Center Ave",
+      "full_address": "7561 Center Ave, Huntington Beach, CA 92647",
+      "latitude": 33.7383,
+      "longitude": -118.0016,
+      "type": "Mailbox Hub / Multiple Entity Registration Nexus",
+      "jurisdiction": "Huntington Beach / Orange County",
+      "threat_score": 82,
+      "report_file": "C:\\OsintNeoAi\\evidence\\OPENOSINT_7561_Center_Ave.md",
+      "timestamp": "2026-09-01T07:59:32.630815+00:00"
+    },
+    {
+      "target": "17642 Beach Blvd",
+      "full_address": "17642 Beach Blvd, Huntington Beach, CA 92647",
+      "latitude": 33.7039,
+      "longitude": -117.9881,
+      "type": "HBNC Facility / Underground Storage Tank Contamination Zone",
+      "jurisdiction": "Huntington Beach / Water Boards Region 8",
+      "threat_score": 92,
+      "report_file": "C:\\OsintNeoAi\\evidence\\OPENOSINT_17642_Beach_Blvd.md",
+      "timestamp": "2026-09-01T07:59:32.681459+00:00"
+    }
+  ]
+}

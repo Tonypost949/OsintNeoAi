@@ -17,7 +17,7 @@ app = Flask(__name__)
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VERIFY_TOKEN = os.getenv("META_VERIFY_TOKEN", "makaveli_osint_verify_2026")
 FB_PAGE_TOKEN = os.getenv("FB_PAGE_TOKEN") or os.getenv("META_PAGE_ACCESS_TOKEN", "")
-PAGE_ID = os.getenv("FB_PAGE_ID", "1264271163441359")
+PAGE_ID = os.getenv("FB_PAGE_ID", "61594100636376")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 
 # Initialize Gemini AI Client
@@ -266,10 +266,30 @@ def serve_maps_hub():
         return send_from_directory(ROOT_DIR, "maps_hub.html")
     return "Maps hub not found", 404
 
+@app.route("/gods_eye_view", methods=["GET"])
+@app.route("/gods_eye_view/", methods=["GET"])
 @app.route("/gods_eye_view.html", methods=["GET"])
 @app.route("/maps/gods_eye_view.html", methods=["GET"])
 def serve_gods_eye():
     return send_from_directory(ROOT_DIR, "gods_eye_view.html")
+
+@app.route("/maps/caltrans_d12_cctv.geojson", methods=["GET"])
+@app.route("/caltrans_d12_cctv.geojson", methods=["GET"])
+def serve_cctv_geojson():
+    for d in ["public", "evidence", "opencode_work"]:
+        fp = os.path.join(ROOT_DIR, d, "caltrans_d12_cctv.geojson")
+        if os.path.exists(fp):
+            return send_from_directory(os.path.join(ROOT_DIR, d), "caltrans_d12_cctv.geojson")
+    return "CCTV GeoJSON not found", 404
+
+@app.route("/maps/openosint_nodes.json", methods=["GET"])
+@app.route("/openosint_nodes.json", methods=["GET"])
+def serve_openosint_nodes():
+    for d in ["public", "evidence", "opencode_work"]:
+        fp = os.path.join(ROOT_DIR, d, "openosint_nodes.json")
+        if os.path.exists(fp):
+            return send_from_directory(os.path.join(ROOT_DIR, d), "openosint_nodes.json")
+    return "OpenOSINT nodes not found", 404
 
 POWERAPPS_SWAGGER_SPEC = {
   "swagger": "2.0",

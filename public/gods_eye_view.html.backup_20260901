@@ -149,10 +149,11 @@
 
     <!-- Quick Target Jump Buttons -->
     <div class="hidden lg:flex items-center gap-1.5 mono text-xs">
-      <button onclick="flyToTarget(33.6599, -117.8682, 2.0, '1601 Dove Street Hub')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-cyan-950 hover:text-cyan-400 hover:border-cyan-500/40 border border-zinc-800 transition-all font-bold text-cyan-300">1601 DOVE ST</button>
-      <button onclick="flyToTarget(33.7042, -117.9893, 2.0, '17631 Cameron Lane Parcel')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-rose-950 hover:text-rose-400 hover:border-rose-500/40 border border-zinc-800 transition-all font-bold text-rose-300">17631 CAMERON</button>
-      <button onclick="flyToTarget(33.7383, -118.0016, 2.0, '7561 Center Ave Mailbox Node')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-amber-950 hover:text-amber-400 hover:border-amber-500/40 border border-zinc-800 transition-all font-bold text-amber-300">7561 CENTER</button>
-      <button onclick="flyToTarget(33.7039, -117.9881, 2.0, '17642 Beach Blvd (HBNC)')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-emerald-950 hover:text-emerald-400 hover:border-emerald-500/40 border border-zinc-800 transition-all font-bold text-emerald-300">17642 BEACH BLVD</button>
+      <button onclick="flyToTarget(33.6599, -117.9988, 2.2, 'Huntington Beach / Ascon')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-cyan-950 hover:text-cyan-400 hover:border-cyan-500/40 border border-zinc-800 transition-all">HB / ASCON</button>
+      <button onclick="flyToTarget(33.8003, -117.8827, 2.3, 'Anaheim Angel Stadium')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-cyan-950 hover:text-cyan-400 hover:border-cyan-500/40 border border-zinc-800 transition-all">ANGEL STADIUM</button>
+      <button onclick="flyToTarget(42.3601, -71.0589, 2.5, 'Boston Rx Pharma Corridor')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-cyan-950 hover:text-cyan-400 hover:border-cyan-500/40 border border-zinc-800 transition-all">BOSTON RX LABS</button>
+      <button onclick="flyToTarget(32.5422, -117.0296, 2.4, 'San Ysidro / Baja Border')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-cyan-950 hover:text-cyan-400 hover:border-cyan-500/40 border border-zinc-800 transition-all">SAN YSIDRO BORDER</button>
+      <button onclick="flyToTarget(38.8951, -77.0364, 2.6, 'Washington D.C. Agencies')" class="px-2.5 py-1 rounded bg-zinc-900/80 hover:bg-cyan-950 hover:text-cyan-400 hover:border-cyan-500/40 border border-zinc-800 transition-all">WASHINGTON D.C.</button>
       <button onclick="flyToTarget(20.0, 0.0, 4.5, 'Global Planetary Orbit')" class="px-2.5 py-1 rounded bg-cyan-600/20 text-cyan-300 border border-cyan-500/40 hover:bg-cyan-600 hover:text-white transition-all font-bold">GLOBAL ORBIT</button>
     </div>
 
@@ -203,23 +204,18 @@
     <div class="pt-2 border-t border-zinc-800 space-y-1.5">
       <span class="text-[10px] font-bold text-zinc-400 mono uppercase tracking-wider">Planetary Feeds (Toggle):</span>
       
-      <label class="flex items-center justify-between p-1.5 rounded bg-zinc-950/60 border border-cyan-500/40 cursor-pointer hover:border-cyan-400">
-        <span class="text-xs text-cyan-400 flex items-center gap-1.5"><i data-lucide="video" class="w-3.5 h-3.5"></i> Caltrans D12 CCTV (288 Feeds)</span>
-        <input type="checkbox" id="layer-cctv" checked onchange="toggleLayer('cctv')" class="rounded bg-zinc-900 border-zinc-700 text-cyan-500 focus:ring-0">
-      </label>
-
-      <label class="flex items-center justify-between p-1.5 rounded bg-zinc-950/60 border border-amber-500/40 cursor-pointer hover:border-amber-400">
-        <span class="text-xs text-amber-400 flex items-center gap-1.5"><i data-lucide="crosshair" class="w-3.5 h-3.5"></i> OpenOSINT Investigated Hubs</span>
-        <input type="checkbox" id="layer-openosint" checked onchange="toggleLayer('openosint')" class="rounded bg-zinc-900 border-zinc-700 text-amber-500 focus:ring-0">
-      </label>
-
       <label class="flex items-center justify-between p-1.5 rounded bg-zinc-950/60 border border-zinc-800/80 cursor-pointer hover:border-zinc-700">
         <span class="text-xs text-rose-400 flex items-center gap-1.5"><i data-lucide="shield-alert" class="w-3.5 h-3.5"></i> Clandestine Rx Labs & Supply</span>
         <input type="checkbox" id="layer-rx" checked onchange="toggleLayer('rx')" class="rounded bg-zinc-900 border-zinc-700 text-rose-500 focus:ring-0">
       </label>
 
       <label class="flex items-center justify-between p-1.5 rounded bg-zinc-950/60 border border-zinc-800/80 cursor-pointer hover:border-zinc-700">
-        <span class="text-xs text-emerald-400 flex items-center gap-1.5"><i data-lucide="users" class="w-3.5 h-3.5"></i> 50-State CoC / Disparity Gap</span>
+        <span class="text-xs text-amber-400 flex items-center gap-1.5"><i data-lucide="building" class="w-3.5 h-3.5"></i> Municipal $0 Deeds / Superfunds</span>
+        <input type="checkbox" id="layer-deeds" checked onchange="toggleLayer('deeds')" class="rounded bg-zinc-900 border-zinc-700 text-amber-500 focus:ring-0">
+      </label>
+
+      <label class="flex items-center justify-between p-1.5 rounded bg-zinc-950/60 border border-zinc-800/80 cursor-pointer hover:border-zinc-700">
+        <span class="text-xs text-emerald-400 flex items-center gap-1.5"><i data-lucide="users" class="w-3.5 h-3.5"></i> 50-State CoC / PIT Disparity Gap</span>
         <input type="checkbox" id="layer-coc" checked onchange="toggleLayer('coc')" class="rounded bg-zinc-900 border-zinc-700 text-emerald-500 focus:ring-0">
       </label>
 
@@ -351,39 +347,8 @@
         </div>
       </div>
 
-  <!-- Live CCTV / Target Telemetry Modal -->
-  <div id="target-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-xl hidden items-center justify-center p-6 pointer-events-auto">
-    <div class="max-w-xl w-full hud-card rounded-2xl p-5 border border-cyan-500/40 relative flex flex-col gap-3 shadow-2xl">
-      <div class="flex items-center justify-between border-b border-zinc-800 pb-2.5">
-        <div class="flex items-center gap-2">
-          <i data-lucide="video" class="w-5 h-5 text-cyan-400"></i>
-          <div>
-            <h3 id="target-modal-title" class="hud-font text-sm font-bold text-cyan-300">CALTRANS D12 CCTV FEED</h3>
-            <p id="target-modal-coords" class="text-[10px] text-zinc-400 mono">LAT 33.6599°N | LON 117.9988°W</p>
-          </div>
-        </div>
-        <button onclick="hideTargetModal()" class="p-1 rounded hover:bg-zinc-800 text-zinc-400 hover:text-white">
-          <i data-lucide="x" class="w-4 h-4"></i>
-        </button>
-      </div>
-
-      <div class="rounded-xl overflow-hidden border border-zinc-800 bg-black aspect-video flex items-center justify-center relative">
-        <img id="target-modal-img" src="" alt="Live Feed" class="w-full h-full object-cover hidden">
-        <div id="target-modal-loader" class="flex flex-col items-center gap-2 text-zinc-500 mono text-xs">
-          <i data-lucide="loader-2" class="w-6 h-6 animate-spin text-cyan-400"></i>
-          <span>Awaiting Satellite / CCTV Video Feed...</span>
-        </div>
-        <div class="absolute top-2 left-2 px-2 py-0.5 rounded bg-black/70 border border-cyan-500/40 text-[9px] text-cyan-300 mono flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> LIVE STREAM
-        </div>
-      </div>
-
-      <div id="target-modal-details" class="space-y-1.5 text-xs mono text-zinc-300 bg-zinc-950/60 p-3 rounded-lg border border-zinc-800">
-      </div>
-
-      <div class="flex justify-between items-center pt-2 border-t border-zinc-800 text-[11px] mono">
-        <span class="text-zinc-500">FEED PROTOCOL: H.264 / MJPEG SECURE</span>
-        <button onclick="hideTargetModal()" class="px-4 py-1.5 bg-cyan-500 hover:bg-cyan-400 text-black font-bold rounded-lg uppercase tracking-wider">Close HUD</button>
+      <div class="flex justify-end pt-2 border-t border-zinc-800">
+        <button onclick="hideLiveryModal()" class="px-5 py-2 bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs rounded-lg mono uppercase tracking-wider">Confirm & Lock Livery</button>
       </div>
     </div>
   </div>
@@ -491,13 +456,9 @@
       );
     }
 
-    // Target Markers Groups
+    // Target Markers Group
     const markersGroup = new THREE.Group();
-    const cctvMarkersGroup = new THREE.Group();
-    const openosintMarkersGroup = new THREE.Group();
     scene.add(markersGroup);
-    scene.add(cctvMarkersGroup);
-    scene.add(openosintMarkersGroup);
 
     const TARGETS = [
       { name: "Huntington Beach / Ascon Superfund", lat: 33.6599, lng: -117.9988, color: 0xf59e0b, type: "deeds" },
@@ -510,78 +471,31 @@
       { name: "New York CoC & Housing Hub", lat: 40.7128, lng: -74.0060, color: 0x10b981, type: "coc" }
     ];
 
-    function createMarker(lat, lng, color, meta, parentGroup) {
-      const pos = latLngToVector3(lat, lng, globeRadius * 1.01);
-      const pinGeom = new THREE.CylinderGeometry(0.004, 0.001, 0.06, 12);
-      pinGeom.translate(0, 0.03, 0);
+    TARGETS.forEach(t => {
+      const pos = latLngToVector3(t.lat, t.lng, globeRadius * 1.01);
+      
+      // Pin mesh
+      const pinGeom = new THREE.CylinderGeometry(0.005, 0.001, 0.08, 16);
+      pinGeom.translate(0, 0.04, 0);
       pinGeom.rotateX(Math.PI / 2);
       
-      const pinMat = new THREE.MeshBasicMaterial({ color: color });
+      const pinMat = new THREE.MeshBasicMaterial({ color: t.color });
       const pin = new THREE.Mesh(pinGeom, pinMat);
       pin.position.copy(pos);
       pin.lookAt(new THREE.Vector3(0,0,0));
       pin.rotateY(Math.PI);
       
-      const ringGeom = new THREE.RingGeometry(0.01, 0.018, 24);
-      const ringMat = new THREE.MeshBasicMaterial({ color: color, side: THREE.DoubleSide, transparent: true, opacity: 0.75 });
+      // Pulse beacon ring
+      const ringGeom = new THREE.RingGeometry(0.015, 0.025, 32);
+      const ringMat = new THREE.MeshBasicMaterial({ color: t.color, side: THREE.DoubleSide, transparent: true, opacity: 0.8 });
       const ring = new THREE.Mesh(ringGeom, ringMat);
       ring.position.copy(pos);
       ring.lookAt(new THREE.Vector3(0,0,0));
       
-      pin.userData = meta;
-      parentGroup.add(pin);
-      parentGroup.add(ring);
-      return pin;
-    }
-
-    TARGETS.forEach(t => createMarker(t.lat, t.lng, t.color, t, markersGroup));
-
-    // Dynamic Loader: Caltrans District 12 CCTV Feeds
-    fetch('/maps/caltrans_d12_cctv.geojson')
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.features) {
-          data.features.forEach(f => {
-            const coords = f.geometry && f.geometry.coordinates;
-            if (coords && coords.length >= 2) {
-              const p = f.properties || {};
-              const meta = {
-                name: p.entity_name || "Caltrans CCTV",
-                type: "cctv",
-                image_url: p.image_url,
-                stream_url: p.stream_url,
-                route: p.route,
-                direction: p.direction,
-                lat: coords[1],
-                lng: coords[0]
-              };
-              createMarker(coords[1], coords[0], 0x06b6d4, meta, cctvMarkersGroup);
-            }
-          });
-          console.log(`[God's Eye View] Ingested ${data.features.length} Caltrans D12 CCTV Feeds.`);
-        }
-      }).catch(e => console.warn('CCTV GeoJSON fetch deferred:', e));
-
-    // Dynamic Loader: OpenOSINT Investigated Targets
-    fetch('/maps/openosint_nodes.json')
-      .then(res => res.json())
-      .then(data => {
-        const targets = data.targets || [];
-        targets.forEach(t => {
-          if (t.latitude && t.longitude) {
-            const meta = {
-              name: `${t.target} (${t.type})`,
-              type: "openosint",
-              full_address: t.full_address,
-              threat_score: t.threat_score,
-              lat: t.latitude,
-              lng: t.longitude
-            };
-            createMarker(t.latitude, t.longitude, 0xf59e0b, meta, openosintMarkersGroup);
-          }
-        });
-        console.log(`[God's Eye View] Ingested ${targets.length} OpenOSINT Profiled Targets.`);
-      }).catch(e => console.warn('OpenOSINT nodes fetch deferred:', e));
+      pin.userData = t;
+      markersGroup.add(pin);
+      markersGroup.add(ring);
+    });
 
     // Satellites Group (USA-224, Sentinel-2, Landsat-9)
     const satellitesGroup = new THREE.Group();
@@ -705,10 +619,6 @@
       const isChecked = document.getElementById(`layer-${type}`).checked;
       if (type === 'sats') {
         satellitesGroup.visible = isChecked;
-      } else if (type === 'cctv') {
-        cctvMarkersGroup.visible = isChecked;
-      } else if (type === 'openosint') {
-        openosintMarkersGroup.visible = isChecked;
       } else {
         markersGroup.children.forEach(m => {
           if (m.userData && m.userData.type === type) {
@@ -716,64 +626,6 @@
           }
         });
       }
-    }
-
-    // Raycaster for Marker Clicks
-    const raycaster = new THREE.Raycaster();
-    const mouse = new THREE.Vector2();
-
-    function onPointerDown(event) {
-      if (event.target.closest('aside') || event.target.closest('header') || event.target.closest('#target-modal') || event.target.closest('#livery-modal') || event.target.closest('div.pointer-events-auto')) return;
-
-      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-      raycaster.setFromCamera(mouse, camera);
-
-      const allPins = [...markersGroup.children, ...cctvMarkersGroup.children, ...openosintMarkersGroup.children].filter(c => c.type === 'Mesh' && c.userData && c.userData.name);
-      const intersects = raycaster.intersectObjects(allPins);
-
-      if (intersects.length > 0) {
-        const hit = intersects[0].object;
-        const meta = hit.userData;
-        if (meta && meta.lat && meta.lng) {
-          flyToTarget(meta.lat, meta.lng, 1.8, meta.name);
-          showTargetModal(meta);
-        }
-      }
-    }
-    window.addEventListener('pointerdown', onPointerDown);
-
-    function showTargetModal(meta) {
-      document.getElementById('target-modal-title').innerText = (meta.name || 'SURVEILLANCE NODE').toUpperCase();
-      document.getElementById('target-modal-coords').innerText = `LAT ${Number(meta.lat).toFixed(4)}°N | LON ${Math.abs(Number(meta.lng)).toFixed(4)}°W`;
-      
-      const img = document.getElementById('target-modal-img');
-      const loader = document.getElementById('target-modal-loader');
-      const details = document.getElementById('target-modal-details');
-
-      if (meta.image_url) {
-        img.src = meta.image_url;
-        img.classList.remove('hidden');
-        loader.classList.add('hidden');
-      } else {
-        img.classList.add('hidden');
-        loader.classList.remove('hidden');
-        loader.innerHTML = `<i data-lucide="shield" class="w-8 h-8 text-amber-400"></i><span class="text-amber-300 font-bold mt-1">FORENSIC TARGET LOCK ACTIVE</span><span class="text-[10px] text-zinc-400">Node telemetry secured in BigQuery intelligence graph.</span>`;
-      }
-
-      details.innerHTML = `
-        <div class="flex justify-between"><span class="text-zinc-500">TYPE:</span> <span class="text-cyan-400 font-bold">${meta.type ? meta.type.toUpperCase() : 'SURVEILLANCE'}</span></div>
-        <div class="flex justify-between"><span class="text-zinc-500">LOCATION:</span> <span class="text-white">${meta.full_address || meta.route || 'Orange County Tactical Sector'}</span></div>
-        ${meta.threat_score ? `<div class="flex justify-between"><span class="text-zinc-500">THREAT SCORE:</span> <span class="text-rose-400 font-bold">${meta.threat_score}/100 HIGH RISK</span></div>` : ''}
-      `;
-      lucide.createIcons();
-      document.getElementById('target-modal').classList.remove('hidden');
-      document.getElementById('target-modal').classList.add('flex');
-    }
-
-    function hideTargetModal() {
-      document.getElementById('target-modal').classList.add('hidden');
-      document.getElementById('target-modal').classList.remove('flex');
     }
 
     // Animation Loop
