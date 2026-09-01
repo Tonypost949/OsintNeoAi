@@ -21,9 +21,21 @@ MAKAVELI_SYSTEM_PROMPT = """You are Makaveli — Lead OSINT Agent of OsintNeoAi.
 Zero-noise tactical intelligence. Keep replies under 3 sentences for social media comments.
 Cite public records methodology. Tagline: See More. Know First."""
 
+try:
+    from core.meta_agent_loop import MakaveliAgentLoop
+    agent_loop = MakaveliAgentLoop()
+except Exception as e:
+    agent_loop = None
+
 def generate_makaveli_response(prompt: str) -> str:
-    """Generate tactical OSINT response using Makaveli Protocol."""
-    # Check if Meta Model API or OpenAI compatible key is set
+    """Generate tactical OSINT response using Makaveli Protocol & Forensic Tools."""
+    if agent_loop:
+        try:
+            return agent_loop.run(prompt)
+        except Exception as e:
+            print(f"[AGENT LOOP ERROR] {e}")
+
+    # Direct Meta Model API fallback
     meta_key = os.getenv("META_API_KEY")
     if meta_key:
         try:
