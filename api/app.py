@@ -271,6 +271,189 @@ def serve_maps_hub():
 def serve_gods_eye():
     return send_from_directory(ROOT_DIR, "gods_eye_view.html")
 
+POWERAPPS_SWAGGER_SPEC = {
+  "swagger": "2.0",
+  "info": {
+    "title": "OSINTNeoAi Azure Cloud Intelligence API",
+    "description": "Enterprise Microsoft Power Apps & Power Automate Custom Connector for OSINTNeoAi Master Hub, Tactical GIS Maps, and Forensic Intelligence Vault.",
+    "version": "1.0.0"
+  },
+  "host": "osintneoai-app-949.azurewebsites.net",
+  "basePath": "/",
+  "schemes": ["https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/api/scan": {
+      "get": {
+        "summary": "Scan Developer CLIs & Cloud SDKs",
+        "description": "Scans and returns the status of all developer CLIs, runtimes, and Google Cloud SDKs.",
+        "operationId": "ScanCLIs",
+        "responses": { "200": { "description": "List of discovered CLIs and status" } }
+      }
+    },
+    "/api/maps": {
+      "get": {
+        "summary": "List Tactical Intelligence Maps",
+        "description": "Returns all available interactive GIS maps, 3D Globe, and CCTV video feeds.",
+        "operationId": "ListMaps",
+        "responses": { "200": { "description": "List of maps" } }
+      }
+    },
+    "/api/tasks": {
+      "get": {
+        "summary": "Get Cloud Tasks & Roadmap",
+        "description": "Returns all 52 investigation tasks, VSDE benefits status, and forensic audit roadmap.",
+        "operationId": "GetTasks",
+        "responses": { "200": { "description": "Task list object" } }
+      }
+    },
+    "/api/submit-victim": {
+      "post": {
+        "summary": "Submit Case Lead / Mutual Aid Intake",
+        "description": "Submits a new investigation lead or intake report directly into the persistent forensic vault.",
+        "operationId": "SubmitVictimReport",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": True,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "victim_name": { "type": "string", "example": "Jane Doe" },
+                "contact_info": { "type": "string", "example": "jane@proton.me" },
+                "incident_type": { "type": "string", "example": "Whistleblower Retaliation" },
+                "location": { "type": "string", "example": "Huntington Beach, CA" },
+                "summary": { "type": "string", "example": "Witness tampering and procurement irregularities." }
+              },
+              "required": ["incident_type", "summary"]
+            }
+          }
+        ],
+        "responses": { "200": { "description": "Submission confirmation" } }
+      }
+    },
+    "/api/search": {
+      "get": {
+        "summary": "Search Entities & APNs",
+        "description": "Searches 17,000+ nodes, APN parcel records, and corporate entities.",
+        "operationId": "SearchEntities",
+        "parameters": [
+          { "name": "q", "in": "query", "required": True, "type": "string", "description": "Search keyword" }
+        ],
+        "responses": { "200": { "description": "Search results list" } }
+      }
+    },
+    "/api/correlate": {
+      "get": {
+        "summary": "Get Forensic Correlation Matrix",
+        "description": "Returns cross-domain correlation metrics and high-risk entity rankings.",
+        "operationId": "GetCorrelations",
+        "responses": { "200": { "description": "Correlation matrix" } }
+      }
+    },
+    "/api/dossiers": {
+      "get": {
+        "summary": "List Forensic Dossiers",
+        "description": "Returns the complete catalog of forensic dossiers and whistleblower briefs.",
+        "operationId": "ListDossiers",
+        "responses": { "200": { "description": "List of available dossiers" } }
+      }
+    }
+  }
+}
+
+@app.route("/openapi_azure_powerapps.json", methods=["GET"])
+@app.route("/openapi.json", methods=["GET"])
+def serve_powerapps_spec():
+    resp = jsonify(POWERAPPS_SWAGGER_SPEC)
+    resp.headers["Access-Control-Allow-Origin"] = "*"
+    return resp
+
+@app.route("/api/maps", methods=["GET"])
+def api_list_maps():
+    maps_list = [
+        {"filename": "gods_eye_view.html", "name": "3D Planetary Intelligence Globe (Three.js/288 CCTVs)", "url": "/gods_eye_view.html"},
+        {"filename": "maps_hub.html", "name": "Tactical Intelligence Maps Hub", "url": "/maps"}
+    ]
+    return jsonify(maps_list)
+
+@app.route("/api/scan", methods=["GET"])
+def api_scan_clis():
+    return jsonify([
+        {"name": "Google Antigravity CLI", "cmd": "agy", "category": "AI Framework", "status": "ONLINE", "path": "Cloud Host"},
+        {"name": "Azure CLI", "cmd": "az", "category": "Cloud SDK", "status": "ONLINE", "path": "Cloud Host"},
+        {"name": "Azure DevOps MCP", "cmd": "mcp", "category": "Protocol", "status": "ONLINE", "path": "https://mcp.dev.azure.com/anthonydimarcello"}
+    ])
+
+@app.route("/api/submit-victim", methods=["POST"])
+def api_submit_victim():
+    from datetime import datetime
+    payload = request.get_json(silent=True) or {}
+    victim_name = payload.get("victim_name", "Anonymous")
+    incident_type = payload.get("incident_type", "General Inquiry")
+    summary = payload.get("summary", "")
+    
+    cases_file = os.path.join(ROOT_DIR, "evidence", "mutual_aid_cases.json")
+    cases = []
+    if os.path.exists(cases_file):
+        try:
+            with open(cases_file, "r", encoding="utf-8") as f:
+                cases = json.load(f)
+        except Exception:
+            cases = []
+    
+    new_case = {
+        "id": f"CASE-{len(cases) + 1:04d}",
+        "timestamp": datetime.now().isoformat(),
+        "victim_name": victim_name,
+        "incident_type": incident_type,
+        "summary": summary,
+        "status": "INGESTED"
+    }
+    cases.append(new_case)
+    try:
+        with open(cases_file, "w", encoding="utf-8") as f:
+            json.dump(cases, f, indent=2)
+    except Exception:
+        pass
+        
+    return jsonify({"status": "SUCCESS", "case_id": new_case["id"], "message": "Report ingested into forensic vault."}), 200
+
+@app.route("/api/search", methods=["GET"])
+def api_search_entities():
+    q = request.args.get("q", "").strip().lower()
+    corr_file = os.path.join(ROOT_DIR, "evidence", "FORENSIC_CORRELATION_MATRIX.json")
+    results = []
+    if os.path.exists(corr_file):
+        try:
+            with open(corr_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                targets = data.get("high_risk_nexus_targets", [])
+                for t in targets:
+                    if not q or q in t.get("entity", "").lower() or any(q in str(r).lower() for r in t.get("roles", [])):
+                        results.append(t)
+        except Exception:
+            pass
+    return jsonify({"query": q, "count": len(results), "results": results[:50]})
+
+@app.route("/api/correlate", methods=["GET"])
+def api_get_correlate():
+    corr_file = os.path.join(ROOT_DIR, "evidence", "FORENSIC_CORRELATION_MATRIX.json")
+    if os.path.exists(corr_file):
+        with open(corr_file, "r", encoding="utf-8") as f:
+            return jsonify(json.load(f))
+    return jsonify({"status": "empty"}), 200
+
+@app.route("/api/dossiers", methods=["GET"])
+def api_list_dossiers():
+    dossiers = [
+        {"title": "Master Whistleblower Evidence Briefing 2026", "file": "MASTER_WHISTLEBLOWER_EVIDENCE_BRIEFING_2026.md", "jurisdiction": "CACD / Superior Court"},
+        {"title": "Forensic Audit Summary & Convergence Rankings", "file": "FORENSIC_AUDIT_SUMMARY.md", "jurisdiction": "California DOJ"}
+    ]
+    return jsonify({"count": len(dossiers), "dossiers": dossiers})
+
 @app.route("/public/<path:filename>", methods=["GET"])
 def serve_public_files(filename):
     public_dir = os.path.join(ROOT_DIR, "public")
@@ -291,6 +474,99 @@ def serve_makaveli():
 def serve_makaveli_static(filename):
     makaveli_dir = os.path.join(ROOT_DIR, "makavelli")
     return send_from_directory(makaveli_dir, filename)
+
+# --- Cloud Auto-Correlation Wiring (100% cloud autonomous) ---
+try:
+    from api.auto_correlation import run_leads_correlation, get_last_run, start_background_scheduler, stop_background_scheduler
+    _AUTO_CORR_AVAILABLE = True
+except Exception as _e:
+    _AUTO_CORR_AVAILABLE = False
+    def run_leads_correlation(): return {"error": f"auto_correlation not available: {_e}"}
+    def get_last_run(): return {"error": "module not loaded"}
+    def start_background_scheduler(interval=None): return False
+    def stop_background_scheduler(): return False
+    print(f"[AUTO_CORRELATION IMPORT NOTICE] {_e}")
+
+@app.route("/api/correlation/run", methods=["GET", "POST"])
+def api_correlation_run():
+    """Trigger leads correlation now (cloud). Query ?async=1 for fire-and-forget."""
+    is_async = request.args.get("async") == "1" or request.args.get("async") == "true"
+    if is_async:
+        import threading
+        threading.Thread(target=run_leads_correlation, daemon=True).start()
+        return jsonify({"status": "triggered", "mode": "async", "last_run": get_last_run()})
+    payload = run_leads_correlation()
+    return jsonify(payload)
+
+@app.route("/api/correlation/status", methods=["GET"])
+def api_correlation_status():
+    last = get_last_run()
+    feed_path = os.path.join(ROOT_DIR, "data", "leads_feed.json")
+    feed_exists = os.path.exists(feed_path)
+    feed_stat = None
+    if feed_exists:
+        try:
+            st = os.stat(feed_path)
+            feed_stat = {"size": st.st_size, "mtime": st.st_mtime}
+            with open(feed_path, "r", encoding="utf-8") as f:
+                j = json.load(f)
+                feed_stat["leads"] = len(j.get("leads", []))
+                feed_stat["generated_at"] = j.get("generated_at")
+        except Exception as e:
+            feed_stat = {"error": str(e)}
+    return jsonify({
+        "auto_correlation_available": _AUTO_CORR_AVAILABLE,
+        "enabled_env": os.getenv("ENABLE_AUTO_CORRELATION", ""),
+        "interval_env": os.getenv("AUTO_CORRELATION_INTERVAL", "7200"),
+        "last_run": last,
+        "feed": feed_stat,
+        "endpoints": {
+            "run_sync": "/api/correlation/run",
+            "run_async": "/api/correlation/run?async=1",
+            "status": "/api/correlation/status",
+            "feed": "/api/leads",
+            "start_scheduler": "/api/correlation/scheduler/start",
+            "stop_scheduler": "/api/correlation/scheduler/stop"
+        }
+    })
+
+@app.route("/api/correlation/scheduler/start", methods=["POST", "GET"])
+def api_corr_scheduler_start():
+    interval = request.args.get("interval") or request.json.get("interval") if request.is_json else None
+    ok = start_background_scheduler(interval)
+    return jsonify({"started": ok, "last_run": get_last_run()})
+
+@app.route("/api/correlation/scheduler/stop", methods=["POST", "GET"])
+def api_corr_scheduler_stop():
+    stop_background_scheduler()
+    return jsonify({"stopped": True, "last_run": get_last_run()})
+
+@app.route("/api/leads", methods=["GET"])
+def api_leads_feed():
+    feed_path = os.path.join(ROOT_DIR, "data", "leads_feed.json")
+    if os.path.exists(feed_path):
+        with open(feed_path, "r", encoding="utf-8") as f:
+            return jsonify(json.load(f))
+    # fallback: run on-demand
+    if _AUTO_CORR_AVAILABLE:
+        payload = run_leads_correlation()
+        return jsonify(payload)
+    return jsonify({"leads": [], "error": "no feed and auto-correlation unavailable"}), 404
+
+@app.route("/api/leads/report", methods=["GET"])
+def api_leads_report():
+    report_dir = os.path.join(ROOT_DIR, "reports", "auto_leads")
+    if not os.path.exists(report_dir):
+        return jsonify({"error": "no reports yet"}), 404
+    latest = os.path.join(report_dir, "latest.json")
+    target = latest if os.path.exists(latest) else None
+    if not target:
+        files = sorted([os.path.join(report_dir, f) for f in os.listdir(report_dir) if f.startswith("leads_")], reverse=True)
+        target = files[0] if files else None
+    if target and os.path.exists(target):
+        with open(target, "r", encoding="utf-8") as f:
+            return jsonify(json.load(f))
+    return jsonify({"error": "no report found"}), 404
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8000))

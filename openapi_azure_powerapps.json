@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "OSINTNeoAi Azure Cloud Intelligence API",
-    "description": "Custom Power Apps and Power Automate connector for OSINTNeoAi Master Hub, Public Victims Board, and Tactical Maps.",
+    "description": "Enterprise Microsoft Power Apps & Power Automate Custom Connector for OSINTNeoAi Master Hub, Tactical GIS Maps, and Forensic Intelligence Vault.",
     "version": "1.0.0"
   },
   "host": "osintneoai-app-949.azurewebsites.net",
@@ -24,22 +24,7 @@
         "operationId": "ScanCLIs",
         "responses": {
           "200": {
-            "description": "List of discovered CLIs and status",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "name": { "type": "string" },
-                  "cmd": { "type": "string" },
-                  "category": { "type": "string" },
-                  "status": { "type": "string" },
-                  "path": { "type": "string" },
-                  "version": { "type": "string" },
-                  "fix_cmd": { "type": "string" }
-                }
-              }
-            }
+            "description": "List of discovered CLIs and status"
           }
         }
       }
@@ -47,30 +32,31 @@
     "/api/maps": {
       "get": {
         "summary": "List Tactical Intelligence Maps",
-        "description": "Returns all available interactive GIS maps and dashboards.",
+        "description": "Returns all available interactive GIS maps, 3D Globe, and CCTV video feeds.",
         "operationId": "ListMaps",
         "responses": {
           "200": {
-            "description": "List of maps",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "filename": { "type": "string" },
-                  "name": { "type": "string" },
-                  "url": { "type": "string" }
-                }
-              }
-            }
+            "description": "List of maps"
+          }
+        }
+      }
+    },
+    "/api/tasks": {
+      "get": {
+        "summary": "Get Cloud Tasks & Roadmap",
+        "description": "Returns all 52 investigation tasks, VSDE benefits status, and forensic audit roadmap.",
+        "operationId": "GetTasks",
+        "responses": {
+          "200": {
+            "description": "Task list object"
           }
         }
       }
     },
     "/api/submit-victim": {
       "post": {
-        "summary": "Submit Victim & Mutual Aid Case",
-        "description": "Submits a new victim assistance report into the persistent mutual aid database.",
+        "summary": "Submit Case Lead / Mutual Aid Intake",
+        "description": "Submits a new investigation lead or intake report directly into the persistent forensic vault.",
         "operationId": "SubmitVictimReport",
         "parameters": [
           {
@@ -84,8 +70,7 @@
                 "contact_info": { "type": "string", "example": "jane@proton.me" },
                 "incident_type": { "type": "string", "example": "Whistleblower Retaliation / Illegal Eviction" },
                 "location": { "type": "string", "example": "Huntington Beach, CA" },
-                "date": { "type": "string", "example": "2026-08-24" },
-                "summary": { "type": "string", "example": "Witness tampering after filing internal affairs report." }
+                "summary": { "type": "string", "example": "Witness tampering and procurement irregularities." }
               },
               "required": ["incident_type", "summary"]
             }
@@ -93,34 +78,52 @@
         ],
         "responses": {
           "200": {
-            "description": "Submission confirmation",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "status": { "type": "string" },
-                "id": { "type": "string" }
-              }
-            }
+            "description": "Submission confirmation"
           }
         }
       }
     },
-    "/api/system": {
+    "/api/search": {
       "get": {
-        "summary": "Get System Telemetry & Coordinates",
-        "description": "Returns host machine specs, IP geolocation coordinates, and network topology.",
-        "operationId": "GetSystemTelemetry",
+        "summary": "Search Entities & APNs",
+        "description": "Searches 17,000+ nodes, APN parcel records, and corporate entities.",
+        "operationId": "SearchEntities",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "Search keyword"
+          }
+        ],
         "responses": {
           "200": {
-            "description": "System telemetry object",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "hostname": { "type": "string" },
-                "os": { "type": "string" },
-                "local_ip": { "type": "string" }
-              }
-            }
+            "description": "Search results list"
+          }
+        }
+      }
+    },
+    "/api/correlate": {
+      "get": {
+        "summary": "Get Forensic Correlation Matrix",
+        "description": "Returns cross-domain correlation metrics and high-risk entity rankings.",
+        "operationId": "GetCorrelations",
+        "responses": {
+          "200": {
+            "description": "Correlation matrix"
+          }
+        }
+      }
+    },
+    "/api/dossiers": {
+      "get": {
+        "summary": "List Forensic Dossiers",
+        "description": "Returns the complete catalog of forensic dossiers and whistleblower briefs.",
+        "operationId": "ListDossiers",
+        "responses": {
+          "200": {
+            "description": "List of available dossiers"
           }
         }
       }
