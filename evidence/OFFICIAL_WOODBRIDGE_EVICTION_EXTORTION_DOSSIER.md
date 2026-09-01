@@ -23,42 +23,62 @@ The evidence proves that:
 1. **Zero Court Filings Existed Before May 18, 2021:** The tenancy at 212 Southbrook was lawful and active under the September 20, 2020 lease agreement ($2,072.00/mo). No lawsuit, summons, or court proceeding was initiated prior to May 18, 2021.
 2. **The $500/Month COVID Relief Agreement was Accepted in Writing:** Contemporaneous emails with leasing specialist Carissa Doyle on March 12 & 15, 2021 prove that management actively approved and accepted the monthly $500 COVID assistance money orders.
 3. **🚨 The August 4, 2021 Smoking Gun (Brian Olsen Physical Return of 3 Months of Money Orders):** On the day of the armed lockout, as Sheriff Don Barnes's deputies (Levying File No. `2021102780`) were completing the displacement, **Senior Community Manager Brian Olsen physically walked into the apartment and handed Anthony three (3) months of $500 money orders ($1,500.00 total)** that management had secretly held in their office drawer since March/April/May 2021, stating: *"We couldn't accept them."* This proves management had physical custody of timely tendered rent throughout the entire court proceeding while falsely swearing under oath to the court that the tenant had defaulted.
-4. **The Authenticated 32-Page Ex Parte Application (ROA #29) & Fee Waiver Granted in Whole:** Scanned and OCR-indexed in Google Photos batches, relator's 32-page Ex Parte Application invoked **Cal. CCP §§ 473(b), 473.5, 473(d), Civ. Code § 1788.61, In Equity, CCP § 418.10 (Motion to Quash), CCP § 918 (Stay of Execution), and CCP § 1179 (Relief from Forfeiture & Restoration of Tenancy)**. The Superior Court **GRANTED IN WHOLE the Fee Waiver (ROA #32)** and conducted an Ex Parte hearing on August 23, 2021 before Judge Carmen Luege (ROA #30, #39; Minute Order Doc ID `114054510`).
-5. **The Three (3) Void Default Judgments on a Single Disposed Complaint:** The court docket displays the fatal structural defect of three separate default judgments entered sequentially on a single complaint (06/29/2021 by Clerk ROA #25; 12/22/2021 by Court ROA #51; and 02/04/2022 by Court ROA #60), violating Cal. CCP § 580 and rendering the entire judgment chain void *ab initio* (*Heidary v. Yadollahi* (2002) 99 Cal.App.4th 857).
-6. **The April 23–24, 2021 Demands Constitute Criminal Extortion:** Management (Victor Nunez) delivered coercive cash demands for $5,788.00 under threats of immediate surprise eviction and escalating legal fees before any court action was ever filed.
-7. **Fiduciary Agency & Qui Tam Standing (*Stevens*, 529 U.S. 765):** DiMarcello operated not merely as a tenant, but as a FINRA/NFA Series 3 licensed commodities broker, physical gold/precious metals dealer (Monex / Main Street Trading), systems architect, and designated qui tam relator / mandatory reporter under Cal. Welf. & Inst. Code § 15630. Under *Vermont Agency of Natural Resources v. United States ex rel. Stevens*, a relator holds Article III constitutional standing via partial assignment of the sovereign's claim.
-8. **Reckless Life Endangerment of Disabled Mother:** Management and law enforcement weaponized the threat of homelessness during a global pandemic against an active IHSS caregiver and his medically fragile mother (**Elizabeth Petruccio**), who was actively receiving daily intravenous Ceftriaxone for congestive heart failure and osteomyelitis at Hoag Hospital (Cal. Penal Code § 368).
-9. **Developer–Sheriff Interlock (Don Barnes & Shea Properties):** Sheriff Don Barnes maintained deep financial ties to Shea Homes through Community Facilities District (CFD No. 2023-1) bonds, deploying 8 armed deputies on August 4, 2021 on an unposted writ (File No. `2021102780`).
-10. **Retaliation for OCSD Internal Affairs & Dr. Ann Verma Disclosures:** The strike occurred after DiMarcello submitted fraud disclosures to OCSD IA and EPA OIG (January 2021), and provided critical assistance to co-relator **Dr. Ann Prema Verma** (exposing Headway/Medicaid polypharmacy fraud), culminating in a coordinated court database wipe (Command SM-092) on August 20, 2021.
+4. **Sheriff Don Barnes Official Levying Documents & Restoration Notices (File #2021102780):** Authenticated screenshots in Google Photos (`batch8_album8_photo_048.jpg`, `photo_049.jpg`, `batch7_album7_photo_280.jpg`) capture the official Notice of Levy, Writ of Possession, and Restoration Notices bearing the official insignia and signature of **Don Barnes, Sheriff-Coroner** (Levying Officer File No. `2021102780`, OCSD Civil Process Badge `#8209`).
+5. **Direct Screenshots of Superior Court ROA & Judicial Kiosk:** Photos batches capture the raw, authenticated screenshots of the court docket directly from `oping.occourts.org` and the court kiosk (`batch8_album8_photo_292.jpg`, `photo_293.jpg`, `batch7_album7_photo_206.jpg`, `photo_207.jpg`, `google_photos_evidence_batch3_album3_photo_069.jpg`), establishing the full chain of ROA entries #1 through #61.
+6. **The Authenticated 32-Page Ex Parte Application (ROA #29) & Fee Waiver Granted in Whole:** Scanned and OCR-indexed in Google Photos batches, relator's 32-page Ex Parte Application invoked **Cal. CCP §§ 473(b), 473.5, 473(d), Civ. Code § 1788.61, In Equity, CCP § 418.10 (Motion to Quash), CCP § 918 (Stay of Execution), and CCP § 1179 (Relief from Forfeiture & Restoration of Tenancy)**. The Superior Court **GRANTED IN WHOLE the Fee Waiver (ROA #32)** and conducted an Ex Parte hearing on August 23, 2021 before Judge Carmen Luege (ROA #30, #39; Minute Order Doc ID `114054510`).
+7. **The Three (3) Void Default Judgments on a Single Disposed Complaint:** The court docket displays the fatal structural defect of three separate default judgments entered sequentially on a single complaint (06/29/2021 by Clerk ROA #25; 12/22/2021 by Court ROA #51; and 02/04/2022 by Court ROA #60), violating Cal. CCP § 580 and rendering the entire judgment chain void *ab initio* (*Heidary v. Yadollahi* (2002) 99 Cal.App.4th 857).
+8. **The April 23–24, 2021 Demands Constitute Criminal Extortion:** Management (Victor Nunez) delivered coercive cash demands for $5,788.00 under threats of immediate surprise eviction and escalating legal fees before any court action was ever filed.
+9. **Fiduciary Agency & Qui Tam Standing (*Stevens*, 529 U.S. 765):** DiMarcello operated not merely as a tenant, but as a FINRA/NFA Series 3 licensed commodities broker, physical gold/precious metals dealer (Monex / Main Street Trading), systems architect, and designated qui tam relator / mandatory reporter under Cal. Welf. & Inst. Code § 15630. Under *Vermont Agency of Natural Resources v. United States ex rel. Stevens*, a relator holds Article III constitutional standing via partial assignment of the sovereign's claim.
+10. **Reckless Life Endangerment of Disabled Mother:** Management and law enforcement weaponized the threat of homelessness during a global pandemic against an active IHSS caregiver and his medically fragile mother (**Elizabeth Petruccio**), who was actively receiving daily intravenous Ceftriaxone for congestive heart failure and osteomyelitis at Hoag Hospital (Cal. Penal Code § 368).
+11. **Developer–Sheriff Interlock (Don Barnes & Shea Properties):** Sheriff Don Barnes maintained deep financial ties to Shea Homes through Community Facilities District (CFD No. 2023-1) bonds, deploying 8 armed deputies on August 4, 2021 on an unposted writ (File No. `2021102780`).
+12. **Retaliation for OCSD Internal Affairs & Dr. Ann Verma Disclosures:** The strike occurred after DiMarcello submitted fraud disclosures to OCSD IA and EPA OIG (January 2021), and provided critical assistance to co-relator **Dr. Ann Prema Verma** (exposing Headway/Medicaid polypharmacy fraud), culminating in a coordinated court database wipe (Command SM-092) on August 20, 2021.
 
 ---
 
-## 🏛️ Section 1: Authenticated Ex Parte Application & Certified Court Record
+## 📸 Section 1: Visual Court & Sheriff Screenshots Evidence Catalog
 
-```
-                                  ┌─────────────────────────────────────────────────────────────┐
-                                  │      ANTHONY DIMARCELLO EX PARTE FILING (ROA #29 - 32 PGS)   │
-                                  │   FILED: 08/20/2021 | CENTRAL JUSTICE CENTER | DEPT C61     │
-                                  └──────────────────────────────┬──────────────────────────────┘
-                                                                 │
-      ┌──────────────────────────────────────────────────────────┼──────────────────────────────────────────────────────────┐
-      ▼                                                          ▼                                                          ▼
-┌───────────────────────────┐                              ┌───────────────────────────┐                              ┌───────────────────────────┐
-│     STATUTORY GROUNDS     │                              │     AFFIRMATIVE RELIEF    │                              │     JUDICIAL ORDERS       │
-│ • Cal. CCP § 473(d) (Void)│                              │ • Motion to Quash (§ 418) │                              │ • Fee Waiver FW-003:      │
-│ • Cal. CCP § 473.5 (Fraud)│                              │ • Stay of Execution (§ 918│                                  GRANTED IN WHOLE (ROA 32)│
-│ • Cal. CCP § 473(b)       │                              │ • Relief from Forfeiture  │                              │ • CCP § 170.6 Disqual.    │
-│ • Civ. Code § 1788.61     │                              │   & Tenancy Restoration   │                                  against Judge Luege      │
-│ • In Equity               │                              │   (Cal. CCP § 1179)       │                              │ • Minute Order #114054510 │
-└───────────────────────────┘                              └───────────────────────────┘                              └───────────────────────────┘
-```
-
-### Verbatim Scanned Ex Parte Motion Headers (From Photos Batches 7 & 8)
-* **Document Title:** `NOTICE OF MOTION AND MOTION TO SET ASIDE DEFAULT AND DEFAULT JUDGMENT, IF ENTERED (Ex-Parte CCP § 473(b), CCP § 473.5, Civ. § 1788.61, CCP § 473(d), IN EQUITY) AND QUASH SERVICE OF SUMMONS (CCP § 418.10) AND STAY EXECUTION OF JUDGMENT (CCP § 918) AND RELIEF FROM FORFEITURE AND RESTORATION OF THE TENANCY (CCP § 1179); MEMORANDUM OF POINTS AND AUTHORITIES; DECLARATION OF ANTHONY DIMARCELLO`
-* **Evidence Source Files:** [`batch7_album7_photo_069.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/batch7_album7_photo_069.jpg.txt) & [`batch7_album7_photo_070.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/batch7_album7_photo_070.jpg.txt) | [`batch8_album8_photo_155.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/batch8_album8_photo_155.jpg.txt) & [`batch8_album8_photo_156.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/batch8_album8_photo_156.jpg.txt)
-* **Hearing Minute Order (08/23/2021):** [`google_photos_evidence_batch3_album3_photo_018.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/google_photos_evidence_batch3_album3_photo_018.jpg.txt) (Event ID `73591995`, Doc ID `114054510`, Judge Carmen Luege, Richard Sontag for RWC Legal, Anthony DiMarcello self-represented).
+| Evidence Category | Document Description | Google Photos Batch & OCR File | Critical Details Visible on Document |
+| :--- | :--- | :--- | :--- |
+| **Sheriff Levying Return & Notice** | OCSD Notice of Levy & Writ of Possession (212 Southbrook) | [`batch8_album8_photo_048.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/batch8_album8_photo_048.jpg.txt)<br>[`batch8_album8_photo_049.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/batch8_album8_photo_049.jpg.txt) | **Levying Officer File No. `2021102780`**; Newport Beach Station (4601 Jamboree Rd, Rm 108); Sheriff Don Barnes. |
+| **Sheriff Restoration & Sign-off** | Official Eviction Restoration Notice signed under Don Barnes | [`batch7_album7_photo_280.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/batch7_album7_photo_280.jpg.txt) | **Don Barnes, Sheriff-Coroner**; Badge `#8209`; statutory citations to Cal. PC §§ 419, 602 & CCP §§ 715.010, 715.030. |
+| **Court ROA Screenshots (1–26)** | Portal capture of Register of Actions (`oping.occourts.org`) | [`batch8_album8_photo_292.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/batch8_album8_photo_292.jpg.txt)<br>[`batch7_album7_photo_206.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/batch7_album7_photo_206.jpg.txt) | Shows May 18 filing, Posting Order (ROA 10), Clerk Default (ROA 25), and Ex Parte filing (ROA 29). |
+| **Court ROA Screenshots (27–61)** | Portal capture of Register of Actions (`oping.occourts.org`) | [`batch8_album8_photo_293.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/batch8_album8_photo_293.jpg.txt)<br>[`batch7_album7_photo_207.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/batch7_album7_photo_207.jpg.txt) | Shows Fee Waiver granted (ROA 32), CCP 170.6 Disqualification (ROA 37), and successive defaults (ROA 51 & 60). |
+| **Court Kiosk Official Printout** | OC Superior Court Integrated Kiosk Certified Case Printout | [`google_photos_evidence_batch3_album3_photo_069.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/google_photos_evidence_batch3_album3_photo_069.jpg.txt) | Physical courthouse terminal capture confirming case summary, hearing dockets, and parties. |
+| **Ex Parte Motion (Page 1)** | Notice of Motion to Set Aside Default & Quash Summons | [`batch7_album7_photo_069.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/batch7_album7_photo_069.jpg.txt)<br>[`batch8_album8_photo_155.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/batch8_album8_photo_155.jpg.txt) | Scanned pleading header: CCP §§ 473(b)/(d), 473.5, 418.10, 918, 1179, In Equity; Dept C61. |
+| **Ex Parte Grounds (Page 2)** | Ground-by-ground statutory checkboxes | [`batch7_album7_photo_070.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/batch7_album7_photo_070.jpg.txt)<br>[`batch8_album8_photo_156.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/batch8_album8_photo_156.jpg.txt) | Shows checked grounds for void judgment (CCP § 473(d)), inequity, and hardship. |
+| **CCP § 170.6 Disqualification** | Sworn declaration against Judge Carmen Luege | [`google_photos_evidence_batch3_album3_photo_046.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/google_photos_evidence_batch3_album3_photo_046.jpg.txt) | Peremptory challenge under CCP 170.6 filed in Dept C61 on 08/20/2021. |
+| **Hearing Minute Order (08/23)** | Official Minute Order for Ex Parte hearing (Doc #114054510) | [`google_photos_evidence_batch3_album3_photo_018.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/google_photos_evidence_batch3_album3_photo_018.jpg.txt)<br>[`google_photos_evidence_batch3_album3_photo_020.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/google_photos_evidence_batch3_album3_photo_020.jpg.txt) | Presiding: Carmen Luege; Appearances: Richard Sontag (RWC Legal) & Anthony DiMarcello (Defendant). |
 
 ---
+
+## 🏛️ Section 2: Certified Court Docket & Ex Parte Filings (Case 30-2021-01201327-CL-UD-CJC)
+
+```
+[05/18/2021] ROA #1-4  ──> Complaint Filed (16 pages) | Summons Issued | Luege Assigned
+     │
+     ▼
+[06/02/2021] ROA #10   ──> Extrinsic Fraud Application to Serve by Posting (Concealed Email Channel)
+     │
+     ▼
+[06/29/2021] ROA #19-26──> FIRST VOID DEFAULT JUDGMENT (By Clerk) | Writ of Possession Issued
+     │
+     ▼
+[08/04/2021] ROA #41   ──> 8 Armed OCSD Deputies Execute Lockout (File #2021102780)
+                           Brian Olsen returns 3 months of $500 money orders on scene.
+     │
+     ▼
+[08/20/2021] ROA #28-32──> ANTHONY DIMARCELLO FILES 32-PAGE EX PARTE APPLICATION (ROA #29)
+                           Fee Waiver Granted in Whole (ROA #32) | Ex Parte Set for 08/23 (ROA #30)
+     │
+     ▼
+[08/20/2021] ROA #37   ──> Peremptory Challenge pursuant to CCP 170.6 (Hon. Carmen Luege) Filed
+     │
+     ▼
+[12/22/2021] ROA #50-51──> SECOND VOID DEFAULT JUDGMENT (By Court - $15,194.01)
+     │
+     ▼
+[02/04/2022] ROA #59-60──> THIRD VOID DEFAULT JUDGMENT (By Court - $15,194.01)
+```
 
 ### Certified Register of Actions Table (Key Entries)
 
@@ -83,7 +103,7 @@ The evidence proves that:
 
 ---
 
-## 🧬 Section 2: Generational Lineage & Technical Fiduciary Pedigree
+## 🧬 Section 3: Generational Lineage & Technical Fiduciary Pedigree
 
 ```
                        ┌─────────────────────────────────────────────────────────────┐
@@ -116,7 +136,7 @@ The evidence proves that:
 
 ---
 
-## 📑 Section 3: Fact-by-Fact Official Evidence Matrix
+## 📑 Section 4: Fact-by-Fact Official Evidence Matrix
 
 | Fact / Event | Official Primary Source & Exhibit Code | Document Location & Citations |
 | :--- | :--- | :--- |
@@ -142,7 +162,7 @@ The evidence proves that:
 
 ---
 
-## 📧 Section 4: Complete Primary Email Transcripts
+## 📧 Section 5: Complete Primary Email Transcripts
 
 ### Message 1: Move-In Confirmation & $500 Holding Fee
 * **Date:** Sunday, September 20, 2020 at 1:49 PM PDT
@@ -250,7 +270,7 @@ Woodbridge — Victor Nunez, Assistant Community Manager
 
 ---
 
-## ⚖️ Section 5: Statutory Violations, Jurisprudence & Cause of Action Matrix
+## ⚖️ Section 6: Statutory Violations, Jurisprudence & Cause of Action Matrix
 
 ```mermaid
 graph TD
