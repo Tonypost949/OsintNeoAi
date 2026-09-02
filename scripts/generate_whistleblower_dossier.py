@@ -10,9 +10,18 @@ and federal False Claims Act (FCA) / RICO exposure timelines.
 import os
 import json
 import csv
-from datetime import datetime
+from pathlib import Path
+from datetime import datetime, timezone
 
-REPO_ROOT = r"C:\OsintNeoAi"
+THIS_FILE = Path(__file__).resolve()
+REPO_ROOT_PATH = THIS_FILE.parents[1] if THIS_FILE.parents[1].name != "scripts" else THIS_FILE.parents[1]
+if not (REPO_ROOT_PATH / "evidence").exists():
+    for cand in [Path("/home/site/wwwroot"), Path("C:/OsintNeoAi"), Path.cwd()]:
+        if (cand / "evidence").exists():
+            REPO_ROOT_PATH = cand
+            break
+
+REPO_ROOT = str(REPO_ROOT_PATH)
 BRIEFINGS_DIR = os.path.join(REPO_ROOT, "briefings")
 EVIDENCE_DIR = os.path.join(REPO_ROOT, "evidence")
 PROXIMITY_FILE = os.path.join(EVIDENCE_DIR, "target_cctv_proximity.json")

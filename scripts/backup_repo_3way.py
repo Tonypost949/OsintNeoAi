@@ -14,7 +14,10 @@ def run_cmd(cmd, cwd=None):
     return res.returncode
 
 def main():
-    repo_dir = r"C:\OsintNeoAi"
+    from pathlib import Path
+    this_file = Path(__file__).resolve()
+    repo_dir_path = this_file.parents[1] if this_file.parents[1].name != "scripts" else this_file.parents[1]
+    repo_dir = str(repo_dir_path)
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     local_backup_base = r"C:\Users\HP\OneDrive\Documents\OsintNeoAi\backups\repo"
     local_dest = os.path.join(local_backup_base, f"backup_{timestamp}")

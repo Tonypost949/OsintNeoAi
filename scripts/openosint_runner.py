@@ -40,7 +40,17 @@ except ImportError:
     Panel = lambda content, **k: content
     Table = None
 
-BASE_DIR = r"C:\OsintNeoAi"
+from pathlib import Path
+
+THIS_FILE = Path(__file__).resolve()
+BASE_DIR_PATH = THIS_FILE.parents[1] if THIS_FILE.parents[1].name != "scripts" else THIS_FILE.parents[1]
+if not (BASE_DIR_PATH / "evidence").exists():
+    for cand in [Path("/home/site/wwwroot"), Path("C:/OsintNeoAi"), Path.cwd()]:
+        if (cand / "evidence").exists():
+            BASE_DIR_PATH = cand
+            break
+
+BASE_DIR = str(BASE_DIR_PATH)
 EVIDENCE_DIR = os.path.join(BASE_DIR, "evidence")
 REPORT_PATH = os.path.join(EVIDENCE_DIR, "OPENOSINT_TARGET_REPORT.md")
 NODES_PATH = os.path.join(EVIDENCE_DIR, "openosint_nodes.json")
