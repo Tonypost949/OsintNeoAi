@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-02T00:58:38.736862+00:00",
-  "generated_at_utc": "2026-09-02T00:59:17.047865+00:00",
+  "generated_at": "2026-09-02T00:57:44.712856+00:00",
+  "generated_at_utc": "2026-09-02T00:58:38.554324+00:00",
   "repo_root": "C:\\OsintNeoAi",
   "engine": "auto_leads_correlation_v2",
   "version": "1.0-cloud-auto",
@@ -12,10 +12,10 @@
     "address_clusters_count": 247,
     "high_risk_ppp_count": 0,
     "litigation_persons_count": 0,
-    "mutual_aid_leads_count": 236,
+    "mutual_aid_leads_count": 235,
     "csv_datasets_scanned": 79,
-    "total_leads_generated": 267,
-    "elapsed": 38.31
+    "total_leads_generated": 266,
+    "elapsed": 53.84
   },
   "graph_stats": {
     "nodes": 17488,
@@ -5703,16 +5703,6 @@
       "apn": null,
       "proximity_cctv": [],
       "evidence": "Intake submission: Burst Test | Burst request 29"
-    },
-    {
-      "vector": "MUTUAL_AID_LEAD",
-      "severity": "HIGH",
-      "case_id": "CASE-0236",
-      "entity_name": "DEAN INNOCENZI",
-      "address": null,
-      "apn": null,
-      "proximity_cctv": [],
-      "evidence": "Intake submission: Logistics Conduit Audit | Quantum Auto Dismantler shipment conduit to 1456 Cedar Lane."
     }
   ],
   "next_run_hint": "Runs every 2h via GitHub Actions + continuous in Azure App Service if ENABLE_AUTO_CORRELATION=1"

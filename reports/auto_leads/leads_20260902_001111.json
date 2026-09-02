@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-01T19:17:38.383616+00:00",
-  "generated_at_utc": "2026-09-01T19:17:41.390354+00:00",
+  "generated_at": "2026-09-02T00:11:11.560693+00:00",
+  "generated_at_utc": "2026-09-02T00:11:15.970419+00:00",
   "repo_root": "C:\\OsintNeoAi",
   "engine": "auto_leads_correlation_v2",
   "version": "1.0-cloud-auto",
@@ -12,8 +12,10 @@
     "address_clusters_count": 247,
     "high_risk_ppp_count": 0,
     "litigation_persons_count": 0,
-    "csv_datasets_scanned": 72,
-    "total_leads_generated": 31
+    "mutual_aid_leads_count": 0,
+    "csv_datasets_scanned": 79,
+    "total_leads_generated": 31,
+    "elapsed": 4.41
   },
   "graph_stats": {
     "nodes": 17488,
@@ -25,8 +27,10 @@
       "severity": "HIGH",
       "entity_id": "2450 COLORADO BLVD LLC",
       "entity_name": "2450 COLORADO BLVD LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -34,8 +38,10 @@
       "severity": "HIGH",
       "entity_id": "A & D LLC",
       "entity_name": "A & D LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -43,8 +49,10 @@
       "severity": "HIGH",
       "entity_id": "BONGOS SPORTFISHING LLC",
       "entity_name": "BONGOS SPORTFISHING LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -52,8 +60,10 @@
       "severity": "HIGH",
       "entity_id": "COMPASSIONATE CARE HOSPICE LLC",
       "entity_name": "COMPASSIONATE CARE HOSPICE LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -61,8 +71,10 @@
       "severity": "HIGH",
       "entity_id": "CROWN WEALTH PROPERTIES LLC",
       "entity_name": "CROWN WEALTH PROPERTIES LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -70,8 +82,10 @@
       "severity": "HIGH",
       "entity_id": "DBS-ENTERPRISES LLC",
       "entity_name": "DBS-ENTERPRISES LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -79,8 +93,10 @@
       "severity": "HIGH",
       "entity_id": "DEVPRI HOSPITALITY LLC",
       "entity_name": "DEVPRI HOSPITALITY LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -88,8 +104,10 @@
       "severity": "HIGH",
       "entity_id": "DRT INVESTMENTS LLC",
       "entity_name": "DRT INVESTMENTS LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -97,8 +115,10 @@
       "severity": "HIGH",
       "entity_id": "DRT LLC",
       "entity_name": "DRT LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -106,8 +126,10 @@
       "severity": "HIGH",
       "entity_id": "FIRST HIGHLAND LLC",
       "entity_name": "FIRST HIGHLAND LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -115,8 +137,10 @@
       "severity": "HIGH",
       "entity_id": "GOLDEN HILLS PROPERTIES LLC",
       "entity_name": "GOLDEN HILLS PROPERTIES LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -124,8 +148,10 @@
       "severity": "HIGH",
       "entity_id": "HB LLC",
       "entity_name": "HB LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -133,8 +159,10 @@
       "severity": "HIGH",
       "entity_id": "INCUPLACE LLC",
       "entity_name": "INCUPLACE LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -142,8 +170,10 @@
       "severity": "HIGH",
       "entity_id": "JBH LLC",
       "entity_name": "JBH LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -151,8 +181,10 @@
       "severity": "HIGH",
       "entity_id": "JEK INVESTMENTS LLC",
       "entity_name": "JEK INVESTMENTS LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -160,8 +192,10 @@
       "severity": "HIGH",
       "entity_id": "LAZER LLC",
       "entity_name": "LAZER LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -169,8 +203,10 @@
       "severity": "HIGH",
       "entity_id": "LIGHTHOUSE CAFE LLC",
       "entity_name": "LIGHTHOUSE CAFE LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -178,8 +214,10 @@
       "severity": "HIGH",
       "entity_id": "MERRIMAC PARTNERS LLC",
       "entity_name": "MERRIMAC PARTNERS LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -187,8 +225,10 @@
       "severity": "HIGH",
       "entity_id": "NEWPORT BEACH GOLF COURSE LLC",
       "entity_name": "NEWPORT BEACH GOLF COURSE LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -196,8 +236,10 @@
       "severity": "HIGH",
       "entity_id": "NEWPORT LLC",
       "entity_name": "NEWPORT LLC",
+      "address": null,
       "risk_score": null,
       "flagged_reason": null,
+      "proximity_cctv": [],
       "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
     },
     {
@@ -207,17 +249,17 @@
       "person_name": "Shu Chin Tseng",
       "org_count": 4,
       "org_sample": [
-        "MESAVILLE HOLDINGS LLC",
-        "BELINGER LLC",
         "BELAVITA LLC",
-        "BELLALANCE LLC"
+        "BELLALANCE LLC",
+        "MESAVILLE HOLDINGS LLC",
+        "BELINGER LLC"
       ],
       "evidence": "Controls 4 orgs via OFFICER_OF/DIRECTOR_OF"
     },
     {
       "vector": "ADDRESS_SHELL_CLUSTER",
       "severity": "CRITICAL",
-      "address": "11770 WARNER AVE STE 215",
+      "address": "11770 WARNER AVENUE SUITE 215",
       "org_count": 60,
       "org_sample": [
         "BELINGER LLC",
@@ -225,12 +267,13 @@
         "MESAVILLE HOLDINGS LLC",
         "BELAVITA LLC"
       ],
+      "proximity_cctv": [],
       "evidence": "60 ORGs REGISTERED_AT same ADDRESS"
     },
     {
       "vector": "ADDRESS_SHELL_CLUSTER",
       "severity": "CRITICAL",
-      "address": "220 NEWPORT CENTER DR # 11-557",
+      "address": "220 NEWPORT CENTER DRIVE UNIT 11-557",
       "org_count": 57,
       "org_sample": [
         "PENINSULA VILLAGE LLC",
@@ -238,12 +281,13 @@
         "PENINSULA VILLAGE LLC",
         "PENINSULA VILLAGE LLC"
       ],
+      "proximity_cctv": [],
       "evidence": "57 ORGs REGISTERED_AT same ADDRESS"
     },
     {
       "vector": "ADDRESS_SHELL_CLUSTER",
       "severity": "CRITICAL",
-      "address": "3187 RED HILL AVE STE 213",
+      "address": "3187 RED HILL AVENUE SUITE 213",
       "org_count": 38,
       "org_sample": [
         "BELAVITA LLC",
@@ -251,12 +295,13 @@
         "BELAVITA LLC",
         "BELAVITA LLC"
       ],
+      "proximity_cctv": [],
       "evidence": "38 ORGs REGISTERED_AT same ADDRESS"
     },
     {
       "vector": "ADDRESS_SHELL_CLUSTER",
       "severity": "CRITICAL",
-      "address": "620 NEWPORT CENTER DR FL 11TH",
+      "address": "620 NEWPORT CENTER DRIVE FL 11TH",
       "org_count": 37,
       "org_sample": [
         "SYNERGY HUNTINGTON LLC",
@@ -264,6 +309,7 @@
         "JASMINE PLACE ASSOCIATES LLC",
         "JASMINE PLACE ASSOCIATES LLC"
       ],
+      "proximity_cctv": [],
       "evidence": "37 ORGs REGISTERED_AT same ADDRESS"
     },
     {
@@ -277,6 +323,7 @@
         "BBC COACHES LLC",
         "BBC HOMES LLC"
       ],
+      "proximity_cctv": [],
       "evidence": "37 ORGs REGISTERED_AT same ADDRESS"
     },
     {
@@ -290,6 +337,7 @@
         "SUPERIOR BEACH HOMES LLC",
         "SUPERIOR BEACH HOMES LLC"
       ],
+      "proximity_cctv": [],
       "evidence": "25 ORGs REGISTERED_AT same ADDRESS"
     },
     {
@@ -303,6 +351,7 @@
         "LIDO PENINSULA CO LLC",
         "LIDO PENINSULA CO LLC"
       ],
+      "proximity_cctv": [],
       "evidence": "24 ORGs REGISTERED_AT same ADDRESS"
     },
     {
@@ -316,6 +365,7 @@
         "BCORE RETAIL BROOKHURST ADAMS LLC",
         "BCORE RETAIL BROOKHURST ADAMS LLC"
       ],
+      "proximity_cctv": [],
       "evidence": "21 ORGs REGISTERED_AT same ADDRESS"
     },
     {
@@ -329,12 +379,13 @@
         "SLATER I LLC",
         "SLATER I LLC"
       ],
+      "proximity_cctv": [],
       "evidence": "21 ORGs REGISTERED_AT same ADDRESS"
     },
     {
       "vector": "ADDRESS_SHELL_CLUSTER",
       "severity": "CRITICAL",
-      "address": "17272 NEWHOPE ST",
+      "address": "17272 NEWHOPE STREET",
       "org_count": 20,
       "org_sample": [
         "RODECKER COMPANIES LLC",
@@ -342,6 +393,7 @@
         "FOUNTAIN VALLEY RENTALS LLC",
         "ROJACK LLC"
       ],
+      "proximity_cctv": [],
       "evidence": "20 ORGs REGISTERED_AT same ADDRESS"
     }
   ],
