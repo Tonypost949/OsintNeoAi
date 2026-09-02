@@ -205,6 +205,28 @@
       .osint-slogan { font-size: 0.62rem !important; letter-spacing: 0.32em !important; white-space: normal !important; line-height: 1.5 !important; max-width: 92vw; }
     }
   </style>
+  <script>
+    // Initialize Google High-Resolution Photorealistic 3D Maps & Key Detection
+    (() => {
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+        const googleKey = urlParams.get('google_maps_key') || urlParams.get('google_key') || urlParams.get('key') ||
+                          hashParams.get('google_maps_key') || hashParams.get('google_key') ||
+                          localStorage.getItem('GOOGLE_MAPS_API_KEY') || localStorage.getItem('GOOGLE_API_KEY');
+        if (googleKey) {
+          window.__GOOGLE_MAPS_API_KEY__ = googleKey;
+          if (window.Cesium && window.Cesium.GoogleMaps) {
+            window.Cesium.GoogleMaps.defaultApiKey = googleKey;
+          }
+          localStorage.setItem('GOOGLE_MAPS_API_KEY', googleKey);
+          console.log('[GoogleMaps] High-resolution 3D Photorealistic Tiles key registered.');
+        }
+      } catch (e) {
+        console.warn('[GoogleMaps] Key init check:', e);
+      }
+    })();
+  </script>
 </head>
 <body>
   <div id="cesiumContainer"></div>
