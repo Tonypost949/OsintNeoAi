@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-02T09:11:04.260502+00:00",
-  "generated_at_utc": "2026-09-02T09:11:18.371002+00:00",
+  "generated_at": "2026-09-02T09:10:53.607943+00:00",
+  "generated_at_utc": "2026-09-02T09:10:59.746131+00:00",
   "repo_root": "C:\\OsintNeoAi",
   "engine": "auto_leads_correlation_v2",
   "version": "1.0-cloud-auto",
@@ -12,10 +12,10 @@
     "address_clusters_count": 247,
     "high_risk_ppp_count": 0,
     "litigation_persons_count": 0,
-    "mutual_aid_leads_count": 25,
+    "mutual_aid_leads_count": 24,
     "csv_datasets_scanned": 79,
-    "total_leads_generated": 56,
-    "elapsed": 14.11
+    "total_leads_generated": 55,
+    "elapsed": 6.14
   },
   "graph_stats": {
     "nodes": 17488,
@@ -250,9 +250,9 @@
       "org_count": 4,
       "org_sample": [
         "BELLALANCE LLC",
+        "BELINGER LLC",
         "BELAVITA LLC",
-        "MESAVILLE HOLDINGS LLC",
-        "BELINGER LLC"
+        "MESAVILLE HOLDINGS LLC"
       ],
       "evidence": "Controls 4 orgs via OFFICER_OF/DIRECTOR_OF"
     },
@@ -1077,16 +1077,6 @@
       "apn": null,
       "proximity_cctv": [],
       "evidence": "Intake submission: Burst Test | Burst request 29"
-    },
-    {
-      "vector": "MUTUAL_AID_LEAD",
-      "severity": "HIGH",
-      "case_id": "CASE-0025",
-      "entity_name": "DEAN INNOCENZI",
-      "address": null,
-      "apn": null,
-      "proximity_cctv": [],
-      "evidence": "Intake submission: Logistics Conduit Audit | Quantum Auto Dismantler shipment conduit to 1456 Cedar Lane."
     }
   ],
   "next_run_hint": "Runs every 2h via GitHub Actions + continuous in Azure App Service if ENABLE_AUTO_CORRELATION=1"

