@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="./osint_neo_ai_banner.png" alt="OSINT NEO AI — Open Source Intelligence" width="100%" style="border-radius: 12px; box-shadow: 0 0 35px rgba(0, 212, 255, 0.45); max-width: 960px;" />
+  <img src="https://raw.githubusercontent.com/Tonypost949/OsintNeoAi/main/osint_neo_ai_banner.png" alt="OSINT NEO AI — Open Source Intelligence" width="100%" style="border-radius: 12px; box-shadow: 0 0 35px rgba(0, 212, 255, 0.45); max-width: 960px;" />
 
   <br /><br />
 
