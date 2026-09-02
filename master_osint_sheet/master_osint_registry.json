@@ -1,7 +1,7 @@
 {
   "metadata": {
     "source_sheet_id": "1hKx1-8YnvrvAv9H6AQunli3dFSwsyIB3rF1yluO2Y1U",
-    "export_timestamp": "2026-09-02T18:42:43.158943+00:00",
+    "export_timestamp": "2026-09-02T20:13:49.139561+00:00",
     "total_tabs": 40,
     "total_entities": 106,
     "generator": "scripts/sync_master_osint_sheet.py (Milestone M1 Engine)",
@@ -42,7 +42,7 @@
     "Toxic_Site": 5,
     "Unclaimed_Prop": 6,
     "USGS_Image_Analysis": 0,
-    "Anthony_DiMarcello": 0,
+    "Anthony_DiMarcello": 11,
     "hud_pit_by_coc": 0,
     "Chart10": 0,
     "Chart11": 0,
@@ -1903,12 +1903,12 @@
     "People": [
       {
         "PERSON_ID": "PER-001",
-        "NAME": "Harry Sidhu",
-        "ROLE": "Former Mayor of Anaheim",
-        "LEGAL_STATUS": "Convicted Felon (8:23-cr-00108-CJC)",
-        "ORGANIZATION": "City of Anaheim",
-        "AFFILIATION": "RICO-001",
-        "DETAILS": "Pled guilty to wire fraud and obstruction of justice in $1M campaign bribery / stadium deal."
+        "NAME": "PERSON",
+        "ROLE": "Anthony Michael DiMarcello III",
+        "LEGAL_STATUS": "People",
+        "ORGANIZATION": "",
+        "AFFILIATION": "2026-09-02",
+        "DETAILS": "Direct Bio Update"
       },
       {
         "PERSON_ID": "PER-002",
@@ -4032,7 +4032,7 @@
     "CLEANUP_SUMMARY": [
       {
         "Clean_ID": "CLN-001",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "People",
         "Records_Processed": 10,
         "Records_Cleaned": 0,
@@ -4041,7 +4041,7 @@
       },
       {
         "Clean_ID": "CLN-002",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Gov_Agencies",
         "Records_Processed": 3,
         "Records_Cleaned": 0,
@@ -4050,7 +4050,7 @@
       },
       {
         "Clean_ID": "CLN-003",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Contractors",
         "Records_Processed": 12,
         "Records_Cleaned": 0,
@@ -4059,7 +4059,7 @@
       },
       {
         "Clean_ID": "CLN-004",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Shell_Companies",
         "Records_Processed": 6,
         "Records_Cleaned": 0,
@@ -4068,7 +4068,7 @@
       },
       {
         "Clean_ID": "CLN-005",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Evidence_Items",
         "Records_Processed": 5,
         "Records_Cleaned": 0,
@@ -4077,7 +4077,7 @@
       },
       {
         "Clean_ID": "CLN-006",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "RICO_Nodes",
         "Records_Processed": 19,
         "Records_Cleaned": 0,
@@ -4086,7 +4086,7 @@
       },
       {
         "Clean_ID": "CLN-007",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Neo4j_Graph_Schema",
         "Records_Processed": 10,
         "Records_Cleaned": 0,
@@ -4095,7 +4095,7 @@
       },
       {
         "Clean_ID": "CLN-008",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "MASTER_TIMELINE",
         "Records_Processed": 6,
         "Records_Cleaned": 0,
@@ -4104,7 +4104,7 @@
       },
       {
         "Clean_ID": "CLN-009",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "TIMELINE_CHART_2020_2026",
         "Records_Processed": 57,
         "Records_Cleaned": 0,
@@ -4113,7 +4113,7 @@
       },
       {
         "Clean_ID": "CLN-010",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Wintersburg_Timeline",
         "Records_Processed": 17,
         "Records_Cleaned": 0,
@@ -4122,7 +4122,7 @@
       },
       {
         "Clean_ID": "CLN-011",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Legal_Brief_Export",
         "Records_Processed": 1,
         "Records_Cleaned": 0,
@@ -4131,7 +4131,7 @@
       },
       {
         "Clean_ID": "CLN-012",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Legal_Exposure",
         "Records_Processed": 21,
         "Records_Cleaned": 0,
@@ -4140,7 +4140,7 @@
       },
       {
         "Clean_ID": "CLN-013",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Smoking_Gun_Matrix",
         "Records_Processed": 6,
         "Records_Cleaned": 0,
@@ -4149,7 +4149,7 @@
       },
       {
         "Clean_ID": "CLN-014",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Audit_Report",
         "Records_Processed": 1,
         "Records_Cleaned": 0,
@@ -4158,7 +4158,7 @@
       },
       {
         "Clean_ID": "CLN-015",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "DATA_QUALITY_AUDIT",
         "Records_Processed": 1,
         "Records_Cleaned": 1,
@@ -4167,7 +4167,7 @@
       },
       {
         "Clean_ID": "CLN-016",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "CLEANUP_SUMMARY",
         "Records_Processed": 39,
         "Records_Cleaned": 0,
@@ -4176,7 +4176,7 @@
       },
       {
         "Clean_ID": "CLN-017",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "DEPLOYMENT_SUMMARY",
         "Records_Processed": 5,
         "Records_Cleaned": 0,
@@ -4185,7 +4185,7 @@
       },
       {
         "Clean_ID": "CLN-018",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "DASHBOARD_AUTO",
         "Records_Processed": 11,
         "Records_Cleaned": 0,
@@ -4194,16 +4194,16 @@
       },
       {
         "Clean_ID": "CLN-019",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Dashboard",
         "Records_Processed": 3,
-        "Records_Cleaned": 3,
-        "Modifications_Made": "3 records standardized",
+        "Records_Cleaned": 0,
+        "Modifications_Made": "0 records standardized",
         "Status": "VALIDATED"
       },
       {
         "Clean_ID": "CLN-020",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Calc_Data",
         "Records_Processed": 50,
         "Records_Cleaned": 0,
@@ -4212,7 +4212,7 @@
       },
       {
         "Clean_ID": "CLN-021",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Unified_Dossier",
         "Records_Processed": 3,
         "Records_Cleaned": 0,
@@ -4221,7 +4221,7 @@
       },
       {
         "Clean_ID": "CLN-022",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Child_Trafficking_Intel",
         "Records_Processed": 3,
         "Records_Cleaned": 0,
@@ -4230,7 +4230,7 @@
       },
       {
         "Clean_ID": "CLN-023",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Trafficking_Dashboard",
         "Records_Processed": 7,
         "Records_Cleaned": 0,
@@ -4239,7 +4239,7 @@
       },
       {
         "Clean_ID": "CLN-024",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Fugitive_Tracking_Brief",
         "Records_Processed": 1,
         "Records_Cleaned": 0,
@@ -4248,7 +4248,7 @@
       },
       {
         "Clean_ID": "CLN-025",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Cross_References",
         "Records_Processed": 190,
         "Records_Cleaned": 0,
@@ -4257,7 +4257,7 @@
       },
       {
         "Clean_ID": "CLN-026",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Addresses",
         "Records_Processed": 10,
         "Records_Cleaned": 0,
@@ -4266,7 +4266,7 @@
       },
       {
         "Clean_ID": "CLN-027",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Entity_Addresses",
         "Records_Processed": 21,
         "Records_Cleaned": 0,
@@ -4275,7 +4275,7 @@
       },
       {
         "Clean_ID": "CLN-028",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Emails",
         "Records_Processed": 6,
         "Records_Cleaned": 0,
@@ -4284,7 +4284,7 @@
       },
       {
         "Clean_ID": "CLN-029",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Phones",
         "Records_Processed": 7,
         "Records_Cleaned": 0,
@@ -4293,7 +4293,7 @@
       },
       {
         "Clean_ID": "CLN-030",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Nonprofits",
         "Records_Processed": 8,
         "Records_Cleaned": 0,
@@ -4302,7 +4302,7 @@
       },
       {
         "Clean_ID": "CLN-031",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Toxic_Site",
         "Records_Processed": 5,
         "Records_Cleaned": 0,
@@ -4311,7 +4311,7 @@
       },
       {
         "Clean_ID": "CLN-032",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Unclaimed_Prop",
         "Records_Processed": 6,
         "Records_Cleaned": 0,
@@ -4320,7 +4320,7 @@
       },
       {
         "Clean_ID": "CLN-033",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "USGS_Image_Analysis",
         "Records_Processed": 0,
         "Records_Cleaned": 0,
@@ -4329,16 +4329,16 @@
       },
       {
         "Clean_ID": "CLN-034",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Anthony_DiMarcello",
-        "Records_Processed": 0,
-        "Records_Cleaned": 0,
-        "Modifications_Made": "0 records standardized",
+        "Records_Processed": 11,
+        "Records_Cleaned": 11,
+        "Modifications_Made": "11 records standardized",
         "Status": "VALIDATED"
       },
       {
         "Clean_ID": "CLN-035",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "hud_pit_by_coc",
         "Records_Processed": 0,
         "Records_Cleaned": 0,
@@ -4347,7 +4347,7 @@
       },
       {
         "Clean_ID": "CLN-036",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Chart10",
         "Records_Processed": 0,
         "Records_Cleaned": 0,
@@ -4356,7 +4356,7 @@
       },
       {
         "Clean_ID": "CLN-037",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Chart11",
         "Records_Processed": 0,
         "Records_Cleaned": 0,
@@ -4365,7 +4365,7 @@
       },
       {
         "Clean_ID": "CLN-038",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Chart12",
         "Records_Processed": 0,
         "Records_Cleaned": 0,
@@ -4374,7 +4374,7 @@
       },
       {
         "Clean_ID": "CLN-039",
-        "Timestamp": "2026-09-02T18:42:42.909411+00:00",
+        "Timestamp": "2026-09-02T20:13:48.946886+00:00",
         "Tab_Name": "Timeline",
         "Records_Processed": 61,
         "Records_Cleaned": 0,
@@ -4389,7 +4389,7 @@
         "Target_Location": "master_osint_sheet/*.csv",
         "Verification_Command": "python scripts/sync_master_osint_sheet.py --validate-only",
         "Status": "VERIFIED",
-        "Last_Verified": "2026-09-02T18:42:42.909411+00:00"
+        "Last_Verified": "2026-09-02T20:13:48.946886+00:00"
       },
       {
         "Checklist_Item": "USPS Pub 28 CASS Address Sanitizer",
@@ -4397,7 +4397,7 @@
         "Target_Location": "api/osint_pipeline/",
         "Verification_Command": "pytest tests/test_master_sheet_sync.py",
         "Status": "VERIFIED",
-        "Last_Verified": "2026-09-02T18:42:42.909411+00:00"
+        "Last_Verified": "2026-09-02T20:13:48.946886+00:00"
       },
       {
         "Checklist_Item": "Orange County APN Formatter",
@@ -4405,7 +4405,7 @@
         "Target_Location": "api/osint_pipeline/",
         "Verification_Command": "pytest tests/test_master_sheet_sync.py",
         "Status": "VERIFIED",
-        "Last_Verified": "2026-09-02T18:42:42.909411+00:00"
+        "Last_Verified": "2026-09-02T20:13:48.946886+00:00"
       },
       {
         "Checklist_Item": "Bidirectional Cross-Reference Graph",
@@ -4413,7 +4413,7 @@
         "Target_Location": "master_osint_sheet/Cross_References.csv",
         "Verification_Command": "python scripts/sync_master_osint_sheet.py --stats",
         "Status": "VERIFIED",
-        "Last_Verified": "2026-09-02T18:42:42.909411+00:00"
+        "Last_Verified": "2026-09-02T20:13:48.946886+00:00"
       },
       {
         "Checklist_Item": "Master JSON Registry Export",
@@ -4421,7 +4421,7 @@
         "Target_Location": "master_osint_sheet/",
         "Verification_Command": "python scripts/sync_master_osint_sheet.py --export-json",
         "Status": "VERIFIED",
-        "Last_Verified": "2026-09-02T18:42:42.909411+00:00"
+        "Last_Verified": "2026-09-02T20:13:48.946886+00:00"
       }
     ],
     "DASHBOARD_AUTO": [
@@ -4429,77 +4429,77 @@
         "Metric": "TOTAL_ENTITIES",
         "Value": "106",
         "Category": "Overview",
-        "Last_Calculated": "2026-09-02T18:42:42.909411+00:00",
+        "Last_Calculated": "2026-09-02T20:13:48.946886+00:00",
         "Status": "LIVE"
       },
       {
         "Metric": "PEOPLE_ENTITIES",
         "Value": "0",
         "Category": "Individuals",
-        "Last_Calculated": "2026-09-02T18:42:42.909411+00:00",
+        "Last_Calculated": "2026-09-02T20:13:48.946886+00:00",
         "Status": "LIVE"
       },
       {
         "Metric": "GOV_AGENCIES",
         "Value": "0",
         "Category": "Government",
-        "Last_Calculated": "2026-09-02T18:42:42.909411+00:00",
+        "Last_Calculated": "2026-09-02T20:13:48.946886+00:00",
         "Status": "LIVE"
       },
       {
         "Metric": "CONTRACTORS",
         "Value": "0",
         "Category": "Contractors",
-        "Last_Calculated": "2026-09-02T18:42:42.909411+00:00",
+        "Last_Calculated": "2026-09-02T20:13:48.946886+00:00",
         "Status": "LIVE"
       },
       {
         "Metric": "SHELL_COMPANIES",
         "Value": "0",
         "Category": "Corporate",
-        "Last_Calculated": "2026-09-02T18:42:42.909411+00:00",
+        "Last_Calculated": "2026-09-02T20:13:48.946886+00:00",
         "Status": "LIVE"
       },
       {
         "Metric": "NONPROFITS",
         "Value": "0",
         "Category": "Nonprofit",
-        "Last_Calculated": "2026-09-02T18:42:42.909411+00:00",
+        "Last_Calculated": "2026-09-02T20:13:48.946886+00:00",
         "Status": "LIVE"
       },
       {
         "Metric": "EVIDENCE_ITEMS",
         "Value": "0",
         "Category": "Evidence",
-        "Last_Calculated": "2026-09-02T18:42:42.909411+00:00",
+        "Last_Calculated": "2026-09-02T20:13:48.946886+00:00",
         "Status": "LIVE"
       },
       {
         "Metric": "RICO_NODES",
         "Value": "0",
         "Category": "RICO",
-        "Last_Calculated": "2026-09-02T18:42:42.909411+00:00",
+        "Last_Calculated": "2026-09-02T20:13:48.946886+00:00",
         "Status": "LIVE"
       },
       {
         "Metric": "TOXIC_SITES",
         "Value": "0",
         "Category": "Environmental",
-        "Last_Calculated": "2026-09-02T18:42:42.909411+00:00",
+        "Last_Calculated": "2026-09-02T20:13:48.946886+00:00",
         "Status": "LIVE"
       },
       {
         "Metric": "TIMELINE_EVENTS",
         "Value": "0",
         "Category": "Timeline",
-        "Last_Calculated": "2026-09-02T18:42:42.909411+00:00",
+        "Last_Calculated": "2026-09-02T20:13:48.946886+00:00",
         "Status": "LIVE"
       },
       {
         "Metric": "TOTAL_TABS_INDEXED",
         "Value": "40",
         "Category": "System",
-        "Last_Calculated": "2026-09-02T18:42:42.909411+00:00",
+        "Last_Calculated": "2026-09-02T20:13:48.946886+00:00",
         "Status": "VERIFIED"
       }
     ],
@@ -7438,7 +7438,63 @@
       }
     ],
     "USGS_Image_Analysis": [],
-    "Anthony_DiMarcello": [],
+    "Anthony_DiMarcello": [
+      {
+        "Profile_Field": "SUBJECT_ID",
+        "Value": "PER-001",
+        "Notes": "Anthony Michael DiMarcello III"
+      },
+      {
+        "Profile_Field": "FULL_NAME",
+        "Value": "Anthony Michael DiMarcello III",
+        "Notes": "Single parent (50/50 custody) with one child."
+      },
+      {
+        "Profile_Field": "PRE_2017_BACKGROUND",
+        "Value": "Gold Commodities & Futures Trader",
+        "Notes": "Direct gold commodities/futures. Lumber futures extension into custom cabinetry."
+      },
+      {
+        "Profile_Field": "BANK_SECRECY_ACT",
+        "Value": "Mandatory Reporter",
+        "Notes": "BSA mandatory reporting compliance background."
+      },
+      {
+        "Profile_Field": "PRESS_MEDIA",
+        "Value": "Magazine Publisher / Press Member",
+        "Notes": "Owned and operated publication / member of the press."
+      },
+      {
+        "Profile_Field": "FAMILY_CARE",
+        "Value": "Caregiver for Disabled Mother",
+        "Notes": "Cared for disabled mother living at home (independent of IHSS)."
+      },
+      {
+        "Profile_Field": "BUSINESS_STRUCTURE",
+        "Value": "Sole Proprietorship (Est. 2017)",
+        "Notes": "Independent business owner."
+      },
+      {
+        "Profile_Field": "CORE_SERVICES",
+        "Value": "Biz Dev / Lead Gen & Technical Design for Cabinet Shops",
+        "Notes": "Business development and lead generation for custom cabinet shops and millwork manufacturers. Handled 100% of technical design and CNC programming. Cabinet shops paid directly for service."
+      },
+      {
+        "Profile_Field": "ESSENTIAL_WORKER",
+        "Value": "Essential Infrastructure Worker (2020)",
+        "Notes": "Classified essential worker during COVID-19 (kitchens"
+      },
+      {
+        "Profile_Field": "DISAMBIGUATION_INNOCENZI",
+        "Value": "Dean Innocenzi Vehicle Purchase",
+        "Notes": "Interstate car shipment (NJ/CA) tied to Dean Innocenzi vehicle purchase during CA visit (not personal)."
+      },
+      {
+        "Profile_Field": "DISAMBIGUATION_MUNICIPAL",
+        "Value": "City of HB / Mercy House / OCHCA",
+        "Notes": "17631 Cameron Ln & 17642 Beach Blvd parcel/shelter events are external municipal/environmental target context (not personal actions)."
+      }
+    ],
     "hud_pit_by_coc": [],
     "Chart10": [],
     "Chart11": [],
