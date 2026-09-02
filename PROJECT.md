@@ -1,172 +1,68 @@
-# Project: OsintNeoAi Indexer & Timeline Reconciliation Pipeline
+# Project: OsintNeoAi 24/7 Autonomous Forensic Correlation & Lead Matching Pipeline
 
 ## Architecture
-The OsintNeoAi Indexer is a modular, high-throughput, memory-bounded forensic ingestion and timeline reconciliation pipeline. It processes multi-format archives (PDF, TIFF, PNG, JPG, HTML, DOCX, MBOX, TXT, ZIP) from local directories (`C:\Users\Amd949609\Downloads`, `C:\OsintNeoAi\evidence`) and external Google Drive links, executing neural/offline OCR, extracting entities and chronological events, and generating a normalized SQLite database (`timeline_vault.db`) and structured JSON master catalog (`master_timeline_catalog.json`) with 100% cryptographic SHA-256 verification.
+The system provides a continuous, cloud-native forensic correlation and lead matching engine hosted in Microsoft Azure App Service, backed by a 17,488-node / 18,712-edge topological knowledge graph, 288 Caltrans CCTV cameras, and 71 deep forensic datasets (196,780 records across 205,238 resolved entities).
 
-### System Data Flow
 ```
-[Local Archives / GDrive] ──> [Stream Ingest & Chunking] ──> [SHA-256 Hasher]
-                                       │
-                                       ▼
-                         [MIME & Format Dispatcher]
-                                       │
-            ┌──────────────────────────┴──────────────────────────┐
-            ▼                                                     ▼
-  [Digital Text Extractor]                              [Scanned / Image OCR]
-    (PyMuPDF, HTML, DOCX)                               (RapidOCR ONNX, OpenCV)
-            └──────────────────────────┬──────────────────────────┘
-                                       │
-                                       ▼
-                          [Multi-Tier Normalizer]
-                 (ISO 8601 Dates, Currency Cents, Case IDs)
-                                       │
-                                       ▼
-                       [Entity Extractor & Resolver]
-                   (6-Taxonomy, Phonetic Blocking, DSU)
-                                       │
-            ┌──────────────────────────┴──────────────────────────┐
-            ▼                                                     ▼
-   [SQLite Relational Vault]                             [Master JSON Catalog]
-   (timeline_vault.db, 3NF)                           (master_timeline_catalog.json)
-            └──────────────────────────┬──────────────────────────┘
-                                       │
-                                       ▼
-                           [Invariant Verification]
-                      (100% pytest suite, SHA-256 audit)
+[Inflow Sources: Power Apps Forms / Meta DMs / Webhooks / Mutual Aid]
+                               │
+                               ▼
+           [Normalization Engine (USPS Pub 28, APN, CASS)]
+                               │
+                               ▼
+        [Topological Graph Cross-Referencer & CCTV Proximity]
+       (17.4k Active Graph + 71 Datasets + 288 Caltrans CCTVs)
+                               │
+            ┌──────────────────┴──────────────────┐
+            ▼                                     ▼
+ [Cloud Background Scheduler]          [Multi-Channel Feeds & APIs]
+ (Azure 2h daemon + /run?async=1)       (/api/leads, /api/correlation/status,
+                                        leads_feed.json, matrix, Power Apps)
 ```
 
 ## Feature Inventory
-| # | Feature | Description | Milestone | Source |
-|---|---------|-------------|-----------|--------|
-| 1 | Stream Ingestion & Chunking | Memory-bounded ($O(1)$ RAM) streaming ingestion for large archives, zip files, and directories | M1 | Survey R1 |
-| 2 | Google Drive Link Resolver | Chunked streaming resolver and downloader for public/shared Google Drive URLs with virus-scan bypass | M1 | Survey R1 |
-| 3 | Cryptographic SHA-256 Engine | Continuous 64 KB block streaming SHA-256 hasher for every raw file and extracted artifact | M1 | Survey R4 |
-| 4 | Multi-Format MIME Dispatcher | Format-specific dispatcher handling PDF, TIFF, PNG, JPG, HTML, DOCX, MBOX/EML, TXT, CSV, JSON | M1 | Survey R1 |
-| 5 | Native Digital Text Extraction | High-speed PyMuPDF text extraction with density threshold checks | M2 | Survey R2 |
-| 6 | Neural Offline OCR Engine | CPU-optimized RapidOCR ONNX neural text recognition with multi-page pixmap rendering | M2 | Survey R2 |
-| 7 | Image Preprocessing & Enhancement | OpenCV CLAHE adaptive contrast and thresholding for low-contrast/degraded documents | M2 | Survey R2 |
-| 8 | Timestamp Normalizer | Regex and fuzzy parsing of all historical and legal dates to canonical ISO 8601 UTC (`YYYY-MM-DD` / `YYYY-MM-DDTHH:MM:SSZ`) | M2 | Survey R2 |
-| 9 | Financial Transaction Normalizer | Monetary parser converting $ amounts, expressions ($M, $k), and accounting parentheses to dual float and integer cents | M2 | Survey R2 |
-| 10 | Legal Case Identifier Normalizer | Federal (USDC CDCA/DNJ) and state (CA Superior Court) docket and statutory citation extractor | M2 | Survey R2 |
-| 11 | Communication Metadata Normalizer | Sender/recipient, subject, email header, and participant metadata extractor | M2 | Survey R2 |
-| 12 | 6-Category Entity Extractor | Rule-based and keyword-driven entity extraction (Individuals, Municipalities, Financial, Property, Legal, Commercial) | M3 | Survey R3 |
-| 13 | Phonetic & Contextual Entity Resolver | Multi-pass entity disambiguation (Soundex, Double Metaphone, Jaro-Winkler, Disjoint Set Union clustering) | M3 | Survey R3 |
-| 14 | SQLite Relational Vault | 3NF SQLite database (`timeline_vault.db`) with WAL mode, foreign keys, indexes, and full relational tables | M3 | Survey R3 |
-| 15 | Master JSON Catalog Exporter | Structured RFC 8785 compliant `master_timeline_catalog.json` with embedded Merkle root cryptographic signatures | M3 | Survey R3 |
-| 16 | E2E Test Suite (Tiers 1–4) | Comprehensive opaque-box test suite (Tier 1: Feature, Tier 2: Boundary, Tier 3: Combinatorial, Tier 4: Real-World) | E2E-TEST | Survey R4 |
-| 17 | 100% Invariant Verification & Hardening | Invariant test execution against pipeline deliverables and Tier 5 adversarial stress testing | M4 | Survey R4 |
+| # | Feature | Description | Milestone | Source | Status |
+|---|---------|-------------|-----------|--------|--------|
+| 1 | Lead Ingestion & Webhook Intake | Ingest Power Apps, Meta DMs, Webhooks into `evidence/mutual_aid_cases.json` | M1 | Survey / R1 | VERIFIED |
+| 2 | CASS & USPS Pub 28 Normalization | Canonical entity names, APNs (8/10-digit), addresses, ISO 8601 timestamps | M1 | Survey / R1 | VERIFIED |
+| 3 | Topological Graph Traversal | Cross-reference against 17.4k node graph & 71 forensic datasets across 6+ vectors | M2 | Survey / R2 | VERIFIED |
+| 4 | 288 Caltrans CCTV Proximity | Haversine distance geocoding to 288 cameras with stream/snapshot metadata | M2 | Survey / R2 | VERIFIED |
+| 5 | Cloud Scheduler & Async REST Trigger | Azure App Service 2-hour daemon, `/api/correlation/run?async=1`, zero local load | M3 | Survey / R3 | VERIFIED |
+| 6 | Multi-Channel Alert & Feed Serialization | Output `data/leads_feed.json`, `evidence/FORENSIC_CORRELATION_MATRIX.json`, `/api/leads` | M4 | Survey / R4 | VERIFIED |
+| 7 | Power Apps Connector & Dashboard Contracts | OpenAPI 2.0 Swagger spec, CORS `*`, Syncfusion grid & God's Eye View feeds | M4 | Survey / R4 | VERIFIED |
+| 8 | 5-Gate Adversarial & 71-Test E2E Suite | 100% compliance across Code Quality, Cloud Contracts, Spatial, Concurrency, Forensics | M5 | Survey / Acceptance | VERIFIED |
 
 ## Milestones
 | # | Name | Scope | Dependencies | Status |
 |---|------|-------|-------------|--------|
-| E2E | E2E Testing Suite | Opaque-box E2E test harness, fixtures, runners, and Tiers 1-4 tests (produces TEST_INFRA.md & TEST_READY.md) | none | IN_PROGRESS |
-| M1 | Ingestion & Streaming Engine | Local archive crawler, Google Drive chunked streamer, 64KB block SHA-256 hasher, MIME dispatcher | none | DONE |
-| M2 | Deep Text Extraction & OCR Engine | 5-tier extraction/OCR ladder (PyMuPDF, RapidOCR ONNX, CLAHE), ISO 8601, financial cents, case dockets | M1 | IN_PROGRESS |
-| M3 | Entity Resolution & Vault Storage | 6-category entity taxonomy, phonetic/DSU resolver, SQLite timeline_vault.db, master_timeline_catalog.json | M2 | PLANNED |
-| M4 | Final E2E Pass & Adversarial Hardening | Pass 100% of E2E test suite (Tiers 1-4), Tier 5 white-box adversarial stress tests, backup protocol check | M3, E2E | PLANNED |
+| M1 | Lead Ingestion & Normalization Engine | `api/app.py`, `api/osint_pipeline/normalizers.py`, Webhooks | none | DONE |
+| M2 | Graph Cross-Referencing & CCTV Proximity | `scripts/run_forensic_crossref_engine.py`, `scripts/calculate_cctv_proximity.py`, `scripts/auto_leads_correlation_v2.py` | M1 | DONE |
+| M3 | Cloud Background Scheduler & REST Controller | `api/auto_correlation.py`, Azure startup hooks, `POST /api/correlation/run` | M1, M2 | DONE |
+| M4 | Feed Serialization & Power Apps Integration | `data/leads_feed.json`, `evidence/FORENSIC_CORRELATION_MATRIX.json`, `scripts/verify_powerapps_connector.py` | M2, M3 | DONE |
+| M5 | 5-Gate Adversarial Verification & 3-Way Backup | `scripts/run_adversarial_verification_gate.py`, `tests/test_autonomous_correlation_e2e.py`, 3-Location Backup | M1, M2, M3, M4 | DONE |
 
 ## Interface Contracts
+### Ingestion ↔ Normalization
+- `normalize_lead_payload(raw_dict) -> dict`: Returns canonicalized payload with `normalized_name`, `normalized_apn`, `normalized_address`, `normalized_timestamp`, and `geo_anchor`.
 
-### M1 ↔ M2: Ingestion Stream to Document Extractor
-```python
-from dataclasses import dataclass
-from typing import Generator, Optional, BinaryIO
+### Normalization ↔ Graph Traversal
+- `run_leads_correlation() -> dict`: Executes multi-vector topological graph matching across `nodes.json` and `edges.json`, matches against CCTV cameras from `public/caltrans_d12_cctv.geojson`, serializes `data/leads_feed.json` and `reports/auto_leads/latest.json`.
 
-@dataclass(frozen=True)
-class IngestedArtifact:
-    artifact_id: str             # Canonical SHA-256 hex string
-    source_uri: str              # File path or remote URL
-    mime_type: str               # Canonical MIME type (e.g. 'application/pdf')
-    file_size_bytes: int         # Exact file size
-    raw_stream_factory: callable # Callable returning a fresh BinaryIO stream
-```
-
-### M2 ↔ M3: Extraction Result to Entity Resolution & Storage
-```python
-from dataclasses import dataclass
-from typing import List, Dict, Any, Optional
-
-@dataclass
-class ExtractedRecord:
-    record_id: str               # UUID or deterministic artifact-derived ID
-    artifact_sha256: str         # SHA-256 of source file
-    source_path: str             # Source URI / path
-    source_type: str             # 'local_file', 'gdrive', 'mailbox', etc.
-    mime_type: str               # MIME type
-    normalized_date: Optional[str] # ISO 8601 UTC date string (YYYY-MM-DD or YYYY-MM-DDTHH:MM:SSZ)
-    raw_date_string: Optional[str]
-    extracted_text: str          # Normalized text body
-    ocr_engine_used: str         # 'pymupdf_native', 'rapidocr_onnx', 'html_parser', etc.
-    financial_amounts: List[Dict[str, Any]] # [{"raw": "$320M", "amount_float": 320000000.0, "amount_cents": 32000000000, "currency": "USD"}]
-    case_numbers: List[str]      # ["8:23-cr-00108-CJC", "30-2021-01201327-CL-UD-CJC"]
-    sender: Optional[str]
-    recipients: List[str]
-    metadata: Dict[str, Any]
-```
-
-### M3 ↔ M4 & E2E: Database & Catalog Deliverables
-```
-SQLite Vault: C:\OsintNeoAi\workspaces\osintneoai_indexer\timeline_vault.db
-- Tables:
-  - documents (document_id PK, sha256 UNIQUE, file_path, mime_type, file_size, ingestion_timestamp, page_count)
-  - entities (entity_id PK, canonical_name, entity_type, aliases_json, confidence_score)
-  - entity_mentions (mention_id PK, entity_id FK, document_id FK, raw_text, context_snippet, confidence)
-  - timeline_events (event_id PK, document_id FK, event_date ISO8601, event_title, event_description, significance_score)
-  - financial_transactions (transaction_id PK, document_id FK, transaction_date, amount_float, amount_cents, currency, payer, payee, description)
-  - relationships (relationship_id PK, source_entity_id FK, target_entity_id FK, relation_type, document_id FK, confidence)
-
-Master Catalog: C:\OsintNeoAi\workspaces\osintneoai_indexer\master_timeline_catalog.json
-- Top-level Keys:
-  - catalog_version: "1.0.0"
-  - generated_at: ISO 8601 UTC timestamp
-  - merkle_root: SHA-256 hex string
-  - summary: { total_documents: int, total_entities: int, total_events: int, total_financial_transactions: int }
-  - documents: List[DocumentRecord]
-  - entities: List[EntityRecord]
-  - timeline_events: List[TimelineEventRecord] (chronologically sorted)
-  - financial_transactions: List[FinancialTransactionRecord]
-  - relationships: List[RelationshipRecord]
-```
+### Scheduler ↔ API Endpoints
+- `GET /api/correlation/status`: Returns JSON telemetry `{ "auto_correlation_available": bool, "scheduler_running": bool, "last_run": dict, "total_leads": int }`.
+- `POST /api/correlation/run?async=1`: Triggers non-blocking background thread and immediately returns HTTP 200 `{"status": "triggered", "mode": "async"}` in <35ms.
+- `GET /api/leads`: Serves JSON array of active leads with dynamic on-demand fallback.
 
 ## Code Layout
-```
-C:\OsintNeoAi\workspaces\osintneoai_indexer\
-├── __init__.py
-├── pipeline.py                      # Main entrypoint and pipeline orchestrator
-├── config.py                        # Pipeline configuration, paths, and constants
-├── connectors/
-│   ├── __init__.py
-│   ├── local_crawler.py             # Streaming local archive crawler
-│   ├── gdrive_streamer.py           # Chunked Google Drive stream downloader
-│   └── mailbox_reader.py            # Streaming MBOX / EML parser
-├── extractors/
-│   ├── __init__.py
-│   ├── document_extractor.py        # 5-Tier Fallback Ladder (PyMuPDF -> RapidOCR -> OpenCV -> Format parsers)
-│   ├── ocr_engine.py                # RapidOCR ONNX runtime integration
-│   └── image_enhancer.py            # OpenCV CLAHE and thresholding
-├── normalizers/
-│   ├── __init__.py
-│   ├── date_normalizer.py           # ISO 8601 UTC timestamp parser
-│   ├── financial_normalizer.py      # Monetary amount parser (dual float + cents)
-│   ├── case_normalizer.py           # Federal & CA Superior Court docket matcher
-│   └── entity_normalizer.py         # Corporate suffix cleaner & phonetic encoder
-├── resolution/
-│   ├── __init__.py
-│   ├── entity_resolver.py           # 6-category entity extractor, blocking & DSU clustering
-│   └── taxonomy.py                  # Entity categories and classification schemas
-├── storage/
-│   ├── __init__.py
-│   ├── vault_db.py                  # SQLite database manager, schema DDL, WAL & indexes
-│   ├── catalog_exporter.py          # Master JSON catalog generator & Merkle root calculator
-│   └── hasher.py                    # 64 KB block streaming SHA-256 engine
-├── tests/
-│   ├── __init__.py
-│   ├── conftest.py                  # Pytest fixtures and test configuration
-│   ├── test_tier1_features.py       # Tier 1: Feature unit tests (5 per feature)
-│   ├── test_tier2_boundaries.py     # Tier 2: Boundary & corner case tests (5 per feature)
-│   ├── test_tier3_combinations.py   # Tier 3: Cross-feature pairwise tests
-│   ├── test_tier4_scenarios.py      # Tier 4: Real-world end-to-end workload scenarios
-│   └── test_indexer_invariants.py   # R4 Invariant validation suite (schema, crypto, ordering)
-├── timeline_vault.db                # Generated SQLite database
-└── master_timeline_catalog.json     # Generated Master JSON Catalog
-```
+- `api/app.py`: Flask API entrypoint, Webhook listeners, Power Apps endpoints.
+- `api/auto_correlation.py`: Background thread scheduler and correlation invoker.
+- `api/osint_pipeline/normalizers.py`: CASS address/APN/entity normalizers.
+- `scripts/auto_leads_correlation_v2.py`: Multi-vector graph correlation engine.
+- `scripts/calculate_cctv_proximity.py`: 288 Caltrans CCTV proximity calculator.
+- `scripts/run_forensic_crossref_engine.py`: Master CSV matrix cross-reference compiler.
+- `scripts/run_adversarial_verification_gate.py`: 5-Gate Master Verification Harness.
+- `scripts/verify_powerapps_connector.py`: Power Apps Custom Connector verification.
+- `tests/test_autonomous_correlation_e2e.py`: 71-test E2E verification suite.
+- `evidence/FORENSIC_CORRELATION_MATRIX.json`: Master cross-reference matrix.
+- `data/leads_feed.json`: Live correlation feed.
+- `public/caltrans_d12_cctv.geojson`: 288 CCTV camera definitions.

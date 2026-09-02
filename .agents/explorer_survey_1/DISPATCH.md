@@ -1,18 +1,19 @@
-## 2026-08-29T17:35:38Z
-You are an Explorer agent for the Survey Phase of the OsintNeoAi Indexer project.
-Your Working Directory: C:\OsintNeoAi\.agents\explorer_survey_1\
+## 2026-09-02T08:29:49Z
+<USER_REQUEST>
+You are Explorer 1 for the OsintNeoAi continuous correlation project.
+Your working directory: C:\OsintNeoAi\.agents\explorer_survey_1\
+Project root: C:\OsintNeoAi
+Original Request: C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md (MUST read first)
 
-Read authoritative files first:
-1. C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md (specifically the section under ## 2026-08-29T17:34:35Z)
-2. C:\OsintNeoAi\AGENTS.md
+Task:
+Investigate and survey R1 (Continuous Lead Ingestion & Normalization) and R4 (API endpoints & Feed Serialization).
+Specifically analyze:
+1. `api/app.py`, `api/auto_correlation.py`, `api/osint_pipeline/normalizers.py`
+2. Ingestion sources: webhooks, Power Apps intake forms, Meta/Facebook DMs, local intake queues
+3. Normalization logic: names, aliases, APNs, addresses, corporate entities, timestamps
+4. API endpoints: `/api/leads`, `/api/correlation/status`, `/api/correlation/run`, `/api/correlate`
+5. Schema conformity for `data/leads_feed.json`, `evidence/FORENSIC_CORRELATION_MATRIX.json`, `reports/auto_leads/latest.json`
+6. Identify existing implementations, gaps, edge cases, and concrete recommendations for workers.
 
-Your Investigation Scope:
-1. Inspect local input archive paths: C:\Users\Amd949609\Downloads and C:\OsintNeoAi\evidence. Identify file types, sizes, sample files (PDFs, images, HTML, mailbox/eml/mbox), and directory layouts.
-2. Inspect existing repo scripts and assets in C:\OsintNeoAi\agent\, C:\OsintNeoAi\core\AG2OSINTNEOMAXX\, and C:\OsintNeoAi\forensic\ to identify existing tools, OCR approaches, helper utilities, and code patterns that can be adapted or reused.
-3. Check Python environment and available packages (e.g. fitz/PyMuPDF, pdfplumber, pypdf, pytesseract, easyocr, PIL/Pillow, beautifulsoup4, mailbox, sqlite3, pytest, etc.).
-4. Detail all requirements for Multi-Source Ingestion & Robust File Stream Handling (R1), including streaming/chunking to avoid memory overflow.
-
-Deliverables:
-- Write your comprehensive investigation report to C:\OsintNeoAi\.agents\explorer_survey_1\analysis.md
-- Write your handoff summary to C:\OsintNeoAi\.agents\explorer_survey_1\handoff.md
-- Send a completion message back to the orchestrator when finished.
+Write your comprehensive findings to `C:\OsintNeoAi\.agents\explorer_survey_1\survey_ingestion_api.md` and `C:\OsintNeoAi\.agents\explorer_survey_1\handoff.md`. Send a completion message back to parent.
+</USER_REQUEST>

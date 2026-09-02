@@ -1,53 +1,51 @@
-# BRIEFING — 2026-08-29T17:39:10Z
+# BRIEFING — 2026-09-02T08:33:00Z
 
 ## Mission
-Survey investigation for OsintNeoAi Indexer: External Google Drive link ingestion, Deep Text Extraction & High-Accuracy OCR (R2), Normalization algorithms (timestamps, financial amounts, sender/recipient metadata, legal case identifiers), and performance/memory constraints.
+Investigate and survey R2 (Topological Entity Graph Cross-Referencing & Proximity Scoring) in OsintNeoAi.
 
 ## 🔒 My Identity
-- Archetype: Teamwork explorer
-- Roles: State and Municipal Enforcement Explorer
+- Archetype: explorer
+- Roles: investigation, synthesis
 - Working directory: C:\OsintNeoAi\.agents\explorer_survey_2\
-- Original parent: 0fbbdca0-8259-49a6-8940-8bf40c97c0ac
-- Milestone: Explorer Survey Complete
-- Archetype (2026-08-29): Teamwork explorer
-- Roles (2026-08-29): Ingestion, OCR, Normalization & Invariant Analysis Explorer
-- Working directory (2026-08-29): C:\OsintNeoAi\.agents\explorer_survey_2\
-- Original parent (2026-08-29): 34f685b0-e5c3-4fa3-aac5-dc635a0add4e
-- Milestone (2026-08-29): Survey Phase - Ingestion, OCR, Normalization, Memory Constraints Complete
+- Original parent: 2556ff43-f8bc-41fe-8487-738b76d80c8d
+- Milestone: Explorer Survey R2 (Graph & CCTV Proximity)
 
 ## 🔒 Key Constraints
-- Read-only investigation — do NOT implement or modify source code/data
-- Write only to own directory: C:\OsintNeoAi\.agents\explorer_survey_2\
-- Enforce AGENTS.md backup protocols and non-deletion rules
-- Never delete or overwrite files
-- Memory constraints: Large archives/files must be handled via streaming/chunking without memory overflow
+- Read-only investigation — do NOT implement
+- CARDINAL RULES: Backup before every change, Never delete, Only copy/duplicate
+- Write only to our own agent folder (.agents/explorer_survey_2/)
+- Files for content delivery, messages for coordination
 
 ## Current Parent
-- Conversation ID: 34f685b0-e5c3-4fa3-aac5-dc635a0add4e
-- Updated: 2026-08-29T17:39:10Z
+- Conversation ID: 2556ff43-f8bc-41fe-8487-738b76d80c8d
+- Updated: 2026-09-02T08:33:00Z
 
 ## Investigation State
 - **Explored paths**:
-  - `C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md`
-  - `C:\OsintNeoAi\AGENTS.md`
-  - `C:\Users\Amd949609\Downloads\` (174 items surveyed: legal PDFs, medical TIFs, HTML portals, ZIPs)
-  - `C:\OsintNeoAi\evidence\` (23 subdirectories, 23 files, including `andrewfalk.png`, court records, OCR indexes)
-  - `C:\OsintNeoAi\agent\scan_remote_takeouts.py` & `auto_chunk_worker.py` (rclone seekable streaming & chunking)
-  - `C:\OsintNeoAi\OSINTNeoAI-Core\connectors\gdrive_connector.py` & `ocr_connector.py`
+  - `scripts/run_forensic_crossref_engine.py`
+  - `scripts/calculate_cctv_proximity.py`
+  - `scripts/auto_leads_correlation_v2.py`
+  - `api/auto_correlation.py`, `api/osint_pipeline/normalizers.py`, `api/app.py`
+  - `nodes.json` (17,488 nodes), `edges.json` (18,712 edges)
+  - `public/caltrans_d12_cctv.geojson`, `evidence/caltrans_d12_cctv.geojson` (288 cameras)
+  - `evidence/FORENSIC_CORRELATION_MATRIX.json` (196,780 records analyzed, 205,238 entities, 71,389 properties)
+  - `evidence/target_cctv_proximity.json`, `public/openosint_nodes.json`, 81 CSV evidence datasets
+  - `tests/test_autonomous_correlation_e2e.py` (71 E2E tests), `scripts/run_adversarial_verification_gate.py` (5 gates)
 - **Key findings**:
-  1. Verified working Python environment with `pymupdf` 1.28.2, `rapidocr-onnxruntime` 1.2.3, `onnxruntime` 1.29.0, `opencv-python` 5.0.0.93, `Pillow` 12.3.0, `rclone` 1.75.0.
-  2. Established 5-tier fallback ladder: Digital text -> Density/glyph check -> 300 DPI pixmap + RapidOCR ONNX -> OpenCV CLAHE/Thresholding -> Multi-format parsers (HTML/MBOX/DOCX).
-  3. Formulated exact regex & normalization pipelines for ISO 8601 UTC dates, financial amounts (dual float & integer cents), sender/recipient metadata, and legal case identifiers (federal & California superior court dockets, statutory citations).
-  4. Defined memory management protocol: 64 KB HTTP stream buffers to temp disk spool, page-by-page generator with immediate pixmap deletion and `gc.collect()`, bounding memory under 250 MB.
-- **Unexplored areas**: None within survey scope. Implementation deferred to Worker milestone.
+  - Two-tier data model: 17,488 active graph nodes + 205,238 resolved deep forensic entity universe.
+  - 288 Caltrans CCTV cameras verified with 100% valid coordinates and live HLS stream / JPEG endpoints.
+  - Cross-ref engine lacks normalization, generating false positives on metadata (counties, banks, list strings).
+  - Current lead engine traverses 1-hop edges; 2-hop / 3-hop traversal needed for multi-tier straw buyer chains.
+  - 5 verification gates and 71 E2E tests fully passing.
+- **Unexplored areas**: None for R2.
 
 ## Key Decisions Made
-- Authored comprehensive technical analysis report at `C:\OsintNeoAi\.agents\explorer_survey_2\analysis.md`.
-- Authored 5-component handoff report at `C:\OsintNeoAi\.agents\explorer_survey_2\handoff.md`.
+- Completed in-depth architectural survey of R2.
+- Produced comprehensive survey report (`survey_graph_cctv.md`) and 5-component handoff (`handoff.md`).
 
 ## Artifact Index
-- `C:\OsintNeoAi\.agents\explorer_survey_2\DISPATCH.md` — Inbound instructions log
-- `C:\OsintNeoAi\.agents\explorer_survey_2\progress.md` — Liveness heartbeat and milestone tracker
-- `C:\OsintNeoAi\.agents\explorer_survey_2\BRIEFING.md` — Persistent memory
-- `C:\OsintNeoAi\.agents\explorer_survey_2\analysis.md` — Comprehensive technical investigation report
-- `C:\OsintNeoAi\.agents\explorer_survey_2\handoff.md` — Self-contained 5-component handoff report
+- C:\OsintNeoAi\.agents\explorer_survey_2\DISPATCH.md — Received task instructions
+- C:\OsintNeoAi\.agents\explorer_survey_2\BRIEFING.md — Situational awareness
+- C:\OsintNeoAi\.agents\explorer_survey_2\progress.md — Liveness & heartbeat
+- C:\OsintNeoAi\.agents\explorer_survey_2\survey_graph_cctv.md — Full survey report
+- C:\OsintNeoAi\.agents\explorer_survey_2\handoff.md — 5-component handoff report

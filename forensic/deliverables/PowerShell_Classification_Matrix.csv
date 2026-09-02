@@ -1,0 +1,24 @@
+ENTITY_ID,ENTITY_NAME,ENTITY_TYPE,STATUS,CLASSIFICATION,HOLD_KEYWORDS_HIT,MANUAL_KEYWORDS_HIT,MIXED_INDICATORS_HIT,TOTAL_HITS
+RICO-001,Municipal Enterprise Hub,RICO Node,Documented,HOLD,,,appraisal,1
+RICO-002,Judicial Default Engine,RICO Node,Documented,HOLD,default judgment,,,1
+RICO-003,Grant Fraud & Speculation Conduit,RICO Node,Documented,MANUAL,,,grant; 1601 dove; lakeview; nonprofit; tax-exempt,5
+RICO-004,Political Conduit & Fleet Hub,RICO Node,Documented,HOLD,,quantum auto,,1
+RICO-005,Environmental & Shelter Concealment,RICO Node,Documented,HOLD,,cameron ln,,1
+PER-001,Harry Sidhu,Person,Convicted Felon (8:23-cr-00108-CJC),HOLD,sidhu,,,1
+PER-002,Todd Ament,Person,Convicted Felon (8:22-cr-00078-CJC),MIXED,ament,chamber,,2
+PER-003,Melahat Rafiei,Person,Convicted Felon (8:23-cr-00009-CJC),HOLD,rafiei,,,1
+PER-004,Jeffrey Flint,Person,Unindicted Co-Conspirator,HOLD,,flint,,1
+PER-005,"Arden Hoang, Esq.",Person,Civil RICO Defendant,MANUAL,,hoang; sontag,,2
+PER-006,"Richard S. Sontag, Esq.",Person,Civil RICO Defendant,HOLD,,sontag,,1
+PER-007,Austin Drissen,Person,Target of Investigation,MANUAL,,mercy house; drissen,,2
+PER-008,Vichal Nunen,Person,Civil RICO Defendant,HOLD,,,grant,1
+PER-009,Anthony DiMarcello,Person,Relator / Plaintiff,HOLD,,,grant,1
+PER-010,Robert F. Greenglass,Person,Target of Investigation,MANUAL,,homi,lakeview; nonprofit; tax-exempt,4
+GOV-001,Orange County Superior Court (CJC),Government Agency,Regulatory / Judicial,HOLD,default judgment; void,,,2
+GOV-002,California Housing & Community Development (HCD),Government Agency,Regulatory / Judicial,HOLD,void,,,1
+GOV-003,Orange County Health Care Agency (OCHCA),Government Agency,Regulatory / Judicial,HOLD,,,ochca,1
+EV-001,HCD $96M Notice of Violation & Res. 2022-064,Evidence,Verified,CLEAN,,,,0
+EV-002,Orange County CJC Unlawful Detainer Docket #1201327,Evidence,Verified,CLEAN,,,,0
+EV-003,Quantum Auto Dismantler Invoice #14098 & Title Trail,Evidence,Verified,HOLD,,quantum auto,cedar ln,2
+EV-004,17631 Cameron Ln Environmental Hazmat & Lead Records,Evidence,Verified,HOLD,,cameron ln,,1
+EV-005,"8 Lakeview, Irvine Deed & HOMI Non-Profit Tax Filings",Evidence,Verified,MANUAL,,homi,lakeview; tax-exempt,3

@@ -1,22 +1,24 @@
-## 2026-08-27T07:03:50Z
+## 2026-09-02T08:34:52Z
+You are the Forensic Auditor (auditor_1) for OsintNeoAi.
+Working directory: C:\OsintNeoAi\.agents\auditor_1\
+Project root: C:\OsintNeoAi
+Original Request: C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md (MUST read first)
+Project Scope: C:\OsintNeoAi\PROJECT.md
 
-<USER_REQUEST>
-You are Forensic Auditor (teamwork_preview_auditor).
-Your working directory is: C:\OsintNeoAi\.agents\auditor_1\
-Please read C:\OsintNeoAi\ORIGINAL_REQUEST.md, C:\OsintNeoAi\PROJECT.md, and C:\OsintNeoAi\AGENTS.md before starting.
-
-MISSION:
-Conduct a comprehensive Forensic Integrity Audit of all work products in `C:\OsintNeoAi\evidence\official_court_records\` and `C:\OsintNeoAi\tests\test_official_documents.py`.
-
-AUDIT CHECKS:
-1. Static Analysis & Authenticity: Verify that all markdown files contain genuine, comprehensive, high-density transcriptions, docket entries, statutory analyses, and factual proffers (no stubbed content, no placeholder text, no dummy templates).
-2. Test Suite Integrity: Verify that `tests/test_official_documents.py` executes real assertions against real disk files with zero hardcoded mock/dummy bypasses, tautological assertions (e.g. assert True), or skipped checks.
-3. Anti-Cheating Verification: Verify that no files contain fabricated court entries, faked dates, or artificial pass flags.
-4. Repository Integrity: Verify strict compliance with AGENTS.md (no file deletions, correct directory placement under evidence/official_court_records/).
-
-DELIVERABLES:
-1. Execute static analysis and runtime tracing scripts.
-2. Issue a binary verdict: **CLEAN** or **INTEGRITY VIOLATION / CHEATING DETECTED** in your `handoff.md`.
-3. Provide full evidence chain.
-4. Maintain progress.md and send a completion message to parent.
-</USER_REQUEST>
+Task:
+Perform independent forensic integrity auditing and non-degradation verification (Gate 5 & Master Gate Certification):
+1. Execute the 5-Gate Master Verification Suite: `python scripts/run_adversarial_verification_gate.py`.
+2. Verify all 9 critical forensic deliverables are present and uncorrupted:
+   - `evidence/FORENSIC_CORRELATION_MATRIX.json`
+   - `data/leads_feed.json`
+   - `public/caltrans_d12_cctv.geojson`
+   - `nodes.json`
+   - `edges.json`
+   - `openapi_azure_powerapps.json`
+   - `evidence/target_cctv_proximity.json`
+   - `evidence/mutual_aid_cases.json`
+   - `reports/auto_leads/latest.json`
+3. Verify local PC air-gapped snapshots (at least 34 backup archives present in `C:\Users\HP\OneDrive\Documents\OsintNeoAi\backups\repo\`).
+4. Verify 3-Location Backup compliance (GitHub origin/main, Local PC, Sharedall Google Drive) per AGENTS.md.
+5. Check for any dummy implementations, hardcoded shortcuts, or cheating.
+6. Deliver your authoritative forensic audit verdict (CLEAN or INTEGRITY VIOLATION) in `C:\OsintNeoAi\.agents\auditor_1\handoff.md` and send a message back to parent.

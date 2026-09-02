@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Evidentiary Dossier — Woodbridge Meadows / DiMarcello</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-navy: #0f172a;
+            --accent-blue: #2563eb;
+            --warning-amber: #d97706;
+            --danger-red: #dc2626;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .header-banner {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            padding: 2.5rem 0;
+            border-bottom: 4px solid var(--accent-blue);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .verified-badge {
+            background-color: #10b981;
+            color: #ffffff;
+            font-size: 0.85rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .court-badge {
+            background-color: #3b82f6;
+            color: #ffffff;
+            font-size: 0.85rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            font-weight: 600;
+        }
+
+        .card-custom {
+            background: var(--card-bg);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            margin-bottom: 1.75rem;
+            overflow: hidden;
+        }
+
+        .card-header-custom {
+            background: #f1f5f9;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 1.5rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .table-custom th {
+            background-color: #0f172a;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .table-custom td {
+            font-size: 0.92rem;
+            vertical-align: middle;
+        }
+
+        .email-thread-item {
+            border-left: 4px solid var(--accent-blue);
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            background: #ffffff;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+
+        .email-thread-item.alert-threat {
+            border-left-color: var(--danger-red);
+            background: #fff5f5;
+        }
+
+        .email-thread-item.alert-agreement {
+            border-left-color: #10b981;
+            background: #f0fdf4;
+        }
+
+        .email-header-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-bottom: 1px dashed #cbd5e1;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .statute-box {
+            border-left: 4px solid #8b5cf6;
+            background: #faf5ff;
+            padding: 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1rem;
+        }
+
+        .lineage-box {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .smoking-gun-box {
+            background: #fff1f2;
+            border: 2px solid #e11d48;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .roa-badge {
+            font-weight: 700;
+            font-size: 0.82rem;
+            background-color: #334155;
+            color: #ffffff;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .print-btn {
+            background-color: var(--accent-blue);
+            color: #ffffff;
+            border: none;
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .print-btn:hover {
+            background-color: #1d4ed8;
+            color: #ffffff;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background: #ffffff; }
+            .card-custom { border: none; box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-banner">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div>
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span class="verified-badge"><i class="fa-solid fa-certificate"></i> AUTHENTICATED PRIMARY SOURCE RECORD</span>
+                        <span class="court-badge"><i class="fa-solid fa-scale-balanced"></i> OC SUPERIOR COURT CASE: 30-2021-01201327-CL-UD-CJC</span>
+                    </div>
+                    <h1 class="h3 fw-bold mb-1">OFFICIAL FORENSIC EVIDENTIARY DOSSIER</h1>
+                    <p class="mb-0 text-light opacity-75">Woodbridge Meadows / Shea Properties Unlawful Eviction, Criminal Extortion, Ex Parte Filings & Three Void Default Judgments</p>
+                </div>
+                <div class="no-print">
+                    <button onclick="window.print()" class="print-btn"><i class="fa-solid fa-print me-1"></i> Print / Save as PDF</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-4">
+
+        <!-- Smoking Gun Physical Evidence Box -->
+        <div class="smoking-gun-box">
+            <div class="d-flex align-items-center gap-2 mb-2">
+                <span class="badge bg-danger fs-6"><i class="fa-solid fa-triangle-exclamation"></i> SMOKING GUN PHYSICAL EVIDENCE</span>
+                <span class="text-danger fw-bold">August 4, 2021 Armed Raid & Hand-Back of Tender</span>
+            </div>
+            <h5 class="fw-bold text-danger mb-2">Brian Olsen Physically Returned 3 Months of $500 Money Orders ($1,500 Total) During Lockout</h5>
+            <p class="mb-1 text-dark">As Sheriff Don Barnes's armed deputies were executing the lockout at 212 Southbrook, <strong>Senior Community Manager Brian Olsen walked in and handed Anthony DiMarcello three (3) months of $500 money orders ($1,500 total)</strong> that management had received and held in their office drawer since March/April/May 2021, stating: <em>"We couldn't accept them."</em></p>
+            <p class="small text-muted mb-0"><strong>Legal Consequence:</strong> Under <em>Strom v. Union Oil Co.</em> (1948) 88 Cal.App.2d 78, Cal. Civ. Code § 1500, and CACI No. 4327, holding validly tendered rent for months without immediate objection or return legally extinguished the landlord's right to claim default or forfeit possession. Falsely swearing under oath in Form UD-101 that no rent or declarations were received while holding these physical money orders constitutes criminal perjury (Cal. PC § 118) and extrinsic fraud upon the court.</p>
+        </div>
+
+        <!-- Google Photos Screenshots Evidence Table -->
+        <div class="card-custom">
+            <div class="card-header-custom">
+                <span><i class="fa-solid fa-camera text-primary me-2"></i> Verified Google Photos Screenshots Catalog (Court Dockets & Barnes Signatures)</span>
+                <span class="badge bg-dark">Primary Source Image Scans</span>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-custom table-hover table-striped mb-0">
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">Document / Screenshot</th>
+                                <th style="width: 35%;">Google Photos Batch & OCR File</th>
+                                <th style="width: 40%;">Visible Details & Signatures</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Sheriff Levying Notice & Writ</strong><br><small class="text-muted">212 Southbrook Premises</small></td>
+                                <td><code>batch8_album8_photo_048.jpg.txt</code><br><code>batch8_album8_photo_049.jpg.txt</code></td>
+                                <td><strong>Levying File No. 2021102780</strong>; OCSD Newport Beach (4601 Jamboree Rd); Notice of Levy and Writ of Possession.</td>
+                            </tr>
+                            <tr class="table-warning">
+                                <td><strong>Eviction Restoration Notice</strong><br><small class="text-muted">Signed under Don Barnes</small></td>
+                                <td><code>batch7_album7_photo_280.jpg.txt</code></td>
+                                <td><strong>Don Barnes, Sheriff-Coroner</strong>; Authorized Agent Badge <strong>#8209</strong>; Cal. PC §§ 419, 602 & CCP § 715.010.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Full ROA Screenshots (1–26)</strong><br><small class="text-muted">Portal: oping.occourts.org</small></td>
+                                <td><code>batch8_album8_photo_292.jpg.txt</code><br><code>batch7_album7_photo_206.jpg.txt</code></td>
+                                <td>Complaint filed 05/18/2021, Posting Order (ROA 10), Clerk Default (ROA 25), Ex Parte Application (ROA 29).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Full ROA Screenshots (27–61)</strong><br><small class="text-muted">Portal: oping.occourts.org</small></td>
+                                <td><code>batch8_album8_photo_293.jpg.txt</code><br><code>batch7_album7_photo_207.jpg.txt</code></td>
+                                <td>Fee Waiver Granted in Whole (ROA 32), CCP 170.6 Disqualification (ROA 37), Successive Defaults (ROA 51, 60).</td>
+                            </tr>
+                            <tr class="table-success">
+                                <td><strong>Court Kiosk Case Printout</strong><br><small class="text-muted">OC Superior Court CJC Kiosk</small></td>
+                                <td><code>google_photos_evidence_batch3_album3_photo_069.jpg.txt</code></td>
+                                <td>Physical courthouse terminal capture confirming case summary, hearing dockets, and parties.</td>
+                            </tr>
+                            <tr class="table-success">
+                                <td><strong>32-Page Ex Parte Notice (Page 1)</strong><br><small class="text-muted">In Pro Per Motion</small></td>
+                                <td><code>batch7_album7_photo_069.jpg.txt</code><br><code>batch8_album8_photo_155.jpg.txt</code></td>
+                                <td>Full scanned title invoking CCP §§ 473(b)/(d), 473.5, 418.10, 918, 1179, In Equity; Dept C61.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>CCP § 170.6 Disqualification</strong><br><small class="text-muted">Dept C61 Declaration</small></td>
+                                <td><code>google_photos_evidence_batch3_album3_photo_046.jpg.txt</code></td>
+                                <td>Peremptory challenge and declaration of disqualification against Judge Carmen Luege.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ex Parte Hearing Minute Order</strong><br><small class="text-muted">Aug 23, 2021 (Doc #114054510)</small></td>
+                                <td><code>google_photos_evidence_batch3_album3_photo_018.jpg.txt</code><br><code>google_photos_evidence_batch3_album3_photo_020.jpg.txt</code></td>
+                                <td>Judge Carmen Luege; Appearances: Richard Sontag (RWC Legal) & Anthony DiMarcello (Defendant).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certified Court Docket & Ex Parte Filings -->
+        <div class="card-custom">
+            <div class="card-header-custom">
+                <span><i class="fa-solid fa-scale-balanced text-primary me-2"></i> Certified Court Register of Actions (ROA #1–61) & 32-Page Ex Parte Application</span>
+                <span class="badge bg-primary">Judge Carmen Luege / Dept C61</span>
+            </div>
+            <div class="card-body">
+                <div class="row g-3 mb-3">
+                    <div class="col-md-4">
+                        <div class="p-3 bg-light rounded border h-100">
+                            <h6 class="fw-bold text-navy"><i class="fa-solid fa-file-signature text-success me-1"></i> 32-Page Ex Parte (ROA #29)</h6>
+                            <p class="small mb-0 text-muted">Filed <strong>08/20/2021</strong>: Motions to Set Aside Default (CCP § 473(b)/(d)), Quash Service (CCP § 418.10), Stay Execution (CCP § 918), and Relief from Forfeiture & Restoration of Tenancy (CCP § 1179).</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 bg-light rounded border h-100">
+                            <h6 class="fw-bold text-navy"><i class="fa-solid fa-check-double text-success me-1"></i> Fee Waiver Granted (ROA #32)</h6>
+                            <p class="small mb-0 text-muted">On <strong>08/20/2021</strong>, the Superior Court <strong>GRANTED IN WHOLE</strong> Anthony DiMarcello's fee waiver (ROA #32) and scheduled the Ex Parte hearing for <strong>08/23/2021 at 08:30 AM</strong> in Dept C61.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 bg-light rounded border h-100">
+                            <h6 class="fw-bold text-navy"><i class="fa-solid fa-ban text-danger me-1"></i> Three (3) Void Judgments</h6>
+                            <p class="small mb-0 text-muted">Docket displays 3 successive default judgments on a single complaint (06/29/21, 12/22/21, 02/04/22), an impossible nullity under Cal. CCP § 580 (*Heidary*).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-custom table-hover table-striped mb-0">
+                        <thead>
+                            <tr>
+                                <th style="width: 15%;">ROA Entry</th>
+                                <th style="width: 18%;">Filing Date</th>
+                                <th style="width: 37%;">Official Filing Description</th>
+                                <th style="width: 30%;">Evidentiary & Forensic Significance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="roa-badge">ROA #1-4</span></td>
+                                <td>05/18/2021 (2:30 PM)</td>
+                                <td>Complaint Filed (16 pages), UD-101 Cover Sheet, Summons Issued.</td>
+                                <td>First judicial action in case; zero filings existed in April 2021.</td>
+                            </tr>
+                            <tr class="table-warning">
+                                <td><span class="roa-badge bg-warning text-dark">ROA #10</span></td>
+                                <td>06/02/2021</td>
+                                <td>Application & Order to Serve Summons by Posting (Arden Hoang).</td>
+                                <td><strong>EXTRINSIC FRAUD:</strong> Concealed active daily email correspondence.</td>
+                            </tr>
+                            <tr class="table-danger">
+                                <td><span class="roa-badge bg-danger">ROA #21, 25</span></td>
+                                <td>06/29/2021</td>
+                                <td><strong>FIRST DEFAULT JUDGMENT</strong> (By Clerk) & Writ Issued.</td>
+                                <td>Clerk entered default without judicial review under emergency acts.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="roa-badge">ROA #41</span></td>
+                                <td>08/04/2021 (Ret. 08/10)</td>
+                                <td>OCSD Sheriff Return / Levying File No. 2021102780.</td>
+                                <td>8 armed deputies execute lockout; Brian Olsen returns 3 money orders.</td>
+                            </tr>
+                            <tr class="table-success">
+                                <td><span class="roa-badge bg-success">ROA #28-32</span></td>
+                                <td>08/20/2021</td>
+                                <td><strong>32-Page Ex Parte Application (ROA #29)</strong>; Fee Waiver Granted in Whole.</td>
+                                <td>Relator challenges void default under CCP §§ 473, 418.10, 918, 1179.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="roa-badge">ROA #37</span></td>
+                                <td>08/20/2021</td>
+                                <td>Peremptory Challenge Pursuant to CCP 170.6 (Hon. Carmen Luege).</td>
+                                <td>Disqualification declaration filed against presiding judge in C61.</td>
+                            </tr>
+                            <tr class="table-danger">
+                                <td><span class="roa-badge bg-danger">ROA #50-51</span></td>
+                                <td>12/22/2021</td>
+                                <td><strong>SECOND DEFAULT JUDGMENT</strong> (By Court - $15,194.01).</td>
+                                <td>Void redundant judgment on already-disposed complaint (*Heidary*).</td>
+                            </tr>
+                            <tr class="table-danger">
+                                <td><span class="roa-badge bg-danger">ROA #59-60</span></td>
+                                <td>02/04/2022</td>
+                                <td><strong>THIRD DEFAULT JUDGMENT</strong> (By Court - $15,194.01).</td>
+                                <td>Third successive default judgment on single complaint; facially void.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Universal Agency & Generational Lineage -->
+        <div class="card-custom">
+            <div class="card-header-custom">
+                <span><i class="fa-solid fa-dna text-primary me-2"></i> Universal Agency, Fiduciary Code & Generational Lineage</span>
+                <span class="badge bg-secondary">Qui Facit Per Alium Facit Per Se</span>
+            </div>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="lineage-box h-100">
+                            <h6 class="fw-bold text-navy"><i class="fa-solid fa-scale-unbalanced-flip text-primary me-1"></i> The 5 Fiduciary Duties of Agency</h6>
+                            <ul class="small mb-0 text-muted ps-3">
+                                <li><strong>Duty of Loyalty:</strong> Absolute subordination of self-interest; zero undisclosed self-dealing.</li>
+                                <li><strong>Duty of Care & Skill:</strong> Expert standard of commodities and financial execution.</li>
+                                <li><strong>Duty of Obedience:</strong> Strict adherence to BSA/AML compliance frameworks.</li>
+                                <li><strong>Duty of Accounting:</strong> Complete, uncompromised documentation of all ledger transactions.</li>
+                                <li><strong>Duty of Disclosure:</strong> Notice to the agent constitutes notice to the principal.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="lineage-box h-100">
+                            <h6 class="fw-bold text-navy"><i class="fa-solid fa-network-wired text-primary me-1"></i> Generational Hardware & Software Pedigree</h6>
+                            <ul class="small mb-0 text-muted ps-3">
+                                <li><strong>Roman Roots:</strong> Gens Claudia (Marcellus, Marc Antony, <em>Teatro di Marcello</em>).</li>
+                                <li><strong>Hardware/Thermodynamics:</strong> Anthony Sr. (Tec 5 WWII, GE/Trane 40 yrs) & Frank V. DiMarcello (Bell Labs hermetic fiber optic patents).</li>
+                                <li><strong>Software/Mainframes:</strong> Mary A. Dull DiMarcello (State of NJ IBM punch-card relational database pioneer for DMV & State Police).</li>
+                                <li><strong>Synthesis:</strong> Anthony III (Series 3 broker, fintech architect, gold dealer, $1M+/yr founder).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Primary Contemporaneous Email Chain -->
+        <div class="card-custom">
+            <div class="card-header-custom">
+                <span><i class="fa-solid fa-envelope-open-text text-primary me-2"></i> Contemporaneous Primary Email Transcripts</span>
+                <span class="badge bg-primary">Direct Management Transcripts</span>
+            </div>
+            <div class="card-body">
+
+                <!-- Message 1 -->
+                <div class="email-thread-item alert-agreement">
+                    <div class="email-header-meta d-flex justify-content-between flex-wrap">
+                        <span><strong>From:</strong> Anthony DiMarcello &lt;amd949609@gmail.com&gt; | <strong>To:</strong> Carissa Doyle &lt;Carissa.Doyle@sheaapartments.com&gt;</span>
+                        <span><i class="fa-regular fa-clock me-1"></i> Friday, March 12, 2021 at 7:34 AM PST</span>
+                    </div>
+                    <h6 class="fw-bold text-success mb-2">Subject: Re: Hi Carissa ($500 COVID Assistance Money Order Inquiry)</h6>
+                    <p class="mb-0"><em>"Thanks! You too! <strong>So am I supposed to wait for another letter every month for the covid assistance or do I just drop off a money order again this month for 500? I'm almost caught up again. Thank you. Anthony</strong>"</em></p>
+                </div>
+
+                <!-- Message 2 -->
+                <div class="email-thread-item alert-agreement">
+                    <div class="email-header-meta d-flex justify-content-between flex-wrap">
+                        <span><strong>From:</strong> Carissa Doyle &lt;Carissa.Doyle@sheaapartments.com&gt; | <strong>To:</strong> Anthony DiMarcello &lt;amd949609@gmail.com&gt;</span>
+                        <span><i class="fa-regular fa-clock me-1"></i> Friday, March 12, 2021</span>
+                    </div>
+                    <h6 class="fw-bold text-success mb-2">Subject: Re: Hi Carissa (Management Written Acceptance)</h6>
+                    <p class="mb-0"><em>"Hi Anthony, If you do have an owing balance of any kind, you will receive those notices monthly until the balance is paid in full. <strong>You can then also drop off the money order as well. That's good to hear!</strong> Thank you, Woodbridge — Carissa Doyle, Leasing Specialist"</em></p>
+                </div>
+
+                <!-- Message 3 -->
+                <div class="email-thread-item">
+                    <div class="email-header-meta d-flex justify-content-between flex-wrap">
+                        <span><strong>From:</strong> Anthony DiMarcello &lt;amd949609@gmail.com&gt; | <strong>To:</strong> Carissa Doyle &lt;Carissa.Doyle@sheaapartments.com&gt;</span>
+                        <span><i class="fa-regular fa-clock me-1"></i> Monday, March 15, 2021 at 11:29 AM PDT</span>
+                    </div>
+                    <h6 class="fw-bold mb-2">Subject: Re: Hi Carissa (Money Order Delivery)</h6>
+                    <p class="mb-0"><em>"Perfect thank you <strong>I'll drop off the money order today</strong> and I need a separate one for the conserve trash and water bill too correct?"</em></p>
+                </div>
+
+                <!-- Message 4 -->
+                <div class="email-thread-item alert-threat">
+                    <div class="email-header-meta d-flex justify-content-between flex-wrap">
+                        <span><strong>From:</strong> Victor Nunez &lt;Victor.Nunez@sheaapartments.com&gt; | <strong>To:</strong> Anthony DiMarcello | <strong>Cc:</strong> Brian Olsen</span>
+                        <span><i class="fa-regular fa-clock me-1"></i> Friday, April 23, 2021 at 4:05 PM PDT</span>
+                    </div>
+                    <h6 class="fw-bold text-danger mb-2">Subject: Current balance for 212 Southbrook (Extortionate Shakedown Demand)</h6>
+                    <p class="mb-0"><em>"Hello Anthony, I’m just following up on our conversation from yesterday. At this moment the options are to <strong>give up possession of the apartment OR to pay and stop eviction. Your current balance for rent due is $5,588.00 and legal fees are currently at $200.00. The total of $5,788.00 must be paid to stop further eviction proceedings.</strong> Payment must be made in the form of a cashier’s check or money order (legal fees are schedule to increase by Monday 4/26/2021)..."</em></p>
+                </div>
+
+                <!-- Message 5 -->
+                <div class="email-thread-item">
+                    <div class="email-header-meta d-flex justify-content-between flex-wrap">
+                        <span><strong>From:</strong> Anthony DiMarcello &lt;amd949609@gmail.com&gt; | <strong>To:</strong> Carissa Doyle, Victor Nunez</span>
+                        <span><i class="fa-regular fa-clock me-1"></i> Friday, April 23, 2021 (Evening)</span>
+                    </div>
+                    <h6 class="fw-bold mb-2">Subject: Re: Woodbridge Apartments (Porch Intimidation Protest)</h6>
+                    <p class="mb-0"><em>"You're welcome. I haven't received anything else either. <strong>As of right now I'm trying to understand how your office came to the conclusion that a surprise eviction, bc half of the documents that were sent to your office we're lost.</strong> And why was I not informed of anything? Why was I informed the way I was informed? I feel like I'm missing something... unexpectedly don't know if I have a home or I'm evicted or how long before someone else just randomly decides to come by and tell me in front of my family and all the neighbors, I'm evicted. <strong>Two inches from my face. In this pandemic?</strong>..."</em></p>
+                </div>
+
+                <!-- Message 6 -->
+                <div class="email-thread-item">
+                    <div class="email-header-meta d-flex justify-content-between flex-wrap">
+                        <span><strong>From:</strong> Anthony DiMarcello | <strong>To:</strong> Victor Nunez | <strong>Cc:</strong> Brian Olsen</span>
+                        <span><i class="fa-regular fa-clock me-1"></i> Saturday, April 24, 2021 at 3:09 PM PDT</span>
+                    </div>
+                    <h6 class="fw-bold mb-2">Subject: Re: Current balance for 212 Southbrook (Payoff Document Demand)</h6>
+                    <p class="mb-0"><em>"Ok, well when are you planning on sending over the documents? <strong>None of these emails have the documents for the payoff or the eviction. You told me and the neighborhood I'm in the surprise eviction process on my porch, so yes please send over the docs to payoff my rent, please.</strong> Anthony"</em></p>
+                </div>
+
+                <!-- Message 7 -->
+                <div class="email-thread-item alert-threat">
+                    <div class="email-header-meta d-flex justify-content-between flex-wrap">
+                        <span><strong>From:</strong> Victor Nunez &lt;Victor.Nunez@sheaapartments.com&gt; | <strong>To:</strong> Anthony DiMarcello | <strong>Cc:</strong> Brian Olsen</span>
+                        <span><i class="fa-regular fa-clock me-1"></i> Saturday, April 24, 2021 at 3:35 PM PDT</span>
+                    </div>
+                    <h6 class="fw-bold text-danger mb-2">Subject: Re: Current balance for 212 Southbrook (False "Expired" Claim)</h6>
+                    <p class="mb-0"><em>"Hello Anthony, Attached is the 15 Day notice that was served back in March. One copy was delivered to your front door step and a second one was mailed to your address. <strong>The time to sign and submit the declaration page has expired.</strong> You mentioned to me that you had the money to catch up and pay. If you would like to pay and stay you can still do so. Woodbridge — Victor Nunez, Assistant Community Manager"</em></p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Statutory Violations & Legal Theories -->
+        <div class="card-custom">
+            <div class="card-header-custom">
+                <span><i class="fa-solid fa-gavel text-primary me-2"></i> Statutory Violations & Criminal/Civil Causes of Action</span>
+                <span class="badge bg-dark">Federal & State Jurisprudence</span>
+            </div>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="statute-box h-100">
+                            <h6 class="fw-bold text-danger"><i class="fa-solid fa-handcuffs me-1"></i> Criminal Extortion & Hobbs Act</h6>
+                            <p class="small text-muted mb-1"><strong>18 U.S.C. § 1951; Cal. Penal Code §§ 518, 519, 523:</strong></p>
+                            <p class="small mb-0">Demanding $5,788.00 and escalating private legal fees through wrongful coercion and threats of immediate surprise eviction prior to any judicial filing.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="statute-box h-100">
+                            <h6 class="fw-bold text-danger"><i class="fa-solid fa-hospital-user me-1"></i> Dependent Adult Abuse & Endangerment</h6>
+                            <p class="small text-muted mb-1"><strong>Cal. Penal Code § 368:</strong></p>
+                            <p class="small mb-0">Recklessly endangering Elizabeth Petruccio by threatening and executing displacement during active daily IV Ceftriaxone therapy for congestive heart failure.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="statute-box h-100">
+                            <h6 class="fw-bold text-primary"><i class="fa-solid fa-ban me-1"></i> Refusal of Valid Tender & Void Judgments</h6>
+                            <p class="small text-muted mb-1"><strong><em>Strom v. Union Oil Co.</em>; Cal. Civ. Code § 1500; Cal. CCP § 473(d):</strong></p>
+                            <p class="small mb-0">Holding 3 months of $500 money orders and returning them on the day of the lockout legally extinguished any claim of default or forfeiture.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="statute-box h-100">
+                            <h6 class="fw-bold text-primary"><i class="fa-solid fa-shield-halved me-1"></i> Qui Tam Standing & Whistleblower Retaliation</h6>
+                            <p class="small text-muted mb-1"><strong>31 U.S.C. § 3730(b)/(h); <em>Stevens</em> (529 U.S. 765); 18 U.S.C. § 1962(c):</strong></p>
+                            <p class="small mb-0">Article III standing via partial sovereign assignment; retaliating against a federal witness assisting EPA OIG and Dr. Ann Verma, culminating in armed tactical displacement and court database wipe SM-092.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="text-center text-muted py-4 border-top">
+        <div class="container">
+            <p class="small mb-1"><strong>OsintNeoAi Master Repository Forensic Deliverable</strong> | Certified Authenticated Dossier</p>
+            <p class="small mb-0">Primary Markdown File: <code>C:\OsintNeoAi\evidence\OFFICIAL_WOODBRIDGE_EVICTION_EXTORTION_DOSSIER.md</code></p>
+        </div>
+    </footer>
+
+</body>
+</html>

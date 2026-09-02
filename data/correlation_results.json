@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-09-01T12:16:48.275126",
+  "total_correlations": 1,
+  "correlations": [
+    {
+      "entity_hash": "55224a9bbb4c71cdcd4cdfcd0d77a2c5e8b7f561121e78cb878090cdd3d9dbb7",
+      "entity_type": "phone",
+      "entity_value": "596 462 1680",
+      "locations": [
+        {
+          "source": "google_photos",
+          "record_id": "AF1QipMOHAtVLr3dQ1P-fKbbBe2J9jQTiTpNde2TAQ1C",
+          "timestamp": 1680934744000
+        },
+        {
+          "source": "google_photos",
+          "record_id": "AF1QipNuyB7WyQ7RbFqm4jxyizlMHR08fGk8p5bgs1xZ",
+          "timestamp": 1680986303000
+        }
+      ],
+      "source_count": 1,
+      "confidence": 0.6,
+      "timestamp": "2026-09-01T12:16:48.234714",
+      "context": {
+        "entity_type": "phone",
+        "entity_value": "596 462 1680",
+        "sources_checked": [
+          "local_db",
+          "graph"
+        ],
+        "reputation": "neutral"
+      },
+      "risk_score": 0.52,
+      "timeline": [
+        {
+          "source": "google_photos",
+          "timestamp": 1680934744000
+        },
+        {
+          "source": "google_photos",
+          "timestamp": 1680986303000
+        }
+      ]
+    }
+  ]
+}

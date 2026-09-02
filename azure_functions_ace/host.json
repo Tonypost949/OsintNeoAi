@@ -1,0 +1,15 @@
+﻿{
+  "version": "2.0",
+  "functionTimeout": "00:10:00",
+  "logging": {
+    "fileLoggingMode": "debugOnly",
+    "logLevel": {
+      "default": "Information"
+    }
+  },
+  "extensions": {
+    "timers": {
+      "maxDegreeOfParallelism": 1
+    }
+  }
+}

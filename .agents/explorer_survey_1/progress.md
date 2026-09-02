@@ -1,15 +1,15 @@
 # Progress Tracking — explorer_survey_1
 
-- **Last visited**: 2026-08-29T17:40:10Z
-- **Current Step**: Survey Phase Completed — Reports delivered
-- **Status**: Completed
+- **Last visited**: 2026-09-02T08:34:00Z
+- **Status**: Survey investigation completed. Deliverables created.
 
-## Milestones
-- [x] Step 0: Setup DISPATCH.md, BRIEFING.md, progress.md
-- [x] Step 1: Read authoritative files (ORIGINAL_REQUEST.md, AGENTS.md)
-- [x] Step 2: Inspect input archive paths (`C:\Users\Amd949609\Downloads` and `C:\OsintNeoAi\evidence`)
-- [x] Step 3: Inspect existing repo scripts (`agent/`, `core/AG2OSINTNEOMAXX/`, `forensic/`)
-- [x] Step 4: Audit Python environment & available packages
-- [x] Step 5: Detail R1 Multi-Source Ingestion & Stream Handling architecture/requirements
-- [x] Step 6: Write `analysis.md` and `handoff.md`
-- [x] Step 7: Update BRIEFING.md & notify parent orchestrator
+## Checkpoints
+- [x] Read ORIGINAL_REQUEST.md and initialized agent metadata
+- [x] Survey `api/app.py` and API endpoints (`/api/leads`, `/api/correlation/status`, `/api/correlation/run`, `/api/correlate`, `/api/search`, `/api/submit-victim`)
+- [x] Survey `api/auto_correlation.py` and auto-correlation scheduler
+- [x] Survey `api/osint_pipeline/normalizers.py` and normalization rules (names, aliases, APNs, addresses, corporate entities, timestamps)
+- [x] Survey ingestion sources (webhooks, Power Apps intake forms, Meta/FB DMs, local queues)
+- [x] Check schema conformity for `data/leads_feed.json`, `evidence/FORENSIC_CORRELATION_MATRIX.json`, `reports/auto_leads/latest.json`
+- [x] Identify gaps, edge cases, and concrete recommendations
+- [x] Write `survey_ingestion_api.md` and `handoff.md`
+- [x] Send completion message to parent

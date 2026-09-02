@@ -1,0 +1,869 @@
+{
+  "generated_at": "2026-09-02T09:09:52.949141+00:00",
+  "total_records_analyzed": 197241,
+  "unique_entities_resolved": 205388,
+  "unique_properties_tracked": 71500,
+  "high_risk_nexus_targets": [
+    {
+      "entity": "['amd949609@gmail.com']",
+      "risk_score": 73015,
+      "roles": [
+        "Source: national_audits_drive_fi"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "['Anthony DiMarcello']",
+      "risk_score": 73015,
+      "roles": [
+        "Source: national_audits_drive_fi"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "amd949609@gmail.com",
+      "risk_score": 56545,
+      "roles": [
+        "Source: national_audits_gmail_in"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "MARICOPA",
+      "risk_score": 20950,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "MIAMI-DADE",
+      "risk_score": 10430,
+      "roles": [
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "<amd949609@gmail.com>",
+      "risk_score": 8445,
+      "roles": [
+        "Source: national_audits_gmail_in"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Harvest Small Business Finance, LLC",
+      "risk_score": 7910,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: forensic_layers_lender_f",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Prestamos CDFI, LLC",
+      "risk_score": 6975,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "JPMorgan Chase Bank, National Association",
+      "risk_score": 6790,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "JEFFERSON",
+      "risk_score": 6175,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "ANCHORAGE",
+      "risk_score": 5945,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: forensic_layers_ppp_prop"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "__init__.pyi",
+      "risk_score": 5915,
+      "roles": [
+        "Source: full_pc_index_clean.csv"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Benworth Capital",
+      "risk_score": 5770,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Fountainhead SBF LLC",
+      "risk_score": 5730,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Miami",
+      "risk_score": 4860,
+      "roles": [
+        "Source: ppp_rico_century_housing",
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Cross River Bank",
+      "risk_score": 4840,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "PHOENIX",
+      "risk_score": 4770,
+      "roles": [
+        "Source: ppp_rico_mercy_oc_crossr",
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: forensic_layers_ppp_prop"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Customers Bank",
+      "risk_score": 4640,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Capital Plus Financial, LLC",
+      "risk_score": 4585,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "BROWARD",
+      "risk_score": 4545,
+      "roles": [
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Wells Fargo Bank, National Association",
+      "risk_score": 4390,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "DEKALB",
+      "risk_score": 4310,
+      "roles": [
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Regions Bank",
+      "risk_score": 4080,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "MOBILE",
+      "risk_score": 3945,
+      "roles": [
+        "Source: ppp_rico_century_housing",
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "ServisFirst Bank",
+      "risk_score": 3695,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "PULASKI",
+      "risk_score": 3675,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "SKILL.md",
+      "risk_score": 3645,
+      "roles": [
+        "Source: full_pc_index_clean.csv",
+        "Source: ag2_manifest.csv"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "CHATHAM",
+      "risk_score": 3630,
+      "roles": [
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "ORANGE",
+      "risk_score": 3565,
+      "roles": [
+        "Source: ppp_rico_mercy_oc_crossr",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Synovus Bank",
+      "risk_score": 3335,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Bank of America, National Association",
+      "risk_score": 3270,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "MONTGOMERY",
+      "risk_score": 3105,
+      "roles": [
+        "Source: ppp_rico_century_housing",
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: forensic_layers_ppp_prop"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Phoenix",
+      "risk_score": 3095,
+      "roles": [
+        "Source: ppp_rico_century_housing",
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "MUSCOGEE",
+      "risk_score": 3065,
+      "roles": [
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "BIRMINGHAM",
+      "risk_score": 2755,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: forensic_layers_ppp_prop"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "PIMA",
+      "risk_score": 2740,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Anthony DiMarcello <amd949609@gmail.com>",
+      "risk_score": 2650,
+      "roles": [
+        "Source: national_audits_gmail_in"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "HILLSBOROUGH",
+      "risk_score": 2625,
+      "roles": [
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Columbus",
+      "risk_score": 2605,
+      "roles": [
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "MADISON",
+      "risk_score": 2580,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Square Capital, LLC",
+      "risk_score": 2515,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "PALM BEACH",
+      "risk_score": 2510,
+      "roles": [
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "DOUGHERTY",
+      "risk_score": 2335,
+      "roles": [
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Orlando",
+      "risk_score": 2320,
+      "roles": [
+        "Source: ppp_rico_century_housing",
+        "Source: ppp_rico_ppp_up_to_150k.",
+        "Source: ppp_rico_mercy_oc_crossr"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "BIBB",
+      "risk_score": 2310,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Arvest Bank",
+      "risk_score": 2105,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Fed \u00bf Kabbage",
+      "risk_score": 2095,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Savannah",
+      "risk_score": 2090,
+      "roles": [
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "First National Bank Alaska",
+      "risk_score": 2065,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "SCOTTSDALE",
+      "risk_score": 2050,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Albany",
+      "risk_score": 2025,
+      "roles": [
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Northrim Bank",
+      "risk_score": 2020,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Truist Bank",
+      "risk_score": 1925,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Macon",
+      "risk_score": 1920,
+      "roles": [
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Itria Ventures LLC",
+      "risk_score": 1900,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "\"amd949609@gmail.com\" <amd949609@gmail.com>",
+      "risk_score": 1800,
+      "roles": [
+        "Source: national_audits_gmail_in"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "SPALDING",
+      "risk_score": 1770,
+      "roles": [
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "WASHINGTON",
+      "risk_score": 1750,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "SHELBY",
+      "risk_score": 1705,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "TUSCALOOSA",
+      "risk_score": 1675,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "BALDWIN",
+      "risk_score": 1660,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Griffin",
+      "risk_score": 1655,
+      "roles": [
+        "Source: ppp_rico_mercy_oc_crossr",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Western Alliance Bank",
+      "risk_score": 1645,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Birmingham",
+      "risk_score": 1630,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: forensic_layers_ppp_prop"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Tampa",
+      "risk_score": 1605,
+      "roles": [
+        "Source: ppp_rico_century_housing",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "README.md",
+      "risk_score": 1600,
+      "roles": [
+        "Source: full_pc_index_clean.csv",
+        "Source: ag2_manifest.csv"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Scottsdale",
+      "risk_score": 1590,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "First Horizon Bank",
+      "risk_score": 1580,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "BENTON",
+      "risk_score": 1560,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "PNC Bank, National Association",
+      "risk_score": 1545,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "COWETA",
+      "risk_score": 1530,
+      "roles": [
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "TROUP",
+      "risk_score": 1530,
+      "roles": [
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "LITTLE ROCK",
+      "risk_score": 1490,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "HOUSTON",
+      "risk_score": 1450,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Loan Source Incorporated",
+      "risk_score": 1425,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "BELAVITA LLC",
+      "risk_score": 1415,
+      "roles": [
+        "Source: ppp_rico_hb_llcs.csv",
+        "Source: ppp_rico_beach_blvd_clus",
+        "Source: hb_church_osint_properti",
+        "Source: ppp_rico_v_mailbox_clust"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "__init__.py",
+      "risk_score": 1410,
+      "roles": [
+        "Source: full_pc_index_clean.csv",
+        "Source: ag2_manifest.csv"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "TUCSON",
+      "risk_score": 1410,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "PINELLAS",
+      "risk_score": 1375,
+      "roles": [
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "MIAMI",
+      "risk_score": 1340,
+      "roles": [
+        "Source: ppp_rico_century_housing",
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "U.S. Century Bank",
+      "risk_score": 1330,
+      "roles": [
+        "Source: ppp_rico_century_housing",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Simmons Bank",
+      "risk_score": 1320,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "HUNTSVILLE",
+      "risk_score": 1315,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Centennial Bank",
+      "risk_score": 1285,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "OSCEOLA",
+      "risk_score": 1285,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Century Bank",
+      "risk_score": 1280,
+      "roles": [
+        "Source: ppp_rico_century_housing",
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "United Community Bank",
+      "risk_score": 1265,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "MESA",
+      "risk_score": 1260,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "BMO Bank National Association",
+      "risk_score": 1240,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "FAYETTE",
+      "risk_score": 1235,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Anchorage",
+      "risk_score": 1230,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "CARROLL",
+      "risk_score": 1200,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "package.json",
+      "risk_score": 1195,
+      "roles": [
+        "Source: full_pc_index_clean.csv"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Hialeah",
+      "risk_score": 1190,
+      "roles": [
+        "Source: ppp_rico_century_housing",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Tucson",
+      "risk_score": 1180,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "First Security Bank",
+      "risk_score": 1150,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "WebBank",
+      "risk_score": 1135,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Lagrange",
+      "risk_score": 1135,
+      "roles": [
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "Cadence Bank",
+      "risk_score": 1120,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c",
+        "Source: ppp_rico_ppp_up_to_150k."
+      ],
+      "record_count": 0
+    },
+    {
+      "entity": "TEMPE",
+      "risk_score": 1110,
+      "roles": [
+        "Source: ppp_rico_ppp_150k_plus.c"
+      ],
+      "record_count": 0
+    }
+  ]
+}

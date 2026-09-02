@@ -1,23 +1,11 @@
-## 2026-08-29T18:04:20Z
-You are the E2E Test Writer (teamwork_preview_test_writer) for the OsintNeoAi Indexer project.
-Your Working Directory: C:\OsintNeoAi\.agents\test_writer_e2e\
-Target Workspace: C:\OsintNeoAi\workspaces\osintneoai_indexer\
-
-MANDATORY INTEGRITY WARNING:
-DO NOT CHEAT. All tests must be genuine, comprehensive, and non-trivial. Assertions must verify actual computations, hashes, schemas, and values.
-
-Read authoritative files first:
-1. C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md (specifically ## 2026-08-29T17:34:35Z)
-2. C:\OsintNeoAi\PROJECT.md (17 Features, Architecture, Interfaces, Code Layout)
-3. C:\OsintNeoAi\AGENTS.md
-4. Test architecture blueprint: C:\OsintNeoAi\.agents\explorer_survey_3\analysis.md (Section 5: Testing Architecture & Invariants)
-5. Implemented modules in C:\OsintNeoAi\workspaces\osintneoai_indexer\
-
-Files You Exclusively Own & Must Author:
-- C:\OsintNeoAi\TEST_INFRA.md (Project Root: Test philosophy, 4-tier methodology, feature coverage matrix across all 17 features, runner commands)
-- C:\OsintNeoAi\workspaces\osintneoai_indexer\tests\conftest.py (Pytest fixtures, synthetic artifacts, temp databases, test corpora)
-- C:\OsintNeoAi\workspaces\osintneoai_indexer\tests\test_tier1_features.py (>=5 unit tests per feature across all 17 features = >=85 tests)
-- C:\OsintNeoAi\workspaces\osintneoai_indexer\tests\test_tier2_boundaries.py (>=5 boundary & corner tests per feature = >=85 tests)
-- C:\OsintNeoAi\workspaces\osintneoai_indexer\tests\test_tier3_combinations.py (>=17 cross-feature pairwise integration tests)
-- C:\OsintNeoAi\workspaces\osintneoai_indexer\tests\test_tier4_scenarios.py (>=9 real-world end-to-end investigation workload scenarios: Angel Stadium corruption, Unlawful Detainer docket, Interstate logistics, etc.)
-- C:\OsintNeoAi\workspaces\osintneoai_indexer\tests\test_indexer_invariants.py (Schema integrity, PRAGMA foreign_key_check, Merkle root tree validation, strict chronological event monotonicity)
+## 2026-09-01T23:55:00Z
+Working Directory: C:\OsintNeoAi\.agents\test_writer_e2e.
+Write the comprehensive 4-tier test suite in C:\OsintNeoAi\tests\test_autonomous_correlation_e2e.py covering all 71 tests specified in TEST_INFRA.md:
+- Tier 1: 35 Feature Tests (Ingestion, Normalization, Graph Traversal, CCTV Proximity, Azure Cloud Scheduler, REST Endpoints, Multi-Channel Serialization).
+- Tier 2: 25 Boundary & Corner Tests (Malformed payloads, Zero-distance/boundary CCTV geodesics, Graph topology degeneracy, Concurrency/file lock contention, Azure timeout/sandbox constraints).
+- Tier 3: 6 Pairwise Cross-Feature Integration Tests (Webhook->Match->Elevate, Intake->Vault->Search, Graph->CCTV->Feed, Async Trigger->Report->Status, Shell Cluster->Matrix->Grid, CCTV GeoJSON->Proximity->Globe).
+- Tier 4: 5 Real-World Scenarios (Angel Stadium, Woodbridge Meadows, HB Navigation Center, Tri-State Fleet, Cloud Autonomous Daemon).
+Provide mocks/fixtures where external cloud/network services (Meta webhook, external Azure hosts) are isolated so the test suite runs offline deterministically.
+Execute pytest tests/test_autonomous_correlation_e2e.py -v (or python -m unittest tests/test_autonomous_correlation_e2e.py) to verify all tests execute cleanly.
+Once complete, generate C:\OsintNeoAi\TEST_READY.md at project root with test runner command and coverage breakdown.
+Deliver handoff.md and report back when finished.

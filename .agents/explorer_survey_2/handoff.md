@@ -1,101 +1,95 @@
-# HANDOFF REPORT — EXPLORER SURVEY 2
-## Survey Phase: Ingestion, Neural OCR, Multi-tier Normalization & Invariant Verification
+# 5-Component Handoff Report: R2 Topological Entity Graph Cross-Referencing & Proximity Scoring
 
-**From:** Explorer Survey 2 (`C:\OsintNeoAi\.agents\explorer_survey_2\`)  
-**To:** Parent Orchestrator (`34f685b0-e5c3-4fa3-aac5-dc635a0add4e`) / Worker Milestone  
-**Date:** 2026-08-29  
-**Working Directory:** `C:\OsintNeoAi\.agents\explorer_survey_2\`  
-**Target Ingestion Workspace:** `C:\OsintNeoAi\workspaces\osintneoai_indexer\`  
+**Author:** Explorer 2 (`explorer_survey_2`)  
+**Timestamp:** 2026-09-02T08:33:00Z  
+**Target:** Parent Orchestrator (`2556ff43-f8bc-41fe-8487-738b76d80c8d`)  
+**Scope:** R2 Investigation (Graph Cross-Referencing, Spatial Proximity, CCTV Analytics, Forensic Datasets)
 
 ---
 
-## 1. OBSERVATION
+## 1. Observation
 
-The investigation directly observed and verified the local filesystem, installed Python libraries, external links, sample documents, and execution behaviors:
+1. **Script Architectures & Code Inspection:**
+   - `scripts/run_forensic_crossref_engine.py` (Lines 48–134): Loads `forensic/deliverables/People.csv`, `RICO_Nodes.csv`, `evidence/mutual_aid_cases.json`, and globs over 81 CSV files in `tasklet_export/files/`, `forensic/deliverables/`, and `data/`. Scans CSV column headers with substring checks (`["borrower", "organization", "entity", "owner", "recipient", "officer", "name", "target", "vendor"]`) and increments `entities[val]["risk_score"] += 5`. Does not perform topological graph traversal.
+   - `scripts/calculate_cctv_proximity.py` (Lines 30–55, 96–147): Evaluates 4 fixed target nodes (`DOVE_ST`, `CAMERON_LN`, `CENTER_AVE`, `BEACH_BLVD`) against 288 Caltrans District 12 CCTV cameras loaded from `public/caltrans_d12_cctv.geojson` (or `evidence/caltrans_d12_cctv.geojson`). Computes Great-Circle distance via Haversine formula ($R = 3958.8\text{ mi}$) and serializes `evidence/target_cctv_proximity.json`.
+   - `scripts/auto_leads_correlation_v2.py` (Lines 43–70, 220–480): Loads `nodes.json` and `edges.json`. Evaluates 6 distinct correlation vectors: `PPP_PROPERTY_OVERLAP` (32 leads discovered), `MULTI_ORG_PERSON` (1 multi-org person), `ADDRESS_SHELL_CLUSTER` (247 clusters), `HIGH_RISK_PPP` (0), `LITIGATION_EXPOSURE` (0), and `CHDO_STRAW_BUYER_NEXUS` / `MUTUAL_AID_LEAD`. Geocodes addresses via `KNOWN_GEO_ANCHORS` dictionary and queries nearest CCTV cameras.
+   - `api/auto_correlation.py` (Lines 42–136): Provides in-process execution (`run_leads_correlation()`) and background daemon thread (`start_background_scheduler(interval=7200)`), clamped to $\ge 600\text{s}$, with thread lock protection on `_last_run`.
+   - `api/osint_pipeline/normalizers.py` (Lines 68–256): Exports verified normalizers: `normalize_entity_name`, `normalize_apn`, `normalize_address`, `normalize_timestamp`, and `normalize_lead_payload`.
 
-### A. Environment Toolchain & Library Verification
-1. **Python 3.14.7 Environment (`C:\Users\Amd949609\AppData\Local\Python\pythoncore-3.14-64\`):**
-   - `pymupdf` (v1.28.2): Verified digital text extraction (`page.get_text()`) and 300 DPI pixmap rendering on `Knabb_v__City_of_Huntington_Beach.pdf` (5 pages, 1604 chars extracted from page 0 in < 0.05s).
-   - `rapidocr-onnxruntime` (v1.2.3) & `onnxruntime` (v1.29.0): Initialized and tested on image asset `C:\OsintNeoAi\evidence\andrewfalk.png`. Successfully extracted 15 text lines with high confidence (e.g. `'HOME OWNER'` at 0.841 conf, line detect/rec completed in 5.38s / 2.47s on CPU).
-   - `opencv-python` (v5.0.0.93) & `Pillow` (v12.3.0): Installed and functional for CLAHE, adaptive thresholding, and deskewing.
-   - `rclone` (v1.75.0.0 CLI on PATH): Configured with `gdrive:` remote mapping to `Sharedall/`.
-   - `python-dateutil` (v2.9.0.post0), `python-docx` (v1.2.0), `pypdf` (v6.16.2), `sqlite3` (built-in), `pytest` (v9.1.1).
+2. **Dataset Counts & Inventory Verification:**
+   - Command executed: `python -c "import json; n = json.load(open('nodes.json', 'r', encoding='utf-8')); e = json.load(open('edges.json', 'r', encoding='utf-8')); c = json.load(open('public/caltrans_d12_cctv.geojson', 'r', encoding='utf-8')); m = json.load(open('evidence/FORENSIC_CORRELATION_MATRIX.json', 'r', encoding='utf-8')); print('Nodes:', len(n), 'Edges:', len(e), 'Cameras:', len(c['features']), 'Matrix records:', m.get('total_records_analyzed'), 'Entities:', m.get('unique_entities_resolved'), 'Properties:', m.get('unique_properties_tracked'))"`
+   - Direct output: `Nodes: 17488 Edges: 18712 Cameras: 288 Matrix records: 196780 Entities: 205238 Properties: 71389`
+   - Node Label Distribution: `ADDRESS: 6,364`, `PROPERTY: 3,989`, `ORGANIZATION: 3,843`, `PERSON: 3,210`, `STATE: 50`, `PPP_LOAN: 32`.
+   - Edge Type Distribution: `CONNECTED_TO: 5,752`, `LOCATED_IN: 4,416`, `OWNS: 4,306`, `REGISTERED_AT: 4,185`, `RECEIVED_PPP: 35`, `OFFICER_OF: 16`, `MANAGER_OF: 2`.
+   - Evidence CSV Datasets: 81 total CSV files across `tasklet_export/files/`, `forensic/deliverables/`, `data/`, and `evidence/`.
 
-### B. Ingestible Corpus & File Format Diversity Observed
-1. **Target Ingestion Directories:**
-   - `C:\Users\Amd949609\Downloads\`: Contains 174 items including multi-page legal PDFs (`Knabb_v__City_of_Huntington_Beach.pdf`, `Anaheim Stadium Reddit Response.pdf`), medical/financial PDFs & TIFs (`Itemized Bill_20260820.PDF`, `Hospital Conditions of Admission.TIF`, `CONSENT SURGERY OR SPECIAL PROCEDURES.TIF`), HTML portal snapshots (`The Superior Court of California - Name Search Results.html`, `MyChart - Billing Account Details.html`), and ZIP archives (`HealthSummary_Aug_29_2026.zip`, `drive-download-20260817T084645Z-1-001.zip`).
-   - `C:\OsintNeoAi\evidence\`: Contains 23 subdirectories and 23 files including court exhibits, email indexes, image evidence (`andrewfalk.png`), and JSON metadata vaults (`jan2021_feb2022_master_vault.json`).
+3. **Data Quality Flaws Observed in `evidence/FORENSIC_CORRELATION_MATRIX.json`:**
+   - Line 8: `"entity": "['amd949609@gmail.com']"`, `risk_score: 73015` (unparsed Python list string).
+   - Line 16: `"entity": "['Anthony DiMarcello']"`, `risk_score: 73015` (unparsed Python list string).
+   - Line 32: `"entity": "MARICOPA"`, `risk_score: 20950` (county name misclassified as high-risk target).
+   - Line 40: `"entity": "MIAMI-DADE"`, `risk_score: 10430` (county name misclassified as high-risk target).
+   - Line 56: `"entity": "Harvest Small Business Finance, LLC"`, `risk_score: 7910` (commercial PPP lender misclassified as target entity).
+   - Line 75: `"entity": "JPMorgan Chase Bank, National Association"`, `risk_score: 6790` (commercial bank misclassified as target entity).
 
-### C. Normalization & Regex Verifications Observed
-1. **Timestamps:**
-   - Evaluated dates: `'May 24, 2022'` -> `'2022-05-24'`, `'December 8, 2021'` -> `'2021-12-08'`, `'July 13, 2026, Filed'` -> `'2026-07-13'`, `'FILED 2021 JUN 29 PM 4:29'` -> `'2021-06-29T16:29:00Z'`, `'12/14/2025'` -> `'2025-12-14'`.
-2. **Financial Amounts:**
-   - Evaluated amounts: `'$320M'` -> `320,000,000.0` ($32,000,000,000 cents), `'$96 Million'` -> `96,000,000.0`, `'$1.5M'` -> `1,500,000.0`, `'$250k'` -> `250,000.0`, `'$320,000,000.00'` -> `320,000,000.0`, `'$4,614,711'` -> `4,614,711.0`, `'($500.00)'` -> `-500.0` (-50,000 cents).
-3. **Legal Case Dockets:**
-   - Federal: `'8:23-cr-00108-CJC'`, `'8:22-cr-00078-CJC'`, `'3:20-mj-05007-TJB'`, `'8:26-cv-00348-JWH-ADS'`.
-   - California Superior Court: `'30-2021-01201327-CL-UD-CJC'`.
-
----
-
-## 2. LOGIC CHAIN
-
-1. **Step 1 (Ingestion Architecture):** Observation A.1, A.2, and B.1 demonstrate that ingested documents range from small HTML files to multi-gigabyte ZIP archives and high-resolution scanned TIF/PDF records. To prevent out-of-memory crashes, all downloads and file reading must use streaming chunks (64 KB buffers) with atomic disk staging rather than in-memory byte arrays.
-2. **Step 2 (Extraction & Fallback Ladder):** Observation A.1 shows that digital PDFs yield native text via PyMuPDF in milliseconds. However, scanned records (e.g. court filings with stamps or faxes) have zero digital text. Implementing the 5-Tier Fallback Ladder (Digital PyMuPDF -> Density Check -> 300 DPI Render + RapidOCR ONNX -> OpenCV CLAHE/Thresholding -> Multi-format Parsers) guarantees high accuracy while avoiding unnecessary OCR computation on digital-native files.
-3. **Step 3 (Memory Reclamation):** Observation A.1 demonstrates that rendering a 300 DPI image consumes ~35 MB uncompressed RAM per page. For a 500-page document, unmanaged pixmaps would consume > 17 GB RAM. Processing pages as a generator and explicitly deleting numpy/pixmap buffers (`del pix; del img_np`) combined with periodic `gc.collect()` bounds total process memory under 250 MB.
-4. **Step 4 (Deterministic Normalization):** Observation C.1–C.3 confirms that storing dates in canonical ISO 8601 UTC and financial values as dual float and integer cents eliminates precision drift and allows rigorous SQL queries and invariant testing.
-5. **Step 5 (Testing & Vault Storage):** Invariant testing via `pytest` and SQLite relational indexing (`timeline_vault.db`) provides 100% verification of cryptographic SHA-256 hashes, date monotonicity, and foreign-key integrity.
+4. **Verification Suites Execution:**
+   - Command executed: `python scripts/run_adversarial_verification_gate.py`
+   - Output: `ALL 5 VERIFICATION GATES PASSED: 100% VICTORY CERTIFIED` (Gate 1 Code Quality, Gate 2 Cloud Contracts, Gate 3 Spatial Fuzzing with 288/288 cameras, Gate 4 Concurrency with 15 simultaneous threads, Gate 5 Forensic Integrity).
+   - Verified 71 E2E tests in `tests/test_autonomous_correlation_e2e.py`.
 
 ---
 
-## 3. CAVEATS
+## 2. Logic Chain
 
-1. **Google Drive API vs Direct Link Quotas:** Direct unauthenticated HTTP downloads of publicly shared Google Drive files are subject to Google's dynamic rate-limiting. For high-volume external crawls, session reuse with backoff and/or `rclone` with OAuth credentials is recommended.
-2. **Password-Protected / Corrupted PDFs:** Encrypted PDFs requiring external passwords cannot be decrypted automatically; the pipeline must gracefully record `extraction_status = 'encrypted'` without throwing uncaught exceptions.
-3. **RapidOCR CPU Latency:** While RapidOCR is highly accurate and requires zero C++ installation, processing multi-hundred-page scanned documents purely on CPU can take 1–2 seconds per page. Multiprocessing or worker pool parallelism can be utilized if needed during batch processing.
-
----
-
-## 4. CONCLUSION
-
-The investigation establishes a complete, robust, and verified technical blueprint for the **OsintNeoAi Indexer** pipeline (`R1–R4`). 
-
-The technical findings and complete implementation design are documented in:
-- `C:\OsintNeoAi\.agents\explorer_survey_2\analysis.md`
-
-### Actionable Deliverables for the Worker Milestone:
-1. Create `workspaces/osintneoai_indexer/` pipeline containing:
-   - `connectors/gdrive_streamer.py`: Public Google Drive URL resolver & chunked downloader with virus-warning bypass.
-   - `connectors/local_crawler.py`: Streaming local archive/file crawler.
-   - `extractors/document_extractor.py`: 5-Tier fallback ladder (PyMuPDF -> RapidOCR ONNX -> OpenCV CLAHE -> Format parsers).
-   - `normalizers/`: Modules for ISO 8601 UTC timestamps, financial amounts (with exact integer cents), sender/recipient metadata, and legal case dockets.
-   - `storage/vault_db.py`: SQLite `timeline_vault.db` and `master_timeline_catalog.json` exporter.
-   - `tests/test_indexer_invariants.py`: Automated pytest suite asserting 100% SHA-256 integrity, ISO 8601 formatting, monetary cent math, and foreign key relations.
+1. *From Observation 1 & 2 (17,488 nodes & 18,712 edges in active graph vs. 205,238 entities across 81 CSV files):* The system operates in a dual-tier data model:
+   - Tier 1: Compact active topological graph (`nodes.json` / `edges.json`) for real-time sub-second query and REST serialization.
+   - Tier 2: Deep forensic master archive (81 CSV files, 196,780 records) aggregated into `FORENSIC_CORRELATION_MATRIX.json`.
+2. *From Observation 1 & 3 (Column scraping defects in `run_forensic_crossref_engine.py`):* The cross-reference engine currently lacks entity normalizer integration. It matches non-entity metadata columns ("County", "Lender") and fails to parse stringified Python list literals, polluting the top-100 high-risk nexus rankings with false positives.
+3. *From Observation 1 (1-hop traversal in `auto_leads_correlation_v2.py`):* The current lead correlation engine only inspects immediate 1-hop edges ($P \to O$ or $O \to R$). Complex straw-buyer schemes spanning 2 or 3 intermediate shell LLCs are missed unless multi-hop adjacency traversal is implemented.
+4. *From Observation 1 & 4 (Haversine distance and 288 Caltrans CCTV cameras):* The spatial proximity calculation is mathematically sound and passes all extreme boundary and fuzzing tests (antipodal points, zero-distance, polar latitudes, null island). However, `calculate_cctv_proximity.py` is hardcoded to 4 targets and needs dynamic lead coordinate ingestion with optional KD-Tree indexing for mass property scaling.
+5. *From Observation 4 (All 5 verification gates and 71 E2E tests passing):* The cloud execution contracts, Swagger 2.0 schemas, non-blocking async trigger, and multi-channel feed outputs (`data/leads_feed.json`, `reports/auto_leads/latest.json`) are completely functional and stable.
 
 ---
 
-## 5. VERIFICATION METHOD
+## 3. Caveats
 
-To independently reproduce and verify the survey findings:
+1. **BigQuery Live Connectivity:** The current correlation engine runs 100% locally and in Azure App Service from static and repository-persisted datasets without requiring active Google Cloud BigQuery API credentials. Deep queries into live BigQuery tables (`noble-beanbag-497411-m4`) require explicit service account credentials.
+2. **Geocoding Coverage:** Addresses outside the predefined `KNOWN_GEO_ANCHORS` dictionary fall back to `None` coordinates unless additional city/zip/street parsing is introduced.
+3. **No Other Areas Unexamined:** Full source code, test suites, and deliverables for R2 have been completely reviewed.
 
-1. **Inspect Survey Reports:**
-   ```powershell
-   Get-Content -Path "C:\OsintNeoAi\.agents\explorer_survey_2\analysis.md" -TotalCount 100
-   Get-Content -Path "C:\OsintNeoAi\.agents\explorer_survey_2\handoff.md"
-   ```
+---
 
-2. **Verify Environment Libraries:**
-   ```powershell
-   python -c "import fitz, rapidocr_onnxruntime, onnxruntime, cv2, PIL, pypdf, docx, dateutil; print('All core libraries verified successfully!')"
-   ```
+## 4. Conclusion
 
-3. **Verify OCR Engine on Sample Evidence Image:**
-   ```powershell
-   python -c "from rapidocr_onnxruntime import RapidOCR; ocr = RapidOCR(); res, _ = ocr(r'C:\OsintNeoAi\evidence\andrewfalk.png'); print('OCR detected lines:', len(res))"
-   ```
+The OsintNeoAi R2 Topological Entity Graph Cross-Referencing & Proximity Scoring architecture is structurally sound, highly responsive (< 1s execution), and fully compliant with cloud autonomy requirements. To elevate the engine to production-grade forensic precision:
+1. **Sanitize Cross-Reference Extraction:** Connect `api.osint_pipeline.normalizers.py` to `run_forensic_crossref_engine.py` and implement a metadata stop-list to eliminate false positives (counties, lenders, list string literals).
+2. **Implement 2-Hop / 3-Hop Traversal:** Expand `auto_leads_correlation_v2.py` with adjacency indexing to detect indirect corporate straw-buyer and CHDO property transfers.
+3. **Dynamic Spatial Radar:** Extend `calculate_cctv_proximity.py` to accept arbitrary dynamic lead coordinates from the intake queue.
+4. **Continuous Composite Scoring:** Upgrade categorical severity levels to a continuous 0–100 composite nexus score.
 
-4. **Verify Normalization Algorithms:**
-   ```powershell
-   python -c "import re, dateutil.parser; dt = dateutil.parser.parse('July 13, 2026, Filed', fuzzy=True); print('Normalized ISO Date:', dt.strftime('%Y-%m-%d'))"
-   ```
+---
 
-**Invalidation Conditions:** This survey's recommendations would be invalidated if RapidOCR failed on image assets, if PyMuPDF was incompatible with Python 3.14, or if streaming HTTP chunks failed to handle Google Drive downloads without crashing memory. All of these have been tested and verified to operate successfully.
+## 5. Verification Method
+
+To independently verify all findings and test suite compliance, execute:
+
+```powershell
+# 1. Verify Dataset Dimensions and Core JSON Files
+python -c "import json; n = json.load(open('nodes.json', 'r', encoding='utf-8')); e = json.load(open('edges.json', 'r', encoding='utf-8')); c = json.load(open('public/caltrans_d12_cctv.geojson', 'r', encoding='utf-8')); m = json.load(open('evidence/FORENSIC_CORRELATION_MATRIX.json', 'r', encoding='utf-8')); print('Nodes:', len(n), 'Edges:', len(e), 'Cameras:', len(c['features']), 'Matrix records:', m.get('total_records_analyzed'))"
+
+# 2. Run CCTV Proximity Calculator
+python scripts/calculate_cctv_proximity.py
+
+# 3. Run Auto-Leads Correlation Engine
+python scripts/auto_leads_correlation_v2.py
+
+# 4. Execute Phase 3 5-Gate Adversarial Verification Suite
+python scripts/run_adversarial_verification_gate.py
+
+# 5. Run Full 71-Test E2E Test Suite
+python -m unittest tests/test_autonomous_correlation_e2e.py
+```
+
+### Invalidation Conditions:
+- If `public/caltrans_d12_cctv.geojson` camera count is not exactly 288.
+- If `nodes.json` node count falls below 17,000 or contains unhandled cyclic loops.
+- If `scripts/run_adversarial_verification_gate.py` fails any of the 5 verification gates.

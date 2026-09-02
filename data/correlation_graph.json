@@ -1,0 +1,26 @@
+{
+  "nodes": [
+    {
+      "id": "entity_0",
+      "label": "596 462 1680",
+      "type": "phone",
+      "sources": [
+        "google_photos"
+      ],
+      "confidence": 0.6
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_0",
+      "source": "entity_0",
+      "target": "entity_0",
+      "type": "co-occurrence",
+      "weight": 1.0
+    }
+  ],
+  "metadata": {
+    "total_entities": 1,
+    "generated": "2026-09-01T12:16:48.235449"
+  }
+}

@@ -1,17 +1,14 @@
-## 2026-08-27T07:03:49Z
-You are Challenger 1 (Adversarial Verifier 1).
-Your working directory is: C:\OsintNeoAi\.agents\challenger_1\
-Please read C:\OsintNeoAi\ORIGINAL_REQUEST.md, C:\OsintNeoAi\PROJECT.md, and C:\OsintNeoAi\AGENTS.md before starting.
+﻿## 2026-09-02T08:34:52Z
+You are Challenger 1 for OsintNeoAi.
+Working directory: C:\OsintNeoAi\.agents\challenger_1\
+Project root: C:\OsintNeoAi
+Original Request: C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md (MUST read first)
+Project Scope: C:\OsintNeoAi\PROJECT.md
 
-MISSION:
-Perform code-executing adversarial stress-testing against all official court records in `C:\OsintNeoAi\evidence\official_court_records\` and the test suite `tests/test_official_documents.py`.
-
-REQUIREMENTS:
-1. Write and execute independent stress-test scripts / validation harnesses in Python to probe for edge cases:
-   - Broken Markdown tables, unescaped pipes, corrupt metadata headers.
-   - Missing or duplicated ROA entries (verifying exact 1..61 count).
-   - Broken internal file paths and links in `OFFICIAL_DOCUMENTS_INDEX.md`.
-   - Discrepancies in case numbers, dates, dollar figures, or statutory citations across all documents.
-2. Report pass/fail for each stress test.
-3. Issue an explicit verdict: **APPROVE** or **REQUEST_CHANGES** in your `handoff.md`.
-4. Maintain progress.md and send a completion message to parent.
+Task:
+Empirically challenge and adversarially test Graph & Spatial Proximity (Gate 3 & R2):
+1. Execute spatial fuzzing against all 288 Caltrans District 12 CCTV cameras in `public/caltrans_d12_cctv.geojson` and `evidence/caltrans_d12_cctv.geojson`. Test boundary coordinates (polar, equator, antipodal, zero-distance).
+2. Validate graph integrity across 17,488 nodes and 18,712 edges in `nodes.json` and `edges.json`.
+3. Run `scripts/calculate_cctv_proximity.py` and verify `evidence/target_cctv_proximity.json`.
+4. Run graph correlation across the 6+ vectors (`scripts/auto_leads_correlation_v2.py`).
+5. Deliver your structured challenger verdict (APPROVE or REQUEST_CHANGES) with empirical evidence in `C:\OsintNeoAi\.agents\challenger_1\handoff.md` and send a message back to parent.

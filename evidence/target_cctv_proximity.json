@@ -1,0 +1,249 @@
+{
+  "targets_coverage": [
+    {
+      "target": {
+        "id": "DOVE_ST",
+        "name": "1601 Dove Street",
+        "lat": 33.6558,
+        "lon": -117.8682,
+        "city": "Newport Beach",
+        "type": "Corporate Nexus"
+      },
+      "nearest_cameras": [
+        {
+          "id": "2903",
+          "location": "SR-73 : Jamboree Road",
+          "route": "SR-73",
+          "direction": "North",
+          "postmile": 24.76,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB73JamboreeRd.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr73jamboreeroad/sr73jamboreeroad.jpg",
+          "lat": 33.655669999691874,
+          "lon": -117.86437000026957,
+          "distance_miles": 0.22
+        },
+        {
+          "id": "2682",
+          "location": "SR-73 : South of Birch Street Overcross",
+          "route": "SR-73",
+          "direction": "North",
+          "postmile": 25.31,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB73SOBirchSt.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr73southofbirchstreetovercross/sr73southofbirchstreetovercross.jpg",
+          "lat": 33.66050000037047,
+          "lon": -117.87175999993754,
+          "distance_miles": 0.38
+        },
+        {
+          "id": "2902",
+          "location": "SR-73 : South of University Drive Undercross",
+          "route": "SR-73",
+          "direction": "North",
+          "postmile": 24.3,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB73UniversityDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr73southofuniversitydriveundercross/sr73southofuniversitydriveundercross.jpg",
+          "lat": 33.649399999673385,
+          "lon": -117.86101000017136,
+          "distance_miles": 0.61
+        },
+        {
+          "id": "2683",
+          "location": "SR-73 : North of Campus Drive Overcross",
+          "route": "SR-73",
+          "direction": "North",
+          "postmile": 25.74,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB73NOCampusDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr73northofcampusdriveovercross/sr73northofcampusdriveovercross.jpg",
+          "lat": 33.66405999966863,
+          "lon": -117.87686999995594,
+          "distance_miles": 0.76
+        }
+      ],
+      "coverage_radius_miles": 0.22
+    },
+    {
+      "target": {
+        "id": "CAMERON_LN",
+        "name": "17631 Cameron Lane",
+        "lat": 33.7028,
+        "lon": -117.9944,
+        "city": "Huntington Beach",
+        "type": "Residential Proxy"
+      },
+      "nearest_cameras": [
+        {
+          "id": "2808",
+          "location": "I-405 : South of Newland Street",
+          "route": "I-405",
+          "direction": "North",
+          "postmile": 15.65,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB405Newland.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i405southofnewlandstreet/i405southofnewlandstreet.jpg",
+          "lat": 33.72470699969307,
+          "lon": -117.977332000099,
+          "distance_miles": 1.8
+        },
+        {
+          "id": "2807",
+          "location": "I-405 : South of Magnolia",
+          "route": "I-405",
+          "direction": "North",
+          "postmile": 14.9,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB405Magnolia.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i405southofmagnolia/i405southofmagnolia.jpg",
+          "lat": 33.71707000024305,
+          "lon": -117.96788000034134,
+          "distance_miles": 1.82
+        },
+        {
+          "id": "2806",
+          "location": "I-405 : South of Warner Avenue",
+          "route": "I-405",
+          "direction": "North",
+          "postmile": 14.57,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB405Warner.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i405southofwarneravenue/i405southofwarneravenue.jpg",
+          "lat": 33.71362999973928,
+          "lon": -117.96393000023923,
+          "distance_miles": 1.9
+        },
+        {
+          "id": "2809",
+          "location": "I-405 : Beach Blvd",
+          "route": "I-405",
+          "direction": "South",
+          "postmile": 16.5,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB405Edinger.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i405beachblvd/i405beachblvd.jpg",
+          "lat": 33.73263899975613,
+          "lon": -117.98863800043219,
+          "distance_miles": 2.09
+        }
+      ],
+      "coverage_radius_miles": 1.8
+    },
+    {
+      "target": {
+        "id": "CENTER_AVE",
+        "name": "7561 Center Ave",
+        "lat": 33.7389,
+        "lon": -118.0016,
+        "city": "Huntington Beach",
+        "type": "Commercial Hub"
+      },
+      "nearest_cameras": [
+        {
+          "id": "2810",
+          "location": "I-405 : Goldenwest Avenue",
+          "route": "I-405",
+          "direction": "North",
+          "postmile": 17.79,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB405Goldenwest.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i405goldenwestavenue/i405goldenwestavenue.jpg",
+          "lat": 33.74514000007794,
+          "lon": -118.00494000008264,
+          "distance_miles": 0.47
+        },
+        {
+          "id": "2809",
+          "location": "I-405 : Beach Blvd",
+          "route": "I-405",
+          "direction": "South",
+          "postmile": 16.5,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB405Edinger.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i405beachblvd/i405beachblvd.jpg",
+          "lat": 33.73263899975613,
+          "lon": -117.98863800043219,
+          "distance_miles": 0.86
+        },
+        {
+          "id": "2929",
+          "location": "I-405 : North of Edwards",
+          "route": "I-405",
+          "direction": "South",
+          "postmile": 18.309,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/SB405NOEdward.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i405northofedwards/i405northofedwards.jpg",
+          "lat": 33.75032399971862,
+          "lon": -118.01140699966078,
+          "distance_miles": 0.97
+        },
+        {
+          "id": "2931",
+          "location": "I-405 : South of Edwards",
+          "route": "I-405",
+          "direction": "North",
+          "postmile": 18.362,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB405SOEdward.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i405southofedwards/i405southofedwards.jpg",
+          "lat": 33.75103240020404,
+          "lon": -118.01140699966078,
+          "distance_miles": 1.01
+        }
+      ],
+      "coverage_radius_miles": 0.47
+    },
+    {
+      "target": {
+        "id": "BEACH_BLVD",
+        "name": "17642 Beach Blvd",
+        "lat": 33.7029,
+        "lon": -117.9892,
+        "city": "Huntington Beach",
+        "type": "Contamination Zone"
+      },
+      "nearest_cameras": [
+        {
+          "id": "2807",
+          "location": "I-405 : South of Magnolia",
+          "route": "I-405",
+          "direction": "North",
+          "postmile": 14.9,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB405Magnolia.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i405southofmagnolia/i405southofmagnolia.jpg",
+          "lat": 33.71707000024305,
+          "lon": -117.96788000034134,
+          "distance_miles": 1.57
+        },
+        {
+          "id": "2806",
+          "location": "I-405 : South of Warner Avenue",
+          "route": "I-405",
+          "direction": "North",
+          "postmile": 14.57,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB405Warner.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i405southofwarneravenue/i405southofwarneravenue.jpg",
+          "lat": 33.71362999973928,
+          "lon": -117.96393000023923,
+          "distance_miles": 1.63
+        },
+        {
+          "id": "2808",
+          "location": "I-405 : South of Newland Street",
+          "route": "I-405",
+          "direction": "North",
+          "postmile": 15.65,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB405Newland.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i405southofnewlandstreet/i405southofnewlandstreet.jpg",
+          "lat": 33.72470699969307,
+          "lon": -117.977332000099,
+          "distance_miles": 1.65
+        },
+        {
+          "id": "2805",
+          "location": "I-405 : Brookhurst Street",
+          "route": "I-405",
+          "direction": "North",
+          "postmile": 13.847,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB405Brookhurst.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i405brookhurststreet/i405brookhurststreet.jpg",
+          "lat": 33.706359999817586,
+          "lon": -117.95483999998152,
+          "distance_miles": 1.99
+        }
+      ],
+      "coverage_radius_miles": 1.57
+    }
+  ],
+  "generated_at": "2026-09-02T09:09:38.686974+00:00"
+}

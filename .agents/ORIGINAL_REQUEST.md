@@ -74,3 +74,107 @@ Generate cryptographic SHA-256 signatures for every ingested artifact. Provide a
 - [ ] SQLite database (timeline_vault.db) and master catalog (master_timeline_catalog.json) are generated in the working directory.
 - [ ] Automated verification script passes 100% of consistency and integrity assertions.
 
+## 2026-09-01T23:50:46Z
+
+Build and deploy a 24/7 continuous autonomous forensic correlation and lead matching pipeline that automatically ingests incoming whistleblower tips, mutual aid reports, and entity datasets, performs topological graph traversal against the 104,000+ entity knowledge graph, computes proximity to 288 Caltrans CCTV feeds, and publishes live JSON correlation feeds and dashboard alerts.
+
+Working directory: `C:\OsintNeoAi`
+Integrity mode: development
+
+## Requirements
+
+### R1. Continuous Lead Ingestion & Normalization
+The system must automatically ingest new incoming leads from all sources (mobile Power Apps intake forms, webhooks, Meta/Facebook DMs, and local intake queues), normalize names, aliases, APNs, addresses, corporate entities, and timestamps, and persist them into the forensic database.
+
+### R2. Topological Entity Graph Cross-Referencing & Proximity Scoring
+The correlation engine must evaluate incoming leads against the 104,000+ entity knowledge graph and 71 forensic datasets. It must compute:
+- Entity convergence and degree centrality.
+- Proximity to known high-risk property clusters (e.g., Ascon superfund, Magnolia corridor, HB shell hubs).
+- Spatial distance to 288 Caltrans CCTV cameras.
+- Straw-buyer and corporate nexus confidence scores.
+
+### R3. Automated Cloud Background Scheduler
+The pipeline must run autonomously in Microsoft Azure Cloud at configurable periodic intervals (default: every 2 hours) with an on-demand async/sync REST trigger override (`POST /api/correlation/run`). It must maintain zero CPU/RAM/battery load on the local client machine.
+
+### R4. Multi-Channel Alert & Feed Serialization
+Generate structured, schema-validated JSON deliverables (`data/leads_feed.json`, `evidence/FORENSIC_CORRELATION_MATRIX.json`) and Markdown summary reports (`reports/auto_leads/latest.json`). Expose real-time query endpoints (`/api/leads`, `/api/correlation/status`, `/api/correlate`) consumed by the Power Apps Custom Connector, Syncfusion Grid, and God's Eye View 3D Globe.
+
+## Verification Resources
+
+The implementing agent team should leverage and extend existing workspace assets for testing and validation:
+- Ingestion modules: `api/app.py`, `api/auto_correlation.py`
+- Forensic cross-reference engine: `scripts/run_forensic_crossref_engine.py`
+- CCTV proximity calculator: `scripts/calculate_cctv_proximity.py`
+- Auto-leads runner: `scripts/auto_leads_correlation_v2.py`
+- Connector verification suite: `scripts/verify_powerapps_connector.py`
+- Primary datasets: `evidence/FORENSIC_CORRELATION_MATRIX.json`, `evidence/caltrans_d12_cctv.geojson`, `evidence/openosint_nodes.json`
+
+## Acceptance Criteria
+
+### Ingestion & Correlation Accuracy
+- [ ] Ingests test cases (including mock whistleblower submissions) without schema degradation or data loss.
+- [ ] Cross-referencing correctly links target entities to existing graph clusters and assigns verified risk scores.
+- [ ] Spatial proximity calculations to 288 CCTV feeds complete accurately without null pointer exceptions.
+
+### API & Pipeline Reliability
+- [ ] `GET /api/correlation/status` returns `auto_correlation_available: true` and active scheduler telemetry.
+- [ ] `POST /api/correlation/run?async=1` triggers non-blocking execution and returns `status: triggered`.
+- [ ] `GET /api/leads` returns valid, non-empty leads array adhering to the feed schema.
+
+### Cloud Autonomy & Data Integrity
+- [ ] Operates 100% in Azure cloud with zero local scheduled tasks or background daemons.
+- [ ] All generated reports and correlation matrices conform to verified JSON schemas and are backed up per the 3-location protocol.
+
+
+## 2026-09-02T08:28:48Z
+
+Build and deploy a 24/7 continuous autonomous forensic correlation and lead matching pipeline that automatically ingests incoming whistleblower tips, mutual aid reports, and entity datasets, performs topological graph traversal against the 104,000+ entity knowledge graph, computes proximity to 288 Caltrans CCTV feeds, and publishes live JSON correlation feeds and dashboard alerts.
+
+Working directory: `C:\OsintNeoAi`
+Integrity mode: development
+
+## Requirements
+
+### R1. Continuous Lead Ingestion & Normalization
+The system must automatically ingest new incoming leads from all sources (mobile Power Apps intake forms, webhooks, Meta/Facebook DMs, and local intake queues), normalize names, aliases, APNs, addresses, corporate entities, and timestamps, and persist them into the forensic database.
+
+### R2. Topological Entity Graph Cross-Referencing & Proximity Scoring
+The correlation engine must evaluate incoming leads against the 104,000+ entity knowledge graph and 71 forensic datasets. It must compute:
+- Entity convergence and degree centrality.
+- Proximity to known high-risk property clusters (e.g., Ascon superfund, Magnolia corridor, HB shell hubs).
+- Spatial distance to 288 Caltrans CCTV cameras.
+- Straw-buyer and corporate nexus confidence scores.
+
+### R3. Automated Cloud Background Scheduler
+The pipeline must run autonomously in Microsoft Azure Cloud at configurable periodic intervals (default: every 2 hours) with an on-demand async/sync REST trigger override (`POST /api/correlation/run`). It must maintain zero CPU/RAM/battery load on the local client machine.
+
+### R4. Multi-Channel Alert & Feed Serialization
+Generate structured, schema-validated JSON deliverables (`data/leads_feed.json`, `evidence/FORENSIC_CORRELATION_MATRIX.json`) and Markdown summary reports (`reports/auto_leads/latest.json`). Expose real-time query endpoints (`/api/leads`, `/api/correlation/status`, `/api/correlate`) consumed by the Power Apps Custom Connector, Syncfusion Grid, and God's Eye View 3D Globe.
+
+## Verification Resources
+
+The implementing agent team should leverage and extend existing workspace assets for testing and validation:
+- Ingestion modules: `api/app.py`, `api/auto_correlation.py`, `api/osint_pipeline/normalizers.py`
+- Forensic cross-reference engine: `scripts/run_forensic_crossref_engine.py`
+- CCTV proximity calculator: `scripts/calculate_cctv_proximity.py`
+- Auto-leads runner: `scripts/auto_leads_correlation_v2.py`
+- 5-Gate Adversarial suite: `scripts/run_adversarial_verification_gate.py`
+- 71-test E2E suite: `tests/test_autonomous_correlation_e2e.py`
+- Primary datasets: `evidence/FORENSIC_CORRELATION_MATRIX.json`, `public/caltrans_d12_cctv.geojson`, `public/openosint_nodes.json`
+
+## Acceptance Criteria
+
+### Ingestion & Correlation Accuracy
+- [ ] Ingests test cases (including mock whistleblower submissions) without schema degradation or data loss.
+- [ ] Cross-referencing correctly links target entities to existing graph clusters and assigns verified risk scores.
+- [ ] Spatial proximity calculations to 288 CCTV feeds complete accurately without null pointer exceptions.
+
+### API & Pipeline Reliability
+- [ ] `GET /api/correlation/status` returns `auto_correlation_available: true` and active scheduler telemetry.
+- [ ] `POST /api/correlation/run?async=1` triggers non-blocking execution and returns `status: triggered`.
+- [ ] `GET /api/leads` returns valid, non-empty leads array adhering to the feed schema.
+
+### Cloud Autonomy & Data Integrity
+- [ ] Operates 100% in Azure cloud with zero local scheduled tasks or background daemons.
+- [ ] All generated reports and correlation matrices conform to verified JSON schemas and are backed up per the 3-location protocol.
+- [ ] All 5 verification gates (Code Quality, Cloud Contracts, Spatial Fuzzing, Concurrency, and Forensic Integrity) pass with 100% compliance.
