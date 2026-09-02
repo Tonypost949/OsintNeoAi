@@ -1,0 +1,42 @@
+{
+  "file_id": "rec_1d7884374c0c3dc3",
+  "sha256": "1d7884374c0c3dc30cc8e30c18e03219dfaf6dcec7e50f05e184bf35502cdce0",
+  "filename": "doc2.txt",
+  "source_uri": "C:\\Users\\Amd949609\\AppData\\Local\\Temp\\pytest-of-Amd949609\\pytest-59\\test_scenario_09_full_catalog_0\\full_corpus\\doc2.txt",
+  "mime_type": "text/plain",
+  "extraction_tier": "plaintext_reader",
+  "page_count": 1,
+  "normalized_date": "2021-12-08",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "HCD Notice of Violation penalty $96,000,000 on Dec 8, 2021",
+      "avg_confidence": 1.0,
+      "extraction_tier": "plaintext_reader",
+      "lines": [
+        {
+          "text": "HCD Notice of Violation penalty $96,000,000 on Dec 8, 2021",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        }
+      ]
+    }
+  ],
+  "entities_discovered": [
+    "$96,000,000"
+  ],
+  "case_numbers": [],
+  "financial_amounts": [
+    {
+      "raw": "$96,000,000",
+      "amount_float": 96000000.0,
+      "amount_cents": 9600000000,
+      "currency": "USD"
+    }
+  ]
+}

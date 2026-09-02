@@ -1,0 +1,37 @@
+{
+  "file_id": "rec_46db18033b37e4da",
+  "sha256": "46db18033b37e4dadb6d2a42336ee1fd7434d09dece82f5b23635dcc48aeae43",
+  "filename": "doc1.txt",
+  "source_uri": "C:\\Users\\Amd949609\\AppData\\Local\\Temp\\pytest-of-Amd949609\\pytest-59\\test_scenario_09_full_catalog_0\\full_corpus\\doc1.txt",
+  "mime_type": "text/plain",
+  "extraction_tier": "plaintext_reader",
+  "page_count": 1,
+  "normalized_date": "2022-05-24",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "Anaheim Council Resolution 2022-064 on May 24, 2022",
+      "avg_confidence": 1.0,
+      "extraction_tier": "plaintext_reader",
+      "lines": [
+        {
+          "text": "Anaheim Council Resolution 2022-064 on May 24, 2022",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        }
+      ]
+    }
+  ],
+  "entities_discovered": [
+    "ENT-MUN-4B5794FC"
+  ],
+  "case_numbers": [
+    "Anaheim City Council Resolution No. 2022-064"
+  ],
+  "financial_amounts": []
+}

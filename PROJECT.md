@@ -49,16 +49,16 @@ Every requirement and discovered capability is indexed and assigned to a milesto
 ## Milestones
 | # | Name | Scope | Dependencies | Status |
 |---|------|-------|-------------|--------|
-| M1 | Master Sheet Sync & Entity Normalizer | 40-tab parser, registry validators (`PER-`, `GOV-`, `CON-`, `SHL-`, `EV-`, `RICO-`, `TOX-`, `UP-`), CASS address/APN sanitizers, offline fallback | none | PLANNED |
-| M2 | Neural OCR & Evidence Ingestion Engine | RapidOCR ONNX + PyMuPDF 5-tier extraction ladder, streaming archive reader, constant-memory SHA-256 hasher, 3NF SQLite vault, bounding box JSON generator | none | PLANNED |
-| M3 | BigQuery Graph Mapping & Spatial Correlation | BigQuery schemas for `noble-beanbag-497411-m4`, 6 lead correlation vectors, 288 Caltrans CCTV geodesic solver, JSON feed generator | M1, M2 | PLANNED |
-| M4 | 3-Location Backup & Verification Integration | Full 3-location synchronization engine (GitHub main, Local PC C:\, Google Drive Sharedall/OsintNeoAi/), manifest validation, invariant verification runners | M1, M2, M3 | PLANNED |
-| M5 | Final E2E Test Pass & Adversarial Hardening | Execute 100% of E2E Test Suite (Tiers 1-4) published by E2E Testing Track, run Tier 5 white-box adversarial stress tests, verify zero data loss | M1, M2, M3, M4, TEST_READY | PLANNED |
+| M1 | Master Sheet Sync & Entity Normalizer | 40-tab parser, registry validators (`PER-`, `GOV-`, `CON-`, `SHL-`, `EV-`, `RICO-`, `TOX-`, `UP-`), CASS address/APN sanitizers, offline fallback | none | DONE |
+| M2 | Neural OCR & Evidence Ingestion Engine | RapidOCR ONNX + PyMuPDF 5-tier extraction ladder, streaming archive reader, constant-memory SHA-256 hasher, 3NF SQLite vault, bounding box JSON generator | none | DONE |
+| M3 | BigQuery Graph Mapping & Spatial Correlation | BigQuery schemas for `noble-beanbag-497411-m4`, 6 lead correlation vectors, 288 Caltrans CCTV geodesic solver, JSON feed generator | M1, M2 | DONE |
+| M4 | 3-Location Backup & Verification Integration | Full 3-location synchronization engine (GitHub main, Local PC C:\, Google Drive Sharedall/OsintNeoAi/), manifest validation, invariant verification runners | M1, M2, M3 | DONE |
+| M5 | Final E2E Test Pass & Adversarial Hardening | Execute 100% of E2E Test Suite (Tiers 1-4) published by E2E Testing Track, run Tier 5 white-box adversarial stress tests, verify zero data loss | M1, M2, M3, M4, TEST_READY | DONE |
 
 ## Interface Contracts
 
 ### Master Sheet Sync ↔ Graph & Entity Resolver
-- Input: Google Sheet ID `1hKx1-8YnvrvAv9H6AQunli3dFSwsyIB3rF1yluO2Y1U` or cached CSVs in `master_osint_sheet/*.csv` / `evidence/google_drive/gsheet_1hKx1-8YnvrvAv9H6AQunli3dFSwsyIB3rF1yluO2Y1U.csv`
+- Input: Google Sheet ID `1hKx1-8YnvrvAv9H6AQunli3dFSwsyIB3rF1yluO2Y1U` or cached CSVs in `master_osint_sheet/*.csv`
 - Output Schema:
   ```json
   {

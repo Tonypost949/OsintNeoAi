@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-02T09:09:52.949141+00:00",
-  "total_records_analyzed": 197241,
-  "unique_entities_resolved": 205388,
-  "unique_properties_tracked": 71500,
+  "generated_at": "2026-09-02T18:43:10.002636+00:00",
+  "total_records_analyzed": 196822,
+  "unique_entities_resolved": 205270,
+  "unique_properties_tracked": 71389,
   "high_risk_nexus_targets": [
     {
       "entity": "['amd949609@gmail.com']",
@@ -56,8 +56,8 @@
       "entity": "Harvest Small Business Finance, LLC",
       "risk_score": 7910,
       "roles": [
-        "Source: ppp_rico_ppp_150k_plus.c",
         "Source: forensic_layers_lender_f",
+        "Source: ppp_rico_ppp_150k_plus.c",
         "Source: ppp_rico_ppp_up_to_150k."
       ],
       "record_count": 0
@@ -148,8 +148,8 @@
       "risk_score": 4770,
       "roles": [
         "Source: ppp_rico_mercy_oc_crossr",
-        "Source: ppp_rico_ppp_150k_plus.c",
-        "Source: forensic_layers_ppp_prop"
+        "Source: forensic_layers_ppp_prop",
+        "Source: ppp_rico_ppp_150k_plus.c"
       ],
       "record_count": 0
     },
@@ -382,8 +382,8 @@
       "risk_score": 2320,
       "roles": [
         "Source: ppp_rico_century_housing",
-        "Source: ppp_rico_ppp_up_to_150k.",
-        "Source: ppp_rico_mercy_oc_crossr"
+        "Source: ppp_rico_mercy_oc_crossr",
+        "Source: ppp_rico_ppp_up_to_150k."
       ],
       "record_count": 0
     },
@@ -652,10 +652,10 @@
       "entity": "BELAVITA LLC",
       "risk_score": 1415,
       "roles": [
-        "Source: ppp_rico_hb_llcs.csv",
         "Source: ppp_rico_beach_blvd_clus",
-        "Source: hb_church_osint_properti",
-        "Source: ppp_rico_v_mailbox_clust"
+        "Source: ppp_rico_v_mailbox_clust",
+        "Source: ppp_rico_hb_llcs.csv",
+        "Source: hb_church_osint_properti"
       ],
       "record_count": 0
     },

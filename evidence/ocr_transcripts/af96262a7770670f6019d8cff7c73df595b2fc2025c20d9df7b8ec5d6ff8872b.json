@@ -1,0 +1,106 @@
+{
+  "file_id": "rec_af96262a7770670f",
+  "sha256": "af96262a7770670f6019d8cff7c73df595b2fc2025c20d9df7b8ec5d6ff8872b",
+  "filename": "USA_v_Sidhu_8_23_cr_00108_Plea.txt",
+  "source_uri": "C:\\Users\\Amd949609\\AppData\\Local\\Temp\\pytest-of-Amd949609\\pytest-59\\test_scenario_01_angel_stadium0\\angel_stadium_evidence\\USA_v_Sidhu_8_23_cr_00108_Plea.txt",
+  "mime_type": "text/plain",
+  "extraction_tier": "plaintext_reader",
+  "page_count": 1,
+  "normalized_date": "2023-08-16",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "UNITED STATES DISTRICT COURT CENTRAL DISTRICT OF CALIFORNIA\r\nUNITED STATES OF AMERICA v. HARRY SIDHU\r\nCase No. 8:23-cr-00108-CJC\r\nFiling Date: August 16, 2023\r\nDefendant Harry Sidhu pleads guilty to 18 U.S.C. § 1001 (False Statements) and 18 U.S.C. § 1343 (Wire Fraud).\r\nInvestigated by FBI Special Agent Brian Adkins following the May 16, 2022 search warrant affidavit.\r\nDefendant provided confidential city negotiation data to Todd Ament and Anaheim Chamber of Commerce lobbyists.",
+      "avg_confidence": 1.0,
+      "extraction_tier": "plaintext_reader",
+      "lines": [
+        {
+          "text": "UNITED STATES DISTRICT COURT CENTRAL DISTRICT OF CALIFORNIA\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "UNITED STATES OF AMERICA v. HARRY SIDHU\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Case No. 8:23-cr-00108-CJC\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Filing Date: August 16, 2023\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Defendant Harry Sidhu pleads guilty to 18 U.S.C. § 1001 (False Statements) and 18 U.S.C. § 1343 (Wire Fraud).\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Investigated by FBI Special Agent Brian Adkins following the May 16, 2022 search warrant affidavit.\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Defendant provided confidential city negotiation data to Todd Ament and Anaheim Chamber of Commerce lobbyists.",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        }
+      ]
+    }
+  ],
+  "entities_discovered": [
+    "ENT-IND-88B9E648",
+    "ENT-IND-88B9E648",
+    "ENT-MUN-4B5794FC",
+    "ENT-MUN-4B5794FC",
+    "ENT-IND-63C95B82",
+    "ENT-IND-8B2716D7",
+    "ENT-LEG-D9B09959",
+    "ENT-LEG-78CF8D3F",
+    "ENT-LEG-0586223B"
+  ],
+  "case_numbers": [
+    "8:23-cr-00108-CJC",
+    "18 U.S.C. § 1343"
+  ],
+  "financial_amounts": []
+}

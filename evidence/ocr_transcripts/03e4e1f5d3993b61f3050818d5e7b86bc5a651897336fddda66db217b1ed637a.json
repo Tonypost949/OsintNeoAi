@@ -1,0 +1,35 @@
+{
+  "file_id": "rec_03e4e1f5d3993b61",
+  "sha256": "03e4e1f5d3993b61f3050818d5e7b86bc5a651897336fddda66db217b1ed637a",
+  "filename": "investigation_bundle.zip#audit.txt",
+  "source_uri": "zip://C:\\Users\\Amd949609\\AppData\\Local\\Temp\\pytest-of-Amd949609\\pytest-59\\test_scenario_06_heterogeneous0\\zip_evidence\\investigation_bundle.zip#audit.txt",
+  "mime_type": "text/plain",
+  "extraction_tier": "plaintext_reader",
+  "page_count": 1,
+  "normalized_date": null,
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "JL Investigation Independent Forensic Audit 2022",
+      "avg_confidence": 1.0,
+      "extraction_tier": "plaintext_reader",
+      "lines": [
+        {
+          "text": "JL Investigation Independent Forensic Audit 2022",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        }
+      ]
+    }
+  ],
+  "entities_discovered": [
+    "ENT-COM-38D89B99"
+  ],
+  "case_numbers": [],
+  "financial_amounts": []
+}

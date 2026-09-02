@@ -1,0 +1,50 @@
+{
+  "file_id": "rec_1bdcf7fd8bd8a631",
+  "sha256": "1bdcf7fd8bd8a631fac41fd0c957a091bab54affa1924a7dce0f37cfeab58f6f",
+  "filename": "affidavit.txt",
+  "source_uri": "C:\\Users\\Amd949609\\AppData\\Local\\Temp\\pytest-of-Amd949609\\pytest-59\\test_pipeline_local_crawler_fi0\\evidence_files\\affidavit.txt",
+  "mime_type": "text/plain",
+  "extraction_tier": "plaintext_reader",
+  "page_count": 1,
+  "normalized_date": "2022-04-10",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "FBI Special Agent Brian Adkins search warrant affidavit regarding Mayor Harry Sidhu and Todd Ament in USDC CDCA Case No. 8:23-cr-00108-CJC. Wire transfer $350,000 to TA Group LLC on 2022-04-10.",
+      "avg_confidence": 1.0,
+      "extraction_tier": "plaintext_reader",
+      "lines": [
+        {
+          "text": "FBI Special Agent Brian Adkins search warrant affidavit regarding Mayor Harry Sidhu and Todd Ament in USDC CDCA Case No. 8:23-cr-00108-CJC. Wire transfer $350,000 to TA Group LLC on 2022-04-10.",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        }
+      ]
+    }
+  ],
+  "entities_discovered": [
+    "ENT-IND-88B9E648",
+    "ENT-IND-63C95B82",
+    "ENT-IND-8B2716D7",
+    "ENT-FIN-EB8759BD",
+    "ENT-LEG-D9B09959",
+    "ENT-LEG-78CF8D3F",
+    "ENT-LEG-0586223B"
+  ],
+  "case_numbers": [
+    "8:23-cr-00108-CJC"
+  ],
+  "financial_amounts": [
+    {
+      "raw": "$350,000",
+      "amount_float": 350000.0,
+      "amount_cents": 35000000,
+      "currency": "USD"
+    }
+  ]
+}

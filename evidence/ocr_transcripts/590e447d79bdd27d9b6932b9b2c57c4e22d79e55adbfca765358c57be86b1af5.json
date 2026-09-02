@@ -1,0 +1,84 @@
+{
+  "file_id": "rec_590e447d79bdd27d",
+  "sha256": "590e447d79bdd27d9b6932b9b2c57c4e22d79e55adbfca765358c57be86b1af5",
+  "filename": "Anaheim_Resolution_2022_064.docx",
+  "source_uri": "C:\\Users\\Amd949609\\AppData\\Local\\Temp\\pytest-of-Amd949609\\pytest-59\\test_scenario_01_angel_stadium0\\angel_stadium_evidence\\Anaheim_Resolution_2022_064.docx",
+  "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "extraction_tier": "docx_native_parser",
+  "page_count": 1,
+  "normalized_date": "2022-05-24",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "# ANAHEIM CITY COUNCIL RESOLUTION NO. 2022-064\n\nDate of Enactment: May 24, 2022\nBE IT RESOLVED that the City Council of the City of Anaheim hereby voids and declares null and void the Purchase and Sale Agreement with SRB Management for the $320M stadium site.\nThe escrow deposit of $50,000,000 shall be returned following the resignation of Mayor Harry Sidhu.",
+      "avg_confidence": 1.0,
+      "extraction_tier": "docx_native_parser",
+      "lines": [
+        {
+          "text": "# ANAHEIM CITY COUNCIL RESOLUTION NO. 2022-064",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Date of Enactment: May 24, 2022",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "BE IT RESOLVED that the City Council of the City of Anaheim hereby voids and declares null and void the Purchase and Sale Agreement with SRB Management for the $320M stadium site.",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "The escrow deposit of $50,000,000 shall be returned following the resignation of Mayor Harry Sidhu.",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        }
+      ]
+    }
+  ],
+  "entities_discovered": [
+    "ENT-IND-88B9E648",
+    "ENT-MUN-4B5794FC",
+    "ENT-MUN-4B5794FC",
+    "ENT-FIN-0FC91918",
+    "ENT-IND-0D8EB615"
+  ],
+  "case_numbers": [
+    "Anaheim City Council Resolution No. 2022-064"
+  ],
+  "financial_amounts": [
+    {
+      "raw": "$320M",
+      "amount_float": 320000000.0,
+      "amount_cents": 32000000000,
+      "currency": "USD"
+    },
+    {
+      "raw": "$50,000,000",
+      "amount_float": 50000000.0,
+      "amount_cents": 5000000000,
+      "currency": "USD"
+    }
+  ]
+}

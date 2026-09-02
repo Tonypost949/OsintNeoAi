@@ -1,0 +1,91 @@
+{
+  "file_id": "rec_8c3be9e64a386ae9",
+  "sha256": "8c3be9e64a386ae984e206aa1bf127ea9399e89fde98c82ad74e3f71bce5ea53",
+  "filename": "Hamilton_PD_Incident_Report_2019.txt",
+  "source_uri": "C:\\Users\\Amd949609\\AppData\\Local\\Temp\\pytest-of-Amd949609\\pytest-59\\test_scenario_03_multistate_po0\\police_evidence\\Hamilton_PD_Incident_Report_2019.txt",
+  "mime_type": "text/plain",
+  "extraction_tier": "plaintext_reader",
+  "page_count": 1,
+  "normalized_date": "2019-10-14",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "HAMILTON TOWNSHIP POLICE DIVISION - INCIDENT REPORT\r\nIncident Case: 2019-00053723\r\nDate: 10/14/2019\r\nLocation: 1456 Cedar Lane, Hamilton NJ 08610\r\nCross-referenced with Ewing Police Department Chain of Custody Case I-2019-001222.\r\nSummons #2020-613 issued under N.J.S.A. 2C:35-10.",
+      "avg_confidence": 1.0,
+      "extraction_tier": "plaintext_reader",
+      "lines": [
+        {
+          "text": "HAMILTON TOWNSHIP POLICE DIVISION - INCIDENT REPORT\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Incident Case: 2019-00053723\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Date: 10/14/2019\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Location: 1456 Cedar Lane, Hamilton NJ 08610\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Cross-referenced with Ewing Police Department Chain of Custody Case I-2019-001222.\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Summons #2020-613 issued under N.J.S.A. 2C:35-10.",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        }
+      ]
+    }
+  ],
+  "entities_discovered": [
+    "ENT-PRP-E6833B9B",
+    "ENT-LEG-73F7B2F6",
+    "ENT-LEG-2D39B1D9"
+  ],
+  "case_numbers": [
+    "POLICE-CASE-2019-00053723",
+    "POLICE-CASE-I-2019-001222",
+    "SUMMONS-2020-613"
+  ],
+  "financial_amounts": []
+}

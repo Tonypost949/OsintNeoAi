@@ -1,0 +1,45 @@
+{
+  "file_id": "REC-1",
+  "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+  "filename": "doc1.pdf",
+  "source_uri": "C:/OsintNeoAi/evidence/doc1.pdf",
+  "mime_type": "application/pdf",
+  "extraction_tier": "pymupdf_native",
+  "page_count": 5,
+  "normalized_date": "2021-12-08T00:00:00Z",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "California HCD issued a Notice of Violation to City of Anaheim regarding Angel Stadium 150-Acre Parcel with $96M penalty.",
+      "avg_confidence": 1.0,
+      "extraction_tier": "pymupdf_native",
+      "lines": [
+        {
+          "text": "California HCD issued a Notice of Violation to City of Anaheim regarding Angel Stadium 150-Acre Parcel with $96M penalty.",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        }
+      ]
+    }
+  ],
+  "entities_discovered": [
+    "ENT-MUN-4B5794FC",
+    "ENT-MUN-4B5794FC",
+    "ENT-PRP-73666CB7",
+    "ENT-LEG-E7DC6868"
+  ],
+  "case_numbers": [],
+  "financial_amounts": [
+    {
+      "raw": "$96M",
+      "amount_float": 96000000.0,
+      "amount_cents": 9600000000,
+      "currency": "USD"
+    }
+  ]
+}

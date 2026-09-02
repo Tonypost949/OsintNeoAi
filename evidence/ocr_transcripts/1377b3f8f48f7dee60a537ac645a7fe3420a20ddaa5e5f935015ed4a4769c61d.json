@@ -1,0 +1,75 @@
+{
+  "file_id": "rec_1377b3f8f48f7dee",
+  "sha256": "1377b3f8f48f7dee60a537ac645a7fe3420a20ddaa5e5f935015ed4a4769c61d",
+  "filename": "wb_log.txt",
+  "source_uri": "C:\\Users\\Amd949609\\AppData\\Local\\Temp\\pytest-of-Amd949609\\pytest-59\\test_scenario_08_whistleblower0\\wb_evidence\\wb_log.txt",
+  "mime_type": "text/plain",
+  "extraction_tier": "plaintext_reader",
+  "page_count": 1,
+  "normalized_date": "2020-09-10",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "CHRONOLOGICAL LOG OF WHISTLEBLOWER DISCLOSURES\r\nEvent 1: 2020-09-10 - Initial disclosure of illegal Chamber contract.\r\nEvent 2: 2021-03-22 - Follow-up report submitted to HCD regulators.\r\nEvent 3: 2021-12-08 - HCD issues formal SLA Notice of Violation.\r\nEvent 4: 2022-05-16 - FBI unseals affidavit detailing public corruption.",
+      "avg_confidence": 1.0,
+      "extraction_tier": "plaintext_reader",
+      "lines": [
+        {
+          "text": "CHRONOLOGICAL LOG OF WHISTLEBLOWER DISCLOSURES\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Event 1: 2020-09-10 - Initial disclosure of illegal Chamber contract.\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Event 2: 2021-03-22 - Follow-up report submitted to HCD regulators.\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Event 3: 2021-12-08 - HCD issues formal SLA Notice of Violation.\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Event 4: 2022-05-16 - FBI unseals affidavit detailing public corruption.",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        }
+      ]
+    }
+  ],
+  "entities_discovered": [
+    "ENT-LEG-0586223B"
+  ],
+  "case_numbers": [],
+  "financial_amounts": []
+}

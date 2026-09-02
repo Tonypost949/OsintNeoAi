@@ -1,0 +1,108 @@
+{
+  "file_id": "rec_03f50f083c5d6855",
+  "sha256": "03f50f083c5d6855b7e65f0ab84174911c48dcac7504808e237c5d7e614bf4d3",
+  "filename": "Quantum_Auto_Dismantler_Invoice_14098.txt",
+  "source_uri": "C:\\Users\\Amd949609\\AppData\\Local\\Temp\\pytest-of-Amd949609\\pytest-59\\test_scenario_03_multistate_po0\\police_evidence\\Quantum_Auto_Dismantler_Invoice_14098.txt",
+  "mime_type": "text/plain",
+  "extraction_tier": "plaintext_reader",
+  "page_count": 1,
+  "normalized_date": "2019-11-02",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "QUANTUM AUTO DISMANTLER - COMMERCIAL INVOICE\r\nInvoice #14098\r\nDate: 11/02/2019\r\nOrigin: 3125 W 5th St, Santa Ana, CA 92703\r\nDestination: 1456 Cedar Lane, Hamilton, NJ 08610\r\nAmount: $4,850.00 Paid via WIRE transfer.\r\nReferenced in USDC D.N.J. Mag. No. 3:20-mj-05007-TJB by FBI SA Bradley H. Zartman.",
+      "avg_confidence": 1.0,
+      "extraction_tier": "plaintext_reader",
+      "lines": [
+        {
+          "text": "QUANTUM AUTO DISMANTLER - COMMERCIAL INVOICE\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Invoice #14098\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Date: 11/02/2019\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Origin: 3125 W 5th St, Santa Ana, CA 92703\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Destination: 1456 Cedar Lane, Hamilton, NJ 08610\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Amount: $4,850.00 Paid via WIRE transfer.\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Referenced in USDC D.N.J. Mag. No. 3:20-mj-05007-TJB by FBI SA Bradley H. Zartman.",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        }
+      ]
+    }
+  ],
+  "entities_discovered": [
+    "ENT-PRP-E6833B9B",
+    "ENT-IND-0DC8C19D",
+    "ENT-LEG-1733E6B6",
+    "ENT-LEG-0586223B",
+    "ENT-COM-E3834FA9"
+  ],
+  "case_numbers": [
+    "3:20-mj-05007-TJB"
+  ],
+  "financial_amounts": [
+    {
+      "raw": "$4,850.00",
+      "amount_float": 4850.0,
+      "amount_cents": 485000,
+      "currency": "USD"
+    }
+  ]
+}

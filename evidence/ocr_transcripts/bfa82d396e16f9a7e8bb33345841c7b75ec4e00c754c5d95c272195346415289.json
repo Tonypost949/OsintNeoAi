@@ -1,0 +1,53 @@
+{
+  "file_id": "rec_bfa82d396e16f9a7",
+  "sha256": "bfa82d396e16f9a7e8bb33345841c7b75ec4e00c754c5d95c272195346415289",
+  "filename": "HCD_Notice_of_Violation_Dec2021.pdf",
+  "source_uri": "C:\\Users\\Amd949609\\AppData\\Local\\Temp\\pytest-of-Amd949609\\pytest-59\\test_scenario_01_angel_stadium0\\angel_stadium_evidence\\HCD_Notice_of_Violation_Dec2021.pdf",
+  "mime_type": "application/pdf",
+  "extraction_tier": "pymupdf_native",
+  "page_count": 1,
+  "normalized_date": "2021-12-08",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "STATE OF CALIFORNIA - HOUSING AND COMMUNITY DEVELOPMENT (HCD)\nDate: December 8, 2021\nTo: City of Anaheim, Mayor Harry Sidhu\nNotice of Violation under Cal. Gov. Code § 54220 (Surplus Land Act).\nThe proposed $320,000,000 stadium land disposition violates statutory affordable housing rules.\nAssessing a 30% statutory penalty of $96,000,000.00.",
+      "avg_confidence": 1.0,
+      "extraction_tier": "tier1_digital",
+      "lines": [
+        {
+          "text": "STATE OF CALIFORNIA - HOUSING AND COMMUNITY DEVELOPMENT (HCD)\nDate: December 8, 2021\nTo: City of Anaheim, Mayor Harry Sidhu\nNotice of Violation under Cal. Gov. Code § 54220 (Surplus Land Act).\nThe proposed $320,000,000 stadium land disposition violates statutory affordable housing rules.\nAssessing a 30% statutory penalty of $96,000,000.00.",
+          "confidence": 1.0,
+          "bbox": [
+            50.0,
+            38.17,
+            517.74,
+            128.86
+          ]
+        }
+      ]
+    }
+  ],
+  "entities_discovered": [
+    "ENT-IND-88B9E648",
+    "ENT-IND-88B9E648",
+    "ENT-MUN-4B5794FC",
+    "ENT-MUN-4B5794FC"
+  ],
+  "case_numbers": [
+    "Cal. Gov. Code § 54220"
+  ],
+  "financial_amounts": [
+    {
+      "raw": "$320,000,000",
+      "amount_float": 320000000.0,
+      "amount_cents": 32000000000,
+      "currency": "USD"
+    },
+    {
+      "raw": "$96,000,000.00",
+      "amount_float": 96000000.0,
+      "amount_cents": 9600000000,
+      "currency": "USD"
+    }
+  ]
+}

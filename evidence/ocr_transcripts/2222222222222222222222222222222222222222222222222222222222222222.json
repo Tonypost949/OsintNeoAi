@@ -1,0 +1,44 @@
+{
+  "file_id": "REC-2",
+  "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+  "filename": "doc2.pdf",
+  "source_uri": "C:/OsintNeoAi/evidence/doc2.pdf",
+  "mime_type": "application/pdf",
+  "extraction_tier": "pymupdf_native",
+  "page_count": 3,
+  "normalized_date": "2022-05-24T00:00:00Z",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "Anaheim City Council Resolution No. 2022-064 voiding $320M land sale to SRB Management Escrow.",
+      "avg_confidence": 1.0,
+      "extraction_tier": "pymupdf_native",
+      "lines": [
+        {
+          "text": "Anaheim City Council Resolution No. 2022-064 voiding $320M land sale to SRB Management Escrow.",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        }
+      ]
+    }
+  ],
+  "entities_discovered": [
+    "ENT-MUN-4B5794FC",
+    "ENT-FIN-0FC91918",
+    "ENT-FIN-0FC91918"
+  ],
+  "case_numbers": [],
+  "financial_amounts": [
+    {
+      "raw": "$320M",
+      "amount_float": 320000000.0,
+      "amount_cents": 32000000000,
+      "currency": "USD"
+    }
+  ]
+}

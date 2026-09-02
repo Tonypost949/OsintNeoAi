@@ -1,0 +1,35 @@
+{
+  "file_id": "rec_219eef7f32ab0154",
+  "sha256": "219eef7f32ab0154641245850f293d0431f5327bb1e8b29d3d78209e2b7d1a5f",
+  "filename": "degraded_lease_scan.png",
+  "source_uri": "C:\\Users\\Amd949609\\AppData\\Local\\Temp\\pytest-of-Amd949609\\pytest-59\\test_scenario_05_degraded_docu0\\ocr_evidence\\degraded_lease_scan.png",
+  "mime_type": "image/png",
+  "extraction_tier": "rapidocr_onnx",
+  "page_count": 1,
+  "normalized_date": null,
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "WOODBRIDGE MEADOWS LEASE AG REEMENT 202 1",
+      "avg_confidence": 0.856,
+      "extraction_tier": "rapidocr_onnx",
+      "lines": [
+        {
+          "text": "WOODBRIDGE MEADOWS LEASE AG REEMENT 202 1",
+          "confidence": 0.856,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        }
+      ]
+    }
+  ],
+  "entities_discovered": [
+    "ENT-PRP-00FB3B5C"
+  ],
+  "case_numbers": [],
+  "financial_amounts": []
+}

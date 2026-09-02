@@ -1,0 +1,35 @@
+{
+  "file_id": "rec_87c82dc9fc45df02",
+  "sha256": "87c82dc9fc45df02b83f7121655b36d5186570706d2c2fcbaa487ae08b645db5",
+  "filename": "doc_a.txt",
+  "source_uri": "C:\\Users\\Amd949609\\AppData\\Local\\Temp\\pytest-of-Amd949609\\pytest-59\\test_scenario_07_phonetic_and_0\\entity_evidence\\doc_a.txt",
+  "mime_type": "text/plain",
+  "extraction_tier": "plaintext_reader",
+  "page_count": 1,
+  "normalized_date": null,
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "Former Mayor Harry Sidhu attended the closed session.",
+      "avg_confidence": 1.0,
+      "extraction_tier": "plaintext_reader",
+      "lines": [
+        {
+          "text": "Former Mayor Harry Sidhu attended the closed session.",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        }
+      ]
+    }
+  ],
+  "entities_discovered": [
+    "ENT-IND-88B9E648"
+  ],
+  "case_numbers": [],
+  "financial_amounts": []
+}

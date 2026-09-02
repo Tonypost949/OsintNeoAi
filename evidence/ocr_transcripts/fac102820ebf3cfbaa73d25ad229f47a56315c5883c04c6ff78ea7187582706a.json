@@ -1,0 +1,33 @@
+{
+  "file_id": "rec_fac102820ebf3cfb",
+  "sha256": "fac102820ebf3cfbaa73d25ad229f47a56315c5883c04c6ff78ea7187582706a",
+  "filename": "investigation_bundle.zip#email.eml",
+  "source_uri": "zip://C:\\Users\\Amd949609\\AppData\\Local\\Temp\\pytest-of-Amd949609\\pytest-59\\test_scenario_06_heterogeneous0\\zip_evidence\\investigation_bundle.zip#email.eml",
+  "mime_type": "message/rfc822",
+  "extraction_tier": "email_parser",
+  "page_count": 1,
+  "normalized_date": null,
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "Plea finalized.",
+      "avg_confidence": 1.0,
+      "extraction_tier": "email_parser",
+      "lines": [
+        {
+          "text": "Plea finalized.",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        }
+      ]
+    }
+  ],
+  "entities_discovered": [],
+  "case_numbers": [],
+  "financial_amounts": []
+}

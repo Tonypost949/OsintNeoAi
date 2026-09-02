@@ -1,0 +1,175 @@
+{
+  "file_id": "rec_f53ce6bb9791df98",
+  "sha256": "f53ce6bb9791df98419e6fe1913c9210906fcc3a59988de0c8e3598dbdfea9d0",
+  "filename": "Conduit_Ledger_2021.txt",
+  "source_uri": "C:\\Users\\Amd949609\\AppData\\Local\\Temp\\pytest-of-Amd949609\\pytest-59\\test_scenario_04_slush_fund_an0\\slush_evidence\\Conduit_Ledger_2021.txt",
+  "mime_type": "text/plain",
+  "extraction_tier": "plaintext_reader",
+  "page_count": 1,
+  "normalized_date": "2021-03-15",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "POLITICAL CONSULTING DISBURSEMENT LOG\r\nDate: 03/15/2021\r\nSender: TA Group LLC\r\nRecipient: FPS Strategies LLC\r\nAmount: $250,000.00\r\nPayment Method: WIRE\r\nMemo: Stadium Public Affairs and Council Outreach.\r\n\r\nDate: 06/10/2021\r\nSender: Anaheim Chamber of Commerce\r\nRecipient: TA Group LLC\r\nAmount: $1,500,000.00\r\nPayment Method: WIRE\r\nMemo: Anaheim Economic Development Slush Fund.",
+      "avg_confidence": 1.0,
+      "extraction_tier": "plaintext_reader",
+      "lines": [
+        {
+          "text": "POLITICAL CONSULTING DISBURSEMENT LOG\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Date: 03/15/2021\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Sender: TA Group LLC\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Recipient: FPS Strategies LLC\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Amount: $250,000.00\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Payment Method: WIRE\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Memo: Stadium Public Affairs and Council Outreach.\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Date: 06/10/2021\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Sender: Anaheim Chamber of Commerce\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Recipient: TA Group LLC\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Amount: $1,500,000.00\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Payment Method: WIRE\r",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        },
+        {
+          "text": "Memo: Anaheim Economic Development Slush Fund.",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        }
+      ]
+    }
+  ],
+  "entities_discovered": [
+    "ENT-MUN-4B5794FC",
+    "ENT-MUN-4B5794FC",
+    "ENT-MUN-4B5794FC",
+    "ENT-FIN-EB8759BD",
+    "ENT-FIN-EB8759BD",
+    "ENT-FIN-EB8759BD",
+    "ENT-FIN-E9261825",
+    "ENT-FIN-E9261825"
+  ],
+  "case_numbers": [],
+  "financial_amounts": [
+    {
+      "raw": "$250,000.00",
+      "amount_float": 250000.0,
+      "amount_cents": 25000000,
+      "currency": "USD"
+    },
+    {
+      "raw": "$1,500,000.00",
+      "amount_float": 1500000.0,
+      "amount_cents": 150000000,
+      "currency": "USD"
+    }
+  ]
+}

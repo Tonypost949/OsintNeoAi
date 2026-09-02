@@ -1,0 +1,41 @@
+{
+  "file_id": "rec_24c87d012523e0e4",
+  "sha256": "24c87d012523e0e4f478cc5647259a00e0edf3b6e8841eaf57d2d4c571e2ca6f",
+  "filename": "eviction_docket.txt",
+  "source_uri": "C:\\Users\\Amd949609\\AppData\\Local\\Temp\\pytest-of-Amd949609\\pytest-59\\test_pipeline_local_crawler_fi0\\evidence_files\\eviction_docket.txt",
+  "mime_type": "text/plain",
+  "extraction_tier": "plaintext_reader",
+  "page_count": 1,
+  "normalized_date": "2021-09-02",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "California Superior Court CJC Case No. 30-2021-01201327-CL-UD-CJC Woodbridge Meadows Apartments LLC v. Anthony DiMarcello. Attorney Richard S. Sontag filed default on 2021-06-29.",
+      "avg_confidence": 1.0,
+      "extraction_tier": "plaintext_reader",
+      "lines": [
+        {
+          "text": "California Superior Court CJC Case No. 30-2021-01201327-CL-UD-CJC Woodbridge Meadows Apartments LLC v. Anthony DiMarcello. Attorney Richard S. Sontag filed default on 2021-06-29.",
+          "confidence": 1.0,
+          "bbox": [
+            0.0,
+            0.0,
+            100.0,
+            20.0
+          ]
+        }
+      ]
+    }
+  ],
+  "entities_discovered": [
+    "ENT-LEG-78CF8D3F",
+    "ENT-LEG-78CF8D3F",
+    "ENT-IND-47CFDD55",
+    "ENT-IND-4FA0BFCE",
+    "ENT-PRP-00FB3B5C"
+  ],
+  "case_numbers": [
+    "30-2021-01201327-CL-UD-CJC"
+  ],
+  "financial_amounts": []
+}
