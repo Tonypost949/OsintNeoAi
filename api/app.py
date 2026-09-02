@@ -331,6 +331,17 @@ def serve_root_svg(svgname):
     return "SVG not found", 404
 
 
+@app.route("/<string:imgname>.png", methods=["GET"])
+@app.route("/osint_neo_ai_logo.png", methods=["GET"])
+def serve_root_png(imgname="osint_neo_ai_logo"):
+    filename = f"{imgname}.png" if not imgname.endswith(".png") else imgname
+    for d in [os.path.join(ROOT_DIR, "public"), ROOT_DIR, os.path.join(ROOT_DIR, "makaveli", "avatar")]:
+        fp = os.path.join(d, filename)
+        if os.path.exists(fp):
+            return send_from_directory(d, filename, mimetype="image/png")
+    return "PNG not found", 404
+
+
 @app.route("/api/setup/status", methods=["GET"])
 def api_setup_status():
     keys_status = []
