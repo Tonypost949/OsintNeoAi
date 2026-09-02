@@ -342,6 +342,91 @@ def serve_root_png(imgname="osint_neo_ai_logo"):
     return "PNG not found", 404
 
 
+@app.route("/api/realtime/token", methods=["GET"])
+def api_realtime_token():
+    """Mint an OpenAI Realtime client secret from available keys.
+
+    Supports both direct OpenAI (OPENAI_API_KEY) and Azure OpenAI
+    (AZURE_OPENAI_KEY + AZURE_OPENAI_ENDPOINT). Returns the same shape
+    the GEV frontend expects: {client_secret:{value}, session:{model}} plus
+    X-GEV-Voice-* headers. If no key is configured, returns 503 so the
+    frontend can fall back to native Web Speech.
+    """
+    import requests
+    tier = request.args.get("tier", "default")
+    openai_key = os.getenv("OPENAI_API_KEY") or os.getenv("AZURE_OPENAI_KEY")
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    azure_key = os.getenv("AZURE_OPENAI_KEY")
+
+    # Prefer Azure if both endpoint and key are present and no direct OpenAI key
+    use_azure = bool(azure_endpoint and azure_key and not os.getenv("OPENAI_API_KEY"))
+
+    # Map tier to model (mirrors voiceCost.js)
+    tier_to_model = {
+        "default": "gpt-4o-realtime-preview",
+        "mini": "gpt-4o-mini-realtime-preview",
+        "standard": "gpt-4o-realtime-preview",
+    }
+    model = tier_to_model.get(tier.lower(), "gpt-4o-realtime-preview")
+    # Allow env override
+    if tier.lower() == "mini":
+        model = os.getenv("OPENAI_REALTIME_MODEL_MINI", model)
+    else:
+        model = os.getenv("OPENAI_REALTIME_MODEL", model)
+
+    if not openai_key and not azure_key:
+        return jsonify({"error": "No OpenAI API key configured — use native Web Speech fallback"}), 503
+
+    try:
+        if use_azure:
+            # Azure OpenAI Realtime sessions
+            base = azure_endpoint.rstrip("/")
+            if not base.startswith("http"):
+                base = "https://" + base
+            url = f"{base}/openai/realtime/sessions?api-version=2024-10-01-preview"
+            headers = {"api-key": azure_key, "Content-Type": "application/json"}
+            payload = {"model": model, "voice": "alloy"}
+            r = requests.post(url, headers=headers, json=payload, timeout=10)
+        else:
+            url = "https://api.openai.com/v1/realtime/sessions"
+            headers = {"Authorization": f"Bearer {openai_key}", "Content-Type": "application/json"}
+            payload = {"model": model, "voice": "alloy"}
+            r = requests.post(url, headers=headers, json=payload, timeout=10)
+
+        if r.status_code != 200:
+            return jsonify({"error": f"Token mint failed: HTTP {r.status_code} {r.text[:300]}"}), r.status_code
+
+        data = r.json()
+        # Azure returns {id, object, model, client_secret} or similar
+        # OpenAI returns {client_secret:{value, expires_at}, id, model}
+        token_value = None
+        if isinstance(data, dict):
+            cs = data.get("client_secret")
+            if isinstance(cs, dict):
+                token_value = cs.get("value")
+            elif isinstance(cs, str):
+                token_value = cs
+            token_value = token_value or data.get("value") or data.get("token")
+
+        if not token_value:
+            return jsonify({"error": "Realtime token response missing client_secret", "raw": data}), 502
+
+        resp = jsonify({
+            "client_secret": {"value": token_value},
+            "value": token_value,
+            "session": {"model": data.get("model", model), "id": data.get("id")},
+            "model": data.get("model", model)
+        })
+        resp.headers["X-GEV-Voice-Model"] = data.get("model", model)
+        resp.headers["X-GEV-Voice-Tier"] = tier
+        resp.headers["Cache-Control"] = "no-store"
+        return resp
+    except requests.exceptions.RequestException as e:
+        return jsonify({"error": f"Token request failed: {str(e)}"}), 502
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 @app.route("/api/setup/status", methods=["GET"])
 def api_setup_status():
     keys_status = []

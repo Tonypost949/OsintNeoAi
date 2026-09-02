@@ -178,3 +178,74 @@ The implementing agent team should leverage and extend existing workspace assets
 - [ ] Operates 100% in Azure cloud with zero local scheduled tasks or background daemons.
 - [ ] All generated reports and correlation matrices conform to verified JSON schemas and are backed up per the 3-location protocol.
 - [ ] All 5 verification gates (Code Quality, Cloud Contracts, Spatial Fuzzing, Concurrency, and Forensic Integrity) pass with 100% compliance.
+
+## 2026-09-02T16:30:22Z
+
+Build an autonomous, full-cycle OSINT evidence ingestion, neural OCR entity extraction, BigQuery graph correlation, and investigative dossier generation pipeline for OsintNeoAi.
+
+Working directory: C:\OsintNeoAi
+Integrity mode: development
+
+## Requirements
+
+### R1. Multi-Format Evidence Ingestion & Neural OCR Processing
+The pipeline must automatically scan, ingest, and unpack raw multi-format evidence (PDF medical/court records, images, Google Drive/Photos exports, zip archives in evidence/ or incoming queues), extract machine-readable text and metadata, and store structured audit-ready JSON artifacts with SHA-256 integrity hashes.
+
+### R2. Entity Extraction, Cross-Referencing & Graph Analysis
+Extracted records must be processed through an entity resolution engine to extract named entities (organizations, individuals, government agencies, medical identifiers, case numbers, addresses, financial amounts) and format them for BigQuery graph tables (national_audits, onedrive_forensics, forensic_layers).
+
+### R3. Automated Dossier, Timeline & Correlation Matrix Generation
+The system must generate daily intelligence briefing summaries, chronological event timelines, and cross-entity correlation matrices saved to reports/daily/ and formatted in Markdown and tabular JSON for interactive dashboard consumption.
+
+### R4. Automated Verification & 3-Location Backup Protocol
+The pipeline must include a self-verifying test suite that programmatically validates ingestion, OCR extraction accuracy, graph schema compliance, and report generation, automatically executing the mandatory 3-location backup protocol (GitHub main, Local PC backups/repo/, and Google Drive Sharedall/OsintNeoAi/).
+
+## Acceptance Criteria
+
+### Ingestion & OCR
+- [ ] Pipeline discovers and processes incoming documents in evidence/ without unhandled crashes.
+- [ ] Generates SHA-256 content hashes and normalized metadata for all ingested artifacts.
+
+### Entity & Graph Extraction
+- [ ] Extracts structured entities (people, organizations, locations, identifiers, dates) into clean JSON schema.
+- [ ] Produces records compatible with BigQuery graph and table schemas.
+
+### Reporting & Verification
+- [ ] Programmatic verification test suite runs and passes cleanly (python test_pipeline.py or equivalent).
+- [ ] Generates at least one comprehensive forensic intelligence dossier in reports/daily/.
+- [ ] Confirms successful backup sync across GitHub, Local PC, and Google Drive Sharedall.
+
+## 2026-09-02T17:16:42Z
+
+Build an autonomous, end-to-end OSINT and forensic data synchronization, neural OCR entity extraction, BigQuery graph correlation, and automated dossier reporting engine centered on the live Master OSINT Sheet (`1hKx1-8YnvrvAv9H6AQunli3dFSwsyIB3rF1yluO2Y1U`).
+
+Working directory: C:\OsintNeoAi
+Integrity mode: development
+
+## Requirements
+
+### R1. Live Master OSINT Sheet Synchronization & Entity Normalization
+Synchronize, parse, and validate data across all 40 tabs of the Master OSINT Sheet (`1hKx1-8YnvrvAv9H6AQunli3dFSwsyIB3rF1yluO2Y1U`), ensuring schema adherence for entity registries (`PER-###`, `GOV-###`, `CON-###`, `SHL-###`, `EV-###`, `RICO-###`, `TOX-###`, `UP-###`).
+
+### R2. Multi-Format Evidence Ingestion & Neural OCR Pipeline
+Ingest raw multi-source evidence (PDFs, images, archives, Drive/OneDrive records), compute SHA-256 integrity hashes, execute neural text extraction/OCR, and extract named entities into structured formats.
+
+### R3. BigQuery Graph Mapping & Cross-Tab Correlation
+Map extracted records and relationships into BigQuery datasets (`national_audits`, `onedrive_forensics`, `forensic_layers`), generating automated cross-references, timeline event sequences, and network matrices.
+
+### R4. Automated Verification Suite & 3-Location Backup Protocol
+Implement automated programmatic test suites covering ingestion, schema validation, and report outputs. Synchronize all code and artifacts across GitHub (`main`), Local PC backup (`C:\Users\HP\OneDrive\Documents\OsintNeoAi\backups\repo\`), and Google Drive (`Sharedall/OsintNeoAi/`).
+
+## Acceptance Criteria
+
+### Master Sheet & Entity Resolution
+- [ ] Complete schema verification and bidirectional synchronization for all 40 tabs of the Master OSINT Sheet.
+- [ ] Zero data loss during entity normalization and cross-tab reference resolution.
+
+### Pipeline Execution & Data Quality
+- [ ] End-to-end evidence ingestion and neural OCR processing generate structured JSON/CSV transcripts and entity links.
+- [ ] Graph nodes and relationship edges populate cleanly in target BigQuery schemas.
+
+### Automated Testing & Multi-Location Backup
+- [ ] Programmatic test suite passes all integrity, schema, and synchronization checks.
+- [ ] 3-location backup is confirmed and synchronized without overwriting existing historical records.

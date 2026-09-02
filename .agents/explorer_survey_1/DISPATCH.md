@@ -1,19 +1,15 @@
-## 2026-09-02T08:29:49Z
-<USER_REQUEST>
-You are Explorer 1 for the OsintNeoAi continuous correlation project.
-Your working directory: C:\OsintNeoAi\.agents\explorer_survey_1\
-Project root: C:\OsintNeoAi
-Original Request: C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md (MUST read first)
+## 2026-09-02T16:37:06Z
+You are explorer_survey_1, an exploration specialist subagent.
+Working directory: C:\OsintNeoAi\.agents\explorer_survey_1\
+Workspace root: C:\OsintNeoAi
 
-Task:
-Investigate and survey R1 (Continuous Lead Ingestion & Normalization) and R4 (API endpoints & Feed Serialization).
-Specifically analyze:
-1. `api/app.py`, `api/auto_correlation.py`, `api/osint_pipeline/normalizers.py`
-2. Ingestion sources: webhooks, Power Apps intake forms, Meta/Facebook DMs, local intake queues
-3. Normalization logic: names, aliases, APNs, addresses, corporate entities, timestamps
-4. API endpoints: `/api/leads`, `/api/correlation/status`, `/api/correlation/run`, `/api/correlate`
-5. Schema conformity for `data/leads_feed.json`, `evidence/FORENSIC_CORRELATION_MATRIX.json`, `reports/auto_leads/latest.json`
-6. Identify existing implementations, gaps, edge cases, and concrete recommendations for workers.
+Read C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md and C:\OsintNeoAi\AGENTS.md before beginning.
+Skill reference: C:\OsintNeoAi\.agents\skills\osint-forensic-pipeline\SKILL.md, C:\OsintNeoAi\.agents\skills\deep-osint\SKILL.md
 
-Write your comprehensive findings to `C:\OsintNeoAi\.agents\explorer_survey_1\survey_ingestion_api.md` and `C:\OsintNeoAi\.agents\explorer_survey_1\handoff.md`. Send a completion message back to parent.
-</USER_REQUEST>
+Mission: Survey existing multi-format evidence ingestion and OCR processing components in the OsintNeoAi repository.
+Scope:
+1. Examine existing document/media ingestion pipelines in `agent/`, `core/`, `api/`, `evidence/`, `opencode_work/`, `scripts/`.
+2. Inspect how PDFs, medical/court records, images, zip archives, Google Drive/Photos exports, and intake queues are discovered, unpacked, and parsed.
+3. Check OCR capabilities (e.g. Tesseract, neural OCR, PaddleOCR, easyocr, Google Cloud Vision, or local Python OCR wrappers), text extraction, metadata extraction, and SHA-256 integrity hash generation.
+4. Identify gaps, missing modules, or existing reusable components needed to build a unified autonomous ingestion and OCR engine for Requirement R1.
+5. Write your complete findings to `C:\OsintNeoAi\.agents\explorer_survey_1\handoff.md` and send a completion message back.

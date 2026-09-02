@@ -43,7 +43,10 @@ from resolution.taxonomy import (
     RelationshipType,
     TimelineEvent,
     calculate_confidence,
+    format_master_osint_id,
     get_category_prefix,
+    get_master_osint_prefix,
+    is_valid_master_osint_id,
 )
 
 logger = logging.getLogger("osintneoai.resolution.entity_resolver")
@@ -331,8 +334,10 @@ class EntityResolver:
         for target in self.seed_targets:
             category = target["entity_category"]
             prefix = get_category_prefix(category)
+            master_prefix = target.get("master_prefix") or get_master_osint_prefix(category)
             raw_hash = hashlib.sha256(target["canonical_name"].encode("utf-8")).hexdigest()[:8].upper()
             entity_id = f"{prefix}-{raw_hash}"
+            master_sheet_id = target.get("master_sheet_id") or format_master_osint_id(master_prefix, raw_hash)
 
             canonical_ent = CanonicalEntity(
                 entity_id=entity_id,
@@ -343,11 +348,15 @@ class EntityResolver:
                 aliases=list(set([target["canonical_name"]] + target.get("aliases", []))),
                 confidence_score=1.0,
                 metadata=target.get("metadata", {}),
+                master_sheet_id=master_sheet_id,
+                master_prefix=master_prefix,
             )
             self._canonical_lookup[entity_id] = canonical_ent
             for alias in canonical_ent.aliases:
                 norm_alias = self.normalize_name(alias)
                 self._alias_to_canonical_id[norm_alias] = entity_id
+            if master_sheet_id:
+                self._alias_to_canonical_id[master_sheet_id.upper()] = entity_id
 
     @staticmethod
     def normalize_name(name: str) -> str:
@@ -594,6 +603,8 @@ class EntityResolver:
                 jurisdiction = seed_canonical.primary_jurisdiction
                 aliases = list(set(seed_canonical.aliases + all_raw_names))
                 metadata = dict(seed_canonical.metadata)
+                master_prefix = seed_canonical.master_prefix or get_master_osint_prefix(category)
+                master_sheet_id = seed_canonical.master_sheet_id or format_master_osint_id(master_prefix, canonical_id.split("-")[-1])
             else:
                 # Form new canonical entity
                 canonical_name = max(all_raw_names, key=lambda n: (len(n), n))
@@ -604,8 +615,10 @@ class EntityResolver:
                 category = max(cat_counts, key=cat_counts.get) if cat_counts else EntityCategory.OTHER
 
                 prefix = get_category_prefix(category)
+                master_prefix = get_master_osint_prefix(category)
                 raw_hash = hashlib.sha256(canonical_name.encode("utf-8")).hexdigest()[:8].upper()
                 canonical_id = f"{prefix}-{raw_hash}"
+                master_sheet_id = f"{master_prefix}-{raw_hash}"
                 role = None
                 jurisdiction = None
                 aliases = list(set(all_raw_names))
@@ -620,6 +633,8 @@ class EntityResolver:
                 aliases=aliases,
                 confidence_score=1.0,
                 metadata=metadata,
+                master_sheet_id=master_sheet_id,
+                master_prefix=master_prefix,
             )
             resolved_entities.append(canonical_entity)
 
@@ -918,3 +933,70 @@ class EntityResolver:
             evt.chronological_rank = rank
 
         return resolved_entities, updated_mentions, all_events, all_transactions, all_relationships
+
+    def resolve_master_osint_id(
+        self,
+        name: str,
+        category: Optional[EntityCategory] = None,
+        context: Optional[Dict[str, Any]] = None,
+    ) -> str:
+        """
+        Resolves an entity name directly to its normalized Master OSINT Sheet ID
+        (e.g., 'PER-001', 'GOV-001', 'SHL-001', 'EV-001').
+        """
+        canonical = self.resolve_single_name(name, category=category, context=context)
+        if canonical:
+            return canonical.master_sheet_id or format_master_osint_id(
+                canonical.master_prefix or get_master_osint_prefix(canonical.entity_category),
+                canonical.entity_id.split("-")[-1]
+            )
+
+        # Generate a deterministically hashed Master Sheet ID
+        cat = category or EntityCategory.OTHER
+        prefix = get_master_osint_prefix(cat)
+        clean_name = self.normalize_name(name)
+        raw_hash = hashlib.sha256(clean_name.encode("utf-8")).hexdigest()[:8].upper()
+        return f"{prefix}-{raw_hash}"
+
+    def bridge_to_master_sheet(
+        self,
+        entities: Sequence[CanonicalEntity],
+    ) -> List[Dict[str, Any]]:
+        """
+        Emits normalized Master OSINT Sheet records adhering to the 40-tab synchronization schema.
+        """
+        bridged_records: List[Dict[str, Any]] = []
+        for ent in entities:
+            pref = ent.master_prefix or get_master_osint_prefix(ent.entity_category)
+            m_id = ent.master_sheet_id or format_master_osint_id(pref, ent.entity_id.split("-")[-1])
+
+            tab_map = {
+                "PER": "People",
+                "GOV": "Government",
+                "CON": "Contractors",
+                "SHL": "Shell_Companies",
+                "EV": "Timeline_Events",
+                "RICO": "RICO_Enterprises",
+                "TOX": "Environmental_Hazards",
+                "UP": "Unidentified_Persons",
+                "NP": "Non_Profits",
+                "FAC": "Facilities",
+                "LEG": "Legal_Cases",
+            }
+            primary_tab = tab_map.get(pref, "Entities")
+
+            bridged_records.append({
+                "entity_id": m_id,
+                "legacy_id": ent.entity_id,
+                "canonical_name": ent.canonical_name.upper(),
+                "entity_type": ent.entity_category.value,
+                "primary_tab": primary_tab,
+                "master_prefix": pref,
+                "aliases": ent.aliases,
+                "role_or_title": ent.role_or_title,
+                "primary_jurisdiction": ent.primary_jurisdiction,
+                "confidence_score": ent.confidence_score,
+                "attributes": ent.metadata,
+                "last_updated": "2026-09-02T00:00:00Z"
+            })
+        return bridged_records

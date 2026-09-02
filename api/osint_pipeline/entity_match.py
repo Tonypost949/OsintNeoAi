@@ -6,9 +6,35 @@ import hashlib
 import json
 import time
 from pathlib import Path
-from typing import Optional
+try:
+    from rapidfuzz import fuzz, process
+except ImportError:
+    import difflib
+    class _FuzzFallback:
+        @staticmethod
+        def token_sort_ratio(s1: str, s2: str) -> float:
+            t1 = " ".join(sorted(s1.split()))
+            t2 = " ".join(sorted(s2.split()))
+            return difflib.SequenceMatcher(None, t1, t2).ratio() * 100.0
+            
+    class _ProcessFallback:
+        @staticmethod
+        def extractOne(query: str, choices: list[str], scorer=None, score_cutoff: float = 0.0):
+            best_choice = None
+            best_score = -1.0
+            if scorer is None:
+                scorer = _FuzzFallback.token_sort_ratio
+            for c in choices:
+                score = scorer(query, c)
+                if score >= score_cutoff and score > best_score:
+                    best_score = score
+                    best_choice = c
+            if best_choice is not None:
+                return (best_choice, best_score, 0)
+            return None
 
-from rapidfuzz import fuzz, process
+    fuzz = _FuzzFallback()
+    process = _ProcessFallback()
 
 import config
 

@@ -1,0 +1,49 @@
+[PacsCube]
+;---ViewerCommand is the command line to launch the viewer. The path must be relative to the root of the medium,
+;---for example: "viewer\viewer.exe /s".
+ViewerCommand=DCSView\mdeployed\dcsview.exe
+ViewerCommandDotNet=DCSView\DCSView.exe
+viewerText=View Images
+ViewerWorkingDir=.\DCSView
+;
+;---ShowWindow is a flag that controls the initial display of the splash window. Allowed values are:
+;      SW_SHOWNORMAL
+;      SW_SHOWMAXIMIZED
+ShowWindow=SW_SHOWMAXIMIZED
+;
+;---ShowMenu is a True/False flag that controls display of the splash program main meu and toolbar. If False, the
+;---menu and toolbar are hidden. The default is True.
+ShowMenu=True
+;
+;---WindowTitle is the title displayed in the splash program title bar. If the option is present but blank, i.e. "WindowTitle=",
+;---then no title at all will be displayed. If the option is simply missing from the COMMAND.TXT file, the default 
+;---value "Disc Start" will be displayed in the title bar. 
+;WindowTitle=Disc Start
+;
+;---DisplayHTMLDocTitle is a True/False flag which determines whether the current HTML document title is displayed 
+;---in the title bar. The default is True.
+DisplayHTMLDocTitle=TRUE
+;
+;---WaitInterval is the time interval in seconds to display the “Launching DICOM viewer” dialog. 
+;---The default is 10 seconds.
+WaitInterval=10
+;
+;---SplashPage is the relative path and name of the HTML file to display when the program starts. 
+;---The default is “RESULTS\START.HTM”
+;SplashPage=.\RESULTS\START.HTM
+;
+;---ResultsPage is the relative path and name of the HTML file for display of clinical results. 
+;---The default is “RESULTS\FRAMESET.HTM”
+;ResultsPage=.\RESULTS\FRAMESET.HTM
+;
+;---MinimumIEVersion is the minimum version of Internet Explorer that must be present on the user’s machine in
+;---order to run the splash program. If this option is blank (which is the default), no checking of the IE version will 
+;---occur. If it is not blank, the splash program will check the version of IE currently installed and compare to this
+;---value. If the installed version is lower, the program will prompt to install the version of IE included on the CD.
+MinimumIEVersion=4.0
+;
+;---IEInstallCommand is the relative path to the command that will install a version of Internet Explorer on the CD.
+IEInstallCommand=.\IE\SETUP.EXE
+;
+;---ExitOnRunViewer controls whether the Splash program exits immediately when the DICOM viewer is launched.
+ExitOnRunViewer=TRUE

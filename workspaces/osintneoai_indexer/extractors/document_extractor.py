@@ -16,6 +16,7 @@ from __future__ import annotations
 import email
 import gc
 import io
+import json
 import logging
 import os
 import re
@@ -91,6 +92,7 @@ class PageExtractionResult:
     char_count: int
     printable_ratio: float
     elapse_seconds: float
+    lines: List[Dict[str, Any]] = field(default_factory=list)
 
 
 # ==============================================================================
@@ -214,6 +216,18 @@ class DocumentExtractor:
 
                     # --- TIER 2: Density & Glyph Quality Heuristic ---
                     if non_space_chars >= self.config.min_digital_text_density and printable_ratio >= 0.85:
+                        tier1_lines = []
+                        try:
+                            for blk in page.get_text("blocks"):
+                                if len(blk) >= 5 and str(blk[4]).strip():
+                                    tier1_lines.append({
+                                        "text": str(blk[4]).strip(),
+                                        "confidence": 1.0,
+                                        "bbox": [float(round(blk[0], 2)), float(round(blk[1], 2)), float(round(blk[2], 2)), float(round(blk[3], 2))]
+                                    })
+                        except Exception:
+                            tier1_lines = [{"text": l, "confidence": 1.0, "bbox": [0.0, 0.0, 100.0, 20.0]} for l in native_text.split("\n") if l.strip()]
+
                         page_results.append(PageExtractionResult(
                             page_number=page_idx + 1,
                             text=native_text,
@@ -221,7 +235,8 @@ class DocumentExtractor:
                             confidence=1.0,
                             char_count=total_chars,
                             printable_ratio=printable_ratio,
-                            elapse_seconds=0.001
+                            elapse_seconds=0.001,
+                            lines=tier1_lines,
                         ))
                         methods_used.add("pymupdf_native")
                         total_conf += 1.0
@@ -255,6 +270,19 @@ class DocumentExtractor:
                         # Explicitly destroy numpy image array
                         del img_np
 
+                        ocr_lines_data = []
+                        for ocr_ln in ocr_res.lines:
+                            min_x = min(pt[0] for pt in ocr_ln.box)
+                            min_y = min(pt[1] for pt in ocr_ln.box)
+                            max_x = max(pt[0] for pt in ocr_ln.box)
+                            max_y = max(pt[1] for pt in ocr_ln.box)
+                            ocr_lines_data.append({
+                                "text": ocr_ln.text,
+                                "confidence": ocr_ln.confidence,
+                                "bbox": [round(min_x, 2), round(min_y, 2), round(max_x, 2), round(max_y, 2)],
+                                "polygon": [[round(pt[0], 2), round(pt[1], 2)] for pt in ocr_ln.box]
+                            })
+
                         page_results.append(PageExtractionResult(
                             page_number=page_idx + 1,
                             text=ocr_res.full_text,
@@ -262,7 +290,8 @@ class DocumentExtractor:
                             confidence=ocr_res.avg_confidence,
                             char_count=len(ocr_res.full_text),
                             printable_ratio=1.0 if ocr_res.full_text else 0.0,
-                            elapse_seconds=ocr_res.total_time_sec
+                            elapse_seconds=ocr_res.total_time_sec,
+                            lines=ocr_lines_data,
                         ))
                         total_conf += ocr_res.avg_confidence
 
@@ -509,3 +538,91 @@ class DocumentExtractor:
         elif source_uri.endswith(".mbox") or source_uri.endswith(".eml"):
             return "mailbox"
         return "local_file"
+
+
+# ==============================================================================
+# 3. Granular OCR Transcript Serialization & Persistence
+# ==============================================================================
+
+def generate_ocr_transcript(
+    record: ExtractedRecord,
+    discovered_entities: Optional[List[str]] = None,
+) -> Dict[str, Any]:
+    """
+    Constructs the canonical, audit-ready JSON transcript with 2D bounding boxes,
+    line confidences, and page coordinates adhering to PROJECT.md schema.
+    """
+    raw_pages = record.metadata.get("pages", [])
+    pages_data = []
+
+    if raw_pages:
+        for p in raw_pages:
+            if isinstance(p, dict):
+                p_num = p.get("page_number", 1)
+                p_text = p.get("text", "")
+                p_conf = p.get("confidence", 1.0)
+                p_tier = p.get("extraction_tier", record.ocr_engine_used)
+                p_lines = p.get("lines", [])
+                if not p_lines and p_text:
+                    p_lines = [
+                        {"text": l, "confidence": p_conf, "bbox": [0.0, 0.0, 100.0, 20.0]}
+                        for l in p_text.split("\n") if l.strip()
+                    ]
+                pages_data.append({
+                    "page_number": p_num,
+                    "text": p_text,
+                    "avg_confidence": round(float(p_conf), 4),
+                    "extraction_tier": p_tier,
+                    "lines": p_lines,
+                })
+    else:
+        # Single page fallback for text, html, docx, email, or images
+        lines_list = [
+            {"text": l, "confidence": record.metadata.get("avg_confidence", 1.0), "bbox": [0.0, 0.0, 100.0, 20.0]}
+            for l in record.extracted_text.split("\n") if l.strip()
+        ]
+        pages_data.append({
+            "page_number": 1,
+            "text": record.extracted_text,
+            "avg_confidence": round(float(record.metadata.get("avg_confidence", 1.0)), 4),
+            "extraction_tier": record.ocr_engine_used,
+            "lines": lines_list,
+        })
+
+    entities = discovered_entities or record.metadata.get("entities_discovered", [])
+    if not entities:
+        entities = list(set(record.case_numbers + [f.get("raw", "") for f in record.financial_amounts if f.get("raw")]))
+
+    return {
+        "file_id": record.record_id,
+        "sha256": record.artifact_sha256,
+        "filename": Path(record.source_path).name,
+        "source_uri": record.source_path,
+        "mime_type": record.mime_type,
+        "extraction_tier": record.ocr_engine_used,
+        "page_count": record.metadata.get("page_count", len(pages_data)),
+        "normalized_date": record.normalized_date,
+        "pages": pages_data,
+        "entities_discovered": entities,
+        "case_numbers": record.case_numbers,
+        "financial_amounts": record.financial_amounts,
+    }
+
+
+def persist_ocr_transcript(
+    record: ExtractedRecord,
+    transcripts_dir: Optional[Union[str, Path]] = None,
+    discovered_entities: Optional[List[str]] = None,
+) -> Path:
+    """
+    Persists granular audit-ready JSON transcript to evidence/ocr_transcripts/{file_sha256}.json.
+    """
+    out_dir = Path(transcripts_dir) if transcripts_dir else Path(r"C:\OsintNeoAi\evidence\ocr_transcripts")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_file = out_dir / f"{record.artifact_sha256}.json"
+
+    transcript_obj = generate_ocr_transcript(record, discovered_entities=discovered_entities)
+    with open(out_file, "w", encoding="utf-8") as f:
+        json.dump(transcript_obj, f, indent=2, ensure_ascii=False)
+
+    return out_file

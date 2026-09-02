@@ -1,0 +1,323 @@
+<SubmitObjectsRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0">
+  <RegistryObjectList xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+    <ExtrinsicObject id="27932b46-ba90-4ba8-b158-ee70fc0b0f3e" objectType="urn:uuid:7edca82f-054d-47f2-a032-9b2a5b5186c1" status="urn:oasis:names:tc:ebxml-regrep:StatusType:Approved" mimeType="text/xml" isOpaque="false">
+      <Slot name="repositoryUniqueId">
+        <ValueList>
+          <Value>c0df1e5d-d601-4b99-8b47-bac90b046573</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="creationTime">
+        <ValueList>
+          <Value>20260829142006</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="languageCode">
+        <ValueList>
+          <Value>en-US</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="sourcePatientId">
+        <ValueList>
+          <Value>Z18041992^^^&amp;1.2.840.114350.1.13.66.2.7.2.876870&amp;ISO</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="sourcePatientInfo">
+        <ValueList>
+          <Value>PID-3|ocnh3rz8xmsd5w7^^^&amp;1.2.840.114350.1.13.66.2.7.3.688884.100&amp;ISO</Value>
+          <Value>PID-5|Dimarcello^Anthony^^^^</Value>
+          <Value>PID-7|19830504</Value>
+          <Value>PID-8|M</Value>
+          <Value>PID-11|412 OLIVE AVE^^HUNTINGTON BEACH^CA^92648^USA</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="URI">
+        <ValueList>
+          <Value>DOC0001.XML</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="size">
+        <ValueList>
+          <Value>73029</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="hash">
+        <ValueList>
+          <Value>756b2fec43454ee6dc808e569b7a3a687446681d</Value>
+        </ValueList>
+      </Slot>
+      <Classification id="5b715d57-b13e-417b-9815-bf4e220b3697" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:93606bcf-9494-43ec-9b4e-a7748d1a838d" classifiedObject="27932b46-ba90-4ba8-b158-ee70fc0b0f3e">
+        <Slot name="authorInstitution">
+          <ValueList>
+            <Value>OCHIN</Value>
+          </ValueList>
+        </Slot>
+      </Classification>
+      <Classification id="2b9f70e6-befe-4269-93d8-d725fdd2e339" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:a09d5840-386c-46f2-b5ad-9c3699a4309d" classifiedObject="27932b46-ba90-4ba8-b158-ee70fc0b0f3e" nodeRepresentation="urn:epic:mychart:extract:2007">
+        <Slot name="codingScheme">
+          <ValueList>
+            <Value>EPIC</Value>
+          </ValueList>
+        </Slot>
+      </Classification>
+      <Classification id="516abd5c-1e8e-4f5a-bdfb-6046b32935fd" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:f0306f51-975f-434e-a61c-c59651d33983" classifiedObject="27932b46-ba90-4ba8-b158-ee70fc0b0f3e" nodeRepresentation="34133-9">
+        <Slot name="codingScheme">
+          <ValueList>
+            <Value>LOINC</Value>
+          </ValueList>
+        </Slot>
+      </Classification>
+      <Classification id="3ec9b542-7b20-41e7-bf4c-fee301dc6997" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classifiedObject="27932b46-ba90-4ba8-b158-ee70fc0b0f3e" classificationNode="urn:uuid:ab9b591b-83ab-4d03-8f5d-f93b1fb92e85">
+        <Name>
+          <LocalizedString charset="UTF-8" value="XDSDocumentEntry.limitedMetadata" />
+        </Name>
+      </Classification>
+      <ExternalIdentifier id="c223030f-1614-4ffd-b907-8926417ea688" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:ExternalIdentifier" registryObject="27932b46-ba90-4ba8-b158-ee70fc0b0f3e" identificationScheme="urn:uuid:58a6f841-87b3-4a3e-92fd-a8ffeff98427" value="Z18041992^^^&amp;1.2.840.114350.1.13.66.2.7.2.876870&amp;ISO">
+        <Name>
+          <LocalizedString charset="UTF-8" value="XDSDocumentEntry.patientId" />
+        </Name>
+      </ExternalIdentifier>
+      <ExternalIdentifier id="76dc36e3-a238-4ef1-936b-9d871bc2edd6" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:ExternalIdentifier" registryObject="27932b46-ba90-4ba8-b158-ee70fc0b0f3e" identificationScheme="urn:uuid:2e82c1f6-a085-4c72-9da3-8640a32e42ab" value="1.2.840.114350.1.13.66.2.7.2.876870.Z18041992.639235848058383728.1">
+        <Name>
+          <LocalizedString charset="UTF-8" value="XDSDocumentEntry.uniqueId" />
+        </Name>
+      </ExternalIdentifier>
+    </ExtrinsicObject>
+    <ExtrinsicObject id="ee0a60e7-dd08-43c2-b1eb-cb5ae05d67b8" objectType="urn:uuid:7edca82f-054d-47f2-a032-9b2a5b5186c1" status="urn:oasis:names:tc:ebxml-regrep:StatusType:Approved" mimeType="text/xml" isOpaque="false">
+      <Slot name="repositoryUniqueId">
+        <ValueList>
+          <Value>267ebf91-4860-4c67-bbc3-f95b8575319c</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="creationTime">
+        <ValueList>
+          <Value>20260829142007</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="languageCode">
+        <ValueList>
+          <Value>en-US</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="sourcePatientId">
+        <ValueList>
+          <Value>Z18041992^^^&amp;1.2.840.114350.1.13.66.2.7.2.876870&amp;ISO</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="sourcePatientInfo">
+        <ValueList>
+          <Value>PID-3|ocnh3rz8xmsd5w7^^^&amp;1.2.840.114350.1.13.66.2.7.3.688884.100&amp;ISO</Value>
+          <Value>PID-5|Dimarcello^Anthony^^^^</Value>
+          <Value>PID-7|19830504</Value>
+          <Value>PID-8|M</Value>
+          <Value>PID-11|412 OLIVE AVE^^HUNTINGTON BEACH^CA^92648^USA</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="URI">
+        <ValueList>
+          <Value>DOC0002.XML</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="size">
+        <ValueList>
+          <Value>114448</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="hash">
+        <ValueList>
+          <Value>2486948140055e070256ca3f14ba9301bda2d700</Value>
+        </ValueList>
+      </Slot>
+      <Classification id="33e7c749-558c-4d85-994f-2451083a397d" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:93606bcf-9494-43ec-9b4e-a7748d1a838d" classifiedObject="ee0a60e7-dd08-43c2-b1eb-cb5ae05d67b8">
+        <Slot name="authorInstitution">
+          <ValueList>
+            <Value>OCHIN</Value>
+          </ValueList>
+        </Slot>
+      </Classification>
+      <Classification id="acf98e80-b4f3-4f9e-8aeb-1620c949171e" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:a09d5840-386c-46f2-b5ad-9c3699a4309d" classifiedObject="ee0a60e7-dd08-43c2-b1eb-cb5ae05d67b8" nodeRepresentation="urn:epic:mychart:extract:2007">
+        <Slot name="codingScheme">
+          <ValueList>
+            <Value>EPIC</Value>
+          </ValueList>
+        </Slot>
+      </Classification>
+      <Classification id="71dcd668-f6ee-4724-9d5e-ccef7f8e6803" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:f0306f51-975f-434e-a61c-c59651d33983" classifiedObject="ee0a60e7-dd08-43c2-b1eb-cb5ae05d67b8" nodeRepresentation="34133-9">
+        <Slot name="codingScheme">
+          <ValueList>
+            <Value>LOINC</Value>
+          </ValueList>
+        </Slot>
+      </Classification>
+      <Classification id="5c44f17a-1a1d-4ad9-82c8-b29aa190d37b" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classifiedObject="ee0a60e7-dd08-43c2-b1eb-cb5ae05d67b8" classificationNode="urn:uuid:ab9b591b-83ab-4d03-8f5d-f93b1fb92e85">
+        <Name>
+          <LocalizedString charset="UTF-8" value="XDSDocumentEntry.limitedMetadata" />
+        </Name>
+      </Classification>
+      <ExternalIdentifier id="84dc0255-c213-4444-a4f5-b0feb19b7bb3" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:ExternalIdentifier" registryObject="ee0a60e7-dd08-43c2-b1eb-cb5ae05d67b8" identificationScheme="urn:uuid:58a6f841-87b3-4a3e-92fd-a8ffeff98427" value="Z18041992^^^&amp;1.2.840.114350.1.13.66.2.7.2.876870&amp;ISO">
+        <Name>
+          <LocalizedString charset="UTF-8" value="XDSDocumentEntry.patientId" />
+        </Name>
+      </ExternalIdentifier>
+      <ExternalIdentifier id="585e5e23-2491-4608-9a47-b0dad25414ca" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:ExternalIdentifier" registryObject="ee0a60e7-dd08-43c2-b1eb-cb5ae05d67b8" identificationScheme="urn:uuid:2e82c1f6-a085-4c72-9da3-8640a32e42ab" value="1.2.840.114350.1.13.66.2.7.2.876870.Z18041992.639235848058383728.2">
+        <Name>
+          <LocalizedString charset="UTF-8" value="XDSDocumentEntry.uniqueId" />
+        </Name>
+      </ExternalIdentifier>
+    </ExtrinsicObject>
+    <ExtrinsicObject id="f9e04766-c6b9-4d67-8477-abcb9ed1e01b" objectType="urn:uuid:7edca82f-054d-47f2-a032-9b2a5b5186c1" status="urn:oasis:names:tc:ebxml-regrep:StatusType:Approved" mimeType="text/xml" isOpaque="false">
+      <Slot name="repositoryUniqueId">
+        <ValueList>
+          <Value>3d0f5cee-6c30-4843-9b62-035408f96836</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="creationTime">
+        <ValueList>
+          <Value>20260829142008</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="languageCode">
+        <ValueList>
+          <Value>en-US</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="sourcePatientId">
+        <ValueList>
+          <Value>Z18041992^^^&amp;1.2.840.114350.1.13.66.2.7.2.876870&amp;ISO</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="sourcePatientInfo">
+        <ValueList>
+          <Value>PID-3|ocnh3rz8xmsd5w7^^^&amp;1.2.840.114350.1.13.66.2.7.3.688884.100&amp;ISO</Value>
+          <Value>PID-5|Dimarcello^Anthony^^^^</Value>
+          <Value>PID-7|19830504</Value>
+          <Value>PID-8|M</Value>
+          <Value>PID-11|412 OLIVE AVE^^HUNTINGTON BEACH^CA^92648^USA</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="URI">
+        <ValueList>
+          <Value>DOC0003.XML</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="size">
+        <ValueList>
+          <Value>226144</Value>
+        </ValueList>
+      </Slot>
+      <Slot name="hash">
+        <ValueList>
+          <Value>c8206bd065c065f839bc04bfc278cdcf614c4021</Value>
+        </ValueList>
+      </Slot>
+      <Classification id="8d051bef-0c1d-4ba3-bdf0-fa74e3ada350" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:93606bcf-9494-43ec-9b4e-a7748d1a838d" classifiedObject="f9e04766-c6b9-4d67-8477-abcb9ed1e01b">
+        <Slot name="authorInstitution">
+          <ValueList>
+            <Value>OCHIN</Value>
+          </ValueList>
+        </Slot>
+      </Classification>
+      <Classification id="e088681c-d665-4f9c-8745-6218d3ee967f" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:a09d5840-386c-46f2-b5ad-9c3699a4309d" classifiedObject="f9e04766-c6b9-4d67-8477-abcb9ed1e01b" nodeRepresentation="urn:epic:mychart:extract:2007">
+        <Slot name="codingScheme">
+          <ValueList>
+            <Value>EPIC</Value>
+          </ValueList>
+        </Slot>
+      </Classification>
+      <Classification id="42f39346-d5bf-4fae-9740-93a2b7b63e24" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:f0306f51-975f-434e-a61c-c59651d33983" classifiedObject="f9e04766-c6b9-4d67-8477-abcb9ed1e01b" nodeRepresentation="34133-9">
+        <Slot name="codingScheme">
+          <ValueList>
+            <Value>LOINC</Value>
+          </ValueList>
+        </Slot>
+      </Classification>
+      <Classification id="a214a9ae-61a9-4223-bced-487c8df504df" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classifiedObject="f9e04766-c6b9-4d67-8477-abcb9ed1e01b" classificationNode="urn:uuid:ab9b591b-83ab-4d03-8f5d-f93b1fb92e85">
+        <Name>
+          <LocalizedString charset="UTF-8" value="XDSDocumentEntry.limitedMetadata" />
+        </Name>
+      </Classification>
+      <ExternalIdentifier id="9eba6e6c-1274-4176-80cb-c68d5c737cb1" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:ExternalIdentifier" registryObject="f9e04766-c6b9-4d67-8477-abcb9ed1e01b" identificationScheme="urn:uuid:58a6f841-87b3-4a3e-92fd-a8ffeff98427" value="Z18041992^^^&amp;1.2.840.114350.1.13.66.2.7.2.876870&amp;ISO">
+        <Name>
+          <LocalizedString charset="UTF-8" value="XDSDocumentEntry.patientId" />
+        </Name>
+      </ExternalIdentifier>
+      <ExternalIdentifier id="7fae831e-b1e3-4b4b-b9a3-3e42c2d522f1" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:ExternalIdentifier" registryObject="f9e04766-c6b9-4d67-8477-abcb9ed1e01b" identificationScheme="urn:uuid:2e82c1f6-a085-4c72-9da3-8640a32e42ab" value="1.2.840.114350.1.13.66.2.7.2.876870.Z18041992.639235848058383728.3">
+        <Name>
+          <LocalizedString charset="UTF-8" value="XDSDocumentEntry.uniqueId" />
+        </Name>
+      </ExternalIdentifier>
+    </ExtrinsicObject>
+    <RegistryPackage id="SubmissionSet" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:RegistryPackage" status="urn:oasis:names:tc:ebxml-regrep:StatusType:Submitted">
+      <Slot name="submissionTime">
+        <ValueList>
+          <Value>20260829142005</Value>
+        </ValueList>
+      </Slot>
+      <Name>
+        <LocalizedString charset="UTF-8" value="Submission Set" />
+      </Name>
+      <Classification id="99cf28ed-61df-462c-b285-799e183f5e53" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classificationScheme="urn:uuid:a7058bb9-b4e4-4307-ba5b-e3f0ab85e12d" classifiedObject="SubmissionSet">
+        <Slot name="authorInstitution">
+          <ValueList>
+            <Value>Share Ourselves</Value>
+          </ValueList>
+        </Slot>
+        <Slot name="authorPerson">
+          <ValueList>
+            <Value>116.0^Epic - Version 116.0</Value>
+          </ValueList>
+        </Slot>
+      </Classification>
+      <ExternalIdentifier id="60c6dd4c-d6b7-43b6-8247-0b5e7dda8d83" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:ExternalIdentifier" registryObject="SubmissionSet" identificationScheme="urn:uuid:6b5aea1a-874d-4603-a4bc-96a0a7b38446" value="Z18041992^^^&amp;1.2.840.114350.1.13.66.2.7.2.876870&amp;ISO">
+        <Name>
+          <LocalizedString charset="UTF-8" value="XDSSubmissionSet.patientId" />
+        </Name>
+      </ExternalIdentifier>
+      <ExternalIdentifier id="799bda8e-7168-48b9-b8f3-73c2e2b97854" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:ExternalIdentifier" registryObject="SubmissionSet" identificationScheme="urn:uuid:554ac39e-e3fe-47fe-b233-965d2a147832" value="1.2.840.114350.1.13.66.2.7.2.876870">
+        <Name>
+          <LocalizedString charset="UTF-8" value="XDSSubmissionSet.sourceId" />
+        </Name>
+      </ExternalIdentifier>
+      <ExternalIdentifier id="0a54e2d4-3fc5-4b71-adaf-545632752e0f" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:ExternalIdentifier" registryObject="SubmissionSet" identificationScheme="urn:uuid:96fdda7c-d067-4183-912e-bf5ee74998a8" value="1.2.840.114350.1.13.66.2.7.2.876870.Z18041992.639235848058383728">
+        <Name>
+          <LocalizedString charset="UTF-8" value="XDSSubmissionSet.uniqueId" />
+        </Name>
+      </ExternalIdentifier>
+    </RegistryPackage>
+    <Classification id="5058cb16-db38-4aee-8ada-74fb9ae48181" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Classification" classifiedObject="SubmissionSet" classificationNode="urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd" />
+    <Association id="2228dce1-8524-42e1-8726-b40f2b7cffe2" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Association" associationType="urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember" sourceObject="SubmissionSet" targetObject="27932b46-ba90-4ba8-b158-ee70fc0b0f3e">
+      <Slot name="SubmissionSetStatus">
+        <ValueList>
+          <Value>Original</Value>
+        </ValueList>
+      </Slot>
+    </Association>
+    <Association id="ca21d6c4-423e-4a3d-97e8-6845cce044ff" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Association" associationType="urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember" sourceObject="SubmissionSet" targetObject="ee0a60e7-dd08-43c2-b1eb-cb5ae05d67b8">
+      <Slot name="SubmissionSetStatus">
+        <ValueList>
+          <Value>Original</Value>
+        </ValueList>
+      </Slot>
+    </Association>
+    <Association id="2e2717aa-9365-4ad0-9048-9a47e335d6b6" objectType="urn:oasis:names:tc:ebxml-regrep:ObjectType:RegistryObject:Association" associationType="urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember" sourceObject="SubmissionSet" targetObject="f9e04766-c6b9-4d67-8477-abcb9ed1e01b">
+      <Slot name="SubmissionSetStatus">
+        <ValueList>
+          <Value>Original</Value>
+        </ValueList>
+      </Slot>
+    </Association>
+    <ObjectRef id="urn:uuid:7edca82f-054d-47f2-a032-9b2a5b5186c1" />
+    <ObjectRef id="urn:uuid:58a6f841-87b3-4a3e-92fd-a8ffeff98427" />
+    <ObjectRef id="urn:uuid:2e82c1f6-a085-4c72-9da3-8640a32e42ab" />
+    <ObjectRef id="urn:uuid:41a5887f-8865-4c09-adf7-e362475b143a" />
+    <ObjectRef id="urn:uuid:f4f85eac-e6cb-4883-b524-f2705394840f" />
+    <ObjectRef id="urn:uuid:a09d5840-386c-46f2-b5ad-9c3699a4309d" />
+    <ObjectRef id="urn:uuid:f33fb8ac-18af-42cc-ae0e-ed0b0bdb91e1" />
+    <ObjectRef id="urn:uuid:cccf5598-8b07-4b77-a05e-ae952c785ead" />
+    <ObjectRef id="urn:uuid:f0306f51-975f-434e-a61c-c59651d33983" />
+    <ObjectRef id="urn:uuid:6b5aea1a-874d-4603-a4bc-96a0a7b38446" />
+    <ObjectRef id="urn:uuid:554ac39e-e3fe-47fe-b233-965d2a147832" />
+    <ObjectRef id="urn:uuid:96fdda7c-d067-4183-912e-bf5ee74998a8" />
+    <ObjectRef id="urn:uuid:aa543740-bdda-424e-8c96-df4873be8500" />
+    <ObjectRef id="urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd" />
+  </RegistryObjectList>
+</SubmitObjectsRequest>

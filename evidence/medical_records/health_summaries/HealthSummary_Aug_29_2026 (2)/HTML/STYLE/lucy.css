@@ -1,0 +1,242 @@
+﻿* {
+	font-family: Arial;
+	margin: 0px;
+	padding: 0px;
+	font-size: 13px; 
+	line-height: 22px;
+}
+
+body {
+	text-align: center;
+	height: 100%;
+}
+
+img {
+	border: 0;
+}
+
+a {
+	font-weight: bold;
+}
+
+div.ZippedWarning {
+	display: none;
+}
+
+.Content {
+	display: block !important;
+    margin: auto;
+    width: 947px;
+    background: #FFFFFF url(../IMAGES/PageBackground.png) repeat-y center; 
+    text-align: center;
+    position: relative;
+}
+
+.PageTop {
+	background-image: url(../IMAGES/PageTop.png);
+	background-repeat: no-repeat;
+	background-position: center top;
+	height: 19px;
+}
+
+.PageMain {
+	width: 916px;
+	margin: auto;
+}
+
+.PageLogoHolder {
+	text-align: center;
+	background-color: #FFFFFF;
+	width: 99%;
+	display: block;
+	margin: auto;
+	height: auto !important;
+	overflow: visible;
+}
+
+.Navigation { 
+	margin-top: 10px;
+	float: right;
+	position: relative;
+	right: 10px;
+	text-align: right;
+	display: inline;
+}
+
+.PageContentHolder {
+	margin: 30px 45px 0px 45px;
+	width: 824px;
+}
+
+.SectionHolder {
+	background-image: url(../IMAGES/LineBlur.png);
+	background-position: right 30px;
+	background-repeat: no-repeat;
+	padding-top: 50px;
+}
+
+span.PageTitle {
+	text-align: left;
+	line-height: 30px;
+	height: 30px;
+	width: 795px;
+	width: auto !important;
+	margin: 20px 0px 10px 0px;
+	position: relative;
+	display: block;
+	padding-left: 75px;
+	border-bottom: 2px solid #FF8040;
+}
+
+img.TitleIcon {
+	position: absolute;
+	top: -15px;
+	left: 5px;
+}
+
+div.Subsection {
+	width: 700px;
+	margin-left: 75px;
+	text-align: left;
+	overflow: hidden;
+}
+
+table.DocumentTable {
+	table-layout: auto;
+	padding: 10px;
+	border-collapse: separate;
+	position: relative;
+	overflow: visible;
+}
+
+td.LeftCell {
+	width: 180px;
+	text-align: right;
+	background-image: url(../IMAGES/OrgLogo.png);
+	background-repeat: no-repeat;
+	background-position: right top;
+	vertical-align: top;
+	padding-top: 5px;
+	height: 53px;
+}
+
+td.RightCell {
+	height: 53px;
+}
+
+div.DocumentLinksHolder {
+	float: left;
+	padding-bottom: 10px;
+}
+
+.DocumentLinksHolder div {
+	min-height: 21px; 
+	height: auto !important;
+}
+
+div.PatientName {
+	text-align: right;
+}
+
+.PageFooter {
+	background-image: url(../IMAGES/PageFooter.png);
+	background-repeat: no-repeat;
+	height: 43px;
+	text-align: center;
+	line-height: 22px;
+	clear: both;
+}
+
+div.description
+{
+	text-align: left; 
+	float: right; 
+	position: relative; 
+	width: 80%;
+}
+	
+div.lucylogo {
+	float: left;
+}
+	
+.clear {
+	clear: both;
+}
+	
+/* -------Text Formatting------------ */
+
+span.CopyrightText,
+span.CopyrightText a,
+span.CopyrightText a:visited {
+	font-size: 10px;
+	vertical-align: middle;
+	line-height: 20px;
+	font-weight: normal;
+}
+
+.WelcomeMessageLink {
+	padding-left: 5px;
+	font-size: 10px;
+	line-height: 10px;
+}
+
+span.WelcomeMessageText {
+	font-size: 15px;
+}
+
+span.SectionHeaderText {
+	font-size: 18px;
+}
+
+span.SectionHeaderTextSmall {
+	font-size: 14px;
+}
+
+span.SectionHeaderText,
+span.SectionHeaderTextSmall,
+span.WelcomeMessageText,
+div.PatientName,
+div.TableWrapper div.innerHead {
+	font-weight: bold;
+}
+
+span.UploadOrg,
+span.ClinDataHeader,
+div.TableWrapper div.innerHead {
+	font-size: 17px;
+}
+
+.WelcomeMessageLink,
+span.UploadOrg,
+span.ClinDataHeader {
+	font-weight: bold;
+}
+
+/* -------PMI------------ */
+
+div.TableWrapper {
+    clear: left;
+}
+
+div.ContentText .ContentTable th {
+    text-align: left;
+    padding: 2px;
+}
+
+div.ContentText .ContentTable td {
+    line-height: 15px;
+    padding: 2px 2px 10px 2px;
+}
+
+span.warning {
+    font-size: 0.85em;
+}
+
+div.TableWrapper {
+    padding-top: 15px;
+}
+
+a.DocName {
+    text-decoration: underline;
+    color: blue;
+}

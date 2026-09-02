@@ -25,13 +25,14 @@ from config import (
     DEFAULT_DOWNLOADS_DIR,
     DEFAULT_EVIDENCE_DIR,
     DEFAULT_MASTER_CATALOG_PATH,
+    DEFAULT_OCR_TRANSCRIPTS_DIR,
     DEFAULT_VAULT_DB_PATH,
     DEFAULT_WORKSPACE_DIR,
     IndexerConfig,
 )
 from connectors.gdrive_streamer import GDriveStreamer
 from connectors.local_crawler import IngestedArtifact, LocalCrawler
-from extractors.document_extractor import DocumentExtractor, ExtractedRecord
+from extractors.document_extractor import DocumentExtractor, ExtractedRecord, persist_ocr_transcript
 from resolution.entity_resolver import EntityResolver
 from storage.catalog_exporter import CatalogExporter
 from storage.vault_db import VaultDB
@@ -228,6 +229,18 @@ class OsintNeoAiIndexerPipeline:
             self.vault_db.insert_financial_transactions_batch(transactions)
             self.vault_db.insert_relationships_batch(relationships)
 
+            # Persist granular audit-ready JSON transcripts to evidence/ocr_transcripts/
+            try:
+                for rec in extracted_records:
+                    doc_ent_ids = [m.entity_id for m in mentions if m.document_id == rec.record_id and m.entity_id]
+                    persist_ocr_transcript(
+                        rec,
+                        transcripts_dir=self.config.ocr_transcripts_dir,
+                        discovered_entities=doc_ent_ids,
+                    )
+            except Exception as tr_err:
+                logger.warning("Error persisting OCR transcripts: %s", tr_err)
+
             logger.info("Successfully committed all records to SQLite Vault: %s", self.vault_db_path)
         except Exception as e:
             err_msg = f"Error storing records in VaultDB: {e}"
@@ -305,6 +318,18 @@ class OsintNeoAiIndexerPipeline:
         self.vault_db.insert_events_batch(events)
         self.vault_db.insert_financial_transactions_batch(transactions)
         self.vault_db.insert_relationships_batch(relationships)
+
+        # Persist granular audit-ready JSON transcripts to evidence/ocr_transcripts/
+        try:
+            for rec in records:
+                doc_ent_ids = [m.entity_id for m in mentions if m.document_id == rec.record_id and m.entity_id]
+                persist_ocr_transcript(
+                    rec,
+                    transcripts_dir=self.config.ocr_transcripts_dir,
+                    discovered_entities=doc_ent_ids,
+                )
+        except Exception as tr_err:
+            logger.warning("Error persisting OCR transcripts: %s", tr_err)
 
         self.catalog_exporter.export_to_file(output_path=self.master_catalog_path, integrity_mode=self.integrity_mode)
         catalog_obj = self.catalog_exporter.build_catalog(integrity_mode=self.integrity_mode)

@@ -1,0 +1,71 @@
+/* General colors */
+body {
+	background: #F0F0F0;
+	color: #000000;
+}
+
+body#document {
+	background: #FFFFFF;
+}
+
+/* div.secHeader:
+      Tops each clinical section (e.g., Allergies, Current Medications, etc
+*/
+div.secHeader {
+  color: #10A0C5;
+}
+
+/* .body_:
+      The div that contains all the content for the section
+*/
+.body_ {
+  border-left: 1px solid #10A0C5;
+  border-top: 1px solid #10A0C5;
+}
+
+a,
+.WelcomeMessageLink,
+span.UploadOrg,
+span.ClinDataHeader,
+div.TableWrapper div.innerHead,
+div.PwdWarning  {
+	color: #10A0C5;
+}
+
+span.SectionHeaderText,
+span.SectionHeaderTextSmall,
+span.WelcomeMessageText,
+span.PwdWarningText,
+div.PatientName {
+	color: #FF8040;
+}
+
+span.CopyrightText,
+span.CopyrightText a,
+span.CopyrightText a:visited,
+a.DocName,
+div.ContentText .ContentTable td:first-child {
+	color: #000000;
+}
+
+.FilePath,
+.FilePath a {
+	color: #C0C0C0;
+}
+
+div.ContentText .ContentTable th,
+div.ContentText .ContentTable tr.alt td {
+    background-color: #FFF7F2;
+}
+
+span.warning {
+    color: #FF0000;
+}
+
+div.ContentText .ContentTable th {
+    color: #FF8040
+}
+
+div.ContentText .ContentTable td {
+    color: #666666;
+}

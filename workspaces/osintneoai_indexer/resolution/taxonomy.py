@@ -112,6 +112,8 @@ class CanonicalEntity:
     aliases: List[str] = field(default_factory=list)
     confidence_score: float = 1.0
     metadata: Dict[str, Any] = field(default_factory=dict)
+    master_sheet_id: Optional[str] = None
+    master_prefix: Optional[str] = None
 
 
 @dataclass
@@ -180,7 +182,7 @@ class Relationship:
 # ============================================================================
 
 def get_category_prefix(category: EntityCategory) -> str:
-    """Returns canonical prefix for entity IDs based on category."""
+    """Returns canonical prefix for entity IDs based on category (backward-compatible)."""
     prefix_map = {
         EntityCategory.INDIVIDUAL: "ENT-IND",
         EntityCategory.MUNICIPAL_BODY: "ENT-MUN",
@@ -191,6 +193,94 @@ def get_category_prefix(category: EntityCategory) -> str:
         EntityCategory.OTHER: "ENT-OTH",
     }
     return prefix_map.get(category, "ENT-OTH")
+
+
+# Master OSINT Sheet (40-Tab) Registry Prefix Mapping
+MASTER_OSINT_PREFIX_MAP: Dict[Union[EntityCategory, EventType, str], str] = {
+    EntityCategory.INDIVIDUAL: "PER",
+    "INDIVIDUAL": "PER",
+    "PERSON": "PER",
+    "PEOPLE": "PER",
+    "PER": "PER",
+    EntityCategory.MUNICIPAL_BODY: "GOV",
+    "MUNICIPAL_BODY": "GOV",
+    "GOVERNMENT": "GOV",
+    "GOV": "GOV",
+    "CONTRACTOR": "CON",
+    "CONSULTING": "CON",
+    "CON": "CON",
+    EntityCategory.PROPERTY_MANAGEMENT: "SHL",
+    "PROPERTY_MANAGEMENT": "SHL",
+    "SHELL_COMPANY": "SHL",
+    "SHL": "SHL",
+    EntityCategory.FINANCIAL_INSTITUTION: "FIN",
+    "FINANCIAL_INSTITUTION": "FIN",
+    "FIN": "FIN",
+    EventType.JUDICIAL_FILING: "EV",
+    EventType.REGULATORY_NOTICE: "EV",
+    EventType.LEGISLATIVE_ACTION: "EV",
+    "EVENT": "EV",
+    "TIMELINE": "EV",
+    "EV": "EV",
+    "RICO": "RICO",
+    "RICO_ENTERPRISE": "RICO",
+    "TOXIC_SITE": "TOX",
+    "ENVIRONMENTAL_HAZARD": "TOX",
+    "TOX": "TOX",
+    "UNKNOWN_PERSON": "UP",
+    "UNIDENTIFIED": "UP",
+    "UP": "UP",
+    "NON_PROFIT": "NP",
+    "NP": "NP",
+    EntityCategory.LEGAL_AGENCY: "LEG",
+    "LEGAL_AGENCY": "LEG",
+    "LEG": "LEG",
+    EntityCategory.COMMERCIAL_ENTITY: "COM",
+    "COMMERCIAL_ENTITY": "COM",
+    "COM": "COM",
+    EntityCategory.OTHER: "ENT",
+    "OTHER": "ENT",
+}
+
+VALID_MASTER_OSINT_PREFIXES: Set[str] = {
+    "PER", "GOV", "CON", "SHL", "EV", "RICO", "TOX", "UP",
+    "ADDR", "PHONE", "EMAIL", "LEG", "TL", "TRAF", "FIN", "FAC", "NP", "COM", "ENT"
+}
+
+
+def get_master_osint_prefix(category_or_type: Union[EntityCategory, EventType, str]) -> str:
+    """
+    Returns the normalized Master OSINT Sheet entity ID prefix
+    (e.g., 'PER', 'GOV', 'CON', 'SHL', 'EV', 'RICO', 'TOX', 'UP').
+    """
+    if isinstance(category_or_type, (EntityCategory, EventType)):
+        key = category_or_type
+    else:
+        key = str(category_or_type).upper().strip()
+    return MASTER_OSINT_PREFIX_MAP.get(key, "ENT")
+
+
+def format_master_osint_id(prefix_or_category: Union[EntityCategory, EventType, str], identifier: Union[int, str]) -> str:
+    """
+    Formats normalized Master OSINT Sheet entity ID (e.g. 'PER-001', 'GOV-002', 'SHL-012').
+    """
+    prefix = get_master_osint_prefix(prefix_or_category) if prefix_or_category not in VALID_MASTER_OSINT_PREFIXES else str(prefix_or_category)
+    if isinstance(identifier, int):
+        return f"{prefix}-{identifier:03d}"
+    clean_id = str(identifier).strip()
+    if clean_id.isdigit():
+        return f"{prefix}-{int(clean_id):03d}"
+    return f"{prefix}-{clean_id}"
+
+
+def is_valid_master_osint_id(entity_id: str) -> bool:
+    """
+    Validates whether an entity ID matches Master OSINT Sheet registry format (e.g. 'PER-001', 'GOV-123', 'EV-048').
+    """
+    if not entity_id or "-" not in entity_id:
+        return False
+    parts = entity_id.split("-", 1)
+    return parts[0].upper() in VALID_MASTER_OSINT_PREFIXES and len(parts[1]) > 0
 
 
 def calculate_confidence(
@@ -221,10 +311,12 @@ def calculate_confidence(
 # ============================================================================
 
 CANONICAL_TARGETS: List[Dict[str, Any]] = [
-    # 1. Individuals
+    # 1. Individuals (PER-###)
     {
         "canonical_name": "Harry Sidhu",
         "entity_category": EntityCategory.INDIVIDUAL,
+        "master_sheet_id": "PER-001",
+        "master_prefix": "PER",
         "role_or_title": "Former Mayor of Anaheim",
         "primary_jurisdiction": "Anaheim / CDCA",
         "aliases": ["Harry Singh Sidhu", "Mayor Harry Sidhu", "Mayor Sidhu", "H. Sidhu", "Sidhu"],
@@ -233,6 +325,8 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "Todd Ament",
         "entity_category": EntityCategory.INDIVIDUAL,
+        "master_sheet_id": "PER-002",
+        "master_prefix": "PER",
         "role_or_title": "Former CEO Anaheim Chamber of Commerce",
         "primary_jurisdiction": "Anaheim / CDCA",
         "aliases": ["Todd Stephen Ament", "Todd Ament", "T. Ament", "Ament"],
@@ -241,6 +335,8 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "Melahat Rafiei",
         "entity_category": EntityCategory.INDIVIDUAL,
+        "master_sheet_id": "PER-003",
+        "master_prefix": "PER",
         "role_or_title": "Political Consultant & DNC Member",
         "primary_jurisdiction": "Anaheim / CDCA",
         "aliases": ["Melahat Rafiei", "M. Rafiei", "Rafiei"],
@@ -249,6 +345,8 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "Jeffrey Flint",
         "entity_category": EntityCategory.INDIVIDUAL,
+        "master_sheet_id": "PER-004",
+        "master_prefix": "PER",
         "role_or_title": "Political Consultant / Lobbyist",
         "primary_jurisdiction": "Anaheim / CDCA",
         "aliases": ["Jeff Flint", "Jeffrey Flint", "J. Flint"],
@@ -257,6 +355,8 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "Brian Adkins",
         "entity_category": EntityCategory.INDIVIDUAL,
+        "master_sheet_id": "PER-005",
+        "master_prefix": "PER",
         "role_or_title": "FBI Special Agent",
         "primary_jurisdiction": "CDCA",
         "aliases": ["Special Agent Brian Adkins", "SA Brian Adkins", "Brian Adkins"],
@@ -265,6 +365,8 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "Bradley H. Zartman",
         "entity_category": EntityCategory.INDIVIDUAL,
+        "master_sheet_id": "PER-006",
+        "master_prefix": "PER",
         "role_or_title": "FBI Special Agent",
         "primary_jurisdiction": "USDC D.N.J.",
         "aliases": ["Special Agent Bradley H. Zartman", "SA Bradley H. Zartman", "Bradley Zartman"],
@@ -273,6 +375,8 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "Carmen Luege",
         "entity_category": EntityCategory.INDIVIDUAL,
+        "master_sheet_id": "PER-007",
+        "master_prefix": "PER",
         "role_or_title": "Judge of California Superior Court",
         "primary_jurisdiction": "Orange County CJC",
         "aliases": ["Judge Carmen Luege", "Hon. Carmen Luege", "Carmen Luege"],
@@ -281,6 +385,8 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "Richard S. Sontag",
         "entity_category": EntityCategory.INDIVIDUAL,
+        "master_sheet_id": "PER-008",
+        "master_prefix": "PER",
         "role_or_title": "Eviction Attorney",
         "primary_jurisdiction": "Orange County CJC",
         "aliases": ["Richard Sontag", "Richard S. Sontag, Esq.", "R. S. Sontag"],
@@ -289,16 +395,20 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "Anthony DiMarcello",
         "entity_category": EntityCategory.INDIVIDUAL,
+        "master_sheet_id": "PER-009",
+        "master_prefix": "PER",
         "role_or_title": "Tenant / Defendant / Relator",
         "primary_jurisdiction": "Orange County / NJ",
         "aliases": ["Anthony DiMarcello", "Anthony C. DiMarcello", "A. DiMarcello", "DiMarcello"],
         "metadata": {"case_numbers": ["30-2021-01201327-CL-UD-CJC"]}
     },
 
-    # 2. Municipal Bodies
+    # 2. Municipal & Government Bodies (GOV-###)
     {
         "canonical_name": "City of Anaheim",
         "entity_category": EntityCategory.MUNICIPAL_BODY,
+        "master_sheet_id": "GOV-001",
+        "master_prefix": "GOV",
         "role_or_title": "Charter City / Municipal Corporation & City Council",
         "primary_jurisdiction": "Orange County, CA",
         "aliases": [
@@ -314,6 +424,8 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "Anaheim Chamber of Commerce",
         "entity_category": EntityCategory.MUNICIPAL_BODY,
+        "master_sheet_id": "GOV-002",
+        "master_prefix": "GOV",
         "role_or_title": "Chamber of Commerce",
         "primary_jurisdiction": "Anaheim, CA",
         "aliases": ["Anaheim Chamber", "ACC"],
@@ -322,16 +434,20 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "Visit Anaheim",
         "entity_category": EntityCategory.MUNICIPAL_BODY,
+        "master_sheet_id": "GOV-003",
+        "master_prefix": "GOV",
         "role_or_title": "Tourism Bureau / DMO",
         "primary_jurisdiction": "Anaheim, CA",
         "aliases": ["Anaheim Tourism Improvement District", "ATID", "Visit Anaheim Inc"],
         "metadata": {"funding": "ARPA grant conduit"}
     },
 
-    # 3. Financial Institutions & Conduits
+    # 3. Financial Institutions & Conduits (SHL-### / CON-###)
     {
         "canonical_name": "TA Group LLC",
         "entity_category": EntityCategory.FINANCIAL_INSTITUTION,
+        "master_sheet_id": "SHL-001",
+        "master_prefix": "SHL",
         "role_or_title": "Conduit Entity / Consulting Firm",
         "primary_jurisdiction": "California",
         "aliases": ["TA Group", "T.A. Group LLC", "TA Group L.L.C."],
@@ -340,6 +456,8 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "FPS Strategies LLC",
         "entity_category": EntityCategory.FINANCIAL_INSTITUTION,
+        "master_sheet_id": "CON-001",
+        "master_prefix": "CON",
         "role_or_title": "Political Consulting / PAC Conduit",
         "primary_jurisdiction": "California",
         "aliases": ["FPS Strategies", "FPS Strategies L.L.C."],
@@ -348,6 +466,8 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "SRB Management Escrow",
         "entity_category": EntityCategory.FINANCIAL_INSTITUTION,
+        "master_sheet_id": "SHL-002",
+        "master_prefix": "SHL",
         "role_or_title": "Stadium Land Sale Escrow Depository",
         "primary_jurisdiction": "Anaheim / CA",
         "aliases": ["SRB Management LLC", "SRB Escrow", "SRB Management"],
@@ -356,16 +476,20 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "Progressive Solutions Consulting",
         "entity_category": EntityCategory.FINANCIAL_INSTITUTION,
+        "master_sheet_id": "CON-002",
+        "master_prefix": "CON",
         "role_or_title": "Political Consulting Firm",
         "primary_jurisdiction": "California",
         "aliases": ["Progressive Solutions", "Progressive Solutions LLC"],
         "metadata": {"owner": "Melahat Rafiei"}
     },
 
-    # 4. Property Management & Real Estate
+    # 4. Property Management & Real Estate (SHL-### / NP-### / ADDR-### / FAC-###)
     {
         "canonical_name": "Woodbridge Meadows Apartments LLC",
         "entity_category": EntityCategory.PROPERTY_MANAGEMENT,
+        "master_sheet_id": "SHL-003",
+        "master_prefix": "SHL",
         "role_or_title": "Apartment Complex / Eviction Plaintiff",
         "primary_jurisdiction": "Irvine / Orange County",
         "aliases": ["Woodbridge Meadows", "Woodbridge Meadows Apts LLC", "Woodbridge Meadows Apartments"],
@@ -374,6 +498,8 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "Mercy House Living Centers",
         "entity_category": EntityCategory.PROPERTY_MANAGEMENT,
+        "master_sheet_id": "NP-001",
+        "master_prefix": "NP",
         "role_or_title": "Homeless Shelter / Housing Non-Profit",
         "primary_jurisdiction": "Orange County, CA",
         "aliases": ["Mercy House", "Mercy House Living Centers Inc"],
@@ -382,6 +508,8 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "1456 Cedar Lane",
         "entity_category": EntityCategory.PROPERTY_MANAGEMENT,
+        "master_sheet_id": "ADDR-001",
+        "master_prefix": "ADDR",
         "role_or_title": "Residential Parcel / Search Target",
         "primary_jurisdiction": "Hamilton Township, NJ",
         "aliases": ["1456 Cedar Ln", "1456 Cedar Lane, Hamilton, NJ"],
@@ -390,16 +518,20 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "Angel Stadium 150-Acre Parcel",
         "entity_category": EntityCategory.PROPERTY_MANAGEMENT,
+        "master_sheet_id": "FAC-001",
+        "master_prefix": "FAC",
         "role_or_title": "Municipal Stadium Land Asset",
         "primary_jurisdiction": "Anaheim, CA",
         "aliases": ["Angel Stadium Site", "2000 E Gene Autry Way", "Angel Stadium Land"],
         "metadata": {"statute": "Surplus Land Act (Gov. Code § 54220)"}
     },
 
-    # 5. Legal & Regulatory Agencies
+    # 5. Legal & Regulatory Agencies (LEG-### / GOV-###)
     {
         "canonical_name": "USDC CDCA",
         "entity_category": EntityCategory.LEGAL_AGENCY,
+        "master_sheet_id": "LEG-001",
+        "master_prefix": "LEG",
         "role_or_title": "United States District Court Central District of California",
         "primary_jurisdiction": "Santa Ana / Los Angeles, CA",
         "aliases": ["United States District Court for the Central District of California", "CDCA", "U.S. District Court CDCA"],
@@ -408,6 +540,8 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "USDC D.N.J.",
         "entity_category": EntityCategory.LEGAL_AGENCY,
+        "master_sheet_id": "LEG-002",
+        "master_prefix": "LEG",
         "role_or_title": "United States District Court District of New Jersey",
         "primary_jurisdiction": "Trenton, NJ",
         "aliases": ["United States District Court for the District of New Jersey", "DNJ", "U.S. District Court DNJ"],
@@ -416,6 +550,8 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "California Superior Court (Orange County CJC)",
         "entity_category": EntityCategory.LEGAL_AGENCY,
+        "master_sheet_id": "LEG-003",
+        "master_prefix": "LEG",
         "role_or_title": "Superior Court of California County of Orange Central Justice Center",
         "primary_jurisdiction": "Santa Ana, CA",
         "aliases": ["Orange County Superior Court", "OC Superior Court", "CJC", "Central Justice Center"],
@@ -424,6 +560,8 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "Federal Bureau of Investigation",
         "entity_category": EntityCategory.LEGAL_AGENCY,
+        "master_sheet_id": "GOV-004",
+        "master_prefix": "GOV",
         "role_or_title": "Federal Law Enforcement Agency",
         "primary_jurisdiction": "Federal / Multi-State",
         "aliases": ["FBI", "FBI CDCA", "FBI DNJ", "Federal Bureau of Investigation CDCA"],
@@ -432,6 +570,8 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "California Department of Housing and Community Development",
         "entity_category": EntityCategory.LEGAL_AGENCY,
+        "master_sheet_id": "GOV-005",
+        "master_prefix": "GOV",
         "role_or_title": "State Housing Regulatory Agency",
         "primary_jurisdiction": "California",
         "aliases": ["California HCD", "HCD", "Dept of Housing and Community Development"],
@@ -440,6 +580,8 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "Hamilton Township Police Division",
         "entity_category": EntityCategory.LEGAL_AGENCY,
+        "master_sheet_id": "GOV-006",
+        "master_prefix": "GOV",
         "role_or_title": "Municipal Police Department",
         "primary_jurisdiction": "Hamilton Township, Mercer County, NJ",
         "aliases": ["Hamilton Police", "Hamilton Twp Police", "HTPD"],
@@ -448,16 +590,20 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "Ewing Police Department",
         "entity_category": EntityCategory.LEGAL_AGENCY,
+        "master_sheet_id": "GOV-007",
+        "master_prefix": "GOV",
         "role_or_title": "Municipal Police Department",
         "primary_jurisdiction": "Ewing Township, Mercer County, NJ",
         "aliases": ["Ewing Police", "EPD", "Ewing Twp Police"],
         "metadata": {"cases": ["I-2019-001222"]}
     },
 
-    # 6. Commercial Entities
+    # 6. Commercial Entities (CON-### / COM-###)
     {
         "canonical_name": "Wallace, Richardson, Sontag & Le LLP",
         "entity_category": EntityCategory.COMMERCIAL_ENTITY,
+        "master_sheet_id": "CON-003",
+        "master_prefix": "CON",
         "role_or_title": "Eviction Litigation Law Firm",
         "primary_jurisdiction": "California",
         "aliases": ["Wallace Richardson Sontag & Le", "WRSL", "Wallace Richardson", "Wallace, Richardson"],
@@ -466,6 +612,8 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "JL Group LLC",
         "entity_category": EntityCategory.COMMERCIAL_ENTITY,
+        "master_sheet_id": "CON-004",
+        "master_prefix": "CON",
         "role_or_title": "Independent Forensic Investigative Firm",
         "primary_jurisdiction": "California",
         "aliases": ["JL Group", "JL Investigation", "JL Investigations LLC"],
@@ -474,6 +622,8 @@ CANONICAL_TARGETS: List[Dict[str, Any]] = [
     {
         "canonical_name": "Quantum Auto Dismantler",
         "entity_category": EntityCategory.COMMERCIAL_ENTITY,
+        "master_sheet_id": "COM-001",
+        "master_prefix": "COM",
         "role_or_title": "Automotive Dismantler & Parts Logistics",
         "primary_jurisdiction": "Santa Ana, CA / NJ",
         "aliases": ["Quantum Auto", "Quantum Dismantlers", "Quantum Auto Dismantlers"],

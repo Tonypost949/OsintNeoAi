@@ -1,7 +1,7 @@
-# BRIEFING — 2026-09-02T08:35:30Z
+# BRIEFING — 2026-09-02T16:42:00Z
 
 ## Mission
-Survey R3 (Automated Cloud Background Scheduler), 5 Verification Gates, and E2E Test Suite for OsintNeoAi continuous correlation project.
+Survey existing dossier/timeline/matrix reporting, testing suites, and 3-location backup automation in OsintNeoAi for R3 and R4.
 
 ## 🔒 My Identity
 - Archetype: explorer
@@ -9,6 +9,8 @@ Survey R3 (Automated Cloud Background Scheduler), 5 Verification Gates, and E2E 
 - Working directory: C:\OsintNeoAi\.agents\explorer_survey_3
 - Original parent: 2556ff43-f8bc-41fe-8487-738b76d80c8d
 - Milestone: survey-r3-verification-e2e
+- Subagent Instance: explorer_survey_3_r1
+- Milestone 2: survey-dossier-timeline-matrix-testing-backup-r3-r4
 
 ## 🔒 Key Constraints
 - Read-only investigation — do NOT implement
@@ -16,32 +18,25 @@ Survey R3 (Automated Cloud Background Scheduler), 5 Verification Gates, and E2E 
 - Preserve AGENTS.md rules and cardinal rules
 
 ## Current Parent
-- Conversation ID: 2556ff43-f8bc-41fe-8487-738b76d80c8d
-- Updated: 2026-09-02T08:35:30Z
+- Conversation ID: 732690b7-29f9-4a6b-8380-b81754c3f7f4
+- Updated: 2026-09-02T16:42:00Z
 
 ## Investigation State
 - **Explored paths**:
-  - `api/auto_correlation.py`, `api/app.py`, `scripts/auto_leads_correlation_v2.py`
-  - `scripts/run_adversarial_verification_gate.py`, `scripts/verify_powerapps_connector.py`
-  - `tests/test_autonomous_correlation_e2e.py` (all 71 tests across Tiers 1-4)
-  - `tests/test_official_documents.py`, `tests/test_adversarial_stress.py`, `tests/test_adversarial_chains_challenger_2.py`, `tests/test_adversarial_empirical_challenge.py`
-  - `scripts/backup_repo_3way.py`, `scripts/execute_3location_backup.py`, `scripts/deploy_azure_clean.py`, `startup.sh`, `azure-pipelines.yml`
-- **Key findings**:
-  - R3 Cloud Scheduler operates 100% in Azure App Service via daemon loop with 15s socket stagger and >=600s interval clamping.
-  - Zero local client CPU/RAM/battery load invariant verified.
-  - 5/5 Verification Gates passed with 100% compliance.
-  - 71/71 E2E tests passed with 100% deterministic consistency.
-  - Power Apps Custom Connector verified live and 100% compatible.
-  - 3-Location Backup Protocol actively maintained per AGENTS.md rules.
-- **Unexplored areas**: None within scope.
+  - `reports/`, `dashboard/`, `scripts/`, `evidence/`
+  - `tests/`, `backup-scripts/`
+- **Key findings**: [Investigating]
+- **Unexplored areas**:
+  - Existing dossier, summary, timeline, and correlation matrix generators
+  - Markdown and tabular JSON outputs formatting (Syncfusion grid, etc.)
+  - Test suites & test infrastructure
+  - 3-location backup scripts and tooling & rclone configs
+  - Requirements & gaps for R3 and R4
 
 ## Key Decisions Made
-- Executed all test suites empirically via `python -m unittest` and verification scripts.
-- Synthesized findings into `survey_scheduler_verification.md` and `handoff.md`.
-- Documented Python 3.14 import proposal for auxiliary test suite.
+- Commencing comprehensive investigation across the 4 scope areas.
 
 ## Artifact Index
-- `C:\OsintNeoAi\.agents\explorer_survey_3\survey_scheduler_verification.md` — Comprehensive survey report
 - `C:\OsintNeoAi\.agents\explorer_survey_3\handoff.md` — 5-Component handoff report
 - `C:\OsintNeoAi\.agents\explorer_survey_3\DISPATCH.md` — Dispatch log
 - `C:\OsintNeoAi\.agents\explorer_survey_3\progress.md` — Progress log

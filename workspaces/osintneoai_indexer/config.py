@@ -24,6 +24,7 @@ DEFAULT_WORKSPACE_DIR: Path = Path(r"C:\OsintNeoAi\workspaces\osintneoai_indexer
 
 DEFAULT_VAULT_DB_PATH: Path = DEFAULT_WORKSPACE_DIR / "timeline_vault.db"
 DEFAULT_MASTER_CATALOG_PATH: Path = DEFAULT_WORKSPACE_DIR / "master_timeline_catalog.json"
+DEFAULT_OCR_TRANSCRIPTS_DIR: Path = DEFAULT_EVIDENCE_DIR / "ocr_transcripts"
 DEFAULT_SPOOL_DIR: Path = DEFAULT_WORKSPACE_DIR / "temp_spool"
 DEFAULT_LOG_DIR: Path = DEFAULT_WORKSPACE_DIR / "logs"
 
@@ -241,6 +242,7 @@ class IndexerConfig:
     workspace_dir: Path = DEFAULT_WORKSPACE_DIR
     vault_db_path: Path = DEFAULT_VAULT_DB_PATH
     master_catalog_path: Path = DEFAULT_MASTER_CATALOG_PATH
+    ocr_transcripts_dir: Path = DEFAULT_OCR_TRANSCRIPTS_DIR
     spool_dir: Path = DEFAULT_SPOOL_DIR
     log_dir: Path = DEFAULT_LOG_DIR
     chunk_size: int = CHUNK_SIZE
@@ -268,6 +270,7 @@ class IndexerConfig:
             workspace_dir=Path(os.getenv("OSINTNEOAI_WORKSPACE_DIR", str(DEFAULT_WORKSPACE_DIR))),
             vault_db_path=Path(os.getenv("OSINTNEOAI_VAULT_DB_PATH", str(DEFAULT_VAULT_DB_PATH))),
             master_catalog_path=Path(os.getenv("OSINTNEOAI_CATALOG_PATH", str(DEFAULT_MASTER_CATALOG_PATH))),
+            ocr_transcripts_dir=Path(os.getenv("OSINTNEOAI_OCR_TRANSCRIPTS_DIR", str(DEFAULT_OCR_TRANSCRIPTS_DIR))),
             spool_dir=Path(os.getenv("OSINTNEOAI_SPOOL_DIR", str(DEFAULT_SPOOL_DIR))),
             log_dir=Path(os.getenv("OSINTNEOAI_LOG_DIR", str(DEFAULT_LOG_DIR))),
             chunk_size=int(os.getenv("OSINTNEOAI_CHUNK_SIZE", str(CHUNK_SIZE))),
@@ -285,6 +288,7 @@ class IndexerConfig:
         self.workspace_dir.mkdir(parents=True, exist_ok=True)
         self.vault_db_path.parent.mkdir(parents=True, exist_ok=True)
         self.master_catalog_path.parent.mkdir(parents=True, exist_ok=True)
+        self.ocr_transcripts_dir.mkdir(parents=True, exist_ok=True)
         self.spool_dir.mkdir(parents=True, exist_ok=True)
         self.log_dir.mkdir(parents=True, exist_ok=True)
 

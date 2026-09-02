@@ -42,3 +42,40 @@ Enforce AGENTS.md protocol: all files saved under evidence/official_court_record
 - [ ] Every listed case includes verified case numbers, filing dates, judicial officers, and statutory violation citations.
 - [ ] Master index markdown file OFFICIAL_DOCUMENTS_INDEX.md catalogs every primary source document.
 - [ ] All records are pushed to GitHub origin/main without data loss or overwriting existing files.
+
+## 2026-09-02T16:30:22Z
+
+Build an autonomous, full-cycle OSINT evidence ingestion, neural OCR entity extraction, BigQuery graph correlation, and investigative dossier generation pipeline for OsintNeoAi.
+
+Working directory: C:\OsintNeoAi
+Integrity mode: development
+
+## Requirements
+
+### R1. Multi-Format Evidence Ingestion & Neural OCR Processing
+The pipeline must automatically scan, ingest, and unpack raw multi-format evidence (PDF medical/court records, images, Google Drive/Photos exports, zip archives in evidence/ or incoming queues), extract machine-readable text and metadata, and store structured audit-ready JSON artifacts with SHA-256 integrity hashes.
+
+### R2. Entity Extraction, Cross-Referencing & Graph Analysis
+Extracted records must be processed through an entity resolution engine to extract named entities (organizations, individuals, government agencies, medical identifiers, case numbers, addresses, financial amounts) and format them for BigQuery graph tables (national_audits, onedrive_forensics, forensic_layers).
+
+### R3. Automated Dossier, Timeline & Correlation Matrix Generation
+The system must generate daily intelligence briefing summaries, chronological event timelines, and cross-entity correlation matrices saved to reports/daily/ and formatted in Markdown and tabular JSON for interactive dashboard consumption.
+
+### R4. Automated Verification & 3-Location Backup Protocol
+The pipeline must include a self-verifying test suite that programmatically validates ingestion, OCR extraction accuracy, graph schema compliance, and report generation, automatically executing the mandatory 3-location backup protocol (GitHub main, Local PC backups/repo/, and Google Drive Sharedall/OsintNeoAi/).
+
+## Acceptance Criteria
+
+### Ingestion & OCR
+- [ ] Pipeline discovers and processes incoming documents in evidence/ without unhandled crashes.
+- [ ] Generates SHA-256 content hashes and normalized metadata for all ingested artifacts.
+
+### Entity & Graph Extraction
+- [ ] Extracts structured entities (people, organizations, locations, identifiers, dates) into clean JSON schema.
+- [ ] Produces records compatible with BigQuery graph and table schemas.
+
+### Reporting & Verification
+- [ ] Programmatic verification test suite runs and passes cleanly (python test_pipeline.py or equivalent).
+- [ ] Generates at least one comprehensive forensic intelligence dossier in reports/daily/.
+- [ ] Confirms successful backup sync across GitHub, Local PC, and Google Drive Sharedall.
+
