@@ -7,12 +7,29 @@
 credentials/
 secrets/
 
-# OS and Temp Files
+# OS, Temp & Build Artifacts
 .DS_Store
 Thumbs.db
 *.tmp
 *.log
+__pycache__/
+*.pyc
+node_modules/
+.venv/
+.agents/
+.pytest_cache/
 
-# Raw large media (use Git LFS or external secure storage)
-*.raw
-*.bin
+# Large binaries and deployment zip archives
+*.zip
+*.tar
+*.gz
+*.patch
+*.exe
+*.dll
+cloudflared.exe
+azure_deploy.zip
+backup_patches_auto_leads.patch
+Program Files/
+tasklet_export/
+opencode_work/
+evidence/google_photos*/
