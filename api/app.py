@@ -288,6 +288,49 @@ def serve_gods_eye():
     return resp
 
 
+@app.route("/cesium/<path:filename>", methods=["GET"])
+def serve_cesium_assets(filename):
+    cesium_dir = os.path.join(ROOT_DIR, "public", "cesium")
+    if os.path.exists(os.path.join(cesium_dir, filename)):
+        return send_from_directory(cesium_dir, filename)
+    alt_dir = os.path.join(ROOT_DIR, "tools", "gods_eye_upstream", "dist", "cesium")
+    if os.path.exists(os.path.join(alt_dir, filename)):
+        return send_from_directory(alt_dir, filename)
+    return "Cesium asset not found", 404
+
+
+@app.route("/assets/<path:filename>", methods=["GET"])
+def serve_dist_assets(filename):
+    assets_dir = os.path.join(ROOT_DIR, "public", "assets")
+    if os.path.exists(os.path.join(assets_dir, filename)):
+        return send_from_directory(assets_dir, filename)
+    alt_dir = os.path.join(ROOT_DIR, "tools", "gods_eye_upstream", "dist", "assets")
+    if os.path.exists(os.path.join(alt_dir, filename)):
+        return send_from_directory(alt_dir, filename)
+    return "Asset not found", 404
+
+
+@app.route("/models/<path:filename>", methods=["GET"])
+def serve_model_assets(filename):
+    models_dir = os.path.join(ROOT_DIR, "public", "models")
+    if os.path.exists(os.path.join(models_dir, filename)):
+        return send_from_directory(models_dir, filename)
+    alt_dir = os.path.join(ROOT_DIR, "tools", "gods_eye_upstream", "dist", "models")
+    if os.path.exists(os.path.join(alt_dir, filename)):
+        return send_from_directory(alt_dir, filename)
+    return "Model not found", 404
+
+
+@app.route("/<string:svgname>.svg", methods=["GET"])
+def serve_root_svg(svgname):
+    filename = f"{svgname}.svg"
+    for d in [ROOT_DIR, os.path.join(ROOT_DIR, "public"), os.path.join(ROOT_DIR, "tools", "gods_eye_upstream", "dist")]:
+        fp = os.path.join(d, filename)
+        if os.path.exists(fp):
+            return send_from_directory(d, filename, mimetype="image/svg+xml")
+    return "SVG not found", 404
+
+
 @app.route("/maps/caltrans_d12_cctv.geojson", methods=["GET"])
 @app.route("/caltrans_d12_cctv.geojson", methods=["GET"])
 def serve_cctv_geojson():

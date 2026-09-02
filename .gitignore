@@ -6,6 +6,10 @@
 *.key
 credentials/
 secrets/
+gcp_adc.json
+*adc*.json
+*service_account*.json
+*token*.json
 
 # OS, Temp & Build Artifacts
 .DS_Store
