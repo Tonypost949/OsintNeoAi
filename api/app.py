@@ -331,6 +331,33 @@ def serve_root_svg(svgname):
     return "SVG not found", 404
 
 
+@app.route("/api/setup/status", methods=["GET"])
+def api_setup_status():
+    keys_status = []
+    reg = [
+        {"id": "google-maps", "title": "GOOGLE MAPS", "envVars": ["GOOGLE_MAPS_API_KEY", "GOOGLE_API_KEY"]},
+        {"id": "openai", "title": "OPENAI", "envVars": ["OPENAI_API_KEY", "AZURE_OPENAI_KEY"]},
+        {"id": "aisstream", "title": "AISSTREAM", "envVars": ["AISSTREAM_API_KEY"]},
+        {"id": "firms", "title": "NASA FIRMS", "envVars": ["FIRMS_MAP_KEY"]},
+        {"id": "tomtom", "title": "TOMTOM", "envVars": ["TOMTOM_API_KEY"]},
+        {"id": "cesium-ion", "title": "CESIUM ION", "envVars": ["CESIUM_ION_TOKEN"]},
+        {"id": "opensky", "title": "OPENSKY", "envVars": ["OPENSKY_CLIENT_ID", "OPENSKY_CLIENT_SECRET"]},
+        {"id": "launch-library", "title": "LAUNCH LIBRARY", "envVars": ["LL2_API_TOKEN"]}
+    ]
+    for k in reg:
+        is_set = any(bool(os.getenv(v)) for v in k["envVars"])
+        keys_status.append({
+            "id": k["id"],
+            "title": k["title"],
+            "set": is_set,
+            "managed": "external" if is_set else None,
+            "envVars": k["envVars"]
+        })
+    resp = jsonify({"keys": keys_status, "store": "azure-environment"})
+    resp.headers["Cache-Control"] = "no-store"
+    return resp
+
+
 @app.route("/maps/caltrans_d12_cctv.geojson", methods=["GET"])
 @app.route("/caltrans_d12_cctv.geojson", methods=["GET"])
 def serve_cctv_geojson():
