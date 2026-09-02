@@ -1198,5 +1198,395 @@
     })();
   </script>
 
+  <!-- OSINT NEO AI Native Voice Command Engine & Sleek Tactical HUD -->
+  <style>
+    /* Sleek, Space-Saving HUD & Tactical Data Cards */
+    #command-dock {
+      background: rgba(10, 14, 23, 0.75) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border: 1px solid rgba(0, 212, 255, 0.25) !important;
+      border-radius: 20px !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 212, 255, 0.15) !important;
+      padding: 6px 14px !important;
+      gap: 12px !important;
+      max-width: 94vw !important;
+    }
+    .panel-collapsible {
+      background: rgba(10, 15, 26, 0.85) !important;
+      backdrop-filter: blur(24px) !important;
+      -webkit-backdrop-filter: blur(24px) !important;
+      border: 1px solid rgba(0, 212, 255, 0.2) !important;
+      border-radius: 14px !important;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7) !important;
+    }
+    .panel-header {
+      padding: 8px 12px !important;
+      font-family: 'Orbitron', 'Rajdhani', sans-serif !important;
+      font-size: 0.8rem !important;
+      letter-spacing: 0.12em !important;
+      color: #00d4ff !important;
+    }
+    .dock-popover-content {
+      max-height: 48vh !important;
+      overflow-y: auto !important;
+      scrollbar-width: thin;
+      padding: 10px !important;
+    }
+    /* Dedicated Glowing Voice Button & Audio Waveform */
+    #native-voice-hud {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(8, 12, 20, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 212, 255, 0.4);
+      border-radius: 40px;
+      padding: 6px 16px 6px 8px;
+      box-shadow: 0 0 24px rgba(0, 212, 255, 0.25), inset 0 0 12px rgba(0, 212, 255, 0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #native-voice-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #00d4ff 0%, #00558f 100%);
+      border: 2px solid #ffffff;
+      color: #050b14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 22px;
+      box-shadow: 0 0 16px rgba(0, 212, 255, 0.8);
+      transition: all 0.25s ease;
+      outline: none;
+    }
+    #native-voice-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 24px rgba(0, 212, 255, 1);
+    }
+    #native-voice-btn.listening {
+      background: radial-gradient(circle, #ff0055 0%, #99002b 100%);
+      border-color: #ff88a3;
+      box-shadow: 0 0 30px #ff0055;
+      animation: voice-pulse 1.2s infinite alternate;
+    }
+    @keyframes voice-pulse {
+      0% { transform: scale(1); box-shadow: 0 0 14px #ff0055; }
+      100% { transform: scale(1.14); box-shadow: 0 0 32px #ff0055, 0 0 50px rgba(255,0,85,0.6); }
+    }
+    #native-voice-text {
+      font-family: 'Rajdhani', 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      color: #e6f7ff;
+      max-width: 320px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+    }
+    /* Sleek Tactical Target Telemetry Card (Top Right) */
+    #tactical-target-card {
+      position: fixed;
+      top: 72px;
+      right: 18px;
+      z-index: 999;
+      width: 280px;
+      background: rgba(10, 16, 28, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 212, 255, 0.35);
+      border-radius: 12px;
+      padding: 12px 14px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.7), 0 0 16px rgba(0,212,255,0.15);
+      font-family: 'JetBrains Mono', 'Rajdhani', monospace;
+      color: #e0f2fe;
+      display: none;
+      animation: slideInRight 0.3s ease;
+    }
+    @keyframes slideInRight {
+      from { transform: translateX(30px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    #tactical-target-card.visible { display: block; }
+    .tactical-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+    }
+    .tactical-card-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: #00d4ff;
+    }
+    .tactical-card-close {
+      background: none;
+      border: none;
+      color: #94a3b8;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 1;
+    }
+    .tactical-stat-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      margin: 4px 0;
+      color: #cbd5e1;
+    }
+    .tactical-stat-label { color: #64748b; font-weight: 600; }
+    .tactical-stat-val { color: #38bdf8; font-weight: 700; }
+  </style>
+
+  <div id="native-voice-hud" role="region" aria-label="Voice Command Interface">
+    <button id="native-voice-btn" type="button" title="Click or Hold Space to Speak (Voice Control)">
+      <span class="material-symbols-outlined" style="pointer-events:none;">mic</span>
+    </button>
+    <div id="native-voice-text">VOICE READY · CLICK MIC</div>
+  </div>
+
+  <div id="tactical-target-card">
+    <div class="tactical-card-header">
+      <span class="tactical-card-title" id="target-card-type">TARGET ACQUIRED</span>
+      <button class="tactical-card-close" onclick="document.getElementById('tactical-target-card').classList.remove('visible')">✕</button>
+    </div>
+    <div class="tactical-stat-row"><span class="tactical-stat-label">CALLSIGN / ID</span><span class="tactical-stat-val" id="target-card-id">---</span></div>
+    <div class="tactical-stat-row"><span class="tactical-stat-label">POSITION</span><span class="tactical-stat-val" id="target-card-pos">--°N, --°W</span></div>
+    <div class="tactical-stat-row"><span class="tactical-stat-label">ALTITUDE</span><span class="tactical-stat-val" id="target-card-alt">--- FT</span></div>
+    <div class="tactical-stat-row"><span class="tactical-stat-label">VELOCITY</span><span class="tactical-stat-val" id="target-card-spd">--- KTS</span></div>
+    <div class="tactical-stat-row"><span class="tactical-stat-label">CLASSIFICATION</span><span class="tactical-stat-val" id="target-card-class">LIVE INTEL</span></div>
+  </div>
+
+  <script>
+    // Native Speech Recognition & Voice Action Grammar System
+    (() => {
+      const voiceBtn = document.getElementById('native-voice-btn');
+      const voiceText = document.getElementById('native-voice-text');
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+      let recognition = null;
+      let isListening = false;
+
+      function speakResponse(text) {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          const utterance = new SpeechSynthesisUtterance(text);
+          utterance.rate = 1.05;
+          utterance.pitch = 0.95;
+          window.speechSynthesis.speak(utterance);
+        }
+      }
+
+      function executeVoiceCommand(raw) {
+        const text = raw.toLowerCase().trim();
+        console.log('[VoiceEngine] Interpreting voice command:', text);
+        voiceText.textContent = `"${raw}"`;
+
+        const v = window.viewer || window.CesiumViewer;
+        const g = window.__godsEyeView;
+
+        // 1. Locations
+        const cities = {
+          'austin': { lat: 30.2747, lon: -97.7403, alt: 1200, name: 'Austin, Texas' },
+          'new york': { lat: 40.7484, lon: -73.9857, alt: 1400, name: 'New York City' },
+          'nyc': { lat: 40.7484, lon: -73.9857, alt: 1400, name: 'New York City' },
+          'tokyo': { lat: 35.6586, lon: 139.7454, alt: 1400, name: 'Tokyo, Japan' },
+          'paris': { lat: 48.8584, lon: 2.2945, alt: 1200, name: 'Paris, France' },
+          'london': { lat: 51.5055, lon: -0.0754, alt: 1200, name: 'London, UK' },
+          'san francisco': { lat: 37.7952, lon: -122.4028, alt: 1400, name: 'San Francisco' },
+          'dubai': { lat: 25.1972, lon: 55.2744, alt: 1400, name: 'Dubai, UAE' },
+          'washington': { lat: 38.8897, lon: -77.0091, alt: 1200, name: 'Washington DC' }
+        };
+
+        for (const [key, loc] of Object.entries(cities)) {
+          if (text.includes(key)) {
+            if (v && v.camera && window.Cesium) {
+              v.camera.flyTo({
+                destination: window.Cesium.Cartesian3.fromDegrees(loc.lon, loc.lat, loc.alt),
+                duration: 2.5
+              });
+              speakResponse(`Flying to ${loc.name}`);
+              return;
+            }
+          }
+        }
+
+        if (text.includes('globe') || text.includes('reset view') || text.includes('orbit')) {
+          if (v && v.camera && window.Cesium) {
+            v.camera.flyTo({
+              destination: window.Cesium.Cartesian3.fromDegrees(-97.74, 30.27, 18000000),
+              duration: 2.5
+            });
+            speakResponse('Resetting to planetary orbit view');
+            return;
+          }
+        }
+
+        // 2. Visual Styles
+        const styles = ['thermal', 'flir', 'night vision', 'nvg', 'retro', 'crt', 'noir', 'anime', 'snow', 'normal'];
+        for (const s of styles) {
+          if (text.includes(s)) {
+            let targetStyle = s;
+            if (s === 'flir') targetStyle = 'thermal';
+            if (s === 'night vision') targetStyle = 'surveillance';
+            if (s === 'nvg') targetStyle = 'surveillance';
+            if (s === 'crt') targetStyle = 'retro';
+            const btn = document.querySelector(`[data-style="${targetStyle}"]`);
+            if (btn) btn.click();
+            speakResponse(`Visual preset set to ${targetStyle}`);
+            return;
+          }
+        }
+
+        // 3. Data Layers
+        if (text.includes('flight') || text.includes('plane') || text.includes('air traffic')) {
+          const t = document.querySelector('[data-layer-id="flights"] input') || document.getElementById('toggle-flights');
+          if (t) { t.click(); speakResponse('Toggling commercial flight tracking'); return; }
+        }
+        if (text.includes('military') || text.includes('defense') || text.includes('fighter')) {
+          const t = document.querySelector('[data-layer-id="military-flights"] input') || document.getElementById('toggle-military');
+          if (t) { t.click(); speakResponse('Toggling military airspace radar'); return; }
+        }
+        if (text.includes('satellite') || text.includes('orbit') || text.includes('starlink') || text.includes('iss')) {
+          const t = document.querySelector('[data-layer-id="satellites"] input') || document.getElementById('toggle-satellites');
+          if (t) { t.click(); speakResponse('Toggling satellite ephemeris tracks'); return; }
+        }
+        if (text.includes('earthquake') || text.includes('quake') || text.includes('seismic')) {
+          const t = document.querySelector('[data-layer-id="earthquakes"] input') || document.getElementById('toggle-earthquakes');
+          if (t) { t.click(); speakResponse('Toggling global seismic events'); return; }
+        }
+        if (text.includes('traffic') || text.includes('roads')) {
+          const t = document.querySelector('[data-layer-id="traffic"] input') || document.getElementById('toggle-traffic');
+          if (t) { t.click(); speakResponse('Toggling road network traffic'); return; }
+        }
+        if (text.includes('camera') || text.includes('cctv')) {
+          const t = document.querySelector('[data-layer-id="cctv"] input') || document.getElementById('toggle-cctv');
+          if (t) { t.click(); speakResponse('Toggling live traffic camera feeds'); return; }
+        }
+        if (text.includes('fire') || text.includes('wildfire')) {
+          const t = document.querySelector('[data-layer-id="local-firms"] input') || document.getElementById('toggle-firms');
+          if (t) { t.click(); speakResponse('Toggling active wildfire thermal spots'); return; }
+        }
+        if (text.includes('clear') || text.includes('turn off') || text.includes('clean')) {
+          const c = document.getElementById('clear-selected-layers');
+          if (c) c.click();
+          speakResponse('All data layers cleared');
+          return;
+        }
+
+        // 4. Zoom Controls
+        if (text.includes('zoom in') || text.includes('closer')) {
+          if (v && v.camera) { v.camera.zoomIn(150000); speakResponse('Zooming in'); return; }
+        }
+        if (text.includes('zoom out') || text.includes('further')) {
+          if (v && v.camera) { v.camera.zoomOut(300000); speakResponse('Zooming out'); return; }
+        }
+
+        // Default acknowledged
+        speakResponse(`Command received: ${raw}`);
+      }
+
+      function initVoice() {
+        if (!SpeechRecognition) {
+          voiceText.textContent = 'SPEECH API UNSUPPORTED IN THIS BROWSER';
+          return;
+        }
+
+        recognition = new SpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = true;
+        recognition.lang = 'en-US';
+
+        recognition.onstart = () => {
+          isListening = true;
+          voiceBtn.classList.add('listening');
+          voiceText.textContent = 'LISTENING... SPEAK COMMAND';
+        };
+
+        recognition.onresult = (event) => {
+          let transcript = '';
+          for (let i = event.resultIndex; i < event.results.length; ++i) {
+            transcript += event.results[i][0].transcript;
+          }
+          voiceText.textContent = transcript;
+          if (event.results[0].isFinal) {
+            executeVoiceCommand(transcript);
+          }
+        };
+
+        recognition.onerror = (e) => {
+          console.warn('[VoiceEngine] Recognition error:', e.error);
+          voiceText.textContent = `VOICE: ${e.error.toUpperCase()}`;
+          voiceBtn.classList.remove('listening');
+          isListening = false;
+        };
+
+        recognition.onend = () => {
+          voiceBtn.classList.remove('listening');
+          isListening = false;
+          setTimeout(() => {
+            if (!isListening) voiceText.textContent = 'VOICE READY · CLICK MIC';
+          }, 3000);
+        };
+      }
+
+      function toggleListening() {
+        if (!recognition) initVoice();
+        if (!recognition) return;
+        if (isListening) {
+          recognition.stop();
+        } else {
+          try {
+            recognition.start();
+          } catch (err) {
+            recognition.stop();
+          }
+        }
+      }
+
+      if (voiceBtn) {
+        voiceBtn.addEventListener('click', toggleListening);
+      }
+
+      // Spacebar push-to-talk handler
+      window.addEventListener('keydown', (e) => {
+        if (e.code === 'Space' && !e.repeat && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+          e.preventDefault();
+          if (!isListening) toggleListening();
+        }
+      });
+
+      // Target Card Click Telemetry Listener
+      window.addEventListener('click', (e) => {
+        const v = window.viewer || window.CesiumViewer;
+        if (v && v.scene) {
+          try {
+            const picked = v.scene.pick(new Cesium.Cartesian2(e.clientX, e.clientY));
+            if (picked && picked.id) {
+              const card = document.getElementById('tactical-target-card');
+              const name = picked.id.name || picked.id.id || 'TARGET';
+              document.getElementById('target-card-id').textContent = String(name).slice(0, 16);
+              document.getElementById('target-card-type').textContent = 'CONTACT ACQUIRED';
+              if (card) card.classList.add('visible');
+            }
+          } catch (err) {}
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
