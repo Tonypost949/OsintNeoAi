@@ -41,9 +41,9 @@
       <h1 class="orbitron text-xl font-bold tracking-wider text-cyan-400">OSINT NEO AI — GOD'S EYE VIEW</h1>
     </div>
     <div class="flex items-center gap-4 text-xs mono text-slate-400">
+      <a href="https://experience.arcgis.com/experience/88eb50885b724d9990feb102001b1447/page/DAC-Mapping-Tool?org=DWR" target="_blank" class="px-3 py-1.5 bg-cyan-500/20 hover:bg-cyan-500/40 border border-cyan-400/40 rounded text-cyan-300 font-bold transition">🗺️ DWR DAC GIS TOOL</a>
       <div>STATUS: <span class="text-emerald-400 font-bold">LIVE ONLINE</span></div>
       <div>ENTITIES: <span class="text-cyan-400 font-bold">143 RECORDED</span></div>
-      <div>EVIDENCE ITEMS: <span class="text-amber-400 font-bold">EV-001 TO EV-032</span></div>
     </div>
   </div>
 
@@ -52,8 +52,12 @@
 
   <!-- FLOATING EVIDENCE TIMELINE PANEL -->
   <div class="absolute bottom-4 left-4 z-50 w-96 max-h-80 glass-panel p-4 rounded-xl overflow-y-auto border-cyan-500/30">
-    <h2 class="orbitron text-sm font-bold text-cyan-400 mb-3 uppercase tracking-wider">🚨 Master Forensic Timeline Feed</h2>
+    <h2 class="orbitron text-sm font-bold text-cyan-400 mb-3 uppercase tracking-wider">🚨 Master Forensic & Environmental GIS Feed</h2>
     <div class="space-y-3 text-xs mono">
+      <div class="p-2 bg-slate-900/60 rounded border border-cyan-500/20">
+        <div class="text-emerald-400 font-bold">CA DWR DAC MAPPING TOOL (ARCGIS)</div>
+        <div class="text-slate-300">Target URL: <a href="https://experience.arcgis.com/experience/88eb50885b724d9990feb102001b1447/page/DAC-Mapping-Tool?org=DWR" target="_blank" class="underline text-cyan-400">experience.arcgis.com (DAC-Mapping-Tool)</a></div>
+      </div>
       <div class="p-2 bg-slate-900/60 rounded border border-cyan-500/20">
         <div class="text-cyan-400 font-bold">AUG 20, 2021 @ 3:23:49 PM</div>
         <div class="text-slate-300">OCSC stay minute order email transmitted to efiling@rwclegal.com (EV-027).</div>
@@ -62,34 +66,23 @@
         <div class="text-amber-400 font-bold">AUG 19, 2021 @ 11:31 AM</div>
         <div class="text-slate-300">Victor Nunez emails eviction restoration notice to info@ocsheriff.gov (EV-028).</div>
       </div>
-      <div class="p-2 bg-slate-900/60 rounded border border-cyan-500/20">
-        <div class="text-rose-400 font-bold">AUG 04, 2021</div>
-        <div class="text-slate-300">Surprise eviction executed at gunpoint at 212 Southbrook, Irvine (EV-EVICT-2021).</div>
-      </div>
-      <div class="p-2 bg-slate-900/60 rounded border border-cyan-500/20">
-        <div class="text-emerald-400 font-bold">FEB 16, 2021</div>
-        <div class="text-slate-300">Form UD-101 filed falsely checking Box 7d(2) denying COVID distress declaration (EV-030).</div>
-      </div>
     </div>
   </div>
 
   <script>
-    // Initialize Leaflet Map Engine centered on Orange County, CA
     const map = L.map('map', { zoomControl: false }).setView([33.6846, -117.8265], 11);
     L.control.zoom({ position: 'topright' }).addTo(map);
 
-    // Dark Satellite / CartoDB Basemap Tile Layer
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; OSINT Neo AI Intelligence Systems',
       subdomains: 'abcd',
       maxZoom: 19
     }).addTo(map);
 
-    // Key Incident Coordinates & Pins
     const locations = [
+      { lat: 33.7042, lng: -117.9898, title: "17631 Cameron Lane, Huntington Beach CA", desc: "GeoTracker Environmental Site (Lead 101 mg/kg / Offsite Plume / EV-004)" },
       { lat: 33.6828, lng: -117.8016, title: "212 Southbrook, Irvine CA", desc: "Woodbridge Meadows Apartments (Eviction Site / EV-028 / EV-030)" },
       { lat: 33.7500, lng: -117.8678, title: "Orange County Superior Court", desc: "Central Justice Center (3:11 PM Stay Order / EV-027)" },
-      { lat: 33.6592, lng: -117.7561, title: "OCSD Jamboree Facility", desc: "Orange County Sheriff Civil Division (info@ocsheriff.gov)" },
       { lat: 33.6548, lng: -117.9981, title: "412 Olive Ave, Huntington Beach CA", desc: "Chase Customer Correspondence Address (EV-032)" },
       { lat: 40.2170, lng: -74.7429, title: "1456 Cedar Ln, Mercer County NJ", desc: "Innocenzi Property Record Site (EV-031)" }
     ];
