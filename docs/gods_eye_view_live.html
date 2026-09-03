@@ -50,27 +50,27 @@
   <!-- LEAFLET GIS MAP CONTAINER -->
   <div id="map"></div>
 
-  <!-- FLOATING EVIDENCE TIMELINE PANEL -->
+  <!-- FLOATING EVIDENCE & UTILITY LAYER PANEL -->
   <div class="absolute bottom-4 left-4 z-50 w-96 max-h-80 glass-panel p-4 rounded-xl overflow-y-auto border-cyan-500/30">
-    <h2 class="orbitron text-sm font-bold text-cyan-400 mb-3 uppercase tracking-wider">🚨 Master Forensic & Environmental GIS Feed</h2>
+    <h2 class="orbitron text-sm font-bold text-cyan-400 mb-3 uppercase tracking-wider">🛠️ Municipal Utility & Infrastructure Layer</h2>
     <div class="space-y-3 text-xs mono">
       <div class="p-2 bg-slate-900/60 rounded border border-cyan-500/20">
+        <div class="text-amber-400 font-bold">7561 CENTER AVE UTILITY ENCLOSURES</div>
+        <div class="text-slate-300">Category 2 Structural Observation: 1960s-70s subterranean utility vaults (Units D1, E1, G1, J1).</div>
+      </div>
+      <div class="p-2 bg-slate-900/60 rounded border border-cyan-500/20">
+        <div class="text-cyan-400 font-bold">WELL CA3000618_001_001 MONITORING NODE</div>
+        <div class="text-slate-300">State Water Resources Control Board groundwater quality audit site (13,613 records).</div>
+      </div>
+      <div class="p-2 bg-slate-900/60 rounded border border-cyan-500/20">
         <div class="text-emerald-400 font-bold">CA DWR DAC MAPPING TOOL (ARCGIS)</div>
-        <div class="text-slate-300">Target URL: <a href="https://experience.arcgis.com/experience/88eb50885b724d9990feb102001b1447/page/DAC-Mapping-Tool?org=DWR" target="_blank" class="underline text-cyan-400">experience.arcgis.com (DAC-Mapping-Tool)</a></div>
-      </div>
-      <div class="p-2 bg-slate-900/60 rounded border border-cyan-500/20">
-        <div class="text-cyan-400 font-bold">AUG 20, 2021 @ 3:23:49 PM</div>
-        <div class="text-slate-300">OCSC stay minute order email transmitted to efiling@rwclegal.com (EV-027).</div>
-      </div>
-      <div class="p-2 bg-slate-900/60 rounded border border-cyan-500/20">
-        <div class="text-amber-400 font-bold">AUG 19, 2021 @ 11:31 AM</div>
-        <div class="text-slate-300">Victor Nunez emails eviction restoration notice to info@ocsheriff.gov (EV-028).</div>
+        <div class="text-slate-300">Target URL: <a href="https://experience.arcgis.com/experience/88eb50885b724d9990feb102001b1447/page/DAC-Mapping-Tool?org=DWR" target="_blank" class="underline text-cyan-400">DWR DAC Experience App</a></div>
       </div>
     </div>
   </div>
 
   <script>
-    const map = L.map('map', { zoomControl: false }).setView([33.6846, -117.8265], 11);
+    const map = L.map('map', { zoomControl: false }).setView([33.6950, -117.9920], 13);
     L.control.zoom({ position: 'topright' }).addTo(map);
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -80,24 +80,36 @@
     }).addTo(map);
 
     const locations = [
-      { lat: 33.7042, lng: -117.9898, title: "17631 Cameron Lane, Huntington Beach CA", desc: "GeoTracker Environmental Site (Lead 101 mg/kg / Offsite Plume / EV-004)" },
-      { lat: 33.6828, lng: -117.8016, title: "212 Southbrook, Irvine CA", desc: "Woodbridge Meadows Apartments (Eviction Site / EV-028 / EV-030)" },
-      { lat: 33.7500, lng: -117.8678, title: "Orange County Superior Court", desc: "Central Justice Center (3:11 PM Stay Order / EV-027)" },
-      { lat: 33.6548, lng: -117.9981, title: "412 Olive Ave, Huntington Beach CA", desc: "Chase Customer Correspondence Address (EV-032)" },
-      { lat: 40.2170, lng: -74.7429, title: "1456 Cedar Ln, Mercer County NJ", desc: "Innocenzi Property Record Site (EV-031)" }
+      { lat: 33.7042, lng: -117.9898, title: "17631 Cameron Lane, Huntington Beach CA", desc: "GeoTracker Environmental Site (Lead 101 mg/kg / Soil Assessment Report / EV-004)", color: "#ef4444" },
+      { lat: 33.7045, lng: -117.9899, title: "Monitoring Well CA3000618_001_001", desc: "GeoTracker Groundwater Quality Station (Global ID: W0603000618)", color: "#10b981" },
+      { lat: 33.6927, lng: -117.9974, title: "7561 Center Ave Utility Enclosures", desc: "Category 2 Structural Observation: 1960s-70s Subterranean Utility Vaults (Units D1, E1, G1, J1)", color: "#f59e0b" },
+      { lat: 33.6828, lng: -117.8016, title: "212 Southbrook, Irvine CA", desc: "Woodbridge Meadows Apartments (Eviction Site / EV-028 / EV-030)", color: "#38bdf8" },
+      { lat: 33.7500, lng: -117.8678, title: "Orange County Superior Court", desc: "Central Justice Center (3:11 PM Stay Order / EV-027)", color: "#a855f7" },
+      { lat: 33.6548, lng: -117.9981, title: "412 Olive Ave, Huntington Beach CA", desc: "Chase Customer Correspondence Address (EV-032)", color: "#38bdf8" },
+      { lat: 40.2170, lng: -74.7429, title: "1456 Cedar Ln, Mercer County NJ", desc: "Innocenzi Property Record Site (EV-031)", color: "#64748b" }
     ];
 
     locations.forEach(loc => {
       const marker = L.circleMarker([loc.lat, loc.lng], {
-        radius: 8,
-        fillColor: "#38bdf8",
-        color: "#0284c7",
+        radius: 9,
+        fillColor: loc.color,
+        color: "#ffffff",
         weight: 2,
         opacity: 1,
-        fillOpacity: 0.8
+        fillOpacity: 0.85
       }).addTo(map);
       marker.bindPopup(`<div class="orbitron font-bold text-cyan-400">${loc.title}</div><div class="mono text-xs text-slate-700">${loc.desc}</div>`);
     });
+
+    // Groundwater Southwest Flow Polyline Vector
+    const flowVector = [
+      [33.7060, -117.9880],
+      [33.7042, -117.9898],
+      [33.7010, -117.9930]
+    ];
+    L.polyline(flowVector, { color: '#38bdf8', weight: 3, dashArray: '5, 10', opacity: 0.7 }).addTo(map)
+      .bindPopup("<div class='orbitron text-xs font-bold text-cyan-400'>Hydrogeological Flow Vector</div><div class='mono text-xs'>Confirmed Regional Groundwater Southwest Flow (23-24 ft bgs)</div>");
+
   </script>
 </body>
 </html>
