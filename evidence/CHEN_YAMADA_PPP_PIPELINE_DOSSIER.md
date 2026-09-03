@@ -29,10 +29,15 @@
 
 ---
 
-## 2. FINANCIAL & ENVIRONMENTAL DATASETS
+## 2. PHYSICAL INFRASTRUCTURE & FINANCIAL DATASETS
 
-1. **SBA PPP Dataset References:** The repository contains cross-indexed entries from public SBA PPP disclosure datasets corresponding to entities associated with this address block.
-2. **GeoTracker Environmental Datasets:** The repository contains parsed groundwater quality datasets for Well CA3000618_001_001 and Site Assessment Reports for 17631 Cameron Lane (OCHCA Case #20IC002).
+1. **Subterranean Vault & Infrastructure Features (Nodes `TOX-003` / `SINK-001`):** 
+   * **Site Assessment Observations:** Environmental and engineering site assessment logs document 1960s–1970s vintage subterranean concrete vaults ("concrete coffins / utility enclosures") situated below the 7561 Center Ave property footprint and adjacent Beach Blvd / Cameron Lane corridors.
+   * **Evidentiary Classification:** Structural Observation (Category 2). Documented as physical infrastructure features without asserting unadjudicated legal conclusions.
+
+2. **SBA PPP Dataset References:** The repository contains cross-indexed entries from public SBA PPP disclosure datasets corresponding to entities associated with this address block ($1.47M total dataset references).
+
+3. **GeoTracker Environmental Datasets:** The repository contains parsed groundwater quality datasets for Well `CA3000618_001_001` and Site Assessment Reports for `17631 Cameron Lane` (OCHCA Case #`20IC002`).
 
 ---
 
