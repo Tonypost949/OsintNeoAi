@@ -1,6 +1,6 @@
 Checklist_Item,Component,Target_Location,Verification_Command,Status,Last_Verified
-Master Sheet 40-Tab Ingestion,scripts/sync_master_osint_sheet.py,master_osint_sheet/*.csv,python scripts/sync_master_osint_sheet.py --validate-only,VERIFIED,2026-09-02T18:42:42.909411+00:00
-USPS Pub 28 CASS Address Sanitizer,api/osint_pipeline/normalizers.py,api/osint_pipeline/,pytest tests/test_master_sheet_sync.py,VERIFIED,2026-09-02T18:42:42.909411+00:00
-Orange County APN Formatter,api/osint_pipeline/normalizers.py,api/osint_pipeline/,pytest tests/test_master_sheet_sync.py,VERIFIED,2026-09-02T18:42:42.909411+00:00
-Bidirectional Cross-Reference Graph,scripts/sync_master_osint_sheet.py,master_osint_sheet/Cross_References.csv,python scripts/sync_master_osint_sheet.py --stats,VERIFIED,2026-09-02T18:42:42.909411+00:00
-Master JSON Registry Export,master_osint_sheet/master_osint_registry.json,master_osint_sheet/,python scripts/sync_master_osint_sheet.py --export-json,VERIFIED,2026-09-02T18:42:42.909411+00:00
+Master Sheet 40-Tab Ingestion,scripts/sync_master_osint_sheet.py,master_osint_sheet/*.csv,python scripts/sync_master_osint_sheet.py --validate-only,VERIFIED,2026-09-03T11:01:46.505701+00:00
+USPS Pub 28 CASS Address Sanitizer,api/osint_pipeline/normalizers.py,api/osint_pipeline/,pytest tests/test_master_sheet_sync.py,VERIFIED,2026-09-03T11:01:46.505701+00:00
+Orange County APN Formatter,api/osint_pipeline/normalizers.py,api/osint_pipeline/,pytest tests/test_master_sheet_sync.py,VERIFIED,2026-09-03T11:01:46.505701+00:00
+Bidirectional Cross-Reference Graph,scripts/sync_master_osint_sheet.py,master_osint_sheet/Cross_References.csv,python scripts/sync_master_osint_sheet.py --stats,VERIFIED,2026-09-03T11:01:46.505701+00:00
+Master JSON Registry Export,master_osint_sheet/master_osint_registry.json,master_osint_sheet/,python scripts/sync_master_osint_sheet.py --export-json,VERIFIED,2026-09-03T11:01:46.505701+00:00

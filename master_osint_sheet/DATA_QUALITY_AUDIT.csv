@@ -1,2 +1,9 @@
 Audit_Issue_ID,Tab_Name,Row_Index,Entity_ID,Issue_Type,Severity,Description,Resolution_Action
-AUD-0001,ALL_TABS,0,GLOBAL,SCHEMA_AUDIT,NONE,All 40 tabs passed 100% schema and foreign key validation,No action required
+AUD-0001,MASTER_TIMELINE,20,TL-2021-04B,SCHEMA_VALIDATION,INFO,Invalid primary key format: TL-2021-04B (expected TL-###),Normalized and cross-referenced
+AUD-0002,MASTER_TIMELINE,21,TL-2021-04C,SCHEMA_VALIDATION,INFO,Invalid primary key format: TL-2021-04C (expected TL-###),Normalized and cross-referenced
+AUD-0003,MASTER_TIMELINE,22,TL-2021-04A,SCHEMA_VALIDATION,INFO,Invalid primary key format: TL-2021-04A (expected TL-###),Normalized and cross-referenced
+AUD-0004,MASTER_TIMELINE,23,TL-2021-04D,SCHEMA_VALIDATION,INFO,Invalid primary key format: TL-2021-04D (expected TL-###),Normalized and cross-referenced
+AUD-0005,MASTER_TIMELINE,24,TL-2021-04E,SCHEMA_VALIDATION,INFO,Invalid primary key format: TL-2021-04E (expected TL-###),Normalized and cross-referenced
+AUD-0006,MASTER_TIMELINE,25,TL-2021-03E,SCHEMA_VALIDATION,INFO,Invalid primary key format: TL-2021-03E (expected TL-###),Normalized and cross-referenced
+AUD-0007,MASTER_TIMELINE,26,TL-2021-02A,SCHEMA_VALIDATION,INFO,Invalid primary key format: TL-2021-02A (expected TL-###),Normalized and cross-referenced
+AUD-0008,MASTER_TIMELINE,27,TL-2023-09A,SCHEMA_VALIDATION,INFO,Invalid primary key format: TL-2023-09A (expected TL-###),Normalized and cross-referenced
