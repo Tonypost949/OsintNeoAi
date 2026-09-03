@@ -1,21 +1,29 @@
-EVIDENCE_ID,NAME,TYPE,DATE,RELEVANCE
-EV-001,HCD $96M Notice of Violation & Res. 2022-064,Official Government Finding,2021-12-08T00:00:00+00:00,Confirms unlawful disposition of municipal public property without required statutory compliance.
-EV-002,Orange County CJC Unlawful Detainer Docket #1201327,Court Record,2021-06-29T00:00:00+00:00,Chronicles triple default entries and 4:29 PM emergency judicial strike (ROA #37).
-EV-003,Quantum Auto Dismantler Invoice #14098 & Title Trail,Financial & Logistics,2019-11-14T00:00:00+00:00,"Ties Santa Ana dismantler to Hamilton, NJ shipping hub (1456 Cedar Ln) and interstate asset flight."
-EV-004,17631 Cameron Ln Environmental Hazmat & Lead Records,Environmental Audit,2020-04-15T00:00:00+00:00,Establishes knowing occupancy and shelter operation over hazardous contaminated site with unsealed well.
-EV-005,"8 Lakeview, Irvine Deed & HOMI Non-Profit Tax Filings",Property Record / IRS 990,2021-03-22T00:00:00+00:00,"Demonstrates private inurement, tax-exempt asset flipping, and $1,215,000 equity extraction."
-EV-016,1AIGDiMarcello.pdf,AIG Identity Theft Insurance Claim,2023-03-01T00:00:00+00:00,AIG Claim / Attached Police Report
-EV-017,Ewing Police Department Chain of Custody Report,Police Report / Chain of Custody,2019-01-16T00:00:00+00:00,Ewing Police Dept Case #I-2019-001222
-EV-018,Roger 2022 SMS Transcript & Dean 9-22 Record,SMS / Text Testimony,2022-09-22T00:00:00+00:00,SMS Records
-EV-019,Chase Visa Account 4266 & Breach Logs,Chase Bank Account & Breach Record,2023-04-17T00:00:00+00:00,Chase Bank / ireo5ea.chase.com Alert
-EV-020,American Bankers Insurance (Assurant) Identity Recovery Claim,Identity Theft Insurance Claim,2023-07-18T00:00:00+00:00,Assurant / American Bankers Ins Co of FL
-EV-021,Chase Image Request & Check Sequence Checks (Sept 2023),Bank Records / Image Request,2023-09-07T00:00:00+00:00,"JPMorgan Chase Bank, N.A."
-EV-022,USA v. RYAN (D.N.J. Case 3:20-mj-05007),Federal Criminal Docket,2020-03-16T00:00:00+00:00,U.S. District Court District of NJ
-EV-023,Chris Ryan Raid Pretext & Insulation Transcripts,SMS / Text Testimony,2022-09-01T00:00:00+00:00,SMS Transcripts / Erika Record
-EV-024,T-Mobile Settlement Notice (ID: 585008HWV0HFV),T-Mobile Data Breach Class Action Record,2021-08-16T00:00:00+00:00,T-Mobile Settlement / W.D. Mo. Dkt 21-md-3019-BCW
-EV-025,MSTTRADING.COM Data Breach & Compromise Record,Data Breach / Identity Theft Record,2021-08-01T00:00:00+00:00,MSTTRADING.COM / Credential Exposure
-EV-026,August 20 2021 12:51 PM Outreach Email,Contemporaneous Email Notice,2021-08-20T00:00:00+00:00,amd949609@gmail.com / Gmail Live Inbox
-EV-027,August 20 2021 3:23 PM RWC Legal Stay Transmittal,Certified Court Email Transmittal,2021-08-20T00:00:00+00:00,Orange County Superior Court / Local Backup
-EV-028,Victor Nunez & OCSD Email Thread (Apr 23 - Aug 19 2021),Contemporaneous Email Thread & Admission,2021-08-19T00:00:00+00:00,Victor Nunez (Shea) / info@ocsheriff.gov / amd949609@gmail.com
-EV-029,Google Photos Album: 8 Photos Thursday Aug 19 2021,Google Photos Shared Album,2021-08-19T00:00:00+00:00,Google Photos Shared Album (Key: UjhiSnptVTBJS0E5MmxDRDlMNnNkaVI4M2c1VURR)
-EV-030,Form UD-101 Perjured Verification (Rev Feb 16 2021 / Feb 11 2021 Notice),Perjured Judicial Council Form UD-101,2021-02-16T00:00:00+00:00,Woodbridge Meadows Apartments LLC / OCSC Case 30-2021-01201327
+DATE,EVENT_ID,ACTOR,EVENT_DESCRIPTION,CORROBORATING_EV
+2021-01-15T00:00:00+00:00,TL-2021-001,Ann Verma / Anthony DiMarcello / OCSD,"Dr. Ann Verma files OCSD Internal Affairs complaint. OCSD aware Anthony DiMarcello is assisting her (co-whistleblower). Anthony residing at 212 Southbrook, Irvine (Woodbridge Apts). Laguna Niguel jurisdiction under OCSD.",EV-IA-2021
+2021-02-01T00:00:00+00:00,TL-2021-002,Anthony DiMarcello,Contracts COVID-19; applies for emergency rental relief to maintain essential services and offset business downtime.,EV-COVID-2021
+2021-02-15T00:00:00+00:00,TL-2021-003,Anthony DiMarcello,Releases COVID-19 intelligence disclosures on Above Top Secret (ATS).,EV-ATS-2021
+2021-04-15T00:00:00+00:00,TL-2021-004,Extortion Perpetrators,Extortion attempt targeted against Anthony DiMarcello.,EV-EXTORTION-2021
+2021-05-15T00:00:00+00:00,TL-2021-005,Woodbridge Apts / OCSD,"Unlawful Detainer filed against 212 Southbrook, Irvine residence.",EV-UD-2021
+2021-07-15T00:00:00+00:00,TL-2021-006,OCSD,First eviction order and writs issued and subsequently cancelled.,EV-WRIT-2021
+2021-08-04T00:00:00+00:00,TL-2021-007,OCSD Sheriff Don Barnes,Surprise eviction executed at gunpoint by OCSD at 212 Southbrook. Retaliation nexus to IA filing & Barnes/Shea Homes Woodbridge connection.,EV-EVICT-2021
+2021-08-20T00:00:00+00:00,TL-2021-008,Anthony DiMarcello,Ex parte motion filed disqualifying presiding judge.,EV-JUDGE-2021
+2021-09-01T00:00:00+00:00,TL-2021-009,USPS / Interference,Interference with mail; state identification cards fail to show up in mail from August 2021 through February 2022.,EV-MAIL-2021
+2021-11-01T00:00:00+00:00,TL-2021-010,Senator Dianne Feinstein,Escalation and reporting to U.S. Senator Dianne Feinstein office.,EV-FEINSTEIN-2021
+2019-11-14T00:00:00+00:00,TL-001,Quantum Auto Dismantler / Cedar Ln Hub,"Interstate vehicle shipment and invoice generation linking Santa Ana to Hamilton, NJ.",EV-003
+2020-04-15T00:00:00+00:00,TL-002,City of Huntington Beach / Mercy House,Opening of 17631 Cameron Lane shelter facility despite known unsealed toxic well and lead hazards.,EV-004
+2021-03-22T00:00:00+00:00,TL-003,HOMI / Greenglass Associates,"Conveyance and equity extraction of residential property at 8 Lakeview, Irvine for $1,215,000.",EV-005
+2021-06-29T00:00:00+00:00,TL-004,"Wallace, Richardson, Sontag & Le LLP",Securing first void default judgment in Orange County CJC Case #30-2021-01201327 without notice.,EV-002
+2021-12-08T00:00:00+00:00,TL-005,California HCD,Issuance of formal Surplus Land Act Notice of Violation and $96M fine against Anaheim Stadium deal.,EV-001
+2022-05-16T00:00:00+00:00,TL-006,FBI / US Attorney CDCA,"Public unsealing of federal criminal complaint and search warrants against Mayor Sidhu, Todd Ament, and Melahat Rafiei.",EV-001; EV-002
+2022-05-01T00:00:00+00:00,TL-2022-001,Sen Dianne Feinstein / EDD / SBA / DFEH,"End of Feinstein contact. EDD/SBA relief filings ignored. Credit dropped, vehicles repossessed. False drug allegations & raid eviction involving Chris Ryan. DFEH complaint filed; Angels/Shea Homes exposure.",EV-DFEH-2022
+2022-08-15T00:00:00+00:00,TL-2022-002,Mercy House / HBNC,Admitted into Huntington Beach Navigation Center (HBNC) shelter operated by Mercy House.,EV-HBNC-2022
+2022-10-01T00:00:00+00:00,TL-2022-003,T-Mobile / Chase / IRS / Credit Journey,"Realization of major T-Mobile identity theft. Investigation across Chase Bank, IRS, and Credit Journey.",EV-IDTHEFT-2022
+2022-11-15T00:00:00+00:00,TL-2022-004,CFTC / Whistleblower,"Formal whistleblower disclosures to CFTC reporting widespread fraud and abuse targeting homeless, disabled, and minors at HBNC.",EV-CFTC-2022
+2021-08-20T12:51:00+00:00,TL-2021-04B,Anthony DiMarcello,"12:51 PM email sent to Brian Olsen, Irvine Mayor, City Council & OCSD giving notice of Ex Parte filing.",EV-026
+2021-08-20T15:23:49+00:00,TL-2021-04C,Superior Court of California,3:23 PM electronic service email of Judge Luege 3:11 PM Stay Order sent to efiling@rwclegal.com.,EV-027
+2021-04-23T16:05:00+00:00,TL-2021-04A,Victor Nunez (Shea),"Victor Nunez emails rent payoff demand (,788) establishing direct active email channel prior to perjured UD-101 posting application.",EV-028
+2021-08-19T11:31:00+00:00,TL-2021-04D,Victor Nunez (Shea) & OCSD,"Victor Nunez responds to Anthony email to info@ocsheriff.gov, attaching Dimarcello Eviction Restoration Notice.pdf and giving 1-day deadline.",EV-028
+2021-08-19T18:00:00+00:00,TL-2021-04E,Anthony DiMarcello,Captures 8 photos/screenshots in Google Photos album documenting OCSD/Shea notices on Thursday Aug 19 2021.,EV-029
+2021-08-17T09:15:00+00:00,TL-2021-03E,RWC Legal & Anthony DiMarcello,Astrid Peña (RWC Legal) emails COURTESY COPY attaching DIMARCELLO UD.pdf; Anthony captures Aug 17 2021 document photo (EV-030).,EV-030
+2021-02-11T00:00:00+00:00,TL-2021-02A,Woodbridge Meadows Apartments LLC,"Landlord alleges posting notice on premises (02/11/2021) in perjured Form UD-101 (Rev. Feb 16, 2021), falsely checking Box 7d(2) denying receipt of COVID distress declaration.",EV-030
+2022-05-03T00:00:00+00:00,TL-2022-01A,Mercer County NJ Clerk,Mercer County NJ public record check verifies Instrument 2000036774 for Antonette S Innocenzi at 1456 Cedar Ln with Yardville National Bank (Restricted Images).,EV-031
