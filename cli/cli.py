@@ -1,5 +1,7 @@
 import argparse
 import sys
+import os
+import re
 import threading
 from core.entities import Domain, Email, Person, IPAddress, SocialProfile
 from core.transforms import AVAILABLE_TRANSFORMS
