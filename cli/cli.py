@@ -10,7 +10,8 @@ from core.trx_executor import LocalTRXExecutor
 
 # Simulated in-memory database of found entities
 investigation_graph = []
-db = GraphDB()
+db_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "graph.json")
+db = GraphDB(db_file=db_file_path)
 trx = LocalTRXExecutor()
 
 def investigate(args):
@@ -69,7 +70,9 @@ def report(args):
         print(f"Total Graph Relations/Edges: {len(edges)}")
         print("\n--- Discovered Entities (Sample) ---")
         for e in nodes[:40]:
-            print(f"  - [{e.get('type')}] {e.get('value')}")
+            ntype = e.get('type') or e.get('label') or 'Entity'
+            nval = e.get('value') or e.get('name') or (e.get('properties', {}).get('name') if isinstance(e.get('properties'), dict) else None) or e.get('id')
+            print(f"  - [{ntype}] {nval}")
         if len(nodes) > 40:
             print(f"  ... and {len(nodes) - 40} more entities in data/graph.json")
     elif not investigation_graph:
