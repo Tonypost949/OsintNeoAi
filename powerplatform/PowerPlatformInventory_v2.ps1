@@ -125,8 +125,8 @@ function Export-StructuredData {
 Write-Log "Validating Power Platform CLI (pac)"
 
 try {
-    $Version = pac version
-    Write-Log "PAC CLI Installed Version: $Version"
+    $PacHelp = pac help 2>&1
+    Write-Log "PAC CLI is present and responding."
 } catch {
     Write-Log "PAC CLI is not installed or not available on PATH." "ERROR"
     Stop-Transcript
