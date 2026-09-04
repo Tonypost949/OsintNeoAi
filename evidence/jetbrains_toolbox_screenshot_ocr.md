@@ -1,0 +1,151 @@
+# 🖼️ JETBRAINS TOOLBOX SCREENSHOT TRANSCRIPT
+
+- `OsintNeoAi`
+- `Next Gen`
+- `Lightweight Editor)`
+- `Why:`
+- `Fleet`
+- `Jetbrains`
+- `answer`
+- `to`
+- `VS`
+- `code`
+- `It`
+- `starts`
+- `in seconds ,`
+- `uses`
+- `minima]`
+- `RAM and disk`
+- `space`
+- `and`
+- `supports Python`
+- `JS/HIML ,`
+- `Rust`
+- `and`
+- `Go .`
+- `Disk Space:`
+- `~200`
+- `MB`
+- `406`
+- `MB   (Very`
+- `smaTi!)`
+- `WHAT`
+- `To`
+- `SKIP`
+- `(Save 15+`
+- `GB`
+- `of Disk Space) :`
+- `Too]`
+- `skip`
+- `Reason`
+- `Space`
+- `Saved`
+- `JetBrains`
+- `CLion`
+- `cict+`
+- `IDE .`
+- `Not`
+- `needed un`
+- `writing`
+- `Teve]`
+- `Toolbox`
+- `Local`
+- `modu les _`
+- `Rider`
+- `NET`
+- `1`
+- `c#`
+- `1`
+- `ty`
+- `IDE`
+- `Not`
+- `needed`
+- `for Python/Wel`
+- `Tools`
+- `Projects`
+- `Webstorm`
+- `Javascript/Typescript`
+- `IDE`
+- `Pycharm Professiona]`
+- `already`
+- `includes`
+- `full`
+- `Webstorm web`
+- `features`
+- `Installed`
+- `Datagrip`
+- `Dedicated Database`
+- `IE .`
+- `Pycharm Professiona]`
+- `ali`
+- `Air`
+- `includes full Datagrip database`
+- `tools.`
+- `262.579 Public Preview (262.579.44)`
+- `RubyMine`
+- `Phpstorm`
+- `1`
+- `GoLand`
+- `Language-specific`
+- `IDES`
+- `for`
+- `PHP`
+- `and Go .`
+- `dotPeek Portable`
+- `DP`
+- `2026.2.1 (262.0.20260819.114639)`
+- `THE`
+- `LEAN`
+- `2-TOOL`
+- `INSTALLATION`
+- `PLAN :`
+- `dotMemory Portable`
+- `DM`
+- `1.`
+- `(Primary Python `
+- `SQL`
+- `& Web`
+- `IDE)`
+- `2026.2.1 (262.0.20260819.114639)`
+- `2.`
+- `Pyeearroueck;`
+- `Tightweight`
+- `editor`
+- `for quick file edits)`
+- `dotTrace Portable`
+- `DT`
+- `2026.2.1 (262.0.20260819.114639)`
+- `(If you`
+- `use`
+- `Pycharm Professional ,`
+- `you`
+- `don`
+- `t`
+- `need Webstorm`
+- `0r`
+- `Datagrip`
+- `at`
+- `al1`
+- `bel`
+- `features`
+- `are`
+- `built directly`
+- `into Pycharm!)`
+- `dotCover Portable`
+- `DC`
+- `2026.2.1 (262.0.20260819.114639)`
+- `MPS`
+- `2026.1 (261.25134.779)`
+- `Tor`
+- `shortcuts`
+- `accept-edits`
+- `Gateway`
+- `2026.2.2 (262.10315.114)`
+- `8*02 PM`
+- `Search`
+- `ENG`
+- `08396`
+- `9/3/2026`
+- `less`
+- `Iow-`
+- `Ruby ,`

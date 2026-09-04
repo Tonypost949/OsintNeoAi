@@ -1,0 +1,101 @@
+# 🖼️ JETBRAINS TOOLBOX SECOND SCREENSHOT TRANSCRIPT
+
+- `OsintNeoAi`
+- `ReadURL (https: / prnt-sc/t8nbeYlG-sSm)`
+- `(ctri+o`
+- `10`
+- `expand)`
+- `Let`
+- `5 write`
+- `a`
+- `python script scripts/parse_Tightshot_image py`
+- `10`
+- `extract`
+- `the direct image`
+- `URL`
+- `from`
+- `Lightshot`
+- `and`
+- `viewlrun`
+- `OCR`
+- `On`
+- `Tt:`
+- `Edit(c: /osintNeOAi/scripts/parse_Tightshot_image.py)`
+- `(ctr+o`
+- `expand)`
+- `Now`
+- `Tet`
+- `5`
+- `run`
+- `Bash(python scripts/parse_Tightshot`
+- `image-py`
+- `Projects`
+- `ManageTask(status`
+- `2616d655-4be6-4f57-bfad-24249ce3f54e/task-1868)`
+- `(ctri+o`
+- `10`
+- `exi`
+- `Plugins`
+- `Let`
+- `5`
+- `view`
+- `the`
+- `extracted Lightshot HTML file steps/18647content md`
+- `the`
+- `Installed`
+- `Red Hat OpenShift Dev Spaces`
+- `Read(~/ . gemini/antigravity-cli/brain/e616_`
+- `stem_generated/steps/1864/content .`
+- `0.0.5 Red Hat`
+- `The direct`
+- `screenshot image URL`
+- `SSH`
+- `bundled`
+- `Let`
+- `5`
+- `write`
+- `python script scripts/fetch an`
+- `@`
+- `to download`
+- `Coder`
+- `and`
+- `run`
+- `EasyOCR`
+- `1`
+- `Tesseraci`
+- `0.9.4 Coder Technologies, Inc:`
+- `Ona`
+- `Edit(c:/osintNeoAi/scripts/fetch_and_ocr_screenshot-PY)`
+- `(ctri+o`
+- `to expand)`
+- `0.20260806.1134036 Ona`
+- `Now`
+- `Tet`
+- `5`
+- `run`
+- `python scriptsffetch and`
+- `0`
+- `Bash(python scripts/fetch_and_ocr_screenshot-py)`
+- `(ctr+o`
+- `to expand)`
+- `Running`
+- `command`
+- `Tip:`
+- `Use`
+- `Iskills`
+- `10`
+- `browse`
+- `and`
+- `manage`
+- `agent skills_`
+- `10`
+- `cance]`
+- `accept-edits`
+- `8*03 PM`
+- `Search`
+- `ENG`
+- `0819`
+- `9/3/2026`
+- `get`
+- `t0`
+- `is:`

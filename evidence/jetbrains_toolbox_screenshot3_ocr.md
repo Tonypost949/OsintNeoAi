@@ -1,0 +1,110 @@
+# 🖼️ JETBRAINS TOOLBOX THIRD SCREENSHOT TRANSCRIPT
+
+- `Recycle Bin`
+- `Network`
+- `Screensho .`
+- `Screensho:`
+- `Antigravity`
+- `OpenCode`
+- `Screensho .`
+- `Screensho- Screensh`
+- `Screensho:`
+- `Screensho__`
+- `Screensho:`
+- `firefoxbo.`
+- `Old Firefox`
+- `gordon`
+- `Syncfusion`
+- `Scre`
+- `sho;`
+- `creensho,`
+- `Screenshe`
+- `Screensho;`
+- `Data`
+- `cmd exe`
+- `Code Studio`
+- `PyCharm Setup`
+- `Installation Options`
+- `PC`
+- `Configure`
+- `your PyCharm installation`
+- `Amd949609`
+- `Screensho_ txtdjffoxbo_.`
+- `Facebook`
+- `CapCut`
+- `Window`
+- `creensn`
+- `Create Desktop Shortcut`
+- `Update PATH Variable (restart needed}`
+- `PyCharm`
+- `Add "bin" folder tothe PATH`
+- `Update Context Menu`
+- `Add`
+- `Open Folder`
+- `Project"`
+- `Ltx`
+- `Create Associations`
+- `ipynb`
+- `yami`
+- `'yml`
+- `json`
+- `Screensho_`
+- `Control`
+- `OsintNeo:`
+- `Screensho : LTX Desktop`
+- `GitHub`
+- `Screensh`
+- `Screensho:`
+- `Screensho;`
+- `Screensho__`
+- `Panel`
+- `Back`
+- `Next`
+- `Cancel`
+- `X`
+- `This PC`
+- `Screensho.`
+- `Visual Studio`
+- `Antheny`
+- `Microsoft`
+- `creensho;`
+- `Screensho;`
+- `Screensh`
+- `Master Osint user_paste `
+- `Screensho;`
+- `Screensho;`
+- `PowerShell `
+- `Code`
+- `Chrome`
+- `765 Copilot`
+- `Sheet`
+- `ACTION Itxt`
+- `Canva`
+- `Screensho;`
+- `PRISM Live`
+- `Google`
+- `Instagram`
+- `Canva`
+- `PRISM Lens`
+- `SOEMS`
+- `djffoxbo.`
+- `Firefox exe`
+- `Microsoft`
+- `OsintNeo;`
+- `GitHub`
+- `Kimi`
+- `Everything`
+- `Docker`
+- `superwhis_ Master Osint`
+- `Studio`
+- `Chrome`
+- `Designer`
+- `Copilot`
+- `Desktop`
+- `Sheet`
+- `)xlsx`
+- `810 PM`
+- `Search`
+- `ENG`
+- `0749`
+- `9/3/2026`
