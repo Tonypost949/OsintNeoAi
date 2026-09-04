@@ -104,7 +104,7 @@ for name, ip in targets:
     })
     time.sleep(0.3)
 
-with open('C:/migrate opencode/OSINTNEOAI/agent/full_scan_results.json', 'w') as f:
+with open('/home/osintneoai/repo_reports/full_scan_results.json', 'w') as f:
     json.dump(all_results, f, indent=2)
 
 print('\n[SAVED] full_scan_results.json')
