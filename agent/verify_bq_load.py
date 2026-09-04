@@ -6,8 +6,10 @@ P = "noble-beanbag-497411-m4"
 print("=== VERIFYING BIGQUERY TABLE: ai_sandbox.reports_ingest ===")
 q = f"SELECT report_name FROM `{P}.ai_sandbox.reports_ingest`"
 try:
-    df = bq.query(q).to_dataframe()
-    print(df.to_string(index=False))
+    results = list(bq.query(q).result())
+    for r in results:
+        print(f"  • {r.report_name}")
 except Exception as e:
     print(f"Error: {e}")
+
 
