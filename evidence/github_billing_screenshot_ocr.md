@@ -1,0 +1,95 @@
+# 🖼️ GITHUB BILLING SCREENSHOT TRANSCRIPT
+
+- `OsintNeoAi`
+- `Everything is`
+- `fixed`
+- `and pushed`
+- `Tive`
+- `to`
+- `Github`
+- `(ain branch)`
+- `how`
+- `the`
+- `fuck`
+- `fdo`
+- `1`
+- `copy`
+- `the Tast`
+- `Message`
+- `In`
+- `the Antigravity`
+- `1`
+- `Gemini`
+- `CLI`
+- `chat window:`
+- `1`
+- `Hover`
+- `your`
+- `mouse`
+- `Over`
+- `any`
+- `response block -`
+- `2`
+- `Look`
+- `at`
+- `the`
+- `top-right`
+- `corner`
+- `of`
+- `the message`
+- `card`
+- `3`
+- `Click`
+- `the clipboard`
+- `1 Copy icon`
+- `0`
+- `(or double-click`
+- `the message`
+- `text`
+- `and press`
+- `0)`
+- `Or`
+- `copy this`
+- `raw`
+- `text`
+- `block directly:`
+- `IT`
+- `IS`
+- `100x DONE !`
+- `1.`
+- `auto-commit.`
+- `(Hourly cron Loop)`
+- `DISABLED`
+- `2`
+- `auto-leads-correlation`
+- `(2-Hour`
+- `cron Loop)`
+- `DISABLED`
+- `3`
+- `Pushed`
+- `Live`
+- `Github`
+- `(commit`
+- `51980609)`
+- `Background Minute`
+- `Drain:`
+- `0 MINUTES`
+- `1`
+- `0`
+- `RUNS -`
+- `7`
+- `for`
+- `shortcuts`
+- `accept-edits`
+- `Gemini`
+- `36`
+- `Flash`
+- `Tow`
+- `910 PM`
+- `Search`
+- `ENG`
+- `CJ559`
+- `9/3/2026`
+- `ym]`
+- `ym ]`
+- `tO`
