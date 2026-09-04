@@ -1,0 +1,36 @@
+{
+  "name": "OsintNeoAi",
+  "workspaceRoot": "C:\\OsintNeoAi",
+  "autoConnect": true,
+  "git": {
+    "primaryRemote": "https://github.com/Tonypost949/OsintNeoAi.git",
+    "azureRemote": "https://dev.azure.com/anthonydimarcello/osintneoai/_git/osintneoai",
+    "defaultBranch": "main"
+  },
+  "azure": {
+    "subscriptionId": "f055033f-83fb-4ae9-9c36-be48f0c86158",
+    "resourceGroup": "opencode-rg",
+    "webApp": {
+      "name": "osintneoai-webapp",
+      "resourceGroup": "osintneoai-rg",
+      "liveUrl": "https://osintneoai-webapp.azurewebsites.net/gods_eye_view_live.html"
+    },
+    "openAI": {
+      "accountName": "opencode-ai-8609",
+      "models": ["gpt-4o", "gpt-5-mini", "gpt-4.1-mini"]
+    },
+    "aiSearch": {
+      "serviceName": "osintneoai-search",
+      "endpoint": "https://osintneoai-search.search.windows.net"
+    },
+    "speech": {
+      "serviceName": "osintneoai-speech",
+      "endpoint": "https://eastus.api.cognitive.microsoft.com/"
+    }
+  },
+  "backups": {
+    "location1_github": "https://github.com/Tonypost949/OsintNeoAi",
+    "location2_localPC": "C:\\Users\\HP\\OneDrive\\Documents\\OsintNeoAi\\backups\\repo\\",
+    "location3_gdrive": "Sharedall/OsintNeoAi/"
+  }
+}
