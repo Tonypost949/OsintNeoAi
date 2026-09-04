@@ -1,25 +1,30 @@
 import time
-import subprocess
+import ctypes
 from pynput import keyboard
-from pynput.keyboard import Key, Controller
+from pynput.keyboard import Key
 
-kb_controller = Controller()
+VK_LWIN = 0x5B
+VK_H = 0x48
+KEYEVENTF_KEYUP = 0x0002
 
-print("=========================================================")
-print("  🎤 RIGHT ALT DICTATION LISTENER (pynput VK-165)        ")
-print("=========================================================")
-print("👉 Tap [RIGHT ALT] on your keyboard to start dictation!")
+def send_win_h():
+    print("-> Triggering Windows Dictation (Win+H)...")
+    ctypes.windll.user32.keybd_event(VK_LWIN, 0, 0, 0)
+    ctypes.windll.user32.keybd_event(VK_H, 0, 0, 0)
+    time.sleep(0.05)
+    ctypes.windll.user32.keybd_event(VK_H, 0, KEYEVENTF_KEYUP, 0)
+    ctypes.windll.user32.keybd_event(VK_LWIN, 0, KEYEVENTF_KEYUP, 0)
 
 def on_press(key):
-    # Detect Right Alt key (Key.alt_r or Key.alt_gr)
-    if key == Key.alt_r or key == Key.alt_gr:
-        print("-> [RIGHT ALT PRESSED] -> Triggering Windows Dictation (Win+H)...")
-        # Trigger Win+H via pynput
-        kb_controller.press(Key.cmd)
-        kb_controller.press('h')
-        kb_controller.release('h')
-        kb_controller.release(Key.cmd)
+    # Check for Right Alt (vk: 165), AltGr, or Key.alt_r / Key.alt_gr
+    vk = getattr(key, 'vk', None)
+    if key in (Key.alt_r, Key.alt_gr) or vk in (165, 163, 162):
+        send_win_h()
 
 if __name__ == '__main__':
+    print("=========================================================")
+    print("  🎤 NATIVE WINDOWS API RIGHT ALT DICTATION LISTENER      ")
+    print("=========================================================")
+    print("👉 Tap [RIGHT ALT] to open Dictation!")
     with keyboard.Listener(on_press=on_press) as listener:
         listener.join()
