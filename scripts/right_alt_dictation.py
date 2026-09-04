@@ -1,21 +1,25 @@
 import time
-import keyboard
+import subprocess
+from pynput import keyboard
+from pynput.keyboard import Key, Controller
+
+kb_controller = Controller()
 
 print("=========================================================")
-print("  🎤 RIGHT ALT DICTATION SHORTCUT LISTENER               ")
+print("  🎤 RIGHT ALT DICTATION LISTENER (pynput VK-165)        ")
 print("=========================================================")
-print("👉 Press [RIGHT ALT] anywhere to trigger Windows Dictation!")
-print("👉 Press [Ctrl + C] in this window to exit.")
+print("👉 Tap [RIGHT ALT] on your keyboard to start dictation!")
 
-def trigger_win_h():
-    print("-> Right Alt pressed: Triggering Win+H Dictation...")
-    keyboard.send("windows+h")
-
-# Bind Right Alt (also known as alt gr / right alt) to send Windows + H
-keyboard.add_hotkey("right alt", trigger_win_h)
+def on_press(key):
+    # Detect Right Alt key (Key.alt_r or Key.alt_gr)
+    if key == Key.alt_r or key == Key.alt_gr:
+        print("-> [RIGHT ALT PRESSED] -> Triggering Windows Dictation (Win+H)...")
+        # Trigger Win+H via pynput
+        kb_controller.press(Key.cmd)
+        kb_controller.press('h')
+        kb_controller.release('h')
+        kb_controller.release(Key.cmd)
 
 if __name__ == '__main__':
-    try:
-        keyboard.wait()
-    except KeyboardInterrupt:
-        print("\nExiting Right Alt dictation listener.")
+    with keyboard.Listener(on_press=on_press) as listener:
+        listener.join()
