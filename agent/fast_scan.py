@@ -111,7 +111,7 @@ for s in sorted(summary, key=lambda x: x['open_port_count'], reverse=True):
         sec = ' SECRETS: ' + ','.join(s['exposed_secrets'])
     print(s['domain'].ljust(30) + str(s['open_port_count']).rjust(3) + ' ports' + cf + sec)
 
-with open('C:/migrate opencode/OSINTNEOAI/agent/full_scan_results.json', 'w') as f:
+with open('/home/osintneoai/repo_reports/full_scan_results.json', 'w') as f:
     json.dump(summary, f, indent=2)
 print('')
 print('[SAVED] full_scan_results.json')
