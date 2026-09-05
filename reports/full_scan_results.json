@@ -1,0 +1,247 @@
+[
+  {
+    "domain": "hbpd.org",
+    "ip": "104.26.4.179",
+    "cloudflare": true,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "huntingtonbeachca.gov",
+    "ip": "104.26.15.40",
+    "cloudflare": true,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "newportbeachca.gov",
+    "ip": "104.18.10.121",
+    "cloudflare": true,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "nbpd.org",
+    "ip": "70.167.157.164",
+    "cloudflare": false,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "santamonicapd.org",
+    "ip": "45.223.97.122",
+    "cloudflare": false,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "lapdonline.org",
+    "ip": "23.1.33.17",
+    "cloudflare": false,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "santaanapd.org",
+    "ip": "198.185.159.145",
+    "cloudflare": false,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": [
+      "/backup.sql"
+    ]
+  },
+  {
+    "domain": "dallaspolice.net",
+    "ip": "66.97.145.114",
+    "cloudflare": false,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": [
+      "/.aws/credentials",
+      "/.aws/config",
+      "/.config/db.yml"
+    ]
+  },
+  {
+    "domain": "cityofirvine.org",
+    "ip": "45.223.147.193",
+    "cloudflare": false,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "irvinepd.org",
+    "ip": "104.26.7.159",
+    "cloudflare": true,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "longbeach.gov",
+    "ip": "204.108.16.117",
+    "cloudflare": false,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "lbpd.org",
+    "ip": "104.21.91.34",
+    "cloudflare": true,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "anaheim.net",
+    "ip": "89.106.200.153",
+    "cloudflare": false,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "anaheimpd.org",
+    "ip": "89.106.200.153",
+    "cloudflare": false,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "santa-ana.org",
+    "ip": "104.198.152.237",
+    "cloudflare": true,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "ci.costa-mesa.ca.us",
+    "ip": "135.84.124.41",
+    "cloudflare": false,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "cityofwestminster.us",
+    "ip": "198.243.1.145",
+    "cloudflare": false,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "ci.buena-park.ca.us",
+    "ip": "63.192.31.165",
+    "cloudflare": false,
+    "open_port_count": 0,
+    "open_ports": [],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "ci.fullerton.ca.us",
+    "ip": "135.84.124.41",
+    "cloudflare": false,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "cityoftustin.org",
+    "ip": "188.214.128.77",
+    "cloudflare": false,
+    "open_port_count": 2,
+    "open_ports": [
+      21,
+      22
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "cityoforange.org",
+    "ip": "135.84.124.41",
+    "cloudflare": false,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "lahabracity.com",
+    "ip": "208.90.191.56",
+    "cloudflare": false,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "columbus.gov",
+    "ip": "52.247.170.120",
+    "cloudflare": false,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  },
+  {
+    "domain": "stpaul.gov",
+    "ip": "54.165.146.83",
+    "cloudflare": false,
+    "open_port_count": 1,
+    "open_ports": [
+      80
+    ],
+    "exposed_secrets": []
+  }
+]

@@ -7,88 +7,67 @@ import shutil
 
 AGENT_CATALOG = {
     "1": {
+        "name": "Antigravity (agy)",
+        "description": "Google Antigravity autonomous multi-agent coding framework",
+        "command": "agy",
+        "alt_command": "agy --help",
+        "status": "Installed & Ready"
+    },
+    "2": {
+        "name": "OpenCode Pentest",
+        "description": "Kali APT + OsintNeoAi + GitHub repository tool auto-installer & runner",
+        "command": "wsl opencode-pentest",
+        "alt_command": "opencode-pentest",
+        "status": "Installed & Ready"
+    },
+    "3": {
+        "name": "Gemini CLI",
+        "description": "Google Gemini terminal AI assistant",
+        "command": "gemini",
+        "alt_command": "npx @google/gemini-cli",
+        "status": "Installed & Ready"
+    },
+    "4": {
+        "name": "OSINTNEOAI Master Intelligence",
+        "description": "OsintNeoAi forensic entity analysis & transform CLI",
+        "command": "python cli/cli.py",
+        "alt_command": "osintneoai",
+        "status": "Installed & Ready"
+    },
+    "5": {
+        "name": "Standard OpenCode",
+        "description": "Anomaly's open-source multi-file autonomous coding agent",
+        "command": "opencode",
+        "alt_command": "wsl opencode",
+        "status": "Installed & Ready"
+    },
+    "6": {
         "name": "Qwen Code",
         "description": "Qwen's AI coding agent with advanced tool use & reasoning",
         "command": "ollama run qwen2.5-coder:7b",
         "alt_command": "ollama launch qwen",
         "status": "Installed (qwen2.5-coder:7b)"
     },
-    "2": {
+    "7": {
         "name": "Claude Code",
         "description": "Anthropic's coding tool with autonomous subagents",
         "command": "claude",
         "alt_command": "ollama launch claude",
         "status": "Available"
     },
-    "3": {
-        "name": "OpenCode",
-        "description": "Anomaly's open-source multi-file autonomous coding agent",
-        "command": "opencode",
-        "alt_command": "ollama launch opencode",
-        "status": "Available"
-    },
-    "4": {
-        "name": "Hermes Agent",
-        "description": "Self-improving AI agent built by Nous Research",
-        "command": "ollama run hermes3",
-        "alt_command": "ollama launch hermes",
-        "status": "Available"
-    },
-    "5": {
+    "8": {
         "name": "Cline",
         "description": "Autonomous coding agent with parallel execution & MCP support",
         "command": "cline",
         "alt_command": "ollama launch cline",
         "status": "Available"
     },
-    "6": {
-        "name": "DeepSeek Harness",
-        "description": "DeepSeek's high-performance open-source agent harness",
-        "command": "ollama run deepseek-coder-v2",
-        "alt_command": "ollama launch dsh",
-        "status": "Available"
-    },
-    "7": {
-        "name": "OpenClaw",
-        "description": "Personal autonomous AI with 100+ investigative skills",
-        "command": "openclaw",
-        "alt_command": "ollama launch openclaw",
-        "status": "Available"
-    },
-    "8": {
-        "name": "Codex",
-        "description": "OpenAI's open-source coding agent harness",
-        "command": "codex",
-        "alt_command": "ollama launch codex",
-        "status": "Available"
-    },
     "9": {
-        "name": "Droid",
-        "description": "Factory's coding agent across terminal and IDEs",
-        "command": "droid",
-        "alt_command": "ollama launch droid",
-        "status": "Available"
-    },
-    "10": {
         "name": "Copilot CLI",
         "description": "GitHub's AI coding agent for the terminal",
         "command": "gh copilot",
-        "alt_command": "ollama launch copilot",
+        "alt_command": "gh copilot suggest",
         "status": "Available"
-    },
-    "11": {
-        "name": "Pi / Oh My Pi",
-        "description": "Minimal AI agent toolkit with plugin & IDE support",
-        "command": "omp",
-        "alt_command": "ollama launch omp",
-        "status": "Available"
-    },
-    "12": {
-        "name": "Ollama Interactive Terminal",
-        "description": "Run local LLMs directly from your terminal",
-        "command": "ollama run qwen2.5-coder:7b",
-        "alt_command": "ollama",
-        "status": "Ready"
     }
 }
 

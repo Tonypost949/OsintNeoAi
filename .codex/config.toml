@@ -1,2 +1,5 @@
   [mcp_servers.datagrip]
     url = "http://127.0.0.1:64402/stream"
+
+  [mcp_servers.pycharm]
+    url = "http://127.0.0.1:64462/stream"

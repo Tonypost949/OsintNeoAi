@@ -24,7 +24,7 @@ class GraphDB:
     def add_entity(self, entity_type, value):
         # Check if node already exists by value
         for node in self.data["nodes"]:
-            if node["value"] == value:
+            if node.get("value") == value or node.get("id") == value:
                 return node["id"]
         
         node_id = str(uuid.uuid4())
