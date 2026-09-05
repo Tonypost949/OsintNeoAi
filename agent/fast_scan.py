@@ -111,7 +111,9 @@ for s in sorted(summary, key=lambda x: x['open_port_count'], reverse=True):
         sec = ' SECRETS: ' + ','.join(s['exposed_secrets'])
     print(s['domain'].ljust(30) + str(s['open_port_count']).rjust(3) + ' ports' + cf + sec)
 
-with open('/home/osintneoai/repo_reports/full_scan_results.json', 'w') as f:
+out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "reports")
+os.makedirs(out_dir, exist_ok=True)
+out_file = os.path.join(out_dir, 'full_scan_results.json')
+with open(out_file, 'w') as f:
     json.dump(summary, f, indent=2)
-print('')
-print('[SAVED] full_scan_results.json')
+print(f"\n[+] Results saved to {out_file}")
