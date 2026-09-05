@@ -1,4 +1,4 @@
-import socket, ssl, time, json
+import socket, ssl, time, json, os
 
 def grab(ip, port, host, timeout=1.5):
     try:
