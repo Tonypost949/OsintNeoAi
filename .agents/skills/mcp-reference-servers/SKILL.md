@@ -59,3 +59,11 @@ To add any official reference server to an agent workspace:
 1. **Security & Directory Scoping**: When configuring `@modelcontextprotocol/server-filesystem`, explicitly pass authorized root directories to enforce security bounds.
 2. **Execution Runtimes**: NPM packages use `npx -y @modelcontextprotocol/server-<name>`. Python-based reference tools utilize `uvx mcp-server-<name>`.
 3. **Reference vs Production**: Reference servers demonstrate protocol capabilities; verify production readiness or custom transport options when deploying for enterprise environments.
+
+---
+
+## Archived Servers & Ecosystem Lookups
+
+- **Archived Reference Servers**: Legacy reference implementations (e.g. Postgres, Puppeteer, Redis, Slack, GitHub, Google Maps) have been moved to [`modelcontextprotocol/servers-archived`](https://github.com/modelcontextprotocol/servers-archived).
+- **Registry Lookups**: For production-grade or community-maintained MCP tools, refer to the [MCP Registry](https://registry.modelcontextprotocol.io/) or official integration docs.
+
