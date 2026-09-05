@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Photos OSINT Public Evidence Calendar</title>
+    <title>Google Photos OSINT Public Evidence Calendar & Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-dark: #0f172a;
             --card-bg: #1e293b;
+            --panel-bg: #0f172a;
             --accent-blue: #38bdf8;
             --accent-purple: #c084fc;
+            --accent-emerald: #34d399;
             --text-light: #f8fafc;
             --text-muted: #94a3b8;
         }
@@ -27,7 +29,7 @@
 
         /* Header / Nav */
         .app-header {
-            background: rgba(30, 41, 59, 0.9);
+            background: rgba(30, 41, 59, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255,255,255,0.1);
             position: sticky;
@@ -95,7 +97,7 @@
             background: #090d16;
         }
 
-        /* Full Screen Day Page Modal / View */
+        /* Full Screen Day Dashboard View */
         .fullscreen-day-view {
             position: fixed;
             top: 0;
@@ -114,7 +116,7 @@
 
         .day-header {
             background: rgba(15, 23, 42, 0.95);
-            padding: 16px 28px;
+            padding: 14px 28px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -124,7 +126,59 @@
         .day-content {
             flex: 1;
             overflow-y: auto;
-            padding: 30px;
+            padding: 24px;
+        }
+
+        /* Daily Summary Dashboard Banner */
+        .day-summary-banner {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .summary-stat-box {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .summary-stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        /* Hybrid Thumbnails Strip */
+        .hybrid-thumb-strip {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 12px 4px;
+            margin-bottom: 24px;
+            scrollbar-width: thin;
+        }
+
+        .hybrid-thumb-item {
+            min-width: 120px;
+            max-width: 120px;
+            height: 90px;
+            border-radius: 8px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            opacity: 0.7;
+            transition: all 0.2s ease;
+        }
+
+        .hybrid-thumb-item:hover, .hybrid-thumb-item.active {
+            opacity: 1;
+            border-color: var(--accent-blue);
+            transform: scale(1.05);
         }
 
         .photo-display-card {
@@ -134,6 +188,7 @@
             margin-bottom: 30px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            scroll-margin-top: 80px;
         }
 
         .photo-img-large {
@@ -156,7 +211,7 @@
             font-family: monospace;
             font-size: 0.9rem;
             color: #cbd5e1;
-            max-height: 200px;
+            max-height: 220px;
             overflow-y: auto;
             white-space: pre-wrap;
         }
@@ -184,25 +239,25 @@
         <div class="d-flex align-items-center gap-3">
             <i class="fa-solid fa-calendar-days text-info fs-3"></i>
             <div>
-                <h4 class="mb-0 fw-bold">OSINT Google Photos Evidence Calendar</h4>
+                <h4 class="mb-0 fw-bold">OSINT Google Photos Evidence Calendar & Dashboard</h4>
                 <small class="text-muted"><span id="total-photos-count">0</span> Total Cataloged Photos across <span id="total-days-count">0</span> Days</small>
             </div>
         </div>
         <div class="d-flex align-items-center gap-3">
             <input type="text" id="searchInput" class="search-bar" placeholder="Search OCR text, date, or ID..." onkeyup="filterDates()">
-            <button class="btn btn-outline-info btn-sm" onclick="showAllGrid()"><i class="fa-solid fa-grid-2 me-1"></i> Grid View</button>
+            <button class="btn btn-outline-info btn-sm" onclick="closeFullscreen()"><i class="fa-solid fa-grid-2 me-1"></i> Grid View</button>
         </div>
     </header>
 
     <!-- Main Grid View -->
     <div class="grid-container" id="gridView">
-        <h5 class="text-muted mb-4"><i class="fa-solid fa-clock-rotate-left me-2"></i>Select a Date to View Full-Screen Daily Page</h5>
+        <h5 class="text-muted mb-4"><i class="fa-solid fa-clock-rotate-left me-2"></i>Select a Date to Open Daily Dashboard & Hybrid Preview</h5>
         <div class="row g-4" id="dateCardsRow">
             <!-- Dynamically populated -->
         </div>
     </div>
 
-    <!-- Full-Screen Day Page View -->
+    <!-- Full-Screen Day Dashboard Page View -->
     <div class="fullscreen-day-view" id="fullscreenView">
         <div class="day-header">
             <div class="d-flex align-items-center gap-3">
@@ -217,7 +272,7 @@
         </div>
 
         <div class="day-content" id="dayPhotosContainer">
-            <!-- Dynamically populated with photos for selected day -->
+            <!-- Dynamically populated with Daily Dashboard, Hybrid Preview Strip, and Photo Feed -->
         </div>
     </div>
 
@@ -266,7 +321,7 @@
 
         function openDayPage(dateStr) {
             currentDayIndex = payload.dates.indexOf(dateStr);
-            renderDayView();
+            renderDayDashboardView();
             document.getElementById('fullscreenView').classList.add('active');
             window.scrollTo(0, 0);
         }
@@ -275,7 +330,7 @@
             document.getElementById('fullscreenView').classList.remove('active');
         }
 
-        function renderDayView() {
+        function renderDayDashboardView() {
             const dateStr = payload.dates[currentDayIndex];
             const photos = payload.by_date[dateStr] || [];
 
@@ -289,9 +344,87 @@
             const container = document.getElementById('dayPhotosContainer');
             container.innerHTML = '';
 
+            // 1. Calculate Daily Summary Statistics
+            let totalWords = 0;
+            const uniqueEntities = new Set();
+            const timeRange = [];
+
+            photos.forEach(p => {
+                if (p.extracted_text) {
+                    totalWords += p.extracted_text.split(/\s+/).length;
+                }
+                if (p.entities && Array.isArray(p.entities)) {
+                    p.entities.forEach(e => uniqueEntities.add(e));
+                }
+                if (p.time_str && p.time_str !== '00:00:00') {
+                    timeRange.push(p.time_str);
+                }
+            });
+
+            timeRange.sort();
+            const startTime = timeRange.length > 0 ? timeRange[0] : 'N/A';
+            const endTime = timeRange.length > 0 ? timeRange[timeRange.length - 1] : 'N/A';
+
+            // 2. Build Daily Dashboard Banner
+            const banner = document.createElement('div');
+            banner.className = 'day-summary-banner';
+            banner.innerHTML = `
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-5">
+                        <h4 class="fw-bold text-info mb-1"><i class="fa-solid fa-chart-line me-2"></i>Daily Intelligence Summary</h4>
+                        <p class="text-muted mb-0" style="font-size: 0.95rem;">Comprehensive evidence overview for <strong>${dateStr}</strong>.</p>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="row g-3">
+                            <div class="col-4">
+                                <div class="summary-stat-box">
+                                    <div class="summary-stat-value">${photos.length}</div>
+                                    <small class="text-muted">Total Photos</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="summary-stat-box">
+                                    <div class="summary-stat-value" style="color: var(--accent-purple);">${totalWords}</div>
+                                    <small class="text-muted">OCR Words Extracted</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="summary-stat-box">
+                                    <div class="summary-stat-value" style="color: var(--accent-emerald);">${uniqueEntities.size}</div>
+                                    <small class="text-muted">Extracted Entities</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.appendChild(banner);
+
+            // 3. Build Hybrid Preview Thumbnails Strip
+            const stripContainer = document.createElement('div');
+            stripContainer.innerHTML = `<h6 class="text-muted mb-2"><i class="fa-solid fa-images me-2"></i>Hybrid Preview List (Click thumbnail to jump)</h6>`;
+            const strip = document.createElement('div');
+            strip.className = 'hybrid-thumb-strip';
+
+            photos.forEach((photo, idx) => {
+                const img = document.createElement('img');
+                img.src = photo.image_url;
+                img.className = 'hybrid-thumb-item';
+                img.title = `Photo #${idx + 1} (${photo.time_str})`;
+                img.onclick = () => {
+                    const el = document.getElementById(`photo-card-${idx}`);
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                };
+                strip.appendChild(img);
+            });
+            stripContainer.appendChild(strip);
+            container.appendChild(stripContainer);
+
+            // 4. Detailed Photo Cards Feed
             photos.forEach((photo, idx) => {
                 const card = document.createElement('div');
                 card.className = 'photo-display-card';
+                card.id = `photo-card-${idx}`;
                 
                 const ocrDisplay = photo.extracted_text ? photo.extracted_text : 'No OCR text extracted for this photo.';
                 
@@ -334,7 +467,7 @@
             const newIndex = currentDayIndex + delta;
             if (newIndex >= 0 && newIndex < payload.dates.length) {
                 currentDayIndex = newIndex;
-                renderDayView();
+                renderDayDashboardView();
             }
         }
 
