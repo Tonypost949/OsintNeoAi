@@ -1,0 +1,48 @@
+{
+  "system_name": "OsintNeoAi & TaxFunded Zero-Copy Auto-Mode Population Engine",
+  "version": "2026.1.0-ZERO-COPY-AUTO",
+  "core_rule": "NO COPY-PASTING REQUIRED. AUTO MODE first scans and extracts all local files, mounted drives, Google Drive, iCloud, Takeout archives, contacts, and emails to auto-fill Person Pages BEFORE querying online sources.",
+  "scan_order_protocol": [
+    "1. Local PC Drive (C:\\ & D:\\ Offloads & Takeout Archives)",
+    "2. Connected Google Drive / Google Photos / Google Contacts API",
+    "3. Connected iCloud / iOS VCF Contacts / Apple Cloud Archive",
+    "4. Connected Microsoft OneDrive / Outlook Contacts",
+    "5. Open Source Online OSINT (Fallback only if local/cloud has missing fields)"
+  ],
+  "auto_mode_execution_queue": [
+    {
+      "person_id": "person-01-oliver-chi",
+      "full_name": "Oliver Chi",
+      "status": "AUTO_POPULATING_LOCAL_FIRST",
+      "scanned_sources": {
+        "local_docs": "FOUND: C:\\OsintNeoAi\\core\\AG2OSINTNEOMAXX\\HB_City_Manager_Email_Cache.json",
+        "google_contacts": "FOUND: oliver.chi@hb.gov (Mobile: +1 714-536-5511)",
+        "icloud_archive": "FOUND: Takeout/Contacts/oliver_chi_vcard.vcf",
+        "online_osint_fallback": "NOT_NEEDED (Local & Cloud completed 100% of fields)"
+      },
+      "auto_extracted_attributes": {
+        "email": "oliver.chi@hb.gov",
+        "phone": "+1 (714) 536-5511",
+        "official_title": "Former City Manager & Real Property Negotiator",
+        "agency": "City of Huntington Beach"
+      }
+    },
+    {
+      "person_id": "person-02-shigeru-yamada",
+      "full_name": "Shigeru Yamada",
+      "status": "AUTO_POPULATING_LOCAL_FIRST",
+      "scanned_sources": {
+        "local_docs": "FOUND: C:\\data\\Yamada_Trust_Deed_17631_Cameron.pdf",
+        "google_contacts": "FOUND: syamada.trustee@gmail.com",
+        "icloud_archive": "FOUND: iCloud/Photos/2020-06-22_Deed_Signing.HEIC",
+        "online_osint_fallback": "EXECUTED (Cross-referenced parcel APN 153-081-02)"
+      },
+      "auto_extracted_attributes": {
+        "email": "syamada.trustee@gmail.com",
+        "phone": "+1 (714) 842-1920",
+        "official_title": "Trustee & Beneficial Landowner",
+        "agency": "Shigeru Yamada Living Trust"
+      }
+    }
+  ]
+}
