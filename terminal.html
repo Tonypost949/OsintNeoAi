@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>OsintNeoAi — Mobile Cloud CLI Terminal</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --term-bg: #050811;
+            --accent-cyan: #00f2ff;
+            --accent-green: #00ff88;
+            --text-color: #e2e8f0;
+            --dim-text: #94a3b8;
+            --border-color: #1e293b;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace; }
+        body { background-color: var(--bg-color); color: var(--text-color); height: 100vh; display: flex; flex-direction: column; }
+        header { background: #0f172a; padding: 12px 16px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; }
+        h1 { font-size: 1rem; color: var(--accent-cyan); display: flex; align-items: center; gap: 8px; }
+        .status-badge { font-size: 0.75rem; background: rgba(0,242,255,0.1); color: var(--accent-cyan); border: 1px solid var(--accent-cyan); padding: 3px 8px; border-radius: 12px; }
+        .terminal-container { flex: 1; background-color: var(--term-bg); padding: 16px; overflow-y: auto; display: flex; flex-direction: column; font-size: 0.9rem; line-height: 1.5; }
+        .output-line { margin-bottom: 8px; white-space: pre-wrap; word-break: break-word; }
+        .cmd-line { color: var(--accent-green); font-weight: bold; }
+        .err-line { color: #ff5555; }
+        .input-bar { background: #0f172a; border-top: 1px solid var(--border-color); padding: 12px; display: flex; gap: 8px; }
+        input[type="text"] { flex: 1; background: #050811; border: 1px solid var(--border-color); color: #fff; padding: 10px 14px; border-radius: 6px; font-size: 1rem; outline: none; }
+        input[type="text"]:focus { border-color: var(--accent-cyan); }
+        button { background: var(--accent-cyan); color: #000; border: none; padding: 10px 18px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.95rem; }
+        .quick-chips { padding: 8px 12px; background: #0b1120; display: flex; gap: 8px; overflow-x: auto; border-top: 1px solid var(--border-color); }
+        .chip { background: #1e293b; color: var(--accent-cyan); font-size: 0.75rem; padding: 4px 10px; border-radius: 12px; white-space: nowrap; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>⚡ OSINT NEO AI — MOBILE CLI TERMINAL</h1>
+        <span class="status-badge">ONLINE 24/7</span>
+    </header>
+
+    <div class="quick-chips">
+        <span class="chip" onclick="runQuick('python cli/cli.py chat')">cli.py chat</span>
+        <span class="chip" onclick="runQuick('python AG2OSINTNEOMAXX/aegis_correlation_engine.py')">aegis engine</span>
+        <span class="chip" onclick="runQuick('bq ls noble-beanbag-497411-m4')">bq datasets</span>
+        <span class="chip" onclick="runQuick('git status')">git status</span>
+        <span class="chip" onclick="runQuick('python OSINTNeoAiCLI_v2.py')">check hub</span>
+    </div>
+
+    <div class="terminal-container" id="terminal">
+        <div class="output-line" style="color: var(--accent-cyan);">
+======================================================================
+     OSINT NEO AI — MOBILE CLOUD COMMAND LINE AGENT TERMINAL
+======================================================================
+* Host: Cloud Azure / GCP 24/7 VM Instance
+* Accessible anywhere on Mobile, iPad, & Web Browsers
+* Type commands below or click quick-action chips above.
+----------------------------------------------------------------------
+        </div>
+    </div>
+
+    <div class="input-bar">
+        <input type="text" id="cmdInput" placeholder="Enter CLI command (e.g., python cli/cli.py)..." onkeydown="if(event.key==='Enter') executeCmd()">
+        <button onclick="executeCmd()">Run</button>
+    </div>
+
+    <script>
+        async function executeCmd() {
+            const input = document.getElementById('cmdInput');
+            const cmd = input.value.trim();
+            if (!cmd) return;
+
+            const term = document.getElementById('terminal');
+            term.innerHTML += <div class="output-line cmd-line">$ </div>;
+            input.value = '';
+            term.scrollTop = term.scrollHeight;
+
+            try {
+                const res = await fetch('/api/cli_exec', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ command: cmd })
+                });
+                const data = await res.json();
+                if (data.status === 'success') {
+                    term.innerHTML += <div class="output-line"></div>;
+                } else {
+                    term.innerHTML += <div class="output-line err-line">ERROR: </div>;
+                }
+            } catch (err) {
+                term.innerHTML += <div class="output-line err-line">NETWORK ERROR: </div>;
+            }
+            term.scrollTop = term.scrollHeight;
+        }
+
+        function runQuick(cmd) {
+            document.getElementById('cmdInput').value = cmd;
+            executeCmd();
+        }
+    </script>
+</body>
+</html>
