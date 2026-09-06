@@ -1,0 +1,57 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="NOLOG suppresses logging of the selected type of event in the debug log file."><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>License Manager 10.2 - NOLOG</title><script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash; 
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script></head><!--Publication GUID: [GUID-BC990B43-3F11-4C46-9757-E4A61209745C]--><!--Topic GUID: [GUID-F70D3451-747C-4743-BF98-9935FD7478E3]--><body><div id="content"><div class="header"><h1>NOLOG</h1><div id="breadcrumb"></div></div>
+<p id="GUID-96A5375E-1E46-4A63-9E08-C1CB8E19FD15">NOLOG suppresses logging of the selected type of event in the debug log file.  </p><p id="GUID-D945B833-4F0A-4DCD-9F04-F463F3A7FA10">Usage: </p>
+<p id="GUID-9CA3C2C7-C5B4-43F7-A047-11ED889D2EE5"> NOLOG { IN | OUT | DENIED | QUEUED | UNSUPPORTED}</p>
+<p id="GUID-FDA83F7D-160A-4DC7-866F-A9485FCFD95F">
+<div class="block_table" id="TABLE_FDFA3BD52EFD4FD4B4A6CF9EBC193909" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="1.00*"></colgroup><colgroup width="4.71*"></colgroup>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-A4AF036D-656F-40A8-A6D3-3AA4646F083C">Entry</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-0D81B67D-FCB0-4271-B331-6F3C2FDB46F9">Description</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-F6460F7E-C2D6-443D-B60B-E21189EE397E">NOLOG IN</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-4529D84E-B5AE-4190-9552-06207033F408">Turns off logging of check-ins. Two separate NOLOG lines are required to turn off logging of check-ins and queued requests.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-EDAF8AC5-6091-4821-99AA-033EED4F073B">NOLOG DENIED</p>
+<p id="GUID-5D6F9326-E989-49D5-8BF4-48386607BAA4">NOLOG QUEUED</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-DC68325B-FA39-405C-A754-1D3153CAD723"> Turns off logging of checkouts and queued requests. License administrators use this option to reduce the size of the debug log file. However, it can reduce the usefulness of the debug log when debugging license server problems.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-34C654F2-8CF9-48DA-8425-1A8FE831CF95">NOLOG UNSUPPORTED</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-ECA15803-ABE8-466F-9E5F-2C0F1F7F75F4"> This suppresses UNSUPPORTED messages, which are error messages in the debug log that report a failure due to the feature being unsupported.</p>
+</td>
+</tr>
+</table><span class="table_desc"></span></div>
+
+</p>
+<div class="footer"> Copyright © 1995-2013 Esri. All rights reserved. </div></div></body></html>

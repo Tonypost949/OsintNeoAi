@@ -1,0 +1,79 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="INCLUDE includes a user or predefined group of users from the list of who is allowed to use the feature.  EXCLUDE supersedes INCLUDE; conflicts between the EXCLUDE list and the INCLUDE list are resolved by EXCLUDE taking precedence."><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>License Manager 10.2 -  INCLUDE </title><script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash; 
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script></head><!--Publication GUID: [GUID-BC990B43-3F11-4C46-9757-E4A61209745C]--><!--Topic GUID: [GUID-CF71AC11-D183-4FAB-8B76-E57015F626FF]--><body><div id="content"><div class="header"><h1> INCLUDE </h1><div id="breadcrumb"></div></div>
+<p id="GUID-CDB44B36-F76A-48E5-9992-6D1377BEC064">INCLUDE includes a user or predefined group of users from the list of who is allowed to use the feature.  EXCLUDE supersedes INCLUDE; conflicts between the EXCLUDE list and the INCLUDE list are resolved by EXCLUDE taking precedence.</p><p id="GUID-684F0026-9853-4C04-8E52-5D163D0609EE">Usage: </p>
+<p id="GUID-83293136-23B3-40BD-BDA2-CABAD19B5E16"> INCLUDE feature type { name | group_name }</p>
+<p id="GUID-7B7FDCDC-480A-433A-9089-FBFE0FE5FC4F">
+<div class="block_table" id="TABLE_B6A8C63F76844085B00E7F0FD51E9E49" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="1.00*"></colgroup><colgroup width="8.11*"></colgroup>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-F86C632E-0340-4D64-AA5B-7568CAB6C491">
+<b>Term</b>
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-6841335C-CC52-4A06-9E4E-E4B52346502C">
+<b>Description</b>
+</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-531E4A0C-649D-4B09-80B8-4C6BA74DF775">
+feature
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-5ED9A988-8BA9-4A4C-9BA1-C05F4DE735A3">Name of the feature being affected.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-BF0A75F2-3736-4255-B92D-43AB1D7D04E6">
+type
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-824734D5-6C7A-4054-8CAA-3B747DE5983A">One of USER, HOST, DISPLAY, INTERNET, GROUP, or HOST_GROUP.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-04D1EAF5-EEA3-4946-B021-120786202964">
+name
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-B9B8A50D-6FAE-4B7D-8166-E31B3F61BDD8">Name of an item of type above for which license usage is included.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-E95761FB-6EBE-48BD-AE9F-4147DF190F57">
+group_name
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-918FE27D-11F0-4FA1-B244-55D6F8BFF5A8">Name of the group to include. Group names are case sensitive.</p>
+</td>
+</tr>
+</table><span class="table_desc"></span></div>
+</p>
+<p id="GUID-C619B940-872C-410A-8621-16593B0C13CB">Example:</p>
+<p id="GUID-8195525A-FCC4-452B-B34C-9180822FA2DD">To include user bob in the list of users able to use feature f1, the option line looks like this:</p>
+<p id="GUID-53AD0FD9-0EBA-4F69-A20B-7329CD16FFAB"> INCLUDE f1 USER bob
+</p>
+<div class="footer"> Copyright © 1995-2013 Esri. All rights reserved. </div></div></body></html>

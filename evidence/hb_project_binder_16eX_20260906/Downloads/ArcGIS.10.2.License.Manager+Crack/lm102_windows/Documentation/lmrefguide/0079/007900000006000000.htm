@@ -1,0 +1,62 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="ArcGIS Administrator allows users to manage their license environments for ArcGIS for Desktop, ArcGIS Engine, and ArcGIS Engine Developer Kit."><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>License Manager 10.2 - Client machine setup—ArcGIS Administrator</title><script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash; 
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script></head><!--Publication GUID: [GUID-BC990B43-3F11-4C46-9757-E4A61209745C]--><!--Topic GUID: [GUID-C75F5AFD-BB53-48B6-A64B-6A22D5E28DA3]--><body><div id="content"><div class="header"><h1>Client machine setup—ArcGIS Administrator</h1><div id="breadcrumb"></div></div>
+<p id="GUID-633BA4CB-D196-4A8D-A613-AA5636113FB3"> The ArcGIS Administrator utility is only installed with the <span purpose="ph" varid="ArcGISforDesktop">ArcGIS for Desktop</span>, ArcGIS Engine, and ArcGIS Engine Developer Kit software and is launched after the installation of the software. </p>
+<p id="GUID-BC615D38-3D0B-4DE1-8A6B-7770345A9C04">If you want to access it at a later time, you can launch it from   <span class="uicontrol">Start <span class="greaterthan">&gt;</span> Programs <span class="greaterthan">&gt;</span> ArcGIS <span class="greaterthan">&gt;</span> ArcGIS Administrator</span>.  On UNIX/Linux, ArcGIS Administrator can be launched from the product installation location using the following command:</p><p id="GUID-E3C5A838-5957-4DA6-B167-149F926F524E"><span class="usertext">[installation path]/arcgis/engine10.2/authorizeSoftware</span></p>
+<p id="GUID-9D92631D-D991-418B-B372-76611259EE6B">ArcGIS Administrator allows you to define both the concurrent-use and single-use environments. This help document only provides information regarding the concurrent-use case. For setting up the single-use environment, consult the ArcGIS Administrator Help, which can be accessed from the <span class="uicontrol">ArcGIS Administrator Help</span> button.</p>
+
+<p id="GUID-87ED13E4-8094-41A4-8CC4-4F566AA2AE8D">
+ArcGIS Administrator allows you to do the following:</p>
+<ul purpose="ul" id="UL_BB837A396A8C4C3FA7363C73001A6B47">
+<li purpose="li" id="LI_7259E998207E4E059616BFD6E030B2F5">Select the language to use for your <span purpose="ph" varid="ArcGISforDesktop">ArcGIS for Desktop</span> and ArcGIS Engine environments.</li>
+<li purpose="li" id="LI_E824D116F5A741EFA6BD86F23EC68BE5">Select a product to use and define a license manager.</li>
+<li purpose="li" id="LI_09D7FFFABC374D71939FFBDA2754AD3E">View license  availability.</li>
+<li purpose="li" id="LI_DD9B1D6A11294AA19476C23FB068B27C">Borrow available concurrent-use licenses. </li>
+<li purpose="li" id="LI_3BEEEE59BDA748BDB38A6534B2A54027">Return borrowed licenses.</li><li purpose="li" id="LI_F5464BB8AE8B412DAB467B08F8E85FEA">Add and remove data licenses.</li>
+</ul>
+<div class="section1" id="ESRI_SECTION1_812088FA8791498797FD8389F42C3917" purpose="section1"><h2>Select a language</h2><p id="GUID-E81D495C-85A0-4C9C-8B3A-0C81D03AE05B"><ol purpose="ol" id="OL_B70FFC3C296F4972AE2A31B7BFE5E9AC">
+<li purpose="li" id="LI_D538CE9EE2D14ACDACF881AED5961EBC">Launch ArcGIS Administrator.</li>
+<li purpose="li" id="LI_4B79C8DA7E684053B143E1EAC985F894">Click the top node in the table of contents.</li><li purpose="li" id="LI_6FC909F767F8414F8346FB740A0DDF52">Choose the desired language.</li>
+<li purpose="li" id="LI_20718B3B4C7D49EDAB893A4E2FCE3657">Click <span class="uicontrol">Apply</span> to set your changes without closing ArcGIS Administrator, or click <span class="uicontrol">OK</span> to apply changes and close ArcGIS Administrator.</li>
+</ol></p></div><div class="section1" id="ESRI_SECTION1_05BC2CBB81FB414FBE42FA949CDDC1A6" purpose="section1"><h2>Select a product and define a license manager</h2><p id="GUID-36C1E3A5-54F2-48F0-B2EF-0856B55DC397"><ol purpose="ol" id="OL_AA7D6A980DBC4961A389465F90CCA113">
+<li purpose="li" id="LI_0E38050D08EF47DAB070AC157CD2D3B6">Launch ArcGIS Administrator and select  the desired product folder (Desktop or Engine).</li><li purpose="li" id="LI_BEE6964EAF554F128904FA9205738505">Click the button next to the concurrent-use product you want to use.</li>
+<li purpose="li" id="LI_982AA85128424E21BC3C40AE80C5FB55"> Click <span class="uicontrol">Change</span>, enter the name of your license manager, then click <span class="uicontrol">OK</span>. The name of the license manager is the host name of the machine where the license manager is installed.</li>
+<li purpose="li" id="LI_ADB75B217A1E49218664F12E739ADF27">Click <span class="uicontrol">OK</span> on the <span class="uicontrol">Change</span> dialog box.</li>
+<li purpose="li" id="LI_E7161A1B449040AAAEDE9092DEF1E6E8">Click <span class="uicontrol">Apply</span> to set your changes without closing ArcGIS Administrator, or click <span class="uicontrol">OK</span> to apply changes and close ArcGIS Administrator.</li>
+</ol></p></div><div class="section1" id="ESRI_SECTION1_D42B06346ABD4097939942E8333E015F" purpose="section1"><h2>View license availability</h2><p id="GUID-4EE6303B-6AF6-496D-BB6E-EFA36D6C7100"><ol purpose="ol" id="OL_DD5C55D1434F40D8AB577C50D03D6116">
+<li purpose="li" id="LI_61614074CFD048F08A6A1A84F116314E">Launch ArcGIS Administrator and select  the desired product folder (Desktop or Engine).</li><li purpose="li" id="LI_0FBF438BE41F49448C45880A35EF27FE">Choose the desired concurrent-use product.</li>
+<li purpose="li" id="LI_0616AC4BA32E4C1B98B72DC1CAE1227E">Choose <span class="uicontrol">Availability</span> to view licenses available on the license manager selected in the product folder.  The license expiration date is also provided.</li>
+</ol></p></div><div class="section1" id="ESRI_SECTION1_3CFA809B99F9416D9C83736709590DDF" purpose="section1"><h2>Borrow licenses</h2><p id="GUID-6A26B3D5-982D-468D-A10A-D1CEA9122A5B">
+<div class="notes" id="GUID-E028F430-09A0-41DC-97DB-01C0B94E0749"><div class="note"><img class="note_img" src="rsrc/note.png" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"><p id="GUID-F4246CE1-0EFF-44D4-9F26-AF17530454AE">The default borrowing time-out value is 30 days. To modify this value, see <a class="xref" rel="0079/007900000009000000.htm" href="0079/007900000009000000.htm">Configuring license borrowing</a> in the "Administering the license manager" section.</p></div></div>
+</p><p id="GUID-93A983D9-3A74-4AF0-9BE8-A8245CF12FFA"><ol purpose="ol" id="OL_CC75054870AE4E98BFE9C513AC3CB03B">
+<li purpose="li" id="LI_3F2837169F4242489EB5AFB7C75B075A">Launch ArcGIS Administrator and select  the desired product folder (Desktop or Engine) for which you want to borrow licenses.</li>
+<li purpose="li" id="LI_98EDA1F69DAC42A781E9600AD2CD666A">For <span purpose="ph" varid="ArcGISforDesktop">ArcGIS for Desktop</span>, choose the concurrent-use license level you want to borrow—Advanced, Standard, or Basic—or choose ArcGIS Engine  (Concurrent Use) from the Engine folder. Ensure that the license manager has been defined.</li>
+<li purpose="li" id="LI_999EF3B78A1F44E288C2BEFFAD38E473">Choose the <span class="uicontrol">Borrow/Return</span> folder.</li>
+<li purpose="li" id="LI_67A0BDD70DA34BCBB250DF66BBBDA3FA">Check the boxes of the  features you want to borrow and click <span class="uicontrol">Apply</span>.</li>
+
+<li purpose="li" id="LI_5E39F07548064AD7A7E6B70C7EB64055">After the licenses have been borrowed, click <span class="uicontrol">OK</span> to close ArcGIS Administrator.  You can now use your ArcGIS software while off the network.</li>
+</ol></p></div><div class="section1" id="GUID-05C6A590-2BCF-4BBD-8A8F-B68AA5E5E20A" purpose="section1"><h2>
+Return borrowed license
+</h2><p id="GUID-1A71E0E2-1A44-4489-95F1-3DB1C1E9A4AE">
+<div class="notes" id="GUID-A8EC268B-346D-4B18-8078-F8A535824DDE"><div class="note"><img class="note_img" src="rsrc/note.png" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"><p id="GUID-E6419A65-3792-40FC-ACE9-FE604846E688">To return licenses manually, you first need to connect to your network.</p></div></div>
+</p><p id="GUID-19382775-3D48-478F-839B-0032D030E1B3"><ol purpose="ol" id="OL_255FC313F6F94C7182BB695692AA3BC7">
+<li purpose="li" id="LI_BDB2C3B00E204D898BE648B0F6FD7FC7">Launch ArcGIS Administrator and ensure that you have the same product and license manager set in the product folder.</li>
+<li purpose="li" id="LI_9CFF0F58326E4CE9855281D3770A48AF">Choose the <span class="uicontrol">Borrow/Return</span> folder.</li>
+<li purpose="li" id="LI_FAF7119F59BF45FCA2AD67A413A25EEC">Uncheck the boxes next to the features you want to return and click <span class="uicontrol">Apply</span>.</li>
+
+<li purpose="li" id="LI_67F66739D0FE4B0F8C0D2737A933F9F3">Click <span class="uicontrol">OK</span> to close ArcGIS Administrator.</li>
+</ol></p></div>
+<div class="footer"> Copyright © 1995-2013 Esri. All rights reserved. </div></div></body></html>

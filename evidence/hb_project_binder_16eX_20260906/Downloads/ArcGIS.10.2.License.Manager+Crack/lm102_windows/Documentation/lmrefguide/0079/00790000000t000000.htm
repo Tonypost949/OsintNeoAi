@@ -1,0 +1,25 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="You can define your license managers by using the <port>@<host> function"><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>License Manager 10.2 -  Defining &lt;port&gt;@&lt;host&gt; to one or more license servers </title><script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash; 
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script></head><!--Publication GUID: [GUID-BC990B43-3F11-4C46-9757-E4A61209745C]--><!--Topic GUID: [GUID-A610A3DE-93E2-4C0A-AF6B-FCD4A26C50BE]--><body><div id="content"><div class="header"><h1> Defining &lt;port&gt;@&lt;host&gt; to one or more license servers </h1><div id="breadcrumb"></div></div>
+<p id="GUID-11BD4129-E914-47BA-8D40-7995219EFC32">You can define your license managers by using the &lt;port&gt;@&lt;host&gt; function. This method is not constrained by architecture because a license server defined by &lt;port&gt;@&lt;host&gt; communicates directly to the ARCGIS daemon through the specified TCP/IP port, working around the limitation of architecture-specific license files.</p>
+<p id="GUID-E4FD9892-BB56-4C2A-84AD-4464B43B4C06"> Setting the environment variable  ARCGIS_LICENSE_FILE enables the &lt;port&gt;@&lt;host&gt; functionality. This variable is set in a client's environment, not on the server side. The &lt;port&gt; value is found in the SERVER line of the service.txt file in the License Manager installation path. The TCP/IP &lt;port&gt; is indicated at the end of the SERVER line. The &lt;host&gt; value is the name of your license manager.</p>
+<p id="GUID-F8059D4C-BCB7-4133-AC35-B6157FDF9472">Additionally, &lt;port&gt;@&lt;host&gt; can be abbreviated as simply @&lt;host&gt; as long as the port number in the license file falls within the range of 27000 through 27009 (inclusive).</p>
+<p id="GUID-57700861-F853-4FBB-A3C0-5B9A1E168348">One advantage of using the &lt;port&gt;@&lt;host&gt; method for defining your license server is to get the license service working through firewalls. In certain environments, the firewall may block communication between the license server and the client machine.</p>
+<p id="GUID-39868572-F945-47D0-B4D7-F9EF53E043DA">
+ See
+<a class="xref" rel="0079/00790000000w000000.htm" href="0079/00790000000w000000.htm">Lock the ArcGIS daemon to one port</a>.
+</p>
+<div class="footer"> Copyright © 1995-2013 Esri. All rights reserved. </div></div></body></html>

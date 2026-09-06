@@ -1,0 +1,80 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="This option excludes a user or predefined group of users from the list of who is allowed to borrow concurrent use licenses or authorize enterprise single use licenses from a license manager. EXCLUDE_ENTITLEMENT supersedes INCLUDE_ENTITLEMENT."><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>License Manager 10.2 -  EXCLUDE_ENTITLEMENT </title><script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash; 
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script></head><!--Publication GUID: [GUID-BC990B43-3F11-4C46-9757-E4A61209745C]--><!--Topic GUID: [GUID-55D1A920-BCDE-4669-AD1E-1ED46F26530F]--><body><div id="content"><div class="header"><h1> EXCLUDE_ENTITLEMENT </h1><div id="breadcrumb"></div></div>
+<p id="GUID-5A1502A0-BA8D-463B-A5B3-12956E919471">
+ This excludes a user or predefined group of users from the list of who is allowed to borrow concurrent use licenses or authorize enterprise single use licenses from a license manager. EXCLUDE_ENTITLEMENT supersedes INCLUDE_ENTITLEMENT.</p><p id="GUID-AEF9BB93-C5CB-49E7-A9A7-CBFBAFA40BFE"><b>Usage</b></p>
+<p id="GUID-2AB8231C-70E3-4B68-A50B-37910C6E7476"> EXCLUDE_ENTITLEMENT entitlementId type {name | group_name}</p>
+<p id="GUID-D2753FDA-83B8-4FE4-ADBF-A9C513FB28F2">
+<div class="block_table" id="TABLE_6E32F6276908421CA3B0732DDD0BF378" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="1.00*"></colgroup><colgroup width="4.22*"></colgroup>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-F86C632E-0340-4D64-AA5B-7568CAB6C491">
+<b>Term</b>
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-6841335C-CC52-4A06-9E4E-E4B52346502C">
+<b>Description</b>
+</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-531E4A0C-649D-4B09-80B8-4C6BA74DF775"> entitlementId</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-5ED9A988-8BA9-4A4C-9BA1-C05F4DE735A3">The authorization number for the license you want to restrict usage of</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-BF0A75F2-3736-4255-B92D-43AB1D7D04E6">
+type
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-824734D5-6C7A-4054-8CAA-3B747DE5983A">One of the following: USER, HOST, DISPLAY, INTERNET, GROUP, HOST_GROUP</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-04D1EAF5-EEA3-4946-B021-120786202964">
+name
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-B9B8A50D-6FAE-4B7D-8166-E31B3F61BDD8">Name of an item of type above for which license usage is excluded</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-E95761FB-6EBE-48BD-AE9F-4147DF190F57">
+group_name
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-918FE27D-11F0-4FA1-B244-55D6F8BFF5A8">Name of the group to exclude (Group names are case sensitive.)</p>
+</td>
+</tr>
+</table><span class="table_desc"></span></div>
+</p>
+<p id="GUID-43A1D122-A716-4CD5-B4B8-2AB81D54E60D">
+Example:
+</p>
+<p id="GUID-C99BF9F0-FEEE-4B1E-B247-6C3D1695A8E4">To exclude user pete from the list of users who can borrow a  <span purpose="ph" varid="ArcGIS3DAnalystExt">ArcGIS 3D Analyst extension</span> license that has an authorization number of EFL123456789, this is the option line:</p>
+<p id="GUID-61CC5C94-8DB2-4173-A5BB-249074DE0CD2">EXCLUDE_ENTITLEMENT EFL123456789 USER pete
+</p>
+<div class="footer"> Copyright © 1995-2013 Esri. All rights reserved. </div></div></body></html>

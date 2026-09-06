@@ -1,0 +1,49 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="Batch processes run in the background on a machine and check out one license per session. Batch processes include cron; execution of UNIX AT and BATCH commands; and  redirect (<) with standard input, STDIN."><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>License Manager 10.2 -  Batch processes </title><script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash; 
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script></head><!--Publication GUID: [GUID-BC990B43-3F11-4C46-9757-E4A61209745C]--><!--Topic GUID: [GUID-97F547D7-1EA9-4FCE-82E8-B61733984CAB]--><body><div id="content"><div class="header"><h1> Batch processes </h1><div id="breadcrumb"></div></div>
+<p id="GUID-BCB85084-04E4-42F0-AF0A-F54C8ED50499">Batch processes run in the background on a machine and check out one license per session. Batch processes include cron; execution of UNIX AT and BATCH commands; and  redirect (&lt;) with standard input, STDIN.</p>
+<p id="GUID-3428D8DD-4630-45E0-9226-FEDE5E89F950">If you execute &amp;system at an Arc prompt and start another arc session, you will have started a batch process:</p>
+<pre purpose="pre" id="GUID-14A45966-251C-453C-B4C6-B66AF5D0A34D">% arc
+Arc: &amp;system
+% arc</pre>
+<p id="GUID-74C755B5-46EA-493F-9EF1-44BCEDD4DD00">This also applies to a batch file submitted with the AT command on UNIX or Windows. For example, on Windows, the following batch job is submitted:</p>
+<pre purpose="pre" id="GUID-17DD2C94-B764-466C-95C9-F87012303C07">C:\&gt; at 8:00 /interactive /every:mwf
+C:\users\fred\submit.bat</pre>
+<p id="GUID-AF507C74-680F-4F7F-B230-53BBB43604E8">where submit.bat is a batch file that runs arc every Monday, Wednesday, and Friday. This batch job takes its own license.</p>
+<p id="GUID-6CF3F5EA-B8FB-4D16-8BA1-6005BFBF4F20">The following &amp;system calls will not require additional licenses.</p>
+<p id="GUID-5CB7EDB4-1E03-43B7-9D70-654F881EAFE6">Each of these is case sensitive and will execute with allowable abbreviations such as &amp;sys.</p>
+<div class="section1" id="ESRI_SECTION1_FC8FA858FFB14B27A69A0E07A24B93D9" purpose="section1"><h2>Windows</h2><pre purpose="pre" id="GUID-1216A6DB-59D0-43FB-A4BB-DEBD7FFF0DEB">Arc: &amp;sys arc
+Arc: &amp;sys %ARCHOME%\bin\arc
+Arc: &amp;sys arc info
+Arc: &amp;sys info
+Arc: &amp;sys %ARCHOME%\bin\info
+Arc: &amp;sys arc %ARCHOME%\bin\info</pre></div>
+<div class="section1" id="GUID-22BE636C-E4DA-4D2C-A248-542601AAE70B" purpose="section1"><h2> UNIX</h2><pre purpose="pre" id="GUID-2A5FA5D5-3272-4A28-BC51-74C2BFC05520">Arc: &amp;sys arc
+Arc: &amp;sys $ARCHOME/bin/arc
+Arc: &amp;sys arc info
+Arc: &amp;sys info
+Arc: &amp;sys $ARCHOME/bin/info
+Arc: &amp;sys arc $ARCHOME/bin/info
+Arc: &amp;sys $ARCHOME/bin/arc info
+Arc: &amp;sys $ARCHOME/bin/arc $ARCHOME/bin/info
+Arc: &amp;data arc
+Arc: &amp;data $ARCHOME/bin/arc
+Arc: &amp;data arc info
+Arc: &amp;data info
+Arc: &amp;data $ARCHOME/bin/info
+Arc: &amp;data arc $ARCHOME/bin/arc info
+Arc: &amp;data $ARCHOME/bin/arc $ARCHOME/bin/info</pre></div>
+<div class="footer"> Copyright © 1995-2013 Esri. All rights reserved. </div></div></body></html>

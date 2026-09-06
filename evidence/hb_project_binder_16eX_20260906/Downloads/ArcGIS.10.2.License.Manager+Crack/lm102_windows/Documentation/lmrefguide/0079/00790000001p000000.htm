@@ -1,0 +1,28 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="Environment variables can be used to define product type in a Citrix environment."><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>License Manager 10.2 -  Using the license manager on Windows Terminal Server/Citrix </title><script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash; 
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script></head><!--Publication GUID: [GUID-BC990B43-3F11-4C46-9757-E4A61209745C]--><!--Topic GUID: [GUID-F97BC58E-73C0-4BFC-8A46-C57382F34333]--><body><div id="content"><div class="header"><h1> Using the license manager on Windows Terminal Server/Citrix </h1><div id="breadcrumb"></div></div>
+
+<p id="GUID-D7B7CFE4-C5AE-443C-9573-9AA7458E509B">The following environment variable allows individual users in a Citrix environment to launch <span purpose="ph" varid="ArcGISforDesktop">ArcGIS for Desktop</span> with the license level of their choice:</p>
+<p id="GUID-AC812454-7CC1-4CC0-86F8-7BFAB26C3A88"><span purpose="ph" varid="Advanced">Advanced</span></p>
+<pre purpose="pre" id="GUID-EE3313BA-7086-4D8F-BCCA-4519C48EF5E8">ESRI_SOFTWARE_CLASS=Professional</pre>
+<p id="GUID-8C1CAFB8-72D2-4826-82D0-9A11547D2507"><span purpose="ph" varid="Standard">Standard</span></p>
+<pre purpose="pre" id="GUID-14149284-3339-4E12-A2D4-DECB45DB6485">ESRI_SOFTWARE_CLASS=Editor</pre>
+<p id="GUID-C8DECADA-2394-4182-85F1-3DDEC8E1C44E"><span purpose="ph" varid="Basic">Basic</span></p>
+<pre purpose="pre" id="GUID-C77D9790-DBAB-4272-9586-C6976A8F1394">ESRI_SOFTWARE_CLASS=Viewer</pre>
+<p id="GUID-8E079102-F1A8-416F-A86B-0B2CEAB0B911">This overrides the SOFTWARE_CLASS registry key for the user that sets it as an environment variable before launching ArcMap. When ArcMap.exe is launched, it will become <span purpose="ph" varid="Basic">Basic</span>, <span purpose="ph" varid="Standard">Standard</span>, or <span purpose="ph" varid="Advanced">Advanced</span> (and check out the appropriate license).</p>
+<p id="GUID-A367541F-4895-4685-A64B-17F487DF5192">The use of this variable overrides the currently configured license level in ArcGIS Administrator, thereby allowing any users of a Windows Terminal Server/Citrix configuration with a single installation of <span purpose="ph" varid="ArcGISforDesktop">ArcGIS for Desktop</span> to switch to any desktop license level they have available licenses for. This variable can be set either in the user's profile or in a batch file that first sets the variable, then launches ArcMap. The batch file can then be published as an application.</p>
+
+<div class="footer"> Copyright © 1995-2013 Esri. All rights reserved. </div></div></body></html>

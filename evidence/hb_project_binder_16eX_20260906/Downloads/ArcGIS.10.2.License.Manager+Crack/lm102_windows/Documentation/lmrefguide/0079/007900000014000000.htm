@@ -1,0 +1,59 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="GROUP defines a group of users for use with the different  options in the Options file."><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>License Manager 10.2 -  GROUP </title><script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash; 
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script></head><!--Publication GUID: [GUID-BC990B43-3F11-4C46-9757-E4A61209745C]--><!--Topic GUID: [GUID-F8C74E77-CF9C-4B11-864A-DEFFFB587121]--><body><div id="content"><div class="header"><h1> GROUP </h1><div id="breadcrumb"></div></div>
+<p id="GUID-3A9240BC-5B00-467D-AF77-F42097CE13BE"> This defines a group of users for use with the different  options in the Options file.</p><p id="GUID-74B68E4A-723C-436C-8B73-6ABE028A5E11">Usage:</p><p id="GUID-9F81B26E-EEF2-49DC-B997-954B1FB0AE61">GROUP<i> group_name user_list</i></p>
+<p id="GUID-D1F5EA17-9C60-4D22-998F-744716D31BF1">
+<div class="block_table" id="TABLE_32454E0F6CB54D06A2E1ACB0759F88FA" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="1.00*"></colgroup><colgroup width="4.36*"></colgroup>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-F86C632E-0340-4D64-AA5B-7568CAB6C491">
+<b>Term</b>
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-6841335C-CC52-4A06-9E4E-E4B52346502C">
+<b>Description</b>
+</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-04D1EAF5-EEA3-4946-B021-120786202964">
+<i></i>
+group_name
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-B9B8A50D-6FAE-4B7D-8166-E31B3F61BDD8">Name of the group to exclude. Group names are case sensitive.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-E95761FB-6EBE-48BD-AE9F-4147DF190F57">user_list</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-0BBF3D9D-9357-4B05-A2AE-ECDE4FAB0D5C">List of user names in the group. Names are case sensitive and cannot contain spaces.</p>
+</td>
+</tr>
+</table><span class="table_desc"></span></div>
+</p>
+<p id="GUID-5BAAC4A6-8A7C-4F8B-AB54-96798A5C5C9F"> To create a large user group, define several GROUP lines, each containing up to the maximum of 4,000 characters. All the users will be placed in a single group: Multiple GROUP lines for the same group name add all the specified users into the group.</p>
+<p id="GUID-4872EB2A-77E7-45FC-B49B-7008DAF3B706">
+Example:
+</p>
+<p id="GUID-010AE0ED-22B8-4BF5-982C-BE7543FFC780"> To define the group test consisting of adam, steve, michael:</p>
+<p id="GUID-41C9F317-16FF-4524-B5C5-9266F9CF6DBE"> GROUP test adam steve michael</p>
+<div class="footer"> Copyright © 1995-2013 Esri. All rights reserved. </div></div></body></html>

@@ -1,0 +1,23 @@
+@import url("common.css");
+
+body {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 0;
+}
+
+#mainSearch{
+    position: relative !important;
+    top: -60px;
+    right: 15px;
+    width: 275px;
+    height: 0px;
+    float: right;
+}
+
+#contentWrapper {
+  margin-top: 0 !important;
+}
+#content div.license-bar{
+	margin-top:0;
+}

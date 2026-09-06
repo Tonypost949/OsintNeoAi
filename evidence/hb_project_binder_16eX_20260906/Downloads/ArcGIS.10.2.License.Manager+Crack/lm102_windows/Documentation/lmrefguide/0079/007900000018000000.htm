@@ -1,0 +1,70 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="INCLUDEALL includes a user or predefined group of users from the list of who is allowed to use all features on the license manager."><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>License Manager 10.2 -  INCLUDEALL </title><script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash; 
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script></head><!--Publication GUID: [GUID-BC990B43-3F11-4C46-9757-E4A61209745C]--><!--Topic GUID: [GUID-AE666C08-2317-4C32-9F45-538377B50CF9]--><body><div id="content"><div class="header"><h1> INCLUDEALL </h1><div id="breadcrumb"></div></div>
+<p id="GUID-375BE411-A631-4503-9CEB-FCF46D25929C">INCLUDEALL includes a user or predefined group of users from the list of who is allowed to use all features on the license manager.</p><p id="GUID-39F70E10-9AE3-459B-A16E-0E95314E248C">Usage: </p>
+<p id="GUID-BAB8E0E4-BF80-4F77-8446-57BB37093B5C">INCLUDEALL type { name | group_name } </p>
+<p id="GUID-D64F8BBB-34C4-4A06-AF3D-D31FBF6462AA">
+<div class="block_table" id="TABLE_809F2852D4C34EBBA2F3AA1EDB030A5A" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="1.00*"></colgroup><colgroup width="7.98*"></colgroup>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-F86C632E-0340-4D64-AA5B-7568CAB6C491">
+<b>Term</b>
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-6841335C-CC52-4A06-9E4E-E4B52346502C">
+<b>Description</b>
+</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-BF0A75F2-3736-4255-B92D-43AB1D7D04E6">
+type
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-824734D5-6C7A-4054-8CAA-3B747DE5983A">One of USER, HOST, DISPLAY, INTERNET, GROUP, or HOST_GROUP.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-04D1EAF5-EEA3-4946-B021-120786202964">
+name
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-B9B8A50D-6FAE-4B7D-8166-E31B3F61BDD8">Name of an item of type above for which license usage is included.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-E95761FB-6EBE-48BD-AE9F-4147DF190F57">
+group_name
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-918FE27D-11F0-4FA1-B244-55D6F8BFF5A8">Name of the group to include. Group names are case sensitive.</p>
+</td>
+</tr>
+</table><span class="table_desc"></span></div>
+</p>
+<p id="GUID-271D061F-8E55-4B9E-A9A6-2FF2D27C167E">Example: </p>
+<p id="GUID-FAA0236F-5401-4849-9282-1AEB82591B15"> To allow the user jane to use all features served by this vendor daemon, this is the option line:</p>
+<p id="GUID-A13E5C91-B83A-404E-A345-C8598C19D4B1">INCLUDEALL USER jane</p>
+<p id="GUID-B17C65AA-70D7-4811-B3C9-17AD82D8ADFC"> The include list is created from all the INCLUDEALL and INCLUDE lines in the options file.
+</p>
+<div class="footer"> Copyright © 1995-2013 Esri. All rights reserved. </div></div></body></html>

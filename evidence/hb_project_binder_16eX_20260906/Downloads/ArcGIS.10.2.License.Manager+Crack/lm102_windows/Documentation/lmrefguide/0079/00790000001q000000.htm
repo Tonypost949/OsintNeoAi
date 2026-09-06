@@ -1,0 +1,38 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="If the system clock is set back, it might cause a problem with serving licenses."><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>License Manager 10.2 -  Incorrect clock setting </title><script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash; 
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script></head><!--Publication GUID: [GUID-BC990B43-3F11-4C46-9757-E4A61209745C]--><!--Topic GUID: [GUID-892CB3D3-ABAB-42EE-B965-FF07176C342F]--><body><div id="content"><div class="header"><h1> Incorrect clock setting </h1><div id="breadcrumb"></div></div>
+<div class="section1" id="GUID-9FB574BF-6BD9-41AD-BD57-0858D18F7F8D" purpose="section1"><h2> Error in debug log file </h2><pre purpose="pre" id="GUID-6D2FAE24-D31B-45C4-9CDE-BC6097183932">&lt;time&gt; (ARCGIS) The System Clock has been set back to the past.
+&lt;time&gt; (ARCGIS) This is not allowed!
+&lt;time&gt; (ARCGIS) daemon shutdown requested - shutting down
+&lt;time&gt; (lmgrd) SHUTDOWN request from SYSTEM at node SERVER
+&lt;time&gt; (lmgrd) lmgrd will now shut down all the vendor daemons
+&lt;time&gt;(lmgrd) Shutting down ARCGIS
+</pre></div>
+<div class="section1" id="ESRI_SECTION1_7CC25B30EF32426DBF002B9481341614" purpose="section1"><h2>Causes</h2><p id="GUID-1812BDE4-319C-450D-A0F2-074C3194057F">
+<ul purpose="ul" id="UL_5D3F4731EE024806A9AA43C9EAAA8E18">
+<li purpose="li" id="LI_B06B9E1E6B3E4C07981787A96D422C71">The system date, time, or time zone is set incorrectly.</li>
+<li purpose="li" id="LI_F4D9B5A0E48F47EABF0C1529415F0A5D">The files on your system have a newer creation date than the current time.</li>
+</ul>
+</p></div>
+<div class="section1" id="ESRI_SECTION1_41A050BD5D9141688740598E2C17FE2A" purpose="section1"><h2>Solution</h2><p id="GUID-12EFFC7B-C02B-4F7B-8EBB-D5E01726B765">
+<ul purpose="ul" id="UL_3D924AA6D69141208BC4D26BAF2FC71D">
+<li purpose="li" id="LI_44C706B3128C465C827E6BBEEC003E0F">Check the system clock settings. Ensure that the date, time, and time zone correspond with the client machine.</li>
+
+</ul>
+</p></div>
+<div class="section1" id="ESRI_SECTION1_EE45B1B010604818BB380617673C570A" purpose="section1"><h2> Windows XP/Server 2003</h2><p id="GUID-E4E59E91-6C41-46CF-943D-3623E1737F86">Click <span class="uicontrol">Start <span class="greaterthan">&gt;</span> Search <span class="greaterthan">&gt;</span> All Files and Folders</span>. Click <span class="uicontrol">Search Options</span>. Check <span class="uicontrol">When was it modified?</span> and choose <span class="uicontrol">Specify Dates</span>. Type in tomorrow's date and 12/31/2099. Click <span class="uicontrol">Search</span> Now.</p></div>
+<div class="section1" id="ESRI_SECTION1_DC5C803CDF904794B1FBF2BD1D0F0C94" purpose="section1"><h2> Windows Vista/Windows 7/Windows 8/Server 2008/Server 2012</h2><p id="GUID-AB974D95-4938-4BFC-8CE2-F93032AFE745">Click <span class="uicontrol">Start <span class="greaterthan">&gt;</span> Search <span class="greaterthan">&gt;</span> For Files and Folders</span>. Click the <span class="uicontrol">Advanced Search</span> drop-down menu. Specify Dates. Type in tomorrow's date and 12/31/2099. Click <span class="uicontrol">Search</span> Now.</p><p id="GUID-AFE2BE91-791F-444B-9EBB-3D8FAA3C7F56"></p></div>
+<div class="footer"> Copyright © 1995-2013 Esri. All rights reserved. </div></div></body></html>

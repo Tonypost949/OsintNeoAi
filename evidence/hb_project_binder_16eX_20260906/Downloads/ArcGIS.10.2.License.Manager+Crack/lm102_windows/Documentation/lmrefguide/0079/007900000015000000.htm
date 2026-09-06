@@ -1,0 +1,60 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="HOST_GROUP defines a group of hosts for use in INCLUDE, INCLUDEALL, INCLUDE_ENTITLEMENT, EXCLUDE, EXCLUDEALL, EXCLUDE_ENTITLEMENT, and RESERVE option lines. Multiple HOST_GROUP lines add all the specified hosts into the group."><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>License Manager 10.2 - HOST_GROUP</title><script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash; 
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script></head><!--Publication GUID: [GUID-BC990B43-3F11-4C46-9757-E4A61209745C]--><!--Topic GUID: [GUID-50DE56D9-7BF5-45A4-A6CD-16CB0F28F60A]--><body><div id="content"><div class="header"><h1>HOST_GROUP</h1><div id="breadcrumb"></div></div>
+<p id="GUID-52E41977-4325-488A-A767-A7FF40022209">HOST_GROUP defines a group of hosts for use in INCLUDE, INCLUDEALL, INCLUDE_ENTITLEMENT, EXCLUDE, EXCLUDEALL, EXCLUDE_ENTITLEMENT, and RESERVE option lines. Multiple HOST_GROUP lines add all the specified hosts into the group.</p><p id="GUID-8BB8EAE0-DA34-4E96-A95F-2DFA06D1D74B">Usage: </p>
+<p id="GUID-80E4817C-F743-455D-A348-437000C591AE">HOST_GROUP<i> </i>group_name host_list<i></i></p>
+<p id="GUID-A8B1C03D-CF6B-4BB9-BE52-A8219CD29015">
+<div class="block_table" id="TABLE_01CD5ABD41714093A09172EC696648DC" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="1.00*"></colgroup><colgroup width="4.55*"></colgroup>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-F86C632E-0340-4D64-AA5B-7568CAB6C491">
+<b>Term</b>
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-6841335C-CC52-4A06-9E4E-E4B52346502C">
+<b>Description</b>
+</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-BF0A75F2-3736-4255-B92D-43AB1D7D04E6">
+group_name
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-7B06D776-63F8-480B-8A85-C84CD8772C67">Name of the group being defined. Host group names are case sensitive.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-2EE34AB0-2F0D-41C7-9219-B9D9F822DCF7">
+host_list
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-B692F61A-F770-47D0-9100-6FEDAB9029CD">List of host names in that group. Names are case sensitive.</p>
+</td>
+</tr>
+</table><span class="table_desc"></span></div>
+</p>
+<p id="GUID-88BE410A-F51A-417E-8898-961178171155">Example:</p>
+<p id="GUID-99C0AC22-D59A-4B2F-826F-C1FF6ADD5D14"> To define the host group Pacific consisting of tokyo, seattle, and auckland, this is the option line:</p>
+<p id="GUID-8BDCE252-F690-4F12-B669-F3B751346046"> HOST_GROUP Pacific tokyo seattle auckland</p>
+<p id="GUID-C7919335-0BB2-4E08-9E02-ED450E4A0A5B"> Anywhere a host name can be used in an options file, an IP address can be used instead.
+</p>
+<div class="footer"> Copyright © 1995-2013 Esri. All rights reserved. </div></div></body></html>

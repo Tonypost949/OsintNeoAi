@@ -1,0 +1,44 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="In the license management environment, client machines can be directed to multiple license servers to create a pseudo backup or failover environment."><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>License Manager 10.2 -  Backup license servers </title><script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash; 
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script></head><!--Publication GUID: [GUID-BC990B43-3F11-4C46-9757-E4A61209745C]--><!--Topic GUID: [GUID-D7615576-2820-4DE1-B9BD-9072C5286493]--><body><div id="content"><div class="header"><h1> Backup license servers </h1><div id="breadcrumb"></div></div>
+<p id="GUID-271F92D2-4A6A-4C40-BAAC-E038B5498232">In the license management environment, client machines can be directed to multiple license servers to create a pseudo backup or failover environment. This allows these client machines to be redirected to a second license server with minimal downtime. </p>
+<p id="GUID-5ED1D532-163C-492F-A7A6-A8A680DE47AD">To create a backup environment, you will need two separate license manager servers—Windows, UNIX, or Linux—each with the same version of the license manager installed. On the client machines, the failover is created by either using ArcGIS Administrator or setting an environment variable.</p>
+<div class="notes" id="GUID-B01DA8F8-D8B8-40E6-83AF-6DFA42BBF5B9"><div class="note"><img class="note_img" src="rsrc/note.png" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody">
+<p id="GUID-AB512CEB-AD05-4A14-BD23-50A9DB334587"> The backup setup described here does not provide 100 percent uptime. The clients will be required to save their work, exit the application, and restart.</p>
+</div></div>
+<p id="GUID-005359EF-3B1F-49D3-97EF-D0140CBBA24E">Following is an example to illustrate the concept:</p>
+<p id="GUID-474CDC0C-ED67-4882-9E11-BF9FA5AD75AB">Company X has license servers in Dallas and Redlands, both serving ArcGIS 10.2 licenses. The license server in Dallas has seven seats of <span purpose="ph" varid="ArcGISforDesktopAdvanced">ArcGIS for Desktop Advanced</span>. The license server in Redlands has five seats of <span purpose="ph" varid="ArcGISforDesktopAdvanced">ArcGIS for Desktop Advanced</span> and one seat of 3D Analyst. The goal is to have the users in Dallas failover to the Redlands license server if the license server in Dallas fails, and the Redlands users failover to Dallas if the Redlands license server fails.</p>
+<p id="GUID-F3A195AF-7A7F-4E98-8D70-5D243CDE2747">The first step is to check to make sure the license servers are accessible from both end-user locations.</p>
+<p id="GUID-DF218EB0-AD20-4F16-B79C-15EB1F72941F">Once the servers are accessible, you can use the license file variable on each of the client machines to create the backup environment.</p>
+<p id="GUID-78ACF4C3-B7FE-4A61-BF66-623AC146F61C"> The users in Dallas will set the following in ArcGIS Administrator in the License Manager entry:</p>
+<pre purpose="pre" id="GUID-CFB8975C-555D-4116-A60F-8437B9FCCA80">dallas;redlands
+</pre>
+<p id="GUID-76BC8F6D-F0FD-491D-BFEC-384E3F585086">The users in Redlands will set the following in ArcGIS Administrator in the License Manager entry:</p>
+<pre purpose="pre" id="GUID-866F4C61-2D44-4297-9A7E-65CC5C15F7AE">redlands;dallas</pre><p id="GUID-E74FC742-A077-4ACB-8C92-E1BA0CF22756"></p><p id="GUID-2440969A-977D-41BF-93ED-AEA3A8375063">If setting these license servers as environment variables, use the following notation:</p><pre purpose="pre" id="GUID-E76CA0AA-A1CC-4625-97D3-6F48491ECBFB">Name: ARCGIS_LICENSE_FILE
+Value: @dallas;@redlands</pre>
+<div class="section1" id="GUID-79A89F57-3874-4BAE-9818-3C9DDF4FB3DA" purpose="section1"><h2> Additional considerations</h2><p id="GUID-5E1412B1-59F4-4829-8E99-11E2FB95E1ED">
+<ul purpose="ul" id="UL_8993C42B02DB4A748E215EDDE617B7E8">
+<li purpose="li" id="LI_88E458FECDCB46CB9826DE90609BCFD0">Once a client application, such as ArcMap, binds itself to a particular license server, it can use licenses from that server only. In the above example, if the application is bound to the license server in Dallas, it cannot use the 3D Analyst extension available on the Redlands license server. </li>
+<li purpose="li" id="LI_02990F0FF5664F0486FBDF800D1D0D1C">If clients failing over to a second license server will need certain extensions available that they had on their primary license server, those extensions will need to be available on the secondary license server.</li>
+<li purpose="li" id="LI_A8460DFCB1D34613A350E968C8FA548E">When a license server fails, the client machines will not be automatically redirected to the secondary license server. Instead, each client will receive a message that the connection to the license server has been lost and that attempts to reestablish the connection will occur five times, at two-minute intervals. The user has two choices: <ul purpose="ul" id="UL_60AD619BB65C4985A1BC973E6BB585AE">
+<li purpose="li" id="LI_A2A5B3CC9A2C488CACE635FCE943EC85">Continue working in the software and hope the license manager connection is restored. If the license manager is repaired in the 10-minute time frame, the client software will automatically reconnect.</li>
+<li purpose="li" id="LI_86A7C14D2E244B4F866FBEA6F5C13CD6">Save the project and close the application. Immediately reopen the application and continue working. <p id="GUID-98368C1A-D936-495F-9DE1-0A5A56B61CCF">When the application is reopened, it will check for the first license server in the list, and then try the second license server if the first is still not operational.</p></li>
+</ul>
+
+</li>
+</ul>
+</p></div>
+<div class="footer"> Copyright © 1995-2013 Esri. All rights reserved. </div></div></body></html>

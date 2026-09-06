@@ -1,0 +1,154 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="The options file can be used to restrict or allow usage of certain features by specified users or hosts."><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>License Manager 10.2 -  Using the options file </title><script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash; 
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script></head><!--Publication GUID: [GUID-BC990B43-3F11-4C46-9757-E4A61209745C]--><!--Topic GUID: [GUID-33B95FA2-D50E-4251-88EA-AAF9194CADC1]--><body><div id="content"><div class="header"><h1> Using the options file </h1><div id="breadcrumb"></div></div>
+<p id="GUID-188545E1-3516-4F46-BE01-536D72C99B87">The options file allows the license administrator to control user access to licenses on the license manager. Users are identified by their user name, host name, display, or IP address.</p>
+<p id="GUID-9D72778E-927A-4290-AFDE-00166FA9FDFE">For concurrent use licenses, the license administrator can do the following:</p>
+<ul purpose="ul" id="UL_E3CD1F76FCB94CCD9BC61A4EC9B84B2C"><li purpose="li" id="LI_AF9BE9D5C6F24865824DDB6B905895D8">Allow or deny the use of specific licenses</li><li purpose="li" id="LI_AB1A7946969749F4ACF63469C407492B"> Allow or deny license borrowing</li><li purpose="li" id="LI_7F54F5DBE04F48AFBBB7E74CF7A9BDD4">Reserve licenses</li></ul>
+<p id="GUID-3B065ADA-40F2-466F-A88C-0886F90F3FC1">If you have enterprise single use  licenses, the license administrator can allow or deny authorization of specific licenses.</p>
+<p id="GUID-B116C61E-E074-477E-88BE-1D42CB9B404A">Lines in the options file are limited to 4,000 characters. The backslash (\) character can be used as a continuation character in option file lines.</p>
+<p id="GUID-8A1F289F-5B5C-429E-AB8F-403219EE0A09">You can include comments in your options file by starting each comment line with a pound sign (#). Everything in an options file is case sensitive. Be sure that user names and feature names, for example, are entered correctly.</p>
+<div class="section1" id="GUID-82D6853F-8FBC-4224-9258-609A4AC48FF7" purpose="section1"><h2> To create and use an options file </h2><ol purpose="ol" id="OL_5101FFCBDE6542B79AAE07535D8A8E48">
+<li purpose="li" id="LI_DF3CDA78C5FB486B9F731ECB14F4F0A4">Open Notepad or another text editor.</li>
+<li purpose="li" id="LI_533ED44C31FB4D45887B924199F6C543">Create your options based on the control you require. See the individual topics for the syntax for the various options supported. </li>
+<li purpose="li" id="LI_B5ECF8B697D849C8973146B385CD66BB">Save the file as ARCGIS.opt in the ArcGIS License Manager installation location.  The default location is C:\program files\ArcGIS\License10.1\bin.</li>
+
+
+<li purpose="li" id="LI_605D7A2A2AF74A208BEC1570ECBFCA57">Launch ArcGIS License Server Administrator from <span class="uicontrol">Start <span class="greaterthan">&gt;</span> Programs <span class="greaterthan">&gt;</span> ArcGIS <span class="greaterthan">&gt;</span> License Manager <span class="greaterthan">&gt;</span> License Server Administrator</span>.</li><li purpose="li" id="LI_89B55822357C406399034AADDB885D4C">Click <span class="uicontrol">Start/Stop License Service</span> in the table of contents and click the <span class="uicontrol">Re-Read Licenses</span> button to pick up the options file.  To check whether the options have been applied, click <span class="uicontrol">Diagnostics</span>  and click <span class="uicontrol">View</span> to view the debug log.</li></ol><div class="section2" id="ESRI_SECTION2_1C4BC06D896141E2A12463829A012037" purpose="section2"><h3>Obtaining the feature names from License Server Administrator</h3><p id="GUID-D219363B-87F3-41E4-AC8B-278DCA41F4C9">Feature names have to be used in the options file when referring to products or extensions.  The exact feature name to use in the options file can be obtained from License Server Administrator:</p><ol purpose="ol" id="OL_0824484B200846CEBCBBB000E7D244B7"><li purpose="li" id="LI_DCFA1B0DE89448C09FCDBCF333DC7F54">Open License Server Administrator.</li><li purpose="li" id="LI_B37EBAF1203E4EFC980C09EF51F6C33B">Choose <span class="uicontrol">Availability</span> from the table of contents.</li><li purpose="li" id="LI_98B6D7DC6BA14FFD91A0ACD61D12F394">Double-click the product or extension you want to use in the options file.</li><li purpose="li" id="LI_A5CFEC2A676A4215ACF04A5BFC220FEA">Use the <span class="uicontrol">Internal Feature Name</span> value found at the bottom of the window. For example, for <span purpose="ph" varid="ArcGISforDesktopAdvanced">ArcGIS for Desktop Advanced</span>, the internal feature name is ARC/INFO.</li></ol><div class="section3" id="ESRI_SECTION3_AF50EEB777E946C49F11EF3547FFB647" purpose="section3"><h4>An example options file</h4><p id="GUID-6E170BD8-8BEA-473A-90C8-888EDE55BC5C"><div class="block_table" id="TABLE_57F154DB060342BC9DC1576E77E03402" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="*"></colgroup><tr purpose="row"><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-E0FF7E63-0EA7-45A1-9F31-9E7859668432"> <i># This example will reserve an ArcGIS
+for Desktop Basic License to user John</i></p>
+<p id="GUID-AAD949D4-BB83-442D-BC20-6BF945EF1838"> RESERVE 1 VIEWER USER John</p>
+</td></tr></table><span class="table_desc"></span></div></p></div></div><div class="section2" id="ESRI_SECTION2_B7C8385B6CDA43049812BCACF8AF74C9" purpose="section2"><h3>Supported options</h3><p id="GUID-0807E736-7F26-4829-886D-8B597B223DC3">This is a list of supported options that can be used with the ARCGIS vendor daemon. For detailed usage information, click the option. <div class="block_table" id="TABLE_29C93E3BC7644057A1D2D778E2734A03" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="1.00*"></colgroup><colgroup width="3.60*"></colgroup>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-164C7DBF-C929-429A-9E0D-8E23710597AB">
+<a class="xref" rel="0079/007900000029000000.htm" href="0079/007900000029000000.htm">DEBUGLOG</a>
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-506BED2A-1236-42B3-AA1A-2CC980067074">Write debug log information for this vendor daemon to the specified file.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-55F75DF4-690B-4028-B826-FFF59E5AC3F8">
+<a class="xref" rel="0079/007900000011000000.htm" href="0079/007900000011000000.htm">EXCLUDE</a>
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-6005DB1A-0DA5-4A88-ADDB-2B37EE0B63C1">Deny a user access to a feature.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-3854745E-C997-4D88-AB7C-A55D95E726BB">
+<a class="xref" rel="0079/007900000012000000.htm" href="0079/007900000012000000.htm">EXCLUDE_ENTITLEMENT</a>
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-AA0CAC57-FF4B-4399-8106-6D8CF8313BD4">Deny a user the ability to activate single use licenses held on the license server.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-74464322-F7A4-4851-9F0C-2D284387E815">
+<a class="xref" rel="0079/007900000013000000.htm" href="0079/007900000013000000.htm">EXCLUDEALL</a>
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-4FF71634-2A82-4946-B2EB-01218E804253">Deny a user access to all features served by the ARCGIS daemon.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-538AD8D7-2088-4C61-81E6-D60BC41968FE">
+<a class="xref" rel="0079/007900000014000000.htm" href="0079/007900000014000000.htm">GROUP</a>
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-06961A0C-D675-48B0-8428-2008C5CADD1A">Define a group of users for use with any options.</p>
+</td>
+</tr><tr purpose="row"><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-18DD83BA-E8BD-4F9F-AA20-C29AF669EB13"><a class="xref" rel="0079/00790000002z000000.htm" href="0079/00790000002z000000.htm">GROUPCASEINSENSITIVE</a></p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-74AACCE2-3681-4D02-A7ED-E877A8C4E462">Set the option to treat user names and host names as case sensitive or not.</p></td></tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-EEB21F2D-3B35-41AD-A4B3-B55D8F1EA18B">
+<a class="xref" rel="0079/007900000015000000.htm" href="0079/007900000015000000.htm">HOST_GROUP</a>
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-37C1170D-4436-4466-B356-04658DFA2CDA">Define a group of hosts for use with any options.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-273BF564-21A2-42F0-B7CF-976E2D2705DD">
+<a class="xref" rel="0079/007900000016000000.htm" href="0079/007900000016000000.htm">INCLUDE</a>
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-8E5FC333-590B-46B6-86A4-9FBA2DCFBA3B">Allow a user to use a feature.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-B379978F-EE07-4225-8DA4-ABB3B9480472">
+<a class="xref" rel="0079/007900000017000000.htm" href="0079/007900000017000000.htm">INCLUDE_ENTITLEMENT</a>
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-71497922-3C8D-4B35-9327-245919B270C8">Allow a user to activate single use licenses held on the license server.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-B758B441-4BE9-4FF9-A024-7F6CC1B1CD3B">
+<a class="xref" rel="0079/007900000018000000.htm" href="0079/007900000018000000.htm">INCLUDEALL</a>
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-6CFABF29-BA7F-4B1D-8090-FE0056783B94">Allow a user access to all features served by the ARCGIS daemon.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-53603BD2-4753-4414-8407-90FCBD36D06F">
+<a class="xref" rel="0079/007900000019000000.htm" href="0079/007900000019000000.htm">MAX</a>
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-5438DDD9-BD0E-4AE7-A7D7-E82F0738A6E0">Limit usage for a particular feature/group—prioritize usage among users.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-4AD24EFD-C4AD-4257-AFA2-B14F8EDFCB20">
+<a class="xref" rel="0079/00790000001m000000.htm" href="0079/00790000001m000000.htm">NOLOG</a>
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-9FB42E13-054A-48C8-82EC-A569D4B23AD7">Turn off logging of certain items in the debug log file.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-755866AA-BDAD-47E2-B5CF-1BBD645052D0">
+<a class="xref" rel="0079/00790000001n000000.htm" href="0079/00790000001n000000.htm">RESERVE</a>
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-F135B5DC-DE0C-4A3B-80C2-CDC4E17B8675">Reserve licenses for a user or group of users/hosts.</p>
+</td>
+</tr><tr purpose="row"><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-B24AA496-215A-4A41-8C7C-5380F8D86793"><a class="xref" rel="0079/00790000002w000000.htm" href="0079/00790000002w000000.htm">TIMEOUT and TIMEOUTALL</a></p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-F0566F53-8CC4-4C31-BD8D-9A0FC9000855">These return a hung license to the pool of available concurrent use licenses.</p></td></tr>
+</table><span class="table_desc"></span></div></p></div><div class="section2" id="ESRI_SECTION2_7509EF9F82F94942BC26D35097B3BE6C" purpose="section2"><h3>Specifying license restrictions using type</h3><p id="GUID-F5D1923C-1BEC-43EE-A234-4748A1C45B23"> Some option keywords restrict who may use licenses or where licenses may be used. These options take a type argument that specifies what the restriction is based on.</p><p id="GUID-69AAB5B0-270A-4901-88C3-6E2408F5F5F4"> When using the option keywords EXCLUDE, EXCLUDE_ENTITLEMENT, EXCLUDEALL, INCLUDE, INCLUDE_ENTITLEMENT, INCLUDEALL, MAX, and RESERVE, the following values can be used for type:</p><ul purpose="ul" id="UL_94D87FC659A8414B9984932C547CE0BE"><li purpose="li" id="LI_A6170CCE20CD4794B97AADE3CBB753E7">USER—User name of the user executing the Flex-enabled application. User names are case sensitive and cannot contain spaces.</li><li purpose="li" id="LI_2BAFCF3F2D11451A9C62A9FDF2F1C2E8">HOST—System host name or IP address where the application is executing. Host names are case sensitive. The IP address can contain wildcard characters.</li></ul><p id="GUID-52DBE9DD-7A48-44B1-8A68-ABB37649A778">When using the option keywords EXCLUDE, EXCLUDEALL, INCLUDE, INCLUDEALL, MAX, and RESERVE, the following values can be used for type:</p><ul purpose="ul" id="UL_92A46EDF237F4911B9B315955C84BD5E"><li purpose="li" id="LI_4B61E5DC9FDC490D8B3903FB50D27689">DISPLAY—Name of where the application is displayed. On UNIX, DISPLAY is /dev/tty xx (which is always /dev/tty when an application is run in the background) or the X-Display name. On Windows, it is the system name or, in the case of a Terminal Server environment, the Terminal Server client name. Display names are case sensitive.</li><li purpose="li" id="LI_F5D662692D504100927A8F9A65C69FB0">INTERNET—IP address of the system where the application is executing. Wildcard characters can be used in the IP address. </li></ul><p id="GUID-460FC9D9-A491-48FA-A06F-76540B539CCA"> On Windows (without Terminal Server), HOST and DISPLAY are both set to the system name. For licenses that allow checkouts from Terminal Server (TS_OK keyword in the feature line), USER, HOST, and DISPLAY can be different from one another.</p><p id="GUID-EAE65953-7E4F-44BA-B008-C057FB93A506"> The types listed above take a single member. For example:</p><p id="GUID-9CE5BC0E-E584-4C75-99A6-8BE79CDBA958"> EXCLUDE coolsoft USER joe</p><p id="GUID-399377EF-F31A-481C-9567-DCA2A414424E"> To specify a list of users or hosts, first define the list using the GROUP or HOST_GROUP option lines, then use the GROUP or HOST_GROUP type to specify the group name. For example:</p><p id="GUID-A9070756-4477-4957-9C0C-68C89BE52C6A"> GROUP stars joe barbara susan</p><p id="GUID-3871DA36-1763-4458-8493-610BC4AE07D0"> EXCLUDE coolsoft GROUP stars</p></div></div>
+<div class="footer"> Copyright © 1995-2013 Esri. All rights reserved. </div></div></body></html>

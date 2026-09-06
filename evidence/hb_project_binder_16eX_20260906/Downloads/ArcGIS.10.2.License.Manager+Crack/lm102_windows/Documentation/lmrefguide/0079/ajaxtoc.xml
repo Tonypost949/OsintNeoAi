@@ -1,0 +1,124 @@
+<?xml version="1.0"?><map helpsystemtype="standalone" id="GUID-784D4F04-C7B6-4832-A934-3A6D4F291989" ishlabelxpath="@href[parent::*/@scope='external']" ishlinkxpath="@href[not(parent::*/@scope='external')]" maptitle="License Manager Reference Guide" pubid="149" token="007900000000000000" treeid="007900000000000000" xml:lang="en">
+<topicref hrefguid="GUID-5A265983-7BC6-49DF-AE2B-064D502C5D10.xml" navtitle="Welcome" pubid="149" token="007900000002000000" tpcid="2" treeid="007900000002000000">
+</topicref>
+<topicref hrefguid="GUID-23D6191C-B171-4ECD-89D3-84F46B57EEFE.xml" navtitle="License Manager Basics" pubid="149" token="007900000003000000" tpcid="3" treeid="007900000003000000">
+</topicref>
+<topichead esri_booktype="none" navtitle="Getting Started" token="0000000pmzw1000000" treeid="0000000pmzw1000000">
+<topicref hrefguid="GUID-F2673CDF-5F43-450B-A7D2-B395E7FBF1F4.xml" navtitle="License Manager installation and startup" pubid="149" token="007900000005000000" tpcid="5" treeid="007900000005000000">
+</topicref>
+<topicref hrefguid="GUID-C75F5AFD-BB53-48B6-A64B-6A22D5E28DA3.xml" navtitle="Client machine setup using the ArcGIS Administrator" pubid="149" token="007900000006000000" tpcid="6" treeid="007900000006000000">
+</topicref>
+<topicref hrefguid="GUID-6481AA76-699D-4861-A0E5-74A334D2C4E3.xml" navtitle="Existing users" pubid="149" token="00790000002q000000" tpcid="53" treeid="00790000002q000000">
+</topicref>
+</topichead>
+<topichead esri_booktype="none" navtitle="Administering the License Manager" token="0000000pmzw2000000" treeid="0000000pmzw2000000">
+<topicref hrefguid="GUID-65E69081-9715-4952-9087-4772044712C4.xml" navtitle="Using the ArcGIS License Server Administrator" pubid="149" token="007900000004000000" tpcid="4" treeid="007900000004000000">
+</topicref>
+<topicref hrefguid="GUID-DCD196E9-3EEF-4EC8-9244-0131858D1267.xml" navtitle="Starting and stopping the License Manager" pubid="149" token="007900000007000000" tpcid="7" treeid="007900000007000000">
+</topicref>
+<topicref hrefguid="GUID-27869CFA-6A1C-4326-8743-E9D7A41CA6CE.xml" navtitle="Check the license server status" pubid="149" token="007900000008000000" tpcid="8" treeid="007900000008000000">
+</topicref>
+<topicref hrefguid="GUID-3E4FF04C-0326-4096-834A-8503C7B19B67.xml" navtitle="Configuring license borrowing" pubid="149" token="007900000009000000" tpcid="9" treeid="007900000009000000">
+</topicref>
+<topicref hrefguid="GUID-593B6D24-21F8-40E9-A6DC-47A2571447FF.xml" navtitle="Viewing the audit log" pubid="149" token="00790000000m000000" tpcid="10" treeid="00790000000m000000">
+</topicref>
+<topicref hrefguid="GUID-55426658-2FE8-46D9-AF1F-BD3036A67288.xml" navtitle="Viewing license availability" pubid="149" token="00790000000n000000" tpcid="11" treeid="00790000000n000000">
+</topicref>
+<topicref hrefguid="GUID-0E94E390-E984-4038-AB15-EF7EBBE5D6D3.xml" navtitle="Authorizing additional features" pubid="149" token="00790000000p000000" tpcid="12" treeid="00790000000p000000">
+</topicref>
+<topicref hrefguid="GUID-F0576D29-3589-4900-8F92-18F79394FD9C.xml" navtitle="Diagnosing errors" pubid="149" token="00790000000q000000" tpcid="13" treeid="00790000000q000000">
+</topicref>
+</topichead>
+<topichead esri_booktype="none" navtitle="Advanced Topics" token="0000000pmzw3000000" treeid="0000000pmzw3000000">
+<topicref hrefguid="GUID-78492EE2-ADA5-4D3A-B943-23732804B192.xml" navtitle="Automatically starting the License Manager" pubid="149" token="00790000000r000000" tpcid="14" treeid="00790000000r000000">
+</topicref>
+<topicref hrefguid="GUID-97F547D7-1EA9-4FCE-82E8-B61733984CAB.xml" navtitle="Batch processes" pubid="149" token="00790000000s000000" tpcid="15" treeid="00790000000s000000">
+</topicref>
+<topicref hrefguid="GUID-A610A3DE-93E2-4C0A-AF6B-FCD4A26C50BE.xml" navtitle="Defining port@host to one or more license servers" pubid="149" token="00790000000t000000" tpcid="16" treeid="00790000000t000000">
+</topicref>
+<topicref hrefguid="GUID-D7615576-2820-4DE1-B9BD-9072C5286493.xml" navtitle="Failover license servers" pubid="149" token="00790000000v000000" tpcid="17" treeid="00790000000v000000">
+</topicref>
+<topicref hrefguid="GUID-BA772F27-1840-4A68-BE47-A4C6927E9706.xml" navtitle="Configure the ArcGIS License Manager to work through a firewall" pubid="149" token="00790000000w000000" tpcid="18" treeid="00790000000w000000">
+</topicref>
+<topichead esri_booktype="none" navtitle="The Options File" token="0000000pmzw4000000" treeid="0000000pmzw4000000">
+<topicref hrefguid="GUID-33B95FA2-D50E-4251-88EA-AAF9194CADC1.xml" navtitle="Using the Options File" pubid="149" token="00790000000z000000" tpcid="19" treeid="00790000000z000000">
+</topicref>
+<topicref hrefguid="GUID-943A63E8-5433-4EAA-A28E-6CE17FCAFE07.xml" navtitle="DEBUGLOG" pubid="149" token="007900000029000000" tpcid="49" treeid="007900000029000000">
+</topicref>
+<topicref hrefguid="GUID-2305FBBC-D24E-455B-9D83-16C4FFEE2067.xml" navtitle="EXCLUDE" pubid="149" token="007900000011000000" tpcid="21" treeid="007900000011000000">
+</topicref>
+<topicref hrefguid="GUID-55D1A920-BCDE-4669-AD1E-1ED46F26530F.xml" navtitle="EXCLUDE_ENTITLEMENT" pubid="149" token="007900000012000000" tpcid="22" treeid="007900000012000000">
+</topicref>
+<topicref hrefguid="GUID-FDFD1F34-A6DC-4872-9739-9D2C8287BEDD.xml" navtitle="EXCLUDEALL" pubid="149" token="007900000013000000" tpcid="23" treeid="007900000013000000">
+</topicref>
+<topicref hrefguid="GUID-F8C74E77-CF9C-4B11-864A-DEFFFB587121.xml" navtitle="GROUP" pubid="149" token="007900000014000000" tpcid="24" treeid="007900000014000000">
+</topicref>
+<topicref hrefguid="GUID-4F3AFC2D-ED47-48A0-A50C-AEB76A499BA2.xml" navtitle="GROUPCASEINSENSITIVE" pubid="149" token="00790000002z000000" tpcid="59" treeid="00790000002z000000">
+</topicref>
+<topicref hrefguid="GUID-50DE56D9-7BF5-45A4-A6CD-16CB0F28F60A.xml" navtitle="HOST_GROUP" pubid="149" token="007900000015000000" tpcid="25" treeid="007900000015000000">
+</topicref>
+<topicref hrefguid="GUID-CF71AC11-D183-4FAB-8B76-E57015F626FF.xml" navtitle="INCLUDE" pubid="149" token="007900000016000000" tpcid="26" treeid="007900000016000000">
+</topicref>
+<topicref hrefguid="GUID-8D43F036-66C3-43CA-97F0-57917E85B617.xml" navtitle="INCLUDE_ENTITLEMENT" pubid="149" token="007900000017000000" tpcid="27" treeid="007900000017000000">
+</topicref>
+<topicref hrefguid="GUID-AE666C08-2317-4C32-9F45-538377B50CF9.xml" navtitle="INCLUDEALL" pubid="149" token="007900000018000000" tpcid="28" treeid="007900000018000000">
+</topicref>
+<topicref hrefguid="GUID-3651ADAD-3DC4-46BA-9810-D11B13E274B1.xml" navtitle="MAX" pubid="149" token="007900000019000000" tpcid="29" treeid="007900000019000000">
+</topicref>
+<topicref hrefguid="GUID-F70D3451-747C-4743-BF98-9935FD7478E3.xml" navtitle="NOLOG" pubid="149" token="00790000001m000000" tpcid="30" treeid="00790000001m000000">
+</topicref>
+<topicref hrefguid="GUID-22E3A8C7-C7CC-4D5E-9855-C6F1AC66E60D.xml" navtitle="RESERVE" pubid="149" token="00790000001n000000" tpcid="31" treeid="00790000001n000000">
+</topicref>
+<topicref hrefguid="GUID-05FD22F4-8385-45D8-988D-26E690F645AC.xml" navtitle="TIMEOUT and TIMEOUTALL" pubid="149" token="00790000002w000000" tpcid="58" treeid="00790000002w000000">
+</topicref>
+</topichead>
+<topicref hrefguid="GUID-AC032E5B-BE6C-4715-9A65-5867BC07E0CF.xml" navtitle="Transferring licenses from one license manager to another" pubid="149" token="00790000002p000000" tpcid="52" treeid="00790000002p000000">
+</topicref>
+<topicref hrefguid="GUID-F97BC58E-73C0-4BFC-8A46-C57382F34333.xml" navtitle="Using the License Manager with WTS/Citrix" pubid="149" token="00790000001p000000" tpcid="32" treeid="00790000001p000000">
+</topicref>
+<topicref hrefguid="GUID-14FB0C7D-74D1-46E7-A08E-5FC4372E7343.xml" navtitle="Enterprise deployment of the ArcGIS for Desktop or ArcGIS Engine licenses" pubid="149" token="00790000002n000000" tpcid="51" treeid="00790000002n000000">
+</topicref>
+<topicref hrefguid="GUID-25FB9B6F-5FF5-46D5-BF6D-B495739C0D07.xml" navtitle="Provisioning files" pubid="149" token="00790000002s000000" tpcid="55" treeid="00790000002s000000">
+</topicref>
+<topicref hrefguid="GUID-E73B0F57-7D6A-4E48-AD1F-4B30765D2D4F.xml" navtitle="Silent Authorization Commands" pubid="149" token="007900000030000000" tpcid="60" treeid="007900000030000000">
+</topicref>
+</topichead>
+<topichead esri_booktype="none" navtitle="Troubleshooting" token="0000000pmzw5000000" treeid="0000000pmzw5000000">
+<topicref hrefguid="GUID-892CB3D3-ABAB-42EE-B965-FF07176C342F.xml" navtitle="Incorrect clock setting" pubid="149" token="00790000001q000000" tpcid="33" treeid="00790000001q000000">
+</topicref>
+<topicref hrefguid="GUID-B7F9A0DF-DB18-4961-98BB-8D9E6A72FADC.xml" navtitle="Cannot connect to license server" pubid="149" token="00790000001r000000" tpcid="34" treeid="00790000001r000000">
+</topicref>
+</topichead>
+<topichead esri_booktype="none" navtitle="Glossary" token="0000000pmzw6000000" treeid="0000000pmzw6000000">
+<topicref hrefguid="GUID-3677C378-BF59-4DBA-AC6B-26A4EAB84311.xml" navtitle="ArcGIS Administrator" pubid="149" token="00790000001s000000" tpcid="35" treeid="00790000001s000000">
+</topicref>
+<topicref hrefguid="GUID-ADA9414B-BEE9-447F-8671-43A16888BE0C.xml" navtitle="ArcGIS License Manager" pubid="149" token="00790000001t000000" tpcid="36" treeid="00790000001t000000">
+</topicref>
+<topicref hrefguid="GUID-02467299-DDA1-4140-94D6-645C39D727C6.xml" navtitle="authorization" pubid="149" token="00790000001v000000" tpcid="37" treeid="00790000001v000000">
+</topicref>
+<topicref hrefguid="GUID-5B5BFBDE-45AD-44B6-87C5-A79130EC7622.xml" navtitle="borrow" pubid="149" token="00790000001w000000" tpcid="38" treeid="00790000001w000000">
+</topicref>
+<topicref hrefguid="GUID-5AA71937-348E-48BA-87C8-0DF88B37DC5F.xml" navtitle="concurrent use" pubid="149" token="00790000001z000000" tpcid="39" treeid="00790000001z000000">
+</topicref>
+<topicref hrefguid="GUID-F7FA3BFA-D212-46DA-90D1-BBFD4778B30E.xml" navtitle="daemon" pubid="149" token="007900000020000000" tpcid="40" treeid="007900000020000000">
+</topicref>
+<topicref hrefguid="GUID-5E34CBAD-3A08-4E0F-ACF4-9D6D3A3A9E29.xml" navtitle="debug log file" pubid="149" token="007900000021000000" tpcid="41" treeid="007900000021000000">
+</topicref>
+<topicref hrefguid="GUID-C1BF6A38-DB43-4042-A073-F34CC42F8E5F.xml" navtitle="feature" pubid="149" token="007900000022000000" tpcid="42" treeid="007900000022000000">
+</topicref>
+<topicref hrefguid="GUID-23C92072-A153-49F6-865F-F8103ECDECF1.xml" navtitle="license" pubid="149" token="007900000023000000" tpcid="43" treeid="007900000023000000">
+</topicref>
+<topicref hrefguid="GUID-DDC7B2A7-2F62-4625-99D2-53CFF24BBD73.xml" navtitle="License Manager" pubid="149" token="007900000024000000" tpcid="44" treeid="007900000024000000">
+</topicref>
+<topicref hrefguid="GUID-5024E55C-991C-46A6-8D09-F177D01EC6A2.xml" navtitle="license server" pubid="149" token="007900000025000000" tpcid="45" treeid="007900000025000000">
+</topicref>
+<topicref hrefguid="GUID-8613D72F-C350-469C-9348-8E3C15670895.xml" navtitle="provisioning file" pubid="149" token="00790000002v000000" tpcid="57" treeid="00790000002v000000">
+</topicref>
+<topicref hrefguid="GUID-3881D8FA-E704-42CA-9F4F-C3D3E3FDB4EC.xml" navtitle="return" pubid="149" token="007900000026000000" tpcid="46" treeid="007900000026000000">
+</topicref>
+<topicref hrefguid="GUID-D47AADC9-8052-4CFE-9436-1EF3373A9932.xml" navtitle="single use" pubid="149" token="007900000027000000" tpcid="47" treeid="007900000027000000">
+</topicref>
+<topicref hrefguid="GUID-ABA73E4B-0E87-4CF3-877C-B283946A9AC7.xml" navtitle="Software Authorization Wizard" pubid="149" token="007900000028000000" tpcid="48" treeid="007900000028000000">
+</topicref>
+</topichead>
+</map>

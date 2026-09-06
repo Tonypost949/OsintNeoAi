@@ -1,0 +1,25 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="Information on available silent authorization and deauthorization options for the ArcGIS License Manager."><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>License Manager 10.2 - 
+Silent Authorization Commands
+</title><script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash; 
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script></head><!--Publication GUID: [GUID-BC990B43-3F11-4C46-9757-E4A61209745C]--><!--Topic GUID: [GUID-E73B0F57-7D6A-4E48-AD1F-4B30765D2D4F]--><body><div id="content"><div class="header"><h1>
+Silent Authorization Commands
+</h1><div id="breadcrumb"></div></div>
+<p id="GUID-0575EA42-BFC0-4827-B4B1-88D2267DD765">
+This topic provides information on the various silent processing options available for the ArcGIS License Manager.  The following options can also be used to authorize the  
+Desktop and Engine software with single-use licenses on the individual machines by using <span class="usertext">softwareauthorization.exe</span> instead of <span class="usertext">softwareauthorizationls.exe</span>.  These commands apply to all platforms.</p><p id="GUID-4C752246-7FA8-4D05-A9B8-69A33A2D2B74">From the command line, change directory to the license manager installation location.  The default on Windows is <span class="usertext"></span><span class="usertext">C:\Program Files (x86)\ArcGIS\License10.2\bin</span>. </p><p id="GUID-663A1813-B151-4FDF-972D-D0A3F9CE281D">Adding a <span class="usertext">-verbose</span> switch at the end of the commands will display progress and error messages in the command window.</p>
+
+<div class="section1" id="ESRI_SECTION1_3362B5C283B44DD0BC6A465767C7BA50" purpose="section1"><h2>Authorizing silently:</h2><p id="GUID-21D18958-185E-43EC-94D8-E59A614DC457"><span class="usertext">softwareauthorizationls.exe -s -ver 10.2 -lif "c:\temp\&lt;*.prvs&gt;"</span>.  This command can also be used with *.resps files when authorizing offline.  Use *.prvc and *.respc when authorizing single-use Desktop or Engine licenses.</p><p id="GUID-EEE2638E-F7D8-480A-9C53-B574EB3F7BCB">Creating an authorize.txt file for offline authorization:</p><p id="GUID-B06A2CD3-E65D-43D8-B547-0E2D952E5D7E"><span class="usertext">softwareauthorizationls.exe -s -ver 10.2 -lif "C:\Temp\&lt;.prvs&gt;" -out "C:\Temp\authorize.txt"</span></p></div><div class="section1" id="ESRI_SECTION1_DFA2661F8890467D8723F08E76012A90" purpose="section1"><h2>Deauthorizing silently:</h2><p id="GUID-4DDB6F1D-464D-4F93-98FB-84612C6107C5">To deauthorize all licenses from the machine, run <span class="usertext">softwareauthorizationls.exe -s -return all</span>.</p><p id="GUID-095B878F-8567-43B9-8421-7B04EED78C72">To deauthorize specific licenses from the machine, you need to enter in the specific authorization numbers that you would like to deauthorize.  Run <span class="usertext">softwareauthorizationls.exe -s -return EFLxxxxxxxxx,EFLxxxxxxxxx</span>.</p></div><div class="section1" id="ESRI_SECTION1_DEA501AEAD6745BAAC557B061BC3D03B" purpose="section1"><h2>Upgrading licenses silently:</h2><p id="GUID-265B6477-2C5E-46AA-8B75-D29D36E6A459">To upgrade all licenses on the machine, run <span class="usertext">softwareauthorization.exe -s -upgrade all</span>.</p><p id="GUID-E918E987-9EDF-4A2B-9A64-AC845C911053">To upgrade specific licenses from the machine, you need to enter in the specific authorization numbers.  Run <span class="usertext">softwareauthorization.exe -s -upgrade EFLxxxxxxxxx,EFLxxxxxxxxx</span>.</p></div><div class="footer"> Copyright © 1995-2013 Esri. All rights reserved. </div></div></body></html>

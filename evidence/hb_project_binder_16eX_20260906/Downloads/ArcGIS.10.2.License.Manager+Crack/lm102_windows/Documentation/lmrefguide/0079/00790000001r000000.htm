@@ -1,0 +1,37 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="In certain cases, the license service might not have started.  An error message is displayed on client machines running ArcGIS for Desktop."><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>License Manager 10.2 -  Cannot connect to the license manager</title><script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash; 
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script></head><!--Publication GUID: [GUID-BC990B43-3F11-4C46-9757-E4A61209745C]--><!--Topic GUID: [GUID-B7F9A0DF-DB18-4961-98BB-8D9E6A72FADC]--><body><div id="content"><div class="header"><h1> Cannot connect to the license manager</h1><div id="breadcrumb"></div></div>
+<p id="GUID-F2480289-F709-4F0B-B8A4-253A00106160">On the end-user machine, the following message might appear if the ArcGIS software cannot connect to the license manager:</p><pre purpose="pre" id="GUID-0F864C4F-2D54-404D-851D-C11F2CCF3DA4">The server (lmgrd) has not been started yet, or
+the wrong port@host or license file is being used, or the
+port or hostname in the license file has been changed.
+Feature: ARC/INFO
+Server Name: server1
+License Path @server1
+FLEXlm Error: -15, 10. System Error: 10061"WinSock: Connection refused."
+
+</pre>
+<p id="GUID-F6B45263-D4DE-408E-9423-EA86185AD2F9">There are two variations of this error.</p><div class="section1" id="GUID-A0A9658C-6BD9-4EE8-B46F-520321DF334E" purpose="section1"><h2> Error 1 </h2><pre purpose="pre" id="GUID-480A4E7F-F5F9-4F30-AB4E-0E4C10FF362F">FLEXlm Error: -15, 10. System Error: 10061"WinSock: Connection refused." </pre></div>
+<div class="section1" id="ESRI_SECTION1_2CBF86C5CBF74A2AA457635440B27BB7" purpose="section1"><h2> Error 2</h2><pre purpose="pre" id="GUID-9874FC28-488B-422E-AACC-D5B932C5A7EC">FLEXlm Error: -15, 29. System Error: 10061"Winsock: Connection refused."</pre></div>
+<div class="section1" id="ESRI_SECTION1_3221308475044920BFEDDC36C67D1C66" purpose="section1"><h2>Causes</h2><p id="GUID-4003E548-5A8B-4327-85CA-22F5FE8D66F7">
+The ArcGIS license manager is not running. This could be due to a number of reasons.  Check the status of the license manager and restart the license service if required.  View the debug log file for more information on errors.
+</p></div>
+<div class="section1" id="ESRI_SECTION1_4284C4A1FF024510A85A977E751F040F" purpose="section1"><h2>Solutions</h2><p id="GUID-087E60E1-36BE-4360-A41F-A761835B847C">
+<ul purpose="ul" id="UL_BD68BEFB448F4CF0AC6CC7FDC839E0E6">
+<li purpose="li" id="LI_8CBBD7613B904FFB83FAE7C55452E660">
+<a class="xref" rel="0079/007900000008000000.htm" href="0079/007900000008000000.htm">Check the license server status</a></li><li purpose="li" id="LI_BA5D16A926FC4BD88524F93D1B366BFF"><a class="xref" rel="0079/00790000000q000000.htm" href="0079/00790000000q000000.htm">Diagnosing errors</a></li>
+</ul>
+</p></div>
+<div class="footer"> Copyright © 1995-2013 Esri. All rights reserved. </div></div></body></html>

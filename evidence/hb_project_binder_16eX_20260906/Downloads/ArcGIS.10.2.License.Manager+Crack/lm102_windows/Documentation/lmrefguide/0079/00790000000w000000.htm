@@ -1,0 +1,36 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="Firewalls may sometimes block the ports used by the license manager.   With some configuration, you can use the license manager through a firewall."><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>License Manager 10.2 -  Configure ArcGIS License Manager to work through a firewall</title><script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash; 
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script></head><!--Publication GUID: [GUID-BC990B43-3F11-4C46-9757-E4A61209745C]--><!--Topic GUID: [GUID-BA772F27-1840-4A68-BE47-A4C6927E9706]--><body><div id="content"><div class="header"><h1> Configure ArcGIS License Manager to work through a firewall</h1><div id="breadcrumb"></div></div>
+<p id="GUID-0D6E24EF-C3EA-4275-BBD4-FA44E8ECB2D4">Many of today's networks use a firewall for enhanced security from outside threats. Because the license manager uses the TCP/IP protocols, implementing such a firewall can pose problems between the license manager server and the clients connecting to it.</p>
+<p id="GUID-561EA8BF-9379-4F2E-AFA1-DA07C3E55242">The problem is caused by the firewall often closing or blocking access to the ports the license manager uses to communicate. By default, the lmgrd daemon starts on port 27000 if the port is available, or it will start on the next open port within the range 27000–27009.  The ARCGIS daemon, on the second line of the file, is not confined to a particular port range.  It is dynamic, meaning that it can listen on any available port.</p>
+<p id="GUID-7F4895C6-0D2B-48D7-8812-7FEC1EC2BEF2">To secure the license management environment and allow you to implement a firewall, you can lock the ARCGIS daemon to a specific port. You can also change the lmgrd daemon from the default 27000 to another port between 27000 and 27009.  This range  was prespecified for license manager use because of the low traffic in that range.</p>
+<div class="section1" id="GUID-C54AF06C-274D-4E67-B64F-84062D0EBA06" purpose="section1"><h2> Procedure </h2><p id="GUID-BBDC0972-0509-466D-A624-3B352B4C1231">The steps provided require that you briefly stop the license manager. During this time, connections to the license manager may be lost.
+<ol purpose="ol" id="OL_1D1312C9F5DD4490A3D0AC974DDDBA19">
+<li purpose="li" id="LI_C659B11ACAEA4466BB4A7EC043AEEE85">Click <span class="uicontrol">Start <span class="greaterthan">&gt;</span> Programs <span class="greaterthan">&gt;</span> ArcGIS <span class="greaterthan">&gt;</span> License Manager <span class="greaterthan">&gt;</span> License Server Administrator</span>.</li>
+<li purpose="li" id="LI_D4D03FC7FA1F4DE681D6E8E54A08A751">Click <span class="uicontrol">Start/Stop License Server</span> in the table of contents and click <span class="uicontrol">Stop</span>.</li>
+<li purpose="li" id="LI_B50DB56D30414F9683769460F0D63B2A">Open Windows Explorer and navigate to your license manager installation location (C:\Program Files\ArcGIS\License10.2\bin by default), in which you will see a service.txt file. <p id="GUID-B04F26FD-704A-4BFF-AE26-06E9CA268C90">The file should look similar to this:</p></li>
+</ol>
+</p><pre purpose="pre" id="GUID-5FF36DF7-CE16-4D3D-AA4D-7446AA9FDFAF">		SERVER this_host ANY
+		VENDOR ARCGIS
+  FEATURE ACT ARCGIS 1 permanent 1 7ED49106D630</pre><p id="GUID-F3C96E63-7C9F-4164-B22F-A2A9C8E9D714">											At the end of the SERVER line, you can choose to specify a port number immediately after ANY.</p><p id="GUID-D9F668D5-5ADA-4023-AF70-EE1B4B2A71AF">On the VENDOR line, add <span class="usertext">PORT=####</span>, where #### is a specific port number designated by you, to lock the vendor daemon to that specific port (for example, 1234).  After making the changes, your service.txt file should look something like this:</p><pre purpose="pre" id="GUID-DC157C51-704E-4049-BD6B-3947379E14FE">		
+  SERVER this_host ANY 27000		
+		VENDOR ARCGIS PORT=1234
+  FEATURE ACT ARCGIS 1 permanent 1 7ED49106D630</pre><ol purpose="ol" id="OL_92AFE1ADFD7844C98085853E912B8533">
+<li purpose="li" id="LI_5F48C9F85FE8474ABF035BD64F66F4FE">Save the .txt file.</li>
+<li purpose="li" id="LI_6F5A10FDE4E54D428C58B61B8E6F6133">From License Server Administrator, click <span class="uicontrol">Start</span>. <p id="GUID-683F5F84-AC1A-461B-A765-F5D323E7A8A9">The vendor daemon is now static, locked to the port specified.</p></li>
+<li purpose="li" id="LI_8E31FB924D4D483E9D12A1317F57A820">These ports can now be saved as exceptions in the firewall to allow communication between the license server and the client.</li>
+</ol></div>
+<div class="footer"> Copyright © 1995-2013 Esri. All rights reserved. </div></div></body></html>

@@ -1,5 +1,27 @@
 [
   {
+    "id": "DISP-96820",
+    "title": "EXHAUSTIVE AUDIT: Complete Reconnaissance Run on https://www.facebook.com/saved/?list_id=1301114384483836&referrer=SAVE_DASHBOARD_NAVIGATION_PANEL",
+    "category": "Exhaustive Audit",
+    "jurisdiction": "Municipal / Global",
+    "published_at": "2026-09-06T00:17:23.448175",
+    "author": "OsintNeoAi Multi-Vector Engine",
+    "excerpt": "Automated 7-vector reconnaissance exhausted all 7 sources against https://www.facebook.com/saved/?list_id=1301114384483836&referrer=SAVE_DASHBOARD_NAVIGATION_PANEL.",
+    "statutory_notes": [
+      "Calculated False Claims treble damages & Labor Code \u00a7 1102.5 authorities"
+    ],
+    "sources_exhausted": [
+      "Local Knowledge Graph (nodes.json)",
+      "Massive Library Catalog (reports_catalog.json)",
+      "Facebook Developer Tools & Open Graph Engine",
+      "Internet Archive (Wayback Machine CDX API)",
+      "Kali Linux WSL2 Engine",
+      "Public Non-Profit 990 & Federal Grants Engine",
+      "LexisNexis Statutory Claims & Damages Calculator"
+    ],
+    "raw_audit_file": "exhaustive_audit_https___www_facebook_com_saved.json"
+  },
+  {
     "id": "DISP-63837",
     "title": "EXHAUSTIVE AUDIT: Complete Reconnaissance Run on https://developers.facebook.com/tools/",
     "category": "Exhaustive Audit",

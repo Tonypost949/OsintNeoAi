@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OSINTNeoAi — RICO Command Center</title>
+<title>OSINTNeoAi — RICO & EDR Master Command Center</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
@@ -14,7 +14,7 @@ html,body,#map{width:100%;height:100%;background:#000;font-family:monospace;over
 #hud b{color:#0f0}#hud .r{color:#f44}.c{color:#0ff}.y{color:#fc0}.p{color:#f0f}
 
 /* STATS PANEL */
-#stats{position:fixed;top:8px;right:8px;z-index:1000;background:rgba(0,0,0,0.82);border:1px solid rgba(0,255,0,0.12);border-radius:6px;font-family:monospace;color:#aaa;padding:10px 12px;font-size:9px;line-height:1.7;width:220px;backdrop-filter:blur(8px)}
+#stats{position:fixed;top:8px;right:8px;z-index:1000;background:rgba(0,0,0,0.82);border:1px solid rgba(0,255,0,0.12);border-radius:6px;font-family:monospace;color:#aaa;padding:10px 12px;font-size:9px;line-height:1.7;width:240px;backdrop-filter:blur(8px)}
 #stats b{color:#fff}
 #stats .bar{display:inline-block;height:3px;vertical-align:middle;border-radius:2px;margin-right:4px}
 
@@ -49,10 +49,10 @@ html,body,#map{width:100%;height:100%;background:#000;font-family:monospace;over
 <body>
 <div id="map"></div>
 <div id="hud">
-  <b>RICO ENTERPRISE COMMAND CENTER</b><br>
-  <span style="color:#0f0">50 STATES | 5 PIPELINES | 4 AGENCIES | LIVE BQ</span><br>
-  <span class="r">3 TARGETS</span> &bull; <span class="y">57 LLCs</span> &bull; <span class="c">$3.1B PPP</span><br>
-  <span class="p">CPS 29.3K GAP</span> &bull; <span class="r">4 CHILD DEATHS</span>
+  <b>RICO &amp; EDR ENTERPRISE COMMAND CENTER</b><br>
+  <span style="color:#0f0">83 EDR ORDERS | AREA 51 CORRIDOR | WINTERSBURG MATRIX</span><br>
+  <span class="r">37 TARGET ACCOUNTS</span> &bull; <span class="y">83 EDR ORDERS</span> &bull; <span class="c">55.15 MB GEOTRACKER</span><br>
+  <span class="p">AREA 51 TANK SITE</span> &bull; <span class="r">WINTERSBURG WW2</span>
 </div>
 <div id="stats"><b>LIVE STATS</b><br><span id="stats-body">loading...</span></div>
 <div id="legend"><span id="legend-body"></span></div>

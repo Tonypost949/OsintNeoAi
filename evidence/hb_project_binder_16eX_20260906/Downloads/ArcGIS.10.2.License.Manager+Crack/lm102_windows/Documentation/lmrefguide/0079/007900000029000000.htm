@@ -1,0 +1,24 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="The DEBUGLOG option allows users to append logging entries instead of overwriting the file each time the license service is started."><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>License Manager 10.2 -  DEBUGLOG </title><script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash; 
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script></head><!--Publication GUID: [GUID-BC990B43-3F11-4C46-9757-E4A61209745C]--><!--Topic GUID: [GUID-943A63E8-5433-4EAA-A28E-6CE17FCAFE07]--><body><div id="content"><div class="header"><h1> DEBUGLOG </h1><div id="breadcrumb"></div></div>
+<p id="GUID-966C8D95-3F66-4F90-B379-FE4E436B42A2"> This specifies a location for the debug log output from the vendor daemon associated with this options file. Preceding the debug log path with a plus sign (+) character appends logging entries; otherwise, the file is overwritten each time the daemon is started. Note that this affects output from only the vendor daemon associated with this options file. </p>
+
+<p id="GUID-7478EA33-51BB-4A60-8702-6C74A516573F"> DEBUGLOG [+]debug_log_path</p>
+<p id="GUID-5DF63F72-3F90-4E48-B47E-9FBF8504D679">
+Example: 
+</p>
+<p id="GUID-DD109AD9-A86A-4CA6-B1C5-F6002A322CBB">DEBUGLOG +C:\temp\lmgrd.log </p>
+<div class="footer"> Copyright © 1995-2013 Esri. All rights reserved. </div></div></body></html>

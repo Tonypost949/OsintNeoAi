@@ -1,0 +1,89 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="Use the RESERVE line to reserve licenses for a specific user or group."><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>License Manager 10.2 -  RESERVE </title><script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash; 
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script></head><!--Publication GUID: [GUID-BC990B43-3F11-4C46-9757-E4A61209745C]--><!--Topic GUID: [GUID-22E3A8C7-C7CC-4D5E-9855-C6F1AC66E60D]--><body><div id="content"><div class="header"><h1> RESERVE </h1><div id="breadcrumb"></div></div>
+<p id="GUID-7E4B382C-5520-4100-B018-BD9508A7DF7B">Use the RESERVE line to reserve licenses for a specific user or group </p><p id="GUID-37F7D7A8-446C-47B5-AB3C-F6C226E48353">Usage: </p>
+<p id="GUID-1F247BD8-E349-42C2-A4C8-77B6AEDBAF68"> RESERVE num_lic feature [: keyword = value ] type { name | group_name }</p>
+<p id="GUID-0136434A-69B3-42C4-A629-005B49EC36CD">
+<div class="block_table" id="TABLE_14351DA2254343A6A7BF352D5082D52D" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="1.00*"></colgroup><colgroup width="4.76*"></colgroup>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-FC5A76FF-C1BF-4051-AD8F-CAA6C7F02D40">
+<b>Term</b>
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-8B1D8FAA-A2D4-408E-B4D9-B2B175673295">
+<b>Description</b>
+</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-36BEC23E-EA6E-403C-BE84-54CA6DB1F8E1">
+num_lic
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-3E60C35A-6903-4CA0-ABF7-4270B151BE6B">Number of licenses to reserve for this user or group.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-531E4A0C-649D-4B09-80B8-4C6BA74DF775">
+feature
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-5ED9A988-8BA9-4A4C-9BA1-C05F4DE735A3">Feature this reservation applies to.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-BF0A75F2-3736-4255-B92D-43AB1D7D04E6">
+type
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-824734D5-6C7A-4054-8CAA-3B747DE5983A">One of USER, HOST, DISPLAY, INTERNET, GROUP, or HOST_GROUP.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-04D1EAF5-EEA3-4946-B021-120786202964">
+name
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-B9B8A50D-6FAE-4B7D-8166-E31B3F61BDD8">Name of an item of type<b> type</b> for which license usage is reserved.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-E95761FB-6EBE-48BD-AE9F-4147DF190F57">
+group_name
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-918FE27D-11F0-4FA1-B244-55D6F8BFF5A8">Name of the group for which license usage is reserved. Group names are case sensitive.</p>
+</td>
+</tr>
+</table><span class="table_desc"></span></div>
+</p>
+<p id="GUID-4B66340D-FB05-44FF-8329-F753822922FE">Example:</p>
+<p id="GUID-D696C7D3-FA7A-47DB-9562-8CA22AC0CE09"> RESERVE 1 f1 USER mel</p>
+<p id="GUID-14170CE8-DEF9-4CD0-A834-E47379A5F03C"> If you want to reserve a license for<b> each </b>of several users or groups, you must use a separate RESERVE line for each user or group.
+</p>
+<div class="footer"> Copyright © 1995-2013 Esri. All rights reserved. </div></div></body></html>

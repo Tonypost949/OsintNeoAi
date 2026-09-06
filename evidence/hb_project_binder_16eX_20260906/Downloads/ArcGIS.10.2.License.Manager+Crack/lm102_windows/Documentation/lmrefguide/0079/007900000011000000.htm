@@ -1,0 +1,81 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="This option excludes a user or predefined group of users from the list of who is allowed to use the feature."><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>License Manager 10.2 -  EXCLUDE </title><script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash; 
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script></head><!--Publication GUID: [GUID-BC990B43-3F11-4C46-9757-E4A61209745C]--><!--Topic GUID: [GUID-2305FBBC-D24E-455B-9D83-16C4FFEE2067]--><body><div id="content"><div class="header"><h1> EXCLUDE </h1><div id="breadcrumb"></div></div>
+<p id="GUID-6414DD80-08E2-43A4-8424-F01E4440AE10">This statement excludes a user or predefined group of users from the list of who is allowed to use the feature. EXCLUDE supersedes INCLUDE; conflicts between the EXCLUDE list and the INCLUDE list are resolved by the EXCLUDE list taking precedence.  </p><p id="GUID-EA965BF6-B73F-41D1-8E19-85FD45E71753"><b>Usage</b></p><p id="GUID-20F24C16-3945-4E0E-AD17-71E4287D211F">EXCLUDE feature type { name | group_name }</p>
+<p id="GUID-4E2D6C12-38F8-469E-BE64-72FFDAED5D3A">
+<div class="block_table" id="TABLE_D2AF8F52154D4A929DAF7ADF419E7FB0" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="1.00*"></colgroup><colgroup width="3.20*"></colgroup>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-F86C632E-0340-4D64-AA5B-7568CAB6C491">
+<b>Term</b>
+</p>
+</td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-6841335C-CC52-4A06-9E4E-E4B52346502C">
+<b>Description</b>
+</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1"><i>
+</i><p id="GUID-531E4A0C-649D-4B09-80B8-4C6BA74DF775"><i>
+</i>feature
+</p><i>
+</i></td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-5ED9A988-8BA9-4A4C-9BA1-C05F4DE735A3">Name of the feature being affected.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1"><i>
+</i><p id="GUID-BF0A75F2-3736-4255-B92D-43AB1D7D04E6"><i>
+</i>type
+</p><i>
+</i></td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-824734D5-6C7A-4054-8CAA-3B747DE5983A">One of USER, HOST, DISPLAY, INTERNET, GROUP, or HOST_GROUP.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1"><i>
+</i><p id="GUID-04D1EAF5-EEA3-4946-B021-120786202964"><i>
+</i>name
+</p><i>
+</i></td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-B9B8A50D-6FAE-4B7D-8166-E31B3F61BDD8">Name of an item of type<b> type</b> for which license usage is excluded.</p>
+</td>
+</tr>
+<tr purpose="row">
+<td purpose="entry" rowspan="1" colspan="1"><i>
+</i><p id="GUID-E95761FB-6EBE-48BD-AE9F-4147DF190F57"><i>
+</i>group_name
+</p><i>
+</i></td>
+<td purpose="entry" rowspan="1" colspan="1">
+<p id="GUID-918FE27D-11F0-4FA1-B244-55D6F8BFF5A8">Name of the group to exclude. Group names are case sensitive.</p>
+</td>
+</tr>
+</table><span class="table_desc"></span></div>
+<i></i>
+</p>
+<p id="GUID-B9328ED5-04A1-4D8C-9C8B-8BC52E09D1F1">
+<i></i>
+<b>Example
+</b></p>
+<p id="GUID-9B135552-9A4C-47FD-891F-7D92CD0E2DA5">This is how to exclude user frank from using feature f1: </p>
+<p id="GUID-3807C0D9-5C7A-457A-840C-7D3D4C321925">EXCLUDE f1 USER frank </p>
+<div class="footer"> Copyright © 1995-2013 Esri. All rights reserved. </div></div></body></html>
