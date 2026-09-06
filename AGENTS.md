@@ -3,18 +3,19 @@
 ## Mandatory: Read Everything Before Acting
 Before making any change, you MUST read ALL files in this repository. This includes all READMEs, all code, all configurations, and all AGENTS.md files. Every agent returns with full context. Do not assume prior knowledge.
 
-## Backup Protocol — 3 Locations
-Every change must be backed up to ALL three locations before it is made:
+## Backup Protocol — 2 Locations (LOCAL 3GB DISABLED 2026-09-06 per owner)
+Every change must be backed up to the following locations before it is made. LOCAL 3GB BACKUPS ARE DISABLED.
 
 ### 1. GitHub (Primary)
 - Remote: `https://github.com/Tonypost949/OsintNeoAi`
 - Branch: `main`
 - All changes pushed via `git push origin main`
 
-### 2. Local PC (C:\ Drive)
-- Path: `C:\Users\HP\OneDrive\Documents\OsintNeoAi\backups\repo\`
-- Sync the full repo here as a timestamped zip or folder copy
-- This is the offline fallback, independent of cloud services
+### 2. Local PC (C:\ Drive) — DISABLED 2026-09-06 — NO MORE 3GB BACKUPS
+- DISABLED per owner request 2026-09-06: `C:\Users\HP\OneDrive\Documents\OsintNeoAi\backups\repo\` NO LONGER USED
+- DO NOT create timestamped zip or folder copy locally. Previous behavior created 2.8GB archive duplicates (OsintNeoAi-Copy-1/2) + 625MB azure_deploy.zip every change — CRAZY, DISABLED
+- Local fallback is OFF to save disk. If needed, use GitHub clone instead.
+- This section intentionally left disabled. To re-enable, owner must explicitly edit this file.
 
 ### 3. Sharedall Google Drive (Off-Books Live Alternative)
 - Path: `Sharedall/OsintNeoAi/` in the amd949609@gmail.com Google Drive
@@ -38,7 +39,7 @@ Every change must be backed up to ALL three locations before it is made:
 ## CARDINAL RULES — NEVER VIOLATE
 
 ### Rule 1: Backup BEFORE Every Change
-No file is touched until backups at all 3 locations are confirmed current. If any backup is missing or stale, fix it first.
+No file is touched until backups at 2 locations (GitHub + Sharedall GDrive) are confirmed current. LOCAL 3GB BACKUP IS DISABLED 2026-09-06 per owner — do NOT create local C:\ timestamped zips. If any remaining backup is missing or stale, fix it first.
 
 ### Rule 2: NEVER DELETE — ONLY COPY/DUPLICATE
 - You do NOT delete files. Ever.
@@ -63,9 +64,10 @@ No file is touched until backups at all 3 locations are confirmed current. If an
 ## Resurrection Requirements
 Before any change, the system must be in a state where it can be fully resurrected from:
 1. GitHub clone
-2. Local C:\ backup
-3. Sharedall Google Drive backup
-4. Tooling/instruction backups
+2. Sharedall Google Drive backup (Sharedall/OsintNeoAi/ via rclone gdrive:)
+3. Tooling/instruction backups
+
+Local C:\ backup DISABLED 2026-09-06 per owner — no longer required (was 2.8GB duplicate waste).
 
 If any of these is missing or outdated, the agent must restore/fix it before proceeding.
 
