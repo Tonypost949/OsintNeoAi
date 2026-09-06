@@ -1,0 +1,7 @@
+#!/bin/bash
+if command -v pwsh &> /dev/null; then
+    exec pwsh "$@"
+else
+    echo "[PowerShell Dev Shell Fallback]"
+    exec python3 -ic "import sys, os, subprocess; print('OSINT Neo AI PowerShell Dev Console (Python Runtime)')" "$@"
+fi

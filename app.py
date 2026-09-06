@@ -1,4 +1,4 @@
-﻿import os
+import os
 import json
 import subprocess
 import shutil
@@ -110,7 +110,8 @@ def api_cli_exec_route():
             cmd = 'python3 ' + cmd[7:]
 
         env = os.environ.copy()
-        env['PATH'] = env.get('PATH', '') + ':/usr/local/bin:/usr/bin:/bin'
+        bin_dir = os.path.join(ROOT_DIR, 'bin')
+        env['PATH'] = f"{bin_dir}:{os.path.expanduser('~/.local/bin')}:/usr/local/bin:/usr/bin:/bin:" + env.get('PATH', '')
 
         res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT_DIR, timeout=30, env=env)
         output = res.stdout
@@ -126,8 +127,12 @@ def api_cli_exec_route():
 @app.route('/api/install_tools', methods=['GET', 'POST'])
 def api_install_tools():
     try:
-        cmd = 'python3 -m pip install google-genai antigravity-cli opencode-cli'
-        res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT_DIR, timeout=60)
+        script_path = os.path.join(ROOT_DIR, 'scripts', 'install_cli_tools.sh')
+        cmd = f'bash "{script_path}"' if os.path.exists(script_path) else 'python3 -m pip install google-genai'
+        env = os.environ.copy()
+        bin_dir = os.path.join(ROOT_DIR, 'bin')
+        env['PATH'] = f"{bin_dir}:{os.path.expanduser('~/.local/bin')}:/usr/local/bin:/usr/bin:/bin:" + env.get('PATH', '')
+        res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT_DIR, timeout=120, env=env)
         return jsonify({'status': 'success', 'output': res.stdout + '\n' + res.stderr})
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)}), 500

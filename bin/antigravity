@@ -1,0 +1,10 @@
+#!/bin/bash
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+if [ -f "$REPO_DIR/cli/cli.py" ]; then
+    exec python3 "$REPO_DIR/cli/cli.py" "$@"
+elif [ -f "$REPO_DIR/OSINTNeoAiCLI_v2.py" ]; then
+    exec python3 "$REPO_DIR/OSINTNeoAiCLI_v2.py" "$@"
+else
+    echo "Antigravity OSINT Neo AI CLI"
+fi

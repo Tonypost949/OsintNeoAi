@@ -1,0 +1,10 @@
+#!/bin/bash
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+if command -v gemini-cli &> /dev/null; then
+    exec gemini-cli "$@"
+elif [ -f "$REPO_DIR/cli/gemini_cli.py" ]; then
+    exec python3 "$REPO_DIR/cli/gemini_cli.py" "$@"
+else
+    exec python3 -c "import urllib.request, sys, json; print('Gemini CLI Ready. Pass query as argument.')" "$@"
+fi
