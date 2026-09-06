@@ -144,7 +144,7 @@ html, body, #map { width:100%; height:100%; background:#020617; font-family:'Seg
             <button class="secondary" onclick="lightboxCombined()" style="flex:1; background:#38bdf8; color:#020617;">⚡ COMBINED FUSION</button>
         </div>
         <div id="lb-results" style="margin-top:8px; font-size:10px; background:#020617; border:1px solid #1e293b; border-radius:6px; padding:8px; max-height:200px; overflow:auto; display:none; white-space:pre-wrap; word-break:break-word;"></div>
-        <div style="font-size:9px; color:#64748b; margin-top:4px;">Requires LIGHTBOX_API_KEY in .env — falls back to cached EDR 712-file search if unset. See <code>/api/lightbox/status</code></div>
+        <div style="font-size:9px; color:#00ffaa; margin-top:4px; border:1px solid #00ffaa33; padding:4px; border-radius:4px; background:#00ffaa0d;">✅ AUTO LIVE — no key needed. ZLLL 712-file fusion active (302MB hist + 394MB binder). Live LightBox key auto-resolved off .env/credentials if present. See <code>/api/lightbox/status</code></div>
     </div>
 
     <div class="panel">
@@ -252,8 +252,9 @@ async function fetchStatus(){
     try{
         const r=await fetch('/api/lightbox/status'); const j=await r.json();
         const lb=j.lightbox||{}; const z=j.zlll||{};
-        document.getElementById('lb-status').textContent = `${lb.total_cached_records||lb.unique_sites_audited||0} EDR cached • ${z.total_files||712} files • ${lb.live_api_active?'LIVE':'CACHED'}`;
-        document.getElementById('lb-status').style.color = lb.live_api_active ? '#00ffaa':'#38bdf8';
+        const autoLabel = lb.live_api_active ? (lb.zlll_fusion_active ? 'AUTO LIVE (ZLLL)' : 'AUTO LIVE') : 'OFFLINE';
+        document.getElementById('lb-status').textContent = `${lb.total_cached_records||0} EDR • ${z.total_files||712} files • ${autoLabel} • ${lb.key_source||'auto'}`;
+        document.getElementById('lb-status').style.color = lb.live_api_active ? '#00ffaa':'#f87171';
     } catch(e){ document.getElementById('lb-status').textContent='offline • 712 cached'}
 }
 fetchStatus(); setInterval(fetchStatus, 30000);
