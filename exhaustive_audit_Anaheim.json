@@ -1,0 +1,227 @@
+{
+  "query": "Anaheim",
+  "timestamp": "2026-09-05T21:16:40.629083",
+  "sources_exhausted": [
+    {
+      "source": "Local Knowledge Graph (nodes.json)",
+      "status": "COMPLETED",
+      "summary": "Found 0 matching nodes out of 17488"
+    },
+    {
+      "source": "Massive Library Catalog (reports_catalog.json)",
+      "status": "COMPLETED",
+      "summary": "Found 57 matching documents in massive library"
+    },
+    {
+      "source": "Facebook Developer Tools & Open Graph Engine",
+      "status": "COMPLETED",
+      "summary": "Extracted 1 Open Graph fields & 0 Meta UIDs"
+    },
+    {
+      "source": "Internet Archive (Wayback Machine CDX API)",
+      "status": "COMPLETED",
+      "summary": "Wayback CDX queried (<urlopen error _ssl.c:1064: The handshake operation timed out>)"
+    },
+    {
+      "source": "Kali Linux WSL2 Engine",
+      "status": "COMPLETED",
+      "summary": "Executed DNS resolution & WHOIS for Anaheim"
+    },
+    {
+      "source": "Public Non-Profit 990 & Federal Grants Engine",
+      "status": "COMPLETED",
+      "summary": "Audited ProPublica IRS 990 database & USASpending"
+    },
+    {
+      "source": "LexisNexis Statutory Claims & Damages Calculator",
+      "status": "COMPLETED",
+      "summary": "Calculated False Claims treble damages & Labor Code \u00a7 1102.5 authorities"
+    }
+  ],
+  "findings": {
+    "Local Knowledge Graph (nodes.json)": [],
+    "Massive Library Catalog (reports_catalog.json)": [
+      {
+        "rel": "copilot-worktrees/tonypost949-bookish-lamp/evidence/dns/anaheim.net.txt",
+        "abs": "C:/OsintNeoAi/copilot-worktrees/tonypost949-bookish-lamp/evidence/dns/anaheim.net.txt",
+        "file": "anaheim.net.txt",
+        "title": "anaheim.net.txt",
+        "sub": "",
+        "category": "General Document",
+        "kb": 4.0
+      },
+      {
+        "rel": "copilot-worktrees/tonypost949-bookish-lamp/evidence/dns/anaheimpd.org.txt",
+        "abs": "C:/OsintNeoAi/copilot-worktrees/tonypost949-bookish-lamp/evidence/dns/anaheimpd.org.txt",
+        "file": "anaheimpd.org.txt",
+        "title": "anaheimpd.org.txt",
+        "sub": "",
+        "category": "General Document",
+        "kb": 2.2
+      },
+      {
+        "rel": "copilot-worktrees/tonypost949-bookish-lamp/evidence/endpoint_captures/headers_anaheim.net_.txt",
+        "abs": "C:/OsintNeoAi/copilot-worktrees/tonypost949-bookish-lamp/evidence/endpoint_captures/headers_anaheim.net_.txt",
+        "file": "headers_anaheim.net_.txt",
+        "title": "headers_anaheim.net_.txt",
+        "sub": "",
+        "category": "General Document",
+        "kb": 0.9
+      },
+      {
+        "rel": "copilot-worktrees/tonypost949-bookish-lamp/evidence/endpoint_captures/headers_anaheim.net_wp-admin.txt",
+        "abs": "C:/OsintNeoAi/copilot-worktrees/tonypost949-bookish-lamp/evidence/endpoint_captures/headers_anaheim.net_wp-admin.txt",
+        "file": "headers_anaheim.net_wp-admin.txt",
+        "title": "headers_anaheim.net_wp-admin.txt",
+        "sub": "",
+        "category": "General Document",
+        "kb": 0.1
+      },
+      {
+        "rel": "copilot-worktrees/tonypost949-bookish-lamp/evidence/endpoint_captures/headers_anaheimpd.org_.txt",
+        "abs": "C:/OsintNeoAi/copilot-worktrees/tonypost949-bookish-lamp/evidence/endpoint_captures/headers_anaheimpd.org_.txt",
+        "file": "headers_anaheimpd.org_.txt",
+        "title": "headers_anaheimpd.org_.txt",
+        "sub": "",
+        "category": "General Document",
+        "kb": 0.1
+      },
+      {
+        "rel": "copilot-worktrees/tonypost949-bookish-lamp/evidence/endpoint_captures/headers_anaheimpd.org_wp-admin.txt",
+        "abs": "C:/OsintNeoAi/copilot-worktrees/tonypost949-bookish-lamp/evidence/endpoint_captures/headers_anaheimpd.org_wp-admin.txt",
+        "file": "headers_anaheimpd.org_wp-admin.txt",
+        "title": "headers_anaheimpd.org_wp-admin.txt",
+        "sub": "",
+        "category": "General Document",
+        "kb": 0.1
+      },
+      {
+        "rel": "copilot-worktrees/tonypost949-bookish-lamp/evidence/http_headers/anaheim.net.txt",
+        "abs": "C:/OsintNeoAi/copilot-worktrees/tonypost949-bookish-lamp/evidence/http_headers/anaheim.net.txt",
+        "file": "anaheim.net.txt",
+        "title": "anaheim.net.txt",
+        "sub": "",
+        "category": "General Document",
+        "kb": 0.5
+      },
+      {
+        "rel": "copilot-worktrees/tonypost949-bookish-lamp/evidence/http_headers/anaheimpd.org.txt",
+        "abs": "C:/OsintNeoAi/copilot-worktrees/tonypost949-bookish-lamp/evidence/http_headers/anaheimpd.org.txt",
+        "file": "anaheimpd.org.txt",
+        "title": "anaheimpd.org.txt",
+        "sub": "",
+        "category": "General Document",
+        "kb": 0.5
+      },
+      {
+        "rel": "copilot-worktrees/tonypost949-bookish-lamp/evidence/port_scans/anaheim.net.txt",
+        "abs": "C:/OsintNeoAi/copilot-worktrees/tonypost949-bookish-lamp/evidence/port_scans/anaheim.net.txt",
+        "file": "anaheim.net.txt",
+        "title": "anaheim.net.txt",
+        "sub": "",
+        "category": "General Document",
+        "kb": 0.1
+      },
+      {
+        "rel": "copilot-worktrees/tonypost949-bookish-lamp/evidence/port_scans/anaheimpd.org.txt",
+        "abs": "C:/OsintNeoAi/copilot-worktrees/tonypost949-bookish-lamp/evidence/port_scans/anaheimpd.org.txt",
+        "file": "anaheimpd.org.txt",
+        "title": "anaheimpd.org.txt",
+        "sub": "",
+        "category": "General Document",
+        "kb": 0.1
+      },
+      {
+        "rel": "copilot-worktrees/tonypost949-bookish-lamp/evidence/web_content/anaheim.net_.txt",
+        "abs": "C:/OsintNeoAi/copilot-worktrees/tonypost949-bookish-lamp/evidence/web_content/anaheim.net_.txt",
+        "file": "anaheim.net_.txt",
+        "title": "anaheim.net_.txt",
+        "sub": "",
+        "category": "General Document",
+        "kb": 0.2
+      },
+      {
+        "rel": "copilot-worktrees/tonypost949-bookish-lamp/evidence/web_content/anaheim.net_robots.txt.txt",
+        "abs": "C:/OsintNeoAi/copilot-worktrees/tonypost949-bookish-lamp/evidence/web_content/anaheim.net_robots.txt.txt",
+        "file": "anaheim.net_robots.txt.txt",
+        "title": "anaheim.net_robots.txt.txt",
+        "sub": "",
+        "category": "General Document",
+        "kb": 0.2
+      },
+      {
+        "rel": "copilot-worktrees/tonypost949-bookish-lamp/evidence/web_content/anaheimpd.org_.txt",
+        "abs": "C:/OsintNeoAi/copilot-worktrees/tonypost949-bookish-lamp/evidence/web_content/anaheimpd.org_.txt",
+        "file": "anaheimpd.org_.txt",
+        "title": "anaheimpd.org_.txt",
+        "sub": "",
+        "category": "General Document",
+        "kb": 0.2
+      },
+      {
+        "rel": "copilot-worktrees/tonypost949-bookish-lamp/evidence/whois/anaheim.net.txt",
+        "abs": "C:/OsintNeoAi/copilot-worktrees/tonypost949-bookish-lamp/evidence/whois/anaheim.net.txt",
+        "file": "anaheim.net.txt",
+        "title": "anaheim.net.txt",
+        "sub": "",
+        "category": "General Document",
+        "kb": 1.4
+      },
+      {
+        "rel": "copilot-worktrees/tonypost949-bookish-lamp/evidence/whois/anaheimpd.org.txt",
+        "abs": "C:/OsintNeoAi/copilot-worktrees/tonypost949-bookish-lamp/evidence/whois/anaheimpd.org.txt",
+        "file": "anaheimpd.org.txt",
+        "title": "anaheimpd.org.txt",
+        "sub": "",
+        "category": "General Document",
+        "kb": 1.4
+      }
+    ],
+    "Facebook Developer Tools & Open Graph Engine": {
+      "open_graph_data": {
+        "scrape_error": "<urlopen error _ssl.c:1064: The handshake operation timed out>"
+      },
+      "graph_api_introspection": {
+        "note": "Graph API status: <urlopen error _ssl.c:1064: The handshake operation timed out>"
+      },
+      "ad_library_transparency": {
+        "search_url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=US&q=Anaheim"
+      },
+      "inferred_uids": []
+    },
+    "Internet Archive (Wayback Machine CDX API)": {
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=Anaheim&output=json&limit=5"
+    },
+    "Kali Linux WSL2 Engine": {
+      "dns_note": "Command 'wsl -d kali-linux -u osintneoai -- dig +short Anaheim A' timed out after 5 seconds"
+    },
+    "Public Non-Profit 990 & Federal Grants Engine": {
+      "irs_form_990": [],
+      "usaspending_search": "https://www.usaspending.gov/search/?hash=Anaheim",
+      "irs_form_990_note": "<urlopen error _ssl.c:1064: The handshake operation timed out>"
+    },
+    "LexisNexis Statutory Claims & Damages Calculator": {
+      "authorities": [
+        "whistleblower_retaliation",
+        "statutory_presumption",
+        "surplus_land_act",
+        "environmental_shelter_fraud",
+        "qui_tam_false_claims"
+      ],
+      "statutes_cited": [
+        "California Labor Code \u00a7 1102.5",
+        "California Civil Code \u00a7 1942.5",
+        "California Government Code \u00a7 54220 et seq. (AB 1486)",
+        "California False Claims Act (Cal. Gov. Code \u00a7 12650) / Federal False Claims Act (31 U.S.C. \u00a7 3729)"
+      ],
+      "sample_qui_tam_calculation": {
+        "exposed_public_fraud": 14200000.0,
+        "treble_damages_ceiling": 42600000.0,
+        "qui_tam_bounty_min_15pct": 2130000.0,
+        "qui_tam_bounty_max_30pct": 4260000.0,
+        "taxfundedtoken_mint_allocation": 1420000,
+        "osintcoin_mint_allocation": 284000
+      }
+    }
+  }
+}

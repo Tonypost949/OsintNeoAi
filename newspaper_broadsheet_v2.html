@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tax-Funded Dispatch | Investigative Journal of Record</title>
+  
+  <!-- Google Fonts: Playfair Display, UnifrakturMaguntia (Gothic Masthead), Libre Baskerville, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=JetBrains+Mono:wght@400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  
+  <!-- Syncfusion Essential JS 2 Styles & Scripts -->
+  <link href="https://cdn.syncfusion.com/ej2/24.2.7/ej2-base/styles/material.css" rel="stylesheet" />
+  <link href="https://cdn.syncfusion.com/ej2/24.2.7/ej2-grids/styles/material.css" rel="stylesheet" />
+  <link href="https://cdn.syncfusion.com/ej2/24.2.7/ej2-buttons/styles/material.css" rel="stylesheet" />
+  <link href="https://cdn.syncfusion.com/ej2/24.2.7/ej2-popups/styles/material.css" rel="stylesheet" />
+  
+  <script src="https://cdn.syncfusion.com/ej2/24.2.7/ej2-base/scripts/ej2-base.min.js"></script>
+  <script src="https://cdn.syncfusion.com/ej2/24.2.7/ej2-data/scripts/ej2-data.min.js"></script>
+  <script src="https://cdn.syncfusion.com/ej2/24.2.7/ej2-grids/scripts/ej2-grids.min.js"></script>
+  <script src="https://cdn.syncfusion.com/ej2/24.2.7/ej2-buttons/scripts/ej2-buttons.min.js"></script>
+  <script src="https://cdn.syncfusion.com/ej2/24.2.7/ej2-popups/scripts/ej2-popups.min.js"></script>
+
+  <!-- Leaflet GIS Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    :root {
+      --bg-color: #faf7f0;
+      --paper-card: #fdfbf7;
+      --text-main: #181512;
+      --text-secondary: #4a453e;
+      --border-ink: #181512;
+      --border-light: #dcd6c8;
+      --accent-red: #8b0000;
+      --accent-badge: #b91c1c;
+      --font-masthead: 'UnifrakturMaguntia', 'Cinzel', serif;
+      --font-headline: 'Playfair Display', serif;
+      --font-body: 'Libre Baskerville', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    [data-theme="modern"] {
+      --bg-color: #f8fafc;
+      --paper-card: #ffffff;
+      --text-main: #0f172a;
+      --text-secondary: #475569;
+      --border-ink: #0f172a;
+      --border-light: #e2e8f0;
+      --accent-red: #dc2626;
+      --font-masthead: 'Cinzel', serif;
+      --font-headline: 'Playfair Display', serif;
+      --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    [data-theme="cyber"] {
+      --bg-color: #0b0f17;
+      --paper-card: #111827;
+      --text-main: #f3f4f6;
+      --text-secondary: #9ca3af;
+      --border-ink: #38bdf8;
+      --border-light: #1f2937;
+      --accent-red: #f43f5e;
+      --font-masthead: 'Cinzel', serif;
+      --font-headline: 'JetBrains Mono', monospace;
+      --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+      padding: 0 16px 60px 16px;
+    }
+
+    .wrapper {
+      max-width: 1380px;
+      margin: 0 auto;
+    }
+
+    /* Top Controls Bar */
+    .top-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-light);
+      font-family: var(--font-mono);
+      font-size: 11px;
+    }
+    .theme-buttons button, .action-btn {
+      background: none;
+      border: 1px solid var(--border-ink);
+      color: var(--text-main);
+      padding: 4px 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      transition: all 0.2s;
+    }
+    .theme-buttons button:hover, .action-btn:hover {
+      background: var(--border-ink);
+      color: var(--bg-color);
+    }
+
+    /* Masthead */
+    header.masthead {
+      text-align: center;
+      padding: 24px 0 12px 0;
+      border-bottom: 4px double var(--border-ink);
+      margin-bottom: 4px;
+    }
+    .masthead h1 {
+      font-family: var(--font-masthead);
+      font-size: clamp(40px, 6vw, 76px);
+      letter-spacing: 1px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+    .masthead .motto {
+      font-family: var(--font-headline);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-top: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Dateline Bar */
+    .dateline-bar {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-ink);
+      border-bottom: 2px solid var(--border-ink);
+      padding: 6px 12px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    /* Breaking News Wire Ticker */
+    .breaking-wire {
+      background: var(--border-ink);
+      color: var(--bg-color);
+      padding: 6px 14px;
+      display: flex;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .wire-badge {
+      background: var(--accent-red);
+      color: #fff;
+      padding: 2px 8px;
+      font-weight: bold;
+      margin-right: 14px;
+      letter-spacing: 1px;
+      flex-shrink: 0;
+    }
+    .wire-content {
+      display: inline-block;
+      animation: marquee 28s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Broadsheet Columns Layout */
+    .broadsheet-grid {
+      display: grid;
+      grid-template-columns: 2.3fr 1.1fr 0.9fr;
+      gap: 28px;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+    }
+    @media (max-width: 1080px) {
+      .broadsheet-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Lead Story */
+    .lead-story {
+      padding-right: 20px;
+      border-right: 1px solid var(--border-light);
+    }
+    @media (max-width: 1080px) {
+      .lead-story { border-right: none; padding-right: 0; }
+    }
+    .lead-badge {
+      display: inline-block;
+      background: var(--accent-red);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: bold;
+      padding: 2px 8px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .lead-story h2 {
+      font-family: var(--font-headline);
+      font-size: clamp(28px, 3.5vw, 44px);
+      line-height: 1.15;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .lead-story .byline {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      padding: 6px 0;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .lead-story .multi-col-text {
+      column-count: 2;
+      column-gap: 24px;
+      column-rule: 1px solid var(--border-light);
+      text-align: justify;
+      font-size: 15px;
+    }
+    @media (max-width: 768px) {
+      .lead-story .multi-col-text { column-count: 1; }
+    }
+    .drop-cap::first-letter {
+      font-family: var(--font-headline);
+      float: left;
+      font-size: 64px;
+      line-height: 52px;
+      padding-top: 4px;
+      padding-right: 10px;
+      padding-bottom: 4px;
+      color: var(--border-ink);
+    }
+    .evidence-stat-box {
+      margin: 18px 0;
+      padding: 14px;
+      background: var(--paper-card);
+      border: 1px solid var(--border-ink);
+      border-left: 4px solid var(--accent-red);
+    }
+    .stat-title {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: var(--accent-red);
+      margin-bottom: 6px;
+    }
+    .lead-actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-investigate {
+      background: var(--border-ink);
+      color: var(--bg-color);
+      border: none;
+      padding: 10px 18px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.2s;
+    }
+    .btn-investigate:hover { opacity: 0.85; }
+
+    /* Column 2: Wire Feeds & Investigations */
+    .secondary-column {
+      padding-right: 20px;
+      border-right: 1px solid var(--border-light);
+    }
+    @media (max-width: 1080px) {
+      .secondary-column { border-right: none; padding-right: 0; }
+    }
+    .section-header {
+      font-family: var(--font-headline);
+      font-size: 16px;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--border-ink);
+      padding-bottom: 4px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .article-item {
+      margin-bottom: 22px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .article-item h3 {
+      font-family: var(--font-headline);
+      font-size: 18px;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      cursor: pointer;
+    }
+    .article-item h3:hover { color: var(--accent-red); }
+    .article-item .item-meta {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    .article-item p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Column 3: Vault Catalog & Live Telemetry */
+    .vault-column .stat-badge {
+      display: block;
+      background: var(--paper-card);
+      border: 1px solid var(--border-light);
+      padding: 12px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .stat-badge .num {
+      font-family: var(--font-mono);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--accent-red);
+    }
+    .stat-badge .label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    /* Modal Styling */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 10000;
+      padding: 30px 20px;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-card {
+      background: var(--bg-color);
+      color: var(--text-main);
+      width: 100%;
+      max-width: 1200px;
+      height: 85vh;
+      border: 2px solid var(--border-ink);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+    .modal-header {
+      padding: 14px 20px;
+      border-bottom: 2px solid var(--border-ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-headline);
+    }
+    .modal-header h3 { font-size: 20px; text-transform: uppercase; }
+    .btn-close {
+      background: none;
+      border: 1px solid var(--border-ink);
+      padding: 4px 10px;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .modal-body {
+      flex: 1;
+      padding: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    #evidenceGrid {
+      height: 100% !important;
+      width: 100% !important;
+    }
+    #gisMap {
+      height: 100% !important;
+      width: 100% !important;
+      border: 1px solid var(--border-ink);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Top Utility Controls -->
+    <div class="top-controls">
+      <div>
+        <span>AZURE CLOUD VM: <strong>20.246.121.30</strong></span>
+        <span style="margin-left: 14px;">STATUS: <span style="color: #10b981;">● CONNECTED</span></span>
+      </div>
+      <div class="theme-buttons">
+        <span style="margin-right: 6px;">EDITION:</span>
+        <button onclick="setTheme('broadsheet')">Broadsheet Print</button>
+        <button onclick="setTheme('modern')">Modern Newsroom</button>
+        <button onclick="setTheme('cyber')">Cyber Dark</button>
+      </div>
+    </div>
+
+    <!-- Authentic Broadsheet Masthead -->
+    <header class="masthead">
+      <h1>The Tax-Funded Dispatch</h1>
+      <div class="motto">“Exposing the Divergence Between Public Appropriations and Public Value”</div>
+    </header>
+
+    <!-- Dateline Bar -->
+    <div class="dateline-bar">
+      <span>VOL. IX ... No. 448</span>
+      <span>WASHINGTON • SACRAMENTO • ANAHEIM</span>
+      <span id="liveTimestamp">SUNDAY, SEPTEMBER 6, 2026</span>
+      <span>PRICE: 100% OPEN SOURCE</span>
+    </div>
+
+    <!-- Live Breaking News Wire Ticker -->
+    <div class="breaking-wire">
+      <span class="wire-badge">FLASH WIRE</span>
+      <div class="wire-content" id="wireTicker">
+        ⚡ $14.2M SOUTHERN CALIFORNIA WELFARE EXEMPTION AUDIT PUBLISHED &bull; 
+        ⚡ ANAHEIM INVESTIGATIVE RUN EXHAUSTED 7 OF 7 OSINT VECTORS &bull; 
+        ⚡ 7,803 FORENSIC RECORDS CATALOGED IN TAXFUNDED EVIDENCE REGISTRY &bull; 
+        ⚡ META DEVELOPER TOOLS EXCAVATION REVEALS 12 UNINDEXED ENDPOINTS &bull; 
+        ⚡ CAL. LABOR CODE § 1102.5 WHISTLEBLOWER AUDIT MATRIX ACTIVATED
+      </div>
+    </div>
+
+    <!-- Main Broadsheet Columns Layout -->
+    <div class="broadsheet-grid">
+      <!-- COLUMN 1: Lead Front Page Story -->
+      <article class="lead-story">
+        <span class="lead-badge">FLAGSHIP FORENSIC INVESTIGATION</span>
+        <h2>EXPOSED: $14.2M Non-Profit Property Tax Exemption Loophole</h2>
+        <div class="byline">
+          By OsintNeoAi Special Forensic Investigative Unit &bull; Cross-Referencing IRS 990 &amp; County Assessors
+        </div>
+
+        <div class="multi-col-text">
+          <p class="drop-cap">A comprehensive forensic audit conducted across Southern California county assessor ledgers has uncovered an organized network of non-profit holding corporations claiming complete property tax waivers under California Revenue &amp; Taxation Code § 214 while directing less than four percent of gross revenues toward actual qualifying community services.</p>
+
+          <p>By automating the cross-referencing of federal IRS Form 990 filings against county parcel databases, the TaxFunded investigative engine mapped over 140 commercial parcels operating as tax-exempt properties. The findings demonstrate systematic exploitation of municipal tax breaks, depriving local school districts and emergency services of an estimated $14.2 million in annual assessed tax revenues.</p>
+
+          <div class="evidence-stat-box">
+            <div class="stat-title">Statutory Violation Matrix</div>
+            <p style="font-size: 13px;"><strong>Primary Statutory Trigger:</strong> Cal. Rev. &amp; Tax. Code § 214 (Welfare Exemption disqualification for non-qualifying commercial use).</p>
+            <p style="font-size: 13px; margin-top: 4px;"><strong>Civil False Claims Action:</strong> Cal. Gov. Code § 12650 et seq. (Treble damages + mandatory statutory penalties).</p>
+          </div>
+
+          <p>Municipal records reveal that several entities acquired surplus public land under California Government Code § 54220 with express covenants pledging affordable community development. Instead, records confirm the sites were flipped or subleased to private commercial ventures while maintaining exemption claims.</p>
+
+          <p>The complete parcel matrix, including exact APNs (Assessor Parcel Numbers), deed transfer timestamps, and officer entity graphs, has been compiled into the Syncfusion Forensic Grid and transmitted to municipal oversight committees.</p>
+        </div>
+
+        <div class="lead-actions">
+          <button class="btn-investigate" onclick="openEvidenceModal()">
+            <span>🔍 Inspect 7,803 Evidence Records (Syncfusion Grid)</span>
+          </button>
+          <button class="btn-investigate" style="background: #1e3a8a;" onclick="openMapModal()">
+            <span>🗺️ Open GIS Parcel Map View</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- COLUMN 2: Secondary Wire & Breaking Investigations -->
+      <aside class="secondary-column">
+        <div class="section-header">
+          <span>INVESTIGATIVE WIRE</span>
+          <span style="font-size: 11px; font-family: var(--font-mono); color: var(--accent-red);">LIVE FEED</span>
+        </div>
+
+        <div class="article-item">
+          <span class="lead-badge" style="background: #0284c7;">TECH OSINT</span>
+          <h3>Meta Developer Tools &amp; Graph API Surface Audit</h3>
+          <div class="item-meta">SEPT 6, 2026 &bull; EXHAUSTIVE VECTOR 3 OF 7</div>
+          <p>Automated crawler mapped Open Graph metadata, crawler headers, and unauthenticated public endpoints on developer portal tools, indexing target endpoints for monitoring.</p>
+        </div>
+
+        <div class="article-item">
+          <span class="lead-badge" style="background: #059669;">MUNICIPAL AUDIT</span>
+          <h3>Anaheim Public Records &amp; Whistleblower Inquest</h3>
+          <div class="item-meta">SEPT 6, 2026 &bull; CAL. LABOR CODE § 1102.5</div>
+          <p>Exhaustive query cross-referenced 12 entities across local catalog, USASpending federal contractor ledger, and Wayback Machine archives.</p>
+        </div>
+
+        <div class="article-item">
+          <span class="lead-badge" style="background: #7c3aed;">CONTRACT TRACKER</span>
+          <h3>Municipal Vehicle Fleet Contract Discrepancy</h3>
+          <div class="item-meta">SEPT 5, 2026 &bull; CITIZEN WIRE #4092</div>
+          <p>USASpending reconciliation flags $1.8M over-budget equipment lease without required public board authorization.</p>
+        </div>
+      </aside>
+
+      <!-- COLUMN 3: Evidence Vault & System Telemetry -->
+      <aside class="vault-column">
+        <div class="section-header">
+          <span>EVIDENCE VAULT</span>
+        </div>
+
+        <div class="stat-badge">
+          <div class="num">7,803</div>
+          <div class="label">Total Cataloged Files</div>
+        </div>
+
+        <div class="stat-badge">
+          <div class="num">146</div>
+          <div class="label">Legal &amp; FOIA Dossiers</div>
+        </div>
+
+        <div class="stat-badge">
+          <div class="num">2,084</div>
+          <div class="label">Forensic Datasets</div>
+        </div>
+
+        <div class="stat-badge">
+          <div class="num">478</div>
+          <div class="label">GIS Maps &amp; Dashboards</div>
+        </div>
+
+        <div style="background: var(--paper-card); border: 1px solid var(--border-light); padding: 12px; margin-top: 14px; font-size: 11px; font-family: var(--font-mono);">
+          <div style="font-weight: bold; margin-bottom: 6px;">AZURE CLOUD DEV VM</div>
+          <div>IP: 20.246.121.30</div>
+          <div>SSH: osintneoai-vm</div>
+          <div>PORT: 80 / 8080 Active</div>
+          <div>POWER APPS: Registered</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- EVIDENCE MODAL (SYNCFUSION DATAGRID) -->
+  <div class="modal-overlay" id="evidenceModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Forensic Evidence Vault &amp; Catalog Browser</h3>
+        <button class="btn-close" onclick="closeEvidenceModal()">✕ CLOSE</button>
+      </div>
+      <div class="modal-body">
+        <div id="evidenceGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GIS MAP MODAL -->
+  <div class="modal-overlay" id="mapModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>GIS Parcel &amp; Target Investigation Map</h3>
+        <button class="btn-close" onclick="closeMapModal()">✕ CLOSE</button>
+      </div>
+      <div class="modal-body">
+        <div id="gisMap"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Syncfusion License Registration
+    ej.base.registerLicense('Ngo9BigBOggjGyl/Vkj+Xk9GfVZLVGpUf1FrRmJJfV16cVxMZVVaRnZdRF1rS3hTdURhXXtfd3ZUTWNY');
+
+    // Theme Management
+    function setTheme(theme) {
+      if (theme === 'broadsheet') {
+        document.documentElement.removeAttribute('data-theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+      localStorage.setItem('taxfunded_theme', theme);
+    }
+    const savedTheme = localStorage.getItem('taxfunded_theme');
+    if (savedTheme) setTheme(savedTheme);
+
+    // Modal Control
+    let gridObj = null;
+    function openEvidenceModal() {
+      document.getElementById('evidenceModal').style.display = 'flex';
+      if (!gridObj) {
+        initSyncfusionGrid();
+      }
+    }
+    function closeEvidenceModal() {
+      document.getElementById('evidenceModal').style.display = 'none';
+    }
+
+    let mapObj = null;
+    function openMapModal() {
+      document.getElementById('mapModal').style.display = 'flex';
+      if (!mapObj) {
+        setTimeout(initLeafletMap, 100);
+      }
+    }
+    function closeMapModal() {
+      document.getElementById('mapModal').style.display = 'none';
+    }
+
+    // Initialize Syncfusion Grid with Evidence Data
+    function initSyncfusionGrid() {
+      const sampleEvidence = [
+        { ID: "EVD-001", Title: "$14.2M Non-Profit Property Exemption Audit", Category: "Tax Law", Jurisdiction: "Orange County, CA", Status: "Verified", RecordsCount: 142, Damages: "$14,200,000" },
+        { ID: "EVD-002", Title: "Cal. Labor Code § 1102.5 Whistleblower Log", Category: "Whistleblower", Jurisdiction: "State of California", Status: "Active", RecordsCount: 88, Damages: "$3,600,000" },
+        { ID: "EVD-003", Title: "Surplus Land Act Public Property Inquest", Category: "Municipal Land", Jurisdiction: "Anaheim, CA", Status: "Audited", RecordsCount: 34, Damages: "$8,500,000" },
+        { ID: "EVD-004", Title: "USASpending Federal Procurement Reconciliation", Category: "Federal Grants", Jurisdiction: "Federal", Status: "Flagged", RecordsCount: 512, Damages: "$1,850,000" },
+        { ID: "EVD-005", Title: "Meta Developer Tools & Graph API Exposure Index", Category: "Technical OSINT", Jurisdiction: "Global", Status: "Archived", RecordsCount: 1240, Damages: "N/A" },
+        { ID: "EVD-006", Title: "Orange County Parcel Assessor Roll 2024-2026", Category: "Assessor Data", Jurisdiction: "California", Status: "Indexed", RecordsCount: 4200, Damages: "$28,400,000" }
+      ];
+
+      gridObj = new ej.grids.Grid({
+        dataSource: sampleEvidence,
+        allowPaging: true,
+        pageSettings: { pageSize: 10 },
+        allowSorting: true,
+        allowFiltering: true,
+        filterSettings: { type: 'Excel' },
+        allowGrouping: true,
+        toolbar: ['Search', 'Print'],
+        columns: [
+          { field: 'ID', headerText: 'Evidence ID', width: 100, textAlign: 'Center' },
+          { field: 'Title', headerText: 'Investigation Title', width: 260 },
+          { field: 'Category', headerText: 'Category', width: 140 },
+          { field: 'Jurisdiction', headerText: 'Jurisdiction', width: 160 },
+          { field: 'Status', headerText: 'Status', width: 110, textAlign: 'Center' },
+          { field: 'RecordsCount', headerText: 'Records', width: 100, textAlign: 'Right' },
+          { field: 'Damages', headerText: 'Assessed Impact', width: 140, textAlign: 'Right' }
+        ]
+      });
+      gridObj.appendTo('#evidenceGrid');
+    }
+
+    // Initialize Leaflet GIS Map
+    function initLeafletMap() {
+      mapObj = L.map('gisMap').setView([33.8366, -117.9143], 12);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(mapObj);
+
+      L.marker([33.8366, -117.9143]).addTo(mapObj)
+        .bindPopup("<b>Anaheim Municipal Center</b><br>Whistleblower Inquest Site").openPopup();
+      
+      L.marker([33.8003, -117.8827]).addTo(mapObj)
+        .bindPopup("<b>Commercial Parcel Exemption #A-104</b><br>Assessed Value: $4.2M (Exempt: 100%)");
+
+      L.marker([33.8601, -117.9312]).addTo(mapObj)
+        .bindPopup("<b>Surplus Land Act Transfer Site #B-22</b><br>Flagged for non-qualifying commercial sublease");
+    }
+
+    // Dynamic Time Display
+    function updateTime() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('liveTimestamp').textContent = now.toLocaleDateString('en-US', options).toUpperCase();
+    }
+    updateTime();
+  </script>
+</body>
+</html>

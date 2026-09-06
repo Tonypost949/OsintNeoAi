@@ -1,0 +1,139 @@
+{
+  "query": "https://developers.facebook.com/tools/",
+  "timestamp": "2026-09-05T21:15:09.663122",
+  "sources_exhausted": [
+    {
+      "source": "Local Knowledge Graph (nodes.json)",
+      "status": "COMPLETED",
+      "summary": "Found 0 matching nodes out of 17488"
+    },
+    {
+      "source": "Massive Library Catalog (reports_catalog.json)",
+      "status": "COMPLETED",
+      "summary": "Found 0 matching documents in massive library"
+    },
+    {
+      "source": "Facebook Developer Tools & Open Graph Engine",
+      "status": "COMPLETED",
+      "summary": "Extracted 1 Open Graph fields & 0 Meta UIDs"
+    },
+    {
+      "source": "Internet Archive (Wayback Machine CDX API)",
+      "status": "COMPLETED",
+      "summary": "Wayback CDX queried (The read operation timed out)"
+    },
+    {
+      "source": "Kali Linux WSL2 Engine",
+      "status": "COMPLETED",
+      "summary": "Executed DNS resolution & WHOIS for developers.facebook.com"
+    },
+    {
+      "source": "Public Non-Profit 990 & Federal Grants Engine",
+      "status": "COMPLETED",
+      "summary": "Audited ProPublica IRS 990 database & USASpending"
+    },
+    {
+      "source": "LexisNexis Statutory Claims & Damages Calculator",
+      "status": "COMPLETED",
+      "summary": "Calculated False Claims treble damages & Labor Code \u00a7 1102.5 authorities"
+    }
+  ],
+  "findings": {
+    "Local Knowledge Graph (nodes.json)": [],
+    "Massive Library Catalog (reports_catalog.json)": [],
+    "Facebook Developer Tools & Open Graph Engine": {
+      "open_graph_data": {
+        "scrape_error": "The read operation timed out"
+      },
+      "graph_api_introspection": {
+        "note": "Graph API status: <urlopen error _ssl.c:1064: The handshake operation timed out>"
+      },
+      "ad_library_transparency": {
+        "search_url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=US&q=https%3A//developers.facebook.com/tools/"
+      },
+      "inferred_uids": []
+    },
+    "Internet Archive (Wayback Machine CDX API)": {
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=developers.facebook.com&output=json&limit=5"
+    },
+    "Kali Linux WSL2 Engine": {
+      "dns_note": "Command 'wsl -d kali-linux -u osintneoai -- dig +short developers.facebook.com A' timed out after 5 seconds"
+    },
+    "Public Non-Profit 990 & Federal Grants Engine": {
+      "irs_form_990": [
+        {
+          "ein": 994920535,
+          "strein": "99-4920535",
+          "name": "Developers Alliance",
+          "sub_name": "Developers Alliance",
+          "city": "Washington",
+          "state": "DC",
+          "ntee_code": "P01",
+          "raw_ntee_code": "P01",
+          "subseccd": 4,
+          "has_subseccd": true,
+          "have_filings": null,
+          "have_extracts": null,
+          "have_pdfs": null,
+          "score": 76.746925
+        },
+        {
+          "ein": 921371318,
+          "strein": "92-1371318",
+          "name": "Aha Developers",
+          "sub_name": "Aha Developers",
+          "city": "Huffman",
+          "state": "TX",
+          "ntee_code": "B20",
+          "raw_ntee_code": "B20",
+          "subseccd": 3,
+          "has_subseccd": true,
+          "have_filings": null,
+          "have_extracts": null,
+          "have_pdfs": null,
+          "score": 76.746925
+        },
+        {
+          "ein": 812948705,
+          "strein": "81-2948705",
+          "name": "Basement Developers",
+          "sub_name": "Basement Developers",
+          "city": "Belmont",
+          "state": "CA",
+          "ntee_code": "U20",
+          "raw_ntee_code": "U20",
+          "subseccd": 3,
+          "has_subseccd": true,
+          "have_filings": null,
+          "have_extracts": null,
+          "have_pdfs": null,
+          "score": 76.746925
+        }
+      ],
+      "usaspending_search": "https://www.usaspending.gov/search/?hash=developers"
+    },
+    "LexisNexis Statutory Claims & Damages Calculator": {
+      "authorities": [
+        "whistleblower_retaliation",
+        "statutory_presumption",
+        "surplus_land_act",
+        "environmental_shelter_fraud",
+        "qui_tam_false_claims"
+      ],
+      "statutes_cited": [
+        "California Labor Code \u00a7 1102.5",
+        "California Civil Code \u00a7 1942.5",
+        "California Government Code \u00a7 54220 et seq. (AB 1486)",
+        "California False Claims Act (Cal. Gov. Code \u00a7 12650) / Federal False Claims Act (31 U.S.C. \u00a7 3729)"
+      ],
+      "sample_qui_tam_calculation": {
+        "exposed_public_fraud": 14200000.0,
+        "treble_damages_ceiling": 42600000.0,
+        "qui_tam_bounty_min_15pct": 2130000.0,
+        "qui_tam_bounty_max_30pct": 4260000.0,
+        "taxfundedtoken_mint_allocation": 1420000,
+        "osintcoin_mint_allocation": 284000
+      }
+    }
+  }
+}
