@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>OsintNeoAi — Mobile Cloud CLI Terminal</title>
+
+    <!-- PWA Progressive Web App Meta Tags -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#00f2ff">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="OsintNeoAi">
+    <link rel="apple-touch-icon" href="https://img.icons8.com/color/192/000000/cyber-security.png">
+
     <style>
         :root {
             --bg-color: #0b0f19;
@@ -33,8 +43,8 @@
 </head>
 <body>
     <header>
-        <h1>⚡ OSINT NEO AI — MOBILE CLI TERMINAL</h1>
-        <span class="status-badge">ONLINE 24/7</span>
+        <h1>⚡ OSINT NEO AI — MOBILE PWA TERMINAL</h1>
+        <span class="status-badge">PWA ACTIVE</span>
     </header>
 
     <div class="quick-chips">
@@ -48,11 +58,11 @@
     <div class="terminal-container" id="terminal">
         <div class="output-line" style="color: var(--accent-cyan);">
 ======================================================================
-     OSINT NEO AI — MOBILE CLOUD COMMAND LINE AGENT TERMINAL
+     OSINT NEO AI — MOBILE PWA CLOUD CLI TERMINAL
 ======================================================================
-* Host: Cloud Azure / GCP 24/7 VM Instance
-* Accessible anywhere on Mobile, iPad, & Web Browsers
-* Type commands below or click quick-action chips above.
+* App: Installed Mobile Progressive Web App (PWA)
+* Host: Azure Cloud 24/7 Always-On Instance
+* Tap "Add to Home Screen" in your browser for 1-tap app launch!
 ----------------------------------------------------------------------
         </div>
     </div>
@@ -63,6 +73,12 @@
     </div>
 
     <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js').catch(()=>{});
+            });
+        }
+
         async function executeCmd() {
             const input = document.getElementById('cmdInput');
             const cmd = input.value.trim();
