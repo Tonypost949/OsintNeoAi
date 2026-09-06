@@ -1,0 +1,55 @@
+{
+  "system_name": "OsintNeoAi & TaxFunded Autonomous Task Management Engine",
+  "version": "2026.1.0-TASK-ROUTER",
+  "description": "Unified task queue that captures all AI suggestions, splits them into AI Autonomous Execution Tasks or Outreach/Human Action Tasks, and feeds them into FOIA/Complaint/Whistleblower or Suggestive Work pipelines.",
+  "task_queues": {
+    "FOIA_COMPLAINT_WHISTLEBLOWER_TASKS": [
+      {
+        "task_id": "TASK-FOIA-001",
+        "task_type": "OUTREACH_HUMAN_ACTION",
+        "title": "Dispatch CPRA Complaint to O.C. District Attorney",
+        "target_entity": "Robin Estanislau / City Clerk HB",
+        "suggested_by_ai": true,
+        "action_mode": "REACH_OUT_TO_PERSON",
+        "status": "PENDING_DISPATCH",
+        "pipeline_destination": "FOIA / Omnichannel Legal Dispatch System",
+        "statutory_link": "Cal. Gov. Code \u00a7 7920 (CPRA 10-Day Statutory Exceedance)"
+      },
+      {
+        "task_id": "TASK-WHISTLE-002",
+        "task_type": "AI_AUTONOMOUS_WORK",
+        "title": "Draft Qui Tam False Claims Disclosure for Relator Filing",
+        "target_entity": "Oliver Chi / Shigeru Yamada Trust",
+        "suggested_by_ai": true,
+        "action_mode": "AI_WORK_OFFER",
+        "status": "READY_FOR_EXECUTION",
+        "pipeline_destination": "Whistleblower Legal Reward Pipeline",
+        "statutory_link": "California False Claims Act (Cal. Gov. Code \u00a7 12650)"
+      }
+    ],
+    "SUGGESTIVE_WORK_TASKS": [
+      {
+        "task_id": "TASK-SUGGEST-003",
+        "task_type": "AI_AUTONOMOUS_WORK",
+        "title": "Deep OCR Scan on 17642 Beach Blvd Environmental Soil Reports",
+        "target_entity": "Hexavalent Chromium Soil Cap Site",
+        "suggested_by_ai": true,
+        "action_mode": "AI_WORK_OFFER",
+        "status": "IN_PROGRESS",
+        "pipeline_destination": "Suggestive Forensic Work Queue",
+        "statutory_link": "Prop 65 / DTSC Environmental Covenant"
+      },
+      {
+        "task_id": "TASK-SUGGEST-004",
+        "task_type": "OUTREACH_HUMAN_ACTION",
+        "title": "Contact Regional Water Board Inspector regarding Asphalt Cap Warranty",
+        "target_entity": "Santa Ana Regional Water Quality Control Board",
+        "suggested_by_ai": true,
+        "action_mode": "REACH_OUT_TO_PERSON",
+        "status": "QUEUED_FOR_USER",
+        "pipeline_destination": "Regulatory Agency Outreach Queue",
+        "statutory_link": "Water Board Order RB8-2020-0012"
+      }
+    ]
+  }
+}

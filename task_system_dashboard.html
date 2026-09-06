@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OsintNeoAi & TaxFunded - Autonomous Task Routing Dashboard</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #0d1117; color: #c9d1d9; margin: 0; padding: 24px; }
+    h1 { color: #58a6ff; font-size: 24px; margin-bottom: 4px; }
+    .subtitle { color: #8b949e; font-size: 14px; margin-bottom: 24px; }
+    .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .task-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; }
+    .task-card h2 { border-bottom: 1px solid #30363d; padding-bottom: 10px; color: #f0f6fc; font-size: 18px; margin-top: 0; display: flex; justify-content: space-between; align-items: center; }
+    .badge-count { background: #1e3a8a; color: #93c5fd; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; }
+    .task-item { background: #1c2128; border: 1px solid #30363d; border-radius: 6px; padding: 14px; margin-bottom: 14px; }
+    .task-item h4 { margin: 0 0 6px 0; font-size: 15px; color: #58a6ff; }
+    .badge-mode { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 8px; }
+    .mode-ai-work { background: #065f46; color: #a7f3d0; }
+    .mode-outreach { background: #9a3412; color: #ffedd5; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 12px; }
+    th, td { border: 1px solid #30363d; padding: 8px; text-align: left; }
+    th { background: #21262d; color: #8b949e; }
+  </style>
+</head>
+<body>
+  <h1>📋 Autonomous Task Routing & Pipeline System</h1>
+  <div class="subtitle">Captures all AI Suggestions → Routes into AI Autonomous Work OR Outreach Actions → Feeds into FOIA/Complaint/Whistleblower OR Suggestive Work Queues.</div>
+
+  <div class="grid-container">
+    <!-- Queue 1: FOIA / Complaint / Whistleblower Tasks -->
+    <div class="task-card">
+      <h2>
+        <span>🏛️ FOIA / Complaint / Whistleblower Tasks</span>
+        <span class="badge-count">2 Active Tasks</span>
+      </h2>
+      
+      <div class="task-item">
+        <span class="badge-mode mode-outreach">📞 OUTREACH / HUMAN ACTION</span>
+        <h4>TASK-FOIA-001: Dispatch CPRA Complaint to O.C. District Attorney</h4>
+        <div><strong>Target Entity:</strong> Robin Estanislau (City Clerk HB)</div>
+        <div><strong>Pipeline Destination:</strong> FOIA / Omnichannel Legal Dispatch System</div>
+        <div><strong>Statutory Link:</strong> Cal. Gov. Code § 7920 (10-Day Statutory Exceedance)</div>
+        <div style="margin-top: 8px;"><button style="background: #238636; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px;">Trigger Dispatch / Reach Out →</button></div>
+      </div>
+
+      <div class="task-item">
+        <span class="badge-mode mode-ai-work">🤖 AI AUTONOMOUS WORK OFFER</span>
+        <h4>TASK-WHISTLE-002: Draft Qui Tam False Claims Disclosure</h4>
+        <div><strong>Target Entity:</strong> Oliver Chi / Shigeru Yamada Trust</div>
+        <div><strong>Pipeline Destination:</strong> Whistleblower Legal Reward Pipeline</div>
+        <div><strong>Statutory Link:</strong> California False Claims Act (Cal. Gov. Code § 12650)</div>
+        <div style="margin-top: 8px;"><button style="background: #1f6feb; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px;">Approve AI Work Execution →</button></div>
+      </div>
+    </div>
+
+    <!-- Queue 2: Suggestive Work Tasks -->
+    <div class="task-card">
+      <h2>
+        <span>💡 Suggestive Work Tasks</span>
+        <span class="badge-count">2 Active Tasks</span>
+      </h2>
+
+      <div class="task-item">
+        <span class="badge-mode mode-ai-work">🤖 AI AUTONOMOUS WORK OFFER</span>
+        <h4>TASK-SUGGEST-003: Deep OCR Scan on Environmental Soil Reports</h4>
+        <div><strong>Target Entity:</strong> Hexavalent Chromium Soil Cap Site (17642 Beach Blvd)</div>
+        <div><strong>Pipeline Destination:</strong> Suggestive Forensic Work Queue</div>
+        <div><strong>Statutory Link:</strong> Prop 65 / DTSC Environmental Covenant</div>
+        <div style="margin-top: 8px;"><button style="background: #1f6feb; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px;">Run Autonomous AI OCR Scan →</button></div>
+      </div>
+
+      <div class="task-item">
+        <span class="badge-mode mode-outreach">📞 OUTREACH / HUMAN ACTION</span>
+        <h4>TASK-SUGGEST-004: Contact Regional Water Board Inspector</h4>
+        <div><strong>Target Entity:</strong> Santa Ana Regional Water Quality Control Board</div>
+        <div><strong>Pipeline Destination:</strong> Regulatory Agency Outreach Queue</div>
+        <div><strong>Statutory Link:</strong> Water Board Order RB8-2020-0012</div>
+        <div style="margin-top: 8px;"><button style="background: #238636; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px;">Generate Outreach Script →</button></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
