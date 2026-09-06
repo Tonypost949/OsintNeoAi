@@ -48,11 +48,11 @@
     </header>
 
     <div class="quick-chips">
-        <span class="chip" onclick="runQuick('python cli/cli.py chat')">cli.py chat</span>
-        <span class="chip" onclick="runQuick('python AG2OSINTNEOMAXX/aegis_correlation_engine.py')">aegis engine</span>
-        <span class="chip" onclick="runQuick('bq ls noble-beanbag-497411-m4')">bq datasets</span>
-        <span class="chip" onclick="runQuick('git status')">git status</span>
-        <span class="chip" onclick="runQuick('python OSINTNeoAiCLI_v2.py')">check hub</span>
+        <span class="chip" onclick="runQuick('python3 cli/cli.py chat')">cli.py chat</span>
+        <span class="chip" onclick="runQuick('python3 AG2OSINTNEOMAXX/aegis_correlation_engine.py')">aegis engine</span>
+        <span class="chip" onclick="runQuick('python3 -c &quot;import sys; print(sys.version)&quot;')">python version</span>
+        <span class="chip" onclick="runQuick('ls -la')">list files</span>
+        <span class="chip" onclick="runQuick('python3 OSINTNeoAiCLI_v2.py')">check hub</span>
     </div>
 
     <div class="terminal-container" id="terminal">
@@ -62,13 +62,13 @@
 ======================================================================
 * App: Installed Mobile Progressive Web App (PWA)
 * Host: Azure Cloud 24/7 Always-On Instance
-* Tap "Add to Home Screen" in your browser for 1-tap app launch!
+* Tap chips above or enter python3/shell commands below.
 ----------------------------------------------------------------------
         </div>
     </div>
 
     <div class="input-bar">
-        <input type="text" id="cmdInput" placeholder="Enter CLI command (e.g., python cli/cli.py)..." onkeydown="if(event.key==='Enter') executeCmd()">
+        <input type="text" id="cmdInput" placeholder="Enter CLI command (e.g., python3 cli/cli.py)..." onkeydown="if(event.key==='Enter') executeCmd()">
         <button onclick="executeCmd()">Run</button>
     </div>
 

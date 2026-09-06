@@ -1,6 +1,7 @@
 ﻿import os
 import json
 import subprocess
+import shutil
 from flask import Flask, jsonify, request, send_from_directory, abort, Response
 
 app = Flask(__name__, static_folder='.')
@@ -103,10 +104,21 @@ def api_cli_exec_route():
         cmd = str(data.get('command') or '').strip()
         if not cmd:
             return jsonify({'status': 'error', 'message': 'No command provided'}), 400
-        res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT_DIR, timeout=30)
+
+        # Auto alias python -> python3 if python not in path
+        if cmd.startswith('python ') and not shutil.which('python'):
+            cmd = 'python3 ' + cmd[7:]
+
+        env = os.environ.copy()
+        env['PATH'] = env.get('PATH', '') + ':/usr/local/bin:/usr/bin:/bin'
+
+        res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT_DIR, timeout=30, env=env)
         output = res.stdout
         if res.stderr:
-            output += '\n' + res.stderr
+            output += ('\n' if output else '') + res.stderr
+        if not output and res.returncode == 0:
+            output = '[Command completed successfully with returncode 0]'
+
         return jsonify({'status': 'success', 'output': output, 'returncode': res.returncode})
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)}), 500
