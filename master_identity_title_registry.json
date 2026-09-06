@@ -1,9 +1,13 @@
 [
   {
     "full_name": "Oliver Chi",
-    "official_title": "Former City Manager & Designated Real Property Negotiator",
+    "initials": "OC",
+    "official_title": "City Manager & Real Property Negotiator",
     "capacity_type": "PUBLIC_OFFICIAL",
     "agency_entity": "City of Huntington Beach",
+    "risk_score": 9,
+    "risk_level": "CRITICAL (Conflict & Disgorgement Risk)",
+    "profile_url": "master_identity_title_registry.json#oliver-chi",
     "governing_statutes": [
       "Cal. Gov. Code \u00a7 1090",
       "Cal. Gov. Code \u00a7 87100 (Form 700)",
@@ -14,21 +18,29 @@
   },
   {
     "full_name": "Shigeru Yamada",
-    "official_title": "Trustee & Beneficial Owner",
+    "initials": "SY",
+    "official_title": "Trustee & Beneficial Landowner",
     "capacity_type": "PRIVATE_LAND_TRUSTEE",
     "agency_entity": "Shigeru Yamada Living Trust (17631 Cameron & 17642 Beach)",
+    "risk_score": 9,
+    "risk_level": "CRITICAL (Soil Capping / \u00a7 1090 Co-Conspirator)",
+    "profile_url": "master_identity_title_registry.json#shigeru-yamada",
     "governing_statutes": [
       "Cal. Gov. Code \u00a7 1090 (Beneficial Ownership Unmasking)",
-      "Cal. Gov. Code \u00a7 6250"
+      "Cal. Health & Safety Code \u00a7 25249.6 (Prop 65)"
     ],
     "surety_bond_status": "TAGGED (Cal. Civil Code \u00a7 9550 Performance Bond)",
     "taxfunded_referral": "AUTO_TRANSFERRED"
   },
   {
     "full_name": "Mitsuru Yamada",
+    "initials": "MY",
     "official_title": "Trustee & Beneficial Owner",
     "capacity_type": "PRIVATE_LAND_TRUSTEE",
     "agency_entity": "Mitsuru Yamada Living Trust (17642 Beach Blvd)",
+    "risk_score": 8,
+    "risk_level": "HIGH (Trust Asset Disgorgement Liability)",
+    "profile_url": "master_identity_title_registry.json#mitsuru-yamada",
     "governing_statutes": [
       "Cal. Gov. Code \u00a7 1090",
       "Cal. Gov. Code \u00a7 87100"
@@ -37,23 +49,35 @@
     "taxfunded_referral": "AUTO_TRANSFERRED"
   },
   {
+    "full_name": "Robin Estanislau",
+    "initials": "RE",
+    "official_title": "City Clerk & Custodian of Records",
+    "capacity_type": "PUBLIC_OFFICIAL",
+    "agency_entity": "City of Huntington Beach",
+    "risk_score": 7,
+    "risk_level": "HIGH (Records Withholding / CPRA Compliance Failure)",
+    "profile_url": "master_identity_title_registry.json#robin-estanislau",
+    "governing_statutes": [
+      "Cal. Gov. Code \u00a7 7920 (CPRA)",
+      "Cal. Gov. Code \u00a7 1480"
+    ],
+    "surety_bond_status": "TAGGED (Cal. Gov. Code \u00a7 1480 Official Bond)",
+    "taxfunded_referral": "AUTO_TRANSFERRED"
+  },
+  {
     "full_name": "Larry McNeely",
+    "initials": "LM",
     "official_title": "Civic Watchdog & Public Records Whistleblower",
     "capacity_type": "WHISTLEBLOWER_INVESTIGATOR",
     "agency_entity": "Independent Citizen Audit",
+    "risk_score": 1,
+    "risk_level": "VERIFIED_AUDITOR (Protected Shield)",
+    "profile_url": "master_identity_title_registry.json#larry-mcneely",
     "governing_statutes": [
       "Cal. Gov. Code \u00a7 6250 (CPRA)",
       "First Amendment Whistleblower Shield"
     ],
-    "surety_bond_status": "N/A (Protected Investigator)",
+    "surety_bond_status": "N/A (Protected Whistleblower)",
     "taxfunded_referral": "REWARD_ELIGIBLE (OSINT & TFT Tokens)"
-  },
-  {
-    "full_name": "Robin Estanislau",
-    "official_title": "City Clerk & Public Records Custodian",
-    "capacity_type": "PUBLIC_OFFICIAL",
-    "agency_entity": "City of Huntington Beach",
-    "registration_status": "COMPLETE_WITH_TITLE_AND_GOVERNING_LAWS",
-    "timestamp": "2026-09-05T22:11:29.925431"
   }
 ]
