@@ -8,10 +8,11 @@ ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def get_file_content(candidates):
     for c in candidates:
-        p = os.path.join(ROOT_DIR, c)
-        if os.path.exists(p):
-            with open(p, 'r', encoding='utf-8') as f:
-                return f.read()
+        for prefix in ['', 'public', 'docs', 'opencode_work']:
+            p = os.path.join(ROOT_DIR, prefix, c) if prefix else os.path.join(ROOT_DIR, c)
+            if os.path.exists(p):
+                with open(p, 'r', encoding='utf-8') as f:
+                    return f.read()
     return None
 
 @app.route('/')
@@ -25,7 +26,7 @@ def root_route():
 @app.route('/syncfusion-grid')
 @app.route('/grid')
 def syncfusion_route():
-    content = get_file_content([os.path.join('public', 'syncfusion_grid.html_v2'), os.path.join('public', 'syncfusion_grid.html'), 'syncfusion_grid.html'])
+    content = get_file_content(['syncfusion_grid.html_v2', 'syncfusion_grid.html', 'grid.html'])
     if content:
         return content
     return '<h3>Syncfusion Grid Template Not Found</h3>', 404
@@ -33,7 +34,7 @@ def syncfusion_route():
 @app.route('/tasks')
 @app.route('/tasks-engine')
 def tasks_route():
-    content = get_file_content([os.path.join('public', 'tasks.html'), 'tasks.html'])
+    content = get_file_content(['tasks.html', 'tasks_engine.html'])
     if content:
         return content
     return '<h3>Tasks Engine Template Not Found</h3>', 404
@@ -42,7 +43,7 @@ def tasks_route():
 @app.route('/term')
 @app.route('/cli')
 def terminal_route():
-    content = get_file_content([os.path.join('public', 'terminal.html'), 'terminal.html'])
+    content = get_file_content(['terminal.html', 'cli.html'])
     if content:
         return content
     return '<h3>Terminal Template Not Found</h3>', 404
@@ -50,7 +51,7 @@ def terminal_route():
 @app.route('/victims-board')
 @app.route('/victims')
 def victims_route():
-    content = get_file_content([os.path.join('public', 'victims_board.html'), 'victims_board.html'])
+    content = get_file_content(['victims_board.html', 'public_victims_board.html', 'board.html'])
     if content:
         return content
     return '<h3>Victims Board Template Not Found</h3>', 404
@@ -58,27 +59,27 @@ def victims_route():
 @app.route('/gemini')
 @app.route('/ai-chat')
 def gemini_route():
-    content = get_file_content([os.path.join('public', 'gemini_chat.html'), 'gemini_chat.html', 'osint_gemini_gis.html'])
+    content = get_file_content(['gemini_chat.html', 'osint_gemini_gis.html', 'chat.html'])
     if content:
         return content
     return '<h3>Gemini AI Studio Template Not Found</h3>', 404
 
 @app.route('/maps')
 def maps_route():
-    content = get_file_content(['osint_gemini_gis.html', 'hbnc_rico_gis.html', 'maps.html'])
+    content = get_file_content(['osint_gemini_gis.html', 'hbnc_rico_gis.html', 'maps.html', 'badass_osint_map.html'])
     if content:
         return content
     return '<h3>Maps Hub Template Not Found</h3>', 404
 
 @app.route('/api/tasks')
 def api_tasks_route():
-    tasks_file = os.path.join(ROOT_DIR, 'data', 'tasks.json')
-    if os.path.exists(tasks_file):
-        try:
-            with open(tasks_file, 'r', encoding='utf-8') as f:
-                return jsonify(json.load(f))
-        except Exception as e:
-            return jsonify({'status': 'error', 'message': str(e)}), 500
+    for candidate in [os.path.join(ROOT_DIR, 'data', 'tasks.json'), os.path.join(ROOT_DIR, 'tasks.json')]:
+        if os.path.exists(candidate):
+            try:
+                with open(candidate, 'r', encoding='utf-8') as f:
+                    return jsonify(json.load(f))
+            except Exception as e:
+                return jsonify({'status': 'error', 'message': str(e)}), 500
     return jsonify({'tasks': [], 'total': 0, 'status': 'empty'})
 
 @app.route('/api/cli_exec', methods=['POST'])
@@ -98,10 +99,10 @@ def api_cli_exec_route():
 
 @app.route('/<path:filename>')
 def serve_static_file(filename):
-    if os.path.exists(os.path.join(ROOT_DIR, filename)):
-        return send_from_directory(ROOT_DIR, filename)
-    elif os.path.exists(os.path.join(ROOT_DIR, 'public', filename)):
-        return send_from_directory(os.path.join(ROOT_DIR, 'public'), filename)
+    for dir_path in [ROOT_DIR, os.path.join(ROOT_DIR, 'public'), os.path.join(ROOT_DIR, 'docs'), os.path.join(ROOT_DIR, 'opencode_work')]:
+        p = os.path.join(dir_path, filename)
+        if os.path.exists(p) and os.path.isfile(p):
+            return send_from_directory(dir_path, filename)
     abort(404)
 
 if __name__ == '__main__':
