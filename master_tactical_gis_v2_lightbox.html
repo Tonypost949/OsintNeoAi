@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>OSINTNeoAi — Master Tactical 3D GIS v2 LightBox EDR • 712-File Fusion</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body, #map { width:100%; height:100%; background:#020617; font-family:'Segoe UI', Tahoma, monospace, sans-serif; overflow:hidden; }
+#hud-panel {
+    position: fixed; top: 12px; left: 12px; z-index: 1000;
+    background: rgba(2, 6, 23, 0.97); border: 1px solid rgba(56, 189, 248, 0.5);
+    border-radius: 10px; padding: 14px 16px; color: #f8fafc; font-family: monospace;
+    font-size: 10.5px; line-height: 1.5; backdrop-filter: blur(14px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9), 0 0 24px rgba(56, 189, 248, 0.25);
+    max-width: 420px;
+}
+#hud-panel h1 { font-size: 14px; font-weight: 900; color: #38bdf8; letter-spacing: 0.8px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
+#hud-panel .badge { background: #38bdf8; color: #020617; padding: 3px 7px; border-radius: 4px; font-size: 9px; font-weight: 900; letter-spacing: 0.5px; }
+#hud-panel .kv { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.07); padding: 3px 0; }
+#hud-panel .kv b { color: #00ffaa; }
+#cam-hud {
+    position: fixed; top: 12px; left: 50%; transform: translateX(-50%); z-index: 1000;
+    background: rgba(2, 6, 23, 0.96); border: 2px solid #00ffaa;
+    border-radius: 999px; padding: 7px 16px; color: #00ffaa; font-family: monospace;
+    font-size: 11px; font-weight: bold; backdrop-filter: blur(14px);
+    box-shadow: 0 0 20px rgba(0, 255, 170, 0.35);
+    display: flex; align-items: center; gap: 12px;
+}
+#cam-hud button { background: #0f172a; color: #00ffaa; border: 1px solid #00ffaa66; padding: 6px 12px; border-radius: 999px; font-family: monospace; font-size: 11px; font-weight: bold; cursor: pointer; }
+#cam-hud button:hover { background: #00ffaa; color: #020617; }
+#cockpit {
+    position: fixed; top: 12px; right: 12px; z-index: 1000; width: 360px;
+    background: rgba(2, 6, 23, 0.96); border: 1px solid rgba(0, 255, 170, 0.35);
+    border-radius: 10px; padding: 12px; color: #e2e8f0; font-family: monospace; font-size: 11px; backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.9); display: flex; flex-direction: column; gap: 8px; max-height: 92vh; overflow-y: auto;
+}
+#cockpit label { color:#38bdf8; font-weight:900; font-size:10px; letter-spacing:0.6px; }
+#cockpit select, #cockpit input { background:#0f172a; color:#e2e8f0; border:1px solid #334155; padding:7px 9px; border-radius:6px; font-family:monospace; font-size:11px; outline:none; width:100%; }
+#cockpit button { background:#38bdf8; color:#020617; border:none; padding:8px 10px; border-radius:6px; font-weight:900; cursor:pointer; font-family:monospace; font-size:11px; }
+#cockpit button.secondary { background:#1e293b; color:#38bdf8; border:1px solid #38bdf844; }
+#cockpit .panel { background: rgba(15,23,42,0.85); border:1px solid #1e293b; border-radius:8px; padding:9px; }
+#cockpit .panel h3 { font-size:11px; color:#00ffaa; margin-bottom:6px; letter-spacing:0.5px; }
+#results { max-height: 180px; overflow-y:auto; font-size:10px; line-height:1.4; }
+#results .hit { padding:6px 7px; border-bottom:1px solid #1e293b; cursor:pointer; }
+#results .hit:hover { background:#1e293b; }
+#tilt { position: fixed; bottom: 12px; left: 12px; z-index: 1000; background: rgba(2,6,23,0.92); border:1px solid rgba(255,255,255,0.12); border-radius:8px; padding:8px 12px; color:#94a3b8; font-family:monospace; font-size:11px; display:flex; align-items:center; gap:10px; backdrop-filter: blur(8px); }
+#tilt input { accent-color:#00ffaa; width:90px; }
+.maplibregl-popup-content { background: rgba(15, 23, 42, 0.98) !important; border: 1px solid #38bdf8 !important; border-radius: 8px !important; padding: 12px 14px !important; color: #e2e8f0 !important; font-family: monospace !important; font-size: 11px !important; box-shadow: 0 0 24px rgba(0,0,0,0.9), 0 0 12px rgba(56,189,248,0.3) !important; max-width: 340px !important; }
+.popup-title { color: #38bdf8; font-size: 13px; font-weight: 900; border-bottom: 1px solid #334155; padding-bottom: 4px; margin-bottom: 6px; }
+.popup-tag { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 9px; font-weight: 900; margin-bottom: 4px; }
+.tag-toxic { background: #ef444433; color: #f87171; border: 1px solid #ef4444; }
+.tag-realestate { background: #f59e0b33; color: #fbbf24; border: 1px solid #f59e0b; }
+.tag-lab { background: #ec489933; color: #f472b6; border: 1px solid #ec4899; }
+.tag-gatekeeper { background: #a855f733; color: #c084fc; border: 1px solid #a855f7; }
+.tag-gov { background: #3b82f633; color: #60a5fa; border: 1px solid #3b82f6; }
+.tag-lightbox { background: #00ffaa22; color: #00ffaa; border: 1px solid #00ffaa; }
+.tag-zlll { background: #38bdf822; color: #38bdf8; border: 1px solid #38bdf8; }
+.status-dot { width:8px; height:8px; border-radius:50%; display:inline-block; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%,100% { opacity:1 } 50% { opacity:0.5 } }
+</style>
+</head>
+<body>
+<div id="hud-panel">
+    <h1><span>🛰️ NWO-RICO v2 EDR FUSION</span> <span class="badge">712 FILES • LightBox 11</span></h1>
+    <div class="kv"><span>ZLLL HISTORICAL SURVEY</span><b>51 files • 302 MB</b></div>
+    <div class="kv"><span>HB PROJECT BINDER</span><b>660 files • 394 MB</b></div>
+    <div class="kv"><span>LightBox EDR ENGINE</span><b>9446 B • 11 endpoints</b></div>
+    <div class="kv"><span>TOTAL FUSION</span><b>712 files • 696.6 MB</b></div>
+    <div class="kv"><span>GRAPH ENTITIES</span><b>2,252 nodes • 24 verified</b></div>
+    <div class="kv"><span>BIGQUERY</span><b>noble-beanbag-497411-m4</b></div>
+    <div class="kv"><span>LIVE STATUS</span><b><span class="status-dot" style="background:#00ffaa"></span> <span id="lb-status">checking…</span></b></div>
+    <div style="margin-top:8px; font-size:9px; color:#64748b; text-align:center;">NEW v2: Sanborn • Radius Maps • EDR • LightBox Parcels • ZLLL Search</div>
+</div>
+
+<div id="cam-hud">
+    <span>PITCH <span id="hud-pitch">60°</span></span>
+    <span>BEARING <span id="hud-bearing">-20°</span></span>
+    <button onclick="toggleAutopilot()" id="btn-ap">▶️ 3D RECON</button>
+    <button onclick="document.getElementById('cockpit').scrollTop=0" style="background:#38bdf8;color:#020617;">COCKPIT</button>
+</div>
+
+<div id="cockpit">
+    <label>📍 TACTICAL JUMP (24 + 6 NEW ZLLL)</label>
+    <select id="jump" onchange="jumpTo(+this.value)">
+        <optgroup label="HBNC / Cr-VI Plume (Original 24)">
+            <option value="0">17642 Beach Blvd • HBNC 490 ppb CrVI</option>
+            <option value="1">17631 Cameron Ln • Yamada Parcel</option>
+            <option value="2">Toxic Drainage Sink • Cameron W</option>
+            <option value="3">212 Southbrook Irvine • Shea Lockout</option>
+            <option value="4">7561 Center Ave • Concrete Vaults</option>
+            <option value="5">333 Washington Blvd • Marina Hub</option>
+            <option value="6">19822 Brookhurst $12.7M</option>
+            <option value="7">21951 Brookhurst $2.8M</option>
+            <option value="8">20002 Brookhurst $18.5M</option>
+            <option value="9">19001 Brookhurst $11.2M</option>
+            <option value="10">3311 Bounty Cir Seal Beach HQ</option>
+            <option value="11">Ascon Superfund Hamilton&Magnolia</option>
+            <option value="12">Buck Jones Wells Gothard</option>
+            <option value="13">MCAS El Toro Superfund</option>
+            <option value="14">OC SSA HQ Title IV-E</option>
+            <option value="15">HB Civic Center City Hall</option>
+            <option value="16">Whitman Pill Press Lab MA</option>
+            <option value="17">Duxbury Clancy Residence MA</option>
+            <option value="18">Plymouth DA Brockton MA</option>
+            <option value="19">North Shore Lynn Hub MA</option>
+            <option value="20">Park Dietz Newport Beach</option>
+            <option value="21">Case Western Cleveland</option>
+            <option value="22">Drexel Philly</option>
+            <option value="23">Hi-Tech Pharma Atlanta</option>
+        </optgroup>
+        <optgroup label="NEW ZLLL Historical • Sanborn • Radius">
+            <option value="24">53-0225-002 Radius 7885521.2S (HB)</option>
+            <option value="25">74-0125-014 Sanborn 7867953.3S / Radius 2S</option>
+            <option value="26">7887036 HB Corridor (7887036.3/4)</option>
+            <option value="27">7969270 Radius 2 + Summary (HBNC Adjacent)</option>
+            <option value="28">17642 Beach Blur • LightBox Parcel Hub</option>
+            <option value="29">17631 Cameron • EDR Radius Fusion</option>
+        </optgroup>
+    </select>
+
+    <div class="panel">
+        <h3>🔍 ZLLL 712-FILE INSTANT SEARCH</h3>
+        <input id="zlll-q" placeholder="try: Sanborn, 7887036, 7969270, Radius, Cameron, Beach…" onkeydown="if(event.key==='Enter') searchZlll()">
+        <div style="display:flex; gap:6px; margin-top:6px;">
+            <button onclick="searchZlll()" style="flex:1;">SEARCH FILES</button>
+            <button class="secondary" onclick="searchZlll('Sanborn')">Sanborn</button>
+            <button class="secondary" onclick="searchZlll('7969270')">7969270</button>
+        </div>
+        <div id="zlll-results" class="results" style="margin-top:6px; border:1px solid #1e293b; border-radius:6px; background:#020617; display:none;"></div>
+    </div>
+
+    <div class="panel">
+        <h3>🧬 LightBox EDR • 11 ENDPOINTS LIVE</h3>
+        <input id="lb-addr" placeholder="16831 Cameron Ln, HB or 17642 Beach Blvd…" value="17642 Beach Blvd, Huntington Beach, CA">
+        <div style="display:flex; gap:6px; margin-top:6px;">
+            <button onclick="lightboxParcel()" style="flex:1; background:#00ffaa; color:#020617;">PARCEL BY ADDRESS</button>
+            <button onclick="lightboxEDR()" style="flex:1;">EDR REPORT</button>
+        </div>
+        <div style="display:flex; gap:6px; margin-top:6px;">
+            <button class="secondary" onclick="lightboxRadius()" style="flex:1;">PARCELS RADIUS 500m</button>
+            <button class="secondary" onclick="lightboxCombined()" style="flex:1; background:#38bdf8; color:#020617;">⚡ COMBINED FUSION</button>
+        </div>
+        <div id="lb-results" style="margin-top:8px; font-size:10px; background:#020617; border:1px solid #1e293b; border-radius:6px; padding:8px; max-height:200px; overflow:auto; display:none; white-space:pre-wrap; word-break:break-word;"></div>
+        <div style="font-size:9px; color:#64748b; margin-top:4px;">Requires LIGHTBOX_API_KEY in .env — falls back to cached EDR 712-file search if unset. See <code>/api/lightbox/status</code></div>
+    </div>
+
+    <div class="panel">
+        <h3>📡 API • MANIFEST</h3>
+        <div style="display:flex; gap:6px;">
+            <button class="secondary" onclick="window.open('/api/lightbox/status','_blank')" style="flex:1;">/status</button>
+            <button class="secondary" onclick="window.open('/api/zlll/manifest','_blank')" style="flex:1;">/manifest</button>
+            <button class="secondary" onclick="window.open('/api/zlll/files?limit=100','_blank')" style="flex:1;">/files</button>
+        </div>
+        <div style="margin-top:6px; font-size:10px; color:#94a3b8;">
+            <div>Sources: <code>1YWhP6j3OEI… (51)</code> + <code>16eXfAtk… (660)</code> + <code>18tAdAs8 lightbox_edr_engine.py</code></div>
+            <div>Evidence: <code>evidence/zlll_*</code> • Manifest: <code>zlll_ingest_manifest_20260906.json</code></div>
+        </div>
+    </div>
+</div>
+
+<div id="tilt">
+    <span>Pitch</span><input type="range" id="p-range" min="0" max="80" value="60" oninput="map.setPitch(+this.value)">
+    <span id="p-val">60°</span>
+    <span>Bearing</span><input type="range" id="b-range" min="-180" max="180" value="-20" oninput="map.setBearing(+this.value)">
+    <span id="b-val">-20°</span>
+    <button onclick="map.easeTo({pitch:65,bearing:-20,duration:900})" style="background:#1e293b;color:#38bdf8;border:1px solid #38bdf844;padding:3px 7px;border-radius:4px;cursor:pointer;">Reset</button>
+</div>
+<div id="map"></div>
+
+<script>
+const LOCATIONS = [
+    {name:"17642 Beach Blvd (HBNC / Vagabond)", coords:[-117.9881801,33.7064036], tag:"TOXIC SUPERFUND PLUME", cat:"tag-toxic", desc:"490 ppb CrVI plume GeoTracker T10000018579 • APN 102-121-04 • $14.68M conduit • +7969270 radius docs", color:"#ef4444", zoom:17, pitch:70, bearing:15},
+    {name:"17631 Cameron Ln (Yamada Parcel)", coords:[-117.99015,33.70625], tag:"REAL ESTATE PARCEL", cat:"tag-realestate", desc:"Yamada Trustee parcel, legacy pesticides/lead • APN 102-121-05 • docs 7887036.3/4", color:"#f59e0b", zoom:17, pitch:65, bearing:45},
+    {name:"Toxic Drainage Sink (West Cameron)", coords:[-117.9909,33.70625], tag:"DRAINAGE SINK", cat:"tag-toxic", desc:"Unsealed stormwater depression, infiltration path W of Cameron", color:"#dc2626", zoom:17.5, pitch:75, bearing:-30},
+    {name:"212 Southbrook, Irvine (Shea Lockout)", coords:[-117.7818,33.6934], tag:"CRIME SCENE LOCKOUT", cat:"tag-gov", desc:"2021-08-04 lockout & asset stripping", color:"#3b82f6", zoom:17, pitch:60, bearing:20},
+    {name:"7561 Center Ave (Concrete Vaults)", coords:[-117.9974,33.6927], tag:"UNDERGROUND VAULTS", cat:"tag-realestate", desc:"D1-E1-G3-J1 concrete coffins • 4 LLCs • $1.47M PPP", color:"#8b5cf6", zoom:17, pitch:65, bearing:-10},
+    {name:"333 Washington Blvd (Marina)", coords:[-118.4556,33.9806], tag:"SHELL AGENT", cat:"tag-realestate", desc:"Registered agent hub 19822 Brookhurst LLC / RAI", color:"#06b6d4", zoom:16.5, pitch:60, bearing:35},
+    {name:"19822 Brookhurst St ($12.7M)", coords:[-117.9542,33.6738], tag:"REAL ESTATE", cat:"tag-realestate", desc:"$12.7M shopping center 19822 LLC", color:"#10b981", zoom:16.5, pitch:65, bearing:0},
+    {name:"21951 Brookhurst St ($2.8M)", coords:[-117.9545,33.6781], tag:"REAL ESTATE", cat:"tag-realestate", desc:"$2.8M Triumvirate LLC", color:"#10b981", zoom:16.5, pitch:65, bearing:10},
+    {name:"20002 Brookhurst St ($18.5M)", coords:[-117.954,33.6715], tag:"REAL ESTATE", cat:"tag-realestate", desc:"$18.5M TS Marketplace LLC", color:"#10b981", zoom:16.5, pitch:65, bearing:-15},
+    {name:"19001 Brookhurst St ($11.2M)", coords:[-117.9548,33.6845], tag:"REAL ESTATE", cat:"tag-realestate", desc:"$11.2M HRAPTS1 LLC", color:"#10b981", zoom:16.5, pitch:65, bearing:5},
+    {name:"3311 Bounty Cir, Seal Beach HQ", coords:[-118.0932,33.7548], tag:"SHELL HQ", cat:"tag-realestate", desc:"Stewart Industries $1.13M PPP HQ", color:"#f59e0b", zoom:17, pitch:60, bearing:40},
+    {name:"Ascon Superfund Site", coords:[-117.9712,33.6536], tag:"SUPERFUND LANDFILL", cat:"tag-toxic", desc:"38-acre landfill EPA CAD980737092", color:"#ef4444", zoom:16, pitch:70, bearing:-30},
+    {name:"Buck Jones Wells (Gothard)", coords:[-117.9995,33.7145], tag:"TOXIC OIL CORRIDOR", cat:"tag-toxic", desc:"Unplugged wells & solvent pits Gothard", color:"#b91c1c", zoom:16.5, pitch:65, bearing:10},
+    {name:"MCAS El Toro Superfund", coords:[-117.7305,33.6755], tag:"SUPERFUND BASE", cat:"tag-toxic", desc:"TCE/PCE plume EPA CA6170023208", color:"#ef4444", zoom:15.5, pitch:60, bearing:25},
+    {name:"Orange County SSA HQ", coords:[-117.8825,33.7745], tag:"TITLE IV-E HUB", cat:"tag-gov", desc:"Title IV-E billing 29k child gap", color:"#3b82f6", zoom:16, pitch:55, bearing:0},
+    {name:"Huntington Beach Civic Center", coords:[-117.9985,33.6685], tag:"MUNICIPAL PROCUREMENT", cat:"tag-gov", desc:"City Hall procurement HBNC", color:"#3b82f6", zoom:16.5, pitch:60, bearing:-20},
+    {name:"Whitman Pill Press Lab (MA)", coords:[-70.9334,42.0809], tag:"COUNTERFEIT PILL LAB", cat:"tag-lab", desc:"Dec 2023 raid 27 lbs fake Xanax", color:"#ec4899", zoom:16.5, pitch:65, bearing:15},
+    {name:"Lindsay Clancy Residence (MA)", coords:[-70.672,42.0418], tag:"INTOXICATION SITE", cat:"tag-lab", desc:"Jan 2023 13-drug polypharmacy crisis", color:"#ec4899", zoom:16, pitch:60, bearing:-10},
+    {name:"Plymouth County DA Brockton (MA)", coords:[-71.0184,42.0834], tag:"PROSECUTORIAL HUB", cat:"tag-gov", desc:"DA Timothy Cruz Park Dietz", color:"#3b82f6", zoom:16.5, pitch:60, bearing:0},
+    {name:"North Shore Lynn Hub (MA)", coords:[-70.9495,42.4668], tag:"COUNTERFEIT NETWORK", cat:"tag-lab", desc:"74k+ fake Adderall pills", color:"#ec4899", zoom:16, pitch:60, bearing:30},
+    {name:"Park Dietz & Associates HQ", coords:[-117.9289,33.6189], tag:"FORENSIC GATEKEEPER", cat:"tag-gatekeeper", desc:"Closed-loop expert monopoly", color:"#a855f7", zoom:16, pitch:60, bearing:-25},
+    {name:"Case Western Reserve (Cleveland)", coords:[-81.6084,41.5043], tag:"ACADEMIC GATEKEEPER", cat:"tag-gatekeeper", desc:"Dr. Phillip Resnick base", color:"#a855f7", zoom:15.5, pitch:60, bearing:45},
+    {name:"Drexel Univ Medicine (Philly)", coords:[-75.187,40.015], tag:"INSTITUTIONAL ENFORCER", cat:"tag-gatekeeper", desc:"Dr. Donald Kushon base", color:"#a855f7", zoom:16, pitch:60, bearing:-15},
+    {name:"Hi-Tech Pharmaceuticals HQ (Atlanta)", coords:[-84.2135,33.9412], tag:"COUNTERFEIT GENERIC", cat:"tag-lab", desc:"Jared Wheat hub counterfeit generics", color:"#ec4899", zoom:16, pitch:65, bearing:20},
+    // NEW ZLLL 6
+    {name:"53-0225-002 Radius 7885521.2S", coords:[-117.987,33.702], tag:"ZLLL RADIUS MAP • 7885521.2S", cat:"tag-zlll", desc:"ZLLL Radius Map 53-0225-002 • 1339242/3849284 B • EDR radius layer • NEW", color:"#38bdf8", zoom:17, pitch:70, bearing:0},
+    {name:"74-0125-014 Sanborn 7867953.3S", coords:[-117.992,33.704], tag:"ZLLL SANBORN • 7867953.3S", cat:"tag-zlll", desc:"ZLLL Sanborn 74-0125-014 • 1.5 MB • Historical fire insurance • NEW", color:"#38bdf8", zoom:17, pitch:65, bearing:20},
+    {name:"7887036 Corridor (HB)", coords:[-117.989,33.708], tag:"ZLLL 7887036 SUITE", cat:"tag-zlll", desc:"7887036.3/4/12/15/16/24 • 7969270 binder • 7887036_14 31 MB • NEW", color:"#00ffaa", zoom:16.8, pitch:68, bearing:-15},
+    {name:"7969270 Radius Summary (HBNC Adjacent)", coords:[-117.986,33.709], tag:"ZLLL 7969270 RADIUS • SUMMARY", cat:"tag-zlll", desc:"SUMMARY_RADIUS_7969270_2 15 MB • 7969270_2 13 MB • 7969270.11/0.4/2s • NEW", color:"#00ffaa", zoom:17, pitch:70, bearing:10},
+    {name:"17642 Beach LightBox Hub", coords:[-117.98818,33.7064], tag:"LightBox PARCEL HUB • EDR", cat:"tag-lightbox", desc:"LightBox parcels/us/address • EDR reports/address • zoning • assessments • NEW 11 endpoints", color:"#00ffaa", zoom:18, pitch:72, bearing:0},
+    {name:"17631 Cameron EDR Fusion", coords:[-117.99015,33.70625], tag:"LightBox RADIUS • ZLLL FUSION", cat:"tag-lightbox", desc:"EDR radius 0.5mi • parcels radius 500m • ZLLL 711-file overlay", color:"#00ffaa", zoom:18, pitch:72, bearing:45},
+];
+
+const map = new maplibregl.Map({
+    container: 'map',
+    style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+    center: [-117.98818,33.7064036],
+    zoom: 16.9, pitch: 65, bearing: -20, antialias: true
+});
+map.addControl(new maplibregl.NavigationControl({visualizePitch:true}), 'bottom-right');
+map.on('load', () => {
+    LOCATIONS.forEach((loc, i)=>{
+        const el=document.createElement('div');
+        el.style.width = i>=24 ? '18px':'15px'; el.style.height = i>=24 ? '18px':'15px';
+        el.style.backgroundColor=loc.color; el.style.border='2px solid #fff'; el.style.borderRadius='50%';
+        el.style.boxShadow = `0 0 14px ${loc.color}, 0 0 6px #fff`; el.style.cursor='pointer';
+        if(i>=24) el.style.outline = '2px solid #38bdf8';
+        const popup=new maplibregl.Popup({offset:25}).setHTML(`
+            <div class="popup-tag ${loc.cat}">${loc.tag}</div>
+            <div class="popup-title">${loc.name}</div>
+            <div style="color:#94a3b8; font-size:10px; margin-bottom:4px;">#${i} • ${loc.coords[1].toFixed(5)}, ${loc.coords[0].toFixed(5)} • z ${loc.zoom}</div>
+            <div style="color:#cbd5e1;">${loc.desc}</div>
+            ${i>=24 ? '<div style="margin-top:6px; font-size:9px; color:#00ffaa; border:1px solid #00ffaa44; padding:3px 6px; border-radius:4px;">🆕 ZLLL v2 • LightBox EDR Fusion</div>':''}
+        `);
+        new maplibregl.Marker(el).setLngLat(loc.coords).setPopup(popup).addTo(map);
+    });
+    // HBNC CrVI plume circle
+    map.addSource('plume', {type:'geojson', data: {type:'FeatureCollection', features:[{type:'Feature', geometry:{type:'Point', coordinates:[-117.98818,33.7064036]}, properties:{}}]}});
+    map.addLayer({id:'plume-circle', type:'circle', source:'plume', paint:{'circle-radius': 55, 'circle-color':'#ef4444','circle-opacity':0.18,'circle-stroke-color':'#ef4444','circle-stroke-width':2}});
+});
+map.on('move', ()=>{
+    document.getElementById('hud-pitch').textContent = Math.round(map.getPitch())+'°';
+    document.getElementById('hud-bearing').textContent = Math.round(map.getBearing())+'°';
+    document.getElementById('p-range').value = Math.round(map.getPitch());
+    document.getElementById('b-range').value = Math.round(map.getBearing());
+    document.getElementById('p-val').textContent = Math.round(map.getPitch())+'°';
+    document.getElementById('b-val').textContent = Math.round(map.getBearing())+'°';
+});
+function jumpTo(i){ const loc=LOCATIONS[i]; if(!loc) return; document.getElementById('jump').value=i; map.flyTo({center:loc.coords, zoom:loc.zoom, pitch:loc.pitch, bearing:loc.bearing, duration:2600});}
+let ap=false, apIdx=0, apTimer=null;
+function toggleAutopilot(){
+    ap=!ap; const b=document.getElementById('btn-ap');
+    if(ap){ b.textContent='⏸️ PAUSE'; b.style.background='#ef4444'; b.style.color='#fff';
+        (function loop(){ if(!ap) return; jumpTo(apIdx); apIdx=(apIdx+1)%LOCATIONS.length; apTimer=setTimeout(loop,6800); })();
+    } else { b.textContent='▶️ 3D RECON'; b.style.background='#0f172a'; b.style.color='#00ffaa'; clearTimeout(apTimer); }
+}
+async function fetchStatus(){
+    try{
+        const r=await fetch('/api/lightbox/status'); const j=await r.json();
+        const lb=j.lightbox||{}; const z=j.zlll||{};
+        document.getElementById('lb-status').textContent = `${lb.total_cached_records||lb.unique_sites_audited||0} EDR cached • ${z.total_files||712} files • ${lb.live_api_active?'LIVE':'CACHED'}`;
+        document.getElementById('lb-status').style.color = lb.live_api_active ? '#00ffaa':'#38bdf8';
+    } catch(e){ document.getElementById('lb-status').textContent='offline • 712 cached'}
+}
+fetchStatus(); setInterval(fetchStatus, 30000);
+
+async function searchZlll(preset){
+    const q = preset || document.getElementById('zlll-q').value.trim();
+    if(!q) return;
+    const box=document.getElementById('zlll-results'); box.style.display='block'; box.innerHTML='⏳ searching 712 files…';
+    try{
+        const r=await fetch('/api/zlll/search', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({q})});
+        const j=await r.json();
+        const hits=j.zlll||j.zlll_file_hits||[];
+        const edr=j.edr_cached||[];
+        if(!hits.length && !edr.length){ box.innerHTML=`<div style="padding:8px; color:#64748b;">no hits for "${q}"</div>`; return; }
+        let html=`<div style="padding:6px; color:#00ffaa; font-weight:900; border-bottom:1px solid #334155;">"${q}" • ${hits.length} files • ${edr.length} EDR</div>`;
+        hits.slice(0,30).forEach(h=>{ html+=`<div class="hit" onclick="jumpTo(28)"><b style="color:#38bdf8;">${h.name||h.file||JSON.stringify(h).slice(0,40)}</b><br><span style="color:#64748b;">${h.path||h.file||''} • ${h.size||''} B</span></div>`; });
+        if(edr.length) html+=`<div style="padding:6px; color:#f472b6; font-weight:900; border-top:1px solid #334155; margin-top:4px;">EDR cache ${edr.length}</div>` + edr.slice(0,5).map(e=>`<div class="hit" style="color:#cbd5e1;">${(e.cover_address||e.file||JSON.stringify(e).slice(0,60))}</div>`).join('');
+        box.innerHTML=html;
+    } catch(e){ box.innerHTML=`<div style="padding:8px; color:#ef4444;">error ${e}</div>`; }
+}
+function showLB(obj){
+    const box=document.getElementById('lb-results'); box.style.display='block';
+    box.textContent = typeof obj==='string' ? obj : JSON.stringify(obj, null, 2).slice(0,6000);
+}
+async function lightboxParcel(){
+    const addr=document.getElementById('lb-addr').value.trim(); if(!addr) return; showLB('⏳ LightBox parcels/us/address → '+addr);
+    try{ const r=await fetch('/api/lightbox/parcel/address', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({address:addr})}); const j=await r.json(); showLB(j); if(j.data && j.data.parcels) { const p=j.data.parcels[0]; if(p && p.latitude) map.flyTo({center:[p.longitude||p.lon,p.latitude||p.lat], zoom:18, pitch:70, duration:2200}); }} catch(e){ showLB('error '+e); }
+}
+async function lightboxEDR(){
+    const addr=document.getElementById('lb-addr').value.trim(); if(!addr) return; showLB('⏳ EDR reports/address → '+addr);
+    try{ const r=await fetch('/api/lightbox/edr/report', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({address:addr})}); const j=await r.json(); showLB(j); } catch(e){ showLB('error '+e); }
+}
+async function lightboxRadius(){
+    const addr=document.getElementById('lb-addr').value.trim(); // use HBNC coords as demo
+    showLB('⏳ parcels radius 500m @ HBNC 33.7064,-117.98818');
+    try{ const r=await fetch('/api/lightbox/parcel/radius', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({lat:33.7064036, lon:-117.9881801, radius:500})}); const j=await r.json(); showLB(j); } catch(e){ showLB('error '+e); }
+}
+async function lightboxCombined(){
+    const addr=document.getElementById('lb-addr').value.trim(); if(!addr) return; showLB('⚡ COMBINED FUSION → '+addr+' …');
+    try{ const r=await fetch('/api/zlll/lightbox/combined', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({address:addr})}); const j=await r.json(); showLB(j); const hits=j.zlll_hits||[]; if(hits.length) map.flyTo({center:LOCATIONS[28].coords, zoom:17.5, duration:2000}); } catch(e){ showLB('error '+e); }
+}
+</script>
+</body>
+</html>

@@ -10,6 +10,14 @@ START_TIME = datetime.now(timezone.utc)
 UPLOAD_DIR = Path("/app/uploads")
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
+# ── LightBox EDR Amazing Fusion (zlll 712 files) ────────────────
+try:
+    from lightbox_routes import register_lightbox_routes
+    _lb_engine = register_lightbox_routes(app)
+except Exception as _lb_e:
+    print(f"[LightBox] routes not loaded: {_lb_e}")
+    _lb_engine = None
+
 GCP_PROJECT = os.getenv("GCP_PROJECT", "noble-beanbag-497411-m4")
 
 # ── In-Memory Knowledge Store ──────────────────────────────────
