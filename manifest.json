@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "OsintNeoAi Smart Ingestor",
+  "version": "2.0",
+  "description": "Domain-aware intelligence ingestion engine for tax-wasting non-profits, SOS registries, and public records.",
+  "permissions": [
+    "sidePanel",
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"]
+    }
+  ]
+}

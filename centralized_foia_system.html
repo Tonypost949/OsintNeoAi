@@ -1,89 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OsintNeoAi — Centralized FOIA System</title>
-<style>
-  :root { --bg: #0a0a0f; --card: #111118; --border: #1e1e2e; --accent: #00d4ff; --gold: #ffd700; --red: #ff3b3b; --green: #4cff4c; --text: #e0e0e0; --muted: #7a7a8a; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
-  .header { padding: 1.5rem 2rem; border-bottom: 2px solid var(--gold); }
-  .header h1 { font-size: 1.4rem; color: var(--gold); }
-  .header .sub { color: var(--muted); font-size: 0.8rem; }
-  .container { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
-  .legal-banner { background: linear-gradient(135deg, #111118, #1a1a2e); border: 1px solid var(--gold); border-radius: 8px; padding: 1.2rem; margin-bottom: 1.5rem; }
-  .legal-banner h3 { color: var(--gold); font-size: 0.9rem; margin-bottom: 0.4rem; }
-  .legal-banner p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
-  .new-request { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
-  .new-request h3 { color: var(--accent); margin-bottom: 1rem; }
-  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
-  .form-grid .full { grid-column: 1 / -1; }
-  .form-grid label { font-size: 0.75rem; color: var(--muted); display: block; margin-bottom: 0.3rem; }
-  .form-grid input, .form-grid select, .form-grid textarea { width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 0.6rem; border-radius: 4px; font-size: 0.85rem; }
-  .form-grid textarea { min-height: 80px; resize: vertical; }
-  .form-grid input:focus, .form-grid select:focus, .form-grid textarea:focus { outline: none; border-color: var(--accent); }
-  .submit-btn { background: var(--gold); color: #000; border: none; padding: 0.7rem 2rem; border-radius: 6px; font-weight: 700; cursor: pointer; margin-top: 1rem; font-size: 0.9rem; }
-  .dispatch-vectors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
-  .vector { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; }
-  .vector .icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
-  .vector .name { font-weight: 700; font-size: 0.9rem; }
-  .vector .desc { font-size: 0.75rem; color: var(--muted); margin: 0.3rem 0; }
-  .vector .legal { font-size: 0.65rem; color: var(--gold); }
-  .ledger { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; }
-  .ledger h3 { color: var(--accent); margin-bottom: 0.8rem; font-size: 0.9rem; }
-  .ledger-entry { display: grid; grid-template-columns: 140px 1fr 120px 100px 90px; gap: 0.5rem; padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.8rem; align-items: center; }
-  .ledger-entry:last-child { border-bottom: none; }
-  .ledger-header { color: var(--muted); font-weight: 700; font-size: 0.7rem; text-transform: uppercase; }
-  .status-chip { font-size: 0.65rem; padding: 2px 6px; border-radius: 3px; font-weight: 600; }
-  .chip-sent { background: #0a2a3d; color: var(--accent); }
-  .chip-pending { background: #3d3d0a; color: var(--gold); }
-  .chip-received { background: #0a3d0a; color: var(--green); }
-  @media (max-width: 768px) { .form-grid { grid-template-columns: 1fr; } .dispatch-vectors { grid-template-columns: 1fr; } .ledger-entry { grid-template-columns: 1fr; gap: 0.2rem; } }
-</style>
+  <meta charset="UTF-8">
+  <title>OsintNeoAi - Centralized Public FOIA & Records System</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #070a12; color: #f1f5f9; padding: 24px; margin: 0; }
+    header { background: #0f172a; border-bottom: 2px solid #0284c7; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+    h1 { color: #38bdf8; margin: 0; font-size: 22px; }
+    .badge-legal { background: #059669; color: white; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: bold; }
+    .container { max-width: 1200px; margin: 24px auto; padding: 0 16px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+    .stat-card { background: #1e293b; border: 1px solid #334155; padding: 16px; border-radius: 8px; text-align: center; }
+    .stat-number { font-size: 28px; font-weight: bold; color: #38bdf8; margin-top: 4px; }
+    .table-card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
+    th, td { text-align: left; padding: 12px; border-bottom: 1px solid #334155; }
+    th { background: #0f172a; color: #94a3b8; }
+    .vector-pill { font-size: 10px; font-weight: bold; padding: 3px 6px; border-radius: 4px; text-transform: uppercase; margin-right: 4px; }
+    .pill-email { background: #2563eb; color: #fff; }
+    .pill-fax { background: #7c3aed; color: #fff; }
+    .pill-mail { background: #059669; color: #fff; }
+  </style>
 </head>
 <body>
-<div class="header">
-  <h1>&#9878; Centralized Public FOIA System</h1>
-  <div class="sub">100% Statutory Compliance &bull; Anonymous User Shielding &bull; Top-Down Service</div>
-</div>
-<div class="container">
-  <div class="legal-banner">
-    <h3>&#9878; Legal Protection Notice</h3>
-    <p>All requests are dispatched under the OsintNeoAi Public Records & Journalism Legal Unit. User identities are 100% shielded. Requests invoke Federal FOIA (5 U.S.C. § 552), state CPRA, Sunshine Act, or PIA statutes with mandatory spoliation & preservation notices.</p>
-  </div>
+  <header>
+    <h1>📑 Centralized Public FOIA & Records Engine</h1>
+    <span class="badge-legal">⚖️ 100% Statutorily Compliant Public Records Network</span>
+  </header>
 
-  <div class="new-request">
-    <h3>New FOIA Request</h3>
-    <div class="form-grid">
-      <div><label>Target Agency</label><input type="text" placeholder="e.g. County Board of Supervisors"></div>
-      <div><label>State / Jurisdiction</label><select><option>California (CPRA)</option><option>Federal (FOIA)</option><option>Florida (Sunshine)</option><option>Texas (PIA)</option><option>New York (FOIL)</option><option>Other</option></select></div>
-      <div class="full"><label>Records Requested</label><textarea placeholder="Describe the specific public records you are requesting..."></textarea></div>
-      <div><label>Category</label><select><option>Taxpayer Spending</option><option>Non-Profit Audit</option><option>Government Contracts</option><option>Property Records</option><option>General Public Records</option></select></div>
-      <div><label>Dispatch Method</label><select><option>All Three (Recommended)</option><option>Email Only</option><option>Fax Only</option><option>Postal Mail Only</option></select></div>
+  <div class="container">
+    <!-- Stat Summary Grid -->
+    <div class="grid">
+      <div class="stat-card">
+        <div style="font-size: 12px; color: #94a3b8;">Centralized Public FOIA Demands</div>
+        <div class="stat-number">1,482</div>
+      </div>
+      <div class="stat-card">
+        <div style="font-size: 12px; color: #94a3b8;">Active Legal Dispatch Vectors</div>
+        <div class="stat-number">Email + Fax + Postal</div>
+      </div>
+      <div class="stat-card">
+        <div style="font-size: 12px; color: #94a3b8;">User Identity Protection</div>
+        <div class="stat-number" style="color: #34d399;">100% Shielded</div>
+      </div>
     </div>
-    <button class="submit-btn" onclick="submitRequest()">&#9889; Submit Request</button>
-  </div>
 
-  <div class="dispatch-vectors">
-    <div class="vector"><div class="icon">&#128231;</div><div class="name">Email Cascade</div><div class="desc">Top-down email traversal with AI reply parsing</div><div class="legal">Legally valid per 5 U.S.C. § 552</div></div>
-    <div class="vector"><div class="icon">&#128424;</div><div class="name">Internet Fax</div><div class="desc">Free fax dispatch with confirmation receipt</div><div class="legal">Fax confirmation = legal proof of service</div></div>
-    <div class="vector"><div class="icon">&#128233;</div><div class="name">Certified Mail</div><div class="desc">Physical letter via Lob/Click2Mail API</div><div class="legal">Certified mail = undeniable receipt proof</div></div>
-  </div>
+    <!-- Centralized Public FOIA Ledger -->
+    <div class="table-card">
+      <h3 style="margin-top: 0; color: #f8fafc;">Centralized Public Ledger & Released Documents</h3>
+      <p style="color: #94a3b8; font-size: 13px;">Every demand is statutorily served top-down via Email, Internet Fax, and Postal Mail. All released documents are automatically published for everyone.</p>
 
-  <div class="ledger">
-    <h3>Public FOIA Ledger</h3>
-    <div class="ledger-entry ledger-header"><span>Request ID</span><span>Agency</span><span>Category</span><span>Method</span><span>Status</span></div>
-    <div class="ledger-entry"><span>FOIA-2026-0847</span><span>County Budget Office</span><span>Taxpayer Spending</span><span>Email+Fax</span><span class="status-chip chip-sent">Sent</span></div>
-    <div class="ledger-entry"><span>FOIA-2026-0848</span><span>Non-Profit Regulatory</span><span>Non-Profit Audit</span><span>All Three</span><span class="status-chip chip-pending">Pending</span></div>
-    <div class="ledger-entry"><span>FOIA-2026-0849</span><span>Municipal Fleet Mgmt</span><span>Government Contracts</span><span>Email+Mail</span><span class="status-chip chip-received">Received</span></div>
-    <div class="ledger-entry"><span>FOIA-2026-0850</span><span>School District Admin</span><span>Taxpayer Spending</span><span>All Three</span><span class="status-chip chip-received">Received</span></div>
+      <table>
+        <thead>
+          <tr>
+            <th>Request ID</th>
+            <th>Target Public Agency / Non-Profit</th>
+            <th>Dispatch Vectors Used</th>
+            <th>Statutory Deadline</th>
+            <th>Public Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>FOIA-2026-9041</code></td>
+            <td>County Auditor / Regional Non-Profit</td>
+            <td>
+              <span class="vector-pill pill-email">Email</span>
+              <span class="vector-pill pill-fax">Fax</span>
+              <span class="vector-pill pill-mail">Postal Mail</span>
+            </td>
+            <td><span style="color: #34d399;">Fulfilled</span></td>
+            <td><button style="background: #059669; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: bold;">📄 View Released PDF (14.2 MB)</button></td>
+          </tr>
+          <tr>
+            <td><code>FOIA-2026-9042</code></td>
+            <td>Municipal Fleet & Equipment Dept</td>
+            <td>
+              <span class="vector-pill pill-email">Email</span>
+              <span class="vector-pill pill-fax">Fax</span>
+            </td>
+            <td><span style="color: #f59e0b;">5 Days Remaining</span></td>
+            <td><button style="background: #475569; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">⏳ Track Status</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
-<script>
-function submitRequest() {
-  alert('FOIA request queued. Dispatch will be sent top-down via email, fax, and certified mail under OsintNeoAi Legal Unit.');
-}
-</script>
 </body>
 </html>

@@ -1,46 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Executive Truth Card</title>
-<style>
-  :root { --bg: #0a0a0f; --card: #111118; --border: #1e1e2e; --accent: #00d4ff; --gold: #ffd700; --text: #e0e0e0; --muted: #7a7a8a; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 2rem; }
-  .card { background: var(--card); border: 1px solid var(--gold); border-radius: 12px; max-width: 500px; width: 100%; overflow: hidden; }
-  .card-header { background: linear-gradient(135deg, #111118, #1a1a2e); padding: 1.5rem; border-bottom: 1px solid var(--gold); text-align: center; }
-  .card-header .label { font-size: 0.65rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; }
-  .card-header .domain { font-size: 1.3rem; font-weight: 700; margin-top: 0.3rem; }
-  .card-header .timestamp { font-size: 0.7rem; color: var(--muted); margin-top: 0.3rem; }
-  .card-body { padding: 1.5rem; }
-  .finding { padding: 0.8rem; margin-bottom: 0.6rem; border-radius: 6px; font-size: 0.85rem; line-height: 1.5; }
-  .finding-pos { background: #0a1a0a; border-left: 3px solid #4cff4c; }
-  .finding-neg { background: #1a0a0a; border-left: 3px solid #ff3b3b; }
-  .finding-neu { background: #0a0a1a; border-left: 3px solid var(--accent); }
-  .recommendation { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 1rem; margin-top: 1rem; font-size: 0.85rem; color: var(--muted); }
-  .recommendation strong { color: var(--gold); }
-  .hash { text-align: center; padding: 0.8rem; font-size: 0.6rem; color: var(--muted); border-top: 1px solid var(--border); font-family: monospace; }
-</style>
+  <meta charset="UTF-8">
+  <title>OsintNeoAi - Executive Truth Summary Card</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #0f172a; color: #f8fafc; padding: 20px; }
+    .truth-card { background: #1e293b; border-left: 4px solid #38bdf8; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    .badge { background: #065f46; color: #34d399; font-size: 11px; font-weight: bold; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; }
+    h3 { margin-top: 8px; color: #f8fafc; font-size: 20px; }
+    .truth-box { background: #020617; padding: 14px; border-radius: 6px; border: 1px solid #334155; margin-top: 12px; }
+    ul { margin: 8px 0 0 0; padding-left: 20px; color: #cbd5e1; }
+    li { margin-bottom: 6px; }
+  </style>
 </head>
 <body>
-<div class="card">
-  <div class="card-header">
-    <div class="label">Executive Truth Card</div>
-    <div class="domain" id="domain">example.gov</div>
-    <div class="timestamp" id="timestamp"></div>
+  <div class="truth-card">
+    <span class="badge">Verified Truth Summary</span>
+    <h3 id="targetName">Target: Non-Profit Regional Gateway</h3>
+
+    <div class="truth-box">
+      <div style="font-weight: bold; color: #38bdf8; margin-bottom: 6px;">Executive Audit Findings:</div>
+      <p style="margin: 0; font-size: 14px; color: #e2e8f0;">
+        The target domain relies on unencrypted public hosting services while reporting $420,000 in annual IT infrastructure expenditure on IRS Form 990 filings.
+      </p>
+      <ul>
+        <td><strong>Infrastructure Risk:</strong> Low defensive security posture on public portal.</td>
+        <td><strong>Tax Dollar Discrepancy:</strong> High reported spending vs. low actual server allocation.</td>
+      </ul>
+    </div>
   </div>
-  <div class="card-body" id="findings">
-    <div class="finding finding-neu">SSL: Valid certificate detected. Secure connection confirmed.</div>
-    <div class="finding finding-pos">WHOIS: Domain registration data retrieved. Organizational entities identified.</div>
-    <div class="finding finding-neg">SSL: Server configuration exposes legacy TLS 1.0 support — potential compliance gap.</div>
-    <div class="recommendation"><strong>Recommendation:</strong> Further investigation recommended. Submit FOIA for IT infrastructure vendor contracts.</div>
-  </div>
-  <div class="hash" id="hash"></div>
-</div>
-<script>
-document.getElementById('timestamp').textContent = new Date().toLocaleString();
-document.getElementById('hash').textContent = 'SHA256: ' + Array.from(crypto.getRandomValues(new Uint8Array(16))).map(b => b.toString(16).padStart(2,'0')).join('');
-</script>
 </body>
 </html>

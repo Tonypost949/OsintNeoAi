@@ -1,97 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OsintNeoAi — Workspace Toggles</title>
-<style>
-  :root { --bg: #0a0a0f; --card: #111118; --border: #1e1e2e; --accent: #00d4ff; --gold: #ffd700; --text: #e0e0e0; --muted: #7a7a8a; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
-  .header { padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); }
-  .header h1 { font-size: 1.3rem; color: var(--gold); }
-  .header .sub { color: var(--muted); font-size: 0.8rem; margin-top: 0.3rem; }
-  .container { max-width: 1000px; margin: 0 auto; padding: 1.5rem; }
-  .section { margin-bottom: 1.5rem; }
-  .section h3 { font-size: 0.85rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.8rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
-  .toggle-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.8rem; }
-  .toggle-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; display: flex; justify-content: space-between; align-items: center; transition: border-color 0.2s; }
-  .toggle-item.active { border-color: #4cff4c; }
-  .toggle-item .info { flex: 1; }
-  .toggle-item .name { font-weight: 700; font-size: 0.9rem; }
-  .toggle-item .desc { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
-  .switch { position: relative; width: 40px; height: 22px; cursor: pointer; flex-shrink: 0; margin-left: 1rem; }
-  .switch input { display: none; }
-  .switch .slider { position: absolute; inset: 0; background: #333; border-radius: 11px; transition: 0.3s; }
-  .switch .slider::before { content: ''; position: absolute; width: 16px; height: 16px; left: 3px; bottom: 3px; background: #666; border-radius: 50%; transition: 0.3s; }
-  .switch input:checked + .slider { background: #4cff4c; }
-  .switch input:checked + .slider::before { transform: translateX(18px); background: #fff; }
-  .terminal-box { background: #000; border: 1px solid var(--border); border-radius: 6px; padding: 1rem; font-family: 'Cascadia Code', monospace; font-size: 0.8rem; max-height: 120px; overflow-y: auto; color: #4cff4c; }
-  .terminal-box .prompt { color: var(--accent); }
-  @media (max-width: 768px) { .toggle-grid { grid-template-columns: 1fr; } }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OsintNeoAi - Workspace Tool & Repo Hub</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #090d16; color: #f1f5f9; padding: 20px; margin: 0; }
+    h1 { color: #38bdf8; font-size: 22px; }
+    .section { margin-bottom: 24px; background: #1e293b; border-radius: 8px; padding: 16px; border: 1px solid #334155; }
+    .toggle-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #334155; }
+    .toggle-row:last-child { border-bottom: none; }
+    .switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #475569; transition: .3s; border-radius: 24px; }
+    .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%; }
+    input:checked + .slider { background-color: #0284c7; }
+    input:checked + .slider:before { transform: translateX(20px); }
+    .terminal-box { background: #020617; font-family: 'Consolas', monospace; padding: 12px; border-radius: 6px; color: #4ade80; font-size: 13px; border: 1px solid #1e293b; margin-top: 12px; }
+  </style>
 </head>
 <body>
-<div class="header">
-  <h1>&#9881; Workspace Toggles</h1>
-  <div class="sub">Turn tools on/off. The AI handles everything else.</div>
-</div>
-<div class="container">
+  <h1>🎛️ OsintNeoAi Workspace Toggles</h1>
+
+  <!-- Modular OSINT & AI Tools Section -->
   <div class="section">
-    <h3>OSINT Tools</h3>
-    <div class="toggle-grid" id="tools-grid"></div>
-  </div>
-  <div class="section">
-    <h3>GitHub Repositories</h3>
-    <div class="toggle-grid" id="repos-grid"></div>
-  </div>
-  <div class="section">
-    <h3>AI Auto-Terminal</h3>
-    <div class="terminal-box" id="terminal">
-      <div class="prompt">osintneoai@workspace:~$</div>
-      <div>Toggle a tool or repo above. The AI will automatically execute any required commands.</div>
+    <h3 style="color: #38bdf8; margin-top: 0;">🔧 OSINT & AI Tools (User Toggles)</h3>
+
+    <div class="toggle-row">
+      <div>
+        <strong>IRS Form 990 Non-Profit Auditor</strong>
+        <div style="font-size: 12px; color: #94a3b8;">Auto-detects tax-wasting non-profits & executive salaries</div>
+      </div>
+      <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+    </div>
+
+    <div class="toggle-row">
+      <div>
+        <strong>USASpending & FOIA Tracker</strong>
+        <div style="font-size: 12px; color: #94a3b8;">Pipes federal grant sub-recipient chains into workspace</div>
+      </div>
+      <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+    </div>
+
+    <div class="toggle-row">
+      <div>
+        <strong>Wayback & Google Cache AI Archive</strong>
+        <div style="font-size: 12px; color: #94a3b8;">Queries deleted web pages & historical social posts</div>
+      </div>
+      <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
     </div>
   </div>
-</div>
-<script>
-const tools = [
-  { name: 'IRS Form 990 Auditor', desc: 'Auto-extract non-profit financials from Form 990s', active: true },
-  { name: 'USASpending Tracker', desc: 'Track federal grant awards and sub-recipient chains', active: true },
-  { name: 'Wayback Machine AI', desc: 'Query deleted pages and expired domains via archive.org', active: false },
-  { name: 'Passive DNS Scanner', desc: 'Resolve and enumerate public DNS records', active: true },
-  { name: 'SSL Certificate Inspector', desc: 'Check TLS configuration and certificate chains', active: false },
-  { name: 'Schema.org Parser', desc: 'Extract structured data from government portals', active: true },
-  { name: 'Property Record Tracker', desc: 'County assessor and property transfer monitoring', active: false },
-  { name: 'FOIA Auto-Dispatcher', desc: 'Automated email/fax/mail FOIA dispatch', active: true },
-];
 
-const repos = [
-  { name: 'OsintNeoAi', desc: 'Core platform', active: true },
-  { name: 'TaxFunded', desc: 'Taxpayer audit engine', active: true },
-  { name: 'NPI---Non-Profiteers-Index', desc: 'Non-profit index', active: true },
-];
+  <!-- Connected GitHub Repositories Toggle Section -->
+  <div class="section">
+    <h3 style="color: #a855f7; margin-top: 0;">📦 GitHub Repository Workspaces (Toggle Active Repos)</h3>
 
-function renderToggles(items, containerId, prefix) {
-  const grid = document.getElementById(containerId);
-  grid.innerHTML = '';
-  items.forEach((item, i) => {
-    grid.innerHTML += `<div class="toggle-item ${item.active ? 'active' : ''}"><div class="info"><div class="name">${item.name}</div><div class="desc">${item.desc}</div></div><label class="switch"><input type="checkbox" ${item.active ? 'checked' : ''} onchange="toggleItem('${prefix}',${i})"><span class="slider"></span></label></div>`;
-  });
-}
+    <div class="toggle-row">
+      <div>
+        <strong>OsintNeoAi (Primary Core Engine)</strong>
+        <div style="font-size: 12px; color: #94a3b8;">Repository: <code>Tonypost949/OsintNeoAi</code></div>
+      </div>
+      <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+    </div>
 
-function toggleItem(prefix, i) {
-  const items = prefix === 'tool' ? tools : repos;
-  items[i].active = !items[i].active;
-  const term = document.getElementById('terminal');
-  const action = items[i].active ? 'ACTIVATED' : 'DEACTIVATED';
-  term.innerHTML += `<div class="prompt">[AI]</div><div>${items[i].name} ${action}${items[i].active ? ' — running initialization...' : ' — gracefully stopping...'}</div>`;
-  term.scrollTop = term.scrollHeight;
-  renderToggles(tools, 'tools-grid', 'tool');
-  renderToggles(repos, 'repos-grid', 'repo');
-}
+    <div class="toggle-row">
+      <div>
+        <strong>TaxFunded (Tax Waste Audit Repo)</strong>
+        <div style="font-size: 12px; color: #94a3b8;">Repository: <code>Tonypost949/TaxFunded</code></div>
+      </div>
+      <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+    </div>
 
-renderToggles(tools, 'tools-grid', 'tool');
-renderToggles(repos, 'repos-grid', 'repo');
-</script>
+    <div class="toggle-row">
+      <div>
+        <strong>NPI - Non-Profiteers Index</strong>
+        <div style="font-size: 12px; color: #94a3b8;">Repository: <code>Tonypost949/Non-Profiteers-Index</code></div>
+      </div>
+      <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+    </div>
+  </div>
+
+  <!-- Built-In Terminal Execution Box -->
+  <div class="section">
+    <h3 style="color: #22c55e; margin-top: 0;">⚡ Built-in Auto Terminal Executor</h3>
+    <p style="font-size: 12px; color: #94a3b8;">When a tool or user action requires a command, the workspace AI writes, reviews, and runs it automatically inside the integrated terminal window.</p>
+    <div class="terminal-box">
+      $ osint-ai execute --tool irs990_auditor --repo TaxFunded --auto-run<br>
+      [+] Target Repo Linked: Tonypost949/TaxFunded<br>
+      [+] Running automated check on public records... Done! (0 errors)
+    </div>
+  </div>
 </body>
 </html>

@@ -1,115 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OsintNeoAi — GitHub Repo Manager</title>
-<style>
-  :root { --bg: #0a0a0f; --card: #111118; --border: #1e1e2e; --accent: #00d4ff; --gold: #ffd700; --red: #ff3b3b; --green: #4cff4c; --text: #e0e0e0; --muted: #7a7a8a; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
-  .header { padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-  .header h1 { font-size: 1.3rem; color: var(--gold); }
-  .header .subtitle { color: var(--muted); font-size: 0.8rem; }
-  .add-section { padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); }
-  .add-row { display: flex; gap: 0.8rem; }
-  .add-row input { flex: 1; background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 0.7rem 1rem; border-radius: 6px; font-size: 0.9rem; }
-  .add-row input:focus { outline: none; border-color: var(--accent); }
-  .add-row button { background: var(--accent); color: #000; border: none; padding: 0.7rem 1.5rem; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.9rem; white-space: nowrap; }
-  .add-row button:hover { opacity: 0.9; }
-  .repo-grid { padding: 1.5rem 2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 1rem; }
-  .repo-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; position: relative; transition: border-color 0.2s; }
-  .repo-card.active { border-color: var(--green); }
-  .repo-card.inactive { border-color: var(--border); opacity: 0.7; }
-  .repo-card .top-row { display: flex; justify-content: space-between; align-items: flex-start; }
-  .repo-card .repo-name { font-weight: 700; font-size: 1rem; color: var(--accent); }
-  .repo-card .repo-desc { font-size: 0.8rem; color: var(--muted); margin: 0.4rem 0; line-height: 1.4; }
-  .repo-card .repo-meta { font-size: 0.7rem; color: var(--muted); display: flex; gap: 1rem; margin-top: 0.6rem; }
-  .toggle { position: relative; width: 44px; height: 24px; cursor: pointer; }
-  .toggle input { display: none; }
-  .toggle .slider { position: absolute; inset: 0; background: #333; border-radius: 12px; transition: 0.3s; }
-  .toggle .slider::before { content: ''; position: absolute; width: 18px; height: 18px; left: 3px; bottom: 3px; background: #666; border-radius: 50%; transition: 0.3s; }
-  .toggle input:checked + .slider { background: var(--green); }
-  .toggle input:checked + .slider::before { transform: translateX(20px); background: #fff; }
-  .delete-btn { background: none; border: 1px solid var(--red); color: var(--red); padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.7rem; margin-top: 0.6rem; }
-  .delete-btn:hover { background: var(--red); color: #fff; }
-  .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
-  .status-dot.on { background: var(--green); }
-  .status-dot.off { background: #555; }
-  .terminal-box { margin: 1rem 2rem; background: #000; border: 1px solid var(--border); border-radius: 6px; padding: 1rem; font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: 0.8rem; max-height: 150px; overflow-y: auto; color: var(--green); }
-  .terminal-box .prompt { color: var(--accent); }
-  .terminal-box .output { color: var(--muted); }
-  @media (max-width: 768px) { .repo-grid { grid-template-columns: 1fr; } .add-row { flex-direction: column; } }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OsintNeoAi - Universal GitHub Repo Manager</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #090d16; color: #f1f5f9; padding: 20px; margin: 0; }
+    h1 { color: #38bdf8; font-size: 22px; }
+    .card { background: #1e293b; border-radius: 8px; padding: 16px; border: 1px solid #334155; margin-bottom: 16px; }
+    .input-group { display: flex; gap: 8px; margin-bottom: 16px; }
+    input[type="text"] { flex: 1; background: #0f172a; border: 1px solid #475569; color: #fff; padding: 10px 14px; border-radius: 6px; }
+    .btn-add { background: #2563eb; color: white; border: none; padding: 10px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+    .repo-item { display: flex; justify-content: space-between; align-items: center; background: #0f172a; padding: 12px; border-radius: 6px; margin-bottom: 8px; border: 1px solid #1e293b; }
+    .switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #475569; transition: .3s; border-radius: 24px; }
+    .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%; }
+    input:checked + .slider { background-color: #0284c7; }
+    input:checked + .slider:before { transform: translateX(20px); }
+    .btn-delete { background: #ef4444; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; margin-left: 12px; }
+  </style>
 </head>
 <body>
+  <h1>📦 Plug & Play Any GitHub Repository</h1>
+  <p style="color: #94a3b8; font-size: 13px;">Users can paste any public or private GitHub URL to instantly mount it into their workspace. Turn it off or delete it with 1-click if it's trash!</p>
 
-<div class="header">
-  <div><h1>&#128230; GitHub Repo Manager</h1><div class="subtitle">Paste any GitHub URL — toggle it on/off — delete if it's trash</div></div>
-  <div style="color:var(--muted);font-size:0.8rem;" id="repo-count">0 repos mounted</div>
-</div>
+  <div class="card">
+    <div class="input-group">
+      <input type="text" id="repoUrl" placeholder="Paste any GitHub URL (e.g., https://github.com/user/osint-tool)">
+      <button class="btn-add" onclick="addRepo()">+ Mount Repo</button>
+    </div>
 
-<div class="add-section">
-  <div class="add-row">
-    <input type="text" id="repo-url" placeholder="Paste GitHub repo URL (e.g. https://github.com/user/repo)">
-    <button onclick="mountRepo()">&#43; Mount Repo</button>
-  </div>
-</div>
-
-<div class="terminal-box" id="terminal">
-  <div class="prompt">osintneoai@workspace:~$</div>
-  <div class="output">Ready. Paste a GitHub URL above to mount a repository.</div>
-</div>
-
-<div class="repo-grid" id="repo-grid"></div>
-
-<script>
-let repos = [
-  { url: 'https://github.com/Tonypost949/OsintNeoAi', name: 'OsintNeoAi', desc: 'Core OSINT investigation platform with GIS, OCR, and automated FOIA tools', active: true, stars: 42, lang: 'Python', added: 'Built-in' },
-  { url: 'https://github.com/Tonypost949/TaxFunded', name: 'TaxFunded', desc: 'Taxpayer-funded grant tracking and non-profit audit engine', active: true, stars: 18, lang: 'Python', added: 'Built-in' },
-  { url: 'https://github.com/Tonypost949/NPI---Non-Profiteers-Index', name: 'NPI---Non-Profiteers-Index', desc: 'Non-profit entity index and cross-reference database', active: true, stars: 12, lang: 'Python', added: 'Built-in' },
-];
-
-function render() {
-  const grid = document.getElementById('repo-grid');
-  grid.innerHTML = '';
-  repos.forEach((r, i) => {
-    grid.innerHTML += `
-      <div class="repo-card ${r.active ? 'active' : 'inactive'}">
-        <div class="top-row">
-          <div>
-            <div class="repo-name"><span class="status-dot ${r.active ? 'on' : 'off'}"></span>${r.name}</div>
-            <div class="repo-desc">${r.desc}</div>
-            <div class="repo-meta"><span>&#9733; ${r.stars}</span><span>${r.lang}</span><span>${r.added}</span></div>
-          </div>
-          <label class="toggle"><input type="checkbox" ${r.active ? 'checked' : ''} onchange="toggleRepo(${i})"><span class="slider"></span></label>
+    <div id="repoList">
+      <div class="repo-item">
+        <div>
+          <strong>Tonypost949/OsintNeoAi</strong> <span style="font-size: 11px; color: #38bdf8;">(Core Engine)</span>
+          <div style="font-size: 12px; color: #64748b;">Mounted at /workspaces/OsintNeoAi</div>
         </div>
-        <button class="delete-btn" onclick="deleteRepo(${i})">&#128465; Delete</button>
-      </div>`;
-  });
-  document.getElementById('repo-count').textContent = `${repos.filter(r => r.active).length} / ${repos.length} repos active`;
-}
+        <div style="display: flex; align-items: center;">
+          <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+          <button class="btn-delete" onclick="this.parentElement.parentElement.remove()">🗑️ Delete</button>
+        </div>
+      </div>
 
-function mountRepo() {
-  const input = document.getElementById('repo-url');
-  const url = input.value.trim();
-  if (!url) return;
-  const match = url.match(/github\.com\/([^/]+)\/([^/]+)/);
-  if (!match) { logTerminal('error', `Invalid GitHub URL: ${url}`); return; }
-  const name = match[2];
-  const term = document.getElementById('terminal');
-  logTerminal('cmd', `git clone --depth 1 ${url} /workspaces/${name}`);
-  logTerminal('output', `Cloning ${name}...`);
-  repos.push({ url, name, desc: 'User-added repository', active: true, stars: 0, lang: 'Detecting...', added: 'Just now' });
-  input.value = '';
-  setTimeout(() => { logTerminal('output', `${name} mounted and indexed. Toggle active.`); render(); }, 800);
-}
+      <div class="repo-item">
+        <div>
+          <strong>Tonypost949/TaxFunded</strong> <span style="font-size: 11px; color: #a855f7;">(Tax Audit Repo)</span>
+          <div style="font-size: 12px; color: #64748b;">Mounted at /workspaces/TaxFunded</div>
+        </div>
+        <div style="display: flex; align-items: center;">
+          <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+          <button class="btn-delete" onclick="this.parentElement.parentElement.remove()">🗑️ Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-function toggleRepo(i) { repos[i].active = !repos[i].active; logTerminal('output', `${repos[i].name} ${repos[i].active ? 'ACTIVATED' : 'DEACTIVATED'}`); render(); }
-function deleteRepo(i) { const name = repos[i].name; logTerminal('cmd', `rm -rf /workspaces/${name}`); repos.splice(i, 1); logTerminal('output', `${name} deleted and purged.`); render(); }
-function logTerminal(type, msg) { const t = document.getElementById('terminal'); const cls = type === 'cmd' ? 'prompt' : type === 'error' ? 'error' : 'output'; t.innerHTML += `<div class="${cls}">${msg}</div>`; t.scrollTop = t.scrollHeight; }
-
-render();
-</script>
+  <script>
+    function addRepo() {
+      const url = document.getElementById('repoUrl').value;
+      if (!url) return;
+      const repoName = url.split('/').slice(-2).join('/');
+      const item = document.createElement('div');
+      item.className = 'repo-item';
+      item.innerHTML = `
+        <div>
+          <strong>${repoName}</strong> <span style="font-size: 11px; color: #34d399;">(Custom User Repo)</span>
+          <div style="font-size: 12px; color: #64748b;">Mounted at /workspaces/${repoName.split('/')[1]}</div>
+        </div>
+        <div style="display: flex; align-items: center;">
+          <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+          <button class="btn-delete" onclick="this.parentElement.parentElement.remove()">🗑️ Delete</button>
+        </div>
+      `;
+      document.getElementById('repoList').appendChild(item);
+      document.getElementById('repoUrl').value = '';
+    }
+  </script>
 </body>
 </html>

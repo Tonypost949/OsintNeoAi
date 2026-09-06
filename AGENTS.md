@@ -88,3 +88,9 @@ If any of these is missing or outdated, the agent must restore/fix it before pro
 - `drive_forensics.drive_documents` — Drive content
 - `forensic_layers.fca_timeline` — FCA/whistleblower timeline data
 - `national_audits.all_state_records` — Corporate/municipal records
+
+## Master Target Accounts & Identity Registry
+- `agent/target_accounts_master.json` — Authoritative registry of all 31 active Gmail, Microsoft/OneDrive, Google Workspace .EDU, and Firefox identity targets.
+- `data/master_accounts_crossref_matches.json` — Pre-computed cross-reference matrix matching target accounts against all BigQuery tables.
+- `data/master_ai_chat_and_archive_index.json` — Master index of 150 session trajectories, 509 chat exports, and 19,631 archive files.
+

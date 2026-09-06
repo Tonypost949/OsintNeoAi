@@ -1,141 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OsintNeoAi — Investigative Newspaper</title>
-<style>
-  :root { --bg: #0a0a0f; --card: #111118; --border: #1e1e2e; --accent: #00d4ff; --gold: #ffd700; --red: #ff3b3b; --text: #e0e0e0; --muted: #7a7a8a; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); }
-  .masthead { text-align: center; padding: 2rem 1rem 1rem; border-bottom: 2px solid var(--gold); }
-  .masthead h1 { font-size: 2.4rem; font-weight: 900; letter-spacing: 2px; color: var(--gold); }
-  .masthead .tagline { color: var(--muted); font-size: 0.85rem; margin-top: 0.3rem; }
-  .edition-bar { display: flex; justify-content: space-between; padding: 0.5rem 2rem; border-bottom: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); }
-  .container { max-width: 1200px; margin: 0 auto; padding: 1rem; }
-  .featured { background: var(--card); border: 1px solid var(--gold); border-radius: 8px; padding: 2rem; margin-bottom: 2rem; }
-  .featured .badge { display: inline-block; background: var(--gold); color: #000; font-weight: 700; font-size: 0.7rem; padding: 2px 8px; border-radius: 3px; text-transform: uppercase; margin-bottom: 0.8rem; }
-  .featured h2 { font-size: 1.6rem; margin-bottom: 0.8rem; line-height: 1.3; }
-  .featured .summary { color: var(--muted); line-height: 1.6; }
-  .featured .metrics { display: flex; gap: 1.5rem; margin-top: 1rem; flex-wrap: wrap; }
-  .featured .metric { background: var(--bg); padding: 0.6rem 1rem; border-radius: 6px; }
-  .featured .metric .num { font-size: 1.3rem; font-weight: 700; color: var(--accent); }
-  .featured .metric .label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; }
-  .section-title { font-size: 1.1rem; font-weight: 700; color: var(--accent); margin: 1.5rem 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
-  .feed { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1rem; }
-  .story-card { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 1.2rem; transition: border-color 0.2s; }
-  .story-card:hover { border-color: var(--accent); }
-  .story-card .cat { font-size: 0.65rem; text-transform: uppercase; color: var(--accent); font-weight: 700; letter-spacing: 1px; }
-  .story-card h3 { font-size: 1rem; margin: 0.4rem 0; line-height: 1.4; }
-  .story-card .meta { font-size: 0.75rem; color: var(--muted); }
-  .story-card .excerpt { font-size: 0.85rem; color: #aaa; margin-top: 0.5rem; line-height: 1.5; }
-  .foia-ticker { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 1rem; margin-bottom: 1.5rem; overflow: hidden; }
-  .foia-ticker h4 { font-size: 0.8rem; color: var(--gold); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
-  .ticker-scroll { display: flex; gap: 2rem; animation: scroll 30s linear infinite; white-space: nowrap; }
-  .ticker-scroll span { font-size: 0.8rem; color: var(--muted); }
-  @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-  .user-pipeline { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 1.2rem; margin-top: 1.5rem; }
-  .user-pipeline h4 { color: var(--gold); margin-bottom: 0.8rem; }
-  .pipeline-item { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
-  .pipeline-item:last-child { border-bottom: none; }
-  .pipeline-item .status { font-size: 0.7rem; padding: 2px 6px; border-radius: 3px; font-weight: 600; }
-  .status-verified { background: #0a3d0a; color: #4cff4c; }
-  .status-pending { background: #3d3d0a; color: #ffd700; }
-  .status-submitted { background: #0a2a3d; color: #00d4ff; }
-  .token-badge { display: inline-block; background: linear-gradient(135deg, #1a1a2e, #16213e); border: 1px solid var(--gold); color: var(--gold); font-size: 0.65rem; padding: 1px 6px; border-radius: 3px; margin-left: 0.5rem; }
-  @media (max-width: 768px) { .feed { grid-template-columns: 1fr; } .featured h2 { font-size: 1.2rem; } .masthead h1 { font-size: 1.6rem; } }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tax-Funded Dispatch - Investigative Newspaper</title>
+  <style>
+    body { font-family: 'Georgia', serif; background: #faf8f5; color: #1a1a1a; margin: 0; padding: 0; }
+    header { border-bottom: 3px double #1a1a1a; text-align: center; padding: 20px; }
+    h1 { font-size: 42px; font-family: 'Playfair Display', serif; margin: 0; text-transform: uppercase; letter-spacing: 2px; }
+    .tagline { font-style: italic; color: #555; font-size: 14px; margin-top: 4px; }
+    .date-bar { border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; padding: 6px 20px; font-size: 12px; font-family: sans-serif; display: flex; justify-content: space-between; }
+    .container { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; max-width: 1200px; margin: 24px auto; padding: 0 20px; }
+    .featured { background: #fff; padding: 20px; border: 1px solid #e5e5e5; border-top: 4px solid #b91c1c; }
+    .featured h2 { font-size: 28px; margin-top: 0; color: #b91c1c; }
+    .badge-flagship { background: #b91c1c; color: #fff; font-family: sans-serif; font-size: 10px; font-weight: bold; padding: 3px 8px; text-transform: uppercase; }
+    .sidebar-feed { background: #fff; padding: 16px; border: 1px solid #e5e5e5; }
+    .sidebar-feed h3 { font-family: sans-serif; font-size: 14px; border-bottom: 2px solid #1a1a1a; padding-bottom: 6px; text-transform: uppercase; }
+    .article-stub { margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #eee; }
+    .article-stub h4 { margin: 0 0 4px 0; font-size: 16px; }
+    .meta { font-size: 11px; font-family: sans-serif; color: #777; }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>The Tax-Funded Dispatch</h1>
+    <div class="tagline">Public Record Audits & Independent Open Source Investigations</div>
+  </header>
 
-<div class="masthead">
-  <h1>OSINTNEOAI</h1>
-  <div class="tagline">Investigative Intelligence &bull; Public Records &bull; Taxpayer Accountability</div>
-</div>
-
-<div class="edition-bar">
-  <span id="edition-date"></span>
-  <span>Flagship Investigation: TaxFunded Non-Profit Audit</span>
-  <span id="foia-count">0 FOIA Requests Tracked</span>
-</div>
-
-<div class="container">
-
-  <div class="foia-ticker">
-    <h4>&#9889; Live FOIA Dispatch Feed</h4>
-    <div class="ticker-scroll" id="foia-ticker"></div>
+  <div class="date-bar">
+    <span>VOL. I ... No. 1</span>
+    <span>SATURDAY, SEPTEMBER 5, 2026</span>
+    <span>COMMUNITY INVESTIGATIVE FEED</span>
   </div>
 
-  <div class="featured">
-    <div class="badge">&#9733; Featured Investigation</div>
-    <h2>TaxFunded Non-Profit Audit: $14.2M in Questionable Expenditures Exposed</h2>
-    <div class="summary">
-      A comprehensive OSINT investigation into non-profit organizations receiving taxpayer-funded grants reveals
-      $14.2 million in questionable administrative expenditures, overlapping board memberships, and potential
-      self-dealing arrangements across three interconnected 501(c)(3) entities. Investigation conducted using
-      the OsintNeoAi workspace with automated Form 990 analysis, property record cross-referencing, and
-      blockchain-verified audit trail.
+  <div class="container">
+    <!-- Flagship Primary Investigation -->
+    <div class="featured">
+      <span class="badge-flagship">Flagship Investigation</span>
+      <h2>EXPOSED: $14.2M Non-Profit Tax-Exemption Loophole Audit</h2>
+      <div class="meta" style="margin-bottom: 12px;">By OsintNeoAi Forensic Unit | Published September 5, 2026</div>
+      <p>A multi-year investigation into county property tax exemptions reveals a network of shell non-profits receiving public tax waivers while devoting less than 4% of gross revenue to direct community assistance...</p>
+      <p>Using automated IRS 990 cross-referencing and GIS parcel mapping, the <strong>TaxFunded</strong> platform has mapped over 140 properties registered under non-profit umbrella corporations...</p>
+      <button style="background: #1a1a1a; color: #fff; border: none; padding: 8px 16px; font-family: sans-serif; cursor: pointer;">Read Full Investigation & Dossier →</button>
     </div>
-    <div class="metrics">
-      <div class="metric"><div class="num">$14.2M</div><div class="label">Questionable Spend</div></div>
-      <div class="metric"><div class="num">3</div><div class="label">Entities Flagged</div></div>
-      <div class="metric"><div class="num">847</div><div class="label">Documents Analyzed</div></div>
-      <div class="metric"><div class="num">23</div><div class="label">FOIA Requests Filed</div></div>
-      <div class="metric"><div class="num">1,420</div><div class="label">TFT Tokens Minted</div></div>
+
+    <!-- Community Pipeline & Breaking User Investigations -->
+    <div class="sidebar-feed">
+      <h3>📰 Breaking User Investigations</h3>
+
+      <div class="article-stub">
+        <h4>Municipal Vehicle Fleet Contract Discrepancy</h4>
+        <div class="meta">Piped by User @InvestigatorX | 2 hours ago</div>
+        <p style="font-size: 13px; color: #444;">USASpending cross-reference flags $1.8M over-budget equipment lease...</p>
+      </div>
+
+      <div class="article-stub">
+        <h4>FOIA Log Audit: County Housing Board</h4>
+        <div class="meta">Piped by User @CitizenAudit | 5 hours ago</div>
+        <p style="font-size: 13px; color: #444;">Unanswered public records requests exceed 90-day statutory limit...</p>
+      </div>
     </div>
   </div>
-
-  <div class="section-title">Latest Investigations</div>
-  <div class="feed" id="investigation-feed"></div>
-
-  <div class="user-pipeline">
-    <h4>&#128203; Community Investigation Pipeline</h4>
-    <div id="pipeline-list"></div>
-  </div>
-
-</div>
-
-<script>
-document.getElementById('edition-date').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-
-const investigations = [
-  { cat: 'Government Spending', title: 'Municipal Vehicle Fleet Audit: $340K in Untracked Assets', excerpt: 'County vehicle procurement records reveal 12 vehicles purchased under emergency provisions with no competitive bidding.', meta: 'Filed by @investigator_alpha • 2 days ago', tokens: '340 OSINT' },
-  { cat: 'Taxpayer Watch', title: 'School District Superintendent Travel Expenses Exceed Policy Limits', excerpt: 'Travel reimbursement analysis shows $89,000 in out-of-state conferences with no documented educational benefit.', meta: 'Filed by @taxwatch_dana • 3 days ago', tokens: '890 TFT' },
-  { cat: 'Non-Profit Audit', title: 'Charity Executive Compensation Spike After Grant Awards', excerpt: 'Form 990 comparison shows 340% increase in executive compensation within 6 months of receiving federal grants.', meta: 'Filed by @osint_researcher • 5 days ago', tokens: '1,200 TFT' },
-  { cat: 'Public Records', title: 'County Assessor Property Transfer Anomalies Linked to Board Members', excerpt: 'Property transfer records reveal below-market sales between county officials and non-profit board members.', meta: 'Filed by @forensic_mike • 1 week ago', tokens: '560 OSINT' },
-  { cat: 'Infrastructure', title: 'Water Treatment Plant Maintenance Contracts: Single Source Bidding', excerpt: 'Three consecutive emergency contracts awarded to same vendor totaling $2.1M without competitive process.', meta: 'Filed by @publicworks_watch • 1 week ago', tokens: '2,100 TFT' },
-  { cat: 'Environmental', title: 'Industrial Waste Discharge Permits Mismatch With Actual Output', excerpt: 'EPA discharge data compared against permit limits reveals consistent exceedances at two registered facilities.', meta: 'Filed by @green_osint • 2 weeks ago', tokens: '450 OSINT' }
-];
-
-const feedEl = document.getElementById('investigation-feed');
-investigations.forEach(inv => {
-  feedEl.innerHTML += `<div class="story-card"><div class="cat">${inv.cat}</div><h3>${inv.title}</h3><div class="meta">${inv.meta} <span class="token-badge">${inv.tokens}</span></div><div class="excerpt">${inv.excerpt}</div></div>`;
-});
-
-const pipeline = [
-  { name: 'Federal Grant Sub-Recipient Chain Analysis', status: 'verified', statusText: 'Verified', submitted: '@taxpayer_hero' },
-  { name: 'State Agency Travel Reimbursement Audit', status: 'pending', statusText: 'Under Review', submitted: '@civic_watchdog' },
-  { name: 'County IT Vendor Contract Analysis', status: 'submitted', statusText: 'Submitted', submitted: '@digital_forensics' },
-  { name: 'Non-Profit Property Tax Exemption Review', status: 'verified', statusText: 'Verified', submitted: '@osint_investigator' },
-];
-
-const pipelineEl = document.getElementById('pipeline-list');
-pipeline.forEach(p => {
-  pipelineEl.innerHTML += `<div class="pipeline-item"><span>${p.name} <span style="color:var(--muted);font-size:0.75rem;">by ${p.submitted}</span></span><span class="status status-${p.status}">${p.statusText}</span></div>`;
-});
-
-const foiaItems = [
-  'FOIA-2026-0847: County Budget Worksheets (2022-2025) — Dispatched',
-  'FOIA-2026-0848: Non-Profit Grant Award Letters — Dispatched',
-  'FOIA-2026-0849: Municipal Vehicle Purchase Records — Pending Response',
-  'FOIA-2026-0850: School District Travel Reimbursement Logs — Response Received',
-  'FOIA-2026-0851: Water Treatment Maintenance Contracts — Dispatched via Fax',
-  'FOIA-2026-0852: County Assessor Transfer Records — Certified Mail Sent',
-];
-const ticker = document.getElementById('foia-ticker');
-const doubled = foiaItems.map(i => `<span>${i}</span>`).join('');
-ticker.innerHTML = doubled + doubled;
-document.getElementById('foia-count').textContent = `${foiaItems.length} FOIA Requests Tracked`;
-</script>
 </body>
 </html>

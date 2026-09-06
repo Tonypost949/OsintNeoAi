@@ -2,129 +2,110 @@
 pragma solidity ^0.8.20;
 
 /**
- * @title DualAuditTokenSystem
- * @notice Two-token incentive system for OsintNeoAi platform
- *  - TaxFundedToken (TFT): rewards taxpayer-funded inquiries and FOIA disclosures
- *  - OSINTCoin (OSINT): rewards general open-source intelligence investigations
+ * @title Dual Audit Token Ecosystem: TaxFundedToken (TFT) & OSINTCoin (OSINT)
+ * 
+ * 1. TaxFundedToken (TFT): Minted specifically for taxpayer-funded audits,
+ *    government spending inquiries, FOIA releases, and non-profit tax waste exposures.
+ * 
+ * 2. OSINTCoin (OSINT): Minted for general open-source investigations, corporate oversight,
+ *    missing person research, civil rights tracking, and user-driven investigations.
  */
+
 contract DualAuditTokenSystem {
+    address public platformAdmin;
+
+    // --- TaxFundedToken (TFT) ---
+    string public tftName = "TaxFunded Token";
+    string public tftSymbol = "TFT";
+    uint256 public tftTotalSupply;
+    mapping(address => uint256) public tftBalanceOf;
+
+    // --- OSINTCoin (OSINT) ---
+    string public osintName = "OSINT Coin";
+    string public osintSymbol = "OSINT";
+    uint256 public osintTotalSupply;
+    mapping(address => uint256) public osintBalanceOf;
+
+    // Structure for On-Chain Dual Proofs
     struct AuditProof {
-        address investigator;
-        string  caseId;
-        string  category;       // "taxpayer" or "osint"
-        uint256 exposedAmount;  // dollars of waste/fraud exposed (taxpayer) or impact score (osint)
+        string inquiryId;
+        string category; // "TAX_FUNDED" or "GENERAL_OSINT"
+        string targetEntity;
+        uint256 impactScore;
+        address whistleblowerRecipient;
+        uint256 mintedAmount;
         uint256 timestamp;
-        bytes32 documentHash;
-        bool    verified;
     }
 
-    struct InvestigatorStats {
-        uint256 tftBalance;
-        uint256 osintBalance;
-        uint256 totalAudits;
-        uint256 totalExposedValue;
+    mapping(bytes32 => AuditProof) public onChainAuditLedger;
+
+    event TaxFundedTokenMinted(address indexed recipient, uint256 amount, string foiaId);
+    event OSINTCoinMinted(address indexed recipient, uint256 amount, string inquiryId);
+
+    constructor() {
+        platformAdmin = msg.sender;
     }
 
-    mapping(address => InvestigatorStats) public investigators;
-    mapping(bytes32 => AuditProof) public proofs;
-    bytes32[] public proofRegistry;
-
-    uint256 public totalTFTMinted;
-    uint256 public totalOSINTMinted;
-    uint256 public totalValueExposed;
-
-    uint256 public constant TFT_PER_1000_DOLLARS = 100;   // 100 TFT per $1,000 exposed
-    uint256 public constant OSINT_PER_IMPACT      = 50;    // 50 OSINT per impact point
-
-    event AuditSubmitted(bytes32 indexed proofId, address investigator, string category, uint256 amount);
-    event AuditVerified(bytes32 indexed proofId, uint256 tftMinted, uint256 osintMinted);
-    event TokensTransferred(address indexed from, address indexed to, string token, uint256 amount);
-
-    modifier onlyVerified(bytes32 _proofId) {
-        require(proofs[_proofId].verified, "Audit not yet verified");
+    modifier onlyAdmin() {
+        require(msg.sender == platformAdmin, "Only OsintNeoAi Platform Admin can mint");
         _;
     }
 
-    function submitAudit(
-        string calldata _caseId,
-        string calldata _category,
-        uint256 _exposedAmount,
-        bytes32 _documentHash
-    ) external returns (bytes32) {
-        require(_category == "taxpayer" || _category == "osint", "Invalid category");
+    /**
+     * @dev Mint TaxFundedToken (TFT) for government/tax-payer audits
+     */
+    function mintTaxFundedToken(
+        string memory foiaId,
+        string memory targetEntity,
+        uint256 taxWasteAmount,
+        address recipient
+    ) external onlyAdmin returns (bytes32) {
+        bytes32 proofHash = keccak256(abi.encodePacked(foiaId, targetEntity, taxWasteAmount, block.timestamp));
+        uint256 rewardAmount = (taxWasteAmount / 1000) * 100 * (10**18);
 
-        bytes32 proofId = keccak256(abi.encodePacked(block.timestamp, msg.sender, _caseId));
-        require(proofs[proofId].timestamp == 0, "Proof already exists");
-
-        proofs[proofId] = AuditProof({
-            investigator: msg.sender,
-            caseId: _caseId,
-            category: _category,
-            exposedAmount: _exposedAmount,
-            timestamp: block.timestamp,
-            documentHash: _documentHash,
-            verified: false
+        onChainAuditLedger[proofHash] = AuditProof({
+            inquiryId: foiaId,
+            category: "TAX_FUNDED",
+            targetEntity: targetEntity,
+            impactScore: taxWasteAmount,
+            whistleblowerRecipient: recipient,
+            mintedAmount: rewardAmount,
+            timestamp: block.timestamp
         });
 
-        proofRegistry.push(proofId);
-        emit AuditSubmitted(proofId, msg.sender, _category, _exposedAmount);
-        return proofId;
+        tftTotalSupply += rewardAmount;
+        tftBalanceOf[recipient] += rewardAmount;
+
+        emit TaxFundedTokenMinted(recipient, rewardAmount, foiaId);
+        return proofHash;
     }
 
-    function verifyAndMint(bytes32 _proofId) external {
-        require(proofs[_proofId].timestamp != 0, "Proof not found");
-        require(!proofs[_proofId].verified, "Already verified");
+    /**
+     * @dev Mint OSINTCoin (OSINT) for general user investigations
+     */
+    function mintOSINTCoin(
+        string memory inquiryId,
+        string memory targetEntity,
+        uint256 impactScore,
+        address recipient
+    ) external onlyAdmin returns (bytes32) {
+        bytes32 proofHash = keccak256(abi.encodePacked(inquiryId, targetEntity, impactScore, block.timestamp));
+        uint256 rewardAmount = impactScore * 50 * (10**18);
 
-        proofs[_proofId].verified = true;
-        AuditProof storage proof = proofs[_proofId];
+        onChainAuditLedger[proofHash] = AuditProof({
+            inquiryId: inquiryId,
+            category: "GENERAL_OSINT",
+            targetEntity: targetEntity,
+            impactScore: impactScore,
+            whistleblowerRecipient: recipient,
+            mintedAmount: rewardAmount,
+            timestamp: block.timestamp
+        });
 
-        uint256 tftMinted = 0;
-        uint256 osintMinted = 0;
+        osintTotalSupply += rewardAmount;
+        osintBalanceOf[recipient] += rewardAmount;
 
-        if (proof.category == "taxpayer") {
-            tftMinted = (proof.exposedAmount / 1000) * TFT_PER_1000_DOLLARS;
-            investigators[proof.investigator].tftBalance += tftMinted;
-            totalTFTMinted += tftMinted;
-            totalValueExposed += proof.exposedAmount;
-        } else {
-            osintMinted = (proof.exposedAmount / 10) * OSINT_PER_IMPACT;
-            investigators[proof.investigator].osintBalance += osintMinted;
-            totalOSINTMinted += osintMinted;
-        }
-
-        investigators[proof.investigator].totalAudits++;
-        investigators[proof.investigator].totalExposedValue += proof.exposedAmount;
-
-        emit AuditVerified(_proofId, tftMinted, osintMinted);
-    }
-
-    function transferTokens(address _to, string calldata _token, uint256 _amount) external {
-        require(_to != address(0), "Invalid recipient");
-
-        if (_token == "tft") {
-            require(investigators[msg.sender].tftBalance >= _amount, "Insufficient TFT");
-            investigators[msg.sender].tftBalance -= _amount;
-            investigators[_to].tftBalance += _amount;
-        } else if (_token == "osint") {
-            require(investigators[msg.sender].osintBalance >= _amount, "Insufficient OSINT");
-            investigators[msg.sender].osintBalance -= _amount;
-            investigators[_to].osintBalance += _amount;
-        } else {
-            revert("Invalid token");
-        }
-
-        emit TokensTransferred(msg.sender, _to, _token, _amount);
-    }
-
-    function getBalance(address _investigator) external view returns (uint256 tft, uint256 osint) {
-        return (investigators[_investigator].tftBalance, investigators[_investigator].osintBalance);
-    }
-
-    function getProofCount() external view returns (uint256) {
-        return proofRegistry.length;
-    }
-
-    function getTotalStats() external view returns (uint256 audits, uint256 valueExposed, uint256 tft, uint256 osint) {
-        return (proofRegistry.length, totalValueExposed, totalTFTMinted, totalOSINTMinted);
+        emit OSINTCoinMinted(recipient, rewardAmount, inquiryId);
+        return proofHash;
     }
 }

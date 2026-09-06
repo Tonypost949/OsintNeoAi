@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OsintNeoAi - Public FOIA & Records Hub</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #0b0f19; color: #e2e8f0; padding: 20px; }
+    h2 { color: #38bdf8; margin-top: 0; }
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+    .status-badge { background: #0284c7; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; }
+    .status-fulfilled { background: #059669; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; }
+    .privacy-shield { font-size: 12px; color: #34d399; background: #064e3b; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-bottom: 10px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
+    th, td { text-align: left; padding: 10px; border-bottom: 1px solid #334155; }
+    th { background: #0f172a; color: #94a3b8; }
+    button { background: #2563eb; color: white; border: none; padding: 8px 14px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>📑 Anonymous Public FOIA & Records Hub</h2>
+  <div class="privacy-shield">🛡️ All FOIA requests are dispatched under the <strong>OsintNeoAi Legal Umbrella</strong>. User identity is 100% shielded.</div>
+
+  <div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h3>Submit New Anonymous FOIA Request</h3>
+      <button onclick="alert('FOIA Request Queued anonymously under OsintNeoAi!')">+ Dispatch Anonymous FOIA</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Live Public FOIA Tracker & Released Documents</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Request ID</th>
+          <th>Target Agency / Non-Profit</th>
+          <th>Submitted By</th>
+          <th>Status</th>
+          <th>Public Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>FOIA-89A4C12E</code></td>
+          <td>County Auditor / Regional Non-Profit</td>
+          <td>OsintNeoAi Umbrella</td>
+          <td><span class="status-fulfilled">✓ FULFILLED</span></td>
+          <td><button style="background: #059669;">📄 View Released PDF</button></td>
+        </tr>
+        <tr>
+          <td><code>FOIA-33B109FF</code></td>
+          <td>Municipal Fleet Department</td>
+          <td>OsintNeoAi Umbrella</td>
+          <td><span class="status-badge">⏳ PENDING RESPONSE</span></td>
+          <td><button style="background: #475569;" disabled>In Review</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "OsintNeoAi OSINT Side Panel",
+  "version": "1.0.0",
+  "description": "Smart domain-aware OSINT ingestion engine with side panel co-pilot",
+  "permissions": [
+    "sidePanel",
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*.irs.gov/*",
+    "https://*.propublica.org/*",
+    "https://*.usaspending.gov/*",
+    "https://*.sam.gov/*",
+    "https://*.guidestar.org/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["domain-learner.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
