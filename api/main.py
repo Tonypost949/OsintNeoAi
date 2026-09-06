@@ -159,6 +159,16 @@ def static_assets(path):
 def forensic_assets(path):
     return send_from_directory(str(Path(__file__).parent.parent / "forensic"), path)
 
+@app.route("/gis/v2")
+@app.route("/master_tactical_gis_v2_lightbox.html")
+def gis_v2():
+    return send_from_directory(str(Path(__file__).parent.parent), "master_tactical_gis_v2_lightbox.html")
+
+@app.route("/gis")
+@app.route("/master_tactical_gis.html")
+def gis_master():
+    return send_from_directory(str(Path(__file__).parent.parent), "master_tactical_gis.html")
+
 # ── AI Chat ────────────────────────────────────────────────────
 @app.route("/api/chat", methods=["POST"])
 def chat():
