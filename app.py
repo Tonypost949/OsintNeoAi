@@ -9,7 +9,7 @@ ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def get_file_content(candidates):
     for c in candidates:
-        for prefix in ['', 'public', 'docs', 'opencode_work', 'data_apps']:
+        for prefix in ['', 'public', 'docs', 'opencode_work', 'data_apps', 'scripts']:
             p = os.path.join(ROOT_DIR, prefix, c) if prefix else os.path.join(ROOT_DIR, c)
             if os.path.exists(p):
                 with open(p, 'r', encoding='utf-8') as f:
@@ -123,9 +123,18 @@ def api_cli_exec_route():
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)}), 500
 
+@app.route('/api/install_tools', methods=['GET', 'POST'])
+def api_install_tools():
+    try:
+        cmd = 'python3 -m pip install google-genai antigravity-cli opencode-cli'
+        res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT_DIR, timeout=60)
+        return jsonify({'status': 'success', 'output': res.stdout + '\n' + res.stderr})
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)}), 500
+
 @app.route('/<path:filename>')
 def serve_static_file(filename):
-    for dir_path in [ROOT_DIR, os.path.join(ROOT_DIR, 'public'), os.path.join(ROOT_DIR, 'docs'), os.path.join(ROOT_DIR, 'opencode_work'), os.path.join(ROOT_DIR, 'data_apps')]:
+    for dir_path in [ROOT_DIR, os.path.join(ROOT_DIR, 'public'), os.path.join(ROOT_DIR, 'docs'), os.path.join(ROOT_DIR, 'opencode_work'), os.path.join(ROOT_DIR, 'data_apps'), os.path.join(ROOT_DIR, 'scripts')]:
         p = os.path.join(dir_path, filename)
         if os.path.exists(p) and os.path.isfile(p):
             return send_from_directory(dir_path, filename)
