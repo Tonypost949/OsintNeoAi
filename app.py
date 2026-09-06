@@ -8,7 +8,7 @@ ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def get_file_content(candidates):
     for c in candidates:
-        for prefix in ['', 'public', 'docs', 'opencode_work']:
+        for prefix in ['', 'public', 'docs', 'opencode_work', 'data_apps']:
             p = os.path.join(ROOT_DIR, prefix, c) if prefix else os.path.join(ROOT_DIR, c)
             if os.path.exists(p):
                 with open(p, 'r', encoding='utf-8') as f:
@@ -17,7 +17,7 @@ def get_file_content(candidates):
 
 @app.route('/')
 def root_route():
-    content = get_file_content(['gods_eye_view_live.html', 'hbnc_rico_gis.html', 'index.html'])
+    content = get_file_content(['hbnc_rico_gis.html', 'badass_osint_map.html', 'index.html'])
     if content:
         return content
     return '<h1>OSINT Neo AI Command Dashboard</h1>', 200
@@ -66,7 +66,7 @@ def gemini_route():
 
 @app.route('/maps')
 def maps_route():
-    content = get_file_content(['osint_gemini_gis.html', 'hbnc_rico_gis.html', 'maps.html', 'badass_osint_map.html'])
+    content = get_file_content(['hbnc_rico_gis.html', 'badass_osint_map.html', 'badass_arcgis_tactical_map.html', 'osint_gemini_gis.html'])
     if content:
         return content
     return '<h3>Maps Hub Template Not Found</h3>', 404
@@ -99,7 +99,7 @@ def api_cli_exec_route():
 
 @app.route('/<path:filename>')
 def serve_static_file(filename):
-    for dir_path in [ROOT_DIR, os.path.join(ROOT_DIR, 'public'), os.path.join(ROOT_DIR, 'docs'), os.path.join(ROOT_DIR, 'opencode_work')]:
+    for dir_path in [ROOT_DIR, os.path.join(ROOT_DIR, 'public'), os.path.join(ROOT_DIR, 'docs'), os.path.join(ROOT_DIR, 'opencode_work'), os.path.join(ROOT_DIR, 'data_apps')]:
         p = os.path.join(dir_path, filename)
         if os.path.exists(p) and os.path.isfile(p):
             return send_from_directory(dir_path, filename)
