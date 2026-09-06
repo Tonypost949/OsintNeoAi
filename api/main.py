@@ -552,10 +552,25 @@ def ledger_upsert():
     title = data.get("title", asset_id)
     text = data.get("text", "") or data.get("page_text", "")
     ledger_page = data.get("ledger_page")
+    auto_hunt = data.get("auto_hunt", True)  # wire: auto-trigger hunt on save if page has urls/ips
     if not text:
         return jsonify({"error": "text/page_text required"}), 400
     try:
         row = upsert_asset(asset_id, title, text, ledger_page)
+        # auto-trigger hunt if IOCs found and auto_hunt enabled (saves manual POST /hunt)
+        if auto_hunt and row.get("ioc_count", 0) > 0:
+            try:
+                import threading
+                # run in background so API returns fast (hunt does BigQuery + VT calls)
+                def _bg_hunt(aid, txt):
+                    try:
+                        hunt_asset(aid, txt)
+                    except Exception as e:
+                        print(f"[LedgerHunter] bg hunt failed for {aid}: {e}")
+                threading.Thread(target=_bg_hunt, args=(asset_id, text), daemon=True).start()
+                row["auto_hunt"] = "queued"
+            except Exception as _e:
+                row["auto_hunt_error"] = str(_e)
         return jsonify(row)
     except Exception as e:
         return jsonify({"error": str(e)}), 500

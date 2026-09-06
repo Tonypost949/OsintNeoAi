@@ -232,13 +232,122 @@ def build_hunt_queries(iocs: dict) -> list[str]:
             qs[-1] = f"SELECT '{safe}' AS ioc, '{ds}.{tbl}' AS src, COUNT(*) AS hits FROM `{GCP_PROJECT}.{ds}.{tbl}` WHERE REGEXP_CONTAINS(TO_JSON_STRING({tbl}), r'{re.escape(ioc)}')"
     return qs
 
+def _get_api_key(name: str) -> str:
+    """Get key from env or Secret Manager (gcp). Returns '' if not set."""
+    v = os.getenv(name, "").strip()
+    if v:
+        return v
+    try:
+        from google.cloud import secretmanager
+        client = secretmanager.SecretManagerServiceClient()
+        proj = GCP_PROJECT
+        # try secret `name` and lower variant
+        for sec in [name, name.lower(), name.replace("_API_KEY","").lower()]:
+            try:
+                resp = client.access_secret_version(request={"name": f"projects/{proj}/secrets/{sec}/versions/latest"})
+                return resp.payload.data.decode("utf-8").strip()
+            except:
+                continue
+    except:
+        pass
+    return ""
+
+def _vt_lookup_ip(ip: str, api_key: str, timeout=8) -> dict:
+    if not api_key:
+        return {"verdict": "unknown", "ti": "no_key", "detail": "VT_API_KEY not set - set env or Secret Manager projects/{project}/secrets/VT_API_KEY"}
+    try:
+        import urllib.request, urllib.error, json as _json
+        req = urllib.request.Request(f"https://www.virustotal.com/api/v3/ip_addresses/{ip}",
+            headers={"x-apikey": api_key}, method="GET")
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            j = _json.loads(r.read().decode())
+            attrs = j.get("data", {}).get("attributes", {})
+            stats = attrs.get("last_analysis_stats", {})
+            rep = attrs.get("reputation", 0)
+            mal = stats.get("malicious", 0)
+            sus = stats.get("suspicious", 0)
+            # verdict
+            if mal >= 3 or rep < -10:
+                verdict = "malicious"
+            elif mal >= 1 or sus >= 2 or rep < 0:
+                verdict = "suspicious"
+            else:
+                verdict = "clean"
+            return {"verdict": verdict, "ti": f"VT ip {mal} mal, {sus} sus, rep {rep}", "stats": stats, "reputation": rep, "raw": attrs}
+    except Exception as e:
+        return {"verdict": "error", "ti": f"VT ip error: {str(e)[:200]}", "error": str(e)[:300]}
+
+def _vt_lookup_url(url: str, api_key: str, timeout=8) -> dict:
+    if not api_key:
+        return {"verdict": "unknown", "ti": "no_key", "detail": "VT_API_KEY not set"}
+    try:
+        import urllib.request, base64, json as _json
+        # VT url id = base64 url without padding
+        url_id = base64.urlsafe_b64encode(url.encode()).decode().strip("=")
+        req = urllib.request.Request(f"https://www.virustotal.com/api/v3/urls/{url_id}",
+            headers={"x-apikey": api_key}, method="GET")
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            j = _json.loads(r.read().decode())
+            attrs = j.get("data", {}).get("attributes", {})
+            stats = attrs.get("last_analysis_stats", {})
+            rep = attrs.get("reputation", 0)
+            mal = stats.get("malicious", 0)
+            sus = stats.get("suspicious", 0)
+            if mal >= 3 or rep < -10:
+                verdict = "malicious"
+            elif mal >= 1 or sus >= 2 or rep < 0:
+                verdict = "suspicious"
+            else:
+                verdict = "clean"
+            return {"verdict": verdict, "ti": f"VT url {mal} mal, {sus} sus, rep {rep}", "stats": stats, "reputation": rep, "raw": attrs}
+    except Exception as e:
+        # 404 = not seen before → treat as unknown/clean
+        if "404" in str(e):
+            return {"verdict": "unknown", "ti": "VT url not seen before (404) - unknown", "error": str(e)[:200]}
+        return {"verdict": "error", "ti": f"VT url error: {str(e)[:200]}", "error": str(e)[:300]}
+
 def enrich_ti(iocs: dict) -> list[dict]:
-    """Stub for GTI / VirusTotal / AbuseIPDB. Replace with real API calls."""
+    """
+    Real GTI/VirusTotal enrichment. Uses VT_API_KEY (or GTI_API_KEY, same backend) from env or Secret Manager.
+    Set:  export VT_API_KEY='...'  or create Secret Manager secret VT_API_KEY / GTI_API_KEY
+    Wire AbuseIPDB by adding ABUSEIPDB_API_KEY and extending _abuseipdb_lookup_ip().
+    """
+    vt_key = _get_api_key("VT_API_KEY") or _get_api_key("GTI_API_KEY") or _get_api_key("VIRUSTOTAL_API_KEY")
+    abuse_key = _get_api_key("ABUSEIPDB_API_KEY")
     evidence = []
-    for ip in iocs["ips"]:
-        evidence.append({"ioc": ip, "type": "ip", "ti": "pending", "verdict": "unknown", "source": "GTI stub - wire AbuseIPDB/VirusTotal API here"})
-    for url in iocs["urls"]:
-        evidence.append({"ioc": url, "type": "url", "ti": "pending", "verdict": "unknown", "source": "GTI stub"})
+    # cap to avoid quota burn - 8 ips + 8 urls per hunt
+    for ip in (iocs.get("ips") or [])[:8]:
+        r = _vt_lookup_ip(ip, vt_key)
+        evidence.append({"ioc": ip, "type": "ip", "verdict": r.get("verdict","unknown"), "ti": r.get("ti",""), "source": "VirusTotal/GTI ip_addresses", "detail": r})
+    for url in (iocs.get("urls") or [])[:8]:
+        r = _vt_lookup_url(url, vt_key)
+        evidence.append({"ioc": url, "type": "url", "verdict": r.get("verdict","unknown"), "ti": r.get("ti",""), "source": "VirusTotal/GTI urls", "detail": r})
+    for d in (iocs.get("domains") or [])[:4]:
+        # domain lookup via VT domain endpoint (same as ip)
+        if vt_key:
+            try:
+                import urllib.request, json as _json
+                req = urllib.request.Request(f"https://www.virustotal.com/api/v3/domains/{d}",
+                    headers={"x-apikey": vt_key}, method="GET")
+                with urllib.request.urlopen(req, timeout=8) as resp:
+                    j = _json.loads(resp.read().decode())
+                    attrs = j.get("data", {}).get("attributes", {})
+                    stats = attrs.get("last_analysis_stats", {})
+                    mal = stats.get("malicious",0)
+                    verdict = "malicious" if mal>=3 else "suspicious" if mal>=1 else "clean"
+                    evidence.append({"ioc": d, "type": "domain", "verdict": verdict, "ti": f"VT domain {mal} mal", "source": "VirusTotal/GTI domains", "detail": attrs})
+            except Exception as e:
+                if "404" not in str(e):
+                    evidence.append({"ioc": d, "type": "domain", "verdict": "error", "ti": str(e)[:200], "source": "VirusTotal/GTI domains"})
+        else:
+            evidence.append({"ioc": d, "type": "domain", "verdict": "unknown", "ti": "no VT key", "source": "GTI stub"})
+    if not evidence and (iocs.get("count",0)==0):
+        return []
+    if not vt_key:
+        # annotate that TI was skipped due to missing key - still return unknown so hunt can complete via BigQuery hits
+        for e in evidence:
+            if e["verdict"]=="unknown" and "no_key" in e.get("ti",""):
+                e["ti"] = "VT_API_KEY not set - hunt used BigQuery only. Set env VT_API_KEY or create Secret Manager secret VT_API_KEY to enable live TI"
     return evidence
 
 def hunt_asset(asset_id: str, text: str = None) -> dict:
