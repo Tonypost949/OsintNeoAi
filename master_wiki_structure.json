@@ -1,0 +1,54 @@
+{
+  "platform": "OsintNeoAi & TaxFunded Master Wiki System",
+  "version": "2026.1.0-ENTERPRISE-WIKI",
+  "namespaces": [
+    {
+      "namespace": "People & Officials Registry (NS_PEOPLE)",
+      "description": "Master directory of all government officials, trustees, contractors, whistleblowers, and corporate actors.",
+      "entry_format": "[Initials | Official Title | Risk Rating (1-10)](profile_url)",
+      "mandatory_attributes": [
+        "Full Name",
+        "Official Title",
+        "Capacity",
+        "Agency/Entity",
+        "Risk Score 1-10",
+        "Statutory Laws",
+        "Surety Bond Link"
+      ]
+    },
+    {
+      "namespace": "Statutory Legal Index (NS_LEGAL)",
+      "description": "Central repository of federal, state, and municipal statutes governing public funds, deals, and health risks.",
+      "categories": [
+        "Conflict of Interest (\u00a7 1090)",
+        "Public Ethics (\u00a7 87100)",
+        "Open Meetings (Brown Act)",
+        "Public Records (CPRA)",
+        "Environmental (Prop 65 / CEQA)",
+        "Illegal Contracts (Civ. Code \u00a7 1668)"
+      ]
+    },
+    {
+      "namespace": "Investigative Dossiers & Cases (NS_CASES)",
+      "description": "Cross-referenced forensic files, shelter contract audits, real estate property transfers, and public threat logs.",
+      "key_cases": [
+        "HB Navigation Center (.2M Audit)",
+        "17631 Cameron / 17642 Beach Real Estate Lease",
+        "Hexavalent Chromium Soil Cap Shortfall"
+      ]
+    },
+    {
+      "namespace": "Autonomous Ledger & TaxFunded Sister Site (NS_TAXFUNDED)",
+      "description": "Zero-human transaction ledger tracking taxpayer-funded allocations, entity transfers, and coin rewards.",
+      "ledger_type": "Immutable Transaction-Style Ledger (TFT & OSINT Tokens)"
+    },
+    {
+      "namespace": "Surety Bond & Recovery Registry (NS_BONDS)",
+      "description": "Official performance and fidelity bond tracking for public official disgorgement and contractor liability.",
+      "statutes": [
+        "Cal. Gov. Code \u00a7 1480 (Official Bond)",
+        "Cal. Civ. Code \u00a7 9550 (Public Works Bond)"
+      ]
+    }
+  ]
+}
