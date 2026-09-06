@@ -1,0 +1,34 @@
+{
+  "title": "Whistleblower Reward & Anti-Fraud Statutory Framework",
+  "platform_rule": "Any OSINT audit or taxpayer disclosure that halts fraud, recovers tax dollars, or unmasks illegal contracts triggers mandatory statutory payout rights under state and federal law.",
+  "statutes": [
+    {
+      "statute_citation": "California False Claims Act (Cal. Gov. Code \u00a7 12650 et seq.)",
+      "category": "State Taxpayer Fraud & Disgorgement",
+      "whistleblower_payout_rate": "15% to 33% of Total Recovered Public Funds",
+      "statutory_protection": "Cal. Gov. Code \u00a7 12653 (Protection against retaliation, threat, or discrimination)",
+      "crypto_reward_token": "TaxFunded Token (TFT) + Direct Disgorgement Share"
+    },
+    {
+      "statute_citation": "Federal False Claims Act (31 U.S.C. \u00a7 3730 - Qui Tam Action)",
+      "category": "Federal / Inter-State Grant Fraud",
+      "whistleblower_payout_rate": "15% to 30% of Total Damages & Penalties Recovered",
+      "statutory_protection": "31 U.S.C. \u00a7 3730(h) (Federal Whistleblower Relief & Mandatory Triple Damages)",
+      "crypto_reward_token": "OSINT Coin (OSINT) + Federal Relator Payout"
+    },
+    {
+      "statute_citation": "IRS Whistleblower Informant Award (26 U.S.C. \u00a7 7623)",
+      "category": "Non-Profit 501(c)(3) Tax Exemption & Executive Fraud",
+      "whistleblower_payout_rate": "15% to 30% of Taxes, Penalties, & Interest Collected",
+      "statutory_protection": "IRS Whistleblower Office Confidentiality Shield",
+      "crypto_reward_token": "TFT Token Staking Reward Pool"
+    },
+    {
+      "statute_citation": "SEC Whistleblower Program (15 U.S.C. \u00a7 78u-6 - Dodd-Frank Act)",
+      "category": "Corporate Disclosure Fraud & Real Estate Trust Deception",
+      "whistleblower_payout_rate": "10% to 30% of Monetary Sanctions Exceeding ",
+      "statutory_protection": "18 U.S.C. \u00a7 1513(e) (Criminal Penalties for Retaliation)",
+      "crypto_reward_token": "OSINT Coin (OSINT) Dual Reward"
+    }
+  ]
+}
