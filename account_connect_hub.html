@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OsintNeoAi — Connect Accounts</title>
+<style>
+  :root { --bg: #0a0a0f; --card: #111118; --border: #1e1e2e; --accent: #00d4ff; --gold: #ffd700; --text: #e0e0e0; --muted: #7a7a8a; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 3rem 1rem; }
+  h1 { font-size: 1.8rem; color: var(--gold); margin-bottom: 0.3rem; }
+  .subtitle { color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem; }
+  .hub { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; width: 100%; max-width: 900px; }
+  .provider { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; text-align: center; transition: border-color 0.2s, transform 0.2s; cursor: pointer; }
+  .provider:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .provider.connected { border-color: var(--green); }
+  .provider .icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+  .provider .name { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.3rem; }
+  .provider .desc { font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.4; }
+  .provider .status-badge { font-size: 0.7rem; padding: 3px 10px; border-radius: 20px; font-weight: 600; }
+  .badge-connect { background: var(--accent); color: #000; }
+  .badge-connected { background: #0a3d0a; color: #4cff4c; }
+  .benefits { margin-top: 2rem; width: 100%; max-width: 900px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; }
+  .benefits h3 { color: var(--accent); margin-bottom: 0.8rem; font-size: 1rem; }
+  .benefits ul { list-style: none; }
+  .benefits li { padding: 0.4rem 0; font-size: 0.85rem; color: var(--muted); }
+  .benefits li::before { content: '✓ '; color: #4cff4c; font-weight: 700; }
+</style>
+</head>
+<body>
+  <h1>Connect Your Accounts</h1>
+  <div class="subtitle">Sign in once. The platform handles everything else.</div>
+
+  <div class="hub">
+    <div class="provider" onclick="connectProvider('google')">
+      <div class="icon">&#128225;</div>
+      <div class="name">Google</div>
+      <div class="desc">AI Studio free tier, Drive storage, Gemini models, SSO</div>
+      <div class="status-badge badge-connect" id="google-badge">Connect</div>
+    </div>
+    <div class="provider" onclick="connectProvider('microsoft')">
+      <div class="icon">&#128187;</div>
+      <div class="name">Microsoft</div>
+      <div class="desc">Azure free tier, OneDrive, MS365, Entra ID</div>
+      <div class="status-badge badge-connect" id="ms-badge">Connect</div>
+    </div>
+    <div class="provider" onclick="connectProvider('github')">
+      <div class="icon">&#128025;</div>
+      <div class="name">GitHub</div>
+      <div class="desc">Student pack, Codespaces VM, repos, Actions CI</div>
+      <div class="status-badge badge-connect" id="gh-badge">Connect</div>
+    </div>
+    <div class="provider" onclick="connectProvider('opencode')">
+      <div class="icon">&#129302;</div>
+      <div class="name">OpenCode</div>
+      <div class="desc">Free CLI agent, code generation, script execution</div>
+      <div class="status-badge badge-connect" id="oc-badge">Connect</div>
+    </div>
+  </div>
+
+  <div class="benefits">
+    <h3>What Connecting Unlocks</h3>
+    <ul>
+      <li>Multi-account AI quota pooling — 3x free Gemini API rate limits</li>
+      <li>Zero manual API key management — tokens auto-harvested from logged-in sessions</li>
+      <li>Cloud storage ingestion — pipe Google Drive / OneDrive data into workspace</li>
+      <li>1-click GitHub repo mounting — test any OSINT tool instantly</li>
+      <li>Free cloud VM — Codespaces on your GitHub Student account</li>
+      <li>Anonymous FOIA dispatch under OsintNeoAi legal umbrella</li>
+    </ul>
+  </div>
+
+<script>
+function connectProvider(provider) {
+  const badges = { google: 'google-badge', microsoft: 'ms-badge', github: 'gh-badge', opencode: 'oc-badge' };
+  const el = document.getElementById(badges[provider]);
+  el.textContent = 'Connecting...';
+  el.className = 'status-badge badge-connect';
+  setTimeout(() => {
+    el.textContent = '✓ Connected';
+    el.className = 'status-badge badge-connected';
+    el.parentElement.classList.add('connected');
+  }, 1200);
+}
+</script>
+</body>
+</html>

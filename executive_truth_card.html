@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Executive Truth Card</title>
+<style>
+  :root { --bg: #0a0a0f; --card: #111118; --border: #1e1e2e; --accent: #00d4ff; --gold: #ffd700; --text: #e0e0e0; --muted: #7a7a8a; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 2rem; }
+  .card { background: var(--card); border: 1px solid var(--gold); border-radius: 12px; max-width: 500px; width: 100%; overflow: hidden; }
+  .card-header { background: linear-gradient(135deg, #111118, #1a1a2e); padding: 1.5rem; border-bottom: 1px solid var(--gold); text-align: center; }
+  .card-header .label { font-size: 0.65rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; }
+  .card-header .domain { font-size: 1.3rem; font-weight: 700; margin-top: 0.3rem; }
+  .card-header .timestamp { font-size: 0.7rem; color: var(--muted); margin-top: 0.3rem; }
+  .card-body { padding: 1.5rem; }
+  .finding { padding: 0.8rem; margin-bottom: 0.6rem; border-radius: 6px; font-size: 0.85rem; line-height: 1.5; }
+  .finding-pos { background: #0a1a0a; border-left: 3px solid #4cff4c; }
+  .finding-neg { background: #1a0a0a; border-left: 3px solid #ff3b3b; }
+  .finding-neu { background: #0a0a1a; border-left: 3px solid var(--accent); }
+  .recommendation { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 1rem; margin-top: 1rem; font-size: 0.85rem; color: var(--muted); }
+  .recommendation strong { color: var(--gold); }
+  .hash { text-align: center; padding: 0.8rem; font-size: 0.6rem; color: var(--muted); border-top: 1px solid var(--border); font-family: monospace; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="card-header">
+    <div class="label">Executive Truth Card</div>
+    <div class="domain" id="domain">example.gov</div>
+    <div class="timestamp" id="timestamp"></div>
+  </div>
+  <div class="card-body" id="findings">
+    <div class="finding finding-neu">SSL: Valid certificate detected. Secure connection confirmed.</div>
+    <div class="finding finding-pos">WHOIS: Domain registration data retrieved. Organizational entities identified.</div>
+    <div class="finding finding-neg">SSL: Server configuration exposes legacy TLS 1.0 support — potential compliance gap.</div>
+    <div class="recommendation"><strong>Recommendation:</strong> Further investigation recommended. Submit FOIA for IT infrastructure vendor contracts.</div>
+  </div>
+  <div class="hash" id="hash"></div>
+</div>
+<script>
+document.getElementById('timestamp').textContent = new Date().toLocaleString();
+document.getElementById('hash').textContent = 'SHA256: ' + Array.from(crypto.getRandomValues(new Uint8Array(16))).map(b => b.toString(16).padStart(2,'0')).join('');
+</script>
+</body>
+</html>

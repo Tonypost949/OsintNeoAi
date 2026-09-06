@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OsintNeoAi — Dual Token Economy</title>
+<style>
+  :root { --bg: #0a0a0f; --card: #111118; --border: #1e1e2e; --accent: #00d4ff; --gold: #ffd700; --tft: #4cff4c; --osint: #a78bfa; --text: #e0e0e0; --muted: #7a7a8a; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+  .header { text-align: center; padding: 2rem 1rem; border-bottom: 1px solid var(--border); }
+  .header h1 { font-size: 1.6rem; color: var(--gold); }
+  .header .sub { color: var(--muted); font-size: 0.85rem; margin-top: 0.3rem; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 1.5rem; }
+  .wallet-connect { text-align: center; margin-bottom: 1.5rem; }
+  .wallet-connect button { background: linear-gradient(135deg, var(--accent), #7c3aed); color: #fff; border: none; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 0.95rem; }
+  .balances { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+  .bal-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; text-align: center; }
+  .bal-card.tft { border-color: var(--tft); }
+  .bal-card.osint { border-color: var(--osint); }
+  .bal-card .token-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+  .bal-card .token-name { font-weight: 700; font-size: 1.1rem; }
+  .bal-card .token-bal { font-size: 2rem; font-weight: 900; margin: 0.3rem 0; }
+  .bal-card.tft .token-bal { color: var(--tft); }
+  .bal-card.osint .token-bal { color: var(--osint); }
+  .bal-card .token-desc { font-size: 0.75rem; color: var(--muted); }
+  .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin-bottom: 1.5rem; }
+  .stat { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem; text-align: center; }
+  .stat .val { font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+  .stat .lbl { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; }
+  .proof-log { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; }
+  .proof-log h3 { font-size: 0.9rem; color: var(--accent); margin-bottom: 0.8rem; }
+  .proof-entry { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.8rem; }
+  .proof-entry:last-child { border-bottom: none; }
+  .proof-badge { font-size: 0.65rem; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+  .badge-tft { background: #0a3d0a; color: var(--tft); }
+  .badge-osint { background: #1a0a3d; color: var(--osint); }
+  @media (max-width: 600px) { .balances { grid-template-columns: 1fr; } .stats-bar { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Dual Token Economy</h1>
+  <div class="sub">TaxFundedToken (TFT) &bull; OSINTCoin (OSINT) &bull; Blockchain-Verified Audit Rewards</div>
+</div>
+<div class="container">
+  <div class="wallet-connect">
+    <button onclick="connectWallet()">Connect Wallet</button>
+    <div id="wallet-status" style="margin-top:0.5rem;font-size:0.8rem;color:var(--muted);"></div>
+  </div>
+  <div class="balances">
+    <div class="bal-card tft">
+      <div class="token-icon">&#127963;</div>
+      <div class="token-name">TaxFundedToken (TFT)</div>
+      <div class="token-bal" id="tft-bal">0</div>
+      <div class="token-desc">Minted for verified taxpayer waste/fraud exposed</div>
+    </div>
+    <div class="bal-card osint">
+      <div class="token-icon">&#128269;</div>
+      <div class="token-name">OSINTCoin (OSINT)</div>
+      <div class="token-bal" id="osint-bal">0</div>
+      <div class="token-desc">Minted for general OSINT impact &amp; discoveries</div>
+    </div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat"><div class="val" id="total-audits">0</div><div class="lbl">Total Audits</div></div>
+    <div class="stat"><div class="val" id="total-value">$0</div><div class="lbl">Value Exposed</div></div>
+    <div class="stat"><div class="val" id="total-tft">0</div><div class="lbl">TFT Minted</div></div>
+    <div class="stat"><div class="val" id="total-osint">0</div><div class="lbl">OSINT Minted</div></div>
+  </div>
+  <div class="proof-log">
+    <h3>On-Chain Audit Proofs</h3>
+    <div id="proof-list">
+      <div class="proof-entry"><span>TaxFunded $14.2M Non-Profit Audit</span><span class="proof-badge badge-tft">+1,420 TFT</span></div>
+      <div class="proof-entry"><span>Municipal Vehicle Fleet Audit</span><span class="proof-badge badge-osint">+340 OSINT</span></div>
+      <div class="proof-entry"><span>School District Travel Audit</span><span class="proof-badge badge-tft">+890 TFT</span></div>
+      <div class="proof-entry"><span>Industrial Waste Discharge Investigation</span><span class="proof-badge badge-osint">+450 OSINT</span></div>
+      <div class="proof-entry"><span>County IT Vendor Contract Analysis</span><span class="proof-badge badge-tft">+2,100 TFT</span></div>
+    </div>
+  </div>
+</div>
+<script>
+function connectWallet() {
+  document.getElementById('wallet-status').textContent = 'Connecting...';
+  setTimeout(() => {
+    document.getElementById('wallet-status').textContent = 'Connected: 0x7a3F...e9B2';
+    document.getElementById('tft-bal').textContent = '4,810';
+    document.getElementById('osint-bal').textContent = '1,230';
+    document.getElementById('total-audits').textContent = '47';
+    document.getElementById('total-value').textContent = '$2.8M';
+    document.getElementById('total-tft').textContent = '12,400';
+    document.getElementById('total-osint').textContent = '5,600';
+  }, 1000);
+}
+</script>
+</body>
+</html>
