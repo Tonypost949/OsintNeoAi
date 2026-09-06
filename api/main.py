@@ -523,6 +523,90 @@ def resolve_pipeline():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# ── Ledger Threat Hunter (investigation-scoped, not user PC) ─
+# Every asset has a page on the ledger - hunter scans urls/ips on that page
+try:
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).parent.parent / "core" / "AG2OSINTNEOMAXX"))
+    from ledger_hunter import extract_iocs, upsert_asset, hunt_asset, ensure_ledger_table, FULL_TABLE
+    _ledger_available = True
+except Exception as _e:
+    print(f"[LedgerHunter] not loaded: {_e}")
+    _ledger_available = False
+
+@app.route("/api/ledger/extract", methods=["POST"])
+def ledger_extract():
+    if not _ledger_available:
+        return jsonify({"error": "ledger_hunter not available"}), 500
+    data = request.get_json(silent=True) or {}
+    text = data.get("text", "") or data.get("page_text", "")
+    iocs = extract_iocs(text)
+    return jsonify(iocs)
+
+@app.route("/api/ledger/asset", methods=["POST"])
+def ledger_upsert():
+    if not _ledger_available:
+        return jsonify({"error": "ledger_hunter not available"}), 500
+    data = request.get_json(silent=True) or {}
+    asset_id = data.get("asset_id") or str(uuid.uuid4())[:8]
+    title = data.get("title", asset_id)
+    text = data.get("text", "") or data.get("page_text", "")
+    ledger_page = data.get("ledger_page")
+    if not text:
+        return jsonify({"error": "text/page_text required"}), 400
+    try:
+        row = upsert_asset(asset_id, title, text, ledger_page)
+        return jsonify(row)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/ledger/<asset_id>/hunt", methods=["POST"])
+def ledger_hunt(asset_id):
+    if not _ledger_available:
+        return jsonify({"error": "ledger_hunter not available"}), 500
+    data = request.get_json(silent=True) or {}
+    text = data.get("text")  # optional override
+    try:
+        res = hunt_asset(asset_id, text)
+        return jsonify(res)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/ledger/<asset_id>", methods=["GET"])
+def ledger_get(asset_id):
+    if not _ledger_available:
+        return jsonify({"error": "ledger_hunter not available"}), 500
+    try:
+        client = get_bq()
+        q = f"SELECT * FROM `{FULL_TABLE}` WHERE asset_id=@id LIMIT 1"
+        from google.cloud.bigquery import QueryJobConfig, ScalarQueryParameter
+        cfg = QueryJobConfig(query_parameters=[ScalarQueryParameter("id","STRING",asset_id)])
+        rows = [dict(r) for r in client.query(q, job_config=cfg).result()]
+        if not rows:
+            return jsonify({"error": "not found"}), 404
+        # parse JSON field
+        if rows[0].get("evidence"):
+            try:
+                rows[0]["evidence"] = json.loads(rows[0]["evidence"]) if isinstance(rows[0]["evidence"], str) else rows[0]["evidence"]
+            except:
+                pass
+        return jsonify(rows[0])
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/ledger", methods=["GET"])
+def ledger_list():
+    if not _ledger_available:
+        return jsonify({"error": "ledger_hunter not available"}), 500
+    try:
+        client = get_bq()
+        limit = min(int(request.args.get("limit","20")), 100)
+        q = f"SELECT asset_id, title, ioc_count, threat_hunt_status, determination, hunt_summary, updated_at FROM `{FULL_TABLE}` ORDER BY updated_at DESC LIMIT {limit}"
+        rows = [dict(r) for r in client.query(q).result()]
+        return jsonify({"assets": rows, "total": len(rows)})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 # ── Status ─────────────────────────────────────────────────────
 @app.route("/")
 @app.route("/api/status")
