@@ -187,8 +187,10 @@ def api_cli_exec_route():
             output = '[Command completed successfully with returncode 0]'
 
         return jsonify({'status': 'success', 'output': output, 'returncode': res.returncode})
+    except subprocess.TimeoutExpired:
+        return jsonify({'status': 'error', 'output': 'Command execution timed out (30s limit exceeded)', 'returncode': 124})
     except Exception as e:
-        return jsonify({'status': 'error', 'message': str(e)}), 500
+        return jsonify({'status': 'error', 'output': f'Execution error: {str(e)}', 'returncode': 1})
 
 @app.route('/api/install_tools', methods=['GET', 'POST'])
 def api_install_tools():
