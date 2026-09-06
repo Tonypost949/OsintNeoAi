@@ -1,7 +1,7 @@
 ﻿import os
 import json
 import subprocess
-from flask import Flask, jsonify, request, send_from_directory, abort
+from flask import Flask, jsonify, request, send_from_directory, abort, Response
 
 app = Flask(__name__, static_folder='.')
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -21,6 +21,20 @@ def root_route():
     if content:
         return content
     return '<h1>OSINT Neo AI Command Dashboard</h1>', 200
+
+@app.route('/manifest.json')
+def manifest_route():
+    content = get_file_content(['manifest.json'])
+    if content:
+        return Response(content, mimetype='application/json')
+    return jsonify({'name': 'OsintNeoAi', 'start_url': '/terminal'})
+
+@app.route('/service-worker.js')
+def service_worker_route():
+    content = get_file_content(['service-worker.js'])
+    if content:
+        return Response(content, mimetype='application/javascript')
+    return Response('// sw', mimetype='application/javascript')
 
 @app.route('/syncfusion')
 @app.route('/syncfusion-grid')
