@@ -61,7 +61,73 @@ def terminal_route():
     content = get_file_content(['terminal.html', 'cli.html'])
     if content:
         return content
-    return '<h3>Terminal Template Not Found</h3>', 404
+    return '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>OsintNeoAi — Mobile Cloud CLI Terminal</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#00f2ff">
+    <meta name="mobile-web-app-capable" content="yes">
+    <style>
+        :root { --bg: #0b0f19; --term-bg: #050811; --cyan: #00f2ff; --green: #00ff88; --text: #e2e8f0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: monospace; }
+        body { background: var(--bg); color: var(--text); height: 100vh; display: flex; flex-direction: column; }
+        header { background: #0f172a; padding: 12px; border-bottom: 1px solid #1e293b; color: var(--cyan); font-weight: bold; }
+        .chips { padding: 8px; background: #0b1120; display: flex; gap: 8px; overflow-x: auto; }
+        .chip { background: #1e293b; color: var(--cyan); padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; cursor: pointer; white-space: nowrap; }
+        .term { flex: 1; background: var(--term-bg); padding: 16px; overflow-y: auto; white-space: pre-wrap; font-size: 0.9rem; }
+        .bar { background: #0f172a; padding: 10px; display: flex; gap: 8px; border-top: 1px solid #1e293b; }
+        input { flex: 1; background: #050811; border: 1px solid #1e293b; color: #fff; padding: 10px; border-radius: 6px; }
+        button { background: var(--cyan); color: #000; border: none; padding: 10px 16px; font-weight: bold; border-radius: 6px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <header>⚡ OSINT NEO AI — MOBILE PWA CLOUD TERMINAL</header>
+    <div class="chips">
+        <span class="chip" onclick="run('pwsh')">pwsh</span>
+        <span class="chip" onclick="run('gemini')">gemini</span>
+        <span class="chip" onclick="run('agy')">agy</span>
+        <span class="chip" onclick="run('opencode')">opencode</span>
+        <span class="chip" onclick="run('bash scripts/install_cli_tools.sh')">install tools</span>
+        <span class="chip" onclick="run('ls -la')">list files</span>
+    </div>
+    <div class="term" id="term">======================================================================
+⚡ OSINT NEO AI MOBILE CLOUD CLI TERMINAL
+======================================================================
+Available Commands: pwsh, gemini, agy, antigravity, opencode
+----------------------------------------------------------------------
+</div>
+    <div class="bar">
+        <input type="text" id="cmd" placeholder="Enter CLI command..." onkeydown="if(event.key==='Enter') exec()">
+        <button onclick="exec()">Run</button>
+    </div>
+    <script>
+        async function exec() {
+            const input = document.getElementById('cmd');
+            const cmd = input.value.trim();
+            if (!cmd) return;
+            const term = document.getElementById('term');
+            term.innerText += '\n$ ' + cmd + '\n';
+            input.value = '';
+            try {
+                const res = await fetch('/api/cli_exec', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ command: cmd })
+                });
+                const data = await res.json();
+                term.innerText += (data.output || data.message || 'Done') + '\n';
+            } catch(e) {
+                term.innerText += 'ERROR: ' + e + '\n';
+            }
+            term.scrollTop = term.scrollHeight;
+        }
+        function run(c) { document.getElementById('cmd').value = c; exec(); }
+    </script>
+</body>
+</html>''', 200
 
 @app.route('/victims-board')
 @app.route('/victims')
