@@ -4,28 +4,57 @@
   <meta charset="UTF-8">
   <title>Wiki Entry: Larry McNeely (LM)</title>
   <style>
-    body { font-family: -apple-system, sans-serif; background: #0d1117; color: #c9d1d9; padding: 32px; }
-    .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 24px; max-width: 800px; margin: auto; }
-    h1 { color: #58a6ff; margin-top: 0; }
-    .badge { padding: 6px 12px; border-radius: 20px; font-weight: bold; background: #7f1d1d; color: #fca5a5; display: inline-block; }
-    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-    th, td { border: 1px solid #30363d; padding: 12px; text-align: left; }
+    body { font-family: -apple-system, sans-serif; background: #0d1117; color: #c9d1d9; padding: 24px; }
+    .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 24px; max-width: 950px; margin: auto; }
+    h1 { color: #58a6ff; margin-top: 0; display: flex; justify-content: space-between; align-items: center; }
+    .badge { padding: 6px 12px; border-radius: 20px; font-weight: bold; background: #7f1d1d; color: #fca5a5; font-size: 12px; display: inline-block; }
+    .cat-badge { padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 11px; text-transform: uppercase; margin-left: 8px; }
+    .cat-rico { background: #991b1b; color: #fecaca; }
+    .cat-official { background: #1e3a8a; color: #93c5fd; }
+    .cat-witness { background: #065f46; color: #a7f3d0; }
+    .section-title { border-bottom: 1px solid #30363d; padding-bottom: 6px; color: #f0f6fc; margin-top: 24px; font-size: 16px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    th, td { border: 1px solid #30363d; padding: 10px; text-align: left; font-size: 13px; }
     th { background: #21262d; color: #8b949e; width: 30%; }
+    .terminal-box { background: #000; border: 1px solid #30363d; border-radius: 6px; padding: 14px; font-family: monospace; color: #00ff66; font-size: 12px; white-space: pre-wrap; margin-top: 10px; }
+    .graph-box { background: #1f2937; border: 1px solid #374151; border-radius: 6px; padding: 16px; margin-top: 10px; font-family: monospace; color: #9ca3af; font-size: 12px; }
+    .repo-toggle { background: #21262d; border: 1px solid #30363d; padding: 12px; border-radius: 6px; margin-top: 10px; }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>👤 Larry McNeely (LM)</h1>
+    <h1>
+      <span>👤 Larry McNeely (LM)</span>
+      <span class="cat-badge cat-witness">WITNESS / AUDITOR</span>
+    </h1>
     <div class="badge">Risk Score: 1/10 - VERIFIED_AUDITOR (Protected Shield)</div>
+
+    <div class="section-title">📌 Attributes & Investigative Category</div>
     <table>
+      <tr><th>Category Classification</th><td><strong style="color: #fca5a5;">WITNESS / AUDITOR / WHISTLEBLOWER / PUBLIC THREAT TARGET</strong></td></tr>
       <tr><th>Official Title</th><td>Civic Watchdog & Whistleblower</td></tr>
       <tr><th>Agency / Entity</th><td>Independent Citizen Audit</td></tr>
       <tr><th>Governing Statutes</th><td>Cal. Gov. Code § 6250 (CPRA), First Amendment Shield, 42 U.S.C. § 1983</td></tr>
       <tr><th>Surety Bond Status</th><td>N/A (Whistleblower Protection)</td></tr>
-      <tr><th>TaxFunded Ledger Status</th><td>REWARD_ELIGIBLE (OSINT & TFT Tokens)</td></tr>
+      <tr><th>TaxFunded Ledger</th><td>REWARD_ELIGIBLE (OSINT & TFT Tokens)</td></tr>
       <tr><th>Dossier Summary</th><td>Exposed public threat, shelter lease bribery concerns, and statutory violations in municipal real estate contracts.</td></tr>
     </table>
-    <p><a href="../master_wiki_portal.html" style="color: #58a6ff;">← Back to Master Wiki Sheet Directory</a></p>
+
+    <div class="section-title">💻 Maltego CLI Terminal Output</div>
+    <div class="terminal-box">$ maltego-cli --transform ThreatTracker --target "Larry McNeely"
+[+] Shield Status: ACTIVE (First Amendment & 42 U.S.C. § 1983)</div>
+
+    <div class="section-title">🕸️ Maltego Graphics & Graph Connection (Node #MAL-NODE-LM-9012)</div>
+    <div class="graph-box">Maltego JSON Graph Entity Blueprint:<br>{"nodes": ["Larry McNeely", "Public Threats Log", "FOIA Requests"], "edges": ["Whistleblower", "Citizen Audit"]}</div>
+
+    <div class="section-title">⚙️ GitHub Repositories (Mounted / Dynamic Toggle)</div>
+    <div class="repo-toggle">
+      <ul style="margin: 0; padding-left: 20px;">
+        <li><a href='https://github.com/Tonypost949/OsintNeoAi' target='_blank' style='color: #58a6ff;'>https://github.com/Tonypost949/OsintNeoAi</a></li>
+      </ul>
+    </div>
+
+    <p style="margin-top: 24px;"><a href="../master_wiki_portal.html" style="color: #58a6ff;">← Back to Master Wiki Directory</a></p>
   </div>
 </body>
 </html>
