@@ -17,6 +17,7 @@
     th, td { border: 1px solid #30363d; padding: 10px; text-align: left; font-size: 13px; }
     th { background: #21262d; color: #8b949e; width: 30%; }
     .terminal-box { background: #000; border: 1px solid #30363d; border-radius: 6px; padding: 14px; font-family: monospace; color: #00ff66; font-size: 12px; white-space: pre-wrap; margin-top: 10px; }
+    .desktop-box { background: #1a1e24; border: 1px solid #3b82f6; border-radius: 6px; padding: 14px; color: #93c5fd; font-size: 13px; margin-top: 10px; }
     .graph-box { background: #1f2937; border: 1px solid #374151; border-radius: 6px; padding: 16px; margin-top: 10px; font-family: monospace; color: #9ca3af; font-size: 12px; }
     .repo-toggle { background: #21262d; border: 1px solid #30363d; padding: 12px; border-radius: 6px; margin-top: 10px; }
   </style>
@@ -40,9 +41,15 @@
       <tr><th>Dossier Summary</th><td>Landowner recipient of municipal lease payments on toxic soil site. Contract included illegal 1-year asphalt cap warranty shortfall.</td></tr>
     </table>
 
-    <div class="section-title">💻 Maltego CLI Terminal Output</div>
+    <div class="section-title">💻 Maltego CLI Terminal Output (Headless Automation)</div>
     <div class="terminal-box">$ maltego-cli --transform ParcelLookup --target "17631 Cameron Ln"
-[+] Flagged: 1-Year Asphalt Cap Shortfall over Hexavalent Chromium Soil</div>
+[+] CLI Output: Soil capping defect flagged (Hexavalent Chromium)</div>
+
+    <div class="section-title">🖥️ Maltego Desktop GUI View & Connection (No Conflict Integration)</div>
+    <div class="desktop-box">
+      🖥️ <strong>Maltego Desktop View:</strong> Maltego Desktop UI: Graph Entity [Shigeru Yamada] -> Edge [Property Lease] -> [17631 Cameron Ln]<br>
+      📁 <strong>Desktop Graph Export File:</strong> <a href="../maltego_exports/shigeru_yamada_parcel_v1.mtgx" style="color: #60a5fa;" download>maltego_exports/shigeru_yamada_parcel_v1.mtgx</a>
+    </div>
 
     <div class="section-title">🕸️ Maltego Graphics & Graph Connection (Node #MAL-NODE-SY-0881)</div>
     <div class="graph-box">Maltego JSON Graph Entity Blueprint:<br>{"nodes": ["Shigeru Yamada", "17631 Cameron Ln", "Hexavalent Chromium Risk"], "edges": ["Trustee", "Soil Capping"]}</div>
