@@ -28,8 +28,19 @@ if ! command -v pwsh &> /dev/null; then
 if command -v pwsh &> /dev/null; then
     exec pwsh "$@"
 else
-    echo "[PowerShell Dev Shell Fallback]"
-    exec python3 -ic "import sys, os, subprocess; print('OSINT Neo AI PowerShell Dev Console (Python Runtime)')" "$@"
+    if [ "$#" -gt 0 ]; then
+        if [ "$1" = "-c" ] || [ "$1" = "-Command" ]; then
+            shift
+            echo "[PowerShell Dev Fallback - Executing via Python Subprocess]"
+            exec python3 -c "import os, sys, subprocess; sys.exit(subprocess.call('''$*''', shell=True))"
+        else
+            echo "[PowerShell Dev Shell Fallback]"
+            exec python3 -c "import sys; print('PowerShell Fallback Active. Pass -c <cmd> to run commands.')"
+        fi
+    else
+        echo "[PowerShell Dev Shell Fallback]"
+        echo "OSINT Neo AI PowerShell Dev Console (Python Runtime)"
+    fi
 fi
 EOF
     chmod +x ./bin/pwsh
