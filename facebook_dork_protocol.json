@@ -1,0 +1,16 @@
+{
+  "target_name": "Larry McNeely",
+  "location_keyword": "Huntington Beach",
+  "generated_dorks": [
+    "\"Larry McNeely\" \"Huntington Beach\" site:facebook.com/groups",
+    "\"Larry McNeely\" site:facebook.com/permalink",
+    "\"Larry McNeely\" \"Huntington Beach\" site:facebook.com/posts",
+    "\"Larry McNeely\" \"Hexavalent Chromium\" OR \"threat\" site:facebook.com"
+  ],
+  "protocol_rules": [
+    "1. Bypass Facebook login walls via search engine index dorking.",
+    "2. Extract numeric permalink IDs (e.g. 3132788366819109) and group handles (e.g. HB4UbyHBCF).",
+    "3. Auto-dispatch discovered threat & OSINT permalinks to Wayback Machine API."
+  ],
+  "timestamp": "2026-09-05T21:53:26.576662"
+}

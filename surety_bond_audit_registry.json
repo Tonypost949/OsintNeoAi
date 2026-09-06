@@ -1,0 +1,28 @@
+{
+  "bond_claim_id": "BOND-CLAIM-F243EF9E44",
+  "target_official_or_contractor": "City Manager & Municipal Public Works Contractor (17631 Cameron & 17642 Beach)",
+  "role_type": "PUBLIC_OFFICIAL_AND_CONTRACTOR",
+  "claimed_public_loss_usd": 14200000,
+  "applicable_surety_bond_statutes": [
+    {
+      "bond_type": "PUBLIC_OFFICIAL_SURETY_BOND",
+      "governing_statute": "Cal. Gov. Code \u00a7 1480 - 1505",
+      "law_title": "Mandatory Official Bond & Public Faithful Performance Guarantee",
+      "legal_recourse": "Direct claim against public official's surety bond issuer for breach of duty, fraud, or official misconduct."
+    },
+    {
+      "bond_type": "PUBLIC_WORKS_PAYMENT_AND_PERFORMANCE_BOND",
+      "governing_statute": "Cal. Civil Code \u00a7 9550 / 31 U.S.C. \u00a7 3131 (Miller Act)",
+      "law_title": "Mandatory Contractor Performance & Payment Surety Bond",
+      "legal_recourse": "Direct claim against vendor/contractor's surety bond for defective work, environmental cap failure, or fraudulent billing."
+    },
+    {
+      "bond_type": "FEDERAL_CORPORATE_SURETY_BOND",
+      "governing_statute": "31 U.S.C. \u00a7 9304 - 9309",
+      "law_title": "Approved Corporate Sureties for Public Obligations",
+      "legal_recourse": "Federal claim against Treasury-approved corporate surety bond underwriters for public loss recovery."
+    }
+  ],
+  "surety_claim_status": "READY_FOR_BOND_UNDERWRITER_SERVICE",
+  "timestamp": "2026-09-05T22:10:00.459571"
+}
