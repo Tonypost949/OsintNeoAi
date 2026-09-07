@@ -75,23 +75,44 @@ def execute_waterfall_extraction(target_url, ledger: ToolLedger):
 
     logger.warning(f"[X] {tool_2} failed to parse rendered PDF canvas. Escalating to heavy tool...")
 
-    # 3. THE HEAVY TOOL (e.g., AnythingLLM + Azure OCR Vision)
-    # Low Speed, Maximum Ability (Solves anything visually)
-    tool_3 = "TOOL-03-LLM-VISION"
+    # 3. THE HEAVY TOOL / ULTIMATE FALLBACK (AnythingLLM Dedicated PC)
+    # Lowest Speed, Maximum Ability (Solves anything visually, runs custom agents front-to-back)
+    tool_3 = "TOOL-03-ANYTHINGLLM-DEDICATED"
     logger.info(f"[-] Attempting {tool_3}...")
     start_time = time.time()
-    time.sleep(1.2) # Simulate OCR and LLM processing
     
-    # Simulate guaranteed success with Vision AI
-    success_3 = True 
-    elapsed_3 = (time.time() - start_time) * 1000
-    ledger.log_execution(tool_3, success_3, elapsed_3)
-    
-    if success_3:
-        logger.info(f"[+] {tool_3} succeeded! Extraction complete.")
-        return {"status": "success", "tool_used": tool_3, "data": "OCR Extracted Text (Andrew Do, $3,000,000)"}
-
-    return {"status": "fatal_error", "message": "All waterfall tools exhausted."}
+    # Send the raw URL to the Dedicated AnythingLLM PC to run its own agents/scrapers 
+    # (using the Mintplex-Labs API structure)
+    try:
+        import requests
+        import os
+        
+        # Pulling configuration from environment as specified in anythingllm_integration_plan.md
+        llm_url = os.environ.get("ANYTHINGLLM_URL", "http://host.docker.internal:3001")
+        llm_key = os.environ.get("ANYTHING_LLM_API_KEY", "")
+        
+        logger.info(f"Routing workflow to Dedicated AnythingLLM PC at {llm_url}")
+        
+        # We trigger the AnythingLLM custom agent tool (e.g., osintneoai_lightbox or a web scraper)
+        payload = {
+            "message": f"Execute front-to-back OSINT extraction workflow on target: {target_url}",
+            "mode": "agent" # Triggers the Mintplex-Labs Agent workflow
+        }
+        
+        # Simulate the API call to the dedicated PC
+        # response = requests.post(f"{llm_url}/api/v1/workspace/osintneoai/chat", json=payload, headers={"Authorization": f"Bearer {llm_key}"})
+        time.sleep(1.5) # Simulate processing time on the dedicated PC
+        
+        success_3 = True 
+        elapsed_3 = (time.time() - start_time) * 1000
+        ledger.log_execution(tool_3, success_3, elapsed_3)
+        
+        logger.info(f"[+] {tool_3} succeeded! Dedicated AnythingLLM PC completed the workflow front-to-back.")
+        return {"status": "success", "tool_used": tool_3, "data": "AnythingLLM Agent Payload (Andrew Do, $3,000,000)"}
+        
+    except Exception as e:
+        logger.error(f"AnythingLLM Dedicated PC failed: {e}")
+        return {"status": "fatal_error", "message": "All waterfall tools and dedicated PC exhausted."}
 
 if __name__ == "__main__":
     master_ledger = ToolLedger()
