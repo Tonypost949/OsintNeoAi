@@ -81,7 +81,16 @@ def main():
         
     logger.info(f"Extracted {len(events)} timeline events from evidence.")
     
-    errors = client.insert_rows_json(FULL_TABLE_ID, events)
+    errors = []
+    try:
+        job_config = bigquery.LoadJobConfig(
+            write_disposition=bigquery.WriteDisposition.WRITE_APPEND
+        )
+        job = client.load_table_from_json(events, FULL_TABLE_ID, job_config=job_config)
+        job.result()  # Wait for the job to complete
+    except Exception as e:
+        errors.append(str(e))
+
     if errors:
         logger.error(f"Error inserting timeline events: {errors}")
     else:
