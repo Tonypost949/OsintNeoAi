@@ -2,9 +2,37 @@ import time
 import logging
 import uuid
 import datetime
+import subprocess
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 logger = logging.getLogger(__name__)
+
+def dispatch_to_task_system(target_url, extracted_data):
+    """
+    NOTHING gets skipped. EVERYTHING goes to the task system.
+    This parses the raw evidence from the waterfall and injects it straight into scripts/task_manager.py
+    """
+    logger.info("PIPELINE: Routing ripped evidence directly to Task System...")
+    
+    # Simple keyword heuristic for classification
+    category = "SUGGESTIVE_WORK_TASKS"
+    priority = "NORMAL"
+    title_prefix = "Analyze Extracted OSINT: "
+    
+    if "trust" in extracted_data.lower() or "unclaimed" in extracted_data.lower():
+        category = "FOIA_COMPLAINT_WHISTLEBLOWER_TASKS"
+        priority = "HIGH"
+        title_prefix = "Draft Qui Tam/Whistleblower Disclosure for: "
+        
+    title = f'"{title_prefix} {target_url[:50]}"'
+    
+    # Route it straight to the official task_manager.py CLI
+    try:
+        cmd = f'python scripts/task_manager.py add {title} --category {category} --priority {priority}'
+        subprocess.run(cmd, shell=True, check=False)
+        logger.info(f"[+] Successfully injected into Task System: {title}")
+    except Exception as e:
+        logger.error(f"Failed to inject into task system: {e}")
 
 class ToolLedger:
     """
@@ -62,7 +90,9 @@ def execute_waterfall_extraction(target_url, ledger: ToolLedger):
     ledger.log_execution(tool_1, success_1, elapsed_1)
     
     if success_1:
-        return {"status": "success", "tool_used": tool_1, "data": "Raw DOM Text"}
+        extracted_data = "Raw DOM Text"
+        dispatch_to_task_system(target_url, extracted_data)
+        return {"status": "success", "tool_used": tool_1, "data": extracted_data}
         
     logger.warning(f"[X] {tool_1} blocked by Captcha. Escalating to next tool...")
     
@@ -79,7 +109,9 @@ def execute_waterfall_extraction(target_url, ledger: ToolLedger):
     ledger.log_execution(tool_2, success_2, elapsed_2)
     
     if success_2:
-        return {"status": "success", "tool_used": tool_2, "data": "Rendered DOM Text"}
+        extracted_data = "Rendered DOM Text"
+        dispatch_to_task_system(target_url, extracted_data)
+        return {"status": "success", "tool_used": tool_2, "data": extracted_data}
 
     logger.warning(f"[X] {tool_2} failed to parse rendered PDF canvas. Escalating to heavy tool...")
 
@@ -116,8 +148,11 @@ def execute_anythingllm_fallback(target_url, ledger: ToolLedger):
         elapsed_3 = (time.time() - start_time) * 1000
         ledger.log_execution(tool_3, success_3, elapsed_3)
         
+        extracted_data = "AnythingLLM Agent Payload (Hostile Target Isolated)"
+        dispatch_to_task_system(target_url, extracted_data)
+        
         logger.info(f"[+] {tool_3} succeeded! Dedicated AnythingLLM PC completed the workflow front-to-back.")
-        return {"status": "success", "tool_used": tool_3, "data": "AnythingLLM Agent Payload (Hostile Target Isolated)"}
+        return {"status": "success", "tool_used": tool_3, "data": extracted_data}
         
     except Exception as e:
         logger.error(f"AnythingLLM Dedicated PC failed: {e}")
