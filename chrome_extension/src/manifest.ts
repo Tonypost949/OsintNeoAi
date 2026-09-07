@@ -31,6 +31,13 @@ export default defineManifest({
     service_worker: 'src/background.ts',
     type: 'module',
   },
+  content_scripts: [
+    {
+      matches: ["<all_urls>"],
+      js: ["src/content.ts"],
+      run_at: "document_idle"
+    }
+  ],
   options_page: 'options.html',
   // clipboardWrite is required for context menu and command-based copy. if not present, `document.execCommand('copy')` fails and returns false, even when Clipboard web perm is granted.
   permissions: ['tabs', 'storage', 'contextMenus', 'offscreen', 'clipboardWrite'],
