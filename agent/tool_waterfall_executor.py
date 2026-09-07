@@ -16,7 +16,7 @@ def dispatch_to_task_system(target_url, extracted_data):
     
     # Simple keyword heuristic for classification
     category = "SUGGESTIVE_WORK_TASKS"
-    priority = "NORMAL"
+    priority = "MEDIUM"
     title_prefix = "Analyze Extracted OSINT: "
     
     if "trust" in extracted_data.lower() or "unclaimed" in extracted_data.lower():
