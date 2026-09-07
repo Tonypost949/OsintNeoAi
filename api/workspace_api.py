@@ -62,12 +62,30 @@ W_TABLE = "{}.{}.workspaces".format(GCP_PROJECT, BQ_DATASET)
 S_TABLE = "{}.{}.newspaper_stories".format(GCP_PROJECT, BQ_DATASET)
 T_TABLE = "{}.{}.workspace_tools".format(GCP_PROJECT, BQ_DATASET)
 
+LOCAL_WORKSPACES_FILE = os.path.join(os.path.dirname(__file__), "..", "cli", "data", "local_workspaces.json")
+
 _tables_initialized = False
+
+def _ensure_dataset():
+    try:
+        from google.cloud import bigquery
+        client = _bq()
+        dataset_ref = client.dataset(BQ_DATASET)
+        try:
+            client.get_dataset(dataset_ref)
+        except Exception:
+            dataset = bigquery.Dataset(dataset_ref)
+            dataset.location = "US"
+            client.create_dataset(dataset, exists_ok=True)
+            logger.info("Created dataset: %s", BQ_DATASET)
+    except Exception as e:
+        logger.warning("Dataset ensure warning: %s", e)
 
 def _init_tables():
     global _tables_initialized
     if _tables_initialized:
         return
+    _ensure_dataset()
     ddls = [
         (
             "CREATE TABLE IF NOT EXISTS `{}` "
@@ -112,6 +130,20 @@ def _now_iso() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
+def _save_local_workspace(row: dict):
+    try:
+        os.makedirs(os.path.dirname(LOCAL_WORKSPACES_FILE), exist_ok=True)
+        workspaces = []
+        if os.path.exists(LOCAL_WORKSPACES_FILE):
+            with open(LOCAL_WORKSPACES_FILE, "r", encoding="utf-8") as f:
+                workspaces = json.load(f)
+        workspaces.append(row)
+        with open(LOCAL_WORKSPACES_FILE, "w", encoding="utf-8") as f:
+            json.dump(workspaces, f, indent=2)
+    except Exception as e:
+        logger.error("Failed to save local workspace fallback: %s", e)
+
+
 # ── POST /api/workspaces/create ───────────────────────────────────────────────
 
 @workspace_bp.route("/workspaces/create", methods=["POST"])
@@ -120,7 +152,11 @@ def create_workspace():
     Create new user account. One signup = one wallet = one workspace = one newspaper identity.
     Body: { display_name, email, is_public? }
     """
-    _init_tables()
+    try:
+        _init_tables()
+    except Exception as e:
+        logger.warning("Table initialization warning during signup: %s", e)
+
     data = request.get_json(force=True, silent=True) or {}
     display_name = data.get("display_name", "").strip()
     email = data.get("email", "").strip().lower()
@@ -151,9 +187,18 @@ def create_workspace():
         "story_count":     0,
         "plan":            "free",
     }
-    errors = _bq().insert_rows_json(W_TABLE, [row])
-    if errors:
-        abort(500, "Workspace creation failed: {}".format(errors))
+    
+    bq_saved = False
+    try:
+        errors = _bq().insert_rows_json(W_TABLE, [row])
+        if not errors:
+            bq_saved = True
+        else:
+            logger.warning("BigQuery insert warnings: %s", errors)
+    except Exception as e:
+        logger.warning("BigQuery workspace insert error, using local fallback: %s", e)
+
+    _save_local_workspace(row)
 
     return jsonify({
         "status":          "created",
@@ -163,7 +208,9 @@ def create_workspace():
         "display_name":    display_name,
         "message":         "workspace = wallet = newspaper. One identity.",
         "created_at":      now,
+        "storage":         "bigquery" if bq_saved else "local_fallback"
     }), 201
+
 
 
 # ── GET /api/workspaces/<workspace_id> ───────────────────────────────────────
