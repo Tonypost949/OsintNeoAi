@@ -3,116 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>OsintNeoAi — Mobile Cloud CLI Terminal</title>
-
-    <!-- PWA Progressive Web App Meta Tags -->
+    <title>PowerShell 7.4.0 — OSINT Neo AI Dev Terminal</title>
     <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#00f2ff">
+    <meta name="theme-color" content="#012456">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="OsintNeoAi">
-    <link rel="apple-touch-icon" href="https://img.icons8.com/color/192/000000/cyber-security.png">
-
     <style>
-        :root {
-            --bg-color: #0b0f19;
-            --term-bg: #050811;
-            --accent-cyan: #00f2ff;
-            --accent-green: #00ff88;
-            --text-color: #e2e8f0;
-            --dim-text: #94a3b8;
-            --border-color: #1e293b;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace; }
-        body { background-color: var(--bg-color); color: var(--text-color); height: 100vh; display: flex; flex-direction: column; }
-        header { background: #0f172a; padding: 12px 16px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; }
-        h1 { font-size: 1rem; color: var(--accent-cyan); display: flex; align-items: center; gap: 8px; }
-        .status-badge { font-size: 0.75rem; background: rgba(0,242,255,0.1); color: var(--accent-cyan); border: 1px solid var(--accent-cyan); padding: 3px 8px; border-radius: 12px; }
-        .terminal-container { flex: 1; background-color: var(--term-bg); padding: 16px; overflow-y: auto; display: flex; flex-direction: column; font-size: 0.9rem; line-height: 1.5; }
-        .output-line { margin-bottom: 8px; white-space: pre-wrap; word-break: break-word; }
-        .cmd-line { color: var(--accent-green); font-weight: bold; }
-        .err-line { color: #ff5555; }
-        .input-bar { background: #0f172a; border-top: 1px solid var(--border-color); padding: 12px; display: flex; gap: 8px; }
-        input[type="text"] { flex: 1; background: #050811; border: 1px solid var(--border-color); color: #fff; padding: 10px 14px; border-radius: 6px; font-size: 1rem; outline: none; }
-        input[type="text"]:focus { border-color: var(--accent-cyan); }
-        button { background: var(--accent-cyan); color: #000; border: none; padding: 10px 18px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.95rem; }
-        .quick-chips { padding: 8px 12px; background: #0b1120; display: flex; gap: 8px; overflow-x: auto; border-top: 1px solid var(--border-color); }
-        .chip { background: #1e293b; color: var(--accent-cyan); font-size: 0.75rem; padding: 4px 10px; border-radius: 12px; white-space: nowrap; cursor: pointer; }
+        :root { --pwsh-bg: #012456; --text: #eeedf0; --cyan: #00f2ff; --yellow: #ffcc00; --green: #00ff88; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Consolas', 'Cascadia Code', 'Courier New', monospace; }
+        body { background: var(--pwsh-bg); color: var(--text); height: 100vh; display: flex; flex-direction: column; }
+        header { background: #00122e; padding: 10px 14px; border-bottom: 2px solid #005b96; color: #fff; font-weight: bold; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center; }
+        header span { color: var(--cyan); }
+        .chips { padding: 8px 12px; background: #00193d; display: flex; gap: 8px; overflow-x: auto; border-bottom: 1px solid #003366; }
+        .chip { background: #003366; color: #fff; padding: 5px 12px; border-radius: 4px; font-size: 0.85rem; cursor: pointer; white-space: nowrap; border: 1px solid #005b96; font-weight: bold; }
+        .chip:hover, .chip:active { background: var(--cyan); color: #000; }
+        .term { flex: 1; background: var(--pwsh-bg); padding: 16px; overflow-y: auto; white-space: pre-wrap; font-size: 0.92rem; line-height: 1.4; color: #eeedf0; }
+        .prompt-line { display: flex; align-items: center; padding: 8px 12px; background: #00193d; border-top: 1px solid #003366; }
+        .prompt-label { color: var(--yellow); font-weight: bold; margin-right: 8px; white-space: nowrap; }
+        input { flex: 1; background: transparent; border: none; color: #fff; font-size: 1rem; font-family: monospace; outline: none; }
+        button { background: var(--cyan); color: #000; border: none; padding: 8px 16px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-left: 8px; }
     </style>
 </head>
 <body>
     <header>
-        <h1>⚡ OSINT NEO AI — MOBILE PWA TERMINAL</h1>
-        <span class="status-badge">PWA ACTIVE</span>
+        <div>Windows PowerShell / Linux Terminal <span>[OSINTNeoAi Dev Server]</span></div>
+        <div style="font-size:0.8rem; color:#88b04b;">● ONLINE</div>
     </header>
-
-    <div class="quick-chips">
-        <span class="chip" onclick="runQuick('pwsh')">pwsh</span>
+    <div class="chips">
+        <span class="chip" onclick="runQuick('agy')">agy (Antigravity)</span>
         <span class="chip" onclick="runQuick('gemini')">gemini</span>
-        <span class="chip" onclick="runQuick('agy')">agy</span>
         <span class="chip" onclick="runQuick('opencode')">opencode</span>
-        <span class="chip" onclick="runQuick('bash scripts/install_cli_tools.sh')">install tools</span>
-        <span class="chip" onclick="runQuick('python3 cli/cli.py')">cli.py</span>
-        <span class="chip" onclick="runQuick('ls -la')">list files</span>
+        <span class="chip" onclick="runQuick('pwsh')">pwsh</span>
+        <span class="chip" onclick="runQuick('dir')">dir</span>
+        <span class="chip" onclick="runQuick('python3 cli/cli.py')">OSINT CLI</span>
     </div>
+    <div class="term" id="term">PowerShell 7.4.0 OSINT Neo AI Dev Shell
+Copyright (c) Microsoft Corporation / Google Deepmind OSINT Neo AI. All rights reserved.
 
-    <div class="terminal-container" id="terminal">
-        <div class="output-line" style="color: var(--accent-cyan);">
-======================================================================
-     OSINT NEO AI — MOBILE PWA CLOUD CLI TERMINAL
-======================================================================
-* App: Installed Mobile Progressive Web App (PWA)
-* Host: Azure Cloud 24/7 Always-On Instance
-* Tap chips above or enter python3/shell commands below.
-----------------------------------------------------------------------
-        </div>
+Repository Location: /home/site/wwwroot
+Type "agy" for Antigravity CLI, "gemini" for Gemini AI, or "opencode" for OpenCode.
+
+PS /home/site/wwwroot> </div>
+    <div class="prompt-line">
+        <span class="prompt-label">PS /home/site/wwwroot></span>
+        <input type="text" id="cmdInput" placeholder="Type agy, gemini, opencode, pwsh..." onkeydown="if(event.key==='Enter') executeCmd()" autofocus>
+        <button onclick="executeCmd()">Execute</button>
     </div>
-
-    <div class="input-bar">
-        <input type="text" id="cmdInput" placeholder="Enter CLI command (e.g., python3 cli/cli.py)..." onkeydown="if(event.key==='Enter') executeCmd()">
-        <button onclick="executeCmd()">Run</button>
-    </div>
-
     <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js').catch(()=>{});
-            });
-        }
+        let history = [];
+        let histIdx = -1;
 
         async function executeCmd() {
             const input = document.getElementById('cmdInput');
-            const cmd = input.value.trim();
+            let cmd = input.value.trim();
             if (!cmd) return;
 
-            const term = document.getElementById('terminal');
-            term.innerHTML += <div class="output-line cmd-line">$ </div>;
+            const term = document.getElementById('term');
+            term.innerText += cmd + '\n';
+            history.push(cmd);
+            histIdx = history.length;
             input.value = '';
-            term.scrollTop = term.scrollHeight;
+
+            // Alias resolutions
+            let execCmd = cmd;
+            if (cmd === 'agy' || cmd === 'antigravity') {
+                execCmd = 'bin/agy --help';
+            } else if (cmd === 'gemini') {
+                execCmd = 'bin/gemini --help';
+            } else if (cmd === 'opencode') {
+                execCmd = 'bin/opencode --help';
+            } else if (cmd === 'pwsh') {
+                execCmd = 'bin/pwsh -c Get-Date';
+            } else if (cmd === 'dir' || cmd === 'ls') {
+                execCmd = 'ls -la';
+            }
 
             try {
                 const res = await fetch('/api/cli_exec', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ command: cmd })
+                    body: JSON.stringify({ command: execCmd })
                 });
                 const data = await res.json();
-                if (data.status === 'success') {
-                    term.innerHTML += <div class="output-line"></div>;
-                } else {
-                    term.innerHTML += <div class="output-line err-line">ERROR: </div>;
+                if (data.output) {
+                    term.innerText += data.output + '\n';
+                } else if (data.message) {
+                    term.innerText += '[Result] ' + data.message + '\n';
                 }
-            } catch (err) {
-                term.innerHTML += <div class="output-line err-line">NETWORK ERROR: </div>;
+            } catch(e) {
+                term.innerText += 'ERROR: ' + e + '\n';
             }
+            term.innerText += '\nPS /home/site/wwwroot> ';
             term.scrollTop = term.scrollHeight;
         }
 
-        function runQuick(cmd) {
-            document.getElementById('cmdInput').value = cmd;
+        function runQuick(c) {
+            document.getElementById('cmdInput').value = c;
             executeCmd();
         }
+
+        document.getElementById('cmdInput').addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowUp') {
+                if (histIdx > 0) { histIdx--; this.value = history[histIdx]; }
+            } else if (e.key === 'ArrowDown') {
+                if (histIdx < history.length - 1) { histIdx++; this.value = history[histIdx]; } else { histIdx = history.length; this.value = ''; }
+            }
+        });
     </script>
 </body>
 </html>
