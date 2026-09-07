@@ -1,0 +1,68 @@
+<!-- OsintNeoAi Workspace Dashboard Extension Prompt -->
+<div id="extension-install-prompt" class="alert alert-info d-flex align-items-center rounded shadow-sm p-3 mb-4" style="background-color: #f8f9fa; border-left: 4px solid #0d6efd;">
+    <div class="me-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#0d6efd" viewBox="0 0 16 16">
+            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm2.5 11.5L8 9l-2.5 2.5a.5.5 0 0 1-.708-.708L7.293 8.5 4.793 6.007a.5.5 0 0 1 .708-.708L8 7.793l2.5-2.494a.5.5 0 1 1 .708.708L8.707 8.5l2.5 2.493a.5.5 0 0 1-.708.708z"/>
+        </svg>
+    </div>
+    <div class="flex-grow-1">
+        <h5 class="mb-1 text-dark fw-bold">Do you need to copy multiple Chrome tabs into your investigation?</h5>
+        <p class="mb-0 text-muted">
+            Install our official browser extension for <strong>one-click multi-tab copying</strong> directly into your investigation timeline. That's all it's for—no complex setup required.
+        </p>
+    </div>
+    <div class="ms-3">
+        <a href="/downloads/osintneoai-extension.zip" class="btn btn-primary btn-sm px-4 py-2 fw-bold shadow-sm">
+            Install Extension
+        </a>
+        <button type="button" class="btn btn-link text-muted btn-sm ms-2 text-decoration-none" onclick="document.getElementById('extension-install-prompt').style.display='none';">
+            Dismiss
+        </button>
+    </div>
+</div>
+
+<!-- Example of the manual input for users who don't want the extension -->
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h5 class="card-title">Manual Evidence Submission</h5>
+        <p class="card-text text-muted">Paste a single URL, PDF, or text snippet here. Our backend AI will invisibly extract the evidence.</p>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="https://unclaimedproperty.ocgov.com/...">
+            <button class="btn btn-dark" type="button">Run Invisible Extractor</button>
+        </div>
+    </div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- IMPOSSIBLE AUTH/CAPTCHA WALL - MANUAL TAKEOVER UI                         -->
+<!-- ========================================================================= -->
+<div id="manual-takeover-alert" class="alert d-flex align-items-center rounded shadow-lg p-4 mt-4" style="background-color: #fff3cd; border-left: 6px solid #ffc107;">
+    <div class="me-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#ffc107" viewBox="0 0 16 16">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </svg>
+    </div>
+    <div class="flex-grow-1">
+        <h4 class="mb-2 text-dark fw-bold">Manual Authentication Required</h4>
+        <p class="mb-3 text-dark" style="font-size: 1.1rem;">
+            The AI encountered a hard Captcha/Auth wall at <strong>secure.target.com</strong> that it cannot bypass. 
+            We need you to clear it. Do one of the following:
+        </p>
+        
+        <div class="d-flex gap-3 align-items-center mb-3">
+            <button class="btn btn-warning btn-lg fw-bold shadow-sm" onclick="window.open('https://secure.target.com/login', '_blank')">
+                1. Auto-Open Tab to Confirm
+            </button>
+            <span class="text-muted fw-bold">OR</span>
+            <div class="input-group w-50 shadow-sm">
+                <span class="input-group-text bg-white fw-bold">2. Copy Shortlink:</span>
+                <input type="text" class="form-control bg-light" value="https://taxfunded.app/auth-override/a8f93b21" readonly>
+                <button class="btn btn-outline-secondary" onclick="navigator.clipboard.writeText('https://taxfunded.app/auth-override/a8f93b21')">Copy</button>
+            </div>
+        </div>
+        
+        <p class="mb-0 text-muted small">
+            <em>Paste the shortlink into a browser window where you are already logged in. The system will automatically grab the session token and resume the extraction.</em>
+        </p>
+    </div>
+</div>

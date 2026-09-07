@@ -155,8 +155,22 @@ def execute_anythingllm_fallback(target_url, ledger: ToolLedger):
         return {"status": "success", "tool_used": tool_3, "data": extracted_data}
         
     except Exception as e:
-        logger.error(f"AnythingLLM Dedicated PC failed: {e}")
-        return {"status": "fatal_error", "message": "All waterfall tools and dedicated PC exhausted."}
+        logger.error(f"AnythingLLM Dedicated PC failed or Auth Wall encountered: {e}")
+        
+        # THE ULTIMATE MANUAL TAKEOVER (Really Fucking Easy for the User)
+        # If all autonomous tools fail (e.g., impossible captcha, hard OAuth wall),
+        # generate a shortlink for the user to paste into their authenticated browser.
+        takeover_id = str(uuid.uuid4())[:8]
+        shortlink = f"https://taxfunded.app/auth-override/{takeover_id}"
+        
+        logger.warning(f"MANUAL TAKEOVER REQUIRED. Generated Shortlink: {shortlink}")
+        
+        return {
+            "status": "manual_takeover_required", 
+            "target_url": target_url,
+            "shortlink": shortlink,
+            "message": "Impossible Captcha/Auth Wall detected. Manual takeover required."
+        }
 
 if __name__ == "__main__":
     master_ledger = ToolLedger()
@@ -164,3 +178,8 @@ if __name__ == "__main__":
     print("\nFINAL LEDGER STATE:")
     for t_id, stats in master_ledger.ledger.items():
         print(f"{t_id}: {stats}")
+    
+    # Simulate an impossible auth wall
+    print("\nSIMULATING IMPOSSIBLE AUTH WALL:")
+    fail_result = execute_waterfall_extraction("https://secure.hostile-target.com/login", master_ledger)
+    print(fail_result)
