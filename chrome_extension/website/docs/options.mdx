@@ -1,0 +1,158 @@
+---
+sidebar_position: 8
+---
+
+import ThemedImage from '@theme/ThemedImage'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+# Options
+
+To access Tab Copy options, do one of the following:
+
+- Right-click the Tab Copy extension icon ![extension icon](/img/logo-outline-black.png#light-mode-only)![extension icon](/img/logo-outline-white.png#dark-mode-only) in the browser toolbar, then click **Options**
+
+- If available, click the **Options** icon in the upper-left corner of the Tab Copy [popup](./popup/index.mdx)
+
+This will open the Tab Copy options page in a new tab.
+
+### Enable popup
+
+When this option is checked, the Tab Copy [popup](./popup/index.mdx) appears when the extension icon is clicked. This is Tab Copy's default behavior.
+
+When unchecked, a click on the extension icon copies tabs immediately without opening the popup. See [one-click copy](./one-click-copy.mdx) for more details.
+
+### Show tab counts
+
+Checking this option allows the number of corresponding tabs to appear on each popup copy button indicating how many tabs will be copied.
+
+:::info Availability
+This option is available only when **Enable popup** is checked.
+:::
+
+### Keep format selector expanded
+
+Checking this option keeps the [format selector](./popup/format-selector.mdx) of the popup open, always showing all available formats.
+
+This can be useful if you frequently switch between a small set of formats.
+
+:::info Availability
+This option is available only when **Enable popup** is checked.
+:::
+
+### Show header icons
+
+By default, the Tab Copy [popup](./popup/index.mdx) shows icons in its header for quick access to options and docs. If you do not need these icons, you can uncheck this option to hide them for a cleaner look.
+
+:::info Availability
+This option is available only when **Enable popup** is checked.
+:::
+
+### Enable context menu
+
+Selecting this option adds a Tab Copy item to the [context menu](./context-menu.mdx) of web pages.
+
+When this option is checked, you can also choose whether to show a submenu for selecting a format instead of always using the default format.
+
+### Ignore pinned tabs
+
+This option allows you to omit pinned tabs from the tabs that are copied.
+
+Read more about [tab filtering](./tab-filtering.md).
+
+### Notify on copy
+
+When this option is checked, a toast notification appears after tabs are copied displaying information about what was copied.
+
+Note that toast notifications require elevated permissions, so the browser may prompt you to grant Tab Copy the ability to show notifications when attempting to enable this option. If you deny this permission, this option will not get turned on.
+
+Read more about [notifications](./notification.md).
+
+### Invert icon color
+
+Tab Copy tries to select a toolbar icon that maximizes visibility based on your browser theme.
+
+In some rare cases, browser theme customizations may prevent Tab Copy from automatically selecting an appropriate icon color. If this is the case, check this box to select a more suitable color.
+
+### Keyboard shortcuts
+
+Click the **Edit keyboard shortcuts...** button to open the browser's **Keyboard shortcuts** page.
+
+Read more about [keyboard shortcuts and how to edit them](./keyboard-shortcuts.mdx).
+
+### Ranges
+
+Each [button](./popup/copy-buttons.mdx) in the Tab Copy [popup](./popup/index.mdx) copies a particular range of tabs.
+
+You can hide buttons you don't use by unchecking the corresponding tile in the **Ranges** section of the options page.
+
+When the popup is disabled, the top checked range is the default range used for [one-click copy](./one-click-copy.mdx).
+
+<ThemedImage
+  style={{
+    width:'285px',
+    height:'auto',
+    margin:'10px 10px 30px',
+    filter:'drop-shadow(2px 4px 10px #00000018)',
+  }}
+  sources={{
+    light: useBaseUrl('/img/copy-buttons-toggled-light.png?v=4-1-0'),
+    dark: useBaseUrl('/img/copy-buttons-toggled-dark.png?v=4-1-0'),
+  }}
+  alt="Ranges"
+/>
+
+:::info Minimum checked ranges
+At least 1 range must remain checked
+:::
+
+### Formats
+
+The **Formats** section of the options page lists all built-in and custom formats.
+
+<ThemedImage
+  style={{
+    width:'355px',
+    height:'auto',
+    margin:'10px 0 20px',
+    filter:'drop-shadow(2px 4px 10px #00000018)',
+  }}
+  sources={{
+    light: useBaseUrl('/img/formats-toggled-light.png'),
+    dark: useBaseUrl('/img/formats-toggled-dark.png'),
+  }}
+  alt="Formats"
+/>
+
+#### Visibility
+
+Clicking a format's tile toggles its visibility in the app. When a format is hidden, it won't show up in the [popup format selector](./popup/format-selector.mdx) or [context menu](./context-menu.mdx).
+
+:::info Minimum visible formats
+At least 3 formats must remain visible
+:::
+
+#### Order
+
+To change the order of formats, drag and drop format tiles up or down to a new position.
+
+This changes the order in which formats are displayed in the [popup format selector](./popup/format-selector.mdx) and [context menu](./context-menu.mdx).
+
+Re-ordering also allows for the assignment of the *default*, *secondary*, and *third* formats. The top visible format, for example, is considered the *default* format. See [Formats](./formats/index.md#format-order) for more about format order.
+
+#### Format options
+
+Some formats have their own options. Those that do feature an options button on the right part of their tile. Clicking this button opens a dialog for editing the format's options.
+
+<ThemedImage
+  style={{
+    width:'458px',
+    height:'auto',
+    margin:'10px 4px 20px',
+    filter:'drop-shadow(2px 4px 10px #00000018)',
+  }}
+  sources={{
+    light: useBaseUrl('/img/format-options-light.png'),
+    dark: useBaseUrl('/img/format-options-dark.png'),
+  }}
+  alt="Format options"
+/>

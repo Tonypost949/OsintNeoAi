@@ -1,0 +1,60 @@
+{
+  "name": "tab-copy",
+  "displayName": "Tab Copy",
+  "version": "4.1.1",
+  "description": "Quickly copy browser tabs to the clipboard in a variety of formats",
+  "keywords": [
+    "productivity",
+    "tabs",
+    "browser-extension",
+    "typescript",
+    "vite",
+    "create-chrome-ext"
+  ],
+  "author": "Hans Meyer",
+  "homepage": "https://tabcopy.com",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hansifer/tab-copy.git"
+  },
+  "bugs": {
+    "url": "http://github.com/hansifer/tab-copy/issues"
+  },
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "engines": {
+    "node": ">=14.18.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "dev_workaround": "vite build -w",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "zip": "npm run build && node zip.js",
+    "fmt": "prettier --write '**/*.{ts,tsx,json,css,scss,html}'"
+  },
+  "dependencies": {
+    "framer-motion": "^11.3.30",
+    "lodash.isobject": "^3.0.2",
+    "lodash.throttle": "^4.1.1",
+    "nanoid": "^5.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-select": "^5.8.1"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.0.0-beta.28",
+    "@types/chrome": "^0.0.270",
+    "@types/lodash.isobject": "^3.0.9",
+    "@types/lodash.throttle": "^4.1.9",
+    "@types/node": "^18.19.42",
+    "@types/react": "^18.2.39",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.3.1",
+    "gulp": "^4.0.2",
+    "gulp-zip": "^6.0.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.5.4",
+    "vite": "^5.3.5"
+  }
+}

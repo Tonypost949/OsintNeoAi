@@ -1,0 +1,128 @@
+.templateScroll {
+  width: 330px;
+  max-height: 192px;
+  border: 6px solid transparent;
+  border-radius: 10px;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  outline: none;
+  background-color: #0000000a;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #ffffff0c;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background-color: #99999955;
+  }
+}
+
+.template {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 12px;
+  /* accommodate scrollbar */
+  margin-right: -6px;
+}
+
+.previewContainer {
+  /* anchor preview label */
+  position: relative;
+
+  .previewScroll {
+    width: 330px;
+    max-height: 192px;
+    border: 6px solid transparent;
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow: scroll;
+    outline: none;
+    color: #000;
+    background-color: #e8e8e8;
+
+    @media (prefers-color-scheme: dark) {
+      color: #ffffffcc;
+      background-color: #202020;
+    }
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 100px;
+      background-color: #99999955;
+    }
+
+    &::-webkit-scrollbar-corner {
+      background-color: transparent;
+    }
+
+    .preview {
+      padding: 12px;
+      font-size: 10px;
+
+      .previewHtml {
+        font-family: monospace;
+        outline: none;
+
+        a {
+          color: #008ed8;
+        }
+      }
+
+      /* potential future need */
+      /* 
+      .previewText {
+        white-space: pre;
+        font-family: monospace;
+        outline: none;
+      }
+      */
+
+      .previewLabel {
+        position: absolute;
+        top: 0;
+        right: 18px;
+        padding: 8px 16px;
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          'Open Sans',
+          'Helvetica Neue',
+          sans-serif;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        pointer-events: none;
+        color: #000;
+        background-color: #0000000f;
+        opacity: 1;
+        transition: opacity 200ms;
+
+        @media (prefers-color-scheme: dark) {
+          color: #fff;
+          background-color: #00000038;
+        }
+
+        .previewScroll:hover & {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

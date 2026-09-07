@@ -1,5 +1,5 @@
 # 📋 OSINT Neo AI — Master Autonomous Task & Action Ledger
-> **System Status:** 🟢 Active & Self-Tracking | **Storage:** [`data/tasks.json`](data/tasks.json) | **Total Tasks:** 66 (0 Open / 66 Done)
+> **System Status:** 🟢 Active & Self-Tracking | **Storage:** [`data/tasks.json`](data/tasks.json) | **Total Tasks:** 67 (1 Open / 66 Done)
 
 ---
 
@@ -7,7 +7,7 @@
 
 | ID | Priority | Category | Task Description | Action Link / Ref | Status |
 | :--- | :---: | :--- | :--- | :--- | :---: |
-| — | 🟢 **NONE** | All Categories | *All tracked tasks have been completed, verified, and reconciled into master evidentiary ledger.* | [TASKS.md](TASKS.md) | `DONE` |
+| **`TASK-067`** | 🟡 **HIGH** | Core Infrastructure, Threat Intel & AI Blueprints | **Build OSINT Evidence Collector Chrome Extension (based on tab-copy)**<br>Fork/adapt the tab-copy Manifest V3 extension to capture URLs, titles, and timestamps for 1-click JSON payloads to the evasive OSINT endpoint. | [Core Infrastructure, Threat Intel & AI Blueprints](#) | `TODO` |
 
 ---
 

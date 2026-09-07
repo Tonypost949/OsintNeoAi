@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+  </head>
+  <body>
+    <header>
+      <div id="header-text"></div>
+    </header>
+    <div
+      id="copy-buttons"
+      style="display: none"
+    ></div>
+    <div
+      id="format-section"
+      style="display: none"
+    >
+      <div class="format-header">
+        <span id="copy-as-label"></span>
+        <button
+          id="default-format-btn"
+          class="button-secondary"
+        >
+          <span
+            id="default-format-label"
+            class="button-label"
+          ></span>
+          <span class="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="4"
+              width="8"
+              fill="currentColor"
+            >
+              <path
+                fill="transparent"
+                stroke="currentColor"
+                d="M0 0 L 4 4 L 8 0"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div id="format-selector"></div>
+    </div>
+    <script
+      src="/src/popup/popup.ts"
+      type="module"
+    ></script>
+  </body>
+</html>
