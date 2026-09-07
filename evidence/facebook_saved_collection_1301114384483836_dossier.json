@@ -1,0 +1,52 @@
+{
+  "collection_id": "1301114384483836",
+  "url": "https://www.facebook.com/saved/?list_id=1301114384483836&referrer=SAVE_DASHBOARD_NAVIGATION_PANEL",
+  "extracted_at": "2026-09-06T18:07:30-07:00",
+  "extraction_method": "Automated Chromium Session Forensic Reconstruction",
+  "identity_profile": "ironmandavinci@gmail.com (FB: ironman.davinci.5)",
+  "meta_developer_assets": {
+    "app_id": "955684277616069",
+    "business_id": "1065302626298240",
+    "webhook_endpoint": "https://developers.facebook.com/apps/955684277616069/use_cases/customize/webhooks/?use_case_enum=WEBHOOKS&business_id=1065302626298240&selected_tab=webhooks&product_route=webhooks"
+  },
+  "investigative_targets_recovered": [
+    {
+      "category": "Environmental & Toxic Waste Inquest",
+      "target": "Hexavalent Chromium / Larry McNeely Contamination Audit",
+      "parcel_address": "17631 McNeely / Huntington Beach",
+      "sources": [
+        "https://www.facebook.com/groups/+Hexavalent+Chromium+Larry+Mc+Neely",
+        "https://www.facebook.com/search/top/?q=mcneely%2017631"
+      ],
+      "statutory_jurisdiction": "CERCLA Superfund / Cal. Health & Safety Code § 25189"
+    },
+    {
+      "category": "Municipal Transparency & Whistleblower Records",
+      "target": "Huntington Beach Community Voice & Council Whistleblower Feed",
+      "sources": [
+        "https://www.facebook.com/groups/HB4UbyHBCF/permalink/3132788366819109",
+        "https://www.facebook.com/groups/HuntingtonBeachCommUNITYVoice/posts/3682873225078647/"
+      ],
+      "statutory_jurisdiction": "Cal. Labor Code § 1102.5 / Brown Act Gov. Code § 54950"
+    },
+    {
+      "category": "ThreatVector Forensic Intelligence",
+      "target": "ThreatVector Infrastructure & Indicator Analysis",
+      "sources": [
+        "https://www.facebook.com/threatvector/posts/pfbid03h267ZZx7QSKwG1DwwJBED9Nxbz1K5g2LVbeb8o26YVk5J19MvJEHyExd1qER77Dl"
+      ]
+    },
+    {
+      "category": "Evidentiary Photographic Records",
+      "target": "Forensic Photo Manifests",
+      "sources": [
+        "https://www.facebook.com/photo/?fbid=122153970651133432&set=a.122098678821133432",
+        "https://www.facebook.com/photo/?fbid=122169530799006822&set=pcb.122169530883006822"
+      ]
+    }
+  ],
+  "accountscenter_exfiltration_routes": [
+    "https://accountscenter.facebook.com/info_and_permissions/dyi",
+    "https://accountscenter.facebook.com/info_and_permissions/tyi"
+  ]
+}
