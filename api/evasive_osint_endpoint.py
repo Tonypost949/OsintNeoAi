@@ -185,9 +185,12 @@ def evasive_submit():
     attribution_tok = _generate_submission_token(target_value, wallet)
     now = _now_iso()
 
-    # Determine if this qualifies for OSINT token reward
-    reward_types = {"foia", "document", "entity", "url", "domain", "ip"}
+    # Dual-Reward Logic: OSINT vs TaxFunded crossover
+    reward_types = {"foia", "document", "entity", "url", "domain", "ip", "nonprofit", "government", "municipal"}
+    taxfunded_types = {"foia", "nonprofit", "government", "municipal"}
+    
     reward_queued = target_type in reward_types
+    is_taxfunded = target_type in taxfunded_types
 
     # Log anonymized record to BQ (no IP, no user-agent)
     _log_submission_to_bq({
@@ -199,14 +202,23 @@ def evasive_submit():
         "attribution_token":  attribution_tok,
         "submitted_at":       now,
         "reward_queued":      reward_queued,
+        "is_taxfunded":       is_taxfunded,
         "ip_logged":          False,
         "ua_logged":          False,
     })
 
-    # Auto-mint OSINT reward
+    tokens_awarded = []
+    # 1. Base OSINT reward (Since all data is OSINT)
     if reward_queued:
         _log_reward_to_bq(submission_id, wallet, "OSINT", OSINT_REWARD_PER_SUBMISSION,
                            "Whistleblower submission: {}".format(target_type))
+        tokens_awarded.append({"token": "OSINT", "amount": OSINT_REWARD_PER_SUBMISSION})
+        
+    # 2. TaxFunded Dual-Reward (Public sector assets get both)
+    if is_taxfunded:
+        _log_reward_to_bq(submission_id, wallet, "TFT", TFT_REWARD_PER_RECOVERY,
+                           "Public Sector / TaxFunded asset: {}".format(target_type))
+        tokens_awarded.append({"token": "TFT", "amount": TFT_REWARD_PER_RECOVERY})
 
     return jsonify({
         "status":            "submitted",
@@ -221,8 +233,8 @@ def evasive_submit():
         },
         "reward": {
             "queued":         reward_queued,
-            "token":          "OSINT",
-            "amount":         OSINT_REWARD_PER_SUBMISSION if reward_queued else 0,
+            "is_dual_reward": is_taxfunded,
+            "tokens_awarded": tokens_awarded,
             "wallet":         wallet[:10] + "..." if wallet else "Not provided — provide wallet to receive reward",
             "statutory_basis":"Cal. Gov. Code § 6250 / False Claims Act",
         },
