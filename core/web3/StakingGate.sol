@@ -29,7 +29,7 @@ contract StakingGate is Ownable {
     event StakeSlashed(bytes32 indexed assetHash, address indexed miner, uint256 slashedAmount);
     event SubmissionApproved(bytes32 indexed assetHash, address indexed miner);
 
-    constructor(address _stakingToken, uint256 _requiredStakeAmount) {
+    constructor(address _stakingToken, uint256 _requiredStakeAmount) Ownable(msg.sender) {
         stakingToken = IERC20(_stakingToken);
         requiredStakeAmount = _requiredStakeAmount;
     }

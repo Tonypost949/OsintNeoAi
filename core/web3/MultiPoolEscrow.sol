@@ -32,7 +32,7 @@ contract MultiPoolEscrow is Ownable {
     event BlockRegistered(bytes32 indexed assetHash, address indexed miner);
     event BountyDistributed(bytes32 indexed closerHash, uint256 totalBounty);
 
-    constructor(address _settlementCoin, address _osintToken, address _taxFundedToken) {
+    constructor(address _settlementCoin, address _osintToken, address _taxFundedToken) Ownable(msg.sender) {
         settlementCoin = IERC20(_settlementCoin);
         osintToken = IUtilityLedger(_osintToken);
         taxFundedToken = IUtilityLedger(_taxFundedToken);
