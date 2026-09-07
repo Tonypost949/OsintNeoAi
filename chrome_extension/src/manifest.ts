@@ -47,13 +47,13 @@ export default defineManifest({
     extension_pages: "script-src 'self'; object-src 'self'",
   },
   commands: {
-    // Overriding default browser shortcuts (Tough shit for Print - this is a power user tool)
-    '3copy-all-tabs': {
+    // Overriding default browser shortcuts
+    '2copy-window-tabs': {
       suggested_key: {
         default: 'Ctrl+Shift+X',
         mac: 'MacCtrl+Shift+X'
       },
-      description: 'OSINT: One-Click Multi-Tab Dump (URLs, Screenshots, Captions)',
+      description: 'OSINT: One-Click Window Dump (Current Window Only)',
     },
   },
 })
