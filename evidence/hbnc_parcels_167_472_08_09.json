@@ -1,0 +1,712 @@
+{
+  "displayFieldName": "DATA.Parcels.APN",
+  "fieldAliases": {
+    "DATA.Parcels.OBJECTID": "OBJECTID",
+    "DATA.Parcels.APN": "APN",
+    "DATA.Parcels.Acres": "Acres",
+    "DATA.Parcels.DateAlter": "DateAlter",
+    "DATA.Parcels.created_user": "created_user",
+    "DATA.Parcels.created_date": "created_date",
+    "DATA.Parcels.last_edited_user": "last_edited_user",
+    "DATA.Parcels.last_edited_date": "last_edited_date",
+    "DATA.Parcels.GlobalID": "GlobalID",
+    "DATA.W2_HB.OBJECTID": "ObjectID",
+    "DATA.W2_HB.DATE": "Date",
+    "DATA.W2_HB.APN": "APN",
+    "DATA.W2_HB.FIPSCODE": "FIPSCODE",
+    "DATA.W2_HB.ALTERNATETAXAPN": "ALTERNATETAXAPN",
+    "DATA.W2_HB.SITEADDRESS": "SITEADDRESS",
+    "DATA.W2_HB.SITECITY": "SITECITY",
+    "DATA.W2_HB.SITESTATE": "SITESTATE",
+    "DATA.W2_HB.SITEZIP": "SITEZIP",
+    "DATA.W2_HB.SITEPLUS4": "SITEPLUS4",
+    "DATA.W2_HB.SITEZIPPLUS4": "SITEZIPPLUS4",
+    "DATA.W2_HB.XCOORD": "XCOORD",
+    "DATA.W2_HB.YCOORD": "YCOORD",
+    "DATA.W2_HB.GEOMETRYSOURCE": "GEOMETRYSOURCE",
+    "DATA.W2_HB.ADDRSCORE": "ADDRSCORE",
+    "DATA.W2_HB.CENSUSTRACT": "CensusTract",
+    "DATA.W2_HB.CENSUSBLOCK": "CENSUSBLOCK",
+    "DATA.W2_HB.OWNERNAME1": "OWNERNAME1",
+    "DATA.W2_HB.OWNERNAME2": "OWNERNAME2",
+    "DATA.W2_HB.MAILADDRESS": "MailAddress",
+    "DATA.W2_HB.MAILCITY": "MailCity",
+    "DATA.W2_HB.MAILSTATE": "MAILSTATE",
+    "DATA.W2_HB.MAILZIP": "MAILZIP",
+    "DATA.W2_HB.MAILPLUS4": "MAILPLUS4",
+    "DATA.W2_HB.MAILZIPPLUS4": "MAILZIPPLUS4",
+    "DATA.W2_HB.OWNEROCCUPIED": "OWNEROCCUPIED",
+    "DATA.W2_HB.USECODESTDDESCLPS": "USECODESTDDESCLPS",
+    "DATA.W2_HB.ASSESSEEOWNERVESTINGCODEDESC": "ASSESSEEOWNERVESTINGCODEDESC",
+    "DATA.W2_HB.ASMTYEAR": "ASMTYEAR",
+    "DATA.W2_HB.CAHOMEOWNERSEXEMPT": "CAHOMEOWNERSEXEMPT",
+    "DATA.W2_HB.TAXRATECODEAREA": "TAXRATECODEAREA",
+    "DATA.W2_HB.TAXAMOUNT": "TAXAMOUNT",
+    "DATA.W2_HB.LEGALDESCRIPTION": "LegalDescription",
+    "DATA.W2_HB.LOTNUMBER": "LOTNUMBER",
+    "DATA.W2_HB.TRACTNUMBER": "TRACTNUMBER",
+    "DATA.W2_HB.LOTSIZEAREA": "LOTSIZEAREA",
+    "DATA.W2_HB.YRBLT": "YRBLT",
+    "DATA.W2_HB.BUILDINGSQFT": "BUILDINGSQFT",
+    "DATA.W2_HB.STORIESNUMBER": "STORIESNUMBER",
+    "DATA.W2_HB.TOTALROOMS": "TOTALROOMS",
+    "DATA.W2_HB.UNITSNUMBER": "UNITSNUMBER",
+    "DATA.W2_HB.TOTALBATHS": "TOTALBATHS",
+    "DATA.W2_HB.GARAGECODEDESC": "GARAGECODEDESC",
+    "DATA.W2_HB.PARKINGSPACES": "PARKINGSPACES",
+    "DATA.W2_HB.POOLINDICATORDESC": "POOLINDICATORDESC",
+    "DATA.W2_HB.VALMRKTLAND": "VALMRKTLAND",
+    "DATA.W2_HB.VALMRKTIMPRV": "VALMRKTIMPRV",
+    "DATA.W2_HB.CONSTRUCTIONCODEDESC": "CONSTRUCTIONCODEDESC",
+    "DATA.W2_HB.CALSQFT": "CALSQFT",
+    "DATA.W2_HB.IMPRVPCT": "IMPRVPCT",
+    "DATA.W2_HB.LASTMARKETSALEDATETRANSFER": "LASTMARKETSALEDATETRANSFER",
+    "DATA.W2_HB.LASTSALEDATETRANSFER": "LASTSALEDATETRANSFER",
+    "DATA.W2_HB.LASTSALEDOCNUMBER": "LASTSALEDOCNUMBER",
+    "DATA.W2_HB.LASTSALEDOCTYPEDESC": "LASTSALEDOCTYPEDESC",
+    "DATA.W2_HB.LASTSALESELLERNAME": "LASTSALESELLERNAME",
+    "DATA.W2_HB.OWNERSHIPSTATUSDESC": "OWNERSHIPSTATUSDESC",
+    "DATA.W2_HB.LASTSALEVALTRANSFER": "LASTSALEVALTRANSFER",
+    "DATA.W2_HB.TITLECOMPANYNAME": "TITLECOMPANYNAME",
+    "DATA.W2_HB.LNDRFIRSTNAME1": "LNDRFIRSTNAME1",
+    "DATA.W2_HB.PRIORSALEDATETRANSFER": "PRIORSALEDATETRANSFER",
+    "DATA.W2_HB.PRIORSALEDOCTYPEDESC": "PRIORSALEDOCTYPEDESC",
+    "DATA.W2_HB.PRIORSALEDOCNUMBER": "PRIORSALEDOCNUMBER",
+    "DATA.W2_HB.PRIORSALEVALTRANSFER": "PRIORSALEVALTRANSFER",
+    "DATA.W2_HB.BLOCKNUMBER": "BLOCKNUMBER"
+  },
+  "geometryType": "esriGeometryPolygon",
+  "spatialReference": {
+    "wkid": 102100,
+    "latestWkid": 3857
+  },
+  "fields": [
+    {
+      "name": "DATA.Parcels.OBJECTID",
+      "type": "esriFieldTypeOID",
+      "alias": "OBJECTID"
+    },
+    {
+      "name": "DATA.Parcels.APN",
+      "type": "esriFieldTypeString",
+      "alias": "APN",
+      "length": 10
+    },
+    {
+      "name": "DATA.Parcels.Acres",
+      "type": "esriFieldTypeDouble",
+      "alias": "Acres"
+    },
+    {
+      "name": "DATA.Parcels.DateAlter",
+      "type": "esriFieldTypeString",
+      "alias": "DateAlter",
+      "length": 5
+    },
+    {
+      "name": "DATA.Parcels.created_user",
+      "type": "esriFieldTypeString",
+      "alias": "created_user",
+      "length": 255
+    },
+    {
+      "name": "DATA.Parcels.created_date",
+      "type": "esriFieldTypeDate",
+      "alias": "created_date",
+      "length": 8
+    },
+    {
+      "name": "DATA.Parcels.last_edited_user",
+      "type": "esriFieldTypeString",
+      "alias": "last_edited_user",
+      "length": 255
+    },
+    {
+      "name": "DATA.Parcels.last_edited_date",
+      "type": "esriFieldTypeDate",
+      "alias": "last_edited_date",
+      "length": 8
+    },
+    {
+      "name": "DATA.Parcels.GlobalID",
+      "type": "esriFieldTypeGlobalID",
+      "alias": "GlobalID",
+      "length": 38
+    },
+    {
+      "name": "DATA.W2_HB.OBJECTID",
+      "type": "esriFieldTypeInteger",
+      "alias": "ObjectID"
+    },
+    {
+      "name": "DATA.W2_HB.DATE",
+      "type": "esriFieldTypeString",
+      "alias": "Date",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.APN",
+      "type": "esriFieldTypeString",
+      "alias": "APN",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.FIPSCODE",
+      "type": "esriFieldTypeString",
+      "alias": "FIPSCODE",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.ALTERNATETAXAPN",
+      "type": "esriFieldTypeString",
+      "alias": "ALTERNATETAXAPN",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.SITEADDRESS",
+      "type": "esriFieldTypeString",
+      "alias": "SITEADDRESS",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.SITECITY",
+      "type": "esriFieldTypeString",
+      "alias": "SITECITY",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.SITESTATE",
+      "type": "esriFieldTypeString",
+      "alias": "SITESTATE",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.SITEZIP",
+      "type": "esriFieldTypeString",
+      "alias": "SITEZIP",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.SITEPLUS4",
+      "type": "esriFieldTypeString",
+      "alias": "SITEPLUS4",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.SITEZIPPLUS4",
+      "type": "esriFieldTypeString",
+      "alias": "SITEZIPPLUS4",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.XCOORD",
+      "type": "esriFieldTypeDouble",
+      "alias": "XCOORD"
+    },
+    {
+      "name": "DATA.W2_HB.YCOORD",
+      "type": "esriFieldTypeDouble",
+      "alias": "YCOORD"
+    },
+    {
+      "name": "DATA.W2_HB.GEOMETRYSOURCE",
+      "type": "esriFieldTypeString",
+      "alias": "GEOMETRYSOURCE",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.ADDRSCORE",
+      "type": "esriFieldTypeDouble",
+      "alias": "ADDRSCORE"
+    },
+    {
+      "name": "DATA.W2_HB.CENSUSTRACT",
+      "type": "esriFieldTypeString",
+      "alias": "CensusTract",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.CENSUSBLOCK",
+      "type": "esriFieldTypeDouble",
+      "alias": "CENSUSBLOCK"
+    },
+    {
+      "name": "DATA.W2_HB.OWNERNAME1",
+      "type": "esriFieldTypeString",
+      "alias": "OWNERNAME1",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.OWNERNAME2",
+      "type": "esriFieldTypeString",
+      "alias": "OWNERNAME2",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.MAILADDRESS",
+      "type": "esriFieldTypeString",
+      "alias": "MailAddress",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.MAILCITY",
+      "type": "esriFieldTypeString",
+      "alias": "MailCity",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.MAILSTATE",
+      "type": "esriFieldTypeString",
+      "alias": "MAILSTATE",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.MAILZIP",
+      "type": "esriFieldTypeString",
+      "alias": "MAILZIP",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.MAILPLUS4",
+      "type": "esriFieldTypeString",
+      "alias": "MAILPLUS4",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.MAILZIPPLUS4",
+      "type": "esriFieldTypeString",
+      "alias": "MAILZIPPLUS4",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.OWNEROCCUPIED",
+      "type": "esriFieldTypeString",
+      "alias": "OWNEROCCUPIED",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.USECODESTDDESCLPS",
+      "type": "esriFieldTypeString",
+      "alias": "USECODESTDDESCLPS",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.ASSESSEEOWNERVESTINGCODEDESC",
+      "type": "esriFieldTypeString",
+      "alias": "ASSESSEEOWNERVESTINGCODEDESC",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.ASMTYEAR",
+      "type": "esriFieldTypeDouble",
+      "alias": "ASMTYEAR"
+    },
+    {
+      "name": "DATA.W2_HB.CAHOMEOWNERSEXEMPT",
+      "type": "esriFieldTypeString",
+      "alias": "CAHOMEOWNERSEXEMPT",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.TAXRATECODEAREA",
+      "type": "esriFieldTypeString",
+      "alias": "TAXRATECODEAREA",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.TAXAMOUNT",
+      "type": "esriFieldTypeDouble",
+      "alias": "TAXAMOUNT"
+    },
+    {
+      "name": "DATA.W2_HB.LEGALDESCRIPTION",
+      "type": "esriFieldTypeString",
+      "alias": "LegalDescription",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.LOTNUMBER",
+      "type": "esriFieldTypeString",
+      "alias": "LOTNUMBER",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.TRACTNUMBER",
+      "type": "esriFieldTypeString",
+      "alias": "TRACTNUMBER",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.LOTSIZEAREA",
+      "type": "esriFieldTypeDouble",
+      "alias": "LOTSIZEAREA"
+    },
+    {
+      "name": "DATA.W2_HB.YRBLT",
+      "type": "esriFieldTypeDouble",
+      "alias": "YRBLT"
+    },
+    {
+      "name": "DATA.W2_HB.BUILDINGSQFT",
+      "type": "esriFieldTypeDouble",
+      "alias": "BUILDINGSQFT"
+    },
+    {
+      "name": "DATA.W2_HB.STORIESNUMBER",
+      "type": "esriFieldTypeDouble",
+      "alias": "STORIESNUMBER"
+    },
+    {
+      "name": "DATA.W2_HB.TOTALROOMS",
+      "type": "esriFieldTypeString",
+      "alias": "TOTALROOMS",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.UNITSNUMBER",
+      "type": "esriFieldTypeString",
+      "alias": "UNITSNUMBER",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.TOTALBATHS",
+      "type": "esriFieldTypeDouble",
+      "alias": "TOTALBATHS"
+    },
+    {
+      "name": "DATA.W2_HB.GARAGECODEDESC",
+      "type": "esriFieldTypeString",
+      "alias": "GARAGECODEDESC",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.PARKINGSPACES",
+      "type": "esriFieldTypeDouble",
+      "alias": "PARKINGSPACES"
+    },
+    {
+      "name": "DATA.W2_HB.POOLINDICATORDESC",
+      "type": "esriFieldTypeString",
+      "alias": "POOLINDICATORDESC",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.VALMRKTLAND",
+      "type": "esriFieldTypeString",
+      "alias": "VALMRKTLAND",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.VALMRKTIMPRV",
+      "type": "esriFieldTypeString",
+      "alias": "VALMRKTIMPRV",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.CONSTRUCTIONCODEDESC",
+      "type": "esriFieldTypeString",
+      "alias": "CONSTRUCTIONCODEDESC",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.CALSQFT",
+      "type": "esriFieldTypeDouble",
+      "alias": "CALSQFT"
+    },
+    {
+      "name": "DATA.W2_HB.IMPRVPCT",
+      "type": "esriFieldTypeDouble",
+      "alias": "IMPRVPCT"
+    },
+    {
+      "name": "DATA.W2_HB.LASTMARKETSALEDATETRANSFER",
+      "type": "esriFieldTypeString",
+      "alias": "LASTMARKETSALEDATETRANSFER",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.LASTSALEDATETRANSFER",
+      "type": "esriFieldTypeString",
+      "alias": "LASTSALEDATETRANSFER",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.LASTSALEDOCNUMBER",
+      "type": "esriFieldTypeString",
+      "alias": "LASTSALEDOCNUMBER",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.LASTSALEDOCTYPEDESC",
+      "type": "esriFieldTypeString",
+      "alias": "LASTSALEDOCTYPEDESC",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.LASTSALESELLERNAME",
+      "type": "esriFieldTypeString",
+      "alias": "LASTSALESELLERNAME",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.OWNERSHIPSTATUSDESC",
+      "type": "esriFieldTypeString",
+      "alias": "OWNERSHIPSTATUSDESC",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.LASTSALEVALTRANSFER",
+      "type": "esriFieldTypeDouble",
+      "alias": "LASTSALEVALTRANSFER"
+    },
+    {
+      "name": "DATA.W2_HB.TITLECOMPANYNAME",
+      "type": "esriFieldTypeString",
+      "alias": "TITLECOMPANYNAME",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.LNDRFIRSTNAME1",
+      "type": "esriFieldTypeString",
+      "alias": "LNDRFIRSTNAME1",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.PRIORSALEDATETRANSFER",
+      "type": "esriFieldTypeString",
+      "alias": "PRIORSALEDATETRANSFER",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.PRIORSALEDOCTYPEDESC",
+      "type": "esriFieldTypeString",
+      "alias": "PRIORSALEDOCTYPEDESC",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.PRIORSALEDOCNUMBER",
+      "type": "esriFieldTypeString",
+      "alias": "PRIORSALEDOCNUMBER",
+      "length": 255
+    },
+    {
+      "name": "DATA.W2_HB.PRIORSALEVALTRANSFER",
+      "type": "esriFieldTypeDouble",
+      "alias": "PRIORSALEVALTRANSFER"
+    },
+    {
+      "name": "DATA.W2_HB.BLOCKNUMBER",
+      "type": "esriFieldTypeString",
+      "alias": "BLOCKNUMBER",
+      "length": 255
+    }
+  ],
+  "features": [
+    {
+      "attributes": {
+        "DATA.Parcels.OBJECTID": 84973,
+        "DATA.Parcels.APN": "167-472-09",
+        "DATA.Parcels.Acres": 0.7933686,
+        "DATA.Parcels.DateAlter": "09/22",
+        "DATA.Parcels.created_user": null,
+        "DATA.Parcels.created_date": null,
+        "DATA.Parcels.last_edited_user": "NUWEYT",
+        "DATA.Parcels.last_edited_date": 1775777312000,
+        "DATA.Parcels.GlobalID": "{3C91D548-883F-4C6E-BC70-CE4CFE832DB4}",
+        "DATA.W2_HB.OBJECTID": 157601,
+        "DATA.W2_HB.DATE": "August 2026",
+        "DATA.W2_HB.APN": "167-472-09",
+        "DATA.W2_HB.FIPSCODE": "06059",
+        "DATA.W2_HB.ALTERNATETAXAPN": null,
+        "DATA.W2_HB.SITEADDRESS": "17642 BEACH BLVD",
+        "DATA.W2_HB.SITECITY": "HUNTINGTON BEACH",
+        "DATA.W2_HB.SITESTATE": "CA",
+        "DATA.W2_HB.SITEZIP": "92647",
+        "DATA.W2_HB.SITEPLUS4": "6806",
+        "DATA.W2_HB.SITEZIPPLUS4": "92647-6806",
+        "DATA.W2_HB.XCOORD": -117.988542,
+        "DATA.W2_HB.YCOORD": 33.706092,
+        "DATA.W2_HB.GEOMETRYSOURCE": "Parcels",
+        "DATA.W2_HB.ADDRSCORE": 4.0,
+        "DATA.W2_HB.CENSUSTRACT": "099212",
+        "DATA.W2_HB.CENSUSBLOCK": 3002.0,
+        "DATA.W2_HB.OWNERNAME1": "HUNTINGTON BEACH HOUSING AUTHORITY",
+        "DATA.W2_HB.OWNERNAME2": null,
+        "DATA.W2_HB.MAILADDRESS": "2000 MAIN ST",
+        "DATA.W2_HB.MAILCITY": "HUNTINGTON BEACH",
+        "DATA.W2_HB.MAILSTATE": "CA",
+        "DATA.W2_HB.MAILZIP": "92648",
+        "DATA.W2_HB.MAILPLUS4": "2702",
+        "DATA.W2_HB.MAILZIPPLUS4": "92648-2702",
+        "DATA.W2_HB.OWNEROCCUPIED": "N",
+        "DATA.W2_HB.USECODESTDDESCLPS": "EXEMPT (FULL OR PARTIAL)",
+        "DATA.W2_HB.ASSESSEEOWNERVESTINGCODEDESC": "GOVERNMENT",
+        "DATA.W2_HB.ASMTYEAR": 2025.0,
+        "DATA.W2_HB.CAHOMEOWNERSEXEMPT": null,
+        "DATA.W2_HB.TAXRATECODEAREA": "4-010",
+        "DATA.W2_HB.TAXAMOUNT": 384.0,
+        "DATA.W2_HB.LEGALDESCRIPTION": "N TR 405 BLK LOT 7",
+        "DATA.W2_HB.LOTNUMBER": "7    ",
+        "DATA.W2_HB.TRACTNUMBER": "405       ",
+        "DATA.W2_HB.LOTSIZEAREA": 34560.0,
+        "DATA.W2_HB.YRBLT": null,
+        "DATA.W2_HB.BUILDINGSQFT": null,
+        "DATA.W2_HB.STORIESNUMBER": null,
+        "DATA.W2_HB.TOTALROOMS": null,
+        "DATA.W2_HB.UNITSNUMBER": null,
+        "DATA.W2_HB.TOTALBATHS": 0.0,
+        "DATA.W2_HB.GARAGECODEDESC": null,
+        "DATA.W2_HB.PARKINGSPACES": 0.0,
+        "DATA.W2_HB.POOLINDICATORDESC": null,
+        "DATA.W2_HB.VALMRKTLAND": null,
+        "DATA.W2_HB.VALMRKTIMPRV": null,
+        "DATA.W2_HB.CONSTRUCTIONCODEDESC": null,
+        "DATA.W2_HB.CALSQFT": 34561.0,
+        "DATA.W2_HB.IMPRVPCT": null,
+        "DATA.W2_HB.LASTMARKETSALEDATETRANSFER": "01/05/2021",
+        "DATA.W2_HB.LASTSALEDATETRANSFER": "01/05/2021",
+        "DATA.W2_HB.LASTSALEDOCNUMBER": "2021000002954",
+        "DATA.W2_HB.LASTSALEDOCTYPEDESC": "GRANT DEED",
+        "DATA.W2_HB.LASTSALESELLERNAME": "YAMADA, SHIGERU; SHIGERU YAMADA LIVING TRUST,",
+        "DATA.W2_HB.OWNERSHIPSTATUSDESC": "GOVERNMENT",
+        "DATA.W2_HB.LASTSALEVALTRANSFER": 0.0,
+        "DATA.W2_HB.TITLECOMPANYNAME": "COMMONWEALTH LAND TITLE CO",
+        "DATA.W2_HB.LNDRFIRSTNAME1": null,
+        "DATA.W2_HB.PRIORSALEDATETRANSFER": null,
+        "DATA.W2_HB.PRIORSALEDOCTYPEDESC": null,
+        "DATA.W2_HB.PRIORSALEDOCNUMBER": null,
+        "DATA.W2_HB.PRIORSALEVALTRANSFER": null,
+        "DATA.W2_HB.BLOCKNUMBER": ""
+      },
+      "geometry": {
+        "rings": [
+          [
+            [
+              -13134374.421861118,
+              3989428.5707250712
+            ],
+            [
+              -13134373.886111362,
+              3989381.5042674835
+            ],
+            [
+              -13134472.70605657,
+              3989380.7313745655
+            ],
+            [
+              -13134473.245864896,
+              3989427.7977631446
+            ],
+            [
+              -13134374.421861118,
+              3989428.5707250712
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "attributes": {
+        "DATA.Parcels.OBJECTID": 84974,
+        "DATA.Parcels.APN": "167-472-08",
+        "DATA.Parcels.Acres": 0.7933987,
+        "DATA.Parcels.DateAlter": "09/22",
+        "DATA.Parcels.created_user": null,
+        "DATA.Parcels.created_date": null,
+        "DATA.Parcels.last_edited_user": "NUWEYT",
+        "DATA.Parcels.last_edited_date": 1775777312000,
+        "DATA.Parcels.GlobalID": "{B0B1F381-6E63-4AC7-87B2-0C257E979552}",
+        "DATA.W2_HB.OBJECTID": 157600,
+        "DATA.W2_HB.DATE": "August 2026",
+        "DATA.W2_HB.APN": "167-472-08",
+        "DATA.W2_HB.FIPSCODE": "06059",
+        "DATA.W2_HB.ALTERNATETAXAPN": null,
+        "DATA.W2_HB.SITEADDRESS": "17631 CAMERON LN",
+        "DATA.W2_HB.SITECITY": "HUNTINGTON BEACH",
+        "DATA.W2_HB.SITESTATE": "CA",
+        "DATA.W2_HB.SITEZIP": "92647",
+        "DATA.W2_HB.SITEPLUS4": "6919",
+        "DATA.W2_HB.SITEZIPPLUS4": "92647-6919",
+        "DATA.W2_HB.XCOORD": -117.988547,
+        "DATA.W2_HB.YCOORD": 33.706443,
+        "DATA.W2_HB.GEOMETRYSOURCE": "Parcels",
+        "DATA.W2_HB.ADDRSCORE": 5.0,
+        "DATA.W2_HB.CENSUSTRACT": "099212",
+        "DATA.W2_HB.CENSUSBLOCK": 3002.0,
+        "DATA.W2_HB.OWNERNAME1": "HUNTINGTON BEACH HOUSING AUTHORITY",
+        "DATA.W2_HB.OWNERNAME2": null,
+        "DATA.W2_HB.MAILADDRESS": "2000 MAIN ST",
+        "DATA.W2_HB.MAILCITY": "HUNTINGTON BEACH",
+        "DATA.W2_HB.MAILSTATE": "CA",
+        "DATA.W2_HB.MAILZIP": "92648",
+        "DATA.W2_HB.MAILPLUS4": "2702",
+        "DATA.W2_HB.MAILZIPPLUS4": "92648-2702",
+        "DATA.W2_HB.OWNEROCCUPIED": "N",
+        "DATA.W2_HB.USECODESTDDESCLPS": "EXEMPT (FULL OR PARTIAL)",
+        "DATA.W2_HB.ASSESSEEOWNERVESTINGCODEDESC": "GOVERNMENT",
+        "DATA.W2_HB.ASMTYEAR": 2025.0,
+        "DATA.W2_HB.CAHOMEOWNERSEXEMPT": null,
+        "DATA.W2_HB.TAXRATECODEAREA": "4-010",
+        "DATA.W2_HB.TAXAMOUNT": null,
+        "DATA.W2_HB.LEGALDESCRIPTION": "N TR 405 BLK LOT 6",
+        "DATA.W2_HB.LOTNUMBER": "6    ",
+        "DATA.W2_HB.TRACTNUMBER": "405       ",
+        "DATA.W2_HB.LOTSIZEAREA": 34558.0,
+        "DATA.W2_HB.YRBLT": 1947.0,
+        "DATA.W2_HB.BUILDINGSQFT": 840.0,
+        "DATA.W2_HB.STORIESNUMBER": 1.0,
+        "DATA.W2_HB.TOTALROOMS": null,
+        "DATA.W2_HB.UNITSNUMBER": null,
+        "DATA.W2_HB.TOTALBATHS": 0.0,
+        "DATA.W2_HB.GARAGECODEDESC": null,
+        "DATA.W2_HB.PARKINGSPACES": 0.0,
+        "DATA.W2_HB.POOLINDICATORDESC": null,
+        "DATA.W2_HB.VALMRKTLAND": null,
+        "DATA.W2_HB.VALMRKTIMPRV": null,
+        "DATA.W2_HB.CONSTRUCTIONCODEDESC": null,
+        "DATA.W2_HB.CALSQFT": 34561.0,
+        "DATA.W2_HB.IMPRVPCT": 46.4,
+        "DATA.W2_HB.LASTMARKETSALEDATETRANSFER": "08/19/2020",
+        "DATA.W2_HB.LASTSALEDATETRANSFER": "08/19/2020",
+        "DATA.W2_HB.LASTSALEDOCNUMBER": "2020000420412",
+        "DATA.W2_HB.LASTSALEDOCTYPEDESC": "GRANT DEED",
+        "DATA.W2_HB.LASTSALESELLERNAME": "YAMADA, SHIGERU; THE SHIGERU YAMADA LIVING TRUST,",
+        "DATA.W2_HB.OWNERSHIPSTATUSDESC": "GOVERNMENT",
+        "DATA.W2_HB.LASTSALEVALTRANSFER": 0.0,
+        "DATA.W2_HB.TITLECOMPANYNAME": "COMMONWEALTH LAND TITLE",
+        "DATA.W2_HB.LNDRFIRSTNAME1": null,
+        "DATA.W2_HB.PRIORSALEDATETRANSFER": null,
+        "DATA.W2_HB.PRIORSALEDOCTYPEDESC": null,
+        "DATA.W2_HB.PRIORSALEDOCNUMBER": null,
+        "DATA.W2_HB.PRIORSALEVALTRANSFER": null,
+        "DATA.W2_HB.BLOCKNUMBER": ""
+      },
+      "geometry": {
+        "rings": [
+          [
+            [
+              -13134374.957615199,
+              3989475.637370811
+            ],
+            [
+              -13134374.421861118,
+              3989428.5707250712
+            ],
+            [
+              -13134473.245864896,
+              3989427.7977631446
+            ],
+            [
+              -13134473.785860566,
+              3989474.8643368054
+            ],
+            [
+              -13134374.957615199,
+              3989475.637370811
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
