@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OSINT Neo AI - Investigator Workspace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-gray-100 h-screen flex flex-col font-sans">
+
+    <!-- Header / Identity -->
+    <header class="bg-gray-800 p-4 border-b border-gray-700 flex justify-between items-center">
+        <div>
+            <h1 class="text-xl font-bold text-blue-400"><i class="fa-solid fa-brain mr-2"></i>OSINT Neo AI</h1>
+            <p class="text-xs text-gray-400">Wide-Open Intelligence Workspace</p>
+        </div>
+        <div class="flex items-center space-x-4">
+            <span class="text-sm bg-gray-700 px-3 py-1 rounded-full text-green-400">Connected: 0x...a1B2</span>
+            <span class="text-sm bg-gray-700 px-3 py-1 rounded-full text-blue-300">OSINT: 150</span>
+        </div>
+    </header>
+
+    <!-- Chat History Window -->
+    <main id="chat-window" class="flex-1 overflow-y-auto p-6 space-y-6">
+        <!-- AI Greeting -->
+        <div class="flex items-start">
+            <div class="bg-blue-600 rounded-full h-10 w-10 flex items-center justify-center font-bold mr-4">AI</div>
+            <div class="bg-gray-800 p-4 rounded-lg shadow max-w-3xl">
+                <p>Workspace initialized. I am your open-source intelligence assistant. You can type commands, upload FOIA documents, activate your camera to scan physical evidence, or use voice notes. What are we investigating today?</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Multimodal Input Area -->
+    <footer class="bg-gray-800 p-4 border-t border-gray-700">
+        <div class="max-w-4xl mx-auto relative flex items-center bg-gray-900 rounded-lg border border-gray-600 p-2">
+            
+            <!-- Hidden File Input -->
+            <input type="file" id="file-upload" class="hidden" multiple>
+            
+            <!-- Media Action Buttons -->
+            <button onclick="document.getElementById('file-upload').click()" class="text-gray-400 hover:text-blue-400 p-2 transition" title="Upload File">
+                <i class="fa-solid fa-paperclip text-lg"></i>
+            </button>
+            <button id="btn-camera" class="text-gray-400 hover:text-blue-400 p-2 transition" title="Take Picture/Video">
+                <i class="fa-solid fa-camera text-lg"></i>
+            </button>
+            <button id="btn-voice" class="text-gray-400 hover:text-blue-400 p-2 transition" title="Voice Input">
+                <i class="fa-solid fa-microphone text-lg"></i>
+            </button>
+
+            <!-- Text Input -->
+            <textarea id="chat-input" rows="1" class="flex-1 bg-transparent border-none focus:ring-0 text-white p-2 resize-none overflow-hidden" placeholder="Type your investigation query or drop evidence here..."></textarea>
+            
+            <!-- Submit Button -->
+            <button id="btn-send" class="bg-blue-600 hover:bg-blue-500 text-white rounded-lg px-4 py-2 ml-2 transition">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        // Multimodal Logic Hooks
+        const chatInput = document.getElementById('chat-input');
+        const fileUpload = document.getElementById('file-upload');
+        const chatWindow = document.getElementById('chat-window');
+
+        // Handle File Attachments (Routes to AIWorkerRouter)
+        fileUpload.addEventListener('change', async (e) => {
+            const files = e.target.files;
+            if (files.length > 0) {
+                appendUserMessage(`[Attached Evidence: ${files[0].name}]`);
+                // Here, FormData is built and POSTed to /api/workspace/chat
+            }
+        });
+
+        // Handle WebRTC Camera (Scans physical documents/photos)
+        document.getElementById('btn-camera').addEventListener('click', async () => {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                appendUserMessage("[Camera activated - Scanning input...]");
+                // Logic to capture frame and send to Gemini Vision API
+            } catch (err) {
+                alert("Camera access denied or unavailable.");
+            }
+        });
+
+        // Handle WebRTC Audio (Voice dictation)
+        document.getElementById('btn-voice').addEventListener('click', async () => {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                appendUserMessage("[Voice transcription active...]");
+                // Logic for Speech-to-Text routing
+            } catch (err) {
+                alert("Microphone access denied or unavailable.");
+            }
+        });
+
+        function appendUserMessage(text) {
+            const msgHtml = `
+                <div class="flex items-start justify-end">
+                    <div class="bg-blue-800 p-4 rounded-lg shadow max-w-3xl text-white">
+                        <p>${text}</p>
+                    </div>
+                    <div class="bg-gray-600 rounded-full h-10 w-10 flex items-center justify-center font-bold ml-4"><i class="fa-solid fa-user"></i></div>
+                </div>`;
+            chatWindow.insertAdjacentHTML('beforeend', msgHtml);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+    </script>
+</body>
+</html>
