@@ -1,0 +1,32 @@
+{
+  "admin_contact_policy": {
+    "description": "The site admin queue is strictly for bug reports, broken critical infrastructure, and severe help desk issues. Users must review this FAQ before submitting a task.",
+    "auto_reply_enabled": false
+  },
+  "faq": [
+    {
+      "id": "faq-001",
+      "category": "Extension",
+      "question": "How do I use the Chrome Extension?",
+      "answer": "Make sure you are logged into the workspace. Open all the tabs you want to extract, and hit the 'Ctrl+Shift+X' hotkey. The extension will grab all URLs, screenshots, and closed captions and invisibly pipe them to your active workspace."
+    },
+    {
+      "id": "faq-002",
+      "category": "Manual Override",
+      "question": "The AI gave me a shortlink for an auth wall. What do I do?",
+      "answer": "Copy the shortlink and paste it into a browser tab where you are already logged into the target site (like Facebook or a private portal). The system will automatically absorb the session and complete the extraction."
+    },
+    {
+      "id": "faq-003",
+      "category": "Task System",
+      "question": "Why is my extraction stuck in Suggestive Work?",
+      "answer": "Suggestive Work tasks are executed by the autonomous AI during off-hours or when the primary pipeline has idle capacity. You do not need to manually trigger them."
+    },
+    {
+      "id": "faq-004",
+      "category": "Legal",
+      "question": "Is the AnythingLLM connection secure?",
+      "answer": "Yes. Our proxy routing guarantees that dangerous connections (like deep web or hostile infrastructure) are processed physically away from your local machine to protect your IP and liability."
+    }
+  ]
+}

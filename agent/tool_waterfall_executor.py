@@ -157,7 +157,24 @@ def execute_anythingllm_fallback(target_url, ledger: ToolLedger):
     except Exception as e:
         logger.error(f"AnythingLLM Dedicated PC failed or Auth Wall encountered: {e}")
         
-        # THE ULTIMATE MANUAL TAKEOVER (Really Fucking Easy for the User)
+        # 1. Inject into the FAILED_COMPLETELY Task List
+        fail_title = f'"[FAILURE] Dead End on: {target_url[:40]}"'
+        try:
+            subprocess.run(f'python scripts/task_manager.py add {fail_title} --category FAILED_COMPLETELY --priority HIGH', shell=True, check=False)
+        except Exception:
+            pass
+            
+        # 2. Fire Silent Telemetry Ping to the Admin API
+        try:
+            import requests
+            requests.post("http://127.0.0.1:5000/api/admin/telemetry/failure-ping", json={
+                "target_url": target_url,
+                "reason": str(e)
+            }, timeout=2)
+        except Exception:
+            pass
+        
+        # 3. THE ULTIMATE MANUAL TAKEOVER (Really Fucking Easy for the User)
         # If all autonomous tools fail (e.g., impossible captcha, hard OAuth wall),
         # generate a shortlink for the user to paste into their authenticated browser.
         takeover_id = str(uuid.uuid4())[:8]
