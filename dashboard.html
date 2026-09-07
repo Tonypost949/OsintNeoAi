@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OSINTNeoAi — Forensic Data Intelligence Application</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            zinc: {
+              950: '#09090b',
+              900: '#0c0c0f',
+              850: '#141419',
+              800: '#1e1e24',
+              700: '#27272a',
+              400: '#a1a1aa',
+              500: '#71717a',
+              300: '#d4d4d8'
+            },
+            accent: {
+              blue: '#2563eb',
+              cyan: '#06b6d4',
+              emerald: '#10b981',
+              amber: '#f59e0b',
+              rose: '#f43f5e'
+            }
+          },
+          fontFamily: {
+            sans: ['"DM Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Apache ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      background-color: #09090b;
+      color: #fafafa;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #09090b;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #1e1e24;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #27272a;
+    }
+    .glass-card {
+      background: #0c0c0f;
+      border: 1px solid #1e1e24;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      border-color: #27272a;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-blue-600 selection:text-white custom-scrollbar">
+
+  <!-- Minimal Header -->
+  <header class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+          <i data-lucide="shield-check" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-bold text-sm tracking-wide text-zinc-100 uppercase">OSINTNeoAi</span>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-medium">Forensic Intelligence App</span>
+          </div>
+          <span class="text-xs text-zinc-500 mono">v4.8 • BigQuery noble-beanbag-497411-m4</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="/maps" class="px-3 py-1.5 text-xs font-medium text-zinc-300 hover:text-white hover:bg-zinc-800/80 rounded-md border border-zinc-800 transition-colors flex items-center gap-1.5">
+          <i data-lucide="map" class="w-3.5 h-3.5 text-emerald-400"></i> Tactical Maps
+        </a>
+        <a href="/tasks" class="px-3 py-1.5 text-xs font-medium text-zinc-300 hover:text-white hover:bg-zinc-800/80 rounded-md border border-zinc-800 transition-colors flex items-center gap-1.5">
+          <i data-lucide="check-square" class="w-3.5 h-3.5 text-cyan-400"></i> Task Engine
+        </a>
+        <button id="toggle-chat-btn" class="px-3.5 py-1.5 text-xs font-medium bg-blue-600 hover:bg-blue-500 text-white rounded-md transition-all shadow-sm flex items-center gap-1.5">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Chat With Data
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    
+    <!-- Hero / Title -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div>
+        <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">Forensic Evidence & Data Analytics Platform</h1>
+        <p class="text-sm text-zinc-400 mt-1">Multi-agency False Claims Act, municipal land audits, and unified OSINT knowledge graph.</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          Data Services Live
+        </span>
+        <button onclick="fetchData()" class="p-2 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900 border border-zinc-800 rounded-md transition-colors" title="Refresh Data">
+          <i data-lucide="rotate-cw" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- KPI Summary Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      
+      <!-- Card 1 -->
+      <div class="glass-card rounded-xl p-5 relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-medium text-zinc-400 uppercase tracking-wider">Indexed Endpoints</span>
+          <div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400">
+            <i data-lucide="globe" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="mt-3">
+          <span id="kpi-endpoints" class="text-2xl font-bold mono text-white">815</span>
+          <span class="text-xs text-emerald-400 mono ml-2 font-medium">+822 RAG chunks</span>
+        </div>
+        <p class="text-xs text-zinc-500 mt-1">Legal, GIS, Environmental & OSINT</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="glass-card rounded-xl p-5 relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-medium text-zinc-400 uppercase tracking-wider">50-State Disparity Gap</span>
+          <div class="w-8 h-8 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-400">
+            <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="mt-3">
+          <span id="kpi-gap" class="text-2xl font-bold mono text-rose-400">$1.55B</span>
+          <span class="text-xs text-rose-500/80 mono ml-2 font-medium">1.55M victims</span>
+        </div>
+        <p class="text-xs text-zinc-500 mt-1">CoC Funding vs True Shelter Need</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="glass-card rounded-xl p-5 relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-medium text-zinc-400 uppercase tracking-wider">FCA Claim Ceiling</span>
+          <div class="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400">
+            <i data-lucide="scale" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="mt-3">
+          <span id="kpi-fca" class="text-2xl font-bold mono text-amber-400">$196.3M+</span>
+          <span class="text-xs text-zinc-400 mono ml-2 font-medium">15–30% Qui Tam</span>
+        </div>
+        <p class="text-xs text-zinc-500 mt-1">Cal. Gov. Code § 54220 SLA Demand</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="glass-card rounded-xl p-5 relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-medium text-zinc-400 uppercase tracking-wider">Graph Topology</span>
+          <div class="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400">
+            <i data-lucide="network" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="mt-3">
+          <span id="kpi-graph" class="text-2xl font-bold mono text-cyan-400">17,488</span>
+          <span class="text-xs text-cyan-500/80 mono ml-2 font-medium">18,712 edges</span>
+        </div>
+        <p class="text-xs text-zinc-500 mt-1">Typed Relational Entity Model</p>
+      </div>
+
+    </div>
+
+    <!-- Charts Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      
+      <!-- Chart 1: Longitudinal Timeline -->
+      <div class="glass-card rounded-xl p-6 flex flex-col">
+        <div class="flex items-center justify-between pb-4 border-b border-zinc-800/80">
+          <div>
+            <h3 class="text-sm font-bold text-zinc-100 flex items-center gap-2">
+              <i data-lucide="calendar" class="w-4 h-4 text-blue-400"></i>
+              False Claims Act & Whistleblower Chronology
+            </h3>
+            <p class="text-xs text-zinc-500 mt-0.5">Timeline milestones & evidentiary transmission impact ($ Millions)</p>
+          </div>
+          <span class="text-xs px-2 py-0.5 rounded bg-zinc-800 text-zinc-400 mono">2021–2026</span>
+        </div>
+        <div id="chart-timeline" class="w-full h-72 mt-4"></div>
+      </div>
+
+      <!-- Chart 2: State Disparity Breakdown -->
+      <div class="glass-card rounded-xl p-6 flex flex-col">
+        <div class="flex items-center justify-between pb-4 border-b border-zinc-800/80">
+          <div>
+            <h3 class="text-sm font-bold text-zinc-100 flex items-center gap-2">
+              <i data-lucide="bar-chart-3" class="w-4 h-4 text-emerald-400"></i>
+              State Disparity Gaps & CoC Allocations
+            </h3>
+            <p class="text-xs text-zinc-500 mt-0.5">Reported PIT Count vs Estimated Shelter Need (Top States)</p>
+          </div>
+          <span class="text-xs px-2 py-0.5 rounded bg-zinc-800 text-zinc-400 mono">Top 8</span>
+        </div>
+        <div id="chart-states" class="w-full h-72 mt-4"></div>
+      </div>
+
+    </div>
+
+    <!-- Data Table & Explorer Section -->
+    <div class="glass-card rounded-xl p-6 space-y-4">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <i data-lucide="database" class="w-4 h-4 text-cyan-400"></i>
+            Master Investigation & Evidence Explorer
+          </h3>
+          <p class="text-xs text-zinc-400 mt-0.5">Search and query across all 840+ indexed databases, legal archives, and GIS layers.</p>
+        </div>
+        
+        <div class="flex items-center gap-3 flex-wrap">
+          <div class="relative min-w-[240px]">
+            <i data-lucide="search" class="w-4 h-4 text-zinc-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
+            <input type="text" id="search-input" placeholder="Search keywords, domains, URLs..." 
+              class="w-full bg-zinc-950 border border-zinc-800 rounded-lg pl-9 pr-4 py-1.5 text-xs text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors">
+          </div>
+          <button onclick="exportCSV()" class="px-3 py-1.5 text-xs font-medium text-zinc-300 hover:text-white bg-zinc-950 hover:bg-zinc-850 border border-zinc-800 rounded-lg transition-colors flex items-center gap-1.5">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i> Export CSV
+          </button>
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-1 pt-1 text-xs custom-scrollbar">
+        <button class="cat-pill active px-3 py-1 rounded-full bg-blue-600 text-white font-medium transition-all" data-cat="all">All Records</button>
+        <button class="cat-pill px-3 py-1 rounded-full bg-zinc-900 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-850 border border-zinc-800 transition-all" data-cat="Legal">Legal & Courts</button>
+        <button class="cat-pill px-3 py-1 rounded-full bg-zinc-900 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-850 border border-zinc-800 transition-all" data-cat="Environmental">Environmental & GIS</button>
+        <button class="cat-pill px-3 py-1 rounded-full bg-zinc-900 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-850 border border-zinc-800 transition-all" data-cat="OSINT">OSINT Tools</button>
+        <button class="cat-pill px-3 py-1 rounded-full bg-zinc-900 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-850 border border-zinc-800 transition-all" data-cat="Post">Post Library / A-Z</button>
+        <button class="cat-pill px-3 py-1 rounded-full bg-zinc-900 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-850 border border-zinc-800 transition-all" data-cat="Dev">Dev & Cloud</button>
+      </div>
+
+      <!-- Table Container -->
+      <div class="overflow-x-auto border border-zinc-800 rounded-lg">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-zinc-950/80 text-zinc-400 font-medium border-b border-zinc-800">
+            <tr>
+              <th class="px-4 py-3">Resource / Title</th>
+              <th class="px-4 py-3">Category</th>
+              <th class="px-4 py-3">Domain</th>
+              <th class="px-4 py-3">Hierarchy / Folder</th>
+              <th class="px-4 py-3 text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody id="table-body" class="divide-y divide-zinc-850/60 font-normal">
+            <tr>
+              <td colspan="5" class="px-4 py-8 text-center text-zinc-500">Loading forensic records...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex items-center justify-between pt-2">
+        <span id="page-info" class="text-xs text-zinc-500 mono">Showing 0-0 of 0</span>
+        <div class="flex items-center gap-2">
+          <button id="prev-page" class="px-2.5 py-1 text-xs bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 rounded disabled:opacity-40 disabled:cursor-not-allowed">Previous</button>
+          <button id="next-page" class="px-2.5 py-1 text-xs bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 rounded disabled:opacity-40 disabled:cursor-not-allowed">Next</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Slide-out Gemini AI Chat Interface Panel -->
+  <div id="chat-drawer" class="fixed inset-y-0 right-0 w-full sm:w-[440px] bg-zinc-950 border-l border-zinc-800 z-[100] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col shadow-2xl">
+    
+    <!-- Drawer Header -->
+    <div class="h-16 border-b border-zinc-800 px-5 flex items-center justify-between bg-zinc-900/60 backdrop-blur-md">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold text-white">Gemini Data Assistant</h4>
+          <p class="text-[11px] text-zinc-400">Natural language queries over BigQuery</p>
+        </div>
+      </div>
+      <button id="close-chat-btn" class="text-zinc-400 hover:text-white p-1 rounded-md hover:bg-zinc-800 transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Chat Messages Container -->
+    <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 text-xs custom-scrollbar">
+      
+      <!-- Welcome Message -->
+      <div class="flex gap-3 items-start">
+        <div class="w-6 h-6 rounded bg-blue-600 flex items-center justify-center text-white shrink-0 mt-0.5">
+          <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+        </div>
+        <div class="bg-zinc-900 border border-zinc-800 p-3.5 rounded-xl text-zinc-300 leading-relaxed space-y-2">
+          <p>Hello! I am your <strong>OSINTNeoAi Data Intelligence Assistant</strong>. You can ask me to analyze BigQuery tables, investigate specific parcels, summarize False Claims Act case law, or query any of the 840+ indexed forensic links.</p>
+          <div class="pt-1">
+            <span class="text-[10px] text-zinc-500 font-semibold uppercase tracking-wider block mb-1.5">Try asking:</span>
+            <div class="flex flex-col gap-1">
+              <button onclick="setPrompt(this.innerText)" class="text-left px-2.5 py-1 rounded bg-zinc-950 border border-zinc-800 text-blue-400 hover:border-blue-500/40 transition-colors">Summarize the Anaheim Angel Stadium 7-0 vote</button>
+              <button onclick="setPrompt(this.innerText)" class="text-left px-2.5 py-1 rounded bg-zinc-950 border border-zinc-800 text-blue-400 hover:border-blue-500/40 transition-colors">What is the status of APN 114-481-32 $0 deed?</button>
+              <button onclick="setPrompt(this.innerText)" class="text-left px-2.5 py-1 rounded bg-zinc-950 border border-zinc-800 text-blue-400 hover:border-blue-500/40 transition-colors">List top 5 state CoC funding disparity gaps</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Input Bar -->
+    <div class="p-3.5 border-t border-zinc-800 bg-zinc-950">
+      <form id="chat-form" class="flex gap-2">
+        <input type="text" id="chat-input" placeholder="Ask about BigQuery tables, parcels, evidence..." 
+          class="flex-1 bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors">
+        <button type="submit" class="px-3.5 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-medium transition-colors flex items-center justify-center">
+          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+        </button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Client-Side App Logic -->
+  <script>
+    let allRecords = [];
+    let filteredRecords = [];
+    let currentCategory = 'all';
+    let currentPage = 1;
+    const pageSize = 15;
+
+    lucide.createIcons();
+
+    const drawer = document.getElementById('chat-drawer');
+    document.getElementById('toggle-chat-btn').addEventListener('click', () => {
+      drawer.classList.toggle('translate-x-full');
+    });
+    document.getElementById('close-chat-btn').addEventListener('click', () => {
+      drawer.classList.add('translate-x-full');
+    });
+
+    function setPrompt(text) {
+      document.getElementById('chat-input').value = text;
+      document.getElementById('chat-input').focus();
+    }
+
+    function initCharts(timelineData, stateData) {
+      const timelineDom = document.getElementById('chart-timeline');
+      if (timelineDom) {
+        const timelineChart = echarts.init(timelineDom, 'dark');
+        const dates = timelineData.map(d => d.date);
+        const amounts = timelineData.map(d => d.amount / 1e6);
+        
+        timelineChart.setOption({
+          backgroundColor: 'transparent',
+          tooltip: {
+            trigger: 'axis',
+            formatter: function(params) {
+              const idx = params[0].dataIndex;
+              const item = timelineData[idx];
+              return `<div class="mono text-xs"><b>${item.date}</b><br/>${item.event}<br/><span style="color:#60a5fa">Volume: $${(item.amount/1e6).toFixed(1)}M</span><br/>Category: ${item.category}</div>`;
+            }
+          },
+          grid: { left: '3%', right: '4%', bottom: '3%', top: '10%', containLabel: true },
+          xAxis: {
+            type: 'category',
+            data: dates,
+            axisLine: { lineStyle: { color: '#27272a' } },
+            axisLabel: { color: '#71717a', fontSize: 10, fontFamily: 'JetBrains Mono' }
+          },
+          yAxis: {
+            type: 'value',
+            name: '$M',
+            axisLine: { lineStyle: { color: '#27272a' } },
+            splitLine: { lineStyle: { color: '#18181b' } },
+            axisLabel: { color: '#71717a', fontSize: 10, fontFamily: 'JetBrains Mono' }
+          },
+          series: [{
+            data: amounts,
+            type: 'line',
+            smooth: true,
+            symbolSize: 8,
+            itemStyle: { color: '#3b82f6' },
+            areaStyle: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                { offset: 0, color: 'rgba(59, 130, 246, 0.4)' },
+                { offset: 1, color: 'rgba(59, 130, 246, 0.0)' }
+              ])
+            }
+          }]
+        });
+
+        window.addEventListener('resize', () => timelineChart.resize());
+      }
+
+      const statesDom = document.getElementById('chart-states');
+      if (statesDom) {
+        const statesChart = echarts.init(statesDom, 'dark');
+        statesChart.setOption({
+          backgroundColor: 'transparent',
+          tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+          legend: {
+            data: ['Reported PIT Count', 'True Shelter Need (Gap)'],
+            textStyle: { color: '#a1a1aa', fontSize: 10 },
+            top: 0
+          },
+          grid: { left: '3%', right: '4%', bottom: '3%', top: '15%', containLabel: true },
+          xAxis: {
+            type: 'category',
+            data: stateData.map(s => s.state),
+            axisLine: { lineStyle: { color: '#27272a' } },
+            axisLabel: { color: '#71717a', fontSize: 10, fontFamily: 'JetBrains Mono' }
+          },
+          yAxis: {
+            type: 'value',
+            axisLine: { lineStyle: { color: '#27272a' } },
+            splitLine: { lineStyle: { color: '#18181b' } },
+            axisLabel: { color: '#71717a', fontSize: 10, fontFamily: 'JetBrains Mono' }
+          },
+          series: [
+            { name: 'Reported PIT Count', type: 'bar', data: stateData.map(s => s.pit), itemStyle: { color: '#10b981' } },
+            { name: 'True Shelter Need (Gap)', type: 'bar', data: stateData.map(s => s.gap), itemStyle: { color: '#f43f5e' } }
+          ]
+        });
+
+        window.addEventListener('resize', () => statesChart.resize());
+      }
+    }
+
+    async function fetchData() {
+      try {
+        const timelineData = [
+          { date: "2021-04", event: "APN 114-481-32 $0 Deed Transfer", category: "Property", amount: 0 },
+          { date: "2021-11", event: "40+ Agency Whistleblower Filing", category: "Legal", amount: 96000000 },
+          { date: "2022-05", event: "24-Hour Whistleblower Strike", category: "Strike", amount: 320000000 },
+          { date: "2023-01", event: "Retaliation & Eviction Vacatur", category: "Litigation", amount: 96400000 },
+          { date: "2024-06", event: "Pham Living Trust Forfeiture", category: "Asset", amount: 3880000 },
+          { date: "2026-08", event: "Master RICO Synthesis & Bookmarks", category: "Intelligence", amount: 196300000 }
+        ];
+
+        const stateData = [
+          { state: "CA", pit: 71320, gap: 374430 },
+          { state: "NY", pit: 88025, gap: 462131 },
+          { state: "WA", pit: 14142, gap: 74245 },
+          { state: "AZ", pit: 9642, gap: 50620 },
+          { state: "TX", pit: 4244, gap: 22281 },
+          { state: "FL", pit: 2314, gap: 12148 },
+          { state: "AL", pit: 1124, gap: 5901 },
+          { state: "AK", pit: 1422, gap: 7465 }
+        ];
+
+        initCharts(timelineData, stateData);
+
+        const recordsRes = await fetch('/api/search?q=&limit=1000').then(r => r.ok ? r.json() : null).catch(() => null);
+        if (recordsRes && recordsRes.results) {
+          allRecords = recordsRes.results;
+        } else {
+          allRecords = [];
+        }
+        applyFilters();
+      } catch (err) {
+        console.error("Error fetching data:", err);
+      }
+    }
+
+    function applyFilters() {
+      const query = (document.getElementById('search-input').value || '').toLowerCase();
+      filteredRecords = allRecords.filter(r => {
+        const matchesCat = (currentCategory === 'all') || (r.category && r.category.toLowerCase().includes(currentCategory.toLowerCase()));
+        const matchesQuery = !query || 
+          (r.title && r.title.toLowerCase().includes(query)) ||
+          (r.url && r.url.toLowerCase().includes(query)) ||
+          (r.domain && r.domain.toLowerCase().includes(query));
+        return matchesCat && matchesQuery;
+      });
+
+      currentPage = 1;
+      renderTable();
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('table-body');
+      const start = (currentPage - 1) * pageSize;
+      const end = start + pageSize;
+      const paged = filteredRecords.slice(start, end);
+
+      if (paged.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" class="px-4 py-8 text-center text-zinc-500">No matching forensic records found.</td></tr>`;
+        document.getElementById('page-info').innerText = 'Showing 0 of 0';
+        document.getElementById('prev-page').disabled = true;
+        document.getElementById('next-page').disabled = true;
+        return;
+      }
+
+      tbody.innerHTML = paged.map(r => {
+        const catBadgeClass = getCategoryBadge(r.category);
+        return `
+          <tr class="hover:bg-zinc-900/60 transition-colors">
+            <td class="px-4 py-3 font-medium text-zinc-200">
+              <div class="truncate max-w-xs md:max-w-md" title="${r.title || r.url}">
+                ${r.title || r.url}
+              </div>
+            </td>
+            <td class="px-4 py-3 whitespace-nowrap">
+              <span class="inline-block px-2 py-0.5 text-[10px] font-medium rounded-full ${catBadgeClass}">
+                ${r.category || 'General'}
+              </span>
+            </td>
+            <td class="px-4 py-3 whitespace-nowrap text-zinc-400 mono text-[11px]">
+              ${r.domain || '-'}
+            </td>
+            <td class="px-4 py-3 text-zinc-500 text-[11px] truncate max-w-[140px]" title="${r.folder_hierarchy || '-'}">
+              ${r.folder_hierarchy || '-'}
+            </td>
+            <td class="px-4 py-3 whitespace-nowrap text-right">
+              <a href="${r.url}" target="_blank" rel="noopener noreferrer" 
+                class="inline-flex items-center gap-1 text-blue-400 hover:text-blue-300 hover:underline text-[11px] font-medium">
+                Open <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      document.getElementById('page-info').innerText = `Showing ${start + 1}–${Math.min(end, filteredRecords.length)} of ${filteredRecords.length}`;
+      document.getElementById('prev-page').disabled = currentPage === 1;
+      document.getElementById('next-page').disabled = end >= filteredRecords.length;
+      lucide.createIcons();
+    }
+
+    function getCategoryBadge(cat) {
+      if (!cat) return 'bg-zinc-800 text-zinc-400';
+      const c = cat.toLowerCase();
+      if (c.includes('legal') || c.includes('court')) return 'bg-rose-500/10 text-rose-400 border border-rose-500/20';
+      if (c.includes('gis') || c.includes('lightbox') || c.includes('geotracker')) return 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20';
+      if (c.includes('osint')) return 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20';
+      if (c.includes('library') || c.includes('post')) return 'bg-blue-500/10 text-blue-400 border border-blue-500/20';
+      if (c.includes('dev') || c.includes('cloud')) return 'bg-amber-500/10 text-amber-400 border border-amber-500/20';
+      return 'bg-zinc-800 text-zinc-400';
+    }
+
+    document.querySelectorAll('.cat-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.cat-pill').forEach(b => {
+          b.classList.remove('active', 'bg-blue-600', 'text-white');
+          b.classList.add('bg-zinc-900', 'text-zinc-400');
+        });
+        btn.classList.add('active', 'bg-blue-600', 'text-white');
+        btn.classList.remove('bg-zinc-900', 'text-zinc-400');
+        currentCategory = btn.getAttribute('data-cat');
+        applyFilters();
+      });
+    });
+
+    document.getElementById('search-input').addEventListener('input', applyFilters);
+    document.getElementById('prev-page').addEventListener('click', () => { if (currentPage > 1) { currentPage--; renderTable(); } });
+    document.getElementById('next-page').addEventListener('click', () => { if (currentPage * pageSize < filteredRecords.length) { currentPage++; renderTable(); } });
+
+    function exportCSV() {
+      if (!filteredRecords.length) return;
+      const headers = ['Title', 'Category', 'Domain', 'Folder Hierarchy', 'URL'];
+      const rows = filteredRecords.map(r => [
+        `"${(r.title || '').replace(/"/g, '""')}"`,
+        `"${(r.category || '').replace(/"/g, '""')}"`,
+        `"${(r.domain || '').replace(/"/g, '""')}"`,
+        `"${(r.folder_hierarchy || '').replace(/"/g, '""')}"`,
+        `"${(r.url || '').replace(/"/g, '""')}"`
+      ]);
+      const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(e => e.join(','))].join('\n');
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', `OSINTNeoAi_Data_Export_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    document.getElementById('chat-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const input = document.getElementById('chat-input');
+      const msg = input.value.trim();
+      if (!msg) return;
+
+      const container = document.getElementById('chat-messages');
+      
+      const userDiv = document.createElement('div');
+      userDiv.className = 'flex justify-end';
+      userDiv.innerHTML = `<div class="bg-blue-600 text-white p-3 rounded-xl max-w-[85%] leading-relaxed">${msg}</div>`;
+      container.appendChild(userDiv);
+      input.value = '';
+      container.scrollTop = container.scrollHeight;
+
+      const loadingDiv = document.createElement('div');
+      loadingDiv.className = 'flex gap-3 items-start';
+      loadingDiv.innerHTML = `
+        <div class="w-6 h-6 rounded bg-blue-600 flex items-center justify-center text-white shrink-0 mt-0.5">
+          <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+        </div>
+        <div class="bg-zinc-900 border border-zinc-800 p-3 rounded-xl text-zinc-400 italic">
+          Querying BigQuery and forensic knowledge graph...
+        </div>
+      `;
+      container.appendChild(loadingDiv);
+      lucide.createIcons();
+      container.scrollTop = container.scrollHeight;
+
+      try {
+        const res = await fetch('/api/ai_chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: msg })
+        });
+        const data = await res.json();
+        loadingDiv.remove();
+
+        const botDiv = document.createElement('div');
+        botDiv.className = 'flex gap-3 items-start';
+        botDiv.innerHTML = `
+          <div class="w-6 h-6 rounded bg-blue-600 flex items-center justify-center text-white shrink-0 mt-0.5">
+            <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+          </div>
+          <div class="bg-zinc-900 border border-zinc-800 p-3.5 rounded-xl text-zinc-300 leading-relaxed max-w-[90%] whitespace-pre-wrap">
+            ${data.reply || data.response || "No response received."}
+          </div>
+        `;
+        container.appendChild(botDiv);
+      } catch (err) {
+        loadingDiv.remove();
+        const errDiv = document.createElement('div');
+        errDiv.className = 'text-rose-400 text-xs p-2';
+        errDiv.innerText = "Error connecting to AI service.";
+        container.appendChild(errDiv);
+      }
+      lucide.createIcons();
+      container.scrollTop = container.scrollHeight;
+    });
+
+    fetchData();
+  </script>
+</body>
+</html>

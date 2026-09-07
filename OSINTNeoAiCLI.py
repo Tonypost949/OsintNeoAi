@@ -1057,8 +1057,10 @@ def map_hub():
 
 @app.route("/maps/<path:filename>")
 def serve_map_file(filename):
-    if os.path.exists(os.path.join(ROOT_DIR, filename)):
-        return send_from_directory(ROOT_DIR, filename)
+    for folder in [ROOT_DIR, os.path.join(ROOT_DIR, "public"), os.path.join(ROOT_DIR, "docs"), os.path.join(ROOT_DIR, "data_apps")]:
+        p = os.path.join(folder, filename)
+        if os.path.exists(p):
+            return send_from_directory(folder, filename)
     abort(404)
 
 @app.route("/victims-board")
