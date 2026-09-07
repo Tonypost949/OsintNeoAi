@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-09-07T05:53:20.941486+00:00",
-  "total": 67,
-  "open": 1,
+  "updated_at": "2026-09-07T08:39:41.269992+00:00",
+  "total": 71,
+  "open": 5,
   "done": 66,
   "tasks": [
     {
@@ -1019,6 +1019,58 @@
       "created_at": "2026-09-07T05:53:20.941486+00:00",
       "tags": [
         "Core Infrastructure, Threat Intel & AI Blueprints"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-068",
+      "title": "Analyze Extracted OSINT:  https://unclaimedproperty.ocgov.com/target=AndrewD",
+      "category": "SUGGESTIVE_WORK_TASKS",
+      "priority": "MEDIUM",
+      "status": "TODO",
+      "description": "Analyze Extracted OSINT:  https://unclaimedproperty.ocgov.com/target=AndrewD",
+      "created_at": "2026-09-07T06:44:59.098093+00:00",
+      "tags": [
+        "SUGGESTIVE_WORK_TASKS"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-069",
+      "title": "Index Core Architecture Documents: Dual-Ledger OSINT Exchange",
+      "category": "SUGGESTIVE_WORK",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Index Core Architecture Documents: Dual-Ledger OSINT Exchange",
+      "created_at": "2026-09-07T08:29:18.503431+00:00",
+      "tags": [
+        "SUGGESTIVE_WORK"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-070",
+      "title": "Build Autonomous Task Worker for Suggestive Queue",
+      "category": "SUGGESTIVE_WORK",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Build Autonomous Task Worker for Suggestive Queue",
+      "created_at": "2026-09-07T08:39:36.027704+00:00",
+      "tags": [
+        "SUGGESTIVE_WORK"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-071",
+      "title": "Inject Huntington Beach Evidence into BigQuery FCA Timeline",
+      "category": "SUGGESTIVE_WORK",
+      "priority": "MEDIUM",
+      "status": "TODO",
+      "description": "Inject Huntington Beach Evidence into BigQuery FCA Timeline",
+      "created_at": "2026-09-07T08:39:41.269992+00:00",
+      "tags": [
+        "SUGGESTIVE_WORK"
       ],
       "action_url": "#"
     }

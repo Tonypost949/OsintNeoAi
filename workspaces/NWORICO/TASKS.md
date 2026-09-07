@@ -1,5 +1,5 @@
 # 📋 OSINT Neo AI — Master Autonomous Task & Action Ledger
-> **System Status:** 🟢 Active & Self-Tracking | **Storage:** [`data/tasks.json`](data/tasks.json) | **Total Tasks:** 67 (1 Open / 66 Done)
+> **System Status:** 🟢 Active & Self-Tracking | **Storage:** [`data/tasks.json`](data/tasks.json) | **Total Tasks:** 71 (5 Open / 66 Done)
 
 ---
 
@@ -8,6 +8,10 @@
 | ID | Priority | Category | Task Description | Action Link / Ref | Status |
 | :--- | :---: | :--- | :--- | :--- | :---: |
 | **`TASK-067`** | 🟡 **HIGH** | Core Infrastructure, Threat Intel & AI Blueprints | **Build OSINT Evidence Collector Chrome Extension (based on tab-copy)**<br>Fork/adapt the tab-copy Manifest V3 extension to capture URLs, titles, and timestamps for 1-click JSON payloads to the evasive OSINT endpoint. | [Core Infrastructure, Threat Intel & AI Blueprints](#) | `TODO` |
+| **`TASK-069`** | 🟡 **HIGH** | SUGGESTIVE_WORK | **Index Core Architecture Documents: Dual-Ledger OSINT Exchange**<br>Index Core Architecture Documents: Dual-Ledger OSINT Exchange | [SUGGESTIVE_WORK](#) | `TODO` |
+| **`TASK-070`** | 🟡 **HIGH** | SUGGESTIVE_WORK | **Build Autonomous Task Worker for Suggestive Queue**<br>Build Autonomous Task Worker for Suggestive Queue | [SUGGESTIVE_WORK](#) | `TODO` |
+| **`TASK-068`** | 🔵 **MEDIUM** | SUGGESTIVE_WORK_TASKS | **Analyze Extracted OSINT:  https://unclaimedproperty.ocgov.com/target=AndrewD**<br>Analyze Extracted OSINT:  https://unclaimedproperty.ocgov.com/target=AndrewD | [SUGGESTIVE_WORK_TASKS](#) | `TODO` |
+| **`TASK-071`** | 🔵 **MEDIUM** | SUGGESTIVE_WORK | **Inject Huntington Beach Evidence into BigQuery FCA Timeline**<br>Inject Huntington Beach Evidence into BigQuery FCA Timeline | [SUGGESTIVE_WORK](#) | `TODO` |
 
 ---
 
