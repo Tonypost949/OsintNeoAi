@@ -31,15 +31,22 @@ def ensure_table(client):
         bigquery.SchemaField("extracted_entities", "STRING", mode="REPEATED"),
         bigquery.SchemaField("added_at", "TIMESTAMP", mode="REQUIRED"),
     ]
+    # Fix dataset constraints for Sandbox Tier
+    try:
+        dataset = client.get_dataset(f"{GCP_PROJECT}.{BQ_DATASET}")
+        dataset.default_table_expiration_ms = 59 * 24 * 60 * 60 * 1000 # 59 days
+        dataset.default_partition_expiration_ms = 59 * 24 * 60 * 60 * 1000 # 59 days
+        client.update_dataset(dataset, ["default_table_expiration_ms", "default_partition_expiration_ms"])
+    except Exception as e:
+        logger.warning(f"Could not update dataset expiration: {e}")
+
     try:
         table = client.get_table(FULL_TABLE_ID)
-        # Sandbox mode requires expiration < 60 days. Update it.
         table.expires = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(days=59)
         client.update_table(table, ["expires"])
         logger.info(f"Table {FULL_TABLE_ID} exists and expiration updated.")
     except Exception:
         table = bigquery.Table(FULL_TABLE_ID, schema=schema)
-        # Sandbox mode requires expiration < 60 days
         table.expires = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(days=59)
         client.create_table(table)
         logger.info(f"Created table {FULL_TABLE_ID}")

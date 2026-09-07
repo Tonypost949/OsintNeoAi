@@ -34,7 +34,7 @@ W_TABLE = "{}.{}.workspaces".format(GCP_PROJECT, BQ_DATASET)
 S_TABLE = "{}.{}.newspaper_stories".format(GCP_PROJECT, BQ_DATASET)
 
 BUILDER_WORKSPACE_ID   = "builder-master-featured-001"
-BUILDER_WALLET         = "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+BUILDER_WALLET         = os.environ.get("BUILDER_WALLET", "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")
 BUILDER_DISPLAY_NAME   = "OsintNeoAi — Builder Master Investigation"
 BUILDER_EMAIL          = "amd949609@gmail.com"
 

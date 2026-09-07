@@ -20,7 +20,6 @@ async function verifyContract(name, address, constructorArguments = []) {
 async function main() {
     console.log("Starting Automated Etherscan Verification Pipeline...\n");
 
-    // Pull addresses from environment variables or replace with deployed values
     const STAKING_GATE_ADDRESS = process.env.STAKING_GATE_ADDRESS;
     const MULTI_POOL_ESCROW_ADDRESS = process.env.MULTI_POOL_ESCROW_ADDRESS;
     const OSINT_TOKEN_ADDRESS = process.env.OSINT_TOKEN_ADDRESS;
@@ -33,13 +32,11 @@ async function main() {
 
     const requiredStake = hre.ethers.parseEther("100");
 
-    // 1. Verify StakingGate [TASK-081]
     await verifyContract("StakingGate", STAKING_GATE_ADDRESS, [
         OSINT_TOKEN_ADDRESS,
         requiredStake
     ]);
 
-    // 2. Verify MultiPoolEscrow
     await verifyContract("MultiPoolEscrow", MULTI_POOL_ESCROW_ADDRESS, [
         USDC_ADDRESS,
         OSINT_TOKEN_ADDRESS,

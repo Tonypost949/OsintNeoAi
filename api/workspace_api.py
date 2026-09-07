@@ -33,7 +33,7 @@ workspace_bp = Blueprint("workspace", __name__, url_prefix="/api")
 GCP_PROJECT = os.environ.get("GCP_PROJECT", "noble-beanbag-497411-m4")
 BQ_DATASET  = os.environ.get("BQ_WORKSPACE_DATASET", "platform")
 BUILDER_WORKSPACE_ID = "builder-master-featured-001"
-BUILDER_WALLET = "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+BUILDER_WALLET = os.environ.get("BUILDER_WALLET", "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")
 
 _bq_client = None
 
@@ -496,21 +496,21 @@ def crypto_public():
         "tokens": {
             "TFT": {
                 "name":     "TaxFunded Token",
-                "contract": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                "contract": os.environ.get("TFT_TOKEN_ADDRESS", "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0"),
                 "supply":   "14,200,000",
                 "symbol":   "TFT",
-                "network":  "Ethereum Mainnet",
+                "network":  "Sepolia Testnet",
             },
             "OSINT": {
                 "name":     "OSINT Token",
-                "contract": "0x123f61a7B14341A67280609320e8A631899120bc",
+                "contract": os.environ.get("OSINT_TOKEN_ADDRESS", "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"),
                 "supply":   "50,000,000",
                 "symbol":   "OSINT",
-                "network":  "Ethereum Mainnet",
+                "network":  "Sepolia Testnet",
             },
             "bridge": {
-                "name":       "DualAuditTokenBridge",
-                "contract":   "0x99887766554433221100aabbccddeeff00112233",
+                "name":       "MultiPoolEscrow",
+                "contract":   os.environ.get("MULTI_POOL_ESCROW_ADDRESS", "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9"),
                 "apy":        "12.5%",
                 "multiplier": "1.05x",
             },

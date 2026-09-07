@@ -1,3 +1,4 @@
+import os
 import json
 import logging
 import uuid
@@ -6,10 +7,10 @@ import datetime
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 logger = logging.getLogger(__name__)
 
-# Mock Smart Contract Addresses from the OSINT Exchange setup
-TFT_CONTRACT = "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
-OSINT_CONTRACT = "0x123f61a7B14341A67280609320e8A631899120bc"
-BRIDGE_CONTRACT = "0x99887766554433221100aabbccddeeff00112233"
+# Smart Contract Addresses from deployed infrastructure
+TFT_CONTRACT = os.environ.get("TFT_TOKEN_ADDRESS", "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0")
+OSINT_CONTRACT = os.environ.get("OSINT_TOKEN_ADDRESS", "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512")
+BRIDGE_CONTRACT = os.environ.get("MULTI_POOL_ESCROW_ADDRESS", "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9")
 
 class DualAuditTokenBridge:
     """
