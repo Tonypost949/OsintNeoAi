@@ -45,6 +45,14 @@
     </div>
 </nav>
 
+<!-- EMERGENCY INTAKE BANNER -->
+<div class="bg-dark text-white text-center py-3 border-bottom" style="border-bottom-color: #dc3545 !important; border-width: 3px !important;">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-center gap-3">
+        <span class="fs-5 fw-bold">If you are being attacked, disabled, a whistleblower, a minor, or suicidal and need help now, please let us know Who Hurt You.</span>
+        <button class="btn btn-danger fw-bold px-4 rounded-pill shadow-sm" data-bs-toggle="modal" data-bs-target="#whoHurtYouModal">HELP</button>
+    </div>
+</div>
+
 <!-- HERO: PROMOTING THE SECTIONS -->
 <section class="hero-section text-center">
     <div class="container">
@@ -57,6 +65,35 @@
         </div>
     </div>
 </section>
+
+<!-- PUBLIC AI CHAT MODAL (WHO HURT YOU INTAKE) -->
+<div class="modal fade" id="whoHurtYouModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content" style="border: 2px solid #dc3545; border-radius: 12px;">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title fw-bold"><i class="fas fa-shield-alt me-2"></i> Who Hurt You? — Secure AI Intake</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body bg-light p-0" style="height: 400px; overflow-y: auto;">
+                <!-- AI Chat History Area -->
+                <div class="p-4 d-flex flex-column gap-3">
+                    <div class="d-flex gap-3">
+                        <div class="bg-white border rounded p-3 shadow-sm w-75">
+                            <strong>System AI:</strong> You are completely safe here. This is an anonymous intake channel. You can type, speak, or upload photos/videos of what is happening. We are here to help. What is going on?
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer bg-white d-flex p-3" style="border-top: 1px solid #dee2e6;">
+                <button class="btn btn-outline-danger rounded-circle p-3 shadow-sm"><i class="fas fa-microphone fs-5"></i></button>
+                <button class="btn btn-outline-secondary rounded-circle p-3 shadow-sm"><i class="fas fa-camera fs-5"></i></button>
+                <button class="btn btn-outline-secondary rounded-circle p-3 shadow-sm"><i class="fas fa-paperclip fs-5"></i></button>
+                <input type="text" class="form-control rounded-pill px-4 py-2" placeholder="Type your message securely...">
+                <button class="btn btn-danger rounded-pill px-4 fw-bold shadow-sm">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- MAIN NEWSPAPER SECTION -->
 <div class="container my-5" id="newspaper">
