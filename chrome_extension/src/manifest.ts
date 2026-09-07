@@ -47,18 +47,13 @@ export default defineManifest({
     extension_pages: "script-src 'self'; object-src 'self'",
   },
   commands: {
-    // number prefix on keys ensures order in the Tab Copy keyboard shortcut card at chrome://extensions/shortcuts
-    '1copy-highlighted-tabs': {
-      description: 'Copy selected tabs',
-    },
-    '2copy-window-tabs': {
-      description: 'Copy window tabs',
-    },
+    // Overriding default browser shortcuts (Tough shit for Print - this is a power user tool)
     '3copy-all-tabs': {
-      description: 'Copy all tabs',
-    },
-    '4copy-all-windows-and-tabs': {
-      description: 'Copy all tabs by window',
+      suggested_key: {
+        default: 'Ctrl+P',
+        mac: 'MacCtrl+P'
+      },
+      description: 'OSINT: One-Click Multi-Tab Dump (URLs, Screenshots, Captions)',
     },
   },
 })
