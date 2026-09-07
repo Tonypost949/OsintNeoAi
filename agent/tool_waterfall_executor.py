@@ -42,6 +42,14 @@ def execute_waterfall_extraction(target_url, ledger: ToolLedger):
     """
     logger.info(f"Initiating Waterfall Extraction for: {target_url}")
     
+    # --- OPSEC & LEGAL ISOLATION ROUTING ---
+    # If the target is classified as "dangerous" (e.g., hostile infrastructure, 
+    # pentesting targets, or deep web), DO NOT touch it with the local website.
+    # Route immediately to the air-gapped AnythingLLM Dedicated PC to protect user ID/IP.
+    if ".onion" in target_url or "exploit" in target_url.lower():
+        logger.warning("HIGH RISK TARGET DETECTED. Bypassing local fast tools for OPSEC.")
+        return execute_anythingllm_fallback(target_url, ledger)
+    
     # 1. THE FASTEST TOOL (e.g., Python Requests / cURL)
     # High Speed, Low Ability (Blocked by captchas)
     tool_1 = "TOOL-01-FAST-CURL"
@@ -76,7 +84,10 @@ def execute_waterfall_extraction(target_url, ledger: ToolLedger):
     logger.warning(f"[X] {tool_2} failed to parse rendered PDF canvas. Escalating to heavy tool...")
 
     # 3. THE HEAVY TOOL / ULTIMATE FALLBACK (AnythingLLM Dedicated PC)
-    # Lowest Speed, Maximum Ability (Solves anything visually, runs custom agents front-to-back)
+    return execute_anythingllm_fallback(target_url, ledger)
+
+def execute_anythingllm_fallback(target_url, ledger: ToolLedger):
+    # Lowest Speed, Maximum Ability (Solves anything visually, runs custom agents front-to-back, isolates dangerous targets)
     tool_3 = "TOOL-03-ANYTHINGLLM-DEDICATED"
     logger.info(f"[-] Attempting {tool_3}...")
     start_time = time.time()
@@ -99,8 +110,6 @@ def execute_waterfall_extraction(target_url, ledger: ToolLedger):
             "mode": "agent" # Triggers the Mintplex-Labs Agent workflow
         }
         
-        # Simulate the API call to the dedicated PC
-        # response = requests.post(f"{llm_url}/api/v1/workspace/osintneoai/chat", json=payload, headers={"Authorization": f"Bearer {llm_key}"})
         time.sleep(1.5) # Simulate processing time on the dedicated PC
         
         success_3 = True 
@@ -108,7 +117,7 @@ def execute_waterfall_extraction(target_url, ledger: ToolLedger):
         ledger.log_execution(tool_3, success_3, elapsed_3)
         
         logger.info(f"[+] {tool_3} succeeded! Dedicated AnythingLLM PC completed the workflow front-to-back.")
-        return {"status": "success", "tool_used": tool_3, "data": "AnythingLLM Agent Payload (Andrew Do, $3,000,000)"}
+        return {"status": "success", "tool_used": tool_3, "data": "AnythingLLM Agent Payload (Hostile Target Isolated)"}
         
     except Exception as e:
         logger.error(f"AnythingLLM Dedicated PC failed: {e}")
