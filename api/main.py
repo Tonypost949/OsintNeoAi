@@ -28,6 +28,15 @@ try:
 except Exception as _ws_e:
     print(f"[Workspace API] not loaded: {_ws_e}")
 
+# ── eFax / Hardmail Regulatory Dispatch ────────────────────────────────────────
+try:
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).parent.parent / "agent"))
+    from fax_hardmail_dispatch_v2 import register_dispatch_routes
+    register_dispatch_routes(app)
+except Exception as _fax_e:
+    print(f"[Dispatch] routes not loaded: {_fax_e}")
+
 # ── In-Memory Knowledge Store ──────────────────────────────────
 knowledge_store = {
     "documents": [],     # [{id, filename, text, summary, timestamp}]
