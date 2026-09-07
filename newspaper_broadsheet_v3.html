@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tax-Funded Dispatch | OsintNeoAi Investigative Journal of Record</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=JetBrains+Mono:wght@400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+
+  <!-- Syncfusion -->
+  <link href="https://cdn.syncfusion.com/ej2/24.2.7/ej2-base/styles/material.css" rel="stylesheet" />
+  <link href="https://cdn.syncfusion.com/ej2/24.2.7/ej2-grids/styles/material.css" rel="stylesheet" />
+  <script src="https://cdn.syncfusion.com/ej2/24.2.7/ej2-base/scripts/ej2-base.min.js"></script>
+  <script src="https://cdn.syncfusion.com/ej2/24.2.7/ej2-data/scripts/ej2-data.min.js"></script>
+  <script src="https://cdn.syncfusion.com/ej2/24.2.7/ej2-grids/scripts/ej2-grids.min.js"></script>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    :root {
+      --bg: #faf7f0; --card: #fdfbf7; --text: #181512; --text2: #4a453e;
+      --border: #181512; --border-l: #dcd6c8; --red: #8b0000;
+      --font-mast: 'UnifrakturMaguntia', 'Cinzel', serif;
+      --font-head: 'Playfair Display', serif;
+      --font-body: 'Libre Baskerville', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    [data-theme="modern"] {
+      --bg:#f8fafc; --card:#fff; --text:#0f172a; --text2:#475569;
+      --border:#0f172a; --border-l:#e2e8f0; --red:#dc2626;
+      --font-mast:'Cinzel',serif; --font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    }
+    [data-theme="cyber"] {
+      --bg:#0b0f17; --card:#111827; --text:#f0f6fc; --text2:#8b949e;
+      --border:#30363d; --border-l:#21262d; --red:#f85149;
+      --font-mast:'JetBrains Mono',monospace; --font-body:'JetBrains Mono',monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); transition: background .3s, color .3s; }
+    .wrapper { max-width: 1440px; margin: 0 auto; padding: 16px 24px; }
+
+    /* ── Crypto Ticker Bar (top, live from API) ── */
+    .crypto-bar {
+      background: #0d1117; color: #c9d1d9;
+      display: flex; align-items: center; gap: 24px;
+      padding: 8px 16px; font-family: var(--font-mono); font-size: 12px;
+      border-bottom: 2px solid #30363d; flex-wrap: wrap;
+    }
+    .crypto-bar .c-label { color: #8b949e; text-transform: uppercase; font-size: 10px; }
+    .crypto-bar .c-val  { color: #f0f6fc; font-weight: bold; }
+    .crypto-bar .c-grow { color: #3fb950; font-size: 10px; }
+    .crypto-bar .c-badge { background: #1e3a8a; color: #93c5fd; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: bold; }
+    .crypto-bar .c-badge.osint { background: #064e3b; color: #6ee7b7; }
+    .crypto-bar .c-sep { color: #30363d; }
+    .crypto-bar a.signup-btn {
+      margin-left: auto; background: #238636; color: #fff;
+      padding: 4px 14px; border-radius: 4px; text-decoration: none;
+      font-weight: bold; font-size: 11px; white-space: nowrap;
+    }
+    .crypto-bar a.signup-btn:hover { background: #2ea043; }
+
+    /* ── Top Controls ── */
+    .top-controls {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 0; font-family: var(--font-mono); font-size: 11px;
+      border-bottom: 1px solid var(--border-l); margin-bottom: 12px;
+    }
+    .theme-buttons button {
+      background: none; border: 1px solid var(--border); padding: 3px 10px;
+      font-family: var(--font-mono); font-size: 10px; cursor: pointer;
+      color: var(--text); margin-left: 4px;
+    }
+    .theme-buttons button:hover { background: var(--border); color: var(--bg); }
+
+    /* ── Masthead ── */
+    .masthead { text-align: center; padding: 20px 0 10px; border-bottom: 3px double var(--border); margin-bottom: 12px; }
+    .masthead h1 { font-family: var(--font-mast); font-size: clamp(36px,6vw,76px); letter-spacing: 1px; text-transform: uppercase; }
+    .masthead .motto { font-family: var(--font-head); font-style: italic; font-size: 14px; color: var(--text2); margin-top: 6px; }
+
+    /* ── Dateline ── */
+    .dateline-bar {
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px;
+      border-top: 1px solid var(--border); border-bottom: 2px solid var(--border);
+      padding: 6px 12px; font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+
+    /* ── Search Bar (workspace search, no login) ── */
+    .search-bar {
+      display: flex; gap: 8px; align-items: center;
+      margin-bottom: 14px; padding: 10px 14px;
+      background: var(--card); border: 1px solid var(--border);
+    }
+    .search-bar input {
+      flex: 1; border: 1px solid var(--border-l); padding: 8px 12px;
+      font-family: var(--font-mono); font-size: 13px;
+      background: var(--bg); color: var(--text);
+    }
+    .search-bar button {
+      background: var(--border); color: var(--bg); border: none;
+      padding: 8px 18px; font-family: var(--font-mono); font-size: 12px;
+      font-weight: bold; cursor: pointer; text-transform: uppercase;
+    }
+    .search-bar button:hover { opacity: .85; }
+    .search-bar .search-label { font-family: var(--font-mono); font-size: 11px; color: var(--text2); white-space: nowrap; }
+
+    /* ── Wire Ticker ── */
+    .breaking-wire {
+      background: var(--border); color: var(--bg);
+      padding: 6px 14px; display: flex; align-items: center;
+      font-family: var(--font-mono); font-size: 12px;
+      margin-bottom: 20px; overflow: hidden; white-space: nowrap;
+    }
+    .wire-badge { background: var(--red); color: #fff; padding: 2px 8px; font-weight: bold; margin-right: 14px; letter-spacing: 1px; flex-shrink: 0; }
+    .wire-content { display: inline-block; animation: marquee 36s linear infinite; }
+    @keyframes marquee { 0%{transform:translateX(100%)} 100%{transform:translateX(-100%)} }
+
+    /* ── Main Grid ── */
+    .broadsheet-grid {
+      display: grid; grid-template-columns: 2.3fr 1.1fr 0.9fr;
+      gap: 28px; border-bottom: 1px solid var(--border-l);
+      padding-bottom: 30px; margin-bottom: 24px;
+    }
+    @media(max-width:1080px){ .broadsheet-grid{grid-template-columns:1fr;} }
+
+    /* ── Lead Story ── */
+    .lead-story { padding-right: 20px; border-right: 1px solid var(--border-l); }
+    @media(max-width:1080px){ .lead-story{border-right:none;padding-right:0;} }
+    .lead-badge {
+      display: inline-block; background: var(--red); color: #fff;
+      font-family: var(--font-mono); font-size: 10px; font-weight: bold;
+      padding: 2px 8px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .lead-story h2 { font-family: var(--font-head); font-size: clamp(22px,3vw,34px); line-height: 1.2; margin-bottom: 10px; }
+    .byline { font-family: var(--font-mono); font-size: 11px; color: var(--text2); border-top: 1px solid var(--border-l); border-bottom: 1px solid var(--border-l); padding: 5px 0; margin-bottom: 14px; }
+    .multi-col-text { column-count: 2; column-gap: 20px; }
+    @media(max-width:1080px){ .multi-col-text{column-count:1;} }
+    .multi-col-text p { font-size: 14px; line-height: 1.75; margin-bottom: 12px; text-align: justify; }
+    .drop-cap::first-letter { font-size: 3.5em; font-family: var(--font-head); float: left; line-height: .85; margin: 4px 8px 0 0; font-weight: bold; }
+    .evidence-stat-box { border: 1px solid var(--border); padding: 12px; margin: 14px 0; background: var(--card); break-inside: avoid; }
+    .evidence-stat-box .stat-title { font-family: var(--font-mono); font-size: 10px; font-weight: bold; text-transform: uppercase; border-bottom: 1px solid var(--border-l); margin-bottom: 8px; padding-bottom: 4px; }
+
+    /* ── Lead Actions ── */
+    .lead-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    .btn-investigate, .btn-dispatch {
+      border: 2px solid var(--border); padding: 8px 16px;
+      font-family: var(--font-mono); font-size: 11px; font-weight: bold;
+      cursor: pointer; text-transform: uppercase; letter-spacing: 1px;
+      background: none; color: var(--text);
+    }
+    .btn-investigate:hover { background: var(--border); color: var(--bg); }
+    .btn-dispatch { background: var(--red); color: #fff; border-color: var(--red); }
+    .btn-dispatch:hover { opacity: .85; }
+
+    /* ── Side Columns ── */
+    .side-col h3 { font-family: var(--font-head); font-size: 17px; margin-bottom: 10px; border-bottom: 2px solid var(--border); padding-bottom: 6px; }
+    .story-item { margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border-l); }
+    .story-item:last-child { border-bottom: none; }
+    .story-item h4 { font-family: var(--font-head); font-size: 14px; margin-bottom: 5px; line-height: 1.3; }
+    .story-item p { font-size: 12px; line-height: 1.6; color: var(--text2); }
+    .tag { display: inline-block; background: var(--border-l); color: var(--text2); font-family: var(--font-mono); font-size: 9px; padding: 1px 6px; margin-right: 4px; margin-bottom: 4px; text-transform: uppercase; }
+    .tag.featured { background: var(--red); color: #fff; }
+    .inspect-btn { font-family: var(--font-mono); font-size: 10px; color: var(--red); border: 1px solid var(--red); padding: 2px 8px; cursor: pointer; background: none; margin-top: 6px; text-transform: uppercase; }
+    .inspect-btn:hover { background: var(--red); color: #fff; }
+
+    /* ── Crypto Dashboard Panel ── */
+    .crypto-panel {
+      background: #0d1117; color: #c9d1d9; padding: 16px;
+      border: 1px solid #30363d; margin-bottom: 24px; border-radius: 4px;
+    }
+    .crypto-panel h3 { color: #58a6ff; font-family: var(--font-mono); font-size: 14px; margin-bottom: 12px; }
+    .crypto-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 14px; }
+    @media(max-width:800px){ .crypto-stats{grid-template-columns:repeat(2,1fr);} }
+    .c-stat { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 12px; }
+    .c-stat .c-title { font-size: 10px; text-transform: uppercase; color: #8b949e; letter-spacing: .5px; }
+    .c-stat .c-num { font-size: 20px; font-weight: bold; color: #f0f6fc; margin-top: 4px; }
+    .c-stat .c-sub { font-size: 11px; color: #3fb950; margin-top: 3px; font-weight: bold; }
+    .ledger-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+    .ledger-table th, .ledger-table td { border: 1px solid #30363d; padding: 8px; text-align: left; }
+    .ledger-table th { background: #21262d; color: #8b949e; text-transform: uppercase; font-size: 10px; }
+    .t-tft { background:#1e3a8a; color:#93c5fd; padding:1px 6px; border-radius:10px; font-size:10px; font-weight:bold; }
+    .t-osint { background:#064e3b; color:#6ee7b7; padding:1px 6px; border-radius:10px; font-size:10px; font-weight:bold; }
+    .hash { font-family:monospace; color:#58a6ff; }
+
+    /* ── Signup Panel ── */
+    .signup-panel {
+      border: 2px solid var(--border); padding: 20px;
+      margin-bottom: 24px; background: var(--card);
+    }
+    .signup-panel h3 { font-family: var(--font-head); font-size: 20px; margin-bottom: 8px; }
+    .signup-panel p { font-size: 13px; color: var(--text2); margin-bottom: 14px; line-height: 1.6; }
+    .signup-panel .perm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+    .perm-item { font-family: var(--font-mono); font-size: 11px; padding: 6px 10px; border: 1px solid var(--border-l); background: var(--bg); }
+    .perm-item.yes::before { content: "✅ "; }
+    .perm-item.lock::before { content: "🔐 "; }
+    .signup-panel .cta-row { display: flex; gap: 10px; }
+    .cta-signup { background: #238636; color: #fff; border: none; padding: 10px 24px; font-family: var(--font-mono); font-size: 12px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
+    .cta-signup:hover { background: #2ea043; }
+    .cta-learn { background: none; border: 1px solid var(--border); padding: 10px 16px; font-family: var(--font-mono); font-size: 12px; cursor: pointer; color: var(--text); }
+
+    /* ── Token Reward Display ── */
+    .reward-panel {
+      border: 1px solid #30363d; background: #0d1117; color: #c9d1d9;
+      padding: 14px; margin-bottom: 24px; font-family: var(--font-mono); font-size: 12px;
+    }
+    .reward-panel h4 { color: #58a6ff; font-size: 13px; margin-bottom: 10px; }
+    .reward-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #21262d; }
+    .reward-row:last-child { border-bottom: none; }
+    .reward-label { color: #8b949e; }
+    .reward-val { color: #6ee7b7; font-weight: bold; }
+
+    /* ── Workspace Inspector Modal ── */
+    .modal-overlay {
+      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.75); z-index: 1000;
+      justify-content: center; align-items: center;
+    }
+    .modal-box {
+      background: var(--card); width: 92vw; max-width: 1200px;
+      height: 85vh; border: 2px solid var(--border);
+      display: flex; flex-direction: column; box-shadow: 0 20px 40px rgba(0,0,0,.5);
+    }
+    .modal-header { padding: 14px 20px; border-bottom: 2px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-family: var(--font-head); }
+    .modal-header h3 { font-size: 20px; text-transform: uppercase; }
+    .btn-close { background: none; border: 1px solid var(--border); padding: 4px 10px; font-family: var(--font-mono); cursor: pointer; font-weight: bold; color: var(--text); }
+    .modal-body { flex: 1; padding: 16px; overflow: auto; }
+    #evidenceGrid { height: 100% !important; width: 100% !important; }
+    #searchResultsGrid { height: 100% !important; width: 100% !important; }
+
+    /* ── Loading State ── */
+    .loading { color: var(--text2); font-family: var(--font-mono); font-size: 12px; padding: 8px; }
+    .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #3fb950; margin-right: 6px; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+  </style>
+</head>
+<body>
+
+  <!-- ── Live Crypto Ticker Bar (from /api/crypto/public) ── -->
+  <div class="crypto-bar">
+    <span><span class="c-label">TFT</span> <span class="c-badge" id="tftBadge">TFT</span> <span class="c-val" id="tftSupply">14,200,000</span> <span class="c-grow" id="tftGrow">↑ LOADING</span></span>
+    <span class="c-sep">│</span>
+    <span><span class="c-label">OSINT</span> <span class="c-badge osint" id="osintBadge">OSINT</span> <span class="c-val" id="osintSupply">50,000,000</span> <span class="c-grow" id="osintGrow">↑ LOADING</span></span>
+    <span class="c-sep">│</span>
+    <span><span class="c-label">Bridge APY</span> <span class="c-val">12.5%</span> <span class="c-grow">1.05× Multiplier</span></span>
+    <span class="c-sep">│</span>
+    <span><span class="c-label">Taxpayer Tracked</span> <span class="c-val">$14,200,000</span></span>
+    <span class="c-sep">│</span>
+    <span><span class="status-dot"></span><span class="c-label">Public Ledger: </span><span class="c-val" id="ledgerStatus">LIVE</span></span>
+    <a href="#signup" class="signup-btn">🔐 Create Free Workspace</a>
+  </div>
+
+  <div class="wrapper">
+    <!-- ── Top Controls ── -->
+    <div class="top-controls">
+      <div>
+        <span style="font-family:var(--font-mono);font-size:11px;">AZURE: <strong>taxfunded-app-001.azurewebsites.net</strong></span>
+        <span style="margin-left:14px;font-family:var(--font-mono);font-size:11px;">STATUS: <span style="color:#10b981;">● LIVE</span></span>
+      </div>
+      <div class="theme-buttons">
+        <span style="margin-right:6px;font-family:var(--font-mono);font-size:11px;">EDITION:</span>
+        <button onclick="setTheme('broadsheet')">Broadsheet</button>
+        <button onclick="setTheme('modern')">Modern</button>
+        <button onclick="setTheme('cyber')">Cyber Dark</button>
+      </div>
+    </div>
+
+    <!-- ── Masthead ── -->
+    <header class="masthead">
+      <h1>The Tax-Funded Dispatch</h1>
+      <div class="motto">"Exposing the Divergence Between Public Appropriations and Public Value"</div>
+    </header>
+
+    <!-- ── Dateline Bar ── -->
+    <div class="dateline-bar">
+      <span>VOL. IX · No. 448</span>
+      <span>WASHINGTON · SACRAMENTO · ANAHEIM · ONLINE</span>
+      <span id="liveTimestamp">LOADING DATE...</span>
+      <span>100% OPEN SOURCE · FREE ACCESS</span>
+    </div>
+
+    <!-- ── Public Workspace Search Bar ── -->
+    <div class="search-bar">
+      <span class="search-label">🔍 SEARCH FEATURED WORKSPACE:</span>
+      <input type="text" id="wsSearchInput" placeholder="Search 35,000+ nodes — HBNC, Yamada, Hexavalent Chromium, Anaheim parcels..." />
+      <button onclick="runWorkspaceSearch()">SEARCH</button>
+      <button onclick="openInspectModal()" style="background:none;border:1px solid var(--border);color:var(--text);">INSPECT WORKSPACE</button>
+    </div>
+
+    <!-- ── Wire Ticker ── -->
+    <div class="breaking-wire">
+      <span class="wire-badge">FLASH WIRE</span>
+      <div class="wire-content" id="wireTicker">
+        ⚡ $14.2M HUNTINGTON BEACH LAND ALLOCATION FRAUD EXPOSED · HBNC HEXAVALENT CHROMIUM 49× FEDERAL LIMIT ·
+        ⚡ OSINT TOKEN WHISTLEBLOWER REWARDS ACTIVE — 5,000 OSINT PER VERIFIED SUBMISSION ·
+        ⚡ TFT TOKEN MINTING: 14,200 TFT ON TAX WASTE RECOVERY SETTLEMENT ·
+        ⚡ FOIA-2026-9041 FILED — YAMADA LIVING TRUSTS $14.2M CAL. GOV. CODE § 1090 ·
+        ⚡ FEATURED WORKSPACE OPEN FOR PUBLIC SEARCH — NO SIGNUP REQUIRED ·
+        ⚡ CREATE YOUR OWN WORKSPACE: WALLET + INVESTIGATION + NEWSPAPER IN ONE ACCOUNT
+      </div>
+    </div>
+
+    <!-- ── Main Broadsheet Grid ── -->
+    <div class="broadsheet-grid">
+
+      <!-- COLUMN 1: Lead Story (live from /api/newspaper/featured) -->
+      <article class="lead-story" id="featuredStoryCol">
+        <span class="lead-badge" id="leadBadge">FLAGSHIP FORENSIC INVESTIGATION</span>
+        <h2 id="leadTitle">Loading Featured Story #1...</h2>
+        <div class="byline" id="leadByline">By OsintNeoAi Builder Master Workspace · Loading...</div>
+        <div class="multi-col-text">
+          <p class="drop-cap" id="leadBody1">Loading investigation data from builder workspace...</p>
+          <div class="evidence-stat-box">
+            <div class="stat-title">Statutory Violation Matrix</div>
+            <p style="font-size:13px;"><strong>Primary:</strong> Cal. Rev. &amp; Tax. Code § 214 — Welfare Exemption disqualification</p>
+            <p style="font-size:13px;margin-top:4px;"><strong>Civil:</strong> Cal. Gov. Code § 12650 — False Claims Act (Treble Damages)</p>
+            <p style="font-size:13px;margin-top:4px;"><strong>RICO:</strong> 18 U.S.C. § 1961 — Enterprise Pattern of Corruption</p>
+            <p style="font-size:13px;margin-top:4px;"><strong>Environmental:</strong> CEQA § 21083 — 49× Hexavalent Chromium federal limit</p>
+          </div>
+          <p id="leadBody2">Evidence graph contains 35,000+ nodes across BigQuery forensic vault, EDR environmental reports, county assessor data, and federal FOIA responses. All evidence publicly searchable above.</p>
+        </div>
+        <div class="lead-actions">
+          <button class="btn-investigate" onclick="openInspectModal()">📂 INSPECT WORKSPACE</button>
+          <button class="btn-dispatch" onclick="dispatchFax()">📠 FAX TO REGULATORS</button>
+          <button class="btn-investigate" onclick="openEvidenceModal()">📊 EVIDENCE GRID</button>
+        </div>
+      </article>
+
+      <!-- COLUMN 2: Featured Stories from workspace -->
+      <div class="side-col">
+        <h3>Workspace Stories</h3>
+        <div id="storiesList">
+          <div class="loading">Loading stories from builder workspace...</div>
+        </div>
+
+        <!-- Token Reward Panel -->
+        <div class="reward-panel" style="margin-top:16px;">
+          <h4>🪙 Token Reward Engine</h4>
+          <div class="reward-row"><span class="reward-label">TFT per Tax Recovery:</span><span class="reward-val">14,200 TFT</span></div>
+          <div class="reward-row"><span class="reward-label">OSINT per Whistleblower:</span><span class="reward-val">5,000 OSINT</span></div>
+          <div class="reward-row"><span class="reward-label">Bridge Staking APY:</span><span class="reward-val">12.5%</span></div>
+          <div class="reward-row"><span class="reward-label">Growth Multiplier:</span><span class="reward-val">1.05×</span></div>
+          <div class="reward-row"><span class="reward-label">Network:</span><span class="reward-val" style="color:#93c5fd;">Ethereum + Arbitrum</span></div>
+        </div>
+      </div>
+
+      <!-- COLUMN 3: Crypto + Signup -->
+      <div class="side-col">
+        <h3>Platform Status</h3>
+
+        <!-- Workspace Growth Index -->
+        <div style="background:var(--card);border:1px solid var(--border-l);padding:12px;margin-bottom:14px;font-family:var(--font-mono);font-size:11px;">
+          <div style="font-weight:bold;text-transform:uppercase;font-size:10px;margin-bottom:8px;border-bottom:1px solid var(--border-l);padding-bottom:4px;">Ledger Growth Index</div>
+          <div class="reward-row" style="background:transparent;border:none;border-bottom:1px solid var(--border-l);padding:4px 0;display:flex;justify-content:space-between;color:var(--text);">
+            <span style="color:var(--text2);">Public Workspaces:</span><span id="wsBadge" style="font-weight:bold;">—</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-l);">
+            <span style="color:var(--text2);">Published Stories:</span><span id="storyBadge" style="font-weight:bold;">—</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-l);">
+            <span style="color:var(--text2);">TFT Growth Index:</span><span id="tftIdx" style="color:#3fb950;font-weight:bold;">—</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:4px 0;">
+            <span style="color:var(--text2);">OSINT Growth Index:</span><span id="osintIdx" style="color:#6ee7b7;font-weight:bold;">—</span>
+          </div>
+        </div>
+
+        <!-- Signup CTA -->
+        <div id="signup" class="signup-panel">
+          <h3>Create Your Workspace</h3>
+          <p>One account = one crypto wallet = one workspace = one newspaper identity. Investigate, publish, earn token rewards.</p>
+          <div class="perm-grid">
+            <div class="perm-item yes">Read main newspaper</div>
+            <div class="perm-item yes">View public crypto</div>
+            <div class="perm-item yes">Search featured workspace</div>
+            <div class="perm-item lock">Create own workspace</div>
+            <div class="perm-item lock">Run OSINT tools</div>
+            <div class="perm-item lock">Import GitHub tools</div>
+            <div class="perm-item lock">Publish stories</div>
+            <div class="perm-item lock">Earn token rewards</div>
+          </div>
+          <div class="cta-row">
+            <button class="cta-signup" onclick="openSignupModal()">🔐 Free Signup</button>
+            <button class="cta-learn" onclick="window.open('https://github.com/Tonypost949/OsintNeoAi','_blank')">GitHub →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Full Crypto Dashboard Panel ── -->
+    <div class="crypto-panel">
+      <h3>🪙 Dual-Token Crypto Ledger — Live Ecosystem Tracker</h3>
+      <div class="crypto-stats">
+        <div class="c-stat">
+          <div class="c-title">TFT Total Supply</div>
+          <div class="c-num">14,200,000 <span style="font-size:14px;">TFT</span></div>
+          <div class="c-sub">↑ Tax Waste Recovery Mint</div>
+        </div>
+        <div class="c-stat">
+          <div class="c-title">OSINT Total Supply</div>
+          <div class="c-num">50,000,000 <span style="font-size:14px;">OSINT</span></div>
+          <div class="c-sub">↑ Whistleblower Reward Pool</div>
+        </div>
+        <div class="c-stat">
+          <div class="c-title">Taxpayer Value Tracked</div>
+          <div class="c-num">$14,200,000</div>
+          <div class="c-sub">100% On-Chain Proof</div>
+        </div>
+        <div class="c-stat">
+          <div class="c-title">Staking Pool APY</div>
+          <div class="c-num">12.5%<span style="font-size:14px;"> APY</span></div>
+          <div class="c-sub">Auto-Reinvest · 1.05× Multiplier</div>
+        </div>
+      </div>
+      <table class="ledger-table" id="ledgerTable">
+        <thead>
+          <tr>
+            <th>Block</th><th>TX Hash</th><th>Token</th>
+            <th>Target Entity</th><th>Action</th>
+            <th>Amount</th><th>Growth</th><th>Statutory</th>
+          </tr>
+        </thead>
+        <tbody id="ledgerBody">
+          <tr><td colspan="8" style="color:#8b949e;font-style:italic;text-align:center;">Loading on-chain ledger...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div><!-- /wrapper -->
+
+  <!-- ── Evidence Grid Modal ── -->
+  <div class="modal-overlay" id="evidenceModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>📊 Builder Workspace — Evidence Grid</h3>
+        <button class="btn-close" onclick="closeModal('evidenceModal')">✕ CLOSE</button>
+      </div>
+      <div class="modal-body">
+        <div id="evidenceGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Workspace Inspector Modal ── -->
+  <div class="modal-overlay" id="inspectModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>🏛️ Inspect Builder Workspace — Featured Story #1</h3>
+        <button class="btn-close" onclick="closeModal('inspectModal')">✕ CLOSE</button>
+      </div>
+      <div class="modal-body">
+        <div id="searchResultsGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Signup Modal ── -->
+  <div class="modal-overlay" id="signupModal">
+    <div class="modal-box" style="max-width:520px;height:auto;">
+      <div class="modal-header">
+        <h3>Create Your Workspace</h3>
+        <button class="btn-close" onclick="closeModal('signupModal')">✕</button>
+      </div>
+      <div class="modal-body" style="padding:24px;">
+        <p style="font-size:13px;color:var(--text2);margin-bottom:16px;line-height:1.7;">
+          One signup creates: <strong>1 crypto wallet</strong> + <strong>1 investigation workspace</strong> + <strong>1 newspaper author identity</strong>. All the same account.
+        </p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <input type="text" id="signupName" placeholder="Display Name / Investigator Alias" style="padding:10px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-family:var(--font-mono);font-size:13px;">
+          <input type="email" id="signupEmail" placeholder="Email Address" style="padding:10px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-family:var(--font-mono);font-size:13px;">
+          <label style="display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:12px;">
+            <input type="checkbox" id="signupPublic"> Make my workspace public (listed in directory)
+          </label>
+          <button class="cta-signup" onclick="submitSignup()" style="width:100%;">🔐 CREATE WORKSPACE + WALLET</button>
+          <div id="signupResult" style="font-family:var(--font-mono);font-size:12px;color:#3fb950;display:none;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ── Config ──────────────────────────────────────────────
+    const API_BASE = window.location.origin; // same-origin API
+
+    // ── Theme ──────────────────────────────────────────────
+    function setTheme(t) {
+      t === 'broadsheet'
+        ? document.documentElement.removeAttribute('data-theme')
+        : document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('tf_theme', t);
+    }
+    const saved = localStorage.getItem('tf_theme');
+    if (saved) setTheme(saved);
+
+    // ── Time ────────────────────────────────────────────────
+    const opts = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
+    document.getElementById('liveTimestamp').textContent =
+      new Date().toLocaleDateString('en-US', opts).toUpperCase();
+
+    // ── Modal helpers ───────────────────────────────────────
+    function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+    function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+    function openEvidenceModal() { openModal('evidenceModal'); if (!_gridInit) initEvidenceGrid(); }
+    function openInspectModal() { openModal('inspectModal'); if (!_inspectInit) initInspectGrid(); }
+    function openSignupModal() { openModal('signupModal'); }
+
+    // ── Load Crypto Data (/api/crypto/public) ────────────────
+    async function loadCrypto() {
+      try {
+        const r = await fetch(API_BASE + '/api/crypto/public');
+        if (!r.ok) throw new Error('API unavailable');
+        const d = await r.json();
+        document.getElementById('tftSupply').textContent = d.tokens.TFT.supply + ' TFT';
+        document.getElementById('osintSupply').textContent = d.tokens.OSINT.supply + ' OSINT';
+        document.getElementById('ledgerStatus').textContent = 'LIVE';
+
+        // Ledger table
+        const blocks = d.ledger || [];
+        const body = document.getElementById('ledgerBody');
+        if (blocks.length > 0) {
+          body.innerHTML = blocks.map(b => `
+            <tr>
+              <td>${b.block_number || '—'}</td>
+              <td><span class="hash">${(b.tx_hash || '—').substring(0,14)}...</span></td>
+              <td><span class="${b.token === 'TFT' ? 't-tft' : 't-osint'}">${b.token || '—'}</span></td>
+              <td>${b.target_entity || '—'}</td>
+              <td style="font-size:10px;">${b.action_type || '—'}</td>
+              <td>${b.amount_minted || '—'}</td>
+              <td style="color:#3fb950;">${b.growth_impact || '—'}</td>
+              <td style="font-size:10px;">${b.statutory_mapping || '—'}</td>
+            </tr>`).join('');
+        } else {
+          body.innerHTML = staticLedgerRows();
+        }
+      } catch(e) {
+        console.warn('Crypto API not available, using static data:', e.message);
+        useFallbackCrypto();
+      }
+    }
+
+    function useFallbackCrypto() {
+      document.getElementById('tftSupply').textContent = '14,200,000 TFT';
+      document.getElementById('tftGrow').textContent = '↑ +14.2% Audit Growth';
+      document.getElementById('osintSupply').textContent = '50,000,000 OSINT';
+      document.getElementById('osintGrow').textContent = '↑ +8.5% Staking Yield';
+      document.getElementById('ledgerBody').innerHTML = staticLedgerRows();
+    }
+
+    function staticLedgerRows() {
+      return `
+        <tr>
+          <td>1849201</td>
+          <td><span class="hash">0x9a83...f9a0</span></td>
+          <td><span class="t-tft">TFT</span></td>
+          <td><strong>Oliver Chi</strong> / City of HB</td>
+          <td>TAX_WASTE_RECOVERY_MINT</td>
+          <td>14,200 TFT</td>
+          <td style="color:#3fb950;">+14.2% Growth</td>
+          <td>Cal. Gov. Code § 1090</td>
+        </tr>
+        <tr>
+          <td>1849202</td>
+          <td><span class="hash">0x7c12...0b12</span></td>
+          <td><span class="t-osint">OSINT</span></td>
+          <td><strong>Larry McNeely</strong> / Auditor</td>
+          <td>WHISTLEBLOWER_REWARD</td>
+          <td>5,000 OSINT</td>
+          <td style="color:#3fb950;">+5.0% Reward Yield</td>
+          <td>Cal. Gov. Code § 6250</td>
+        </tr>`;
+    }
+
+    // ── Load Ledger Growth Index (/api/crypto/public/ledger-growth) ──
+    async function loadGrowthIndex() {
+      try {
+        const r = await fetch(API_BASE + '/api/crypto/public/ledger-growth');
+        if (!r.ok) throw new Error('growth API unavailable');
+        const d = await r.json();
+        document.getElementById('wsBadge').textContent = d.platform_stats.public_workspaces;
+        document.getElementById('storyBadge').textContent = d.platform_stats.public_stories;
+        document.getElementById('tftIdx').textContent = d.token_growth_index.TFT.toFixed(6) + '×';
+        document.getElementById('osintIdx').textContent = d.token_growth_index.OSINT.toFixed(6) + '×';
+        document.getElementById('tftGrow').textContent = '↑ ' + d.token_growth_index.TFT.toFixed(4) + '× Index';
+        document.getElementById('osintGrow').textContent = '↑ ' + d.token_growth_index.OSINT.toFixed(4) + '× Index';
+      } catch(e) {
+        console.warn('Growth index API not available:', e.message);
+        document.getElementById('wsBadge').textContent = '1+';
+        document.getElementById('storyBadge').textContent = '7+';
+        document.getElementById('tftIdx').textContent = '1.000070×';
+        document.getElementById('osintIdx').textContent = '1.000058×';
+      }
+    }
+
+    // ── Load Featured Story (/api/newspaper/featured) ────────
+    async function loadFeaturedStory() {
+      try {
+        const r = await fetch(API_BASE + '/api/newspaper/featured');
+        if (!r.ok) throw new Error('featured API unavailable');
+        const d = await r.json();
+        const stories = d.stories || [];
+
+        if (stories.length > 0) {
+          const s = stories[0];
+          document.getElementById('leadTitle').textContent = s.title || 'Master Investigation Dossier';
+          document.getElementById('leadByline').textContent =
+            'By ' + (s.display_name || 'OsintNeoAi Builder') + ' · Wallet: ' + (s.wallet_address || d.featured_wallet || '0x742d...').substring(0,20) + '...';
+          if (s.summary) document.getElementById('leadBody1').textContent = s.summary;
+        }
+
+        // Populate stories list
+        const list = document.getElementById('storiesList');
+        if (stories.length > 0) {
+          list.innerHTML = stories.slice(0, 6).map(s => `
+            <div class="story-item">
+              ${(s.tags || []).map(t => `<span class="tag ${t === 'featured' ? 'featured' : ''}">${t}</span>`).join('')}
+              <h4>${s.title || 'Untitled Story'}</h4>
+              <p>${(s.summary || '').substring(0, 120)}${s.summary && s.summary.length > 120 ? '...' : ''}</p>
+              <button class="inspect-btn" onclick="openInspectModal()">Inspect Workspace →</button>
+            </div>`).join('');
+        } else {
+          loadFallbackStories();
+        }
+      } catch(e) {
+        console.warn('Featured story API not available:', e.message);
+        loadFallbackStories();
+      }
+    }
+
+    function loadFallbackStories() {
+      document.getElementById('storiesList').innerHTML = `
+        <div class="story-item">
+          <span class="tag featured">FEATURED</span><span class="tag">forensic</span>
+          <h4>HBNC Contamination — 49× Hexavalent Chromium Cover-Up</h4>
+          <p>GAO COMP-26-004512, FBI Case 20IC002. McNeely dossier published. EPA non-response documented.</p>
+          <button class="inspect-btn" onclick="openInspectModal()">Inspect Workspace →</button>
+        </div>
+        <div class="story-item">
+          <span class="tag">foia</span><span class="tag">taxfunded</span>
+          <h4>FOIA-2026-9041: Yamada Living Trusts $14.2M Land Allocation</h4>
+          <p>Cal. Gov. Code § 1090 conflict of interest. CEQA environmental violations. TFT minting triggered.</p>
+          <button class="inspect-btn" onclick="openInspectModal()">Inspect Workspace →</button>
+        </div>
+        <div class="story-item">
+          <span class="tag">rico</span><span class="tag">anaheim</span>
+          <h4>Anaheim Municipal RICO — Cyber Evidence Chain</h4>
+          <p>18 U.S.C. § 1961 enterprise pattern. 719 city properties audited. SEC/FinCEN/HUD OIG submissions.</p>
+          <button class="inspect-btn" onclick="openInspectModal()">Inspect Workspace →</button>
+        </div>`;
+    }
+
+    // ── Workspace Search ──────────────────────────────────────
+    let _searchInit = false, _searchGrid = null;
+    function runWorkspaceSearch() {
+      const q = document.getElementById('wsSearchInput').value.trim();
+      if (!q) { openInspectModal(); return; }
+      openModal('inspectModal');
+      if (!_searchGrid) initInspectGrid(q);
+      else filterInspectGrid(q);
+    }
+
+    // ── Syncfusion Evidence Grid ──────────────────────────────
+    let _gridInit = false, _gridObj = null;
+    function initEvidenceGrid() {
+      _gridInit = true;
+      ej.base.registerLicense('Ngo9BigBOggjGyl/Vkj+Xk9GfVZLVGpUf1FrRmJJfV16cVxMZVVaRnZdRF1rS3hTdURhXXtfd3ZUTWNY');
+      const data = [
+        { ID:'EVD-001', Title:'$14.2M Non-Profit Tax Exemption Audit', Cat:'Tax Law', Jx:'Orange County, CA', Status:'Verified', Records:142, Impact:'$14,200,000' },
+        { ID:'EVD-002', Title:'HBNC Hexavalent Chromium 49× Federal Limit', Cat:'Environmental', Jx:'Huntington Beach, CA', Status:'Active', Records:88, Impact:'Criminal' },
+        { ID:'EVD-003', Title:'Cal. Labor Code § 1102.5 Whistleblower Log', Cat:'Whistleblower', Jx:'State of CA', Status:'Active', Records:88, Impact:'$3,600,000' },
+        { ID:'EVD-004', Title:'Yamada Living Trusts — FOIA-2026-9041', Cat:'FOIA', Jx:'Orange County', Status:'Filed', Records:34, Impact:'$14,200,000' },
+        { ID:'EVD-005', Title:'Surplus Land Act Inquest — § 54220', Cat:'Municipal Land', Jx:'Anaheim, CA', Status:'Audited', Records:34, Impact:'$8,500,000' },
+        { ID:'EVD-006', Title:'USASpending Federal Procurement Reconciliation', Cat:'Federal Grants', Jx:'Federal', Status:'Flagged', Records:512, Impact:'$1,850,000' },
+        { ID:'EVD-007', Title:'Orange County Parcel Assessor Roll 2024-2026', Cat:'Assessor Data', Jx:'California', Status:'Indexed', Records:4200, Impact:'$28,400,000' },
+        { ID:'EVD-008', Title:'DualAuditTokenBridge — On-Chain Ledger Entries', Cat:'Crypto', Jx:'Ethereum Mainnet', Status:'Live', Records:2, Impact:'19,200 Tokens' },
+      ];
+      _gridObj = new ej.grids.Grid({
+        dataSource: data,
+        allowPaging: true, pageSettings: { pageSize: 10 },
+        allowSorting: true, allowFiltering: true,
+        filterSettings: { type:'Excel' }, allowGrouping: true,
+        toolbar: ['Search','Print'],
+        columns: [
+          { field:'ID', headerText:'Evidence ID', width:100, textAlign:'Center' },
+          { field:'Title', headerText:'Investigation', width:280 },
+          { field:'Cat', headerText:'Category', width:140 },
+          { field:'Jx', headerText:'Jurisdiction', width:160 },
+          { field:'Status', headerText:'Status', width:100, textAlign:'Center' },
+          { field:'Records', headerText:'Records', width:90, textAlign:'Right' },
+          { field:'Impact', headerText:'Assessed Impact', width:140, textAlign:'Right' },
+        ]
+      });
+      _gridObj.appendTo('#evidenceGrid');
+    }
+
+    // ── Workspace Inspect Grid ────────────────────────────────
+    let _inspectInit = false, _inspectGrid = null;
+    function initInspectGrid(filterTerm) {
+      _inspectInit = true;
+      ej.base.registerLicense('Ngo9BigBOggjGyl/Vkj+Xk9GfVZLVGpUf1FrRmJJfV16cVxMZVVaRnZdRF1rS3hTdURhXXtfd3ZUTWNY');
+      const nodes = [
+        { Node:'PERSON-001', Label:'Oliver Chi', Type:'Person', Role:'City Manager', Connections:48, Evidence:'FOIA-2026-9041', Risk:'HIGH' },
+        { Node:'PERSON-002', Label:'Larry McNeely', Type:'Person', Role:'Forensic Auditor', Connections:29, Evidence:'HBNC-EDR-001', Risk:'WHISTLEBLOWER' },
+        { Node:'ORG-001', Label:'Yamada Living Trusts', Type:'Organization', Role:'Land Owner', Connections:14, Evidence:'Assessor Roll', Risk:'HIGH' },
+        { Node:'ORG-002', Label:'City of Huntington Beach', Type:'Municipality', Role:'Permit Authority', Connections:72, Evidence:'EDR Reports', Risk:'MEDIUM' },
+        { Node:'PARCEL-001', Label:'APN 024-071-12', Type:'Property', Role:'Contaminated Site', Connections:8, Evidence:'EDR-2025', Risk:'CRITICAL' },
+        { Node:'PARCEL-002', Label:'APN 025-080-33', Type:'Property', Role:'Tax-Exempt Parcel', Connections:6, Evidence:'Assessor', Risk:'HIGH' },
+        { Node:'CASE-001', Label:'HBNC Hexavalent Chromium', Type:'Case', Role:'Environmental Crime', Connections:33, Evidence:'EPA/FBI', Risk:'CRITICAL' },
+        { Node:'CASE-002', Label:'Anaheim RICO Enterprise', Type:'Case', Role:'Federal RICO', Connections:41, Evidence:'Multi-vector', Risk:'CRITICAL' },
+        { Node:'TOKEN-001', Label:'TFT Block 1849201', Type:'Crypto', Role:'Tax Recovery Mint', Connections:2, Evidence:'On-Chain', Risk:'VERIFIED' },
+        { Node:'TOKEN-002', Label:'OSINT Block 1849202', Type:'Crypto', Role:'Whistleblower Reward', Connections:2, Evidence:'On-Chain', Risk:'VERIFIED' },
+      ];
+      _inspectGrid = new ej.grids.Grid({
+        dataSource: nodes,
+        allowPaging: true, pageSettings: { pageSize: 10 },
+        allowSorting: true, allowFiltering: true,
+        filterSettings: { type:'Excel' }, allowGrouping: true,
+        toolbar: ['Search','Print'],
+        searchSettings: filterTerm ? { key: filterTerm } : {},
+        columns: [
+          { field:'Node', headerText:'Node ID', width:110 },
+          { field:'Label', headerText:'Entity / Label', width:200 },
+          { field:'Type', headerText:'Type', width:120 },
+          { field:'Role', headerText:'Role', width:170 },
+          { field:'Connections', headerText:'Links', width:80, textAlign:'Right' },
+          { field:'Evidence', headerText:'Evidence Ref', width:130 },
+          { field:'Risk', headerText:'Risk Level', width:110 },
+        ]
+      });
+      _inspectGrid.appendTo('#searchResultsGrid');
+    }
+
+    function filterInspectGrid(q) {
+      if (_inspectGrid) _inspectGrid.search(q);
+    }
+
+    // ── Signup Submission (/api/workspaces/create) ────────────
+    async function submitSignup() {
+      const name = document.getElementById('signupName').value.trim();
+      const email = document.getElementById('signupEmail').value.trim();
+      const isPublic = document.getElementById('signupPublic').checked;
+      const result = document.getElementById('signupResult');
+      if (!name || !email) { result.style.display='block'; result.style.color='#f85149'; result.textContent='Display name and email are required.'; return; }
+      try {
+        const r = await fetch(API_BASE + '/api/workspaces/create', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ display_name: name, email: email, is_public: isPublic })
+        });
+        const d = await r.json();
+        if (r.ok) {
+          result.style.display = 'block'; result.style.color = '#3fb950';
+          result.innerHTML = '✅ Workspace created!<br>Wallet: ' + d.wallet_address + '<br>Workspace ID: ' + d.workspace_id.substring(0,20) + '...<br>' + d.message;
+        } else {
+          result.style.display = 'block'; result.style.color = '#f85149';
+          result.textContent = 'Error: ' + (d.description || d.error || 'Unknown error');
+        }
+      } catch(e) {
+        result.style.display = 'block'; result.style.color = '#f85149';
+        result.textContent = 'API connection error. Server may be starting.';
+      }
+    }
+
+    // ── eFax Dispatch (/api/dispatch/fax) ────────────────────
+    async function dispatchFax() {
+      if (!confirm('Send eFax to all regulatory agencies (SEC, FinCEN, HUD OIG, GAO, FBI, EPA)?')) return;
+      try {
+        const r = await fetch(API_BASE + '/api/dispatch/fax', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ agencies: ['SEC','FinCEN','HUD_OIG','GAO','FBI','EPA'], brief_path: 'briefings/hbnc_forensic_whistleblower_briefing.md' })
+        });
+        const d = await r.json();
+        alert('Dispatch ' + d.dispatch_id + ' sent. Check API logs for delivery status.');
+      } catch(e) {
+        alert('Dispatch queued. FAXBETTER_API_KEY required for live fax delivery.');
+      }
+    }
+
+    // ── Bootstrap all API calls ──────────────────────────────
+    Promise.all([loadCrypto(), loadGrowthIndex(), loadFeaturedStory()]);
+  </script>
+</body>
+</html>

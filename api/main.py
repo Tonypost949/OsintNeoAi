@@ -37,6 +37,13 @@ try:
 except Exception as _fax_e:
     print(f"[Dispatch] routes not loaded: {_fax_e}")
 
+# ── Evasive OSINT & Metadata Stripping ─────────────────────────────────────────
+try:
+    from evasive_osint_endpoint import register_evasive_routes
+    register_evasive_routes(app)
+except Exception as _ev_e:
+    print(f"[Evasive] routes not loaded: {_ev_e}")
+
 # ── In-Memory Knowledge Store ──────────────────────────────────
 knowledge_store = {
     "documents": [],     # [{id, filename, text, summary, timestamp}]
