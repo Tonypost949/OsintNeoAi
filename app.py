@@ -46,6 +46,24 @@ def syncfusion_route():
         return content
     return '<h3>Syncfusion Grid Template Not Found</h3>', 404
 
+@app.route('/gods-eye-view')
+@app.route('/globe')
+@app.route('/3d')
+def gods_eye_route():
+    content = get_file_content(['gods_eye_view.html', 'gods_eye_view_max_data.html'])
+    if content:
+        return content
+    return '<h3>Gods Eye View 3D Globe Template Not Found</h3>', 404
+
+@app.route('/dashboard')
+@app.route('/data-app')
+@app.route('/analytics')
+def dashboard_route():
+    content = get_file_content(['dashboard.html'])
+    if content:
+        return content
+    return '<h3>Dashboard Template Not Found</h3>', 404
+
 @app.route('/tasks')
 @app.route('/tasks-engine')
 def tasks_route():
