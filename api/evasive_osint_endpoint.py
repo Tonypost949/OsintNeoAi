@@ -34,8 +34,8 @@ logger = logging.getLogger(__name__)
 evasive_bp = Blueprint("evasive", __name__, url_prefix="/api/evasive")
 
 GCP_PROJECT = os.environ.get("GCP_PROJECT", "noble-beanbag-497411-m4")
-OSINT_TOKEN_CONTRACT = os.environ.get("OSINT_TOKEN_ADDRESS", "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512")
-TFT_TOKEN_CONTRACT   = os.environ.get("TFT_TOKEN_ADDRESS", "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0")
+OSINT_TOKEN_CONTRACT = os.environ.get("OSINT_TOKEN_ADDRESS", "0xA74B3fAfd838fC273f7c6e201B6210AC2b3A0296")
+TFT_TOKEN_CONTRACT   = os.environ.get("TFT_TOKEN_ADDRESS", "0x0977909b254EC33C4D1039135F351B1d3Fb27F14")
 OSINT_REWARD_PER_SUBMISSION = 5000   # OSINT tokens
 TFT_REWARD_PER_RECOVERY     = 14200  # TFT tokens per $1M tax recovery
 

@@ -2,10 +2,10 @@
   "system_name": "OsintNeoAi & TaxFunded Autonomous Dual-Token Crypto Ledger Engine",
   "network": "Sepolia Testnet",
   "smart_contracts": {
-    "TFT": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-    "OSINT": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-    "MultiPoolEscrow": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
-    "StakingGate": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9"
+    "TFT": "0x0977909b254EC33C4D1039135F351B1d3Fb27F14",
+    "OSINT": "0xA74B3fAfd838fC273f7c6e201B6210AC2b3A0296",
+    "MultiPoolEscrow": "0x15564C9A8a5903336CC67F2cBa00dBdAd944dC5B",
+    "StakingGate": "0xdA7655b7007a1C7F8191066Bb9A69E4D8987E725"
   },
   "metrics": {
     "TFT_total_supply": 14200000.0,
@@ -27,7 +27,7 @@
       "amount_out": "10.0 TFT",
       "to_wallet": "0xUserWallet123",
       "description": "DualAuditTokenBridge Swap Execution",
-      "contract": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9"
+      "contract": "0x15564C9A8a5903336CC67F2cBa00dBdAd944dC5B"
     },
     {
       "tx_id": "0xfdc72160c6b44596baff1b84db1f511c",
@@ -37,7 +37,7 @@
       "amount": 100,
       "to_wallet": "0xUserWallet123",
       "description": "Forensic Proof-of-Work Reward for Task: TASK-SUGGEST-003 (Deep OCR Scan on 17642 Beach Blvd)",
-      "contract": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
+      "contract": "0xA74B3fAfd838fC273f7c6e201B6210AC2b3A0296"
     },
     {
       "block_height": 1849201,

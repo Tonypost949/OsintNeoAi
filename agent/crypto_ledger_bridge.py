@@ -8,9 +8,9 @@ logging.basicConfig(level=logging.INFO, format="%(message)s")
 logger = logging.getLogger(__name__)
 
 # Smart Contract Addresses from deployed infrastructure
-TFT_CONTRACT = os.environ.get("TFT_TOKEN_ADDRESS", "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0")
-OSINT_CONTRACT = os.environ.get("OSINT_TOKEN_ADDRESS", "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512")
-BRIDGE_CONTRACT = os.environ.get("MULTI_POOL_ESCROW_ADDRESS", "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9")
+TFT_CONTRACT = os.environ.get("TFT_TOKEN_ADDRESS", "0x0977909b254EC33C4D1039135F351B1d3Fb27F14")
+OSINT_CONTRACT = os.environ.get("OSINT_TOKEN_ADDRESS", "0xA74B3fAfd838fC273f7c6e201B6210AC2b3A0296")
+BRIDGE_CONTRACT = os.environ.get("MULTI_POOL_ESCROW_ADDRESS", "0x15564C9A8a5903336CC67F2cBa00dBdAd944dC5B")
 
 class DualAuditTokenBridge:
     """
