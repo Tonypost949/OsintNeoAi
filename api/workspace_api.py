@@ -413,7 +413,8 @@ def crypto_public():
                 "multiplier": "1.05x",
             },
         },
-        "ledger":       tracker.get("ledger_blocks", []),
+        "taxfunded_ledger": [b for b in tracker.get("ledger_blocks", []) if "TFT" in b.get("description", "") or b.get("token_symbol") == "TFT"],
+        "osint_ledger":     [b for b in tracker.get("ledger_blocks", []) if "OSINT" in b.get("description", "") or b.get("token_symbol") == "OSINT"],
         "metrics":      tracker.get("metrics", {}),
         "last_updated": _now_iso(),
     })
