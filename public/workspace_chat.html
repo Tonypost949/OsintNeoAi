@@ -59,54 +59,267 @@
         </div>
     </footer>
 
+    <!-- Camera Viewfinder Modal -->
+    <div id="camera-modal" class="fixed inset-0 bg-black/80 hidden z-50 flex flex-col items-center justify-center p-4">
+        <div class="relative bg-gray-900 border border-gray-700 rounded-xl overflow-hidden max-w-lg w-full shadow-2xl">
+            <video id="camera-stream" autoplay playsinline class="w-full h-72 object-cover bg-black"></video>
+            <canvas id="snapshot-canvas" class="hidden"></canvas>
+            <div class="p-4 flex justify-between items-center bg-gray-800 border-t border-gray-700">
+                <button id="btn-cancel-cam" class="px-4 py-2 text-sm text-gray-300 hover:text-white transition">Cancel</button>
+                <button id="btn-capture-frame" class="px-5 py-2 text-sm font-semibold bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition flex items-center">
+                    <i class="fa-solid fa-camera mr-2"></i> Capture Evidence
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Multimodal Logic Hooks
+        // --- DOM References ---
+        const chatWindow = document.getElementById('chat-window');
         const chatInput = document.getElementById('chat-input');
         const fileUpload = document.getElementById('file-upload');
-        const chatWindow = document.getElementById('chat-window');
+        const btnSend = document.getElementById('btn-send');
+        const btnCamera = document.getElementById('btn-camera');
+        const btnVoice = document.getElementById('btn-voice');
 
-        // Handle File Attachments (Routes to AIWorkerRouter)
-        fileUpload.addEventListener('change', async (e) => {
-            const files = e.target.files;
-            if (files.length > 0) {
-                appendUserMessage(`[Attached Evidence: ${files[0].name}]`);
-                // Here, FormData is built and POSTed to /api/workspace/chat
+        const cameraModal = document.getElementById('camera-modal');
+        const cameraStreamVideo = document.getElementById('camera-stream');
+        const snapshotCanvas = document.getElementById('snapshot-canvas');
+        const btnCancelCam = document.getElementById('btn-cancel-cam');
+        const btnCaptureFrame = document.getElementById('btn-capture-frame');
+
+        // --- Session State ---
+        const WALLET_ADDRESS = "0x71C...a1B2"; // Bound from Web3 wallet provider
+        let stagedFiles = [];
+        let mediaStream = null;
+        let mediaRecorder = null;
+        let audioChunks = [];
+        let isRecordingAudio = false;
+
+        // ==========================================
+        // 1. File Upload Handler
+        // ==========================================
+        fileUpload.addEventListener('change', (e) => {
+            for (const file of e.target.files) {
+                stagedFiles.push(file);
+                appendSystemNotice(`📎 Staged File: ${file.name} (${(file.size / 1024).toFixed(1)} KB)`);
             }
+            fileUpload.value = ""; // Reset input
         });
 
-        // Handle WebRTC Camera (Scans physical documents/photos)
-        document.getElementById('btn-camera').addEventListener('click', async () => {
+        // ==========================================
+        // 2. Camera Snapshot (Evidence Scanner)
+        // ==========================================
+        btnCamera.addEventListener('click', async () => {
             try {
-                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-                appendUserMessage("[Camera activated - Scanning input...]");
-                // Logic to capture frame and send to Gemini Vision API
+                mediaStream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: "environment", width: { ideal: 1920 }, height: { ideal: 1080 } }
+                });
+                cameraStreamVideo.srcObject = mediaStream;
+                cameraModal.classList.remove('hidden');
             } catch (err) {
-                alert("Camera access denied or unavailable.");
+                alert("Unable to access camera: " + err.message);
             }
         });
 
-        // Handle WebRTC Audio (Voice dictation)
-        document.getElementById('btn-voice').addEventListener('click', async () => {
+        btnCaptureFrame.addEventListener('click', () => {
+            if (!mediaStream) return;
+
+            snapshotCanvas.width = cameraStreamVideo.videoWidth || 640;
+            snapshotCanvas.height = cameraStreamVideo.videoHeight || 480;
+            const ctx = snapshotCanvas.getContext('2d');
+            ctx.drawImage(cameraStreamVideo, 0, 0, snapshotCanvas.width, snapshotCanvas.height);
+
+            snapshotCanvas.toBlob((blob) => {
+                const photoFile = new File([blob], `evidence_scan_${Date.now()}.jpg`, { type: "image/jpeg" });
+                stagedFiles.push(photoFile);
+                appendSystemNotice(`📷 Captured Frame: ${photoFile.name}`);
+                closeCamera();
+            }, "image/jpeg", 0.92);
+        });
+
+        btnCancelCam.addEventListener('click', closeCamera);
+
+        function closeCamera() {
+            if (mediaStream) {
+                mediaStream.getTracks().forEach(track => track.stop());
+                mediaStream = null;
+            }
+            cameraModal.classList.add('hidden');
+        }
+
+        // ==========================================
+        // 3. Microphone Voice Recording
+        // ==========================================
+        btnVoice.addEventListener('click', async () => {
+            if (!isRecordingAudio) {
+                // Start Recording
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    mediaRecorder = new MediaRecorder(stream);
+                    audioChunks = [];
+
+                    mediaRecorder.ondataavailable = (e) => {
+                        if (e.data.size > 0) audioChunks.push(e.data);
+                    };
+
+                    mediaRecorder.onstop = () => {
+                        const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                        const voiceFile = new File([audioBlob], `voice_memo_${Date.now()}.webm`, { type: 'audio/webm' });
+                        stagedFiles.push(voiceFile);
+                        appendSystemNotice(`🎙️ Recorded Voice Memo: ${(audioBlob.size / 1024).toFixed(1)} KB`);
+                        stream.getTracks().forEach(track => track.stop());
+                    };
+
+                    mediaRecorder.start();
+                    isRecordingAudio = true;
+                    btnVoice.classList.add('text-red-500', 'animate-pulse');
+                    btnVoice.title = "Click to stop recording";
+                } catch (err) {
+                    alert("Microphone access denied: " + err.message);
+                }
+            } else {
+                // Stop Recording
+                mediaRecorder.stop();
+                isRecordingAudio = false;
+                btnVoice.classList.remove('text-red-500', 'animate-pulse');
+                btnVoice.title = "Voice Input";
+            }
+        });
+
+        // ==========================================
+        // 4. Dispatch Pipeline to Backend
+        // ==========================================
+        btnSend.addEventListener('click', dispatchPayload);
+
+        chatInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                dispatchPayload();
+            }
+        });
+
+        async function dispatchPayload() {
+            const messageText = chatInput.value.trim();
+
+            if (!messageText && stagedFiles.length === 0) return;
+
+            // 1. Render User Bubble
+            appendUserBubble(messageText, stagedFiles);
+            chatInput.value = "";
+
+            // 2. Prepare Form Data
+            const formData = new FormData();
+            formData.append("wallet_address", WALLET_ADDRESS);
+            if (messageText) formData.append("message", messageText);
+
+            stagedFiles.forEach(file => {
+                formData.append("files", file);
+            });
+
+            // Clear staged queue
+            const filesToSubmit = [...stagedFiles];
+            stagedFiles = [];
+
+            // 3. Render Loading Bubble
+            const loadingId = appendLoadingBubble();
+
             try {
-                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                appendUserMessage("[Voice transcription active...]");
-                // Logic for Speech-to-Text routing
-            } catch (err) {
-                alert("Microphone access denied or unavailable.");
-            }
-        });
+                const response = await fetch("/api/workspace/chat", {
+                    method: "POST",
+                    body: formData
+                });
 
-        function appendUserMessage(text) {
-            const msgHtml = `
+                if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+                const data = await response.json();
+
+                // 4. Remove loader and display AI response & ledger receipts
+                removeBubble(loadingId);
+                appendAIBubble(data);
+
+            } catch (err) {
+                removeBubble(loadingId);
+                appendAIBubble({ chat_reply: `⚠️ Transmission Error: ${err.message}` });
+            }
+        }
+
+        // ==========================================
+        // 5. UI Render Helpers
+        // ==========================================
+        function appendUserBubble(text, files) {
+            let mediaPills = files.map(f => `<span class="inline-block bg-blue-900 border border-blue-400 text-xs px-2 py-0.5 rounded-full mr-1 mb-1">📎 ${f.name}</span>`).join("");
+            const html = `
                 <div class="flex items-start justify-end">
-                    <div class="bg-blue-800 p-4 rounded-lg shadow max-w-3xl text-white">
-                        <p>${text}</p>
+                    <div class="bg-blue-800 p-4 rounded-xl shadow max-w-2xl text-white">
+                        ${mediaPills ? `<div class="mb-2">${mediaPills}</div>` : ''}
+                        ${text ? `<p class="whitespace-pre-wrap">${escapeHtml(text)}</p>` : ''}
                     </div>
-                    <div class="bg-gray-600 rounded-full h-10 w-10 flex items-center justify-center font-bold ml-4"><i class="fa-solid fa-user"></i></div>
+                    <div class="bg-gray-600 rounded-full h-10 w-10 flex items-center justify-center font-bold ml-3 flex-shrink-0">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
                 </div>`;
-            chatWindow.insertAdjacentHTML('beforeend', msgHtml);
+            chatWindow.insertAdjacentHTML('beforeend', html);
             chatWindow.scrollTop = chatWindow.scrollHeight;
         }
+
+        function appendAIBubble(data) {
+            let ingestPill = "";
+            if (data.ingestion) {
+                const hashShort = data.ingestion.asset_hash.substring(0, 10);
+                ingestPill = `
+                    <div class="mb-3 p-2 bg-gray-900 border border-green-500/40 rounded-lg text-xs font-mono text-green-300">
+                        <i class="fa-solid fa-shield-halved mr-1 text-green-400"></i>
+                        <strong>Point-of-Upload Hash:</strong> ${hashShort}... | 
+                        <strong>Tags:</strong> [${data.ingestion.domain_tags.join(', ')}] | 
+                        <strong>Ledger:</strong> Append-Only V${data.ingestion.version_id} Enqueued
+                    </div>`;
+            }
+
+            const html = `
+                <div class="flex items-start">
+                    <div class="bg-blue-600 rounded-full h-10 w-10 flex items-center justify-center font-bold mr-3 flex-shrink-0">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div class="bg-gray-800 border border-gray-700 p-4 rounded-xl shadow max-w-3xl text-gray-100">
+                        ${ingestPill}
+                        <p class="whitespace-pre-wrap leading-relaxed">${escapeHtml(data.chat_reply || "Evidence received and logged.")}</p>
+                    </div>
+                </div>`;
+            chatWindow.insertAdjacentHTML('beforeend', html);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        function appendLoadingBubble() {
+            const id = "load-" + Date.now();
+            const html = `
+                <div id="${id}" class="flex items-start">
+                    <div class="bg-blue-600 rounded-full h-10 w-10 flex items-center justify-center font-bold mr-3 flex-shrink-0">
+                        <i class="fa-solid fa-circle-notch fa-spin"></i>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-xl border border-gray-700 shadow text-gray-400 italic">
+                        Analyzing evidence & routing to micro-workers...
+                    </div>
+                </div>`;
+            chatWindow.insertAdjacentHTML('beforeend', html);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+            return id;
+        }
+
+        function appendSystemNotice(text) {
+            const html = `<div class="text-center text-xs text-gray-400 italic py-1">${text}</div>`;
+            chatWindow.insertAdjacentHTML('beforeend', html);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        function removeBubble(id) {
+            const el = document.getElementById(id);
+            if (el) el.remove();
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+
     </script>
 </body>
 </html>
