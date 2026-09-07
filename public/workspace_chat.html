@@ -122,12 +122,82 @@
                     
                     document.getElementById('wallet-status').innerHTML = `Connected: ${WALLET_ADDRESS.substring(0,6)}...${WALLET_ADDRESS.slice(-4)}`;
                     appendSystemNotice("🟢 Web3 Wallet Connected. Ready for secure ingestion.");
+                    
+                    // NEW: Fire the Autonomous Task Worker query upon successful authentication
+                    await fetchSuggestiveTasks();
+                    
                 } catch (err) {
                     appendSystemNotice(`🔴 Wallet connection failed: ${err.message}`);
                 }
             } else {
                 alert("Please install MetaMask to use the investigator workspace.");
             }
+        }
+
+        // ==========================================
+        // Autonomous Task Worker UI (Suggestive Queue)
+        // ==========================================
+        async function fetchSuggestiveTasks() {
+            if (!WALLET_ADDRESS) return;
+
+            try {
+                const response = await fetch(`/api/workspace/suggested-tasks?wallet_address=${WALLET_ADDRESS}`);
+                if (!response.ok) throw new Error("Failed to fetch suggestive tasks.");
+                
+                const data = await response.json();
+                const tasks = data.tasks || [];
+                
+                if (tasks.length > 0) {
+                    appendSystemNotice(`🧠 Autonomous Worker detected ${tasks.length} intelligence gap(s) in your active cases.`);
+                    tasks.forEach(task => appendSystemIntelligencePrompt(task));
+                }
+            } catch (err) {
+                console.error("Task Worker UI Error:", err);
+            }
+        }
+
+        function appendSystemIntelligencePrompt(task) {
+            // Dynamic icon and badge styling based on task type and severity
+            let icon = task.task_type === "MISSING_CITATION" ? "fa-scale-balanced" : (task.task_type === "DISCONNECTED_ENTITY" ? "fa-diagram-project" : "fa-link-slash");
+            let badgeColor = task.priority_score >= 8 ? "bg-red-900/50 border-red-500 text-red-300" : "bg-yellow-900/50 border-yellow-500 text-yellow-300";
+
+            function escapeHtml(unsafe) {
+                return (unsafe || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+            }
+
+            const html = `
+                <div class="flex items-start mt-4 mb-4">
+                    <div class="bg-indigo-600 rounded-full h-10 w-10 flex items-center justify-center font-bold mr-3 flex-shrink-0 shadow-[0_0_10px_rgba(79,70,229,0.5)]">
+                        <i class="fa-solid fa-network-wired text-white"></i>
+                    </div>
+                    <div class="bg-gray-800 border border-indigo-500/40 p-4 rounded-xl shadow-lg max-w-3xl text-gray-100 w-full relative overflow-hidden">
+                        <!-- Background glow effect -->
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
+                        
+                        <div class="flex justify-between items-center mb-3 relative z-10">
+                            <span class="text-xs font-bold uppercase tracking-wider text-indigo-400"><i class="fa-solid ${icon} mr-1"></i> System Intelligence Prompt</span>
+                            <span class="text-xs font-mono px-2 py-0.5 rounded border ${badgeColor}">Priority: ${task.priority_score}/10</span>
+                        </div>
+                        
+                        <h4 class="font-semibold text-lg mb-1 relative z-10">${escapeHtml(task.title)}</h4>
+                        <p class="text-sm text-gray-300 mb-4 relative z-10">${escapeHtml(task.prompt_message)}</p>
+                        
+                        <div class="bg-gray-900/80 p-3 rounded border border-gray-700 text-sm mb-4 relative z-10">
+                            <strong class="text-gray-400">Action Required:</strong> <span class="text-indigo-200">${escapeHtml(task.suggested_action)}</span>
+                        </div>
+                        
+                        <div class="flex justify-end space-x-3 relative z-10">
+                            <button onclick="this.closest('.flex').remove()" class="px-4 py-2 text-sm text-gray-400 hover:text-white transition">Dismiss</button>
+                            <!-- Triggers the native file upload pipeline -->
+                            <button onclick="document.getElementById('file-upload').click()" class="px-4 py-2 text-sm font-semibold bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg transition flex items-center shadow-lg">
+                                <i class="fa-solid fa-arrow-up-from-bracket mr-2"></i> Fulfill Task
+                            </button>
+                        </div>
+                    </div>
+                </div>`;
+            
+            chatWindow.insertAdjacentHTML('beforeend', html);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
         }
 
         // ==========================================
