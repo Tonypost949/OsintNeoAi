@@ -20,6 +20,14 @@ except Exception as _lb_e:
 
 GCP_PROJECT = os.getenv("GCP_PROJECT", "noble-beanbag-497411-m4")
 
+# ── Multi-User Workspace / Newspaper / Crypto / Tools API ─────────────────────
+try:
+    from workspace_api import workspace_bp
+    app.register_blueprint(workspace_bp)
+    print("[Workspace API] registered: /api/workspaces /api/newspaper /api/tools /api/crypto")
+except Exception as _ws_e:
+    print(f"[Workspace API] not loaded: {_ws_e}")
+
 # ── In-Memory Knowledge Store ──────────────────────────────────
 knowledge_store = {
     "documents": [],     # [{id, filename, text, summary, timestamp}]
