@@ -5,6 +5,7 @@
     <title>OSINT Neo AI - Investigator Workspace</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.umd.min.js"></script>
 </head>
 <body class="bg-gray-900 text-gray-100 h-screen flex flex-col font-sans">
 
@@ -15,7 +16,7 @@
             <p class="text-xs text-gray-400">Wide-Open Intelligence Workspace</p>
         </div>
         <div class="flex items-center space-x-4">
-            <span class="text-sm bg-gray-700 px-3 py-1 rounded-full text-green-400">Connected: 0x...a1B2</span>
+            <span id="wallet-status" onclick="connectWallet()" class="text-sm bg-gray-700 px-3 py-1 rounded-full text-green-400 cursor-pointer hover:bg-gray-600 transition">Connect Wallet</span>
             <span class="text-sm bg-gray-700 px-3 py-1 rounded-full text-blue-300">OSINT: 150</span>
         </div>
     </header>
@@ -88,13 +89,44 @@
         const btnCancelCam = document.getElementById('btn-cancel-cam');
         const btnCaptureFrame = document.getElementById('btn-capture-frame');
 
-        // --- Session State ---
-        const WALLET_ADDRESS = "0x71C...a1B2"; // Bound from Web3 wallet provider
+        // --- Web3 Session State ---
+        let WALLET_ADDRESS = null;
+        let provider, signer, stakingGateContract;
+
+        // IMPORTANT: Replace with the actual address from your Hardhat deployment
+        const STAKING_GATE_ADDRESS = "0x_YOUR_STAKING_GATE_ADDRESS"; 
+        const STAKING_GATE_ABI = [
+            "function stakeAndSubmit(bytes32 _assetHash) external"
+        ];
+
         let stagedFiles = [];
         let mediaStream = null;
         let mediaRecorder = null;
         let audioChunks = [];
         let isRecordingAudio = false;
+
+        // ==========================================
+        // Web3 Wallet Connection Hook
+        // ==========================================
+        async function connectWallet() {
+            if (window.ethereum) {
+                try {
+                    provider = new ethers.BrowserProvider(window.ethereum);
+                    await provider.send("eth_requestAccounts", []);
+                    signer = await provider.getSigner();
+                    WALLET_ADDRESS = await signer.getAddress();
+                    
+                    stakingGateContract = new ethers.Contract(STAKING_GATE_ADDRESS, STAKING_GATE_ABI, signer);
+                    
+                    document.getElementById('wallet-status').innerHTML = `Connected: ${WALLET_ADDRESS.substring(0,6)}...${WALLET_ADDRESS.slice(-4)}`;
+                    appendSystemNotice("🟢 Web3 Wallet Connected. Ready for secure ingestion.");
+                } catch (err) {
+                    appendSystemNotice(`🔴 Wallet connection failed: ${err.message}`);
+                }
+            } else {
+                alert("Please install MetaMask to use the investigator workspace.");
+            }
+        }
 
         // ==========================================
         // 1. File Upload Handler
@@ -188,7 +220,7 @@
         });
 
         // ==========================================
-        // 4. Dispatch Pipeline to Backend
+        // 4. Upgraded Dispatch Pipeline (With Staking)
         // ==========================================
         btnSend.addEventListener('click', dispatchPayload);
 
@@ -200,46 +232,53 @@
         });
 
         async function dispatchPayload() {
-            const messageText = chatInput.value.trim();
+            if (!WALLET_ADDRESS) {
+                alert("You must connect your Web3 wallet first to stake and submit evidence.");
+                return connectWallet();
+            }
 
+            const messageText = chatInput.value.trim();
             if (!messageText && stagedFiles.length === 0) return;
 
             // 1. Render User Bubble
             appendUserBubble(messageText, stagedFiles);
             chatInput.value = "";
-
-            // 2. Prepare Form Data
-            const formData = new FormData();
-            formData.append("wallet_address", WALLET_ADDRESS);
-            if (messageText) formData.append("message", messageText);
-
-            stagedFiles.forEach(file => {
-                formData.append("files", file);
-            });
-
-            // Clear staged queue
             const filesToSubmit = [...stagedFiles];
             stagedFiles = [];
 
-            // 3. Render Loading Bubble
             const loadingId = appendLoadingBubble();
 
             try {
-                const response = await fetch("/api/workspace/chat", {
-                    method: "POST",
-                    body: formData
-                });
+                // 2. Client-Side Hash Generation (For the Smart Contract)
+                // We generate a local hash of the file/message to lock in the StakingGate
+                const payloadString = filesToSubmit.length > 0 ? filesToSubmit[0].name + Date.now() : messageText;
+                const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(payloadString));
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                const clientAssetHash = '0x' + hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 
+                // 3. Trigger MetaMask Staking Transaction [TASK-081]
+                appendSystemNotice("⚠️ Please confirm the staking transaction in MetaMask to open the ingestion gate...");
+                const tx = await stakingGateContract.stakeAndSubmit(clientAssetHash);
+                await tx.wait(); // Wait for blockchain confirmation
+                appendSystemNotice(`✅ Stake locked on-chain (Tx: ${tx.hash.substring(0,10)}...). Routing to Azure proxy.`);
+
+                // 4. Proceed with original FormData POST to the Azure API
+                const formData = new FormData();
+                formData.append("wallet_address", WALLET_ADDRESS);
+                formData.append("client_hash", clientAssetHash); // Pass the hash to the backend
+                if (messageText) formData.append("message", messageText);
+                filesToSubmit.forEach(file => formData.append("files", file));
+
+                const response = await fetch("/api/workspace/chat", { method: "POST", body: formData });
                 if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+                
                 const data = await response.json();
-
-                // 4. Remove loader and display AI response & ledger receipts
                 removeBubble(loadingId);
                 appendAIBubble(data);
 
             } catch (err) {
                 removeBubble(loadingId);
-                appendAIBubble({ chat_reply: `⚠️ Transmission Error: ${err.message}` });
+                appendAIBubble({ chat_reply: `⚠️ Transmission or Web3 Error: ${err.message}` });
             }
         }
 
