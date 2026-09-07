@@ -32,10 +32,15 @@ def ensure_table(client):
         bigquery.SchemaField("added_at", "TIMESTAMP", mode="REQUIRED"),
     ]
     try:
-        client.get_table(FULL_TABLE_ID)
-        logger.info(f"Table {FULL_TABLE_ID} exists.")
+        table = client.get_table(FULL_TABLE_ID)
+        # Sandbox mode requires expiration < 60 days. Update it.
+        table.expires = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(days=59)
+        client.update_table(table, ["expires"])
+        logger.info(f"Table {FULL_TABLE_ID} exists and expiration updated.")
     except Exception:
         table = bigquery.Table(FULL_TABLE_ID, schema=schema)
+        # Sandbox mode requires expiration < 60 days
+        table.expires = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(days=59)
         client.create_table(table)
         logger.info(f"Created table {FULL_TABLE_ID}")
 
