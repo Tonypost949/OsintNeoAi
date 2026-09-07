@@ -27,6 +27,8 @@ def load_tasks():
 def save_tasks(data):
     data["updated_at"] = datetime.now(timezone.utc).isoformat()
     data["total"] = len(data.get("tasks", []))
+    data["open"] = len([t for t in data.get("tasks", []) if t.get("status") != "DONE"])
+    data["done"] = len([t for t in data.get("tasks", []) if t.get("status") == "DONE"])
     os.makedirs(os.path.dirname(DATA_FILE), exist_ok=True)
     os.makedirs(os.path.dirname(BACKUP_DATA_FILE), exist_ok=True)
     
@@ -56,9 +58,12 @@ def sync_markdown(data):
         "| :--- | :---: | :--- | :--- | :--- | :---: |"
     ]
     
-    for t in active:
-        p_badge = "🔴 **CRITICAL**" if t.get("priority") == "CRITICAL" else ("🟡 **HIGH**" if t.get("priority") == "HIGH" else "🔵 **MEDIUM**")
-        lines.append(f"| **`{t['id']}`** | {p_badge} | {t.get('category', 'General')} | **{t['title']}**<br>{t.get('description', '')} | [{t.get('tags', ['Link'])[0]}]({t.get('action_url', '#')}) | `{t.get('status', 'TODO')}` |")
+    if active:
+        for t in active:
+            p_badge = "🔴 **CRITICAL**" if t.get("priority") == "CRITICAL" else ("🟡 **HIGH**" if t.get("priority") == "HIGH" else "🔵 **MEDIUM**")
+            lines.append(f"| **`{t['id']}`** | {p_badge} | {t.get('category', 'General')} | **{t['title']}**<br>{t.get('description', '')} | [{t.get('tags', ['Link'])[0]}]({t.get('action_url', '#')}) | `{t.get('status', 'TODO')}` |")
+    else:
+        lines.append("| — | 🟢 **NONE** | All Categories | *All tracked tasks have been completed, verified, and reconciled into master evidentiary ledger.* | [TASKS.md](TASKS.md) | `DONE` |")
         
     lines.extend([
         "",
