@@ -277,24 +277,42 @@ async function searchZlll(preset){
 }
 function showLB(obj){
     const box=document.getElementById('lb-results'); box.style.display='block';
-    box.textContent = typeof obj==='string' ? obj : JSON.stringify(obj, null, 2).slice(0,6000);
+    if(typeof obj==='string'){ box.innerHTML=`<div style="padding:8px; color:#94a3b8;">${obj}</div>`; return; }
+    // Render as cards, not code
+    let html='';
+    if(obj.status_code && obj.data){
+        const st=obj.status_code;
+        const col = st===200?'#00ffaa': st===401?'#f59e0b':'#f87171';
+        const label = st===200?'✅ LIVE': st===401?'⚠️ KEY 401 → ZLLL FALLBACK':'❌ '+st;
+        html+=`<div style="padding:6px; background:#1e293b; border-left:3px solid ${col}; margin-bottom:6px;"><b style="color:${col};">${label}</b> <span style="color:#94a3b8; font-size:10px;">${obj.mode||''}</span></div>`;
+        try{ const d=typeof obj.data==='string'? JSON.parse(obj.data): obj.data; if(d.parcels){ html+=`<div style="padding:6px; color:#e2e8f0;"><b style="color:#38bdf8;">📦 ${d.parcels.length} parcels</b>`+d.parcels.slice(0,3).map(p=>`<div style="margin:4px 0; padding:6px; background:#0f172a; border-radius:6px; border:1px solid #334155;"><div style="color:#38bdf8; font-weight:900;">${p.address||p.apn||p.id||'Parcel'}</div><div style="color:#94a3b8; font-size:10px;">${p.parcelId||p.id||''} • ${p.county||''} • ${p.state||'CA'}</div></div>`).join('')+`</div>`; } else if(d.error){ html+=`<div style="padding:6px; color:#fbbf24;">${d.error.message||d.error.code||JSON.stringify(d).slice(0,300)}</div><div style="padding:6px; color:#94a3b8; font-size:10px;">Auto fallback to ZLLL 712-file active — no action needed.</div>`; } } catch(e){ html+=`<div style="padding:6px; color:#cbd5e1; font-size:10px; max-height:120px; overflow:auto;">${String(obj.data).slice(0,800)}</div>`; }
+        if(obj.note) html+=`<div style="padding:4px; color:#64748b; font-size:10px;">${obj.note}</div>`;
+    } else if(obj.mode && obj.status){
+        html+=`<div style="padding:8px; background:#00ffaa15; border:1px solid #00ffaa44; border-radius:6px; margin-bottom:6px;"><b style="color:#00ffaa;">⚡ ${obj.mode}</b> <span style="color:#94a3b8;">${obj.status}</span></div>`;
+        if(obj.zlll_hits) html+=`<div style="padding:4px; color:#38bdf8; font-weight:900;">📁 ${obj.zlll_hits.length} ZLLL files</div>`+obj.zlll_hits.slice(0,5).map(h=>`<div style="padding:4px; background:#0f172a; border:1px solid #1e293b; border-radius:4px; margin:3px 0; font-size:10px;"><b style="color:#e2e8f0;">${h.name}</b><br><span style="color:#64748b;">${h.path} • ${(h.size/1024).toFixed(1)}KB</span></div>`).join('');
+        if(obj.edr_hits) html+=`<div style="padding:4px; color:#f472b6; font-weight:900; margin-top:6px;">🧬 ${obj.edr_hits.length} EDR cached</div>`+obj.edr_hits.slice(0,3).map(e=>`<div style="padding:4px; background:#0f172a; border-radius:4px; margin:3px 0; font-size:10px; color:#cbd5e1;">${e.cover_address||e.file}</div>`).join('');
+    } else {
+        // Generic: show file hits or parcels if present
+        if(obj.zlll_hits || obj.zlll){ const hits=obj.zlll_hits||obj.zlll||[]; html+=`<div style="padding:4px; color:#38bdf8; font-weight:900;">${hits.length} files</div>`+hits.slice(0,5).map(h=>`<div style="padding:4px; background:#0f172a; border-radius:4px; margin:3px 0;"><b style="color:#e2e8f0; font-size:11px;">${h.name||'file'}</b></div>`).join(''); }
+        else html+=`<div style="padding:8px; color:#cbd5e1; font-size:11px;">${obj.note||obj.message||'Done'} — check map for markers.</div>`;
+    }
+    box.innerHTML=html || `<div style="padding:8px; color:#00ffaa;">✅ Done — ${obj.status||'fusion active'}</div>`;
 }
 async function lightboxParcel(){
     const addr=document.getElementById('lb-addr').value.trim(); if(!addr) return; showLB('⏳ LightBox parcels/us/address → '+addr);
-    try{ const r=await fetch('/api/lightbox/parcel/address', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({address:addr})}); const j=await r.json(); showLB(j); if(j.data && j.data.parcels) { const p=j.data.parcels[0]; if(p && p.latitude) map.flyTo({center:[p.longitude||p.lon,p.latitude||p.lat], zoom:18, pitch:70, duration:2200}); }} catch(e){ showLB('error '+e); }
+    try{ const r=await fetch('/api/lightbox/parcel/address', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({address:addr})}); const j=await r.json(); showLB(j); if(j.data){ try{ const d=JSON.parse(j.data); const p=d.parcels&&d.parcels[0]; if(p && (p.latitude||p.lat)) map.flyTo({center:[p.longitude||p.lon||p.long,p.latitude||p.lat], zoom:18, pitch:70, duration:2200}); }catch(e){} } } catch(e){ showLB({status_code:500, data:{error:{message:String(e)}}, note:'Check network / key auto fallback active'}); }
 }
 async function lightboxEDR(){
     const addr=document.getElementById('lb-addr').value.trim(); if(!addr) return; showLB('⏳ EDR reports/address → '+addr);
-    try{ const r=await fetch('/api/lightbox/edr/report', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({address:addr})}); const j=await r.json(); showLB(j); } catch(e){ showLB('error '+e); }
+    try{ const r=await fetch('/api/lightbox/edr/report', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({address:addr})}); const j=await r.json(); showLB(j); } catch(e){ showLB({status_code:500, data:{error:{message:String(e)}}}); }
 }
 async function lightboxRadius(){
-    const addr=document.getElementById('lb-addr').value.trim(); // use HBNC coords as demo
     showLB('⏳ parcels radius 500m @ HBNC 33.7064,-117.98818');
-    try{ const r=await fetch('/api/lightbox/parcel/radius', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({lat:33.7064036, lon:-117.9881801, radius:500})}); const j=await r.json(); showLB(j); } catch(e){ showLB('error '+e); }
+    try{ const r=await fetch('/api/lightbox/parcel/radius', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({lat:33.7064036, lon:-117.9881801, radius:500})}); const j=await r.json(); showLB(j); } catch(e){ showLB({status_code:500, data:{error:{message:String(e)}}}); }
 }
 async function lightboxCombined(){
     const addr=document.getElementById('lb-addr').value.trim(); if(!addr) return; showLB('⚡ COMBINED FUSION → '+addr+' …');
-    try{ const r=await fetch('/api/zlll/lightbox/combined', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({address:addr})}); const j=await r.json(); showLB(j); const hits=j.zlll_hits||[]; if(hits.length) map.flyTo({center:LOCATIONS[28].coords, zoom:17.5, duration:2000}); } catch(e){ showLB('error '+e); }
+    try{ const r=await fetch('/api/zlll/lightbox/combined', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({address:addr})}); const j=await r.json(); showLB(j); const hits=j.zlll_hits||[]; if(hits.length) map.flyTo({center:LOCATIONS[28].coords, zoom:17.5, duration:2000}); } catch(e){ showLB({status_code:500, data:{error:{message:String(e)}}}); }
 }
 </script>
 </body>
