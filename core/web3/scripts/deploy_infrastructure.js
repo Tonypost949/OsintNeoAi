@@ -5,11 +5,9 @@ async function main() {
     const [deployer] = await hre.ethers.getSigners();
     console.log(`Executing deployment with wallet: ${deployer.address}`);
 
-    // ==========================================
     // 1. Deploy Mock Tokens (For Testnet Only)
-    // ==========================================
     console.log("\n--- Deploying Ecosystem Tokens ---");
-    const MockERC20 = await hre.ethers.getContractFactory("ERC20Mock"); // Requires standard OpenZeppelin mock
+    const MockERC20 = await hre.ethers.getContractFactory("ERC20Mock");
     
     const usdc = await MockERC20.deploy("USD Coin", "USDC", deployer.address, hre.ethers.parseEther("1000000"));
     await usdc.waitForDeployment();
@@ -23,11 +21,8 @@ async function main() {
     await tftToken.waitForDeployment();
     console.log(`TFT Token deployed to: ${await tftToken.getAddress()}`);
 
-    // ==========================================
     // 2. Deploy Staking Gate [TASK-081]
-    // ==========================================
     console.log("\n--- Deploying Staking Gate ---");
-    // Setting the required stake to 100 OSINT tokens
     const requiredStake = hre.ethers.parseEther("100"); 
     
     const StakingGate = await hre.ethers.getContractFactory("StakingGate");
@@ -35,9 +30,7 @@ async function main() {
     await stakingGate.waitForDeployment();
     console.log(`StakingGate deployed to: ${await stakingGate.getAddress()}`);
 
-    // ==========================================
     // 3. Deploy Multi-Pool Escrow
-    // ==========================================
     console.log("\n--- Deploying Multi-Pool Escrow ---");
     const MultiPoolEscrow = await hre.ethers.getContractFactory("MultiPoolEscrow");
     const escrow = await MultiPoolEscrow.deploy(
@@ -48,13 +41,14 @@ async function main() {
     await escrow.waitForDeployment();
     console.log(`MultiPoolEscrow deployed to: ${await escrow.getAddress()}`);
 
-    // ==========================================
     // 4. Print Environment Variables for Azure
-    // ==========================================
     console.log("\n==========================================");
     console.log("DEPLOYMENT COMPLETE. SAVE THESE ADDRESSES FOR AZURE ENV:");
     console.log(`STAKING_GATE_ADDRESS=${await stakingGate.getAddress()}`);
     console.log(`MULTI_POOL_ESCROW_ADDRESS=${await escrow.getAddress()}`);
+    console.log(`OSINT_TOKEN_ADDRESS=${await osintToken.getAddress()}`);
+    console.log(`TFT_TOKEN_ADDRESS=${await tftToken.getAddress()}`);
+    console.log(`USDC_ADDRESS=${await usdc.getAddress()}`);
     console.log("==========================================\n");
 }
 

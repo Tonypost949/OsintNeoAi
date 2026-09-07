@@ -2,7 +2,12 @@ import logging
 import json
 import os
 from typing import Dict, Any
+from dotenv import load_dotenv
 from web3 import Web3
+
+load_dotenv()
+load_dotenv(os.path.join(os.path.dirname(__file__), "..", "web3", ".env"))
+
 from core.AG2OSINTNEOMAXX.ai_worker_router import AIWorkerRouter
 from core.AG2OSINTNEOMAXX.ledger_service import MasterLedgerService
 

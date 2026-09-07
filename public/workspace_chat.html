@@ -93,8 +93,10 @@
         let WALLET_ADDRESS = null;
         let provider, signer, stakingGateContract;
 
-        // IMPORTANT: Replace with the actual address from your Hardhat deployment
-        const STAKING_GATE_ADDRESS = "0x_YOUR_STAKING_GATE_ADDRESS"; 
+        // IMPORTANT: Replace with the actual address from Hardhat deployment output
+        // Run: cd core/web3 && npx hardhat run scripts/deploy_infrastructure.js --network sepolia
+        // Then paste the STAKING_GATE_ADDRESS from the terminal output below:
+        const STAKING_GATE_ADDRESS = "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9"; 
         const STAKING_GATE_ABI = [
             "function stakeAndSubmit(bytes32 _assetHash) external"
         ];
