@@ -1,6 +1,12 @@
 #!/bin/bash
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+# Ensure pydantic is available
+if ! python3 -c "import pydantic" &> /dev/null; then
+    pip3 install pydantic google-genai requests &> /dev/null || true
+fi
+
 if [ -f "$REPO_DIR/cli/cli.py" ]; then
     exec python3 "$REPO_DIR/cli/cli.py" "$@"
 elif [ -f "$REPO_DIR/OSINTNeoAiCLI_v2.py" ]; then
