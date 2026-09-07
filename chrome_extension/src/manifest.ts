@@ -50,8 +50,8 @@ export default defineManifest({
     // Overriding default browser shortcuts (Tough shit for Print - this is a power user tool)
     '3copy-all-tabs': {
       suggested_key: {
-        default: 'Ctrl+P',
-        mac: 'MacCtrl+P'
+        default: 'Ctrl+Shift+X',
+        mac: 'MacCtrl+Shift+X'
       },
       description: 'OSINT: One-Click Multi-Tab Dump (URLs, Screenshots, Captions)',
     },
