@@ -65,4 +65,47 @@
             <em>Paste the shortlink into a browser window where you are already logged in. The system will automatically grab the session token and resume the extraction.</em>
         </p>
     </div>
-</div>
+
+<!-- ========================================================================= -->
+<!-- REAL-TIME WATERFALL EXTRACTION TRACKER                                    -->
+<!-- ========================================================================= -->
+<div id="waterfall-tracker" class="card shadow-sm mt-4 border-primary">
+    <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
+        <span><span class="spinner-border spinner-border-sm me-2" role="status"></span> Active OSINT Extraction</span>
+        <span class="badge bg-light text-primary">Target: secure.target.com</span>
+    </div>
+    <div class="card-body bg-dark text-light font-monospace" style="font-size: 0.9rem;">
+        
+        <!-- Step 1: Fast Rip -->
+        <div class="d-flex align-items-center mb-2 text-danger">
+            <span class="me-2">[✖]</span>
+            <span class="text-decoration-line-through">TOOL-01: Ripping Source Code (Fast cURL)</span>
+            <span class="ms-auto text-muted small">0.4s (Blocked by Captcha)</span>
+        </div>
+        
+        <!-- Step 2: Headless Rip -->
+        <div class="d-flex align-items-center mb-2 text-danger">
+            <span class="me-2">[✖]</span>
+            <span class="text-decoration-line-through">TOOL-02: Headless DOM Rendering (Playwright)</span>
+            <span class="ms-auto text-muted small">1.2s (Empty Canvas Detected)</span>
+        </div>
+        
+        <!-- Step 3: OCR -->
+        <div class="d-flex align-items-center mb-2 text-warning">
+            <span class="spinner-border spinner-border-sm me-2" style="width: 1rem; height: 1rem;" role="status"></span>
+            <span>TOOL-03: Azure Vision OCR (Screenshot Parsing)...</span>
+            <span class="ms-auto text-muted small">Running...</span>
+        </div>
+        
+        <!-- Step 4: Heavy LLM (Waiting) -->
+        <div class="d-flex align-items-center mb-2 text-muted">
+            <span class="me-2">[ ]</span>
+            <span>TOOL-04: AnythingLLM Dedicated PC (Hostile Target Bypass)</span>
+            <span class="ms-auto small">Pending</span>
+        </div>
+        
+    </div>
+    <div class="card-footer bg-light text-muted small">
+        <i class="fas fa-info-circle"></i> The system is automatically escalating through extraction tools. Please do not close this window.
+    </div>
+</div></div>
