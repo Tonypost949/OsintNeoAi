@@ -1,14 +1,250 @@
 {
-  "updated_at": "2026-08-26T08:20:28.169005+00:00",
-  "total": 41,
+  "updated_at": "2026-09-07T00:51:14.879438+00:00",
+  "total": 66,
+  "open": 24,
+  "done": 42,
   "tasks": [
+    {
+      "id": "TASK-VSDE-001",
+      "title": "Claim Syncfusion Essential Studio Enterprise $9,995",
+      "category": "VSDE Benefits",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Order W753756 licensed key registered in public/syncfusion_grid.html_v2 with zero watermark.",
+      "created_at": "2026-08-26T12:12:50.983923Z",
+      "tags": [
+        "Syncfusion",
+        "VSDE",
+        "Enterprise",
+        "Grid"
+      ],
+      "action_url": "https://www.syncfusion.com/account/downloads"
+    },
+    {
+      "id": "TASK-VSDE-002",
+      "title": "Activate Azure for Students $100/mo Credit",
+      "category": "VSDE Benefits",
+      "priority": "HIGH",
+      "status": "DONE",
+      "description": "Subscription f055033f-83fb-4ae9-9c36-be48f0c86158 hosting live app osintneoai-app-949.",
+      "created_at": "2026-08-26T12:12:50.983997Z",
+      "tags": [
+        "Azure",
+        "VSDE",
+        "Cloud",
+        "AppService"
+      ],
+      "action_url": "https://portal.azure.com"
+    },
+    {
+      "id": "TASK-VSDE-003",
+      "title": "Claim JetBrains All Products Pack + GitHub Copilot",
+      "category": "VSDE Benefits",
+      "priority": "HIGH",
+      "status": "DONE",
+      "description": "Claimed via my.visualstudio.com/benefits + Azure DevOps org anthonydimarcello (dev.azure.com/anthonydimarcello) MCP https://mcp.dev.azure.com/anthonydimarcello",
+      "created_at": "2026-08-26T12:12:50.984004Z",
+      "tags": [
+        "JetBrains",
+        "Copilot",
+        "IDE",
+        "VSDE"
+      ],
+      "action_url": "https://mcp.dev.azure.com/anthonydimarcello",
+      "notes": "MCP azure-devops HTTP https://mcp.dev.azure.com/anthonydimarcello project osintneoai"
+    },
+    {
+      "id": "TASK-VSDE-004",
+      "title": "Claim Pluralsight + LinkedIn Learning + DataCamp Bundle",
+      "category": "VSDE Benefits",
+      "priority": "MEDIUM",
+      "status": "TODO",
+      "description": "Enterprise training passes for cloud architecture and OSINT.",
+      "created_at": "2026-08-26T12:12:50.984009Z",
+      "tags": [
+        "Pluralsight",
+        "LinkedIn",
+        "Certifications"
+      ],
+      "action_url": "https://my.visualstudio.com/benefits",
+      "notes": "Claimed via VSDE Benefits Portal with Post University SSO federation."
+    },
+    {
+      "id": "TASK-VSDE-005",
+      "title": "Claim Parasoft / Code Climate / SQL Sentry / Termius Pro",
+      "category": "VSDE Benefits",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Developer pack security scanners and database profilers.",
+      "created_at": "2026-08-26T12:12:50.984020Z",
+      "tags": [
+        "Security",
+        "DevOps",
+        "Termius"
+      ],
+      "action_url": "https://my.visualstudio.com/benefits",
+      "notes": "Claimed via VSDE Benefits Portal with Post University SSO federation."
+    },
+    {
+      "id": "TASK-VSDE-006",
+      "title": "Claim MongoDB Atlas / Datadog / Namecheap / DigitalOcean",
+      "category": "VSDE Benefits",
+      "priority": "MEDIUM",
+      "status": "TODO",
+      "description": "Student developer pack cloud overflow resources.",
+      "created_at": "2026-08-26T12:12:50.984025Z",
+      "tags": [
+        "MongoDB",
+        "Datadog",
+        "DigitalOcean"
+      ],
+      "action_url": "https://education.github.com/pack",
+      "notes": "Claimed via GitHub Student Pack with Post University student email."
+    },
+    {
+      "id": "TASK-VSDE-007",
+      "title": "Verify Post University Entra SSO Federation",
+      "category": "VSDE Benefits",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Confirmed federated student credentials valid and benefits portal unlocked.",
+      "created_at": "2026-08-26T12:12:50.984030Z",
+      "tags": [
+        "EntraID",
+        "SSO",
+        "PostUniversity"
+      ],
+      "action_url": "https://my.visualstudio.com/benefits"
+    },
+    {
+      "id": "TASK-VSDE-008",
+      "title": "Deploy /syncfusion + /tasks Live on Azure",
+      "category": "VSDE Benefits",
+      "priority": "HIGH",
+      "status": "DONE",
+      "description": "Linked endpoints and licensed Syncfusion grid to live web server.",
+      "created_at": "2026-08-26T12:12:50.984035Z",
+      "tags": [
+        "Deploy",
+        "Azure",
+        "Syncfusion",
+        "Tasks"
+      ],
+      "action_url": "http://127.0.0.1:5052/syncfusion"
+    },
+    {
+      "id": "TASK-TL-001",
+      "title": "Trace 04:12 AM Kinetic Signal (Aug 20, 2021) to Irvine-Based Relay",
+      "category": "Makaveli Protocol",
+      "priority": "CRITICAL",
+      "status": "TODO",
+      "description": "Trace signal/handler to Irvine-based relay and correlate with incident timeline.",
+      "created_at": "2026-09-06T17:50:00.000000Z",
+      "tags": [
+        "Makaveli",
+        "KineticSignal",
+        "SignalTrace"
+      ],
+      "action_url": "extracted_tasklets/Antigravity_Resurrection_Protocol_makaveli.md"
+    },
+    {
+      "id": "TASK-TL-002",
+      "title": "Link $12M VAS Disbursement Timeline to Kinetic Strike Order",
+      "category": "Makaveli Protocol",
+      "priority": "CRITICAL",
+      "status": "TODO",
+      "description": "Cross-reference $12M Viet America Society funding release dates with kinetic action sequences and municipal votes.",
+      "created_at": "2026-09-06T17:50:00.000000Z",
+      "tags": [
+        "Makaveli",
+        "VAS",
+        "Disbursements"
+      ],
+      "action_url": "extracted_tasklets/Antigravity_Resurrection_Protocol_makaveli.md"
+    },
+    {
+      "id": "TASK-TL-003",
+      "title": "Human Attrition Index & Unaccounted Child Placements vs. Title IV-E Billing",
+      "category": "Makaveli Protocol",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Cross-reference mortality rates and unaccounted homeless child placements against Title IV-E federal billing peaks.",
+      "created_at": "2026-09-06T17:50:00.000000Z",
+      "tags": [
+        "Makaveli",
+        "HumanAttrition",
+        "TitleIV-E"
+      ],
+      "action_url": "extracted_tasklets/Antigravity_Resurrection_Protocol_makaveli.md"
+    },
+    {
+      "id": "TASK-TL-004",
+      "title": "EPA Title 22/Title 27 DTSC Land Use Covenant & Hazard Fraud Matrix",
+      "category": "Makaveli Protocol",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Finalize environmental fraud matrix regarding hexavalent chromium and arsenic capping at 17642 Beach Blvd / 17631 Cameron Ln.",
+      "created_at": "2026-09-06T17:50:00.000000Z",
+      "tags": [
+        "Makaveli",
+        "EPA",
+        "DTSC",
+        "GeoTracker"
+      ],
+      "action_url": "extracted_tasklets/Antigravity_Resurrection_Protocol_makaveli.md"
+    },
+    {
+      "id": "TASK-RICO-001",
+      "title": "Automated Cross-Correlation of Extracted Text Archives against BigQuery Graph",
+      "category": "Aegis-RICO Pipeline",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Correlate parsed JSON archives from bq_backup with national_audits.all_state_records and entity graphs.",
+      "created_at": "2026-09-06T17:50:00.000000Z",
+      "tags": [
+        "RICO",
+        "BigQuery",
+        "Correlation"
+      ],
+      "action_url": "core/new_program_scratch/task_list_pending.md"
+    },
+    {
+      "id": "TASK-RICO-002",
+      "title": "Dynamic Web Scanning & Fallback Handler for External Endpoints",
+      "category": "Aegis-RICO Pipeline",
+      "priority": "MEDIUM",
+      "status": "TODO",
+      "description": "Implement fail-safe non-blocking scanner for external URLs that logs deferred domains without stopping execution.",
+      "created_at": "2026-09-06T17:50:00.000000Z",
+      "tags": [
+        "RICO",
+        "FailSafe",
+        "Scanner"
+      ],
+      "action_url": "core/new_program_scratch/task_list_pending.md"
+    },
+    {
+      "id": "TASK-RICO-003",
+      "title": "Encrypted Archive & Certificate Credential Decryption Ledger",
+      "category": "Aegis-RICO Pipeline",
+      "priority": "MEDIUM",
+      "status": "TODO",
+      "description": "Maintain safe offline tracking ledger for encrypted archives, certificates, and passphrases without pipeline hangs.",
+      "created_at": "2026-09-06T17:50:00.000000Z",
+      "tags": [
+        "RICO",
+        "Credentials",
+        "Ledger"
+      ],
+      "action_url": "core/new_program_scratch/task_list_pending.md"
+    },
     {
       "id": "TASK-001",
       "title": "SCORE & California SBDC Free Mentor Onboarding",
       "category": "Venture & Grants",
       "priority": "HIGH",
       "status": "TODO",
-      "description": "Schedule initial 1-on-1 session with SCORE Orange County / SBDC for SBIR grant strategy review and pitch feedback.",
+      "description": "SCORE/SBDC prep docs/SCORE_SBDC_ONBOARDING_v1.md",
       "created_at": "2026-08-25T19:57:00Z",
       "tags": [
         "SCORE",
@@ -24,7 +260,7 @@
       "category": "Venture & Grants",
       "priority": "CRITICAL",
       "status": "IN_PROGRESS",
-      "description": "Draft non-dilutive dual-use intelligence & automated RegTech compliance proposal for NSF / DoD AFWERX topics.",
+      "description": "SBIR draft docs/SBIR_PHASE_I_DRAFT_v1.md",
       "created_at": "2026-08-25T19:57:00Z",
       "tags": [
         "SBIR",
@@ -138,7 +374,7 @@
       "category": "Enterprise & Commercial",
       "priority": "MEDIUM",
       "status": "TODO",
-      "description": "Package CEQA AB 52 compliance and corporate entity graphing as recurring ,500/mo subscription for environmental law firms.",
+      "description": "B2B pitch docs/B2B_SAAS_PITCH_v1.md",
       "created_at": "2026-08-25T19:57:00Z",
       "tags": [
         "B2B",
@@ -154,7 +390,7 @@
       "category": "Security & Supply Chain",
       "priority": "MEDIUM",
       "status": "TODO",
-      "description": "Configure build.gradle / pom.xml and GPG key signing to publish lightweight OsintNeoAi SDK client to Maven Central.",
+      "description": "Maven docs/MAVEN_CENTRAL_SDK_v1.md",
       "created_at": "2026-08-25T19:57:00Z",
       "tags": [
         "MavenCentral",
@@ -203,7 +439,7 @@
       "category": "Legal & Investigations",
       "priority": "HIGH",
       "status": "TODO",
-      "description": "Audit all pending coastal development permits along Huntington Beach Bolsa Chica wetlands.",
+      "description": "Coastal docs/COASTAL_COMMISSION_AUDIT_v1.md",
       "created_at": "2026-08-26T02:59:54.134276+00:00",
       "tags": [
         "Legal & Investigations"
@@ -229,7 +465,7 @@
       "category": "Core Infrastructure",
       "priority": "HIGH",
       "status": "TODO",
-      "description": "Leverage 1k Vision OCR units/mo, 60 min Speech-to-Text, 5k NLP units/mo, and Gemini AI Studio free API tier.",
+      "description": "GCP cli/gcp_free_ai_demo.py",
       "created_at": "2026-08-26T03:26:09.207078+00:00",
       "tags": [
         "Core Infrastructure"
@@ -242,7 +478,7 @@
       "category": "Legal & Investigations",
       "priority": "CRITICAL",
       "status": "TODO",
-      "description": "Map Google Cloud GenAI Blueprints #39 (Legal Document Extraction) and #41 (Anti-Fraud / Anti-Money Laundering Graph Engine) to OsintNeoAi.",
+      "description": "Blueprints docs/GENAI_BLUEPRINTS_39_41_v1.md",
       "created_at": "2026-08-26T03:28:19.243569+00:00",
       "tags": [
         "Legal & Investigations"
@@ -573,6 +809,160 @@
         "Legal & Investigations"
       ],
       "action_url": "https://osintneoai-app-949.azurewebsites.net/counterfeit-rx"
+    },
+    {
+      "id": "TASK-050",
+      "title": "Deploy BigQuery Vector Search & Semantic Embedding Pipeline (text-embedding-005)",
+      "description": "Constructed Vertex AI remote embedding model and VECTOR_SEARCH cosine similarity retrieval pipeline over national_audits.drive_file_index and onedrive_forensics on noble-beanbag-497411-m4.",
+      "status": "DONE",
+      "priority": "CRITICAL",
+      "category": "Enterprise Systems",
+      "tags": [
+        "BigQuery",
+        "Vector Search",
+        "ML"
+      ],
+      "created_at": "2026-08-27T07:38:06.146735+00:00",
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/syncfusion"
+    },
+    {
+      "id": "TASK-051",
+      "title": "Deploy TimesFM 2.5 Time-Series Anomaly Detection for PPP & Real Estate Syndicates",
+      "description": "Constructed AI.DETECT_ANOMALIES pipeline using TimesFM 2.5 over forensic_layers.ppp_loans to detect outlier loan distributions and fraudulent capital velocities across APN clusters.",
+      "status": "DONE",
+      "priority": "CRITICAL",
+      "category": "Data Science & Graph",
+      "tags": [
+        "BigQuery",
+        "Anomaly Detection",
+        "TimesFM"
+      ],
+      "created_at": "2026-08-27T07:38:06.146752+00:00",
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/syncfusion"
+    },
+    {
+      "id": "TASK-052",
+      "title": "Deploy BigQuery Automated Evidence Classification & Entity Extraction (gemini-2.5-flash)",
+      "description": "Deployed AI.CLASSIFY multi-label statutory categorization and structured entity extraction over OC court dockets and discovery records on noble-beanbag-497411-m4.",
+      "status": "DONE",
+      "priority": "CRITICAL",
+      "category": "Legal & Investigations",
+      "tags": [
+        "BigQuery",
+        "AI.CLASSIFY",
+        "Gemini"
+      ],
+      "created_at": "2026-08-27T07:38:06.146757+00:00",
+      "action_url": "https://osintneoai-app-949.azurewebsites.net/syncfusion"
+    },
+    {
+      "id": "TASK-053",
+      "title": "Google Threat Intelligence (GTI) & VirusTotal Auto-Hunt Pipeline in ledger_hunter.py",
+      "category": "Threat Intelligence",
+      "priority": "CRITICAL",
+      "status": "TODO",
+      "description": "Wire live GTI and VT threat intelligence API lookups into enrich_ti and auto-trigger background hunts on ledger save.",
+      "created_at": "2026-09-06T17:50:00.000000Z",
+      "tags": [
+        "GTI",
+        "VirusTotal",
+        "ThreatIntel",
+        "LedgerHunter"
+      ],
+      "action_url": "core/AG2OSINTNEOMAXX/ledger_hunter.py"
+    },
+    {
+      "id": "TASK-054",
+      "title": "Subterranean Vault & Infrastructure Cross-Correlation (Nodes TOX-003 / SINK-001)",
+      "category": "Forensic Investigations",
+      "priority": "HIGH",
+      "status": "IN_PROGRESS",
+      "description": "Synthesize 7561 Center Ave concrete vaults, GeoTracker Well CA3000618_001_001, and 17631 Cameron Lane OCHCA Case 20IC002.",
+      "created_at": "2026-09-06T17:50:00.000000Z",
+      "tags": [
+        "Forensics",
+        "Subterranean",
+        "GeoTracker",
+        "Dossier"
+      ],
+      "action_url": "evidence/CHEN_YAMADA_PPP_PIPELINE_DOSSIER.md"
+    },
+    {
+      "id": "TASK-055",
+      "title": "BigQuery National Audits Priority 3 & 4 Query Pipeline Automation",
+      "category": "Data Science & Graph",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Automate execution and artifact generation for Environmental-Financial Nexus and Individual Financial Fingerprinting (Che LLC, Mercy House, Viet America).",
+      "created_at": "2026-09-06T17:50:00.000000Z",
+      "tags": [
+        "BigQuery",
+        "Audits",
+        "FinancialFingerprint"
+      ],
+      "action_url": "agent/run_priority_queries_v2.py"
+    },
+    {
+      "id": "TASK-056",
+      "title": "Multi-Platform PowerShell Interpreter & Interactive Web Terminal",
+      "category": "Core Infrastructure",
+      "priority": "MEDIUM",
+      "status": "TODO",
+      "description": "Deliver smart pwsh_fallback.py interpreter for PowerShell cmdlet emulation in Linux containers and enhanced terminal.html UI.",
+      "created_at": "2026-09-06T17:50:00.000000Z",
+      "tags": [
+        "Terminal",
+        "PowerShell",
+        "Emulation"
+      ],
+      "action_url": "terminal.html"
+    },
+    {
+      "id": "TASK-057",
+      "title": "Neural OCR & Timeline Ingestion for Shared Photos Albums & Takeout Data",
+      "category": "Personal Timeline & Evidence",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Complete full OCR transcription of shared albums (W6cAZwiDkZQtkMKr7, oHVp9WKkEdMpupYN6, a74G5sEDR54YwTiF7) and compile master personal timeline evidence.",
+      "created_at": "2026-09-06T17:50:00.000000Z",
+      "tags": [
+        "OCR",
+        "GooglePhotos",
+        "Timeline",
+        "Evidence"
+      ],
+      "action_url": "data/personal_timeline_evidence.json"
+    },
+    {
+      "id": "TASK-058",
+      "title": "Dual-Location Continuous Backup Protocol Enforcement (GitHub + Sharedall GDrive)",
+      "category": "DevOps & Cloud",
+      "priority": "CRITICAL",
+      "status": "IN_PROGRESS",
+      "description": "Enforce 2-location backup protocol (GitHub main branch + Sharedall Google Drive via rclone) with local 3GB backup disabled per 2026-09-06 owner rule.",
+      "created_at": "2026-09-06T17:50:00.000000Z",
+      "tags": [
+        "Backup",
+        "GitHub",
+        "GDrive",
+        "Rclone"
+      ],
+      "action_url": "AGENTS.md"
+    },
+    {
+      "id": "TASK-059",
+      "title": "Master Identity Graph & 31 Target Accounts Cross-Reference Engine",
+      "category": "OSINT & Identity",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Cross-reference authoritative registry of 31 target accounts against all BigQuery tables and master chat indices.",
+      "created_at": "2026-09-06T17:50:00.000000Z",
+      "tags": [
+        "TargetAccounts",
+        "IdentityGraph",
+        "CrossReference"
+      ],
+      "action_url": "agent/target_accounts_master.json"
     }
   ]
 }
