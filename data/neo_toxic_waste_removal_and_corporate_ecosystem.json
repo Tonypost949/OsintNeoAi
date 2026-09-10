@@ -1,0 +1,88 @@
+{
+  "agent": "NEO",
+  "subsystem": "TOXIC_WASTE_REMOVAL_LEGAL_AND_CORPORATE_RADAR",
+  "version": "1.0.0-PRO",
+  "generated_at": "2026-09-10T05:20:49Z",
+  "environmental_laws": [
+    {
+      "name": "CERCLA / Superfund (42 U.S.C. ? 9601 et seq.)",
+      "authority": "Federal EPA",
+      "legal_power": "Joint, Several, and Strict Liability for Potentially Responsible Parties (PRPs), mandatory National Priorities List (NPL) site cleanup, and public health risk assessments."
+    },
+    {
+      "name": "RCRA (Resource Conservation and Recovery Act, 42 U.S.C. ? 6901)",
+      "authority": "Federal EPA / State DTSC",
+      "legal_power": "Cradle-to-Grave tracking of hazardous waste generation, transport manifests, treatment, storage, and disposal (TSDF)."
+    },
+    {
+      "name": "California Carpenter-Presley-Tanner Hazardous Substance Account Act (HSAA, Cal. Health & Safety Code ? 25300 et seq.)",
+      "authority": "California DTSC",
+      "legal_power": "State-level Superfund enforcement, mandatory remedial action plans (RAPs), cost recovery, and land deed environmental restrictions (institutional controls)."
+    },
+    {
+      "name": "Porter-Cologne Water Quality Control Act (Cal. Water Code ? 13000 et seq.)",
+      "authority": "California Regional Water Quality Control Boards (RWQCB)",
+      "legal_power": "Cleanup and Abatement Orders (CAOs), Waste Discharge Requirements (WDRs), and regulation of produced water, sumps, and aquifer recharge protection."
+    },
+    {
+      "name": "CEQA Mandatory Environmental Impact Reports (EIRs, Cal. Pub. Res. Code ? 21000 et seq.)",
+      "authority": "Lead Municipal / County Agencies",
+      "legal_power": "Requires disclosure of known hazardous materials sites under Government Code ? 65962.5 (Cortese List) prior to development or rezoning approval."
+    }
+  ],
+  "corporate_actors": [
+    {
+      "company_name": "Clean Harbors / Safety-Kleen",
+      "role": "Hazardous Waste Hauling, Incineration, Chemical Treatment & TSDF Operation",
+      "key_operations": "Operates major hazardous waste Class I landfills (e.g., Buttonwillow, Westmorland) receiving toxic excavation soils from coastal redevelopment sites."
+    },
+    {
+      "company_name": "Republic Services / Waste Management (WM)",
+      "role": "Industrial Landfill Operation & Remediation Soil Disposal",
+      "key_operations": "Historical operators of municipal and industrial waste disposal sites in Southern California (including former Republic disposal pits)."
+    },
+    {
+      "company_name": "AECOM / Jacobs Engineering / Tetra Tech / Geosyntec Consultants",
+      "role": "Environmental Engineering, Remedial Investigation/Feasibility Study (RI/FS), Soil Vapor Mitigation",
+      "key_operations": "Contracted by municipal agencies, oil companies, and developers to perform Phase I/II Environmental Site Assessments, pump-and-treat systems, slurry walls, and remediation certification."
+    },
+    {
+      "company_name": "Cannery Oceanic & Oilfield PRP Groups (Shell, Chevron, ExxonMobil, ConocoPhillips)",
+      "role": "Historical Polluters & Superfund Responsible Party Consortia",
+      "key_operations": "Legacy petroleum extraction, produced water discharge sumps, styrene and drilling mud pit operations subject to DTSC consent decrees."
+    }
+  ],
+  "gis_data_footprint": [
+    {
+      "dataset_name": "DTSC EnviroStor Cleanup Sites (Statewide & Local)",
+      "gis_availability": "ONLINE REST FEATURESERVER",
+      "gis_endpoint": "https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/DTSC_Cleanup_Sites/FeatureServer/0",
+      "what_it_maps": "Exact polygon boundaries of Superfund sites (Ascon Landfill), voluntary cleanups, corrective actions, contaminants of concern (VOCs, Lead, Benzene, PCBs), cleanup progress, and deed restriction covenants."
+    },
+    {
+      "dataset_name": "SWRCB GeoTracker (Groundwater Cleanup & Waste Discharge)",
+      "gis_availability": "ONLINE REST FEATURESERVER",
+      "gis_endpoint": "https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/GeoTracker_Sites/FeatureServer/0",
+      "what_it_maps": "Leaking Underground Storage Tanks (LUST), Landfills, Land Disposal Sites, Oilfield Produced Water Sumps, and monitoring well contamination test points."
+    },
+    {
+      "dataset_name": "CalEPA Cortese List (Gov Code ? 65962.5 Registry)",
+      "gis_availability": "SPATIAL REGISTRY & PUBLIC DATA",
+      "what_it_maps": "Consolidated mandatory disclosure list for local governments prior to issuing development permits. Properties on this list cannot use CEQA categorical exemptions."
+    },
+    {
+      "dataset_name": "City of Huntington Beach Municipal GIS (Parcels, Stormwater BMPs, Utilities)",
+      "gis_availability": "MUNICIPAL REST SERVICES (MapServer)",
+      "what_it_maps": "Stormwater BMP treatment locations (StormwaterBMPs), city sewer/storm lines (SewerLayers, StormLayers), and parcel zoning (Planning). However, explicit toxic plume outlines and private remediation manifests are typically omitted from public-facing city maps to prevent real estate devaluation."
+    }
+  ],
+  "fca_arbitrage_nexus": {
+    "mechanism": "The Toxic Remediation & Property Flipping Arbitrage Loop",
+    "steps": [
+      "1. Concealment: City & private developers obtain Phase II ESA reports showing severe VOC/heavy metal plumes but do not record deed restrictions immediately.",
+      "2. Acquisition at Depressed Cost: Connected entities buy distressed/blighted property at 70-80% discount citing \"environmental uncertainty\".",
+      "3. Public Subsidy Cleanup: Entities obtain state/federal Brownfields grants or municipal infrastructure funds to pay remediation contractors (Clean Harbors/Tetra Tech).",
+      "4. Reclassification & Rezoning: Once public funds clean the upper soil layer, the city re-zones the tract to high-density luxury residential/commercial, creating massive unearned equity."
+    ]
+  }
+}
