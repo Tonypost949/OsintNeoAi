@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSINT NEO — User Workspace</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: rgba(22, 27, 34, 0.85);
+    --border: rgba(255, 255, 255, 0.1);
+    --accent: #58a6ff;
+    --text: #c9d1d9;
+    --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body.theme-plaid {
+    --bg: repeating-linear-gradient(45deg, #1b1b1b, #1b1b1b 20px, #b22222 20px, #b22222 40px);
+    --card: rgba(20, 20, 20, 0.92);
+    --accent: #ffcc00;
+    --font: 'Impact', 'Comic Sans MS', sans-serif;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Top-Left Acrylic Command Arrow */
+  #top-menu-btn {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 14px;
+    color: var(--text);
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 14px;
+    transition: all 0.2s ease;
+  }
+  #top-menu-btn:hover {
+    background: rgba(255, 255, 255, 0.16);
+  }
+
+  #dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 55px;
+    left: 20px;
+    background: rgba(22, 27, 34, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    width: 220px;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+
+  #dropdown-menu div {
+    padding: 10px 16px;
+    font-size: 13px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s ease;
+  }
+  #dropdown-menu div:hover { background: rgba(255, 255, 255, 0.1); }
+
+  /* Main Canvas */
+  #workspace-canvas {
+    flex: 1;
+    padding: 70px 40px 140px 40px;
+    overflow-y: auto;
+    display: flex;
+    gap: 20px;
+  }
+
+  .pane {
+    flex: 1;
+    background: var(--card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .wiki-header {
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .badge {
+    background: #d9383a;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+
+  .badge.investigator {
+    background: #238636;
+  }
+
+  /* Floating Bottom Acrylic Chat Box */
+  #floating-chat-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65%;
+    min-height: 80px;
+    background: rgba(22, 27, 34, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 14px 18px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+    z-index: 999;
+    resize: vertical;
+    overflow: hidden;
+  }
+
+  #chat-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    resize: none;
+    font-family: inherit;
+    line-height: 1.4;
+  }
+
+  #chat-input::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .code-block {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 12px;
+    margin: 10px 0;
+    color: #58a6ff;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Top-Left Transparent Command Menu -->
+  <button id="top-menu-btn" onclick="toggleMenu()">▼ Menu</button>
+  <div id="dropdown-menu">
+    <div>📄 File / New Dossier</div>
+    <div>✏️ Edit Properties</div>
+    <div onclick="switchView('newspaper')">📰 Franchise Newspaper Node</div>
+    <div onclick="switchView('sandbox')">🧪 Newspaper Two (Sandbox)</div>
+    <div onclick="toggleTheme()">🎨 Theme: Switch (Plaid-a-puss Rex)</div>
+  </div>
+
+  <!-- Main Dynamic Canvas -->
+  <div id="workspace-canvas">
+    <!-- Wikipedia Auto-Generated Ledger Page -->
+    <div id="wiki-pane" class="pane">
+      <div class="wiki-header">
+        <h2 id="wiki-title" style="margin:0;">Dynamic Wiki Dossier</h2>
+        <span id="victim-tag" class="badge">STATUS: PENDING</span>
+      </div>
+      <div id="ledger-meta" class="code-block"></div>
+      <p id="wiki-content" style="line-height: 1.6;">Awaiting initial testimony...</p>
+    </div>
+
+    <!-- Newspaper Franchise Node -->
+    <div id="newspaper-pane" class="pane">
+      <div class="wiki-header">
+        <h2 style="margin:0;">Franchise Newspaper Node</h2>
+        <button onclick="togglePublish()" id="pub-btn" style="background:#238636;color:white;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;font-weight:bold;">DIAL: PRIVATE</button>
+      </div>
+      <h3 id="news-headline" style="color:var(--accent);">Draft Pending</h3>
+      <p id="news-lede" style="font-style: italic; color: #8b949e;"></p>
+      <div id="news-body" style="line-height: 1.6; white-space: pre-wrap;"></div>
+    </div>
+  </div>
+
+  <!-- Persistent Floating Acrylic Chat Box -->
+  <div id="floating-chat-container">
+    <textarea id="chat-input" rows="2" placeholder="Tell your story... Who hurt you? (Press Enter to Lock on Ledger)"></textarea>
+  </div>
+
+<script>
+  function toggleMenu() {
+    const m = document.getElementById('dropdown-menu');
+    m.style.display = m.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function toggleTheme() {
+    document.body.classList.toggle('theme-plaid');
+    toggleMenu();
+  }
+
+  function switchView(type) {
+    toggleMenu();
+    if (type === 'newspaper') {
+      document.getElementById('newspaper-pane').style.display = 'block';
+    } else if (type === 'sandbox') {
+      alert("Sandbox Node Initialized (Isolated State)");
+    }
+  }
+
+  let isPublic = false;
+  function togglePublish() {
+    isPublic = !isPublic;
+    const btn = document.getElementById('pub-btn');
+    btn.innerText = isPublic ? 'DIAL: PUBLIC (LIVE)' : 'DIAL: PRIVATE';
+    btn.style.background = isPublic ? '#d9383a' : '#238636';
+  }
+
+  async function callIngestApi(text) {
+    const endpoints = [
+      '/api/genesis/ingest',
+      'http://localhost:5000/api/genesis/ingest',
+      'http://127.0.0.1:5000/api/genesis/ingest',
+      'http://127.0.0.1:5052/api/genesis/ingest',
+      'http://127.0.0.1:8080/api/genesis/ingest'
+    ];
+
+    for (const ep of endpoints) {
+      try {
+        const res = await fetch(ep, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ text: text })
+        });
+        if (res.ok) {
+          return await res.json();
+        }
+      } catch (e) {
+        // try next endpoint
+      }
+    }
+    throw new Error("Could not reach ingestion API backend.");
+  }
+
+  document.getElementById('chat-input').addEventListener('keydown', async function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      const text = this.value.trim();
+      if (!text) return;
+
+      this.value = "Ingesting and hashing testimony to ledger...";
+
+      try {
+        const data = await callIngestApi(text);
+
+        // Reveal panes dramatically
+        document.getElementById('wiki-pane').style.display = 'block';
+        document.getElementById('newspaper-pane').style.display = 'block';
+
+        // Populate Wiki Page
+        document.getElementById('wiki-title').innerText = data.wiki_page.title;
+        const tag = document.getElementById('victim-tag');
+        tag.innerText = "STATUS: " + data.ledger.status;
+        tag.className = "badge " + (data.ledger.status === 'VICTIM' ? '' : 'investigator');
+
+        document.getElementById('ledger-meta').innerText = `SHA-256: ${data.ledger.sha256_hash}\nChain: APPEND-ONLY | Custody: INITIALIZED | Entity: ${data.ledger.target_entity}`;
+        document.getElementById('wiki-content').innerText = data.wiki_page.summary;
+
+        // Populate Newspaper
+        document.getElementById('news-headline').innerText = data.newspaper_draft.headline;
+        document.getElementById('news-lede').innerText = data.newspaper_draft.lede;
+        document.getElementById('news-body').innerText = data.newspaper_draft.body;
+
+        this.value = "";
+        this.placeholder = "Add corroboration or file details to enrich ledger...";
+      } catch (err) {
+        alert("API ingestion error. Ensure backend is running (python api/main.py).");
+        this.value = text;
+      }
+    }
+  });
+</script>
+</body>
+</html>

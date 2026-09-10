@@ -1,9 +1,10 @@
-import json, os, sys, io, csv, uuid, re, subprocess, logging
+import json, os, sys, io, csv, uuid, re, subprocess, logging, hashlib, time
 from datetime import datetime, timezone
 from pathlib import Path
-from flask import Flask, jsonify, request, send_from_directory
+from flask import Flask, jsonify, request, send_from_directory, send_file
 
 sys.path.insert(0, str(Path(__file__).parent / "osint_pipeline"))
+sys.path.insert(0, str(Path(__file__).parent))
 
 app = Flask(__name__, static_folder=None)
 START_TIME = datetime.now(timezone.utc)
@@ -645,6 +646,85 @@ def ledger_list():
         return jsonify({"assets": rows, "total": len(rows)})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+# ── Genesis Ingestion Engine (Vibe-Coding Route) ─────────────────
+def determine_genesis_type(text: str):
+    bio_patterns = [r"^my name is", r"^i am", r"^i'm", r"^me,?\s+"]
+    first_phrase = text.strip().lower()[:40]
+    for pattern in bio_patterns:
+        if re.search(pattern, first_phrase):
+            return "BIO"
+    return "ENTITY"
+
+@app.route("/api/genesis/ingest", methods=["POST", "OPTIONS"])
+def genesis_ingest():
+    if request.method == "OPTIONS":
+        res = jsonify({"status": "ok"})
+        res.headers.add("Access-Control-Allow-Origin", "*")
+        res.headers.add("Access-Control-Allow-Headers", "*")
+        res.headers.add("Access-Control-Allow-Methods", "POST, OPTIONS")
+        return res
+
+    data = request.get_json() or {}
+    raw_text = data.get("text", "").strip()
+    user_wallet = data.get("wallet", "0xANON_LEDGER_KEY")
+    theme = data.get("theme", "dark")
+
+    if not raw_text:
+        return jsonify({"error": "No statement provided"}), 400
+
+    # 1. Zero-Trust SHA-256 Integrity Hash
+    timestamp = int(time.time())
+    sha256_hash = hashlib.sha256(f"{raw_text}:{timestamp}:{user_wallet}".encode()).hexdigest()
+
+    # 2. Hardcoded Attribution Logic
+    harm_keywords = ["evict", "attack", "stolen", "hurt", "fraud", "kicked out", "threat", "harass", "damage", "corrupt"]
+    is_victim = any(w in raw_text.lower() for w in harm_keywords)
+    attribute_status = "VICTIM" if is_victim else "INVESTIGATOR"
+
+    # 3. Dynamic Root Page Selection
+    page_type = determine_genesis_type(raw_text)
+    
+    # Extract likely entity or target
+    words = raw_text.split()
+    target_entity = "Woodbridge Apartments" if "woodbridge" in raw_text.lower() else (words[0] if words else "Unknown Entity")
+
+    # 4. Generate Initial Wiki Ledger & Franchise Newspaper Draft
+    genesis_payload = {
+        "ledger": {
+            "sha256_hash": sha256_hash,
+            "timestamp": timestamp,
+            "chain_of_custody": "INITIALIZED_APPEND_ONLY",
+            "wallet": user_wallet,
+            "status": attribute_status,
+            "genesis_page_type": page_type,
+            "target_entity": target_entity
+        },
+        "wiki_page": {
+            "title": "Anthony U. (Dossier)" if page_type == "BIO" else f"{target_entity} (Forensic Wiki)",
+            "verification_status": "UNVERIFIED_SHADOW_CLONE",
+            "ledger_value": "$0.00 (Unbacked Claims)",
+            "summary": raw_text,
+            "compliance_rules": ["CA_CIVIL_CODE_1946_2", "AB_1482", "MALTEGO_STRIPPED_NODES"]
+        },
+        "newspaper_draft": {
+            "publication_status": "PRIVATE",
+            "headline": f"Special Report: Allegations Leveled Against {target_entity}",
+            "lede": f"An unverified forensic report was entered into the OSINT ledger on {time.ctime(timestamp)} documenting disputed actions involving {target_entity}...",
+            "body": raw_text
+        }
+    }
+
+    res = jsonify(genesis_payload)
+    res.headers.add("Access-Control-Allow-Origin", "*")
+    return res
+
+@app.route("/workspace")
+def workspace_view():
+    workspace_path = Path(__file__).parent.parent / "public" / "workspace.html"
+    if workspace_path.exists():
+        return send_file(str(workspace_path))
+    return jsonify({"error": "workspace.html not found"}), 404
 
 # ── Status ─────────────────────────────────────────────────────
 @app.route("/")
