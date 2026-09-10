@@ -1,0 +1,179 @@
+{
+  "agent": "NEO",
+  "subsystem": "MUNICIPAL_TEMPLATE_URL_INTELLIGENCE_CORE",
+  "municipality": "City of Huntington Beach, CA",
+  "ingested_at": "2026-09-10T05:43:42Z",
+  "total_unique_urls": 82757,
+  "breakdown_by_forensic_domain": {
+    "GIS_AND_SPATIAL_SERVICES": 18,
+    "PLANNING_ZONING_DEVELOPMENT": 10615,
+    "COUNCIL_AGENDAS_MINUTES": 3472,
+    "FINANCIAL_BUDGET_CONTRACTS": 1991,
+    "POLICE_FIRE_PUBLIC_SAFETY": 3713,
+    "PUBLIC_WORKS_UTILITIES": 953,
+    "LEGAL_LITIGATION_CLAIMS": 288,
+    "HOUSING_DISADVANTAGE_COMMUNITY": 590,
+    "DOCUMENTS_AND_PDFS": 11062,
+    "GENERAL_MUNICIPAL": 50055
+  },
+  "top_domains": [
+    [
+      "www.huntingtonbeachca.gov",
+      62576
+    ],
+    [
+      "huntingtonbeachca.gov",
+      16972
+    ],
+    [
+      "www.huntingtonbeachca.gov:80",
+      2945
+    ],
+    [
+      "www3.huntingtonbeachca.gov",
+      125
+    ],
+    [
+      "huntingtonbeachca.gov:80",
+      115
+    ],
+    [
+      "www3.huntingtonbeachca.gov:80",
+      24
+    ]
+  ],
+  "top_file_extensions": [
+    [
+      "cfm",
+      36057
+    ],
+    [
+      "pdf",
+      25779
+    ],
+    [
+      "jpg",
+      9084
+    ],
+    [
+      "png",
+      1825
+    ],
+    [
+      "php",
+      1432
+    ],
+    [
+      "gif",
+      594
+    ],
+    [
+      "js",
+      454
+    ],
+    [
+      "css",
+      234
+    ],
+    [
+      "swf",
+      227
+    ],
+    [
+      "start",
+      203
+    ],
+    [
+      "doc",
+      60
+    ],
+    [
+      "jpeg",
+      49
+    ],
+    [
+      "aspx",
+      45
+    ],
+    [
+      "axd",
+      43
+    ],
+    [
+      "ico",
+      42
+    ]
+  ],
+  "sample_critical_targets": {
+    "GIS_AND_SPATIAL_SERVICES": [
+      "https://huntingtonbeachca.gov/bus-directory/Government/City%20Council/Previous%20City%20Mayors/gisler-ernest-24-sm.jpg",
+      "https://www.huntingtonbeachca.gov/bus-directory/Government/City%20Council/Previous%20City%20Mayors/gisler-ernest-24-sm.jpg?t=202404051230000",
+      "https://www.huntingtonbeachca.gov/government/city_council/bus-directory/Government/City%20Council/Previous%20City%20Mayors/gisler-ernest-24-sm.jpg",
+      "http://www.huntingtonbeachca.gov:80/government/departments/Information_Services/gis-customer-support.cfm",
+      "http://huntingtonbeachca.gov/government/departments/Information_Services/gis-customer-support.cfm?pc=true"
+    ],
+    "PLANNING_ZONING_DEVELOPMENT": [
+      "http://www.huntingtonbeachca.gov/%20Government/Departments/Planning/Environmentalreports.cfm",
+      "https://huntingtonbeachca.gov/00_Final%20EIR_OCR.pdf",
+      "https://www.huntingtonbeachca.gov/00_Final%20EIR_OCR.pdf?t=202508071952040",
+      "https://www.huntingtonbeachca.gov/2021-2029-Housing-Element-Update-Final-Subsequent-Environmental-Impact-Report-Mitigation-Monitoring-and-Reporting-Program.pdf",
+      "https://huntingtonbeachca.gov/2021-2029-Housing-Element-Update-Final-Subsequent-Environmental-Impact-Report-Mitigation-Monitoring-and-Reporting-Program.pdf?t=202404051223050"
+    ],
+    "COUNCIL_AGENDAS_MINUTES": [
+      "https://huntingtonbeachca.gov/012225%20-%20Special%20Meeting%20-%20E.pdf",
+      "https://huntingtonbeachca.gov/012225%20-%20Special%20Meeting%20-%20E.pdf?t=202412271243230",
+      "https://huntingtonbeachca.gov/agendas",
+      "https://www.huntingtonbeachca.gov/announcements/attachments/09.01.20_CommunityMeetingWebinar.pdf",
+      "http://www.huntingtonbeachca.gov/announcements/attachments/9.29.14%20Master%20Plan%20Meeting%20flier%20draft%202_Page_1.jpg"
+    ],
+    "FINANCIAL_BUDGET_CONTRACTS": [
+      "https://huntingtonbeachca.gov/announcements/attachments/21-Main-Street-RFP-Questions-Answers-HB-Final.pdf",
+      "http://huntingtonbeachca.gov/announcements/attachments/City%20Treasurer%20Application%20Flyer%204.pdf",
+      "http://www.huntingtonbeachca.gov/announcements/attachments/Final%20Finance%20Dept%20%20AAA%20Rating%2010.1.14.pdf",
+      "http://huntingtonbeachca.gov/announcements/images/City%20Treasurer%20Alisa%20Cutchen.JPG",
+      "https://www.huntingtonbeachca.gov/announcements/images/Meet%20the%20Mayor%20-%20Trivia%20Budget.jpg"
+    ],
+    "POLICE_FIRE_PUBLIC_SAFETY": [
+      "https://www.huntingtonbeachca.gov/about/maps/tsunami-evacuation-map.pdf31HBPD",
+      "https://www.huntingtonbeachca.gov/about/maps/tsunami-evacuation-map.pdf31HBPD.Beat",
+      "http://www.huntingtonbeachca.gov/announcements/attachments/1All%20Fireworks%20are%20Illegal%20in%20(2)%20(2).jpg",
+      "http://www.huntingtonbeachca.gov/announcements/attachments/2014%20-%2008%20Blood%20Drive%20HBPD%20(2).pdf",
+      "http://www.huntingtonbeachca.gov/announcements/attachments/2015_Fireworks_Stand_educational_handout.pdf"
+    ],
+    "PUBLIC_WORKS_UTILITIES": [
+      "https://www.huntingtonbeachca.gov/11-22-22%2017th%20St.%20and%20Main%20St.%20broken%20waterline%20(2",
+      "https://www.huntingtonbeachca.gov/11-22-22%2017th%20St.%20and%20Main%20St.%20broken%20waterline%20(2)%20(1).jpeg",
+      "https://www.huntingtonbeachca.gov/11-22-22%2017th%20St.%20and%20Main%20St.%20broken%20waterline%20(2)%20(1).jpeg?t=202405221123420",
+      "https://www.huntingtonbeachca.gov/2019dwqr/2019-water-quality-report.pdf",
+      "https://www.huntingtonbeachca.gov/2020dwqr/2020-water-quality-report.pdf"
+    ],
+    "LEGAL_LITIGATION_CLAIMS": [
+      "https://www.huntingtonbeachca.gov/announcements/images/PANELISTS_%20Mike%20Posey%20-%20Huntington%20Beach%20City%20Council%20Member%20Brian%20Probolsky%20%E2%80%93%20CEO,%20Orange%20County%20Power%20Authority%20Ryan%20Baron%20%E2%80%93%20Attorney,%20Best,%20Best%20&%20Krieger%20Gary%20Saleba%20%E2%80%93%20President,%20EES%20Consultants1.png",
+      "https://huntingtonbeachca.gov/Documents/Departments/Human%20Resources/Benefits/General%20Information/HR%20Forms%20for%20Changes/Long%20Term%20Disability%20Claim%20Packet.pdf",
+      "https://huntingtonbeachca.gov/Documents/Departments/Human%20Resources/Benefits/General%20Information/HR%20Forms%20for%20Changes/Long%20Term%20Disability%20Claim%20Packet.pdf?t=202404051228300",
+      "https://www.huntingtonbeachca.gov/Documents/Departments/Human%20Resources/Benefits/General%20Information/HR%20Forms%20for%20Changes/Workterra%20Health%20&%20Dependent%20Care%20Claim%20Form.pdf",
+      "https://huntingtonbeachca.gov/Documents/Departments/Human%20Resources/Benefits/General%20Information/HR%20Forms%20for%20Changes/Workterra%20Health%20&%20Dependent%20Care%20Claim%20Form.pdf?t=202404051228300"
+    ],
+    "HOUSING_DISADVANTAGE_COMMUNITY": [
+      "http://www.huntingtonbeachca.gov:80/about/housing/",
+      "http://www.huntingtonbeachca.gov/About/housing/image=/images/menu_03.gif;overimage=/images/menu_over_03.gif;pageimage=/images/menu_over_03.gif;url=/",
+      "http://www.huntingtonbeachca.gov/About/housing/image=/images/menu_04.gif;overimage=/images/menu_over_04.gif;pageimage=/images/menu_over_04.gif;showmenu=About;url=/about/",
+      "http://www.huntingtonbeachca.gov/About/housing/image=/images/menu_05.gif;overimage=/images/menu_over_05.gif;pageimage=/images/menu_over_05.gif;showmenu=Residents;url=/residents/",
+      "http://www.huntingtonbeachca.gov/About/housing/image=/images/menu_06.gif;overimage=/images/menu_over_06.gif;pageimage=/images/menu_over_06.gif;showmenu=Visitors;url=/visitors/"
+    ],
+    "DOCUMENTS_AND_PDFS": [
+      "https://huntingtonbeachca.gov/020525%20-%20E.pdf",
+      "https://huntingtonbeachca.gov/020525%20-%20E.pdf?t=202501141108450",
+      "https://huntingtonbeachca.gov/02112025.pdf",
+      "https://huntingtonbeachca.gov/02112025.pdf?t=202502042108540",
+      "https://huntingtonbeachca.gov/030525%20.pdf"
+    ],
+    "GENERAL_MUNICIPAL": [
+      "http://www.huntingtonbeachca.gov:80/",
+      "http://www.huntingtonbeachca.gov/%0A",
+      "https://www.huntingtonbeachca.gov/%23main",
+      "https://huntingtonbeachca.gov/%C2%A0%C2%A0%C2%A0",
+      "https://huntingtonbeachca.gov/%C2%A0%C2%A0%C2%A02"
+    ]
+  }
+}
