@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-07T01:30:30.136684+00:00",
-  "total": 66,
-  "open": 0,
-  "done": 66,
+  "updated_at": "2026-09-07T11:46:48.256655+00:00",
+  "total": 84,
+  "open": 13,
+  "done": 71,
   "tasks": [
     {
       "id": "TASK-VSDE-001",
@@ -1008,6 +1008,240 @@
       "action_url": "agent/target_accounts_master.json",
       "notes": "Mapped 31 target accounts across all BigQuery datasets and chat archives.",
       "completed_at": "2026-09-07T01:30:30.113485+00:00"
+    },
+    {
+      "id": "TASK-067",
+      "title": "Build OSINT Evidence Collector Chrome Extension (based on tab-copy)",
+      "category": "Core Infrastructure, Threat Intel & AI Blueprints",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Fork/adapt the tab-copy Manifest V3 extension to capture URLs, titles, and timestamps for 1-click JSON payloads to the evasive OSINT endpoint.",
+      "created_at": "2026-09-07T05:53:20.941486+00:00",
+      "tags": [
+        "Core Infrastructure, Threat Intel & AI Blueprints"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-068",
+      "title": "Analyze Extracted OSINT:  https://unclaimedproperty.ocgov.com/target=AndrewD",
+      "category": "SUGGESTIVE_WORK_TASKS",
+      "priority": "MEDIUM",
+      "status": "TODO",
+      "description": "Analyze Extracted OSINT:  https://unclaimedproperty.ocgov.com/target=AndrewD",
+      "created_at": "2026-09-07T06:44:59.098093+00:00",
+      "tags": [
+        "SUGGESTIVE_WORK_TASKS"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-069",
+      "title": "Index Core Architecture Documents: Dual-Ledger OSINT Exchange",
+      "category": "SUGGESTIVE_WORK",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Index Core Architecture Documents: Dual-Ledger OSINT Exchange",
+      "created_at": "2026-09-07T08:29:18.503431+00:00",
+      "tags": [
+        "SUGGESTIVE_WORK"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-070",
+      "title": "Build Autonomous Task Worker for Suggestive Queue",
+      "category": "SUGGESTIVE_WORK",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Build Autonomous Task Worker for Suggestive Queue",
+      "created_at": "2026-09-07T08:39:36.027704+00:00",
+      "tags": [
+        "SUGGESTIVE_WORK"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-071",
+      "title": "Inject Huntington Beach Evidence into BigQuery FCA Timeline",
+      "category": "SUGGESTIVE_WORK",
+      "priority": "MEDIUM",
+      "status": "TODO",
+      "description": "Inject Huntington Beach Evidence into BigQuery FCA Timeline",
+      "created_at": "2026-09-07T08:39:41.269992+00:00",
+      "tags": [
+        "SUGGESTIVE_WORK"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-072",
+      "title": "Build NWORICO Daily Cross-Reference Graph Scrub Job",
+      "category": "SUGGESTIVE_WORK",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Build NWORICO Daily Cross-Reference Graph Scrub Job",
+      "created_at": "2026-09-07T08:48:43.793815+00:00",
+      "tags": [
+        "SUGGESTIVE_WORK"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-073",
+      "title": "Update BigQuery Schema to use ARRAY<STRING> for UTXO Domain Tags",
+      "category": "SUGGESTIVE_WORK",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Update BigQuery Schema to use ARRAY<STRING> for UTXO Domain Tags",
+      "created_at": "2026-09-07T08:52:57.714033+00:00",
+      "tags": [
+        "SUGGESTIVE_WORK"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-074",
+      "title": "Build AI Extraction Module for Dynamic Legal Precedent & Statutory Citation Indexing",
+      "category": "SUGGESTIVE_WORK",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Build AI Extraction Module for Dynamic Legal Precedent & Statutory Citation Indexing",
+      "created_at": "2026-09-07T09:25:49.668196+00:00",
+      "tags": [
+        "SUGGESTIVE_WORK"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-075",
+      "title": "Build Sortable Data Grid UI for Legal Section and Defect Alert System",
+      "category": "SUGGESTIVE_WORK",
+      "priority": "MEDIUM",
+      "status": "TODO",
+      "description": "Build Sortable Data Grid UI for Legal Section and Defect Alert System",
+      "created_at": "2026-09-07T09:41:16.181460+00:00",
+      "tags": [
+        "SUGGESTIVE_WORK"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-076",
+      "title": "Integrate free public grant APIs (USASpending, CA Grants Portal) for automated TaxFunded ingestion",
+      "category": "SUGGESTIVE_WORK",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Integrate free public grant APIs (USASpending, CA Grants Portal) for automated TaxFunded ingestion",
+      "created_at": "2026-09-07T09:58:54.010486+00:00",
+      "tags": [
+        "SUGGESTIVE_WORK"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-077",
+      "title": "Implement Append-Only (Event Sourcing) Database Logic for Metadata to prevent Pointer Corruption",
+      "category": "BACKEND",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Implement Append-Only (Event Sourcing) Database Logic for Metadata to prevent Pointer Corruption",
+      "created_at": "2026-09-07T10:22:35.802303+00:00",
+      "tags": [
+        "BACKEND"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-078",
+      "title": "Build Human-in-the-Loop Contestation System (Convert Meta Comments into Review Tasks)",
+      "category": "WORKFLOW",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "Build Human-in-the-Loop Contestation System (Convert Meta Comments into Review Tasks)",
+      "created_at": "2026-09-07T10:22:41.745812+00:00",
+      "tags": [
+        "WORKFLOW"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-079",
+      "title": "Build Rate-Limiting and Bulk Caching Queue for ProPublica/Data.gov Free APIs",
+      "category": "BACKEND",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Build Rate-Limiting and Bulk Caching Queue for ProPublica/Data.gov Free APIs",
+      "created_at": "2026-09-07T10:22:47.478139+00:00",
+      "tags": [
+        "BACKEND"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-080",
+      "title": "Create Automated Bounty Generation for Broken Legal Links (Defect Loop)",
+      "category": "SUGGESTIVE_WORK",
+      "priority": "MEDIUM",
+      "status": "TODO",
+      "description": "Create Automated Bounty Generation for Broken Legal Links (Defect Loop)",
+      "created_at": "2026-09-07T10:22:53.471118+00:00",
+      "tags": [
+        "SUGGESTIVE_WORK"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-081",
+      "title": "Build Reputation Gate / Staking Requirement to Prevent Sybil Attacks and Fake Miners",
+      "category": "BACKEND",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Build Reputation Gate / Staking Requirement to Prevent Sybil Attacks and Fake Miners",
+      "created_at": "2026-09-07T10:23:41.301446+00:00",
+      "tags": [
+        "BACKEND"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-082",
+      "title": "Refactor AI Ingestion into Micro-Workers (Flash for Triage, Heavy Models for Legal/Entity Extraction) to fix Bottlenecks",
+      "category": "BACKEND",
+      "priority": "HIGH",
+      "status": "DONE",
+      "description": "Refactor AI Ingestion into Micro-Workers (Flash for Triage, Heavy Models for Legal/Entity Extraction) to fix Bottlenecks",
+      "created_at": "2026-09-07T10:23:47.142952+00:00",
+      "tags": [
+        "BACKEND"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-083",
+      "title": "Implement SHA-256 Cryptographic Hashing at Point-of-Upload to guarantee Raw File Integrity",
+      "category": "SECURITY",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Implement SHA-256 Cryptographic Hashing at Point-of-Upload to guarantee Raw File Integrity",
+      "created_at": "2026-09-07T10:23:52.550760+00:00",
+      "tags": [
+        "SECURITY"
+      ],
+      "action_url": "#"
+    },
+    {
+      "id": "TASK-084",
+      "title": "Provision Azure-to-GCP Workload Identity Federation (WIF) and attach OIDC Provider",
+      "category": "INFRASTRUCTURE",
+      "priority": "CRITICAL",
+      "status": "TODO",
+      "description": "Provision Azure-to-GCP Workload Identity Federation (WIF) and attach OIDC Provider",
+      "created_at": "2026-09-07T11:20:39.963944+00:00",
+      "tags": [
+        "INFRASTRUCTURE"
+      ],
+      "action_url": "#"
     }
   ]
 }

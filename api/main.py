@@ -649,7 +649,7 @@ def ledger_list():
 
 # ── Genesis Ingestion Engine (Vibe-Coding Route + Backend LLM Digest) ──
 def determine_genesis_type(text: str):
-    bio_patterns = [r"^my name is", r"^i am\b", r"^i'm\b", r"^i was\b", r"^i have\b", r"^i had\b", r"^i suffered\b", r"^i\b", r"^my\b", r"^me,?\s+"]
+    bio_patterns = [r"^my name is", r"^i am", r"^i'm", r"^me,?\s+", r"^i\s+", r"^my\s+"]
     first_phrase = text.strip().lower()[:40]
     for pattern in bio_patterns:
         if re.search(pattern, first_phrase):

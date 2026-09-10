@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OsintNeoAI - Tool Inventory</title>
+<style>
+:root{--bg:#0a0c10;--surface:#11151c;--accent:#00e5ff;--accent2:#39ff14;--text:#e8eaed;--text2:#8892a0;--border:#1e2530;--danger:#ff2a5f;--warn:#f59e0b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;line-height:1.6}
+.header{background:linear-gradient(135deg,#0a0c10,#1a1f2e);border-bottom:1px solid var(--border);padding:30px;text-align:center}
+.header h1{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:32px}
+.header p{color:var(--text2);margin-top:8px;font-size:14px}
+.container{max-width:1400px;margin:0 auto;padding:20px}
+.section{margin:30px 0}
+.section h2{color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:15px;font-size:20px}
+.section h2 span{color:var(--accent2);font-size:14px;font-weight:normal;margin-left:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:15px}
+.tool{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:15px;transition:border-color .2s}
+.tool:hover{border-color:var(--accent)}
+.tool h3{color:var(--text);font-size:15px;margin-bottom:5px}
+.tool p{color:var(--text2);font-size:13px}
+.tool .status{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;margin-top:8px}
+.installed{background:rgba(57,255,20,.15);color:var(--accent2);border:1px solid rgba(57,255,20,.3)}
+.built-in{background:rgba(0,229,255,.15);color:var(--accent);border:1px solid rgba(0,229,255,.3)}
+.web{background:rgba(245,158,11,.15);color:var(--warn);border:1px solid rgba(245,158,11,.3)}
+.docker{background:rgba(139,92,246,.15);color:#8b5cf6;border:1px solid rgba(139,92,246,.3)}
+.tag{display:inline-block;background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.2);padding:1px 6px;border-radius:3px;font-size:10px;margin:2px}
+.stats{display:flex;gap:20px;justify-content:center;margin:20px 0}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:15px 25px;text-align:center}
+.stat .num{font-size:28px;font-weight:700;color:var(--accent)}
+.stat .label{color:var(--text2);font-size:12px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.cmd{background:#0a0c10;border:1px solid var(--border);border-radius:4px;padding:8px 12px;font-family:monospace;font-size:12px;margin:5px 0;color:var(--accent2)}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>OsintNeoAI - Complete Tool Inventory</h1>
+<p>Everything installed on your PC for OSINT, recon, and intelligence gathering</p>
+</div>
+<div class="container">
+
+<div class="stats">
+<div class="stat"><div class="num">25+</div><div class="label">Local Tools</div></div>
+<div class="stat"><div class="num">4</div><div class="label">Docker Images</div></div>
+<div class="stat"><div class="num">145</div><div class="label">OSINT Scripts</div></div>
+<div class="stat"><div class="num">100%</div><div class="label">Offline Capable</div></div>
+</div>
+
+<!-- LOCAL PYTHON TOOLS -->
+<div class="section">
+<h2>Local Python Tools <span>Installed on PC</span></h2>
+<div class="grid">
+<div class="tool"><h3>Port Scanner</h3><p>TCP connect scan on any host. Common ports + custom ranges.</p><div class="cmd">python osint_server.py -> /api/ports/{host}</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>DNS Lookup</h3><p>A, AAAA, MX, NS, TXT, SOA records for any domain.</p><div class="cmd">python osint_server.py -> /api/dns/{domain}</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>WHOIS Lookup</h3><p>Domain registration info, registrar, creation/expiration dates.</p><div class="cmd">python osint_server.py -> /api/whois/{domain}</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>SSL Certificate Check</h3><p>Certificate details, SANs, issuer, expiration.</p><div class="cmd">python osint_server.py -> /api/ssl/{domain}</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>WiFi Scanner</h3><p>Scan nearby WiFi networks, signal strength, auth type.</p><div class="cmd">netsh wlan show networks mode=bssid</div><span class="status built-in">Windows Built-in</span></div>
+<div class="tool"><h3>Bluetooth Scanner</h3><p>List paired and discoverable Bluetooth devices.</p><div class="cmd">Get-PnpDevice -Class Bluetooth</div><span class="status built-in">Windows Built-in</span></div>
+<div class="tool"><h3>Shodan Lookup</h3><p>InternetDB - open ports, vulns, hostnames for any IP.</p><div class="cmd">python osint_server.py -> /api/shodan/{ip}</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>IP Geolocation</h3><p>Country, city, ISP, coordinates for any IP.</p><div class="cmd">python osint_server.py -> /api/ip/{ip}</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>Full Recon</h3><p>Combined DNS + WHOIS + SSL + Ports + Shodan + GeoIP in one call.</p><div class="cmd">python osint_server.py -> /api/recon/{domain}</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>python-nmap</h3><p>Nmap Python library for advanced port scanning and service detection.</p><div class="cmd">pip show python-nmap</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>Shodan Python</h3><p>Full Shodan API client for device search and intelligence.</p><div class="cmd">pip show shodan</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>BeautifulSoup4</h3><p>HTML/XML parsing for web scraping and content extraction.</p><div class="cmd">pip show beautifulsoup4</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>httpx</h3><p>Modern HTTP client for API calls and web requests.</p><div class="cmd">pip show httpx</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>dnspython</h3><p>Advanced DNS toolkit for custom queries and zone transfers.</p><div class="cmd">pip show dnspython</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>python-whois</h3><p>WHOIS client for domain and IP lookups.</p><div class="cmd">pip show python-whois</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>theHarvester</h3><p>Email, subdomain, and name harvester from public sources.</p><div class="cmd">pip show theHarvester</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>Ollama + qwen2.5-coder-1.5b</h3><p>Local AI for OSINT analysis and intelligence summarization.</p><div class="cmd">http://localhost:11434</div><span class="status installed">Running</span></div>
+</div>
+</div>
+
+<!-- KALI LINUX TOOLS -->
+<div class="section">
+<h2>Kali Linux Tools <span>via WSL</span></h2>
+<div class="grid">
+<div class="tool"><h3>nmap 7.99</h3><p>Network discovery and security auditing. Port scan, service detection, OS fingerprint.</p><div class="cmd">wsl -d kali-linux -- nmap -sV target</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>whois</h3><p>WHOIS client for domain/IP registration lookups.</p><div class="cmd">wsl -d kali-linux -- whois domain.com</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>theHarvester 4.10.1</h3><p>Full version - emails, subdomains, hosts, IPs from 30+ sources.</p><div class="cmd">wsl -d kali-linux -- theHarvester -d target.com -b all</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>nikto</h3><p>Web server scanner - vulnerabilities, misconfigs, dangerous files.</p><div class="cmd">wsl -d kali-linux -- nikto -h target.com</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>dig</h3><p>DNS lookup tool - detailed DNS record queries.</p><div class="cmd">wsl -d kali-linux -- dig target.com ANY</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>host</h3><p>Simple DNS lookup utility.</p><div class="cmd">wsl -d kali-linux -- host target.com</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>nslookup</h3><p>Interactive DNS queries.</p><div class="cmd">wsl -d kali-linux -- nslookup target.com</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>hydra</h3><p>Network logon cracker - brute force passwords.</p><div class="cmd">wsl -d kali-linux -- hydra -l user -P pass.txt target ssh</div><span class="status installed">Installed</span></div>
+<div class="tool"><h3>dnsrecon</h3><p>DNS enumeration - zone transfers, subdomain brute force.</p><div class="cmd">wsl -d kali-linux -- dnsrecon -d target.com</div><span class="status installed">Installed</span></div>
+</div>
+</div>
+
+<!-- DOCKER CONTAINERS -->
+<div class="section">
+<h2>Docker Containers <span>Pre-built Images</span></h2>
+<div class="grid">
+<div class="tool"><h3>osintneoai:kali-integrated</h3><p>Full Kali Linux + OSINT tools + Flask web app. 3.29GB.</p><div class="cmd">docker run -p 8080:8080 osintneoai:kali-integrated</div><span class="status docker">Docker Image</span></div>
+<div class="tool"><h3>osintneoai-osintneoai:latest</h3><p>Core OSINT Neo AI platform with API endpoints. 1.87GB.</p><div class="cmd">docker run -p 8080:8080 osintneoai-osintneoai:latest</div><span class="status docker">Docker Image</span></div>
+<div class="tool"><h3>osintneoai-maps:standalone</h3><p>GIS/Mapping dashboard for spatial intelligence. 187MB.</p><div class="cmd">docker run -p 10000:10000 osintneoai-maps:standalone</div><span class="status docker">Docker Image</span></div>
+<div class="tool"><h3>osintneoai:test</h3><p>Test image with OSINT tools. 2.18GB.</p><div class="cmd">docker run -p 8080:8080 osintneoai:test</div><span class="status docker">Docker Image</span></div>
+<div class="tool"><h3>Azure Registry Images</h3><p>v2, v3, maps-latest from osintneoairegistry2391.azurecr.io</p><div class="cmd">docker pull osintneoairegistry2391.azurecr.io/osintneoai:latest</div><span class="status docker">Azure CR</span></div>
+</div>
+</div>
+
+<!-- WEB DASHBOARDS -->
+<div class="section">
+<h2>Web Dashboards <span>Running Locally</span></h2>
+<div class="grid">
+<div class="tool"><h3>OsintNeoAI Dashboard</h3><p>Full OSINT dashboard - DNS, WHOIS, Ports, SSL, WiFi, Bluetooth, Shodan.</p><div class="cmd"><a href="http://localhost:8080" target="_blank">http://localhost:8080</a></div><span class="status installed">Running</span></div>
+<div class="tool"><h3>OSINT Bridge CLI</h3><p>Command-line OSINT interface with AI analysis.</p><div class="cmd">python osint_bridge.py</div><span class="status installed">Ready</span></div>
+<div class="tool"><h3>OSINT Toolkit Launcher</h3><p>Menu-driven launcher for all OSINT tools.</p><div class="cmd">OSINT_TOOLKIT.bat</div><span class="status installed">Ready</span></div>
+</div>
+</div>
+
+<!-- OSINT SCRIPTS -->
+<div class="section">
+<h2>Your OSINT Scripts <span>145 Scripts from Investigations</span></h2>
+<div class="grid">
+<div class="tool"><h3>PPP/RICO Investigation Scripts</h3><p>Property records, address matching, entity resolution, BigQuery analysis.</p><div class="cmd">C:\Users\Amd949609\osint_scripts\</div><span class="status built-in">145 Scripts</span></div>
+<div class="tool"><h3>BigQuery Pipeline</h3><p>Load data to BigQuery, run SQL queries, generate reports.</p><div class="cmd">load_isoon_to_bigquery.py, query_bq_all.py</div><span class="status built-in">Python</span></div>
+<div class="tool"><h3>Gmail/OneDrive Integration</h3><p>Scan email, import cloud documents, process takeout data.</p><div class="cmd">scan_gmail.py, onedrive_ingestion_engine.py</div><span class="status built-in">Python</span></div>
+<div class="tool"><h3>ArcGIS Spatial Intel</h3><p>GeoJSON export, Teams dashboard, adaptive cards for mapping.</p><div class="cmd">arcgis_teams_build.py, arcgis_teams_card_generator.py</div><span class="status built-in">Python</span></div>
+<div class="tool"><h3>Forensic Reports</h3><p>PDF generation, evidence matrices, dossiers, timeline analysis.</p><div class="cmd">generate_pdf_report.py, generate_unified_dossier.py</div><span class="status built-in">Python</span></div>
+</div>
+</div>
+
+<!-- RECON -->
+<div class="section">
+<h2>Recon Capabilities <span>What You Can Do</span></h2>
+<div class="grid">
+<div class="tool"><h3>Domain Recon</h3><p>DNS records, subdomains, WHOIS, SSL certs, technology fingerprint, port scan, Shodan, GeoIP - all in one call.</p><span class="status installed">Ready</span></div>
+<div class="tool"><h3>IP Intelligence</h3><p>Geolocation, ISP, ASN, open ports, vulnerabilities, reverse DNS, Shodan data.</p><span class="status installed">Ready</span></div>
+<div class="tool"><h3>WiFi Recon</h3><p>Scan nearby networks, identify routers, signal strength, encryption type, saved profiles.</p><span class="status built-in">Windows Native</span></div>
+<div class="tool"><h3>Bluetooth Recon</h3><p>Paired devices, device types, manufacturer info.</p><span class="status built-in">Windows Native</span></div>
+<div class="tool"><h3>Network Scan</h3><p>Full TCP port scan, service detection, OS fingerprint via nmap.</p><span class="status installed">Kali Linux</span></div>
+<div class="tool"><h3>Web Vulnerability Scan</h3><p>Nikto - server misconfigs, dangerous files, outdated software.</p><span class="status installed">Kali Linux</span></div>
+<div class="tool"><h3>Email/Name Harvesting</h3><p>theHarvester - emails, subdomains from 30+ public sources.</p><span class="status installed">Kali Linux</span></div>
+<div class="tool"><h3>AI Analysis</h3><p>Local Ollama AI for intelligence analysis, pattern detection, report generation.</p><span class="status installed">Running</span></div>
+</div>
+</div>
+
+<!-- QUICK COMMANDS -->
+<div class="section">
+<h2>Quick Commands</h2>
+<div class="grid">
+<div class="tool"><h3>Start OSINT Dashboard</h3><div class="cmd">python C:\Users\Amd949609\osint_server.py</div></div>
+<div class="tool"><h3>Start OSINT Bridge</h3><div class="cmd">python C:\Users\Amd949609\osint_bridge.py</div></div>
+<div class="tool"><h3>Full nmap Scan (Kali)</h3><div class="cmd">wsl -d kali-linux -- nmap -sV -sC -O target</div></div>
+<div class="tool"><h3>theHarvester (Kali)</h3><div class="cmd">wsl -d kali-linux -- theHarvester -d target.com -b google,bing,linkedin</div></div>
+<div class="tool"><h3>Nikto Web Scan (Kali)</h3><div class="cmd">wsl -d kali-linux -- nikto -h http://target.com</div></div>
+<div class="tool"><h3>DNS Zone Transfer (Kali)</h3><div class="cmd">wsl -d kali-linux -- dnsrecon -d target.com -t zonewalk</div></div>
+<div class="tool"><h3>WiFi Scan</h3><div class="cmd">netsh wlan show networks mode=bssid</div></div>
+<div class="tool"><h3>Bluetooth Scan</h3><div class="cmd">powershell "Get-PnpDevice -Class Bluetooth | Select Name,Status"</div></div>
+</div>
+</div>
+
+</div>
+</body>
+</html>

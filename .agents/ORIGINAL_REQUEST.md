@@ -249,3 +249,38 @@ Implement automated programmatic test suites covering ingestion, schema validati
 ### Automated Testing & Multi-Location Backup
 - [ ] Programmatic test suite passes all integrity, schema, and synchronization checks.
 - [ ] 3-location backup is confirmed and synchronized without overwriting existing historical records.
+
+## 2026-09-10T08:15:10Z
+
+Autonomous verification, execution, and continuous synchronization of the OsintNeoAi repository, citizen intelligence framework, Genesis Ingestion API, and interactive workspace HUD.
+
+Working directory: C:\OsintNeoAi
+Integrity mode: development
+
+## Requirements
+
+### R1. Genesis Ingestion & Verification Engine
+- Verify and execute the FastAPI backend (`api/main.py`) containing the `/api/genesis/ingest` zero-trust SHA-256 point-of-upload hashing route.
+- Validate dynamic auto-routing between Biographical Dossier and Corporate Wiki Dossier based on input keywords.
+- Ensure automated attribution of victim status and statutory tag injection (CA Civil Code § 1946.2, AB 1482, CERCLA Superfund).
+
+### R2. Workspace HUD & Interactive Graph Testing
+- Verify `workspace_v2.html` loads the acrylic theme interface, Cytoscape.js relationship graph, toxic plume intercept banner, and franchise data demand module.
+- Provide automated end-to-end testing of chat input submission and responsive graph rendering.
+
+### R3. Dual-Repository Synchronization & Backup
+- Ensure all created assets, data files, markdown registries, and code changes are committed and synced across Git (`origin/main`) and designated cloud storage mirrors (`rclone` to `gdrive:Sharedall/OsintNeoAi/`).
+
+## Acceptance Criteria
+
+### Automated Backend Tests
+- [ ] `api/main.py` launches cleanly and responds to `POST /api/genesis/ingest` with valid status 200 JSON including SHA-256 hash.
+- [ ] Bio vs. Corporate classification test cases pass with deterministic categorization.
+
+### Frontend HUD Verification
+- [ ] `workspace_v2.html` renders all 7 theme styles without JS console errors.
+- [ ] Cytoscape link graph properly creates victim-to-contaminant node links on sample payloads.
+
+### Repository Status
+- [ ] Git working tree clean or fully committed on `main`.
+- [ ] Mirror sync status verified.

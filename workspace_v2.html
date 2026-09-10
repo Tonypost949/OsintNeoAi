@@ -400,7 +400,8 @@
 
 <script>
   let isPublicDial = false;
-  let cy = null;
+  var cy = null;
+  window.cy = null;
 
   function toggleMenu() {
     const m = document.getElementById('dropdown-menu');
@@ -433,7 +434,7 @@
   }
 
   function initMaltegoGraph(victimName, entityName) {
-    cy = cytoscape({
+    window.cy = cy = cytoscape({
       container: document.getElementById('maltego-cy'),
       elements: [
         { data: { id: 'victim', label: victimName || 'Victim (Citizen)' } },
@@ -551,9 +552,13 @@ Chain of Custody Hash: ${document.getElementById('hash-display').innerText.repla
     }
   });
 
-  window.addEventListener('DOMContentLoaded', () => {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initMaltegoGraph('Victim (Citizen)', 'Woodbridge Apartments');
+    });
+  } else {
     initMaltegoGraph('Victim (Citizen)', 'Woodbridge Apartments');
-  });
+  }
 </script>
 </body>
 </html>

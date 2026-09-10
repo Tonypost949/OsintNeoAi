@@ -62,6 +62,13 @@
 # Ignore giant log files
 *.log
 
+# Ignore Python bytecode and caches
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+.pytest_cache/
+
 # Ignore heavy agent-generated/extracted directories inside active workspace
 AG2OSINTNEOMAXX/extracted_backup/
 AG2OSINTNEOMAXX/extracted_pkg/

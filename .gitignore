@@ -22,6 +22,7 @@ node_modules/
 .venv/
 .agents/
 .pytest_cache/
+.copilot-azure/
 
 # Large binaries and deployment zip archives
 *.zip
