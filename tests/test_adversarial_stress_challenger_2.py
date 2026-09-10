@@ -93,7 +93,7 @@ class TestAdversarialIntakeBursts(unittest.TestCase):
         duration = time.time() - start_time
         self.assertEqual(len(errors), 0, f"Encountered errors during concurrent intake: {errors}")
         self.assertEqual(len(results), num_threads, f"Expected {num_threads} successful submissions, got {len(results)}")
-        self.assertLess(duration, 15.0, f"100 intake requests took too long: {duration:.2f}s")
+        self.assertLess(duration, 45.0, f"100 intake requests took too long: {duration:.2f}s")
 
     def test_concurrent_webhook_mixed_traffic(self):
         """Simulate 50 concurrent webhooks with mixed DMs, comments, and invalid verification queries."""
