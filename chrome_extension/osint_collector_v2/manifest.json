@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "OSINT Neo AI — Evidence Collector HUD",
+  "version": "2.0.0",
+  "description": "1-Click Forensic Web Evidence & Tab Capture for OSINT Neo AI and Genesis Wiki Ledgers",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/icon48.png",
+    "default_title": "OSINT Neo AI Evidence Collector"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage",
+    "contextMenus",
+    "clipboardWrite",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:8000/*",
+    "http://localhost:8000/*",
+    "https://osintneoai-app-949.azurewebsites.net/*",
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "capture-active-tab": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+E",
+        "mac": "MacCtrl+Shift+E"
+      },
+      "description": "Capture Current Page as OSINT Evidence"
+    },
+    "batch-window-dump": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+X",
+        "mac": "MacCtrl+Shift+X"
+      },
+      "description": "Dump All Window Tabs as OSINT Payload"
+    }
+  }
+}

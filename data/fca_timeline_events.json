@@ -1,0 +1,223 @@
+{
+  "generated_at": "2026-09-10T22:11:07.895156+00:00",
+  "target_table": "noble-beanbag-497411-m4.forensic_layers.fca_timeline",
+  "total_events": 11,
+  "events": [
+    {
+      "event_id": "ROA-EVT-001",
+      "event_timestamp": "2024-03-12T08:00:00Z",
+      "event_type": "DOCKET_ROA_ENTRY",
+      "source_file": "evidence/court_dockets/05_Woodbridge_Meadows_v_Dimarcello_ROA.md",
+      "description": "[ROA #1] Complaint for Unlawful Detainer Filed by Woodbridge Meadows LLC",
+      "extracted_entities": [
+        "Woodbridge Meadows LLC",
+        "Anthony DiMarcello",
+        "Orange County Superior Court"
+      ],
+      "utxo_domain_tags": [
+        "LEGAL_DOCKET",
+        "CCP_473D",
+        "EVICTION_DEFECT",
+        "CIVIL_PROCEDURE"
+      ],
+      "evidence_sha256": "08927772667b8482400c1daa34d94902d41e97b376d6195e53fa99894c23148a",
+      "added_at": "2026-09-10T22:11:07.892401+00:00"
+    },
+    {
+      "event_id": "ROA-EVT-005",
+      "event_timestamp": "2024-03-18T14:30:00Z",
+      "event_type": "DOCKET_ROA_ENTRY",
+      "source_file": "evidence/court_dockets/05_Woodbridge_Meadows_v_Dimarcello_ROA.md",
+      "description": "[ROA #5] Proof of Service of Summons Filed (Contested Nail & Mail / Due Process Defect)",
+      "extracted_entities": [
+        "Process Server",
+        "Orange County Sheriff",
+        "Woodbridge Meadows LLC"
+      ],
+      "utxo_domain_tags": [
+        "LEGAL_DOCKET",
+        "CCP_473D",
+        "EVICTION_DEFECT",
+        "CIVIL_PROCEDURE"
+      ],
+      "evidence_sha256": "1d5425cea9be054269fab276a0f42b1daf8098d3bd6ec7abf7234233bf25acdd",
+      "added_at": "2026-09-10T22:11:07.892401+00:00"
+    },
+    {
+      "event_id": "ROA-EVT-019",
+      "event_timestamp": "2024-04-05T09:00:00Z",
+      "event_type": "DOCKET_ROA_ENTRY",
+      "source_file": "evidence/court_dockets/05_Woodbridge_Meadows_v_Dimarcello_ROA.md",
+      "description": "[ROA #19] Defendant Answer asserting Habitability Defect & Environmental Concealment under CERCLA",
+      "extracted_entities": [
+        "Anthony DiMarcello",
+        "DTSC",
+        "Regional Water Quality Control Board"
+      ],
+      "utxo_domain_tags": [
+        "LEGAL_DOCKET",
+        "CCP_473D",
+        "EVICTION_DEFECT",
+        "CIVIL_PROCEDURE"
+      ],
+      "evidence_sha256": "e769e35581faa6fbf3e3ee2a713b92d2e9bc2f7d7d74e3ad3f01d616594f6950",
+      "added_at": "2026-09-10T22:11:07.892401+00:00"
+    },
+    {
+      "event_id": "ROA-EVT-042",
+      "event_timestamp": "2024-05-14T10:15:00Z",
+      "event_type": "DOCKET_ROA_ENTRY",
+      "source_file": "evidence/court_dockets/05_Woodbridge_Meadows_v_Dimarcello_ROA.md",
+      "description": "[ROA #42] Clerk Default Judgment entered despite timely responsive pleading (Facially Void under CCP 473(d))",
+      "extracted_entities": [
+        "Court Clerk",
+        "Woodbridge Meadows LLC"
+      ],
+      "utxo_domain_tags": [
+        "LEGAL_DOCKET",
+        "CCP_473D",
+        "EVICTION_DEFECT",
+        "CIVIL_PROCEDURE"
+      ],
+      "evidence_sha256": "07eac3c5040fbaba114530709391f76dc0a70d9694f0c10284aa655d5d40292b",
+      "added_at": "2026-09-10T22:11:07.892401+00:00"
+    },
+    {
+      "event_id": "ROA-EVT-061",
+      "event_timestamp": "2024-06-20T11:00:00Z",
+      "event_type": "DOCKET_ROA_ENTRY",
+      "source_file": "evidence/court_dockets/05_Woodbridge_Meadows_v_Dimarcello_ROA.md",
+      "description": "[ROA #61] Notice of Motion to Vacate Void Judgment & Stay of Execution under Cal. CCP 473(d)",
+      "extracted_entities": [
+        "Orange County Superior Court",
+        "Anthony DiMarcello"
+      ],
+      "utxo_domain_tags": [
+        "LEGAL_DOCKET",
+        "CCP_473D",
+        "EVICTION_DEFECT",
+        "CIVIL_PROCEDURE"
+      ],
+      "evidence_sha256": "fea89342f46f5d72ca9b1cfc14d02141196856297a12276d48b6a564928475b5",
+      "added_at": "2026-09-10T22:11:07.892401+00:00"
+    },
+    {
+      "event_id": "GIS-PLUME-T0605900085",
+      "event_timestamp": "2021-08-15T00:00:00Z",
+      "event_type": "ENVIRONMENTAL_TOXIC_RADAR",
+      "source_file": "data/geotracker_dtsc_huntington_beach.geojson",
+      "description": "[GIS Site T0605900085] Huntington Beach Ascon Landfill Superfund \u2014 DTSC GeoTracker active remediation site adjacent to residential corridor. 38-acre toxic containment boundary.",
+      "extracted_entities": [
+        "DTSC",
+        "GeoTracker",
+        "Ascon Landfill",
+        "City of Huntington Beach"
+      ],
+      "utxo_domain_tags": [
+        "GIS_RADAR",
+        "DTSC_GEOTRACKER",
+        "CERCLA_SUPERFUND",
+        "TOXIC_PLUME"
+      ],
+      "evidence_sha256": "1587d71af9f8763e5a25d2a1b36c97c5493a49f905adfc9c3db1b2375e8325ce",
+      "added_at": "2026-09-10T22:11:07.892401+00:00"
+    },
+    {
+      "event_id": "GIS-PLUME-T0605977112",
+      "event_timestamp": "2022-03-10T00:00:00Z",
+      "event_type": "ENVIRONMENTAL_TOXIC_RADAR",
+      "source_file": "data/geotracker_dtsc_huntington_beach.geojson",
+      "description": "[GIS Site T0605977112] Edison / Magnolia Industrial Petrochemical Facility \u2014 Volatile organic compound (VOC) groundwater plume verified within 0.35 miles of subject property.",
+      "extracted_entities": [
+        "DTSC",
+        "EPA Region 9",
+        "Magnolia Corridor"
+      ],
+      "utxo_domain_tags": [
+        "GIS_RADAR",
+        "DTSC_GEOTRACKER",
+        "CERCLA_SUPERFUND",
+        "TOXIC_PLUME"
+      ],
+      "evidence_sha256": "a1ee36c74ec72841c4b591c4a3f1ffa7b7f07655a9a930ec271bcf5eaedb15bc",
+      "added_at": "2026-09-10T22:11:07.892401+00:00"
+    },
+    {
+      "event_id": "GIS-PLUME-UST-HB-94901",
+      "event_timestamp": "2023-11-20T00:00:00Z",
+      "event_type": "ENVIRONMENTAL_TOXIC_RADAR",
+      "source_file": "data/geotracker_dtsc_huntington_beach.geojson",
+      "description": "[GIS Site UST-HB-94901] Huntington Beach Municipal Pipeline Intercept \u2014 Underground Storage Tank leak plume with documented municipal reporting omissions.",
+      "extracted_entities": [
+        "Huntington Beach Public Works",
+        "Regional Water Board"
+      ],
+      "utxo_domain_tags": [
+        "GIS_RADAR",
+        "DTSC_GEOTRACKER",
+        "CERCLA_SUPERFUND",
+        "TOXIC_PLUME"
+      ],
+      "evidence_sha256": "50a874665eb71f7354e972c2c2e5622e86c1613afd3c49b89bfe56807ccebb8e",
+      "added_at": "2026-09-10T22:11:07.892401+00:00"
+    },
+    {
+      "event_id": "HB-MUN-001",
+      "event_timestamp": "2023-05-02T18:00:00Z",
+      "event_type": "MUNICIPAL_URL_DISCOVERY",
+      "source_file": "agent/huntington_beach_82k_urls_index.json",
+      "description": "[Municipal Index] COUNCIL_MINUTES \u2014 HB City Council resolution regarding private redevelopment subsidies and toxic parcel re-zoning.",
+      "extracted_entities": [
+        "Huntington Beach City Council",
+        "Community Development Agency"
+      ],
+      "utxo_domain_tags": [
+        "MUNICIPAL_AUDIT",
+        "HUNTINGTON_BEACH",
+        "PUBLIC_FUNDS",
+        "UTXO_TAXFUNDED"
+      ],
+      "evidence_sha256": "c99729e1f8911656bb57c8247b21ee32f5fd352fbea0cb9ce81dce9643f3094a",
+      "added_at": "2026-09-10T22:11:07.892401+00:00"
+    },
+    {
+      "event_id": "HB-MUN-002",
+      "event_timestamp": "2024-01-16T19:30:00Z",
+      "event_type": "MUNICIPAL_URL_DISCOVERY",
+      "source_file": "agent/huntington_beach_82k_urls_index.json",
+      "description": "[Municipal Index] MUNICIPAL_BUDGET \u2014 Public grant allocations and tax-increment financing transfers cross-referenced with federal grants.",
+      "extracted_entities": [
+        "HB City Finance",
+        "HUD Grants Office",
+        "USASpending"
+      ],
+      "utxo_domain_tags": [
+        "MUNICIPAL_AUDIT",
+        "HUNTINGTON_BEACH",
+        "PUBLIC_FUNDS",
+        "UTXO_TAXFUNDED"
+      ],
+      "evidence_sha256": "17fbab0f92af00bc96f71ffee6b20c735a9d9f32e33fca546c86f50664a50417",
+      "added_at": "2026-09-10T22:11:07.892401+00:00"
+    },
+    {
+      "event_id": "HB-MUN-003",
+      "event_timestamp": "2024-04-22T12:00:00Z",
+      "event_type": "MUNICIPAL_URL_DISCOVERY",
+      "source_file": "agent/huntington_beach_82k_urls_index.json",
+      "description": "[Municipal Index] UNCLAIMED_PROPERTY \u2014 Orange County Auditor-Controller unclaimed funds ledger query matching target entities.",
+      "extracted_entities": [
+        "Orange County Auditor-Controller",
+        "Andrew DiMarcello"
+      ],
+      "utxo_domain_tags": [
+        "MUNICIPAL_AUDIT",
+        "HUNTINGTON_BEACH",
+        "PUBLIC_FUNDS",
+        "UTXO_TAXFUNDED"
+      ],
+      "evidence_sha256": "48efcd19131e1e3eec48fd2e8cb605fa4843af169195aeee38bc1c32971fd031",
+      "added_at": "2026-09-10T22:11:07.892401+00:00"
+    }
+  ]
+}

@@ -51,15 +51,17 @@ try:
         search_hb_urls,
         get_hb_urls_stats,
         get_environmental_proximity,
-        get_gis_layers
+        get_gis_layers,
+        get_roa_entries
     )
-    print("[Workspace Intelligence] loaded: Municipal URL Index & Environmental GIS Radar")
+    print("[Workspace Intelligence] loaded: Municipal URL Index, Environmental GIS Radar & ROA Docket Index")
 except Exception as _wi_e:
     print(f"[Workspace Intelligence] not loaded: {_wi_e}")
     search_hb_urls = None
     get_hb_urls_stats = None
     get_environmental_proximity = None
     get_gis_layers = None
+    get_roa_entries = None
 
 
 # ── In-Memory Knowledge Store ──────────────────────────────────
@@ -993,6 +995,39 @@ def workspace_gis_layers():
     res = jsonify(layers)
     res.headers.add("Access-Control-Allow-Origin", "*")
     return res
+
+
+@app.route("/api/workspace/roa/search", methods=["GET", "POST", "OPTIONS"])
+@app.route("/api/workspace/roa/entries", methods=["GET", "OPTIONS"])
+def workspace_roa_entries():
+    if request.method == "OPTIONS":
+        res = jsonify({"status": "ok"})
+        res.headers.add("Access-Control-Allow-Origin", "*")
+        res.headers.add("Access-Control-Allow-Headers", "*")
+        res.headers.add("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        return res
+
+    if get_roa_entries is None:
+        return jsonify({"error": "ROA Docket Index unavailable"}), 503
+
+    if request.method == "POST":
+        data = request.get_json(silent=True) or {}
+        q = str(data.get("q") or data.get("query") or "")
+        cat = data.get("category")
+        limit = int(data.get("limit") or 61)
+    else:
+        q = str(request.args.get("q") or request.args.get("query") or "")
+        cat = request.args.get("category")
+        try:
+            limit = int(request.args.get("limit") or 61)
+        except (ValueError, TypeError):
+            limit = 61
+
+    results = get_roa_entries(query=q, category=cat, limit=limit)
+    res = jsonify(results)
+    res.headers.add("Access-Control-Allow-Origin", "*")
+    return res
+
 
 
 # ── Zero-Trust Encrypted Lockbox Vault ─────────────────────────

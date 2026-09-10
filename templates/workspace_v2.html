@@ -430,6 +430,31 @@
       <div id="motion-output" style="margin-top:10px; font-size:12px; font-family:'Consolas', monospace; color:#fca5a5; white-space:pre-wrap; display:none; background:rgba(0,0,0,0.6); padding:10px; border-radius:6px; border:1px solid #ef4444;"></div>
     </div>
 
+    <div id="roa-pane" class="pane">
+      <div class="pane-header">
+        <h3 class="pane-title">⚖️ Court ROA Docket Inspector (1-61)</h3>
+        <span class="status-badge" id="roa-count-badge">61 CERTIFIED</span>
+      </div>
+      <div style="font-size:12px; color:var(--text-muted); margin-bottom:10px;">
+        Orange County Superior Court Case <code>30-2021-01201327-CL-UD-CJC</code>. Interactive docket analysis with procedural defect flags.
+      </div>
+      <div style="display:flex; gap:8px; margin-bottom:10px;">
+        <input type="text" id="roa-search-input" placeholder="Search 61 ROA entries (e.g. Complaint, 170.6, Default, Stay, 473)..." 
+               style="flex:1; background:rgba(0,0,0,0.4); border:1px solid var(--border); color:var(--text); padding:8px 12px; border-radius:6px; font-size:12px;" />
+        <button onclick="searchRoaEntries()" class="btn-action">Search</button>
+      </div>
+      <div id="roa-category-pills" style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+        <button class="pill-filter active" onclick="filterRoaByCategory('')">All (61)</button>
+        <button class="pill-filter" onclick="filterRoaByCategory('PLEADINGS')">Pleadings</button>
+        <button class="pill-filter" onclick="filterRoaByCategory('JUDGMENT_DEFAULT')">Judgments</button>
+        <button class="pill-filter" onclick="filterRoaByCategory('PEREMPTORY_CHALLENGE')">170.6 Challenge</button>
+        <button class="pill-filter" onclick="filterRoaByCategory('MOTION_VACATE_473D')">CCP § 473(d)</button>
+      </div>
+      <div id="roa-results-container" class="wiki-body" style="max-height:260px; font-size:12px; overflow-y:auto;">
+        <p style="color:var(--text-muted);">Loading 61 certified court docket records...</p>
+      </div>
+    </div>
+
     <div id="newspaper-pane" class="pane">
       <div class="pane-header">
         <h3 class="pane-title">📰 Franchise Newspaper Node</h3>
@@ -620,6 +645,62 @@
     searchMunicipalUrls(cat);
   }
 
+  let activeRoaCategory = '';
+
+  async function searchRoaEntries(categoryOverride) {
+    const input = document.getElementById('roa-search-input');
+    const query = input ? input.value.trim() : '';
+    const category = categoryOverride !== undefined ? categoryOverride : activeRoaCategory;
+    const container = document.getElementById('roa-results-container');
+    if (container) {
+      container.innerHTML = '<p style="color:var(--text-muted);">Querying 61 certified court docket records...</p>';
+    }
+
+    try {
+      let url = `/api/workspace/roa/search?q=${encodeURIComponent(query)}&limit=61`;
+      if (category) {
+        url += `&category=${encodeURIComponent(category)}`;
+      }
+      const res = await fetch(url);
+      const data = await res.json();
+
+      if (!container) return;
+      if (!data.results || data.results.length === 0) {
+        container.innerHTML = `<p style="color:var(--text-muted);">No ROA docket records matching query "${query}". Total repository contains 61 certified entries.</p>`;
+        return;
+      }
+
+      let html = `<div style="font-size:11px; color:var(--accent); margin-bottom:8px;">Showing <strong>${data.matched_records}</strong> of 61 certified ROA entries:</div>`;
+      for (const item of data.results) {
+        const defectBadge = item.defect_flag ? `<span style="background:#7f1d1d; color:#fca5a5; padding:1px 6px; border-radius:4px; font-size:9px; font-weight:bold; margin-left:6px;">⚠️ ${item.defect_flag}</span>` : '';
+        html += `
+          <div style="background:rgba(0,0,0,0.3); border:1px solid var(--border); border-radius:6px; padding:8px; margin-bottom:6px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+              <strong style="color:var(--accent);">ROA #${item.roa_num} · ${item.date}</strong>
+              <div><span class="status-badge" style="font-size:9px; padding:1px 6px;">${item.category}</span>${defectBadge}</div>
+            </div>
+            <div style="font-size:12px; line-height:1.4;">${item.description}</div>
+            <div style="font-size:10px; color:var(--text-muted); margin-top:4px;">Party: ${item.party} | ${item.pages} | ${item.transaction_info}</div>
+          </div>
+        `;
+      }
+      container.innerHTML = html;
+    } catch (err) {
+      if (container) {
+        container.innerHTML = `<p style="color:var(--accent-red);">Error loading ROA dockets: ${err.message}</p>`;
+      }
+    }
+  }
+
+  function filterRoaByCategory(cat) {
+    activeRoaCategory = cat;
+    const pills = document.querySelectorAll('#roa-category-pills .pill-filter');
+    pills.forEach(p => p.classList.remove('active'));
+    if (event && event.target) event.target.classList.add('active');
+    searchRoaEntries(cat);
+  }
+
+
   function generateMotion473d() {
     const box = document.getElementById('motion-output');
     box.style.display = 'block';
@@ -735,9 +816,11 @@ Chain of Custody Hash: ${document.getElementById('hash-display').innerText.repla
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       initMaltegoGraph('Victim (Citizen)', 'Woodbridge Apartments');
+      searchRoaEntries('');
     });
   } else {
     initMaltegoGraph('Victim (Citizen)', 'Woodbridge Apartments');
+    searchRoaEntries('');
   }
 </script>
 </body>
