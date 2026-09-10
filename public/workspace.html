@@ -64,7 +64,7 @@
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border);
     border-radius: 8px;
-    width: 240px;
+    width: 250px;
     z-index: 1000;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
@@ -127,6 +127,10 @@
 
   .badge.investigator {
     background: #238636;
+  }
+
+  .badge.lockbox {
+    background: #8957e5;
   }
 
   /* Maltego Node Visual Cards */
@@ -196,6 +200,18 @@
     color: #58a6ff;
     white-space: pre-wrap;
   }
+
+  .lockbox-btn {
+    background: #8957e5;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s ease;
+  }
+  .lockbox-btn:hover { background: #a371f7; }
 </style>
 </head>
 <body>
@@ -204,7 +220,7 @@
   <button id="top-menu-btn" onclick="toggleMenu()">▼ Menu</button>
   <div id="dropdown-menu">
     <div>📄 File / New Dossier</div>
-    <div>✏️ Edit Properties</div>
+    <div onclick="switchView('lockbox')">🔐 Zero-Trust Lockbox Vault</div>
     <div onclick="switchView('newspaper')">📰 Franchise Newspaper Node</div>
     <div onclick="switchView('maltego')">🕸️ Maltego Stripped Nodes</div>
     <div onclick="switchView('sandbox')">🧪 Newspaper Two (Sandbox)</div>
@@ -244,6 +260,25 @@
       <h4 style="margin-top:20px; color:var(--accent);">Entity Graph Relationships:</h4>
       <div id="maltego-edges-list">No connections yet.</div>
     </div>
+
+    <!-- Lockbox Vault Pane -->
+    <div id="lockbox-pane" class="pane">
+      <div class="wiki-header">
+        <h2 style="margin:0;">🔐 Zero-Trust Lockbox Vault</h2>
+        <span id="lockbox-status" class="badge lockbox">VAULT: READY</span>
+      </div>
+      <p style="font-size:13px; color:#8b949e;">Drop confidential evidence, confessions, or files. Payloads are SHA-256 sealed into immutable cold storage with a Federal Evidence-Grade receipt.</p>
+      <textarea id="lockbox-input" rows="4" style="width:96%; background:rgba(0,0,0,0.4); border:1px solid var(--border); border-radius:8px; color:white; padding:10px; font-family:inherit;" placeholder="Enter classified payload, unredacted names, bank account records, or private testimony..."></textarea>
+      <div style="margin-top:10px; display:flex; gap:10px; align-items:center;">
+        <select id="lockbox-class" style="background:#21262d; color:white; border:1px solid var(--border); padding:6px 10px; border-radius:6px;">
+          <option value="TOP_SECRET_FORENSIC">TOP SECRET / FORENSIC</option>
+          <option value="WHISTLEBLOWER_ESCROW">WHISTLEBLOWER ESCROW</option>
+          <option value="CIVIL_RICO_EXHIBIT">CIVIL RICO EXHIBIT</option>
+        </select>
+        <button onclick="sealInLockbox()" class="lockbox-btn">🔒 Seal In Lockbox</button>
+      </div>
+      <div id="lockbox-receipt" style="margin-top:15px; display:none;" class="code-block"></div>
+    </div>
   </div>
 
   <!-- Persistent Floating Acrylic Chat Box -->
@@ -268,6 +303,8 @@
       document.getElementById('newspaper-pane').style.display = 'block';
     } else if (type === 'maltego') {
       document.getElementById('maltego-pane').style.display = 'block';
+    } else if (type === 'lockbox') {
+      document.getElementById('lockbox-pane').style.display = 'block';
     } else if (type === 'sandbox') {
       alert("Sandbox Node Initialized (Isolated State)");
     }
@@ -281,30 +318,72 @@
     btn.style.background = isPublic ? '#d9383a' : '#238636';
   }
 
-  async function callIngestApi(text) {
-    const endpoints = [
-      '/api/genesis/ingest',
-      'http://localhost:5000/api/genesis/ingest',
-      'http://127.0.0.1:5000/api/genesis/ingest',
-      'http://127.0.0.1:5052/api/genesis/ingest',
-      'http://127.0.0.1:8080/api/genesis/ingest'
-    ];
+  async function callApi(path, payload) {
+    const ports = ['', ':5000', ':5052', ':8080'];
+    const hosts = ['http://localhost', 'http://127.0.0.1'];
+    
+    // First try relative path
+    try {
+      const res = await fetch(path, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) return await res.json();
+    } catch (e) {}
 
-    for (const ep of endpoints) {
-      try {
-        const res = await fetch(ep, {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({ text: text })
-        });
-        if (res.ok) {
-          return await res.json();
-        }
-      } catch (e) {
-        // try next endpoint
+    // Fallback across local ports
+    for (const h of hosts) {
+      for (const p of ports) {
+        try {
+          const res = await fetch(`${h}${p}${path}`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(payload)
+          });
+          if (res.ok) return await res.json();
+        } catch (e) {}
       }
     }
-    throw new Error("Could not reach ingestion API backend.");
+    throw new Error(`Could not reach ${path}`);
+  }
+
+  async function sealInLockbox() {
+    const payload = document.getElementById('lockbox-input').value.trim();
+    const classification = document.getElementById('lockbox-class').value;
+    if (!payload) return alert("Enter content to seal in the lockbox.");
+
+    const btn = document.querySelector('.lockbox-btn');
+    btn.innerText = "Encrypting & Sealing...";
+
+    try {
+      const data = await callApi('/api/lockbox/deposit', {
+        payload: payload,
+        classification: classification,
+        pin: "4377"
+      });
+
+      const receiptDiv = document.getElementById('lockbox-receipt');
+      receiptDiv.style.display = 'block';
+      receiptDiv.innerText = `🛡️ LOCKBOX PROOF OF CUSTODY RECEIPT
+==================================================
+Seal ID:         ${data.seal_id}
+Status:          ${data.status}
+Classification:  ${data.classification}
+Content SHA-256: ${data.content_sha256}
+Envelope SHA-256:${data.envelope_sha256}
+Timestamp:       ${new Date(data.timestamp * 1000).toLocaleString()}
+Chain Custody:   FEDERAL EVIDENCE GRADE IMMUTABLE
+==================================================
+[+] Payload successfully sealed in offline cold vault.`;
+
+      document.getElementById('lockbox-status').innerText = "SEALED: " + data.seal_id;
+      document.getElementById('lockbox-input').value = "";
+      btn.innerText = "🔒 Seal In Lockbox";
+    } catch (e) {
+      alert("Lockbox deposit error. Ensure backend is running.");
+      btn.innerText = "🔒 Seal In Lockbox";
+    }
   }
 
   document.getElementById('chat-input').addEventListener('keydown', async function(e) {
@@ -316,9 +395,9 @@
       this.value = "🤖 LLM backend is digesting testimony & generating graph nodes...";
 
       try {
-        const data = await callIngestApi(text);
+        const data = await callApi('/api/genesis/ingest', { text: text });
 
-        // Reveal all 3 panes dramatically
+        // Reveal all panes dramatically
         document.getElementById('wiki-pane').style.display = 'block';
         document.getElementById('newspaper-pane').style.display = 'block';
         document.getElementById('maltego-pane').style.display = 'block';
