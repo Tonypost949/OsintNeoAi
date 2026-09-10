@@ -1,34 +1,34 @@
-## 2026-09-01T17:57:00Z
-You are challenger_2 conducting adversarial integration & concurrency testing on the 24/7 autonomous correlation pipeline.
+# Dispatch Instructions for challenger_2
 
-Working Directory: C:\OsintNeoAi\.agents\challenger_2
-Original User Request: C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md
-Scope Document: C:\OsintNeoAi\PROJECT.md
+## Identity & Role
+- Role: Empirical Data & Spatial Integrity Challenger
+- Archetype: teamwork_preview_challenger
+- Working directory: C:\OsintNeoAi\.agents\challenger_2
+- Parent: orchestrator_13 (e68e15f5-4a37-405f-8e73-c5b57613b6cf)
 
-Your Tasks:
-1. Read C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md and C:\OsintNeoAi\PROJECT.md.
-2. Adversarially test concurrency, cloud constraints, and multi-vector convergence:
-   - Test concurrent webhook intake bursts (multi-threaded submissions)
-   - Test simultaneous correlation execution and read access to telemetry and feeds
-   - Verify thread safety and file locking on `reports/auto_leads/latest.json` atomic swaps
-   - Verify memory ceiling (<512MB) during graph traversal
-   - Verify zero persistent local daemon requirement (100% cloud autonomy)
-3. Run Tier 3 & Tier 4 integration and real-world acceptance tests in `tests/test_autonomous_correlation_e2e.py`.
-4. Document all empirical metrics, execution outputs, and stress test logs in C:\OsintNeoAi\.agents\challenger_2\handoff.md.
-5. Give an explicit verdict: APPROVE or REQUEST_CHANGES.
-6. Use send_message to report your verdict back to the orchestrator.
+## Scope
+Perform empirical verification of data integrity and spatial computations:
+1. Verify the 82,757 municipal URLs dataset integrity:
+   - Count lines and unique URLs in `data/hb_urls_master.txt`.
+   - Verify category distribution in `data/neo_hb_urls_forensic_classification.json`.
+   - Benchmark in-memory search latency across 1,000 rapid queries.
+2. Verify GeoTracker UST and Cameron Lane GIS data integrity:
+   - Verify 15,847 records in `opencode_work/geotracker/permitted_ust.txt`.
+   - Verify Haversine distance accuracy against known ground-truth coordinates (e.g., HB City Hall, Cameron Lane, Ascon Superfund).
+   - Verify that the -85% toxic stigma discount and legal remedies are accurately attributed when inside the contamination plume.
+3. Write an empirical test script and execute it.
+4. Render an explicit verdict: APPROVE or REJECT.
 
-## 2026-09-02T08:55:37Z
-You are Challenger 2 (replacement) for OsintNeoAi.
-Working directory: C:\OsintNeoAi\.agents\challenger_2\
-Project root: C:\OsintNeoAi
-Original Request: C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md (MUST read first)
-Project Scope: C:\OsintNeoAi\PROJECT.md
+Read:
+- C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md
+- C:\OsintNeoAi\AGENTS.md
+- C:\OsintNeoAi\.agents\worker_impl_m1_m2\handoff.md
 
-Task:
-Empirically challenge and adversarially stress-test Concurrency & Async Execution (Gate 4 & R3):
-1. Stress-test the `/api/correlation/run?async=1` non-blocking endpoint with at least 15 concurrent simultaneous threads. Verify 0 race conditions, 0 deadlocks, 100% HTTP 200 responses.
-2. Run the 71-test E2E test suite: `python -m unittest tests/test_autonomous_correlation_e2e.py` or with `pytest`.
-3. Run auxiliary stress tests: `python -m unittest tests/test_adversarial_stress.py` and `tests/test_adversarial_chains_challenger_2.py`.
-4. Deliver your structured challenger verdict (APPROVE or REQUEST_CHANGES) with empirical timing and thread safety evidence in `C:\OsintNeoAi\.agents\challenger_2\handoff.md` and send a message back to parent.
+Write `report.md` and `handoff.md` with your verdict and findings, and message parent.
 
+## 2026-09-10T19:09:08Z
+Empirically verify the data integrity and spatial computations of the 82,757 municipal URLs and DTSC/GeoTracker GIS datasets.
+Benchmark search performance, verify Haversine distance accuracy, and check toxic stigma calculations.
+Write an empirical verification script, execute it, and record results.
+Write report.md and handoff.md with an explicit verdict (APPROVE or REJECT).
+Message parent with your findings.

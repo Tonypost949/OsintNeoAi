@@ -1,8 +1,12 @@
 {
-  "ingested_at": "2026-09-10T18:50:48.252219+00:00",
-  "total_grants_tracked": 2,
-  "total_disbursed_usd": 18050000.0,
+  "ingested_at": "2026-09-10T20:34:43.274324+00:00",
+  "total_grants_tracked": 12,
+  "total_disbursed_usd": 64161488.25,
   "ledger_destination": "TAXFUNDED_TOKEN_LEDGER_B",
+  "live_api_sources": [
+    "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+    "https://data.ca.gov/api/3/action/datastore_search"
+  ],
   "grants": [
     {
       "award_id": "USA-CA-2021-VAS-001",
@@ -19,8 +23,9 @@
         "VAS",
         "RICO"
       ],
-      "sha256_hash": "f483c9d4efbc10df20375192ab7bd6eba221f4c9f661454ee039048894399d6d",
-      "ingested_at": "2026-09-10T18:50:48.252219+00:00"
+      "source_api": "VERIFIED_OFFLINE_CACHE",
+      "sha256_hash": "46268315627aea2ad8655784f5d9bee23adc927c6db1a28cfa8ef5878741428a",
+      "ingested_at": "2026-09-10T20:34:43.273259+00:00"
     },
     {
       "award_id": "CA-HCD-2022-MH-084",
@@ -37,8 +42,189 @@
         "MercyHouse",
         "BeachBlvd"
       ],
-      "sha256_hash": "0121f094a5447d976ca2900cb7c0c0c574dd5e47f2647e515b255f1e3cb6292d",
-      "ingested_at": "2026-09-10T18:50:48.252219+00:00"
+      "source_api": "VERIFIED_OFFLINE_CACHE",
+      "sha256_hash": "641fc9ee5fb119125ec65dd7731cb62b110363131fb04248e6fa520e0495861b",
+      "ingested_at": "2026-09-10T20:34:43.273259+00:00"
+    },
+    {
+      "award_id": "693JJ22530000YS70CAP001700",
+      "funding_agency": "Department of Transportation",
+      "recipient_name": "DEPARTMENT OF TRANSPORTATION CALIFORNIA",
+      "amount_usd": 12200000.0,
+      "purpose": "PROJECT TITLE: ORANGE COUNTY IN AND NEAR HUNTINGTON BEACH FROM SANTA ANA RIVER BRIDGE TO ANDERSON STREET AND AT SEAL BEACH BOULEVARD CONSTRUCT AND UPGRADE BICYCLE F :::: PROJECT DESCRIPTION: ON STATE ",
+      "city": "Huntington Beach",
+      "state": "CA",
+      "status": "VERIFIED_USASPENDING_AWARD",
+      "utxo_tag": [
+        "TaxFunded",
+        "USASpending",
+        "FederalGrant"
+      ],
+      "source_api": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+      "sha256_hash": "7c4a6aed3f97f6dd1366af2aebb160d0cf081f6fa1295e8a3ecef29136ff01a1",
+      "ingested_at": "2026-09-10T20:34:43.273259+00:00"
+    },
+    {
+      "award_id": "H79SM083252",
+      "funding_agency": "Department of Health and Human Services",
+      "recipient_name": "KCS, INC.",
+      "amount_usd": 3925528.0,
+      "purpose": "CERTIFIED COMMUNITY BEHAVIORAL HEALTH CLINIC - KOREAN COMMUNITY SERVICES WILL PROVIDE CCBHC SERVICES, THROUGH UTILIZATION OF TWO DCO'S THAT ARE FEDERALLY QUALIFIED HEALTH CENTERS (FQHC), TO THE NOSTLY",
+      "city": "Huntington Beach",
+      "state": "CA",
+      "status": "VERIFIED_USASPENDING_AWARD",
+      "utxo_tag": [
+        "TaxFunded",
+        "USASpending",
+        "FederalGrant"
+      ],
+      "source_api": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+      "sha256_hash": "4231e31c1cee15451f0366b84a23db3159579ae6071ea2cabbc58071462c3a8b",
+      "ingested_at": "2026-09-10T20:34:43.273259+00:00"
+    },
+    {
+      "award_id": "06P001614ZS30",
+      "funding_agency": "Department of Transportation",
+      "recipient_name": "DEPARTMENT OF TRANSPORTATION CALIFORNIA",
+      "amount_usd": 3225445.98,
+      "purpose": "IN ORANGE COUNTY, IN HUNTINGTON BEACH AT VARIOUS LOCATIONS FROM BROOKHURST STREET TO WARNER AVENUE. MOCIFY SIGNALS, ADDLIGHTING, MODIFY CURB RAMPS, P",
+      "city": "Huntington Beach",
+      "state": "CA",
+      "status": "VERIFIED_USASPENDING_AWARD",
+      "utxo_tag": [
+        "TaxFunded",
+        "USASpending",
+        "FederalGrant"
+      ],
+      "source_api": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+      "sha256_hash": "362e4753c8097a45d2d9fe254c5bf087cdb503c6c623a1ea71f49319e3bb92d0",
+      "ingested_at": "2026-09-10T20:34:43.273259+00:00"
+    },
+    {
+      "award_id": "06P039035ZS30",
+      "funding_agency": "Department of Transportation",
+      "recipient_name": "DEPARTMENT OF TRANSPORTATION CALIFORNIA",
+      "amount_usd": 2734292.27,
+      "purpose": "IN ORANGE COUNTY IN HUNTINGTON BEACH, ANAHEIM AND LA HABRA AT VARIOUS LOCATIONS FROM\n ATLANTA AVENUE TO CYPRESS STREET MODIFY TRAFFIC SIGNALS AND ENH",
+      "city": "Huntington Beach",
+      "state": "CA",
+      "status": "VERIFIED_USASPENDING_AWARD",
+      "utxo_tag": [
+        "TaxFunded",
+        "USASpending",
+        "FederalGrant"
+      ],
+      "source_api": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+      "sha256_hash": "bda441c7ae1e293bae7bb2ac39fc8aeb6a12814bf8f75a739800892131ef0281",
+      "ingested_at": "2026-09-10T20:34:43.273259+00:00"
+    },
+    {
+      "award_id": "M21-MP060514",
+      "funding_agency": "Department of Housing and Urban Development",
+      "recipient_name": "CITY OF HUNTINGTON BEACH",
+      "amount_usd": 2244043.0,
+      "purpose": "HOME INVESTMENT PARTNERSHIPS PROGRAM",
+      "city": "Huntington Beach",
+      "state": "CA",
+      "status": "VERIFIED_USASPENDING_AWARD",
+      "utxo_tag": [
+        "TaxFunded",
+        "USASpending",
+        "FederalGrant"
+      ],
+      "source_api": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+      "sha256_hash": "38fcc02c1faa120c52a11a03fe9427a9bff82d67f29e5aa8cf35c680ba62f37e",
+      "ingested_at": "2026-09-10T20:34:43.273259+00:00"
+    },
+    {
+      "award_id": "SWC 108",
+      "funding_agency": "Department of Resources Recycling and Recovery",
+      "recipient_name": "State Allocation (Illegal Disposal Site Abatement Grant Program)",
+      "amount_usd": 1000000.0,
+      "purpose": "This program provides financial assistance in the form of reimbursement grants up to $500,000 to help public entities accelerate the pace of cleanup, restore sites, and turn today\u2019s problems into tomo",
+      "city": "Sacramento / Orange County",
+      "state": "CA",
+      "status": "VERIFIED_CA_GRANTS_PORTAL",
+      "utxo_tag": [
+        "TaxFunded",
+        "CAGrantsPortal",
+        "StateAward"
+      ],
+      "source_api": "https://data.ca.gov/api/3/action/datastore_search",
+      "sha256_hash": "acd6b82591aed08febdc952c6d5fa7f8a5fe4335aa039b5bb0d2371093c225e1",
+      "ingested_at": "2026-09-10T20:34:43.274324+00:00"
+    },
+    {
+      "award_id": "SWC 109",
+      "funding_agency": "Department of Resources Recycling and Recovery",
+      "recipient_name": "State Allocation (Legacy Disposal Site Abatement Grant Program)",
+      "amount_usd": 1500000.0,
+      "purpose": "The program provides financial assistance in the form of reimbursement grants up to $750,000 in matching funds for eligible costs to assist public entities requiring financial assistance, and committe",
+      "city": "Sacramento / Orange County",
+      "state": "CA",
+      "status": "VERIFIED_CA_GRANTS_PORTAL",
+      "utxo_tag": [
+        "TaxFunded",
+        "CAGrantsPortal",
+        "StateAward"
+      ],
+      "source_api": "https://data.ca.gov/api/3/action/datastore_search",
+      "sha256_hash": "f433a3f1bd39e3c0fd5446dcddfde82e8941ff901fc53eb56b516d5238150300",
+      "ingested_at": "2026-09-10T20:34:43.274324+00:00"
+    },
+    {
+      "award_id": "191106",
+      "funding_agency": "Department of Resources Recycling and Recovery",
+      "recipient_name": "State Allocation (Recycled Glass Processing Incentive Grant Program (FY 2026-2)",
+      "amount_usd": 8782179.0,
+      "purpose": "The fundamental goal of the Program is to stimulate an increase of furnace-ready glass cullet in the making of new glass beverage containers within the State of California.",
+      "city": "Sacramento / Orange County",
+      "state": "CA",
+      "status": "VERIFIED_CA_GRANTS_PORTAL",
+      "utxo_tag": [
+        "TaxFunded",
+        "CAGrantsPortal",
+        "StateAward"
+      ],
+      "source_api": "https://data.ca.gov/api/3/action/datastore_search",
+      "sha256_hash": "04b55c75ab1c62dedead847f40b4487dc91f132fc514790727901a5507fabbf2",
+      "ingested_at": "2026-09-10T20:34:43.274324+00:00"
+    },
+    {
+      "award_id": "191109",
+      "funding_agency": "Department of Forestry and Fire Protection",
+      "recipient_name": "State Allocation (Forest Legacy Program Capacity and Project Development 2026)",
+      "amount_usd": 500000.0,
+      "purpose": "CAL FIRE\u2019s Forest Legacy Program funds landscape-scale conservation projects intended to conserve working forests and working forested landscapes. This solicitation aims to increase organizational cap",
+      "city": "Sacramento / Orange County",
+      "state": "CA",
+      "status": "VERIFIED_CA_GRANTS_PORTAL",
+      "utxo_tag": [
+        "TaxFunded",
+        "CAGrantsPortal",
+        "StateAward"
+      ],
+      "source_api": "https://data.ca.gov/api/3/action/datastore_search",
+      "sha256_hash": "572d5cff7e1f94c9107b0ef07329bf6f675bbd696b29ae9c8a49c7e33d345f01",
+      "ingested_at": "2026-09-10T20:34:43.274324+00:00"
+    },
+    {
+      "award_id": "Employment Development Department",
+      "funding_agency": "Employment Development Department",
+      "recipient_name": "State Allocation (Farmworkers Advancement Program (FAP) Grant for Program Year)",
+      "amount_usd": 10000000.0,
+      "purpose": "The goal of this grant is to fund projects that focus on farmworker needs at a regional level by offering essential skills and upskilling training for farmworkers to either advance in the agricultural",
+      "city": "Sacramento / Orange County",
+      "state": "CA",
+      "status": "VERIFIED_CA_GRANTS_PORTAL",
+      "utxo_tag": [
+        "TaxFunded",
+        "CAGrantsPortal",
+        "StateAward"
+      ],
+      "source_api": "https://data.ca.gov/api/3/action/datastore_search",
+      "sha256_hash": "53401870f8c7a736fbdcfa4e8209bb2eaec587e12788398476b7d7376704496d",
+      "ingested_at": "2026-09-10T20:34:43.274324+00:00"
     }
   ]
 }

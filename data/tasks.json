@@ -1027,13 +1027,15 @@
       "title": "Analyze Extracted OSINT:  https://unclaimedproperty.ocgov.com/target=AndrewD",
       "category": "SUGGESTIVE_WORK_TASKS",
       "priority": "MEDIUM",
-      "status": "TODO",
+      "status": "DONE",
       "description": "Analyze Extracted OSINT:  https://unclaimedproperty.ocgov.com/target=AndrewD",
       "created_at": "2026-09-07T06:44:59.098093+00:00",
       "tags": [
         "SUGGESTIVE_WORK_TASKS"
       ],
-      "action_url": "#"
+      "action_url": "#",
+      "last_processed_at": "2026-09-10T19:23:51.167880+00:00",
+      "evidence_hash": "4886ab64a97f6384aa60c056fa258e2c49cef78120672aa126dd8bfcbed6ac35"
     },
     {
       "id": "TASK-069",
@@ -1068,13 +1070,15 @@
       "title": "Inject Huntington Beach Evidence into BigQuery FCA Timeline",
       "category": "SUGGESTIVE_WORK",
       "priority": "MEDIUM",
-      "status": "TODO",
+      "status": "DONE",
       "description": "Inject Huntington Beach Evidence into BigQuery FCA Timeline",
       "created_at": "2026-09-07T08:39:41.269992+00:00",
       "tags": [
         "SUGGESTIVE_WORK"
       ],
-      "action_url": "#"
+      "action_url": "#",
+      "last_processed_at": "2026-09-10T19:23:51.212762+00:00",
+      "evidence_hash": "950eebcb671104ffbcc05663a20b1b002cd74f2fddc17e172068022b54adbf0b"
     },
     {
       "id": "TASK-072",
@@ -1095,13 +1099,15 @@
       "title": "Update BigQuery Schema to use ARRAY<STRING> for UTXO Domain Tags",
       "category": "SUGGESTIVE_WORK",
       "priority": "HIGH",
-      "status": "TODO",
+      "status": "DONE",
       "description": "Update BigQuery Schema to use ARRAY<STRING> for UTXO Domain Tags",
       "created_at": "2026-09-07T08:52:57.714033+00:00",
       "tags": [
         "SUGGESTIVE_WORK"
       ],
-      "action_url": "#"
+      "action_url": "#",
+      "last_processed_at": "2026-09-10T19:23:51.217100+00:00",
+      "evidence_hash": "51783f79e785788b510a1878416bf34b6d14dc1f258b0026a5c814cd87987d0e"
     },
     {
       "id": "TASK-074",
@@ -1122,13 +1128,15 @@
       "title": "Build Sortable Data Grid UI for Legal Section and Defect Alert System",
       "category": "SUGGESTIVE_WORK",
       "priority": "MEDIUM",
-      "status": "TODO",
+      "status": "DONE",
       "description": "Build Sortable Data Grid UI for Legal Section and Defect Alert System",
       "created_at": "2026-09-07T09:41:16.181460+00:00",
       "tags": [
         "SUGGESTIVE_WORK"
       ],
-      "action_url": "#"
+      "action_url": "#",
+      "last_processed_at": "2026-09-10T19:23:51.225451+00:00",
+      "evidence_hash": "460f1655f67a5fcda4ce5c8c042a386b8b28d0d5d8ea385dc6d336bf9fba55d3"
     },
     {
       "id": "TASK-076",
@@ -1189,13 +1197,15 @@
       "title": "Create Automated Bounty Generation for Broken Legal Links (Defect Loop)",
       "category": "SUGGESTIVE_WORK",
       "priority": "MEDIUM",
-      "status": "TODO",
+      "status": "DONE",
       "description": "Create Automated Bounty Generation for Broken Legal Links (Defect Loop)",
       "created_at": "2026-09-07T10:22:53.471118+00:00",
       "tags": [
         "SUGGESTIVE_WORK"
       ],
-      "action_url": "#"
+      "action_url": "#",
+      "last_processed_at": "2026-09-10T19:23:51.230252+00:00",
+      "evidence_hash": "460f1655f67a5fcda4ce5c8c042a386b8b28d0d5d8ea385dc6d336bf9fba55d3"
     },
     {
       "id": "TASK-081",

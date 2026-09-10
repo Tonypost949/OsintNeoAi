@@ -1,24 +1,43 @@
-## 2026-09-02T08:34:52Z
-You are the Forensic Auditor (auditor_1) for OsintNeoAi.
-Working directory: C:\OsintNeoAi\.agents\auditor_1\
-Project root: C:\OsintNeoAi
-Original Request: C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md (MUST read first)
-Project Scope: C:\OsintNeoAi\PROJECT.md
+# Dispatch Instructions for auditor_1
 
-Task:
-Perform independent forensic integrity auditing and non-degradation verification (Gate 5 & Master Gate Certification):
-1. Execute the 5-Gate Master Verification Suite: `python scripts/run_adversarial_verification_gate.py`.
-2. Verify all 9 critical forensic deliverables are present and uncorrupted:
-   - `evidence/FORENSIC_CORRELATION_MATRIX.json`
-   - `data/leads_feed.json`
-   - `public/caltrans_d12_cctv.geojson`
-   - `nodes.json`
-   - `edges.json`
-   - `openapi_azure_powerapps.json`
-   - `evidence/target_cctv_proximity.json`
-   - `evidence/mutual_aid_cases.json`
-   - `reports/auto_leads/latest.json`
-3. Verify local PC air-gapped snapshots (at least 34 backup archives present in `C:\Users\HP\OneDrive\Documents\OsintNeoAi\backups\repo\`).
-4. Verify 3-Location Backup compliance (GitHub origin/main, Local PC, Sharedall Google Drive) per AGENTS.md.
-5. Check for any dummy implementations, hardcoded shortcuts, or cheating.
-6. Deliver your authoritative forensic audit verdict (CLEAN or INTEGRITY VIOLATION) in `C:\OsintNeoAi\.agents\auditor_1\handoff.md` and send a message back to parent.
+## Identity & Role
+- Role: Forensic Integrity Auditor
+- Archetype: teamwork_preview_auditor
+- Working directory: C:\OsintNeoAi\.agents\auditor_1
+- Parent: orchestrator_13 (e68e15f5-4a37-405f-8e73-c5b57613b6cf)
+
+## Scope
+Perform forensic integrity verification across all work products of `worker_impl_m1_m2`:
+1. Static Analysis & Authenticity Audit:
+   - Check `api/workspace_intelligence.py` for genuine logic (no hardcoded return values, no mock dictionaries pretending to calculate distances, no fake datasets).
+   - Check `api/main.py` modifications for genuine route handling and null-safety implementation.
+   - Check `workspace_v2.html` and `templates/workspace_v2.html` for authentic UI code and 100% template parity.
+   - Check `tests/test_workspace_intelligence.py` to ensure it exercises actual application code rather than trivial assertions.
+2. Ledger & File System Audit:
+   - Verify that NO files were deleted (AGENTS.md Rule 2).
+   - Verify that `data/tasks.json` and `TASKS.md` task completions cite authentic script deliverables.
+3. Runtime Integrity Audit:
+   - Execute the test suites:
+     - `python tests/run_milestone_tests.py`
+     - `python -m unittest tests/test_workspace_intelligence.py`
+     - `python -m unittest tests/test_genesis_ingest.py`
+     - `python -m unittest tests/test_challenger1_genesis_hud_harness.py`
+4. Render a binary verdict: CLEAN or INTEGRITY VIOLATION / CHEATING DETECTED.
+
+Read:
+- C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md
+- C:\OsintNeoAi\AGENTS.md
+- C:\OsintNeoAi\.agents\worker_impl_m1_m2\handoff.md
+
+Write `report.md` and `handoff.md` with your verdict and findings, and message parent.
+
+## 2026-09-10T19:10:00Z
+You are auditor_1.
+Your working directory is C:\OsintNeoAi\.agents\auditor_1.
+Read C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md, C:\OsintNeoAi\AGENTS.md, and C:\OsintNeoAi\.agents\auditor_1\DISPATCH.md.
+Also read C:\OsintNeoAi\.agents\worker_impl_m1_m2\handoff.md.
+
+Conduct a forensic integrity audit of worker_impl_m1_m2's work products.
+Verify authenticity (no mock stubs, no hardcoded cheating, no fake calculations), non-destructive compliance (zero file deletions per AGENTS.md Rule 2), and run test suites to verify genuine functionality.
+Write report.md and handoff.md with an explicit verdict: CLEAN or INTEGRITY VIOLATION / CHEATING DETECTED.
+Message parent with your findings.

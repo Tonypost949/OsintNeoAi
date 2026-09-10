@@ -1,9 +1,50 @@
 {
-  "scrubbed_at": "2026-09-10T18:50:32.170746+00:00",
+  "scrubbed_at": "2026-09-10T20:35:13.086891+00:00",
   "graph_health": "OPTIMAL",
-  "total_target_accounts_verified": 0,
+  "total_target_accounts_verified": 31,
   "total_crossref_links_verified": 33,
-  "orphan_nodes_detected": 0,
+  "matched_accounts_count": 16,
+  "orphan_nodes_detected": 15,
   "anomalies_resolved": 0,
-  "reconciliation_status": "100% RECONCILED AGAINST BIGQUERY KNOWLEDGE GRAPH"
+  "categories_scrubbed": [
+    "primary_gmail_accounts",
+    "new_gmail_accounts",
+    "microsoft_onedrive_accounts",
+    "google_workspace_edu",
+    "firefox_browser_profiles",
+    "excluded_gmail"
+  ],
+  "matched_accounts_summary": [
+    "amd949609@gmail.com",
+    "osintneoai@gmail.com",
+    "txtdjdrop@gmail.com",
+    "pmportal949@gmail.com",
+    "anthonymichaeldimarcello@gmail.com",
+    "drillingoilandgasinfo@gmail.com",
+    "ironmandavinci@gmail.com",
+    "anthony.dimarcello.student@gmail.com",
+    "anthonymd949@gmail.com",
+    "sunsetmaverick949@gmail.com",
+    "makeitsoxo@gmail.com",
+    "atlasoccustomcabinets@gmail.com",
+    "disoledesign@gmail.com",
+    "txtdjdrop@outlook.com",
+    "anthony@dimarcello.net",
+    "anthony.dimarcello@students.post.edu"
+  ],
+  "orphan_accounts_summary": [
+    "michaelsiringo0@gmail.com",
+    "need2bfunky1@gmail.com",
+    "tradingt3@gmail.com",
+    "wccinfo909@gmail.com",
+    "gmd949609@gmail.com",
+    "johnyrocketoc@gmail.com",
+    "anthony.dimarcello.student@outlook.com",
+    "Amd949609@dimarcello949.onmicrosoft.com",
+    "amd@dimarcello.net",
+    "contact@anthonydimarcello.net",
+    "ceo@anthonydimarcellonet.com",
+    "anthony@dimarcello949.com"
+  ],
+  "reconciliation_status": "VERIFIED: 16/31 ACCOUNTS LINKED ACROSS 33 BIGQUERY NODES, 15 ORPHAN NODES DETECTED"
 }

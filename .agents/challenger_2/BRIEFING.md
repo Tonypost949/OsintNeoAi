@@ -1,7 +1,7 @@
-# BRIEFING — 2026-09-02T08:55:37Z
+# BRIEFING — 2026-09-10T19:12:00Z
 
 ## Mission
-Adversarial integration, concurrency stress-testing (15+ concurrent threads on /api/correlation/run?async=1), 71-test E2E execution, auxiliary stress tests, and Gate 4 / R3 empirical verification of the 24/7 autonomous correlation pipeline.
+Empirical adversarial verification of data integrity and spatial computations of the 82,757 Huntington Beach municipal URLs dataset and DTSC/GeoTracker GIS vector databases, in-memory search benchmarking (1,000 queries), Haversine spherical distance calculations against ground-truth coordinates, and toxic stigma valuation discount attribution (-85% FMV) with statutory remedies.
 
 ## 🔒 My Identity
 - Archetype: empirical challenger
@@ -10,44 +10,66 @@ Adversarial integration, concurrency stress-testing (15+ concurrent threads on /
 - Original parent: cc24a768-8724-4ab3-be42-36f6500cca77
 - Milestone: 24/7 Autonomous Correlation Pipeline Verification
 - Instance: 2 of 2
+- Current Milestone: Dual-Repository Synchronization & Backup Verification (Requirement R3)
+- Current Parent: 4ea1f01b-b75e-4977-bfe3-2c8630301b0e (orchestrator_12)
+- Next Parent: e68e15f5-4a37-405f-8e73-c5b57613b6cf (orchestrator_13)
+- Next Milestone: Empirical Data Integrity & Spatial Computations Verification (82,757 Municipal URLs, DTSC/GeoTracker GIS, Search Latency, Haversine Accuracy, Toxic Stigma Calculations)
 
 ## 🔒 Key Constraints
 - Review-only — do NOT modify implementation code
 - Run verification code directly (empirical proof required)
 - No source or tests inside `.agents/`
 - Report findings with proof to orchestrator
+- Run commands via `cmd /c "..."` or `powershell -NoProfile -Command "..."`
+- Benchmark search performance over 1,000 rapid queries
+- Verify ground-truth Haversine distance and toxic stigma calculations
+- Output verdict: APPROVE or REJECT
 
 ## Current Parent
-- Conversation ID: 2556ff43-f8bc-41fe-8487-738b76d80c8d
-- Updated: 2026-09-02T08:55:37Z
+- Conversation ID: e68e15f5-4a37-405f-8e73-c5b57613b6cf (orchestrator_13)
+- Updated: 2026-09-10T19:12:00Z
 
 ## Review Scope
-- **Files to review**: `api/app.py`, `api/auto_correlation.py`, `tests/test_autonomous_correlation_e2e.py`, `tests/test_adversarial_stress.py`, `tests/test_adversarial_chains_challenger_2.py`, `tests/test_adversarial_async_concurrency_gate4.py`, `scripts/run_adversarial_verification_gate.py`
-- **Interface contracts**: `C:\OsintNeoAi\PROJECT.md`, `C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md`
-- **Review criteria**: Concurrency & Async Execution (Gate 4 & R3), zero race conditions, zero deadlocks, 100% HTTP 200 responses under 15+ / 25 / 50 threads, 71/71 E2E tests passing, auxiliary stress tests passing.
+- **Files to review**:
+  - `data/hb_urls_master.txt`
+  - `data/neo_hb_urls_forensic_classification.json`
+  - `data/hb_gis_42_services_master.json`
+  - `opencode_work/geotracker/permitted_ust.txt`
+  - `data/geotracker_17631_cameron_contamination_analysis.json`
+  - `api/workspace_intelligence.py`
+  - `api/main.py`
+  - `tests/test_workspace_intelligence.py`
+- **Interface contracts**: `C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md`, `C:\OsintNeoAi\.agents\worker_impl_m1_m2\handoff.md`
+- **Review criteria**:
+  1. Line count and unique URLs in `data/hb_urls_master.txt` (expected 82,757 unique).
+  2. Category distribution in `data/neo_hb_urls_forensic_classification.json`.
+  3. Latency benchmark across 1,000 rapid in-memory queries.
+  4. Record count and field validity in `opencode_work/geotracker/permitted_ust.txt` (expected 15,847 records).
+  5. Haversine distance calculation accuracy against known coordinates (HB City Hall, Cameron Lane, Ascon Superfund, MCAS El Toro).
+  6. Toxic stigma calculation (-85% discount) and statutory remedies inside contamination plume.
+  7. Adversarial boundary conditions and error resilience.
 
 ## Attack Surface
 - **Hypotheses tested**:
-  - H1: High-concurrency burst (25 simultaneous threads POST `/api/correlation/run?async=1`) could cause thread contention, race conditions, or unhandled 500s. -> REFUTED. 25/25 HTTP 200, 0 errors, avg latency 18.68 ms.
-  - H2: High-concurrency burst (25 simultaneous threads GET `/api/correlation/run?async=1`) could deadlock Flask or auto_correlation lock. -> REFUTED. 25/25 HTTP 200, 0 errors, avg latency 26.49 ms.
-  - H3: 50-thread burst could cause thread starvation or gateway timeout. -> REFUTED. 50/50 HTTP 200, 0 errors, avg latency 31.37 ms.
-  - H4: Mixed concurrency (20 triggers + 20 multi-endpoint reads) could cause file lock contention or corrupted telemetry. -> REFUTED. 40/40 HTTP 200, 0 errors.
-  - H5: 71-test E2E suite regression across 4 tiers. -> REFUTED. 71/71 tests passing OK.
-  - H6: Auxiliary stress suites regression. -> REFUTED. 20/20 chains + 17/17 stress + 5/5 verification gates passing.
-- **Vulnerabilities found**: None. System is resilient, non-blocking, and thread-safe.
-- **Untested angles**: Extreme long-duration cloud soak test (>24h continuous), which is managed via Azure App Service continuous runtime.
+  - H1: `data/hb_urls_master.txt` does not actually have 82,757 unique URLs, has blank lines, corrupt formatting, or encoding errors.
+  - H2: Category classification in `data/neo_hb_urls_forensic_classification.json` has missing URLs, duplicate URLs across disjoint sets, or incorrect sum totals.
+  - H3: `HBMunicipalURLIndex` search degrades under high throughput (1,000 queries) or has memory leaks/quadratic slowdown.
+  - H4: `opencode_work/geotracker/permitted_ust.txt` lacks 15,847 rows or has parsing flaws, missing coordinates, or corrupt delimiters.
+  - H5: Haversine distance formula in `EnvironmentalGISRadar` has coordinate swap (lat/lon inverted), spherical approximation distortion, or division-by-zero on coincident coordinates.
+  - H6: Toxic stigma discount of -85% is miscalculated, applied outside the plume, or fails to emit statutory remedies (Cal. CCP § 473(d), AB 1482, Rule 60(d)(3), CERCLA).
+  - H7: Edge cases: Coincident point (distance = 0.0), antipodal coordinates, extreme latitude (90.0, -90.0), international dateline crossing (180.0, -180.0), None / malformed types.
+- **Vulnerabilities found**: TBD via empirical testing.
+- **Untested angles**: TBD.
 
 ## Loaded Skills
 - None
 
 ## Key Decisions Made
-- Executed all 71 E2E tests, 20 chain tests, 17 stress tests, 4 Gate 4 concurrency stress tests, and 5-gate master verification harness.
-- Verified 100% pass rate with zero race conditions, zero deadlocks, and sub-35ms average non-blocking async latency.
-- Verdict: APPROVE.
+- Initialized test plan for empirical verification script in `tests/test_challenger2_data_spatial_harness.py`.
 
 ## Artifact Index
-- C:\OsintNeoAi\.agents\challenger_2\DISPATCH.md — incoming instructions
-- C:\OsintNeoAi\.agents\challenger_2\progress.md — liveness heartbeat and task tracking
-- C:\OsintNeoAi\.agents\challenger_2\handoff.md — final assessment and empirical test evidence
-- C:\OsintNeoAi\tests\test_adversarial_async_concurrency_gate4.py — Gate 4 Concurrency & Async Stress Harness
-
+- `C:\OsintNeoAi\.agents\challenger_2\DISPATCH.md` — incoming instructions
+- `C:\OsintNeoAi\.agents\challenger_2\progress.md` — liveness heartbeat
+- `C:\OsintNeoAi\.agents\challenger_2\BRIEFING.md` — working memory
+- `C:\OsintNeoAi\.agents\challenger_2\report.md` — detailed empirical verification report
+- `C:\OsintNeoAi\.agents\challenger_2\handoff.md` — 5-component handoff report

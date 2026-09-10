@@ -1,4 +1,4 @@
-import json, os, sys, io, csv, uuid, re, subprocess, logging, hashlib, time
+import json, os, sys, io, csv, uuid, re, subprocess, logging, hashlib, time, math
 from datetime import datetime, timezone
 from pathlib import Path
 from flask import Flask, jsonify, request, send_from_directory, send_file
@@ -44,6 +44,23 @@ try:
     register_evasive_routes(app)
 except Exception as _ev_e:
     print(f"[Evasive] routes not loaded: {_ev_e}")
+
+# ── Municipal URL Intelligence & Environmental GIS Radar ──────────────────────
+try:
+    from workspace_intelligence import (
+        search_hb_urls,
+        get_hb_urls_stats,
+        get_environmental_proximity,
+        get_gis_layers
+    )
+    print("[Workspace Intelligence] loaded: Municipal URL Index & Environmental GIS Radar")
+except Exception as _wi_e:
+    print(f"[Workspace Intelligence] not loaded: {_wi_e}")
+    search_hb_urls = None
+    get_hb_urls_stats = None
+    get_environmental_proximity = None
+    get_gis_layers = None
+
 
 # ── In-Memory Knowledge Store ──────────────────────────────────
 knowledge_store = {
@@ -739,12 +756,22 @@ def genesis_ingest():
         return res
 
     data = request.get_json(silent=True) or {}
-    raw_text = data.get("text", "").strip()
-    user_wallet = data.get("wallet", "0xANON_LEDGER_KEY")
-    theme = data.get("theme", "dark")
-
+    raw_val = data.get("text")
+    if not isinstance(raw_val, str):
+        return jsonify({"error": "Invalid text payload: text must be a non-empty string"}), 400
+    raw_text = raw_val.strip()
     if not raw_text:
         return jsonify({"error": "No statement provided"}), 400
+
+    raw_wallet = data.get("wallet")
+    if isinstance(raw_wallet, str) and raw_wallet.strip():
+        user_wallet = raw_wallet.strip()
+    elif isinstance(raw_wallet, (int, float)):
+        user_wallet = str(raw_wallet)
+    else:
+        user_wallet = "0xANON_LEDGER_KEY"
+
+    theme = data.get("theme", "dark")
 
     # 1. Zero-Trust SHA-256 Integrity Hash
     timestamp = int(time.time())
@@ -764,6 +791,17 @@ def genesis_ingest():
 
     # 4. Deep LLM Backend Digestion
     digest = llm_digest_testimony(raw_text, page_type, target_entity, attribute_status)
+
+    # Cross-reference municipal URLs and environmental proximity
+    municipal_matches = []
+    if search_hb_urls is not None:
+        query_target = target_entity if target_entity != "Unknown Entity" else ("Woodbridge" if "woodbridge" in raw_text.lower() else "planning")
+        m_res = search_hb_urls(query=query_target, limit=5)
+        municipal_matches = m_res.get("results", [])
+
+    env_prox = {}
+    if get_environmental_proximity is not None:
+        env_prox = get_environmental_proximity(text=raw_text, address=target_entity)
 
     # 5. Generate Initial Wiki Ledger & Franchise Newspaper Draft & Maltego Graph
     genesis_payload = {
@@ -795,16 +833,167 @@ def genesis_ingest():
             "edges": digest.get("maltego_edges", [])
         },
         "environmental_plume_intercept": {
-            "status": "FLAGGED",
+            "status": env_prox.get("status", "FLAGGED"),
             "jurisdiction": "DTSC_ENVIROSTOR_GEOTRACKER",
-            "valuation_discount": "-85% FMV",
-            "statutory_remedy": "Cal. Civ. Proc. Code § 473(d) / Rule 60(d)(3) Court Reopening"
-        }
+            "valuation_discount": env_prox.get("valuation_impact", {}).get("discount", "-85% FMV"),
+            "statutory_remedy": "Cal. Civ. Proc. Code § 473(d) / Rule 60(d)(3) Court Reopening",
+            "nearest_plume": env_prox.get("nearest_plume"),
+            "nearest_ust": env_prox.get("nearest_ust"),
+            "details": env_prox
+        },
+        "municipal_matches": municipal_matches,
+        "environmental_proximity": env_prox
     }
 
     res = jsonify(genesis_payload)
     res.headers.add("Access-Control-Allow-Origin", "*")
     return res
+
+
+# ── Municipal URL Intelligence & Environmental GIS Endpoints ──────────────────
+@app.route("/api/workspace/hb-urls/stats", methods=["GET", "OPTIONS"])
+def workspace_hb_urls_stats():
+    if request.method == "OPTIONS":
+        res = jsonify({"status": "ok"})
+        res.headers.add("Access-Control-Allow-Origin", "*")
+        res.headers.add("Access-Control-Allow-Headers", "*")
+        res.headers.add("Access-Control-Allow-Methods", "GET, OPTIONS")
+        return res
+
+    if get_hb_urls_stats is None:
+        return jsonify({"error": "Workspace intelligence module unavailable"}), 503
+
+    stats = get_hb_urls_stats()
+    res = jsonify(stats)
+    res.headers.add("Access-Control-Allow-Origin", "*")
+    return res
+
+
+@app.route("/api/workspace/hb-urls/search", methods=["GET", "POST", "OPTIONS"])
+def workspace_hb_urls_search():
+    if request.method == "OPTIONS":
+        res = jsonify({"status": "ok"})
+        res.headers.add("Access-Control-Allow-Origin", "*")
+        res.headers.add("Access-Control-Allow-Headers", "*")
+        res.headers.add("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        return res
+
+    if search_hb_urls is None:
+        return jsonify({"error": "Workspace intelligence module unavailable"}), 503
+
+    def safe_parse_int(val, default=50, min_v=1, max_v=500):
+        try:
+            v = int(val)
+            if min_v is not None and v < min_v:
+                v = min_v
+            if max_v is not None and v > max_v:
+                v = max_v
+            return v
+        except (ValueError, TypeError):
+            return default
+
+    if request.method == "POST":
+        data = request.get_json(silent=True) or {}
+        raw_q = data.get("q") if "q" in data else (data.get("query") if "query" in data else (request.args.get("q") or request.args.get("query") or ""))
+        query = str(raw_q) if not isinstance(raw_q, (list, dict)) else (" ".join(str(x) for x in raw_q) if isinstance(raw_q, list) else "")
+        raw_cat = data.get("category") if "category" in data else request.args.get("category")
+        category = raw_cat.strip() if isinstance(raw_cat, str) and raw_cat.strip() else None
+        raw_limit = data.get("limit") if "limit" in data else request.args.get("limit")
+        limit = safe_parse_int(raw_limit if raw_limit is not None else 50, default=50, min_v=1, max_v=500)
+        raw_offset = data.get("offset") if "offset" in data else request.args.get("offset")
+        offset = safe_parse_int(raw_offset if raw_offset is not None else 0, default=0, min_v=0, max_v=10000000)
+    else:
+        raw_q = request.args.get("q") or request.args.get("query") or ""
+        query = str(raw_q)
+        raw_cat = request.args.get("category")
+        category = raw_cat.strip() if isinstance(raw_cat, str) and raw_cat.strip() else None
+        limit = safe_parse_int(request.args.get("limit") or 50, default=50, min_v=1, max_v=500)
+        offset = safe_parse_int(request.args.get("offset") or 0, default=0, min_v=0, max_v=10000000)
+
+    results = search_hb_urls(query=query, category=category, limit=limit, offset=offset)
+    res = jsonify(results)
+    res.headers.add("Access-Control-Allow-Origin", "*")
+    return res
+
+
+@app.route("/api/workspace/environmental/proximity", methods=["GET", "POST", "OPTIONS"])
+def workspace_environmental_proximity():
+    if request.method == "OPTIONS":
+        res = jsonify({"status": "ok"})
+        res.headers.add("Access-Control-Allow-Origin", "*")
+        res.headers.add("Access-Control-Allow-Headers", "*")
+        res.headers.add("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        return res
+
+    if get_environmental_proximity is None:
+        return jsonify({"error": "Environmental GIS Radar unavailable"}), 503
+
+    if request.method == "POST":
+        data = request.get_json(silent=True) or {}
+        lat_raw = data.get("lat") if "lat" in data else request.args.get("lat")
+        lon_raw = (data.get("lon") if "lon" in data else data.get("lng")) if ("lon" in data or "lng" in data) else (request.args.get("lon") or request.args.get("lng"))
+        address = data.get("address") or request.args.get("address")
+        text = data.get("text") or request.args.get("text")
+        radius_raw = (data.get("radius_miles") if "radius_miles" in data else data.get("radius")) if ("radius_miles" in data or "radius" in data) else (request.args.get("radius_miles") or request.args.get("radius"))
+    else:
+        lat_raw = request.args.get("lat")
+        lon_raw = request.args.get("lon") or request.args.get("lng")
+        address = request.args.get("address")
+        text = request.args.get("text")
+        radius_raw = request.args.get("radius_miles") or request.args.get("radius")
+
+    # 1. Defensive radius parsing & validation
+    if radius_raw is not None and radius_raw != "":
+        try:
+            radius = float(radius_raw)
+            if not math.isfinite(radius) or radius <= 0:
+                return jsonify({"error": "Invalid radius: radius_miles must be a positive finite number"}), 400
+        except (ValueError, TypeError):
+            return jsonify({"error": "Invalid radius: radius_miles must be a valid number"}), 400
+    else:
+        radius = 2.0
+
+    # 2. Defensive coordinate parsing & validation
+    lat_f = None
+    lon_f = None
+    if lat_raw is not None or lon_raw is not None:
+        if lat_raw is None or lon_raw is None or lat_raw == "" or lon_raw == "":
+            return jsonify({"error": "Both lat and lon must be provided when specifying coordinates"}), 400
+        try:
+            lat_f = float(lat_raw)
+            lon_f = float(lon_raw)
+        except (ValueError, TypeError):
+            return jsonify({"error": "Invalid coordinates: lat and lon must be numerical"}), 400
+
+        if not (math.isfinite(lat_f) and math.isfinite(lon_f)):
+            return jsonify({"error": "Coordinates must be finite numbers"}), 400
+
+        if not (-90.0 <= lat_f <= 90.0 and -180.0 <= lon_f <= 180.0):
+            return jsonify({"error": "Coordinates out of bounds: lat must be in [-90, 90] and lon in [-180, 180]"}), 400
+
+    proximity = get_environmental_proximity(lat=lat_f, lon=lon_f, address=address, text=text, radius_miles=radius)
+    res = jsonify(proximity)
+    res.headers.add("Access-Control-Allow-Origin", "*")
+    return res
+
+
+@app.route("/api/workspace/gis/layers", methods=["GET", "OPTIONS"])
+def workspace_gis_layers():
+    if request.method == "OPTIONS":
+        res = jsonify({"status": "ok"})
+        res.headers.add("Access-Control-Allow-Origin", "*")
+        res.headers.add("Access-Control-Allow-Headers", "*")
+        res.headers.add("Access-Control-Allow-Methods", "GET, OPTIONS")
+        return res
+
+    if get_gis_layers is None:
+        return jsonify({"error": "GIS Layers catalog unavailable"}), 503
+
+    layers = get_gis_layers()
+    res = jsonify(layers)
+    res.headers.add("Access-Control-Allow-Origin", "*")
+    return res
+
 
 # ── Zero-Trust Encrypted Lockbox Vault ─────────────────────────
 LOCKBOX_VAULT_DIR = Path(__file__).parent.parent / "data" / "lockbox_vault"

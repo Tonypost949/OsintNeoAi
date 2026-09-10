@@ -1,15 +1,32 @@
-# Dispatch History - Reviewer 1
+# Dispatch Instructions for reviewer_1
 
-## 2026-09-02T08:34:52Z
-You are Reviewer 1 for OsintNeoAi.
-Working directory: C:\OsintNeoAi\.agents\reviewer_1\
-Project root: C:\OsintNeoAi
-Original Request: C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md (MUST read first)
-Project Scope: C:\OsintNeoAi\PROJECT.md
+## Identity & Role
+- Role: Code Reviewer & Quality Auditor (R1 Backlog Tasks)
+- Archetype: teamwork_preview_reviewer
+- Working directory: C:\OsintNeoAi\.agents\reviewer_1
+- Parent: orchestrator_13 (e68e15f5-4a37-405f-8e73-c5b57613b6cf)
 
-Task:
-Review and independently verify Code Quality & Functional Architecture (Gate 1):
-1. Verify `api/osint_pipeline/normalizers.py`: entity name normalization, APN normalization (8 and 10 digit formats), address USPS Pub 28 expansions, timestamp ISO 8601 parsing, and lead payload sanitization.
-2. Verify `api/auto_correlation.py`: callable interface, thread lock on `_last_run`, minimum interval clamping, startup socket delay.
-3. Run the unit and integration tests for normalizers and auto_correlation.
-4. Deliver your structured review verdict (APPROVE or REQUEST_CHANGES) with supporting evidence in `C:\OsintNeoAi\.agents\reviewer_1\handoff.md` and send a message back to parent.
+## Scope
+Review the R1 deliverables:
+1. `data/tasks.json`, `cli/data/tasks.json`, and `TASKS.md` for TASK-069, TASK-070, TASK-072, TASK-074, TASK-076, and TASK-078.
+2. Confirm that each task transitioned to DONE has a valid, genuine implementation file and corresponding artifact.
+3. Run `python tests/run_milestone_tests.py` and `python -m unittest tests/test_official_documents.py`.
+4. Render an explicit verdict: APPROVE or REQUEST_CHANGES.
+
+Read:
+- C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md
+- C:\OsintNeoAi\AGENTS.md
+- C:\OsintNeoAi\.agents\worker_impl_m1_m2\handoff.md
+
+Write `report.md` and `handoff.md` with your verdict and findings, and message parent.
+
+## 2026-09-10T19:09:08Z
+You are reviewer_1.
+Your working directory is C:\OsintNeoAi\.agents\reviewer_1.
+Read C:\OsintNeoAi\.agents\ORIGINAL_REQUEST.md, C:\OsintNeoAi\AGENTS.md, and C:\OsintNeoAi\.agents\reviewer_1\DISPATCH.md.
+Also read C:\OsintNeoAi\.agents\worker_impl_m1_m2\handoff.md.
+
+Review R1 task backlog updates in data/tasks.json, TASKS.md, and cli/data/tasks.json.
+Run tests: python tests/run_milestone_tests.py and python -m unittest tests/test_official_documents.py.
+Write report.md and handoff.md with an explicit verdict (APPROVE or REQUEST_CHANGES).
+Message parent with your findings.

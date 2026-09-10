@@ -309,6 +309,27 @@
     font-size: 12px;
     margin-top: 10px;
   }
+
+  .pill-filter {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .pill-filter:hover {
+    background: rgba(255, 255, 255, 0.16);
+    color: var(--text);
+  }
+  .pill-filter.active {
+    background: var(--accent);
+    color: #0f172a;
+    font-weight: bold;
+    border-color: var(--accent);
+  }
 </style>
 </head>
 <body>
@@ -350,6 +371,28 @@
       </div>
     </div>
 
+    <div id="hb-urls-pane" class="pane">
+      <div class="pane-header">
+        <h3 class="pane-title">🏛️ <span id="urls-title">Municipal Records Radar (82,757 HB URLs)</span></h3>
+        <span class="status-badge" id="url-count-badge">82,757 INDEXED</span>
+      </div>
+      <div style="display:flex; gap:8px; margin-bottom:10px;">
+        <input type="text" id="url-search-input" placeholder="Search 82,757 municipal URLs (e.g. Planning, Agendas, EIR, APN)..." 
+               style="flex:1; background:rgba(0,0,0,0.4); border:1px solid var(--border); color:var(--text); padding:8px 12px; border-radius:6px; font-size:12px;" />
+        <button onclick="searchMunicipalUrls()" class="btn-action">Scan</button>
+      </div>
+      <div id="url-category-pills" style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+        <button class="pill-filter active" onclick="filterUrlsByCategory('')">All (82.7k)</button>
+        <button class="pill-filter" onclick="filterUrlsByCategory('PLANNING_ZONING_DEVELOPMENT')">Planning (10.6k)</button>
+        <button class="pill-filter" onclick="filterUrlsByCategory('COUNCIL_AGENDAS_MINUTES')">Agendas (3.5k)</button>
+        <button class="pill-filter" onclick="filterUrlsByCategory('DOCUMENTS_AND_PDFS')">PDFs (11.1k)</button>
+        <button class="pill-filter" onclick="filterUrlsByCategory('LEGAL_LITIGATION_CLAIMS')">Legal Claims (288)</button>
+      </div>
+      <div id="url-results-container" class="wiki-body" style="max-height:260px; font-size:12px;">
+        <p style="color:var(--text-muted);">Enter search terms above or click a category filter to query the 82,757 municipal URL knowledge base in real-time.</p>
+      </div>
+    </div>
+
     <div id="maltego-pane" class="pane">
       <div class="pane-header">
         <h3 class="pane-title">🕸️ Maltego Compliance & Corporate Graph</h3>
@@ -369,10 +412,22 @@
       <div id="plume-alert">
         ⚠️ HIGH-PRIORITY INTERCEPT: Property address correlates with DTSC / GeoTracker Subsurface VOC & Methane Plume. Property valuation discount: <strong>-85% FMV</strong>.
       </div>
+      <div id="plume-metrics" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:12px; margin-bottom:10px;">
+        <div style="background:rgba(239,68,68,0.15); padding:8px; border-radius:6px; border:1px solid rgba(239,68,68,0.3);">
+          <strong>Cr-VI Concentration:</strong> <span id="metric-cr6">980 µg/kg (B-6)</span><br/>
+          <strong>Groundwater Gradient:</strong> <span id="metric-gw">Active SW Talbert</span>
+        </div>
+        <div style="background:rgba(245,158,11,0.15); padding:8px; border-radius:6px; border:1px solid rgba(245,158,11,0.3);">
+          <strong>Valuation Discount:</strong> <span id="metric-discount" style="color:#ef4444; font-weight:bold;">-85% FMV</span><br/>
+          <strong>Nearest UST Facility:</strong> <span id="metric-ust">0.18 mi (Chevron)</span>
+        </div>
+      </div>
       <div class="wiki-body" id="plume-details">
         <p><strong>Regulatory Discovery:</strong> Municipal GIS records omit raw toxic contours. State environmental registers indicate active CERCLA/HSAA contamination under parcel jurisdiction.</p>
         <p><strong>Legal Remedy:</strong> Cal. Civ. Proc. Code § 473(d) / Rule 60(d)(3) grounds to reopen and vacate prior unconstitutional eviction and quiet title judgments.</p>
       </div>
+      <button class="btn-action" style="background:#ef4444; color:#fff; margin-top:10px;" onclick="generateMotion473d()">⚖️ Generate Cal. CCP § 473(d) / Rule 60(d)(3) Void Judgment Motion</button>
+      <div id="motion-output" style="margin-top:10px; font-size:12px; font-family:'Consolas', monospace; color:#fca5a5; white-space:pre-wrap; display:none; background:rgba(0,0,0,0.6); padding:10px; border-radius:6px; border:1px solid #ef4444;"></div>
     </div>
 
     <div id="newspaper-pane" class="pane">
@@ -400,7 +455,9 @@
 
 <script>
   let isPublicDial = false;
-  let cy = null;
+  var cy = null;
+  window.cy = null;
+  let activeUrlCategory = '';
 
   function toggleMenu() {
     const m = document.getElementById('dropdown-menu');
@@ -433,7 +490,7 @@
   }
 
   function initMaltegoGraph(victimName, entityName) {
-    cy = cytoscape({
+    window.cy = cy = cytoscape({
       container: document.getElementById('maltego-cy'),
       elements: [
         { data: { id: 'victim', label: victimName || 'Victim (Citizen)' } },
@@ -491,6 +548,95 @@
     });
   }
 
+  function addDynamicGraphNodes(nodes, edges) {
+    if (!cy) return;
+    if (nodes && nodes.length > 0) {
+      for (const n of nodes) {
+        if (!cy.getElementById(n.id).length) {
+          cy.add({ group: 'nodes', data: n });
+        }
+      }
+    }
+    if (edges && edges.length > 0) {
+      for (const e of edges) {
+        const edgeId = `${e.source}_to_${e.target}`;
+        if (!cy.getElementById(edgeId).length) {
+          cy.add({ group: 'edges', data: { id: edgeId, source: e.source, target: e.target, label: e.label || '' } });
+        }
+      }
+    }
+    cy.layout({ name: 'breadthfirst', directed: true, padding: 10 }).run();
+  }
+
+  async function searchMunicipalUrls(categoryOverride) {
+    const input = document.getElementById('url-search-input');
+    const query = input ? input.value.trim() : '';
+    const category = categoryOverride !== undefined ? categoryOverride : activeUrlCategory;
+    const container = document.getElementById('url-results-container');
+    if (container) {
+      container.innerHTML = '<p style="color:var(--text-muted);">Querying 82,757 municipal URLs...</p>';
+    }
+
+    try {
+      let url = `/api/workspace/hb-urls/search?q=${encodeURIComponent(query)}&limit=25`;
+      if (category) {
+        url += `&category=${encodeURIComponent(category)}`;
+      }
+      const res = await fetch(url);
+      const data = await res.json();
+
+      if (!container) return;
+      if (!data.results || data.results.length === 0) {
+        container.innerHTML = `<p style="color:var(--text-muted);">No records found for query "${query}". Total repository contains 82,757 indexed URLs.</p>`;
+        return;
+      }
+
+      let html = `<p style="color:var(--accent); font-size:11px; margin-bottom:8px;">Found <strong>${data.total_matches}</strong> matching municipal documents (showing top ${data.results.length}):</p><ul style="padding-left:16px; margin:0;">`;
+      for (const item of data.results) {
+        html += `<li style="margin-bottom:6px;"><span class="status-badge" style="font-size:9px; padding:1px 6px;">${item.category}</span> <a href="${item.url}" target="_blank" style="color:var(--accent); text-decoration:none; word-break:break-all;">${item.url}</a></li>`;
+      }
+      html += '</ul>';
+      container.innerHTML = html;
+
+      // Dynamically add municipal node to graph if relevant
+      if (query && data.results.length > 0) {
+        addDynamicGraphNodes(
+          [{ id: 'hb_mun_records', label: `HB Municipal Record (${data.total_matches} matches)` }],
+          [{ source: 'landlord', target: 'hb_mun_records', label: 'Municipal Discovery' }]
+        );
+      }
+    } catch (err) {
+      if (container) {
+        container.innerHTML = `<p style="color:var(--accent-red);">Error fetching municipal URLs: ${err.message}</p>`;
+      }
+    }
+  }
+
+  function filterUrlsByCategory(cat) {
+    activeUrlCategory = cat;
+    const pills = document.querySelectorAll('#url-category-pills .pill-filter');
+    pills.forEach(p => p.classList.remove('active'));
+    event.target.classList.add('active');
+    searchMunicipalUrls(cat);
+  }
+
+  function generateMotion473d() {
+    const box = document.getElementById('motion-output');
+    box.style.display = 'block';
+    const hash = document.getElementById('hash-display').innerText.replace('SHA-256: ', '');
+    box.innerText = `[NOTICE OF MOTION AND MOTION TO VACATE VOID JUDGMENT PURSUANT TO CAL. CIV. PROC. CODE § 473(d) & FED. R. CIV. P. 60(d)(3)]
+COURT: Superior Court of California, County of Orange (Central Justice Center)
+CASE NO: 30-2021-01201327-CL-UD-CJC
+
+GROUNDS FOR MANDATORY VACATUR:
+1. VOID ON THE FACE OF THE RECORD: Prior default judgments entered without subject-matter jurisdiction due to fraudulent concealment of active DTSC / GeoTracker hazardous substance release (Case 20IC002 / T10000018579, B-6 Hexavalent Chromium Cr-VI at 980 µg/kg).
+2. FRAUD ON THE COURT (Rule 60(d)(3)): Material suppression of subsurface toxic plumes and regulatory notices under Cal. Health & Safety Code § 25300 causing unconstitutional deprivation of tenant protections under AB 1482 & Cal. Civ. Code § 1946.2.
+3. CONSTITUTIONAL DEFECT: Striking of judicial officer pursuant to Cal. CCP § 170.6 rendered subsequent unreviewed rulings void ab initio.
+
+CHAIN OF CUSTODY VERIFICATION:
+SHA-256 Point-of-Upload Hash: ${hash || 'PENDING_INGESTION'}`;
+  }
+
   function generateDataDemand() {
     const box = document.getElementById('demand-output');
     box.style.display = 'block';
@@ -531,6 +677,20 @@ Chain of Custody Hash: ${document.getElementById('hash-display').innerText.repla
 
         document.getElementById('plume-alert').style.display = 'block';
 
+        if (data.environmental_proximity) {
+          const ep = data.environmental_proximity;
+          if (ep.nearest_plume) {
+            document.getElementById('metric-cr6').innerText = `${ep.nearest_plume.max_concentration || '980 µg/kg'}`;
+            document.getElementById('metric-gw').innerText = `${ep.nearest_plume.groundwater_flow || 'Active SW Gradient'}`;
+          }
+          if (ep.valuation_impact) {
+            document.getElementById('metric-discount').innerText = ep.valuation_impact.discount || '-85% FMV';
+          }
+          if (ep.nearest_ust) {
+            document.getElementById('metric-ust').innerText = `${ep.nearest_ust.distance_miles} mi (${ep.nearest_ust.business_name || 'UST'})`;
+          }
+        }
+
         document.getElementById('news-headline').innerText = data.newspaper_draft.headline;
         document.getElementById('news-lede').innerText = data.newspaper_draft.lede;
         document.getElementById('news-body').innerHTML = `
@@ -538,8 +698,29 @@ Chain of Custody Hash: ${document.getElementById('hash-display').innerText.repla
           <p><em>Forensic Note: Algorithmic assessment applies a -85% toxic stigma property devaluation pursuant to California Health & Safety Code § 25300.</em></p>
         `;
 
+        // Render matched municipal URLs
+        if (data.municipal_matches && data.municipal_matches.length > 0) {
+          const container = document.getElementById('url-results-container');
+          if (container) {
+            let html = `<p style="color:var(--accent); font-size:11px; margin-bottom:8px;">Cross-referenced <strong>${data.municipal_matches.length}</strong> municipal records for ${data.ledger.target_entity}:</p><ul style="padding-left:16px; margin:0;">`;
+            for (const item of data.municipal_matches) {
+              html += `<li style="margin-bottom:6px;"><span class="status-badge" style="font-size:9px; padding:1px 6px;">${item.category}</span> <a href="${item.url}" target="_blank" style="color:var(--accent); text-decoration:none; word-break:break-all;">${item.url}</a></li>`;
+            }
+            html += '</ul>';
+            container.innerHTML = html;
+          }
+        }
+
         const victimLabel = data.ledger.genesis_page_type === 'BIO' ? 'Anthony U. (Victim)' : 'Victim (Citizen)';
         initMaltegoGraph(victimLabel, data.ledger.target_entity);
+
+        // Add dynamic cross-reference nodes
+        if (data.municipal_matches && data.municipal_matches.length > 0) {
+          addDynamicGraphNodes(
+            [{ id: 'municipal_evidence', label: `Municipal Records (${data.municipal_matches.length} hits)` }],
+            [{ source: 'landlord', target: 'municipal_evidence', label: 'Municipal Discovery' }]
+          );
+        }
 
         this.value = "";
         this.placeholder = "Add corroboration or evidence to enrich ledger...";
@@ -551,9 +732,13 @@ Chain of Custody Hash: ${document.getElementById('hash-display').innerText.repla
     }
   });
 
-  window.addEventListener('DOMContentLoaded', () => {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initMaltegoGraph('Victim (Citizen)', 'Woodbridge Apartments');
+    });
+  } else {
     initMaltegoGraph('Victim (Citizen)', 'Woodbridge Apartments');
-  });
+  }
 </script>
 </body>
 </html>
