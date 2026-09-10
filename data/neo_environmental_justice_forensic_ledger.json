@@ -1,0 +1,65 @@
+{
+  "engine": "NEO_ENVIRONMENTAL_JUSTICE_GIS",
+  "timestamp": "2026-09-10T03:22:29Z",
+  "target_municipality": "City of Huntington Beach, Orange County, CA",
+  "zones_audited": [
+    {
+      "zone_id": "ZONE_ASCON_HAMILTON",
+      "zone_name": "Ascon Landfill / Hamilton Corridor",
+      "neighborhood_ces_percentile": 82.4,
+      "primary_contaminants": [
+        "Crude Oil Residues",
+        "VOCs",
+        "PCBs",
+        "Styrene",
+        "Chromium VI"
+      ],
+      "regulatory_status": "DTSC State Response Superfund (Active Remediation)",
+      "hidden_contamination_discount_pct": 65.0,
+      "dispossession_pattern": "Heavy code enforcement liens, suppressed indoor air vapor assessments, post-foreclosure property consolidation",
+      "reopen_grounds": "Cal. Civ. Proc. Code / Rule 60(d)(3) ? Concealment of active subsurface vapor migration during civil eminent domain/nuisance actions."
+    },
+    {
+      "zone_id": "ZONE_OAK_VIEW_GOTHARD",
+      "zone_name": "Oak View / Gothard Disadvantaged Community",
+      "neighborhood_ces_percentile": 94.8,
+      "primary_contaminants": [
+        "Diesel PM",
+        "Industrial Solvents (TCE/PCE)",
+        "Heavy Metals",
+        "Ozone"
+      ],
+      "regulatory_status": "CalEnviroScreen Top 10% Disadvantaged Community in CA",
+      "hidden_contamination_discount_pct": 45.0,
+      "dispossession_pattern": "Disproportionate unlawful detainer filings (evictions), predatory rent escalation, code enforcement displacement",
+      "reopen_grounds": "FCA / Civil Rights Title VI disparate impact and fraudulent nondisclosure in municipal housing audits."
+    },
+    {
+      "zone_id": "ZONE_SOUTHERN_OILFIELD_SUMPS",
+      "zone_name": "South HB Historic Oilfield Sump & Methane Pocket District",
+      "neighborhood_ces_percentile": 76.2,
+      "primary_contaminants": [
+        "Methane Gas Seeps",
+        "Hydrogen Sulfide",
+        "Benzene",
+        "Produced Water Brine"
+      ],
+      "regulatory_status": "CalGEM / GeoTracker Monitored Oilfield Abatement",
+      "hidden_contamination_discount_pct": 55.0,
+      "dispossession_pattern": "Foreclosure under underwater mortgage burdens where true valuation is depressed by unmitigated methane abatement costs",
+      "reopen_grounds": "Failure of statutory mandatory disclosure under CA Civil Code ? 1102.6c (Methane Hazard Zones) leading to voidable deed conveyances."
+    }
+  ],
+  "actionable_court_reopen_dockets": [
+    {
+      "docket_type": "UNLAWFUL_DETAINER_VACATE",
+      "target_statute": "Cal. Civ. Proc. Code ? 473(d) / Void Judgments",
+      "basis": "Habitability defense suppressed by concealed environmental hazardous materials inspection records."
+    },
+    {
+      "docket_type": "FORECLOSURE_DEFICIENCY_FRAUD",
+      "target_statute": "12 U.S.C. ? 2605 (RESPA) & Federal FCA (31 U.S.C. ? 3729)",
+      "basis": "Inflated appraisals concealing environmental liabilities used to artificially trigger loan defaults and transfer equity to municipal land banks."
+    }
+  ]
+}

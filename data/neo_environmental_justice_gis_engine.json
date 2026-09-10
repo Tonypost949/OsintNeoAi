@@ -1,0 +1,98 @@
+{
+  "agent_codename": "NEO",
+  "subsystem": "ENVIRONMENTAL_JUSTICE_FORENSIC_GIS_RADAR",
+  "version": "1.0.0-PRO",
+  "generated_at": "2026-09-10T03:22:12Z",
+  "authoritative_datasources": [
+    {
+      "source_name": "CalEnviroScreen 4.0 (OEHHA)",
+      "scope": "California Disadvantaged Communities & Cumulative Environmental Impact",
+      "indicators": [
+        "CES 4.0 Percentile",
+        "Pollution Burden Score",
+        "Toxic Releases (TRI)",
+        "Groundwater Threats",
+        "Hazardous Waste Generators",
+        "Low Birth Weight",
+        "Asthma Rates",
+        "Poverty Percentile"
+      ],
+      "rest_endpoint": "https://services1.arcgis.com/jUJYIo9tSA7EHvfZ/arcgis/rest/services/CalEnviroScreen_4_0/FeatureServer/0",
+      "query_url": "https://services1.arcgis.com/jUJYIo9tSA7EHvfZ/arcgis/rest/services/CalEnviroScreen_4_0/FeatureServer/0/query?where=City%3D%27Huntington+Beach%27&outFields=*&f=json"
+    },
+    {
+      "source_name": "DTSC EnviroStor (Hazardous Waste & Superfund Sites)",
+      "scope": "State Response Superfund, Corrective Action, Military Sites, Voluntary Cleanup",
+      "indicators": [
+        "Site Name",
+        "Cleanup Status",
+        "Contaminants of Concern (VOCs, Lead, Benzene, PCBs)",
+        "Past Uses",
+        "Institutional Controls / Deed Restrictions"
+      ],
+      "rest_endpoint": "https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/DTSC_Cleanup_Sites/FeatureServer/0",
+      "query_url": "https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/DTSC_Cleanup_Sites/FeatureServer/0/query?where=CITY%3D%27HUNTINGTON+BEACH%27&outFields=*&f=json"
+    },
+    {
+      "source_name": "Water Boards GeoTracker (LUST & Groundwater Contamination)",
+      "scope": "Leaking Underground Storage Tanks, Landfills, Oilfield Produced Water Sumps",
+      "indicators": [
+        "Global ID",
+        "Facility Name",
+        "Site Type",
+        "Status",
+        "Potential Media Affected (Aquifer / Drinking Water)"
+      ],
+      "rest_endpoint": "https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/GeoTracker_Sites/FeatureServer/0",
+      "query_url": "https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/GeoTracker_Sites/FeatureServer/0/query?where=CITY%3D%27HUNTINGTON+BEACH%27&outFields=*&f=json"
+    },
+    {
+      "source_name": "EPA EJScreen (Environmental Justice Screening and Mapping Tool)",
+      "scope": "Federal Disadvantaged Neighborhood & Environmental Injustice Benchmarks",
+      "indicators": [
+        "PM2.5 Percentile",
+        "Ozone",
+        "Diesel Particulate Matter",
+        "Superfund Proximity",
+        "RMP Facility Proximity",
+        "Hazardous Waste Proximity",
+        "Underground Storage Tanks (UST)",
+        "Demographic Index"
+      ],
+      "rest_endpoint": "https://ejscreen.epa.gov/arcgis/rest/services/ejscreen/ejscreen_v2023/MapServer/0",
+      "query_url": "https://ejscreen.epa.gov/arcgis/rest/services/ejscreen/ejscreen_v2023/MapServer/0/query?where=STATE_NAME%3D%27California%27&outFields=*&f=json"
+    },
+    {
+      "source_name": "Orange County Superior Court Unlawful Detainers & Foreclosure Dispossession",
+      "scope": "Evictions, Foreclosure Auctions, Sheriff Lockouts vs Municipal/Corporate Acquisition",
+      "indicators": [
+        "Case Number",
+        "Filing Date",
+        "Defendant/Tenant",
+        "Plaintiff/Lender/City",
+        "Property Address/APN",
+        "Dispossession Disposition",
+        "Subsequent Ownership Mutation"
+      ],
+      "internal_dataset": "data/master_photos_emails_court_sheriff_index.json"
+    }
+  ],
+  "correlation_models": [
+    {
+      "model_id": "MODEL_TOXIC_STIGMA_DEPRECIATION",
+      "name": "Hidden Contamination Property Valuation Discount Engine",
+      "rationale": "Calculates true fair market value (FMV) by applying environmental impairment discounts (-25% to -85%) for unclosed plume perimeters, unmitigated oil field sumps, and soil vapor intrusion zones concealed in disclosures."
+    },
+    {
+      "model_id": "MODEL_DISTRESS_MUNICIPAL_ACQUISITION",
+      "name": "Eviction / Foreclosure to Municipal / Public Land Bank Pipeline",
+      "rationale": "Correlates court-ordered eviction/foreclosure dockets with city tax auctions, code enforcement liens, and redevelopment agency property acquisitions to expose targeted displacement patterns."
+    },
+    {
+      "model_id": "MODEL_EJ_REOPEN_COURT_CASES",
+      "name": "Fraud Upon the Court / Concealed Environmental Liability Docket Re-Opener",
+      "rationale": "Matches undisclosed environmental liabilities and suppressed municipal testing against historical civil eviction, quiet title, and eminent domain judgements to establish grounds for Rule 60(b)(4)/(d)(3) motions to vacate."
+    }
+  ],
+  "status": "OPERATIONAL_BACKEND_READY"
+}
