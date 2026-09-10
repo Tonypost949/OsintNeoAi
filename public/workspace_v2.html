@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSINT NEO ? Acrylic HUD Workspace v2 (Syncfusion + EDR + Lightbox)</title>
+
+<!-- Syncfusion Essential JS 2 CSS & JS -->
+<link href="https://cdn.syncfusion.com/ej2/26.2.4/material-dark.css" rel="stylesheet" />
+<script src="https://cdn.syncfusion.com/ej2/26.2.4/dist/ej2.min.js" type="text/javascript"></script>
+
+<!-- FontAwesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<style>
+  :root {
+    --bg: #0b0f17;
+    --card: rgba(18, 24, 38, 0.82);
+    --border: rgba(255, 255, 255, 0.12);
+    --accent: #38bdf8;
+    --accent-glow: rgba(56, 189, 248, 0.35);
+    --text: #e2e8f0;
+    --font: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  }
+
+  body.theme-plaid {
+    --bg: repeating-linear-gradient(45deg, #18181b, #18181b 20px, #991b1b 20px, #991b1b 40px);
+    --card: rgba(24, 24, 27, 0.94);
+    --accent: #facc15;
+    --accent-glow: rgba(250, 204, 21, 0.4);
+    --font: 'Impact', 'Comic Sans MS', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Top Acrylic Nav Bar */
+  .hud-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: rgba(11, 15, 23, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 1000;
+  }
+
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .menu-trigger {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+  }
+  .menu-trigger:hover { background: rgba(255, 255, 255, 0.16); border-color: var(--accent); }
+
+  .telemetry-pill {
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: var(--accent);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .telemetry-pill.pulse::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10b981;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  #dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 56px;
+    left: 24px;
+    background: rgba(18, 24, 38, 0.96);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    width: 280px;
+    z-index: 1001;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+
+  #dropdown-menu div {
+    padding: 12px 16px;
+    font-size: 13px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.15s ease;
+  }
+  #dropdown-menu div:hover { background: rgba(56, 189, 248, 0.15); color: #fff; }
+
+  /* Workspace Layout */
+  #workspace-canvas {
+    flex: 1;
+    margin-top: 56px;
+    padding: 20px 24px 140px 24px;
+    overflow-y: auto;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .pane {
+    background: var(--card);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    flex: 1;
+    min-width: 340px;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+    animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .pane-header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .pane-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+  }
+
+  .badge {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .badge.victim { background: rgba(239, 68, 68, 0.2); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.4); }
+  .badge.investigator { background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.4); }
+  .badge.lockbox { background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); }
+  .badge.edr { background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); }
+
+  .code-block {
+    background: rgba(0, 0, 0, 0.45);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    margin: 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  /* Syncfusion Grid Container Styling */
+  .e-grid {
+    border-radius: 8px !important;
+    border: 1px solid var(--border) !important;
+    background: transparent !important;
+    font-family: inherit !important;
+  }
+  .e-gridheader {
+    background: rgba(0,0,0,0.3) !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+  .e-headercell {
+    background: transparent !important;
+    color: var(--accent) !important;
+    font-weight: 700 !important;
+  }
+  .e-row {
+    background: transparent !important;
+    color: var(--text) !important;
+  }
+  .e-row:hover {
+    background: rgba(56, 189, 248, 0.08) !important;
+  }
+
+  /* EDR Telemetry Feed */
+  .edr-log-item {
+    background: rgba(0,0,0,0.35);
+    border-left: 3px solid var(--accent);
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border-radius: 0 6px 6px 0;
+    font-size: 12px;
+  }
+
+  /* Lightbox Gallery Grid */
+  .lightbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .lightbox-thumb {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    aspect-ratio: 4/3;
+    background: #000;
+  }
+
+  .lightbox-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .lightbox-thumb:hover img { transform: scale(1.08); }
+
+  .thumb-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.75);
+    font-size: 10px;
+    padding: 4px 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Fullscreen Modal Lightbox */
+  #modal-lightbox {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(12px);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  #modal-lightbox.active { display: flex; }
+
+  #modal-lightbox img {
+    max-width: 85vw;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+    border: 1px solid var(--border);
+  }
+
+  #modal-lightbox .lightbox-caption {
+    margin-top: 16px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  #modal-lightbox .close-btn {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+  }
+
+  /* Floating Bottom Acrylic Prompt HUD */
+  #floating-chat-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65%;
+    background: rgba(18, 24, 38, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 12px 18px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    z-index: 999;
+  }
+
+  #chat-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    resize: none;
+    font-family: inherit;
+    line-height: 1.4;
+  }
+  #chat-input::placeholder { color: rgba(255, 255, 255, 0.4); }
+
+  .btn {
+    background: rgba(56, 189, 248, 0.2);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .btn:hover { background: rgba(56, 189, 248, 0.35); }
+  .btn.lockbox { background: rgba(168, 85, 247, 0.3); border-color: rgba(168, 85, 247, 0.5); }
+  .btn.lockbox:hover { background: rgba(168, 85, 247, 0.5); }
+</style>
+</head>
+<body>
+
+  <!-- Top Acrylic HUD Navigation -->
+  <header class="hud-nav">
+    <div class="nav-left">
+      <button class="menu-trigger" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+        <span>Command Center</span>
+      </button>
+      <div class="telemetry-pill pulse">
+        <span>EDR: ACTIVE</span>
+      </div>
+      <div class="telemetry-pill">
+        <span>SYNCFUSION: v26.2.4</span>
+      </div>
+      <div class="telemetry-pill">
+        <span>HB GIS: 42 ENDPOINTS</span>
+      </div>
+    </div>
+    <div>
+      <span style="font-size:12px; color:#94a3b8; font-weight:600;">FEDERAL DISCOVERY EVIDENCE WORKSPACE</span>
+    </div>
+  </header>
+
+  <!-- Dropdown Menu -->
+  <div id="dropdown-menu">
+    <div onclick="togglePane('syncfusion')"><i class="fa-solid fa-table" style="color:#38bdf8;"></i> Syncfusion Enterprise Grid</div>
+    <div onclick="togglePane('edr')"><i class="fa-solid fa-shield-halved" style="color:#10b981;"></i> EDR Telemetry & Security Stream</div>
+    <div onclick="togglePane('lightbox')"><i class="fa-solid fa-images" style="color:#f59e0b;"></i> Lightbox Forensic Evidence Viewer</div>
+    <div onclick="togglePane('lockbox')"><i class="fa-solid fa-vault" style="color:#c084fc;"></i> Zero-Trust Dark Lockbox</div>
+    <div onclick="togglePane('wiki')"><i class="fa-solid fa-book" style="color:#60a5fa;"></i> Dynamic Wiki Dossier</div>
+    <div onclick="togglePane('newspaper')"><i class="fa-solid fa-newspaper" style="color:#2dd4bf;"></i> Franchise Newspaper Node</div>
+    <div onclick="toggleTheme()"><i class="fa-solid fa-palette" style="color:#facc15;"></i> Switch Theme (Plaid-a-puss Rex)</div>
+  </div>
+
+  <!-- Workspace Canvas Panes -->
+  <main id="workspace-canvas">
+
+    <!-- 1. Syncfusion DataGrid Pane -->
+    <div id="syncfusion-pane" class="pane" style="flex: 2; min-width: 520px;">
+      <div class="pane-header">
+        <h3 class="pane-title"><i class="fa-solid fa-table" style="color:var(--accent);"></i> Syncfusion Enterprise Grid (HB GIS & Evidence)</h3>
+        <span class="badge edr">42 Services Loaded</span>
+      </div>
+      <p style="font-size:12px; color:#94a3b8; margin-top:0;">Sort, filter, group, and query the 42 Huntington Beach municipal GIS layers and forensic evidentiary points.</p>
+      <div id="Grid"></div>
+    </div>
+
+    <!-- 2. EDR Security Telemetry Feed -->
+    <div id="edr-pane" class="pane">
+      <div class="pane-header">
+        <h3 class="pane-title"><i class="fa-solid fa-shield-halved" style="color:#10b981;"></i> EDR Telemetry & Process Sentinel</h3>
+        <span class="badge investigator">LIVE MONITORING</span>
+      </div>
+      <div id="edr-stream" style="display:flex; flex-direction:column; gap:8px;">
+        <div class="edr-log-item">
+          <strong>[EDR-SENTINEL]</strong> Network socket opened: <code>gis.huntingtonbeachca.gov:443</code> (SSL TLS 1.3)
+        </div>
+        <div class="edr-log-item">
+          <strong>[CUSTODY]</strong> SHA-256 seal computed: <code>d353cdf5ddcba167440...</code>
+        </div>
+        <div class="edr-log-item">
+          <strong>[ZERO-TRUST]</strong> Decoy headers emitted: <code>ack=ROUTED_200</code>. No client footprints stored.
+        </div>
+        <div class="edr-log-item">
+          <strong>[INTEGRITY]</strong> BigQuery target validated: <code>forensic_layers.fca_timeline</code>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Lightbox Forensic Aerials & Evidence Viewer -->
+    <div id="lightbox-pane" class="pane">
+      <div class="pane-header">
+        <h3 class="pane-title"><i class="fa-solid fa-images" style="color:#f59e0b;"></i> Forensic Aerials Lightbox</h3>
+        <span class="badge edr">12 Decades</span>
+      </div>
+      <p style="font-size:12px; color:#94a3b8; margin-top:0;">Click any historical aerial capture to expand into high-resolution evidentiary inspection view.</p>
+      <div class="lightbox-grid">
+        <div class="lightbox-thumb" onclick="openLightbox('https://gis.huntingtonbeachca.gov/arcgis/rest/services/1960sAerials/MapServer/export?bbox=-13145000,3985000,-13130000,3995000&size=1000,800&f=image', '1960s Aerial Survey ? Huntington Beach Parcel Baseline')">
+          <div style="height:100%; display:flex; align-items:center; justify-content:center; background:#1e293b; color:#94a3b8; font-size:24px;"><i class="fa-solid fa-map-location-dot"></i></div>
+          <div class="thumb-overlay">1960s Aerials</div>
+        </div>
+        <div class="lightbox-thumb" onclick="openLightbox('https://gis.huntingtonbeachca.gov/arcgis/rest/services/1970sAerials/MapServer/export?bbox=-13145000,3985000,-13130000,3995000&size=1000,800&f=image', '1970s Aerial Survey ? Oil Field Infrastructure & Zoning')">
+          <div style="height:100%; display:flex; align-items:center; justify-content:center; background:#1e293b; color:#94a3b8; font-size:24px;"><i class="fa-solid fa-map-location-dot"></i></div>
+          <div class="thumb-overlay">1970s Aerials</div>
+        </div>
+        <div class="lightbox-thumb" onclick="openLightbox('https://gis.huntingtonbeachca.gov/arcgis/rest/services/1980sAerials/MapServer/export?bbox=-13145000,3985000,-13130000,3995000&size=1000,800&f=image', '1980s Aerial Survey ? Commercial Development')">
+          <div style="height:100%; display:flex; align-items:center; justify-content:center; background:#1e293b; color:#94a3b8; font-size:24px;"><i class="fa-solid fa-map-location-dot"></i></div>
+          <div class="thumb-overlay">1980s Aerials</div>
+        </div>
+        <div class="lightbox-thumb" onclick="openLightbox('https://gis.huntingtonbeachca.gov/arcgis/rest/services/2021Orthos/MapServer/export?bbox=-13145000,3985000,-13130000,3995000&size=1000,800&f=image', '2021 High-Res Orthophotography ? Modern Municipal Footprint')">
+          <div style="height:100%; display:flex; align-items:center; justify-content:center; background:#1e293b; color:#94a3b8; font-size:24px;"><i class="fa-solid fa-map-location-dot"></i></div>
+          <div class="thumb-overlay">2021 Orthos (Modern)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Zero-Trust Dark Lockbox Pane -->
+    <div id="lockbox-pane" class="pane">
+      <div class="pane-header">
+        <h3 class="pane-title"><i class="fa-solid fa-vault" style="color:#c084fc;"></i> Zero-Trust Lockbox</h3>
+        <span class="badge lockbox">SEAL READY</span>
+      </div>
+      <textarea id="lockbox-input" rows="3" style="width:100%; background:rgba(0,0,0,0.5); border:1px solid var(--border); border-radius:8px; color:#fff; padding:10px; font-family:inherit; font-size:13px;" placeholder="Drop secret records, confidential transcripts, or parcel numbers..."></textarea>
+      <div style="margin-top:10px; display:flex; gap:10px;">
+        <button onclick="sealInLockbox()" class="btn lockbox"><i class="fa-solid fa-key"></i> Seal In Cold Vault</button>
+      </div>
+      <div id="lockbox-receipt" style="margin-top:12px; display:none;" class="code-block"></div>
+    </div>
+
+  </main>
+
+  <!-- Fullscreen Lightbox Modal -->
+  <div id="modal-lightbox" onclick="closeLightbox()">
+    <span class="close-btn">&times;</span>
+    <img id="lightbox-img" src="" alt="Forensic Aerial" onclick="event.stopPropagation()">
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+  </div>
+
+  <!-- Persistent Floating Acrylic Prompt Bar -->
+  <div id="floating-chat-container">
+    <textarea id="chat-input" rows="2" placeholder="Ask AI to query the GIS data, correlate parcels, or inspect evidence... (Press Enter)"></textarea>
+  </div>
+
+<script>
+  // Initialize Syncfusion Enterprise Grid
+  ej.base.registerLicense('Ngo9BigBOggjGyl/VkJ+Xk9GfVZLVGpUf1FrRmJJfV16cVxMZVVaRnZdRF1rS3hTdURhXXtfd3ZUTWNY');
+
+  const gisServicesData = [
+    { name: "1960sAerials", type: "MapServer", category: "Historical Orthos", status: "ONLINE", layers: 1, url: "https://gis.huntingtonbeachca.gov/arcgis/rest/services/1960sAerials/MapServer" },
+    { name: "1970sAerials", type: "MapServer", category: "Historical Orthos", status: "ONLINE", layers: 1, url: "https://gis.huntingtonbeachca.gov/arcgis/rest/services/1970sAerials/MapServer" },
+    { name: "1980sAerials", type: "MapServer", category: "Historical Orthos", status: "ONLINE", layers: 1, url: "https://gis.huntingtonbeachca.gov/arcgis/rest/services/1980sAerials/MapServer" },
+    { name: "1990sAerials", type: "MapServer", category: "Historical Orthos", status: "ONLINE", layers: 1, url: "https://gis.huntingtonbeachca.gov/arcgis/rest/services/1990sAerials/MapServer" },
+    { name: "2021Orthos", type: "MapServer", category: "Modern Orthos", status: "ONLINE", layers: 1, url: "https://gis.huntingtonbeachca.gov/arcgis/rest/services/2021Orthos/MapServer" },
+    { name: "Parcels", type: "MapServer", category: "Cadastral / Land", status: "ONLINE", layers: 4, url: "https://gis.huntingtonbeachca.gov/arcgis/rest/services/Parcels/MapServer" },
+    { name: "Planning", type: "MapServer", category: "Zoning & Development", status: "ONLINE", layers: 8, url: "https://gis.huntingtonbeachca.gov/arcgis/rest/services/Planning/MapServer" },
+    { name: "Property", type: "MapServer", category: "Assessor Records", status: "ONLINE", layers: 3, url: "https://gis.huntingtonbeachca.gov/arcgis/rest/services/Property/MapServer" },
+    { name: "PublicWorks", type: "MapServer", category: "Infrastructure", status: "ONLINE", layers: 12, url: "https://gis.huntingtonbeachca.gov/arcgis/rest/services/PublicWorks/MapServer" },
+    { name: "WebFire", type: "MapServer", category: "Emergency Response", status: "ONLINE", layers: 5, url: "https://gis.huntingtonbeachca.gov/arcgis/rest/services/WebFire/MapServer" },
+    { name: "WebPolice", type: "MapServer", category: "Law Enforcement", status: "ONLINE", layers: 6, url: "https://gis.huntingtonbeachca.gov/arcgis/rest/services/WebPolice/MapServer" },
+    { name: "UtilitiesBaseMap", type: "MapServer", category: "Subsurface Utility", status: "ONLINE", layers: 9, url: "https://gis.huntingtonbeachca.gov/arcgis/rest/services/UtilitiesBaseMap/MapServer" }
+  ];
+
+  const grid = new ej.grids.Grid({
+    dataSource: gisServicesData,
+    allowPaging: true,
+    pageSettings: { pageSize: 6 },
+    allowSorting: true,
+    allowFiltering: true,
+    filterSettings: { type: 'Menu' },
+    columns: [
+      { field: 'name', headerText: 'Layer Name', width: 140 },
+      { field: 'type', headerText: 'Service Type', width: 110 },
+      { field: 'category', headerText: 'Category', width: 140 },
+      { field: 'status', headerText: 'Status', width: 90, textAlign: 'Center' },
+      { field: 'layers', headerText: 'Layers', width: 80, textAlign: 'Right' },
+      { field: 'url', headerText: 'REST Endpoint', width: 220 }
+    ]
+  });
+  grid.appendTo('#Grid');
+
+  function toggleMenu() {
+    const m = document.getElementById('dropdown-menu');
+    m.style.display = m.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function togglePane(id) {
+    toggleMenu();
+    const pane = document.getElementById(${id}-pane);
+    if (pane) {
+      pane.style.display = pane.style.display === 'none' ? 'flex' : 'flex';
+      pane.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function toggleTheme() {
+    document.body.classList.toggle('theme-plaid');
+    toggleMenu();
+  }
+
+  function openLightbox(src, caption) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox-caption').innerText = caption;
+    document.getElementById('modal-lightbox').classList.add('active');
+  }
+
+  function closeLightbox() {
+    document.getElementById('modal-lightbox').classList.remove('active');
+  }
+
+  async function sealInLockbox() {
+    const val = document.getElementById('lockbox-input').value.trim();
+    if (!val) return;
+    const receipt = document.getElementById('lockbox-receipt');
+    receipt.style.display = 'block';
+    receipt.innerText = ??? VAULT RECEIPT | PROOF OF CUSTODY
+Seal: DARKVAULT_
+Classification: FCA_CONFIDENTIAL
+Status: IMMUTABLE_COLD_STORAGE
+Target BigQuery: noble-beanbag-497411-m4.forensic_layers.fca_timeline;
+  }
+</script>
+</body>
+</html>
