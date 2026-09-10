@@ -929,6 +929,68 @@ def workspace_view():
         return send_file(str(workspace_path))
     return jsonify({"error": "workspace.html not found"}), 404
 
+# ── Dynamic Genesis Wiki Ledger & Environmental Intercept ──────
+def determine_genesis_type(text: str):
+    bio_patterns = [r"^my name is", r"^i am", r"^i'm", r"^me,?\s+"]
+    first_phrase = text.strip().lower()[:40]
+    for pattern in bio_patterns:
+        if re.search(pattern, first_phrase):
+            return "BIO"
+    return "ENTITY"
+
+@app.route("/api/genesis/ingest", methods=["POST"])
+def genesis_ingest():
+    data = request.get_json(silent=True) or {}
+    raw_text = data.get("text", "").strip()
+    user_wallet = data.get("wallet", "0xf589232E030923FF2da5Bd4DA85b190510717F35")
+
+    if not raw_text:
+        return jsonify({"error": "No statement provided"}), 400
+
+    timestamp = int(time.time())
+    sha256_hash = hashlib.sha256(f"{raw_text}:{timestamp}:{user_wallet}".encode()).hexdigest()
+
+    harm_keywords = ["evict", "attack", "stolen", "hurt", "fraud", "kicked out", "threat", "displaced"]
+    is_victim = any(w in raw_text.lower() for w in harm_keywords)
+    attribute_status = "VICTIM" if is_victim else "INVESTIGATOR"
+
+    page_type = determine_genesis_type(raw_text)
+    
+    words = raw_text.split()
+    target_entity = "Woodbridge Apartments" if "woodbridge" in raw_text.lower() else (words[0] if words else "Target Entity")
+
+    genesis_payload = {
+        "ledger": {
+            "sha256_hash": sha256_hash,
+            "timestamp": timestamp,
+            "chain_of_custody": "INITIALIZED_APPEND_ONLY",
+            "wallet": user_wallet,
+            "status": attribute_status,
+            "genesis_page_type": page_type,
+            "target_entity": target_entity
+        },
+        "wiki_page": {
+            "title": "Anthony U. (Biographical Dossier)" if page_type == "BIO" else f"{target_entity} (Forensic Wiki)",
+            "verification_status": "UNVERIFIED_SHADOW_CLONE",
+            "ledger_value": "$0.00 (Unbacked Claims)",
+            "summary": raw_text,
+            "compliance_rules": ["CA_CIVIL_CODE_1946_2", "AB_1482", "CERCLA_SUPERFUND", "MALTEGO_STRIPPED_NODES"]
+        },
+        "newspaper_draft": {
+            "publication_status": "PRIVATE",
+            "headline": f"Special Report: Allegations Leveled Against {target_entity}",
+            "lede": f"An unverified forensic report was entered into the OSINT ledger on {time.ctime(timestamp)} documenting disputed actions involving {target_entity}...",
+            "body": raw_text
+        },
+        "environmental_plume_intercept": {
+            "status": "FLAGGED",
+            "jurisdiction": "DTSC_ENVIROSTOR_GEOTRACKER",
+            "valuation_discount": "-85% FMV",
+            "statutory_remedy": "Cal. Civ. Proc. Code § 473(d) / Rule 60(d)(3) Court Reopening"
+        }
+    }
+    return jsonify(genesis_payload)
+
 # ── Status ─────────────────────────────────────────────────────
 @app.route("/")
 @app.route("/api/status")
