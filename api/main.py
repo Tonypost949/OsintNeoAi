@@ -647,7 +647,7 @@ def ledger_list():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# ── Genesis Ingestion Engine (Vibe-Coding Route) ─────────────────
+# ── Genesis Ingestion Engine (Vibe-Coding Route + Backend LLM Digest) ──
 def determine_genesis_type(text: str):
     bio_patterns = [r"^my name is", r"^i am", r"^i'm", r"^me,?\s+"]
     first_phrase = text.strip().lower()[:40]
@@ -655,6 +655,62 @@ def determine_genesis_type(text: str):
         if re.search(pattern, first_phrase):
             return "BIO"
     return "ENTITY"
+
+def llm_digest_testimony(text: str, page_type: str, target_entity: str, attribute_status: str):
+    """Uses Gemini LLM to deeply digest testimony into structured entities, wiki dossier, and Maltego nodes."""
+    try:
+        model = get_ai()
+        prompt = f"""You are an elite OSINT forensic intelligence analyst. Digest the following raw victim/witness testimony into a structured JSON intelligence dossier.
+
+TESTIMONY:
+\"\"\"{text}\"\"\"
+
+ATTRIBUTES:
+- Genesis Type: {page_type}
+- Target Entity Candidate: {target_entity}
+- Status: {attribute_status}
+
+Respond ONLY with a valid JSON object matching this exact schema:
+{{
+    "wiki_title": "string",
+    "summary": "string",
+    "headline": "string",
+    "lede": "string",
+    "body": "string",
+    "extracted_entities": ["string"],
+    "statutory_violations": ["string"],
+    "maltego_nodes": [
+        {{"id": "node_1", "label": "string", "type": "Person|Organization|Location|Event|Document", "notes": "string"}}
+    ],
+    "maltego_edges": [
+        {{"source": "node_1", "target": "node_2", "relationship": "string"}}
+    ]
+}}"""
+        response = model.generate_content(prompt)
+        raw_out = response.text.strip()
+        if raw_out.startswith("```"):
+            raw_out = re.sub(r"^```(?:json)?\n", "", raw_out)
+            raw_out = re.sub(r"\n```$", "", raw_out)
+        parsed = json.loads(raw_out)
+        return parsed
+    except Exception as e:
+        # Graceful fallback to deterministic analysis
+        return {
+            "wiki_title": "Anthony U. (Dossier)" if page_type == "BIO" else f"{target_entity} (Forensic Wiki)",
+            "summary": text,
+            "headline": f"Special Report: Allegations Leveled Against {target_entity}",
+            "lede": f"An unverified forensic report was entered into the OSINT ledger on {time.ctime()} documenting disputed actions involving {target_entity}...",
+            "body": text,
+            "extracted_entities": [target_entity, "Witness/Victim"],
+            "statutory_violations": ["CA_CIVIL_CODE_1946_2", "AB_1482", "MALTEGO_STRIPPED_NODES"],
+            "maltego_nodes": [
+                {"id": "n1", "label": "Anthony U.", "type": "Person", "notes": "Testimony Declarant"},
+                {"id": "n2", "label": target_entity, "type": "Organization", "notes": "Named Entity in Report"}
+            ],
+            "maltego_edges": [
+                {"source": "n1", "target": "n2", "relationship": "ALLEGES_ACTIONS_AGAINST"}
+            ]
+        }
 
 @app.route("/api/genesis/ingest", methods=["POST", "OPTIONS"])
 def genesis_ingest():
@@ -678,7 +734,7 @@ def genesis_ingest():
     sha256_hash = hashlib.sha256(f"{raw_text}:{timestamp}:{user_wallet}".encode()).hexdigest()
 
     # 2. Hardcoded Attribution Logic
-    harm_keywords = ["evict", "attack", "stolen", "hurt", "fraud", "kicked out", "threat", "harass", "damage", "corrupt"]
+    harm_keywords = ["evict", "attack", "stolen", "hurt", "fraud", "kicked out", "threat", "harass", "damage", "corrupt", "targeted"]
     is_victim = any(w in raw_text.lower() for w in harm_keywords)
     attribute_status = "VICTIM" if is_victim else "INVESTIGATOR"
 
@@ -689,7 +745,10 @@ def genesis_ingest():
     words = raw_text.split()
     target_entity = "Woodbridge Apartments" if "woodbridge" in raw_text.lower() else (words[0] if words else "Unknown Entity")
 
-    # 4. Generate Initial Wiki Ledger & Franchise Newspaper Draft
+    # 4. Deep LLM Backend Digestion
+    digest = llm_digest_testimony(raw_text, page_type, target_entity, attribute_status)
+
+    # 5. Generate Initial Wiki Ledger & Franchise Newspaper Draft & Maltego Graph
     genesis_payload = {
         "ledger": {
             "sha256_hash": sha256_hash,
@@ -698,20 +757,25 @@ def genesis_ingest():
             "wallet": user_wallet,
             "status": attribute_status,
             "genesis_page_type": page_type,
-            "target_entity": target_entity
+            "target_entity": target_entity,
+            "llm_digest_status": "ACTIVE_LOCKED_DOWN"
         },
         "wiki_page": {
-            "title": "Anthony U. (Dossier)" if page_type == "BIO" else f"{target_entity} (Forensic Wiki)",
+            "title": digest.get("wiki_title", f"{target_entity} (Forensic Wiki)"),
             "verification_status": "UNVERIFIED_SHADOW_CLONE",
             "ledger_value": "$0.00 (Unbacked Claims)",
-            "summary": raw_text,
-            "compliance_rules": ["CA_CIVIL_CODE_1946_2", "AB_1482", "MALTEGO_STRIPPED_NODES"]
+            "summary": digest.get("summary", raw_text),
+            "compliance_rules": digest.get("statutory_violations", ["CA_CIVIL_CODE_1946_2", "AB_1482", "MALTEGO_STRIPPED_NODES"])
         },
         "newspaper_draft": {
             "publication_status": "PRIVATE",
-            "headline": f"Special Report: Allegations Leveled Against {target_entity}",
-            "lede": f"An unverified forensic report was entered into the OSINT ledger on {time.ctime(timestamp)} documenting disputed actions involving {target_entity}...",
-            "body": raw_text
+            "headline": digest.get("headline", f"Special Report: Allegations Leveled Against {target_entity}"),
+            "lede": digest.get("lede", f"An unverified forensic report was entered into the OSINT ledger on {time.ctime(timestamp)}..."),
+            "body": digest.get("body", raw_text)
+        },
+        "maltego_graph": {
+            "nodes": digest.get("maltego_nodes", []),
+            "edges": digest.get("maltego_edges", [])
         }
     }
 

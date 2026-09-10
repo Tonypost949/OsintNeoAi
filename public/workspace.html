@@ -64,7 +64,7 @@
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border);
     border-radius: 8px;
-    width: 220px;
+    width: 240px;
     z-index: 1000;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
@@ -97,6 +97,8 @@
     padding: 24px;
     display: none;
     animation: fadeIn 0.4s ease forwards;
+    overflow-y: auto;
+    max-height: calc(100vh - 240px);
   }
 
   @keyframes fadeIn {
@@ -125,6 +127,27 @@
 
   .badge.investigator {
     background: #238636;
+  }
+
+  /* Maltego Node Visual Cards */
+  .node-card {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+  }
+
+  .edge-badge {
+    display: inline-block;
+    background: rgba(88, 166, 255, 0.15);
+    border: 1px solid #58a6ff;
+    color: #58a6ff;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    margin: 4px 0;
   }
 
   /* Floating Bottom Acrylic Chat Box */
@@ -171,6 +194,7 @@
     font-size: 12px;
     margin: 10px 0;
     color: #58a6ff;
+    white-space: pre-wrap;
   }
 </style>
 </head>
@@ -182,6 +206,7 @@
     <div>📄 File / New Dossier</div>
     <div>✏️ Edit Properties</div>
     <div onclick="switchView('newspaper')">📰 Franchise Newspaper Node</div>
+    <div onclick="switchView('maltego')">🕸️ Maltego Stripped Nodes</div>
     <div onclick="switchView('sandbox')">🧪 Newspaper Two (Sandbox)</div>
     <div onclick="toggleTheme()">🎨 Theme: Switch (Plaid-a-puss Rex)</div>
   </div>
@@ -208,6 +233,17 @@
       <p id="news-lede" style="font-style: italic; color: #8b949e;"></p>
       <div id="news-body" style="line-height: 1.6; white-space: pre-wrap;"></div>
     </div>
+
+    <!-- Maltego Stripped Nodes Pane -->
+    <div id="maltego-pane" class="pane">
+      <div class="wiki-header">
+        <h2 style="margin:0;">Maltego Entity Graph</h2>
+        <span id="node-count" class="badge investigator">0 NODES</span>
+      </div>
+      <div id="maltego-nodes-list">Awaiting entity extraction...</div>
+      <h4 style="margin-top:20px; color:var(--accent);">Entity Graph Relationships:</h4>
+      <div id="maltego-edges-list">No connections yet.</div>
+    </div>
   </div>
 
   <!-- Persistent Floating Acrylic Chat Box -->
@@ -230,6 +266,8 @@
     toggleMenu();
     if (type === 'newspaper') {
       document.getElementById('newspaper-pane').style.display = 'block';
+    } else if (type === 'maltego') {
+      document.getElementById('maltego-pane').style.display = 'block';
     } else if (type === 'sandbox') {
       alert("Sandbox Node Initialized (Isolated State)");
     }
@@ -275,14 +313,15 @@
       const text = this.value.trim();
       if (!text) return;
 
-      this.value = "Ingesting and hashing testimony to ledger...";
+      this.value = "🤖 LLM backend is digesting testimony & generating graph nodes...";
 
       try {
         const data = await callIngestApi(text);
 
-        // Reveal panes dramatically
+        // Reveal all 3 panes dramatically
         document.getElementById('wiki-pane').style.display = 'block';
         document.getElementById('newspaper-pane').style.display = 'block';
+        document.getElementById('maltego-pane').style.display = 'block';
 
         // Populate Wiki Page
         document.getElementById('wiki-title').innerText = data.wiki_page.title;
@@ -290,13 +329,46 @@
         tag.innerText = "STATUS: " + data.ledger.status;
         tag.className = "badge " + (data.ledger.status === 'VICTIM' ? '' : 'investigator');
 
-        document.getElementById('ledger-meta').innerText = `SHA-256: ${data.ledger.sha256_hash}\nChain: APPEND-ONLY | Custody: INITIALIZED | Entity: ${data.ledger.target_entity}`;
+        document.getElementById('ledger-meta').innerText = `SHA-256: ${data.ledger.sha256_hash}\nChain: APPEND-ONLY | Custody: INITIALIZED | Entity: ${data.ledger.target_entity} | Digest: ${data.ledger.llm_digest_status}`;
         document.getElementById('wiki-content').innerText = data.wiki_page.summary;
 
         // Populate Newspaper
         document.getElementById('news-headline').innerText = data.newspaper_draft.headline;
         document.getElementById('news-lede').innerText = data.newspaper_draft.lede;
         document.getElementById('news-body').innerText = data.newspaper_draft.body;
+
+        // Populate Maltego Graph Nodes
+        const nodesList = document.getElementById('maltego-nodes-list');
+        const edgesList = document.getElementById('maltego-edges-list');
+        const countBadge = document.getElementById('node-count');
+
+        const nodes = data.maltego_graph?.nodes || [];
+        const edges = data.maltego_graph?.edges || [];
+
+        countBadge.innerText = `${nodes.length} NODES`;
+
+        if (nodes.length > 0) {
+          nodesList.innerHTML = nodes.map(n => `
+            <div class="node-card">
+              <strong style="color:#58a6ff;">[${n.type || 'Entity'}]</strong> <strong>${n.label}</strong>
+              <div style="font-size:12px; color:#8b949e; margin-top:4px;">${n.notes || 'Forensic Node'}</div>
+            </div>
+          `).join('');
+        } else {
+          nodesList.innerHTML = '<div>No nodes extracted.</div>';
+        }
+
+        if (edges.length > 0) {
+          edgesList.innerHTML = edges.map(e => `
+            <div style="margin-bottom:8px;">
+              <span class="edge-badge">${e.source}</span> 
+              <span style="color:#8b949e; font-size:12px;">→ [${e.relationship}] →</span> 
+              <span class="edge-badge">${e.target}</span>
+            </div>
+          `).join('');
+        } else {
+          edgesList.innerHTML = '<div>No edges found.</div>';
+        }
 
         this.value = "";
         this.placeholder = "Add corroboration or file details to enrich ledger...";
