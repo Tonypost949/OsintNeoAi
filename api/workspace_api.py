@@ -598,41 +598,35 @@ def ledger_growth():
         "calculated_at": _now_iso(),
     })
 
- @ w o r k s p a c e _ a p i . r o u t e ( " / a p i / w o r k s p a c e / s u g g e s t e d - t a s k s " ,   m e t h o d s = [ " G E T " ] ) 
- d e f   g e t _ s u g g e s t e d _ t a s k s ( ) : 
-         " " " 
-         R e t r i e v e s   t h e   s u g g e s t i v e   t a s k s   ( d i s c o n n e c t e d   e n t i t i e s ,   a n o m a l i e s )   
-         f o r   t h e   s p e c i f i c   i n v e s t i g a t o r   w a l l e t . 
-         " " " 
-         w a l l e t   =   r e q u e s t . a r g s . g e t ( " w a l l e t _ a d d r e s s " ) 
-         i f   n o t   w a l l e t : 
-                 r e t u r n   j s o n i f y ( { " e r r o r " :   " M i s s i n g   w a l l e t _ a d d r e s s   p a r a m e t e r " } ) ,   4 0 0 
- 
-         _ i n i t _ t a b l e s ( ) 
-         p r o j e c t _ i d   =   o s . g e t e n v ( " G C P _ P R O J E C T _ I D " ,   " o s i n t - n e o - a i " ) 
-         t a s k s _ t a b l e   =   f " { p r o j e c t _ i d } . o s i n t _ e n g i n e . s u g g e s t i v e _ t a s k s " 
-         
-         #   S i m p l e   c h e c k   i f   t a b l e   e x i s t s   a n d   q u e r y 
-         t r y : 
-                 q u e r y   =   f " " " 
-                         S E L E C T   t a s k _ i d ,   t a s k _ t y p e ,   p r i o r i t y _ s c o r e ,   t a r g e t _ a s s e t _ h a s h ,   
-                                       t i t l e ,   p r o m p t _ m e s s a g e ,   s u g g e s t e d _ a c t i o n ,   e n t i t y _ p a y l o a d ,   c r e a t e d _ a t 
-                         F R O M   ` { t a s k s _ t a b l e } ` 
-                         W H E R E   m i n e r _ s i g n a t u r e   =   @ w a l l e t   A N D   i s _ r e s o l v e d   =   F A L S E 
-                         O R D E R   B Y   p r i o r i t y _ s c o r e   D E S C ,   c r e a t e d _ a t   D E S C 
-                         L I M I T   2 0 
-                 " " " 
-                 j o b _ c o n f i g   =   b i g q u e r y . Q u e r y J o b C o n f i g ( 
-                         q u e r y _ p a r a m e t e r s = [ 
-                                 b i g q u e r y . S c a l a r Q u e r y P a r a m e t e r ( " w a l l e t " ,   " S T R I N G " ,   w a l l e t ) , 
-                         ] 
-                 ) 
-                 r o w s   =   b q _ c l i e n t . q u e r y ( q u e r y ,   j o b _ c o n f i g = j o b _ c o n f i g ) . r e s u l t ( ) 
-                 t a s k s   =   [ d i c t ( r o w )   f o r   r o w   i n   r o w s ] 
-                 
-                 r e t u r n   j s o n i f y ( { " t a s k s " :   t a s k s ,   " w a l l e t " :   w a l l e t ,   " f e t c h e d _ a t " :   _ n o w _ i s o ( ) } ) 
-         e x c e p t   E x c e p t i o n   a s   e : 
-                 l o g g e r . e r r o r ( f " E r r o r   f e t c h i n g   t a s k s :   { e } " ) 
-                 r e t u r n   j s o n i f y ( { " e r r o r " :   s t r ( e ) } ) ,   5 0 0 
-  
- 
+
+@workspace_bp.route("/workspace/suggested-tasks", methods=["GET"])
+def get_suggested_tasks():
+    wallet = request.args.get("wallet_address")
+    if not wallet:
+        return jsonify({"error": "Missing wallet_address parameter"}), 400
+
+    _init_tables()
+    project_id = os.getenv("GCP_PROJECT_ID", GCP_PROJECT)
+    tasks_table = f"{project_id}.osint_engine.suggestive_tasks"
+    
+    try:
+        from google.cloud import bigquery
+        query = f'''
+            SELECT task_id, task_type, priority_score, target_asset_hash,
+                   title, prompt_message, suggested_action, entity_payload, created_at
+            FROM `{tasks_table}`
+            WHERE miner_signature = @wallet AND is_resolved = FALSE
+            ORDER BY priority_score DESC, created_at DESC
+            LIMIT 20
+        '''
+        job_config = bigquery.QueryJobConfig(
+            query_parameters=[
+                bigquery.ScalarQueryParameter("wallet", "STRING", wallet),
+            ]
+        )
+        rows = _bq().query(query, job_config=job_config).result()
+        tasks = [dict(row) for row in rows]
+        return jsonify({"tasks": tasks, "wallet": wallet, "fetched_at": _now_iso()})
+    except Exception as e:
+        logger.error(f"Error fetching tasks: {e}")
+        return jsonify({"tasks": [], "wallet": wallet, "fetched_at": _now_iso(), "note": str(e)})

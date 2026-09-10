@@ -649,7 +649,7 @@ def ledger_list():
 
 # ── Genesis Ingestion Engine (Vibe-Coding Route + Backend LLM Digest) ──
 def determine_genesis_type(text: str):
-    bio_patterns = [r"^my name is", r"^i am", r"^i'm", r"^me,?\s+"]
+    bio_patterns = [r"^my name is", r"^i am\b", r"^i'm\b", r"^i was\b", r"^i have\b", r"^i had\b", r"^i suffered\b", r"^i\b", r"^my\b", r"^me,?\s+"]
     first_phrase = text.strip().lower()[:40]
     for pattern in bio_patterns:
         if re.search(pattern, first_phrase):
@@ -658,6 +658,23 @@ def determine_genesis_type(text: str):
 
 def llm_digest_testimony(text: str, page_type: str, target_entity: str, attribute_status: str):
     """Uses Gemini LLM to deeply digest testimony into structured entities, wiki dossier, and Maltego nodes."""
+    if os.getenv("TESTING") == "1" or not os.getenv("GEMINI_API_KEY"):
+        return {
+            "wiki_title": "Anthony U. (Biographical Dossier)" if page_type == "BIO" else f"{target_entity} (Forensic Wiki)",
+            "summary": text,
+            "headline": f"Special Report: Allegations Leveled Against {target_entity}",
+            "lede": f"An unverified forensic report was entered into the OSINT ledger on {time.ctime()} documenting disputed actions involving {target_entity}...",
+            "body": text,
+            "extracted_entities": [target_entity, "Witness/Victim"],
+            "statutory_violations": ["CA_CIVIL_CODE_1946_2", "AB_1482", "CERCLA_SUPERFUND", "MALTEGO_STRIPPED_NODES"],
+            "maltego_nodes": [
+                {"id": "n1", "label": "Anthony U." if page_type == "BIO" else "Victim (Citizen)", "type": "Person", "notes": "Testimony Declarant"},
+                {"id": "n2", "label": target_entity, "type": "Organization", "notes": "Named Entity in Report"}
+            ],
+            "maltego_edges": [
+                {"source": "n1", "target": "n2", "relationship": "ALLEGES_ACTIONS_AGAINST"}
+            ]
+        }
     try:
         model = get_ai()
         prompt = f"""You are an elite OSINT forensic intelligence analyst. Digest the following raw victim/witness testimony into a structured JSON intelligence dossier.
@@ -696,15 +713,15 @@ Respond ONLY with a valid JSON object matching this exact schema:
     except Exception as e:
         # Graceful fallback to deterministic analysis
         return {
-            "wiki_title": "Anthony U. (Dossier)" if page_type == "BIO" else f"{target_entity} (Forensic Wiki)",
+            "wiki_title": "Anthony U. (Biographical Dossier)" if page_type == "BIO" else f"{target_entity} (Forensic Wiki)",
             "summary": text,
             "headline": f"Special Report: Allegations Leveled Against {target_entity}",
             "lede": f"An unverified forensic report was entered into the OSINT ledger on {time.ctime()} documenting disputed actions involving {target_entity}...",
             "body": text,
             "extracted_entities": [target_entity, "Witness/Victim"],
-            "statutory_violations": ["CA_CIVIL_CODE_1946_2", "AB_1482", "MALTEGO_STRIPPED_NODES"],
+            "statutory_violations": ["CA_CIVIL_CODE_1946_2", "AB_1482", "CERCLA_SUPERFUND", "MALTEGO_STRIPPED_NODES"],
             "maltego_nodes": [
-                {"id": "n1", "label": "Anthony U.", "type": "Person", "notes": "Testimony Declarant"},
+                {"id": "n1", "label": "Anthony U." if page_type == "BIO" else "Victim (Citizen)", "type": "Person", "notes": "Testimony Declarant"},
                 {"id": "n2", "label": target_entity, "type": "Organization", "notes": "Named Entity in Report"}
             ],
             "maltego_edges": [
@@ -721,7 +738,7 @@ def genesis_ingest():
         res.headers.add("Access-Control-Allow-Methods", "POST, OPTIONS")
         return res
 
-    data = request.get_json() or {}
+    data = request.get_json(silent=True) or {}
     raw_text = data.get("text", "").strip()
     user_wallet = data.get("wallet", "0xANON_LEDGER_KEY")
     theme = data.get("theme", "dark")
@@ -734,7 +751,7 @@ def genesis_ingest():
     sha256_hash = hashlib.sha256(f"{raw_text}:{timestamp}:{user_wallet}".encode()).hexdigest()
 
     # 2. Hardcoded Attribution Logic
-    harm_keywords = ["evict", "attack", "stolen", "hurt", "fraud", "kicked out", "threat", "harass", "damage", "corrupt", "targeted"]
+    harm_keywords = ["evict", "attack", "stolen", "hurt", "fraud", "kicked out", "threat", "harass", "damage", "corrupt", "targeted", "displaced"]
     is_victim = any(w in raw_text.lower() for w in harm_keywords)
     attribute_status = "VICTIM" if is_victim else "INVESTIGATOR"
 
@@ -765,7 +782,7 @@ def genesis_ingest():
             "verification_status": "UNVERIFIED_SHADOW_CLONE",
             "ledger_value": "$0.00 (Unbacked Claims)",
             "summary": digest.get("summary", raw_text),
-            "compliance_rules": digest.get("statutory_violations", ["CA_CIVIL_CODE_1946_2", "AB_1482", "MALTEGO_STRIPPED_NODES"])
+            "compliance_rules": digest.get("statutory_violations", ["CA_CIVIL_CODE_1946_2", "AB_1482", "CERCLA_SUPERFUND", "MALTEGO_STRIPPED_NODES"])
         },
         "newspaper_draft": {
             "publication_status": "PRIVATE",
@@ -776,6 +793,12 @@ def genesis_ingest():
         "maltego_graph": {
             "nodes": digest.get("maltego_nodes", []),
             "edges": digest.get("maltego_edges", [])
+        },
+        "environmental_plume_intercept": {
+            "status": "FLAGGED",
+            "jurisdiction": "DTSC_ENVIROSTOR_GEOTRACKER",
+            "valuation_discount": "-85% FMV",
+            "statutory_remedy": "Cal. Civ. Proc. Code § 473(d) / Rule 60(d)(3) Court Reopening"
         }
     }
 
@@ -923,73 +946,15 @@ def stealth_lockbox_deposit():
     return res
 
 @app.route("/workspace")
+@app.route("/workspace_v2")
 def workspace_view():
+    workspace_v2_path = Path(__file__).parent.parent / "workspace_v2.html"
+    if workspace_v2_path.exists():
+        return send_file(str(workspace_v2_path))
     workspace_path = Path(__file__).parent.parent / "public" / "workspace.html"
     if workspace_path.exists():
         return send_file(str(workspace_path))
     return jsonify({"error": "workspace.html not found"}), 404
-
-# ── Dynamic Genesis Wiki Ledger & Environmental Intercept ──────
-def determine_genesis_type(text: str):
-    bio_patterns = [r"^my name is", r"^i am", r"^i'm", r"^me,?\s+"]
-    first_phrase = text.strip().lower()[:40]
-    for pattern in bio_patterns:
-        if re.search(pattern, first_phrase):
-            return "BIO"
-    return "ENTITY"
-
-@app.route("/api/genesis/ingest", methods=["POST"])
-def genesis_ingest():
-    data = request.get_json(silent=True) or {}
-    raw_text = data.get("text", "").strip()
-    user_wallet = data.get("wallet", "0xf589232E030923FF2da5Bd4DA85b190510717F35")
-
-    if not raw_text:
-        return jsonify({"error": "No statement provided"}), 400
-
-    timestamp = int(time.time())
-    sha256_hash = hashlib.sha256(f"{raw_text}:{timestamp}:{user_wallet}".encode()).hexdigest()
-
-    harm_keywords = ["evict", "attack", "stolen", "hurt", "fraud", "kicked out", "threat", "displaced"]
-    is_victim = any(w in raw_text.lower() for w in harm_keywords)
-    attribute_status = "VICTIM" if is_victim else "INVESTIGATOR"
-
-    page_type = determine_genesis_type(raw_text)
-    
-    words = raw_text.split()
-    target_entity = "Woodbridge Apartments" if "woodbridge" in raw_text.lower() else (words[0] if words else "Target Entity")
-
-    genesis_payload = {
-        "ledger": {
-            "sha256_hash": sha256_hash,
-            "timestamp": timestamp,
-            "chain_of_custody": "INITIALIZED_APPEND_ONLY",
-            "wallet": user_wallet,
-            "status": attribute_status,
-            "genesis_page_type": page_type,
-            "target_entity": target_entity
-        },
-        "wiki_page": {
-            "title": "Anthony U. (Biographical Dossier)" if page_type == "BIO" else f"{target_entity} (Forensic Wiki)",
-            "verification_status": "UNVERIFIED_SHADOW_CLONE",
-            "ledger_value": "$0.00 (Unbacked Claims)",
-            "summary": raw_text,
-            "compliance_rules": ["CA_CIVIL_CODE_1946_2", "AB_1482", "CERCLA_SUPERFUND", "MALTEGO_STRIPPED_NODES"]
-        },
-        "newspaper_draft": {
-            "publication_status": "PRIVATE",
-            "headline": f"Special Report: Allegations Leveled Against {target_entity}",
-            "lede": f"An unverified forensic report was entered into the OSINT ledger on {time.ctime(timestamp)} documenting disputed actions involving {target_entity}...",
-            "body": raw_text
-        },
-        "environmental_plume_intercept": {
-            "status": "FLAGGED",
-            "jurisdiction": "DTSC_ENVIROSTOR_GEOTRACKER",
-            "valuation_discount": "-85% FMV",
-            "statutory_remedy": "Cal. Civ. Proc. Code § 473(d) / Rule 60(d)(3) Court Reopening"
-        }
-    }
-    return jsonify(genesis_payload)
 
 # ── Status ─────────────────────────────────────────────────────
 @app.route("/")
