@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINT Intelligence Feed</title>
+    <meta name="description" content="Real-time OSINT news aggregator pulling from Hacker News, security blogs, and threat intelligence sources.">
+    <link rel="canonical" href="https://osintcabal.org/news.html" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Monaco', 'Courier New', monospace;
+            background: linear-gradient(135deg, #0a0e27 0%, #0d1b2a 50%, #1a0b2e 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Animated background grid */
+        .cyber-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        /* Floating particles */
+        .particle {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            animation: float 15s infinite;
+            z-index: -1;
+        }
+        
+        .particle:nth-child(odd) {
+            background: rgba(139, 92, 246, 0.6);
+        }
+        
+        .particle:nth-child(even) {
+            background: rgba(6, 182, 212, 0.6);
+        }
+        
+        .particle:nth-child(3n) {
+            background: rgba(59, 130, 246, 0.6);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        }
+        
+        .card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:nth-child(3n+1) {
+            border-color: rgba(139, 92, 246, 0.2);
+        }
+        
+        .card:nth-child(3n+2) {
+            border-color: rgba(6, 182, 212, 0.2);
+        }
+        
+        .card:nth-child(3n) {
+            border-color: rgba(59, 130, 246, 0.2);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            transition: left 0.5s;
+        }
+        
+        .card:nth-child(3n+1)::before {
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+        }
+        
+        .card:nth-child(3n+2)::before {
+            background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.1), transparent);
+        }
+        
+        .card:nth-child(3n)::before {
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+        }
+        
+        .card:hover::before {
+            left: 100%;
+        }
+        
+        .card:nth-child(3n+1):hover {
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.2);
+        }
+        
+        .card:nth-child(3n+2):hover {
+            border-color: rgba(6, 182, 212, 0.5);
+            box-shadow: 0 8px 32px rgba(6, 182, 212, 0.2);
+        }
+        
+        .card:nth-child(3n):hover {
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .glow {
+            text-shadow: 0 0 10px rgba(167, 139, 250, 0.5),
+                         0 0 20px rgba(6, 182, 212, 0.3);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #7c3aed 0%, #0891b2 100%);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.5), 0 0 10px rgba(6, 182, 212, 0.3);
+            transform: translateY(-1px);
+        }
+        
+        .status-dot {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .tag {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: #c4b5fd;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+        
+        .tag:hover {
+            background: rgba(139, 92, 246, 0.2);
+            border-color: rgba(139, 92, 246, 0.5);
+        }
+        
+        .tag:nth-child(2n) {
+            background: rgba(6, 182, 212, 0.1);
+            border-color: rgba(6, 182, 212, 0.3);
+            color: #67e8f9;
+        }
+        
+        .tag:nth-child(2n):hover {
+            background: rgba(6, 182, 212, 0.2);
+            border-color: rgba(6, 182, 212, 0.5);
+        }
+        
+        .tag:nth-child(3n) {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+            color: #93c5fd;
+        }
+        
+        .tag:nth-child(3n):hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        .source-badge {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            backdrop-filter: blur(8px);
+        }
+        
+        .loading-spinner {
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-top: 2px solid #8b5cf6;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .skeleton {
+            background: linear-gradient(90deg, 
+                rgba(139, 92, 246, 0.05) 25%, 
+                rgba(139, 92, 246, 0.1) 50%, 
+                rgba(139, 92, 246, 0.05) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.5);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: rgba(139, 92, 246, 0.5);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(139, 92, 246, 0.7);
+        }
+    </style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+<script src="assets/js/flowbg.js"></script>
+<script src="assets/js/flowbg-loader.js"></script>
+<style id="ocb-banner-style">
+  .ocb-topbar{position:sticky;top:0;z-index:9000;display:flex;align-items:center;justify-content:space-between;gap:16px;height:58px;padding:0 22px;background:rgba(8,8,16,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,107,156,.2);font-family:'JetBrains Mono',ui-monospace,monospace;box-sizing:border-box;}
+  .ocb-topbar *{box-sizing:border-box;}
+  .ocb-brand{display:flex;align-items:center;gap:11px;text-decoration:none;}
+  .ocb-brand img{height:34px;width:34px;border-radius:8px;box-shadow:0 0 16px rgba(255,107,156,.35);}
+  .ocb-mark{font-size:.95rem;font-weight:700;letter-spacing:.22em;color:#e8e8f4;text-transform:uppercase;white-space:nowrap;}
+  .ocb-mark b{color:#ff6b9c;}
+  .ocb-dot{width:7px;height:7px;border-radius:50%;background:#00d9ff;box-shadow:0 0 10px #00d9ff;animation:ocbPulse 1.8s infinite;flex:none;}
+  @keyframes ocbPulse{0%,100%{opacity:.7}50%{opacity:1}}
+  .ocb-right{display:flex;align-items:center;gap:9px;}
+  .ocb-ctrls{display:flex;align-items:center;gap:9px;}
+  .ocb-ctrl{background:rgba(10,9,18,.7);border:1px solid rgba(255,107,156,.32);color:#9a9ac0;padding:7px 13px;border-radius:7px;text-decoration:none;font-family:inherit;font-size:11px;transition:all .2s ease;display:flex;align-items:center;gap:6px;cursor:pointer;white-space:nowrap;}
+  .ocb-ctrl:hover{background:rgba(255,107,156,.16);color:#eaeaff;border-color:rgba(255,107,156,.7);}
+  .ocb-burger{display:flex;flex-direction:column;gap:5px;width:42px;height:38px;align-items:center;justify-content:center;background:rgba(10,9,18,.7);border:1px solid rgba(255,107,156,.32);border-radius:8px;cursor:pointer;flex:none;}
+  .ocb-burger span{display:block;width:20px;height:2px;background:#ff6b9c;border-radius:2px;transition:transform .25s ease,opacity .2s ease;}
+  .ocb-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .ocb-burger.open span:nth-child(2){opacity:0;}
+  .ocb-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .ocb-scrim{position:fixed;inset:0;z-index:8990;background:rgba(4,4,9,.55);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .25s ease;}
+  .ocb-scrim.open{opacity:1;pointer-events:auto;}
+  .ocb-menu{position:fixed;top:58px;right:0;width:340px;max-width:92vw;z-index:8995;background:rgba(9,8,16,.97);backdrop-filter:blur(16px);border-left:1px solid rgba(255,107,156,.3);border-bottom:1px solid rgba(255,107,156,.3);border-bottom-left-radius:14px;padding:14px 16px 18px;display:flex;flex-direction:column;gap:9px;transform:translateX(16px);opacity:0;pointer-events:none;transition:transform .28s cubic-bezier(.2,.8,.2,1),opacity .24s ease;max-height:calc(100vh - 58px);overflow-y:auto;font-family:'JetBrains Mono',ui-monospace,monospace;}
+  .ocb-menu.open{transform:none;opacity:1;pointer-events:auto;}
+  .ocb-mlink{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid rgba(255,107,156,.3);border-radius:10px;background:rgba(13,12,22,.7);color:#e6e6ff;text-decoration:none;font-size:.92rem;font-weight:600;transition:background .18s ease,border-color .18s ease;}
+  .ocb-mlink:hover{background:rgba(255,107,156,.14);border-color:#ff6b9c;}
+  .ocb-mdiv{height:1px;background:rgba(255,107,156,.2);margin:6px 2px;}
+  .ocb-menu .ocb-ctrl{justify-content:center;}
+  html.ocb-invert{filter:invert(1) hue-rotate(180deg);}
+  html.ocb-invert .ocb-topbar,html.ocb-invert .ocb-menu,html.ocb-invert .ocb-scrim{filter:invert(1) hue-rotate(180deg);}
+  @media (max-width:820px){.ocb-ctrls{display:none;}}
+</style>
+<style id="ocb-news-skin">
+  body{ background:#08080f !important; }
+  #bg-canvas{ position:fixed; inset:0; width:100%; height:100%; z-index:-2; pointer-events:none; display:block; }
+  .cyber-grid{ opacity:.45; }
+  .glow{ text-shadow:0 0 10px rgba(255,107,156,.5),0 0 20px rgba(0,217,255,.3) !important; }
+  .card{ background:rgba(10,9,18,.6) !important; border-color:rgba(255,107,156,.22) !important; }
+  .card:hover{ border-color:rgba(255,107,156,.5) !important; box-shadow:0 8px 32px rgba(255,107,156,.18) !important; transform:translateY(-2px); }
+  .btn-primary{ background:#ff6b9c !important; border:1px solid #ff6b9c !important; color:#08080f !important; }
+  .btn-primary:hover{ background:#ff8fb3 !important; box-shadow:0 0 20px rgba(255,107,156,.5) !important; }
+  .source-badge{ background:linear-gradient(135deg,rgba(255,107,156,.2),rgba(0,217,255,.2)) !important; border-color:rgba(255,107,156,.3) !important; }
+  .tag{ background:rgba(255,107,156,.1) !important; border-color:rgba(255,107,156,.3) !important; color:#ffb3cd !important; }
+  header.border-b{ background:rgba(8,8,16,.5) !important; border-color:rgba(255,107,156,.18) !important; }
+</style>
+</head>
+<body>
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+<canvas id="bg-canvas"></canvas>
+
+    <!-- Cyber Grid Background -->
+    <div class="cyber-grid"></div>
+    
+    <!-- Floating Particles -->
+    <script>
+        for(let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            document.body.appendChild(particle);
+        }
+    </script>
+    
+    <!-- Header -->
+    <header class="border-b border-purple-900/30 backdrop-blur-md sticky top-0 z-50 bg-slate-900/50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-satellite-dish text-white text-lg"></i>
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-bold glow">
+                        <span class="text-cyan-400">OSINT & Cybersecurity News Feed</span>
+                    </h1>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button id="refreshBtn" class="btn-primary px-4 py-2 rounded-lg flex items-center gap-2 font-semibold">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Refresh</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Stats Bar -->
+    <div class="container mx-auto px-4 py-4">
+        <div class="card p-4 flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-green-500 status-dot"></div>
+                <span class="text-sm text-gray-300">Feed Active</span>
+            </div>
+            <div class="flex flex-wrap gap-6 text-sm">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-database text-purple-400"></i>
+                    <span class="text-gray-400">Sources:</span>
+                    <span class="text-purple-300 font-mono" id="sourceCount">0</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-newspaper text-cyan-400"></i>
+                    <span class="text-gray-400">Articles:</span>
+                    <span class="text-cyan-300 font-mono" id="articleCount">0</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-clock text-blue-400"></i>
+                    <span class="text-gray-400">Updated:</span>
+                    <span class="text-blue-300 font-mono" id="updateTime">--:--:--</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- News Feed -->
+    <main class="container mx-auto px-4 py-6">
+        <div id="newsFeed" class="grid grid-cols-1 gap-4 max-w-5xl mx-auto">
+            <!-- Loading skeletons -->
+            <div class="skeleton-loader">
+                <div class="card p-6 space-y-4">
+                    <div class="skeleton h-6 w-32 rounded"></div>
+                    <div class="skeleton h-8 w-3/4 rounded"></div>
+                    <div class="skeleton h-20 w-full rounded"></div>
+                    <div class="flex gap-2">
+                        <div class="skeleton h-6 w-20 rounded-full"></div>
+                        <div class="skeleton h-6 w-24 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Loading Indicator -->
+        <div id="loadingMore" class="py-8 text-center hidden">
+            <div class="loading-spinner mx-auto mb-2"></div>
+            <span class="text-purple-400 text-sm">Loading more articles...</span>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="border-t border-purple-900/30 py-6 mt-12 backdrop-blur-md bg-slate-900/30">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-2 text-sm text-gray-400">
+                    <i class="fas fa-shield-alt text-purple-500"></i>
+                    <span>OSINT Intel Feed v2.0</span>
+                </div>
+                <div class="text-xs text-gray-500">
+                    &copy; 2026 OSINTCabal. Real-time intelligence aggregation.
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Configuration
+        const CONFIG = {
+            hackerNewsAPI: 'https://hacker-news.firebaseio.com/v0',
+            rss2JsonAPI: 'https://api.rss2json.com/v1/api.json',
+            articlesPerLoad: 20,
+            refreshInterval: 300000, // 5 minutes
+            scrollThreshold: 500 // pixels from bottom
+        };
+        
+        // Comprehensive RSS Feeds - CSHub + Security Sources
+        const RSS_FEEDS = [
+            // Hacker News
+            'https://news.ycombinator.com/rss',
+            
+            // CSHub - Main Content Types
+            'https://www.cshub.com/rss/articles',
+            'https://www.cshub.com/rss/case-studies',
+            'https://www.cshub.com/rss/reports',
+            'https://www.cshub.com/rss/webinars',
+            'https://www.cshub.com/rss/news',
+            
+            // CSHub - All Categories
+            'https://www.cshub.com/rss/categories/attacks',
+            'https://www.cshub.com/rss/categories/data',
+            'https://www.cshub.com/rss/categories/malware',
+            'https://www.cshub.com/rss/categories/security-strategy',
+            'https://www.cshub.com/rss/categories/threat-defense',
+            'https://www.cshub.com/rss/categories/ransomware',
+            'https://www.cshub.com/rss/categories/data-breach',
+            'https://www.cshub.com/rss/categories/vulnerabilities',
+            'https://www.cshub.com/rss/categories/threat-intelligence',
+            'https://www.cshub.com/rss/categories/ddos',
+            'https://www.cshub.com/rss/categories/phishing',
+            'https://www.cshub.com/rss/categories/encryption',
+            'https://www.cshub.com/rss/categories/cloud-security',
+            'https://www.cshub.com/rss/categories/endpoint-security',
+            'https://www.cshub.com/rss/categories/identity-access-management',
+            'https://www.cshub.com/rss/categories/network-security',
+            'https://www.cshub.com/rss/categories/risk-compliance',
+            'https://www.cshub.com/rss/categories/security-operations',
+            'https://www.cshub.com/rss/categories/application-security',
+            'https://www.cshub.com/rss/categories/incident-response',
+            'https://www.cshub.com/rss/categories/security-awareness',
+            'https://www.cshub.com/rss/categories/zero-trust',
+            'https://www.cshub.com/rss/categories/mobile-security',
+            'https://www.cshub.com/rss/categories/iot-security',
+            'https://www.cshub.com/rss/categories/insider-threats',
+            'https://www.cshub.com/rss/categories/fraud',
+            'https://www.cshub.com/rss/categories/supply-chain',
+            'https://www.cshub.com/rss/categories/critical-infrastructure',
+            
+            // OSINT & Security Research
+            'https://www.bellingcat.com/feed/',
+            'https://feeds.feedburner.com/KrebsOnSecurity',
+            'https://www.osintessentials.com/feed',
+            'https://osintcurio.us/feed/',
+            'https://www.osintme.com/index.php/feed/',
+            
+            // Major Security News
+            'https://www.darkreading.com/rss.xml',
+            'https://www.threatpost.com/feed/',
+            'https://www.schneier.com/feed/atom/',
+            'https://www.bleepingcomputer.com/feed/',
+            'https://www.securityweek.com/feed/',
+            'https://www.theregister.com/security/headlines.atom',
+            'https://www.wired.com/feed/category/security/latest/rss',
+            'https://www.hackread.com/feed/',
+            'https://www.cyberscoop.com/feed/',
+            'https://www.zdnet.com/topic/security/rss.xml',
+            
+            // Threat Intelligence Vendors
+            'https://www.recordedfuture.com/feed',
+            'https://www.crowdstrike.com/blog/feed/',
+            'https://www.mandiant.com/resources/blog/rss.xml',
+            'https://www.talosintelligence.com/rss.xml',
+            'https://www.proofpoint.com/us/rss.xml',
+            'https://www.sentinelone.com/blog/feed/',
+            'https://www.kaspersky.com/blog/feed/',
+            'https://www.malwarebytes.com/blog/feed/',
+            'https://www.trendmicro.com/en_us/research.feed.xml',
+            
+            // Research & Industry
+            'https://www.sans.org/blog/rss/',
+            'https://www.csoonline.com/feed/',
+            'https://www.infosecurity-magazine.com/rss/',
+            'https://www.eff.org/rss/updates.xml',
+            'https://www.helpnetsecurity.com/feed/',
+            'https://www.securityintelligence.com/feed/',
+            'https://unit42.paloaltonetworks.com/feed/',
+            'https://www.redcanary.com/blog/feed/',
+            
+            // Specialized Sources
+            'https://www.volexity.com/blog/feed/',
+            'https://www.anomali.com/blog/rss.xml',
+            'https://www.digitalshadows.com/blog-and-research/rss/',
+            'https://www.intel471.com/blog/feed/',
+            'https://www.group-ib.com/blog/feed/',
+            'https://www.flashpoint-intel.com/blog/feed/'
+        ];
+        
+        // State management
+        let allArticles = [];
+        let displayedArticles = [];
+        let currentFeedIndex = 0;
+        let isLoading = false;
+        let hasMoreContent = true;
+        let failedFeeds = new Set();
+        
+        // DOM Elements
+        const newsFeed = document.getElementById('newsFeed');
+        const refreshBtn = document.getElementById('refreshBtn');
+        const articleCount = document.getElementById('articleCount');
+        const sourceCount = document.getElementById('sourceCount');
+        const updateTime = document.getElementById('updateTime');
+        const loadingMore = document.getElementById('loadingMore');
+        
+        // Fetch Hacker News stories
+        async function fetchHackerNews() {
+            try {
+                const response = await fetch(`${CONFIG.hackerNewsAPI}/topstories.json`);
+                if (!response.ok) throw new Error('HN API failed');
+                
+                const storyIds = await response.json();
+                
+                // Fetch first 30 stories
+                const storyPromises = storyIds.slice(0, 30).map(async id => {
+                    try {
+                        const storyResponse = await fetch(`${CONFIG.hackerNewsAPI}/item/${id}.json`);
+                        if (!storyResponse.ok) return null;
+                        return storyResponse.json();
+                    } catch {
+                        return null;
+                    }
+                });
+                
+                const stories = (await Promise.all(storyPromises)).filter(s => s);
+                
+                return stories
+                    .filter(story => story && story.title)
+                    .map(story => ({
+                        source: 'Hacker News',
+                        sourceType: 'hackernews',
+                        title: story.title,
+                        description: story.text || `${story.score || 0} points by ${story.by || 'anonymous'}`,
+                        url: story.url || `https://news.ycombinator.com/item?id=${story.id}`,
+                        time: story.time * 1000,
+                        tags: extractTags(story.title),
+                        score: story.score,
+                        author: story.by
+                    }));
+            } catch (error) {
+                console.warn('Hacker News fetch failed:', error.message);
+                return [];
+            }
+        }
+        
+        // Fetch from multiple RSS feeds with automatic cycling
+        async function fetchRSSFeeds(count = 10) {
+            const articles = [];
+            let attempts = 0;
+            const maxAttempts = Math.min(RSS_FEEDS.length, 15);
+            
+            while (articles.length < count && attempts < maxAttempts) {
+                const feedUrl = RSS_FEEDS[currentFeedIndex];
+                
+                // Skip if this feed failed recently
+                if (!failedFeeds.has(feedUrl)) {
+                    try {
+                        const response = await fetch(
+                            `${CONFIG.rss2JsonAPI}?rss_url=${encodeURIComponent(feedUrl)}&count=10`,
+                            { timeout: 5000 }
+                        );
+                        
+                        if (response.ok) {
+                            const data = await response.json();
+                            
+                            if (data.status === 'ok' && data.items && data.items.length > 0) {
+                                const feedArticles = data.items.map(item => ({
+                                    source: extractSource(feedUrl),
+                                    sourceType: 'rss',
+                                    title: item.title || 'Untitled',
+                                    description: cleanDescription(item.description || item.content),
+                                    url: item.link || item.guid || '#',
+                                    time: new Date(item.pubDate).getTime() || Date.now(),
+                                    tags: item.categories?.slice(0, 3).map(c => c.toLowerCase()) || extractTags(item.title || ''),
+                                    thumbnail: item.thumbnail || item.enclosure?.link
+                                }));
+                                
+                                articles.push(...feedArticles);
+                            } else {
+                                failedFeeds.add(feedUrl);
+                            }
+                        } else {
+                            failedFeeds.add(feedUrl);
+                        }
+                    } catch (error) {
+                        failedFeeds.add(feedUrl);
+                        console.warn(`Feed ${extractSource(feedUrl)} failed:`, error.message);
+                    }
+                }
+                
+                // Move to next feed
+                currentFeedIndex = (currentFeedIndex + 1) % RSS_FEEDS.length;
+                attempts++;
+                
+                // Small delay to avoid hammering APIs
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            
+            // Clear failed feeds cache periodically
+            if (failedFeeds.size > RSS_FEEDS.length / 2) {
+                failedFeeds.clear();
+            }
+            
+            return articles;
+        }
+        
+        // Helper functions
+        function extractSource(url) {
+            try {
+                const hostname = new URL(url).hostname;
+                const name = hostname.replace('www.', '').split('.')[0];
+                return name.charAt(0).toUpperCase() + name.slice(1);
+            } catch {
+                return 'RSS';
+            }
+        }
+        
+        function cleanDescription(desc) {
+            if (!desc) return 'No description available';
+            const text = desc
+                .replace(/<[^>]*>/g, '')
+                .replace(/&nbsp;/g, ' ')
+                .replace(/&amp;/g, '&')
+                .replace(/&lt;/g, '<')
+                .replace(/&gt;/g, '>')
+                .replace(/&quot;/g, '"')
+                .trim();
+            return text.length > 250 ? text.substring(0, 250) + '...' : text;
+        }
+        
+        function extractTags(text) {
+            const keywords = [
+                'osint', 'security', 'cyber', 'hack', 'threat', 'malware', 'breach',
+                'vulnerability', 'ransomware', 'phishing', 'ddos', 'apt', 'intelligence',
+                'attack', 'exploit', 'zero-day', 'forensics', 'incident', 'compliance'
+            ];
+            const lowerText = text.toLowerCase();
+            const found = keywords.filter(kw => lowerText.includes(kw));
+            return found.length > 0 ? found.slice(0, 3) : ['security', 'news'];
+        }
+        
+        function formatTimeAgo(timestamp) {
+            const now = Date.now();
+            const diff = now - timestamp;
+            const minutes = Math.floor(diff / 60000);
+            const hours = Math.floor(diff / 3600000);
+            const days = Math.floor(diff / 86400000);
+            
+            if (minutes < 1) return 'Just now';
+            if (minutes < 60) return `${minutes}m ago`;
+            if (hours < 24) return `${hours}h ago`;
+            if (days < 7) return `${days}d ago`;
+            return new Date(timestamp).toLocaleDateString();
+        }
+        
+        function createArticleCard(article, index) {
+            const colorClass = index % 3 === 0 ? 'purple' : (index % 3 === 1 ? 'cyan' : 'blue');
+            
+            return `
+                <div class="card p-5 fade-in hover:cursor-pointer" onclick="window.open('${article.url}', '_blank')">
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="source-badge px-3 py-1.5 rounded-lg text-xs font-semibold text-${colorClass}-300">
+                            <i class="fas fa-${article.sourceType === 'hackernews' ? 'y-combinator' : 'rss'} mr-1"></i>
+                            ${article.source}
+                        </span>
+                        <span class="text-gray-400 text-xs">${formatTimeAgo(article.time)}</span>
+                    </div>
+                    
+                    <h3 class="text-lg font-bold text-white mb-2 leading-tight hover:text-${colorClass}-300 transition-colors">
+                        ${article.title}
+                    </h3>
+                    
+                    <p class="text-gray-400 text-sm mb-3 leading-relaxed">
+                        ${article.description}
+                    </p>
+                    
+                    ${article.score ? `
+                        <div class="text-xs text-${colorClass}-400 mb-3">
+                            <i class="fas fa-arrow-up"></i> ${article.score} points
+                            ${article.author ? ` • by ${article.author}` : ''}
+                        </div>
+                    ` : ''}
+                    
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        ${article.tags.map((tag, i) => `
+                            <span class="tag">#${tag}</span>
+                        `).join('')}
+                    </div>
+                    
+                    <div class="flex justify-between items-center text-xs">
+                        <button class="text-${colorClass}-400 hover:text-${colorClass}-300 flex items-center gap-1 font-medium transition-colors">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Read Article</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function renderArticles(articles, append = false) {
+            const html = articles.map((article, index) => 
+                createArticleCard(article, displayedArticles.length + index)
+            ).join('');
+            
+            if (append) {
+                newsFeed.insertAdjacentHTML('beforeend', html);
+            } else {
+                newsFeed.innerHTML = html;
+            }
+            
+            displayedArticles = append ? [...displayedArticles, ...articles] : articles;
+            articleCount.textContent = displayedArticles.length;
+        }
+        
+        // Load initial articles
+        async function loadInitialArticles() {
+            if (isLoading) return;
+            
+            isLoading = true;
+            refreshBtn.querySelector('i').classList.add('fa-spin');
+            
+            try {
+                // Fetch from both sources
+                const [hnArticles, rssArticles] = await Promise.all([
+                    fetchHackerNews(),
+                    fetchRSSFeeds(30)
+                ]);
+                
+                // Combine and sort by time
+                allArticles = [...hnArticles, ...rssArticles]
+                    .sort((a, b) => b.time - a.time);
+                
+                // Display first batch
+                const initialBatch = allArticles.slice(0, CONFIG.articlesPerLoad);
+                renderArticles(initialBatch);
+                
+                // Update stats
+                const uniqueSources = new Set(allArticles.map(a => a.source));
+                sourceCount.textContent = uniqueSources.size;
+                updateTime.textContent = new Date().toLocaleTimeString();
+                
+                // Remove skeleton
+                document.querySelector('.skeleton-loader')?.remove();
+                
+                hasMoreContent = allArticles.length > CONFIG.articlesPerLoad;
+                
+            } catch (error) {
+                console.error('Error loading articles:', error);
+                newsFeed.innerHTML = `
+                    <div class="card p-8 text-center">
+                        <i class="fas fa-exclamation-triangle text-4xl text-cyan-500 mb-4"></i>
+                        <p class="text-gray-400">Failed to load articles. Retrying...</p>
+                    </div>
+                `;
+                
+                // Retry after delay
+                setTimeout(loadInitialArticles, 3000);
+            } finally {
+                isLoading = false;
+                refreshBtn.querySelector('i').classList.remove('fa-spin');
+            }
+        }
+        
+        // Load more articles (infinite scroll)
+        async function loadMoreArticles() {
+            if (isLoading || !hasMoreContent) return;
+            
+            isLoading = true;
+            loadingMore.classList.remove('hidden');
+            
+            try {
+                const currentLength = displayedArticles.length;
+                
+                // If we have more in cache, use those
+                if (currentLength < allArticles.length) {
+                    const nextBatch = allArticles.slice(
+                        currentLength,
+                        currentLength + CONFIG.articlesPerLoad
+                    );
+                    renderArticles(nextBatch, true);
+                    
+                    hasMoreContent = currentLength + CONFIG.articlesPerLoad < allArticles.length;
+                } else {
+                    // Fetch more from RSS feeds
+                    const newArticles = await fetchRSSFeeds(CONFIG.articlesPerLoad);
+                    
+                    if (newArticles.length > 0) {
+                        // Add to cache and display
+                        allArticles.push(...newArticles);
+                        allArticles.sort((a, b) => b.time - a.time);
+                        
+                        renderArticles(newArticles, true);
+                        hasMoreContent = true;
+                    } else {
+                        hasMoreContent = false;
+                        loadingMore.innerHTML = `
+                            <div class="text-center py-8">
+                                <p class="text-gray-400 text-sm">No more articles available. Click refresh for new content.</p>
+                            </div>
+                        `;
+                    }
+                }
+                
+            } catch (error) {
+                console.error('Error loading more:', error);
+            } finally {
+                isLoading = false;
+                setTimeout(() => loadingMore.classList.add('hidden'), 500);
+            }
+        }
+        
+        // Infinite scroll handler
+        function handleScroll() {
+            const scrollPosition = window.innerHeight + window.scrollY;
+            const pageHeight = document.body.offsetHeight;
+            
+            if (scrollPosition >= pageHeight - CONFIG.scrollThreshold && !isLoading && hasMoreContent) {
+                loadMoreArticles();
+            }
+        }
+        
+        // Event Listeners
+        refreshBtn.addEventListener('click', () => {
+            displayedArticles = [];
+            allArticles = [];
+            hasMoreContent = true;
+            currentFeedIndex = 0;
+            loadInitialArticles();
+        });
+        
+        // Throttled scroll handler
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(handleScroll, 200);
+        });
+        
+        // Auto-refresh every 5 minutes
+        setInterval(() => {
+            if (!isLoading && document.visibilityState === 'visible') {
+                // Refresh in background
+                Promise.all([fetchHackerNews(), fetchRSSFeeds(20)])
+                    .then(([hn, rss]) => {
+                        const fresh = [...hn, ...rss].sort((a, b) => b.time - a.time);
+                        const newItems = fresh.filter(f => 
+                            !allArticles.some(a => a.url === f.url)
+                        );
+                        
+                        if (newItems.length > 0) {
+                            allArticles.unshift(...newItems);
+                            const badge = document.createElement('div');
+                            badge.className = 'fixed top-20 right-4 bg-cyan-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+                            badge.innerHTML = `<i class="fas fa-bell mr-2"></i>${newItems.length} new articles`;
+                            document.body.appendChild(badge);
+                            setTimeout(() => badge.remove(), 3000);
+                        }
+                    });
+            }
+        }, CONFIG.refreshInterval);
+        
+        // Update time display
+        setInterval(() => {
+            updateTime.textContent = new Date().toLocaleTimeString();
+        }, 1000);
+        
+        // Initial load
+        loadInitialArticles();
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+
+<script>
+(function(){
+  function ready(fn){ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',fn);}else{fn();} }
+  ready(function(){
+    var burger=document.getElementById('ocbBurger'), menu=document.getElementById('ocbMenu'), scrim=document.getElementById('ocbScrim');
+    function close(){ if(burger)burger.classList.remove('open'); if(menu)menu.classList.remove('open'); if(scrim)scrim.classList.remove('open'); }
+    if(burger&&menu){ burger.addEventListener('click',function(){ var o=!menu.classList.contains('open'); burger.classList.toggle('open',o); menu.classList.toggle('open',o); if(scrim)scrim.classList.toggle('open',o); }); }
+    if(scrim) scrim.addEventListener('click',close);
+    if(menu) menu.querySelectorAll('.ocb-mlink').forEach(function(a){ a.addEventListener('click',close); });
+    var animOn=true;
+    function toggleAnim(){ animOn=!animOn; if(window.__flowbg) window.__flowbg.setPaused(!animOn); }
+    function toggleInvert(){ document.documentElement.classList.toggle('ocb-invert'); }
+    ['ocbAnim','ocbAnim2'].forEach(function(id){ var b=document.getElementById(id); if(b)b.addEventListener('click',toggleAnim); });
+    ['ocbInvert','ocbInvert2'].forEach(function(id){ var b=document.getElementById(id); if(b)b.addEventListener('click',toggleInvert); });
+  });
+})();
+</script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2724e54aab4ceb7',t:'MTc4NjA2NDAyMw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c1bc86c2e4614',t:'MTc4OTAxODkzNw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script src="assets/js/page-transition.js"></script>
+<link rel="stylesheet" href="assets/css/glass.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tools &amp; Resources · OSINT Cabal</title>
+<link rel="icon" type="image/png" href="assets/logo-osintcabal.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+<script src="assets/js/flowbg.js"></script>
+<script src="assets/js/flowbg-loader.js"></script>
+<style>
+  :root { --acc:#ff6b9c; --acc2:#00d9ff; --acc-rgb:255,107,156; --acc2-rgb:0,217,255; }
+  * { box-sizing:border-box; }
+  body { margin:0; min-height:100vh; background-color:#08080f; color:#e0e0ff; font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; overflow-x:hidden; position:relative; }
+  #bg-canvas { position:fixed; inset:0; width:100%; height:100%; z-index:-1; pointer-events:none; display:block; }
+  .bg-bloom { position:fixed; inset:0; z-index:-1; pointer-events:none; background:radial-gradient(ellipse at 50% -5%, rgba(0,217,255,0.08), transparent 55%); }
+  .bg-grid { position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:0.4; background-image:linear-gradient(rgba(0,217,255,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(0,217,255,0.035) 1px,transparent 1px); background-size:44px 44px; }
+  .particles, .data-stream { position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; overflow:hidden; }
+  .particle { position:absolute; width:2px; height:2px; background:#00d9ff; border-radius:50%; opacity:.12; filter:blur(.5px); }
+  .data-bit { position:absolute; font-family:'JetBrains Mono',monospace; font-size:14px; color:rgba(0,217,255,.2); opacity:0; animation:dataStream linear infinite; }
+  @keyframes dataStream { 0%{transform:translateY(-24px);opacity:0} 6%{opacity:.5} 94%{opacity:.5} 100%{transform:translateY(100vh);opacity:0} }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+  @keyframes spin { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+  @keyframes dripIn { 0%{opacity:0; transform:translateY(-22px) scaleY(.66); filter:blur(7px)} 46%{opacity:1} 72%{transform:translateY(4px) scaleY(1.06); filter:blur(1px)} 88%{transform:translateY(-1px) scaleY(.99); filter:blur(.2px)} 100%{opacity:1; transform:none; filter:blur(0)} }
+  .reveal { opacity:0; transform-origin:top center; }
+  .reveal.in { opacity:1; animation:dripIn .5s cubic-bezier(.2,.85,.25,1); }
+  .tcard.reveal { opacity:0; transform-origin:top center; }
+  .tcard.reveal.in { opacity:1; animation:dripIn .52s cubic-bezier(.2,.85,.25,1); }
+  .tcard { transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease, background .25s ease; }
+  .tcard:hover { transform:translateY(-2px); border-color:var(--tc) !important; background:rgba(15,15,32,.92) !important; box-shadow:0 15px 40px rgba(0,0,0,.45), 0 0 22px var(--tcg), inset 0 1px 0 rgba(255,255,255,.05) !important; }
+  .tcard:hover .ticon { transform:scale(1.06); filter:drop-shadow(0 0 10px var(--tc)); }
+  .tcard:hover .ttitle { text-shadow:0 0 14px var(--tc); }
+
+  /* code brackets: smooth open/close squeeze, like a live prompt */
+  @keyframes icCodePulse { 0%,100%{transform:scaleX(1)} 50%{transform:scaleX(.66)} }
+  /* document: a real page-turn in 3D */
+  @keyframes icDocFlip { 0%{transform:perspective(420px) rotateY(0)} 55%{transform:perspective(420px) rotateY(180deg)} 100%{transform:perspective(420px) rotateY(360deg)} }
+  /* converter: continuous clean rotation of the convert loop */
+  @keyframes icConvert { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+  /* python: weightless float */
+  @keyframes icPyFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+  /* go gopher: a springy hop with squash & stretch */
+  @keyframes icGoHop { 0%{transform:translateY(0) scale(1,1)} 22%{transform:translateY(0) scale(1.1,.88)} 48%{transform:translateY(-9px) scale(.94,1.08)} 70%{transform:translateY(0) scale(1.08,.92)} 84%{transform:translateY(0) scale(.98,1.02)} 100%{transform:translateY(0) scale(1,1)} }
+  /* terminal: hard cursor blink */
+  @keyframes icTermBlink { 0%,49%{opacity:1} 50%,100%{opacity:.18} }
+  /* telegram: fire the message off, then reset from below */
+  @keyframes icTgSend { 0%{transform:translate(0,0) rotate(0); opacity:1} 55%{transform:translate(16px,-14px) rotate(12deg); opacity:0} 56%{transform:translate(-10px,9px) rotate(-4deg); opacity:0} 100%{transform:translate(0,0) rotate(0); opacity:1} }
+  .tcard:hover .ic-code { animation:icCodePulse 1s cubic-bezier(.4,0,.2,1) infinite; transform-origin:center; }
+  .tcard:hover .ic-doc { animation:icDocFlip 1.6s cubic-bezier(.45,0,.3,1) infinite; transform-origin:center; }
+  .tcard:hover .ic-convert { animation:icConvert 1.2s linear infinite; transform-origin:center; }
+  .tcard:hover .ic-py { animation:icPyFloat 1.6s ease-in-out infinite; transform-origin:center; }
+  .tcard:hover .ic-go { animation:icGoHop 1s cubic-bezier(.3,.7,.3,1) infinite; transform-origin:center bottom; }
+  .tcard:hover .ic-term { animation:icTermBlink 1s steps(1,end) infinite; }
+  .tcard:hover .ic-tg { animation:icTgSend 1.3s cubic-bezier(.5,0,.4,1) infinite; transform-origin:center; }
+  .tcard:hover .ic-globe { animation-duration:2.2s !important; }
+
+  .topbar { position:sticky; top:0; z-index:60; display:flex; align-items:center; justify-content:space-between; gap:14px; height:58px; padding:0 18px; background:rgba(8,8,16,.72); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(var(--acc-rgb),.18); }
+  .brand { display:flex; align-items:center; gap:11px; text-decoration:none; }
+  .brand img { height:34px; width:34px; border-radius:8px; box-shadow:0 0 16px rgba(var(--acc-rgb),.35); }
+  .brand-mark { font-family:'JetBrains Mono',monospace; font-size:.95rem; font-weight:700; letter-spacing:.22em; color:#e8e8f4; text-transform:uppercase; }
+  .brand-mark b { color:var(--acc); }
+  .brand-dot { width:7px; height:7px; border-radius:50%; background:var(--acc2); box-shadow:0 0 10px var(--acc2); animation:blink 1.8s infinite; }
+  .topbar-right { display:flex; align-items:center; gap:9px; }
+  .ctrl { background:rgba(10,9,18,.7); border:1px solid rgba(var(--acc-rgb),.32); color:#9a9ac0; padding:7px 13px; border-radius:7px; text-decoration:none; font-family:'JetBrains Mono',monospace; font-size:11px; transition:all .2s ease; display:flex; align-items:center; gap:6px; cursor:pointer; white-space:nowrap; }
+  .ctrl:hover { background:rgba(var(--acc-rgb),.16); color:#eaeaff; border-color:rgba(var(--acc-rgb),.7); transform:translateY(-1px); box-shadow:0 0 14px rgba(var(--acc-rgb),.25); }
+  .hamburger { display:flex; flex-direction:column; gap:5px; width:42px; height:38px; align-items:center; justify-content:center; background:rgba(10,9,18,.7); border:1px solid rgba(var(--acc-rgb),.32); border-radius:8px; cursor:pointer; }
+  .hamburger span { display:block; width:20px; height:2px; background:var(--acc); border-radius:2px; transition:transform .25s ease, opacity .2s ease; }
+  .hamburger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2){ opacity:0; }
+  .hamburger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  .menu-scrim { position:fixed; inset:0; z-index:55; background:rgba(4,4,9,.55); backdrop-filter:blur(3px); opacity:0; pointer-events:none; transition:opacity .25s ease; }
+  .menu-scrim.open { opacity:1; pointer-events:auto; }
+  .mobile-menu { position:fixed; top:58px; right:0; width:330px; max-width:90vw; z-index:58; background:rgba(9,8,16,.97); backdrop-filter:blur(16px); border-left:1px solid rgba(var(--acc-rgb),.3); border-bottom:1px solid rgba(var(--acc-rgb),.3); border-bottom-left-radius:14px; padding:14px 16px 18px; display:flex; flex-direction:column; gap:9px; transform:translateX(14px); opacity:0; pointer-events:none; transition:transform .28s cubic-bezier(.2,.8,.2,1), opacity .24s ease; max-height:calc(100vh - 58px); overflow-y:auto; }
+  .mobile-menu.open { transform:translateX(0); opacity:1; pointer-events:auto; }
+  .mm-link { display:flex; align-items:center; gap:12px; padding:12px 14px; border:1px solid rgba(var(--acc-rgb),.3); border-radius:10px; background:rgba(13,12,22,.7); color:#e6e6ff; text-decoration:none; font-size:.95rem; font-weight:600; transition:background .18s ease, border-color .18s ease; }
+  .mm-link:hover { background:rgba(var(--acc-rgb),.14); border-color:var(--acc); }
+  .mm-ico { flex:none; width:32px; height:32px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(var(--acc2-rgb),.35); border-radius:8px; color:var(--acc2); }
+  .mm-divider { height:1px; background:rgba(var(--acc-rgb),.2); margin:6px 2px; }
+  .ctrl-bottom:hover { background:rgba(0,217,255,.2) !important; color:#d8d8f0 !important; opacity:1 !important; transform:translateY(-2px); box-shadow:0 0 10px rgba(0,217,255,.2); }
+  ::-webkit-scrollbar { width:8px; }
+  ::-webkit-scrollbar-track { background:#08080f; }
+  ::-webkit-scrollbar-thumb { background:#00d9ff; border-radius:4px; }
+  @media (max-width:768px){ .tcard{padding:16px 14px !important} .ticon{width:46px !important;height:46px !important;margin-right:14px !important} }
+  @media (max-width:600px){ .topbar-right .ctrl{ display:none; } .brand-mark{ display:none; } }
+</style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="bg-bloom"></div>
+<div class="bg-grid"></div>
+<div class="particles" id="particles"></div>
+<div class="data-stream" id="data-stream"></div>
+
+<header class="topbar">
+  <a class="brand" href="index.html"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="brand-dot"></span><span class="brand-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="topbar-right">
+    <button class="ctrl js-anim">Toggle Animations</button>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="menu-scrim" id="menuScrim"></div>
+<nav class="mobile-menu" id="mobileMenu">
+  <a class="mm-link" href="tools.html"><span class="mm-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a3.6 3.6 0 0 0-4.9 4.6L3 17.7V21h3.3l6.8-6.8a3.6 3.6 0 0 0 4.6-4.9l-2.6 2.6-2.1-2.1 2.6-2.6z"/></svg></span>Catalogue of Tools &amp; Resources</a>
+  <a class="mm-link" href="livecenter/live.html"><span class="mm-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>Cabal Live Tool Center</a>
+  <a class="mm-link" href="methods.html"><span class="mm-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a3 3 0 0 1 3 3v13a2.5 2.5 0 0 0-2.5-2.5H2z"/><path d="M22 4h-6a3 3 0 0 0-3 3v13a2.5 2.5 0 0 1 2.5-2.5H22z"/></svg></span>Methods &amp; Guides Database</a>
+  <a class="mm-link" href="socials.html"><span class="mm-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.9 7.9"/></svg></span>Socials &amp; Contact</a>
+  <a class="mm-link" href="https://osintcabal-news.vercel.app/"><span class="mm-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V4a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v16a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-9h4"/><path d="M16 8h-6M16 12h-6M11 16H10"/></svg></span>News</a>
+  <a class="mm-link" href="https://osintcabal.org/cabaldashboard/"><span class="mm-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19.07 4.93A10 10 0 1 0 22 12"/><path d="M12 12 18 6"/><circle cx="12" cy="12" r="3.5"/></svg></span>Cabal Threat Actor Dashboard</a>
+  <a class="mm-link" href="https://osintcabal.org/cabaldashboard/mostwanted.html"><span class="mm-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><line x1="12" y1="1.5" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22.5" y2="12"/></svg></span>Cabal Most Wanted</a>
+  <a class="mm-link" href="https://osintcabal.org/cabaldashboard/doxbin.html"><span class="mm-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg></span>Cabal Doxbin</a>
+  <div class="mm-divider"></div>
+  <button class="ctrl js-anim">Toggle Animations</button>
+</nav>
+
+<div style="padding:34px 20px 120px; max-width:880px; margin:0 auto; position:relative; z-index:1; box-sizing:border-box;">
+
+  <div class="reveal" style="font-size:1.45rem; font-weight:600; color:#00d9ff; margin:8px 0 18px; padding:0 0 10px 26px; border-bottom:2px solid #00d9ff; width:fit-content; position:relative; text-shadow:0 0 10px rgba(0,217,255,.4); letter-spacing:.4px;"><span style="position:absolute; left:0; animation:blink 1.5s ease-in-out infinite;">▸</span>Hosted Tools</div>
+  <div style="border-left:3px solid #00d9ff; padding-left:20px; margin-top:18px;">
+    <a href="https://osintcabal.org/livecenter/live.html" class="tcard reveal" style="--tc:#00ffff; --tcg:rgba(0,255,255,.22); display:flex; align-items:center; padding:22px 26px; border-radius:12px; text-decoration:none; color:#00ffff; border:2px solid rgba(0,255,255,.5); background:linear-gradient(135deg, rgba(10,10,26,.82), rgba(0,255,255,.05)); box-shadow:0 10px 30px rgba(0,0,0,.3); backdrop-filter:blur(8px); box-sizing:border-box;">
+      <div class="ticon ic-globe" style="width:58px; height:58px; min-width:58px; display:flex; align-items:center; justify-content:center; margin-right:24px; border-radius:12px; background:rgba(255,255,255,.04); transition:all .3s ease; animation:spin 9s linear infinite;">
+        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+      </div>
+      <div style="flex:1;"><div class="ttitle" style="font-size:1.4rem; font-weight:600; margin-bottom:6px; letter-spacing:.4px; text-shadow:0 0 6px currentColor;">OSINTCabal Live Center</div><div style="font-size:.92rem; opacity:.78; font-weight:300; line-height:1.4; color:#cfe9ff;">Run CLI tools through a Web-GUI immediately live from our server!</div></div>
+    </a>
+  </div>
+
+  <div class="reveal" style="font-size:1.45rem; font-weight:600; color:#00d9ff; margin:36px 0 18px; padding:0 0 10px 26px; border-bottom:2px solid #00d9ff; width:fit-content; position:relative; text-shadow:0 0 10px rgba(0,217,255,.4); letter-spacing:.4px;"><span style="position:absolute; left:0; animation:blink 1.5s ease-in-out infinite;">▸</span>Online Tools</div>
+  <div style="border-left:3px solid #4a90e2; padding-left:20px; margin-top:18px; display:flex; flex-direction:column; gap:14px;">
+    <a href="TOOLS/webtools.html" class="tcard reveal" style="--tc:#00ff00; --tcg:rgba(0,255,0,.22); display:flex; align-items:center; padding:22px 26px; border-radius:12px; text-decoration:none; color:#00ff00; border:2px solid rgba(0,255,0,.5); background:rgba(10,10,26,.82); box-shadow:0 10px 30px rgba(0,0,0,.3); backdrop-filter:blur(8px); box-sizing:border-box;">
+      <div class="ticon" style="width:58px; height:58px; min-width:58px; display:flex; align-items:center; justify-content:center; margin-right:24px; border-radius:12px; background:rgba(255,255,255,.04); transition:all .3s ease;">
+        <svg class="ic-code" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+      </div>
+      <div style="flex:1;"><div class="ttitle" style="font-size:1.4rem; font-weight:600; margin-bottom:6px; letter-spacing:.4px; text-shadow:0 0 6px currentColor;">Web Tools</div><div style="font-size:.92rem; opacity:.78; font-weight:300; line-height:1.4; color:#d6ffd6;">Browser based web tools and utilities</div></div>
+    </a>
+    <a href="TOOLS/publicrecords.html" class="tcard reveal" style="--tc:#ff3366; --tcg:rgba(255,51,102,.22); display:flex; align-items:center; padding:22px 26px; border-radius:12px; text-decoration:none; color:#ff3366; border:2px solid rgba(255,51,102,.5); background:rgba(10,10,26,.82); box-shadow:0 10px 30px rgba(0,0,0,.3); backdrop-filter:blur(8px); box-sizing:border-box;">
+      <div class="ticon" style="width:58px; height:58px; min-width:58px; display:flex; align-items:center; justify-content:center; margin-right:24px; border-radius:12px; background:rgba(255,255,255,.04); transition:all .3s ease;">
+        <svg class="ic-doc" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+      </div>
+      <div style="flex:1;"><div class="ttitle" style="font-size:1.4rem; font-weight:600; margin-bottom:6px; letter-spacing:.4px; text-shadow:0 0 6px currentColor;">Public Records Resources</div><div style="font-size:.92rem; opacity:.78; font-weight:300; line-height:1.4; color:#ffd6e0;">Quick links to criminal, civil, financial, and other kinds of records</div></div>
+    </a>
+    <a href="https://cabaldorkdatabase.zite.so/" class="tcard reveal" style="--tc:#f59e0b; --tcg:rgba(245,158,11,.22); display:flex; align-items:center; padding:22px 26px; border-radius:12px; text-decoration:none; color:#f59e0b; border:2px solid rgba(245,158,11,.5); background:rgba(10,10,26,.82); box-shadow:0 10px 30px rgba(0,0,0,.3); backdrop-filter:blur(8px); box-sizing:border-box;">
+      <div class="ticon" style="width:58px; height:58px; min-width:58px; display:flex; align-items:center; justify-content:center; margin-right:24px; border-radius:12px; background:rgba(255,255,255,.04); transition:all .3s ease;">
+        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.65" y1="16.65" x2="21" y2="21"></line><path d="M8 8h6M8 11h4M8 14h5"></path></svg>
+      </div>
+      <div style="flex:1;"><div class="ttitle" style="font-size:1.4rem; font-weight:600; margin-bottom:6px; letter-spacing:.4px; text-shadow:0 0 6px currentColor;">Cabal Google Dork Database</div><div style="font-size:.92rem; opacity:.78; font-weight:300; line-height:1.4; color:#fde7bd;">A searchable webapp with categorized search engine dorks. Hosted via Lovable.</div></div>
+    </a>
+    <a href="https://cabalfileconverter.zite.so/" class="tcard reveal" style="--tc:#00d9ff; --tcg:rgba(0,217,255,.22); display:flex; align-items:center; padding:22px 26px; border-radius:12px; text-decoration:none; color:#00d9ff; border:2px solid rgba(0,217,255,.5); background:rgba(10,10,26,.82); box-shadow:0 10px 30px rgba(0,0,0,.3); backdrop-filter:blur(8px); box-sizing:border-box;">
+      <div class="ticon" style="width:58px; height:58px; min-width:58px; display:flex; align-items:center; justify-content:center; margin-right:24px; border-radius:12px; background:rgba(255,255,255,.04); transition:all .3s ease;">
+        <svg class="ic-convert" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
+      </div>
+      <div style="flex:1;"><div class="ttitle" style="font-size:1.4rem; font-weight:600; margin-bottom:6px; letter-spacing:.4px; text-shadow:0 0 6px currentColor;">Cabal File Converter</div><div style="font-size:.92rem; opacity:.78; font-weight:300; line-height:1.4; color:#cfeefb;">Web app that converts files immediately with no user data logged (hosted via Zite)</div></div>
+    </a>
+  </div>
+
+  <div class="reveal" style="font-size:1.45rem; font-weight:600; color:#00d9ff; margin:36px 0 18px; padding:0 0 10px 26px; border-bottom:2px solid #00d9ff; width:fit-content; position:relative; text-shadow:0 0 10px rgba(0,217,255,.4); letter-spacing:.4px;"><span style="position:absolute; left:0; animation:blink 1.5s ease-in-out infinite;">▸</span>CLI Tools</div>
+  <div style="border-left:3px solid #4a90e2; padding-left:20px; margin-top:18px; display:flex; flex-direction:column; gap:14px;">
+    <a href="TOOLS/pythontools.html" class="tcard reveal" style="--tc:#a855f7; --tcg:rgba(168,85,247,.22); display:flex; align-items:center; padding:22px 26px; border-radius:12px; text-decoration:none; color:#a855f7; border:2px solid rgba(168,85,247,.5); background:rgba(10,10,26,.82); box-shadow:0 10px 30px rgba(0,0,0,.3); backdrop-filter:blur(8px); box-sizing:border-box;">
+      <div class="ticon" style="width:58px; height:58px; min-width:58px; display:flex; align-items:center; justify-content:center; margin-right:24px; border-radius:12px; background:rgba(255,255,255,.04); transition:all .3s ease;">
+        <svg class="ic-py" width="44" height="44" viewBox="0 0 32 32" fill="none"><path d="M15.885 2.1c-7.1 0-6.651 3.07-6.651 3.07v3.19h6.752v1h-9.441S2 8.8 2 15.9s4.545 6.751 4.545 6.751h2.7v-3.8s-.15-4.545 4.445-4.545h6.652s4.395.07 4.395-4.246V6.3s.645-4.2-8.852-4.2zm-3.799 2.4a1.26 1.26 0 1 1 0 2.52 1.26 1.26 0 0 1 0-2.52z" fill="#347ab4"/><path d="M16.115 29.9c7.1 0 6.651-3.07 6.651-3.07v-3.19h-6.751v-1h9.441S30 23.2 30 16.1s-4.545-6.751-4.545-6.751h-2.7v3.8s.15 4.545-4.445 4.545h-6.652s-4.395-.07-4.395 4.246v5.761s-.645 4.2 8.852 4.2zm3.799-2.4a1.26 1.26 0 1 1 0-2.52 1.26 1.26 0 0 1 0 2.52z" fill="#ffcd3c"/></svg>
+      </div>
+      <div style="flex:1;"><div class="ttitle" style="font-size:1.4rem; font-weight:600; margin-bottom:6px; letter-spacing:.4px; text-shadow:0 0 6px currentColor;">Python Tools</div><div style="font-size:.92rem; opacity:.78; font-weight:300; line-height:1.4; color:#e6d6ff;">Python based OSINT tools</div></div>
+    </a>
+    <a href="TOOLS/gotools.html" class="tcard reveal" style="--tc:#00add8; --tcg:rgba(0,173,216,.22); display:flex; align-items:center; padding:22px 26px; border-radius:12px; text-decoration:none; color:#00add8; border:2px solid rgba(0,173,216,.5); background:rgba(10,10,26,.82); box-shadow:0 10px 30px rgba(0,0,0,.3); backdrop-filter:blur(8px); box-sizing:border-box;">
+      <div class="ticon" style="width:58px; height:58px; min-width:58px; display:flex; align-items:center; justify-content:center; margin-right:24px; border-radius:12px; background:rgba(255,255,255,.04); transition:all .3s ease;">
+        <svg class="ic-go" width="48" height="48" viewBox="0 0 100 100" fill="currentColor"><ellipse cx="50" cy="55" rx="28" ry="32"/><ellipse cx="30" cy="32" rx="8" ry="14"/><ellipse cx="70" cy="32" rx="8" ry="14"/><circle cx="40" cy="48" r="3.5" fill="#0a0a1a"/><circle cx="60" cy="48" r="3.5" fill="#0a0a1a"/><ellipse cx="50" cy="58" rx="6" ry="4" fill="#0a0a1a"/><path d="M 44 62 Q 50 66 56 62" stroke="#0a0a1a" stroke-width="2" fill="none"/><ellipse cx="22" cy="62" rx="6" ry="12"/><ellipse cx="78" cy="62" rx="6" ry="12"/><rect x="48" y="58" width="4" height="3" fill="#0a0a1a"/></svg>
+      </div>
+      <div style="flex:1;"><div class="ttitle" style="font-size:1.4rem; font-weight:600; margin-bottom:6px; letter-spacing:.4px; text-shadow:0 0 6px currentColor;">Go Language Tools</div><div style="font-size:.92rem; opacity:.78; font-weight:300; line-height:1.4; color:#cdeefa;">Go Language based OSINT tools</div></div>
+    </a>
+    <a href="TOOLS/termuxtools.html" class="tcard reveal" style="--tc:#fbbf24; --tcg:rgba(251,191,36,.22); display:flex; align-items:center; padding:22px 26px; border-radius:12px; text-decoration:none; color:#fbbf24; border:2px solid rgba(251,191,36,.5); background:rgba(10,10,26,.82); box-shadow:0 10px 30px rgba(0,0,0,.3); backdrop-filter:blur(8px); box-sizing:border-box;">
+      <div class="ticon" style="width:58px; height:58px; min-width:58px; display:flex; align-items:center; justify-content:center; margin-right:24px; border-radius:12px; background:rgba(255,255,255,.04); transition:all .3s ease;">
+        <svg class="ic-term" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+      </div>
+      <div style="flex:1;"><div class="ttitle" style="font-size:1.4rem; font-weight:600; margin-bottom:6px; letter-spacing:.4px; text-shadow:0 0 6px currentColor;">Termux Tools</div><div style="font-size:.92rem; opacity:.78; font-weight:300; line-height:1.4; color:#fdeecb;">Termux based OSINT tools (Android Tested)</div></div>
+    </a>
+  </div>
+
+  <div class="reveal" style="font-size:1.45rem; font-weight:600; color:#00d9ff; margin:36px 0 18px; padding:0 0 10px 26px; border-bottom:2px solid #00d9ff; width:fit-content; position:relative; text-shadow:0 0 10px rgba(0,217,255,.4); letter-spacing:.4px;"><span style="position:absolute; left:0; animation:blink 1.5s ease-in-out infinite;">▸</span>Telegram Bots</div>
+  <div style="border-left:3px solid #0088cc; padding-left:20px; margin-top:18px; display:flex; flex-direction:column; gap:14px;">
+    <a href="https://t.me/Cabal_Breach_bot?start=Et18TP4" class="tcard reveal" style="--tc:#0088cc; --tcg:rgba(0,136,204,.22); display:flex; align-items:center; padding:22px 26px; border-radius:12px; text-decoration:none; color:#36a9e0; border:2px solid rgba(0,136,204,.5); background:rgba(10,10,26,.82); box-shadow:0 10px 30px rgba(0,0,0,.3); backdrop-filter:blur(8px); box-sizing:border-box;">
+      <div class="ticon" style="width:58px; height:58px; min-width:58px; display:flex; align-items:center; justify-content:center; margin-right:24px; border-radius:12px; background:rgba(255,255,255,.04); transition:all .3s ease;">
+        <svg class="ic-tg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+      </div>
+      <div style="flex:1;"><div class="ttitle" style="font-size:1.4rem; font-weight:600; margin-bottom:6px; letter-spacing:.4px; text-shadow:0 0 6px currentColor;">OSINTCabal Telegram Breachbot</div><div style="font-size:.92rem; opacity:.78; font-weight:300; line-height:1.4; color:#cfe9fb;">Universal Breach Data Search bot</div></div>
+    </a>
+    <a href="https://t.me/OSINTCabal_Toolkit_Bot" class="tcard reveal" style="--tc:#0088cc; --tcg:rgba(0,136,204,.22); display:flex; align-items:center; padding:22px 26px; border-radius:12px; text-decoration:none; color:#36a9e0; border:2px solid rgba(0,136,204,.5); background:rgba(10,10,26,.82); box-shadow:0 10px 30px rgba(0,0,0,.3); backdrop-filter:blur(8px); box-sizing:border-box;">
+      <div class="ticon" style="width:58px; height:58px; min-width:58px; display:flex; align-items:center; justify-content:center; margin-right:24px; border-radius:12px; background:rgba(255,255,255,.04); transition:all .3s ease;">
+        <svg class="ic-tg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+      </div>
+      <div style="flex:1;"><div class="ttitle" style="font-size:1.4rem; font-weight:600; margin-bottom:6px; letter-spacing:.4px; text-shadow:0 0 6px currentColor;">OSINTCabal Toolkit Bot</div><div style="font-size:.92rem; opacity:.78; font-weight:300; line-height:1.4; color:#cfe9fb;">Telegram python OSINT bot</div></div>
+    </a>
+  </div>
+</div>
+
+<div style="display:flex; justify-content:center; gap:15px; position:fixed; bottom:20px; left:0; width:100%; z-index:40; pointer-events:none;">
+  <button class="ctrl ctrl-bottom js-anim" style="background:rgba(10,10,26,.78); border:1px solid rgba(0,217,255,.4); color:#8a8ab8; padding:7px 13px; border-radius:8px; font-family:'JetBrains Mono',monospace; font-size:11px; transition:all .22s ease; display:flex; align-items:center; gap:5px; cursor:pointer; backdrop-filter:blur(8px); opacity:.7; pointer-events:auto;">Toggle Animations</button>
+</div>
+
+<script>
+(function () {
+  var animationsEnabled = true;
+
+  function buildParticles() {
+    var c = document.getElementById('particles'); if (!c) return; c.innerHTML='';
+    var mx=0,my=0; document.addEventListener('mousemove', function(e){mx=e.clientX;my=e.clientY;});
+    for (var i=0;i<18;i++){
+      var p=document.createElement('div'); p.className='particle';
+      p.style.left=(Math.random()*window.innerWidth)+'px'; p.style.top=(Math.random()*window.innerHeight)+'px';
+      c.appendChild(p);
+      (function animate(p){ var x=parseFloat(p.style.left),y=parseFloat(p.style.top),tx=x,ty=y,last=0;
+        function step(t){ if(!last)last=t; if(Math.random()<0.02){tx=mx+(Math.random()*200-100);ty=my+(Math.random()*200-100);}
+          x+=(tx-x)*0.05*(t-last)*0.01; y+=(ty-y)*0.05*(t-last)*0.01; p.style.left=x+'px'; p.style.top=y+'px'; last=t; requestAnimationFrame(step);}
+        requestAnimationFrame(step); })(p);
+    }
+  }
+
+  function buildStream() {
+    var ds=document.getElementById('data-stream'); if(!ds) return; ds.innerHTML='';
+    for(var i=0;i<10;i++){ var b=document.createElement('div'); b.className='data-bit';
+      var s=''; var len=Math.floor(Math.random()*10)+5; for(var j=0;j<len;j++) s+=Math.random()<0.5?'0':'1';
+      b.textContent=s; b.style.left=(Math.random()*100)+'%'; b.style.animationDuration=(Math.random()*5+5)+'s'; b.style.animationDelay='-'+(Math.random()*10)+'s';
+      ds.appendChild(b); }
+  }
+
+  function observeScroll() {
+    var els=document.querySelectorAll('.reveal');
+    var order=0;
+    var reveal=function(el){ var d=order++*90; setTimeout(function(){el.classList.add('in');}, Math.min(d,500)); };
+    els.forEach(function(el){ var r=el.getBoundingClientRect(); if(r.top<window.innerHeight-30) reveal(el); });
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    }, { threshold:0, rootMargin:'0px 0px -6% 0px' });
+    els.forEach(function(el){ io.observe(el); });
+    setTimeout(function(){els.forEach(function(el){el.classList.add('in');});},1500);
+  }
+
+  function wireControls() {
+    document.querySelectorAll('.js-anim').forEach(function(at){ at.addEventListener('click', function(){
+      animationsEnabled = !animationsEnabled;
+      var ps = document.getElementById('particles');
+      var ds = document.getElementById('data-stream');
+      if (window.__flowbg) window.__flowbg.setPaused(!animationsEnabled);
+      if (animationsEnabled) { if (ps) ps.style.display='block'; if (ds) ds.style.display='block'; }
+      else { if (ps) ps.style.display='none'; if (ds) ds.style.display='none'; }
+    }); });
+  }
+
+  function wireHamburger() {
+    var hb = document.getElementById('hamburger');
+    var menu = document.getElementById('mobileMenu');
+    var scrim = document.getElementById('menuScrim');
+    if (!hb || !menu) return;
+    var close = function(){ hb.classList.remove('open'); menu.classList.remove('open'); if (scrim) scrim.classList.remove('open'); };
+    hb.addEventListener('click', function(){
+      var open = !menu.classList.contains('open');
+      hb.classList.toggle('open', open);
+      menu.classList.toggle('open', open);
+      if (scrim) scrim.classList.toggle('open', open);
+    });
+    if (scrim) scrim.addEventListener('click', close);
+    menu.querySelectorAll('.mm-link').forEach(function(a){ a.addEventListener('click', close); });
+  }
+
+  function start() {
+    buildParticles();
+    buildStream();
+    observeScroll();
+    wireControls();
+    wireHamburger();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a108c7880d5ff07a',t:'MTc4MjI3MzE0Mw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a16e922c5edc93d5',t:'MTc4MzM0MDUwNQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2724e544914ceb7',t:'MTc4NjA2NDAyMw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c1b70792d4614',t:'MTc4OTAxODkyMw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

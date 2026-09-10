@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>pwnedOrNot - Comprehensive Breach Detection Tool</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/livecenter-tools.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+</head>
+<body data-lct-theme="breach">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <div class="lct-wrap">
+        <div class="lct-title">
+            <div class="title-glass">
+                <h1>pwnedOrNot - Comprehensive Breach Detection Tool</h1>
+            </div>
+        </div>
+    
+    <div class="content-box">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <p style="color: #ff6b9c; font-size: 1.1em;">pwnedOrNot works in two phases. In the <strong>first</strong> phase it tests the given email address using <code>HaveIBeenPwned v3 API</code> to find if the account have been breached in the past and in the <strong>second</strong> phase it searches the <strong>password</strong> in available <strong>public dumps</strong>.</p>
+                <p style="color: #ff6b9c;"><strong>Note:</strong> This process may take up to 90 seconds to complete. Please be patient.</p>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <a href="https://github.com/thewhiteh4t/pwnedOrNot" target="_blank" class="github-button">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+        
+        <div class="tool-form">
+            <div class="input-group">
+                <input type="email" id="email-input" placeholder="Enter email address to check" autocomplete="email" autocorrect="off" autocapitalize="none" spellcheck="false">
+                <button id="search-button" onclick="checkPwned()">Check</button>
+            </div>
+        </div>
+        
+        <div id="progress-container" class="progress-container">
+            <h3>pwnedOrNot Check in Progress...</h3>
+            <p id="progress-target">Checking: <span id="target-email"></span></p>
+            <div class="loading-bar">
+                <div class="loading-fill"></div>
+            </div>
+            <ul class="progress-steps">
+                <li id="step1">Initializing pwnedOrNot checker...</li>
+                <li id="step2">Testing with HaveIBeenPwned v3 API...</li>
+                <li id="step3">Searching breach databases...</li>
+                <li id="step4">Searching public password dumps...</li>
+                <li id="step5">Analyzing breach results...</li>
+                <li id="step6">Compiling comprehensive report...</li>
+            </ul>
+            <p><em>Estimated time: 30-90 seconds. Please wait...</em></p>
+            <p><strong>Pro Tip:</strong> Don't close this tab - your breach analysis is in progress!</p>
+        </div>
+        
+        <div id="loading" class="loading">Checking for breaches</div>
+        <pre id="results">Results will appear here...</pre>
+    </div>
+    
+    <div class="nav-links">
+        <a href="live.html"> ← Back to Live Center</a>
+        <a href="../index.html">Home</a>
+    </div>
+    
+    
+    </div>
+
+<script>
+        let progressInterval;
+        let currentStep = 0;
+        
+        function updateProgressStep(stepNumber) {
+            for (let i = 1; i < stepNumber; i++) {
+                document.getElementById(`step${i}`).className = 'complete';
+            }
+            if (stepNumber <= 6) {
+                document.getElementById(`step${stepNumber}`).className = 'active';
+            }
+        }
+        
+        function simulateProgress() {
+            const steps = [
+                { step: 1, delay: 800 },
+                { step: 2, delay: 5000 },
+                { step: 3, delay: 15000 },
+                { step: 4, delay: 35000 },
+                { step: 5, delay: 60000 },
+                { step: 6, delay: 75000 }
+            ];
+            
+            steps.forEach(({step, delay}) => {
+                setTimeout(() => updateProgressStep(step), delay);
+            });
+        }
+        
+        function resetProgress() {
+            for (let i = 1; i <= 6; i++) {
+                document.getElementById(`step${i}`).className = '';
+            }
+            currentStep = 0;
+        }
+        
+        function checkPwned() {
+            var email = document.getElementById('email-input').value.trim();
+            var resultsElement = document.getElementById('results');
+            var loadingElement = document.getElementById('loading');
+            var progressContainer = document.getElementById('progress-container');
+            var searchButton = document.getElementById('search-button');
+            var targetEmail = document.getElementById('target-email');
+            
+            if (!email) { resultsElement.textContent = "Please enter an email address."; return; }
+            
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                resultsElement.textContent = "Please enter a valid email address (e.g., example@domain.com).";
+                return;
+            }
+
+            // Dismiss mobile keyboard
+            document.getElementById('email-input').blur();
+            
+            resetProgress();
+            progressContainer.style.display = 'block';
+            targetEmail.textContent = email;
+            resultsElement.textContent = "Initializing pwnedOrNot breach check...";
+            searchButton.disabled = true;
+            loadingElement.style.display = 'none';
+
+            // Scroll progress container into view on mobile
+            setTimeout(() => progressContainer.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+            
+            simulateProgress();
+            
+            fetch('/livecenter/LIVETOOLS/pwnedornot_wrapper.php?email=' + encodeURIComponent(email))
+                .then(function(response) {
+                    if (!response.ok) throw new Error('Server returned status: ' + response.status);
+                    return response.text();
+                })
+                .then(function(data) {
+                    progressContainer.style.display = 'none';
+                    loadingElement.style.display = 'none';
+                    
+                    for (let i = 1; i <= 6; i++) {
+                        document.getElementById(`step${i}`).className = 'complete';
+                    }
+                    
+                    resultsElement.innerHTML = `<span class="success">pwnedOrNot check completed successfully!</span>\n\n${data}`;
+                    searchButton.disabled = false;
+                })
+                .catch(function(error) {
+                    progressContainer.style.display = 'none';
+                    loadingElement.style.display = 'none';
+                    resultsElement.innerHTML = "<span class='error'>Error: " + error.message + "</span>\n\nPlease try again later or contact the administrator.";
+                    searchButton.disabled = false;
+                });
+            
+            setTimeout(function() {
+                if (progressContainer.style.display === 'block') {
+                    resultsElement.textContent += "\n\nThe check is taking longer than expected. Please be patient...";
+                }
+            }, 50000);
+            
+            setTimeout(function() {
+                if (progressContainer.style.display === 'block') {
+                    progressContainer.style.display = 'none';
+                    loadingElement.style.display = 'none';
+                    resultsElement.innerHTML += "\n\n<span class='error'>The request timed out after 120 seconds.</span>\nThe server might be busy or experiencing issues. Please try again later.";
+                    searchButton.disabled = false;
+                }
+            }, 120000);
+        }
+        
+        document.getElementById('email-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') checkPwned();
+        });
+    </script>
+    <script src="../assets/js/livecenter-ui.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c1bad781e4614',t:'MTc4OTAxODkzMw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Known Breaches - Breach Monitor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/livecenter-tools.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+</head>
+<body data-lct-theme="breach">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <div class="lct-wrap">
+        <div class="lct-title">
+            <div class="title-glass">
+                <h1>Known Breaches - Breach Monitor</h1>
+            </div>
+        </div>
+    <p class="subtitle">Live feed of the most recent data breaches from multiple sources</p>
+    
+    <div class="content-box">
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="status-dot"></div>
+                <span style="color: #6bff6b;">Live Feed Active</span>
+            </div>
+            <div class="stat-item">
+                <span style="color: #4a90e2;">Total Breaches:</span>
+                <span style="color: #ff6b9c; font-weight: bold;" id="breach-count">Loading...</span>
+            </div>
+            <div class="stat-item">
+                <span style="color: #4a90e2;">Last Updated:</span>
+                <span style="color: #6bff6b; font-weight: bold;" id="last-update">Just now</span>
+            </div>
+        </div>
+
+        <div id="loading" class="loading-container">
+            <div class="spinner"></div>
+            <p>Loading breach data from multiple sources...</p>
+        </div>
+
+        <div id="error-container"></div>
+        <div id="breach-feed" class="breach-feed"></div>
+
+        <div id="load-more-container" class="load-more-container" style="display: none;">
+            <button id="load-more-btn" class="load-more-btn" onclick="loadMore()">Load More Breaches</button>
+        </div>
+    </div>
+    
+    <div class="nav-links">
+        <a href="live.html">← Back to Live Center</a>
+        <a href="../index.html">Home</a>
+    </div>
+    
+    
+    </div>
+
+<script>
+        let allBreaches = [];
+        let displayedCount = 0;
+        const batchSize = 30;
+
+        // Format number with commas
+        function formatNumber(num) {
+            if (!num) return 'Unknown';
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            if (!dateString) return 'Unknown';
+            const date = new Date(dateString);
+            const now = new Date();
+            const diffTime = Math.abs(now - date);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            
+            if (diffDays < 30) {
+                return `${diffDays} days ago`;
+            } else if (diffDays < 365) {
+                const months = Math.floor(diffDays / 30);
+                return `${months} month${months > 1 ? 's' : ''} ago`;
+            } else {
+                return date.toLocaleDateString();
+            }
+        }
+
+        // Create breach card HTML
+        function createBreachCard(breach) {
+            const name = breach.Name || breach.breach || 'Unknown Breach';
+            const date = formatDate(breach.BreachDate || breach.breach_date || breach.date);
+            const description = breach.Description || breach.description || 'No description available';
+            const pwnCount = formatNumber(breach.PwnCount || breach.exposed_records || breach.records);
+            const dataClasses = breach.DataClasses || breach.data_classes || breach.exposed_data || [];
+            
+            const tags = Array.isArray(dataClasses) ? dataClasses.slice(0, 6) : [];
+            
+            return `
+                <div class="breach-card">
+                    <div class="breach-header">
+                        <div class="breach-name">${name}</div>
+                        <div class="breach-date">${date}</div>
+                    </div>
+                    <div class="breach-description">${description}</div>
+                    <div class="breach-stats">
+                        <div class="stat-badge">${pwnCount} accounts</div>
+                        ${breach.IsVerified !== false ? '<div class="stat-badge">Verified</div>' : ''}
+                    </div>
+                    ${tags.length > 0 ? `
+                    <div class="breach-tags">
+                        ${tags.map(tag => `<div class="tag">${tag}</div>`).join('')}
+                    </div>` : ''}
+                </div>
+            `;
+        }
+
+        // Fetch from Have I Been Pwned
+        async function fetchHIBP() {
+            try {
+                const response = await fetch('https://haveibeenpwned.com/api/v3/breaches');
+                if (!response.ok) throw new Error('HIBP API error');
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error fetching HIBP:', error);
+                return [];
+            }
+        }
+
+        // Fetch from XposedOrNot
+        async function fetchXposedOrNot() {
+            try {
+                const response = await fetch('https://api.xposedornot.com/v1/breaches');
+                if (!response.ok) throw new Error('XposedOrNot API error');
+                const data = await response.json();
+                return data.breaches || [];
+            } catch (error) {
+                console.error('Error fetching XposedOrNot:', error);
+                return [];
+            }
+        }
+
+        // Combine and sort breaches
+        function processBreaches(hibpBreaches, xonBreaches) {
+            const combined = [...hibpBreaches, ...xonBreaches];
+            
+            // Remove duplicates based on name
+            const unique = combined.filter((breach, index, self) => 
+                index === self.findIndex((b) => 
+                    (b.Name || b.breach) === (breach.Name || breach.breach)
+                )
+            );
+            
+            // Sort by date (most recent first)
+            unique.sort((a, b) => {
+                const dateA = new Date(a.BreachDate || a.breach_date || a.date || 0);
+                const dateB = new Date(b.BreachDate || b.breach_date || b.date || 0);
+                return dateB - dateA;
+            });
+            
+            return unique;
+        }
+
+        // Display initial breaches
+        function displayInitialBreaches(breaches) {
+            const feed = document.getElementById('breach-feed');
+            const batch = breaches.slice(0, batchSize);
+            feed.innerHTML = batch.map(breach => createBreachCard(breach)).join('');
+            
+            displayedCount = batch.length;
+            document.getElementById('breach-count').textContent = breaches.length;
+            document.getElementById('loading').style.display = 'none';
+            
+            // Show load more button if there are more breaches
+            if (breaches.length > batchSize) {
+                document.getElementById('load-more-container').style.display = 'block';
+            }
+        }
+
+        // Load more breaches
+        function loadMore() {
+            const feed = document.getElementById('breach-feed');
+            const nextBatch = allBreaches.slice(displayedCount, displayedCount + batchSize);
+            
+            nextBatch.forEach(breach => {
+                feed.insertAdjacentHTML('beforeend', createBreachCard(breach));
+            });
+            
+            displayedCount += nextBatch.length;
+            
+            // Hide button if all breaches are displayed
+            if (displayedCount >= allBreaches.length) {
+                document.getElementById('load-more-container').style.display = 'none';
+            }
+        }
+
+        // Show error
+        function showError(message) {
+            const errorContainer = document.getElementById('error-container');
+            errorContainer.innerHTML = `<div class="error-message">${message}</div>`;
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        // Load all breach data
+        async function loadBreaches() {
+            try {
+                const [hibpData, xonData] = await Promise.all([
+                    fetchHIBP(),
+                    fetchXposedOrNot()
+                ]);
+                
+                if (hibpData.length === 0 && xonData.length === 0) {
+                    showError('Unable to load breach data from any source. Please try again later.');
+                    return;
+                }
+                
+                allBreaches = processBreaches(hibpData, xonData);
+                displayInitialBreaches(allBreaches);
+                
+            } catch (error) {
+                console.error('Error loading breaches:', error);
+                showError('Failed to load breach data. Please check your connection and try again.');
+            }
+        }
+
+        // Update timestamp
+        function updateTimestamp() {
+            const now = new Date();
+            document.getElementById('last-update').textContent = now.toLocaleTimeString();
+        }
+
+        // Initialize
+        loadBreaches();
+        setInterval(updateTimestamp, 60000);
+        setInterval(loadBreaches, 300000);
+    </script>
+    <script src="../assets/js/livecenter-ui.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c1bae08784614',t:'MTc4OTAxODkzMw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINT Cabal - Socials & Contact</title>
+    <meta name="description" content="Connect with OSINT Cabal across all platforms. Contact information, social media profiles, admin roster, and emergency reporting resources for malicious content.">
+    <meta name="keywords" content="OSINT Cabal contact, OSINT Cabal socials, tip line, report malicious content, OSINT collective, Reddit, Telegram, Bluesky, Instagram">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="OSINT Cabal">
+    <link rel="canonical" href="https://osintcabal.org/socials.html" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://osintcabal.org/socials.html">
+    <meta property="og:title" content="OSINT Cabal - Socials & Contact">
+    <meta property="og:description" content="Contact OSINT Cabal, find our social profiles, and access emergency reporting resources.">
+    <meta property="og:site_name" content="OSINT Cabal">
+    <meta property="og:image" content="https://osintcabal.org/favicons/apple-icon-144x144.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="OSINT Cabal - Socials & Contact">
+    <meta name="twitter:description" content="Connect with OSINT Cabal across platforms, plus tip line and emergency reporting resources.">
+    <meta name="twitter:image" content="https://osintcabal.org/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#6b21a8">
+    <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#6b21a8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+<script src="assets/js/flowbg.js"></script>
+<script src="assets/js/flowbg-loader.js"></script>
+<style>
+  :root { --acc:#ff6b9c; --acc2:#00d9ff; --acc-rgb:255,107,156; --acc2-rgb:0,217,255; }
+  * { box-sizing:border-box; }
+  body { margin:0; min-height:100vh; background-color:#08080f; color:#e0e0ff; font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; overflow-x:hidden; position:relative; }
+  .topbar { position:sticky; top:0; z-index:120; display:flex; align-items:center; justify-content:space-between; gap:14px; height:58px; padding:0 18px; background:rgba(8,8,16,.72); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(var(--acc-rgb),.18); }
+  .brand { display:flex; align-items:center; gap:11px; text-decoration:none; }
+  .brand img { height:34px; width:34px; border-radius:8px; box-shadow:0 0 16px rgba(var(--acc-rgb),.35); }
+  .brand-mark { font-family:'JetBrains Mono',monospace; font-size:.95rem; font-weight:700; letter-spacing:.22em; color:#e8e8f4; text-transform:uppercase; }
+  .brand-mark b { color:var(--acc); }
+  .brand-dot { width:7px; height:7px; border-radius:50%; background:var(--acc2); box-shadow:0 0 10px var(--acc2); animation:pulse 1.8s infinite; }
+  .topbar-right { display:flex; align-items:center; gap:9px; }
+  .ctrl { background:rgba(10,9,18,.7); border:1px solid rgba(var(--acc-rgb),.32); color:#9a9ac0; padding:7px 13px; border-radius:7px; text-decoration:none; font-family:'JetBrains Mono',monospace; font-size:11px; transition:all .2s ease; display:flex; align-items:center; gap:6px; cursor:pointer; white-space:nowrap; }
+  .ctrl:hover { background:rgba(var(--acc-rgb),.16); color:#eaeaff; border-color:rgba(var(--acc-rgb),.7); transform:translateY(-1px); box-shadow:0 0 14px rgba(var(--acc-rgb),.25); }
+  .hamburger { display:flex; flex-direction:column; gap:5px; width:42px; height:38px; align-items:center; justify-content:center; background:rgba(10,9,18,.7); border:1px solid rgba(var(--acc-rgb),.32); border-radius:8px; cursor:pointer; }
+  .hamburger span { display:block; width:20px; height:2px; background:var(--acc); border-radius:2px; transition:transform .25s ease, opacity .2s ease; }
+  .hamburger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2){ opacity:0; }
+  .hamburger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  .menu-scrim { position:fixed; inset:0; z-index:115; background:rgba(4,4,9,.55); backdrop-filter:blur(3px); opacity:0; pointer-events:none; transition:opacity .25s ease; }
+  .menu-scrim.open { opacity:1; pointer-events:auto; }
+  .mobile-menu { position:fixed; top:58px; right:0; width:330px; max-width:90vw; z-index:118; background:rgba(9,8,16,.97); backdrop-filter:blur(16px); border-left:1px solid rgba(var(--acc-rgb),.3); border-bottom:1px solid rgba(var(--acc-rgb),.3); border-bottom-left-radius:14px; padding:14px 16px 18px; display:flex; flex-direction:column; gap:9px; transform:translateX(14px); opacity:0; pointer-events:none; transition:transform .28s cubic-bezier(.2,.8,.2,1), opacity .24s ease; max-height:calc(100vh - 58px); overflow-y:auto; }
+  .mobile-menu.open { transform:translateX(0); opacity:1; pointer-events:auto; }
+  .mm-link { display:flex; align-items:center; gap:12px; padding:12px 14px; border:1px solid rgba(var(--acc-rgb),.3); border-radius:10px; background:rgba(13,12,22,.7); color:#e6e6ff; text-decoration:none; font-size:.95rem; font-weight:600; transition:background .18s ease, border-color .18s ease; }
+  .mm-link:hover { background:rgba(var(--acc-rgb),.14); border-color:var(--acc); }
+  .mm-ico { flex:none; width:32px; height:32px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(var(--acc2-rgb),.35); border-radius:8px; color:var(--acc2); }
+  .mm-divider { height:1px; background:rgba(var(--acc-rgb),.2); margin:6px 2px; }
+  #bg-canvas { position:fixed; inset:0; width:100%; height:100%; z-index:-1; pointer-events:none; display:block; }
+  .bg-bloom { position:fixed; inset:0; z-index:-1; pointer-events:none; background:radial-gradient(ellipse at 50% -5%, rgba(255,107,156,0.08), transparent 55%); }
+  .bg-grid { position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:0.35; background-image:linear-gradient(rgba(0,217,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,217,255,0.03) 1px,transparent 1px); background-size:44px 44px; }
+  .particles, .data-stream { position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; overflow:hidden; }
+  .particle { position:absolute; width:2px; height:2px; background:#00d9ff; border-radius:50%; opacity:.12; filter:blur(.5px); }
+  .data-bit { position:absolute; font-family:'JetBrains Mono',monospace; font-size:14px; color:rgba(0,217,255,.2); opacity:0; animation:dataStream linear infinite; }
+  @keyframes dataStream { 0%{transform:translateY(-24px);opacity:0} 6%{opacity:.5} 94%{opacity:.5} 100%{transform:translateY(100vh);opacity:0} }
+  @keyframes pulse { 0%,100%{opacity:.88} 50%{opacity:1} }
+  @keyframes founderPulse { 0%,100%{box-shadow:0 0 10px rgba(192,90,255,.2),0 0 0 0 rgba(192,90,255,.15)} 50%{box-shadow:0 0 18px rgba(192,90,255,.38),0 0 0 5px rgba(192,90,255,0)} }
+  @keyframes dripIn { 0%{opacity:0; transform:translateY(-22px) scaleY(.66); filter:blur(7px)} 46%{opacity:1} 72%{transform:translateY(4px) scaleY(1.06); filter:blur(1px)} 88%{transform:translateY(-1px) scaleY(.99); filter:blur(.2px)} 100%{opacity:1; transform:none; filter:blur(0)} }
+  .reveal { opacity:0; transform-origin:top center; }
+  .reveal.in { opacity:1; animation:dripIn .5s cubic-bezier(.2,.85,.25,1); }
+  .ssec.reveal { opacity:0; transform-origin:top center; }
+  .ssec.reveal.in { opacity:1; animation:dripIn .54s cubic-bezier(.2,.85,.25,1); }
+  .back-link:hover { color:#ff6b9c !important; background:rgba(0,217,255,.16) !important; transform:translateY(-1px); }
+  .ssec { transition:transform .25s ease, box-shadow .25s ease; }
+  .ssec:hover { transform:translateY(-3px); box-shadow:0 8px 50px rgba(0,0,0,.5), 0 0 28px rgba(74,144,226,.18) !important; }
+  .chip:hover { background:rgba(74,144,226,.12) !important; border-color:rgba(74,144,226,.5) !important; transform:translateY(-1px); box-shadow:0 0 12px rgba(74,144,226,.15); }
+  .chip a:hover { color:#fff !important; text-shadow:0 0 8px #00d9ff; }
+  .slink { transition:all .22s ease; position:relative; overflow:hidden; }
+  .slink:hover { background:rgba(74,144,226,.12) !important; border-color:rgba(74,144,226,.55) !important; transform:translateX(4px); box-shadow:0 0 14px rgba(74,144,226,.18); }
+  .rcard:hover { background:rgba(255,107,156,.09) !important; border-color:rgba(255,107,156,.45) !important; transform:translateY(-1px); box-shadow:0 0 14px rgba(255,107,156,.12); }
+  .ctrl:hover { background:rgba(0,217,255,.2) !important; color:#d8d8f0 !important; opacity:1 !important; transform:translateY(-2px); box-shadow:0 0 10px rgba(0,217,255,.2); }
+  .emg-link:hover { background:rgba(255,68,68,.08) !important; color:rgba(255,180,180,.95) !important; padding-left:18px !important; }
+  .close-emg:hover { background:rgba(255,68,68,.3) !important; color:#fff !important; }
+  .founder-card { position:relative; }
+  .fdrop { opacity:0; transform:translateY(-6px) scale(.97); pointer-events:none; transition:opacity .18s ease, transform .18s ease; }
+  .founder-card:hover .fdrop, .founder-card.open .fdrop { opacity:1; transform:translateY(0) scale(1); pointer-events:all; }
+  .fitem:hover { background:rgba(192,90,255,.12) !important; color:#c05aff !important; }
+  ::-webkit-scrollbar { width:8px; }
+  ::-webkit-scrollbar-track { background:#08080f; }
+  ::-webkit-scrollbar-thumb { background:#00d9ff; border-radius:4px; }
+  @media (max-width:820px){ .emg-box{position:static !important; width:auto !important; margin:0 0 18px !important;} .content-wrap{padding-top:64px !important;} }
+  @media (max-width:680px){ .grid2,.grid3{grid-template-columns:1fr !important;} }
+</style>
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+<div class="bg-bloom"></div>
+<div class="bg-grid"></div>
+<div class="particles" id="particles"></div>
+<div class="data-stream" id="data-stream"></div>
+
+<header class="topbar">
+  <a class="brand" href="index.html"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="brand-dot"></span><span class="brand-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="topbar-right">
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="menu-scrim" id="menuScrim"></div>
+<nav class="mobile-menu" id="mobileMenu">
+  <a class="mm-link" href="tools.html"><span class="mm-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a3.6 3.6 0 0 0-4.9 4.6L3 17.7V21h3.3l6.8-6.8a3.6 3.6 0 0 0 4.6-4.9l-2.6 2.6-2.1-2.1 2.6-2.6z"/></svg></span>Catalogue of Tools &amp; Resources</a>
+  <a class="mm-link" href="livecenter/live.html"><span class="mm-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>Cabal Live Tool Center</a>
+  <a class="mm-link" href="methods.html"><span class="mm-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a3 3 0 0 1 3 3v13a2.5 2.5 0 0 0-2.5-2.5H2z"/><path d="M22 4h-6a3 3 0 0 0-3 3v13a2.5 2.5 0 0 1 2.5-2.5H22z"/></svg></span>Methods &amp; Guides Database</a>
+  <a class="mm-link" href="socials.html"><span class="mm-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.9 7.9"/></svg></span>Socials &amp; Contact</a>
+  <a class="mm-link" href="news.html"><span class="mm-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V4a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v16a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-9h4"/><path d="M16 8h-6M16 12h-6M11 16H10"/></svg></span>News</a>
+  <a class="mm-link" href="https://osintcabal.org/cabaldashboard/"><span class="mm-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19.07 4.93A10 10 0 1 0 22 12"/><path d="M12 12 18 6"/><circle cx="12" cy="12" r="3.5"/></svg></span>Cabal Threat Actor Dashboard</a>
+  <a class="mm-link" href="https://osintcabal.org/cabaldashboard/mostwanted.html"><span class="mm-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><line x1="12" y1="1.5" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22.5" y2="12"/></svg></span>Cabal Most Wanted</a>
+  <a class="mm-link" href="https://osintcabal.org/cabaldashboard/doxbin.html"><span class="mm-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg></span>Cabal Doxbin</a>
+  <div class="mm-divider"></div>
+  <a href="https://linktr.ee/osintcabal" target="_blank" class="ctrl">Linktree</a>
+  <button class="ctrl js-anim">Toggle Animations</button>
+</nav>
+
+<div class="emg-box" id="emergencyBox" style="position:fixed; top:72px; right:1rem; width:300px; background:rgba(10,4,14,.95); border:1px solid rgba(255,68,68,.45); border-top:2px solid rgba(255,68,68,.8); border-radius:10px; box-shadow:0 8px 40px rgba(0,0,0,.7), 0 0 30px rgba(255,40,40,.1); z-index:90; backdrop-filter:blur(20px); overflow:hidden;">
+  <div style="display:flex; align-items:center; gap:9px; padding:11px 14px; background:rgba(255,40,40,.08); border-bottom:1px solid rgba(255,68,68,.15);">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,90,90,.9)" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <span style="flex:1; color:rgba(255,100,100,.95); font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; font-family:'JetBrains Mono',monospace;">Report Malicious Content</span>
+    <button class="close-emg" id="closeEmergency" style="width:20px; height:20px; background:rgba(255,68,68,.1); border:1px solid rgba(255,68,68,.25); border-radius:4px; cursor:pointer; display:flex; align-items:center; justify-content:center; color:rgba(255,120,120,.7); font-size:13px; font-weight:bold; transition:all .2s ease;">×</button>
+  </div>
+  <div style="padding:14px 14px 0;">
+    <p style="font-size:.8rem; line-height:1.5; color:rgba(220,200,200,.75); margin:0 0 10px;">To report malicious content or users, contact our tipline:</p>
+    <a href="mailto:Tipline@OSINTCabal.org" class="emg-link" style="display:flex; align-items:center; gap:6px; color:rgba(255,120,120,.85); font-weight:600; font-size:.8rem; text-decoration:none; padding:6px 10px; background:rgba(255,60,60,.07); border:1px solid rgba(255,68,68,.2); border-radius:5px; margin-bottom:12px; transition:all .2s ease;">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+      Tipline@OSINTCabal.org
+    </a>
+    <div style="display:flex; gap:8px; align-items:flex-start; padding:10px 12px; background:rgba(255,40,40,.07); border:1px solid rgba(255,68,68,.15); border-radius:6px; margin-bottom:12px;">
+      <span style="font-size:.85rem; flex-shrink:0; margin-top:1px;">⚠</span>
+      <p style="margin:0; font-size:.77rem; line-height:1.5; color:rgba(255,160,160,.85); font-weight:500;">If you discover CSAM or evidence that someone's life is in direct danger, contact authorities immediately.</p>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,68,68,.1); padding:6px 0 8px;">
+    <a href="https://tips.fbi.gov/home" target="_blank" class="emg-link" style="display:flex; align-items:center; justify-content:space-between; padding:7px 14px; color:rgba(200,170,170,.7); text-decoration:none; font-size:.78rem; font-weight:500; transition:all .18s ease; border-radius:4px; margin:1px 4px;">FBI Tips <span style="opacity:.4;">→</span></a>
+    <a href="https://www.missingkids.org/gethelpnow/cybertipline" target="_blank" class="emg-link" style="display:flex; align-items:center; justify-content:space-between; padding:7px 14px; color:rgba(200,170,170,.7); text-decoration:none; font-size:.78rem; font-weight:500; transition:all .18s ease; border-radius:4px; margin:1px 4px;">NCMEC CyberTipline <span style="opacity:.4;">→</span></a>
+    <a href="https://www.childhelphotline.org/" target="_blank" class="emg-link" style="display:flex; align-items:center; justify-content:space-between; padding:7px 14px; color:rgba(200,170,170,.7); text-decoration:none; font-size:.78rem; font-weight:500; transition:all .18s ease; border-radius:4px; margin:1px 4px;">Child Help Hotline <span style="opacity:.4;">→</span></a>
+  </div>
+</div>
+
+<div class="content-wrap" style="padding:30px 20px 110px; max-width:1180px; margin:0 auto; position:relative; z-index:1; box-sizing:border-box;">
+  <h1 class="reveal" style="text-align:center; font-size:2.6rem; font-weight:700; color:#ff6b9c; margin:0 0 10px; text-shadow:0 0 24px rgba(255,107,156,.5); letter-spacing:-.01em; animation:pulse 3s ease-in-out infinite;">OSINTCabal Socials &amp; Contact</h1>
+  <p class="reveal" style="text-align:center; font-size:.85rem; color:#8a8ab8; letter-spacing:.06em; text-transform:uppercase; margin:0 0 48px; font-family:'JetBrains Mono',monospace;">Open Source Intelligence Collective</p>
+
+  <div style="display:flex; flex-direction:column; gap:32px;">
+
+    <div class="ssec reveal" style="background:rgba(10,10,26,.85); border:1px solid rgba(74,144,226,.35); border-radius:14px; padding:28px 32px; box-shadow:0 4px 40px rgba(0,0,0,.4); backdrop-filter:blur(6px); box-sizing:border-box;">
+      <h2 style="font-size:1.25rem; font-weight:700; color:#ff6b9c; margin:0 0 22px; padding-bottom:12px; border-bottom:1px solid rgba(255,107,156,.25); display:flex; align-items:center; gap:10px;"><span style="display:inline-block; width:3px; height:1.1em; border-radius:2px; background:#ff6b9c; box-shadow:0 0 8px #ff6b9c;"></span>OSINTCabal Primary Socials &amp; Contact</h2>
+
+      <div style="font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#8a8ab8; margin-bottom:12px; font-family:'JetBrains Mono',monospace;">Primary Contact Points</div>
+      <div class="grid3" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:10px; margin-bottom:24px;">
+        <div class="chip" style="display:flex; flex-direction:column; padding:13px 16px; background:rgba(74,144,226,.05); border:1px solid rgba(74,144,226,.22); border-radius:8px; transition:all .2s ease; gap:4px;"><a href="mailto:Contact@OSINTCabal.org" style="color:#00d9ff; font-size:.92rem; font-weight:600; text-decoration:none;">Contact@OSINTCabal.org</a><span style="color:#8a8ab8; font-size:.76rem; line-height:1.4;">General contact &amp; collaboration inquiries</span></div>
+        <div class="chip" style="display:flex; flex-direction:column; padding:13px 16px; background:rgba(74,144,226,.05); border:1px solid rgba(74,144,226,.22); border-radius:8px; transition:all .2s ease; gap:4px;"><a href="mailto:Legal@OSINTCabal.org" style="color:#00d9ff; font-size:.92rem; font-weight:600; text-decoration:none;">Legal@OSINTCabal.org</a><span style="color:#8a8ab8; font-size:.76rem; line-height:1.4;">Takedown requests &amp; LE contact point</span></div>
+        <div class="chip" style="display:flex; flex-direction:column; padding:13px 16px; background:rgba(74,144,226,.05); border:1px solid rgba(74,144,226,.22); border-radius:8px; transition:all .2s ease; gap:4px;"><a href="mailto:Tipline@OSINTCabal.org" style="color:#00d9ff; font-size:.92rem; font-weight:600; text-decoration:none;">Tipline@OSINTCabal.org</a><span style="color:#8a8ab8; font-size:.76rem; line-height:1.4;">Malicious content &amp; user reports</span></div>
+      </div>
+
+      <hr style="border:none; border-top:1px solid rgba(74,144,226,.1); margin:22px 0;">
+
+      <div style="font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#8a8ab8; margin-bottom:12px; font-family:'JetBrains Mono',monospace;">Admin Roster</div>
+      <div class="grid3" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:10px; margin-bottom:24px;">
+        <div class="founder-card" id="founderCard" style="background:rgba(192,90,255,.06); border:1px solid rgba(192,90,255,.4); border-radius:8px; padding:14px 16px; display:flex; flex-direction:column; gap:4px; cursor:pointer; animation:founderPulse 2.8s ease-in-out infinite; z-index:10;">
+          <div style="font-size:.95rem; font-weight:700; color:#c05aff; display:flex; align-items:center; gap:7px;">TerrorByte <span style="font-size:.62rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; background:rgba(192,90,255,.18); color:#c05aff; border:1px solid rgba(192,90,255,.4); padding:2px 7px; border-radius:4px; font-family:'JetBrains Mono',monospace;">Founder</span></div>
+          <div style="font-size:.82rem;"><a href="mailto:Terrorbyte@OSINTCabal.org" onclick="event.stopPropagation()" style="color:rgba(192,90,255,.65); text-decoration:none;">Terrorbyte@OSINTCabal.org</a></div>
+          <div style="display:flex; align-items:center; gap:5px; margin-top:7px; font-size:.7rem; letter-spacing:.07em; text-transform:uppercase; color:rgba(192,90,255,.45); user-select:none; font-family:'JetBrains Mono',monospace;">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><polyline points="4 6 8 10 12 6"/></svg>Contact links
+          </div>
+          <div class="fdrop" style="position:absolute; top:calc(100% + 6px); left:0; min-width:100%; background:rgba(15,12,30,.97); border:1px solid rgba(192,90,255,.45); border-radius:10px; padding:6px; box-shadow:0 12px 40px rgba(0,0,0,.7), 0 0 20px rgba(192,90,255,.15); backdrop-filter:blur(16px); z-index:200;">
+            <a href="mailto:Terrorbyte@OSINTCabal.org" class="fitem" style="display:flex; align-items:center; gap:11px; padding:10px 13px; border-radius:7px; text-decoration:none; color:#e0e0ff; font-size:.88rem; font-weight:500; white-space:nowrap; transition:background .15s ease, color .15s ease;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="flex-shrink:0; opacity:.75;"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg><div><div>Email</div><div style="font-size:.78em; color:#8a8ab8; margin-top:1px;">Terrorbyte@OSINTCabal.org</div></div></a>
+            <div style="height:1px; background:rgba(192,90,255,.12); margin:4px 6px;"></div>
+            <a href="https://signal.me/#eu/sjokSqEb38OD-GPTP1ocwnHBODCVsZWsw6spNxWcBKI1AG7bP3VKi7ufNU8EQV69" target="_blank" class="fitem" style="display:flex; align-items:center; gap:11px; padding:10px 13px; border-radius:7px; text-decoration:none; color:#e0e0ff; font-size:.88rem; font-weight:500; white-space:nowrap; transition:background .15s ease, color .15s ease;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="flex-shrink:0; opacity:.75;"><path d="M12 3C7.03 3 3 6.58 3 11c0 2.5 1.3 4.7 3.3 6.2l-.8 2.8c-.1.3.2.6.5.5l3.5-1.5c1.5.6 3.1.9 4.5.9 4.97 0 9-3.58 9-8S16.97 3 12 3z" stroke-dasharray="3 2" stroke-linecap="round" stroke-linejoin="round"/></svg><div><div>Signal Username: terrorbyte.404</div><div style="font-size:.78em; color:#8a8ab8; margin-top:1px;">Click to open</div></div></a>
+            <a href="https://t.me/T3rrorbyte" target="_blank" class="fitem" style="display:flex; align-items:center; gap:11px; padding:10px 13px; border-radius:7px; text-decoration:none; color:#e0e0ff; font-size:.88rem; font-weight:500; white-space:nowrap; transition:background .15s ease, color .15s ease;"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="flex-shrink:0; opacity:.75;"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg><div><div>Telegram</div><div style="font-size:.78em; color:#8a8ab8; margin-top:1px;">t.me/T3rrorbyte</div></div></a>
+            <a href="https://reddit.com/u/_TerrorByte_" target="_blank" class="fitem" style="display:flex; align-items:center; gap:11px; padding:10px 13px; border-radius:7px; text-decoration:none; color:#e0e0ff; font-size:.88rem; font-weight:500; white-space:nowrap; transition:background .15s ease, color .15s ease;"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="flex-shrink:0; opacity:.75;"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg><div><div>Reddit</div><div style="font-size:.78em; color:#8a8ab8; margin-top:1px;">u/_TerrorByte_</div></div></a>
+          </div>
+        </div>
+        <div class="rcard" style="display:flex; flex-direction:column; padding:14px 16px; background:rgba(255,107,156,.04); border:1px solid rgba(255,107,156,.2); border-radius:8px; gap:4px; transition:all .2s ease;"><div style="font-size:.95rem; font-weight:700; color:#ff6b9c;">SeVrike</div><div style="font-size:.82rem;"><a href="mailto:SeVrike@OSINTCabal.org" style="color:#8a8ab8; text-decoration:none;">SeVrike@OSINTCabal.org</a></div></div>
+        <div class="rcard" style="display:flex; flex-direction:column; padding:14px 16px; background:rgba(255,107,156,.04); border:1px solid rgba(255,107,156,.2); border-radius:8px; gap:4px; transition:all .2s ease;"><div style="font-size:.95rem; font-weight:700; color:#ff6b9c;">Kat</div><div style="font-size:.82rem;"><a href="mailto:Kat@OSINTCabal.org" style="color:#8a8ab8; text-decoration:none;">Kat@OSINTCabal.org</a></div></div>
+      </div>
+
+      <hr style="border:none; border-top:1px solid rgba(74,144,226,.1); margin:22px 0;">
+
+      <div style="font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#8a8ab8; margin-bottom:12px; font-family:'JetBrains Mono',monospace;">Platforms</div>
+      <div class="grid2" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:10px;">
+        <a href="http://Reddit.com/u/0SINTCabal" target="_blank" class="slink" style="display:flex; align-items:center; padding:14px 18px; background:rgba(30,30,60,.55); border:1px solid rgba(74,144,226,.28); border-radius:8px; text-decoration:none; color:#e0e0ff;"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style="margin-right:14px; flex-shrink:0; opacity:.85;"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg><div style="flex:1; min-width:0;"><div style="font-size:.96rem; font-weight:600; color:#4a90e2; margin-bottom:2px;">Reddit</div><div style="font-size:.78rem; color:#8a8ab8; word-break:break-all;">reddit.com/u/0SINTCabal</div></div></a>
+        <a href="https://www.instagram.com/OSINTCabal" target="_blank" class="slink" style="display:flex; align-items:center; padding:14px 18px; background:rgba(30,30,60,.55); border:1px solid rgba(74,144,226,.28); border-radius:8px; text-decoration:none; color:#e0e0ff;"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style="margin-right:14px; flex-shrink:0; opacity:.85;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg><div style="flex:1; min-width:0;"><div style="font-size:.96rem; font-weight:600; color:#4a90e2; margin-bottom:2px;">Instagram</div><div style="font-size:.78rem; color:#8a8ab8; word-break:break-all;">instagram.com/OSINTCabal</div></div></a>
+        <a href="https://x.com/OSINTCabal" target="_blank" class="slink" style="display:flex; align-items:center; padding:14px 18px; background:rgba(30,30,60,.55); border:1px solid rgba(74,144,226,.28); border-radius:8px; text-decoration:none; color:#e0e0ff;"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style="margin-right:14px; flex-shrink:0; opacity:.85;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><div style="flex:1; min-width:0;"><div style="font-size:.96rem; font-weight:600; color:#4a90e2; margin-bottom:2px;">X (Twitter)</div><div style="font-size:.78rem; color:#8a8ab8; word-break:break-all;">x.com/OSINTCabal</div></div></a>
+        <a href="https://bsky.app/profile/osintcabal.bsky.social" target="_blank" class="slink" style="display:flex; align-items:center; padding:14px 18px; background:rgba(30,30,60,.55); border:1px solid rgba(74,144,226,.28); border-radius:8px; text-decoration:none; color:#e0e0ff;"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style="margin-right:14px; flex-shrink:0; opacity:.85;"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg><div style="flex:1; min-width:0;"><div style="font-size:.96rem; font-weight:600; color:#4a90e2; margin-bottom:2px;">Bluesky</div><div style="font-size:.78rem; color:#8a8ab8; word-break:break-all;">bsky.app/profile/osintcabal.bsky.social</div></div></a>
+        <a href="https://t.me/OSINTCabal" target="_blank" class="slink" style="display:flex; align-items:center; padding:14px 18px; background:rgba(30,30,60,.55); border:1px solid rgba(74,144,226,.28); border-radius:8px; text-decoration:none; color:#e0e0ff;"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style="margin-right:14px; flex-shrink:0; opacity:.85;"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg><div style="flex:1; min-width:0;"><div style="font-size:.96rem; font-weight:600; color:#4a90e2; margin-bottom:2px;">Telegram Channel</div><div style="font-size:.78rem; color:#8a8ab8; word-break:break-all;">t.me/OSINTCabal</div></div></a>
+        <a href="https://github.com/OSINTCabal" target="_blank" class="slink" style="display:flex; align-items:center; padding:14px 18px; background:rgba(30,30,60,.55); border:1px solid rgba(74,144,226,.28); border-radius:8px; text-decoration:none; color:#e0e0ff;"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style="margin-right:14px; flex-shrink:0; opacity:.85;"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg><div style="flex:1; min-width:0;"><div style="font-size:.96rem; font-weight:600; color:#4a90e2; margin-bottom:2px;">GitHub</div><div style="font-size:.78rem; color:#8a8ab8; word-break:break-all;">github.com/OSINTCabal</div></div></a>
+      </div>
+
+      <div style="margin-top:20px; padding:14px 18px; background:rgba(74,144,226,.06); border-left:3px solid rgba(74,144,226,.4); border-radius:0 6px 6px 0; font-size:.87rem; color:#8a8ab8; line-height:1.6;">Primary contact is via Email, Reddit, and Telegram. We maintain additional profiles primarily for API access or specific platform functionality. The best way to reach the founder directly is via TerrorByte's email, Signal, or Telegram.</div>
+    </div>
+
+    <div class="ssec reveal" style="background:rgba(10,10,26,.85); border:1px solid rgba(0,255,255,.25); border-radius:14px; padding:28px 32px; box-shadow:0 4px 40px rgba(0,0,0,.4); backdrop-filter:blur(6px); box-sizing:border-box;">
+      <h2 style="font-size:1.25rem; font-weight:700; color:#00ffff; margin:0 0 22px; padding-bottom:12px; border-bottom:1px solid rgba(0,255,255,.2); display:flex; align-items:center; gap:10px;"><span style="display:inline-block; width:3px; height:1.1em; border-radius:2px; background:#00ffff; box-shadow:0 0 8px #00ffff;"></span>OSINT Cabal Home &amp; Live Center</h2>
+      <div class="grid2" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:10px;">
+        <a href="https://OSINTCabal.org/" target="_blank" class="slink" style="display:flex; align-items:center; padding:14px 18px; background:rgba(30,30,60,.55); border:1px solid rgba(0,255,255,.25); border-radius:8px; text-decoration:none; color:#e0e0ff;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:14px; flex-shrink:0; opacity:.85;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg><div style="flex:1; min-width:0;"><div style="font-size:.96rem; font-weight:600; color:#00ffff; margin-bottom:2px;">Main Website</div><div style="font-size:.78rem; color:#8a8ab8; word-break:break-all;">https://OSINTCabal.org</div></div></a>
+        <a href="https://osintcabal.org/livecenter/live.html" target="_blank" class="slink" style="display:flex; align-items:center; padding:14px 18px; background:rgba(30,30,60,.55); border:1px solid rgba(0,255,255,.25); border-radius:8px; text-decoration:none; color:#e0e0ff;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:14px; flex-shrink:0; opacity:.85;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg><div style="flex:1; min-width:0;"><div style="font-size:.96rem; font-weight:600; color:#00ffff; margin-bottom:2px;">Live Tool Center</div><div style="font-size:.78rem; color:#8a8ab8; word-break:break-all;">osintcabal.org/livecenter/live.html</div></div></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div style="display:flex; justify-content:center; gap:12px; position:fixed; bottom:20px; left:0; width:100%; z-index:100;">
+  <a href="https://linktr.ee/osintcabal" target="_blank" class="ctrl" style="background:rgba(10,10,26,.78); border:1px solid rgba(0,217,255,.4); color:#8a8ab8; padding:7px 14px; border-radius:8px; text-decoration:none; font-family:'JetBrains Mono',monospace; font-size:11px; transition:all .22s ease; display:flex; align-items:center; gap:5px; backdrop-filter:blur(8px); opacity:.7;">Linktree</a>
+  <button class="ctrl js-anim" style="background:rgba(10,10,26,.78); border:1px solid rgba(0,217,255,.4); color:#8a8ab8; padding:7px 14px; border-radius:8px; font-family:'JetBrains Mono',monospace; font-size:11px; transition:all .22s ease; display:flex; align-items:center; gap:5px; cursor:pointer; backdrop-filter:blur(8px); opacity:.7;">Toggle Animations</button>
+</div>
+<script>
+class DCLogic { constructor(){ this.props = {}; this.state = {}; } setState(u){ if(typeof u==='function'){ Object.assign(this.state, u(this.state)); } else { Object.assign(this.state, u); } } forceUpdate(){} }
+class Component extends DCLogic {
+  componentDidMount() {
+    this.animationsEnabled = true;
+    this._initVanta();
+    this._buildParticles();
+    this._buildStream();
+    this._observeScroll();
+    const ce = document.getElementById('closeEmergency');
+    if (ce) ce.addEventListener('click', () => { const b = document.getElementById('emergencyBox'); if (b) b.style.display = 'none'; });
+    const fc = document.getElementById('founderCard');
+    if (fc) {
+      fc.addEventListener('click', (e) => {
+        if (e.target.closest('.fitem') || e.target.closest('a[href^="mailto"]')) return;
+        if (window.matchMedia('(max-width:820px)').matches || ('ontouchstart' in window)) fc.classList.toggle('open');
+      });
+      document.addEventListener('click', (e) => { if (!fc.contains(e.target)) fc.classList.remove('open'); });
+    }
+    document.querySelectorAll('.js-anim').forEach(at => at.addEventListener('click', () => {
+      this.animationsEnabled = !this.animationsEnabled;
+      const ps = document.getElementById('particles');
+      const ds = document.getElementById('data-stream');
+      if (window.__flowbg) window.__flowbg.setPaused(!this.animationsEnabled);
+      if (this.animationsEnabled) { if (ps) ps.style.display='block'; if (ds) ds.style.display='block'; }
+      else { if (ps) ps.style.display='none'; if (ds) ds.style.display='none'; }
+    }));
+    this._wireHamburger();
+    this._decodeCf();
+    setTimeout(() => this._decodeCf(), 400);
+  }
+
+  _decodeCf() {
+    const dec = (hex) => {
+      let s = '', k = parseInt(hex.substr(0, 2), 16);
+      for (let i = 2; i < hex.length; i += 2) s += String.fromCharCode(parseInt(hex.substr(i, 2), 16) ^ k);
+      return s;
+    };
+    document.querySelectorAll('.__cf_email__[data-cfemail]').forEach(el => {
+      try { const m = dec(el.getAttribute('data-cfemail')); el.textContent = m; const a = el.closest('a'); if (a) a.setAttribute('href', 'mailto:' + m); } catch (e) {}
+    });
+    document.querySelectorAll('a[href*="/cdn-cgi/l/email-protection#"]').forEach(a => {
+      try { const hex = a.getAttribute('href').split('#')[1]; const m = dec(hex); a.setAttribute('href', 'mailto:' + m); if (/\[email/i.test(a.textContent)) a.textContent = m; } catch (e) {}
+    });
+  }
+
+  _wireHamburger() {
+    const hb = document.getElementById('hamburger');
+    const menu = document.getElementById('mobileMenu');
+    const scrim = document.getElementById('menuScrim');
+    if (!hb || !menu) return;
+    const close = () => { hb.classList.remove('open'); menu.classList.remove('open'); if (scrim) scrim.classList.remove('open'); };
+    hb.addEventListener('click', () => {
+      const open = !menu.classList.contains('open');
+      hb.classList.toggle('open', open);
+      menu.classList.toggle('open', open);
+      if (scrim) scrim.classList.toggle('open', open);
+    });
+    if (scrim) scrim.addEventListener('click', close);
+    menu.querySelectorAll('.mm-link').forEach(a => a.addEventListener('click', close));
+  }
+
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+  }
+
+  _initVanta() {}
+
+  _buildParticles() {
+    const c = document.getElementById('particles'); if (!c) return; c.innerHTML='';
+    let mx=0,my=0; document.addEventListener('mousemove', e=>{mx=e.clientX;my=e.clientY;});
+    for (let i=0;i<18;i++){
+      const p=document.createElement('div'); p.className='particle';
+      p.style.left=(Math.random()*window.innerWidth)+'px'; p.style.top=(Math.random()*window.innerHeight)+'px';
+      c.appendChild(p);
+      (function animate(p){ let x=parseFloat(p.style.left),y=parseFloat(p.style.top),tx=x,ty=y,last=0;
+        function step(t){ if(!last)last=t; if(Math.random()<0.02){tx=mx+(Math.random()*200-100);ty=my+(Math.random()*200-100);}
+          x+=(tx-x)*0.05*(t-last)*0.01; y+=(ty-y)*0.05*(t-last)*0.01; p.style.left=x+'px'; p.style.top=y+'px'; last=t; requestAnimationFrame(step);}
+        requestAnimationFrame(step); })(p);
+    }
+  }
+
+  _buildStream() {
+    const ds=document.getElementById('data-stream'); if(!ds) return; ds.innerHTML='';
+    for(let i=0;i<12;i++){ const b=document.createElement('div'); b.className='data-bit';
+      let s=''; const len=Math.floor(Math.random()*10)+5; for(let j=0;j<len;j++) s+=Math.random()<0.5?'0':'1';
+      b.textContent=s; b.style.left=(Math.random()*100)+'%'; b.style.animationDuration=(Math.random()*5+5)+'s'; b.style.animationDelay='-'+(Math.random()*10)+'s';
+      ds.appendChild(b); }
+  }
+
+  _observeScroll() {
+    const els=document.querySelectorAll('.reveal');
+    els.forEach(el=>{ const r=el.getBoundingClientRect(); if(r.top<window.innerHeight-30) el.classList.add('in'); });
+    this._io=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); this._io.unobserve(e.target);} });
+    }, { threshold:0, rootMargin:'0px 0px -6% 0px' });
+    els.forEach(el=>this._io.observe(el));
+    this._fb=setTimeout(()=>els.forEach(el=>el.classList.add('in')),1600);
+  }
+}
+(function(){ function boot(){ try { new Component().componentDidMount(); } catch(e){ console.error(e); } } if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', boot); } else { boot(); } })();
+</script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2724e56cc10ceb7',t:'MTc4NjA2NDAyNA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c1bc8bc6e4614',t:'MTc4OTAxODkzNw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINT Cabal - Free Open Source Intelligence Tools & Investigation Resources</title>
+    <meta name="description" content="Professional OSINT toolkit for investigators: email lookup, username search, breach monitoring, domain intelligence, and social media reconnaissance. Free tools for ethical investigations and #OSINT4Good.">
+    <meta name="keywords" content="OSINT tools, open source intelligence, email lookup, username search, breach monitoring, domain intelligence, investigation tools, OSINT Cabal">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="OSINT Cabal">
+    <link rel="canonical" href="https://osintcabal.org/" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://osintcabal.org/">
+    <meta property="og:title" content="OSINT Cabal - Free Intelligence Tools for Investigators">
+    <meta property="og:description" content="Professional OSINT toolkit: email lookup, username search, breach monitoring, domain intelligence. Free tools for ethical investigations.">
+    <meta property="og:site_name" content="OSINT Cabal">
+    <meta property="og:image" content="https://osintcabal.org/favicons/apple-icon-144x144.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="OSINT Cabal - Free Intelligence Tools">
+    <meta name="twitter:description" content="Professional OSINT toolkit for investigators. Email lookup, username search, breach monitoring & more.">
+    <meta name="twitter:image" content="https://osintcabal.org/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#6b21a8">
+    <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#6b21a8">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "OSINT Cabal",
+      "url": "https://osintcabal.org/",
+      "description": "Professional OSINT tools and resources for investigators"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "OSINT Cabal",
+      "url": "https://osintcabal.org/",
+      "description": "Open source intelligence platform providing free investigation tools",
+      "sameAs": [
+        "https://twitter.com/osintcabal",
+        "https://bsky.app/profile/osintcabal",
+        "https://reddit.com/u/0sintcabal",
+        "https://instagram.com/osintcabal",
+        "https://t.me/osintcabal"
+      ]
+    }
+    </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+<script src="assets/js/flowbg.js"></script>
+<script src="assets/js/flowbg-loader.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+<script src="assets/js/icon-fx.js"></script>
+<style>
+  :root { --acc:#ff6b9c; --acc2:#00d9ff; --acc-rgb:255,107,156; --acc2-rgb:0,217,255; }
+  html.theme-blue { --acc:#00d9ff; --acc2:#ff6b9c; --acc-rgb:0,217,255; --acc2-rgb:255,107,156; }
+  html { scroll-behavior:smooth; scroll-snap-type:y proximity; scroll-padding-top:58px; }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:0; min-height:100vh; background-color:#08080f; color:#e0e0ff; font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; overflow-x:hidden; position:relative; }
+  #bg-canvas { position:fixed; inset:0; width:100%; height:100%; z-index:-2; pointer-events:none; display:block; }
+  .bg-bloom { position:fixed; inset:0; z-index:-1; pointer-events:none; background:radial-gradient(ellipse at 50% -8%, rgba(var(--acc-rgb),0.12), transparent 58%), radial-gradient(ellipse at 80% 110%, rgba(var(--acc2-rgb),0.08), transparent 55%); }
+  .bg-grid { position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:0.5; background-image:linear-gradient(rgba(var(--acc2-rgb),0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(var(--acc2-rgb),0.045) 1px,transparent 1px); background-size:46px 46px; animation:gridDrift 24s linear infinite; }
+  .bg-vignette { position:fixed; inset:0; z-index:-1; pointer-events:none; background:radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(4,4,9,.82) 100%); }
+  .particles, .data-stream { position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; overflow:hidden; }
+  .particle { position:absolute; width:2px; height:2px; background:var(--acc2); border-radius:50%; opacity:.15; filter:blur(.5px); }
+  .data-bit { position:absolute; font-family:'JetBrains Mono',monospace; font-size:14px; color:rgba(var(--acc2-rgb),.26); opacity:0; animation:dataStream linear infinite; }
+  @keyframes dataStream { 0%{transform:translateY(-24px);opacity:0} 6%{opacity:.55} 94%{opacity:.55} 100%{transform:translateY(100vh);opacity:0} }
+  @keyframes gridDrift { 0%{background-position:0 0,0 0} 100%{background-position:46px 46px,46px 46px} }
+  @keyframes pulseGlow { 0%,100%{opacity:.72} 50%{opacity:1} }
+  @keyframes caretBlink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+  @keyframes bracketPulse { 0%,100%{opacity:.45} 50%{opacity:1} }
+  @keyframes chevBounce { 0%,100%{transform:translateY(0);opacity:.5} 50%{transform:translateY(7px);opacity:1} }
+  @keyframes mouseWheel { 0%{transform:translateY(0);opacity:1} 70%{opacity:0} 100%{transform:translateY(11px);opacity:0} }
+  /* tip-line viz */
+  @keyframes sonarOut { 0%{transform:translate(-50%,-50%) scale(.34);opacity:.9} 100%{transform:translate(-50%,-50%) scale(1.35);opacity:0} }
+  @keyframes tipIn { 0%{transform:translate(var(--sx),var(--sy));opacity:0} 16%{opacity:1} 82%{opacity:1} 100%{transform:translate(0,0);opacity:0} }
+  @keyframes shieldGlow { 0%,100%{filter:drop-shadow(0 0 5px rgba(var(--acc-rgb),.7))} 50%{filter:drop-shadow(0 0 14px rgba(var(--acc-rgb),1))} }
+  @keyframes alertBlink { 0%,60%{opacity:1} 80%,100%{opacity:.25} }
+  /* robot viz */
+  @keyframes eyeGlow { 0%,100%{opacity:.62} 50%{opacity:1} }
+  @keyframes blink2 { 0%,92%,100%{opacity:1} 95%{opacity:.15} }
+  @keyframes statBlink { 0%,100%{opacity:1} 50%{opacity:.2} }
+  @keyframes sway { 0%,100%{transform:translateY(0) rotate(-1.3deg)} 50%{transform:translateY(-4px) rotate(1.3deg)} }
+  @keyframes spin360 { to{transform:rotate(360deg)} }
+  @keyframes haloSpin { to{transform:rotate(360deg)} }
+  @keyframes haloSpinRev { to{transform:rotate(-360deg)} }
+  @keyframes eq { 0%,100%{transform:scaleY(.32)} 50%{transform:scaleY(1)} }
+  @keyframes eyeBlink { 0%,88%,100%{transform:scaleY(1)} 93%{transform:scaleY(.08)} }
+  @keyframes antPing { 0%{transform:scale(.4);opacity:.9} 100%{transform:scale(1.7);opacity:0} }
+  /* intro / load */
+  @keyframes titleFlicker { 0%{opacity:0} 8%{opacity:.4} 12%{opacity:.1} 20%{opacity:.85} 26%{opacity:.3} 34%{opacity:1} 100%{opacity:1} }
+  @keyframes dripLeft {
+    0%{opacity:0; transform:translate(150px,-42px) scaleX(.66) scaleY(.16); filter:blur(11px);}
+    34%{opacity:1;}
+    62%{transform:translate(24px,10px) scaleX(.99) scaleY(1.14); filter:blur(2px);}
+    100%{opacity:1; transform:translate(0,0) scale(1); filter:blur(0);}
+  }
+  @keyframes dripRight {
+    0%{opacity:0; transform:translate(-150px,-42px) scaleX(.66) scaleY(.16); filter:blur(11px);}
+    34%{opacity:1;}
+    62%{transform:translate(-24px,10px) scaleX(.99) scaleY(1.14); filter:blur(2px);}
+    100%{opacity:1; transform:translate(0,0) scale(1); filter:blur(0);}
+  }
+  /* nav icon hovers */
+  @keyframes hvWrench { 0%,100%{transform:rotate(0)} 25%{transform:rotate(-20deg)} 60%{transform:rotate(12deg)} }
+  @keyframes hvBlink { 0%,100%{opacity:1} 50%{opacity:.35} }
+  @keyframes hvBook { 0%,100%{transform:perspective(300px) rotateY(0)} 50%{transform:perspective(300px) rotateY(42deg)} }
+  @keyframes hvPulse { 0%,100%{transform:scale(1)} 45%{transform:scale(1.22)} }
+  @keyframes hvShake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-2.5px)} 40%{transform:translateX(2.5px)} 60%{transform:translateX(-2.5px)} 80%{transform:translateX(2.5px)} }
+  @keyframes hvSpin { to{transform:rotate(360deg)} }
+  @keyframes hvLock { 0%{transform:scale(1)} 40%{transform:scale(.78)} 72%{transform:scale(1.12)} 100%{transform:scale(1)} }
+  @keyframes hvBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+  @keyframes dripIn { 0%{opacity:0; transform:translateY(-22px) scaleY(.66); filter:blur(7px)} 46%{opacity:1} 72%{transform:translateY(4px) scaleY(1.06); filter:blur(1px)} 88%{transform:translateY(-1px) scaleY(.99); filter:blur(.2px)} 100%{opacity:1; transform:none; filter:blur(0)} }
+  .reveal { opacity:0; transform-origin:top center; }
+  .reveal.in { opacity:1; animation:dripIn .52s cubic-bezier(.2,.85,.25,1); }
+  .caret { display:inline-block; width:8px; height:1.05em; background:var(--acc); margin-left:2px; vertical-align:-2px; animation:caretBlink 1s steps(1) infinite; }
+
+  /* topbar */
+  .topbar { position:sticky; top:0; z-index:60; display:flex; align-items:center; justify-content:space-between; gap:16px; height:58px; padding:0 22px; background:rgba(8,8,16,.72); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(var(--acc-rgb),.18); }
+  .brand { display:flex; align-items:center; gap:11px; text-decoration:none; }
+  .brand img { height:34px; width:34px; border-radius:8px; box-shadow:0 0 16px rgba(var(--acc-rgb),.35); }
+  .brand-mark { font-family:'JetBrains Mono',monospace; font-size:.95rem; font-weight:700; letter-spacing:.22em; color:#e8e8f4; text-transform:uppercase; }
+  .brand-mark b { color:var(--acc); }
+  .brand-dot { width:7px; height:7px; border-radius:50%; background:var(--acc2); box-shadow:0 0 10px var(--acc2); animation:pulseGlow 1.8s infinite; }
+  .topbar-ctrls { display:flex; gap:9px; align-items:center; }
+  .ctrl { background:rgba(10,9,18,.7); border:1px solid rgba(var(--acc-rgb),.32); color:#9a9ac0; padding:7px 13px; border-radius:7px; text-decoration:none; font-family:'JetBrains Mono',monospace; font-size:11px; transition:all .2s ease; display:flex; align-items:center; gap:6px; cursor:pointer; white-space:nowrap; }
+  .ctrl:hover { background:rgba(var(--acc-rgb),.16); color:#eaeaff; border-color:rgba(var(--acc-rgb),.7); transform:translateY(-1px); box-shadow:0 0 14px rgba(var(--acc-rgb),.25); }
+  .hamburger { display:none; flex-direction:column; gap:5px; width:42px; height:38px; align-items:center; justify-content:center; background:rgba(10,9,18,.7); border:1px solid rgba(var(--acc-rgb),.32); border-radius:8px; cursor:pointer; }
+  .hamburger span { display:block; width:20px; height:2px; background:var(--acc); border-radius:2px; transition:transform .25s ease, opacity .2s ease; }
+  .hamburger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2){ opacity:0; }
+  .hamburger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  .menu-scrim { position:fixed; inset:0; z-index:55; background:rgba(4,4,9,.55); backdrop-filter:blur(3px); opacity:0; pointer-events:none; transition:opacity .25s ease; }
+  .menu-scrim.open { opacity:1; pointer-events:auto; }
+  .mobile-menu { position:fixed; top:58px; left:0; right:0; z-index:58; background:rgba(9,8,16,.96); backdrop-filter:blur(16px); border-bottom:1px solid rgba(var(--acc-rgb),.3); padding:14px 16px 18px; display:flex; flex-direction:column; gap:9px; transform:translateY(-12px); opacity:0; pointer-events:none; transition:transform .28s cubic-bezier(.2,.8,.2,1), opacity .24s ease; max-height:calc(100vh - 58px); overflow-y:auto; }
+  .mobile-menu.open { transform:translateY(0); opacity:1; pointer-events:auto; }
+  .mm-link { display:flex; align-items:center; gap:12px; padding:13px 14px; border:1px solid rgba(var(--acc-rgb),.3); border-radius:10px; background:rgba(13,12,22,.7); color:#e6e6ff; text-decoration:none; font-size:.98rem; font-weight:600; }
+  .mm-link:active { background:rgba(var(--acc-rgb),.16); }
+  .mm-link .nav-ico { width:34px; height:34px; }
+  .mm-divider { height:1px; background:rgba(var(--acc-rgb),.2); margin:6px 2px; }
+  .mm-ctrls { display:flex; flex-wrap:wrap; gap:8px; }
+
+  /* hero */
+  .hero { position:relative; min-height:calc(100vh - 58px); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px 20px 26px; gap:18px; z-index:1; scroll-snap-align:start; }
+  .hero-top { display:flex; align-items:center; justify-content:center; gap:18px; width:100%; max-width:1320px; }
+  .glass { position:relative; border-radius:22px; background:rgba(10,9,18,.4); backdrop-filter:blur(12px) saturate(112%); -webkit-backdrop-filter:blur(12px) saturate(112%); border:1px solid rgba(255,255,255,.06); box-shadow:0 16px 46px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.05); overflow:hidden; }
+  .glass::after { content:''; position:absolute; inset:0; border-radius:22px; pointer-events:none; background:linear-gradient(135deg, rgba(255,255,255,.03), transparent 42%); }
+  .glass-title { padding:20px 30px 18px; flex:0 1 auto; text-align:center; }
+  .glass-text { width:100%; max-width:840px; padding:26px 36px 30px; text-align:center; }
+
+  /* side boxes */
+  .side-box { flex:0 0 252px; width:252px; padding:18px 18px 20px; border-radius:20px; text-align:center; cursor:pointer; opacity:0; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+  .side-box.drip-left { animation:dripLeft 1.15s cubic-bezier(.2,.8,.2,1) forwards; transform-origin:top center; }
+  .side-box.drip-right { animation:dripRight 1.15s cubic-bezier(.2,.8,.2,1) forwards; transform-origin:top center; }
+  .side-box:hover { transform:translateY(-4px); border-color:var(--acc); box-shadow:0 18px 54px rgba(0,0,0,.5), 0 0 28px rgba(var(--acc-rgb),.2); }
+  .side-viz { position:relative; width:118px; height:118px; margin:0 auto 8px; }
+  .side-viz .viz { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(.6); margin:0; }
+  .side-title { font-size:1.02rem; font-weight:800; letter-spacing:.1em; color:var(--acc); text-shadow:0 0 12px rgba(var(--acc-rgb),.5); margin-bottom:9px; }
+  .side-mail { display:inline-block; color:var(--acc); font-family:'JetBrains Mono',monospace; font-size:.74rem; border:1px dashed var(--acc); padding:6px 9px; border-radius:7px; text-decoration:none; transition:all .22s ease; word-break:break-all; }
+  .side-mail:hover { background:var(--acc); color:#08080f; box-shadow:0 0 18px rgba(var(--acc-rgb),.55); }
+  .side-cue { margin-top:11px; font-family:'JetBrains Mono',monospace; font-size:.62rem; letter-spacing:.2em; color:rgba(var(--acc2-rgb),.8); display:flex; align-items:center; justify-content:center; gap:6px; }
+  .side-cue .dl { animation:chevBounce 1.6s ease-in-out infinite; }
+
+  .ascii-title { white-space:pre; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.12; letter-spacing:0; color:var(--acc); text-shadow:0 0 8px rgba(var(--acc-rgb),.75); margin:0; position:relative; z-index:2; }
+  .title-stage { position:relative; display:inline-block; padding:14px 24px 16px; margin:0 auto; }
+  .title-stage.flick .ascii-title { animation:titleFlicker 1s steps(1,end) both; }
+  .bracket { position:absolute; width:22px; height:22px; border:2px solid var(--acc2); opacity:.55; animation:bracketPulse 2.6s ease-in-out infinite; }
+  .br-tl { top:0; left:0; border-right:none; border-bottom:none; }
+  .br-tr { top:0; right:0; border-left:none; border-bottom:none; animation-delay:.4s; }
+  .br-bl { bottom:0; left:0; border-right:none; border-top:none; animation-delay:.8s; }
+  .br-br { bottom:0; right:0; border-left:none; border-top:none; animation-delay:1.2s; }
+  .lead { max-width:760px; margin:0 auto 20px; font-family:'JetBrains Mono',monospace; font-size:.96rem; line-height:1.6; color:#dadaf2; min-height:7.2em; text-align:left; }
+  .inquiry-btn { display:inline-flex; align-items:center; gap:6px; color:var(--acc); font-family:'JetBrains Mono',monospace; font-size:1rem; font-weight:700; text-shadow:0 0 8px rgba(var(--acc-rgb),.5); text-decoration:none; padding:11px 20px; border:1px dashed var(--acc); border-radius:9px; transition:all .25s ease; }
+  .inquiry-btn:hover { background:var(--acc); color:#08080f; box-shadow:0 0 26px rgba(var(--acc-rgb),.6); transform:translateY(-2px); }
+  /* scroll indicator */
+  .scroll-ind { position:relative; margin-top:2px; display:flex; flex-direction:column; align-items:center; gap:8px; transition:opacity .4s ease; z-index:2; cursor:pointer; }
+  .scroll-ind .mouse { width:24px; height:38px; border:2px solid rgba(var(--acc2-rgb),.7); border-radius:13px; display:flex; justify-content:center; padding-top:6px; box-shadow:0 0 14px rgba(var(--acc2-rgb),.25); }
+  .scroll-ind .wheel { width:3px; height:7px; border-radius:2px; background:var(--acc2); animation:mouseWheel 1.6s ease-in-out infinite; }
+  .scroll-ind .chev { color:var(--acc2); font-size:13px; line-height:.6; animation:chevBounce 1.6s ease-in-out infinite; }
+  .scroll-ind .label { font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:.28em; color:rgba(var(--acc2-rgb),.7); }
+
+  /* section heading */
+  .block2 { scroll-snap-align:start; }
+  .sec { max-width:1180px; margin:0 auto; padding:30px 22px 0; position:relative; z-index:1; }
+  .sec-head { display:flex; align-items:center; gap:14px; margin:0 0 18px; }
+  .sec-head .tick { font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.18em; color:var(--acc2); white-space:nowrap; }
+  .sec-head .bar { flex:1; height:1px; background:linear-gradient(90deg, rgba(var(--acc2-rgb),.45), transparent); }
+
+  /* nav cards */
+  .nav-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(232px,1fr)); gap:13px; }
+  .nav-btn { position:relative; display:flex; align-items:center; gap:14px; padding:17px 18px; border:1px solid rgba(var(--acc-rgb),.32); border-radius:11px; background:rgba(11,10,20,.7); backdrop-filter:blur(7px); text-decoration:none; color:#e6e6ff; overflow:hidden; transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease, background .22s ease; }
+  .nav-btn .nav-accent { position:absolute; top:0; left:0; height:2px; width:0; background:linear-gradient(90deg, var(--acc), var(--acc2)); transition:width .3s ease; }
+  .nav-btn:hover { transform:translateY(-4px); border-color:var(--acc); background:rgba(16,14,28,.85); box-shadow:0 14px 40px rgba(0,0,0,.5), 0 0 22px rgba(var(--acc-rgb),.2); }
+  .nav-btn:hover .nav-accent { width:100%; }
+  .nav-btn:hover .nav-ico { color:var(--acc); border-color:var(--acc); box-shadow:0 0 16px rgba(var(--acc-rgb),.4); }
+  .nav-btn:hover .nav-arrow { transform:translateX(3px); opacity:1; color:var(--acc); }
+  .nav-ico { flex:none; width:42px; height:42px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(var(--acc2-rgb),.35); border-radius:9px; color:var(--acc2); background:rgba(var(--acc2-rgb),.05); transition:all .22s ease; }
+  .nav-ico svg { transition:transform .2s ease; }
+  .nav-label { flex:1; font-size:1rem; font-weight:600; line-height:1.28; letter-spacing:.01em; }
+  .nav-arrow { flex:none; font-size:1.1rem; opacity:.4; transition:all .22s ease; }
+  .na-tools:hover .nav-ico svg { animation:hvWrench .6s ease; }
+  .na-live:hover .nav-ico svg { animation:hvBlink .5s steps(1) 2; }
+  .na-methods:hover .nav-ico svg { animation:hvBook .7s ease; }
+  .na-socials:hover .nav-ico svg { animation:hvPulse .55s ease; }
+  .na-news:hover .nav-ico svg { animation:hvShake .5s ease; }
+  .na-dash:hover .nav-ico svg { animation:hvSpin .8s linear; }
+  .na-wanted:hover .nav-ico svg { animation:hvLock .6s ease; }
+  .na-dox:hover .nav-ico svg { animation:hvBounce .55s ease; }
+
+  /* info panels */
+  .panel-row { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .panel { position:relative; padding:24px 26px; border:1px solid rgba(var(--acc-rgb),.4); border-top:2px solid var(--acc); border-radius:14px; background:rgba(10,9,18,.72); backdrop-filter:blur(11px); box-shadow:0 8px 50px rgba(0,0,0,.45); transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; overflow:hidden; }
+  .panel:hover { transform:translateY(-4px); border-color:var(--acc); box-shadow:0 16px 60px rgba(0,0,0,.55), 0 0 30px rgba(var(--acc-rgb),.18); }
+  .panel-title { font-size:1.45rem; font-weight:800; letter-spacing:.12em; color:var(--acc); text-shadow:0 0 14px rgba(var(--acc-rgb),.55); animation:pulseGlow 2.8s infinite; }
+  .panel-mail { display:inline-block; color:var(--acc); font-family:'JetBrains Mono',monospace; font-size:1rem; border:1px dashed var(--acc); padding:9px 13px; border-radius:8px; margin:12px 0 16px; text-decoration:none; transition:all .25s ease; word-break:break-all; }
+  .panel-mail:hover { background:var(--acc); color:#08080f; box-shadow:0 0 22px rgba(var(--acc-rgb),.6); transform:translateY(-2px); }
+  .panel-body { padding:15px 17px; border:1px solid rgba(var(--acc-rgb),.32); border-radius:10px; background:rgba(8,8,16,.45); font-size:.97rem; line-height:1.58; color:rgba(224,224,255,.82); }
+
+  /* viz shared */
+  .viz { position:relative; width:188px; height:188px; margin:4px auto 18px; }
+  .sonar { position:absolute; top:50%; left:50%; width:150px; height:150px; margin:0; border-radius:50%; border:1px solid rgba(var(--acc-rgb),.6); transform:translate(-50%,-50%) scale(.34); animation:sonarOut 2.8s ease-out infinite; }
+  .tip-core { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
+  .tip-core svg { color:var(--acc); animation:shieldGlow 2.6s ease-in-out infinite; }
+  .tip-core .alert { animation:alertBlink 1.3s steps(1) infinite; }
+  .tip-in { position:absolute; top:50%; left:50%; width:7px; height:7px; margin:-3.5px 0 0 -3.5px; border-radius:50%; background:var(--acc2); box-shadow:0 0 9px var(--acc2); animation:tipIn 3.4s ease-in infinite; }
+  .robo { width:100%; height:100%; animation:sway 5.2s ease-in-out infinite; transform-box:fill-box; transform-origin:center; overflow:visible; }
+  .robo .halo { transform-box:fill-box; transform-origin:center; animation:haloSpin 16s linear infinite; }
+  .robo .halo2 { transform-box:fill-box; transform-origin:center; animation:haloSpinRev 22s linear infinite; }
+  .robo .eyes { transform-box:fill-box; transform-origin:center; animation:eyeBlink 4.6s ease-in-out infinite; }
+  .robo .eq { transform-box:fill-box; transform-origin:bottom; animation:eq 1.1s ease-in-out infinite; }
+  .robo .ant-ping { transform-box:fill-box; transform-origin:center; animation:antPing 1.9s ease-out infinite; }
+  .robo .eye { fill:#e6fbff; animation:eyeGlow 2.6s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
+  .robo .eye.e2 { animation-delay:.35s; }
+  .robo .eye-halo { fill:none; stroke:var(--acc2); stroke-width:1.4; opacity:.55; }
+  .robo .ant-dot { fill:var(--acc); animation:blink2 2.4s steps(1) infinite; }
+  .robo .ear-ring { transform-box:fill-box; transform-origin:center; animation:spin360 6s linear infinite; }
+  .robo .stat { animation:statBlink 1.7s steps(1) infinite; }
+  .robo .stat.s2 { animation-delay:.85s; }
+
+  /* donations */
+  .crypto-row { display:flex; flex-direction:column; gap:4px; width:100%; padding:12px 16px; background:rgba(var(--acc-rgb),.05); border:1px solid rgba(var(--acc-rgb),.2); border-radius:9px; text-align:left; transition:border-color .2s ease, background .2s ease; }
+  .crypto-row:hover { border-color:rgba(var(--acc-rgb),.5); background:rgba(var(--acc-rgb),.09); }
+  .crypto-label { color:var(--acc); font-weight:700; font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; font-family:'JetBrains Mono',monospace; }
+  .crypto-addr { color:var(--acc2); font-family:'JetBrains Mono',monospace; font-size:.88rem; word-break:break-all; line-height:1.4; opacity:.9; }
+
+  .foot { max-width:1180px; margin:34px auto 0; padding:18px 22px 40px; text-align:center; position:relative; z-index:1; }
+  .foot-line { height:1px; background:linear-gradient(90deg, transparent, rgba(var(--acc-rgb),.4), transparent); margin-bottom:16px; }
+  .foot-tag { font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.16em; color:#6a6a90; }
+
+  ::-webkit-scrollbar { width:8px; }
+  ::-webkit-scrollbar-track { background:#08080f; }
+  ::-webkit-scrollbar-thumb { background:var(--acc); border-radius:4px; }
+
+  @media (max-width:1080px){ .side-box{ flex-basis:212px; width:212px; } }
+  @media (max-width:920px){
+    .hero-top{ flex-direction:column; gap:14px; }
+    .side-box{ flex-basis:auto; width:100%; max-width:380px; }
+    .side-box.drip-left,.side-box.drip-right{ animation-name:dripUp; }
+    .panel-row{grid-template-columns:1fr;}
+  }
+  @keyframes dripUp { 0%{opacity:0;transform:translateY(-34px) scaleY(.3);filter:blur(9px)} 40%{opacity:1} 100%{opacity:1;transform:none;filter:blur(0)} }
+  @media (max-width:768px){
+    .topbar-ctrls.desktop-only { display:none; }
+    .hamburger { display:flex; }
+    .nav-section { display:none; }
+    .glass-text { padding:22px 18px 26px; border-radius:20px; }
+    .title-stage { padding:12px 8px 14px; }
+    .ascii-title { font-size:9px; }
+    .lead { font-size:.9rem; }
+    .crypto-grid { grid-template-columns:1fr !important; }
+    .crypto-row.span2 { grid-column:auto !important; }
+    /* keep the inquiries button inside the panel: let the email wrap to its own line */
+    .inquiry-btn { flex-wrap:wrap; justify-content:center; max-width:100%; box-sizing:border-box; font-size:.85rem; padding:10px 12px; text-align:center; }
+    /* hero: ASCII title on top, tip/founder boxes compact — all three fit the first viewport */
+    .hero { gap:12px; padding-top:16px; }
+    .hero-top { gap:10px; }
+    .glass-title { order:-1; padding:12px 14px 13px; width:100%; max-width:340px; box-sizing:border-box; }
+    .side-box { padding:12px 14px 13px; max-width:340px; }
+    .side-viz { width:62px; height:62px; margin:0 auto 6px; }
+    .side-viz .viz { transform:translate(-50%,-50%) scale(.33); }
+    .side-title { font-size:.9rem; margin-bottom:6px; }
+    .side-mail { font-size:.68rem; padding:4px 7px; }
+    .side-cue { margin-top:8px; }
+  }
+  @media (max-width:430px){ .ascii-title { font-size:7px; } .brand-mark{ display:none; } }
+</style>
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+<div class="bg-bloom"></div>
+<div class="bg-grid"></div>
+<div class="bg-vignette"></div>
+<div class="particles" id="particles"></div>
+<div class="data-stream" id="data-stream"></div>
+
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal">
+    <span class="brand-dot"></span>
+    <span class="brand-mark"><b>OSINT</b> Cabal</span>
+  </a>
+  <div class="topbar-ctrls desktop-only">
+    <a href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" class="ctrl" target="_blank">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      Onion Available!
+    </a>
+    <button class="ctrl js-anim">Toggle Animations</button>
+    <button class="ctrl js-color">Invert Colors</button>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</header>
+
+<div class="menu-scrim" id="menuScrim"></div>
+<nav class="mobile-menu" id="mobileMenu">
+  <a class="mm-link" href="tools.html"><span class="nav-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a3.6 3.6 0 0 0-4.9 4.6L3 17.7V21h3.3l6.8-6.8a3.6 3.6 0 0 0 4.6-4.9l-2.6 2.6-2.1-2.1 2.6-2.6z"/></svg></span>Catalogue of Tools &amp; Resources</a>
+  <a class="mm-link" href="livecenter/live.html"><span class="nav-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>Cabal Live Tool Center</a>
+  <a class="mm-link" href="methods.html"><span class="nav-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a3 3 0 0 1 3 3v13a2.5 2.5 0 0 0-2.5-2.5H2z"/><path d="M22 4h-6a3 3 0 0 0-3 3v13a2.5 2.5 0 0 1 2.5-2.5H22z"/></svg></span>Methods &amp; Guides Database</a>
+  <a class="mm-link" href="socials.html"><span class="nav-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.9 7.9"/></svg></span>Socials &amp; Contact</a>
+  <a class="mm-link" href="https://osintcabal-news.vercel.app/"><span class="nav-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V4a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v16a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-9h4"/><path d="M16 8h-6M16 12h-6M11 16H10"/></svg></span>News</a>
+  <a class="mm-link" href="https://osintcabal.org/cabaldashboard/"><span class="nav-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19.07 4.93A10 10 0 1 0 22 12"/><path d="M12 12 18 6"/><circle cx="12" cy="12" r="3.5"/></svg></span>Cabal Threat Actor Dashboard</a>
+  <a class="mm-link" href="https://osintcabal.org/cabaldashboard/mostwanted.html"><span class="nav-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><line x1="12" y1="1.5" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22.5" y2="12"/></svg></span>Cabal Most Wanted</a>
+  <a class="mm-link" href="https://osintcabal.org/cabaldashboard/doxbin.html"><span class="nav-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg></span>Cabal Doxbin</a>
+  <div class="mm-divider"></div>
+  <div class="mm-ctrls">
+    <a href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" class="ctrl" target="_blank">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      Onion Available!
+    </a>
+    <button class="ctrl js-anim">Toggle Animations</button>
+    <button class="ctrl js-color">Invert Colors</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-top">
+
+    <div class="side-box glass" id="sideTip" role="button" tabindex="0">
+      <div class="side-viz">
+        <div class="viz">
+          <span class="sonar"></span>
+          <span class="sonar" style="animation-delay:.93s;"></span>
+          <span class="sonar" style="animation-delay:1.86s;"></span>
+          <div class="tip-core">
+            <svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2.6 4.6 5.4v5.1c0 4.4 3.1 8.3 7.4 9.5 4.3-1.2 7.4-5.1 7.4-9.5V5.4z"/>
+              <line class="alert" x1="12" y1="8" x2="12" y2="13"/>
+              <circle class="alert" cx="12" cy="16" r="0.7" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <span class="tip-in" style="--sx:-66px; --sy:-50px;"></span>
+          <span class="tip-in" style="--sx:64px; --sy:-44px; animation-delay:.85s;"></span>
+          <span class="tip-in" style="--sx:-58px; --sy:54px; animation-delay:1.7s;"></span>
+          <span class="tip-in" style="--sx:62px; --sy:56px; animation-delay:2.55s;"></span>
+        </div>
+      </div>
+      <div class="side-title">TIP LINE</div>
+      <a class="side-mail" data-mail="TipLine|OSINTCabal.org" href="mailto:" onclick="event.stopPropagation()"><span class="ef" data-mail="TipLine|OSINTCabal.org"></span></a>
+      <div class="side-cue"><span>DETAILS</span><span class="dl">⌄</span></div>
+    </div>
+
+    <div class="glass glass-title">
+      <div class="title-stage" id="titleStage">
+        <span class="bracket br-tl"></span>
+        <span class="bracket br-tr"></span>
+        <span class="bracket br-bl"></span>
+        <span class="bracket br-br"></span>
+        <pre class="ascii-title" id="asciiTitle">   
+
+ ▒█████       ██████     ██▓    ███▄    █    ▄▄▄█████▓
+▒██▒  ██▒   ▒██    ▒    ▓██▒    ██ ▀█   █    ▓  ██▒ ▓▒
+▒██░  ██▒   ░ ▓██▄      ▒██▒   ▓██  ▀█ ██▒   ▒ ▓██░ ▒░
+▒██   ██░     ▒   ██▒   ░██░   ▓██▒  ▐▌██▒   ░ ▓██▓ ░ 
+░ ████▓▒░   ▒██████▒▒   ░██░   ▒██░   ▓██░     ▒██▒ ░ 
+░ ▒░▒░▒░    ▒ ▒▓▒ ▒ ░   ░▓     ░ ▒░   ▒ ▒      ▒ ░░   
+  ░ ▒ ▒░    ░ ░▒  ░ ░    ▒ ░   ░ ░░   ░ ▒░       ░    
+░ ░ ░ ▒     ░  ░  ░      ▒ ░      ░   ░ ░      ░      
+    ░ ░           ░      ░              ░             
+                                                      
+       ▄████▄   ▄▄▄       ▄▄▄▄    ▄▄▄       ██▓       
+      ▒██▀ ▀█  ▒████▄    ▓█████▄ ▒████▄    ▓██▒       
+      ▒▓█    ▄ ▒██  ▀█▄  ▒██▒ ▄██▒██  ▀█▄  ▒██░       
+      ▒▓▓▄ ▄██▒░██▄▄▄▄██ ▒██░█▀  ░██▄▄▄▄██ ▒██░       
+      ▒ ▓███▀ ░ ▓█   ▓██▒░▓█  ▀█▓ ▓█   ▓██▒░██████▒   
+      ░ ░▒ ▒  ░ ▒▒   ▓▒█░░▒▓███▀▒ ▒▒   ▓▒█░░ ▒░▓  ░   
+        ░  ▒     ▒   ▒▒ ░▒░▒   ░   ▒   ▒▒ ░░ ░ ▒  ░   
+      ░          ░   ▒    ░    ░   ░   ▒     ░ ░      
+      ░ ░            ░  ░ ░            ░  ░    ░  ░   
+      ░                        ░                      
+           </pre>
+      </div>
+    </div>
+
+    <div class="side-box glass" id="sideFounder" role="button" tabindex="0">
+      <div class="side-viz">
+        <div class="viz">
+          <svg class="robo" viewBox="0 0 200 188">
+            <defs>
+              <clipPath id="visorClipS"><path d="M52 80 L148 74 L146 104 L54 108 Z"/></clipPath>
+              <linearGradient id="helmetGradS" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#211b30"/><stop offset="1" stop-color="#100c1a"/>
+              </linearGradient>
+            </defs>
+            <circle class="halo" cx="100" cy="98" r="86" fill="none" stroke="var(--acc2)" stroke-width="1.2" stroke-dasharray="3 9" opacity=".42"/>
+            <circle class="halo2" cx="100" cy="98" r="75" fill="none" stroke="var(--acc)" stroke-width="1" stroke-dasharray="14 10" opacity=".32"/>
+            <line x1="100" y1="34" x2="100" y2="18" stroke="rgba(var(--acc-rgb),.7)" stroke-width="2"/>
+            <circle class="ant-dot" cx="100" cy="15" r="3.4"/>
+            <circle class="ant-ping" cx="100" cy="15" r="6" fill="none" stroke="var(--acc2)" stroke-width="1.4"/>
+            <g>
+              <circle cx="158" cy="92" r="17" fill="#15101f" stroke="rgba(var(--acc-rgb),.6)" stroke-width="1.6"/>
+              <circle class="ear-ring" cx="158" cy="92" r="21" fill="none" stroke="var(--acc)" stroke-width="1.4" stroke-dasharray="5 6" opacity=".8"/>
+              <circle cx="158" cy="92" r="6" fill="none" stroke="var(--acc2)" stroke-width="1.4"/>
+            </g>
+            <circle cx="44" cy="96" r="9" fill="#15101f" stroke="rgba(var(--acc2-rgb),.5)" stroke-width="1.4"/>
+            <circle class="ear-ring" cx="44" cy="96" r="12" fill="none" stroke="var(--acc2)" stroke-width="1.2" stroke-dasharray="4 5" opacity=".6"/>
+            <path d="M54 110 L50 78 Q52 46 84 40 L100 37 L120 41 Q150 48 150 80 L146 112 L138 146 L116 160 L84 160 L62 146 Z" fill="url(#helmetGradS)" stroke="var(--acc)" stroke-width="1.7"/>
+            <path d="M56 74 Q100 58 144 70 L148 74 L146 60 Q100 46 54 62 Z" fill="#2a2138" stroke="rgba(var(--acc-rgb),.5)" stroke-width="1"/>
+            <path d="M52 80 L148 74 L146 104 L54 108 Z" fill="#0b0814" stroke="rgba(var(--acc2-rgb),.45)" stroke-width="1.2"/>
+            <g class="eyes">
+              <circle class="eye-halo" cx="80" cy="92" r="11"/>
+              <circle class="eye-halo e2" cx="120" cy="90" r="11"/>
+              <circle class="eye" cx="80" cy="92" r="6.4"/>
+              <circle class="eye e2" cx="120" cy="90" r="6.4"/>
+              <circle cx="80" cy="92" r="2.3" fill="#0b0814"/>
+              <circle cx="120" cy="90" r="2.3" fill="#0b0814"/>
+            </g>
+            <rect class="eq" x="83" y="124" width="4" height="18" rx="1.4" fill="var(--acc)" style="animation-delay:0s"/>
+            <rect class="eq" x="90" y="124" width="4" height="18" rx="1.4" fill="var(--acc)" style="animation-delay:.16s"/>
+            <rect class="eq" x="97" y="124" width="4" height="18" rx="1.4" fill="var(--acc2)" style="animation-delay:.34s"/>
+            <rect class="eq" x="104" y="124" width="4" height="18" rx="1.4" fill="var(--acc)" style="animation-delay:.10s"/>
+            <rect class="eq" x="111" y="124" width="4" height="18" rx="1.4" fill="var(--acc)" style="animation-delay:.28s"/>
+            <circle class="stat" cx="70" cy="150" r="2.6" fill="var(--acc)"/>
+            <circle class="stat s2" cx="130" cy="150" r="2.6" fill="var(--acc2)"/>
+          </svg>
+        </div>
+      </div>
+      <div class="side-title">FOUNDER&nbsp;-&nbsp;TERRORBYTE</div>
+      <a class="side-mail" data-mail="TerrorByte|OSINTCabal.org" href="mailto:" onclick="event.stopPropagation()"><span class="ef" data-mail="TerrorByte|OSINTCabal.org"></span></a>
+      <div class="side-cue"><span>DETAILS</span><span class="dl">⌄</span></div>
+    </div>
+
+  </div>
+
+  <div class="glass glass-text">
+    <p class="lead" id="home-desc" data-text="Welcome to the OSINT Cabal! We are a loose collective of both casual and licensed investigators providing resources for those who share our passion for OSINT. We believe in doing what we can and for us that means investigating online criminals, reporting and monitoring individuals and groups we identify, and helping others on their journey into online sleuthing. On this site you will find original guides, tool lists for both CLI and web resources, and other fun tidbits. Get involved, help us out, and send tips!"></p>
+    <a class="inquiry-btn" data-mail="Contact|OSINTCabal.org" href="mailto:">INQUIRIES:&nbsp;<span class="ef" data-mail="Contact|OSINTCabal.org"></span></a>
+  </div>
+
+  <div class="scroll-ind" id="scrollInd">
+    <div class="mouse"><div class="wheel"></div></div>
+    <div class="chev">⌄</div>
+    <div class="label">SCROLL</div>
+  </div>
+
+</section>
+
+<div class="block2" id="section2">
+<div class="sec reveal nav-section">
+  <div class="sec-head"><span class="tick">// NAVIGATION</span><span class="bar"></span></div>
+  <div class="nav-grid">
+    <a class="nav-btn na-tools" href="tools.html"><span class="nav-accent"></span><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a3.6 3.6 0 0 0-4.9 4.6L3 17.7V21h3.3l6.8-6.8a3.6 3.6 0 0 0 4.6-4.9l-2.6 2.6-2.1-2.1 2.6-2.6z"/></svg></span><span class="nav-label">Catalogue of Tools &amp; Resources</span><span class="nav-arrow">→</span></a>
+    <a class="nav-btn na-live" href="livecenter/live.html"><span class="nav-accent"></span><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span><span class="nav-label">Cabal Live Tool Center</span><span class="nav-arrow">→</span></a>
+    <a class="nav-btn na-methods" href="methods.html"><span class="nav-accent"></span><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a3 3 0 0 1 3 3v13a2.5 2.5 0 0 0-2.5-2.5H2z"/><path d="M22 4h-6a3 3 0 0 0-3 3v13a2.5 2.5 0 0 1 2.5-2.5H22z"/></svg></span><span class="nav-label">Methods &amp; Guides Database</span><span class="nav-arrow">→</span></a>
+    <a class="nav-btn na-socials" href="socials.html"><span class="nav-accent"></span><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.9 7.9"/></svg></span><span class="nav-label">Socials &amp; Contact</span><span class="nav-arrow">→</span></a>
+    <a class="nav-btn na-news" href="https://osintcabal-news.vercel.app/"><span class="nav-accent"></span><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V4a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v16a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-9h4"/><path d="M16 8h-6M16 12h-6M11 16H10"/></svg></span><span class="nav-label">News</span><span class="nav-arrow">→</span></a>
+    <a class="nav-btn na-dash" href="https://osintcabal.org/cabaldashboard/"><span class="nav-accent"></span><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19.07 4.93A10 10 0 1 0 22 12"/><path d="M12 12 18 6"/><circle cx="12" cy="12" r="3.5"/></svg></span><span class="nav-label">Cabal Threat Actor Dashboard</span><span class="nav-arrow">→</span></a>
+    <a class="nav-btn na-wanted" href="https://osintcabal.org/cabaldashboard/mostwanted.html"><span class="nav-accent"></span><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><line x1="12" y1="1.5" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22.5" y2="12"/></svg></span><span class="nav-label">Cabal Most Wanted</span><span class="nav-arrow">→</span></a>
+    <a class="nav-btn na-dox" href="https://osintcabal.org/cabaldashboard/doxbin.html"><span class="nav-accent"></span><span class="nav-ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg></span><span class="nav-label">Cabal Doxbin</span><span class="nav-arrow">→</span></a>
+  </div>
+</div>
+
+<div class="sec reveal" id="contact">
+  <div class="sec-head"><span class="tick">// CONTACT &amp; COLLECTIVE</span><span class="bar"></span></div>
+  <div class="panel-row">
+
+    <div class="panel">
+      <div class="viz">
+        <span class="sonar"></span>
+        <span class="sonar" style="animation-delay:.93s;"></span>
+        <span class="sonar" style="animation-delay:1.86s;"></span>
+        <div class="tip-core">
+          <svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2.6 4.6 5.4v5.1c0 4.4 3.1 8.3 7.4 9.5 4.3-1.2 7.4-5.1 7.4-9.5V5.4z"/>
+            <line class="alert" x1="12" y1="8" x2="12" y2="13"/>
+            <circle class="alert" cx="12" cy="16" r="0.7" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <span class="tip-in" style="--sx:-66px; --sy:-50px;"></span>
+        <span class="tip-in" style="--sx:64px; --sy:-44px; animation-delay:.85s;"></span>
+        <span class="tip-in" style="--sx:-58px; --sy:54px; animation-delay:1.7s;"></span>
+        <span class="tip-in" style="--sx:62px; --sy:56px; animation-delay:2.55s;"></span>
+      </div>
+      <div class="panel-title">TIP LINE</div>
+      <a class="panel-mail" data-mail="TipLine|OSINTCabal.org" href="mailto:"><span class="ef" data-mail="TipLine|OSINTCabal.org"></span></a>
+      <div class="panel-body">Have you stumbled onto some troubling forums? Did you find a sketchy website that needs a review? Send it our way! We will identify who we can and report it to the necessary authorities. Casual Inquiries at <span class="ef" data-mail="Contact|OSINTCabal.org"></span></div>
+    </div>
+
+    <div class="panel">
+      <div class="viz">
+        <svg class="robo" viewBox="0 0 200 188">
+          <defs>
+            <clipPath id="visorClip"><path d="M52 80 L148 74 L146 104 L54 108 Z"/></clipPath>
+            <linearGradient id="helmetGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#211b30"/><stop offset="1" stop-color="#100c1a"/>
+            </linearGradient>
+          </defs>
+          <circle class="halo" cx="100" cy="98" r="86" fill="none" stroke="var(--acc2)" stroke-width="1.2" stroke-dasharray="3 9" opacity=".42"/>
+          <circle class="halo2" cx="100" cy="98" r="75" fill="none" stroke="var(--acc)" stroke-width="1" stroke-dasharray="14 10" opacity=".32"/>
+          <line x1="100" y1="34" x2="100" y2="18" stroke="rgba(var(--acc-rgb),.7)" stroke-width="2"/>
+          <circle class="ant-dot" cx="100" cy="15" r="3.4"/>
+          <circle class="ant-ping" cx="100" cy="15" r="6" fill="none" stroke="var(--acc2)" stroke-width="1.4"/>
+          <g>
+            <circle cx="158" cy="92" r="17" fill="#15101f" stroke="rgba(var(--acc-rgb),.6)" stroke-width="1.6"/>
+            <circle class="ear-ring" cx="158" cy="92" r="21" fill="none" stroke="var(--acc)" stroke-width="1.4" stroke-dasharray="5 6" opacity=".8"/>
+            <circle cx="158" cy="92" r="6" fill="none" stroke="var(--acc2)" stroke-width="1.4"/>
+          </g>
+          <circle cx="44" cy="96" r="9" fill="#15101f" stroke="rgba(var(--acc2-rgb),.5)" stroke-width="1.4"/>
+          <circle class="ear-ring" cx="44" cy="96" r="12" fill="none" stroke="var(--acc2)" stroke-width="1.2" stroke-dasharray="4 5" opacity=".6"/>
+          <path d="M54 110 L50 78 Q52 46 84 40 L100 37 L120 41 Q150 48 150 80 L146 112 L138 146 L116 160 L84 160 L62 146 Z" fill="url(#helmetGrad)" stroke="var(--acc)" stroke-width="1.7"/>
+          <path d="M56 74 Q100 58 144 70 L148 74 L146 60 Q100 46 54 62 Z" fill="#2a2138" stroke="rgba(var(--acc-rgb),.5)" stroke-width="1"/>
+          <path d="M52 80 L148 74 L146 104 L54 108 Z" fill="#0b0814" stroke="rgba(var(--acc2-rgb),.45)" stroke-width="1.2"/>
+          <g class="eyes">
+          <circle class="eye-halo" cx="80" cy="92" r="11"/>
+          <circle class="eye-halo e2" cx="120" cy="90" r="11"/>
+          <circle class="eye" cx="80" cy="92" r="6.4"/>
+          <circle class="eye e2" cx="120" cy="90" r="6.4"/>
+          <circle cx="80" cy="92" r="2.3" fill="#0b0814"/>
+          <circle cx="120" cy="90" r="2.3" fill="#0b0814"/>
+          </g>
+          <rect class="eq" x="83" y="124" width="4" height="18" rx="1.4" fill="var(--acc)" style="animation-delay:0s"/>
+          <rect class="eq" x="90" y="124" width="4" height="18" rx="1.4" fill="var(--acc)" style="animation-delay:.16s"/>
+          <rect class="eq" x="97" y="124" width="4" height="18" rx="1.4" fill="var(--acc2)" style="animation-delay:.34s"/>
+          <rect class="eq" x="104" y="124" width="4" height="18" rx="1.4" fill="var(--acc)" style="animation-delay:.10s"/>
+          <rect class="eq" x="111" y="124" width="4" height="18" rx="1.4" fill="var(--acc)" style="animation-delay:.28s"/>
+          <circle class="stat" cx="70" cy="150" r="2.6" fill="var(--acc)"/>
+          <circle class="stat s2" cx="130" cy="150" r="2.6" fill="var(--acc2)"/>
+        </svg>
+      </div>
+      <div class="panel-title">FOUNDER&nbsp;-&nbsp;TERRORBYTE</div>
+      <a class="panel-mail" data-mail="TerrorByte|OSINTCabal.org" href="mailto:"><span class="ef" data-mail="TerrorByte|OSINTCabal.org"></span></a>
+      <div class="panel-body">After becoming a licensed Private Investigator in the state of [REDACTED], I fell in love with OSINT. I wanted to create a hub for people of all skill levels to go and find tools, resources, and guides. I hope you all find this website useful. Shoot me an email and begin your #OSINT4Good Journey Today!</div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<div class="sec reveal">
+  <div class="sec-head"><span class="tick">// SUPPORT THE PROJECT</span><span class="bar"></span></div>
+  <div class="panel" style="border-top:2px solid var(--acc); text-align:center;">
+    <div style="color:var(--acc); font-size:1.6rem; font-weight:800; letter-spacing:.08em; text-shadow:0 0 14px rgba(var(--acc-rgb),.5); margin-bottom:8px;">DONATIONS</div>
+    <div style="font-size:1rem; line-height:1.5; margin-bottom:20px; color:rgba(220,220,255,.78);">This is a passion project funded entirely by Terrorbyte. If you would like to support the project we graciously accept all donations!</div>
+    <div class="crypto-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:12px; max-width:960px; margin:0 auto;">
+      <div class="crypto-row"><div class="crypto-label">Bitcoin</div><div class="crypto-addr">bc1q3zpmaemftadnnxcux9gaccvdwl268t4wc3ypq2</div></div>
+      <div class="crypto-row"><div class="crypto-label">Solana</div><div class="crypto-addr">2i6ZYh4MKeZXhJpAE4MW2CUbjb6927NJoYEKZpfbZG47</div></div>
+      <div class="crypto-row span2" style="grid-column:1 / -1;"><div class="crypto-label">Monero</div><div class="crypto-addr">8BBhL9omi3ceac4eo5wdQNjVasbEPKLQXGQC6ZSjJmhL4JFXoFtBEwSQpHes5Uendp3MRn7MHsLKAdrULVa25Urc43BaQtZ</div></div>
+      <div class="crypto-row span2" style="grid-column:1 / -1;"><div class="crypto-label">Ethereum (Main-Net)</div><div class="crypto-addr">0xAA2d69aF1202133DF6f45831Bbcf2C62EF9A28aB</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="foot reveal">
+  <div class="foot-line"></div>
+  <div class="foot-tag">OSINT CABAL · #OSINT4Good</div>
+</div>
+<script>
+class DCLogic { constructor(){ this.props = {}; this.state = {}; } setState(u){ if(typeof u==='function'){ Object.assign(this.state, u(this.state)); } else { Object.assign(this.state, u); } } forceUpdate(){} }
+class Component extends DCLogic {
+  componentDidMount() {
+    this.animationsEnabled = true;
+    this.theme = 'pink';
+    this._initVanta();
+    this._buildParticles();
+    this._buildStream();
+    this._revealEmails();
+    this._runIntro();
+    this._observeScroll();
+    this._wireControls();
+    this._wireHamburger();
+    this._wireScrollInd();
+    this._wireSideBoxes();
+  }
+
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+    if (this._typeTimer) clearTimeout(this._typeTimer);
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+  }
+
+  _scrollToEl(el) {
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - 58;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+
+  _runIntro() {
+    const stage = document.getElementById('titleStage');
+    const pre = document.getElementById('asciiTitle');
+    // title digitization + flicker, intro box appears at same time
+    if (stage) stage.classList.add('flick');
+    if (pre) this._digitize(pre);
+    setTimeout(() => this._typeDescription(), 120);
+    // side boxes drip off the title, then slide to their flanks
+    const tip = document.getElementById('sideTip');
+    const fnd = document.getElementById('sideFounder');
+    setTimeout(() => {
+      if (tip) tip.classList.add('drip-left');
+      if (fnd) fnd.classList.add('drip-right');
+    }, 760);
+  }
+
+  _digitize(pre) {
+    const full = pre.textContent;
+    if (!this.animationsEnabled) { return; }
+    const glyphs = '░▒▓█▄▀';
+    const lines = full.split('\n');
+    const w = Math.max(1, ...lines.map(l => l.length));
+    const h = lines.length;
+    const start = performance.now();
+    const dur = 980;
+    const frame = (now) => {
+      const t = (now - start) / dur;
+      if (t >= 1) { pre.textContent = full; return; }
+      let out = '';
+      for (let y = 0; y < lines.length; y++) {
+        const line = lines[y];
+        for (let x = 0; x < line.length; x++) {
+          const ch = line[x];
+          if (ch === ' ') { out += ' '; continue; }
+          const prog = (x / w) * 0.5 + (y / h) * 0.5;
+          if (t > prog + 0.14) out += ch;
+          else if (t > prog - 0.06) out += glyphs[(Math.random() * glyphs.length) | 0];
+          else out += (Math.random() < 0.5 ? ' ' : glyphs[(Math.random() * glyphs.length) | 0]);
+        }
+        out += '\n';
+      }
+      pre.textContent = out;
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
+  }
+
+  _wireSideBoxes() {
+    const tip = document.getElementById('sideTip');
+    const fnd = document.getElementById('sideFounder');
+    const contact = document.getElementById('contact');
+    const sec2 = document.getElementById('section2');
+    const go = (el) => this._scrollToEl(el);
+    if (tip) {
+      tip.addEventListener('click', () => go(sec2));
+      tip.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(sec2); } });
+    }
+    if (fnd) {
+      fnd.addEventListener('click', () => go(contact));
+      fnd.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(contact); } });
+    }
+  }
+
+  _revealEmails() {
+    document.querySelectorAll('.ef').forEach(s => {
+      const p = (s.dataset.mail || '').split('|');
+      if (p.length === 2) s.textContent = p[0] + '@' + p[1];
+    });
+    document.querySelectorAll('a[data-mail]').forEach(a => {
+      const p = (a.dataset.mail || '').split('|');
+      if (p.length !== 2) return;
+      const addr = p[0] + '@' + p[1];
+      a.setAttribute('href', 'mailto:' + addr);
+      a.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); window.location.href = 'mailto:' + addr; });
+    });
+  }
+
+  _initVanta() {
+    // background stays the OPPOSITE of the frontend accent: pink boxes -> blue bg, blue boxes -> pink bg
+    if (window.__flowbg) window.__flowbg.setTheme(this.theme === 'pink' ? 'blue' : 'pink');
+  }
+
+  _buildParticles() {
+    const c = document.getElementById('particles');
+    if (!c) return;
+    // Mobile: skip the mouse-follow particles — no pointer to follow on touch,
+    // and 28 layout-updating divs per frame is pure cost there.
+    if (window.matchMedia && matchMedia('(max-width: 768px), (pointer: coarse)').matches) { c.innerHTML = ''; return; }
+    c.innerHTML = '';
+    let mx = 0, my = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    for (let i = 0; i < 28; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = (Math.random() * window.innerWidth) + 'px';
+      p.style.top = (Math.random() * window.innerHeight) + 'px';
+      c.appendChild(p);
+      (function animate(p) {
+        let x = parseFloat(p.style.left), y = parseFloat(p.style.top), tx = x, ty = y, last = 0;
+        function step(t) {
+          if (!last) last = t;
+          if (Math.random() < 0.02) { tx = mx + (Math.random() * 200 - 100); ty = my + (Math.random() * 200 - 100); }
+          x += (tx - x) * 0.05 * (t - last) * 0.01; y += (ty - y) * 0.05 * (t - last) * 0.01;
+          p.style.left = x + 'px'; p.style.top = y + 'px'; last = t;
+          requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      })(p);
+    }
+  }
+
+  _buildStream() {
+    const ds = document.getElementById('data-stream');
+    if (!ds) return;
+    ds.innerHTML = '';
+    for (let i = 0; i < 15; i++) {
+      const b = document.createElement('div');
+      b.className = 'data-bit';
+      let s = ''; const len = Math.floor(Math.random() * 10) + 5;
+      for (let j = 0; j < len; j++) s += Math.random() < 0.5 ? '0' : '1';
+      b.textContent = s;
+      b.style.left = (Math.random() * 100) + '%';
+      b.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      b.style.animationDelay = '-' + (Math.random() * 10) + 's';
+      ds.appendChild(b);
+    }
+  }
+
+  _typeDescription() {
+    const el = document.getElementById('home-desc');
+    if (!el) return;
+    const full = el.getAttribute('data-text') || '';
+    let i = 0;
+    const caret = document.createElement('span');
+    caret.className = 'caret';
+    const txt = document.createElement('span');
+    el.innerHTML = '';
+    el.appendChild(txt);
+    el.appendChild(caret);
+    const tick = () => {
+      if (!this.animationsEnabled) { txt.textContent = full; caret.remove(); return; }
+      i += 2;
+      txt.textContent = full.slice(0, i);
+      if (i < full.length) { this._typeTimer = setTimeout(tick, 13); }
+      else { setTimeout(() => caret.remove(), 1600); }
+    };
+    tick();
+  }
+
+  _observeScroll() {
+    const els = document.querySelectorAll('.reveal');
+    const reveal = (el, i) => setTimeout(() => el.classList.add('in'), (i % 3) * 110);
+    els.forEach((el, i) => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight - 40) reveal(el, i);
+    });
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          const i = Array.prototype.indexOf.call(els, e.target);
+          reveal(e.target, i);
+          this._io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(el => this._io.observe(el));
+    this._revealFallback = setTimeout(() => els.forEach(el => el.classList.add('in')), 1500);
+  }
+
+  _wireControls() {
+    document.querySelectorAll('.js-anim').forEach(at => at.addEventListener('click', () => {
+      this.animationsEnabled = !this.animationsEnabled;
+      const ps = document.getElementById('particles');
+      const ds = document.getElementById('data-stream');
+      if (window.__flowbg) window.__flowbg.setPaused(!this.animationsEnabled);
+      if (this.animationsEnabled) { if (ps) ps.style.display = 'block'; if (ds) ds.style.display = 'block'; }
+      else { if (ps) ps.style.display = 'none'; if (ds) ds.style.display = 'none'; }
+    }));
+    document.querySelectorAll('.js-color').forEach(ct => ct.addEventListener('click', () => {
+      this.theme = this.theme === 'pink' ? 'blue' : 'pink';
+      document.documentElement.classList.toggle('theme-blue', this.theme === 'blue');
+      // background is always the OPPOSITE of the boxes' accent color
+      if (window.__flowbg) window.__flowbg.setTheme(this.theme === 'pink' ? 'blue' : 'pink');
+    }));
+  }
+
+  _wireHamburger() {
+    const hb = document.getElementById('hamburger');
+    const menu = document.getElementById('mobileMenu');
+    const scrim = document.getElementById('menuScrim');
+    if (!hb || !menu) return;
+    const close = () => { hb.classList.remove('open'); menu.classList.remove('open'); if (scrim) scrim.classList.remove('open'); };
+    hb.addEventListener('click', () => {
+      const open = !menu.classList.contains('open');
+      hb.classList.toggle('open', open);
+      menu.classList.toggle('open', open);
+      if (scrim) scrim.classList.toggle('open', open);
+    });
+    if (scrim) scrim.addEventListener('click', close);
+    menu.querySelectorAll('.mm-link').forEach(a => a.addEventListener('click', close));
+  }
+
+  _wireScrollInd() {
+    const si = document.getElementById('scrollInd');
+    if (!si) return;
+    si.addEventListener('click', () => this._scrollToEl(document.getElementById('section2')));
+    this._onScroll = () => { si.style.opacity = window.scrollY > 60 ? '0' : '1'; };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+  }
+}
+(function(){ function boot(){ try { new Component().componentDidMount(); } catch(e){ console.error(e); } } if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', boot); } else { boot(); } })();
+</script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2724e532c72ceb7',t:'MTc4NjA2NDAyMw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c1b877ae34614',t:'MTc4OTAxODkyNw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

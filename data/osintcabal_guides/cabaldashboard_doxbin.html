@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabal Doxbin - Exposed Predators & OSINT Investigations | OSINT Cabal</title>
+    
+    <meta name="description" content="Cabal Doxbin: OSINT Cabal's public exposure database of verified predators, pedophiles, and MAP activists. Dossiers on Nick Munger (Fwucky), Mason Lacroix (Pokenbby), Jeremy Lowe (Remejy), Salina Rae Silver (SalemTheBurnout), and Florian Viets (Consuela/MAP-Pride Consuela). Report to FBI and NCMEC.">
+    <meta name="keywords" content="Cabal Doxbin, OSINT Cabal, predator exposure, pedophile exposure, MAP activist exposed, Nick Munger, Fwucky, Fwuckster, FWK_Pro, Portland pedophile, Mason Lacroix, Pokenbby, Austin predator, poke_master, Jeremy Lowe, Remejy, Seattle pedophile, Lowe_R_89, Salina Rae Silver, Alexander James Roe, SalemTheBurnout, Salem Grey, SnuffieSlits, Bowling Green Kentucky predator, Florian Viets, Consuela, NordConsuela, MAP-Pride Consuela, ConsuelaM4P, Germany pedophile, Kenneth Haggerty, alanboy, weirdpm.xyz, bl radio, CSAM advocate, report pedophile FBI, report to NCMEC, CyberTipline, child predator database, pro-contact MAP exposed, pedophile doxed, OSINT investigations, open source intelligence predators">
+    <meta name="author" content="OSINT Cabal">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="Cabal Doxbin - Exposed Predators | OSINT Cabal">
+    <meta property="og:description" content="OSINT Cabal's verified predator exposure database. Dossiers on Nick Munger, Mason Lacroix, Jeremy Lowe, Salina Rae Silver, and Florian Viets. Report them to the FBI and NCMEC.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://osintcabal.org/cabaldashboard/casecenter.html">
+    <meta property="og:site_name" content="OSINT Cabal">
+    <meta property="og:locale" content="en_US">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cabal Doxbin - Exposed Predators | OSINT Cabal">
+    <meta name="twitter:description" content="OSINT Cabal's verified predator exposure database. Dossiers on Nick Munger, Mason Lacroix, Jeremy Lowe, Salina Rae Silver, and Florian Viets. Report them to the FBI and NCMEC.">
+    <meta name="twitter:site" content="@OSINTCabal">
+    
+    <meta name="theme-color" content="#0f172a">
+    <meta name="msapplication-navbutton-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <link rel="canonical" href="https://osintcabal.org/cabaldashboard/casecenter.html">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <style>
+        #bg-canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; display: block; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .animated-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(100, 116, 139, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(100, 116, 139, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: gridMove 30s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(40px, 40px); }
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #f43f5e;
+            border-radius: 50%;
+            animation: floatAround 20s infinite ease-in-out;
+            box-shadow: 0 0 6px rgba(244, 63, 94, 0.7);
+        }
+        
+        @keyframes floatAround {
+            0% { transform: translate(0, 0) scale(1); opacity: 0; }
+            5% { opacity: 0.8; }
+            25% { transform: translate(100px, -25vh) scale(1.5); opacity: 0.9; }
+            50% { transform: translate(-50px, -50vh) scale(1); opacity: 0.8; }
+            75% { transform: translate(80px, -75vh) scale(1.3); opacity: 0.7; }
+            95% { opacity: 0.6; }
+            100% { transform: translate(-30px, -100vh) scale(0.8); opacity: 0; }
+        }
+        
+        .glow-pulse {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(100, 116, 139, 0.08) 0%, transparent 70%);
+            filter: blur(40px);
+            animation: pulse 10s infinite alternate;
+            z-index: 0;
+        }
+        .glow-pulse:nth-child(1) { top: 15%; left: 15%; background: radial-gradient(circle, rgba(244, 63, 94, 0.1) 0%, transparent 70%); }
+        .glow-pulse:nth-child(2) { bottom: 15%; right: 15%; background: radial-gradient(circle, rgba(244, 63, 94, 0.1) 0%, transparent 70%); }
+        .glow-pulse:nth-child(3) { top: 50%; left: 50%; transform: translate(-50%, -50%); background: radial-gradient(circle, rgba(244, 63, 94, 0.1) 0%, transparent 70%); }
+        
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.2; }
+            100% { transform: scale(1.1); opacity: 0.4; }
+        }
+        
+        .binary-stream {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .binary-line {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #4a90e2, transparent);
+            animation: binaryStream 8s linear infinite;
+        }
+        
+        @keyframes binaryStream {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .neon-circuit {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .circuit-line {
+            position: absolute;
+            background: #8b5cf6;
+            box-shadow: 0 0 5px #8b5cf6;
+        }
+        
+        .container {
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .case-card {
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                        transform 0.5s ease,
+                        opacity 0.6s ease,
+                        box-shadow 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.8));
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+            order: 0;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .case-card:active {
+            transform: translateY(0);
+        }
+        
+        .case-card.dimmed {
+            opacity: 0.2;
+            transform: scale(0.95) translateY(10px);
+            order: 999;
+            filter: blur(2px);
+        }
+
+        .case-card.highlighted {
+            order: -1;
+            box-shadow: 0 0 30px rgba(244, 63, 94, 0.4), 0 0 60px rgba(244, 63, 94, 0.2), 0 10px 40px rgba(0, 0, 0, 0.3);
+            border-color: #f43f5e;
+            transform: scale(1.02) translateY(-5px);
+            animation: highlightPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes highlightPulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(244, 63, 94, 0.4), 0 0 60px rgba(244, 63, 94, 0.2), 0 10px 40px rgba(0, 0, 0, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(244, 63, 94, 0.5), 0 0 80px rgba(244, 63, 94, 0.3), 0 15px 50px rgba(0, 0, 0, 0.4); }
+        }
+        
+        .glow-text { text-shadow: 0 0 8px rgba(99, 102, 241, 0.3); }
+        
+        .investigate-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: rgba(30, 41, 59, 0.8);
+            color: #94a3b8;
+            border: 1px solid #334155;
+        }
+        .investigate-btn:hover {
+            color: #cbd5e1;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-color: #475569;
+        }
+        .investigate-btn:active { transform: translateY(0); }
+        
+        .expand-btn {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid #334155;
+            color: #94a3b8;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        .expand-btn:hover {
+            background: rgba(56, 78, 119, 0.3);
+            color: #e2e8f0;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .expanded-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .expanded-content.active {
+            max-height: 5000px;
+            animation: contentReveal 0.8s ease-out;
+        }
+        @keyframes contentReveal {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .disclaimer-box {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+            border: 1px solid rgba(71, 85, 105, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .section-title {
+            color: #94a3b8;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .subsection {
+            background: rgba(30, 41, 59, 0.5);
+            border-left: 2px solid #475569;
+            padding: 1.25rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .pdf-btn {
+            background: linear-gradient(45deg, #dc2626, #ea580c);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+        }
+        .pdf-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(220, 38, 38, 0.3); }
+        .pdf-btn:active { transform: translateY(0); }
+        
+        .case-header {
+            background: rgba(30, 41, 59, 0.6);
+            padding: 1.25rem;
+            border-radius: 10px;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(51, 65, 85, 0.5);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+        .case-header:hover { background: rgba(30, 41, 59, 0.8); border-color: rgba(71, 85, 105, 0.7); }
+        .case-header:active { transform: scale(0.995); }
+        
+        .header-glow { animation: headerPulse 4s infinite alternate; }
+        @keyframes headerPulse {
+            0% { box-shadow: 0 0 8px rgba(71, 85, 105, 0.3); }
+            100% { box-shadow: 0 0 12px rgba(71, 85, 105, 0.5); }
+        }
+        
+        .animation-toggle {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #334155;
+            color: #94a3b8;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        .animation-toggle:hover {
+            background: rgba(56, 78, 119, 0.3);
+            color: #e2e8f0;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .animation-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .hidden-bg { display: none; }
+        
+        header { position: relative; z-index: 20; }
+        
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #334155;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .gallery-image:hover {
+            transform: scale(1.05);
+            border-color: #475569;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .modal.active { display: flex; justify-content: center; align-items: center; }
+        .modal-content { max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); }
+        .modal-close { position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; transition: all 0.3s; }
+        .modal-close:hover { color: #f43f5e; transform: scale(1.1); }
+        .modal-nav { position: absolute; top: 50%; transform: translateY(-50%); color: #f1f1f1; font-size: 40px; cursor: pointer; padding: 20px; user-select: none; transition: all 0.3s; }
+        .modal-nav:hover { color: #f43f5e; transform: translateY(-50%) scale(1.2); }
+        .modal-prev { left: 20px; }
+        .modal-next { right: 20px; }
+        
+        /* Search Bar */
+        .search-container-compact {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            animation: searchFadeIn 0.6s ease-out;
+        }
+        @keyframes searchFadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .search-input-wrapper { position: relative; }
+        
+        .search-input {
+            width: 100%;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            border: 2px solid rgba(244, 63, 94, 0.5);
+            color: #e2e8f0;
+            padding: 0.875rem 2.75rem 0.875rem 2.75rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(244, 63, 94, 0.15), 0 0 30px rgba(244, 63, 94, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+            box-sizing: border-box;
+        }
+        .search-input:focus {
+            outline: none;
+            border-color: #f43f5e;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 1));
+            box-shadow: 0 0 0 4px rgba(244, 63, 94, 0.15), 0 8px 25px rgba(244, 63, 94, 0.3), 0 0 40px rgba(244, 63, 94, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px) scale(1.01);
+        }
+        .search-input:hover:not(:focus) {
+            border-color: rgba(244, 63, 94, 0.7);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(244, 63, 94, 0.2), 0 0 35px rgba(244, 63, 94, 0.15);
+        }
+        .search-input::placeholder { color: #94a3b8; font-style: italic; }
+        
+        .search-icon {
+            position: absolute;
+            left: 1.1rem; top: 50%;
+            transform: translateY(-50%);
+            color: #f43f5e; font-size: 1.1rem;
+            pointer-events: none;
+            animation: iconPulse 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 4px rgba(244, 63, 94, 0.5));
+        }
+        @keyframes iconPulse {
+            0%, 100% { opacity: 0.8; transform: translateY(-50%) scale(1); }
+            50% { opacity: 1; transform: translateY(-50%) scale(1.15); }
+        }
+        
+        .search-stats {
+            color: #94a3b8; font-size: 0.85rem; margin-top: 0.65rem;
+            display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+            animation: statsFadeIn 0.8s ease-out 0.2s both;
+        }
+        @keyframes statsFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        .clear-search {
+            position: absolute; right: 1.1rem; top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8; cursor: pointer; padding: 0.5rem;
+            transition: all 0.2s; display: none; opacity: 0;
+        }
+        .clear-search.active { display: block; animation: clearButtonPop 0.3s ease-out forwards; }
+        @keyframes clearButtonPop {
+            0% { opacity: 0; transform: translateY(-50%) scale(0); }
+            50% { transform: translateY(-50%) scale(1.2); }
+            100% { opacity: 1; transform: translateY(-50%) scale(1); }
+        }
+        .clear-search:hover { color: #f43f5e; transform: translateY(-50%) scale(1.2) rotate(90deg); }
+        
+        .space-y-8 { display: flex; flex-direction: column; gap: 0.5rem; }
+        .no-results { text-align: center; padding: 3rem 2rem; color: #94a3b8; animation: fadeIn 0.3s ease; }
+
+        /* ══════════════════════════════════════════
+           MOBILE STYLES — desktop untouched above
+           ══════════════════════════════════════════ */
+
+        @media (max-width: 768px) {
+
+            /* Container */
+            .container { padding: 1rem; }
+
+            /* ── Header ── */
+            header .flex.justify-center.items-center {
+                flex-direction: column;
+                gap: 8px;
+            }
+            header .fa-skull-crossbones {
+                font-size: 2rem !important;
+                margin-right: 0 !important;
+            }
+            header h1 { font-size: 1.8rem !important; }
+            header > p { font-size: 0.88rem; }
+
+            /* Stop header-glow pulse on mobile (saves battery) */
+            .header-glow { animation: none; }
+
+            /* ── Search ── */
+            .search-container-compact { padding: 0 4px; }
+            .search-input {
+                font-size: 0.9rem;
+                padding: 0.75rem 2.5rem 0.75rem 2.5rem;
+                /* Remove scale/translateY on focus — fights keyboard on mobile */
+                transform: none !important;
+            }
+            .search-input:focus {
+                transform: none !important;
+            }
+            .search-input:hover:not(:focus) {
+                transform: none !important;
+            }
+
+            /* ── Disclaimer ── */
+            .disclaimer-box { padding: 1rem; }
+            .disclaimer-box h2 { font-size: 1.05rem; }
+            .disclaimer-box p { font-size: 0.88rem; }
+
+            /* ── Case cards ── */
+            /* Disable hover lift on touch */
+            .case-card:hover { transform: none; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25); }
+            .case-card:active { transform: scale(0.99); opacity: 0.92; }
+
+            /* Highlighted card — keep glow but no scale on mobile */
+            .case-card.highlighted {
+                transform: none;
+                animation: none;
+                box-shadow: 0 0 24px rgba(244, 63, 94, 0.35), 0 4px 20px rgba(0, 0, 0, 0.3);
+            }
+
+            /* Dimmed card — less blur on mobile (expensive) */
+            .case-card.dimmed { filter: none; opacity: 0.25; transform: scale(0.97); }
+
+            /* Card padding */
+            .case-card .p-6 { padding: 0.875rem !important; }
+
+            /* ── Case header ── */
+            .case-header { padding: 0.875rem; margin-bottom: 0.875rem; }
+            .case-header:active { transform: none; }
+
+            /* Header row: stack name above button on mobile */
+            .case-header .flex.justify-between.items-start {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .case-header h2 { font-size: 1.35rem !important; }
+
+            /* Expand button — full width on mobile */
+            .expand-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 9px 14px;
+                font-size: 0.875rem;
+            }
+            .expand-btn:hover { transform: none; }
+            .expand-btn:active { transform: scale(0.98); background: rgba(56, 78, 119, 0.4); }
+
+            /* ── Inner content ── */
+            .section-title { font-size: 0.95rem !important; }
+            .subsection { padding: 0.875rem; }
+
+            /* Report buttons — stack on tiny phones if needed */
+            .flex.flex-wrap.gap-3 { gap: 8px; }
+            .pdf-btn {
+                padding: 9px 14px;
+                font-size: 0.82rem;
+            }
+            .pdf-btn:hover { transform: none; }
+            .pdf-btn:active { transform: scale(0.97); }
+
+            /* List items */
+            ul li { font-size: 0.88rem; }
+
+            /* ── Image gallery ── */
+            .image-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 0.5rem;
+            }
+            .gallery-image {
+                height: 140px;
+                /* Disable hover scale on touch */
+                transition: border-color 0.2s ease;
+            }
+            .gallery-image:hover { transform: none; }
+            .gallery-image:active { opacity: 0.85; transform: scale(0.97); }
+
+            /* ── Modal ── */
+            .modal-content { max-width: 95%; max-height: 82%; }
+            .modal-close { top: 10px; right: 15px; font-size: 32px; }
+            .modal-nav { font-size: 28px; padding: 12px; }
+            .modal-prev { left: 4px; }
+            .modal-next { right: 4px; }
+
+            /* ── Animation controls ── */
+            .animation-controls {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.6rem;
+            }
+            .animation-toggle {
+                width: 100%;
+                justify-content: center;
+                font-size: 0.85rem;
+            }
+            .animation-toggle:hover { transform: none; }
+
+            /* ── Footer ── */
+            footer {
+                font-size: 0.76rem;
+                padding-bottom: 1.5rem;
+            }
+            footer .flex { flex-direction: column; gap: 0.4rem; align-items: center; }
+
+            /* ── Disable heavy animated grid motion on mobile ── */
+            .animated-grid { animation: none; }
+
+            /* ── Back button ── */
+            .investigate-btn:hover { transform: none; }
+            .investigate-btn:active { transform: scale(0.97); }
+
+            /* mb spacing reduction */
+            .mb-12 { margin-bottom: 1.5rem !important; }
+            .mb-8  { margin-bottom: 1rem !important; }
+        }
+
+        @media (max-width: 480px) {
+
+            header h1 { font-size: 1.45rem !important; }
+            .case-header h2 { font-size: 1.15rem !important; }
+
+            .image-gallery { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+            .gallery-image { height: 110px; }
+
+            .container { padding: 0.75rem; }
+            .case-card .p-6 { padding: 0.75rem !important; }
+            .subsection { padding: 0.65rem; }
+
+            .pdf-btn { padding: 8px 12px; font-size: 0.78rem; }
+
+            /* Stack report buttons vertically on very small screens */
+            .flex.flex-wrap.gap-3 { flex-direction: column; }
+            .pdf-btn { width: 100%; justify-content: center; }
+        }
+    </style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style id="ocb-banner-style">
+  .ocb-topbar{position:sticky;top:0;z-index:9000;display:flex;align-items:center;justify-content:space-between;gap:16px;height:58px;padding:0 22px;background:rgba(8,8,16,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,107,156,.2);font-family:'JetBrains Mono',ui-monospace,monospace;box-sizing:border-box;}
+  .ocb-topbar *{box-sizing:border-box;}
+  .ocb-brand{display:flex;align-items:center;gap:11px;text-decoration:none;}
+  .ocb-brand img{height:34px;width:34px;border-radius:8px;box-shadow:0 0 16px rgba(255,107,156,.35);}
+  .ocb-mark{font-size:.95rem;font-weight:700;letter-spacing:.22em;color:#e8e8f4;text-transform:uppercase;white-space:nowrap;}
+  .ocb-mark b{color:#ff6b9c;}
+  .ocb-dot{width:7px;height:7px;border-radius:50%;background:#00d9ff;box-shadow:0 0 10px #00d9ff;animation:ocbPulse 1.8s infinite;flex:none;}
+  @keyframes ocbPulse{0%,100%{opacity:.7}50%{opacity:1}}
+  .ocb-right{display:flex;align-items:center;gap:9px;}
+  .ocb-ctrls{display:flex;align-items:center;gap:9px;}
+  .ocb-ctrl{background:rgba(10,9,18,.7);border:1px solid rgba(255,107,156,.32);color:#9a9ac0;padding:7px 13px;border-radius:7px;text-decoration:none;font-family:inherit;font-size:11px;transition:all .2s ease;display:flex;align-items:center;gap:6px;cursor:pointer;white-space:nowrap;}
+  .ocb-ctrl:hover{background:rgba(255,107,156,.16);color:#eaeaff;border-color:rgba(255,107,156,.7);}
+  .ocb-burger{display:flex;flex-direction:column;gap:5px;width:42px;height:38px;align-items:center;justify-content:center;background:rgba(10,9,18,.7);border:1px solid rgba(255,107,156,.32);border-radius:8px;cursor:pointer;flex:none;}
+  .ocb-burger span{display:block;width:20px;height:2px;background:#ff6b9c;border-radius:2px;transition:transform .25s ease,opacity .2s ease;}
+  .ocb-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .ocb-burger.open span:nth-child(2){opacity:0;}
+  .ocb-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .ocb-scrim{position:fixed;inset:0;z-index:8990;background:rgba(4,4,9,.55);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .25s ease;}
+  .ocb-scrim.open{opacity:1;pointer-events:auto;}
+  .ocb-menu{position:fixed;top:58px;right:0;width:340px;max-width:92vw;z-index:8995;background:rgba(9,8,16,.97);backdrop-filter:blur(16px);border-left:1px solid rgba(255,107,156,.3);border-bottom:1px solid rgba(255,107,156,.3);border-bottom-left-radius:14px;padding:14px 16px 18px;display:flex;flex-direction:column;gap:9px;transform:translateX(16px);opacity:0;pointer-events:none;transition:transform .28s cubic-bezier(.2,.8,.2,1),opacity .24s ease;max-height:calc(100vh - 58px);overflow-y:auto;font-family:'JetBrains Mono',ui-monospace,monospace;}
+  .ocb-menu.open{transform:none;opacity:1;pointer-events:auto;}
+  .ocb-mlink{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid rgba(255,107,156,.3);border-radius:10px;background:rgba(13,12,22,.7);color:#e6e6ff;text-decoration:none;font-size:.92rem;font-weight:600;transition:background .18s ease,border-color .18s ease;}
+  .ocb-mlink:hover{background:rgba(255,107,156,.14);border-color:#ff6b9c;}
+  .ocb-mdiv{height:1px;background:rgba(255,107,156,.2);margin:6px 2px;}
+  .ocb-menu .ocb-ctrl{justify-content:center;}
+  html.ocb-invert{filter:invert(1) hue-rotate(180deg);}
+  html.ocb-invert .ocb-topbar,html.ocb-invert .ocb-menu,html.ocb-invert .ocb-scrim{filter:invert(1) hue-rotate(180deg);}
+  @media (max-width:820px){.ocb-ctrls{display:none;}}
+</style>
+</head>
+<body>
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="https://osintcabal-news.vercel.app/">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas"></canvas>
+    <div class="background-overlay">
+        <div class="animated-grid"></div>
+        <div class="particles" id="particles"></div>
+        <div class="glow-pulse"></div>
+        <div class="glow-pulse"></div>
+        <div class="glow-pulse"></div>
+        <div class="binary-stream" id="binaryStream"></div>
+        <div class="neon-circuit" id="neonCircuit"></div>
+    </div>
+    
+    <div class="container">
+        <!-- Back to Dashboard Button -->
+        <div class="mb-8">
+            <button onclick="window.location.href='index.html'" 
+                    class="investigate-btn inline-flex items-center px-4 py-2 rounded-lg transition">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Back to Dashboard
+            </button>
+        </div>
+
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <div class="title-glass" style="margin-bottom:24px;">
+                <div class="flex justify-center items-center mb-4">
+                    <i class="fas fa-skull-crossbones text-rose-400 text-4xl mr-3"></i>
+                    <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-rose-400 to-pink-500 bg-clip-text text-transparent">
+                        Cabal Doxbin
+                    </h1>
+                </div>
+                <p class="text-slate-400 max-w-2xl mx-auto text-lg" style="margin-bottom:0;">
+                    Verified predator exposure database. Community-investigated. FBI &amp; NCMEC reported.
+                </p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-container-compact">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search dossiers..." autocomplete="off">
+                    <i class="fas fa-times clear-search" id="clearSearch"></i>
+                </div>
+                <div class="search-stats" id="searchStats">
+                    <i class="fas fa-database"></i>
+                    <span><span id="totalCount">6</span> dossiers available</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Disclaimer -->
+        <div class="disclaimer-box" style="margin-top: -1rem;">
+            <h2 class="text-xl font-semibold mb-4 text-center text-rose-300">
+                <i class="fas fa-exclamation-circle mr-2"></i> Important Notice
+            </h2>
+            <div class="max-w-3xl mx-auto">
+                <p class="text-slate-300 leading-relaxed text-center">
+                    We do not aim to cause anyone harm and all doxed subjects are considered legally innocent until proven guilty in a court of law. For the safety of ourselves and others, only partial information is included in our "soft doxxings".    
+                    Contact <span class="text-rose-300 font-medium"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dcb0b9bbbdb09c938f9592889fbdbebdb0f2b3aebb">[email&#160;protected]</a></span> for questions or concerns.
+                </p>
+            </div>
+        </div>
+
+        <!-- Case Studies -->
+        <div class="space-y-8">
+
+            <!-- Fwucky/Fwuckster Case -->
+            <div class="case-card">
+                <div class="p-6">
+                    <div class="case-header header-glow" onclick="toggleExpand(this)">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h2 class="text-2xl font-bold text-rose-400">Fwucky/Fwuckster</h2>
+                                <p class="text-slate-300 mt-1">Nick Munger</p>
+                            </div>
+                            <button class="expand-btn" onclick="toggleExpand(this)">
+                                <i class="fas fa-chevron-down"></i>
+                                Expand Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="expanded-content">
+                        <div class="mt-6 space-y-6">
+                            <div class="flex flex-wrap gap-3">
+                                <a href="https://tips.fbi.gov" target="_blank" class="pdf-btn text-sm"><i class="fas fa-flag"></i> Report to FBI (IC3)</a>
+                                <a href="https://www.missingkids.org/gethelpnow/cybertipline" target="_blank" style="background: linear-gradient(45deg, #7c3aed, #4f46e5);" class="pdf-btn text-sm"><i class="fas fa-child"></i> Report to NCMEC</a>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h3 class="section-title text-lg font-semibold text-rose-300">Alleged Crimes</h3>
+                                    <ul class="list-disc list-inside text-slate-300 space-y-1 ml-4">
+                                        <li class="hover:text-rose-200 transition-colors">Proud pedophile and zoophile</li>
+                                        <li class="hover:text-rose-200 transition-colors">Defends "pro-contact" predators</li>
+                                        <li class="hover:text-rose-200 transition-colors">Made pedophilic art for money</li>
+                                        <li class="hover:text-rose-200 transition-colors">Spread pro-pedophile propaganda in public including at playgrounds</li>
+                                        <li class="hover:text-rose-200 transition-colors">Created a zine called "Pedo-Punk" documenting his debauchery</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="section-title text-lg font-semibold text-amber-300">Aliases &amp; AKA's</h3>
+                                    <ul class="list-disc list-inside text-slate-300 space-y-1 ml-4">
+                                        <li class="hover:text-amber-200 transition-colors">Fwucky</li>
+                                        <li class="hover:text-amber-200 transition-colors">Fwuckster</li>
+                                        <li class="hover:text-amber-200 transition-colors">Nick_M_2001</li>
+                                        <li class="hover:text-amber-200 transition-colors">FWK_Pro</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="section-title text-lg font-semibold text-violet-300">Evidence Gallery</h3>
+                                <div class="subsection">
+                                    <div class="mb-4">
+                                        <p class="text-slate-300 mb-2"><strong class="text-emerald-300">Name:</strong> Nick Munger</p>
+                                        <p class="text-slate-300"><strong class="text-emerald-300">Location:</strong> Portland, Oregon, USA</p>
+                                    </div>
+                                    <div class="image-gallery" id="fwucky-gallery">
+                                        <img src="doxbin/fwucky1.png" alt="Evidence 1" class="gallery-image" onclick="openModal('fwucky-gallery', 0)">
+                                        <img src="doxbin/fwucky2.png" alt="Evidence 2" class="gallery-image" onclick="openModal('fwucky-gallery', 1)">
+                                        <img src="doxbin/fwucky3.png" alt="Evidence 3" class="gallery-image" onclick="openModal('fwucky-gallery', 2)">
+                                        <img src="doxbin/fwucky4.png" alt="Evidence 4" class="gallery-image" onclick="openModal('fwucky-gallery', 3)">
+                                        <img src="doxbin/fwucky5.png" alt="Evidence 5" class="gallery-image" onclick="openModal('fwucky-gallery', 4)">
+                                        <img src="doxbin/fwucky6.png" alt="Evidence 6" class="gallery-image" onclick="openModal('fwucky-gallery', 5)">
+                                        <img src="doxbin/fwucky7.png" alt="Evidence 7" class="gallery-image" onclick="openModal('fwucky-gallery', 6)">
+                                        <img src="doxbin/fwucky8.png" alt="Evidence 8" class="gallery-image" onclick="openModal('fwucky-gallery', 7)">
+                                        <img src="doxbin/fwucky9.png" alt="Evidence 9" class="gallery-image" onclick="openModal('fwucky-gallery', 8)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pokenbby Case -->
+            <div class="case-card">
+                <div class="p-6">
+                    <div class="case-header header-glow" onclick="toggleExpand(this)">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h2 class="text-2xl font-bold text-amber-400">Pokenbby</h2>
+                                <p class="text-slate-300 mt-1">Mason Lacroix</p>
+                            </div>
+                            <button class="expand-btn" onclick="toggleExpand(this)">
+                                <i class="fas fa-chevron-down"></i>
+                                Expand Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="expanded-content">
+                        <div class="mt-6 space-y-6">
+                            <div class="flex flex-wrap gap-3">
+                                <a href="https://tips.fbi.gov" target="_blank" class="pdf-btn text-sm"><i class="fas fa-flag"></i> Report to FBI (IC3)</a>
+                                <a href="https://www.missingkids.org/gethelpnow/cybertipline" target="_blank" style="background: linear-gradient(45deg, #7c3aed, #4f46e5);" class="pdf-btn text-sm"><i class="fas fa-child"></i> Report to NCMEC</a>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h3 class="section-title text-lg font-semibold text-rose-300">Alleged Crimes</h3>
+                                    <ul class="list-disc list-inside text-slate-300 space-y-1 ml-4">
+                                        <li class="hover:text-rose-200 transition-colors">Proud pedophile, incest advocate, and zoophile</li>
+                                        <li class="hover:text-rose-200 transition-colors">Defends "pro-contact" predators</li>
+                                        <li class="hover:text-rose-200 transition-colors">Posted explicitly pedophilic content</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="section-title text-lg font-semibold text-amber-300">Aliases &amp; AKA's</h3>
+                                    <ul class="list-disc list-inside text-slate-300 space-y-1 ml-4">
+                                        <li class="hover:text-amber-200 transition-colors">Pokenbby</li>
+                                        <li class="hover:text-amber-200 transition-colors">poke_master</li>
+                                        <li class="hover:text-amber-200 transition-colors">card_collector_pro</li>
+                                        <li class="hover:text-amber-200 transition-colors">bby_trader</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="section-title text-lg font-semibold text-violet-300">Evidence Gallery</h3>
+                                <div class="subsection">
+                                    <div class="mb-4">
+                                        <p class="text-slate-300 mb-2"><strong class="text-emerald-300">Name:</strong> Mason Lacroix</p>
+                                        <p class="text-slate-300"><strong class="text-emerald-300">Location:</strong> Austin, Texas, USA</p>
+                                    </div>
+                                    <div class="image-gallery" id="pokenbby-gallery">
+                                        <img src="doxbin/pokenbby.png" alt="Evidence 1" class="gallery-image" onclick="openModal('pokenbby-gallery', 0)">
+                                        <img src="doxbin/pokenbby.png2.png" alt="Evidence 2" class="gallery-image" onclick="openModal('pokenbby-gallery', 1)">
+                                        <img src="doxbin/pokenbby.png3.png" alt="Evidence 3" class="gallery-image" onclick="openModal('pokenbby-gallery', 2)">
+                                        <img src="doxbin/pokenbby.png4.png" alt="Evidence 4" class="gallery-image" onclick="openModal('pokenbby-gallery', 3)">
+                                        <img src="doxbin/pokenbby.png5.png" alt="Evidence 5" class="gallery-image" onclick="openModal('pokenbby-gallery', 4)">
+                                        <img src="doxbin/pokenbby.png6.png" alt="Evidence 6" class="gallery-image" onclick="openModal('pokenbby-gallery', 5)">
+                                        <img src="doxbin/pokenbby.png7.png" alt="Evidence 7" class="gallery-image" onclick="openModal('pokenbby-gallery', 6)">
+                                        <img src="doxbin/pokenbby.png8.png" alt="Evidence 8" class="gallery-image" onclick="openModal('pokenbby-gallery', 7)">
+                                        <img src="doxbin/pokenbby.png9.png" alt="Evidence 9" class="gallery-image" onclick="openModal('pokenbby-gallery', 8)">
+                                        <img src="doxbin/pokenbby10.png" alt="Evidence 10" class="gallery-image" onclick="openModal('pokenbby-gallery', 9)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Remejy Case -->
+            <div class="case-card">
+                <div class="p-6">
+                    <div class="case-header header-glow" onclick="toggleExpand(this)">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h2 class="text-2xl font-bold text-violet-400">Remejy</h2>
+                                <p class="text-slate-300 mt-1">Jeremy Lowe</p>
+                            </div>
+                            <button class="expand-btn" onclick="toggleExpand(this)">
+                                <i class="fas fa-chevron-down"></i>
+                                Expand Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="expanded-content">
+                        <div class="mt-6 space-y-6">
+                            <div class="flex flex-wrap gap-3">
+                                <a href="https://tips.fbi.gov" target="_blank" class="pdf-btn text-sm"><i class="fas fa-flag"></i> Report to FBI (IC3)</a>
+                                <a href="https://www.missingkids.org/gethelpnow/cybertipline" target="_blank" style="background: linear-gradient(45deg, #7c3aed, #4f46e5);" class="pdf-btn text-sm"><i class="fas fa-child"></i> Report to NCMEC</a>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h3 class="section-title text-lg font-semibold text-rose-300">Alleged Crimes</h3>
+                                    <ul class="list-disc list-inside text-slate-300 space-y-1 ml-4">
+                                        <li class="hover:text-rose-200 transition-colors">Proud pedophile and nepiophile</li>
+                                        <li class="hover:text-rose-200 transition-colors">Posted "art" of children and toddlers being abused</li>
+                                        <li class="hover:text-rose-200 transition-colors">Posted about babysitting children</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="section-title text-lg font-semibold text-amber-300">Aliases &amp; AKA's</h3>
+                                    <ul class="list-disc list-inside text-slate-300 space-y-1 ml-4">
+                                        <li class="hover:text-amber-200 transition-colors">Remejy</li>
+                                        <li class="hover:text-amber-200 transition-colors">Lowe_R_89</li>
+                                        <li class="hover:text-amber-200 transition-colors">info_warrior</li>
+                                        <li class="hover:text-amber-200 transition-colors">true_news_source</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="section-title text-lg font-semibold text-violet-300">Evidence Gallery</h3>
+                                <div class="subsection">
+                                    <div class="mb-4">
+                                        <p class="text-slate-300 mb-2"><strong class="text-emerald-300">Name:</strong> Lowe</p>
+                                        <p class="text-slate-300"><strong class="text-emerald-300">Location:</strong> Seattle, Washington, USA</p>
+                                    </div>
+                                    <div class="image-gallery" id="remejy-gallery">
+                                        <img src="doxbin/remejy1.png" alt="Evidence 1" class="gallery-image" onclick="openModal('remejy-gallery', 0)">
+                                        <img src="doxbin/remejy.png2.png" alt="Evidence 2" class="gallery-image" onclick="openModal('remejy-gallery', 1)">
+                                        <img src="doxbin/remejy.png3.png" alt="Evidence 3" class="gallery-image" onclick="openModal('remejy-gallery', 2)">
+                                        <img src="doxbin/remejy.png4.png" alt="Evidence 4" class="gallery-image" onclick="openModal('remejy-gallery', 3)">
+                                        <img src="doxbin/remejy.png5.png" alt="Evidence 5" class="gallery-image" onclick="openModal('remejy-gallery', 4)">
+                                        <img src="doxbin/remejy.png6.png" alt="Evidence 6" class="gallery-image" onclick="openModal('remejy-gallery', 5)">
+                                        <img src="doxbin/remejy.png7.png" alt="Evidence 7" class="gallery-image" onclick="openModal('remejy-gallery', 6)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SalemTheBurnout Case -->
+            <div class="case-card">
+                <div class="p-6">
+                    <div class="case-header header-glow" onclick="toggleExpand(this)">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h2 class="text-2xl font-bold text-emerald-400">SalemTheBurnout</h2>
+                                <p class="text-slate-300 mt-1">Salina Rae Silver/Alexander James Roe</p>
+                            </div>
+                            <button class="expand-btn" onclick="toggleExpand(this)">
+                                <i class="fas fa-chevron-down"></i>
+                                Expand Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="expanded-content">
+                        <div class="mt-6 space-y-6">
+                            <div class="flex flex-wrap gap-3">
+                                <a href="https://tips.fbi.gov" target="_blank" class="pdf-btn text-sm"><i class="fas fa-flag"></i> Report to FBI (IC3)</a>
+                                <a href="https://www.missingkids.org/gethelpnow/cybertipline" target="_blank" style="background: linear-gradient(45deg, #7c3aed, #4f46e5);" class="pdf-btn text-sm"><i class="fas fa-child"></i> Report to NCMEC</a>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h3 class="section-title text-lg font-semibold text-rose-300">Alleged Crimes</h3>
+                                    <ul class="list-disc list-inside text-slate-300 space-y-1 ml-4">
+                                        <li class="hover:text-rose-200 transition-colors">Proud pedophile and "pro-contact" activist</li>
+                                        <li class="hover:text-rose-200 transition-colors">Posted regularly about performing extreme sex acts on minors</li>
+                                        <li class="hover:text-rose-200 transition-colors">Posted about dating a minor</li>
+                                        <li class="hover:text-rose-200 transition-colors">Openly described manipulating clients for drug money</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="section-title text-lg font-semibold text-amber-300">Aliases &amp; AKA's</h3>
+                                    <ul class="list-disc list-inside text-slate-300 space-y-1 ml-4">
+                                        <li class="hover:text-amber-200 transition-colors">SalemTheBurnout</li>
+                                        <li class="hover:text-amber-200 transition-colors">Salem Grey</li>
+                                        <li class="hover:text-amber-200 transition-colors">Lexie Ro</li>
+                                        <li class="hover:text-amber-200 transition-colors">Snuffie</li>
+                                        <li class="hover:text-amber-200 transition-colors">SnuffieSlits</li>
+                                        <li class="hover:text-amber-200 transition-colors">Snuffie_puppy</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="section-title text-lg font-semibold text-violet-300">Evidence Gallery</h3>
+                                <div class="subsection">
+                                    <div class="mb-4">
+                                        <p class="text-slate-300 mb-2"><strong class="text-emerald-300">Name:</strong> Salina Ray Silver</p>
+                                        <p class="text-slate-300"><strong class="text-emerald-300">Location:</strong> Bowling Green, Kentucky, USA</p>
+                                    </div>
+                                    <div class="image-gallery" id="salem-gallery">
+                                        <img src="doxbin/salem11.png" alt="Evidence 1" class="gallery-image" onclick="openModal('salem-gallery', 0)">
+                                        <img src="doxbin/salem1.png" alt="Evidence 2" class="gallery-image" onclick="openModal('salem-gallery', 1)">
+                                        <img src="doxbin/salem2.png" alt="Evidence 3" class="gallery-image" onclick="openModal('salem-gallery', 2)">
+                                        <img src="doxbin/salem3.png" alt="Evidence 4" class="gallery-image" onclick="openModal('salem-gallery', 3)">
+                                        <img src="doxbin/salem4.png" alt="Evidence 5" class="gallery-image" onclick="openModal('salem-gallery', 4)">
+                                        <img src="doxbin/salem5.png" alt="Evidence 6" class="gallery-image" onclick="openModal('salem-gallery', 5)">
+                                        <img src="doxbin/salem6.png" alt="Evidence 7" class="gallery-image" onclick="openModal('salem-gallery', 6)">
+                                        <img src="doxbin/salem7.png" alt="Evidence 8" class="gallery-image" onclick="openModal('salem-gallery', 7)">
+                                        <img src="doxbin/salem8.png" alt="Evidence 9" class="gallery-image" onclick="openModal('salem-gallery', 8)">
+                                        <img src="doxbin/salem9.png" alt="Evidence 10" class="gallery-image" onclick="openModal('salem-gallery', 9)">
+                                        <img src="doxbin/salem10.png" alt="Evidence 11" class="gallery-image" onclick="openModal('salem-gallery', 10)">
+                                        <img src="doxbin/salem12.png" alt="Evidence 12" class="gallery-image" onclick="openModal('salem-gallery', 11)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consuela / MAP-Pride Consuela Case -->
+            <div class="case-card">
+                <div class="p-6">
+                    <div class="case-header header-glow" onclick="toggleExpand(this)">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h2 class="text-2xl font-bold text-cyan-400">Consuela/MAP-Pride Consuela</h2>
+                                <p class="text-slate-300 mt-1">Florian Viets</p>
+                            </div>
+                            <button class="expand-btn" onclick="toggleExpand(this)">
+                                <i class="fas fa-chevron-down"></i>
+                                Expand Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="expanded-content">
+                        <div class="mt-6 space-y-6">
+                            <div class="flex flex-wrap gap-3">
+                                <a href="https://tips.fbi.gov" target="_blank" class="pdf-btn text-sm"><i class="fas fa-flag"></i> Report to FBI (IC3)</a>
+                                <a href="https://www.missingkids.org/gethelpnow/cybertipline" target="_blank" style="background: linear-gradient(45deg, #7c3aed, #4f46e5);" class="pdf-btn text-sm"><i class="fas fa-child"></i> Report to NCMEC</a>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h3 class="section-title text-lg font-semibold text-rose-300">Alleged Crimes</h3>
+                                    <ul class="list-disc list-inside text-slate-300 space-y-1 ml-4">
+                                        <li class="hover:text-rose-200 transition-colors">Proud pedophile and "MAP activist"</li>
+                                        <li class="hover:text-rose-200 transition-colors">Admits to downloading CSAM material as a minor</li>
+                                        <li class="hover:text-rose-200 transition-colors">Advocates for legalization of CSAM — both real and AI-generated</li>
+                                        <li class="hover:text-rose-200 transition-colors">Advocates for pedophilia to be made legal</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="section-title text-lg font-semibold text-amber-300">Aliases &amp; AKA's</h3>
+                                    <ul class="list-disc list-inside text-slate-300 space-y-1 ml-4">
+                                        <li class="hover:text-amber-200 transition-colors">Consuela</li>
+                                        <li class="hover:text-amber-200 transition-colors">NordConsuela</li>
+                                        <li class="hover:text-amber-200 transition-colors">MAP-Pride Consuela</li>
+                                        <li class="hover:text-amber-200 transition-colors">ConsuelaM4P</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="section-title text-lg font-semibold text-violet-300">Evidence Gallery</h3>
+                                <div class="subsection">
+                                    <div class="mb-4">
+                                        <p class="text-slate-300 mb-2"><strong class="text-emerald-300">Name:</strong> Florian Viets</p>
+                                        <p class="text-slate-300"><strong class="text-emerald-300">Location:</strong> Germany</p>
+                                    </div>
+                                    <div class="image-gallery" id="consuela-gallery">
+                                        <img src="doxbin/consuela1.png" alt="Evidence 1" class="gallery-image" onclick="openModal('consuela-gallery', 0)">
+                                        <img src="doxbin/consuela2.png" alt="Evidence 2" class="gallery-image" onclick="openModal('consuela-gallery', 1)">
+                                        <img src="doxbin/consuela3.png" alt="Evidence 3" class="gallery-image" onclick="openModal('consuela-gallery', 2)">
+                                        <img src="doxbin/consuela4.png" alt="Evidence 4" class="gallery-image" onclick="openModal('consuela-gallery', 3)">
+                                        <img src="doxbin/consuela5.png" alt="Evidence 5" class="gallery-image" onclick="openModal('consuela-gallery', 4)">
+                                        <img src="doxbin/consuela6.png" alt="Evidence 6" class="gallery-image" onclick="openModal('consuela-gallery', 5)">
+                                        <img src="doxbin/consuela7.png" alt="Evidence 7" class="gallery-image" onclick="openModal('consuela-gallery', 6)">
+                                        <img src="doxbin/consuela8.png" alt="Evidence 8" class="gallery-image" onclick="openModal('consuela-gallery', 7)">
+                                        <img src="doxbin/consuela9.png" alt="Evidence 9" class="gallery-image" onclick="openModal('consuela-gallery', 8)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alanboy/Kenneth Haggerty Case -->
+            <div class="case-card">
+                <div class="p-6">
+                    <div class="case-header header-glow" onclick="toggleExpand(this)">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h2 class="text-2xl font-bold text-blue-400">Alanboy</h2>
+                                <p class="text-slate-300 mt-1">Kenneth Haggerty</p>
+                            </div>
+                            <button class="expand-btn" onclick="toggleExpand(this)">
+                                <i class="fas fa-chevron-down"></i>
+                                Expand Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="expanded-content">
+                        <div class="mt-6 space-y-6">
+                            <div class="flex flex-wrap gap-3">
+                                <a href="https://tips.fbi.gov" target="_blank" class="pdf-btn text-sm"><i class="fas fa-flag"></i> Report to FBI (IC3)</a>
+                                <a href="https://www.missingkids.org/gethelpnow/cybertipline" target="_blank" style="background: linear-gradient(45deg, #7c3aed, #4f46e5);" class="pdf-btn text-sm"><i class="fas fa-child"></i> Report to NCMEC</a>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h3 class="section-title text-lg font-semibold text-rose-300">Alleged Crimes</h3>
+                                    <ul class="list-disc list-inside text-slate-300 space-y-1 ml-4">
+                                        <li class="hover:text-rose-200 transition-colors">Registered offender, Convicted in 2005 of possession of CSAM material</li>
+                                        <li class="hover:text-rose-200 transition-colors">Admin of weirdpm.xyz, a BL radio station, and a BL based hosting service</li>
+                                        <li class="hover:text-rose-200 transition-colors">Profilic involvement with other similar sites like VOA, Ethos Magazine, and enchanted-island.net</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="section-title text-lg font-semibold text-amber-300">Aliases &amp; AKA's</h3>
+                                    <ul class="list-disc list-inside text-slate-300 space-y-1 ml-4">
+                                        <li class="hover:text-amber-200 transition-colors">Alanboy</li>
+                                        <li class="hover:text-amber-200 transition-colors">tCDegenerate</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="section-title text-lg font-semibold text-violet-300">Evidence Gallery</h3>
+                                <div class="subsection">
+                                    <div class="mb-4">
+                                        <p class="text-slate-300 mb-2"><strong class="text-emerald-300">Name:</strong> Kenneth Haggerty</p>
+                                        <p class="text-slate-300"><strong class="text-emerald-300">Location:</strong> St Pete, Florida, USA</p>
+                                    </div>
+                                    <div class="image-gallery" id="alanboy-gallery">
+                                        <img src="doxbin/1.jpeg" alt="Evidence 1" class="gallery-image" onclick="openModal('alanboy-gallery', 0)">
+                                        <img src="doxbin/2.jpeg" alt="Evidence 2" class="gallery-image" onclick="openModal('alanboy-gallery', 1)">
+                                        <img src="doxbin/3.jpeg" alt="Evidence 3" class="gallery-image" onclick="openModal('alanboy-gallery', 2)">
+                                        <img src="doxbin/4.png" alt="Evidence 4" class="gallery-image" onclick="openModal('alanboy-gallery', 3)">
+                                        <img src="doxbin/5.png" alt="Evidence 5" class="gallery-image" onclick="openModal('alanboy-gallery', 4)">
+                                        <img src="doxbin/6.png" alt="Evidence 6" class="gallery-image" onclick="openModal('alanboy-gallery', 5)">
+                                        <img src="doxbin/7.png" alt="Evidence 7" class="gallery-image" onclick="openModal('alanboy-gallery', 6)">
+                                        <img src="doxbin/8.png" alt="Evidence 8" class="gallery-image" onclick="openModal('alanboy-gallery', 7)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Animation Controls -->
+        <div class="animation-controls mt-12">
+            <button id="toggleAnimations" class="animation-toggle">
+                <i class="fas fa-pause"></i>
+                Pause Animations
+            </button>
+            <button id="toggleBackground" class="animation-toggle">
+                <i class="fas fa-eye-slash"></i>
+                Hide Background Effects
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-16 pt-8 pb-12 text-center text-slate-500 text-sm border-t border-slate-800">
+            <div class="mb-4 flex flex-wrap justify-center gap-4">
+                <span class="inline-flex items-center text-emerald-400"><i class="fas fa-lock mr-2"></i> Secure Connection</span>
+                <span class="inline-flex items-center text-amber-400"><i class="fas fa-shield-alt mr-2"></i> Encrypted</span>
+                <span class="inline-flex items-center text-violet-400"><i class="fas fa-user-secret mr-2"></i> Anonymous</span>
+            </div>
+            <p>© 2023 OSINT Cabal. All intelligence is classified and protected.</p>
+        </footer>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <span class="modal-nav modal-prev" onclick="changeImage(-1)">&#10094;</span>
+        <img class="modal-content" id="modalImage">
+        <span class="modal-nav modal-next" onclick="changeImage(1)">&#10095;</span>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        // Detect mobile once at startup
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+        let currentGallery = null;
+        let currentImageIndex = 0;
+        
+        function openModal(galleryId, imageIndex) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const gallery = document.getElementById(galleryId);
+            const images = gallery.querySelectorAll('.gallery-image');
+            currentGallery = images;
+            currentImageIndex = imageIndex;
+            modal.classList.add('active');
+            modalImg.src = images[imageIndex].src;
+        }
+        
+        function closeModal() {
+            document.getElementById('imageModal').classList.remove('active');
+        }
+        
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex >= currentGallery.length) currentImageIndex = 0;
+            else if (currentImageIndex < 0) currentImageIndex = currentGallery.length - 1;
+            document.getElementById('modalImage').src = currentGallery[currentImageIndex].src;
+        }
+        
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) closeModal();
+        };
+        
+        document.addEventListener('keydown', function(event) {
+            const modal = document.getElementById('imageModal');
+            if (modal.classList.contains('active')) {
+                if (event.key === 'ArrowLeft') changeImage(-1);
+                else if (event.key === 'ArrowRight') changeImage(1);
+                else if (event.key === 'Escape') closeModal();
+            }
+        });
+        
+        function toggleExpand(element) {
+            const button = element.classList.contains('case-header') ? element.querySelector('.expand-btn') : element;
+            const card = button.closest('.case-card');
+            const expandedContent = card.querySelector('.expanded-content');
+            expandedContent.classList.toggle('active');
+            if (expandedContent.classList.contains('active')) {
+                button.innerHTML = '<i class="fas fa-chevron-up"></i> Collapse Details';
+            } else {
+                button.innerHTML = '<i class="fas fa-chevron-down"></i> Expand Details';
+            }
+            if (event && element.classList.contains('expand-btn')) event.stopPropagation();
+        }
+        
+        // Create particles — desktop: 150, mobile: 20
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = isMobile ? 20 : 150;
+            const colors = ['#f43f5e', '#8b5cf6', '#10b981', '#f59e0b', '#ec4899', '#06b6d4', '#ef4444', '#3b82f6'];
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top  = `${Math.random() * 100}%`;
+                const size = Math.random() * 6 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.animationDuration = `${Math.random() * 15 + 10}s`;
+                particle.style.animationDelay = `${Math.random() * 20}s`;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.background = color;
+                particle.style.boxShadow = `0 0 12px ${color}`;
+                particle.style.setProperty('--moveX', `${(Math.random() - 0.5) * 200}px`);
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Binary stream — skip on mobile
+        function createBinaryStream() {
+            if (isMobile) return;
+            const streamContainer = document.getElementById('binaryStream');
+            for (let i = 0; i < 40; i++) {
+                const line = document.createElement('div');
+                line.classList.add('binary-line');
+                line.style.top = `${(i / 40) * 100}%`;
+                line.style.animationDelay = `${Math.random() * 15}s`;
+                line.style.animationDuration = `${10 + Math.random() * 15}s`;
+                line.style.opacity = `${0.1 + Math.random() * 0.4}`;
+                streamContainer.appendChild(line);
+            }
+        }
+        
+        // Neon circuit — skip on mobile
+        function createNeonCircuit() {
+            if (isMobile) return;
+            const circuitContainer = document.getElementById('neonCircuit');
+            for (let i = 0; i < 70; i++) {
+                const line = document.createElement('div');
+                line.classList.add('circuit-line');
+                if (Math.random() > 0.5) {
+                    line.style.width = `${40 + Math.random() * 60}%`;
+                    line.style.height = '1px';
+                    line.style.top = `${Math.random() * 100}%`;
+                    line.style.left = `${Math.random() * 40}%`;
+                } else {
+                    line.style.width = '1px';
+                    line.style.height = `${40 + Math.random() * 60}%`;
+                    line.style.left = `${Math.random() * 100}%`;
+                    line.style.top = `${Math.random() * 40}%`;
+                }
+                line.style.animation = `pulse ${4 + Math.random() * 6}s infinite alternate`;
+                circuitContainer.appendChild(line);
+            }
+        }
+        
+        function toggleAnimations() {
+            const animations = document.querySelectorAll('.particle, .binary-line, .circuit-line, .animated-grid, .glow-pulse');
+            const toggleButton = document.getElementById('toggleAnimations');
+            const icon = toggleButton.querySelector('i');
+            if (icon.classList.contains('fa-pause')) {
+                animations.forEach(el => { el.style.animationPlayState = 'paused'; });
+                toggleButton.innerHTML = '<i class="fas fa-play"></i> Resume Animations';
+            } else {
+                animations.forEach(el => { el.style.animationPlayState = 'running'; });
+                toggleButton.innerHTML = '<i class="fas fa-pause"></i> Pause Animations';
+            }
+        }
+        
+        function toggleBackground() {
+            const backgroundElements = document.querySelectorAll('.animated-grid, .particles, .glow-pulse, .binary-stream, .neon-circuit');
+            const toggleButton = document.getElementById('toggleBackground');
+            const icon = toggleButton.querySelector('i');
+            if (icon.classList.contains('fa-eye-slash')) {
+                backgroundElements.forEach(el => { el.classList.add('hidden-bg'); });
+                if (window.__flowbg) window.__flowbg.setPaused(true);
+                toggleButton.innerHTML = '<i class="fas fa-eye"></i> Show Background Effects';
+            } else {
+                backgroundElements.forEach(el => { el.classList.remove('hidden-bg'); });
+                if (window.__flowbg) window.__flowbg.setPaused(false);
+                toggleButton.innerHTML = '<i class="fas fa-eye-slash"></i> Hide Background Effects';
+            }
+        }
+
+        (function mountFlowBG() {
+            const canvas = document.getElementById('bg-canvas');
+            if (!canvas || !window.FlowBG) { setTimeout(mountFlowBG, 60); return; }
+            const instance = window.FlowBG.create(canvas, {
+                bg: '#0f172a', flameA: '#f43f5e', flameB: '#8b5cf6',
+                colorLow: '#0f172a', colorHigh: '#f43f5e', atmoColor: '#f43f5e'
+            });
+            window.__flowbg = { instance: instance, setPaused: v => instance.setPaused(v) };
+        })();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            createBinaryStream();
+            createNeonCircuit();
+
+            document.getElementById('toggleAnimations').addEventListener('click', toggleAnimations);
+            document.getElementById('toggleBackground').addEventListener('click', toggleBackground);
+
+            initializeSearch();
+        });
+        
+        function initializeSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const clearButton = document.getElementById('clearSearch');
+            const caseCards = document.querySelectorAll('.case-card');
+            
+            const searchData = [];
+            caseCards.forEach((card, index) => {
+                const title = card.querySelector('.case-header h2').textContent.trim();
+                const realName = card.querySelector('.case-header p').textContent.trim();
+                const location = card.textContent.match(/Location:\s*([^\n]+)/)?.[1]?.trim() || '';
+                searchData.push({ element: card, title, realName, location, fullText: card.textContent.toLowerCase() });
+            });
+            
+            document.getElementById('totalCount').textContent = searchData.length;
+            
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase().trim();
+                clearButton.classList.toggle('active', !!query);
+                performSearch(query, searchData);
+            });
+            
+            clearButton.addEventListener('click', function() {
+                searchInput.value = '';
+                searchInput.focus();
+                clearButton.classList.remove('active');
+                performSearch('', searchData);
+            });
+        }
+        
+        function performSearch(query, searchData) {
+            const statsDiv = document.getElementById('searchStats');
+            if (!query) {
+                searchData.forEach(item => {
+                    item.element.classList.remove('dimmed', 'highlighted');
+                    item.element.style.order = '0';
+                    const expandedContent = item.element.querySelector('.expanded-content');
+                    const expandBtn = item.element.querySelector('.expand-btn');
+                    if (expandedContent && expandedContent.classList.contains('active')) {
+                        expandedContent.classList.remove('active');
+                        expandBtn.innerHTML = '<i class="fas fa-chevron-down"></i> Expand Details';
+                    }
+                });
+                statsDiv.innerHTML = '<i class="fas fa-database"></i><span><span id="totalCount">' + searchData.length + '</span> dossiers available</span>';
+                return;
+            }
+            
+            const matches = [];
+            searchData.forEach((item, index) => {
+                let score = 0;
+                if (item.title.toLowerCase().includes(query)) score += 50;
+                if (item.realName.toLowerCase().includes(query)) score += 40;
+                if (item.location.toLowerCase().includes(query)) score += 20;
+                if (item.fullText.includes(query)) score += 10;
+                if (score > 0) matches.push({ ...item, score, index });
+            });
+            matches.sort((a, b) => b.score - a.score);
+            
+            searchData.forEach(item => {
+                item.element.classList.remove('highlighted');
+                item.element.classList.add('dimmed');
+                item.element.style.order = '999';
+            });
+            matches.forEach((match, index) => {
+                match.element.classList.remove('dimmed');
+                match.element.classList.add('highlighted');
+                match.element.style.order = index.toString();
+            });
+            
+            if (matches.length === 1) {
+                const match = matches[0];
+                const expandedContent = match.element.querySelector('.expanded-content');
+                const expandBtn = match.element.querySelector('.expand-btn');
+                if (expandedContent && !expandedContent.classList.contains('active')) {
+                    setTimeout(() => { expandedContent.classList.add('active'); expandBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Collapse Details'; }, 300);
+                }
+                setTimeout(() => { match.element.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 400);
+            } else {
+                searchData.forEach(item => {
+                    const expandedContent = item.element.querySelector('.expanded-content');
+                    const expandBtn = item.element.querySelector('.expand-btn');
+                    if (expandedContent && expandedContent.classList.contains('active')) {
+                        expandedContent.classList.remove('active');
+                        expandBtn.innerHTML = '<i class="fas fa-chevron-down"></i> Expand Details';
+                    }
+                });
+            }
+            
+            if (matches.length === 0) {
+                statsDiv.innerHTML = '<i class="fas fa-exclamation-triangle text-amber-400"></i><span>No matches found</span>';
+            } else if (matches.length === searchData.length) {
+                statsDiv.innerHTML = '<i class="fas fa-database"></i><span>' + searchData.length + ' dossiers available</span>';
+            } else {
+                statsDiv.innerHTML = '<i class="fas fa-filter text-rose-400"></i><span>' + matches.length + ' of ' + searchData.length + ' matches</span>';
+            }
+        }
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9fd623174d8e24d6',t:'MTc3OTA1Nzc2NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+
+<script>
+(function(){
+  function ready(fn){ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',fn);}else{fn();} }
+  ready(function(){
+    var burger=document.getElementById('ocbBurger'), menu=document.getElementById('ocbMenu'), scrim=document.getElementById('ocbScrim');
+    function close(){ if(burger)burger.classList.remove('open'); if(menu)menu.classList.remove('open'); if(scrim)scrim.classList.remove('open'); }
+    if(burger&&menu){ burger.addEventListener('click',function(){ var o=!menu.classList.contains('open'); burger.classList.toggle('open',o); menu.classList.toggle('open',o); if(scrim)scrim.classList.toggle('open',o); }); }
+    if(scrim) scrim.addEventListener('click',close);
+    if(menu) menu.querySelectorAll('.ocb-mlink').forEach(function(a){ a.addEventListener('click',close); });
+    function toggleAnim(){ var ex=document.getElementById('animationToggle'); if(ex){ ex.click(); } else { document.body.classList.toggle('simple-bg'); } }
+    function toggleInvert(){ document.documentElement.classList.toggle('ocb-invert'); }
+    ['ocbAnim','ocbAnim2'].forEach(function(id){ var b=document.getElementById(id); if(b)b.addEventListener('click',toggleAnim); });
+    ['ocbInvert','ocbInvert2'].forEach(function(id){ var b=document.getElementById(id); if(b)b.addEventListener('click',toggleInvert); });
+  });
+})();
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2724e573e33ceb7',t:'MTc4NjA2NDAyNA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c1b6f68894614',t:'MTc4OTAxODkyMw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

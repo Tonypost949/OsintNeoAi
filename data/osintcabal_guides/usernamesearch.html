@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>OSINTCabal Username Kit - Unified Intelligence Station</title>
+    <meta name="description" content="Advanced username search across 1600+ platforms using Sherlock, Blackbird, and WhatsMyName engines with real-time unified results.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background-color: #0a0a1a;
+            color: #e0e0ff;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(120, 255, 214, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+        }
+
+        .terminal {
+            background-color: rgba(18, 18, 18, 0.8);
+            border: 1px solid #4a90e2;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .terminal-header {
+            background-color: rgba(26, 26, 26, 0.8);
+            border-bottom: 1px solid #4a90e2;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .terminal-body {
+            min-height: 200px;
+            max-height: 800px;
+            overflow-y: auto;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px #ff6b9c, 0 0 20px #ff6b9c;
+        }
+
+        .btn-hacker {
+            background: linear-gradient(135deg, #4a90e2, #8a4fff);
+            color: #000;
+            transition: all 0.3s ease;
+            border: none;
+            font-weight: bold;
+        }
+
+        .btn-hacker:hover {
+            background: linear-gradient(135deg, #8a4fff, #4a90e2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+        }
+
+        .btn-hacker:active {
+            transform: translateY(0);
+        }
+
+        .btn-hacker:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .input-hacker {
+            background-color: rgba(26, 26, 26, 0.6);
+            border: 2px solid #333;
+            color: #e0e0ff;
+            transition: all 0.3s ease;
+        }
+
+        .input-hacker:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
+            background-color: rgba(18, 18, 18, 0.8);
+        }
+
+        .disclaimer-box {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 0.85rem;
+            color: #ffc107;
+            display: none;
+            animation: slideIn 0.4s ease-out;
+            margin-top: 1rem;
+        }
+
+        .disclaimer-box.show {
+            display: block;
+        }
+
+        .category-section {
+            margin-bottom: 1.5rem;
+            border: 1px solid #4a90e2;
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(26, 26, 26, 0.6);
+            animation: categoryExpand 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .category-section.removing {
+            animation: categoryCollapse 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+            pointer-events: none;
+        }
+
+        @keyframes categoryExpand {
+            0% { opacity: 0; transform: scaleY(0) translateY(-20px); max-height: 0; }
+            60% { transform: scaleY(1.05) translateY(0); }
+            100% { opacity: 1; transform: scaleY(1) translateY(0); max-height: 2000px; }
+        }
+
+        @keyframes categoryCollapse {
+            0% { opacity: 1; transform: scaleY(1) translateY(0); max-height: 2000px; }
+            100% { opacity: 0; transform: scaleY(0) translateY(-20px); max-height: 0; margin-bottom: 0; border-width: 0; }
+        }
+
+        .category-header {
+            padding: 1rem 1.5rem;
+            background: rgba(74, 144, 226, 0.05);
+            border-bottom: 1px solid #4a90e2;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .category-header:hover {
+            background: rgba(74, 144, 226, 0.1);
+        }
+
+        .category-section.collapsed .category-header {
+            border-bottom: none;
+        }
+
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .category-social .category-title { color: #3b82f6; }
+        .category-tech .category-title { color: #10b981; }
+        .category-gaming .category-title { color: #f59e0b; }
+        .category-misc .category-title { color: #a78bfa; }
+        .category-global .category-title { color: #ec4899; }
+
+        .category-count {
+            background: rgba(74, 144, 226, 0.2);
+            color: #4a90e2;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .category-toggle {
+            transition: transform 0.3s ease;
+        }
+
+        .category-section.collapsed .category-toggle {
+            transform: rotate(-180deg);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1rem;
+            padding: 1.5rem;
+        }
+
+        .category-section.collapsed .category-grid {
+            display: none;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.6), rgba(15, 15, 15, 0.4));
+            border: 1px solid #4a90e2;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-card:hover {
+            border-color: #ff6b9c;
+            box-shadow: 0 0 20px rgba(255, 107, 156, 0.3);
+            transform: translateY(-2px) scale(1.01);
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+
+        .category-social .result-card::before { background: #3b82f6; }
+        .category-tech .result-card::before { background: #10b981; }
+        .category-gaming .result-card::before { background: #f59e0b; }
+        .category-misc .result-card::before { background: #a78bfa; }
+        .category-global .result-card::before { background: #ec4899; }
+
+        .result-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .category-social .result-title { color: #3b82f6; }
+        .category-tech .result-title { color: #10b981; }
+        .category-gaming .result-title { color: #f59e0b; }
+        .category-misc .result-title { color: #a78bfa; }
+        .category-global .result-title { color: #ec4899; }
+
+        .result-url {
+            color: #8a4fff;
+            font-size: 0.85rem;
+            font-family: 'JetBrains Mono', monospace;
+            word-break: break-all;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 0.5rem;
+            border-radius: 6px;
+            margin-bottom: 0.75rem;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .result-url:hover {
+            background: rgba(0, 0, 0, 0.6);
+            color: #4a90e2;
+        }
+
+        .tool-badges {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .tool-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .tool-badge:hover {
+            transform: scale(1.1);
+        }
+
+        .badge-sherlock {
+            background: rgba(74, 144, 226, 0.2);
+            color: #4a90e2;
+            border: 1px solid #4a90e2;
+        }
+
+        .badge-blackbird {
+            background: rgba(255, 107, 156, 0.2);
+            color: #ff6b9c;
+            border: 1px solid #ff6b9c;
+        }
+
+        .badge-whatsmyname {
+            background: rgba(138, 79, 255, 0.2);
+            color: #8a4fff;
+            border: 1px solid #8a4fff;
+        }
+
+        .badge-verified {
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+            border: 1px solid #ffc107;
+            font-weight: 700;
+        }
+
+        .remove-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 28px;
+            height: 28px;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            color: #ff4444;
+            font-size: 1.2rem;
+        }
+
+        .result-card:hover .remove-btn {
+            opacity: 1;
+        }
+
+        .remove-btn:hover {
+            background: rgba(239, 68, 68, 0.3);
+            transform: rotate(90deg) scale(1.2);
+        }
+
+        /* Always show remove button on touch devices */
+        @media (hover: none) {
+            .remove-btn {
+                opacity: 0.6;
+            }
+        }
+
+        .stats-box {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid #4a90e2;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .loading-bar {
+            height: 4px;
+            background: #333;
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #4a90e2, #8a4fff, #ff6b9c, #8a4fff, #4a90e2);
+            background-size: 200% 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+            animation: shimmer 2s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(74, 144, 226, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(74, 144, 226, 0.6); }
+        }
+
+        /* Detective Robot */
+        .detective-robot {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 30px;
+        }
+
+        .robot-head {
+            width: 50px;
+            height: 45px;
+            background: linear-gradient(135deg, #5a9ff2, #9a5fff);
+            border-radius: 10px 10px 5px 5px;
+            position: absolute;
+            left: 50%;
+            top: 15px;
+            transform: translateX(-50%);
+            animation: robotFloat 3s ease-in-out infinite;
+            box-shadow: 0 3px 15px rgba(138, 79, 255, 0.4);
+        }
+
+        .robot-antenna {
+            width: 2px;
+            height: 12px;
+            background: #ff6b9c;
+            position: absolute;
+            left: 50%;
+            top: -12px;
+            transform: translateX(-50%);
+        }
+
+        .robot-antenna::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #ff6b9c;
+            border-radius: 50%;
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px #ff6b9c;
+            animation: antennaBlink 1s ease-in-out infinite;
+        }
+
+        @keyframes antennaBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .robot-eye {
+            width: 12px;
+            height: 12px;
+            background: #00ff88;
+            border-radius: 50%;
+            position: absolute;
+            top: 15px;
+            animation: eyeGlow 2s ease-in-out infinite;
+            box-shadow: 0 0 10px #00ff88;
+        }
+
+        .robot-eye.left { left: 10px; }
+        .robot-eye.right { right: 10px; }
+
+        @keyframes eyeGlow {
+            0%, 100% { box-shadow: 0 0 10px #00ff88; }
+            50% { box-shadow: 0 0 20px #00ff88, 0 0 30px #00ff88; }
+        }
+
+        .robot-mouth {
+            width: 20px;
+            height: 3px;
+            background: #4a90e2;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .robot-body {
+            width: 60px;
+            height: 50px;
+            background: linear-gradient(135deg, #4a90e2, #8a4fff);
+            border-radius: 8px;
+            position: absolute;
+            left: 50%;
+            top: 65px;
+            transform: translateX(-50%);
+            animation: robotFloat 3s ease-in-out infinite;
+            box-shadow: 0 5px 20px rgba(74, 144, 226, 0.5);
+        }
+
+        .robot-panel {
+            width: 6px;
+            height: 6px;
+            background: #00ff88;
+            border-radius: 50%;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 5px #00ff88;
+        }
+
+        .robot-panel::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: #ff6b9c;
+            border-radius: 50%;
+            position: absolute;
+            top: 12px;
+            left: -8px;
+        }
+
+        .robot-panel::after {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: #ffc107;
+            border-radius: 50%;
+            position: absolute;
+            top: 12px;
+            right: -8px;
+        }
+
+        .robot-arm {
+            width: 8px;
+            height: 35px;
+            background: linear-gradient(180deg, #5a9ff2, #4a90e2);
+            border-radius: 4px;
+            position: absolute;
+            top: 70px;
+            animation: robotFloat 3s ease-in-out infinite;
+        }
+
+        .robot-arm.left {
+            left: 25px;
+            transform-origin: top center;
+            animation: robotFloat 3s ease-in-out infinite, armWaveLeft 2s ease-in-out infinite;
+        }
+
+        .robot-arm.right {
+            right: 25px;
+            transform-origin: top center;
+            animation: robotFloat 3s ease-in-out infinite, armWaveRight 2s ease-in-out infinite;
+        }
+
+        @keyframes armWaveLeft {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        @keyframes armWaveRight {
+            0%, 100% { transform: rotate(10deg); }
+            50% { transform: rotate(-10deg); }
+        }
+
+        .robot-leg {
+            width: 10px;
+            height: 20px;
+            background: linear-gradient(180deg, #4a90e2, #3a80d2);
+            border-radius: 3px;
+            position: absolute;
+            top: 113px;
+            animation: robotFloat 3s ease-in-out infinite;
+        }
+
+        .robot-leg.left { left: 48px; }
+        .robot-leg.right { right: 48px; }
+
+        .magnifying-glass {
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: magnifySearch 4s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        .mag-circle {
+            width: 28px;
+            height: 28px;
+            border: 3px solid #ffc107;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
+        }
+
+        .mag-handle {
+            width: 3px;
+            height: 18px;
+            background: #ffc107;
+            position: absolute;
+            bottom: -12px;
+            right: 3px;
+            transform: rotate(-45deg);
+            border-radius: 2px;
+        }
+
+        @keyframes magnifySearch {
+            0%, 100% { right: 5px; transform: translateY(-50%) rotate(0deg); }
+            25% { right: 45%; transform: translateY(-60%) rotate(15deg); }
+            50% { right: 5px; transform: translateY(-50%) rotate(0deg); }
+            75% { right: 45%; transform: translateY(-40%) rotate(-15deg); }
+        }
+
+        @keyframes robotFloat {
+            0%, 100% { transform: translateX(-50%) translateY(0px); }
+            50% { transform: translateX(-50%) translateY(-8px); }
+        }
+
+        .search-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #4a90e2;
+            border-radius: 50%;
+            animation: particleFloat 3s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; background: #4a90e2; }
+        .particle:nth-child(2) { left: 80%; top: 30%; animation-delay: 0.5s; background: #8a4fff; }
+        .particle:nth-child(3) { left: 20%; top: 70%; animation-delay: 1s; background: #ff6b9c; }
+        .particle:nth-child(4) { left: 85%; top: 65%; animation-delay: 1.5s; background: #00ff88; }
+        .particle:nth-child(5) { left: 50%; top: 15%; animation-delay: 2s; background: #ffc107; }
+
+        @keyframes particleFloat {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-25px) scale(1.3); opacity: 1; }
+        }
+
+        .spinner {
+            border: 4px solid rgba(74, 144, 226, 0.2);
+            border-radius: 50%;
+            border-top: 4px solid #4a90e2;
+            border-right: 4px solid #8a4fff;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-dots .dot-1 { animation: dot-pulse 1.5s infinite; animation-delay: 0s; color: #4a90e2; }
+        .loading-dots .dot-2 { animation: dot-pulse 1.5s infinite; animation-delay: 0.5s; color: #8a4fff; }
+        .loading-dots .dot-3 { animation: dot-pulse 1.5s infinite; animation-delay: 1s; color: #ff6b9c; }
+
+        @keyframes dot-pulse {
+            0%, 60%, 100% { opacity: 0.3; transform: scale(1); }
+            30% { opacity: 1; transform: scale(1.3); text-shadow: 0 0 10px currentColor; }
+        }
+
+        .blink { animation: blink-animation 1s steps(5, start) infinite; }
+
+        @keyframes blink-animation {
+            to { visibility: hidden; }
+        }
+
+        .scrollbar-custom::-webkit-scrollbar { width: 8px; }
+        .scrollbar-custom::-webkit-scrollbar-track { background: rgba(26, 26, 26, 0.6); border-radius: 4px; }
+        .scrollbar-custom::-webkit-scrollbar-thumb { background: #4a90e2; border-radius: 4px; }
+
+        .sherlock-text { color: #4a90e2; text-shadow: 0 0 5px #4a90e2; }
+        .blackbird-text { color: #ff6b9c; text-shadow: 0 0 5px #ff6b9c; }
+        .whatsmyname-text { color: #8a4fff; text-shadow: 0 0 5px #8a4fff; }
+        .dorking-text { color: #00ff88; text-shadow: 0 0 5px #00ff88; }
+        .success-text { color: #8a4fff; text-shadow: 0 0 5px #8a4fff; }
+        .error-text { color: #ff4444; text-shadow: 0 0 5px #ff4444; }
+
+        .dorking-section {
+            margin-top: 2rem;
+        }
+
+        .query-display {
+            background: rgba(20, 20, 30, 0.8);
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            word-break: break-all;
+            border-left: 3px solid #00ff88;
+            color: #00ff88;
+        }
+
+        .result-item {
+            background: rgba(40, 40, 60, 0.6);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .result-item:hover {
+            background: rgba(40, 40, 60, 0.8);
+            transform: translateX(5px);
+            border-color: rgba(0, 255, 136, 0.4);
+        }
+
+        /* ============================================================
+           MOBILE STYLES
+           ============================================================ */
+        @media (max-width: 768px) {
+            /* Already handled by Tailwind: category-grid → 1 column */
+            .category-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+                gap: 0.75rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            /* Tighten overall page padding */
+            .container {
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+                padding-top: 20px !important;
+            }
+
+            /* Header */
+            header h1 {
+                font-size: 1.6rem !important;
+                line-height: 1.2;
+            }
+
+            header p {
+                font-size: 0.85rem !important;
+            }
+
+            /* Terminal body padding */
+            .terminal-body {
+                padding: 16px !important;
+                max-height: none;
+            }
+
+            /* Input: ensure 16px to prevent iOS zoom */
+            .input-hacker {
+                font-size: 16px !important;
+                padding: 12px 36px 12px 14px !important;
+            }
+
+            /* Launch button: comfortable tap target */
+            .btn-hacker {
+                padding: 14px 16px !important;
+                font-size: 14px !important;
+                -webkit-tap-highlight-color: transparent;
+                touch-action: manipulation;
+            }
+
+            /* Engine capability bar: wrap gracefully */
+            .text-center.mb-4.p-3 .text-xs {
+                line-height: 1.8;
+            }
+
+            /* Stats bar: tighten padding on small screens */
+            .stats-box {
+                padding: 10px 6px;
+            }
+
+            .stat-number {
+                font-size: 1.4rem;
+            }
+
+            .stats-box .text-xs {
+                font-size: 0.65rem;
+            }
+
+            /* Category header: smaller title text */
+            .category-title {
+                font-size: 1rem;
+                gap: 0.5rem;
+            }
+
+            .category-header {
+                padding: 0.75rem 1rem;
+            }
+
+            /* Result cards */
+            .result-card {
+                padding: 1rem;
+            }
+
+            .result-title {
+                font-size: 0.95rem;
+            }
+
+            .result-url {
+                font-size: 0.78rem;
+            }
+
+            /* Disclaimer box */
+            .disclaimer-box {
+                font-size: 0.8rem;
+                padding: 10px 12px;
+            }
+
+            /* Loading section robot: scale down slightly on small screens */
+            .detective-robot {
+                width: 110px;
+                height: 110px;
+                transform: scale(0.85);
+                transform-origin: top center;
+                margin-bottom: 10px;
+            }
+
+            /* Loading text */
+            #loadingMessage {
+                font-size: 0.95rem !important;
+            }
+
+            #loadingSubtext {
+                font-size: 0.78rem !important;
+            }
+
+            /* SOCMINT dorking section */
+            .result-item {
+                padding: 12px;
+            }
+
+            .query-display {
+                font-size: 0.72rem;
+                padding: 6px 10px;
+            }
+
+            /* Terminal header: prevent overflow */
+            .terminal-header {
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+
+            .terminal-header .text-xs {
+                font-size: 0.65rem;
+            }
+
+            /* Footer */
+            footer p {
+                font-size: 0.7rem !important;
+            }
+        }
+
+        @media (max-width: 380px) {
+            header h1 {
+                font-size: 1.3rem !important;
+            }
+
+            .stat-number {
+                font-size: 1.2rem;
+            }
+
+            .category-title {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Disable hover transforms on touch — prevents stuck hover states */
+        @media (hover: none) {
+            .result-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            .result-item:hover {
+                transform: none;
+            }
+
+            .btn-hacker:hover {
+                transform: none;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/livecenter-tools.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+</head>
+<body class="min-h-screen flex flex-col" data-lct-theme="cabal">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <div class="container mx-auto px-4 py-8 flex-grow">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 glow-text font-mono">
+                <i class="fas fa-user-secret mr-3"></i>OSINTCabal Username Kit
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 font-mono mb-2">Unified Intelligence Gathering Station</p>
+            <p class="text-sm text-gray-500 font-mono">Sherlock + Blackbird + WhatsMyName + SOCMINT Dorking</p>
+        </header>
+
+        <!-- Search Terminal -->
+        <div class="terminal max-w-6xl mx-auto mb-8">
+            <div class="terminal-header p-4 flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="flex space-x-2 mr-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="text-sm font-mono">unified_osint_scanner.exe</div>
+                </div>
+                <div class="text-xs text-gray-500 font-mono">
+                    <i class="fas fa-shield-alt mr-1"></i>SECURE CONNECTION
+                </div>
+            </div>
+            <div class="terminal-body p-6">
+                <div class="mb-6">
+                    <div class="relative mb-4">
+                        <input
+                            type="text"
+                            id="usernameInput"
+                            placeholder="Enter target username to scan across all platforms..."
+                            class="input-hacker w-full px-4 py-3 rounded-lg font-mono text-lg"
+                            autocomplete="off"
+                            autocorrect="off"
+                            autocapitalize="none"
+                            spellcheck="false"
+                        >
+                        <div class="absolute right-3 top-3 text-gray-500">
+                            <i class="fas fa-crosshairs"></i>
+                        </div>
+                    </div>
+
+                    <button
+                        id="searchBtn"
+                        class="btn-hacker w-full px-8 py-3 rounded-lg font-bold font-mono flex items-center justify-center pulse-glow"
+                    >
+                        <i class="fas fa-rocket mr-2"></i>
+                        <span id="searchBtnText">LAUNCH UNIFIED SCAN</span>
+                    </button>
+
+                    <div id="disclaimerBox" class="disclaimer-box">
+                        <div class="flex items-start gap-2">
+                            <i class="fas fa-exclamation-triangle mt-1"></i>
+                            <div>
+                                <strong>Important Notice:</strong> This tool aggregates several Python scripts and as such it may take 1-3 minutes. Results found on two or more platforms are considered "Verified". That said, false positives are expected! Do your due dilligence, be patient, and enjoy! If you would like to support the cabal we have dedicated crypto wallets at the bottom of the homepage!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mb-4 p-3 bg-black bg-opacity-40 rounded-lg border border-gray-700">
+                    <div class="text-xs text-gray-400 font-mono">
+                        <span class="sherlock-text font-bold">SHERLOCK:</span> 400+ sites |
+                        <span class="blackbird-text font-bold">BLACKBIRD:</span> 600+ sites |
+                        <span class="whatsmyname-text font-bold">WHATSMYNAME:</span> 600+ sites |
+                        <span class="dorking-text font-bold">SOCMINT DORKING:</span> Advanced patterns
+                    </div>
+                </div>
+
+                <!-- Loading Section -->
+                <div id="loadingSection" class="mb-6" style="display: none;">
+                    <div class="detective-robot">
+                        <div class="search-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+
+                        <div class="magnifying-glass">
+                            <div class="mag-circle"></div>
+                            <div class="mag-handle"></div>
+                        </div>
+
+                        <div class="robot-head">
+                            <div class="robot-antenna"></div>
+                            <div class="robot-eye left"></div>
+                            <div class="robot-eye right"></div>
+                            <div class="robot-mouth"></div>
+                        </div>
+
+                        <div class="robot-body">
+                            <div class="robot-panel"></div>
+                        </div>
+
+                        <div class="robot-arm left"></div>
+                        <div class="robot-arm right"></div>
+
+                        <div class="robot-leg left"></div>
+                        <div class="robot-leg right"></div>
+                    </div>
+
+                    <div class="text-center mb-4">
+                        <div id="loadingMessage" class="text-lg font-mono sherlock-text mb-2">
+                            Initializing scan...
+                        </div>
+                        <div id="loadingSubtext" class="text-sm text-gray-400 font-mono">
+                            Please be patient while we probe the digital landscape
+                        </div>
+                    </div>
+
+                    <div class="loading-bar mb-3">
+                        <div id="loadingProgress" class="loading-progress"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-gray-400 font-mono">
+                        <span id="progressStatus">Preparing systems...</span>
+                        <span id="progressText">0%</span>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <span class="loading-dots font-mono text-gray-500">
+                            <span class="dot-1">●</span>
+                            <span class="dot-2">●</span>
+                            <span class="dot-3">●</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div id="statusText" class="text-sm font-mono mb-4 min-h-6">
+                    <span class="text-gray-400">Ready to launch unified scan. Enter a username above.</span>
+                    <span id="cursor" class="blink">_</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div id="statsBar" class="max-w-6xl mx-auto mb-6" style="display: none;">
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-4">
+                <div class="stats-box">
+                    <div class="stat-number sherlock-text" id="totalCount">0</div>
+                    <div class="text-xs text-gray-400 mt-1">TOTAL FOUND</div>
+                </div>
+                <div class="stats-box">
+                    <div class="stat-number" style="color: #3b82f6;" id="socialCount">0</div>
+                    <div class="text-xs text-gray-400 mt-1">SOCIAL</div>
+                </div>
+                <div class="stats-box">
+                    <div class="stat-number" style="color: #10b981;" id="techCount">0</div>
+                    <div class="text-xs text-gray-400 mt-1">TECH</div>
+                </div>
+                <div class="stats-box">
+                    <div class="stat-number" style="color: #f59e0b;" id="gamingCount">0</div>
+                    <div class="text-xs text-gray-400 mt-1">GAMING</div>
+                </div>
+                <div class="stats-box">
+                    <div class="stat-number" style="color: #a78bfa;" id="miscCount">0</div>
+                    <div class="text-xs text-gray-400 mt-1">MISC</div>
+                </div>
+                <div class="stats-box">
+                    <div class="stat-number" style="color: #ec4899;" id="globalCount">0</div>
+                    <div class="text-xs text-gray-400 mt-1">GLOBAL</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categorized Results -->
+        <div id="resultsSection" class="max-w-6xl mx-auto" style="display: none;">
+            <div id="socialSection" class="category-section category-social" style="display: none;">
+                <div class="category-header" onclick="toggleCategory('socialSection')">
+                    <div class="category-title">
+                        <i class="fas fa-users"></i>
+                        <span>Social Media Platforms</span>
+                        <span class="category-count" id="socialCountBadge">0</span>
+                    </div>
+                    <div class="category-toggle"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="category-grid" id="socialGrid"></div>
+            </div>
+
+            <div id="techSection" class="category-section category-tech" style="display: none;">
+                <div class="category-header" onclick="toggleCategory('techSection')">
+                    <div class="category-title">
+                        <i class="fas fa-code"></i>
+                        <span>Tech & IT</span>
+                        <span class="category-count" id="techCountBadge">0</span>
+                    </div>
+                    <div class="category-toggle"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="category-grid" id="techGrid"></div>
+            </div>
+
+            <div id="gamingSection" class="category-section category-gaming" style="display: none;">
+                <div class="category-header" onclick="toggleCategory('gamingSection')">
+                    <div class="category-title">
+                        <i class="fas fa-gamepad"></i>
+                        <span>Gaming</span>
+                        <span class="category-count" id="gamingCountBadge">0</span>
+                    </div>
+                    <div class="category-toggle"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="category-grid" id="gamingGrid"></div>
+            </div>
+
+            <div id="miscSection" class="category-section category-misc" style="display: none;">
+                <div class="category-header" onclick="toggleCategory('miscSection')">
+                    <div class="category-title">
+                        <i class="fas fa-box"></i>
+                        <span>Miscellaneous</span>
+                        <span class="category-count" id="miscCountBadge">0</span>
+                    </div>
+                    <div class="category-toggle"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="category-grid" id="miscGrid"></div>
+            </div>
+
+            <div id="globalSection" class="category-section category-global" style="display: none;">
+                <div class="category-header" onclick="toggleCategory('globalSection')">
+                    <div class="category-title">
+                        <i class="fas fa-globe"></i>
+                        <span>Global</span>
+                        <span class="category-count" id="globalCountBadge">0</span>
+                    </div>
+                    <div class="category-toggle"><i class="fas fa-chevron-down"></i></div>
+                </div>
+                <div class="category-grid" id="globalGrid"></div>
+            </div>
+        </div>
+
+        <!-- SOCMINT Dorking Section -->
+        <div id="dorkingSection" class="max-w-6xl mx-auto dorking-section" style="display: none;">
+            <div class="terminal">
+                <div class="terminal-header p-4 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="flex space-x-2 mr-4">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="text-sm font-mono dorking-text">socmint_dorking.json</div>
+                    </div>
+                    <div class="text-xs text-gray-400 font-mono" id="dorkingStats">0 results found</div>
+                </div>
+                <div class="terminal-body p-4 scrollbar-custom">
+                    <h3 class="text-lg font-bold font-mono mb-4 dorking-text flex items-center">
+                        <i class="fas fa-crosshairs mr-2"></i>SOCMINT DORKING RESULTS
+                    </h3>
+                    <div id="dorkingResults">
+                        <div class="text-center text-gray-500 py-8">
+                            <i class="fas fa-crosshairs text-4xl mb-2"></i>
+                            <p>Dorking results will appear here...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const BLACKLIST = ['splice.com', 'geeksforgeeks.org', 'codersrank.io', 'codesnippets.fandom.com', '247ctf.com', 'svidbook.ru', 'yandex', 'weblate.org', 'hubski.com', 'envato.com', 'livelib.ru'];
+        const CATEGORIES = {
+            social: ['facebook.com', 'instagram.com', 'twitter.com', 'pinterest.com', 'youtube.com', 'reddit.com', 'mastodon.social', 'telegram', 't.me', 'substack.com', 'threads.net', 'spotify.com', 'open.spotify.com', 'soundcloud.com', 'deviantart.com', 'twitch.tv', 'patreon.com', 'myspace.com', 'flipboard.com', 'flickr.com', 'disqus.com', 'linkedin.com', 'medium.com', 'x.com', 'mewe.com', 'vk.com', 'tiktok.com', 'snapchat.com', 'tumblr.com', 'discord', 'giphy.com', 'poshmark.com', 'goodreads.com', 'rumble.com', 'strava.com', 'trello.com', 'bandlab.com', 'freelancer.com', 'picsart.com', 'vine.co', 'fansly.com', 'imgur.com', 'geocaching.com', 'redgifs.com', 'about.me', 'linktr.ee', 'itemfix.com', 'discords.com', 'eyeem.com', 'bsky.app', 'bluesky'],
+            tech: ['github.com', 'gitlab', 'stackoverflow.com', 'pastebin.com', 'hackerrank', 'huggingface.co', 'replit.com', 'codeberg', 'bitbucket', 'sourcehut', 'sr.ht', 'dev.to', 'hashnode', 'hackerone', 'hackerearth', 'hackster', 'hackaday', 'hackmd', 'codeforces', 'codewars', 'codechef', 'codecademy', 'coderwall', 'tryhackme', 'bugcrowd', 'intigriti', 'gitea.com', 'codementor', 'codesandbox', 'codolio'],
+            gaming: ['steam', 'xbox', 'playstation', 'nintendo', 'roblox.com', 'minecraft', 'habbo', 'chess.com', 'lichess.org', 'epic games', 'epicgames', 'origin', 'gog.com', 'itch.io', 'runescape.com', 'playerdb.co', 'kongregate.com', 'gamefaqs', 'gamespot.com', 'giantbomb.com', 'nintendolife.com', 'freesteamkeys.com', 'boardgamegeek.com'],
+            misc: ['archive.org', 'allmylinks.com', 'last.fm', 'myanimelist.net', 'letterboxd.com', 'untappd.com'],
+            global: ['.ru', '.fr', '.es', '.de', '.it', '.pt', '.br', '.mx', '.ar', '.cl', '.co', '.pe', '.ve', '.nl', '.be', '.ch', '.at', '.pl', '.cz', '.gr', '.ro', '.ua', '.jp', '.cn', '.kr', '.in', '.fi', '.tr', '.se', '.no', '.dk', 'ok.ru', 'wykop.pl', 'kwejk.pl', 'jbzd.com.pl', 'habr.com', 'dating.ru', 'd3.ru', 'opennet.ru', 'php.ru']
+        };
+        const SKIP_URLS = ['api.x.com/i/users/username_available', 'mastodon.social/api/v2/search', 'api.github.com/users', 'public.api.bsky.app/xrpc', 'auth.roblox.com/v1/usernames/validate'];
+        let allResults = new Map();
+        let categoryCounts = { social: 0, tech: 0, gaming: 0, misc: 0, global: 0 };
+        let isSearching = false;
+        let dorkingResults = [];
+        const elements = {
+            input: document.getElementById('usernameInput'),
+            searchBtn: document.getElementById('searchBtn'),
+            searchBtnText: document.getElementById('searchBtnText'),
+            disclaimerBox: document.getElementById('disclaimerBox'),
+            loadingSection: document.getElementById('loadingSection'),
+            loadingProgress: document.getElementById('loadingProgress'),
+            progressText: document.getElementById('progressText'),
+            statusText: document.getElementById('statusText'),
+            statsBar: document.getElementById('statsBar'),
+            resultsSection: document.getElementById('resultsSection'),
+            dorkingSection: document.getElementById('dorkingSection'),
+            dorkingResults: document.getElementById('dorkingResults')
+        };
+        elements.searchBtn.addEventListener('click', handleSearch);
+        elements.input.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSearch(); });
+        async function handleSearch() {
+            if (isSearching) return;
+            const username = elements.input.value.trim();
+            if (!username) { updateStatus('ERROR: Username field cannot be empty', 'error'); return; }
+            startSearch(username);
+        }
+        async function startSearch(username) {
+            isSearching = true;
+            elements.searchBtn.disabled = true;
+            elements.searchBtnText.textContent = 'SCANNING...';
+            elements.disclaimerBox.classList.add('show');
+            allResults.clear();
+            categoryCounts = { social: 0, tech: 0, gaming: 0, misc: 0, global: 0 };
+            dorkingResults = [];
+            ['socialGrid', 'techGrid', 'gamingGrid', 'miscGrid', 'globalGrid'].forEach(id => { document.getElementById(id).innerHTML = ''; });
+            ['socialSection', 'techSection', 'gamingSection', 'miscSection', 'globalSection'].forEach(id => { document.getElementById(id).style.display = 'none'; });
+            elements.dorkingResults.innerHTML = '<div class="text-center text-gray-500 py-8"><div class="spinner mb-4"></div><p>Searching Google...</p></div>';
+            elements.loadingSection.style.display = 'block';
+            elements.statsBar.style.display = 'block';
+            elements.resultsSection.style.display = 'block';
+            elements.dorkingSection.style.display = 'block';
+            updateProgress(5, 'Initializing scan modules', 'Preparing username analysis engines');
+            await sleep(300);
+            updateProgress(10, 'Deploying Sherlock engine', 'Scanning 400+ social media platforms');
+            const sherlockPromise = searchEngine('sherlock', username);
+            await sleep(500);
+            updateProgress(25, 'Deploying Blackbird engine', 'Probing 600+ international databases');
+            const blackbirdPromise = searchEngine('blackbird', username);
+            await sleep(500);
+            updateProgress(40, 'Deploying WhatsMyName engine', 'Cross-referencing 600+ verified sources');
+            const whatsmynamePromise = searchEngine('whatsmyname', username);
+            await sleep(500);
+            updateProgress(55, 'Launching SOCMINT dorking', 'Executing advanced Google search patterns');
+            const socmintPromise = searchSOCMINT(username);
+            updateProgress(70, 'Aggregating intelligence', 'Deduplicating and verifying results');
+            Promise.all([sherlockPromise, blackbirdPromise, whatsmynamePromise, socmintPromise]).then(() => {
+                updateProgress(90, 'Finalizing report', 'Compiling comprehensive profile');
+                setTimeout(() => {
+                    updateProgress(100, 'Scan complete!', 'Intelligence gathering successful');
+                    setTimeout(() => {
+                        elements.loadingSection.style.display = 'none';
+                        isSearching = false;
+                        elements.searchBtn.disabled = false;
+                        elements.searchBtnText.textContent = 'LAUNCH UNIFIED SCAN';
+                        updateStatus(`✓ Scan complete! Found ${allResults.size} unique profiles across all engines`, 'success');
+                    }, 800);
+                }, 500);
+            });
+        }
+        function sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
+        async function searchEngine(engine, username) {
+            try {
+                const response = await fetch('/api-proxy.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username, tool: engine }) });
+                const data = await response.json();
+                if (data.detected && Array.isArray(data.detected)) { data.detected.forEach(profile => { addResultRealtime(profile, engine, username); }); }
+            } catch (error) { console.error(`${engine} error:`, error); }
+        }
+        async function searchSOCMINT(username) {
+            try {
+                const response = await fetch('livecenter/dorkingkit/socmint_wrapper.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username: username, firstname: '', lastname: '' }) });
+                if (!response.ok) { throw new Error(`HTTP ${response.status}`); }
+                const responseText = await response.text();
+                const lines = responseText.trim().split('\n');
+                const results = [];
+                for (const line of lines) {
+                    if (!line.trim()) continue;
+                    try {
+                        const data = JSON.parse(line);
+                        if (data.type === 'result') { results.push({ query: data.query, title: data.title, link: data.url, snippet: data.snippet }); }
+                    } catch (e) { console.warn('Failed to parse line:', line.substring(0, 50), e); }
+                }
+                if (results.length > 0) { dorkingResults = results; displayDorkingResults(); } else {
+                    elements.dorkingResults.innerHTML = '<div class="text-center text-gray-500 py-8"><i class="fas fa-search text-4xl mb-2"></i><p>No dorking results found</p></div>';
+                    document.getElementById('dorkingStats').textContent = '0 results found';
+                }
+            } catch (error) {
+                console.error('SOCMINT error:', error);
+                elements.dorkingResults.innerHTML = `<div class="text-center text-gray-500 py-8"><i class="fas fa-exclamation-triangle text-4xl mb-2 text-red-500"></i><p class="text-red-400">SOCMINT unavailable</p></div>`;
+                document.getElementById('dorkingStats').textContent = 'Error';
+            }
+        }
+        function stripAnsiCodes(text) { return text.replace(/\x1b\[[0-9;]*m/g, '').replace(/\[\d+m/g, '').replace(/\[0m/g, ''); }
+        function normalizeUrl(url) { url = stripAnsiCodes(url); return url.toLowerCase().replace(/^https?:\/\//i, '').replace(/^www\./i, '').replace(/\/+$/, '').replace(/\?.*$/, '').replace(/\/$/, ''); }
+        function isBlacklisted(url) { const cleanUrl = url.toLowerCase(); return BLACKLIST.some(blacklisted => cleanUrl.includes(blacklisted)); }
+        function shouldSkipUrl(url) { const cleanUrl = url.toLowerCase(); return SKIP_URLS.some(skip => cleanUrl.includes(skip)); }
+        function extractDomainFromUrl(url) { try { const cleanUrl = stripAnsiCodes(url).toLowerCase(); const match = cleanUrl.match(/(?:https?:\/\/)?(?:www\.)?([^\/]+)/); if (match && match[1]) { const parts = match[1].split('.'); if (parts.length >= 2) { return parts[parts.length - 2] + '.' + parts[parts.length - 1]; } return match[1]; } } catch (e) {} return ''; }
+        function derivePlatformNameFromUrl(url) {
+            const cleanUrl = stripAnsiCodes(url).toLowerCase();
+            const domain = extractDomainFromUrl(cleanUrl);
+            const specificPatterns = [{ match: 'open.spotify.com', name: 'Spotify' }, { match: 't.me', name: 'Telegram' }, { match: 'linktr.ee', name: 'Linktree' }, { match: 'bsky.app', name: 'Bluesky' }, { match: 'ok.ru', name: 'OK.ru' }];
+            for (const pattern of specificPatterns) { if (cleanUrl.includes(pattern.match)) { return pattern.name; } }
+            const domainPatterns = { 'instagram.com': 'Instagram', 'github.com': 'GitHub', 'gitlab.com': 'GitLab', 'twitter.com': 'Twitter', 'x.com': 'X (Twitter)', 'mastodon.social': 'Mastodon', 'reddit.com': 'Reddit', 'youtube.com': 'YouTube', 'tiktok.com': 'TikTok', 'linkedin.com': 'LinkedIn', 'facebook.com': 'Facebook', 'spotify.com': 'Spotify', 'soundcloud.com': 'SoundCloud', 'twitch.tv': 'Twitch', 'telegram.org': 'Telegram', 'threads.net': 'Threads', 'huggingface.co': 'Hugging Face', 'patreon.com': 'Patreon', 'stackoverflow.com': 'Stack Overflow', 'medium.com': 'Medium', 'deviantart.com': 'DeviantArt', 'pinterest.com': 'Pinterest', 'tumblr.com': 'Tumblr', 'flickr.com': 'Flickr', 'roblox.com': 'Roblox', 'chess.com': 'Chess.com', 'lichess.org': 'Lichess', 'archive.org': 'Internet Archive', 'giphy.com': 'Giphy', 'poshmark.com': 'Poshmark', 'goodreads.com': 'Goodreads', 'rumble.com': 'Rumble', 'strava.com': 'Strava', 'trello.com': 'Trello', 'bandlab.com': 'BandLab', 'freelancer.com': 'Freelancer', 'picsart.com': 'PicsArt', 'vine.co': 'Vine', 'fansly.com': 'Fansly', 'imgur.com': 'Imgur', 'geocaching.com': 'Geocaching', 'redgifs.com': 'RedGIFs', 'runescape.com': 'RuneScape', 'about.me': 'About.me', 'eyeem.com': 'EyeEm' };
+            if (domainPatterns[domain]) { return domainPatterns[domain]; }
+            if (domain) { const name = domain.split('.')[0]; return name.charAt(0).toUpperCase() + name.slice(1); }
+            return 'Profile';
+        }
+        function cleanPlatformName(name, url) { name = stripAnsiCodes(name); const genericNames = ['Profile URL', '[32m Profile URL', 'Profile', '[32m', 'Open', 'T', 'Auth', 'Music', 'Hosted', 'Com', 'Api', '']; if (genericNames.includes(name.trim())) { return derivePlatformNameFromUrl(url); } return name; }
+        function detectCategory(profile) {
+            const platform = profile.title.toLowerCase();
+            const url = profile.link.toLowerCase();
+            if (CATEGORIES.social.some(kw => platform.includes(kw) || url.includes(kw))) { return 'social'; }
+            if (CATEGORIES.tech.some(kw => platform.includes(kw) || url.includes(kw))) { return 'tech'; }
+            if (CATEGORIES.gaming.some(kw => platform.includes(kw) || url.includes(kw))) { return 'gaming'; }
+            if (CATEGORIES.misc.some(kw => platform.includes(kw) || url.includes(kw))) { return 'misc'; }
+            if (CATEGORIES.global.some(kw => url.includes(kw))) { return 'global'; }
+            return 'misc';
+        }
+        function addResultRealtime(profile, engine, username) {
+            if (isBlacklisted(profile.link)) return;
+            if (shouldSkipUrl(profile.link)) return;
+            const normalizedUrl = normalizeUrl(profile.link);
+            profile.link = stripAnsiCodes(profile.link);
+            profile.title = cleanPlatformName(profile.title, profile.link);
+            if (allResults.has(normalizedUrl)) {
+                const existing = allResults.get(normalizedUrl);
+                if (!existing.engines.includes(engine)) { existing.engines.push(engine); updateResultCard(existing); }
+            } else {
+                const category = detectCategory(profile);
+                const resultData = { ...profile, engines: [engine], category, id: Math.random().toString(36).substr(2, 9), username };
+                allResults.set(normalizedUrl, resultData);
+                const card = createResultCard(resultData);
+                const grid = document.getElementById(`${category}Grid`);
+                const section = document.getElementById(`${category}Section`);
+                section.style.display = 'block';
+                grid.insertBefore(card, grid.firstChild);
+                setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateX(0) scale(1)'; }, 50);
+                categoryCounts[category]++;
+            }
+            updateStats();
+        }
+        function createResultCard(result) {
+            const div = document.createElement('div');
+            div.className = 'result-card';
+            div.id = `result-${result.id}`;
+            div.style.opacity = '0';
+            div.style.transform = 'translateX(-30px) scale(0.9)';
+            div.style.transition = 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            const toolBadges = result.engines.map(eng => { const names = { sherlock: 'Sherlock', blackbird: 'Blackbird', whatsmyname: 'WhatsMyName' }; const badgeClass = `badge-${eng}`; return `<span class="tool-badge ${badgeClass}">${names[eng]}</span>`; }).join('');
+            const verifiedBadge = result.engines.length >= 2 ? `<span class="tool-badge badge-verified"><i class="fas fa-star mr-1"></i>VERIFIED</span>` : '';
+            div.innerHTML = `<button class="remove-btn" onclick="removeResult('${result.id}')">×</button><div class="result-title"><i class="fas fa-globe"></i>${result.title}</div><a href="${result.link}" target="_blank" class="result-url"><i class="fas fa-external-link-alt mr-1"></i>${result.link}</a><div class="tool-badges">${toolBadges}${verifiedBadge}</div>`;
+            return div;
+        }
+        function updateResultCard(result) {
+            const card = document.getElementById(`result-${result.id}`);
+            if (card) {
+                card.style.transform = 'scale(1.05)';
+                const toolBadges = result.engines.map(eng => { const names = { sherlock: 'Sherlock', blackbird: 'Blackbird', whatsmyname: 'WhatsMyName' }; const badgeClass = `badge-${eng}`; return `<span class="tool-badge ${badgeClass}">${names[eng]}</span>`; }).join('');
+                const verifiedBadge = result.engines.length >= 2 ? `<span class="tool-badge badge-verified"><i class="fas fa-star mr-1"></i>VERIFIED</span>` : '';
+                const badgesContainer = card.querySelector('.tool-badges');
+                badgesContainer.innerHTML = toolBadges + verifiedBadge;
+                setTimeout(() => { card.style.transform = 'scale(1)'; }, 300);
+            }
+        }
+        function removeResult(resultId) {
+            const card = document.getElementById(`result-${resultId}`);
+            if (!card) return;
+            let resultToRemove = null;
+            for (let [url, result] of allResults.entries()) { if (result.id === resultId) { resultToRemove = { url, result }; break; } }
+            if (!resultToRemove) return;
+            const category = resultToRemove.result.category;
+            card.style.transform = 'translateX(100px) scale(0.8) rotateZ(5deg)';
+            card.style.opacity = '0';
+            card.style.filter = 'blur(3px)';
+            setTimeout(() => {
+                categoryCounts[category]--;
+                allResults.delete(resultToRemove.url);
+                card.remove();
+                updateStats();
+                if (categoryCounts[category] === 0) { removeCategorySection(category); }
+            }, 400);
+        }
+        function removeCategorySection(category) { const section = document.getElementById(`${category}Section`); if (!section) return; section.classList.add('removing'); setTimeout(() => { section.style.display = 'none'; section.classList.remove('removing'); }, 500); }
+        function displayDorkingResults() {
+            if (dorkingResults.length === 0) {
+                elements.dorkingResults.innerHTML = '<div class="text-center text-gray-500 py-8"><i class="fas fa-search text-4xl mb-2"></i><p>No dorking results found</p></div>';
+                document.getElementById('dorkingStats').textContent = '0 results found';
+                return;
+            }
+            elements.dorkingResults.innerHTML = '';
+            dorkingResults.forEach((item, index) => {
+                const resultCard = document.createElement('div');
+                resultCard.className = 'result-item';
+                resultCard.style.opacity = '0';
+                resultCard.style.transform = 'translateY(20px)';
+                resultCard.style.transition = `all 0.4s ease ${index * 0.05}s`;
+                resultCard.innerHTML = `${item.query ? `<div class="query-display">${item.query}</div>` : ''}<div class="flex items-center justify-between mb-2"><div class="font-bold">${item.title || 'Result'}</div><div class="text-xs dorking-text font-bold"><i class="fas fa-crosshairs mr-1"></i>SOCMINT</div></div><div class="mb-2"><a href="${item.link}" target="_blank" class="text-blue-400 hover:text-blue-300 text-sm break-all"><i class="fas fa-external-link-alt mr-1"></i>${item.link}</a></div>${item.snippet ? `<div class="text-sm text-gray-400">${item.snippet}</div>` : ''}`;
+                elements.dorkingResults.appendChild(resultCard);
+                setTimeout(() => { resultCard.style.opacity = '1'; resultCard.style.transform = 'translateY(0)'; }, 50);
+            });
+            document.getElementById('dorkingStats').textContent = `${dorkingResults.length} result${dorkingResults.length !== 1 ? 's' : ''} found`;
+        }
+        function toggleCategory(sectionId) { const section = document.getElementById(sectionId); section.classList.toggle('collapsed'); }
+        function updateStats() {
+            document.getElementById('totalCount').textContent = allResults.size;
+            document.getElementById('socialCount').textContent = categoryCounts.social;
+            document.getElementById('techCount').textContent = categoryCounts.tech;
+            document.getElementById('gamingCount').textContent = categoryCounts.gaming;
+            document.getElementById('miscCount').textContent = categoryCounts.misc;
+            document.getElementById('globalCount').textContent = categoryCounts.global;
+            document.getElementById('socialCountBadge').textContent = categoryCounts.social;
+            document.getElementById('techCountBadge').textContent = categoryCounts.tech;
+            document.getElementById('gamingCountBadge').textContent = categoryCounts.gaming;
+            document.getElementById('miscCountBadge').textContent = categoryCounts.misc;
+            document.getElementById('globalCountBadge').textContent = categoryCounts.global;
+        }
+        function updateProgress(percent, message, subtext) {
+            elements.loadingProgress.style.width = `${percent}%`;
+            elements.progressText.textContent = `${percent}%`;
+            document.getElementById('loadingMessage').textContent = message;
+            document.getElementById('loadingSubtext').textContent = subtext;
+            document.getElementById('progressStatus').textContent = message;
+        }
+        function updateStatus(message, type = 'info') {
+            const typeClass = type === 'success' ? 'success-text' : type === 'error' ? 'error-text' : 'text-gray-400';
+            elements.statusText.innerHTML = `<span class="${typeClass}">${message}</span> <span id="cursor" class="blink">_</span>`;
+        }
+    </script>
+
+        <script src="../assets/js/livecenter-ui.js"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c1bc8bc6d4614',t:'MTc4OTAxODkzNw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

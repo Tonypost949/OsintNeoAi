@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINTCabal Web Archive Kit - Historical Intelligence</title>
+    <meta name="description" content="Comprehensive web archive toolkit for discovering historical snapshots, cached pages, and deleted content across multiple archive services.">
+    <link rel="canonical" href="https://osintcabal.org/livecenter/osintcabalwebarchivekit.html" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Space Mono', monospace;
+            background-color: #0a0a1a;
+            color: #e0e0ff;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(120, 255, 214, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            position: relative;
+        }
+
+        /* Coming Soon Overlay */
+        .coming-soon-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(10, 10, 26, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 9998;
+            pointer-events: none;
+        }
+
+        .coming-soon-banner {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .coming-soon-text {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ff6b9c;
+            text-shadow: 
+                0 0 20px #ff6b9c,
+                0 0 40px #ff6b9c,
+                0 0 60px #ff6b9c,
+                0 0 80px #8a4fff,
+                0 0 100px #8a4fff;
+            animation: pulse-glow-intense 2s ease-in-out infinite;
+            font-family: 'Share Tech Mono', monospace;
+            letter-spacing: 0.2em;
+        }
+
+        .coming-soon-subtitle {
+            font-size: 1.5rem;
+            color: #4a90e2;
+            text-shadow: 0 0 10px #4a90e2, 0 0 20px #4a90e2;
+            margin-top: 20px;
+            font-family: 'Space Mono', monospace;
+            animation: fade-in-out 3s ease-in-out infinite;
+        }
+
+        .coming-soon-icon {
+            font-size: 3rem;
+            color: #8a4fff;
+            margin-bottom: 20px;
+            animation: float-icon 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow-intense {
+            0%, 100% {
+                text-shadow: 
+                    0 0 20px #ff6b9c,
+                    0 0 40px #ff6b9c,
+                    0 0 60px #ff6b9c,
+                    0 0 80px #8a4fff;
+                transform: scale(1);
+            }
+            50% {
+                text-shadow: 
+                    0 0 30px #ff6b9c,
+                    0 0 60px #ff6b9c,
+                    0 0 90px #ff6b9c,
+                    0 0 120px #8a4fff,
+                    0 0 150px #8a4fff;
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes fade-in-out {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes float-icon {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Blur effect on content */
+        .content-wrapper {
+            filter: grayscale(70%) blur(3px);
+            opacity: 0.4;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .terminal {
+            background-color: rgba(18, 18, 18, 0.8);
+            border: 1px solid #4a90e2;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .terminal-header {
+            background-color: rgba(26, 26, 26, 0.8);
+            border-bottom: 1px solid #4a90e2;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .terminal-body {
+            min-height: 200px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px #ff6b9c, 0 0 20px #ff6b9c;
+        }
+        
+        .btn-hacker {
+            background: linear-gradient(135deg, #4a90e2, #8a4fff);
+            color: #000;
+            transition: all 0.3s ease;
+            border: none;
+            font-weight: bold;
+        }
+        
+        .btn-hacker:hover {
+            background: linear-gradient(135deg, #8a4fff, #4a90e2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+        }
+        
+        .btn-hacker:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .input-hacker {
+            background-color: rgba(26, 26, 26, 0.6);
+            border: 2px solid #333;
+            color: #e0e0ff;
+            transition: all 0.3s ease;
+        }
+        
+        .input-hacker:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
+            background-color: rgba(18, 18, 18, 0.8);
+        }
+        
+        .archive-result-card {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.6), rgba(15, 15, 15, 0.4));
+            border: 1px solid #4a90e2;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .archive-result-card:hover {
+            border-color: #ff6b9c;
+            box-shadow: 0 0 20px rgba(255, 107, 156, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .loading-bar {
+            height: 4px;
+            background: #333;
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #4a90e2, #8a4fff);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(74, 144, 226, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(74, 144, 226, 0.6); }
+        }
+        
+        .error-text {
+            color: #ff4444;
+            text-shadow: 0 0 5px #ff4444;
+        }
+        
+        .success-text {
+            color: #8a4fff;
+            text-shadow: 0 0 5px #8a4fff;
+        }
+        
+        .scrollbar-custom::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .scrollbar-custom::-webkit-scrollbar-track {
+            background: rgba(26, 26, 26, 0.6);
+            border-radius: 4px;
+        }
+        
+        .scrollbar-custom::-webkit-scrollbar-thumb {
+            background: #4a90e2;
+            border-radius: 4px;
+        }
+
+        .spinner {
+            border: 4px solid rgba(74, 144, 226, 0.2);
+            border-radius: 50%;
+            border-top: 4px solid #4a90e2;
+            border-right: 4px solid #8a4fff;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-dots {
+            font-size: 1.5rem;
+        }
+        
+        .loading-dots .dot-1 {
+            animation: dot-pulse 1.5s infinite;
+            animation-delay: 0s;
+            color: #4a90e2;
+        }
+        
+        .loading-dots .dot-2 {
+            animation: dot-pulse 1.5s infinite;
+            animation-delay: 0.5s;
+            color: #8a4fff;
+        }
+        
+        .loading-dots .dot-3 {
+            animation: dot-pulse 1.5s infinite;
+            animation-delay: 1s;
+            color: #ff6b9c;
+        }
+        
+        @keyframes dot-pulse {
+            0%, 60%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            30% {
+                opacity: 1;
+                transform: scale(1.3);
+                text-shadow: 0 0 10px currentColor;
+            }
+        }
+        
+        .loading-message-glow {
+            animation: message-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes message-glow {
+            from {
+                text-shadow: 0 0 5px #4a90e2;
+            }
+            to {
+                text-shadow: 0 0 15px #4a90e2, 0 0 25px #8a4fff;
+            }
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 30px;
+            opacity: 0.7;
+        }
+        
+        .blink {
+            animation: blink-animation 1s steps(5, start) infinite;
+        }
+        
+        @keyframes blink-animation {
+            to { visibility: hidden; }
+        }
+
+        .tool-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+
+        .badge-wayback { background: rgba(0, 113, 188, 0.3); color: #0071bc; border: 1px solid #0071bc; }
+        .badge-archive-today { background: rgba(255, 107, 156, 0.3); color: #ff6b9c; border: 1px solid #ff6b9c; }
+        .badge-google-cache { background: rgba(66, 133, 244, 0.3); color: #4285f4; border: 1px solid #4285f4; }
+        .badge-memento { background: rgba(138, 79, 255, 0.3); color: #8a4fff; border: 1px solid #8a4fff; }
+
+        @media (max-width: 768px) {
+            .coming-soon-text {
+                font-size: 2.5rem;
+            }
+            .coming-soon-subtitle {
+                font-size: 1rem;
+            }
+            .coming-soon-icon {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/livecenter-tools.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+    <style>.coming-soon-overlay{z-index:8900 !important;}</style>
+</head>
+<body data-lct-theme="breach" class="min-h-screen flex flex-col">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+    
+    <!-- Coming Soon Overlay -->
+    <div class="coming-soon-overlay"></div>
+    
+    <!-- Coming Soon Banner -->
+    <div class="coming-soon-banner">
+        <div class="coming-soon-icon">
+            <i class="fas fa-rocket"></i>
+        </div>
+        <div class="coming-soon-text">COMING SOON</div>
+        <div class="coming-soon-subtitle">
+            <i class="fas fa-code mr-2"></i>LAUNCHING INTELLIGENCE SYSTEMS
+        </div>
+    </div>
+    
+    <!-- Blurred Content Wrapper -->
+    <div class="content-wrapper">
+        <div class="container mx-auto px-4 py-8 flex-grow">
+            <!-- Header -->
+            <header class="text-center mb-8">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 glow-text font-mono">
+                    <i class="fas fa-history mr-3"></i>OSINTCabal Web Archive Kit
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 font-mono mb-2">Comprehensive Historical Intelligence System</p>
+                <p class="text-sm text-gray-500 font-mono">Wayback Machine • Archive.today • Google Cache • Memento</p>
+            </header>
+            
+            <!-- Main Search Interface -->
+            <div class="terminal max-w-6xl mx-auto mb-8">
+                <div class="terminal-header p-4 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="flex space-x-2 mr-4">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="text-sm font-mono">web_archive_scanner.exe</div>
+                    </div>
+                    <div class="text-xs text-gray-500 font-mono">
+                        <i class="fas fa-shield-alt mr-1"></i>SECURE CONNECTION
+                    </div>
+                </div>
+                <div class="terminal-body p-6">
+                    <!-- URL Input -->
+                    <div class="flex flex-col gap-4 mb-6">
+                        <div class="relative">
+                            <input 
+                                type="url" 
+                                id="urlInput" 
+                                placeholder="Enter URL to search across all web archives..." 
+                                class="input-hacker w-full px-4 py-3 rounded-lg font-mono text-lg"
+                                autocomplete="off"
+                            >
+                            <div class="absolute right-3 top-3 text-gray-500">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                        </div>
+                        
+                        <button 
+                            id="searchBtn" 
+                            class="btn-hacker px-8 py-3 rounded-lg font-bold font-mono flex items-center justify-center pulse-glow"
+                            data-searching="false"
+                        >
+                            <i class="fas fa-rocket mr-2"></i>
+                            <span id="searchBtnText">LAUNCH ARCHIVE SEARCH</span>
+                        </button>
+                    </div>
+                    
+                    <div class="text-center mb-4 p-3 bg-black bg-opacity-40 rounded-lg border border-gray-700">
+                        <div class="text-xs text-gray-400 font-mono">
+                            <span class="font-bold text-blue-400">MULTI-ARCHIVE SEARCH:</span> Historical Snapshots | Cached Pages | Deleted Content
+                        </div>
+                    </div>
+                    
+                    <div id="loadingSection" class="mb-6" style="display: none;">
+                        <div class="flex justify-center mb-4">
+                            <div class="spinner"></div>
+                        </div>
+                        
+                        <div class="text-center mb-4">
+                            <div id="loadingMessage" class="text-lg font-mono text-blue-400 mb-2 loading-message-glow">
+                                Initializing archive search...
+                            </div>
+                            <div id="loadingSubtext" class="text-sm text-gray-400 font-mono">
+                                Querying multiple web archive services
+                            </div>
+                        </div>
+                        
+                        <div class="loading-bar mb-3">
+                            <div id="loadingProgress" class="loading-progress"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-400 font-mono">
+                            <span id="progressStatus">Preparing systems...</span>
+                            <span id="progressText">0%</span>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <span class="loading-dots font-mono text-gray-500">
+                                <span class="dot-1">●</span>
+                                <span class="dot-2">●</span>
+                                <span class="dot-3">●</span>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div id="statusText" class="text-sm font-mono mb-4 min-h-6">
+                        <span class="text-gray-400">Ready to search web archives. Enter a URL above.</span>
+                        <span id="cursor" class="blink">_</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Results Section -->
+            <div id="resultsSection" class="max-w-6xl mx-auto mb-8" style="display: none;">
+                <div class="terminal">
+                    <div class="terminal-header p-4 flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="flex space-x-2 mr-4">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <div class="text-sm font-mono success-text"><i class="fas fa-archive mr-2"></i>archive_results.json</div>
+                        </div>
+                        <div class="text-xs text-gray-400 font-mono" id="resultsStats">
+                            0 archives found
+                        </div>
+                    </div>
+                    <div class="terminal-body p-4 scrollbar-custom">
+                        <h3 class="text-lg font-bold font-mono mb-4 success-text flex items-center">
+                            <i class="fas fa-clock mr-2"></i>ARCHIVE SEARCH RESULTS
+                        </h3>
+                        <div id="archiveResults">
+                            <div class="empty-state">
+                                <p>Ready to search historical archives...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script>
+        // Placeholder for actual implementation - searches multiple web archives
+        class WebArchiveKit {
+            constructor() {
+                this.initializeElements();
+                this.setupEventListeners();
+            }
+            
+            initializeElements() {
+                this.urlInput = document.getElementById('urlInput');
+                this.searchBtn = document.getElementById('searchBtn');
+                this.searchBtnText = document.getElementById('searchBtnText');
+                this.resultsSection = document.getElementById('resultsSection');
+                this.statusText = document.getElementById('statusText');
+                this.loadingSection = document.getElementById('loadingSection');
+                this.loadingProgress = document.getElementById('loadingProgress');
+                this.progressText = document.getElementById('progressText');
+                this.archiveResults = document.getElementById('archiveResults');
+                this.resultsStats = document.getElementById('resultsStats');
+            }
+            
+            setupEventListeners() {
+                this.searchBtn.addEventListener('click', () => this.handleSearch());
+                this.urlInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.handleSearch();
+                });
+            }
+            
+            updateStatus(message, type = 'info') {
+                const typeClasses = {
+                    'info': 'text-gray-400',
+                    'success': 'success-text',
+                    'error': 'error-text'
+                };
+                this.statusText.innerHTML = `<span class="${typeClasses[type]}">${message}</span> <span id="cursor" class="blink">_</span>`;
+            }
+            
+            updateProgress(percentage, message, subtext = '') {
+                this.loadingProgress.style.width = `${percentage}%`;
+                this.progressText.textContent = `${percentage}%`;
+                
+                if (message) {
+                    document.getElementById('loadingMessage').textContent = message;
+                    document.getElementById('loadingSubtext').textContent = subtext;
+                    document.getElementById('progressStatus').textContent = message;
+                    this.updateStatus(message);
+                }
+            }
+            
+            async handleSearch() {
+                const url = this.urlInput.value.trim();
+                if (!url) {
+                    this.updateStatus('ERROR: URL field cannot be empty', 'error');
+                    return;
+                }
+                
+                this.startSearch(url);
+            }
+            
+            async startSearch(url) {
+                this.searchBtn.setAttribute('data-searching', 'true');
+                this.searchBtn.disabled = true;
+                this.searchBtnText.textContent = 'SEARCHING...';
+                
+                this.resultsSection.style.display = 'none';
+                this.loadingSection.style.display = 'block';
+                
+                this.updateProgress(5, 'Initializing archive search...', 'Preparing web archive queries');
+                await this.sleep(1000);
+                
+                this.updateProgress(25, 'Querying Wayback Machine...', 'Searching Internet Archive snapshots');
+                await this.sleep(1500);
+                
+                this.updateProgress(50, 'Querying Archive.today...', 'Checking archive.today snapshots');
+                await this.sleep(1500);
+                
+                this.updateProgress(75, 'Querying Google Cache...', 'Searching cached versions');
+                await this.sleep(1500);
+                
+                this.updateProgress(95, 'Querying Memento Time Travel...', 'Searching distributed archives');
+                await this.sleep(1500);
+                
+                this.updateProgress(100, 'Search complete!', 'All archives queried');
+                
+                setTimeout(() => {
+                    this.loadingSection.style.display = 'none';
+                    this.displayResults(url);
+                    this.resetSearchButton();
+                }, 1000);
+            }
+            
+            sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+            
+            displayResults(url) {
+                this.archiveResults.innerHTML = `
+                    <div class="archive-result-card p-4 rounded-lg">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center">
+                                <i class="fas fa-archive text-2xl mr-3" style="color: #0071bc"></i>
+                                <span class="font-bold">Wayback Machine</span>
+                            </div>
+                            <span class="tool-badge badge-wayback">INTERNET ARCHIVE</span>
+                        </div>
+                        <p class="text-sm text-gray-400">Historical snapshots available for ${url}</p>
+                        <a href="https://web.archive.org/web/*/${url}" target="_blank" class="text-blue-400 text-xs mt-2 inline-block">
+                            <i class="fas fa-external-link-alt mr-1"></i>View in Wayback Machine
+                        </a>
+                    </div>
+                    
+                    <div class="archive-result-card p-4 rounded-lg">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-2xl mr-3" style="color: #ff6b9c"></i>
+                                <span class="font-bold">Archive.today</span>
+                            </div>
+                            <span class="tool-badge badge-archive-today">ARCHIVE.TODAY</span>
+                        </div>
+                        <p class="text-sm text-gray-400">Snapshots available for ${url}</p>
+                        <a href="https://archive.ph/${url}" target="_blank" class="text-blue-400 text-xs mt-2 inline-block">
+                            <i class="fas fa-external-link-alt mr-1"></i>View in Archive.today
+                        </a>
+                    </div>
+                    
+                    <div class="archive-result-card p-4 rounded-lg">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center">
+                                <i class="fab fa-google text-2xl mr-3" style="color: #4285f4"></i>
+                                <span class="font-bold">Google Cache</span>
+                            </div>
+                            <span class="tool-badge badge-google-cache">GOOGLE</span>
+                        </div>
+                        <p class="text-sm text-gray-400">Cached version for ${url}</p>
+                        <a href="https://webcache.googleusercontent.com/search?q=cache:${url}" target="_blank" class="text-blue-400 text-xs mt-2 inline-block">
+                            <i class="fas fa-external-link-alt mr-1"></i>View Google Cache
+                        </a>
+                    </div>
+                    
+                    <div class="archive-result-card p-4 rounded-lg">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center">
+                                <i class="fas fa-history text-2xl mr-3" style="color: #8a4fff"></i>
+                                <span class="font-bold">Memento Time Travel</span>
+                            </div>
+                            <span class="tool-badge badge-memento">MEMENTO</span>
+                        </div>
+                        <p class="text-sm text-gray-400">Distributed archive access for ${url}</p>
+                        <a href="http://timetravel.mementoweb.org/list/${url}" target="_blank" class="text-blue-400 text-xs mt-2 inline-block">
+                            <i class="fas fa-external-link-alt mr-1"></i>View in Memento
+                        </a>
+                    </div>
+                `;
+                
+                this.resultsStats.textContent = '4 archive services queried';
+                this.resultsSection.style.display = 'block';
+                
+                setTimeout(() => {
+                    this.resultsSection.scrollIntoView({ behavior: 'smooth' });
+                }, 300);
+            }
+            
+            resetSearchButton() {
+                this.searchBtn.setAttribute('data-searching', 'false');
+                this.searchBtn.disabled = false;
+                this.searchBtnText.textContent = 'LAUNCH ARCHIVE SEARCH';
+                this.updateStatus('Search complete! All archives queried', 'success');
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            new WebArchiveKit();
+        });
+    </script>
+    <script src="../assets/js/livecenter-ui.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c1ba2bfa44614',t:'MTc4OTAxODkzMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

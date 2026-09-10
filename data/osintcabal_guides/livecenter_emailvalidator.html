@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Email Validator - SMTP & Deliverability Check</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/livecenter-tools.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+</head>
+<body data-lct-theme="email">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <div class="lct-wrap">
+        <div class="lct-title">
+            <div class="title-glass">
+                <h1>Email Validator - SMTP &amp; Deliverability Check</h1>
+            </div>
+        </div>
+
+    <div class="content-box">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <p style="color: #ff6b9c; font-size: 1.1em;">This tool runs an email validation API key against your query and returns SMTP server data, deliverability status, etc. Be wary of rate limiting!</p>
+                <p style="color: #ff6b9c;"><strong>Features:</strong> SMTP validation, deliverability check, syntax verification, domain validation, and more.</p>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <a href="https://rapidapi.com/webarjos/api/email-validator-api" target="_blank" class="api-button">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M13.5 2c-5.621 0-10.211 4.443-10.475 10h-3.025l5 6.625 5-6.625h-2.975c.257-3.351 3.06-6 6.475-6 3.584 0 6.5 2.916 6.5 6.5s-2.916 6.5-6.5 6.5c-1.863 0-3.542-.793-4.728-2.053l-2.427 3.216c1.877 1.754 4.389 2.837 7.155 2.837 5.79 0 10.5-4.71 10.5-10.5s-4.71-10.5-10.5-10.5z"/>
+                    </svg>
+                    RapidAPI Source
+                </a>
+            </div>
+        </div>
+
+        <div class="tool-form">
+            <div class="input-group">
+                <input type="email" id="email-input" placeholder="Enter email address to validate" autocomplete="email" autocorrect="off" autocapitalize="none" spellcheck="false">
+                <button id="validate-button" onclick="validateEmail()">Validate</button>
+            </div>
+        </div>
+
+        <div class="terminal-container" id="terminal-container">
+            <div class="terminal-header">
+                <div class="terminal-controls">
+                    <div class="terminal-control close"></div>
+                    <div class="terminal-control minimize"></div>
+                    <div class="terminal-control maximize"></div>
+                </div>
+                <span>Email Validation Terminal</span>
+                <div class="status-indicator" id="status-indicator">
+                    <div class="pulse"></div>
+                    <span>Initializing...</span>
+                </div>
+            </div>
+            <div class="terminal-output" id="terminal-output">
+                Waiting for validation to start...<span class="terminal-cursor"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-links">
+        <a href="live.html"> ← Back to Live Center</a>
+        <a href="../index.html">Home</a>
+    </div>
+
+    
+    </div>
+
+<script>
+        let isValidating = false;
+
+        function updateStatus(status, text) {
+            const indicator = document.getElementById('status-indicator');
+            indicator.className = `status-indicator status-${status}`;
+            indicator.innerHTML = `<div class="pulse"></div><span>${text}</span>`;
+        }
+
+        function appendToTerminal(html) {
+            const output = document.getElementById('terminal-output');
+            { const __c = output.querySelector('.terminal-cursor');
+              if (__c) __c.insertAdjacentHTML('beforebegin', html);
+              else output.insertAdjacentHTML('beforeend', html + '<span class="terminal-cursor"></span>');
+            }
+            while (output.childNodes.length > 1200) output.removeChild(output.firstChild);
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function validateEmail() {
+            const email = document.getElementById('email-input').value.trim();
+            const validateButton = document.getElementById('validate-button');
+            const terminalContainer = document.getElementById('terminal-container');
+            const terminalOutput = document.getElementById('terminal-output');
+
+            if (!email) { alert("Please enter an email address."); return; }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address (e.g., example@domain.com).");
+                return;
+            }
+
+            if (isValidating) { alert("A validation is already in progress."); return; }
+
+            // Dismiss mobile keyboard before showing terminal
+            document.getElementById('email-input').blur();
+
+            isValidating = true;
+            validateButton.disabled = true;
+            terminalContainer.style.display = 'block';
+            terminalOutput.innerHTML = 'Connecting to Email Validation API...<span class="terminal-cursor"></span>';
+            updateStatus('running', 'Validating...');
+
+            // Scroll terminal into view on mobile
+            setTimeout(() => terminalContainer.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+
+            setTimeout(() => {
+                appendToTerminal('\n<span style="color: #4a90e2;">Validating email: ' + email + '</span>\n');
+                appendToTerminal('<span style="color: #888;">========================================</span>\n\n');
+            }, 300);
+
+            fetch('/livecenter/LIVETOOLS/emailvalidator_wrapper.php?email=' + encodeURIComponent(email))
+                .then(response => {
+                    if (!response.ok) throw new Error('Server returned status: ' + response.status);
+                    return response.json();
+                })
+                .then(data => {
+                    updateStatus('complete', 'Validation Complete');
+
+                    let resultHtml = '<div class="result-section">';
+                    resultHtml += '<div class="result-title">[EMAIL VALIDATION RESULTS]</div>';
+
+                    if (data.valid) {
+                        resultHtml += '<div class="result-item result-valid">[VALID] Email is VALID</div>';
+                    } else {
+                        resultHtml += '<div class="result-item result-invalid">[INVALID] Email is INVALID</div>';
+                    }
+                    resultHtml += '</div>';
+
+                    if (data.smtp) {
+                        resultHtml += '<div class="result-section">';
+                        resultHtml += '<div class="result-title">[SMTP SERVER INFORMATION]</div>';
+                        resultHtml += '<div class="result-item">Server: <span style="color: #4a90e2;">' + (data.smtp.host || 'N/A') + '</span></div>';
+                        resultHtml += '<div class="result-item">Port: <span style="color: #4a90e2;">' + (data.smtp.port || 'N/A') + '</span></div>';
+                        resultHtml += '<div class="result-item">Accepts Mail: <span class="' + (data.smtp.accepts_mail ? 'result-valid' : 'result-invalid') + '">' + (data.smtp.accepts_mail ? 'Yes' : 'No') + '</span></div>';
+                        resultHtml += '</div>';
+                    }
+
+                    if (data.deliverability) {
+                        resultHtml += '<div class="result-section">';
+                        resultHtml += '<div class="result-title">[DELIVERABILITY STATUS]</div>';
+                        resultHtml += '<div class="result-item">Status: <span class="result-' + (data.deliverability === 'DELIVERABLE' ? 'valid' : 'warning') + '">' + data.deliverability + '</span></div>';
+                        resultHtml += '</div>';
+                    }
+
+                    if (data.domain) {
+                        resultHtml += '<div class="result-section">';
+                        resultHtml += '<div class="result-title">[DOMAIN INFORMATION]</div>';
+                        resultHtml += '<div class="result-item">Domain: <span style="color: #4a90e2;">' + data.domain + '</span></div>';
+                        if (data.mx_records) {
+                            resultHtml += '<div class="result-item">MX Records: <span class="result-valid">Found</span></div>';
+                        }
+                        resultHtml += '</div>';
+                    }
+
+                    if (data.disposable !== undefined) {
+                        resultHtml += '<div class="result-section">';
+                        resultHtml += '<div class="result-title">[ADDITIONAL CHECKS]</div>';
+                        resultHtml += '<div class="result-item">Disposable: <span class="' + (data.disposable ? 'result-warning' : 'result-valid') + '">' + (data.disposable ? 'Yes' : 'No') + '</span></div>';
+                        if (data.role_account !== undefined) {
+                            resultHtml += '<div class="result-item">Role Account: <span class="result-warning">' + (data.role_account ? 'Yes' : 'No') + '</span></div>';
+                        }
+                        if (data.free_provider !== undefined) {
+                            resultHtml += '<div class="result-item">Free Provider: <span style="color: #4a90e2;">' + (data.free_provider ? 'Yes' : 'No') + '</span></div>';
+                        }
+                        resultHtml += '</div>';
+                    }
+
+                    appendToTerminal(resultHtml + '\n');
+                    isValidating = false;
+                    validateButton.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    updateStatus('error', 'Validation Failed');
+                    appendToTerminal('\n<span class="result-invalid">[ERROR] ' + error.message + '</span>\n');
+                    appendToTerminal('<span style="color: #888;">Please check your connection or try again later.</span>\n');
+                    isValidating = false;
+                    validateButton.disabled = false;
+                });
+        }
+
+        document.getElementById('email-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') validateEmail();
+        });
+    </script>
+    <script src="../assets/js/livecenter-ui.js"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c1bb14ad74614',t:'MTc4OTAxODkzMw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

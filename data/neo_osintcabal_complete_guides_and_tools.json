@@ -1,0 +1,295 @@
+{
+  "agent": "NEO",
+  "subsystem": "OSINT_CABAL_COMPREHENSIVE_GUIDES_AND_METHODS_SUITE",
+  "generated_at": "2026-09-10T05:42:39Z",
+  "total_assets_piped": 41,
+  "tools_and_guides": [
+    {
+      "name": "cabaldashboard_doxbin",
+      "file_name": "cabaldashboard_doxbin.html",
+      "path": "data\\osintcabal_guides\\cabaldashboard_doxbin.html",
+      "size_bytes": 94255,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "cabaldashboard_mostwanted",
+      "file_name": "cabaldashboard_mostwanted.html",
+      "path": "data\\osintcabal_guides\\cabaldashboard_mostwanted.html",
+      "size_bytes": 74339,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "emailkit",
+      "file_name": "emailkit.html",
+      "path": "data\\osintcabal_guides\\emailkit.html",
+      "size_bytes": 47470,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "index",
+      "file_name": "index.html",
+      "path": "data\\osintcabal_guides\\index.html",
+      "size_bytes": 66825,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_.._index",
+      "file_name": "livecenter_.._index.html",
+      "path": "data\\osintcabal_guides\\livecenter_.._index.html",
+      "size_bytes": 66825,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_.._tools",
+      "file_name": "livecenter_.._tools.html",
+      "path": "data\\osintcabal_guides\\livecenter_.._tools.html",
+      "size_bytes": 40781,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_asn",
+      "file_name": "livecenter_asn.html",
+      "path": "data\\osintcabal_guides\\livecenter_asn.html",
+      "size_bytes": 15633,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_blackbird",
+      "file_name": "livecenter_blackbird.html",
+      "path": "data\\osintcabal_guides\\livecenter_blackbird.html",
+      "size_bytes": 15353,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_cabalbreach-breachdirectory",
+      "file_name": "livecenter_cabalbreach-breachdirectory.html",
+      "path": "data\\osintcabal_guides\\livecenter_cabalbreach-breachdirectory.html",
+      "size_bytes": 33183,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_cabalbreach-chiasmodon",
+      "file_name": "livecenter_cabalbreach-chiasmodon.html",
+      "path": "data\\osintcabal_guides\\livecenter_cabalbreach-chiasmodon.html",
+      "size_bytes": 14218,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_cabalbreach-hashid",
+      "file_name": "livecenter_cabalbreach-hashid.html",
+      "path": "data\\osintcabal_guides\\livecenter_cabalbreach-hashid.html",
+      "size_bytes": 14767,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_cabalbreach-haveibeenpwned",
+      "file_name": "livecenter_cabalbreach-haveibeenpwned.html",
+      "path": "data\\osintcabal_guides\\livecenter_cabalbreach-haveibeenpwned.html",
+      "size_bytes": 14418,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_cabalbreach-knownbreaches",
+      "file_name": "livecenter_cabalbreach-knownbreaches.html",
+      "path": "data\\osintcabal_guides\\livecenter_cabalbreach-knownbreaches.html",
+      "size_bytes": 14825,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_cabalbreach-pwnedalt",
+      "file_name": "livecenter_cabalbreach-pwnedalt.html",
+      "path": "data\\osintcabal_guides\\livecenter_cabalbreach-pwnedalt.html",
+      "size_bytes": 14218,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_darkus",
+      "file_name": "livecenter_darkus.html",
+      "path": "data\\osintcabal_guides\\livecenter_darkus.html",
+      "size_bytes": 20740,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_emailvalidator",
+      "file_name": "livecenter_emailvalidator.html",
+      "path": "data\\osintcabal_guides\\livecenter_emailvalidator.html",
+      "size_bytes": 15993,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_eyes",
+      "file_name": "livecenter_eyes.html",
+      "path": "data\\osintcabal_guides\\livecenter_eyes.html",
+      "size_bytes": 17280,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_finalrecon",
+      "file_name": "livecenter_finalrecon.html",
+      "path": "data\\osintcabal_guides\\livecenter_finalrecon.html",
+      "size_bytes": 18160,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_ghunt",
+      "file_name": "livecenter_ghunt.html",
+      "path": "data\\osintcabal_guides\\livecenter_ghunt.html",
+      "size_bytes": 33182,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_hashtray",
+      "file_name": "livecenter_hashtray.html",
+      "path": "data\\osintcabal_guides\\livecenter_hashtray.html",
+      "size_bytes": 16072,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_holehe",
+      "file_name": "livecenter_holehe.html",
+      "path": "data\\osintcabal_guides\\livecenter_holehe.html",
+      "size_bytes": 14394,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_hudsonrock",
+      "file_name": "livecenter_hudsonrock.html",
+      "path": "data\\osintcabal_guides\\livecenter_hudsonrock.html",
+      "size_bytes": 8603,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_index",
+      "file_name": "livecenter_index.html",
+      "path": "data\\osintcabal_guides\\livecenter_index.html",
+      "size_bytes": 60667,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_live",
+      "file_name": "livecenter_live.html",
+      "path": "data\\osintcabal_guides\\livecenter_live.html",
+      "size_bytes": 92976,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_mailcat",
+      "file_name": "livecenter_mailcat.html",
+      "path": "data\\osintcabal_guides\\livecenter_mailcat.html",
+      "size_bytes": 14067,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_mailsleuth",
+      "file_name": "livecenter_mailsleuth.html",
+      "path": "data\\osintcabal_guides\\livecenter_mailsleuth.html",
+      "size_bytes": 14054,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_privateigsniffer",
+      "file_name": "livecenter_privateigsniffer.html",
+      "path": "data\\osintcabal_guides\\livecenter_privateigsniffer.html",
+      "size_bytes": 16489,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_protonintelligence",
+      "file_name": "livecenter_protonintelligence.html",
+      "path": "data\\osintcabal_guides\\livecenter_protonintelligence.html",
+      "size_bytes": 15958,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_subcat",
+      "file_name": "livecenter_subcat.html",
+      "path": "data\\osintcabal_guides\\livecenter_subcat.html",
+      "size_bytes": 16014,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_sublist3r",
+      "file_name": "livecenter_sublist3r.html",
+      "path": "data\\osintcabal_guides\\livecenter_sublist3r.html",
+      "size_bytes": 15743,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_telegrambreach",
+      "file_name": "livecenter_telegrambreach.html",
+      "path": "data\\osintcabal_guides\\livecenter_telegrambreach.html",
+      "size_bytes": 8140,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_theharvester",
+      "file_name": "livecenter_theharvester.html",
+      "path": "data\\osintcabal_guides\\livecenter_theharvester.html",
+      "size_bytes": 19793,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_uscrapper",
+      "file_name": "livecenter_uscrapper.html",
+      "path": "data\\osintcabal_guides\\livecenter_uscrapper.html",
+      "size_bytes": 14987,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_webdiver",
+      "file_name": "livecenter_webdiver.html",
+      "path": "data\\osintcabal_guides\\livecenter_webdiver.html",
+      "size_bytes": 14368,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "livecenter_zehef",
+      "file_name": "livecenter_zehef.html",
+      "path": "data\\osintcabal_guides\\livecenter_zehef.html",
+      "size_bytes": 14919,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "methods",
+      "file_name": "methods.html",
+      "path": "data\\osintcabal_guides\\methods.html",
+      "size_bytes": 44149,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "news",
+      "file_name": "news.html",
+      "path": "data\\osintcabal_guides\\news.html",
+      "size_bytes": 48980,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "socials",
+      "file_name": "socials.html",
+      "path": "data\\osintcabal_guides\\socials.html",
+      "size_bytes": 49728,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "tools",
+      "file_name": "tools.html",
+      "path": "data\\osintcabal_guides\\tools.html",
+      "size_bytes": 40781,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "usernamesearch",
+      "file_name": "usernamesearch.html",
+      "path": "data\\osintcabal_guides\\usernamesearch.html",
+      "size_bytes": 68195,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    },
+    {
+      "name": "webcrawlingkit",
+      "file_name": "webcrawlingkit.html",
+      "path": "data\\osintcabal_guides\\webcrawlingkit.html",
+      "size_bytes": 47993,
+      "status": "OPERATIONAL_LOCAL_INTEL"
+    }
+  ]
+}

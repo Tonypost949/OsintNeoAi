@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Darkus - Onion Website Searcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/livecenter-tools.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+</head>
+<body data-lct-theme="domain">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <div class="lct-wrap">
+        <div class="lct-title">
+            <div class="title-glass">
+                <h1>Darkus - Onion Website Searcher</h1>
+            </div>
+        </div>
+
+    <div class="content-box">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <p style="color: #ff6b9c; font-size: 1.1em;">Darkus searches onion websites using deep/dark web search engines to find specific keywords and return link results.</p>
+                <p style="color: #ff6b9c;"><strong>Features:</strong> Searches multiple dark web search engines, returns .onion links, and provides comprehensive dark web indexing.</p>
+                <p style="color: #ff6b9c;"><strong>Note:</strong> This process may take up to 60 seconds for thorough dark web searching. Watch the live terminal output below.</p>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <a href="https://github.com/Lucksi/Darkus" target="_blank" class="github-button">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <h3>Legal Warning</h3>
+            <p><strong>Use this tool responsibly and legally.</strong> This tool is for educational and research purposes only. Users are responsible for complying with all applicable laws and regulations. Do not use this tool for illegal activities.</p>
+            <p><strong>Privacy Notice:</strong> Accessing dark web content may pose security risks. Use appropriate security measures including VPN and Tor browser.</p>
+        </div>
+
+        <div class="tool-form">
+            <div class="input-group">
+                <input type="text" id="keyword-input" placeholder="Enter search keyword (e.g., bitcoin, marketplace)" autocorrect="off" autocapitalize="none" spellcheck="false">
+                <button id="search-button" onclick="searchDarkWeb()">Search</button>
+            </div>
+        </div>
+
+        <div class="terminal-container" id="terminal-container">
+            <div class="terminal-header">
+                <div class="terminal-controls">
+                    <div class="terminal-control close"></div>
+                    <div class="terminal-control minimize"></div>
+                    <div class="terminal-control maximize"></div>
+                </div>
+                <span>Darkus Dark Web Terminal</span>
+                <div class="status-indicator" id="status-indicator">
+                    <div class="pulse"></div>
+                    <span>Initializing...</span>
+                </div>
+            </div>
+            <div class="terminal-output" id="terminal-output">
+                Waiting for dark web search to start...<span class="terminal-cursor"></span>
+            </div>
+            <button class="scroll-to-bottom" id="scroll-button" onclick="scrollToBottom()">↓</button>
+        </div>
+    </div>
+
+    <!-- Export buttons — desktop: fixed top-right; mobile: fixed bottom-right -->
+    <div class="export-buttons" id="export-buttons">
+        <button class="export-button" id="json-export-btn" onclick="downloadFile('json')">
+            Download JSON
+        </button>
+        <button class="export-button" id="txt-export-btn" onclick="downloadFile('txt')">
+            Download TXT
+        </button>
+    </div>
+
+    <!-- Stop Crawl — desktop: fixed top-left; mobile: fixed bottom-left -->
+    <button class="stop-crawl-button" id="stop-crawl-btn" onclick="stopCrawl()">
+        Stop Crawl
+    </button>
+
+    <div class="nav-links">
+        <a href="live.html"> ← Back to Live Center</a>
+        <a href="../index.html">Home</a>
+    </div>
+
+    
+    </div>
+
+<script>
+        let isScanning = false;
+        let autoScroll = true;
+        let downloadUrls = { json: '', txt: '' };
+        let currentReader = null;
+
+        function updateStatus(status, text) {
+            const indicator = document.getElementById('status-indicator');
+            indicator.className = `status-indicator status-${status}`;
+            indicator.innerHTML = `<div class="pulse"></div><span>${text}</span>`;
+        }
+
+        function scrollToBottom() {
+            const output = document.getElementById('terminal-output');
+            output.scrollTop = output.scrollHeight;
+            document.getElementById('scroll-button').style.display = 'none';
+            autoScroll = true;
+        }
+
+        function checkScrollPosition() {
+            const output = document.getElementById('terminal-output');
+            const scrollButton = document.getElementById('scroll-button');
+            if (output.scrollTop + output.clientHeight < output.scrollHeight - 50) {
+                scrollButton.style.display = 'flex';
+                autoScroll = false;
+            } else {
+                scrollButton.style.display = 'none';
+                autoScroll = true;
+            }
+        }
+
+        function stopCrawl() {
+            if (currentReader) {
+                currentReader.cancel();
+                appendToTerminal('');
+                appendToTerminal('[!] Crawl stopped by user');
+                appendToTerminal('[*] Partial results may be available for download');
+                updateStatus('error', 'Crawl Stopped');
+                isScanning = false;
+                document.getElementById('search-button').disabled = false;
+                document.getElementById('stop-crawl-btn').style.display = 'none';
+            }
+        }
+
+        function appendToTerminal(text) {
+            const output = document.getElementById('terminal-output');
+
+            if (!text.trim()) return;
+
+
+            if (text.includes('DOWNLOAD_LINK_JSON:')) {
+                const jsonUrl = text.split('DOWNLOAD_LINK_JSON: ')[1];
+                if (jsonUrl && jsonUrl.trim()) {
+                    downloadUrls.json = jsonUrl.trim();
+                    console.log('JSON URL captured:', downloadUrls.json);
+                }
+                return;
+            }
+
+            if (text.includes('DOWNLOAD_LINK_TXT:')) {
+                const txtUrl = text.split('DOWNLOAD_LINK_TXT: ')[1];
+                if (txtUrl && txtUrl.trim()) {
+                    downloadUrls.txt = txtUrl.trim();
+                    console.log('TXT URL captured:', downloadUrls.txt);
+                }
+                return;
+            }
+
+            if (text.includes('EXPORT_PACKAGE_READY')) {
+                console.log('Export package ready. URLs:', downloadUrls);
+                if (downloadUrls.json && downloadUrls.txt) showExportButtons();
+                return;
+            }
+
+            let coloredText = text;
+            if (text.includes('[+]')) {
+                coloredText = `<span style="color: #28ca42;">${text}</span>`;
+            } else if (text.includes('[v]')) {
+                coloredText = `<span style="color: #4a90e2;">${text}</span>`;
+            } else if (text.includes('RESULT #')) {
+                coloredText = `<span style="color: #ff6b9c; font-weight: bold;">${text}</span>`;
+            } else if (text.includes('SEARCHING') && text.includes('ENGINE')) {
+                coloredText = `<span style="color: #ffa500; font-weight: bold;">${text}</span>`;
+            } else if (text.includes('===')) {
+                coloredText = `<span style="color: #4a90e2;">${text}</span>`;
+            }
+
+            { const __c = output.querySelector('.terminal-cursor');
+              if (__c) __c.insertAdjacentHTML('beforebegin', coloredText + '\n');
+              else output.insertAdjacentHTML('beforeend', coloredText + '\n' + '<span class="terminal-cursor"></span>');
+            }
+            while (output.childNodes.length > 1200) output.removeChild(output.firstChild);
+
+            if (autoScroll) scrollToBottom();
+        }
+
+        function showExportButtons() {
+            const exportButtons = document.getElementById('export-buttons');
+            if (downloadUrls.json && downloadUrls.txt && downloadUrls.json.length > 0 && downloadUrls.txt.length > 0) {
+                exportButtons.style.display = 'flex';
+                console.log('Export buttons shown!');
+            }
+        }
+
+        function downloadFile(type) {
+            const url = downloadUrls[type];
+            if (url) {
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = url.split('/').pop();
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+
+                const button = document.getElementById(`${type}-export-btn`);
+                button.classList.add('downloaded');
+                button.innerHTML = type === 'json' ? 'JSON ✓' : 'TXT ✓';
+
+                setTimeout(() => {
+                    button.classList.remove('downloaded');
+                    button.innerHTML = type === 'json' ? 'Download JSON' : 'Download TXT';
+                }, 3000);
+            }
+        }
+
+        function searchDarkWeb() {
+            const keyword = document.getElementById('keyword-input').value.trim();
+            const searchButton = document.getElementById('search-button');
+            const terminalContainer = document.getElementById('terminal-container');
+            const terminalOutput = document.getElementById('terminal-output');
+            const exportButtons = document.getElementById('export-buttons');
+
+            if (!keyword) { alert("Please enter a search keyword."); return; }
+            if (isScanning) { alert("A dark web search is already in progress. Please wait for it to complete."); return; }
+            if (keyword.length < 2) { alert("Please enter a keyword with at least 2 characters."); return; }
+
+            // Dismiss mobile keyboard before showing terminal
+            document.getElementById('keyword-input').blur();
+
+            isScanning = true;
+            searchButton.disabled = true;
+            terminalContainer.style.display = 'block';
+            exportButtons.style.display = 'none';
+            document.getElementById('stop-crawl-btn').style.display = 'block';
+            terminalOutput.innerHTML = 'Initializing OSINTCabal Agent...<span class="terminal-cursor"></span>';
+            updateStatus('running', 'Searching...');
+            autoScroll = true;
+            downloadUrls = { json: '', txt: '' };
+            console.log('Search started, URLs reset:', downloadUrls);
+
+            // Scroll terminal into view on mobile
+            setTimeout(() => terminalContainer.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+
+            terminalOutput.addEventListener('scroll', checkScrollPosition);
+
+            fetch('/livecenter/DOMAIN_URL/darkus_wrapper.php?keyword=' + encodeURIComponent(keyword))
+                .then(response => {
+                    if (!response.ok) throw new Error(`Server returned status: ${response.status}`);
+
+                    const reader = response.body.getReader();
+                    currentReader = reader;
+                    const decoder = new TextDecoder();
+                    let buffer = '';
+
+                    function readStream() {
+                        return reader.read().then(({ done, value }) => {
+                            if (done) {
+                                updateStatus('complete', 'Search Complete');
+                                isScanning = false;
+                                searchButton.disabled = false;
+                                document.getElementById('stop-crawl-btn').style.display = 'none';
+                                currentReader = null;
+                                console.log('Stream finished. Final URLs check:', downloadUrls);
+                                if (downloadUrls.json && downloadUrls.txt && downloadUrls.json.length > 0 && downloadUrls.txt.length > 0) {
+                                    showExportButtons();
+                                }
+                                return;
+                            }
+
+                            buffer += decoder.decode(value, { stream: true });
+
+                            const lines = buffer.split('\n');
+                            buffer = lines.pop();
+
+                            lines.forEach(line => {
+                                if (line.trim()) appendToTerminal(line.trim());
+                            });
+
+                            return readStream();
+                        });
+                    }
+
+                    return readStream();
+                })
+                .catch(function(error) {
+                    console.error('Fetch error:', error);
+                    updateStatus('error', 'Search Failed');
+                    appendToTerminal('Error: ' + error.message);
+                    appendToTerminal('Please try again later or contact the administrator.');
+                    isScanning = false;
+                    searchButton.disabled = false;
+                    document.getElementById('stop-crawl-btn').style.display = 'none';
+                    currentReader = null;
+                });
+
+            setTimeout(function() {
+                if (isScanning) appendToTerminal('Dark web search taking longer than expected. Please be patient...');
+            }, 35000);
+
+            setTimeout(function() {
+                if (isScanning) {
+                    updateStatus('error', 'Timeout');
+                    appendToTerminal('Request timed out after 120 seconds.');
+                    appendToTerminal('The server might be busy or the Tor network may be slow. Please try again later.');
+                    isScanning = false;
+                    searchButton.disabled = false;
+                }
+            }, 120000);
+        }
+
+        document.getElementById('keyword-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') searchDarkWeb();
+        });
+    </script>
+    <script src="../assets/js/livecenter-ui.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c1bb019fd4614',t:'MTc4OTAxODkzMw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
