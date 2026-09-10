@@ -1,0 +1,58 @@
+{
+  "agent": "NEO",
+  "subsystem": "OC_REGIONAL_AND_STATE_GEO_RADAR",
+  "generated_at": "2026-09-10T05:14:09Z",
+  "total_authoritative_sources": 5,
+  "sources": [
+    {
+      "source_name": "OC Survey / OCGIS Land & Document Map (Land Records & Recorded Maps)",
+      "type": "OFFICIAL_CADASTRAL_RECORD",
+      "scope": "Subdivisions, Parcel Maps, Records of Survey, Corner Records, Deeds",
+      "portal_url": "https://www.ocgov.com/government/oc-public-works/oc-survey/land-records",
+      "hub_url": "https://data-ocpw.opendata.arcgis.com/",
+      "api_endpoint": null,
+      "status": "INDEXED_PORTAL",
+      "feature_count": null
+    },
+    {
+      "source_name": "Orange County Water District (OCWD) Open Spatial Data",
+      "type": "AQUIFER_HYDROGEOLOGY",
+      "scope": "Groundwater basin monitoring, Talbert Salinity Barrier, Production Wells, PFAS Plumes",
+      "portal_url": "https://www.ocwd.com",
+      "hub_url": "https://data-ocwd.opendata.arcgis.com/",
+      "api_endpoint": null,
+      "status": "INDEXED_PORTAL",
+      "feature_count": null
+    },
+    {
+      "source_name": "CalEnviroScreen 4.0 (OEHHA Open Data FeatureServer)",
+      "type": "ENVIRONMENTAL_JUSTICE_BENCHMARK",
+      "scope": "Disadvantaged Census Tracts, Pollution Burden, Groundwater Threats, Asthma/Low Birth Weight",
+      "portal_url": null,
+      "hub_url": null,
+      "api_endpoint": "https://services1.arcgis.com/jUJYIo9tSA7EHvfZ/arcgis/rest/services/CalEnviroScreen_4_0/FeatureServer/0/query?where=County%3D%27Orange%27&outFields=*&f=json",
+      "status": "ONLINE_ACCESSIBLE (Features: 0)",
+      "feature_count": 0
+    },
+    {
+      "source_name": "DTSC EnviroStor REST API (Superfund & Hazardous Waste)",
+      "type": "TOXIC_PLUME_CUSTODY",
+      "scope": "Ascon Landfill, Voluntary Cleanup, State Response, Active Deed Restrictions",
+      "portal_url": null,
+      "hub_url": null,
+      "api_endpoint": "https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/DTSC_Cleanup_Sites/FeatureServer/0/query?where=COUNTY%3D%27ORANGE%27+AND+CITY%3D%27HUNTINGTON+BEACH%27&outFields=*&f=json",
+      "status": "ONLINE_ACCESSIBLE (Features: 0)",
+      "feature_count": 0
+    },
+    {
+      "source_name": "California State Water Resources Control Board (GeoTracker)",
+      "type": "GROUNDWATER_CONTAMINATION",
+      "scope": "Leaking Underground Fuel Tanks (LUST), Oilfield Sumps, Military Basewide Sites",
+      "portal_url": null,
+      "hub_url": null,
+      "api_endpoint": "https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/GeoTracker_Sites/FeatureServer/0/query?where=COUNTY%3D%27ORANGE%27+AND+CITY%3D%27HUNTINGTON+BEACH%27&outFields=*&f=json",
+      "status": "ONLINE_ACCESSIBLE (Features: 0)",
+      "feature_count": 0
+    }
+  ]
+}
