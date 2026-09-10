@@ -1,0 +1,99 @@
+{
+  "agent": "NEO",
+  "subsystem": "SUBSURFACE_CULTURAL_HYDRO_VALUATION_RADAR",
+  "version": "2.0.0-PRO",
+  "generated_at": "2026-09-10T05:03:11Z",
+  "total_threat_vectors": 5,
+  "threat_vectors": [
+    {
+      "vector_id": "SACRED_CULTURAL_BURIAL_SITES",
+      "title": "Indigenous Sacred & Ancient Burial Grounds (Tongva / Acjachemen / Kizh Nation)",
+      "primary_targets": [
+        "Bolsa Chica Sacred Sites (CA-ORA-83 Cogged Stone Site / 9,000+ year old human burials)",
+        "Huntington Beach / Pacific Coast Highway Coastal Dunes Ancient Shell Middens & Burials (CA-ORA-85 / CA-ORA-288)",
+        "Santa Ana River Delta & Lowland Estuary Indigenous Settlement Mounds"
+      ],
+      "legal_statutes": [
+        "California Public Resources Code ? 5097.94 (Native American Heritage Commission / NAHC)",
+        "California Health & Safety Code ? 7050.5 (Mandatory Injunction on Human Remains Disturbance)",
+        "NAGPRA (Native American Graves Protection and Repatriation Act, 25 U.S.C. ? 3001)"
+      ],
+      "forensic_smoking_guns": "Unpermitted grading over documented archaeological sites; suppression of archaeological monitoring reports to push luxury coastal subdivision EIR approvals."
+    },
+    {
+      "vector_id": "CONTAMINATED_WASTE_REMOVAL_DUMPING",
+      "title": "Illegal & Superfund Contaminated Toxic Waste Disposal",
+      "primary_targets": [
+        "Ascon Landfill (Hamilton & Magnolia) - 38-acre oilfield waste, styrene pits, chromic acid, drilling muds",
+        "Huntington Beach Cannery & Republic Disposal Dump Sites",
+        "Offsite Toxic Slag & Hazardous Waste Transport manifests concealed from parcel disclosure deeds"
+      ],
+      "regulatory_data_sources": [
+        "DTSC EnviroStor (State Response Cleanup Sites)",
+        "EPA RCRAInfo (Hazardous Waste Generators & Treatment/Storage/Disposal Facilities)"
+      ],
+      "forensic_smoking_guns": "Offsite migration of VOCs/BTEX beyond slurry wall barriers; misclassification of hazardous waste as non-hazardous fill during development site grading."
+    },
+    {
+      "vector_id": "HYDROGEOLOGY_WATER_ARTESIAN_WELLS",
+      "title": "Artesian Springs, Municipal Water Wells & Groundwater Aquifers",
+      "primary_targets": [
+        "Orange County Water District (OCWD) Talbert Barrier & Shallow/Principal Aquifers",
+        "Historic Artesian Fresh Water Springs and Peat Bogs of Coastal Huntington Wetlands",
+        "Active/Abandoned Municipal Supply Wells (HB City Water Dept Production Wells 1-14)",
+        "Seawater Intrusion Barrier Injection & Extraction Wells"
+      ],
+      "regulatory_data_sources": [
+        "DWR California Water Data Library (DWR Bulletins / Well Completion Reports)",
+        "SWRCB GeoTracker Groundwater Ambient Monitoring and Assessment (GAMA)"
+      ],
+      "forensic_smoking_guns": "Per- and Polyfluoroalkyl Substances (PFAS) and 1,4-Dioxane plume intrusion into municipal drinking water wells leading to quiet well shut-ins without public health notices."
+    },
+    {
+      "vector_id": "SUBSURFACE_SUBSIDENCE_SINKHOLES",
+      "title": "Subsidence, Soil Liquefaction, Peat Depressions & Sinkholes",
+      "primary_targets": [
+        "Coastal Peat Decomposition & Ground Settlement Depression Basins",
+        "Historical Oil Field Fluid Extraction Induced Subsidence (up to 4+ feet vertical ground drop)",
+        "Active Fault Rupture Zones (Newport-Inglewood Fault Zone / Bolsa-Chica Fault Strand)",
+        "High Liquefaction Potential Coastal Estuary Zones"
+      ],
+      "regulatory_data_sources": [
+        "California Geological Survey (CGS) Seismic Hazard Zones (Liquefaction & Fault Rupture Maps)",
+        "USGS Earthquake Hazards Program / Orange County Coastal Subsidence Surveys"
+      ],
+      "forensic_smoking_guns": "Structural foundation failures and sinkhole depressions in new commercial developments concealed through fraudulent geotech compaction certifications."
+    },
+    {
+      "vector_id": "CONCEALED_PLUMES_UNDERDEVELOPED_BOOM",
+      "title": "Hidden Toxic Plumes vs. Intentionally Suppressed 'Underdeveloped' Real Estate in Boom Corridors",
+      "primary_targets": [
+        "Pacific Coast Highway (PCH) & Downtown HB High-Valuation Coastal Corridor",
+        "Beach Boulevard Transformation & Commercial Corridor Redevelopment Zones",
+        "Edinger Avenue & Gothard Street Industrial-to-Residential Conversion Pockets"
+      ],
+      "valuation_anomaly_formula": {
+        "phenomenon": "Artificial Land Stagnation & Predatory Depressed Valuation",
+        "mechanism": "High-value land in prime coastal boom areas is kept intentionally blighted/underdeveloped using unpublicized environmental contamination reports, allowing municipal insiders and connected private equity to acquire parcels at 70-85% discounts before quiet city-funded remediations and rezonings create billion-dollar windfalls."
+      },
+      "forensic_smoking_guns": "Selective disclosure of soil vapor test results to private sellers vs. institutional buyers; non-contiguous redevelopment agency boundaries drawn specifically to exclude/include contaminated land flips."
+    }
+  ],
+  "forensic_action_dockets": [
+    {
+      "action_id": "NAGPRA_CEQA_INJUNCTION",
+      "target": "Coastal Developments Overriding Native Sacred Burial Grounds",
+      "statutory_remedy": "Preliminary Injunction under CEQA & Cal. Pub. Res. Code ? 21083.2 / Mandatory Tribal Consultation (AB 52)."
+    },
+    {
+      "action_id": "QUIET_TITLE_CONTAMINATION_DISCOVERY",
+      "target": "Predatory Depressed Valuation Parcel Acquisitions",
+      "statutory_remedy": "Action for Rescission & Constructive Trust under Cal. Civ. Code ? 1689 (Fraud & Concealment of Subsurface Liabilities)."
+    },
+    {
+      "action_id": "AQUIFER_CONTAMINATION_FCA",
+      "target": "Concealed Municipal Drinking Well Contamination",
+      "statutory_remedy": "False Claims Act (31 U.S.C. ? 3729) qui tam action regarding federal Clean Water Act & Safe Drinking Water Act grant certification fraud."
+    }
+  ]
+}
