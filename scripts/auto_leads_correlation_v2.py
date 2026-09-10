@@ -144,9 +144,12 @@ def normalize_address(address: Optional[str]) -> str:
 def haversine_miles(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     R = 3958.8
     try:
-        phi1, phi2 = math.radians(float(lat1)), math.radians(float(lat2))
-        dphi = math.radians(float(lat2) - float(lat1))
-        dlambda = math.radians(float(lon2) - float(lon1))
+        f_lat1, f_lon1, f_lat2, f_lon2 = float(lat1), float(lon1), float(lat2), float(lon2)
+        if any(math.isnan(x) or math.isinf(x) for x in [f_lat1, f_lon1, f_lat2, f_lon2]):
+            return 9999.0
+        phi1, phi2 = math.radians(f_lat1), math.radians(f_lat2)
+        dphi = math.radians(f_lat2 - f_lat1)
+        dlambda = math.radians(f_lon2 - f_lon1)
         a = math.sin(dphi / 2.0)**2 + math.cos(phi1) * math.cos(phi2) * math.sin(dlambda / 2.0)**2
         a = min(1.0, max(0.0, a))
         return R * (2.0 * math.atan2(math.sqrt(a), math.sqrt(1.0 - a)))
@@ -492,8 +495,10 @@ def run_correlation() -> Dict[str, Any]:
 
     try:
         LEADS_FEED_PATH.parent.mkdir(parents=True, exist_ok=True)
-        with open(LEADS_FEED_PATH, "w", encoding="utf-8") as out:
+        tmp_feed = LEADS_FEED_PATH.with_suffix(".tmp")
+        with open(tmp_feed, "w", encoding="utf-8") as out:
             json.dump(payload, out, indent=2, ensure_ascii=False)
+        tmp_feed.replace(LEADS_FEED_PATH)
         log(f"Wrote live feed {LEADS_FEED_PATH} ({len(leads)} leads)")
     except Exception as e:
         log(f"ERROR writing leads_feed: {e}")
@@ -502,13 +507,17 @@ def run_correlation() -> Dict[str, Any]:
         REPORTS_DIR.mkdir(parents=True, exist_ok=True)
         ts = started.strftime("%Y%m%d_%H%M%S")
         report_path = REPORTS_DIR / f"leads_{ts}.json"
-        with open(report_path, "w", encoding="utf-8") as out:
+        tmp_report = report_path.with_suffix(".tmp")
+        with open(tmp_report, "w", encoding="utf-8") as out:
             json.dump(payload, out, indent=2, ensure_ascii=False)
+        tmp_report.replace(report_path)
         log(f"Wrote report {report_path}")
 
         latest = REPORTS_DIR / "latest.json"
-        with open(latest, "w", encoding="utf-8") as out:
+        tmp_latest = latest.with_suffix(".tmp")
+        with open(tmp_latest, "w", encoding="utf-8") as out:
             json.dump(payload, out, indent=2, ensure_ascii=False)
+        tmp_latest.replace(latest)
 
         reports = sorted([p for p in REPORTS_DIR.glob("leads_*.json")], key=lambda p: p.stat().st_mtime, reverse=True)
         for old in reports[50:]:

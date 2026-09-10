@@ -950,10 +950,12 @@ def stealth_lockbox_deposit():
 def workspace_view():
     workspace_v2_path = Path(__file__).parent.parent / "workspace_v2.html"
     if workspace_v2_path.exists():
-        return send_file(str(workspace_v2_path))
+        html_content = workspace_v2_path.read_text(encoding="utf-8", errors="replace")
+        return html_content, 200, {"Content-Type": "text/html; charset=utf-8"}
     workspace_path = Path(__file__).parent.parent / "public" / "workspace.html"
     if workspace_path.exists():
-        return send_file(str(workspace_path))
+        html_content = workspace_path.read_text(encoding="utf-8", errors="replace")
+        return html_content, 200, {"Content-Type": "text/html; charset=utf-8"}
     return jsonify({"error": "workspace.html not found"}), 404
 
 # ── Status ─────────────────────────────────────────────────────

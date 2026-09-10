@@ -66,9 +66,14 @@ def create_deployment_package(deploy_to_azure: bool = False) -> str:
                     # Filter out excluded directory patterns
                     dirs[:] = [dr for dr in dirs if not any(ep in dr for ep in EXCLUDE_PATTERNS)]
                     for file in files:
-                        if file.endswith(".pyc"):
+                        if file.endswith((".pyc", ".png", ".jpg", ".jpeg", ".mp4", ".mov", ".zip", ".tar", ".gz", ".7z", ".iso", ".exe", ".bin", ".mp3", ".wav", ".pdf", ".m4a")):
                             continue
                         full_p = os.path.join(root, file)
+                        try:
+                            if os.path.getsize(full_p) > 25 * 1024 * 1024:
+                                continue
+                        except Exception:
+                            pass
                         rel_p = os.path.relpath(full_p, ROOT_DIR)
                         z.write(full_p, rel_p)
                 print(f"  + Added directory: {d}/")
@@ -79,9 +84,14 @@ def create_deployment_package(deploy_to_azure: bool = False) -> str:
             for root, dirs, files in os.walk(evidence_dp):
                 dirs[:] = [dr for dr in dirs if dr not in EXCLUDE_EVIDENCE_SUBDIRS and not any(ep in dr for ep in EXCLUDE_PATTERNS)]
                 for file in files:
-                    if file.endswith((".png", ".jpg", ".jpeg", ".mp4", ".mov", ".zip", ".tar", ".gz")):
+                    if file.endswith((".pyc", ".png", ".jpg", ".jpeg", ".mp4", ".mov", ".zip", ".tar", ".gz", ".7z", ".iso", ".exe", ".bin", ".mp3", ".wav", ".pdf", ".m4a")):
                         continue
                     full_p = os.path.join(root, file)
+                    try:
+                        if os.path.getsize(full_p) > 25 * 1024 * 1024:
+                            continue
+                    except Exception:
+                        pass
                     rel_p = os.path.relpath(full_p, ROOT_DIR)
                     z.write(full_p, rel_p)
             print("  + Added directory: evidence/ (excluding large photo archives)")

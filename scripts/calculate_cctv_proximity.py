@@ -41,10 +41,13 @@ def haversine_miles(lat1: float, lon1: float, lat2: float, lon2: float) -> float
     """
     R = 3958.8  # Earth mean radius in statute miles
     try:
-        phi1 = math.radians(float(lat1))
-        phi2 = math.radians(float(lat2))
-        dphi = math.radians(float(lat2) - float(lat1))
-        dlambda = math.radians(float(lon2) - float(lon1))
+        f_lat1, f_lon1, f_lat2, f_lon2 = float(lat1), float(lon1), float(lat2), float(lon2)
+        if any(math.isnan(x) or math.isinf(x) for x in [f_lat1, f_lon1, f_lat2, f_lon2]):
+            return 9999.0
+        phi1 = math.radians(f_lat1)
+        phi2 = math.radians(f_lat2)
+        dphi = math.radians(f_lat2 - f_lat1)
+        dlambda = math.radians(f_lon2 - f_lon1)
         
         a = math.sin(dphi / 2.0)**2 + math.cos(phi1) * math.cos(phi2) * math.sin(dlambda / 2.0)**2
         a = min(1.0, max(0.0, a))

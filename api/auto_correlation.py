@@ -44,15 +44,17 @@ def run_leads_correlation() -> Dict[str, Any]:
     global _last_run
     started = datetime.now(timezone.utc)
     try:
-        # Import and run engine directly
-        import importlib.util
         if str(REPO_ROOT) not in sys.path:
             sys.path.insert(0, str(REPO_ROOT))
-        spec = importlib.util.spec_from_file_location("auto_leads_correlation_v2", str(SCRIPTS_PATH))
-        if spec is None or spec.loader is None:
-            raise ImportError(f"Cannot load spec from {SCRIPTS_PATH}")
-        mod = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(mod)
+        try:
+            import scripts.auto_leads_correlation_v2 as mod
+        except Exception:
+            import importlib.util
+            spec = importlib.util.spec_from_file_location("auto_leads_correlation_v2", str(SCRIPTS_PATH))
+            if spec is None or spec.loader is None:
+                raise ImportError(f"Cannot load spec from {SCRIPTS_PATH}")
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
         payload = mod.run_correlation()
         
         elapsed = (datetime.now(timezone.utc) - started).total_seconds()
