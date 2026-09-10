@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>OSINTCabal Domain Kit - Subdomain Intelligence</title>
+    <meta name="description" content="Advanced domain reconnaissance tool with subdomain enumeration and content extraction">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: 'Space Mono', monospace;
+            background-color: #0a0a1a;
+            color: #e0e0ff;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(120, 255, 214, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+        }
+
+        .terminal {
+            background-color: rgba(18, 18, 18, 0.8);
+            border: 1px solid #4a90e2;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .terminal-header {
+            background-color: rgba(26, 26, 26, 0.8);
+            border-bottom: 1px solid #4a90e2;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .terminal-body {
+            min-height: 200px;
+            max-height: 600px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px #ff6b9c, 0 0 20px #ff6b9c;
+        }
+        
+        .btn-hacker {
+            background: linear-gradient(135deg, #4a90e2, #8a4fff);
+            color: #000;
+            transition: all 0.3s ease;
+            border: none;
+            font-weight: bold;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        
+        .btn-hacker:hover  { background: linear-gradient(135deg, #8a4fff, #4a90e2); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4); }
+        .btn-hacker:active { transform: translateY(0); }
+        .btn-hacker:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        
+        .input-hacker {
+            background-color: rgba(26, 26, 26, 0.6);
+            border: 2px solid #333;
+            color: #e0e0ff;
+            transition: all 0.3s ease;
+            font-size: 16px; /* Prevents iOS auto-zoom */
+        }
+        
+        .input-hacker:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
+            background-color: rgba(18, 18, 18, 0.8);
+        }
+
+        .subdomain-card {
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(138, 79, 255, 0.05));
+            border: 1px solid #4a90e2;
+            border-left: 4px solid #4a90e2;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 10px;
+            border-radius: 6px;
+        }
+        
+        .subdomain-card:hover   { border-color: #8a4fff; box-shadow: 0 0 20px rgba(138, 79, 255, 0.3); transform: translateX(5px); }
+        .subdomain-card.expanded{ border-color: #00ff87; background: linear-gradient(135deg, rgba(0, 255, 135, 0.1), rgba(0, 200, 100, 0.05)); }
+
+        .file-category {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 4px;
+            margin: 8px 0;
+            border-left: 3px solid #8a4fff;
+        }
+
+        .file-item {
+            padding: 5px 10px;
+            margin: 3px 0;
+            background: rgba(138, 79, 255, 0.1);
+            border-radius: 3px;
+            font-size: 0.85rem;
+            word-break: break-all;
+        }
+
+        .sensitive-card {
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.15), rgba(220, 20, 60, 0.1));
+            border: 1px solid #ff4444;
+            border-left: 4px solid #ff0000;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+        }
+
+        .intel-section {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border-left: 3px solid #00ff87;
+        }
+
+        .intel-item {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .intel-item:last-child { border-bottom: none; }
+
+        .loading-bar {
+            height: 4px;
+            background: #333;
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #4a90e2, #8a4fff);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .pulse-glow { animation: pulse-glow 2s infinite; }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(74, 144, 226, 0.3); }
+            50%       { box-shadow: 0 0 20px rgba(74, 144, 226, 0.6); }
+        }
+        
+        .error-text   { color: #ff4444; text-shadow: 0 0 5px #ff4444; }
+        .success-text { color: #00ff87; text-shadow: 0 0 5px #00ff87; }
+        .warning-text { color: #ffaa00; text-shadow: 0 0 5px #ffaa00; }
+        
+        .scrollbar-custom::-webkit-scrollbar { width: 8px; }
+        .scrollbar-custom::-webkit-scrollbar-track { background: rgba(26, 26, 26, 0.6); border-radius: 4px; }
+        .scrollbar-custom::-webkit-scrollbar-thumb { background: #4a90e2; border-radius: 4px; }
+        
+        .spinner {
+            border: 4px solid rgba(74, 144, 226, 0.2);
+            border-radius: 50%;
+            border-top: 4px solid #4a90e2;
+            border-right: 4px solid #8a4fff;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+        }
+        
+        @keyframes spin {
+            0%   { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .blink { animation: blink-animation 1s steps(5, start) infinite; }
+        
+        @keyframes blink-animation { to { visibility: hidden; } }
+
+        .summary-card {
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.2), rgba(138, 79, 255, 0.1));
+            border: 1px solid #4a90e2;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .summary-stat {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        .summary-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4a90e2;
+            text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+        }
+
+        .dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .dropdown-content.show {
+            max-height: 2000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .rotate-icon { transition: transform 0.3s ease; }
+        .rotate-icon.rotated { transform: rotate(90deg); }
+
+        /* ============================================================
+           MOBILE STYLES
+           ============================================================ */
+        @media (max-width: 600px) {
+            /* Header */
+            header h1 {
+                font-size: 1.5rem !important;
+                line-height: 1.2;
+            }
+
+            header p { font-size: 0.85rem !important; }
+
+            .container {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+                padding-top: 16px !important;
+            }
+
+            /* Terminal */
+            .terminal-header { padding: 10px 12px !important; }
+            .terminal-header .text-sm { font-size: 0.7rem; }
+            .terminal-body { padding: 14px !important; }
+
+            /* Input: already 16px via class; ensure full-width */
+            .input-hacker {
+                font-size: 16px !important;
+                padding: 12px 36px 12px 14px !important;
+            }
+
+            /* Scan button: full width */
+            #searchBtn {
+                width: 100%;
+                justify-content: center;
+                padding: 12px 16px;
+                font-size: 15px;
+            }
+
+            /* Summary stats: stack on mobile */
+            .summary-card { padding: 14px; }
+            .summary-stat {
+                display: block;
+                margin: 10px 0;
+            }
+            .summary-number { font-size: 1.5rem; }
+
+            /* Host intel section */
+            .intel-item { font-size: 0.85rem; }
+            .intel-section { padding: 12px; }
+
+            /* Sensitive data */
+            .sensitive-card { padding: 12px; }
+
+            /* Subdomain cards */
+            .subdomain-card { padding: 12px !important; }
+            .subdomain-card .font-bold.text-lg { font-size: 1rem; }
+
+            /* File items: smaller text, still break-all */
+            .file-item { font-size: 0.75rem; }
+
+            /* Result terminals */
+            .terminal-body.p-4 {
+                padding: 10px !important;
+                max-height: none !important;
+            }
+
+            /* Status text */
+            #statusText { font-size: 0.8rem; }
+
+            /* Footer */
+            footer p { font-size: 0.7rem !important; }
+        }
+
+        @media (max-width: 380px) {
+            header h1 { font-size: 1.2rem !important; }
+            .summary-number { font-size: 1.2rem; }
+            .file-item { font-size: 0.7rem; }
+        }
+
+        /* Disable translateX hover on touch devices */
+        @media (hover: none) {
+            .subdomain-card:hover { transform: none; }
+            .btn-hacker:hover     { transform: none; }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/livecenter-tools.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+</head>
+<body class="min-h-screen flex flex-col" data-lct-theme="cabal">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+    
+    <div class="container mx-auto px-4 py-8 flex-grow">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 glow-text font-mono">
+                <i class="fas fa-globe mr-3"></i>OSINTCabal Domain Kit
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 font-mono mb-2">Subdomain Intelligence &amp; Content Extraction</p>
+            <p class="text-sm text-gray-500 font-mono">Powered by Domain Viper 🐍</p>
+        </header>
+        
+        <!-- Main Search Interface -->
+        <div class="terminal max-w-6xl mx-auto mb-8">
+            <div class="terminal-header p-4 flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="flex space-x-2 mr-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="text-sm font-mono">domain_intelligence_scanner.exe</div>
+                </div>
+                <div class="text-xs text-gray-500 font-mono">
+                    <i class="fas fa-shield-alt mr-1"></i>SECURE CONNECTION
+                </div>
+            </div>
+            <div class="terminal-body p-6">
+                <!-- Domain Search Input -->
+                <div class="flex flex-col gap-4 mb-6">
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            id="domainInput" 
+                            placeholder="Enter target domain (e.g., example.com)..." 
+                            class="input-hacker w-full px-4 py-3 rounded-lg font-mono text-lg"
+                            autocomplete="off"
+                            autocorrect="off"
+                            autocapitalize="none"
+                            spellcheck="false"
+                        >
+                        <div class="absolute right-3 top-3 text-gray-500">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    
+                    <button 
+                        id="searchBtn" 
+                        class="btn-hacker px-8 py-3 rounded-lg font-bold font-mono flex items-center justify-center pulse-glow"
+                        data-searching="false"
+                    >
+                        <i class="fas fa-rocket mr-2"></i>
+                        <span id="searchBtnText">LAUNCH DOMAIN SCAN</span>
+                    </button>
+                </div>
+                
+                <div class="text-center mb-4 p-3 bg-black bg-opacity-40 rounded-lg border border-gray-700">
+                    <div class="text-xs text-gray-400 font-mono">
+                        <span class="font-bold text-blue-400">VIPER MODE:</span> Subdomain Discovery | File Extraction | Intelligence Gathering
+                    </div>
+                </div>
+                
+                <div id="loadingSection" class="mb-6" style="display: none;">
+                    <div class="flex justify-center mb-4">
+                        <div class="spinner"></div>
+                    </div>
+                    <div class="text-center mb-4">
+                        <div id="loadingMessage" class="text-lg font-mono text-blue-400 mb-2">
+                            🐍 Sit tight while the Cabal takes it from here!
+                        </div>
+                        <div id="loadingSubtext" class="text-sm text-gray-400 font-mono">
+                            Enumerating subdomains and extracting intelligence...
+                        </div>
+                    </div>
+                    <div class="loading-bar mb-3">
+                        <div id="loadingProgress" class="loading-progress"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-gray-400 font-mono">
+                        <span id="progressStatus">Initiating scan...</span>
+                        <span id="progressText">0%</span>
+                    </div>
+                </div>
+                
+                <div id="statusText" class="text-sm font-mono mb-4 min-h-6">
+                    <span class="text-gray-400">Ready to launch domain reconnaissance. Enter a domain above.</span>
+                    <span id="cursor" class="blink">_</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Results Section -->
+        <div id="resultsSection" class="max-w-6xl mx-auto mb-8" style="display: none;">
+            
+            <!-- Summary Stats -->
+            <div id="summarySection" class="summary-card mb-6">
+                <h3 class="text-xl font-bold mb-4 font-mono">Domain Intelligence Summary</h3>
+                <div>
+                    <div class="summary-stat">
+                        <div class="summary-number" id="subdomainCount">0</div>
+                        <div class="text-sm text-gray-400">Subdomains Found</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-number success-text" id="accessibleCount">0</div>
+                        <div class="text-sm text-gray-400">Accessible Hosts</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-number warning-text" id="noFilesCount">0</div>
+                        <div class="text-sm text-gray-400">No Files Located</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Host Intelligence Section -->
+            <div class="terminal mb-6" id="hostIntelContainer">
+                <div class="terminal-header p-4 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="flex space-x-2 mr-4">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="text-sm font-mono success-text"><i class="fas fa-server mr-2"></i>host_intelligence.json</div>
+                    </div>
+                </div>
+                <div class="terminal-body p-4 scrollbar-custom">
+                    <h3 class="text-lg font-bold font-mono mb-4 success-text flex items-center">
+                        <i class="fas fa-network-wired mr-2"></i>HOST INTELLIGENCE
+                    </h3>
+                    <div id="hostIntelResults"></div>
+                </div>
+            </div>
+
+            <!-- Sensitive Data Section -->
+            <div class="terminal mb-6" id="sensitiveContainer" style="display: none;">
+                <div class="terminal-header p-4 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="flex space-x-2 mr-4">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="text-sm font-mono error-text"><i class="fas fa-exclamation-triangle mr-2"></i>sensitive_data.json</div>
+                    </div>
+                    <div class="text-xs text-gray-400 font-mono" id="sensitiveStats">0 items found</div>
+                </div>
+                <div class="terminal-body p-4 scrollbar-custom">
+                    <h3 class="text-lg font-bold font-mono mb-4 error-text flex items-center">
+                        <i class="fas fa-key mr-2"></i>SENSITIVE DATA &amp; CREDENTIALS
+                    </h3>
+                    <div id="sensitiveResults"></div>
+                </div>
+            </div>
+
+            <!-- Subdomains Section -->
+            <div class="terminal" id="subdomainContainer">
+                <div class="terminal-header p-4 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="flex space-x-2 mr-4">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="text-sm font-mono text-blue-400"><i class="fas fa-sitemap mr-2"></i>subdomain_enumeration.json</div>
+                    </div>
+                    <div class="text-xs text-gray-400 font-mono" id="subdomainStats">0 subdomains</div>
+                </div>
+                <div class="terminal-body p-4 scrollbar-custom">
+                    <h3 class="text-lg font-bold font-mono mb-4 text-blue-400 flex items-center">
+                        <i class="fas fa-project-diagram mr-2"></i>DISCOVERED SUBDOMAINS
+                    </h3>
+                    <div id="subdomainResults"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script>
+        class DomainIntelligenceScanner {
+            constructor() {
+                this.initializeElements();
+                this.setupEventListeners();
+                this.noFilesCount = 0;
+            }
+            
+            initializeElements() {
+                this.domainInput       = document.getElementById('domainInput');
+                this.searchBtn         = document.getElementById('searchBtn');
+                this.searchBtnText     = document.getElementById('searchBtnText');
+                this.resultsSection    = document.getElementById('resultsSection');
+                this.statusText        = document.getElementById('statusText');
+                this.loadingSection    = document.getElementById('loadingSection');
+                this.loadingProgress   = document.getElementById('loadingProgress');
+                this.progressText      = document.getElementById('progressText');
+                this.hostIntelResults  = document.getElementById('hostIntelResults');
+                this.sensitiveResults  = document.getElementById('sensitiveResults');
+                this.subdomainResults  = document.getElementById('subdomainResults');
+                this.sensitiveContainer= document.getElementById('sensitiveContainer');
+                this.subdomainCount    = document.getElementById('subdomainCount');
+                this.accessibleCount   = document.getElementById('accessibleCount');
+                this.noFilesCountEl    = document.getElementById('noFilesCount');
+            }
+            
+            setupEventListeners() {
+                this.searchBtn.addEventListener('click', () => this.handleSearch());
+                this.domainInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.handleSearch();
+                });
+            }
+            
+            updateStatus(message, type = 'info') {
+                const typeClasses = {
+                    'info':    'text-gray-400',
+                    'success': 'success-text',
+                    'error':   'error-text',
+                    'warning': 'warning-text'
+                };
+                this.statusText.innerHTML = `<span class="${typeClasses[type]}">${message}</span> <span id="cursor" class="blink">_</span>`;
+            }
+            
+            updateProgress(percentage, message) {
+                this.loadingProgress.style.width = `${percentage}%`;
+                this.progressText.textContent = `${percentage}%`;
+                const progressStatus = document.getElementById('progressStatus');
+                if (message) {
+                    progressStatus.textContent = message;
+                    this.updateStatus(message);
+                }
+            }
+            
+            async handleSearch() {
+                if (this.searchBtn.getAttribute('data-searching') === 'true') return;
+                
+                const domain = this.domainInput.value.trim();
+                if (!domain) { this.updateStatus('ERROR: Domain field cannot be empty', 'error'); return; }
+                
+                const domainRegex = /^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$/i;
+                if (!domainRegex.test(domain)) {
+                    this.updateStatus('ERROR: Invalid domain format (e.g., example.com)', 'error');
+                    return;
+                }
+
+                // Dismiss mobile keyboard before loading screen appears
+                this.domainInput.blur();
+
+                this.startSearch(domain);
+            }
+            
+            async startSearch(domain) {
+                this.searchBtn.setAttribute('data-searching', 'true');
+                this.searchBtn.disabled = true;
+                this.searchBtnText.textContent = 'SCANNING...';
+                this.searchBtn.classList.add('pulse-glow');
+                
+                this.resultsSection.style.display = 'none';
+                this.loadingSection.style.display = 'block';
+                this.noFilesCount = 0;
+                
+                this.updateProgress(10, '🐍 Initializing Domain Viper...');
+                await this.sleep(1000);
+                
+                this.updateProgress(20, '🔍 Enumerating subdomains...');
+                await this.sleep(1500);
+                
+                this.updateProgress(40, '🌐 Gathering host intelligence...');
+                
+                try {
+                    const response = await fetch('domainviper_wrapper.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ domain: domain })
+                    });
+                    
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    
+                    const data = await response.json();
+                    if (data.error) throw new Error(data.error);
+                    
+                    this.updateProgress(70, '📊 Analyzing content...');
+                    await this.sleep(1000);
+                    
+                    this.updateProgress(90, '🎯 Extracting intelligence...');
+                    await this.sleep(1000);
+                    
+                    this.updateProgress(100, '✅ Scan complete!');
+                    
+                    setTimeout(() => {
+                        this.loadingSection.style.display = 'none';
+                        this.displayResults(data, domain);
+                        this.resetSearchButton();
+                    }, 1000);
+                    
+                } catch (error) {
+                    console.error('Scan error:', error);
+                    this.updateStatus(`ERROR: ${error.message}`, 'error');
+                    this.loadingSection.style.display = 'none';
+                    this.resetSearchButton();
+                }
+            }
+            
+            sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
+            
+            displayResults(data, domain) {
+                this.subdomainCount.textContent  = data.subdomains_found?.length || 0;
+                this.accessibleCount.textContent = data.accessible_hosts || 0;
+                
+                this.displayHostIntelligence(data.host_intelligence, domain);
+                
+                const allSensitiveData = this.collectSensitiveData(data.subdomain_results);
+                if (allSensitiveData.total > 0) {
+                    this.displaySensitiveData(allSensitiveData);
+                    this.sensitiveContainer.style.display = 'block';
+                }
+                
+                this.displaySubdomains(data.subdomain_results, data.subdomains_found);
+                
+                this.noFilesCountEl.textContent = this.noFilesCount;
+                
+                this.resultsSection.style.display = 'block';
+                setTimeout(() => {
+                    this.resultsSection.scrollIntoView({ behavior: 'smooth' });
+                }, 300);
+            }
+            
+            displayHostIntelligence(intel, domain) {
+                if (!intel || !Object.keys(intel).length) {
+                    this.hostIntelResults.innerHTML = '<p class="text-gray-400">No host intelligence available</p>';
+                    return;
+                }
+                
+                let html = `<div class="intel-section mb-4"><h4 class="font-bold text-lg mb-3 success-text">🎯 ${this.escapeHtml(domain)}</h4>`;
+                
+                const sections = {
+                    basic:    'BASIC INFORMATION',
+                    location: 'GEOLOCATION',
+                    network:  'NETWORK',
+                    dns:      'DNS RECORDS',
+                    security: 'SECURITY FLAGS',
+                    web:      'WEB INFORMATION'
+                };
+                
+                for (const [key, label] of Object.entries(sections)) {
+                    const section = intel[key];
+                    if (!section || !Object.keys(section).length) continue;
+                    
+                    html += `<div class="mb-4"><div class="text-sm text-cyan-400 font-bold mb-2">${label}</div>`;
+                    
+                    for (const [k, v] of Object.entries(section)) {
+                        if (key === 'security') {
+                            const status = v ? '<span class="error-text">Yes</span>' : '<span class="success-text">No</span>';
+                            html += `<div class="intel-item text-sm"><span class="text-gray-400">${this.escapeHtml(k)}:</span> ${status}</div>`;
+                        } else if (Array.isArray(v)) {
+                            html += `<div class="intel-item text-sm"><span class="text-gray-400">${this.escapeHtml(k)}:</span><br>`;
+                            v.slice(0, 5).forEach(item => {
+                                html += `<span class="text-white ml-4">• ${this.escapeHtml(String(item))}</span><br>`;
+                            });
+                            html += '</div>';
+                        } else {
+                            html += `<div class="intel-item text-sm"><span class="text-gray-400">${this.escapeHtml(k)}:</span> <span class="text-white">${this.escapeHtml(String(v))}</span></div>`;
+                        }
+                    }
+                    html += '</div>';
+                }
+                
+                html += '</div>';
+                this.hostIntelResults.innerHTML = html;
+            }
+            
+            collectSensitiveData(subdomainResults) {
+                const collected = {
+                    emails: new Set(),
+                    api_keys: [], tokens: [], secrets: [], passwords: [], credentials: [],
+                    total: 0
+                };
+                
+                if (!subdomainResults) return collected;
+                
+                for (const [subdomain, data] of Object.entries(subdomainResults)) {
+                    if (data.emails && Array.isArray(data.emails)) {
+                        data.emails.forEach(email => collected.emails.add(email));
+                    }
+                    if (data.api_keys) {
+                        ['api_keys', 'tokens', 'secrets', 'passwords', 'credentials'].forEach(category => {
+                            if (data.api_keys[category] && Array.isArray(data.api_keys[category])) {
+                                data.api_keys[category].forEach(item => {
+                                    collected[category].push({ subdomain, value: item });
+                                });
+                            }
+                        });
+                    }
+                }
+                
+                collected.emails = Array.from(collected.emails);
+                collected.total = collected.emails.length + collected.api_keys.length +
+                                  collected.tokens.length + collected.secrets.length +
+                                  collected.passwords.length + collected.credentials.length;
+                return collected;
+            }
+            
+            displaySensitiveData(data) {
+                let html = '';
+                
+                if (data.emails.length > 0) {
+                    html += `<div class="sensitive-card"><h4 class="font-bold text-lg mb-3 text-cyan-400"><i class="fas fa-envelope mr-2"></i>EMAIL ADDRESSES (${data.emails.length})</h4>`;
+                    data.emails.forEach(email => { html += `<div class="text-sm text-white mb-1">• ${this.escapeHtml(email)}</div>`; });
+                    html += '</div>';
+                }
+                
+                const categories = [
+                    { key: 'api_keys',    icon: 'fa-key',       label: 'API KEYS' },
+                    { key: 'tokens',      icon: 'fa-ticket-alt', label: 'TOKENS' },
+                    { key: 'secrets',     icon: 'fa-lock',       label: 'SECRETS' },
+                    { key: 'credentials', icon: 'fa-database',   label: 'CREDENTIALS' }
+                ];
+                
+                categories.forEach(({ key, icon, label }) => {
+                    if (data[key].length > 0) {
+                        html += `<div class="sensitive-card"><h4 class="font-bold text-lg mb-3 error-text"><i class="fas ${icon} mr-2"></i>${label} (${data[key].length})</h4>`;
+                        data[key].forEach(item => {
+                            const val = key === 'credentials'
+                                ? item.value.replace(/:[^:@]+@/, ':***@')
+                                : this.maskSensitive(item.value);
+                            html += `<div class="text-sm mb-2"><span class="text-gray-400">${this.escapeHtml(item.subdomain)}:</span><br><span class="error-text">${this.escapeHtml(val)}</span></div>`;
+                        });
+                        html += '</div>';
+                    }
+                });
+                
+                if (data.passwords.length > 0) {
+                    html += `<div class="sensitive-card"><h4 class="font-bold text-lg mb-3 error-text"><i class="fas fa-user-lock mr-2"></i>PASSWORDS (${data.passwords.length})</h4>`;
+                    data.passwords.forEach(item => {
+                        html += `<div class="text-sm mb-2"><span class="text-gray-400">${this.escapeHtml(item.subdomain)}:</span><br><span class="error-text">${'*'.repeat(item.value.length)} (length: ${item.value.length})</span></div>`;
+                    });
+                    html += '</div>';
+                }
+                
+                this.sensitiveResults.innerHTML = html;
+                document.getElementById('sensitiveStats').textContent = `${data.total} items found`;
+            }
+            
+            displaySubdomains(subdomainResults, allSubdomains) {
+                if (!allSubdomains || allSubdomains.length === 0) {
+                    this.subdomainResults.innerHTML = '<p class="text-gray-400">No subdomains found</p>';
+                    return;
+                }
+                
+                let html = '';
+                
+                allSubdomains.forEach((subdomain, index) => {
+                    const data = subdomainResults[subdomain];
+                    const hasFiles = data && this.hasFiles(data.files);
+                    
+                    if (!hasFiles) this.noFilesCount++;
+                    
+                    html += `<div class="subdomain-card p-4" id="subdomain-${index}">`;
+                    html += `<div class="flex items-center justify-between cursor-pointer" onclick="window.scanner.toggleSubdomain(${index})">`;
+                    html += `<div class="flex items-center flex-1 min-w-0">`;
+                    html += `<i class="fas fa-chevron-right mr-3 rotate-icon flex-shrink-0" id="icon-${index}"></i>`;
+                    html += `<div class="min-w-0"><div class="font-bold text-lg text-blue-400 truncate">${this.escapeHtml(subdomain)}</div>`;
+                    html += hasFiles
+                        ? `<div class="text-xs text-gray-400">${this.countFiles(data.files)} files found</div>`
+                        : `<div class="text-xs warning-text">No files located</div>`;
+                    html += `</div></div>`;
+                    html += `<i class="fas fa-folder text-2xl flex-shrink-0 ml-2 ${hasFiles ? 'text-blue-400' : 'text-gray-600'}"></i>`;
+                    html += `</div>`;
+                    
+                    html += `<div class="dropdown-content mt-4" id="content-${index}">`;
+                    html += hasFiles
+                        ? this.renderFiles(data.files)
+                        : '<p class="text-gray-400 text-sm mt-2">No files were discovered on this subdomain.</p>';
+                    html += `</div></div>`;
+                });
+                
+                this.subdomainResults.innerHTML = html;
+                document.getElementById('subdomainStats').textContent = `${allSubdomains.length} subdomain${allSubdomains.length !== 1 ? 's' : ''}`;
+            }
+            
+            hasFiles(files) {
+                if (!files) return false;
+                return Object.values(files).some(fileList => fileList && fileList.length > 0);
+            }
+            
+            countFiles(files) {
+                if (!files) return 0;
+                return Object.values(files).reduce((sum, fileList) => sum + (fileList?.length || 0), 0);
+            }
+            
+            renderFiles(files) {
+                if (!files) return '';
+                let html = '';
+                const categories = {
+                    documents: { name: 'Documents', icon: 'fa-file-pdf',     color: 'text-red-400' },
+                    images:    { name: 'Images',    icon: 'fa-image',         color: 'text-blue-400' },
+                    archives:  { name: 'Archives',  icon: 'fa-file-archive',  color: 'text-yellow-400' },
+                    data:      { name: 'Data Files',icon: 'fa-database',      color: 'text-green-400' },
+                    media:     { name: 'Media',     icon: 'fa-film',          color: 'text-purple-400' },
+                    other:     { name: 'Other',     icon: 'fa-file',          color: 'text-gray-400' }
+                };
+                
+                for (const [category, info] of Object.entries(categories)) {
+                    const fileList = files[category];
+                    if (!fileList || fileList.length === 0) continue;
+                    html += `<div class="file-category mt-3">`;
+                    html += `<div class="font-bold text-sm mb-2 ${info.color}"><i class="fas ${info.icon} mr-2"></i>${info.name} (${fileList.length})</div>`;
+                    fileList.slice(0, 10).forEach(file => {
+                        html += `<div class="file-item"><a href="${this.escapeHtml(file)}" target="_blank" class="text-white hover:text-blue-400">${this.escapeHtml(file)}</a></div>`;
+                    });
+                    if (fileList.length > 10) {
+                        html += `<div class="text-xs text-gray-400 mt-2">... and ${fileList.length - 10} more</div>`;
+                    }
+                    html += `</div>`;
+                }
+                return html;
+            }
+            
+            toggleSubdomain(index) {
+                const content = document.getElementById(`content-${index}`);
+                const icon    = document.getElementById(`icon-${index}`);
+                const card    = document.getElementById(`subdomain-${index}`);
+                
+                if (content.classList.contains('show')) {
+                    content.classList.remove('show');
+                    icon.classList.remove('rotated');
+                    card.classList.remove('expanded');
+                } else {
+                    content.classList.add('show');
+                    icon.classList.add('rotated');
+                    card.classList.add('expanded');
+                }
+            }
+            
+            maskSensitive(value) {
+                if (value.length <= 12) return value.substring(0, 4) + '*'.repeat(value.length - 4);
+                return value.substring(0, 8) + '*'.repeat(value.length - 12) + value.substring(value.length - 4);
+            }
+            
+            resetSearchButton() {
+                this.searchBtn.setAttribute('data-searching', 'false');
+                this.searchBtn.disabled = false;
+                this.searchBtnText.textContent = 'LAUNCH DOMAIN SCAN';
+                this.searchBtn.classList.remove('pulse-glow');
+                this.updateStatus('Scan complete! Intelligence gathered successfully.', 'success');
+            }
+            
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.scanner = new DomainIntelligenceScanner();
+        });
+    </script>
+
+        <script src="../assets/js/livecenter-ui.js"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c196748df4614',t:'MTc4OTAxODg0MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

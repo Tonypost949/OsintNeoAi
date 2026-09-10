@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cabal VIN &amp; Vehicle Data - NHTSA Intelligence | OSINT Cabal</title>
+    <meta name="description" content="VIN decoding, manufacturer intelligence, make & model lookup, and equipment plant codes via the free NHTSA API.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="OSINT Cabal">
+    <link rel="canonical" href="https://osintcabal.org/livecenter/vindecoder.html" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://osintcabal.org/livecenter/vindecoder.html">
+    <meta property="og:title" content="Cabal VIN &amp; Vehicle Data | OSINT Cabal">
+    <meta property="og:description" content="VIN decoding and vehicle intelligence via the NHTSA API.">
+    <meta property="og:site_name" content="OSINT Cabal">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/favicons/manifest.json">
+    <meta name="theme-color" content="#6b21a8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/livecenter-tools.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+</head>
+<body data-lct-theme="public">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <div class="lct-wrap">
+        <div class="lct-title">
+            <div class="title-glass">
+                <h1>Cabal VIN &amp; Vehicle Data</h1>
+            </div>
+        </div>
+    <div class="subtitle">NHTSA Vehicle API Intelligence — Free, No Key Required</div>
+
+    <div class="content-box">
+        <!-- Header row -->
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+            <div>
+                <div class="info-badges">
+                    <span class="badge b-cyan">VIN Decode</span>
+                    <span class="badge b-green">Manufacturer Intel</span>
+                    <span class="badge b-yellow">Make &amp; Model</span>
+                    <span class="badge b-magenta">Plant Codes</span>
+                    <span class="badge b-cyan">WMI Lookup</span>
+                    <span class="badge b-green">TXT Export</span>
+                </div>
+                <p style="color:#8899bb; font-size:0.82em; margin:0; line-height:1.5;">
+                    Queries the <strong style="color:#e8eeff;">NHTSA vPIC API</strong> — the official U.S. government vehicle database.
+                    No API key required. All data is public record.
+                </p>
+            </div>
+            <a href="https://github.com/OSINTCabal/VIN-Number-OSINT" target="_blank" rel="noopener" class="github-button">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
+                GitHub
+            </a>
+        </div>
+
+        <!-- ── Query form ─────────────────────────────────────── -->
+        <div class="query-form">
+
+            <!-- Mode selector -->
+            <div class="form-group">
+                <label>Query Type</label>
+                <select id="modeSelect" onchange="onModeChange()">
+                    <option value="vin">Comprehensive VIN Decode</option>
+                    <option value="batch">Batch VIN Decode (multiple VINs)</option>
+                    <option value="wmi">WMI Decode (World Manufacturer ID)</option>
+                    <option value="manufacturer">Manufacturer Intelligence</option>
+                    <option value="make">Make &amp; Model Intelligence</option>
+                    <option value="plant_codes">Equipment Plant Codes by Year</option>
+                    <option value="vehicle_types">Vehicle Types for Make</option>
+                    <option value="all_makes">Get All Vehicle Makes</option>
+                </select>
+            </div>
+
+            <!-- VIN fields -->
+            <div class="field-group active" id="fields-vin">
+                <div class="form-group" style="flex:2; min-width:200px;">
+                    <label>VIN (17 characters)</label>
+                    <input type="text" id="input-vin" placeholder="e.g. 1HGCM82633A004352" maxlength="17" autocorrect="off" autocapitalize="characters" spellcheck="false">
+                </div>
+                <div class="form-group" style="flex:1; min-width:120px;">
+                    <label>Model Year (optional)</label>
+                    <input type="text" id="input-vin-year" placeholder="e.g. 2003" maxlength="4" inputmode="numeric">
+                </div>
+            </div>
+
+            <!-- Batch fields -->
+            <div class="field-group" id="fields-batch">
+                <div class="form-group" style="flex:1;">
+                    <label>VINs (comma-separated, max 50)</label>
+                    <textarea id="input-batch" placeholder="1HGCM82633A004352, 2T1BURHE0JC039860, ..." autocorrect="off" autocapitalize="characters" spellcheck="false"></textarea>
+                    <div class="mode-hint">Enter multiple 17-character VINs separated by commas.</div>
+                </div>
+            </div>
+
+            <!-- WMI fields -->
+            <div class="field-group" id="fields-wmi">
+                <div class="form-group">
+                    <label>WMI (first 3 chars of VIN)</label>
+                    <input type="text" id="input-wmi" placeholder="e.g. 1HG" maxlength="3" autocorrect="off" autocapitalize="characters" spellcheck="false">
+                </div>
+            </div>
+
+            <!-- Manufacturer fields -->
+            <div class="field-group" id="fields-manufacturer">
+                <div class="form-group">
+                    <label>Manufacturer Name or ID</label>
+                    <input type="text" id="input-mfr" placeholder="e.g. Honda, Toyota, 955" autocorrect="off" autocapitalize="words" spellcheck="false">
+                    <div class="mode-hint">Partial names work — e.g. "Honda" returns Honda Motor Co.</div>
+                </div>
+            </div>
+
+            <!-- Make fields -->
+            <div class="field-group" id="fields-make">
+                <div class="form-group" style="flex:2; min-width:160px;">
+                    <label>Make</label>
+                    <input type="text" id="input-make" placeholder="e.g. Toyota, Ford, BMW" autocorrect="off" autocapitalize="words" spellcheck="false">
+                </div>
+                <div class="form-group" style="flex:1; min-width:120px;">
+                    <label>Model Year (optional)</label>
+                    <input type="text" id="input-make-year" placeholder="e.g. 2020" maxlength="4" inputmode="numeric">
+                </div>
+            </div>
+
+            <!-- Plant codes fields -->
+            <div class="field-group" id="fields-plant_codes">
+                <div class="form-group" style="max-width:200px;">
+                    <label>Year</label>
+                    <input type="text" id="input-plant-year" placeholder="e.g. 2023" maxlength="4" inputmode="numeric">
+                    <div class="mode-hint">Returns DOT plant codes and addresses for equipment manufactured that year.</div>
+                </div>
+            </div>
+
+            <!-- Vehicle types fields -->
+            <div class="field-group" id="fields-vehicle_types">
+                <div class="form-group">
+                    <label>Make</label>
+                    <input type="text" id="input-vt-make" placeholder="e.g. Chevrolet" autocorrect="off" autocapitalize="words" spellcheck="false">
+                </div>
+            </div>
+
+            <!-- all_makes: no extra fields -->
+            <div class="field-group" id="fields-all_makes">
+                <div class="mode-hint" style="color:#8899bb; padding:8px 0;">
+                    Retrieves the complete list of all registered vehicle makes from the NHTSA database.
+                    This may take a moment to load all entries.
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <div style="display:flex; justify-content:flex-end;">
+                <button class="submit-btn" id="submitBtn" onclick="runQuery()">
+                    ▶ &nbsp;Run Query
+                </button>
+            </div>
+        </div>
+
+        <!-- Export strip -->
+        <div class="export-strip" id="exportStrip">
+            <div class="export-strip-text" id="exportText">✔ Results ready for export.</div>
+            <button class="btn-export" onclick="exportTxt()">⬇ Export as .txt</button>
+        </div>
+
+        <!-- Terminal -->
+        <div class="terminal-container" id="terminalContainer">
+            <div class="terminal-header">
+                <div class="terminal-controls">
+                    <div class="terminal-control close"></div>
+                    <div class="terminal-control minimize"></div>
+                    <div class="terminal-control maximize"></div>
+                </div>
+                <span>Cabal VIN — NHTSA Terminal</span>
+                <div class="status-indicator status-running" id="statusIndicator">
+                    <div class="pulse"></div>
+                    <span>Ready</span>
+                </div>
+            </div>
+            <div class="terminal-output" id="terminalOutput">
+                Select a query type and run to see results here.<span class="terminal-cursor"></span>
+            </div>
+            <button class="scroll-to-bottom" id="scrollBtn" onclick="scrollToBottom()">↓</button>
+        </div>
+    </div>
+
+    <div class="nav-links">
+        <a href="live.html"> ← Back to Live Center</a>
+        <a href="../index.html">Home</a>
+    </div>
+
+    
+    </div>
+
+<script>
+        let eventSource   = null;
+        let isRunning     = false;
+        let autoScroll    = true;
+        let exportText    = '';
+        let exportQueryId = '';
+
+        const ALL_MODES = ['vin','batch','wmi','manufacturer','make','plant_codes','vehicle_types','all_makes'];
+
+        /* ── Mode switching ──────────────────────────────────── */
+        function onModeChange() {
+            const mode = document.getElementById('modeSelect').value;
+            ALL_MODES.forEach(m => {
+                const el = document.getElementById('fields-' + m);
+                if (el) el.classList.toggle('active', m === mode);
+            });
+        }
+
+        /* ── Scroll ──────────────────────────────────────────── */
+        function scrollToBottom() {
+            const out = document.getElementById('terminalOutput');
+            out.scrollTop = out.scrollHeight;
+            document.getElementById('scrollBtn').style.display = 'none';
+            autoScroll = true;
+        }
+
+        function checkScroll() {
+            const out = document.getElementById('terminalOutput');
+            if (out.scrollTop + out.clientHeight < out.scrollHeight - 60) {
+                document.getElementById('scrollBtn').style.display = 'flex';
+                autoScroll = false;
+            } else {
+                document.getElementById('scrollBtn').style.display = 'none';
+                autoScroll = true;
+            }
+        }
+
+        /* ── Terminal ────────────────────────────────────────── */
+        function appendLine(html) {
+            const out = document.getElementById('terminalOutput');
+            out.innerHTML = out.innerHTML.replace(/<span class="terminal-cursor"><\/span>$/, '');
+            { const __c = out.querySelector('.terminal-cursor');
+              if (__c) __c.insertAdjacentHTML('beforebegin', html + '\n');
+              else out.insertAdjacentHTML('beforeend', html + '\n' + '<span class="terminal-cursor"></span>');
+            }
+            while (out.childNodes.length > 1200) out.removeChild(out.firstChild);
+            if (autoScroll) scrollToBottom();
+        }
+
+        function updateStatus(cls, text) {
+            const ind = document.getElementById('statusIndicator');
+            ind.className = `status-indicator status-${cls}`;
+            ind.innerHTML = `<div class="pulse"></div><span>${text}</span>`;
+        }
+
+        /* ── Build GET params ────────────────────────────────── */
+        function buildParams() {
+            const mode = document.getElementById('modeSelect').value;
+            const p = new URLSearchParams({ mode });
+
+            switch (mode) {
+                case 'vin':
+                    p.set('vin', document.getElementById('input-vin').value.trim().toUpperCase());
+                    const vy = document.getElementById('input-vin-year').value.trim();
+                    if (vy) p.set('year', vy);
+                    break;
+                case 'batch':
+                    p.set('vins', document.getElementById('input-batch').value.replace(/\s/g,''));
+                    break;
+                case 'wmi':
+                    p.set('wmi', document.getElementById('input-wmi').value.trim().toUpperCase());
+                    break;
+                case 'manufacturer':
+                    p.set('query', document.getElementById('input-mfr').value.trim());
+                    break;
+                case 'make':
+                    p.set('make', document.getElementById('input-make').value.trim());
+                    const my = document.getElementById('input-make-year').value.trim();
+                    if (my) p.set('year', my);
+                    break;
+                case 'plant_codes':
+                    p.set('year', document.getElementById('input-plant-year').value.trim());
+                    break;
+                case 'vehicle_types':
+                    p.set('make', document.getElementById('input-vt-make').value.trim());
+                    break;
+                case 'all_makes':
+                    break;
+            }
+            return p;
+        }
+
+        function validateParams(mode, params) {
+            switch (mode) {
+                case 'vin':
+                    if ((params.get('vin') || '').length < 5) { alert('Please enter a valid VIN.'); return false; }
+                    break;
+                case 'batch':
+                    if (!params.get('vins')) { alert('Please enter at least one VIN.'); return false; }
+                    break;
+                case 'wmi':
+                    if ((params.get('wmi') || '').length < 3) { alert('WMI must be at least 3 characters.'); return false; }
+                    break;
+                case 'manufacturer':
+                    if (!params.get('query')) { alert('Please enter a manufacturer name or ID.'); return false; }
+                    break;
+                case 'make':
+                    if (!params.get('make')) { alert('Please enter a make.'); return false; }
+                    break;
+                case 'plant_codes':
+                    if (!params.get('year')) { alert('Please enter a year.'); return false; }
+                    break;
+                case 'vehicle_types':
+                    if (!params.get('make')) { alert('Please enter a make.'); return false; }
+                    break;
+            }
+            return true;
+        }
+
+        /* ── Run query ───────────────────────────────────────── */
+        function runQuery() {
+            if (isRunning) return;
+
+            const mode   = document.getElementById('modeSelect').value;
+            const params = buildParams();
+
+            if (!validateParams(mode, params)) return;
+
+            isRunning     = true;
+            exportText    = '';
+            exportQueryId = '';
+
+            // Dismiss mobile keyboard
+            if (document.activeElement) document.activeElement.blur();
+
+            const btn      = document.getElementById('submitBtn');
+            const terminal = document.getElementById('terminalContainer');
+            const out      = document.getElementById('terminalOutput');
+            const strip    = document.getElementById('exportStrip');
+
+            btn.disabled            = true;
+            btn.textContent         = '⏳  Querying...';
+            terminal.style.display  = 'block';
+            strip.classList.remove('active');
+            out.innerHTML           = 'Connecting to NHTSA API via Cabal VIN runner...<span class="terminal-cursor"></span>';
+            updateStatus('running', 'Querying NHTSA...');
+            autoScroll = true;
+            out.addEventListener('scroll', checkScroll);
+
+            // Scroll terminal into view on mobile
+            setTimeout(() => terminal.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+
+            if (eventSource) eventSource.close();
+
+            const url = `/livecenter/LIVETOOLS/vindecoder_wrapper.php?${params.toString()}`;
+            eventSource = new EventSource(url);
+
+            eventSource.onmessage = function(e) {
+                let payload;
+                try { payload = JSON.parse(e.data); } catch { return; }
+
+                if (payload.type === 'line') {
+                    appendLine(payload.html !== undefined ? payload.html : '');
+                }
+                else if (payload.type === 'export_ready') {
+                    exportText    = payload.text || '';
+                    exportQueryId = payload.query_id || 'report';
+                    showExportStrip();
+                }
+                else if (payload.type === 'error') {
+                    updateStatus('error', 'Error');
+                    appendLine(payload.html || '<span class="ansi-red">An error occurred.</span>');
+                    finish();
+                }
+                else if (payload.type === 'done') {
+                    finish();
+                }
+            };
+
+            eventSource.onerror = function() {
+                if (!isRunning) return;
+                updateStatus('error', 'Connection Lost');
+                appendLine('<span class="ansi-red">SSE connection dropped.</span>');
+                finish();
+            };
+        }
+
+        function finish() {
+            isRunning = false;
+            if (eventSource) { eventSource.close(); eventSource = null; }
+            const btn = document.getElementById('submitBtn');
+            btn.disabled    = false;
+            btn.textContent = '▶  Run Query';
+            updateStatus('complete', 'Complete');
+        }
+
+        function showExportStrip() {
+            const strip = document.getElementById('exportStrip');
+            const text  = document.getElementById('exportText');
+            text.textContent = `✔ Report ready — ${exportText.split('\n').length} lines. Click to download.`;
+            strip.classList.add('active');
+        }
+
+        /* ── Export ──────────────────────────────────────────── */
+        function exportTxt() {
+            if (!exportText) return;
+            const blob = new Blob([exportText], { type: 'text/plain' });
+            const url  = URL.createObjectURL(blob);
+            const a    = document.createElement('a');
+            const ts   = new Date().toISOString().replace(/[:.]/g,'-').slice(0,19);
+            a.href     = url;
+            a.download = `osintcabal_vin_${exportQueryId}_${ts}.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function escapeHtml(s) {
+            return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        }
+
+        // Init
+        onModeChange();
+    </script>
+    <script src="../assets/js/livecenter-ui.js"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c19750b4b4614',t:'MTc4OTAxODg0Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

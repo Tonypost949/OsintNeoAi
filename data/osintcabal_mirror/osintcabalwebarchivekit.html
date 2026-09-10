@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>OSINTCabal Web Archive Kit - TheTimeMachine</title>
+    <meta name="description" content="Weaponized Wayback Machine reconnaissance using TheTimeMachine - extract archived URLs, backup files, vulnerabilities, and more.">
+    <link rel="canonical" href="https://osintcabal.org/livecenter/osintcabalwebarchivekit.html" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: 'Space Mono', monospace;
+            background-color: #0a0a1a;
+            color: #e0e0ff;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(120, 255, 214, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+        }
+
+        .terminal {
+            background-color: rgba(18, 18, 18, 0.8);
+            border: 1px solid #4a90e2;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .terminal-header {
+            background-color: rgba(26, 26, 26, 0.8);
+            border-bottom: 1px solid #4a90e2;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .terminal-body {
+            min-height: 200px;
+            max-height: 800px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px #ff6b9c, 0 0 20px #ff6b9c;
+        }
+        
+        .btn-hacker {
+            background: linear-gradient(135deg, #4a90e2, #8a4fff);
+            color: #fff;
+            transition: all 0.3s ease;
+            border: none;
+            font-weight: bold;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        
+        .btn-hacker:hover  { background: linear-gradient(135deg, #8a4fff, #4a90e2); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4); }
+        .btn-hacker:active { transform: translateY(0); }
+        .btn-hacker:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+        .btn-download {
+            background: linear-gradient(135deg, #00ff88, #00cc70);
+            color: #000;
+            transition: all 0.3s ease;
+            border: none;
+            font-weight: bold;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .btn-download:hover { background: linear-gradient(135deg, #00cc70, #00ff88); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4); }
+        .btn-download:active { transform: translateY(0); }
+        
+        .input-hacker {
+            background-color: rgba(26, 26, 26, 0.6);
+            border: 2px solid #333;
+            color: #e0e0ff;
+            transition: all 0.3s ease;
+            font-size: 16px; /* Prevents iOS auto-zoom */
+        }
+        
+        .input-hacker:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
+            background-color: rgba(18, 18, 18, 0.8);
+        }
+
+        /* Warning Banner */
+        .warning-banner {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, rgba(255, 170, 0, 0.95), rgba(255, 140, 0, 0.9));
+            border: 2px solid #ffaa00;
+            border-radius: 12px;
+            padding: 20px 25px;
+            max-width: 400px;
+            z-index: 9999;
+            box-shadow: 0 10px 40px rgba(255, 170, 0, 0.4);
+            display: none;
+            animation: slideInRight 0.5s ease-out;
+        }
+
+        .warning-banner.show { display: block; }
+
+        @keyframes slideInRight {
+            from { transform: translateX(500px); opacity: 0; }
+            to   { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOutRight {
+            from { transform: translateX(0); opacity: 1; }
+            to   { transform: translateX(500px); opacity: 0; }
+        }
+
+        .warning-banner.hide { animation: slideOutRight 0.5s ease-in forwards; }
+
+        .warning-banner-content { color: #000; font-weight: bold; }
+
+        .warning-banner-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            animation: pulse-icon 2s infinite;
+        }
+
+        @keyframes pulse-icon {
+            0%, 100% { transform: scale(1); }
+            50%       { transform: scale(1.1); }
+        }
+
+        .warning-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border: none;
+            color: #000;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            line-height: 22px;
+            transition: all 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .warning-close:hover { background: rgba(0, 0, 0, 0.5); transform: rotate(90deg); }
+
+        /* Toggles */
+        .toggle-container {
+            background: rgba(26, 26, 26, 0.6);
+            border: 1px solid #4a90e2;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .toggle-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            margin-bottom: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+            border-left: 3px solid #4a90e2;
+            transition: all 0.3s ease;
+            min-height: 48px; /* Touch target */
+            cursor: pointer;
+        }
+
+        .toggle-item:hover  { background: rgba(74, 144, 226, 0.1); border-left-color: #8a4fff; }
+        .toggle-item.active { background: rgba(74, 144, 226, 0.2); border-left-color: #00ff88; }
+
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 24px;
+            background: #333;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .toggle-switch.active { background: #00ff88; }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: white;
+            top: 3px;
+            left: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-switch.active::after { left: 29px; }
+
+        /* Results */
+        .result-section {
+            background: rgba(26, 26, 26, 0.6);
+            border: 1px solid #4a90e2;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #4a90e2;
+        }
+
+        .result-section.success { border-left-color: #00ff88; }
+        .result-section.warning { border-left-color: #ffaa00; }
+        .result-section.error   { border-left-color: #ff4444; }
+
+        .result-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            word-break: break-all;
+            transition: all 0.2s ease;
+        }
+
+        .result-item:hover { background: rgba(74, 144, 226, 0.1); transform: translateX(5px); }
+        .result-item a { color: #4a90e2; text-decoration: none; }
+        .result-item a:hover { color: #8a4fff; }
+
+        /* Loading */
+        .loading-bar {
+            height: 4px;
+            background: #333;
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #4a90e2, #8a4fff, #ff6b9c, #8a4fff, #4a90e2);
+            background-size: 200% 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+            animation: shimmer 2s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0%   { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        .pulse-glow { animation: pulse-glow 2s infinite; }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(74, 144, 226, 0.3); }
+            50%       { box-shadow: 0 0 20px rgba(74, 144, 226, 0.6); }
+        }
+        
+        .spinner {
+            border: 4px solid rgba(74, 144, 226, 0.2);
+            border-radius: 50%;
+            border-top: 4px solid #4a90e2;
+            border-right: 4px solid #8a4fff;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+        }
+        
+        @keyframes spin {
+            0%   { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .scrollbar-custom::-webkit-scrollbar { width: 8px; }
+        .scrollbar-custom::-webkit-scrollbar-track { background: rgba(26, 26, 26, 0.6); border-radius: 4px; }
+        .scrollbar-custom::-webkit-scrollbar-thumb { background: #4a90e2; border-radius: 4px; }
+        
+        .blink { animation: blink-animation 1s steps(5, start) infinite; }
+        @keyframes blink-animation { to { visibility: hidden; } }
+
+        .success-text { color: #00ff88; text-shadow: 0 0 5px #00ff88; }
+        .error-text   { color: #ff4444; text-shadow: 0 0 5px #ff4444; }
+        .warning-text { color: #ffaa00; text-shadow: 0 0 5px #ffaa00; }
+        .info-text    { color: #4a90e2; text-shadow: 0 0 5px #4a90e2; }
+
+        .stat-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid #4a90e2;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4a90e2;
+            text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: #888;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        /* ============================================================
+           MOBILE STYLES
+           ============================================================ */
+        @media (max-width: 600px) {
+            /* Header */
+            header h1 {
+                font-size: 1.5rem !important;
+                line-height: 1.2;
+            }
+
+            header p { font-size: 0.85rem !important; }
+
+            .container {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+                padding-top: 16px !important;
+            }
+
+            /* Terminal */
+            .terminal-header { padding: 10px 12px !important; }
+            .terminal-header .text-sm { font-size: 0.7rem; }
+            .terminal-body { padding: 14px !important; }
+
+            /* Input: full width, 16px guaranteed */
+            .input-hacker {
+                font-size: 16px !important;
+                padding: 12px 36px 12px 14px !important;
+            }
+
+            /* Scan button: full width */
+            #searchBtn {
+                width: 100%;
+                justify-content: center;
+                padding: 12px 16px;
+                font-size: 15px;
+            }
+
+            /* Toggle items: already min-height 48px; ensure text readable */
+            .toggle-item { padding: 10px 8px; }
+            .toggle-item .font-bold { font-size: 0.85rem; }
+            .toggle-item .text-xs   { font-size: 0.7rem; }
+
+            /* Stats bar: already grid-cols-2 via Tailwind on mobile */
+            .stat-number { font-size: 1.5rem; }
+            .stat-box    { padding: 10px; }
+
+            /* Results section */
+            .result-item { font-size: 0.78rem; }
+
+            /* Download button: full width on mobile */
+            #downloadBtn {
+                width: 100%;
+                justify-content: center;
+                font-size: 13px;
+            }
+
+            /* Results terminal header: stack on very small screens */
+            #resultsSection .terminal-header {
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 10px 12px !important;
+            }
+
+            /* Warning banner: full width on mobile instead of right-anchored */
+            .warning-banner {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: 100%;
+                padding: 16px 18px;
+            }
+
+            /* Footer */
+            footer p { font-size: 0.7rem !important; }
+        }
+
+        @media (max-width: 380px) {
+            header h1 { font-size: 1.2rem !important; }
+            .stat-number { font-size: 1.2rem; }
+        }
+
+        @media (hover: none) {
+            .btn-hacker:hover     { transform: none; }
+            .btn-download:hover   { transform: none; }
+            .result-item:hover    { transform: none; }
+            .toggle-item:hover    { transform: none; }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/livecenter-tools.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+</head>
+<body class="min-h-screen flex flex-col" data-lct-theme="cabal">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <!-- Warning Banner -->
+    <div id="warningBanner" class="warning-banner">
+        <button class="warning-close" onclick="hideWarning()" title="Close">×</button>
+        <div class="warning-banner-content">
+            <div class="warning-banner-icon">☕</div>
+            <div class="text-lg font-bold mb-2">Patience is Key!</div>
+            <p class="text-sm mb-2">Running multiple Wayback Machine scans...</p>
+            <p class="text-xs"><strong>This may take 2-5 minutes.</strong><br>Grab a coffee while we work!</p>
+        </div>
+    </div>
+    
+    <div class="container mx-auto px-4 py-8 flex-grow">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 glow-text font-mono">
+                <i class="fas fa-history mr-3"></i>OSINTCabal Web Archive Kit
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 font-mono mb-2">Weaponizing Wayback Machine with TheTimeMachine</p>
+            <p class="text-sm text-gray-500 font-mono">Archived URLs • Backup Files • Vulnerabilities • JWT • Subdomains</p>
+        </header>
+        
+        <!-- Main Search Interface -->
+        <div class="terminal max-w-6xl mx-auto mb-8">
+            <div class="terminal-header p-4 flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="flex space-x-2 mr-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="text-sm font-mono">thetimemachine.py</div>
+                </div>
+                <div class="text-xs text-gray-500 font-mono">
+                    <i class="fas fa-shield-alt mr-1"></i>SECURE CONNECTION
+                </div>
+            </div>
+            <div class="terminal-body p-6">
+                <!-- Domain Input -->
+                <div class="flex flex-col gap-4 mb-6">
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            id="domainInput" 
+                            placeholder="Enter target domain (e.g., example.com - no http/https)..." 
+                            class="input-hacker w-full px-4 py-3 rounded-lg font-mono text-lg"
+                            autocomplete="off"
+                            autocorrect="off"
+                            autocapitalize="none"
+                            spellcheck="false"
+                        >
+                        <div class="absolute right-3 top-3 text-gray-500">
+                            <i class="fas fa-crosshairs"></i>
+                        </div>
+                    </div>
+
+                    <!-- Toggle Options -->
+                    <div class="toggle-container">
+                        <div class="text-sm font-bold mb-3 info-text">
+                            <i class="fas fa-sliders-h mr-2"></i>ADDITIONAL SCANS (Optional)
+                        </div>
+                        <div class="text-xs text-gray-400 mb-3">Note: Archived URLs scan always runs. Select additional scans below:</div>
+
+                        <div class="toggle-item" id="toggle-backups">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-file-archive text-yellow-400"></i>
+                                <div>
+                                    <div class="font-bold text-sm">Backup Files</div>
+                                    <div class="text-xs text-gray-400">Scan for .zip, .bak, .sql, .tar.gz, .old files</div>
+                                </div>
+                            </div>
+                            <div class="toggle-switch" data-option="backups"></div>
+                        </div>
+
+                        <div class="toggle-item" id="toggle-jwt">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-key text-purple-400"></i>
+                                <div>
+                                    <div class="font-bold text-sm">JWT Tokens</div>
+                                    <div class="text-xs text-gray-400">Detect &amp; decode JWT tokens</div>
+                                </div>
+                            </div>
+                            <div class="toggle-switch" data-option="jwt"></div>
+                        </div>
+
+                        <div class="toggle-item" id="toggle-subdomains">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-sitemap text-green-400"></i>
+                                <div>
+                                    <div class="font-bold text-sm">Subdomains</div>
+                                    <div class="text-xs text-gray-400">Extract subdomains from historical URLs</div>
+                                </div>
+                            </div>
+                            <div class="toggle-switch" data-option="subdomains"></div>
+                        </div>
+
+                        <div class="toggle-item" id="toggle-parameters">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-code text-cyan-400"></i>
+                                <div>
+                                    <div class="font-bold text-sm">Parameters</div>
+                                    <div class="text-xs text-gray-400">Extract GET parameters &amp; map to URLs</div>
+                                </div>
+                            </div>
+                            <div class="toggle-switch" data-option="parameters"></div>
+                        </div>
+
+                        <div class="toggle-item" id="toggle-listings">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-folder-open text-orange-400"></i>
+                                <div>
+                                    <div class="font-bold text-sm">Directory Listings</div>
+                                    <div class="text-xs text-gray-400">Detect open directory listings</div>
+                                </div>
+                            </div>
+                            <div class="toggle-switch" data-option="listings"></div>
+                        </div>
+
+                        <div class="toggle-item" id="toggle-attack">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-bug text-red-400"></i>
+                                <div>
+                                    <div class="font-bold text-sm">Attack Mode</div>
+                                    <div class="text-xs text-gray-400">Scan for XSS, SQLi, LFI, Open Redirects, etc.</div>
+                                </div>
+                            </div>
+                            <div class="toggle-switch" data-option="attack"></div>
+                        </div>
+                    </div>
+                    
+                    <button 
+                        id="searchBtn" 
+                        class="btn-hacker px-8 py-3 rounded-lg font-bold font-mono flex items-center justify-center pulse-glow"
+                        data-searching="false"
+                    >
+                        <i class="fas fa-rocket mr-2"></i>
+                        <span id="searchBtnText">LAUNCH TIME MACHINE</span>
+                    </button>
+                </div>
+                
+                <div class="text-center mb-4 p-3 bg-black bg-opacity-40 rounded-lg border border-gray-700">
+                    <div class="text-xs text-gray-400 font-mono">
+                        <span class="font-bold text-blue-400">POWERED BY:</span> TheTimeMachine v3.0 | Wayback Machine Weaponization
+                    </div>
+                </div>
+                
+                <div id="loadingSection" class="mb-6" style="display: none;">
+                    <div class="flex justify-center mb-4">
+                        <div class="spinner"></div>
+                    </div>
+                    <div class="text-center mb-4">
+                        <div id="loadingMessage" class="text-lg font-mono text-blue-400 mb-2">
+                            Initializing Time Machine...
+                        </div>
+                        <div id="loadingSubtext" class="text-sm text-gray-400 font-mono">
+                            Scraping Wayback Machine archives
+                        </div>
+                    </div>
+                    <div class="loading-bar mb-3">
+                        <div id="loadingProgress" class="loading-progress"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-gray-400 font-mono">
+                        <span id="progressStatus">Preparing systems...</span>
+                        <span id="progressText">0%</span>
+                    </div>
+                </div>
+                
+                <div id="statusText" class="text-sm font-mono mb-4 min-h-6">
+                    <span class="text-gray-400">Ready to scan Wayback Machine. Enter a domain above.</span>
+                    <span id="cursor" class="blink">_</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div id="statsBar" class="max-w-6xl mx-auto mb-6" style="display: none;">
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-4">
+                <div class="stat-box">
+                    <div class="stat-number" id="totalUrls">0</div>
+                    <div class="stat-label">Total URLs</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number success-text" id="backupsFound">0</div>
+                    <div class="stat-label">Backups</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number warning-text" id="subdomainsFound">0</div>
+                    <div class="stat-label">Subdomains</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number error-text" id="vulnsFound">0</div>
+                    <div class="stat-label">Vulnerabilities</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number info-text" id="jwtFound">0</div>
+                    <div class="stat-label">JWT Tokens</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" style="color: #ff6b9c;" id="paramsFound">0</div>
+                    <div class="stat-label">Parameters</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Results Section -->
+        <div id="resultsSection" class="max-w-6xl mx-auto mb-8" style="display: none;">
+            <div class="terminal">
+                <div class="terminal-header p-4 flex items-center justify-between flex-wrap gap-2">
+                    <div class="flex items-center">
+                        <div class="flex space-x-2 mr-4">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="text-sm font-mono success-text"><i class="fas fa-check-circle mr-2"></i>scan_results.json</div>
+                    </div>
+                    <div class="flex items-center gap-3 flex-wrap">
+                        <button id="downloadBtn" class="btn-download px-4 py-2 rounded-lg font-mono text-sm flex items-center">
+                            <i class="fas fa-download mr-2"></i>Download Results
+                        </button>
+                        <div class="text-xs text-gray-400 font-mono" id="resultsStats">
+                            Scan complete
+                        </div>
+                    </div>
+                </div>
+                <div class="terminal-body p-4 scrollbar-custom">
+                    <h3 class="text-lg font-bold font-mono mb-4 success-text flex items-center">
+                        <i class="fas fa-history mr-2"></i>TIME MACHINE RESULTS
+                    </h3>
+                    <div id="resultsContainer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script>
+        let globalResults = null;
+        let globalDomain = '';
+
+        function showWarning() {
+            const banner = document.getElementById('warningBanner');
+            banner.classList.remove('hide');
+            banner.style.display = 'block';
+            banner.classList.add('show');
+        }
+
+        function hideWarning() {
+            const banner = document.getElementById('warningBanner');
+            banner.classList.remove('show');
+            banner.classList.add('hide');
+            setTimeout(() => {
+                banner.classList.remove('hide');
+                banner.style.display = 'none';
+            }, 500);
+        }
+
+        function downloadResults() {
+            if (!globalResults || !globalDomain) return;
+
+            let content = `OSINTCabal Web Archive Kit Results\n`;
+            content += `Domain: ${globalDomain}\n`;
+            content += `Scan Date: ${new Date().toISOString()}\n`;
+            content += `${'='.repeat(60)}\n\n`;
+
+            if (globalResults.urls && globalResults.urls.length > 0) {
+                content += `ARCHIVED URLS (${globalResults.urls.length})\n${'-'.repeat(60)}\n`;
+                globalResults.urls.forEach(url => content += `${url}\n`);
+                content += '\n';
+            }
+            if (globalResults.backups && globalResults.backups.length > 0) {
+                content += `BACKUP FILES (${globalResults.backups.length})\n${'-'.repeat(60)}\n`;
+                globalResults.backups.forEach(b => content += `${b}\n`);
+                content += '\n';
+            }
+            if (globalResults.subdomains && globalResults.subdomains.length > 0) {
+                content += `SUBDOMAINS (${globalResults.subdomains.length})\n${'-'.repeat(60)}\n`;
+                globalResults.subdomains.forEach(s => content += `${s}\n`);
+                content += '\n';
+            }
+            if (globalResults.parameters && globalResults.parameters.length > 0) {
+                content += `PARAMETERS (${globalResults.parameters.length})\n${'-'.repeat(60)}\n`;
+                globalResults.parameters.forEach(p => content += `${p}\n`);
+                content += '\n';
+            }
+            if (globalResults.jwt && globalResults.jwt.length > 0) {
+                content += `JWT TOKENS (${globalResults.jwt.length})\n${'-'.repeat(60)}\n`;
+                globalResults.jwt.forEach(j => content += `${j}\n`);
+                content += '\n';
+            }
+            if (globalResults.listings && globalResults.listings.length > 0) {
+                content += `DIRECTORY LISTINGS (${globalResults.listings.length})\n${'-'.repeat(60)}\n`;
+                globalResults.listings.forEach(l => content += `${l}\n`);
+                content += '\n';
+            }
+            if (globalResults.vulnerabilities) {
+                for (const [type, vulns] of Object.entries(globalResults.vulnerabilities)) {
+                    if (vulns && vulns.length > 0) {
+                        content += `${type.toUpperCase()} VULNERABILITIES (${vulns.length})\n${'-'.repeat(60)}\n`;
+                        vulns.forEach(v => content += `${v}\n`);
+                        content += '\n';
+                    }
+                }
+            }
+
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${globalDomain}_timemachine_results_${Date.now()}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        class TimeMachineKit {
+            constructor() {
+                this.selectedOptions = new Set();
+                this.initializeElements();
+                this.setupEventListeners();
+            }
+            
+            initializeElements() {
+                this.domainInput     = document.getElementById('domainInput');
+                this.searchBtn       = document.getElementById('searchBtn');
+                this.searchBtnText   = document.getElementById('searchBtnText');
+                this.resultsSection  = document.getElementById('resultsSection');
+                this.statusText      = document.getElementById('statusText');
+                this.loadingSection  = document.getElementById('loadingSection');
+                this.loadingProgress = document.getElementById('loadingProgress');
+                this.progressText    = document.getElementById('progressText');
+                this.resultsContainer= document.getElementById('resultsContainer');
+                this.statsBar        = document.getElementById('statsBar');
+                this.downloadBtn     = document.getElementById('downloadBtn');
+            }
+            
+            setupEventListeners() {
+                this.searchBtn.addEventListener('click', () => this.handleSearch());
+                this.domainInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.handleSearch();
+                });
+                this.downloadBtn.addEventListener('click', () => downloadResults());
+
+                document.querySelectorAll('.toggle-switch').forEach(toggle => {
+                    toggle.addEventListener('click', (e) => this.handleToggle(e.currentTarget));
+                });
+            }
+
+            handleToggle(toggleElement) {
+                const option = toggleElement.getAttribute('data-option');
+                const toggleItem = document.getElementById(`toggle-${option}`);
+                
+                if (this.selectedOptions.has(option)) {
+                    this.selectedOptions.delete(option);
+                    toggleElement.classList.remove('active');
+                    toggleItem.classList.remove('active');
+                } else {
+                    this.selectedOptions.add(option);
+                    toggleElement.classList.add('active');
+                    toggleItem.classList.add('active');
+                }
+            }
+            
+            updateStatus(message, type = 'info') {
+                const typeClasses = {
+                    'info':    'text-gray-400',
+                    'success': 'success-text',
+                    'error':   'error-text',
+                    'warning': 'warning-text'
+                };
+                this.statusText.innerHTML = `<span class="${typeClasses[type]}">${message}</span> <span id="cursor" class="blink">_</span>`;
+            }
+            
+            updateProgress(percentage, message, subtext = '') {
+                this.loadingProgress.style.width = `${percentage}%`;
+                this.progressText.textContent = `${percentage}%`;
+                if (message) {
+                    document.getElementById('loadingMessage').textContent = message;
+                    document.getElementById('loadingSubtext').textContent = subtext;
+                    document.getElementById('progressStatus').textContent = message;
+                    this.updateStatus(message);
+                }
+            }
+            
+            async handleSearch() {
+                const domain = this.domainInput.value.trim();
+                if (!domain) { this.updateStatus('ERROR: Domain field cannot be empty', 'error'); return; }
+
+                // Dismiss mobile keyboard before loading starts
+                this.domainInput.blur();
+
+                const cleanDomain = domain.replace(/^https?:\/\//i, '');
+                this.startSearch(cleanDomain);
+            }
+            
+            async startSearch(domain) {
+                globalDomain = domain;
+                showWarning();
+                
+                this.searchBtn.setAttribute('data-searching', 'true');
+                this.searchBtn.disabled = true;
+                this.searchBtnText.textContent = 'SCANNING...';
+                
+                this.resultsSection.style.display = 'none';
+                this.loadingSection.style.display = 'block';
+                this.statsBar.style.display = 'block';
+                
+                const options = Array.from(this.selectedOptions);
+                this.updateProgress(5, '⏰ Initializing Time Machine...', 'Connecting to Wayback Machine');
+                
+                try {
+                    const response = await fetch('thetimemachine_wrapper.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ domain: domain, options: options })
+                    });
+                    
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    
+                    const reader = response.body.getReader();
+                    const decoder = new TextDecoder();
+                    let buffer = '';
+                    
+                    while (true) {
+                        const { value, done } = await reader.read();
+                        if (done) break;
+                        
+                        buffer += decoder.decode(value, { stream: true });
+                        const lines = buffer.split('\n');
+                        buffer = lines.pop();
+                        
+                        for (const line of lines) {
+                            if (!line.trim()) continue;
+                            try {
+                                const data = JSON.parse(line);
+                                if (data.type === 'progress') {
+                                    this.updateProgress(data.percent, data.message, data.submessage || '');
+                                } else if (data.type === 'result') {
+                                    hideWarning();
+                                    this.displayResults(data.results, domain);
+                                } else if (data.type === 'error') {
+                                    hideWarning();
+                                    throw new Error(data.message);
+                                }
+                            } catch (e) {
+                                if (line.includes('error') || line.includes('Error')) {
+                                    console.error('Error line:', line);
+                                }
+                            }
+                        }
+                    }
+                    
+                } catch (error) {
+                    console.error('Scan error:', error);
+                    hideWarning();
+                    this.updateStatus(`ERROR: ${error.message}`, 'error');
+                    this.loadingSection.style.display = 'none';
+                    this.resetSearchButton();
+                }
+            }
+            
+            displayResults(results, domain) {
+                globalResults = results;
+                this.loadingSection.style.display = 'none';
+                this.resultsSection.style.display = 'block';
+                
+                document.getElementById('totalUrls').textContent      = results.stats?.total_urls     || 0;
+                document.getElementById('backupsFound').textContent    = results.stats?.backups        || 0;
+                document.getElementById('subdomainsFound').textContent = results.stats?.subdomains     || 0;
+                document.getElementById('vulnsFound').textContent      = results.stats?.vulnerabilities|| 0;
+                document.getElementById('jwtFound').textContent        = results.stats?.jwt_tokens     || 0;
+                document.getElementById('paramsFound').textContent     = results.stats?.parameters     || 0;
+                
+                let html = '';
+                const enabledScans = results.enabled_scans || ['fetch'];
+                
+                if (results.urls && results.urls.length > 0) {
+                    html += this.createResultSection('Archived URLs', results.urls, 'success', 'fa-link', 100);
+                }
+                if (enabledScans.includes('backups') && results.backups && results.backups.length > 0) {
+                    html += this.createResultSection('Backup Files', results.backups, 'warning', 'fa-file-archive');
+                }
+                if (enabledScans.includes('subdomains') && results.subdomains && results.subdomains.length > 0) {
+                    html += this.createResultSection('Subdomains', results.subdomains, 'success', 'fa-sitemap');
+                }
+                if (enabledScans.includes('parameters') && results.parameters && results.parameters.length > 0) {
+                    html += this.createResultSection('Parameters', results.parameters, 'success', 'fa-code', 50);
+                }
+                if (enabledScans.includes('jwt') && results.jwt && results.jwt.length > 0) {
+                    html += this.createResultSection('JWT Tokens', results.jwt, 'warning', 'fa-key');
+                }
+                if (enabledScans.includes('listings') && results.listings && results.listings.length > 0) {
+                    html += this.createResultSection('Directory Listings', results.listings, 'warning', 'fa-folder-open');
+                }
+                if (enabledScans.includes('attack') && results.vulnerabilities) {
+                    for (const [type, vulns] of Object.entries(results.vulnerabilities)) {
+                        if (vulns && vulns.length > 0) {
+                            html += this.createResultSection(`${type.toUpperCase()} Vulnerabilities`, vulns, 'error', 'fa-bug');
+                        }
+                    }
+                }
+                
+                if (!html) html = '<p class="text-gray-400">No results found for enabled scans.</p>';
+                
+                this.resultsContainer.innerHTML = html;
+                
+                setTimeout(() => {
+                    this.resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 300);
+                
+                this.resetSearchButton();
+            }
+            
+            createResultSection(title, items, type, icon, maxDisplay = 50) {
+                const displayItems = items.slice(0, maxDisplay);
+                const remaining = items.length - maxDisplay;
+                
+                let html = `<div class="result-section ${type} mb-4">`;
+                html += `<h4 class="font-bold text-lg mb-3 flex items-center"><i class="fas ${icon} mr-2"></i>${title} (${items.length})</h4>`;
+                
+                displayItems.forEach(item => {
+                    if (typeof item === 'string') {
+                        if (item.startsWith('http')) {
+                            html += `<div class="result-item"><a href="${this.escapeHtml(item)}" target="_blank">${this.escapeHtml(item)}</a></div>`;
+                        } else {
+                            html += `<div class="result-item">${this.escapeHtml(item)}</div>`;
+                        }
+                    } else {
+                        html += `<div class="result-item">${JSON.stringify(item)}</div>`;
+                    }
+                });
+                
+                if (remaining > 0) {
+                    html += `<div class="text-xs text-gray-400 mt-2">... and ${remaining} more (download full results)</div>`;
+                }
+                
+                html += `</div>`;
+                return html;
+            }
+            
+            resetSearchButton() {
+                this.searchBtn.setAttribute('data-searching', 'false');
+                this.searchBtn.disabled = false;
+                this.searchBtnText.textContent = 'LAUNCH TIME MACHINE';
+                this.updateStatus('Scan complete! Time travel successful.', 'success');
+            }
+            
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            new TimeMachineKit();
+        });
+    </script>
+
+            <script src="../assets/js/livecenter-ui.js"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c1973da344614',t:'MTc4OTAxODg0Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

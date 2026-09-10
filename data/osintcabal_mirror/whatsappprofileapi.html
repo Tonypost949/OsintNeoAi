@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>WhatsApp Profile Data API - CheckLeaked</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/livecenter-tools.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+</head>
+<body data-lct-theme="platform">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <div class="lct-wrap">
+        <div class="lct-title">
+            <div class="title-glass">
+                <h1>WhatsApp Profile Data API - CheckLeaked</h1>
+            </div>
+        </div>
+    
+    <div class="content-box">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <p style="color: #ff6b9c; font-size: 1.1em;">This page will launch the CheckLeaked WhatsApp API website right to your search query. Be wary of limiting!</p>
+                <p style="color: #ff6b9c;"><strong>Features:</strong> WhatsApp profile lookup, account verification, and metadata extraction.</p>
+                <p style="color: #ff6b9c;"><strong>Note:</strong> CheckLeaked has rate limits. Use responsibly and avoid excessive queries.</p>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <a href="https://whatsapp.checkleaked.cc/pl" target="_blank" class="source-button">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    CheckLeaked
+                </a>
+            </div>
+        </div>
+        
+        <div class="warning-box">
+            <h3>
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg>
+                Rate Limiting Warning
+            </h3>
+            <p>CheckLeaked implements rate limiting to prevent abuse. Excessive queries may result in temporary blocks. Use this tool responsibly and allow cooldown periods between searches.</p>
+        </div>
+        
+        <div class="info-box">
+            <h3>How to Use</h3>
+            <p><strong>1.</strong> Select the country code from the dropdown</p>
+            <p><strong>2.</strong> Enter the phone number (digits only, no spaces or dashes)</p>
+            <p><strong>3.</strong> Click "Search" to query the CheckLeaked API in a new tab</p>
+            <div class="query-example">
+                Example: +1 and 1231231234 queries:<br>
+                https://whatsapp.checkleaked.cc/pl/11231231234
+            </div>
+        </div>
+        
+        <div class="tool-form">
+            <div class="input-group">
+                <select id="country-code">
+                    <option value="1">+1 (US/Canada)</option>
+                    <option value="44">+44 (UK)</option>
+                    <option value="91">+91 (India)</option>
+                    <option value="86">+86 (China)</option>
+                    <option value="81">+81 (Japan)</option>
+                    <option value="49">+49 (Germany)</option>
+                    <option value="33">+33 (France)</option>
+                    <option value="39">+39 (Italy)</option>
+                    <option value="34">+34 (Spain)</option>
+                    <option value="7">+7 (Russia)</option>
+                    <option value="61">+61 (Australia)</option>
+                    <option value="55">+55 (Brazil)</option>
+                    <option value="52">+52 (Mexico)</option>
+                    <option value="27">+27 (South Africa)</option>
+                    <option value="82">+82 (South Korea)</option>
+                    <option value="31">+31 (Netherlands)</option>
+                    <option value="46">+46 (Sweden)</option>
+                    <option value="47">+47 (Norway)</option>
+                    <option value="48">+48 (Poland)</option>
+                    <option value="90">+90 (Turkey)</option>
+                    <option value="20">+20 (Egypt)</option>
+                    <option value="234">+234 (Nigeria)</option>
+                    <option value="254">+254 (Kenya)</option>
+                    <option value="966">+966 (Saudi Arabia)</option>
+                    <option value="971">+971 (UAE)</option>
+                    <option value="60">+60 (Malaysia)</option>
+                    <option value="62">+62 (Indonesia)</option>
+                    <option value="63">+63 (Philippines)</option>
+                    <option value="64">+64 (New Zealand)</option>
+                    <option value="65">+65 (Singapore)</option>
+                    <option value="66">+66 (Thailand)</option>
+                    <option value="84">+84 (Vietnam)</option>
+                    <option value="92">+92 (Pakistan)</option>
+                    <option value="880">+880 (Bangladesh)</option>
+                    <option value="93">+93 (Afghanistan)</option>
+                    <option value="94">+94 (Sri Lanka)</option>
+                    <option value="98">+98 (Iran)</option>
+                    <option value="212">+212 (Morocco)</option>
+                    <option value="213">+213 (Algeria)</option>
+                    <option value="216">+216 (Tunisia)</option>
+                    <option value="351">+351 (Portugal)</option>
+                    <option value="353">+353 (Ireland)</option>
+                    <option value="358">+358 (Finland)</option>
+                    <option value="380">+380 (Ukraine)</option>
+                    <option value="420">+420 (Czech Republic)</option>
+                    <option value="972">+972 (Israel)</option>
+                </select>
+                <input type="text" id="phone-input" placeholder="Phone number (e.g., 8172628494)" autocorrect="off" autocapitalize="none" spellcheck="false" inputmode="numeric">
+                <button id="search-button" onclick="searchWhatsApp()">Search</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="nav-links">
+        <a href="live.html"> ← Back to Live Center</a>
+        <a href="../index.html">Home</a>
+    </div>
+    
+    
+    </div>
+
+<script>
+        function searchWhatsApp() {
+            const countryCode = document.getElementById('country-code').value;
+            const phoneNumber = document.getElementById('phone-input').value.trim();
+            
+            if (!phoneNumber) { alert("Please enter a phone number."); return; }
+            
+            const cleanPhone = phoneNumber.replace(/\D/g, '');
+            
+            if (cleanPhone.length < 7) { alert("Please enter a valid phone number."); return; }
+            
+            const checkLeakedUrl = `https://whatsapp.checkleaked.cc/pl/${countryCode}${cleanPhone}`;
+            window.open(checkLeakedUrl, '_blank');
+        }
+        
+        document.getElementById('phone-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') searchWhatsApp();
+        });
+    </script>
+    <script src="../assets/js/livecenter-ui.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c19771cf84614',t:'MTc4OTAxODg0Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

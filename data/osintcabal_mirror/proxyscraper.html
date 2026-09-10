@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cabal Proxy Crawler - Live Proxy Scraper | OSINT Cabal</title>
+    <meta name="description" content="Live proxy scraper and tester. Harvests HTTP and SOCKS5 proxies from public sources and verifies them in real-time.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="OSINT Cabal">
+    <link rel="canonical" href="https://osintcabal.org/livecenter/proxyscraper.html" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://osintcabal.org/livecenter/proxyscraper.html">
+    <meta property="og:title" content="Cabal Proxy Crawler - Live Proxy Scraper | OSINT Cabal">
+    <meta property="og:description" content="Harvest and verify HTTP + SOCKS5 proxies in real-time.">
+    <meta property="og:site_name" content="OSINT Cabal">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/favicons/manifest.json">
+    <meta name="theme-color" content="#6b21a8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/livecenter-tools.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+</head>
+<body data-lct-theme="public">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <div class="lct-wrap">
+        <div class="lct-title">
+            <div class="title-glass">
+                <h1>Cabal Proxy Crawler</h1>
+            </div>
+        </div>
+
+    <div class="content-box">
+        <!-- Info header -->
+        <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 10px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 280px;">
+                <p style="color: #ff6b9c; font-size: 1.1em; margin-top: 0;">
+                    Harvests fresh proxies from <strong>proxylist.geonode.com</strong> and live-tests each one
+                    for HTTP and SOCKS5 connectivity. Working proxies are collected and available for download
+                    when the crawl completes.
+                </p>
+                <div class="info-badges">
+                    <span class="badge badge-http-tag">HTTP Proxies</span>
+                    <span class="badge badge-socks-tag">SOCKS5 Proxies</span>
+                    <span class="badge badge-live-tag">Live Verification</span>
+                    <span class="badge badge-dl-tag">TXT Download</span>
+                </div>
+                <p style="color: #8899bb; font-size: 0.85em; margin-bottom: 0; margin-top: 10px;">
+                    ⚠ Free proxies are inherently unreliable and rotate frequently. Rate limiting may occur on heavy usage.
+                    Results are for OPSEC research and investigation support only.
+                </p>
+            </div>
+            <div style="display: flex; align-items: flex-start; padding-top: 4px;">
+                <a href="https://github.com/OSINTCabal/Cabal-Proxy-Harvester" target="_blank" rel="noopener" class="github-button">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+
+        <!-- Live stats bar -->
+        <div class="stats-bar" id="statsBar">
+            <div class="stat-item">
+                <div class="stat-value cyan" id="statTested">0</div>
+                <div class="stat-label">Tested</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-value green" id="statWorking">0</div>
+                <div class="stat-label">Working</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-value red" id="statDead">0</div>
+                <div class="stat-label">Dead</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-value" id="statRate">0%</div>
+                <div class="stat-label">Success Rate</div>
+            </div>
+        </div>
+
+        <!-- Launch button -->
+        <div class="launch-area">
+            <button class="launch-btn" id="launchBtn" onclick="startCrawl()">
+                ▶ &nbsp;START PROXY CRAWL
+            </button>
+        </div>
+
+        <!-- Download notification strip -->
+        <div class="download-strip" id="downloadStrip">
+            <div class="download-strip-text" id="downloadStripText"></div>
+            <button class="btn-show-results" onclick="openModal()">⬇ Download Working Proxies</button>
+        </div>
+
+        <!-- Terminal -->
+        <div class="terminal-container" id="terminalContainer">
+            <div class="terminal-header">
+                <div class="terminal-controls">
+                    <div class="terminal-control close"></div>
+                    <div class="terminal-control minimize"></div>
+                    <div class="terminal-control maximize"></div>
+                </div>
+                <span>Cabal Proxy Crawler — Live Feed</span>
+                <div class="status-indicator status-running" id="statusIndicator">
+                    <div class="pulse"></div>
+                    <span>Initializing...</span>
+                </div>
+            </div>
+            <div class="terminal-output" id="terminalOutput">
+                Waiting for crawl to start...<span class="terminal-cursor"></span>
+            </div>
+            <button class="scroll-to-bottom" id="scrollBtn" onclick="scrollToBottom()">↓</button>
+        </div>
+    </div>
+
+    <!-- Nav -->
+    <div class="nav-links">
+        <a href="live.html"> ← Back to Live Center</a>
+        <a href="../index.html">Home</a>
+    </div>
+
+    <!-- ── Download Modal ───────────────────────────────────── -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div class="modal-title">✔ Working Proxies Found</div>
+            <div class="modal-subtitle" id="modalSubtitle"></div>
+            <div class="proxy-list-preview" id="proxyListPreview"></div>
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeModal()">Close</button>
+                <button class="btn-download" onclick="downloadProxies()">⬇ Download as .txt</button>
+            </div>
+        </div>
+    </div>
+
+    
+    </div>
+
+<script>
+        let eventSource    = null;
+        let isCrawling     = false;
+        let autoScroll     = true;
+        let workingProxies = [];
+        let statsTested    = 0;
+        let statsWorking   = 0;
+        let statsDead      = 0;
+
+        /* ── Scroll helpers ──────────────────────────────────── */
+        function scrollToBottom() {
+            const out = document.getElementById('terminalOutput');
+            out.scrollTop = out.scrollHeight;
+            document.getElementById('scrollBtn').style.display = 'none';
+            autoScroll = true;
+        }
+
+        function checkScroll() {
+            const out = document.getElementById('terminalOutput');
+            if (out.scrollTop + out.clientHeight < out.scrollHeight - 50) {
+                document.getElementById('scrollBtn').style.display = 'flex';
+                autoScroll = false;
+            } else {
+                document.getElementById('scrollBtn').style.display = 'none';
+                autoScroll = true;
+            }
+        }
+
+        /* ── Terminal output ─────────────────────────────────── */
+        function appendLine(html) {
+            const out = document.getElementById('terminalOutput');
+            out.innerHTML = out.innerHTML.replace(/<span class="terminal-cursor"><\/span>$/, '');
+            { const __c = out.querySelector('.terminal-cursor');
+              if (__c) __c.insertAdjacentHTML('beforebegin', html + '\n');
+              else out.insertAdjacentHTML('beforeend', html + '\n' + '<span class="terminal-cursor"></span>');
+            }
+            while (out.childNodes.length > 1200) out.removeChild(out.firstChild);
+            if (autoScroll) scrollToBottom();
+        }
+
+        function updateStatus(cls, text) {
+            const ind = document.getElementById('statusIndicator');
+            ind.className = `status-indicator status-${cls}`;
+            ind.innerHTML = `<div class="pulse"></div><span>${text}</span>`;
+        }
+
+        /* ── Live stats ──────────────────────────────────────── */
+        function updateStats() {
+            document.getElementById('statTested').textContent  = statsTested;
+            document.getElementById('statWorking').textContent = statsWorking;
+            document.getElementById('statDead').textContent    = statsDead;
+            const rate = statsTested > 0 ? Math.round((statsWorking / statsTested) * 100) : 0;
+            document.getElementById('statRate').textContent    = rate + '%';
+        }
+
+        function parseLine(rawHtml) {
+            const plain = rawHtml.replace(/<[^>]+>/g, '');
+            if (plain.includes('[*] Testing')) { statsTested++; updateStats(); }
+            else if (plain.includes('[+] HTTP WORKS') || plain.includes('[+] SOCKS5 WORKS')) { statsWorking++; updateStats(); }
+            else if (plain.includes('[-] DEAD')) { statsDead++; updateStats(); }
+        }
+
+        /* ── Start crawl ─────────────────────────────────────── */
+        function startCrawl() {
+            if (isCrawling) return;
+
+            isCrawling     = true;
+            workingProxies = [];
+            statsTested    = 0;
+            statsWorking   = 0;
+            statsDead      = 0;
+
+            const btn      = document.getElementById('launchBtn');
+            const terminal = document.getElementById('terminalContainer');
+            const out      = document.getElementById('terminalOutput');
+            const statsBar = document.getElementById('statsBar');
+            const strip    = document.getElementById('downloadStrip');
+
+            btn.disabled            = true;
+            btn.textContent         = '⏳  CRAWLING...';
+            terminal.style.display  = 'block';
+            statsBar.style.display  = 'flex';
+            strip.classList.remove('active');
+            out.innerHTML           = 'Connecting to Cabal Proxy Crawler...<span class="terminal-cursor"></span>';
+            updateStatus('running', 'Crawling...');
+            autoScroll = true;
+            updateStats();
+
+            out.addEventListener('scroll', checkScroll);
+
+            // Scroll terminal into view on mobile
+            setTimeout(() => terminal.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+
+            if (eventSource) eventSource.close();
+
+            eventSource = new EventSource('/livecenter/LIVETOOLS/proxyscraper_wrapper.php');
+
+            eventSource.onmessage = function(e) {
+                let payload;
+                try { payload = JSON.parse(e.data); } catch { return; }
+
+                if (payload.type === 'line') {
+                    parseLine(payload.html);
+                    appendLine(payload.html);
+                }
+                else if (payload.type === 'proxies') {
+                    workingProxies = (payload.list || []).map(entry => {
+                        const [type, ip] = entry.split('|');
+                        return { type: type || 'HTTP', ip: ip || entry };
+                    });
+                }
+                else if (payload.type === 'error') {
+                    updateStatus('error', 'Error');
+                    appendLine(payload.html || '<span class="ansi-red">An unknown error occurred.</span>');
+                    finishCrawl();
+                }
+                else if (payload.type === 'done') {
+                    finishCrawl();
+                }
+            };
+
+            eventSource.onerror = function() {
+                if (!isCrawling) return;
+                updateStatus('error', 'Connection Lost');
+                appendLine('<span class="ansi-red">SSE connection dropped. The crawl may still be running server-side.</span>');
+                finishCrawl();
+            };
+        }
+
+        function finishCrawl() {
+            isCrawling = false;
+            if (eventSource) { eventSource.close(); eventSource = null; }
+
+            const btn = document.getElementById('launchBtn');
+            btn.disabled    = false;
+            btn.textContent = '▶  START PROXY CRAWL';
+            updateStatus('complete', 'Crawl Complete');
+
+            if (workingProxies.length > 0) {
+                const strip = document.getElementById('downloadStrip');
+                const text  = document.getElementById('downloadStripText');
+                text.textContent = `✔ ${workingProxies.length} live ${workingProxies.length === 1 ? 'proxy' : 'proxies'} found and ready to download.`;
+                strip.classList.add('active');
+            }
+        }
+
+        /* ── Modal ───────────────────────────────────────────── */
+        function openModal() {
+            const modal    = document.getElementById('modalOverlay');
+            const preview  = document.getElementById('proxyListPreview');
+            const subtitle = document.getElementById('modalSubtitle');
+
+            subtitle.textContent = `${workingProxies.length} verified ${workingProxies.length === 1 ? 'proxy' : 'proxies'} ready for download`;
+
+            preview.innerHTML = workingProxies.map(p => {
+                const cls = p.type === 'SOCKS5' ? 'badge-socks5' : 'badge-http';
+                return `<div class="proxy-entry">
+                    <span class="proxy-type-badge ${cls}">${p.type}</span>
+                    <span class="proxy-ip">${escapeHtml(p.ip)}</span>
+                </div>`;
+            }).join('');
+
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
+        }
+
+        function closeModalOutside(e) {
+            if (e.target === document.getElementById('modalOverlay')) closeModal();
+        }
+
+        /* ── Download ────────────────────────────────────────── */
+        function downloadProxies() {
+            if (!workingProxies.length) return;
+            const lines = workingProxies.map(p => `${p.type}|${p.ip}`).join('\n');
+            const blob  = new Blob([lines], { type: 'text/plain' });
+            const url   = URL.createObjectURL(blob);
+            const a     = document.createElement('a');
+            const now   = new Date();
+            const ts    = `${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}_${String(now.getHours()).padStart(2,'0')}${String(now.getMinutes()).padStart(2,'0')}`;
+            a.href      = url;
+            a.download  = `osintcabal_proxies_${ts}.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+            closeModal();
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        }
+    </script>
+    <script src="../assets/js/livecenter-ui.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c1973ca264614',t:'MTc4OTAxODg0Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

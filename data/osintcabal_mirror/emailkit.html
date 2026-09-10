@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>OSINTCabal Email Kit - Advanced Email Intelligence</title>
+    <meta name="description" content="Advanced email investigation tool combining Holehe, Zehef, Hashtray, Mailsleuth, and HaveIBeenPwned. Comprehensive OSINT email reconnaissance.">
+    <link rel="canonical" href="https://osintcabal.org/emailkit.html" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Space Mono', monospace;
+            background-color: #0a0a1a;
+            color: #e0e0ff;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(120, 255, 214, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+        }
+
+        .terminal {
+            background-color: rgba(18, 18, 18, 0.8);
+            border: 1px solid #4a90e2;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .terminal-header {
+            background-color: rgba(26, 26, 26, 0.8);
+            border-bottom: 1px solid #4a90e2;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .terminal-body {
+            min-height: 200px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px #ff6b9c, 0 0 20px #ff6b9c;
+        }
+        
+        .btn-hacker {
+            background: linear-gradient(135deg, #4a90e2, #8a4fff);
+            color: #000;
+            transition: all 0.3s ease;
+            border: none;
+            font-weight: bold;
+        }
+        
+        .btn-hacker:hover {
+            background: linear-gradient(135deg, #8a4fff, #4a90e2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+        }
+
+        .btn-hacker:active {
+            transform: translateY(0);
+        }
+        
+        .btn-hacker:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .input-hacker {
+            background-color: rgba(26, 26, 26, 0.6);
+            border: 2px solid #333;
+            color: #e0e0ff;
+            transition: all 0.3s ease;
+        }
+        
+        .input-hacker:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
+            background-color: rgba(18, 18, 18, 0.8);
+        }
+        
+        .platform-card {
+            background: linear-gradient(135deg, rgba(0, 255, 135, 0.1), rgba(0, 200, 100, 0.05));
+            border: 1px solid #00ff87;
+            border-left: 4px solid #00ff87;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 10px;
+            border-radius: 6px;
+        }
+        
+        .platform-card:hover {
+            border-color: #00ff87;
+            box-shadow: 0 0 20px rgba(0, 255, 135, 0.3);
+            transform: translateX(5px);
+            background: linear-gradient(135deg, rgba(0, 255, 135, 0.15), rgba(0, 200, 100, 0.08));
+        }
+        
+        .breach-card {
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.15), rgba(220, 20, 60, 0.1));
+            border: 1px solid #ff4444;
+            border-left: 4px solid #ff0000;
+            transition: all 0.3s ease;
+            margin-bottom: 12px;
+            border-radius: 6px;
+        }
+
+        .breach-card:hover {
+            border-color: #ff6b6b;
+            box-shadow: 0 0 20px rgba(255, 68, 68, 0.4);
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.2), rgba(220, 20, 60, 0.15));
+        }
+        
+        .loading-bar {
+            height: 4px;
+            background: #333;
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #4a90e2, #8a4fff);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(74, 144, 226, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(74, 144, 226, 0.6); }
+        }
+        
+        .error-text { color: #ff4444; text-shadow: 0 0 5px #ff4444; }
+        .success-text { color: #00ff87; text-shadow: 0 0 5px #00ff87; }
+        .warning-text { color: #ffaa00; text-shadow: 0 0 5px #ffaa00; }
+        
+        .scrollbar-custom::-webkit-scrollbar { width: 8px; }
+        .scrollbar-custom::-webkit-scrollbar-track { background: rgba(26, 26, 26, 0.6); border-radius: 4px; }
+        .scrollbar-custom::-webkit-scrollbar-thumb { background: #4a90e2; border-radius: 4px; }
+        
+        .spinner {
+            border: 4px solid rgba(74, 144, 226, 0.2);
+            border-radius: 50%;
+            border-top: 4px solid #4a90e2;
+            border-right: 4px solid #8a4fff;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-dots { font-size: 1.5rem; }
+        .loading-dots .dot-1 { animation: dot-pulse 1.5s infinite; animation-delay: 0s; color: #4a90e2; }
+        .loading-dots .dot-2 { animation: dot-pulse 1.5s infinite; animation-delay: 0.5s; color: #8a4fff; }
+        .loading-dots .dot-3 { animation: dot-pulse 1.5s infinite; animation-delay: 1s; color: #ff6b9c; }
+        
+        @keyframes dot-pulse {
+            0%, 60%, 100% { opacity: 0.3; transform: scale(1); }
+            30% { opacity: 1; transform: scale(1.3); text-shadow: 0 0 10px currentColor; }
+        }
+        
+        .loading-message-glow {
+            animation: message-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes message-glow {
+            from { text-shadow: 0 0 5px #4a90e2; }
+            to { text-shadow: 0 0 15px #4a90e2, 0 0 25px #8a4fff; }
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            opacity: 0.7;
+        }
+        
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+        
+        .blink { animation: blink-animation 1s steps(5, start) infinite; }
+        
+        @keyframes blink-animation {
+            to { visibility: hidden; }
+        }
+
+        .tool-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+
+        .badge-holehe { background: rgba(74, 144, 226, 0.3); color: #4a90e2; border: 1px solid #4a90e2; }
+        .badge-zehef { background: rgba(138, 79, 255, 0.3); color: #8a4fff; border: 1px solid #8a4fff; }
+        .badge-hashtray { background: rgba(255, 107, 156, 0.3); color: #ff6b9c; border: 1px solid #ff6b9c; }
+        .badge-mailsleuth { background: rgba(0, 255, 135, 0.3); color: #00ff87; border: 1px solid #00ff87; }
+        .badge-hibp { background: rgba(255, 68, 68, 0.3); color: #ff4444; border: 1px solid #ff4444; }
+
+        .breach-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 12px 0;
+        }
+
+        .breach-info-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 4px;
+            border-left: 3px solid #ff4444;
+        }
+
+        .breach-info-label {
+            font-size: 0.7rem;
+            color: #888;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .breach-info-value { font-size: 0.9rem; color: #e0e0ff; }
+
+        .data-class-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(255, 68, 68, 0.2);
+            border: 1px solid rgba(255, 68, 68, 0.5);
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin: 4px;
+            color: #ff6b6b;
+        }
+
+        .summary-card {
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.2), rgba(138, 79, 255, 0.1));
+            border: 1px solid #4a90e2;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .summary-stat {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        .summary-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #4a90e2;
+            text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+        }
+
+        .summary-label {
+            font-size: 0.85rem;
+            color: #888;
+            text-transform: uppercase;
+        }
+
+        .platform-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================================
+           MOBILE STYLES
+           ============================================================ */
+        @media (max-width: 600px) {
+            /* Page padding */
+            .container {
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+                padding-top: 20px !important;
+            }
+
+            /* Header */
+            header h1 {
+                font-size: 1.5rem !important;
+                line-height: 1.2;
+            }
+
+            header p {
+                font-size: 0.85rem !important;
+            }
+
+            /* Terminal body */
+            .terminal-body {
+                padding: 14px !important;
+                max-height: none;
+            }
+
+            /* Terminal header: allow wrapping */
+            .terminal-header {
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+
+            .terminal-header .text-xs {
+                font-size: 0.65rem;
+            }
+
+            .terminal-header .text-sm {
+                font-size: 0.75rem;
+            }
+
+            /* Input: 16px prevents iOS auto-zoom */
+            .input-hacker {
+                font-size: 16px !important;
+                padding: 12px 36px 12px 14px !important;
+            }
+
+            /* Launch button */
+            .btn-hacker {
+                padding: 14px 16px !important;
+                font-size: 14px !important;
+                -webkit-tap-highlight-color: transparent;
+                touch-action: manipulation;
+            }
+
+            /* Loading section */
+            #loadingMessage {
+                font-size: 0.9rem !important;
+            }
+
+            #loadingSubtext {
+                font-size: 0.78rem !important;
+            }
+
+            /* Summary card: stack stats vertically on very small screens */
+            .summary-card {
+                padding: 14px;
+            }
+
+            .summary-stat {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .summary-number {
+                font-size: 1.8rem;
+            }
+
+            .summary-label {
+                font-size: 0.75rem;
+            }
+
+            /* Breach info grid: force single column on mobile */
+            .breach-info-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            /* Platform cards: disable translateX on touch */
+            .platform-card {
+                padding: 12px !important;
+            }
+
+            .platform-card .flex.items-center.justify-between {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            /* Breach cards */
+            .breach-card {
+                padding: 12px !important;
+            }
+
+            .breach-card .flex.items-center.justify-between {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            /* Data class tags: allow wrapping */
+            .data-class-tag {
+                font-size: 0.7rem;
+                padding: 3px 8px;
+                margin: 3px;
+            }
+
+            /* Tool badges: prevent overflow */
+            .tool-badge {
+                font-size: 0.65rem;
+                padding: 2px 7px;
+                margin-left: 4px;
+            }
+
+            /* Empty state padding */
+            .empty-state {
+                padding: 24px 16px;
+            }
+
+            /* Footer */
+            footer p {
+                font-size: 0.7rem !important;
+            }
+
+            /* Status text */
+            #statusText {
+                font-size: 0.78rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            header h1 {
+                font-size: 1.2rem !important;
+            }
+
+            .summary-number {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Disable hover transforms on touch devices */
+        @media (hover: none) {
+            .platform-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            .breach-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            .btn-hacker:hover {
+                transform: none;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/livecenter-tools.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+</head>
+<body class="min-h-screen flex flex-col" data-lct-theme="cabal">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+    
+    <div class="container mx-auto px-4 py-8 flex-grow">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 glow-text font-mono">
+                <i class="fas fa-envelope-open-text mr-3"></i>OSINTCabal Email Kit
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 font-mono mb-2">Multi-Tool Email Intelligence Platform</p>
+            <p class="text-sm text-gray-500 font-mono">Holehe • Zehef • Hashtray • Mailsleuth • HaveIBeenPwned</p>
+        </header>
+        
+        <!-- Main Search Interface -->
+        <div class="terminal max-w-6xl mx-auto mb-8">
+            <div class="terminal-header p-4 flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="flex space-x-2 mr-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="text-sm font-mono">email_intelligence_scanner.exe</div>
+                </div>
+                <div class="text-xs text-gray-500 font-mono">
+                    <i class="fas fa-shield-alt mr-1"></i>SECURE CONNECTION
+                </div>
+            </div>
+            <div class="terminal-body p-6">
+                <!-- Email Search Input -->
+                <div class="flex flex-col gap-4 mb-6">
+                    <div class="relative">
+                        <input 
+                            type="email" 
+                            id="emailInput" 
+                            placeholder="Enter target email address for comprehensive scan..." 
+                            class="input-hacker w-full px-4 py-3 rounded-lg font-mono text-lg"
+                            autocomplete="off"
+                            autocorrect="off"
+                            autocapitalize="none"
+                            spellcheck="false"
+                        >
+                        <div class="absolute right-3 top-3 text-gray-500">
+                            <i class="fas fa-at"></i>
+                        </div>
+                    </div>
+                    
+                    <button 
+                        id="searchBtn" 
+                        class="btn-hacker px-8 py-3 rounded-lg font-bold font-mono flex items-center justify-center pulse-glow"
+                        data-searching="false"
+                    >
+                        <i class="fas fa-rocket mr-2"></i>
+                        <span id="searchBtnText">LAUNCH EMAIL SCAN</span>
+                    </button>
+                </div>
+                
+                <div class="text-center mb-4 p-3 bg-black bg-opacity-40 rounded-lg border border-gray-700">
+                    <div class="text-xs text-gray-400 font-mono">
+                        <span class="font-bold text-blue-400">5 TOOLS:</span> Platform Detection | Breach Analysis | Account Discovery
+                    </div>
+                </div>
+                
+                <div id="loadingSection" class="mb-6" style="display: none;">
+                    <div class="flex justify-center mb-4">
+                        <div class="spinner"></div>
+                    </div>
+                    
+                    <div class="text-center mb-4">
+                        <div id="loadingMessage" class="text-lg font-mono text-blue-400 mb-2 loading-message-glow">
+                            Initializing email scan...
+                        </div>
+                        <div id="loadingSubtext" class="text-sm text-gray-400 font-mono">
+                            Running multiple OSINT tools in parallel
+                        </div>
+                    </div>
+                    
+                    <div class="loading-bar mb-3">
+                        <div id="loadingProgress" class="loading-progress"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-gray-400 font-mono">
+                        <span id="progressStatus">Preparing systems...</span>
+                        <span id="progressText">0%</span>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <span class="loading-dots font-mono text-gray-500">
+                            <span class="dot-1">●</span>
+                            <span class="dot-2">●</span>
+                            <span class="dot-3">●</span>
+                        </span>
+                    </div>
+                </div>
+                
+                <div id="statusText" class="text-sm font-mono mb-4 min-h-6">
+                    <span class="text-gray-400">Ready to launch email intelligence scan. Enter an email address above.</span>
+                    <span id="cursor" class="blink">_</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Results Section -->
+        <div id="resultsSection" class="max-w-6xl mx-auto mb-8" style="display: none;">
+            
+            <!-- Summary Stats -->
+            <div id="summarySection" class="summary-card mb-6">
+                <h3 class="text-xl font-bold mb-4 font-mono">Scan Summary</h3>
+                <div>
+                    <div class="summary-stat">
+                        <div class="summary-number" id="registeredCount">0</div>
+                        <div class="summary-label">Platforms Found</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-number error-text" id="breachCount">0</div>
+                        <div class="summary-label">Breaches Found</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registered Platforms Section -->
+            <div class="terminal mb-6" id="registeredContainer">
+                <div class="terminal-header p-4 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="flex space-x-2 mr-4">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="text-sm font-mono success-text"><i class="fas fa-check-circle mr-2"></i>registered_platforms.json</div>
+                    </div>
+                    <div class="text-xs text-gray-400 font-mono" id="registeredStats">
+                        0 platforms found
+                    </div>
+                </div>
+                <div class="terminal-body p-4 scrollbar-custom">
+                    <h3 class="text-lg font-bold font-mono mb-4 success-text flex items-center">
+                        <i class="fas fa-check-double mr-2"></i>REGISTERED PLATFORMS
+                    </h3>
+                    <div id="registeredResults">
+                        <div class="empty-state">
+                            <i class="fas fa-search"></i>
+                            <p>Scanning for registered platforms...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Breach Data Section -->
+            <div class="terminal" id="breachContainer">
+                <div class="terminal-header p-4 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="flex space-x-2 mr-4">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="text-sm font-mono error-text"><i class="fas fa-exclamation-triangle mr-2"></i>breach_data.json</div>
+                    </div>
+                    <div class="text-xs text-gray-400 font-mono" id="breachStats">
+                        0 breaches found
+                    </div>
+                </div>
+                <div class="terminal-body p-4 scrollbar-custom">
+                    <h3 class="text-lg font-bold font-mono mb-4 error-text flex items-center">
+                        <i class="fas fa-shield-alt mr-2"></i>BREACH DATA
+                    </h3>
+                    <div id="breachResults">
+                        <div class="empty-state">
+                            <i class="fas fa-shield-alt"></i>
+                            <p>Scanning breach databases...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script>
+        class EmailIntelligenceScanner {
+            constructor() {
+                this.initializeElements();
+                this.setupEventListeners();
+            }
+            
+            initializeElements() {
+                this.emailInput = document.getElementById('emailInput');
+                this.searchBtn = document.getElementById('searchBtn');
+                this.searchBtnText = document.getElementById('searchBtnText');
+                this.resultsSection = document.getElementById('resultsSection');
+                this.statusText = document.getElementById('statusText');
+                this.loadingSection = document.getElementById('loadingSection');
+                this.loadingProgress = document.getElementById('loadingProgress');
+                this.progressText = document.getElementById('progressText');
+                
+                this.registeredResultsEl = document.getElementById('registeredResults');
+                this.breachResultsEl = document.getElementById('breachResults');
+                this.registeredStats = document.getElementById('registeredStats');
+                this.breachStats = document.getElementById('breachStats');
+                this.registeredCount = document.getElementById('registeredCount');
+                this.breachCount = document.getElementById('breachCount');
+            }
+            
+            setupEventListeners() {
+                this.searchBtn.addEventListener('click', () => this.handleSearch());
+                this.emailInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.handleSearch();
+                });
+            }
+            
+            updateStatus(message, type = 'info') {
+                const typeClasses = {
+                    'info': 'text-gray-400',
+                    'success': 'success-text',
+                    'error': 'error-text',
+                    'warning': 'warning-text'
+                };
+                this.statusText.innerHTML = `<span class="${typeClasses[type]}">${message}</span> <span id="cursor" class="blink">_</span>`;
+            }
+            
+            updateProgress(percentage, message, subtext = '') {
+                this.loadingProgress.style.width = `${percentage}%`;
+                this.progressText.textContent = `${percentage}%`;
+                
+                const loadingMessage = document.getElementById('loadingMessage');
+                const loadingSubtext = document.getElementById('loadingSubtext');
+                const progressStatus = document.getElementById('progressStatus');
+                
+                if (message) {
+                    loadingMessage.textContent = message;
+                    loadingSubtext.textContent = subtext;
+                    progressStatus.textContent = message;
+                    this.updateStatus(message);
+                }
+            }
+            
+            async handleSearch() {
+                if (this.searchBtn.getAttribute('data-searching') === 'true') return;
+                
+                const email = this.emailInput.value.trim();
+                if (!email) { this.updateStatus('ERROR: Email field cannot be empty', 'error'); return; }
+                
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) { this.updateStatus('ERROR: Invalid email format', 'error'); return; }
+                
+                // Dismiss mobile keyboard before showing loading
+                this.emailInput.blur();
+                this.startSearch(email);
+            }
+            
+            async startSearch(email) {
+                this.searchBtn.setAttribute('data-searching', 'true');
+                this.searchBtn.disabled = true;
+                this.searchBtnText.textContent = 'SCANNING...';
+                this.searchBtn.classList.add('pulse-glow');
+                
+                this.resultsSection.style.display = 'none';
+                this.loadingSection.style.display = 'block';
+                
+                this.updateProgress(5, 'Initializing email scan...', 'Preparing multi-tool reconnaissance');
+                await this.sleep(1000);
+                this.updateProgress(15, 'Launching Holehe...', 'Checking 120+ platforms');
+                await this.sleep(1200);
+                this.updateProgress(25, 'Deploying Zehef...', 'Scanning breach databases');
+                await this.sleep(1200);
+                this.updateProgress(40, 'Running Hashtray...', 'Advanced pattern analysis');
+                await this.sleep(1200);
+                this.updateProgress(55, 'Executing Mailsleuth...', 'Email intelligence gathering');
+                await this.sleep(1200);
+                this.updateProgress(70, 'Querying HaveIBeenPwned...', 'Checking breach history');
+                await this.sleep(1200);
+                this.updateProgress(85, 'Aggregating results...', 'Compiling intelligence data');
+                
+                try {
+                    const response = await fetch('emailkit_aggregator.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email: email })
+                    });
+                    
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    
+                    const data = await response.json();
+                    
+                    if (data.debug) {
+                        console.log('=== Email Kit Debug Info ===');
+                        console.log('Holehe results:', data.debug.holehe_count);
+                        console.log('Zehef results:', data.debug.zehef_count);
+                        console.log('Hashtray results:', data.debug.hashtray_count);
+                        console.log('Mailsleuth results:', data.debug.mailsleuth_count);
+                        console.log('HIBP breaches:', data.debug.hibp_breach_count);
+                        console.log('Total platforms after dedup:', data.stats.total_platforms);
+                        console.log('============================');
+                    }
+                    
+                    this.updateProgress(100, 'Scan complete!', 'Intelligence gathering successful');
+                    
+                    setTimeout(() => {
+                        this.loadingSection.style.display = 'none';
+                        this.displayResults(data, email);
+                        this.resetSearchButton();
+                    }, 1000);
+                    
+                } catch (error) {
+                    console.error('Scan error:', error);
+                    this.updateStatus(`ERROR: ${error.message}`, 'error');
+                    this.loadingSection.style.display = 'none';
+                    this.resetSearchButton();
+                }
+            }
+            
+            sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
+            
+            displayResults(data, email) {
+                const foundPlatforms = (data.platforms || []).filter(p => p.status === 'found');
+                this.displayRegisteredPlatforms(foundPlatforms, email);
+                this.displayBreachData(data.breaches || [], email);
+                this.registeredCount.textContent = foundPlatforms.length;
+                this.breachCount.textContent = (data.breaches || []).length;
+                this.resultsSection.style.display = 'block';
+                setTimeout(() => { this.resultsSection.scrollIntoView({ behavior: 'smooth' }); }, 300);
+            }
+            
+            displayRegisteredPlatforms(platforms, email) {
+                if (!platforms || platforms.length === 0) {
+                    this.registeredResultsEl.innerHTML = `<div class="empty-state"><i class="fas fa-inbox"></i><p class="text-gray-400">No registered platforms found</p></div>`;
+                    this.registeredStats.textContent = '0 platforms found';
+                    return;
+                }
+                
+                this.registeredResultsEl.innerHTML = '';
+                const platformsBySource = {};
+                platforms.forEach(platform => {
+                    if (!platformsBySource[platform.source]) platformsBySource[platform.source] = [];
+                    platformsBySource[platform.source].push(platform);
+                });
+                
+                Object.keys(platformsBySource).sort().forEach(source => {
+                    platformsBySource[source].forEach(platform => {
+                        const platformCard = document.createElement('div');
+                        platformCard.className = 'platform-card p-4';
+                        const icon = this.getPlatformIcon(platform.name);
+                        platformCard.innerHTML = `
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center flex-1">
+                                    <div class="platform-icon" style="background: rgba(0, 255, 135, 0.2); color: #00ff87;">
+                                        <i class="${icon}"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-lg success-text">${this.escapeHtml(platform.name)}</div>
+                                        <div class="text-xs text-gray-400">${email}</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="tool-badge badge-${platform.source}">${platform.source.toUpperCase()}</span>
+                                    <i class="fas fa-check-circle text-2xl ml-4 success-text"></i>
+                                </div>
+                            </div>
+                            ${platform.url ? `
+                                <div class="mt-3 pt-3 border-t border-gray-700">
+                                    <a href="${this.escapeHtml(platform.url)}" target="_blank" rel="noopener noreferrer" 
+                                       class="text-blue-400 text-sm hover:text-blue-300 transition-colors">
+                                        <i class="fas fa-external-link-alt mr-2"></i>View Profile
+                                    </a>
+                                </div>
+                            ` : ''}
+                        `;
+                        this.registeredResultsEl.appendChild(platformCard);
+                    });
+                });
+                
+                this.registeredStats.textContent = `${platforms.length} platform${platforms.length !== 1 ? 's' : ''} found`;
+            }
+            
+            displayBreachData(breaches, email) {
+                if (!breaches || breaches.length === 0) {
+                    this.breachResultsEl.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-shield-alt"></i>
+                            <p class="success-text">✅ Good news! No breaches found for this email.</p>
+                            <p class="text-sm text-gray-400 mt-2">This email address appears to be secure.</p>
+                        </div>
+                    `;
+                    this.breachStats.textContent = '0 breaches found';
+                    return;
+                }
+                
+                this.breachResultsEl.innerHTML = '';
+                breaches.sort((a, b) => {
+                    const dateA = a.breach_date || a.BreachDate || '';
+                    const dateB = b.breach_date || b.BreachDate || '';
+                    return dateB.localeCompare(dateA);
+                });
+                
+                breaches.forEach(breach => {
+                    const breachCard = document.createElement('div');
+                    breachCard.className = 'breach-card p-4';
+                    
+                    const breachName = breach.name || breach.Name || breach.title || 'Unknown Breach';
+                    const breachDate = breach.breach_date || breach.BreachDate || 'Unknown';
+                    const pwnCount = breach.pwn_count || breach.PwnCount || 0;
+                    const domain = breach.domain || breach.Domain || '';
+                    const description = breach.description || breach.Description || '';
+                    const dataClasses = breach.data_classes || breach.DataClasses || [];
+                    const source = breach.source || 'unknown';
+                    
+                    let breachHTML = `
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-database text-2xl mr-3 error-text"></i>
+                                <div>
+                                    <div class="font-bold text-xl error-text">${this.escapeHtml(breachName)}</div>
+                                    ${domain ? `<div class="text-sm text-gray-400">${this.escapeHtml(domain)}</div>` : ''}
+                                </div>
+                            </div>
+                            <span class="tool-badge badge-${source}">${source.toUpperCase()}</span>
+                        </div>
+                    `;
+                    
+                    breachHTML += `<div class="breach-info-grid">`;
+                    if (breachDate && breachDate !== 'Unknown') {
+                        breachHTML += `<div class="breach-info-item"><div class="breach-info-label">Breach Date</div><div class="breach-info-value">${this.escapeHtml(breachDate)}</div></div>`;
+                    }
+                    if (pwnCount > 0) {
+                        breachHTML += `<div class="breach-info-item"><div class="breach-info-label">Accounts Affected</div><div class="breach-info-value">${this.formatNumber(pwnCount)}</div></div>`;
+                    }
+                    breachHTML += `</div>`;
+                    
+                    if (dataClasses && dataClasses.length > 0) {
+                        const classesArray = Array.isArray(dataClasses) ? dataClasses : 
+                                           (typeof dataClasses === 'string' ? dataClasses.split(',').map(c => c.trim()) : []);
+                        if (classesArray.length > 0) {
+                            breachHTML += `<div class="mt-3"><div class="breach-info-label mb-2">Compromised Data:</div><div>${classesArray.map(dc => `<span class="data-class-tag">${this.escapeHtml(dc)}</span>`).join('')}</div></div>`;
+                        }
+                    }
+                    
+                    if (description && description !== '') {
+                        const cleanDesc = this.escapeHtml(description).substring(0, 300);
+                        breachHTML += `<div class="mt-3 p-3 bg-black bg-opacity-40 rounded text-sm text-gray-300 border-l-2 border-red-500">${cleanDesc}${description.length > 300 ? '...' : ''}</div>`;
+                    }
+                    
+                    breachCard.innerHTML = breachHTML;
+                    this.breachResultsEl.appendChild(breachCard);
+                });
+                
+                this.breachStats.textContent = `${breaches.length} breach${breaches.length !== 1 ? 'es' : ''} found`;
+            }
+            
+            getPlatformIcon(platformName) {
+                const name = platformName.toLowerCase();
+                const iconMap = {
+                    'facebook': 'fab fa-facebook', 'twitter': 'fab fa-twitter',
+                    'instagram': 'fab fa-instagram', 'linkedin': 'fab fa-linkedin',
+                    'github': 'fab fa-github', 'reddit': 'fab fa-reddit',
+                    'youtube': 'fab fa-youtube', 'tiktok': 'fab fa-tiktok',
+                    'snapchat': 'fab fa-snapchat', 'pinterest': 'fab fa-pinterest',
+                    'tumblr': 'fab fa-tumblr', 'spotify': 'fab fa-spotify',
+                    'discord': 'fab fa-discord', 'amazon': 'fab fa-amazon',
+                    'ebay': 'fab fa-ebay', 'google': 'fab fa-google',
+                    'microsoft': 'fab fa-microsoft', 'apple': 'fab fa-apple',
+                    'adobe': 'fab fa-adobe', 'dropbox': 'fab fa-dropbox',
+                };
+                for (const [key, icon] of Object.entries(iconMap)) {
+                    if (name.includes(key)) return icon;
+                }
+                return 'fas fa-globe';
+            }
+            
+            resetSearchButton() {
+                this.searchBtn.setAttribute('data-searching', 'false');
+                this.searchBtn.disabled = false;
+                this.searchBtnText.textContent = 'LAUNCH EMAIL SCAN';
+                this.searchBtn.classList.remove('pulse-glow');
+                
+                const registeredCount = this.registeredResultsEl.querySelectorAll('.platform-card').length;
+                const breachCount = this.breachResultsEl.querySelectorAll('.breach-card').length;
+                this.updateStatus(`Scan complete! Found ${registeredCount} registered platforms and ${breachCount} breaches`, 'success');
+            }
+            
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+            
+            formatNumber(num) {
+                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            new EmailIntelligenceScanner();
+        });
+    </script>
+
+        <script src="../assets/js/livecenter-ui.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c19771cf74614',t:'MTc4OTAxODg0Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

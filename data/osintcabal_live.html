@@ -1,0 +1,2002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>OSINT Live Center - Real-Time Investigation Tools | OSINT Cabal</title>
+    <meta name="description" content="Live OSINT toolkit with 30+ tools: email verification, username search, breach monitoring, domain intelligence, and social media reconnaissance. Real-time results for investigators.">
+    <meta name="keywords" content="OSINT tools, email lookup, username search, breach data, domain reconnaissance, Holehe, TheHarvester, Sherlock, OSINT investigation">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="OSINT Cabal">
+    
+    <link rel="canonical" href="https://osintcabal.org/livecenter/live.html" />
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://osintcabal.org/livecenter/live.html">
+    <meta property="og:title" content="OSINT Live Center - Real-Time Investigation Tools">
+    <meta property="og:description" content="30+ live OSINT tools: email verification, username search, breach monitoring, domain intelligence. Real-time results for investigators.">
+    <meta property="og:site_name" content="OSINT Cabal">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OSINT Live Center - Real-Time Tools">
+    <meta name="twitter:description" content="30+ live OSINT tools for investigators. Email lookup, username search, breach data & more.">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#6b21a8">
+    <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#6b21a8">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "OSINT Live Center",
+      "url": "https://osintcabal.org/livecenter/live.html",
+      "description": "Real-time OSINT investigation toolkit with 30+ tools",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "OSINT Cabal",
+        "url": "https://osintcabal.org/"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://osintcabal.org/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Live Center",
+        "item": "https://osintcabal.org/livecenter/live.html"
+      }]
+    }
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+    
+    <style>
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background-color: #0a0a1a;
+            color: #e0e0ff;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+            padding: 0 5%;
+        }
+        
+        body.simple-bg {
+            background: linear-gradient(135deg, #2a1845, #1a0f2e);
+        }
+        
+        body.simple-bg .background-overlay {
+            display: none;
+        }
+        
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        #background-matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+            opacity: 0.4;
+        }
+        
+        .section-matrix {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.08;
+        }
+
+        .container {
+            padding: 1.5rem 2rem;
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            color: #ff6b9c;
+            text-shadow: 0 0 10px #ff6b9c;
+            text-align: center;
+            font-size: 2.5em;
+            margin: 1rem 0;
+        }
+        
+        .welcome-box {
+            border: 2px solid #4a90e2;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 15px 0 20px 0;
+            background-color: rgba(10, 10, 30, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            font-size: 1.05em;
+            line-height: 1.5;
+        }
+
+        .content-box {
+            border: 2px solid #4a90e2;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 0;
+            background-color: rgba(10, 10, 30, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 12px auto;
+            width: 100%;
+            gap: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .nav-buttons a {
+            color: #4a90e2;
+            text-decoration: none;
+            padding: 0.6rem 1rem;
+            font-size: 1.1em;
+            border: 2px solid #4a90e2;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            background-color: rgba(30, 30, 60, 0.5);
+            min-width: 120px;
+            text-align: center;
+        }
+        
+        .nav-buttons a:hover {
+            background-color: #4a90e2;
+            color: #0a0a1a;
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.7);
+            transform: translateY(-5px);
+        }
+        
+        .main-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content-row {
+            display: flex;
+            gap: 20px;
+            align-items: stretch;
+        }
+        
+        .tools-sections-container {
+            flex: 1;
+            display: flex;
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+            align-items: stretch;
+        }
+        
+        .tools-section {
+            display: flex;
+            gap: 15px;
+            flex: 1;
+        }
+        
+        .tools-category-label {
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+            background-color: rgba(30, 30, 60, 0.7);
+            color: #ff6b9c;
+            padding: 12px 4px;
+            font-size: 1.3em;
+            text-align: center;
+            border: 1px solid #4a90e2;
+            border-radius: 8px;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .tools-grid-container {
+            flex: 1;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .tools-grid.platform-specific {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        .tool-card {
+            border: 1px solid #4a90e2;
+            border-radius: 8px;
+            padding: 12px;
+            background-color: rgba(14, 14, 38, 0.86);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            min-height: 140px;
+            min-width: 160px;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(74, 144, 226, 0.5);
+        }
+        
+        .tool-card h3 {
+            color: #ff6b9c;
+            margin-top: 0;
+            font-size: 1.05em;
+            margin-bottom: 8px;
+        }
+        
+        .tool-card p {
+            font-size: 0.85em;
+            margin-bottom: 12px;
+            flex-grow: 1;
+            line-height: 1.3;
+        }
+        
+        .tool-card a {
+            display: block;
+            background-color: rgba(30, 30, 60, 0.7);
+            color: #4a90e2;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid #4a90e2;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 0.9em;
+        }
+        
+        .tool-card a:hover {
+            background-color: #4a90e2;
+            color: #0a0a1a;
+        }
+
+        .cabal-kits-sidebar {
+            flex: 0 0 420px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            justify-content: flex-start;
+        }
+
+        .username-kit-section {
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 15px;
+            border: 2px solid #8a4fff;
+            border-radius: 15px;
+            background: linear-gradient(135deg, rgba(28, 16, 46, 0.7), rgba(46, 16, 32, 0.7));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            gap: 12px;
+        }
+
+        .username-kit-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(138, 79, 255, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .username-kit-title {
+            color: #8a4fff;
+            font-size: 1.05em;
+            font-weight: bold;
+            margin-bottom: 4px;
+            text-shadow: 0 0 10px rgba(138, 79, 255, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .username-kit-description {
+            color: #e0e0ff;
+            font-size: 0.8em;
+            margin-bottom: 0;
+            line-height: 1.3;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .username-kit-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .username-kit-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #8a4fff, #ff6b9c);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 14px;
+            font-size: 1.05em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(138, 79, 255, 0.3);
+            position: relative;
+            z-index: 1;
+            white-space: nowrap;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .username-kit-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .username-kit-button:hover::before {
+            left: 100%;
+        }
+
+        .username-kit-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(138, 79, 255, 0.5), 0 0 40px rgba(138, 79, 255, 0.3);
+            background: linear-gradient(135deg, #9a54ff, #ff5b8c);
+            animation: pulse-glow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 8px 25px rgba(138, 79, 255, 0.5), 0 0 40px rgba(138, 79, 255, 0.3);
+            }
+            50% {
+                box-shadow: 0 8px 30px rgba(138, 79, 255, 0.7), 0 0 50px rgba(138, 79, 255, 0.5);
+            }
+        }
+
+        .username-kit-button:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        .wip-flag {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #ff6b9c;
+            color: #0a0a1a;
+            font-size: 0.7em;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 10px;
+            z-index: 3;
+            transform: rotate(15deg);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .disabled-kit {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .disabled-kit::before {
+            animation: none !important;
+        }
+
+        .coming-soon-badge {
+            background-color: #ff6b9c;
+            color: #0a0a1a;
+            font-size: 0.8em;
+            font-weight: bold;
+            padding: 5px 12px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .disabled-button {
+            background: linear-gradient(135deg, #5a5a7a, #7a7a9a) !important;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .disabled-button:hover {
+            transform: none !important;
+            box-shadow: 0 4px 15px rgba(138, 79, 255, 0.3) !important;
+        }
+
+        .donations-box {
+            max-width: 1600px;
+            margin: 30px auto 20px auto;
+            padding: 20px;
+            background-color: rgba(10, 10, 30, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid #4a90e2;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+        
+        .donations-title {
+            color: #ff6b9c;
+            font-size: 1.8em;
+            text-shadow: 0 0 10px #ff6b9c;
+            margin-bottom: 10px;
+        }
+        
+        .donations-message {
+            font-size: 1.1em;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+        
+        .crypto-addresses {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .crypto-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            width: 100%;
+            max-width: 700px;
+        }
+        
+        .crypto-label {
+            color: #ff6b9c;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .crypto-address {
+            color: #00d9ff;
+            font-size: 1em;
+            word-break: break-all;
+            line-height: 1.4;
+        }
+
+        .control-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 15px auto 8px auto;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .animation-toggle {
+            background-color: rgba(30, 30, 60, 0.7);
+            border: 1px solid #4a90e2;
+            color: #8a8ab8;
+            padding: 6px 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-family: monospace;
+            font-weight: normal;
+            font-size: 11px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.1);
+            opacity: 0.6;
+        }
+        
+        .animation-toggle:hover {
+            background-color: rgba(74, 144, 226, 0.3);
+            color: #b8b8e0;
+            opacity: 0.9;
+            transform: translateY(-1px);
+            box-shadow: 0 0 8px rgba(74, 144, 226, 0.2);
+        }
+
+        /* ─── MOBILE-ONLY ELEMENTS (hidden on desktop) ─── */
+        .mobile-header,
+        .mobile-drawer-overlay,
+        .mobile-drawer-panel,
+        .mobile-cat-dots {
+            display: none;
+        }
+
+        @media (max-width: 1200px) {
+            .content-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .cabal-kits-sidebar {
+                flex: none;
+                max-width: 100%;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .username-kit-section {
+                flex-direction: row;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .tools-grid.platform-specific {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0 3%;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .welcome-box {
+                font-size: 0.95em;
+                padding: 1rem;
+            }
+            
+            .donations-box {
+                margin: 15px;
+                padding: 15px;
+            }
+            
+            .donations-title {
+                font-size: 1.4em;
+            }
+            
+            .donations-message {
+                font-size: 1em;
+            }
+            
+            .crypto-label {
+                font-size: 1.1em;
+            }
+            
+            .crypto-address {
+                font-size: 0.9em;
+            }
+            
+            .cabal-kits-sidebar {
+                flex-direction: column;
+            }
+            
+            .username-kit-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .username-kit-content {
+                text-align: center;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tools-grid.platform-specific {
+                grid-template-columns: 1fr;
+            }
+            
+            .tools-section {
+                flex-direction: column;
+            }
+            
+            .tools-category-label {
+                writing-mode: horizontal-tb;
+                transform: none;
+                min-height: auto;
+                padding: 10px 15px;
+                font-size: 1.2em;
+            }
+            
+            .tool-card {
+                min-width: auto;
+            }
+            
+            .nav-buttons a {
+                min-width: 100px;
+                font-size: 1em;
+                padding: 0.5rem 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.7em;
+            }
+            
+            .welcome-box {
+                font-size: 0.9em;
+            }
+            
+            .donations-box {
+                margin: 10px;
+                padding: 12px;
+            }
+            
+            .donations-title {
+                font-size: 1.2em;
+            }
+            
+            .donations-message {
+                font-size: 0.9em;
+            }
+            
+            .crypto-label {
+                font-size: 1em;
+            }
+            
+            .crypto-address {
+                font-size: 0.85em;
+            }
+            
+            .tool-card h3 {
+                font-size: 1em;
+            }
+            
+            .tool-card p {
+                font-size: 0.8em;
+            }
+            
+            .username-kit-title {
+                font-size: 1em;
+            }
+            
+            .username-kit-description {
+                font-size: 0.75em;
+            }
+            
+            .username-kit-button {
+                font-size: 0.95em;
+                padding: 7px 12px;
+            }
+            
+            .nav-buttons {
+                gap: 8px;
+            }
+            
+            .nav-buttons a {
+                font-size: 0.9em;
+                min-width: 90px;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           MOBILE LAYOUT — max-width: 768px
+           Desktop layout above is completely untouched.
+           All styles below are additive / override only on mobile.
+           ═══════════════════════════════════════════════════════ */
+
+        @media (max-width: 768px) {
+
+            /* ── Sticky mobile header ── */
+            .mobile-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: sticky;
+                top: 0;
+                z-index: 500;
+                background: rgba(8, 8, 22, 0.97);
+                backdrop-filter: blur(14px);
+                -webkit-backdrop-filter: blur(14px);
+                border-bottom: 2px solid #ff6b9c;
+                padding: 10px 14px;
+                box-shadow: 0 2px 20px rgba(255, 107, 156, 0.25);
+            }
+
+            .mobile-hamburger-btn {
+                background: rgba(10, 10, 30, 0.8);
+                border: 1px solid #ff6b9c;
+                color: #ff6b9c;
+                font-size: 1.3em;
+                padding: 6px 11px;
+                border-radius: 7px;
+                cursor: pointer;
+                font-family: monospace;
+                transition: all 0.2s ease;
+                line-height: 1;
+                order: 2;
+            }
+
+            .mobile-hamburger-btn:hover {
+                background: rgba(255, 107, 156, 0.15);
+                box-shadow: 0 0 10px rgba(255, 107, 156, 0.3);
+            }
+
+            .mobile-header-title {
+                flex: 1;
+                text-align: center;
+                color: #ff6b9c;
+                font-family: monospace;
+                font-size: 1em;
+                font-weight: bold;
+                text-shadow: 0 0 8px #ff6b9c;
+                letter-spacing: 0.05em;
+                padding: 0 10px;
+                order: 1;
+            }
+
+            .mobile-header-spacer {
+                width: 42px;
+                order: 0;
+            }
+
+            /* ── Category indicator dots ── */
+            .mobile-cat-dots {
+                display: flex;
+                justify-content: center;
+                gap: 8px;
+                margin: 10px 0 4px 0;
+                position: relative;
+                z-index: 2;
+            }
+
+            .mobile-cat-dot {
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background: rgba(255, 107, 156, 0.25);
+                border: 1px solid rgba(255, 107, 156, 0.45);
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+
+            .mobile-cat-dot.active {
+                background: #ff6b9c;
+                box-shadow: 0 0 7px #ff6b9c, 0 0 14px rgba(255, 107, 156, 0.4);
+                transform: scale(1.35);
+            }
+
+            /* ── Drawer overlay (backdrop) ── */
+            .mobile-drawer-overlay {
+                display: block;
+                position: fixed;
+                top: 0; left: 0;
+                width: 100%; height: 100%;
+                background: rgba(0, 0, 0, 0.65);
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+                z-index: 600;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s ease;
+            }
+
+            .mobile-drawer-overlay.open {
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            /* ── Drawer panel ── */
+            .mobile-drawer-panel {
+                display: block;
+                position: fixed;
+                top: 0; right: 0;
+                left: auto;
+                width: 78%;
+                max-width: 300px;
+                height: 100%;
+                background: rgba(8, 8, 22, 0.99);
+                border-left: 2px solid #ff6b9c;
+                border-right: none;
+                box-shadow: -4px 0 30px rgba(255, 107, 156, 0.2);
+                z-index: 700;
+                transform: translateX(100%);
+                transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+                overflow-y: auto;
+            }
+
+            .mobile-drawer-panel.open {
+                transform: translateX(0);
+            }
+
+            .drawer-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 16px 18px 14px;
+                border-bottom: 1px solid rgba(255, 107, 156, 0.3);
+                background: rgba(255, 107, 156, 0.05);
+            }
+
+            .drawer-header-title {
+                color: #ff6b9c;
+                font-family: monospace;
+                font-size: 1em;
+                font-weight: bold;
+                text-shadow: 0 0 8px #ff6b9c;
+                letter-spacing: 0.08em;
+            }
+
+            .drawer-close-btn {
+                background: none;
+                border: 1px solid rgba(255, 107, 156, 0.5);
+                color: #ff6b9c;
+                font-size: 1.1em;
+                padding: 4px 8px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-family: monospace;
+                line-height: 1;
+                transition: all 0.2s ease;
+            }
+
+            .drawer-close-btn:hover {
+                background: rgba(255, 107, 156, 0.15);
+            }
+
+            .drawer-cats-list {
+                padding: 8px 0;
+            }
+
+            .drawer-cat-btn {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                width: 100%;
+                text-align: left;
+                background: none;
+                border: none;
+                border-bottom: 1px solid rgba(74, 144, 226, 0.12);
+                color: #c0c0e0;
+                padding: 15px 18px;
+                font-family: monospace;
+                font-size: 0.95em;
+                cursor: pointer;
+                transition: all 0.22s ease;
+                position: relative;
+            }
+
+            .drawer-cat-btn .cat-label {
+                flex: 1;
+                line-height: 1.2;
+            }
+
+            .drawer-cat-btn .cat-arrow {
+                color: rgba(255, 107, 156, 0.4);
+                font-size: 0.8em;
+                transition: all 0.2s ease;
+                opacity: 0;
+            }
+
+            .drawer-cat-btn:hover,
+            .drawer-cat-btn.active {
+                background: rgba(255, 107, 156, 0.08);
+                color: #ff6b9c;
+                padding-left: 24px;
+            }
+
+            .drawer-cat-btn:hover .cat-arrow,
+            .drawer-cat-btn.active .cat-arrow {
+                opacity: 1;
+                color: #ff6b9c;
+            }
+
+            .drawer-cat-btn.active {
+                border-left: 3px solid #ff6b9c;
+                color: #ff6b9c;
+                text-shadow: 0 0 6px rgba(255, 107, 156, 0.4);
+                font-weight: bold;
+            }
+
+            /* ── Hide all content rows on mobile, show only active ── */
+            .main-layout .content-row {
+                display: none !important;
+            }
+
+            .main-layout .content-row.mobile-active {
+                display: flex !important;
+                flex-direction: column !important;
+                animation: mobileSlideIn 0.38s cubic-bezier(0.4, 0, 0.2, 1) both;
+            }
+
+            @keyframes mobileSlideIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(16px) scale(0.98);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+            }
+
+            /* ── Reformat active row for mobile 2-col grid ── */
+            .content-row.mobile-active {
+                gap: 0 !important;
+            }
+
+            .content-row.mobile-active .content-box {
+                padding: 12px 10px;
+                border-radius: 8px;
+                margin-bottom: 12px;
+                order: 1;
+            }
+
+            .content-row.mobile-active .tools-sections-container {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .content-row.mobile-active .tools-section {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            /* Category label as horizontal banner on mobile */
+            .content-row.mobile-active .tools-category-label {
+                writing-mode: horizontal-tb !important;
+                transform: none !important;
+                min-height: auto;
+                padding: 8px 14px;
+                font-size: 0.95em;
+                font-weight: bold;
+                letter-spacing: 0.08em;
+                border-radius: 6px;
+                text-align: center;
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid rgba(74, 144, 226, 0.5);
+                background: rgba(30, 30, 60, 0.6);
+                text-shadow: 0 0 6px rgba(255, 107, 156, 0.5);
+            }
+
+            /* 2-column grid — merge both tool-grids into one continuous flow
+               so cards always pair up with no lone full-width stretching */
+            .content-row.mobile-active .tools-grid-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            .content-row.mobile-active .tools-grid,
+            .content-row.mobile-active .tools-grid.platform-specific {
+                display: contents;
+            }
+
+            .content-row.mobile-active .tool-card {
+                min-width: 0;
+                min-height: 0;
+                padding: 10px 9px;
+                border-radius: 7px;
+                animation: cardPop 0.3s ease both;
+            }
+
+            @keyframes cardPop {
+                from { opacity: 0; transform: scale(0.93); }
+                to   { opacity: 1; transform: scale(1); }
+            }
+
+            .content-row.mobile-active .tool-card:nth-child(2) { animation-delay: 0.04s; }
+            .content-row.mobile-active .tool-card:nth-child(3) { animation-delay: 0.08s; }
+            .content-row.mobile-active .tool-card:nth-child(4) { animation-delay: 0.12s; }
+            .content-row.mobile-active .tool-card:nth-child(5) { animation-delay: 0.16s; }
+            .content-row.mobile-active .tool-card:nth-child(6) { animation-delay: 0.20s; }
+            .content-row.mobile-active .tool-card:nth-child(7) { animation-delay: 0.24s; }
+            .content-row.mobile-active .tool-card:nth-child(8) { animation-delay: 0.28s; }
+
+            .content-row.mobile-active .tool-card h3 {
+                font-size: 0.85em;
+                margin-bottom: 5px;
+                line-height: 1.25;
+            }
+
+            .content-row.mobile-active .tool-card p {
+                font-size: 0.72em;
+                margin-bottom: 8px;
+                line-height: 1.3;
+            }
+
+            .content-row.mobile-active .tool-card a {
+                font-size: 0.75em;
+                padding: 6px 4px;
+                border-radius: 4px;
+                letter-spacing: 0;
+            }
+
+            /* Kit sidebar: floats to TOP, displays two kits side-by-side in a row */
+            .content-row.mobile-active .cabal-kits-sidebar {
+                order: 0;
+                flex: none;
+                max-width: 100%;
+                flex-direction: row !important;
+                flex-wrap: nowrap;
+                gap: 8px;
+                margin-top: 0;
+                margin-bottom: 10px;
+                align-items: stretch;
+            }
+
+            .content-row.mobile-active .username-kit-section {
+                flex: 1;
+                min-width: 0;
+                flex-direction: column !important;
+                align-items: stretch;
+                text-align: center;
+                padding: 10px 8px;
+                gap: 6px;
+                border-radius: 8px;
+            }
+
+            .content-row.mobile-active .username-kit-content {
+                flex: 1;
+                text-align: center;
+            }
+
+            .content-row.mobile-active .username-kit-title {
+                font-size: 0.82em;
+                margin-bottom: 4px;
+                line-height: 1.2;
+            }
+
+            .content-row.mobile-active .username-kit-description {
+                font-size: 0.7em;
+                line-height: 1.3;
+                display: block;
+                color: rgba(224, 224, 255, 0.75);
+                margin-bottom: 6px;
+            }
+
+            .content-row.mobile-active .username-kit-button {
+                font-size: 0.75em;
+                padding: 8px 6px;
+                white-space: normal;
+                text-align: center;
+                width: 100%;
+                box-sizing: border-box;
+                line-height: 1.2;
+                margin-top: auto;
+            }
+
+            /* Page-level adjustments */
+            body {
+                padding: 0 !important;
+            }
+
+            .container {
+                padding: 0.6rem 0.9rem 1rem !important;
+                padding-top: 0 !important;
+            }
+
+            h1 {
+                font-size: 1.55em;
+                margin: 10px 0 8px 0;
+            }
+
+            .welcome-box {
+                font-size: 0.88em;
+                padding: 0.9rem;
+                margin: 8px 0 10px 0;
+                border-radius: 8px;
+                line-height: 1.45;
+            }
+
+            .main-layout {
+                margin-top: 4px;
+                gap: 0;
+            }
+
+            /* Donations on mobile */
+            .donations-box {
+                margin: 12px 10px 20px 10px !important;
+                padding: 14px !important;
+                border-radius: 8px;
+            }
+
+            .nav-buttons {
+                gap: 6px;
+                margin: 6px auto 10px auto;
+            }
+
+            .nav-buttons a {
+                font-size: 0.9em;
+                min-width: auto;
+                padding: 0.5rem 0.75rem;
+            }
+
+            .control-buttons {
+                margin: 8px auto 6px auto;
+            }
+        }
+    </style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style id="ocb-banner-style">
+  .ocb-topbar{position:sticky;top:0;z-index:9000;display:flex;align-items:center;justify-content:space-between;gap:16px;height:58px;padding:0 22px;background:rgba(8,8,16,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,107,156,.2);font-family:'JetBrains Mono',ui-monospace,monospace;box-sizing:border-box;}
+  .ocb-topbar *{box-sizing:border-box;}
+  .ocb-brand{display:flex;align-items:center;gap:11px;text-decoration:none;}
+  .ocb-brand img{height:34px;width:34px;border-radius:8px;box-shadow:0 0 16px rgba(255,107,156,.35);}
+  .ocb-mark{font-size:.95rem;font-weight:700;letter-spacing:.22em;color:#e8e8f4;text-transform:uppercase;white-space:nowrap;}
+  .ocb-mark b{color:#ff6b9c;}
+  .ocb-dot{width:7px;height:7px;border-radius:50%;background:#00d9ff;box-shadow:0 0 10px #00d9ff;animation:ocbPulse 1.8s infinite;flex:none;}
+  @keyframes ocbPulse{0%,100%{opacity:.7}50%{opacity:1}}
+  .ocb-right{display:flex;align-items:center;gap:9px;}
+  .ocb-ctrls{display:flex;align-items:center;gap:9px;}
+  .ocb-ctrl{background:rgba(10,9,18,.7);border:1px solid rgba(255,107,156,.32);color:#9a9ac0;padding:7px 13px;border-radius:7px;text-decoration:none;font-family:inherit;font-size:11px;transition:all .2s ease;display:flex;align-items:center;gap:6px;cursor:pointer;white-space:nowrap;}
+  .ocb-ctrl:hover{background:rgba(255,107,156,.16);color:#eaeaff;border-color:rgba(255,107,156,.7);}
+  .ocb-burger{display:flex;flex-direction:column;gap:5px;width:42px;height:38px;align-items:center;justify-content:center;background:rgba(10,9,18,.7);border:1px solid rgba(255,107,156,.32);border-radius:8px;cursor:pointer;flex:none;}
+  .ocb-burger span{display:block;width:20px;height:2px;background:#ff6b9c;border-radius:2px;transition:transform .25s ease,opacity .2s ease;}
+  .ocb-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .ocb-burger.open span:nth-child(2){opacity:0;}
+  .ocb-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .ocb-scrim{position:fixed;inset:0;z-index:8990;background:rgba(4,4,9,.55);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .25s ease;}
+  .ocb-scrim.open{opacity:1;pointer-events:auto;}
+  .ocb-menu{position:fixed;top:58px;right:0;width:340px;max-width:92vw;z-index:8995;background:rgba(9,8,16,.97);backdrop-filter:blur(16px);border-left:1px solid rgba(255,107,156,.3);border-bottom:1px solid rgba(255,107,156,.3);border-bottom-left-radius:14px;padding:14px 16px 18px;display:flex;flex-direction:column;gap:9px;transform:translateX(16px);opacity:0;pointer-events:none;transition:transform .28s cubic-bezier(.2,.8,.2,1),opacity .24s ease;max-height:calc(100vh - 58px);overflow-y:auto;font-family:'JetBrains Mono',ui-monospace,monospace;}
+  .ocb-menu.open{transform:none;opacity:1;pointer-events:auto;}
+  .ocb-mlink{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid rgba(255,107,156,.3);border-radius:10px;background:rgba(13,12,22,.7);color:#e6e6ff;text-decoration:none;font-size:.92rem;font-weight:600;transition:background .18s ease,border-color .18s ease;}
+  .ocb-mlink:hover{background:rgba(255,107,156,.14);border-color:#ff6b9c;}
+  .ocb-mdiv{height:1px;background:rgba(255,107,156,.2);margin:6px 2px;}
+  .ocb-menu .ocb-ctrl{justify-content:center;}
+  html.ocb-invert{filter:invert(1) hue-rotate(180deg);}
+  html.ocb-invert .ocb-topbar,html.ocb-invert .ocb-menu,html.ocb-invert .ocb-scrim{filter:invert(1) hue-rotate(180deg);}
+  .ocb-topbar{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);}
+  @media (max-width:820px){.ocb-ctrls{display:none;}}
+</style>
+</head>
+<body>
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="https://osintcabal-news.vercel.app/">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <!-- Vanta.js Network Background -->
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <!-- ═══ MOBILE ONLY: Sticky header ═══ -->
+    <div class="mobile-header" id="mobileHeader">
+        <div class="mobile-header-spacer"></div>
+        <span class="mobile-header-title" id="mobileHeaderTitle">EMAIL OSINT</span>
+        <button class="mobile-hamburger-btn" id="mobileHamburger" aria-label="Open category menu">&#9776;</button>
+    </div>
+
+    <!-- ═══ MOBILE ONLY: Drawer overlay ═══ -->
+    <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
+
+    <!-- ═══ MOBILE ONLY: Drawer panel ═══ -->
+    <div class="mobile-drawer-panel" id="mobileDrawerPanel">
+        <div class="drawer-header">
+            <span class="drawer-header-title">CATEGORIES</span>
+            <button class="drawer-close-btn" id="mobileDrawerClose" aria-label="Close menu">✕</button>
+        </div>
+        <div class="drawer-cats-list">
+            <button class="drawer-cat-btn active" data-cat="cat-email" data-title="EMAIL OSINT">
+                <span class="cat-label">EMAIL OSINT</span>
+                <span class="cat-arrow">&#9658;</span>
+            </button>
+            <button class="drawer-cat-btn" data-cat="cat-domain" data-title="DOMAIN &amp; URL">
+                <span class="cat-label">DOMAIN &amp; URL</span>
+                <span class="cat-arrow">&#9658;</span>
+            </button>
+            <button class="drawer-cat-btn" data-cat="cat-breaches" data-title="BREACHES &amp; LEAKS">
+                <span class="cat-label">BREACHES &amp; LEAKS</span>
+                <span class="cat-arrow">&#9658;</span>
+            </button>
+            <button class="drawer-cat-btn" data-cat="cat-platform" data-title="PLATFORM SPECIFIC">
+                <span class="cat-label">PLATFORM SPECIFIC</span>
+                <span class="cat-arrow">&#9658;</span>
+            </button>
+            <button class="drawer-cat-btn" data-cat="cat-public" data-title="PUBLIC DATA">
+                <span class="cat-label">PUBLIC DATA</span>
+                <span class="cat-arrow">&#9658;</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ═══ MOBILE ONLY: Category indicator dots ═══ -->
+    <div class="mobile-cat-dots" id="mobileCatDots">
+        <div class="mobile-cat-dot active" data-cat="cat-email"></div>
+        <div class="mobile-cat-dot" data-cat="cat-domain"></div>
+        <div class="mobile-cat-dot" data-cat="cat-breaches"></div>
+        <div class="mobile-cat-dot" data-cat="cat-platform"></div>
+        <div class="mobile-cat-dot" data-cat="cat-public"></div>
+    </div>
+
+    <div class="container">
+        <div style="text-align:center;">
+            <div class="title-glass">
+                <h1 style="margin:0;">OSINT Cabal Live Center</h1>
+            </div>
+        </div>
+
+
+        <div class="welcome-box">
+            Welcome to the OSINT Cabal Live Center! Here you will find our collection of live command line tools ready to be utilized by our fellow OSINTers. This project is hosted and managed solely by Terrorbyte. We ask for patience when tools break or when paid API's need to be topped off. First come first serve!  Please be responsible and always remember: #OSINT4Good
+        </div>
+        
+        <div class="main-layout">
+            <!-- EMAIL OSINT ROW -->
+            <div class="content-row mobile-active" id="cat-email">
+                <div class="content-box">
+                    <div class="tools-sections-container">
+                        <div class="tools-section">
+                            <div class="tools-category-label">EMAIL OSINT</div>
+                            <div class="tools-grid-container">
+                                <div class="tools-grid">
+                                    <div class="tool-card">
+                                        <h3>Zehef</h3>
+                                        <p>Check to see if an email is registered on 18 Social Media sites. Also basic breach check.</p>
+                                        <a href="zehef.html">Zehef</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Holehe</h3>
+                                        <p>Check if an email is registered on numerous Social Media sites.</p>
+                                        <a href="holehe.html">Holehe</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Mailsleuth</h3>
+                                        <p>Check if an email is registered on numerous Social Media sites.</p>
+                                        <a href="mailsleuth.html">Mailsleuth</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Mailcat</h3>
+                                        <p>Scrapes for usernames attached to email domains as the handle.</p>
+                                        <a href="mailcat.html">Mailcat</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Email Validator</h3>
+                                        <p>Checks if an "active" and extracts some server and creation data.</p>
+                                        <a href="emailvalidator.html">Email Validator</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="tools-grid">
+                                    <div class="tool-card">
+                                        <h3>Eyes</h3>
+                                        <p>Advanced email reconnaissance tool for gathering extensive social media presence data.</p>
+                                        <a href="eyes.html">Eyes</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Hashtray</h3>
+                                        <p>Check if an email or a username is associated with a Gravatar Account.</p>
+                                        <a href="hashtray.html">Hashtray</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Blackbird</h3>
+                                        <p>Runs the email module of the blackbird github repo</p>
+                                        <a href="blackbird.html">Blackbird Email Check</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Hunter.io</h3>
+                                        <p>Redirects to Hunter.io and extracts email based on domain and name. Requires free account.</p>
+                                        <a href="https://osintcabal.org/livecenter/Hunterio.html">Hunter.io</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Ghunt</h3>
+                                        <p>Extract information from Google accounts using an email address.</p>
+                                        <a href="ghunt.html">Coming Soon</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cabal-kits-sidebar">
+                    <div class="username-kit-section">
+                        <div class="username-kit-content">
+                            <div class="username-kit-title">OSINTCabal Username Kit</div>
+                            <div class="username-kit-description">Comprehensive username search across multiple platforms and social networks. Find accounts, verify identities, and gather intelligence.</div>
+                        </div>
+                        <a href="https://osintcabal.org/usernamesearch.html" class="username-kit-button">Launch Username Kit</a>
+                    </div>
+                    
+                    <div class="username-kit-section">
+                        <div class="username-kit-content">
+                            <div class="username-kit-title">OSINTCabal Email Kit</div>
+                            <div class="username-kit-description">Checks where an email is used online from multiple sources including python tools, go lang tools, and more!</div>
+                        </div>
+                        <a href="https://osintcabal.org/emailkit.html" class="username-kit-button">Launch Email Kit</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DOMAIN & URL ROW -->
+            <div class="content-row" id="cat-domain">
+                <div class="content-box">
+                    <div class="tools-sections-container">
+                        <div class="tools-section">
+                            <div class="tools-category-label">DOMAIN & URL</div>
+                            <div class="tools-grid-container">
+                                <div class="tools-grid">
+                                    <div class="tool-card">
+                                        <h3>Webdiver</h3>
+                                        <p>Python-based tool for extracting and analyzing comprehensive website information.</p>
+                                        <a href="webdiver.html">Webdiver</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Subcat</h3>
+                                        <p>Powerful subdomain discovery tool that passively aggregates data from multiple sources.</p>
+                                        <a href="subcat.html">Subcat</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>FinalRecon</h3>
+                                        <p>All-in-one automatic web reconnaissance tool for comprehensive website analysis.</p>
+                                        <a href="finalrecon.html">FinalRecon</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>The Harvester</h3>
+                                        <p>Gathers names, emails, IPs, subdomains, and URLs using multiple public resources.</p>
+                                        <a href="theharvester.html">The Harvester</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Nmap</h3>
+                                        <p>Runs a basic nmap command to gently scan a domain</p>
+                                        <a href="https://osintcabal.org/livecenter/nmap.html">Nmap</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="tools-grid">
+                                    <div class="tool-card">
+                                        <h3>Uscrapper</h3>
+                                        <p>Harvests personal information including emails, social media links, and usernames from web sources.</p>
+                                        <a href="uscrapper.html">Uscrapper</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Sublist3r</h3>
+                                        <p>Fast subdomain enumeration tool that uses multiple search engines and DNS brute forcing techniques.</p>
+                                        <a href="sublist3r.html">Sublist3r</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>ASN</h3>
+                                        <p>Autonomous System Number lookup tool for network reconnaissance and IP range identification.</p>
+                                        <a href="asn.html">ASN Lookup</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Webcheck</h3>
+                                        <p>Redirects to the webcheck tool which pulls plenty of domain information</p>
+                                        <a href="https://osintcabal.org/livecenter/webcheck.html">Webcheck</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Darkus</h3>
+                                        <p>Onion website searcher using deep/dark web search engines for targeted investigations.</p>
+                                        <a href="darkus.html">Darkus</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cabal-kits-sidebar">
+                    <div class="username-kit-section">
+                        <div class="username-kit-content">
+                            <div class="username-kit-title">OSINTCabal Web Crawling Kit</div>
+                            <div class="username-kit-description">Advanced Google dorking framework with automated search operators, vulnerability discovery, and comprehensive OSINT intelligence gathering.</div>
+                        </div>
+                        <a href="https://osintcabal.org/webcrawlingkit.html" class="username-kit-button">
+                            Launch Web Crawling Kit
+                        </a>
+                    </div>
+                    
+                    <div class="username-kit-section">
+                        <div class="username-kit-content">
+                            <div class="username-kit-title">OSINTCabal Dorking Kit</div>
+                            <div class="username-kit-description">Turns your web browser into a professional grade dorking kit complete with categories of premade dorks ready to be targeted at your query.</div>
+                        </div>
+                        <a href="https://osintcabal.org/livecenter/googledorker.html" class="username-kit-button">Launch Dorking Kit</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BREACHES & LEAKS ROW -->
+            <div class="content-row" id="cat-breaches">
+                <div class="content-box">
+                    <div class="tools-sections-container">
+                        <div class="tools-section">
+                            <div class="tools-category-label">BREACHES & LEAKS</div>
+                            <div class="tools-grid-container">
+                                <div class="tools-grid">
+                                    <div class="tool-card">
+                                        <h3>Have I Been Pwned</h3>
+                                        <p>Tests email addresses using HaveIBeenPwned v3 API to find breaches and searches passwords in public dumps.</p>
+                                        <a href="cabalbreach-haveibeenpwned.html">
+                                            Have I Been Pwned
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Chiasmodon</h3>
+                                        <p>OSINT tool for gathering information from various sources with comprehensive scanning capabilities and customizable output.</p>
+                                        <a href="cabalbreach-chiasmodon.html">
+                                            Chiasmodon
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Breach Directory API</h3>
+                                        <p>Python script that dumps data from Breach Directory API.</p>
+                                        <a href="cabalbreach-breachdirectory.html">
+                                            Coming Soon
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Known Breaches</h3>
+                                        <p>Compilation of breach information with client-side search capabilities for comprehensive breach data lookup.</p>
+                                        <a href="cabalbreach-knownbreaches.html">
+                                            Known Breaches
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>HuntPastebin</h3>
+                                        <p>runs a python tool that scrapes pastebin for leaks based on domain queries</p>
+                                        <a href="https://osintcabal.org/livecenter/huntpastebin.html">HuntPastebin</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="tools-grid">
+                                    <div class="tool-card">
+                                        <h3>Pwned Alt</h3>
+                                        <p>Command-line tool for querying Troy Hunt's Have I been pwned service using the hibp Node.js module.</p>
+                                        <a href="cabalbreach-pwnedalt.html">
+                                            Pwned Alt
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Hash ID</h3>
+                                        <p>Hash identifier tool for analyzing and identifying different hash types from compromised credentials.</p>
+                                        <a href="cabalbreach-hashid.html">
+                                            Hash ID
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Hudson Rock</h3>
+                                        <p>Launches the HR Real-time database of stolen credentials from info stealers targeting enterprise environments.</p>
+                                        <a href="hudsonrock.html">Hudson Rock</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Telegram Breach Monitor</h3>
+                                        <p>Monitors Telegram channels for real-time breach data and compromised credential disclosures.</p>
+                                        <a href="telegrambreach.html">Telegram Breach Monitor</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Dorksint</h3>
+                                        <p>runs a quick google dorking scan on a query to pull quick information</p>
+                                        <a href="https://osintcabal.org/livecenter/dorksint.html">Dorksint</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cabal-kits-sidebar">
+                    <div class="username-kit-section">
+                        <div class="username-kit-content">
+                            <div class="username-kit-title">OSINTCabal Breach Data Kit</div>
+                            <div class="username-kit-description">Comprehensive breach data analysis and intelligence gathering across multiple data sources for enhanced OSINT investigations.</div>
+                        </div>
+                        <a href="https://osintcabal.org/livecenter/breachkit/cabalbreachdatakit.html" class="username-kit-button">Launch Breach Data Kit</a>
+                    </div>
+                    
+                    <div class="username-kit-section">
+                        <div class="username-kit-content">
+                            <div class="username-kit-title">OSINTCabal Domain Kit</div>
+                            <div class="username-kit-description">Utilizes multiple sources and APIs to scan domains, subdomains, file extraction per subdomain, secret key exposure, and more! </div>
+                        </div>
+                        <a href="https://osintcabal.org/livecenter/cabaldomainkit.html" class="username-kit-button">Launch Domain Kit</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PLATFORM SPECIFIC ROW -->
+            <div class="content-row" id="cat-platform">
+                <div class="content-box">
+                    <div class="tools-sections-container">
+                        <div class="tools-section">
+                            <div class="tools-category-label">PLATFORM SPECIFIC</div>
+                            <div class="tools-grid-container">
+                                <div class="tools-grid platform-specific">
+                                    <div class="tool-card">
+                                        <h3>MastOSINT</h3>
+                                        <p>Mastodon search tool for discovering profiles, posts, and federated social network activity.</p>
+                                        <a href="https://osintcabal.org/livecenter/mastosint.html">MastOSINT</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>OSINTSky</h3>
+                                        <p>a comprehensive OSINT suite for BlueSky using the free API</p>
+                                        <a href="https://osintcabal.org/livecenter/OSINTSky.html">OSINTSky</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>OSINTChan</h3>
+                                        <p>Comprehensive OSINT Suite that queries the 4Chan API</p>
+                                        <a href="https://osintcabal.org/livecenter/OSINTChan.html">OSINTChan</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>TeleGramSint</h3>
+                                        <p>Runs numerous API keys to pull telegram user/channel data.</p>
+                                        <a href="https://osintcabal.org/livecenter/TeleGramSint.html">TeleGramSint</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="tools-grid platform-specific">
+                                    <div class="tool-card">
+                                        <h3>WhatsApp Profile Data API</h3>
+                                        <p>This page will launch the CheckLeaked WhatsApp API website right to your search query. Be wary of limiting!</p>
+                                        <a href="https://osintcabal.org/livecenter/whatsappprofileapi.html">WhatsApp Profile Data API</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>GitHub Profile Summary</h3>
+                                        <p>Launches the GitHub profile summary tool for analyzing user repositories, contributions, and activity patterns.</p>
+                                        <a href="https://osintcabal.org/livecenter/githubprofilesummary.html">GitHub Profile Summary</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>SnapIntel</h3>
+                                        <p>Snapchat username search tool for discovering and verifying Snapchat accounts and user information.</p>
+                                        <a href="https://osintcabal.org/livecenter/snapintel.html">SnapIntel</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Reddit Push-Pull API</h3>
+                                        <p>Launches the Reddit Push Pull API and pulls deleted posts and comments.</p>
+                                        <a href="https://osintcabal.org/livecenter/redditpushpull.html">Reddit Push-Pull API</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="tools-grid platform-specific">
+                                    <div class="tool-card">
+                                        <h3>TikTok UserData</h3>
+                                        <p>Runs a python tool that pulls username information and metadata with username queries</p>
+                                        <a href="https://osintcabal.org/livecenter/tiktokuserdata.html">TikTok UserData</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>TikTok Timestamp Extractor</h3>
+                                        <p>Link to Bellingcat's TikTok timestamp extraction tool for analyzing video metadata and timestamps.</p>
+                                        <a href="https://osintcabal.org/livecenter/tiktoktimestamp.html">TikTok Timestamp Extractor</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Private IG Sniffer</h3>
+                                        <p>Tool for discovering private Instagram accounts and gathering intelligence from protected profiles.</p>
+                                        <a href="privateigsniffer.html">Private IG Sniffer</a>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <h3>Proton Intelligence</h3>
+                                        <p>Fetches limited information on a protonmail address.</p>
+                                        <a href="protonintelligence.html">Proton Intelligence</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cabal-kits-sidebar">
+                    <div class="username-kit-section">
+                        <div class="username-kit-content">
+                            <div class="username-kit-title">OSINTCabal Web Archive Kit</div>
+                            <div class="username-kit-description">Comprehensive web archive toolkit. Runs multiple API's with curl and uses TheTimeMachine to scrape for sensitive historical data. </div>
+                        </div>
+                        <a href="https://osintcabal.org/livecenter/osintcabalwebarchivekit.html" class="username-kit-button">Launch Web Archive Kit</a>
+                    </div>
+                    
+                    <div class="username-kit-section">
+                        <div class="username-kit-content">
+                            <div class="username-kit-title">OSINTCabal Weather Scraper</div>
+                            <div class="username-kit-description">Queries free weather API's allowing for numerous types of searches including coordinate based reports, locations of weather stations, local alerts, etc.</div>
+                        </div>
+                        <a href="https://osintcabal.org/livecenter/weatherscraper.html" class="username-kit-button">Launch Weather Kit</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PUBLIC DATA ROW -->
+            <div class="content-row" id="cat-public">
+                <div class="content-box">
+                    <div class="tools-sections-container">
+                        <div class="tools-section">
+                            <div class="tools-category-label" style="min-height: auto;">PUBLIC DATA</div>
+                            <div class="tools-grid-container">
+                                <div class="tools-grid platform-specific">
+                                    <div class="tool-card">
+                                        <h3>Proxy/VPN Checker</h3>
+                                        <p>Queries API keys to check if an IP address belongs to a proxy or VPN provider. Includes Tor IPs.</p>
+                                        <a href="https://osintcabal.org/livecenter/proxyvpnchecker.html">Proxy/VPN Checker</a>
+                                    </div>
+
+                                    <div class="tool-card">
+                                        <h3>ProxyScraper</h3>
+                                        <p>Crawls for and tests free proxies and presents them for the user. Rate limiting is expected.</p>
+                                        <a href="https://osintcabal.org/livecenter/proxyscraper.html">ProxyScraper</a>
+                                    </div>
+
+                                    <div class="tool-card">
+                                        <h3>VinDecoder</h3>
+                                        <p>Runs a python wrapper for the free NHTSA API. Includes option to pull manufacturer data.</p>
+                                        <a href="https://osintcabal.org/livecenter/vindecoder.html">VinDecoder</a>
+                                    </div>
+
+                                    <div class="tool-card">
+                                        <h3>CoronavirOSINT</h3>
+                                        <p>Runs a python wrapper that queries free medical sources for live Covid19 data.</p>
+                                        <a href="https://osintcabal.org/livecenter/coronavirosint.html">CoronavirOSINT</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cabal-kits-sidebar" style="align-self: stretch;">
+                    <div class="username-kit-section">
+                        <div class="username-kit-content">
+                            <div class="username-kit-title">OSINTCabal LiveCenter Tool Request</div>
+                            <div class="username-kit-description">Have a tool you'd like to see? Let us know!</div>
+                        </div>
+                        <a href="https://osintcabal.org/livecenter/livecentercontact.html" class="username-kit-button">Cabal LiveCenter Tool Request</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Control buttons moved to bottom -->
+        <div class="control-buttons">
+            <button class="animation-toggle" id="animationToggle">
+                🎬 Toggle Animations
+            </button>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="../index.html">Home</a>
+            <a href="../tools.html">Tools</a>
+            <a href="../methods.html">Methods/Guides</a>
+            <a href="../news.html">News</a>
+        </div>
+    </div>
+    
+    <!-- Donations box -->
+    <div class="donations-box">
+        <div class="donations-title">DONATIONS</div>
+        <div class="donations-message">This is a passion project funded entirely by Terrorbyte. If you would like to support the project we graciously accept all donations!</div>
+        <div class="crypto-addresses">
+            <div class="crypto-item">
+                <div class="crypto-label">Bitcoin:</div>
+                <div class="crypto-address">bc1q3zpmaemftadnnxcux9gaccvdwl268t4wc3ypq2</div>
+            </div>
+            <div class="crypto-item">
+                <div class="crypto-label">Monero:</div>
+                <div class="crypto-address">8BBhL9omi3ceac4eo5wdQNjVasbEPKLQXGQC6ZSjJmhL4JFXoFtBEwSQpHes5Uendp3MRn7MHsLKAdrULVa25Urc43BaQtZ</div>
+            </div>
+            <div class="crypto-item">
+                <div class="crypto-label">Solana:</div>
+                <div class="crypto-address">2i6ZYh4MKeZXhJpAE4MW2CUbjb6927NJoYEKZpfbZG47</div>
+            </div>
+            <div class="crypto-item">
+                <div class="crypto-label">Ethereum (Main-Net):</div>
+                <div class="crypto-address">0xAA2d69aF1202133DF6f45831Bbcf2C62EF9A28aB</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // ─── Animation toggle ───
+        const animationToggle = document.getElementById('animationToggle');
+        let animationsEnabled = true;
+
+        animationToggle.addEventListener('click', function() {
+            animationsEnabled = !animationsEnabled;
+            document.body.classList.toggle('simple-bg', !animationsEnabled);
+            animationToggle.textContent = animationsEnabled ? '🎬 Toggle Animations' : '🎨 Toggle Animations';
+            if (window.__flowbg) window.__flowbg.setPaused(!animationsEnabled);
+        });
+
+        // ═══════════════════════════════════════════════════════
+        //  MOBILE NAVIGATION — runs only on mobile screen widths
+        // ═══════════════════════════════════════════════════════
+        (function() {
+            const MOBILE_BP = 768;
+
+            const hamburger      = document.getElementById('mobileHamburger');
+            const drawerOverlay  = document.getElementById('mobileDrawerOverlay');
+            const drawerPanel    = document.getElementById('mobileDrawerPanel');
+            const drawerClose    = document.getElementById('mobileDrawerClose');
+            const headerTitle    = document.getElementById('mobileHeaderTitle');
+            const catDots        = document.querySelectorAll('.mobile-cat-dot');
+            const drawerCatBtns  = document.querySelectorAll('.drawer-cat-btn');
+            const contentRows    = document.querySelectorAll('.main-layout .content-row');
+
+            let activeCat = 'cat-email';
+
+            // ── Drawer open / close ──
+            function openDrawer() {
+                drawerOverlay.classList.add('open');
+                drawerPanel.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeDrawer() {
+                drawerOverlay.classList.remove('open');
+                drawerPanel.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            hamburger.addEventListener('click', openDrawer);
+            drawerClose.addEventListener('click', closeDrawer);
+            drawerOverlay.addEventListener('click', closeDrawer);
+
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeDrawer();
+            });
+
+            // ── Switch category ──
+            function switchCategory(catId, title) {
+                if (!isMobile()) return;
+
+                activeCat = catId;
+
+                // Update content rows
+                contentRows.forEach(function(row) {
+                    if (row.id === catId) {
+                        row.classList.add('mobile-active');
+                    } else {
+                        row.classList.remove('mobile-active');
+                    }
+                });
+
+                // Update header title
+                headerTitle.textContent = title;
+
+                // Update drawer button states
+                drawerCatBtns.forEach(function(btn) {
+                    btn.classList.toggle('active', btn.dataset.cat === catId);
+                });
+
+                // Update dots
+                catDots.forEach(function(dot) {
+                    dot.classList.toggle('active', dot.dataset.cat === catId);
+                });
+
+                // Scroll to top of content
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                closeDrawer();
+            }
+
+            // Drawer category buttons
+            drawerCatBtns.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    switchCategory(btn.dataset.cat, btn.dataset.title);
+                });
+            });
+
+            // Dot navigation
+            catDots.forEach(function(dot) {
+                dot.addEventListener('click', function() {
+                    // Find matching drawer btn to get title
+                    const matchBtn = document.querySelector('.drawer-cat-btn[data-cat="' + dot.dataset.cat + '"]');
+                    const title = matchBtn ? matchBtn.dataset.title : dot.dataset.cat;
+                    switchCategory(dot.dataset.cat, title);
+                });
+            });
+
+            // ── Utility ──
+            function isMobile() {
+                return window.innerWidth <= MOBILE_BP;
+            }
+
+            // ── On resize: restore desktop layout if window grows ──
+            window.addEventListener('resize', function() {
+                if (!isMobile()) {
+                    // Restore all rows for desktop
+                    contentRows.forEach(function(row) {
+                        row.classList.remove('mobile-active');
+                    });
+                    document.body.style.overflow = '';
+                    closeDrawer();
+                } else {
+                    // Re-apply active category on mobile
+                    contentRows.forEach(function(row) {
+                        row.classList.toggle('mobile-active', row.id === activeCat);
+                    });
+                }
+            });
+
+            // ── Init: make sure EMAIL OSINT is shown on mobile load ──
+            document.addEventListener('DOMContentLoaded', function() {
+                if (isMobile()) {
+                    contentRows.forEach(function(row) {
+                        row.classList.toggle('mobile-active', row.id === 'cat-email');
+                    });
+                }
+            });
+
+            // Also run immediately in case DOMContentLoaded already fired
+            if (document.readyState !== 'loading') {
+                if (isMobile()) {
+                    contentRows.forEach(function(row) {
+                        row.classList.toggle('mobile-active', row.id === 'cat-email');
+                    });
+                }
+            }
+
+        })();
+    </script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+
+<script>
+(function(){
+  function ready(fn){ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',fn);}else{fn();} }
+  ready(function(){
+    var burger=document.getElementById('ocbBurger'), menu=document.getElementById('ocbMenu'), scrim=document.getElementById('ocbScrim');
+    function close(){ if(burger)burger.classList.remove('open'); if(menu)menu.classList.remove('open'); if(scrim)scrim.classList.remove('open'); }
+    if(burger&&menu){ burger.addEventListener('click',function(){ var o=!menu.classList.contains('open'); burger.classList.toggle('open',o); menu.classList.toggle('open',o); if(scrim)scrim.classList.toggle('open',o); }); }
+    if(scrim) scrim.addEventListener('click',close);
+    if(menu) menu.querySelectorAll('.ocb-mlink').forEach(function(a){ a.addEventListener('click',close); });
+    function toggleAnim(){ var ex=document.getElementById('animationToggle'); if(ex){ ex.click(); } else { document.body.classList.toggle('simple-bg'); } }
+    function toggleInvert(){ document.documentElement.classList.toggle('ocb-invert'); }
+    ['ocbAnim','ocbAnim2'].forEach(function(id){ var b=document.getElementById(id); if(b)b.addEventListener('click',toggleAnim); });
+    ['ocbInvert','ocbInvert2'].forEach(function(id){ var b=document.getElementById(id); if(b)b.addEventListener('click',toggleInvert); });
+  });
+})();
+</script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2724e552ccfceb7',t:'MTc4NjA2NDAyMw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c173f9b444614',t:'MTc4OTAxODc1MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

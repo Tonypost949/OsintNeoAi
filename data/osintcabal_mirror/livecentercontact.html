@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveCenter Tool Request - OSINT Cabal</title>
+    <meta name="description" content="Request new tools for the OSINT Cabal LiveCenter. Share your suggestions and help us expand our toolkit.">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a0f2e 100%);
+            color: #e0e0ff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated background grid */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(74, 144, 226, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74, 144, 226, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        /* Floating particles */
+        body::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle, rgba(138, 79, 255, 0.1) 1px, transparent 1px),
+                radial-gradient(circle, rgba(255, 107, 156, 0.1) 1px, transparent 1px);
+            background-size: 100px 100px, 150px 150px;
+            background-position: 0 0, 50px 50px;
+            animation: particleFloat 15s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes particleFloat {
+            0%, 100% {
+                transform: translateY(0);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-20px);
+                opacity: 0.6;
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #ff6b9c;
+            text-shadow: 0 0 20px rgba(255, 107, 156, 0.5);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #4a90e2;
+            text-shadow: 0 0 10px rgba(74, 144, 226, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .content-box {
+            background: rgba(10, 10, 30, 0.85);
+            border: 2px solid #4a90e2;
+            border-radius: 15px;
+            padding: 50px 40px;
+            box-shadow: 
+                0 0 30px rgba(74, 144, 226, 0.3),
+                inset 0 0 30px rgba(138, 79, 255, 0.1);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease-out 0.3s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animated corner accents */
+        .content-box::before,
+        .content-box::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid #8a4fff;
+            opacity: 0.3;
+        }
+
+        .content-box::before {
+            top: -2px;
+            left: -2px;
+            border-right: none;
+            border-bottom: none;
+            border-radius: 15px 0 0 0;
+        }
+
+        .content-box::after {
+            bottom: -2px;
+            right: -2px;
+            border-left: none;
+            border-top: none;
+            border-radius: 0 0 15px 0;
+        }
+
+        .message {
+            font-size: 1.3em;
+            line-height: 1.8;
+            margin-bottom: 50px;
+            color: #c0c0e0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .message strong {
+            color: #ff6b9c;
+            text-shadow: 0 0 10px rgba(255, 107, 156, 0.3);
+        }
+
+        .search-section {
+            position: relative;
+            z-index: 1;
+        }
+
+        .search-label {
+            font-size: 1.1em;
+            color: #4a90e2;
+            margin-bottom: 20px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .email-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #8a4fff, #ff6b9c);
+            color: #ffffff;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.3em;
+            font-weight: bold;
+            padding: 20px 50px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 
+                0 10px 30px rgba(138, 79, 255, 0.4),
+                0 0 20px rgba(255, 107, 156, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+        }
+
+        .email-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .email-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .email-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 15px 40px rgba(138, 79, 255, 0.6),
+                0 0 30px rgba(255, 107, 156, 0.5);
+        }
+
+        .email-button:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .email-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .email-icon {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            color: #4a90e2;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 10px 25px;
+            border: 2px solid #4a90e2;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            animation: fadeIn 1.2s ease-out 0.6s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .back-link:hover {
+            background: rgba(74, 144, 226, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+        }
+
+        .glow-pulse {
+            animation: glowPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(255, 107, 156, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(255, 107, 156, 0.8), 0 0 30px rgba(255, 107, 156, 0.6);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            .content-box {
+                padding: 30px 20px;
+            }
+
+            .message {
+                font-size: 1.1em;
+            }
+
+            .email-button {
+                font-size: 1.1em;
+                padding: 18px 40px;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/livecenter-tools.css">
+    <style>
+        /* Shell compatibility (presentation only): the page's own grid/particle
+           layers and flex-centered, non-scrolling body conflict with the shared
+           FlowBG background + topbar shell. */
+        body { display: block; overflow: visible; padding: 0 5%; }
+        body::before, body::after { display: none; }
+        .container { margin: 0 auto; padding: 6vh 0 40px; }
+        @media (max-width: 600px) {
+            body { padding: 0 3%; }
+            .container { padding: 4vh 0 30px; }
+            h1 { font-size: 1.6em !important; }
+            .subtitle { font-size: 0.95em !important; }
+            .content-box { padding: 28px 18px !important; }
+            .message { font-size: 1em !important; margin-bottom: 30px !important; }
+            .email-button { font-size: 1em !important; padding: 15px 28px !important; }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+</head>
+<body data-lct-theme="cabal">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+    <div class="container">
+        <div class="header">
+            <h1 class="glow-pulse">LiveCenter Tool Request</h1>
+            <div class="subtitle">Help Us Build the Perfect OSINT Toolkit</div>
+        </div>
+
+        <div class="content-box">
+            <div class="message">
+                We hope you have been enjoying the <strong>LiveCenter</strong>! 
+                <br><br>
+                Do you have a specific tool you hope to see hosted on the site? 
+                <br>
+                Any recommendations? 
+                <br><br>
+                <strong>Shoot us an email and we'll add it to our wish list!</strong>
+            </div>
+
+            <div class="search-section">
+                <label class="search-label">Contact Us</label>
+                <a href="mailto:Contact@OSINTCabal.org?subject=LiveCenter%20Tool%20Request&body=Tool%20Name:%0D%0A%0D%0ATool%20Description:%0D%0A%0D%0AWhy%20this%20tool%20would%20be%20useful:%0D%0A%0D%0A" 
+                   class="email-button">
+                    <span>
+                        <span class="email-icon">✉</span>
+                        Send Tool Request
+                    </span>
+                </a>
+            </div>
+        </div>
+
+        <a href="live.html" class="back-link">← Back to Live Center Home</a>
+    </div>
+    <script src="../assets/js/livecenter-ui.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c197188134614',t:'MTc4OTAxODg0MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cabal Weather Scraper - OSINT Meteorological Intelligence | OSINT Cabal</title>
+    <meta name="description" content="Query free weather APIs for current conditions, forecasts, alerts, coordinate-based reports, and nearby weather station data. Real-time meteorological OSINT.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="OSINT Cabal">
+    <link rel="canonical" href="https://osintcabal.org/livecenter/weatherscraper.html" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://osintcabal.org/livecenter/weatherscraper.html">
+    <meta property="og:title" content="Cabal Weather Scraper - Meteorological OSINT | OSINT Cabal">
+    <meta property="og:description" content="Free weather API queries: current conditions, forecasts, storm alerts, coordinate reports, and weather station intelligence.">
+    <meta property="og:site_name" content="OSINT Cabal">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/favicons/manifest.json">
+    <meta name="theme-color" content="#6b21a8">
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #0a0a1a;
+            color: #4a90e2;
+            font-family: monospace;
+        }
+
+        h1 {
+            color: #ff6b9c;
+            text-align: center;
+            text-shadow: 0 0 10px #ff6b9c;
+            font-size: clamp(1.3rem, 5vw, 2rem);
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #8a8ab8;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+
+        .content-box {
+            border: 2px solid #4a90e2;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: rgba(10, 10, 30, 0.8);
+        }
+
+        /* ── Mode selector tabs ───────────────────────────────────────── */
+        .mode-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 22px;
+        }
+
+        .mode-tab {
+            padding: 8px 16px;
+            border: 1px solid #4a90e2;
+            border-radius: 6px;
+            background: rgba(20, 20, 50, 0.6);
+            color: #8a8ab8;
+            cursor: pointer;
+            font-family: monospace;
+            font-size: 13px;
+            transition: all 0.2s ease;
+            user-select: none;
+            min-height: 38px;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .mode-tab:hover { border-color: #ff6b9c; color: #ff6b9c; }
+
+        .mode-tab.active {
+            background: linear-gradient(135deg, rgba(255,107,156,0.2), rgba(74,144,226,0.2));
+            border-color: #ff6b9c;
+            color: #ff6b9c;
+            box-shadow: 0 0 10px rgba(255,107,156,0.2);
+        }
+
+        /* ── Search panels ───────────────────────────────────────────── */
+        .search-panel { display: none; }
+        .search-panel.active { display: block; }
+
+        .panel-description {
+            color: #ff6b9c;
+            font-size: 1em;
+            margin: 0 0 15px 0;
+            line-height: 1.5;
+        }
+
+        .tool-form {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0 10px 0;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: stretch;
+            background-color: rgba(20, 20, 50, 0.6);
+            border: 2px solid #4a90e2;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);
+            transition: all 0.3s ease;
+            max-width: 580px;
+            width: 100%;
+        }
+
+        .input-group:hover { border-color: #ff6b9c; box-shadow: 0 6px 20px rgba(255,107,156,0.3); }
+        .input-group:focus-within { border-color: #ff6b9c; box-shadow: 0 0 0 3px rgba(255,107,156,0.2); }
+
+        /* dual-input for coordinates */
+        .dual-input-group {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            max-width: 620px;
+            margin: 0 auto 10px auto;
+        }
+
+        .dual-input-group .input-group { flex: 1; }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 14px 18px;
+            flex: 1;
+            background-color: transparent;
+            border: none;
+            color: #4a90e2;
+            font-family: monospace;
+            font-size: 16px; /* Prevents iOS auto-zoom */
+            outline: none;
+            min-width: 0;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="number"]::placeholder {
+            color: rgba(74, 144, 226, 0.5);
+        }
+
+        /* units toggle */
+        .units-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .unit-btn {
+            padding: 5px 14px;
+            border: 1px solid #4a90e2;
+            border-radius: 20px;
+            background: transparent;
+            color: #8a8ab8;
+            font-family: monospace;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            min-height: 34px;
+        }
+
+        .unit-btn.active {
+            background: rgba(74,144,226,0.2);
+            color: #4a90e2;
+            border-color: #4a90e2;
+        }
+
+        button.run-btn {
+            padding: 14px 24px;
+            background: linear-gradient(135deg, #ff6b9c, #4a90e2);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: monospace;
+            font-size: 15px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        button.run-btn:hover  { background: linear-gradient(135deg, #ff8fb3, #6ba3e8); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(255,107,156,0.4); }
+        button.run-btn:active { transform: translateY(0); }
+        button.run-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+        /* ── Terminal ────────────────────────────────────────────────── */
+        .terminal-container {
+            margin-top: 20px;
+            border: 2px solid #4a90e2;
+            border-radius: 8px;
+            background-color: #000011;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(74, 144, 226, 0.3);
+            display: none;
+        }
+
+        .terminal-header {
+            background: linear-gradient(135deg, #ff6b9c, #4a90e2);
+            padding: 10px 15px;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .terminal-controls {
+            display: flex;
+            gap: 5px;
+            flex-shrink: 0;
+        }
+
+        .terminal-control {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .terminal-control.close    { background-color: #ff5f57; }
+        .terminal-control.minimize { background-color: #ffbd2e; }
+        .terminal-control.maximize { background-color: #28ca42; }
+
+        .terminal-output {
+            padding: 15px;
+            min-height: 220px;
+            max-height: 700px;
+            overflow-y: auto;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.55;
+            color: #e8eeff;
+            white-space: pre;
+            word-break: normal;
+            position: relative;
+        }
+
+        /* ASCII art */
+        .ascii-art {
+            color: #4a90e2;
+            font-size: 11.5px;
+            line-height: 1.3;
+            margin-bottom: 12px;
+            display: block;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        .terminal-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 16px;
+            background-color: #00ff00;
+            animation: blink 1s infinite;
+            margin-left: 2px;
+            vertical-align: text-bottom;
+        }
+
+        @keyframes blink {
+            0%, 50%  { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* ── Status indicator ────────────────────────────────────────── */
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+
+        .status-running  { background-color: rgba(255,165,0,.2); color: #ffa500; border: 1px solid #ffa500; }
+        .status-complete { background-color: rgba(40,202,66,.2); color: #28ca42; border: 1px solid #28ca42; }
+        .status-error    { background-color: rgba(255,95,87,.2); color: #ff5f57; border: 1px solid #ff5f57; }
+
+        .pulse {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background-color: currentColor;
+            animation: pulse 1.5s infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes pulse {
+            0%   { transform: scale(0.8); opacity: 1; }
+            50%  { transform: scale(1.2); opacity: 0.5; }
+            100% { transform: scale(0.8); opacity: 1; }
+        }
+
+        /* ── ANSI color classes ──────────────────────────────────────── */
+        .ansi-bold    { font-weight: bold; }
+        .ansi-dim     { opacity: 0.7; }
+        .ansi-red     { color: #ff5555; }
+        .ansi-green   { color: #00ff6e; }
+        .ansi-yellow  { color: #ffee00; }
+        .ansi-blue    { color: #5599ff; }
+        .ansi-magenta { color: #dd88ff; }
+        .ansi-cyan    { color: #00eeff; }
+        .ansi-white   { color: #ffffff; }
+
+        /* ── Export toolbar ──────────────────────────────────────────── */
+        .export-toolbar {
+            display: none;
+            gap: 8px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .export-toolbar.visible { display: flex; }
+
+        .export-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            background: rgba(20, 20, 50, 0.7);
+            color: #4a90e2;
+            border: 1px solid #4a90e2;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .export-btn:hover { background: rgba(74,144,226,0.2); box-shadow: 0 0 10px rgba(74,144,226,0.3); transform: translateY(-1px); }
+
+        .export-btn.json { color: #ffee00; border-color: #ffee00; }
+        .export-btn.json:hover { background: rgba(255,238,0,0.1); box-shadow: 0 0 10px rgba(255,238,0,0.2); }
+
+        /* ── Scroll-to-bottom ────────────────────────────────────────── */
+        .scroll-to-bottom {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            background: linear-gradient(135deg, #ff6b9c, #4a90e2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+            transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .scroll-to-bottom:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(255,107,156,0.4); }
+
+        /* ── GitHub button ───────────────────────────────────────────── */
+        .github-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background-color: rgba(255, 255, 255, 0.07);
+            color: #4a90e2;
+            border: 1px solid #4a90e2;
+            border-radius: 6px;
+            text-decoration: none;
+            font-family: monospace;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .github-button:hover { background-color: #4a90e2; color: #0a0a1a; box-shadow: 0 0 10px rgba(74,144,226,0.5); transform: translateY(-1px); }
+
+        /* ── Info badges ─────────────────────────────────────────────── */
+        .info-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.78em;
+            font-weight: bold;
+            border: 1px solid;
+        }
+
+        .badge-current  { color: #00eeff; border-color: #00eeff; background: rgba(0,238,255,.08); }
+        .badge-forecast { color: #ffee00; border-color: #ffee00; background: rgba(255,238,0,.08); }
+        .badge-alert    { color: #ff5555; border-color: #ff5555; background: rgba(255,85,85,.08); }
+        .badge-coords   { color: #00ff6e; border-color: #00ff6e; background: rgba(0,255,110,.08); }
+        .badge-station  { color: #dd88ff; border-color: #dd88ff; background: rgba(221,136,255,.08); }
+        .badge-zip      { color: #ff6b9c; border-color: #ff6b9c; background: rgba(255,107,156,.08); }
+
+        /* ── Nav ─────────────────────────────────────────────────────── */
+        a { color: #ff6b9c; text-decoration: none; margin-right: 15px; transition: all 0.3s ease; }
+        a:hover { color: #4a90e2; text-shadow: 0 0 10px #4a90e2; }
+
+        .header-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .header-row .description-col {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .nav-links a {
+            margin-right: 0;
+            padding: 6px 0;
+        }
+
+        /* ── MOBILE STYLES ───────────────────────────────────────────── */
+        @media (max-width: 600px) {
+            body { padding: 12px; }
+
+            h1 { font-size: 1.3rem; margin-bottom: 4px; }
+            .subtitle { font-size: 0.8em; margin-bottom: 14px; }
+
+            .content-box { padding: 14px; margin: 12px 0; }
+
+            /* Header row: stack vertically */
+            .header-row { gap: 10px; margin-bottom: 14px; }
+            .header-row .description-col { min-width: unset; }
+            .panel-description { font-size: 0.9em; }
+
+            /* Mode tabs: smaller */
+            .mode-tabs { gap: 6px; margin-bottom: 14px; }
+            .mode-tab  { font-size: 11px; padding: 6px 10px; min-height: 36px; }
+
+            /* Units toggle */
+            .units-toggle { gap: 6px; }
+            .unit-btn     { font-size: 11px; padding: 5px 10px; }
+
+            /* Input groups: stack input + button vertically */
+            .input-group {
+                flex-direction: column;
+                border-radius: 10px;
+            }
+
+            input[type="text"],
+            input[type="number"] {
+                font-size: 16px !important;
+                padding: 13px 16px;
+                border-bottom: 1px solid rgba(74, 144, 226, 0.3);
+                width: 100%;
+            }
+
+            button.run-btn {
+                padding: 13px 16px;
+                font-size: 14px;
+                border-radius: 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Coordinates: stack lat + lon vertically */
+            .dual-input-group {
+                flex-direction: column;
+                gap: 10px;
+                max-width: 100%;
+            }
+
+            /* Terminal header: allow wrapping */
+            .terminal-header {
+                padding: 8px 12px;
+                font-size: 11px;
+                gap: 6px;
+                flex-wrap: wrap;
+            }
+
+            .terminal-control { width: 10px; height: 10px; }
+
+            .status-indicator {
+                font-size: 10px;
+                padding: 4px 8px;
+                gap: 5px;
+            }
+
+            /* Terminal output: ASCII art horizontal scroll */
+            .terminal-output {
+                font-size: 11px;
+                padding: 10px;
+                min-height: 160px;
+                max-height: calc(100vh - 300px);
+                white-space: pre;
+                overflow-x: auto;
+                word-break: normal;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .ascii-art { font-size: 9px; }
+
+            /* Scroll button: smaller */
+            .scroll-to-bottom { width: 36px; height: 36px; right: 10px; bottom: 10px; font-size: 16px; }
+
+            /* Export buttons: stack */
+            .export-toolbar { gap: 6px; }
+            .export-btn {
+                font-size: 12px;
+                padding: 8px 12px;
+                flex: 1 1 auto;
+                justify-content: center;
+            }
+
+            /* Nav links */
+            .nav-links {
+                gap: 10px;
+                padding-top: 4px;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+                padding: 8px 0;
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 380px) {
+            h1 { font-size: 1.1rem; }
+            .mode-tab { font-size: 10px; padding: 5px 8px; }
+            .terminal-output { font-size: 10px; }
+        }
+
+        @media (max-height: 500px) and (max-width: 900px) {
+            .terminal-output { max-height: 180px; }
+        }
+
+        @media (hover: none) {
+            .mode-tab:hover    { border-color: #4a90e2; color: #8a8ab8; }
+            button.run-btn:hover { transform: none; }
+            .export-btn:hover  { transform: none; }
+            .github-button:hover { transform: none; }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/livecenter-tools.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+</head>
+<body data-lct-theme="cabal">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <h1>Cabal Weather Scraper</h1>
+    <div class="subtitle">// meteorological osint via free weather APIs</div>
+
+    <div class="content-box">
+        <div class="header-row">
+            <div class="description-col">
+                <p class="panel-description" style="margin-top:0;">
+                    Queries multiple free weather APIs to pull current conditions, extended forecasts, active storm alerts, coordinate-based reports, weather station locations, and ZIP/postal-code lookups. All results are exportable to <strong>TXT</strong> or <strong>JSON</strong>.
+                </p>
+                <div class="info-badges">
+                    <span class="badge badge-current">Current Conditions</span>
+                    <span class="badge badge-forecast">7-Day Forecast</span>
+                    <span class="badge badge-alert">Active Alerts</span>
+                    <span class="badge badge-coords">Coordinates</span>
+                    <span class="badge badge-station">Weather Stations</span>
+                    <span class="badge badge-zip">ZIP / Postal</span>
+                </div>
+            </div>
+            <div style="display:flex; align-items:center; flex-shrink:0;">
+                <a href="https://github.com/OSINTCabal/Cabal-Weather-Scraper" target="_blank" rel="noopener" class="github-button">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+
+        <!-- Mode tabs -->
+        <div class="mode-tabs" id="modeTabs">
+            <div class="mode-tab active" data-mode="current">🌡 Current</div>
+            <div class="mode-tab" data-mode="forecast">📅 Forecast</div>
+            <div class="mode-tab" data-mode="alerts">🚨 Alerts</div>
+            <div class="mode-tab" data-mode="coords">📍 Coords</div>
+            <div class="mode-tab" data-mode="stations">📡 Stations</div>
+            <div class="mode-tab" data-mode="zip">🏙 ZIP</div>
+        </div>
+
+        <!-- Units toggle -->
+        <div class="units-toggle">
+            <span style="color:#8a8ab8; font-size:12px; align-self:center;">Units:</span>
+            <button class="unit-btn active" data-unit="imperial">°F / mph</button>
+            <button class="unit-btn" data-unit="metric">°C / km/h</button>
+            <button class="unit-btn" data-unit="standard">K / m/s</button>
+        </div>
+
+        <!-- Panel: Current Weather -->
+        <div class="search-panel active" id="panel-current">
+            <p class="panel-description">Enter a city name (optionally with state/country). Pulls real-time temperature, humidity, wind, pressure, visibility, and UV index.</p>
+            <div class="tool-form">
+                <div class="input-group">
+                    <input type="text" id="input-current" placeholder="e.g.  Los Angeles, CA  or  London, UK" autocorrect="off" autocapitalize="none" spellcheck="false">
+                    <button class="run-btn" onclick="runQuery('current')">Run</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel: Forecast -->
+        <div class="search-panel" id="panel-forecast">
+            <p class="panel-description">7-day extended forecast for any city. Returns daily high/low, precipitation probability, wind, and condition summaries.</p>
+            <div class="tool-form">
+                <div class="input-group">
+                    <input type="text" id="input-forecast" placeholder="e.g.  Miami, FL  or  Tokyo, Japan" autocorrect="off" autocapitalize="none" spellcheck="false">
+                    <button class="run-btn" onclick="runQuery('forecast')">Run</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel: Active Alerts -->
+        <div class="search-panel" id="panel-alerts">
+            <p class="panel-description">Fetches active National Weather Service alerts for a US state code or geographic area. Includes severity, event type, and affected zones.</p>
+            <div class="tool-form">
+                <div class="input-group">
+                    <input type="text" id="input-alerts" placeholder="e.g.  CA  or  TX  (US state code)" autocorrect="off" autocapitalize="characters" spellcheck="false">
+                    <button class="run-btn" onclick="runQuery('alerts')">Run</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel: Coordinates -->
+        <div class="search-panel" id="panel-coords">
+            <p class="panel-description">Query weather by exact latitude/longitude. Returns current conditions plus reverse-geocoded location metadata.</p>
+            <div class="dual-input-group">
+                <div class="input-group">
+                    <input type="number" id="input-lat" placeholder="Latitude  e.g. 34.0522" step="any" inputmode="decimal">
+                </div>
+                <div class="input-group">
+                    <input type="number" id="input-lon" placeholder="Longitude  e.g. -118.2437" step="any" inputmode="decimal">
+                    <button class="run-btn" onclick="runQuery('coords')">Run</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel: Weather Stations -->
+        <div class="search-panel" id="panel-stations">
+            <p class="panel-description">Locates nearby weather observation stations for a city or coordinates. Returns station IDs, names, and distance from query point.</p>
+            <div class="tool-form">
+                <div class="input-group">
+                    <input type="text" id="input-stations" placeholder="e.g.  Denver, CO  or  34.05,-118.24" autocorrect="off" autocapitalize="none" spellcheck="false">
+                    <button class="run-btn" onclick="runQuery('stations')">Run</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel: ZIP Code -->
+        <div class="search-panel" id="panel-zip">
+            <p class="panel-description">Pull current conditions by US ZIP code or international postal code. Resolves to city, region, and country automatically.</p>
+            <div class="tool-form">
+                <div class="input-group">
+                    <input type="text" id="input-zip" placeholder="e.g.  90001  or  EC1A 1BB" autocorrect="off" autocapitalize="none" spellcheck="false" inputmode="numeric">
+                    <button class="run-btn" onclick="runQuery('zip')">Run</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Terminal -->
+        <div class="terminal-container" id="terminal-container">
+            <div class="terminal-header">
+                <div class="terminal-controls">
+                    <div class="terminal-control close"></div>
+                    <div class="terminal-control minimize"></div>
+                    <div class="terminal-control maximize"></div>
+                </div>
+                <span>Cabal Weather Scraper</span>
+                <div class="status-indicator" id="status-indicator">
+                    <div class="pulse"></div>
+                    <span>Initializing...</span>
+                </div>
+            </div>
+            <div class="terminal-output" id="terminal-output">
+                Waiting for query...<span class="terminal-cursor"></span>
+            </div>
+            <button class="scroll-to-bottom" id="scroll-button" onclick="scrollToBottom()">↓</button>
+        </div>
+
+        <!-- Export toolbar -->
+        <div class="export-toolbar" id="export-toolbar">
+            <button class="export-btn" onclick="exportTxt()">📄 Export TXT</button>
+            <button class="export-btn json" onclick="exportJson()">{ } Export JSON</button>
+        </div>
+    </div>
+
+    <div class="nav-links">
+        <a href="live.html"> ← Back to Live Center</a>
+        <a href="../index.html">Home</a>
+    </div>
+
+    <script>
+        /* ── State ──────────────────────────────────────────────────── */
+        let isRunning    = false;
+        let autoScroll   = true;
+        let activeUnit   = 'imperial';
+        let activeMode   = 'current';
+        let lastRawText  = '';
+        let lastJsonData = null;
+
+        /* ── ASCII art ──────────────────────────────────────────────── */
+        const ASCII_ART = `        __I__
+   .-'"  .  "'-.
+ .'  / . ' . \\  '.
+/_.-..-..-..-..-._\\ .---------------------------------.
+         #  _,,_   ( I hear it might rain people today )
+         #/\`    \`\\ /'---------------------------------'
+         / / 6 6\\ \\
+         \\/\\  Y /\\/       /\\-/\\
+         #/ \`'U\` \\       /a a  \\               _
+       , (  \\   | \\     =\\ Y  =/-~~~~~~-,_____/ )
+       |\\|\\_ /#  \\_/       '^--'          ______/
+       \\/'.  \\  /'\\ \\         \\           /
+        \\    /=\\  /         ||  |---'\\  \\
+        /____)/____)       (_(__|   ((__|
+
+--_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+_________       ___.          .__     __      __               __  .__
+\\_   ___ \\_____ \\_ |__ _____  |  |   /  \\    /  \\ ____ _____ _/  |_|  |__   ___________
+/    \\  \\/\\__  \\ | __ \\\\__  \\ |  |   \\   \\/\\/   // __ \\\\__  \\\\   __\\  |  \\_/ __ \\_  __ \\
+\\     \\____/ __ \\| \\_\\ \\/ __ \\|  |__  \\        /\\  ___/ / __ \\|  | |   Y  \\  ___/|  | \\/
+ \\______  (____  /___  (____  /____/   \\__/\\  /  \\___  >____  /__| |___|  /\\___  >__|
+        \\/     \\/    \\/     \\/              \\/       \\/     \\/          \\/     \\/
+  _________
+ /   _____/ ________________  ______   ___________
+ \\_____  \\_/ ___\\_  __ \\__  \\ \\____ \\_/ __ \\_  __ \\
+ /        \\  \\___|  | \\// __ \\|  |_> >  ___/|  | \\/
+/_______  /\\___  >__|  (____  /   __/ \\___  >__|
+        \\/     \\/           \\/|__|        \\/`;
+
+        /* ── Mode tabs ──────────────────────────────────────────────── */
+        document.querySelectorAll('.mode-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                if (isRunning) return;
+                document.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.search-panel').forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                activeMode = tab.dataset.mode;
+                document.getElementById('panel-' + activeMode).classList.add('active');
+            });
+        });
+
+        /* ── Unit buttons ───────────────────────────────────────────── */
+        document.querySelectorAll('.unit-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.unit-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeUnit = btn.dataset.unit;
+            });
+        });
+
+        /* ── Helpers ────────────────────────────────────────────────── */
+        function updateStatus(status, text) {
+            const el = document.getElementById('status-indicator');
+            el.className = 'status-indicator status-' + status;
+            el.innerHTML = '<div class="pulse"></div><span>' + text + '</span>';
+        }
+
+        function scrollToBottom() {
+            const out = document.getElementById('terminal-output');
+            out.scrollTop = out.scrollHeight;
+            document.getElementById('scroll-button').style.display = 'none';
+            autoScroll = true;
+        }
+
+        function checkScroll() {
+            const out = document.getElementById('terminal-output');
+            const btn = document.getElementById('scroll-button');
+            if (out.scrollTop + out.clientHeight < out.scrollHeight - 50) {
+                btn.style.display = 'flex';
+                autoScroll = false;
+            } else {
+                btn.style.display = 'none';
+                autoScroll = true;
+            }
+        }
+
+        function appendHtml(html) {
+            const out = document.getElementById('terminal-output');
+            const cleaned = out.innerHTML.replace(/<span class="terminal-cursor"><\/span>$/, '');
+            out.innerHTML = cleaned + html + '\n<span class="terminal-cursor"></span>';
+            if (autoScroll) scrollToBottom();
+        }
+
+        function appendText(text) { appendHtml(escapeHtml(text)); }
+
+        function escapeHtml(s) {
+            return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        }
+
+        function getInput() {
+            switch (activeMode) {
+                case 'current':  return document.getElementById('input-current').value.trim();
+                case 'forecast': return document.getElementById('input-forecast').value.trim();
+                case 'alerts':   return document.getElementById('input-alerts').value.trim();
+                case 'stations': return document.getElementById('input-stations').value.trim();
+                case 'zip':      return document.getElementById('input-zip').value.trim();
+                case 'coords': {
+                    const lat = document.getElementById('input-lat').value.trim();
+                    const lon = document.getElementById('input-lon').value.trim();
+                    return lat && lon ? lat + ',' + lon : '';
+                }
+            }
+            return '';
+        }
+
+        /* ── Main query ─────────────────────────────────────────────── */
+        function runQuery(mode) {
+            const query = getInput();
+            if (!query) { alert('Please enter a value before running.'); return; }
+            if (isRunning) { alert('A query is already running. Please wait.'); return; }
+
+            isRunning = true;
+            lastRawText  = '';
+            lastJsonData = null;
+
+            // Dismiss mobile keyboard
+            if (document.activeElement) document.activeElement.blur();
+
+            document.querySelectorAll('.run-btn').forEach(b => b.disabled = true);
+
+            const termContainer = document.getElementById('terminal-container');
+            const termOutput    = document.getElementById('terminal-output');
+            termContainer.style.display = 'block';
+            document.getElementById('export-toolbar').classList.remove('visible');
+
+            termOutput.innerHTML =
+                '<pre class="ascii-art">' + escapeHtml(ASCII_ART) + '</pre>' +
+                '<span class="terminal-cursor"></span>';
+
+            updateStatus('running', 'Fetching...');
+            autoScroll = true;
+            termOutput.addEventListener('scroll', checkScroll);
+
+            // Scroll terminal into view on mobile
+            setTimeout(() => termContainer.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+
+            setTimeout(() => {
+                appendHtml('<span class="ansi-cyan">Cabal Weather Scraper</span> — mode: <span class="ansi-yellow">' + escapeHtml(mode) + '</span>  units: <span class="ansi-green">' + escapeHtml(activeUnit) + '</span>');
+                appendHtml('Query: <span class="ansi-white">' + escapeHtml(query) + '</span>');
+                appendText('Connecting to weather APIs...');
+            }, 200);
+
+            const warnTimer = setTimeout(() => {
+                if (isRunning) appendHtml('<span class="ansi-yellow">⚠  Waiting on API response — hang tight...</span>');
+            }, 12000);
+
+            const hardTimer = setTimeout(() => {
+                if (isRunning) {
+                    updateStatus('error', 'Timeout');
+                    appendHtml('<span class="ansi-red">✘  Request timed out after 35 seconds.</span>');
+                    resetRunning();
+                }
+            }, 35000);
+
+            const url = '/livecenter/LIVETOOLS/weatherscraper_wrapper.php'
+                      + '?mode='  + encodeURIComponent(mode)
+                      + '&query=' + encodeURIComponent(query)
+                      + '&units=' + encodeURIComponent(activeUnit);
+
+            fetch(url)
+                .then(r => {
+                    if (!r.ok) throw new Error('Server returned status: ' + r.status);
+                    return r.text();
+                })
+                .then(data => {
+                    clearTimeout(warnTimer);
+                    clearTimeout(hardTimer);
+                    updateStatus('complete', 'Complete');
+                    appendHtml(data);
+                    lastRawText = termOutput.innerText || termOutput.textContent;
+
+                    const jsonMatch = data.match(/```json\s*([\s\S]*?)```/);
+                    if (jsonMatch) {
+                        try { lastJsonData = JSON.parse(jsonMatch[1]); } catch(e) {}
+                    }
+
+                    document.getElementById('export-toolbar').classList.add('visible');
+                    resetRunning();
+                })
+                .catch(err => {
+                    clearTimeout(warnTimer);
+                    clearTimeout(hardTimer);
+                    updateStatus('error', 'Failed');
+                    appendHtml('<span class="ansi-red">✘  Error: ' + escapeHtml(err.message) + '</span>');
+                    appendText('Please try again or contact the administrator.');
+                    resetRunning();
+                });
+        }
+
+        function resetRunning() {
+            isRunning = false;
+            document.querySelectorAll('.run-btn').forEach(b => b.disabled = false);
+        }
+
+        /* ── Export ─────────────────────────────────────────────────── */
+        function exportTxt() {
+            const text = document.getElementById('terminal-output').innerText || lastRawText;
+            const blob = new Blob([text], { type: 'text/plain' });
+            downloadBlob(blob, 'cabal-weather-' + sanitizeFilename(getInput()) + '.txt');
+        }
+
+        function exportJson() {
+            const payload = lastJsonData || {
+                tool:       'Cabal Weather Scraper',
+                mode:       activeMode,
+                query:      getInput(),
+                units:      activeUnit,
+                timestamp:  new Date().toISOString(),
+                raw_output: document.getElementById('terminal-output').innerText || lastRawText
+            };
+            const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+            downloadBlob(blob, 'cabal-weather-' + sanitizeFilename(getInput()) + '.json');
+        }
+
+        function downloadBlob(blob, filename) {
+            const url = URL.createObjectURL(blob);
+            const a   = document.createElement('a');
+            a.href     = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function sanitizeFilename(s) {
+            return s.replace(/[^a-z0-9_\-\.]/gi, '_').substring(0, 40) || 'result';
+        }
+
+        /* ── Enter-key support ──────────────────────────────────────── */
+        ['input-current','input-forecast','input-alerts','input-stations','input-zip','input-lat','input-lon']
+            .forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('keypress', e => {
+                    if (e.key === 'Enter') runQuery(activeMode);
+                });
+            });
+    </script>
+
+        <script src="../assets/js/livecenter-ui.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c19771cf94614',t:'MTc4OTAxODg0Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

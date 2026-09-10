@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CoronavirOSINT - COVID-19 Intelligence | OSINT Cabal</title>
+    <meta name="description" content="Live COVID-19 intelligence platform. Global snapshots, country reports, comparisons, province breakdowns via RapidAPI.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="OSINT Cabal">
+    <link rel="canonical" href="https://osintcabal.org/livecenter/coronavirosint.html" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://osintcabal.org/livecenter/coronavirosint.html">
+    <meta property="og:title" content="CoronavirOSINT - COVID-19 Intelligence | OSINT Cabal">
+    <meta property="og:description" content="Live COVID-19 intelligence: global stats, country reports, comparisons, province breakdowns.">
+    <meta property="og:site_name" content="OSINT Cabal">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/favicons/manifest.json">
+    <meta name="theme-color" content="#6b21a8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/livecenter-tools.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+</head>
+<body data-lct-theme="public">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <div class="lct-wrap">
+        <div class="lct-title">
+            <div class="title-glass">
+                <h1>CoronavirOSINT</h1>
+            </div>
+        </div>
+    <div class="subtitle">COVID-19 Intelligence Platform  //  RapidAPI Data Feed</div>
+
+    <div class="content-box">
+
+        <!-- Header row: [Location Widget] [Center badges] [GitHub] -->
+        <div class="header-row">
+
+            <!-- LEFT: Location Code dropdown -->
+            <div class="location-widget">
+                <span class="location-widget-label">Location Code</span>
+                <select class="location-widget-select" id="locationCodeSelect" onchange="onLocationCode()">
+                    <option value="">— Select Country —</option>
+                    <option value="AFG">AFG — Afghanistan</option>
+                    <option value="ALB">ALB — Albania</option>
+                    <option value="DZA">DZA — Algeria</option>
+                    <option value="AND">AND — Andorra</option>
+                    <option value="AGO">AGO — Angola</option>
+                    <option value="ARG">ARG — Argentina</option>
+                    <option value="ARM">ARM — Armenia</option>
+                    <option value="AUS">AUS — Australia</option>
+                    <option value="AUT">AUT — Austria</option>
+                    <option value="AZE">AZE — Azerbaijan</option>
+                    <option value="BHS">BHS — Bahamas</option>
+                    <option value="BHR">BHR — Bahrain</option>
+                    <option value="BGD">BGD — Bangladesh</option>
+                    <option value="BLR">BLR — Belarus</option>
+                    <option value="BEL">BEL — Belgium</option>
+                    <option value="BLZ">BLZ — Belize</option>
+                    <option value="BEN">BEN — Benin</option>
+                    <option value="BTN">BTN — Bhutan</option>
+                    <option value="BOL">BOL — Bolivia</option>
+                    <option value="BIH">BIH — Bosnia and Herzegovina</option>
+                    <option value="BWA">BWA — Botswana</option>
+                    <option value="BRA">BRA — Brazil</option>
+                    <option value="BRN">BRN — Brunei</option>
+                    <option value="BGR">BGR — Bulgaria</option>
+                    <option value="BFA">BFA — Burkina Faso</option>
+                    <option value="BDI">BDI — Burundi</option>
+                    <option value="CPV">CPV — Cabo Verde</option>
+                    <option value="KHM">KHM — Cambodia</option>
+                    <option value="CMR">CMR — Cameroon</option>
+                    <option value="CAN">CAN — Canada</option>
+                    <option value="CAF">CAF — Central African Republic</option>
+                    <option value="TCD">TCD — Chad</option>
+                    <option value="CHL">CHL — Chile</option>
+                    <option value="CHN">CHN — China</option>
+                    <option value="COL">COL — Colombia</option>
+                    <option value="COD">COD — Congo (DR)</option>
+                    <option value="COG">COG — Congo (Republic)</option>
+                    <option value="CRI">CRI — Costa Rica</option>
+                    <option value="CIV">CIV — Côte d'Ivoire</option>
+                    <option value="HRV">HRV — Croatia</option>
+                    <option value="CUB">CUB — Cuba</option>
+                    <option value="CYP">CYP — Cyprus</option>
+                    <option value="CZE">CZE — Czech Republic</option>
+                    <option value="DNK">DNK — Denmark</option>
+                    <option value="DJI">DJI — Djibouti</option>
+                    <option value="DOM">DOM — Dominican Republic</option>
+                    <option value="ECU">ECU — Ecuador</option>
+                    <option value="EGY">EGY — Egypt</option>
+                    <option value="SLV">SLV — El Salvador</option>
+                    <option value="GNQ">GNQ — Equatorial Guinea</option>
+                    <option value="ERI">ERI — Eritrea</option>
+                    <option value="EST">EST — Estonia</option>
+                    <option value="SWZ">SWZ — Eswatini</option>
+                    <option value="ETH">ETH — Ethiopia</option>
+                    <option value="FJI">FJI — Fiji</option>
+                    <option value="FIN">FIN — Finland</option>
+                    <option value="FRA">FRA — France</option>
+                    <option value="GAB">GAB — Gabon</option>
+                    <option value="GMB">GMB — Gambia</option>
+                    <option value="GEO">GEO — Georgia</option>
+                    <option value="DEU">DEU — Germany</option>
+                    <option value="GHA">GHA — Ghana</option>
+                    <option value="GRC">GRC — Greece</option>
+                    <option value="GTM">GTM — Guatemala</option>
+                    <option value="GIN">GIN — Guinea</option>
+                    <option value="GNB">GNB — Guinea-Bissau</option>
+                    <option value="GUY">GUY — Guyana</option>
+                    <option value="HTI">HTI — Haiti</option>
+                    <option value="HND">HND — Honduras</option>
+                    <option value="HUN">HUN — Hungary</option>
+                    <option value="ISL">ISL — Iceland</option>
+                    <option value="IND">IND — India</option>
+                    <option value="IDN">IDN — Indonesia</option>
+                    <option value="IRN">IRN — Iran</option>
+                    <option value="IRQ">IRQ — Iraq</option>
+                    <option value="IRL">IRL — Ireland</option>
+                    <option value="ISR">ISR — Israel</option>
+                    <option value="ITA">ITA — Italy</option>
+                    <option value="JAM">JAM — Jamaica</option>
+                    <option value="JPN">JPN — Japan</option>
+                    <option value="JOR">JOR — Jordan</option>
+                    <option value="KAZ">KAZ — Kazakhstan</option>
+                    <option value="KEN">KEN — Kenya</option>
+                    <option value="PRK">PRK — Korea (North)</option>
+                    <option value="KOR">KOR — Korea (South)</option>
+                    <option value="KWT">KWT — Kuwait</option>
+                    <option value="KGZ">KGZ — Kyrgyzstan</option>
+                    <option value="LAO">LAO — Laos</option>
+                    <option value="LVA">LVA — Latvia</option>
+                    <option value="LBN">LBN — Lebanon</option>
+                    <option value="LSO">LSO — Lesotho</option>
+                    <option value="LBR">LBR — Liberia</option>
+                    <option value="LBY">LBY — Libya</option>
+                    <option value="LIE">LIE — Liechtenstein</option>
+                    <option value="LTU">LTU — Lithuania</option>
+                    <option value="LUX">LUX — Luxembourg</option>
+                    <option value="MDG">MDG — Madagascar</option>
+                    <option value="MWI">MWI — Malawi</option>
+                    <option value="MYS">MYS — Malaysia</option>
+                    <option value="MDV">MDV — Maldives</option>
+                    <option value="MLI">MLI — Mali</option>
+                    <option value="MLT">MLT — Malta</option>
+                    <option value="MRT">MRT — Mauritania</option>
+                    <option value="MUS">MUS — Mauritius</option>
+                    <option value="MEX">MEX — Mexico</option>
+                    <option value="MDA">MDA — Moldova</option>
+                    <option value="MCO">MCO — Monaco</option>
+                    <option value="MNG">MNG — Mongolia</option>
+                    <option value="MNE">MNE — Montenegro</option>
+                    <option value="MAR">MAR — Morocco</option>
+                    <option value="MOZ">MOZ — Mozambique</option>
+                    <option value="MMR">MMR — Myanmar</option>
+                    <option value="NAM">NAM — Namibia</option>
+                    <option value="NPL">NPL — Nepal</option>
+                    <option value="NLD">NLD — Netherlands</option>
+                    <option value="NZL">NZL — New Zealand</option>
+                    <option value="NIC">NIC — Nicaragua</option>
+                    <option value="NER">NER — Niger</option>
+                    <option value="NGA">NGA — Nigeria</option>
+                    <option value="MKD">MKD — North Macedonia</option>
+                    <option value="NOR">NOR — Norway</option>
+                    <option value="OMN">OMN — Oman</option>
+                    <option value="PAK">PAK — Pakistan</option>
+                    <option value="PAN">PAN — Panama</option>
+                    <option value="PNG">PNG — Papua New Guinea</option>
+                    <option value="PRY">PRY — Paraguay</option>
+                    <option value="PER">PER — Peru</option>
+                    <option value="PHL">PHL — Philippines</option>
+                    <option value="POL">POL — Poland</option>
+                    <option value="PRT">PRT — Portugal</option>
+                    <option value="QAT">QAT — Qatar</option>
+                    <option value="ROU">ROU — Romania</option>
+                    <option value="RUS">RUS — Russia</option>
+                    <option value="RWA">RWA — Rwanda</option>
+                    <option value="SAU">SAU — Saudi Arabia</option>
+                    <option value="SEN">SEN — Senegal</option>
+                    <option value="SRB">SRB — Serbia</option>
+                    <option value="SLE">SLE — Sierra Leone</option>
+                    <option value="SGP">SGP — Singapore</option>
+                    <option value="SVK">SVK — Slovakia</option>
+                    <option value="SVN">SVN — Slovenia</option>
+                    <option value="SOM">SOM — Somalia</option>
+                    <option value="ZAF">ZAF — South Africa</option>
+                    <option value="SSD">SSD — South Sudan</option>
+                    <option value="ESP">ESP — Spain</option>
+                    <option value="LKA">LKA — Sri Lanka</option>
+                    <option value="SDN">SDN — Sudan</option>
+                    <option value="SUR">SUR — Suriname</option>
+                    <option value="SWE">SWE — Sweden</option>
+                    <option value="CHE">CHE — Switzerland</option>
+                    <option value="SYR">SYR — Syria</option>
+                    <option value="TWN">TWN — Taiwan</option>
+                    <option value="TJK">TJK — Tajikistan</option>
+                    <option value="TZA">TZA — Tanzania</option>
+                    <option value="THA">THA — Thailand</option>
+                    <option value="TLS">TLS — Timor-Leste</option>
+                    <option value="TGO">TGO — Togo</option>
+                    <option value="TTO">TTO — Trinidad and Tobago</option>
+                    <option value="TUN">TUN — Tunisia</option>
+                    <option value="TUR">TUR — Turkey</option>
+                    <option value="TKM">TKM — Turkmenistan</option>
+                    <option value="UGA">UGA — Uganda</option>
+                    <option value="UKR">UKR — Ukraine</option>
+                    <option value="ARE">ARE — United Arab Emirates</option>
+                    <option value="GBR">GBR — United Kingdom</option>
+                    <option value="USA">USA — United States</option>
+                    <option value="URY">URY — Uruguay</option>
+                    <option value="UZB">UZB — Uzbekistan</option>
+                    <option value="VEN">VEN — Venezuela</option>
+                    <option value="VNM">VNM — Vietnam</option>
+                    <option value="YEM">YEM — Yemen</option>
+                    <option value="ZMB">ZMB — Zambia</option>
+                    <option value="ZWE">ZWE — Zimbabwe</option>
+                </select>
+            </div>
+
+            <!-- CENTER: badges + description -->
+            <div class="header-center">
+                <div class="info-badges">
+                    <span class="badge b-yellow">Global Snapshot</span>
+                    <span class="badge b-cyan">Country Reports</span>
+                    <span class="badge b-red">Death Stats</span>
+                    <span class="badge b-green">Recovery Rates</span>
+                    <span class="badge b-magenta">Province Breakdown</span>
+                    <span class="badge b-cyan">TXT Export</span>
+                </div>
+                <p style="color:#8899bb; font-size:0.8em; margin:0; line-height:1.5;">
+                    Live COVID-19 data via <strong style="color:#e8eeff;">RapidAPI covid-19-statistics</strong>.
+                    No database — every query pulls fresh data. Historical/trend modes require persistent storage and are not available in this web interface.
+                </p>
+            </div>
+
+            <!-- RIGHT: GitHub button -->
+            <a href="https://github.com/OSINTCabal/CoronavirOSINT" target="_blank" rel="noopener" class="github-button">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
+                GitHub
+            </a>
+        </div>
+
+        <!-- ── Query form ─────────────────────────────────────── -->
+        <div class="query-form">
+
+            <div class="form-group">
+                <label>Query Type</label>
+                <select id="modeSelect" onchange="onModeChange()">
+                    <option value="global">Global Snapshot — worldwide totals &amp; rates</option>
+                    <option value="country">Country Report — single country by ISO code</option>
+                    <option value="compare">Country Comparison — compare multiple countries</option>
+                    <option value="province">Province Breakdown — sub-national stats by ISO</option>
+                    <option value="search">Location Search — ISO + optional province/city</option>
+                </select>
+            </div>
+
+            <!-- global -->
+            <div class="field-group" id="fields-global">
+                <div class="mode-hint" style="padding:6px 0;">Fetches real-time worldwide totals: confirmed, deaths, recovered, active, mortality rate, recovery rate.</div>
+            </div>
+
+            <!-- country -->
+            <div class="field-group active" id="fields-country">
+                <div class="form-group">
+                    <label>Country ISO Code</label>
+                    <input type="text" id="input-country-iso" placeholder="e.g. USA, GBR, CHN" maxlength="3" autocorrect="off" autocapitalize="characters" spellcheck="false">
+                </div>
+            </div>
+
+            <!-- compare -->
+            <div class="field-group" id="fields-compare">
+                <div class="form-group">
+                    <label>ISO Codes (comma-separated)</label>
+                    <input type="text" id="input-compare-isos" placeholder="e.g. USA,GBR,CHN,ITA,BRA" autocorrect="off" autocapitalize="characters" spellcheck="false">
+                    <div class="mode-hint">Enter 2–6 ISO codes separated by commas. Sorted by confirmed cases.</div>
+                </div>
+            </div>
+
+            <!-- province -->
+            <div class="field-group" id="fields-province">
+                <div class="form-group">
+                    <label>Country ISO Code</label>
+                    <input type="text" id="input-province-iso" placeholder="e.g. USA, AUS, CAN" maxlength="3" autocorrect="off" autocapitalize="characters" spellcheck="false">
+                    <div class="mode-hint">Fetches province/state breakdown. Queries up to 20 provinces individually — may take 15–30s.</div>
+                </div>
+            </div>
+
+            <!-- search -->
+            <div class="field-group" id="fields-search">
+                <div class="form-group" style="flex:1; min-width:120px;">
+                    <label>ISO Code (required)</label>
+                    <input type="text" id="input-search-iso" placeholder="e.g. USA" maxlength="3" autocorrect="off" autocapitalize="characters" spellcheck="false">
+                </div>
+                <div class="form-group" style="flex:2; min-width:140px;">
+                    <label>Province / State (optional)</label>
+                    <input type="text" id="input-search-province" placeholder="e.g. California" autocorrect="off" autocapitalize="words" spellcheck="false">
+                </div>
+                <div class="form-group" style="flex:2; min-width:140px;">
+                    <label>City (optional)</label>
+                    <input type="text" id="input-search-city" placeholder="e.g. Los Angeles" autocorrect="off" autocapitalize="words" spellcheck="false">
+                </div>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end;">
+                <button class="submit-btn" id="submitBtn" onclick="runQuery()">▶ &nbsp;Run Query</button>
+            </div>
+        </div>
+
+        <!-- Export strip -->
+        <div class="export-strip" id="exportStrip">
+            <div class="export-strip-text" id="exportText">Results ready for download.</div>
+            <button class="btn-export" onclick="exportTxt()">⬇ Export as .txt</button>
+        </div>
+
+        <!-- Terminal -->
+        <div class="terminal-container" id="terminalContainer">
+            <div class="terminal-header">
+                <div class="terminal-controls">
+                    <div class="terminal-control close"></div>
+                    <div class="terminal-control minimize"></div>
+                    <div class="terminal-control maximize"></div>
+                </div>
+                <span>CoronavirOSINT Terminal</span>
+                <div class="status-indicator status-running" id="statusIndicator">
+                    <div class="pulse"></div><span>Ready</span>
+                </div>
+            </div>
+            <div class="terminal-output" id="terminalOutput">
+                Select a query type and run to see results.<span class="terminal-cursor"></span>
+            </div>
+            <button class="scroll-btn" id="scrollBtn" onclick="scrollToBottom()">↓</button>
+        </div>
+    </div>
+
+    <div class="nav-links">
+        <a href="live.html"> ← Back to Live Center</a>
+        <a href="../index.html">Home</a>
+    </div>
+
+    
+    </div>
+
+<script>
+        const MODES = ['global','country','compare','province','search'];
+        let eventSource = null, isRunning = false, autoScroll = true, exportData = '';
+
+        /* ── Location Code dropdown → switch to country mode + fill ISO ── */
+        function onLocationCode() {
+            const iso = document.getElementById('locationCodeSelect').value;
+            if (!iso) return;
+            document.getElementById('modeSelect').value = 'country';
+            onModeChange();
+            document.getElementById('input-country-iso').value = iso;
+            document.getElementById('locationCodeSelect').value = '';
+        }
+
+        /* ── Mode switching ──────────────────────────────────── */
+        function onModeChange() {
+            const mode = document.getElementById('modeSelect').value;
+            MODES.forEach(m => {
+                const el = document.getElementById('fields-' + m);
+                if (el) el.classList.toggle('active', m === mode);
+            });
+        }
+
+        /* ── Scroll ──────────────────────────────────────────── */
+        function scrollToBottom() {
+            const out = document.getElementById('terminalOutput');
+            out.scrollTop = out.scrollHeight;
+            document.getElementById('scrollBtn').style.display = 'none';
+            autoScroll = true;
+        }
+
+        function checkScroll() {
+            const out = document.getElementById('terminalOutput');
+            const btn = document.getElementById('scrollBtn');
+            if (out.scrollTop + out.clientHeight < out.scrollHeight - 60) {
+                btn.style.display = 'flex'; autoScroll = false;
+            } else {
+                btn.style.display = 'none'; autoScroll = true;
+            }
+        }
+
+        /* ── Terminal helpers ────────────────────────────────── */
+        function appendLine(html) {
+            const out = document.getElementById('terminalOutput');
+            out.innerHTML = out.innerHTML.replace(/<span class="terminal-cursor"><\/span>$/, '');
+            { const __c = out.querySelector('.terminal-cursor');
+              if (__c) __c.insertAdjacentHTML('beforebegin', html + '\n');
+              else out.insertAdjacentHTML('beforeend', html + '\n' + '<span class="terminal-cursor"></span>');
+            }
+            while (out.childNodes.length > 1200) out.removeChild(out.firstChild);
+            if (autoScroll) scrollToBottom();
+        }
+
+        function updateStatus(cls, text) {
+            const ind = document.getElementById('statusIndicator');
+            ind.className = `status-indicator status-${cls}`;
+            ind.innerHTML = `<div class="pulse"></div><span>${text}</span>`;
+        }
+
+        /* ── Build params ────────────────────────────────────── */
+        function buildParams() {
+            const mode = document.getElementById('modeSelect').value;
+            const p = new URLSearchParams({ mode });
+            switch (mode) {
+                case 'country':
+                    p.set('iso', document.getElementById('input-country-iso').value.trim().toUpperCase());
+                    break;
+                case 'compare':
+                    p.set('isos', document.getElementById('input-compare-isos').value.replace(/\s/g,'').toUpperCase());
+                    break;
+                case 'province':
+                    p.set('iso', document.getElementById('input-province-iso').value.trim().toUpperCase());
+                    break;
+                case 'search':
+                    p.set('iso', document.getElementById('input-search-iso').value.trim().toUpperCase());
+                    const prov = document.getElementById('input-search-province').value.trim();
+                    const city = document.getElementById('input-search-city').value.trim();
+                    if (prov) p.set('province', prov);
+                    if (city) p.set('city', city);
+                    break;
+            }
+            return p;
+        }
+
+        function validate(mode, params) {
+            const needsISO = ['country','province','search'];
+            if (needsISO.includes(mode) && !params.get('iso')) {
+                alert('Please enter a valid ISO code (e.g. USA).'); return false;
+            }
+            if (mode === 'compare') {
+                const isos = (params.get('isos') || '').split(',').filter(Boolean);
+                if (isos.length < 2) { alert('Please enter at least 2 ISO codes separated by commas.'); return false; }
+            }
+            return true;
+        }
+
+        /* ── Run ─────────────────────────────────────────────── */
+        function runQuery() {
+            if (isRunning) return;
+            const mode   = document.getElementById('modeSelect').value;
+            const params = buildParams();
+            if (!validate(mode, params)) return;
+
+            isRunning  = true;
+            exportData = '';
+
+            // Dismiss mobile keyboard
+            if (document.activeElement) document.activeElement.blur();
+
+            const btn      = document.getElementById('submitBtn');
+            const terminal = document.getElementById('terminalContainer');
+            const out      = document.getElementById('terminalOutput');
+            const strip    = document.getElementById('exportStrip');
+
+            btn.disabled           = true;
+            btn.textContent        = '⏳  Querying...';
+            terminal.style.display = 'block';
+            strip.classList.remove('active');
+            out.innerHTML          = 'Connecting to CoronavirOSINT runner...<span class="terminal-cursor"></span>';
+            updateStatus('running', 'Fetching...');
+            autoScroll = true;
+            out.addEventListener('scroll', checkScroll);
+
+            // Scroll terminal into view on mobile
+            setTimeout(() => terminal.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+
+            if (eventSource) eventSource.close();
+            eventSource = new EventSource(`/livecenter/LIVETOOLS/coronavirosint_wrapper.php?${params.toString()}`);
+
+            eventSource.onmessage = function(e) {
+                let payload;
+                try { payload = JSON.parse(e.data); } catch { return; }
+
+                if (payload.type === 'line') {
+                    appendLine(payload.html !== undefined ? payload.html : '');
+                } else if (payload.type === 'export_ready') {
+                    exportData = payload.text || '';
+                    showExport();
+                } else if (payload.type === 'error') {
+                    updateStatus('error', 'Error');
+                    appendLine(payload.html || '<span class="ansi-red">An error occurred.</span>');
+                    finish();
+                } else if (payload.type === 'done') {
+                    finish();
+                }
+            };
+
+            eventSource.onerror = function() {
+                if (!isRunning) return;
+                updateStatus('error', 'Connection Lost');
+                appendLine('<span class="ansi-red">SSE connection dropped.</span>');
+                finish();
+            };
+        }
+
+        function finish() {
+            isRunning = false;
+            if (eventSource) { eventSource.close(); eventSource = null; }
+            const btn = document.getElementById('submitBtn');
+            btn.disabled    = false;
+            btn.textContent = '▶  Run Query';
+            updateStatus('complete', 'Complete');
+        }
+
+        function showExport() {
+            const strip = document.getElementById('exportStrip');
+            const text  = document.getElementById('exportText');
+            text.textContent = `✔ Report ready — ${exportData.split('\n').length} lines. Click to download.`;
+            strip.classList.add('active');
+        }
+
+        /* ── Export ──────────────────────────────────────────── */
+        function exportTxt() {
+            if (!exportData) return;
+            const mode = document.getElementById('modeSelect').value;
+            const ts   = new Date().toISOString().replace(/[:.]/g,'-').slice(0,19);
+            const blob = new Blob([exportData], { type: 'text/plain' });
+            const url  = URL.createObjectURL(blob);
+            const a    = document.createElement('a');
+            a.href     = url;
+            a.download = `osintcabal_covid_${mode}_${ts}.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Init
+        onModeChange();
+    </script>
+    <script src="../assets/js/livecenter-ui.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c196748d74614',t:'MTc4OTAxODg0MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

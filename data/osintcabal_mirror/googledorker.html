@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Google Dorker - Browser Tab Dork Tool</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #0a0a1a;
+            color: #e0e0ff;
+            font-family: 'Space Mono', monospace;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(120, 255, 214, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+        }
+        
+        h1 {
+            color: #ff6b9c;
+            text-align: center;
+            text-shadow: 0 0 10px #ff6b9c, 0 0 20px #ff6b9c;
+            font-size: clamp(1.2rem, 5vw, 2rem);
+            margin: 0 0 16px 0;
+            padding: 0 10px;
+        }
+        
+        .content-box {
+            border: 1px solid #4a90e2;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: rgba(18, 18, 18, 0.8);
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .menu-section {
+            border: 1px solid #4a90e2;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: rgba(26, 26, 26, 0.8);
+        }
+        
+        .menu-section h3 {
+            color: #ff6b9c;
+            text-align: center;
+            margin-top: 0;
+            text-shadow: 0 0 10px #ff6b9c, 0 0 20px #ff6b9c;
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .option-card {
+            border: 1px solid #4a90e2;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: rgba(20, 20, 50, 0.6);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        
+        .option-card:hover {
+            border-color: #ff6b9c;
+            background-color: rgba(255, 107, 156, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 107, 156, 0.3);
+        }
+
+        .option-card:active {
+            transform: translateY(0);
+        }
+        
+        .option-card.selected {
+            border-color: #ff6b9c;
+            background-color: rgba(255, 107, 156, 0.2);
+            box-shadow: 0 0 15px rgba(255, 107, 156, 0.4);
+        }
+        
+        .option-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6b9c;
+            margin-bottom: 10px;
+        }
+        
+        .option-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #4a90e2;
+            margin-bottom: 8px;
+        }
+        
+        .option-description {
+            font-size: 14px;
+            color: rgba(74, 144, 226, 0.8);
+            line-height: 1.4;
+        }
+        
+        .tool-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+            gap: 20px;
+        }
+        
+        .input-group {
+            display: flex;
+            align-items: stretch;
+            background-color: rgba(26, 26, 26, 0.6);
+            border: 2px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);
+            transition: all 0.3s ease;
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        .input-group:hover {
+            border-color: #4a90e2;
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.3);
+        }
+        
+        .input-group:focus-within {
+            border-color: #4a90e2;
+            box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
+            background-color: rgba(18, 18, 18, 0.8);
+        }
+        
+        input[type="text"],
+        input[type="url"] {
+            padding: 15px 20px;
+            flex: 1;
+            background-color: transparent;
+            border: none;
+            color: #e0e0ff;
+            font-family: 'Space Mono', monospace;
+            font-size: 16px;
+            outline: none;
+            min-width: 0;
+        }
+        
+        input[type="text"]::placeholder,
+        input[type="url"]::placeholder {
+            color: rgba(224, 224, 255, 0.4);
+        }
+        
+        button,
+        input[type="submit"] {
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #4a90e2, #8a4fff);
+            color: #000;
+            border: none;
+            cursor: pointer;
+            font-family: 'Space Mono', monospace;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        
+        button:hover,
+        input[type="submit"]:hover {
+            background: linear-gradient(135deg, #8a4fff, #4a90e2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+        }
+
+        button:active,
+        input[type="submit"]:active {
+            transform: translateY(0);
+        }
+        
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .execute-button {
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #4a90e2, #8a4fff);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Space Mono', monospace;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        
+        .execute-button:hover {
+            background: linear-gradient(135deg, #8a4fff, #4a90e2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+        }
+
+        .execute-button:active {
+            transform: translateY(0);
+        }
+        
+        .execute-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        pre {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #4a90e2;
+            border-radius: 5px;
+            background-color: rgba(26, 26, 26, 0.6);
+            min-height: 100px;
+            font-family: 'Space Mono', monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            color: #e0e0ff;
+            overflow-y: auto;
+            overflow-x: auto;
+            max-height: 500px;
+            -webkit-overflow-scrolling: touch;
+            font-size: 13px;
+        }
+        
+        a {
+            color: #4a90e2;
+            text-decoration: none;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: #8a4fff;
+            text-shadow: 0 0 10px #4a90e2;
+        }
+        
+        .github-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #4a90e2;
+            border: 1px solid #4a90e2;
+            border-radius: 6px;
+            text-decoration: none;
+            font-family: monospace;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        
+        .github-button:hover {
+            background-color: #4a90e2;
+            color: #0a0a1a;
+            box-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+            transform: translateY(-1px);
+        }
+        
+        .github-button svg {
+            width: 16px;
+            height: 16px;
+        }
+        
+        .custom-query-section {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #4a90e2;
+            border-radius: 8px;
+            background-color: rgba(26, 26, 26, 0.6);
+        }
+        
+        .custom-query-section.show {
+            display: block;
+        }
+        
+        .section-title {
+            color: #ff6b9c;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 0 0 5px #ff6b9c;
+        }
+        
+        .category-selection {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #4a90e2;
+            border-radius: 8px;
+            background-color: rgba(26, 26, 26, 0.6);
+        }
+        
+        .category-selection.show {
+            display: block;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .category-checkbox {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #4a90e2;
+            border-radius: 5px;
+            background-color: rgba(18, 18, 18, 0.6);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .category-checkbox:hover {
+            border-color: #8a4fff;
+            background-color: rgba(138, 79, 255, 0.1);
+        }
+        
+        .category-checkbox input[type="checkbox"] {
+            margin-right: 8px;
+            width: 18px;
+            height: 18px;
+            accent-color: #4a90e2;
+        }
+        
+        .category-checkbox label {
+            cursor: pointer;
+            color: #e0e0ff;
+            font-size: 14px;
+        }
+        
+        .search-all-option {
+            margin-top: 15px;
+            padding: 15px;
+            border: 2px solid #ff6b9c;
+            border-radius: 8px;
+            background-color: rgba(255, 107, 156, 0.1);
+            text-align: center;
+        }
+        
+        .search-all-option input[type="checkbox"] {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            accent-color: #ff6b9c;
+        }
+        
+        .search-all-option label {
+            color: #ff6b9c;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-shadow: 0 0 5px #ff6b9c;
+        }
+        
+        .warning-text {
+            color: #ff6666;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .nav-links a {
+            margin-right: 0;
+            padding: 6px 0;
+        }
+
+        /* ============================================================
+           MOBILE STYLES
+           ============================================================ */
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            h1 {
+                font-size: 1.3rem;
+                margin-bottom: 12px;
+            }
+
+            .content-box {
+                padding: 14px;
+                margin: 12px 0;
+                border-radius: 6px;
+            }
+
+            /* Description + GitHub stack vertically */
+            .content-box > div:first-child {
+                flex-direction: column !important;
+                gap: 12px !important;
+            }
+
+            .content-box > div:first-child > div:first-child {
+                min-width: unset !important;
+            }
+
+            .content-box > div:first-child > div:first-child p {
+                font-size: 0.9em;
+                margin: 0 0 8px 0;
+            }
+
+            .content-box > div:first-child > div:last-child {
+                display: flex !important;
+                align-items: flex-start !important;
+            }
+
+            .menu-section {
+                padding: 14px;
+            }
+
+            /* Force option cards to single column on small screens */
+            .options-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .option-number { font-size: 20px; }
+            .option-title  { font-size: 15px; }
+            .option-description { font-size: 13px; }
+
+            /* Stack query input and any inline button */
+            .custom-query-section .input-group {
+                flex-direction: column;
+                border-radius: 10px;
+            }
+
+            .custom-query-section input[type="text"] {
+                padding: 14px 16px;
+                font-size: 16px; /* Prevents iOS auto-zoom */
+                border-bottom: 1px solid rgba(74, 144, 226, 0.3);
+                width: 100%;
+            }
+
+            /* Category grid: 2 columns on small phones */
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            .category-checkbox {
+                padding: 8px;
+            }
+
+            .category-checkbox label {
+                font-size: 12px;
+            }
+
+            /* Search all label text slightly smaller */
+            .search-all-option label {
+                font-size: 14px;
+            }
+
+            /* Execute button: full width */
+            .execute-button {
+                width: 100%;
+                font-size: 16px;
+                padding: 14px 20px;
+                text-align: center;
+            }
+
+            /* Results pre: mobile sizing */
+            pre {
+                font-size: 11px;
+                padding: 10px;
+                max-height: calc(100vh - 200px);
+            }
+
+            .nav-links {
+                gap: 10px;
+                padding-top: 4px;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+                padding: 8px 0;
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 380px) {
+            h1 { font-size: 1.1rem; }
+            .category-grid { grid-template-columns: 1fr; }
+            pre { font-size: 10px; }
+        }
+
+        /* Disable hover transforms on touch */
+        @media (hover: none) {
+            .option-card:hover { transform: none; }
+            .execute-button:hover { transform: none; }
+            .btn-hacker:hover { transform: none; }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/livecenter-tools.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+</head>
+<body data-lct-theme="cabal">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+    <h1>Google Dorker - Browser Tab Dork Tool</h1>
+    
+    <div class="content-box">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <p style="color: #ff6b9c; font-size: 1.1em;">Google Dorker is a browser-based dork tool that opens fresh search tabs. Choose from individual searches, group dork operations, or view the complete dork database.</p>
+                <p style="color: #ff6b9c;"><strong>Features:</strong> 600+ professional dorks, browser tab automation, multiple search engines, and ethical OSINT research capabilities.</p>
+                <p style="color: #ff6666; font-weight: bold; font-size: 1.1em;">⚠️ WARNING: Group searches will open MANY tabs! Use responsibly.</p>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <a href="https://github.com/TheGhostAnalyst/google_dorker" target="_blank" class="github-button">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+        
+        <div class="menu-section">
+            <h3>Choose Your Dorking Strategy</h3>
+            <div class="options-grid">
+                <div class="option-card" onclick="selectOption('1')" id="option-1">
+                    <div class="option-number">1.</div>
+                    <div class="option-title">Individual Dork Search</div>
+                    <div class="option-description">Enter your own custom search query. Opens in a new browser tab with your selected search engine.</div>
+                </div>
+                
+                <div class="option-card" onclick="selectOption('2')" id="option-2">
+                    <div class="option-number">2.</div>
+                    <div class="option-title">Group Dork Search</div>
+                    <div class="option-description">Search across multiple dorkable sites by category. Each site opens in a separate tab. WARNING: Opens many tabs!</div>
+                </div>
+                
+                <div class="option-card" onclick="selectOption('3')" id="option-3">
+                    <div class="option-number">3.</div>
+                    <div class="option-title">View Dork Database</div>
+                    <div class="option-description">Display the complete database of 600+ dorkable websites organized by category for reference.</div>
+                </div>
+                
+                <div class="option-card" onclick="selectOption('4')" id="option-4">
+                    <div class="option-number">4.</div>
+                    <div class="option-title">Ethics &amp; Guidelines</div>
+                    <div class="option-description">View comprehensive ethical guidelines for responsible OSINT research and dorking practices.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="custom-query-section" id="custom-query-section">
+            <div class="section-title">Enter Custom Search Query:</div>
+            <div class="input-group">
+                <input type="text" id="query-input" placeholder="e.g., site:example.com filetype:pdf password" autocorrect="off" autocapitalize="none" spellcheck="false">
+            </div>
+        </div>
+        
+        <div class="category-selection" id="category-selection">
+            <div class="section-title">Select Categories to Search:</div>
+            <div class="category-grid" id="category-grid">
+                <!-- Categories populated by JavaScript -->
+            </div>
+            <div class="search-all-option">
+                <input type="checkbox" id="search-all-checkbox" onchange="toggleSearchAll()">
+                <label for="search-all-checkbox">Search All Categories (⚠️ Will open 600+ tabs!)</label>
+            </div>
+        </div>
+        
+        <div class="tool-form" id="tool-form">
+            <button class="execute-button" id="execute-button" onclick="executeDork()" disabled>
+                Execute Search
+            </button>
+        </div>
+        
+        <pre id="results">Select an option above to begin dorking...</pre>
+    </div>
+    
+    <div class="nav-links">
+        <a href="live.html"> ← Back to Live Center</a>
+        <a href="../index.html">Home</a>
+    </div>
+    
+    <script>
+        let selectedOption = null;
+        let selectedCategories = [];
+        
+        const searchEngines = {
+            'google': 'https://www.google.com/search?q='
+        };
+        
+        const dorkDatabase = {
+            'ai': [
+                'openai.com', 'anthropic.com', 'huggingface.co', 'replicate.com'
+            ],
+            'analysis': [
+                'analytics.google.com', 'mixpanel.com', 'amplitude.com', 'heap.io',
+                'segment.com', 'kissmetrics.com', 'pendo.io', 'fullstory.com',
+                'hotjar.com', 'crazyegg.com', 'mouseflow.com', 'inspectlet.com',
+                'clicky.com'
+            ],
+            'cloud': [
+                'aws.amazon.com', 'console.aws.amazon.com', 'portal.azure.com', 'console.cloud.google.com',
+                'cloud.ibm.com', 'cloud.oracle.com', 'digitalocean.com', 'vultr.com',
+                'linode.com', 'heroku.com', 'netlify.com', 'vercel.com',
+                'cloudflare.com', 'fastly.com', 'akamai.com', 'rackspace.com',
+                's3.amazonaws.com', 'storage.googleapis.com', 'blob.core.windows.net', 'pages.dev',
+                'herokuapp.com', 'azurewebsites.net', 'cloudfront.net', 'compute.amazonaws.com',
+                'run.app', 'appspot.com', 'firebase.google.com', 'firebaseapp.com',
+                'cloud.google.com', 'azure.microsoft.com', 'elastic.co', 'mongodb.com',
+                'redis.com', 'cloudinary.com', 'algolia.com', 'elasticsearch.co',
+                'datadog.com', 'newrelic.com', 'splunk.com', 'sumologic.com',
+                'loggly.com', 'papertrail.com', 'sentry.io', 'bugsnag.com',
+                'rollbar.com', 'airbrake.io', 'honeybadger.io', 'raygun.com',
+                'appdynamics.com', 'dynatrace.com', 'instana.com', 'lightstep.com',
+                'cloud66.com', 'platform.sh', 'clever-cloud.com', 'scaleway.com',
+                'hetzner.com', 'contabo.com', 'ovhcloud.com', 'upcloud.com',
+                'backblaze.com', 'wasabi.com', 'bunny.net', 'render.com',
+                'railway.app', 'fly.io', 'deta.sh', 'supabase.com',
+                'planetscale.com', 'neon.tech', 'cockroachlabs.com', 'fauna.com',
+                'hasura.io', 'graphql.org', 'apollo.com', 'prisma.io',
+                'sanity.io', 'contentful.com', 'strapi.io', 'ghost.org',
+                'wordpress.com', 'wix.com', 'squarespace.com', 'webflow.com',
+                'bubble.io', 'adalo.com', 'glide.com', 'softr.io',
+                'airtable.com', 'notion.so', 'coda.io', 'monday.com',
+                'asana.com', 'clickup.com', 'basecamp.com', 'trello.com',
+                'jira.atlassian.com', 'linear.app', 'height.app', 'shortcut.com',
+                'clubhouse.io', 'pivotaltracker.com', 'teamwork.com', 'wrike.com'
+            ],
+            'comm': [
+                'slack.com', 'discord.com', 'teams.microsoft.com', 'zoom.us',
+                'meet.google.com', 'webex.com', 'gotomeeting.com', 'bluejeans.com',
+                'whereby.com', 'jitsi.org', 'bigbluebutton.org', 'rocket.chat',
+                'mattermost.com', 'zulip.com', 'gitter.im', 'spectrum.chat',
+                'telegram.org', 'whatsapp.com', 'signal.org', 'threema.ch',
+                'wire.com', 'element.io', 'riot.im', 'matrix.org',
+                'skype.com', 'viber.com', 'line.me', 'wechat.com',
+                'messenger.com', 'hangouts.google.com', 'allo.google.com', 'duo.google.com',
+                'facetime.apple.com', 'imessage.apple.com', 'snapchat.com', 'kik.com',
+                'wickr.com', 'keybase.io', 'session.org', 'briar.app',
+                'discourse.org', 'flarum.org', 'vanilla.com', 'nodebb.org',
+                'phpbb.com', 'vbulletin.com', 'xenforo.com', 'invision.com',
+                'mailchimp.com', 'sendgrid.com', 'mailgun.com', 'postmark.com',
+                'sparkpost.com', 'sendinblue.com', 'campaignmonitor.com', 'constantcontact.com',
+                'aweber.com', 'getresponse.com', 'convertkit.com', 'drip.com',
+                'activecampaign.com', 'hubspot.com', 'salesforce.com', 'zendesk.com',
+                'freshdesk.com', 'intercom.com', 'drift.com', 'crisp.chat',
+                'olark.com', 'livechat.com', 'tawk.to', 'tidio.com',
+                'helpscout.com', 'groove.cm', 'kayako.com', 'helpshift.com',
+                'uservoice.com', 'getfeedback.com', 'hotjar.com', 'qualaroo.com',
+                'surveymonkey.com', 'typeform.com', 'jotform.com', 'googleforms.com'
+            ],
+            'dev': [
+                'github.com', 'gitlab.com', 'bitbucket.org', 'sourceforge.net',
+                'codeberg.org', 'gitea.io', 'gogs.io', 'launchpad.net',
+                'stackoverflow.com', 'stackexchange.com', 'serverfault.com', 'superuser.com',
+                'askubuntu.com', 'unix.stackexchange.com', 'reddit.com/r/programming', 'dev.to',
+                'hashnode.com', 'medium.com', 'hackernoon.com', 'dzone.com',
+                'codepen.io', 'jsfiddle.net', 'jsbin.com', 'codesandbox.io',
+                'replit.com', 'glitch.com', 'stackblitz.com', 'playcode.io',
+                'npmjs.com', 'pypi.org', 'packagist.org', 'rubygems.org',
+                'crates.io', 'nuget.org', 'maven.org', 'gradle.org',
+                'docker.com', 'hub.docker.com', 'quay.io', 'gcr.io',
+                'jenkins.io', 'circleci.com', 'travis-ci.org', 'appveyor.com',
+                'gitlab-ci.com', 'github.com/actions', 'drone.io', 'buildbot.net',
+                'ansible.com', 'puppet.com', 'chef.io', 'saltstack.com',
+                'terraform.io', 'vagrant.com', 'packer.io', 'consul.io',
+                'vault.hashicorp.com', 'nomad.hashicorp.com', 'kubernetes.io', 'openshift.com',
+                'rancher.com', 'portainer.io', 'podman.io', 'containerd.io',
+                'grafana.com', 'prometheus.io', 'jaeger.io', 'zipkin.io',
+                'opentelemetry.io', 'fluentd.org', 'logstash.net', 'kibana.com'
+            ],
+            'docs': [
+                'docs.google.com', 'drive.google.com', 'dropbox.com', 'onedrive.live.com',
+                'box.com', 'sync.com', 'mega.nz', 'pcloud.com',
+                'tresorit.com', 'spideroak.com', 'nextcloud.com', 'owncloud.org',
+                'seafile.com', 'filecloud.com', 'sharefile.com', 'egnyte.com',
+                'scribd.com', 'slideshare.net', 'issuu.com', 'calameo.com',
+                'docstoc.com', 'edocr.com', 'yudu.com', 'yumpu.com',
+                'academia.edu', 'researchgate.net', 'arxiv.org', 'biorxiv.org',
+                'medrxiv.org', 'ssrn.com', 'papers.ssrn.com', 'philpapers.org',
+                'jstor.org', 'scholar.google.com', 'semanticscholar.org', 'pubmed.gov',
+                'europepmc.org', 'doaj.org', 'plos.org', 'frontiersin.org',
+                'mdpi.com', 'springer.com', 'sciencedirect.com', 'wiley.com',
+                'tandfonline.com', 'sagepub.com', 'elsevier.com', 'nature.com',
+                'science.org', 'cell.com', 'pnas.org', 'nih.gov',
+                'evernote.com', 'onenote.com', 'simplenote.com', 'notion.so',
+                'roamresearch.com', 'obsidian.md', 'logseq.com', 'remnote.com',
+                'workflowy.com', 'dynalist.io', 'bear.app', 'ulysses.app',
+                'ia.net', 'typora.io', 'marktext.app', 'vnote.com',
+                'joplin.com', 'standardnotes.org', 'turtlapp.com', 'cryptee.com',
+                'laverna.cc', 'boostnote.io', 'inkdrop.app', 'notable.app'
+            ],
+            'edu': [
+                'coursera.org', 'edx.org', 'udemy.com', 'udacity.com',
+                'khanacademy.org', 'skillshare.com', 'lynda.com', 'pluralsight.com',
+                'codecademy.com', 'freecodecamp.org', 'theodinproject.com', 'w3schools.com'
+            ],
+            'events': [
+                'eventbrite.com', 'meetup.com', 'facebook.com/events', 'ticketmaster.com',
+                'stubhub.com', 'seatgeek.com', 'vivid-seats.com', 'ticketnetwork.com',
+                'universe.com', 'eventzilla.net', 'picatic.com', 'brownpapertickets.com',
+                'tickettailor.com', 'ticketweb.com', 'evite.com'
+            ],
+            'fin': [
+                'paypal.com', 'stripe.com', 'square.com', 'venmo.com',
+                'cashapp.com', 'zelle.com', 'wise.com', 'revolut.com',
+                'n26.com', 'monzo.com', 'chime.com', 'robinhood.com',
+                'coinbase.com', 'binance.com', 'kraken.com', 'gemini.com',
+                'blockchain.com'
+            ],
+            'forms': [
+                'forms.google.com', 'typeform.com', 'surveymonkey.com', 'jotform.com',
+                'wufoo.com', 'formstack.com', 'cognito.com', 'formsite.com',
+                'formassembly.com', 'surveygizmo.com', 'qualtrics.com', 'surveyplanet.com',
+                'formspree.io', 'kwiksurveys.com', 'paperform.co'
+            ],
+            'orgs': [
+                'who.int', 'un.org', 'unicef.org', 'unesco.org',
+                'wto.org', 'imf.org', 'worldbank.org', 'redcross.org',
+                'msf.org', 'oxfam.org', 'greenpeace.org', 'amnesty.org',
+                'hrw.org', 'transparency.org', 'eff.org', 'aclu.org',
+                'savethechildren.org', 'care.org', 'mercycorps.org',
+                'worldvision.org', 'habitatforhumanity.org', 'feedingamerica.org', 'unitedway.org',
+                'rotary.org', 'lions.org', 'kiwanis.org', 'optimist.org',
+                'ieee.org', 'acm.org', 'aaas.org', 'aps.org',
+                'acs.org', 'rsc.org', 'iupac.org',
+                'w3.org', 'ietf.org', 'icann.org', 'isoc.org',
+                'owasp.org', 'cve.org', 'nvd.nist.gov', 'cert.org',
+                'sans.org', 'mitre.org', 'nist.gov', 'iso.org',
+                'ansi.org', 'bsi.de', 'enisa.europa.eu', 'ncsc.gov.uk',
+                'cisa.gov', 'fbi.gov', 'interpol.int', 'europol.europa.eu',
+                'nato.int', 'osce.org', 'coe.int', 'asean.org'
+            ],
+            'other': [
+                'archive.org', 'wikipedia.org', 'wikileaks.org', 'pastebin.com',
+                'ghostbin.com', 'hastebin.com', 'privatebin.info'
+            ],
+            'shortener': [
+                'bit.ly', 'tinyurl.com', 'goo.gl', 'ow.ly',
+                'is.gd', 't.co', 'buff.ly', 'adf.ly',
+                'bl.ink', 'lnkd.in', 'soo.gd', 'clicky.me',
+                's2r.co', 'prettylinkpro.com', 'scrnch.me', 'fifo.cc',
+                'virl.com', 'tiny.cc', 'url.ie', 'kl.am',
+                'budurl.com', 'ff.im', 'tr.im', 'twurl.nl',
+                'u.nu', 'chilp.it', 'moourl.com', 'urlzen.com',
+                'shortna.me', 'fa.by', 'vurl.com', 'liip.to',
+                'eepurl.com', 'twitthis.com', 'xrl.us', 'short.ie',
+                'hover.com', 'qr.net', 'yourls.org'
+            ],
+            'social': [
+                'facebook.com', 'twitter.com', 'instagram.com', 'linkedin.com',
+                'youtube.com', 'tiktok.com', 'snapchat.com', 'pinterest.com',
+                'reddit.com', 'tumblr.com', 'flickr.com', 'vimeo.com',
+                'dailymotion.com', 'twitch.tv', 'mixer.com', 'dlive.tv',
+                'periscope.tv', 'younow.com', 'bigo.tv', 'streamlabs.com',
+                'streamelements.com', 'restream.io', 'castr.io', 'golightstream.com',
+                'vk.com', 'ok.ru', 'weibo.com', 'qzone.qq.com',
+                'renren.com', 'kaixin001.com', 'douban.com', 'baidu.com/tieba',
+                'mixi.jp', 'line.me', 'kakao.com', 'naver.com',
+                'cyworld.com', 'orkut.com', 'hi5.com', 'myspace.com',
+                'friendster.com', 'bebo.com', 'tagged.com', 'meetme.com',
+                'badoo.com', 'moco.com', 'skout.com', 'twoo.com',
+                'lovoo.com', 'plentyoffish.com', 'okcupid.com', 'match.com',
+                'eharmony.com', 'zoosk.com', 'bumble.com', 'tinder.com',
+                'hinge.co', 'coffeemeetsbagel.com', 'happn.com', 'grindr.com',
+                'her.com', 'scruff.com', 'jackd.com', 'hornet.com',
+                'mastodon.social', 'gab.com', 'parler.com', 'minds.com',
+                'mewe.com', 'diaspora.social', 'ello.co', 'vero.co',
+                'peach.cool', 'yo.com', 'nextdoor.com', 'untappd.com',
+                'foursquare.com', 'swarm.com', 'yelp.com', 'tripadvisor.com',
+                'goodreads.com', 'letterboxd.com', 'rateyourmusic.com', 'last.fm',
+                'spotify.com', 'soundcloud.com', 'bandcamp.com', 'mixcloud.com',
+                'reverbnation.com', 'audiomack.com', 'hearthis.at', '8tracks.com',
+                'deezer.com', 'tidal.com', 'pandora.com', 'iheart.com'
+            ],
+            'storage': [
+                's3.amazonaws.com', 'storage.googleapis.com', 'blob.core.windows.net', 'digitaloceanspaces.com',
+                'wasabi.com', 'backblaze.com', 'bunny.net', 'r2.cloudflarestorage.com',
+                'files.com'
+            ]
+        };
+        
+        function selectOption(option) {
+            document.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
+            document.getElementById('option-' + option).classList.add('selected');
+            selectedOption = option;
+            
+            const customSection = document.getElementById('custom-query-section');
+            const categorySection = document.getElementById('category-selection');
+            const toolForm = document.getElementById('tool-form');
+            const executeButton = document.getElementById('execute-button');
+            const resultsElement = document.getElementById('results');
+            
+            customSection.classList.remove('show');
+            categorySection.classList.remove('show');
+            toolForm.style.display = 'none';
+            
+            if (option === '1') {
+                customSection.classList.add('show');
+                toolForm.style.display = 'flex';
+                executeButton.disabled = false;
+                resultsElement.textContent = 'Ready to execute individual dork search. Enter your query above.';
+            } else if (option === '2') {
+                customSection.classList.add('show');
+                categorySection.classList.add('show');
+                toolForm.style.display = 'flex';
+                populateCategories();
+                executeButton.disabled = false;
+                resultsElement.textContent = 'Ready to execute group dork search. Enter your query and select categories.';
+            } else if (option === '3') {
+                showDorkDatabase();
+            } else if (option === '4') {
+                showEthicsGuidelines();
+            }
+        }
+        
+        function populateCategories() {
+            const categoryGrid = document.getElementById('category-grid');
+            categoryGrid.innerHTML = '';
+            
+            for (const [category, sites] of Object.entries(dorkDatabase)) {
+                const checkboxDiv = document.createElement('div');
+                checkboxDiv.className = 'category-checkbox';
+                
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = 'cat-' + category;
+                checkbox.value = category;
+                checkbox.onchange = updateSelectedCategories;
+                
+                const label = document.createElement('label');
+                label.htmlFor = 'cat-' + category;
+                label.textContent = `${category} (${sites.length})`;
+                
+                checkboxDiv.appendChild(checkbox);
+                checkboxDiv.appendChild(label);
+                categoryGrid.appendChild(checkboxDiv);
+            }
+        }
+        
+        function updateSelectedCategories() {
+            selectedCategories = Array.from(document.querySelectorAll('.category-checkbox input[type="checkbox"]:checked'))
+                .map(cb => cb.value)
+                .filter(val => val !== 'all');
+        }
+        
+        function toggleSearchAll() {
+            const searchAllChecked = document.getElementById('search-all-checkbox').checked;
+            const categoryCheckboxes = document.querySelectorAll('.category-checkbox input[type="checkbox"]');
+            
+            categoryCheckboxes.forEach(cb => {
+                cb.checked = searchAllChecked;
+                cb.disabled = searchAllChecked;
+            });
+            
+            selectedCategories = searchAllChecked ? Object.keys(dorkDatabase) : [];
+        }
+        
+        function showDorkDatabase() {
+            const resultsElement = document.getElementById('results');
+            let databaseText = `DORKABLE WEBSITES DATABASE\n`;
+            databaseText += `${'='.repeat(80)}\n\n`;
+            databaseText += `Total Categories: ${Object.keys(dorkDatabase).length}\n`;
+            databaseText += `Total Sites: ${Object.values(dorkDatabase).flat().length}\n\n`;
+            databaseText += `${'='.repeat(80)}\n\n`;
+            
+            for (const [category, sites] of Object.entries(dorkDatabase).sort()) {
+                databaseText += `\n[${category.toUpperCase()}] (${sites.length} sites)\n`;
+                databaseText += `${'-'.repeat(80)}\n`;
+                sites.forEach((site, index) => {
+                    databaseText += `${(index + 1).toString().padStart(3, '0')}. ${site}\n`;
+                });
+            }
+            
+            databaseText += `\n${'='.repeat(80)}\n`;
+            databaseText += `USAGE NOTES:\n`;
+            databaseText += `• Use Individual Dork Search for single custom queries\n`;
+            databaseText += `• Use Group Dork Search to search across multiple sites by category\n`;
+            databaseText += `• Always obtain proper authorization before dorking\n`;
+            databaseText += `• Report findings through responsible disclosure channels\n`;
+            databaseText += `${'='.repeat(80)}`;
+            
+            resultsElement.textContent = databaseText;
+        }
+        
+        function showEthicsGuidelines() {
+            const resultsElement = document.getElementById('results');
+            let ethicsText = `ETHICAL DORKING GUIDELINES\n`;
+            ethicsText += `${'='.repeat(80)}\n\n`;
+            
+            ethicsText += `1. LEGAL COMPLIANCE\n`;
+            ethicsText += `   - Only dork domains you own or have explicit written permission to test\n`;
+            ethicsText += `   - Comply with all applicable laws including CFAA, GDPR, and local regulations\n`;
+            ethicsText += `   - Respect robots.txt and terms of service\n`;
+            ethicsText += `   - Never access systems without authorization\n\n`;
+            
+            ethicsText += `2. RESPONSIBLE DISCLOSURE\n`;
+            ethicsText += `   - Report vulnerabilities through proper channels\n`;
+            ethicsText += `   - Allow reasonable time for remediation (typically 90 days)\n`;
+            ethicsText += `   - Do not publicly disclose sensitive information\n`;
+            ethicsText += `   - Follow coordinated vulnerability disclosure practices\n\n`;
+            
+            ethicsText += `3. PRIVACY & DATA PROTECTION\n`;
+            ethicsText += `   - Never collect or store personal information without consent\n`;
+            ethicsText += `   - Respect individual privacy rights\n`;
+            ethicsText += `   - Immediately report exposed PII to affected parties\n`;
+            ethicsText += `   - Comply with data protection regulations\n\n`;
+            
+            ethicsText += `4. PROFESSIONAL CONDUCT\n`;
+            ethicsText += `   - Maintain detailed logs of all dorking activities\n`;
+            ethicsText += `   - Work within defined scope of engagement\n`;
+            ethicsText += `   - Document findings professionally\n`;
+            ethicsText += `   - Maintain confidentiality of client information\n\n`;
+            
+            ethicsText += `5. TECHNICAL CONSIDERATIONS\n`;
+            ethicsText += `   - Respect rate limits and avoid overwhelming servers\n`;
+            ethicsText += `   - Use reasonable delays between requests\n`;
+            ethicsText += `   - Monitor for unintended impacts\n`;
+            ethicsText += `   - Stop immediately if issues arise\n\n`;
+            
+            ethicsText += `6. OSINT BEST PRACTICES\n`;
+            ethicsText += `   - Only use publicly available information\n`;
+            ethicsText += `   - Verify information from multiple sources\n`;
+            ethicsText += `   - Document sources and methodologies\n`;
+            ethicsText += `   - Respect copyright and intellectual property\n\n`;
+            
+            ethicsText += `7. PROFESSIONAL LICENSING\n`;
+            ethicsText += `   - Maintain required professional licenses\n`;
+            ethicsText += `   - Follow industry codes of ethics\n`;
+            ethicsText += `   - Engage in continuing education\n`;
+            ethicsText += `   - Work within scope of competence\n\n`;
+            
+            ethicsText += `${'='.repeat(80)}\n`;
+            ethicsText += `REMEMBER: With great power comes great responsibility.\n`;
+            ethicsText += `Ethical dorking protects both researchers and the security community.\n`;
+            ethicsText += `${'='.repeat(80)}`;
+            
+            resultsElement.textContent = ethicsText;
+        }
+        
+        function executeDork() {
+            if (!selectedOption) { alert('Please select an option first!'); return; }
+            
+            const query = document.getElementById('query-input').value.trim();
+            
+            if (selectedOption === '1') {
+                if (!query) { alert('Please enter a search query!'); return; }
+                
+                const confirmed = confirm(`This will open 1 new tab in your browser with your search query.\n\nQuery: ${query}\n\nProceed?`);
+                if (!confirmed) return;
+                
+                executeIndividualSearch(query);
+                
+            } else if (selectedOption === '2') {
+                if (!query) { alert('Please enter a search query!'); return; }
+                if (selectedCategories.length === 0) { alert('Please select at least one category!'); return; }
+                
+                let totalSites = 0;
+                selectedCategories.forEach(cat => { totalSites += dorkDatabase[cat].length; });
+                
+                const searchAllSelected = document.getElementById('search-all-checkbox').checked;
+                let confirmMessage;
+                
+                if (searchAllSelected) {
+                    confirmMessage = `WARNING: SEARCH ALL CATEGORIES SELECTED!\n\n`;
+                    confirmMessage += `This will open ${totalSites} NEW TABS in your browser!\n`;
+                    confirmMessage += `This may cause your browser to slow down or crash.\n`;
+                    confirmMessage += `It may take several minutes to complete.\n\n`;
+                    confirmMessage += `Query: ${query}\n`;
+                    confirmMessage += `Categories: ALL (${selectedCategories.length} categories)\n`;
+                    confirmMessage += `Total Sites: ${totalSites}\n\n`;
+                    confirmMessage += `Are you ABSOLUTELY SURE you want to proceed?`;
+                } else {
+                    confirmMessage = `This will open ${totalSites} new tabs in your browser.\n\n`;
+                    confirmMessage += `Query: ${query}\n`;
+                    confirmMessage += `Categories: ${selectedCategories.join(', ')}\n`;
+                    confirmMessage += `Total Sites: ${totalSites}\n\n`;
+                    confirmMessage += `Proceed?`;
+                }
+                
+                const confirmed = confirm(confirmMessage);
+                if (!confirmed) return;
+                
+                executeGroupSearch(query);
+            }
+        }
+        
+        function executeIndividualSearch(query) {
+            const resultsElement = document.getElementById('results');
+            const searchUrl = searchEngines['google'] + encodeURIComponent(query);
+            
+            resultsElement.textContent = `Opening search in Google...\n\nQuery: ${query}\nURL: ${searchUrl}`;
+            window.open(searchUrl, '_blank');
+            
+            setTimeout(() => {
+                resultsElement.textContent += `\n\n[SUCCESS] Search tab opened successfully!`;
+            }, 500);
+        }
+        
+        function executeGroupSearch(query) {
+            const resultsElement = document.getElementById('results');
+            const baseUrl = searchEngines['google'];
+            
+            let allSearches = [];
+            selectedCategories.forEach(cat => {
+                dorkDatabase[cat].forEach(site => {
+                    allSearches.push({ category: cat, site: site });
+                });
+            });
+            
+            const totalSites = allSearches.length;
+            
+            resultsElement.textContent = `Starting group dork search...\n\n`;
+            resultsElement.textContent += `Query: ${query}\n`;
+            resultsElement.textContent += `Categories: ${selectedCategories.join(', ')}\n`;
+            resultsElement.textContent += `Total Sites: ${totalSites}\n`;
+            resultsElement.textContent += `\nOpening tabs... Please allow popups if prompted.\n\n`;
+            
+            let tabCount = 0;
+            allSearches.forEach((search, index) => {
+                const dorkQuery = `site:${search.site} ${query}`;
+                const searchUrl = baseUrl + encodeURIComponent(dorkQuery);
+                
+                setTimeout(() => {
+                    try {
+                        window.open(searchUrl, '_blank', 'noopener,noreferrer');
+                        tabCount++;
+                        resultsElement.textContent += `[${tabCount}/${totalSites}] Opened: site:${search.site}\n`;
+                        
+                        if (tabCount === totalSites) {
+                            resultsElement.textContent += `\n[SUCCESS] Attempted to open all ${totalSites} tabs!\n`;
+                            resultsElement.textContent += `\nNote: If some tabs didn't open, your browser may have blocked them.\n`;
+                            resultsElement.textContent += `Please allow popups for this site and try again.`;
+                        }
+                    } catch (e) {
+                        console.error('Failed to open tab:', e);
+                    }
+                }, index * 100);
+            });
+        }
+        
+        document.getElementById('query-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && selectedOption) executeDork();
+        });
+    </script>
+
+        <script src="../assets/js/livecenter-ui.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c19710fa74614',t:'MTc4OTAxODg0MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cabal Breach Intelligence Platform | Organized Viewer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * { box-sizing: border-box; }
+
+        :root {
+            --primary-bg:    #0f172a;
+            --secondary-bg:  #1e293b;
+            --accent-bg:     #334155;
+            --primary-text:  #f1f5f9;
+            --secondary-text:#94a3b8;
+            --accent-color:  #3b82f6;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --error-color:   #ef4444;
+            --border-color:  #475569;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-bg);
+            color: var(--primary-text);
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 25%);
+            background-attachment: fixed;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .glass-input {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(8px);
+            border: 2px solid var(--border-color);
+            color: var(--primary-text);
+            transition: all 0.3s ease;
+            font-size: 16px; /* Prevents iOS auto-zoom */
+        }
+
+        .glass-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            background: rgba(15, 23, 42, 0.95);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-color), #8b5cf6);
+            border: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .btn-primary:hover  { transform: translateY(-2px); box-shadow: 0 12px 25px rgba(59, 130, 246, 0.3); }
+        .btn-primary:active { transform: translateY(0); }
+        .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+        .nav-btn {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: var(--accent-color);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .nav-btn:hover   { background: rgba(59, 130, 246, 0.2); border-color: rgba(59, 130, 246, 0.5); }
+        .nav-btn.active  { background: var(--accent-color); color: white; border-color: var(--accent-color); }
+        .nav-btn:disabled{ opacity: 0.4; cursor: not-allowed; }
+
+        .copy-btn {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--success-color);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover { background: rgba(16, 185, 129, 0.2); border-color: rgba(16, 185, 129, 0.5); }
+
+        .search-progress {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 6px;
+            height: 4px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-color), #8b5cf6);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .stats-card {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stats-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            color: #fca5a5;
+        }
+
+        .database-nav {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .db-btn {
+            background: rgba(51, 65, 85, 0.5);
+            border: 1px solid rgba(100, 116, 139, 0.3);
+            color: var(--secondary-text);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 2px;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .db-btn:hover  { background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.3); color: var(--accent-color); }
+        .db-btn.active { background: var(--accent-color); color: white; border-color: var(--accent-color); }
+
+        .search-header {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-query {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            font-family: 'JetBrains Mono', monospace;
+            word-break: break-all;
+        }
+
+        .breach-card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .breach-header {
+            background: rgba(59, 130, 246, 0.1);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 20px;
+        }
+
+        .breach-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .breach-description {
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .breach-content { padding: 20px; }
+
+        .data-entry {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(100, 116, 139, 0.2);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .field-name {
+            font-weight: 600;
+            color: var(--accent-color);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .field-value {
+            color: var(--primary-text);
+            font-family: 'JetBrains Mono', monospace;
+            word-break: break-all;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .source-info {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 6px;
+            padding: 10px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .no-data {
+            text-align: center;
+            color: var(--secondary-text);
+            font-style: italic;
+            padding: 40px 20px;
+        }
+
+        /* ============================================================
+           MOBILE STYLES
+           ============================================================ */
+        @media (max-width: 600px) {
+            header { padding: 10px; }
+            header .glass-panel { padding: 12px; }
+
+            /* Header title */
+            header .text-2xl {
+                font-size: 1rem !important;
+                text-align: center;
+            }
+
+            /* Main container */
+            .container {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+                padding-top: 10px !important;
+            }
+
+            /* Search panel */
+            .glass-panel .text-xl { font-size: 1rem; }
+
+            /* Search input: 16px set on class above; also full-width */
+            .glass-input {
+                padding: 12px 14px !important;
+                font-size: 16px !important;
+            }
+
+            /* Search row: stack input above button */
+            .flex.flex-col.lg\\:flex-row {
+                flex-direction: column !important;
+                gap: 10px !important;
+            }
+
+            /* Scan button: full width */
+            #searchBtn {
+                width: 100%;
+                justify-content: center;
+                padding: 12px 16px;
+                font-size: 15px;
+            }
+
+            /* Stats grid: already 1-col on mobile via Tailwind grid-cols-1 */
+            .stats-number { font-size: 1.5rem; }
+            .stats-card { padding: 10px; }
+
+            /* Search query truncation on small screens */
+            .search-query { font-size: 1rem; }
+            .search-header { padding: 14px; }
+
+            /* Database nav */
+            .database-nav { padding: 12px; }
+            .database-nav h3 { font-size: 1rem; }
+
+            /* Prev/Next buttons */
+            #prevBtn, #nextBtn {
+                padding: 8px 10px;
+                font-size: 13px;
+            }
+
+            /* Controls: wrap buttons on small screens */
+            #controlsContainer > div {
+                flex-wrap: wrap !important;
+                gap: 8px !important;
+            }
+
+            .copy-btn, .nav-btn {
+                font-size: 12px;
+                padding: 8px 10px;
+            }
+
+            /* Breach cards */
+            .breach-header { padding: 12px 14px; }
+            .breach-title  { font-size: 1rem; }
+            .breach-content { padding: 12px; }
+
+            .data-entry { padding: 12px; }
+
+            /* Field values: allow wrapping */
+            .field-value {
+                font-size: 0.8rem;
+                display: block;
+                margin-top: 4px;
+                margin-left: 0 !important;
+            }
+
+            /* JSON output */
+            #jsonOutput {
+                font-size: 11px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* DB buttons: larger tap targets */
+            .db-btn {
+                padding: 10px 10px;
+                font-size: 12px;
+                min-height: 38px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            header .text-2xl { font-size: 0.85rem !important; }
+            .stats-number    { font-size: 1.2rem; }
+            .copy-btn, .nav-btn { font-size: 11px; }
+        }
+
+        /* Disable hover transforms on touch */
+        @media (hover: none) {
+            .btn-primary:hover { transform: none; }
+            .copy-btn:hover    { transform: none; }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/livecenter-tools.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../../assets/js/flowbg.js"></script>
+    <script src="../../assets/js/flowbg-loader.js"></script>
+</head>
+<body class="min-h-screen" data-lct-theme="cabal">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <!-- Header -->
+    <header class="relative p-4">
+        <div class="glass-panel p-4">
+            <div class="flex items-center justify-center">
+                <div class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    CABAL BREACH INTEL - ORGANIZED VIEWER
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-6 max-w-7xl">
+
+        <!-- Search Interface -->
+        <div class="glass-panel p-6 mb-6">
+            <div class="text-center mb-6">
+                <h2 class="text-xl font-semibold mb-2">Breach Intelligence Scanner</h2>
+                <p class="text-gray-400">Search breach databases with organized, readable output. This tool uses a paid API entirely out of Terrorbytes pocket. When he can the API will be topped up and the usage is allowed on a first come first serve basis. If the key is depleted, either wait until its topped off or help pitch in to keep it active by checking out our crypto donation links at the home page!</p>
+            </div>
+            <div class="flex flex-col lg:flex-row gap-4 mb-4">
+                <div class="flex-1">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Search by email, username, domain, IP, or phone..."
+                        class="glass-input w-full px-4 py-3 rounded-lg text-lg mono"
+                        autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="none"
+                        spellcheck="false"
+                    >
+                </div>
+                <div class="flex gap-3">
+                    <button 
+                        id="searchBtn" 
+                        class="btn-primary px-6 py-3 rounded-lg font-semibold flex items-center gap-2"
+                    >
+                        <i class="fas fa-search"></i>
+                        <span id="searchBtnText">Scan</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Search Progress -->
+            <div id="searchProgressContainer" class="hidden">
+                <div class="search-progress">
+                    <div id="progressBar" class="progress-bar"></div>
+                </div>
+                <p id="statusText" class="text-center text-sm text-gray-400 mt-2">Scanning...</p>
+            </div>
+        </div>
+
+        <!-- Search Header (shown after search) -->
+        <div id="searchHeader" class="search-header hidden">
+            <div class="mb-2">
+                <i class="fas fa-search text-2xl mb-2"></i>
+            </div>
+            <div class="search-query" id="searchQueryDisplay"></div>
+            <div class="text-sm text-gray-400 mt-2">
+                Search completed • <span id="searchTimestamp"></span>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div id="statsContainer" class="hidden mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <div class="stats-card">
+                    <div id="breachCount" class="stats-number">0</div>
+                    <div class="text-sm text-gray-400">Databases</div>
+                </div>
+                <div class="stats-card">
+                    <div id="recordCount" class="stats-number">0</div>
+                    <div class="text-sm text-gray-400">Total Records</div>
+                </div>
+                <div class="stats-card">
+                    <div id="currentDbIndex" class="stats-number">1</div>
+                    <div class="text-sm text-gray-400">Current DB</div>
+                </div>
+                <div class="stats-card">
+                    <div id="searchTime" class="stats-number">0s</div>
+                    <div class="text-sm text-gray-400">Search Time</div>
+                </div>
+                <div class="stats-card">
+                    <div id="currentDbRecordCount" class="stats-number">0</div>
+                    <div class="text-sm text-gray-400">Current DB Records</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Database Navigation -->
+        <div id="databaseNav" class="database-nav hidden">
+            <div class="flex justify-between items-center mb-3 flex-wrap gap-2">
+                <h3 class="text-lg font-semibold">Navigate Databases</h3>
+                <div class="flex gap-2">
+                    <button id="prevBtn" class="nav-btn">
+                        <i class="fas fa-chevron-left mr-1"></i>Previous
+                    </button>
+                    <button id="nextBtn" class="nav-btn">
+                        Next<i class="fas fa-chevron-right ml-1"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="databaseButtons" class="flex flex-wrap gap-2"></div>
+        </div>
+
+        <!-- Controls -->
+        <div id="controlsContainer" class="hidden mb-4">
+            <div class="flex flex-wrap gap-2">
+                <button id="copyBtn" class="copy-btn">
+                    <i class="fas fa-copy mr-2"></i>Copy DB
+                </button>
+                <button id="copyAllBtn" class="copy-btn">
+                    <i class="fas fa-copy mr-2"></i>Copy All
+                </button>
+                <button id="downloadBtn" class="copy-btn">
+                    <i class="fas fa-download mr-2"></i>JSON
+                </button>
+                <button id="toggleViewBtn" class="nav-btn">
+                    <i class="fas fa-code mr-2"></i>Raw JSON
+                </button>
+            </div>
+        </div>
+
+        <!-- Error Display -->
+        <div id="errorContainer" class="hidden mb-6">
+            <div class="error-message">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                <span id="errorText"></span>
+            </div>
+        </div>
+
+        <!-- Organized Output -->
+        <div id="organizedContainer" class="hidden">
+            <div id="breachCards"></div>
+        </div>
+
+        <!-- Raw JSON Output -->
+        <div id="jsonContainer" class="hidden">
+            <div class="glass-panel">
+                <div class="p-4 border-b border-gray-600">
+                    <h3 class="text-lg font-semibold">Raw JSON Output</h3>
+                </div>
+                <div class="p-4">
+                    <pre id="jsonOutput" class="mono text-sm leading-relaxed bg-gray-900 p-4 rounded overflow-auto" style="max-height: 600px;"></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="text-center py-16">
+            <div class="text-6xl text-gray-600 mb-4">
+                <i class="fas fa-shield-check"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Ready to Search</h3>
+            <p class="text-gray-400 max-w-md mx-auto">
+                Enter a search term above to query the breach database and view organized results.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        class OrganizedBreachViewer {
+            constructor() {
+                this.currentResults = null;
+                this.currentDbIndex = 0;
+                this.showingRawJSON = false;
+                this.apiEndpoint = 'breach_api.php';
+                this.initializeElements();
+                this.setupEventListeners();
+            }
+
+            initializeElements() {
+                this.searchInput           = document.getElementById('searchInput');
+                this.searchBtn             = document.getElementById('searchBtn');
+                this.searchBtnText         = document.getElementById('searchBtnText');
+                this.searchProgressContainer = document.getElementById('searchProgressContainer');
+                this.progressBar           = document.getElementById('progressBar');
+                this.statusText            = document.getElementById('statusText');
+                this.searchHeader          = document.getElementById('searchHeader');
+                this.searchQueryDisplay    = document.getElementById('searchQueryDisplay');
+                this.searchTimestamp       = document.getElementById('searchTimestamp');
+                this.statsContainer        = document.getElementById('statsContainer');
+                this.databaseNav           = document.getElementById('databaseNav');
+                this.databaseButtons       = document.getElementById('databaseButtons');
+                this.controlsContainer     = document.getElementById('controlsContainer');
+                this.organizedContainer    = document.getElementById('organizedContainer');
+                this.breachCards           = document.getElementById('breachCards');
+                this.jsonContainer         = document.getElementById('jsonContainer');
+                this.jsonOutput            = document.getElementById('jsonOutput');
+                this.emptyState            = document.getElementById('emptyState');
+                this.errorContainer        = document.getElementById('errorContainer');
+                this.errorText             = document.getElementById('errorText');
+                this.copyBtn               = document.getElementById('copyBtn');
+                this.copyAllBtn            = document.getElementById('copyAllBtn');
+                this.downloadBtn           = document.getElementById('downloadBtn');
+                this.toggleViewBtn         = document.getElementById('toggleViewBtn');
+                this.prevBtn               = document.getElementById('prevBtn');
+                this.nextBtn               = document.getElementById('nextBtn');
+                this.breachCount           = document.getElementById('breachCount');
+                this.recordCount           = document.getElementById('recordCount');
+                this.currentDbIndexEl      = document.getElementById('currentDbIndex');
+                this.currentDbRecordCount  = document.getElementById('currentDbRecordCount');
+                this.searchTime            = document.getElementById('searchTime');
+            }
+
+            setupEventListeners() {
+                this.searchBtn.addEventListener('click', () => this.handleSearch());
+                this.searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.handleSearch();
+                });
+                this.copyBtn.addEventListener('click',       () => this.copyCurrentDB());
+                this.copyAllBtn.addEventListener('click',    () => this.copyAllJSON());
+                this.downloadBtn.addEventListener('click',   () => this.downloadJSON());
+                this.toggleViewBtn.addEventListener('click', () => this.toggleView());
+                this.prevBtn.addEventListener('click',       () => this.navigateDB(-1));
+                this.nextBtn.addEventListener('click',       () => this.navigateDB(1));
+            }
+
+            async handleSearch() {
+                const query = this.searchInput.value.trim();
+                if (!query) { this.showError('Please enter a search term'); return; }
+
+                // Dismiss mobile keyboard before results render
+                this.searchInput.blur();
+
+                this.startSearch(query);
+            }
+
+            startSearch(query) {
+                this.searchBtn.disabled = true;
+                this.searchBtnText.textContent = 'Searching...';
+                this.searchProgressContainer.classList.remove('hidden');
+                this.emptyState.classList.add('hidden');
+                this.searchHeader.classList.add('hidden');
+                this.statsContainer.classList.add('hidden');
+                this.databaseNav.classList.add('hidden');
+                this.controlsContainer.classList.add('hidden');
+                this.organizedContainer.classList.add('hidden');
+                this.jsonContainer.classList.add('hidden');
+                this.errorContainer.classList.add('hidden');
+
+                this.updateProgress(0, 'Initiating scan...');
+                this.performSearch(query);
+            }
+
+            async performSearch(query) {
+                try {
+                    this.updateProgress(25, 'Connecting to breach database...');
+
+                    const requestData = { query: query };
+                    this.updateProgress(50, 'Searching breach records...');
+
+                    const response = await fetch(this.apiEndpoint, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(requestData)
+                    });
+
+                    if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+
+                    this.updateProgress(75, 'Processing results...');
+                    const data = await response.json();
+
+                    if (data.error) throw new Error(data.error);
+
+                    this.updateProgress(100, 'Complete!');
+                    await this.delay(300);
+
+                    this.displayResults(data, query);
+
+                } catch (error) {
+                    console.error('Search error:', error);
+                    this.showError('Search failed: ' + error.message);
+                } finally {
+                    this.resetSearchButton();
+                }
+            }
+
+            displayResults(data, query) {
+                this.currentResults = data;
+                this.currentDbIndex = 0;
+                this.searchProgressContainer.classList.add('hidden');
+
+                if (!data.breaches || data.breaches.length === 0) {
+                    this.showEmptyResults();
+                    return;
+                }
+
+                this.searchQueryDisplay.textContent = `🔎 ${query}`;
+                this.searchTimestamp.textContent = new Date().toLocaleString();
+                this.searchHeader.classList.remove('hidden');
+
+                const totalRecords = data.breaches.reduce((sum, breach) =>
+                    sum + (breach.data ? breach.data.length : 0), 0
+                );
+
+                this.breachCount.textContent = data.breaches.length;
+                this.recordCount.textContent = totalRecords.toLocaleString();
+                this.searchTime.textContent = data.raw_response?.['search time'] || '0';
+
+                this.setupDatabaseNavigation();
+                this.showCurrentDatabase();
+
+                this.statsContainer.classList.remove('hidden');
+                this.databaseNav.classList.remove('hidden');
+                this.controlsContainer.classList.remove('hidden');
+                this.organizedContainer.classList.remove('hidden');
+            }
+
+            setupDatabaseNavigation() {
+                this.databaseButtons.innerHTML = '';
+
+                this.currentResults.breaches.forEach((breach, index) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'db-btn';
+                    btn.textContent = breach.name;
+                    btn.onclick = () => this.selectDatabase(index);
+                    this.databaseButtons.appendChild(btn);
+                });
+
+                this.updateNavigationButtons();
+            }
+
+            selectDatabase(index) {
+                this.currentDbIndex = index;
+                this.showCurrentDatabase();
+                this.updateNavigationButtons();
+            }
+
+            navigateDB(direction) {
+                const newIndex = this.currentDbIndex + direction;
+                if (newIndex >= 0 && newIndex < this.currentResults.breaches.length) {
+                    this.selectDatabase(newIndex);
+                }
+            }
+
+            showCurrentDatabase() {
+                const currentBreach = this.currentResults.breaches[this.currentDbIndex];
+
+                this.currentDbIndexEl.textContent = this.currentDbIndex + 1;
+                this.currentDbRecordCount.textContent = currentBreach.data ? currentBreach.data.length : 0;
+
+                if (this.showingRawJSON) {
+                    this.showRawJSON(currentBreach);
+                } else {
+                    this.showOrganizedOutput(currentBreach);
+                }
+            }
+
+            showOrganizedOutput(breach) {
+                this.organizedContainer.classList.remove('hidden');
+                this.jsonContainer.classList.add('hidden');
+
+                const breachCard = document.createElement('div');
+                breachCard.className = 'breach-card';
+
+                const header = document.createElement('div');
+                header.className = 'breach-header';
+                header.innerHTML = `
+                    <div class="breach-title">
+                        <i class="fas fa-database mr-2"></i>${breach.name}
+                    </div>
+                    <div class="breach-description">
+                        ${breach.description || 'No description available'}
+                    </div>
+                    <div class="source-info">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        <strong>Source:</strong> ${breach.source || 'LeakOSINT Database'} •
+                        <strong>Records:</strong> ${breach.data ? breach.data.length : 0} •
+                        <strong>Date:</strong> ${breach.date || 'Unknown'}
+                    </div>
+                `;
+
+                const content = document.createElement('div');
+                content.className = 'breach-content';
+
+                if (!breach.data || breach.data.length === 0) {
+                    content.innerHTML = '<div class="no-data">No data entries found in this database.</div>';
+                } else {
+                    const groupedRecords = this.groupDataByRecords(breach.data);
+
+                    groupedRecords.forEach((record, index) => {
+                        const recordEntry = document.createElement('div');
+                        recordEntry.className = 'data-entry';
+                        recordEntry.style.marginBottom = '20px';
+
+                        let recordHTML = `<div class="text-sm text-gray-400 mb-2">Entry #${index + 1}</div>`;
+
+                        record.forEach(dataItem => {
+                            const icon = this.getTypeIcon(dataItem.type);
+                            recordHTML += `
+                                <div class="flex items-start mb-2 flex-wrap">
+                                    <span class="text-lg mr-2">${icon}</span>
+                                    <div class="flex-1 min-w-0">
+                                        <span class="field-name">${dataItem.field}:</span>
+                                        <div class="field-value mt-1">${this.sanitizeValue(dataItem.value)}</div>
+                                    </div>
+                                </div>
+                            `;
+                        });
+
+                        recordEntry.innerHTML = recordHTML;
+                        content.appendChild(recordEntry);
+                    });
+                }
+
+                breachCard.appendChild(header);
+                breachCard.appendChild(content);
+
+                this.breachCards.innerHTML = '';
+                this.breachCards.appendChild(breachCard);
+            }
+
+            groupDataByRecords(data) {
+                const records = [];
+                let currentRecord = [];
+
+                data.forEach((item, index) => {
+                    currentRecord.push(item);
+
+                    if (currentRecord.length >= 5 ||
+                        (item.type === 'email' && currentRecord.length > 1) ||
+                        index === data.length - 1) {
+                        if (currentRecord.length > 0) {
+                            records.push([...currentRecord]);
+                            currentRecord = [];
+                        }
+                    }
+                });
+
+                if (currentRecord.length > 0) records.push(currentRecord);
+
+                return records;
+            }
+
+            getTypeIcon(type) {
+                const icons = {
+                    email: '📩', password: '🔑', username: '👤',
+                    hash: '🔐', ip: '📍', phone: '📞', name: '👤', unknown: '❓'
+                };
+                return icons[type] || '❓';
+            }
+
+            sanitizeValue(value) {
+                return String(value).replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            }
+
+            showRawJSON(breach) {
+                this.organizedContainer.classList.add('hidden');
+                this.jsonContainer.classList.remove('hidden');
+                this.jsonOutput.textContent = JSON.stringify(breach, null, 2);
+            }
+
+            toggleView() {
+                this.showingRawJSON = !this.showingRawJSON;
+                this.toggleViewBtn.innerHTML = this.showingRawJSON
+                    ? '<i class="fas fa-eye mr-2"></i>Organized View'
+                    : '<i class="fas fa-code mr-2"></i>Raw JSON View';
+                this.showCurrentDatabase();
+            }
+
+            updateNavigationButtons() {
+                const dbButtons = this.databaseButtons.querySelectorAll('.db-btn');
+                dbButtons.forEach((btn, index) => {
+                    btn.classList.toggle('active', index === this.currentDbIndex);
+                });
+
+                this.prevBtn.disabled = this.currentDbIndex === 0;
+                this.nextBtn.disabled = this.currentDbIndex >= this.currentResults.breaches.length - 1;
+            }
+
+            copyCurrentDB() {
+                if (!this.currentResults) return;
+                const jsonString = JSON.stringify(this.currentResults.breaches[this.currentDbIndex], null, 2);
+                navigator.clipboard.writeText(jsonString).then(() => {
+                    this.copyBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Copied!';
+                    setTimeout(() => {
+                        this.copyBtn.innerHTML = '<i class="fas fa-copy mr-2"></i>Copy DB';
+                    }, 2000);
+                });
+            }
+
+            copyAllJSON() {
+                if (!this.currentResults) return;
+                const jsonString = JSON.stringify(this.currentResults, null, 2);
+                navigator.clipboard.writeText(jsonString).then(() => {
+                    this.copyAllBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Copied!';
+                    setTimeout(() => {
+                        this.copyAllBtn.innerHTML = '<i class="fas fa-copy mr-2"></i>Copy All';
+                    }, 2000);
+                });
+            }
+
+            downloadJSON() {
+                if (!this.currentResults) return;
+                const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+                const filename = `breach-scan-${this.currentResults.search_term || 'results'}-${timestamp}.json`;
+                const jsonString = JSON.stringify(this.currentResults, null, 2);
+                const blob = new Blob([jsonString], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }
+
+            showError(message) {
+                this.errorText.textContent = message;
+                this.errorContainer.classList.remove('hidden');
+                this.searchProgressContainer.classList.add('hidden');
+            }
+
+            showEmptyResults() {
+                this.emptyState.innerHTML = `
+                    <div class="text-6xl text-gray-600 mb-4">
+                        <i class="fas fa-shield-check"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">No Breaches Found</h3>
+                    <p class="text-gray-400 max-w-md mx-auto">
+                        No results found for your search term in the breach database.
+                    </p>
+                `;
+                this.emptyState.classList.remove('hidden');
+            }
+
+            updateProgress(percentage, message) {
+                this.progressBar.style.width = `${percentage}%`;
+                this.statusText.textContent = message;
+            }
+
+            resetSearchButton() {
+                this.searchBtn.disabled = false;
+                this.searchBtnText.textContent = 'Scan';
+                this.searchProgressContainer.classList.add('hidden');
+            }
+
+            delay(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new OrganizedBreachViewer();
+        });
+    </script>
+
+        <script src="../../assets/js/livecenter-ui.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c196748d64614',t:'MTc4OTAxODg0MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

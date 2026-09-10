@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>OSINTSky - BlueSky OSINT Suite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/livecenter-tools.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+</head>
+<body data-lct-theme="platform">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <div class="lct-wrap">
+    <div class="container">
+        <div class="header">
+            <a href="https://github.com/OSINTCabal/OSINTSky" target="_blank" class="github-btn">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
+                GitHub
+            </a>
+            <h1>OSINTSky</h1>
+            <p>A Python wrapper for the public BlueSky API. Functions as a comprehensive OSINT suite! The API caps at 1K for followers/following searches. For full functionality host it locally. Check out our repo!</p>
+            
+            <div class="warning-box">
+                <strong>SESSION-BASED AUTHENTICATION</strong>
+                <p style="margin: 5px 0 0 0;">Credentials stored for this session only. Refresh page to clear session. No information is stored on our servers. Scan Responsibly! #OSINT4Good</p>
+            </div>
+        </div>
+        
+        <!-- Auth Section -->
+        <div class="auth-box" id="auth-section">
+            <h3 style="color: #ff6b9c; margin-top: 0;">BlueSky Authentication</h3>
+            <div class="input-group">
+                <input type="text" id="bsky-handle" placeholder="BlueSky Handle (e.g., user.bsky.social)" autocorrect="off" autocapitalize="none" spellcheck="false">
+            </div>
+            <div class="input-group">
+                <input type="password" id="bsky-password" placeholder="Password">
+            </div>
+            <button onclick="authenticate()">Authenticate</button>
+            <div id="auth-status" class="session-info" style="display:none;"></div>
+        </div>
+        
+        <!-- Search Section -->
+        <div class="content-box" id="search-section" style="display:none;">
+            <h3 style="color: #4a90e2;">Select OSINT Mode</h3>
+            
+            <div class="search-mode-selector">
+                <button class="mode-button active" onclick="switchMode('search')"    id="search-btn">Search Posts</button>
+                <button class="mode-button"        onclick="switchMode('profile')"   id="profile-btn">Profile User</button>
+                <button class="mode-button"        onclick="switchMode('follows')"   id="follows-btn">User Follows</button>
+                <button class="mode-button"        onclick="switchMode('followers')" id="followers-btn">User Followers</button>
+                <button class="mode-button"        onclick="switchMode('monitor')"   id="monitor-btn">Monitor User</button>
+            </div>
+            
+            <div class="search-form active" id="search-form">
+                <div class="input-group">
+                    <input type="text" id="search-query" placeholder="Enter search keyword" autocorrect="off" autocapitalize="none" spellcheck="false">
+                </div>
+                <button onclick="runOSINT('search')">Search Posts</button>
+            </div>
+            
+            <div class="search-form" id="profile-form">
+                <div class="input-group">
+                    <input type="text" id="profile-handle" placeholder="Enter BlueSky handle (e.g., user.bsky.social)" autocorrect="off" autocapitalize="none" spellcheck="false">
+                </div>
+                <button onclick="runOSINT('profile')">Get Profile</button>
+            </div>
+            
+            <div class="search-form" id="follows-form">
+                <div class="input-group">
+                    <input type="text" id="follows-handle" placeholder="Enter BlueSky handle" autocorrect="off" autocapitalize="none" spellcheck="false">
+                </div>
+                <button onclick="runOSINT('follows')">Get Follows</button>
+            </div>
+            
+            <div class="search-form" id="followers-form">
+                <div class="input-group">
+                    <input type="text" id="followers-handle" placeholder="Enter BlueSky handle" autocorrect="off" autocapitalize="none" spellcheck="false">
+                </div>
+                <button onclick="runOSINT('followers')">Get Followers</button>
+            </div>
+            
+            <div class="search-form" id="monitor-form">
+                <div class="input-group">
+                    <input type="text" id="monitor-handle" placeholder="Enter BlueSky handle to monitor (e.g., user.bsky.social)" autocorrect="off" autocapitalize="none" spellcheck="false">
+                </div>
+                <p style="color: #4a90e2; font-size: 12px; margin-top: 5px;">⚠️ Monitors a specific USER's posts. Checks every 20 seconds indefinitely until you close the page.</p>
+                <button onclick="runOSINT('monitor')">Start Monitoring</button>
+            </div>
+        </div>
+        
+        <!-- Output Section -->
+        <div id="output-section" style="display:none;">
+            <div class="terminal-container" style="display:block;">
+                <div class="terminal-header">
+                    <div class="terminal-controls">
+                        <div class="terminal-control close"></div>
+                        <div class="terminal-control minimize"></div>
+                        <div class="terminal-control maximize"></div>
+                    </div>
+                    <span>OSINTSky Terminal</span>
+                </div>
+                <div id="status-display" class="status-message"></div>
+                <div id="terminal-output" class="terminal-output">Connecting to BlueSky...</div>
+            </div>
+            
+            <div class="export-section" id="export-section">
+                <p style="color: #4a90e2; font-size: 16px; margin-bottom: 10px;">
+                    ⚠️ <span id="export-message">Large result set detected!</span>
+                </p>
+                <button class="export-btn" onclick="exportResults('json')">
+                    📥 Export Full Results (JSON)
+                </button>
+                <button class="export-btn" onclick="exportResults('txt')">
+                    📄 Export as TXT
+                </button>
+            </div>
+        </div>
+        
+        <a href="/livecenter/live.html" class="back-link">← Back to Live Center Home</a>
+    </div>
+
+    
+    </div>
+
+<script src="LIVETOOLS/bluesky_export.js"></script>
+<script>
+        let sessionHandle = '';
+        let sessionPassword = '';
+        let jsonFilePath = '';
+
+        function authenticate() {
+            const handle = document.getElementById('bsky-handle').value.trim();
+            const password = document.getElementById('bsky-password').value;
+            
+            if (!handle || !password) { alert('Please enter both handle and password'); return; }
+            
+            sessionHandle = handle;
+            sessionPassword = password;
+
+            // Dismiss mobile keyboard
+            document.getElementById('bsky-handle').blur();
+            document.getElementById('bsky-password').blur();
+            
+            document.getElementById('auth-section').style.display = 'none';
+            document.getElementById('search-section').style.display = 'block';
+            
+            const authStatus = document.getElementById('auth-status');
+            authStatus.innerHTML = 'Authenticated as ' + handle;
+            authStatus.className = 'session-info authenticated';
+            authStatus.style.display = 'block';
+            
+            document.getElementById('search-section').insertBefore(
+                authStatus,
+                document.getElementById('search-section').firstChild
+            );
+        }
+
+        function switchMode(mode) {
+            document.querySelectorAll('.mode-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.search-form').forEach(form => form.classList.remove('active'));
+            
+            document.getElementById(mode + '-btn').classList.add('active');
+            document.getElementById(mode + '-form').classList.add('active');
+            
+            document.getElementById('export-section').classList.remove('visible');
+        }
+
+        function runOSINT(mode) {
+            if (!sessionHandle || !sessionPassword) { alert('Please authenticate first'); return; }
+            
+            currentMode = mode;
+            jsonFilePath = '';
+            let query = '';
+            let limit = '100';
+            
+            if (mode === 'search') {
+                query = document.getElementById('search-query').value.trim();
+                limit = '100';
+                if (!query) { alert('Please enter a search query'); return; }
+            } else if (mode === 'profile') {
+                query = document.getElementById('profile-handle').value.trim();
+                if (!query) { alert('Please enter a handle'); return; }
+            } else if (mode === 'follows') {
+                query = document.getElementById('follows-handle').value.trim();
+                limit = '1000';
+                if (!query) { alert('Please enter a handle'); return; }
+            } else if (mode === 'followers') {
+                query = document.getElementById('followers-handle').value.trim();
+                limit = '1000';
+                if (!query) { alert('Please enter a handle'); return; }
+            } else if (mode === 'monitor') {
+                query = document.getElementById('monitor-handle').value.trim();
+                limit = '300';
+                if (!query) { alert('Please enter a handle to monitor'); return; }
+            }
+
+            // Dismiss mobile keyboard before showing output
+            if (document.activeElement) document.activeElement.blur();
+            
+            document.getElementById('output-section').style.display = 'block';
+            document.getElementById('status-display').textContent = 'Connecting to BlueSky...';
+            document.getElementById('terminal-output').textContent = '';
+            document.getElementById('terminal-output').className = 'terminal-output';
+            document.getElementById('export-section').classList.remove('visible');
+
+            // Scroll output into view on mobile
+            setTimeout(() => {
+                document.getElementById('output-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 150);
+            
+            const url = '/livecenter/LIVETOOLS/bluesky_wrapper.php?' + 
+                'mode=' + encodeURIComponent(mode) +
+                '&handle=' + encodeURIComponent(sessionHandle) +
+                '&password=' + encodeURIComponent(sessionPassword) +
+                '&query=' + encodeURIComponent(query) +
+                '&limit=' + encodeURIComponent(limit) +
+                '&instance=bsky.social';
+            
+            if (window.__osintES) { try { window.__osintES.close(); } catch (e) {} }
+            const eventSource = new EventSource(url);
+            window.__osintES = eventSource;
+            let sseTail = ''; // rolling tail: completion markers can arrive split across SSE chunks
+            
+            eventSource.onmessage = function(event) {
+                const output = document.getElementById('terminal-output');
+                let line = event.data;
+                
+                if (line.includes('[JSON_PATH]')) {
+                    const match = line.match(/\[JSON_PATH\] (.+)/);
+                    if (match) jsonFilePath = match[1];
+                }
+                
+                if (line.includes('[EXPORT_AVAILABLE]')) {
+                    document.getElementById('export-section').classList.add('visible');
+                    const match = line.match(/\[EXPORT_AVAILABLE\] (\d+) total results/);
+                    if (match) {
+                        document.getElementById('export-message').textContent = 
+                            match[1] + ' results found. Export available.';
+                    }
+                }
+                
+                if (!line.includes('[EXPORT_AVAILABLE]') && !line.includes('[JSON_PATH]')) {
+                    output.appendChild(document.createTextNode(line + '\n'));
+                    while (output.childNodes.length > 1200) output.removeChild(output.firstChild);
+                    output.scrollTop = output.scrollHeight;
+                }
+
+                sseTail = (sseTail + line).slice(-512);
+                if (sseTail.includes('[COMPLETE]') || /\[SUCCESS\] (?!Connected as)/.test(sseTail)) {
+                    document.getElementById('status-display').textContent = 'Complete';
+                    document.getElementById('terminal-output').classList.add('complete');
+                    eventSource.close();
+                } else if (line.includes('[ERROR]')) {
+                    document.getElementById('status-display').textContent = 'Error';
+                    document.getElementById('terminal-output').classList.add('error');
+                }
+            };
+            
+            eventSource.onerror = function(error) {
+                console.error('EventSource error:', error);
+                document.getElementById('status-display').textContent = 'Error';
+                document.getElementById('terminal-output').classList.add('error');
+                eventSource.close();
+            };
+        }
+
+        async function exportResults(format) {
+            if (!jsonFilePath) { alert('No data file available for export'); return; }
+            
+            const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+            
+            try {
+                const response = await fetch(`/livecenter/LIVETOOLS/get_json.php?file=${encodeURIComponent(jsonFilePath)}`);
+                if (!response.ok) throw new Error('Failed to fetch data file');
+                
+                const jsonData = await response.json();
+                let blob, filename;
+                
+                if (format === 'json') {
+                    blob = new Blob([JSON.stringify(jsonData, null, 2)], { type: 'application/json' });
+                    filename = `osintsky_${currentMode}_${timestamp}.json`;
+                } else {
+                    const textContent = formatAsText(jsonData, currentMode);
+                    blob = new Blob([textContent], { type: 'text/plain' });
+                    filename = `osintsky_${currentMode}_${timestamp}.txt`;
+                }
+                
+                downloadBlob(blob, filename);
+                showExportSuccess(filename, jsonData.length || Object.keys(jsonData).length);
+                
+            } catch (error) {
+                console.error('Export error:', error);
+                alert('Failed to export data: ' + error.message);
+            }
+        }
+
+        function formatAsText(data, mode) {
+            let text = `OSINTSky Export - ${mode.toUpperCase()}\n`;
+            text += `Generated: ${new Date().toISOString()}\n`;
+            text += `Total Results: ${Array.isArray(data) ? data.length : 1}\n`;
+            text += `${'='.repeat(80)}\n\n`;
+            
+            if (Array.isArray(data)) {
+                data.forEach((item, index) => {
+                    text += `ENTRY #${index + 1}\n`;
+                    text += `${'-'.repeat(80)}\n`;
+                    for (let key in item) {
+                        if (item.hasOwnProperty(key)) text += `${key}: ${item[key]}\n`;
+                    }
+                    text += '\n';
+                });
+            } else {
+                text += JSON.stringify(data, null, 2);
+            }
+            
+            return text;
+        }
+
+        function downloadBlob(blob, filename) {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function showExportSuccess(filename, count) {
+            const msg = document.createElement('div');
+            msg.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                left: 20px;
+                background: linear-gradient(45deg, #00ff00, #00ffff);
+                color: #000;
+                padding: 15px 25px;
+                border-radius: 5px;
+                font-weight: bold;
+                z-index: 10000;
+                box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+                text-align: center;
+                word-break: break-all;
+            `;
+            msg.textContent = `✓ Exported ${count} results: ${filename}`;
+            document.body.appendChild(msg);
+            
+            setTimeout(() => {
+                msg.style.opacity = '0';
+                msg.style.transition = 'opacity 0.3s';
+                setTimeout(() => msg.remove(), 300);
+            }, 3000);
+        }
+    </script>
+    <script src="../assets/js/livecenter-ui.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c196748d44614',t:'MTc4OTAxODg0MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

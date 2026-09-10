@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>OSINTChan - 4chan OSINT Suite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/livecenter-tools.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+</head>
+<body data-lct-theme="platform">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <div class="lct-wrap">
+    <div class="container">
+        <div class="header">
+            <a href="https://github.com/OSINTCabal/OSINT-Chan" target="_blank" class="github-btn">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
+                GitHub
+            </a>
+            <h1>OSINTChan</h1>
+            <p>A 4chan OSINT collection tool built on the official 4chan read API (a.4cdn.org) — no API key required. Search board catalogs, pull full threads, enumerate boards, and list archives for investigations.</p>
+
+            <div class="warning-box">
+                <strong>READ-ONLY PUBLIC DATA</strong>
+                <p style="margin: 5px 0 0 0;">Queries the public 4chan API only (8kun support is planned upstream). Imageboard content can be graphic or hostile — investigate responsibly. #OSINT4Good</p>
+            </div>
+        </div>
+
+        <!-- Operation Section -->
+        <div class="content-box" id="search-section">
+            <h3 style="color: #4a90e2;">Select Operation</h3>
+
+            <div class="search-mode-selector">
+                <button class="mode-button active" onclick="switchMode('search')"  id="search-btn">Search Catalog</button>
+                <button class="mode-button"        onclick="switchMode('catalog')" id="catalog-btn">Board Catalog</button>
+                <button class="mode-button"        onclick="switchMode('boards')"  id="boards-btn">List Boards</button>
+                <button class="mode-button"        onclick="switchMode('thread')"  id="thread-btn">Thread Lookup</button>
+                <button class="mode-button"        onclick="switchMode('archive')" id="archive-btn">Archive List</button>
+            </div>
+
+            <div class="search-form active" id="search-form">
+                <div class="input-group">
+                    <input type="text" id="search-board" placeholder="Board (e.g., pol, g, b, int)" autocorrect="off" autocapitalize="none" spellcheck="false">
+                </div>
+                <div class="input-group">
+                    <input type="text" id="search-keyword" placeholder="Keyword to find in thread subjects/comments" autocorrect="off" autocapitalize="none" spellcheck="false">
+                </div>
+                <button onclick="runChan('search')">Search Catalog</button>
+            </div>
+
+            <div class="search-form" id="catalog-form">
+                <div class="input-group">
+                    <input type="text" id="catalog-board" placeholder="Board (e.g., pol)" autocorrect="off" autocapitalize="none" spellcheck="false">
+                </div>
+                <button onclick="runChan('catalog')">Get Catalog</button>
+            </div>
+
+            <div class="search-form" id="boards-form">
+                <p style="color: #4a90e2; font-size: 13px; margin-top: 0;">Lists every 4chan board with its title and description.</p>
+                <button onclick="runChan('boards')">List All Boards</button>
+            </div>
+
+            <div class="search-form" id="thread-form">
+                <div class="input-group">
+                    <input type="text" id="thread-board" placeholder="Board (e.g., pol)" autocorrect="off" autocapitalize="none" spellcheck="false">
+                </div>
+                <div class="input-group">
+                    <input type="text" id="thread-no" placeholder="Thread number (e.g., 123456789)" inputmode="numeric" autocorrect="off" autocapitalize="none" spellcheck="false">
+                </div>
+                <button onclick="runChan('thread')">Get Thread</button>
+            </div>
+
+            <div class="search-form" id="archive-form">
+                <div class="input-group">
+                    <input type="text" id="archive-board" placeholder="Board (e.g., pol)" autocorrect="off" autocapitalize="none" spellcheck="false">
+                </div>
+                <button onclick="runChan('archive')">List Archived Threads</button>
+            </div>
+        </div>
+
+        <!-- Output Section -->
+        <div id="output-section" style="display:none;">
+            <div class="terminal-container" style="display:block;">
+                <div class="terminal-header">
+                    <div class="terminal-controls">
+                        <div class="terminal-control close"></div>
+                        <div class="terminal-control minimize"></div>
+                        <div class="terminal-control maximize"></div>
+                    </div>
+                    <span>OSINTChan Terminal</span>
+                </div>
+                <div id="status-display" class="status-message"></div>
+                <div id="terminal-output" class="terminal-output">Waiting for operation...</div>
+            </div>
+        </div>
+
+        <a href="/livecenter/live.html" class="back-link">← Back to Live Center Home</a>
+    </div>
+
+    </div>
+
+<script>
+        let chanBusy = false;
+
+        function switchMode(mode) {
+            document.querySelectorAll('.mode-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.search-form').forEach(form => form.classList.remove('active'));
+            document.getElementById(mode + '-btn').classList.add('active');
+            document.getElementById(mode + '-form').classList.add('active');
+        }
+
+        async function runChan(mode) {
+            if (chanBusy) { alert('An operation is already running. Please wait.'); return; }
+
+            let board = '', keyword = '', thread = '';
+            if (mode === 'search') {
+                board = document.getElementById('search-board').value.trim();
+                keyword = document.getElementById('search-keyword').value.trim();
+                if (!board) { alert('Please enter a board (e.g., pol, g, b)'); return; }
+                if (!keyword) { alert('Please enter a keyword'); return; }
+            } else if (mode === 'catalog') {
+                board = document.getElementById('catalog-board').value.trim();
+                if (!board) { alert('Please enter a board'); return; }
+            } else if (mode === 'thread') {
+                board = document.getElementById('thread-board').value.trim();
+                thread = document.getElementById('thread-no').value.trim();
+                if (!board || !thread) { alert('Please enter both board and thread number'); return; }
+                if (!/^\d+$/.test(thread)) { alert('Thread number must be numeric'); return; }
+            } else if (mode === 'archive') {
+                board = document.getElementById('archive-board').value.trim();
+                if (!board) { alert('Please enter a board'); return; }
+            }
+
+            if (document.activeElement) document.activeElement.blur();
+
+            const output = document.getElementById('terminal-output');
+            const status = document.getElementById('status-display');
+            document.getElementById('output-section').style.display = 'block';
+            output.textContent = 'Connecting to 4chan API...';
+            status.textContent = 'Running...';
+            status.className = 'status-message';
+            chanBusy = true;
+
+            setTimeout(() => {
+                document.getElementById('output-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 150);
+
+            const url = '/livecenter/LIVETOOLS/osintchan_wrapper.php?mode=' + encodeURIComponent(mode) +
+                (board   ? '&board='   + encodeURIComponent(board)   : '') +
+                (keyword ? '&keyword=' + encodeURIComponent(keyword) : '') +
+                (thread  ? '&thread='  + encodeURIComponent(thread)  : '');
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Server returned status: ' + response.status);
+                const text = await response.text();
+                output.textContent = text;
+                while (output.childNodes.length > 1200) output.removeChild(output.firstChild);
+                status.textContent = /^ERROR|Error:/m.test(text) ? 'Error' : 'Complete';
+            } catch (error) {
+                output.textContent = 'Error: ' + error.message + '\nPlease try again later or contact the administrator.';
+                status.textContent = 'Error';
+            }
+            chanBusy = false;
+        }
+
+        document.querySelectorAll('.input-group input').forEach(inp => {
+            inp.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const active = document.querySelector('.search-form.active');
+                    if (active && active.id) runChan(active.id.replace('-form', ''));
+                }
+            });
+        });
+    </script>
+    <script src="../assets/js/livecenter-ui.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c196748dc4614',t:'MTc4OTAxODg0MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/page-transition.js"></script>
+    <link rel="stylesheet" href="../assets/css/glass.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunter.io - Email Finder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/livecenter-tools.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="../assets/js/flowbg.js"></script>
+    <script src="../assets/js/flowbg-loader.js"></script>
+</head>
+<body data-lct-theme="email">
+<header class="ocb-topbar">
+  <a class="ocb-brand" href="/"><img src="/favicons/apple-icon-144x144.png" alt="OSINT Cabal"><span class="ocb-dot"></span><span class="ocb-mark"><b>OSINT</b> Cabal</span></a>
+  <div class="ocb-right">
+    <div class="ocb-ctrls">
+      <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+      <button class="ocb-ctrl" id="ocbAnim" type="button">Toggle Animations</button>
+      <button class="ocb-ctrl" id="ocbInvert" type="button">Invert Colors</button>
+    </div>
+    <button class="ocb-burger" id="ocbBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ocb-scrim" id="ocbScrim"></div>
+<nav class="ocb-menu" id="ocbMenu">
+    <a class="ocb-mlink" href="/">Home</a>
+    <a class="ocb-mlink" href="/tools.html">Catalogue of Tools &amp; Resources</a>
+    <a class="ocb-mlink" href="/livecenter/live.html">Cabal Live Tool Center</a>
+    <a class="ocb-mlink" href="/methods.html">Methods &amp; Guides Database</a>
+    <a class="ocb-mlink" href="/socials.html">Socials &amp; Contact</a>
+    <a class="ocb-mlink" href="/news.html">News</a>
+    <a class="ocb-mlink" href="/cabaldashboard/">Cabal Threat Actor Dashboard</a>
+    <a class="ocb-mlink" href="/cabaldashboard/mostwanted.html">Cabal Most Wanted</a>
+    <a class="ocb-mlink" href="/cabaldashboard/doxbin.html">Cabal Doxbin</a>
+  <div class="ocb-mdiv"></div>
+  <a class="ocb-ctrl" href="http://dvmltfmxgtpgvjgkspvdsj4hc6f2wgyz2zzy46lvfwlwvaxnybrztpqd.onion/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Onion Available!</a>
+  <button class="ocb-ctrl" id="ocbAnim2" type="button">Toggle Animations</button>
+  <button class="ocb-ctrl" id="ocbInvert2" type="button">Invert Colors</button>
+</nav>
+
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <div class="lct-wrap">
+        <div class="lct-title">
+            <div class="title-glass">
+                <h1>Hunter.io - Email Finder</h1>
+            </div>
+        </div>
+    
+    <div class="content-box">
+        <div style="margin-bottom: 20px;">
+            <p style="color: #ff6b9c; font-size: 1.1em; text-align: center;">This tool redirects you to Hunter.io and extracts emails from domain and name queries. Make a free account with a gmail burner, log in, then run this tool when needed!</p>
+        </div>
+        
+        <div class="search-mode-selector">
+            <button class="mode-button active" onclick="switchMode('domain')" id="domain-mode-btn">
+                Domain Search
+            </button>
+            <button class="mode-button" onclick="switchMode('name')" id="name-mode-btn">
+                Name Search
+            </button>
+        </div>
+        
+        <!-- Domain Search -->
+        <div class="search-container active" id="domain-search">
+            <div class="info-box">
+                <p><strong>Domain Search:</strong> Find all email addresses associated with a company domain.</p>
+                <p><strong>Example:</strong> Microsoft.com </p>
+            </div>
+            
+            <div class="tool-form">
+                <div class="input-group">
+                    <input type="text" id="domain-input" placeholder="Enter domain (e.g., microsoft.com)">
+                    <button onclick="searchDomain()">Search Domain</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Name Search -->
+        <div class="search-container" id="name-search">
+            <div class="info-box">
+                <p><strong>Name Search:</strong> Find email addresses for a specific person at a company.</p>
+                <p><strong>Example:</strong> First Name: John, Last Name: Smith, Domain: microsoft.com</p>
+            </div>
+            
+            <div class="tool-form">
+                <div class="name-inputs">
+                    <div class="input-group" style="max-width: none;">
+                        <input type="text" id="firstname-input" placeholder="First Name">
+                    </div>
+                    <div class="input-group" style="max-width: none;">
+                        <input type="text" id="lastname-input" placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="name-domain-input" placeholder="Enter domain (e.g., microsoft.com)">
+                    <button onclick="searchName()">Find Email</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="nav-links">
+        <a href="live.html"> <- Back to Live Center</a>
+        <a href="../index.html">Home</a>
+    </div>
+    
+    
+    </div>
+
+<script>
+        function switchMode(mode) {
+            // Update buttons
+            document.getElementById('domain-mode-btn').classList.remove('active');
+            document.getElementById('name-mode-btn').classList.remove('active');
+            
+            // Update containers
+            document.getElementById('domain-search').classList.remove('active');
+            document.getElementById('name-search').classList.remove('active');
+            
+            if (mode === 'domain') {
+                document.getElementById('domain-mode-btn').classList.add('active');
+                document.getElementById('domain-search').classList.add('active');
+            } else {
+                document.getElementById('name-mode-btn').classList.add('active');
+                document.getElementById('name-search').classList.add('active');
+            }
+        }
+        
+        function searchDomain() {
+            const domain = document.getElementById('domain-input').value.trim();
+            
+            if (!domain) {
+                alert("Please enter a domain.");
+                return;
+            }
+            
+            // Remove http/https and trailing slashes
+            const cleanDomain = domain.replace(/^https?:\/\//, '').replace(/\/$/, '');
+            
+            // Construct Hunter.io URL
+            const hunterUrl = `https://hunter.io/search/${encodeURIComponent(cleanDomain)}`;
+            
+            // Open in new tab
+            window.open(hunterUrl, '_blank');
+        }
+        
+        function searchName() {
+            const firstName = document.getElementById('firstname-input').value.trim();
+            const lastName = document.getElementById('lastname-input').value.trim();
+            const domain = document.getElementById('name-domain-input').value.trim();
+            
+            if (!firstName || !lastName || !domain) {
+                alert("Please fill in all fields (First Name, Last Name, and Domain).");
+                return;
+            }
+            
+            // Remove http/https and trailing slashes from domain
+            const cleanDomain = domain.replace(/^https?:\/\//, '').replace(/\/$/, '');
+            
+            // Construct full name with proper encoding
+            const fullName = `${encodeURIComponent(firstName)}%20${encodeURIComponent(lastName)}`;
+            
+            // Construct Hunter.io URL
+            const hunterUrl = `https://hunter.io/find/${encodeURIComponent(cleanDomain)}/${fullName}`;
+            
+            // Open in new tab
+            window.open(hunterUrl, '_blank');
+        }
+        
+        // Allow Enter key for domain search
+        document.getElementById('domain-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchDomain();
+            }
+        });
+        
+        // Allow Enter key for name search
+        document.getElementById('firstname-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('lastname-input').focus();
+            }
+        });
+        
+        document.getElementById('lastname-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('name-domain-input').focus();
+            }
+        });
+        
+        document.getElementById('name-domain-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchName();
+            }
+        });
+    </script>
+    <script src="../assets/js/livecenter-ui.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38c196748db4614',t:'MTc4OTAxODg0MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"11db258a438a4ba79625e28ceb30a6ef","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
