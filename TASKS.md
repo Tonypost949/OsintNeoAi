@@ -1,5 +1,5 @@
 # 📋 OSINT Neo AI — Master Autonomous Task & Action Ledger
-> **System Status:** 🟢 Active & Self-Tracking | **Storage:** [`data/tasks.json`](data/tasks.json) | **Total Tasks:** 83 (17 Open / 66 Done)
+> **System Status:** 🟢 Active & Self-Tracking | **Storage:** [`data/tasks.json`](data/tasks.json) | **Total Tasks:** 88 (12 Open / 76 Done)
 
 ---
 
@@ -7,11 +7,6 @@
 
 | ID | Priority | Category | Task Description | Action Link / Ref | Status |
 | :--- | :---: | :--- | :--- | :--- | :---: |
-| **`TASK-077`** | 🔴 **CRITICAL** | BACKEND | **Implement Append-Only (Event Sourcing) Database Logic for Metadata to prevent Pointer Corruption**<br>Implement Append-Only (Event Sourcing) Database Logic for Metadata to prevent Pointer Corruption | [BACKEND](#) | `TODO` |
-| **`TASK-079`** | 🔴 **CRITICAL** | BACKEND | **Build Rate-Limiting and Bulk Caching Queue for ProPublica/Data.gov Free APIs**<br>Build Rate-Limiting and Bulk Caching Queue for ProPublica/Data.gov Free APIs | [BACKEND](#) | `TODO` |
-| **`TASK-081`** | 🔴 **CRITICAL** | BACKEND | **Build Reputation Gate / Staking Requirement to Prevent Sybil Attacks and Fake Miners**<br>Build Reputation Gate / Staking Requirement to Prevent Sybil Attacks and Fake Miners | [BACKEND](#) | `TODO` |
-| **`TASK-083`** | 🔴 **CRITICAL** | SECURITY | **Implement SHA-256 Cryptographic Hashing at Point-of-Upload to guarantee Raw File Integrity**<br>Implement SHA-256 Cryptographic Hashing at Point-of-Upload to guarantee Raw File Integrity | [SECURITY](#) | `TODO` |
-| **`TASK-067`** | 🟡 **HIGH** | Core Infrastructure, Threat Intel & AI Blueprints | **Build OSINT Evidence Collector Chrome Extension (based on tab-copy)**<br>Fork/adapt the tab-copy Manifest V3 extension to capture URLs, titles, and timestamps for 1-click JSON payloads to the evasive OSINT endpoint. | [Core Infrastructure, Threat Intel & AI Blueprints](#) | `TODO` |
 | **`TASK-069`** | 🟡 **HIGH** | SUGGESTIVE_WORK | **Index Core Architecture Documents: Dual-Ledger OSINT Exchange**<br>Index Core Architecture Documents: Dual-Ledger OSINT Exchange | [SUGGESTIVE_WORK](#) | `TODO` |
 | **`TASK-070`** | 🟡 **HIGH** | SUGGESTIVE_WORK | **Build Autonomous Task Worker for Suggestive Queue**<br>Build Autonomous Task Worker for Suggestive Queue | [SUGGESTIVE_WORK](#) | `TODO` |
 | **`TASK-072`** | 🟡 **HIGH** | SUGGESTIVE_WORK | **Build NWORICO Daily Cross-Reference Graph Scrub Job**<br>Build NWORICO Daily Cross-Reference Graph Scrub Job | [SUGGESTIVE_WORK](#) | `TODO` |
@@ -19,9 +14,7 @@
 | **`TASK-074`** | 🟡 **HIGH** | SUGGESTIVE_WORK | **Build AI Extraction Module for Dynamic Legal Precedent & Statutory Citation Indexing**<br>Build AI Extraction Module for Dynamic Legal Precedent & Statutory Citation Indexing | [SUGGESTIVE_WORK](#) | `TODO` |
 | **`TASK-076`** | 🟡 **HIGH** | SUGGESTIVE_WORK | **Integrate free public grant APIs (USASpending, CA Grants Portal) for automated TaxFunded ingestion**<br>Integrate free public grant APIs (USASpending, CA Grants Portal) for automated TaxFunded ingestion | [SUGGESTIVE_WORK](#) | `TODO` |
 | **`TASK-078`** | 🟡 **HIGH** | WORKFLOW | **Build Human-in-the-Loop Contestation System (Convert Meta Comments into Review Tasks)**<br>Build Human-in-the-Loop Contestation System (Convert Meta Comments into Review Tasks) | [WORKFLOW](#) | `TODO` |
-| **`TASK-082`** | 🟡 **HIGH** | BACKEND | **Refactor AI Ingestion into Micro-Workers (Flash for Triage, Heavy Models for Legal/Entity Extraction) to fix Bottlenecks**<br>Refactor AI Ingestion into Micro-Workers (Flash for Triage, Heavy Models for Legal/Entity Extraction) to fix Bottlenecks | [BACKEND](#) | `TODO` |
 | **`TASK-068`** | 🔵 **MEDIUM** | SUGGESTIVE_WORK_TASKS | **Analyze Extracted OSINT:  https://unclaimedproperty.ocgov.com/target=AndrewD**<br>Analyze Extracted OSINT:  https://unclaimedproperty.ocgov.com/target=AndrewD | [SUGGESTIVE_WORK_TASKS](#) | `TODO` |
-| **`TASK-071`** | 🔵 **MEDIUM** | SUGGESTIVE_WORK | **Inject Huntington Beach Evidence into BigQuery FCA Timeline**<br>Inject Huntington Beach Evidence into BigQuery FCA Timeline | [SUGGESTIVE_WORK](#) | `TODO` |
 | **`TASK-075`** | 🔵 **MEDIUM** | SUGGESTIVE_WORK | **Build Sortable Data Grid UI for Legal Section and Defect Alert System**<br>Build Sortable Data Grid UI for Legal Section and Defect Alert System | [SUGGESTIVE_WORK](#) | `TODO` |
 | **`TASK-080`** | 🔵 **MEDIUM** | SUGGESTIVE_WORK | **Create Automated Bounty Generation for Broken Legal Links (Defect Loop)**<br>Create Automated Bounty Generation for Broken Legal Links (Defect Loop) | [SUGGESTIVE_WORK](#) | `TODO` |
 
@@ -31,6 +24,9 @@
 
 | ID | Category | Task Title & Delivered Solution | Milestone Date | Status |
 | :--- | :--- | :--- | :---: | :---: |
+| **`TASK-084`** | Cross-Cloud Security | **Provision Azure-to-GCP Workload Identity Federation (WIF) and attach OIDC Provider**<br>Implemented scripts/provision_azure_gcp_wif_v2.py and scripts/azure_wif_bigquery_client_v2.py for zero-trust OIDC auth. | 2026-09-09 | `DONE` |
+| **`TASK-071`** | Municipal Forensics | **Inject Huntington Beach Evidence into BigQuery FCA Timeline**<br>Injected parcels, zoning, sewer layers, and aerial imagery via scripts/inject_huntington_beach_evidence_v2.py to data/fca_timeline_huntington_beach_injected.jsonl. | 2026-09-09 | `DONE` |
+| **`TASK-067`** | Browser OSINT | **Build OSINT Evidence Collector Chrome Extension (based on tab-copy)**<br>Manifest V3 Chrome extension compiled in chrome_extension/build ready for 1-click tab/URL evidence harvesting. | 2026-09-09 | `DONE` |
 | **`TASK-VSDE-001`** | VSDE Benefits | **Claim Syncfusion Essential Studio Enterprise $9,995**<br>Order W753756 licensed key registered in public/syncfusion_grid.html_v2 with zero watermark. | 2026-08-26 | `DONE` |
 | **`TASK-VSDE-002`** | VSDE Benefits | **Activate Azure for Students $100/mo Credit**<br>Subscription f055033f-83fb-4ae9-9c36-be48f0c86158 hosting live app osintneoai-app-949. | 2026-08-26 | `DONE` |
 | **`TASK-VSDE-003`** | VSDE Benefits | **Claim JetBrains All Products Pack + GitHub Copilot**<br>Claimed via my.visualstudio.com/benefits + Azure DevOps org anthonydimarcello (dev.azure.com/anthonydimarcello) MCP https://mcp.dev.azure.com/anthonydimarcello | 2026-08-26 | `DONE` |
@@ -97,6 +93,15 @@
 | **`TASK-057`** | Personal Timeline & Evidence | **Neural OCR & Timeline Ingestion for Shared Photos Albums & Takeout Data**<br>Completed neural OCR and timeline ingestion for shared albums and takeout data in data/personal_timeline_evidence.json. | 2026-09-06 | `DONE` |
 | **`TASK-058`** | DevOps & Cloud | **Dual-Location Continuous Backup Protocol Enforcement (GitHub + Sharedall GDrive)**<br>Enforced dual-location continuous backup protocol (GitHub main branch + Sharedall Google Drive via rclone) per AGENTS.md rules. | 2026-09-06 | `DONE` |
 | **`TASK-059`** | OSINT & Identity | **Master Identity Graph & 31 Target Accounts Cross-Reference Engine**<br>Synthesized master identity graph & 31 target accounts cross-reference engine in agent/target_accounts_master.json and data/master_accounts_crossref_matches.json. | 2026-09-06 | `DONE` |
+| **`TASK-077`** | BACKEND | **Implement Append-Only (Event Sourcing) Database Logic for Metadata to prevent Pointer Corruption**<br>Implement Append-Only (Event Sourcing) Database Logic for Metadata to prevent Pointer Corruption | 2026-09-07 | `DONE` |
+| **`TASK-079`** | BACKEND | **Build Rate-Limiting and Bulk Caching Queue for ProPublica/Data.gov Free APIs**<br>Build Rate-Limiting and Bulk Caching Queue for ProPublica/Data.gov Free APIs | 2026-09-07 | `DONE` |
+| **`TASK-081`** | BACKEND | **Build Reputation Gate / Staking Requirement to Prevent Sybil Attacks and Fake Miners**<br>Build Reputation Gate / Staking Requirement to Prevent Sybil Attacks and Fake Miners | 2026-09-07 | `DONE` |
+| **`TASK-082`** | BACKEND | **Refactor AI Ingestion into Micro-Workers (Flash for Triage, Heavy Models for Legal/Entity Extraction) to fix Bottlenecks**<br>Refactor AI Ingestion into Micro-Workers (Flash for Triage, Heavy Models for Legal/Entity Extraction) to fix Bottlenecks | 2026-09-07 | `DONE` |
+| **`TASK-083`** | SECURITY | **Implement SHA-256 Cryptographic Hashing at Point-of-Upload to guarantee Raw File Integrity**<br>Implement SHA-256 Cryptographic Hashing at Point-of-Upload to guarantee Raw File Integrity | 2026-09-07 | `DONE` |
+| **`TASK-085`** | INFRASTRUCTURE | **Local OSINT Dashboard & Tool Suite (No Cloud Required)**<br>Built local OSINT server (Flask) with DNS, WHOIS, Ports, SSL, Shodan, WiFi, Bluetooth, IP GeoIntel. Dashboard at localhost:8080. Tools in osint-local-tools/. Installed shodan, python-nmap, theHarvester, beautifulsoup4, httpx, dnspython, python-whois. All 9 endpoints tested and passing. | 2026-09-09 | `DONE` |
+| **`TASK-086`** | BLOCKER | **Azure Subscription Disabled - Spending Limit On**<br>Subscription f055033f-83fb-4ae9-9c36-be48f0c86158 is ReadOnlyDisabled. Cannot start VMs (osintneoai-dev-vm, osint-cli-vm). User needs to remove spending limit in portal.azure.com → Subscriptions → Azure for Students. Browser login loops due to merged accounts (outlook.com + students.post.edu). | 2026-09-09 | `BLOCKED` |
+| **`TASK-087`** | MEDIUM | **Install SpiderFoot OSINT Framework**<br>SpiderFoot (smicallef/spiderfoot) needs git clone + pip install -r requirements.txt. Blocked by slow internet (0.5 Mbps). pip placeholder 0.0.1 is fake. Clone from GitHub required. | 2026-09-09 | `TODO` |
+| **`TASK-088`** | MEDIUM | **Install Missing OSINT Tools (Holehe, Sublist3r, Sherlock)**<br>Email/username/subdomain OSINT tools from OSINT Cabal. Blocked by slow internet. pip install times out. | 2026-09-09 | `TODO` |
 
 ---
 
