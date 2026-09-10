@@ -1,0 +1,3445 @@
+{
+  "agent": "NEO",
+  "analysis_type": "WAYBACK_HISTORICAL_GIS_DIFFERENTIAL",
+  "generated_at": "2026-09-10T03:14:32Z",
+  "total_snapshots": 578,
+  "total_unique_endpoints": 155,
+  "temporal_distribution": {
+    "2016": 130,
+    "2018": 61,
+    "2021": 19,
+    "2022": 21,
+    "2023": 35,
+    "2024": 2,
+    "2025": 61,
+    "2017": 64,
+    "2019": 62,
+    "2020": 80,
+    "2015": 42,
+    "2014": 1
+  },
+  "mutated_critical_services": [
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/cip/",
+      "snapshot_count": 5,
+      "unique_versions": 4,
+      "first_seen": "20160405005749",
+      "last_seen": "20230604164651",
+      "history": [
+        {
+          "timestamp": "20160405005749",
+          "digest": "ICBYBT4P5HDWAAPFRGTZKYNVLKTXIOKS",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161214214000",
+          "digest": "HV373MH5OLLKDR7LWTKXAUQUL6BQHL3B",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20170213034513",
+          "digest": "HV373MH5OLLKDR7LWTKXAUQUL6BQHL3B",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20170706023143",
+          "digest": "UFRBZAQA5MKLXHFGVS7UYJZUGO63I5C3",
+          "status": "200",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20230604164651",
+          "digest": "QQKJ3UDF5TMQEK6ZHGF4EX3XUDUNGS7G",
+          "status": "302",
+          "year": "2023"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/",
+      "snapshot_count": 5,
+      "unique_versions": 3,
+      "first_seen": "20150817173621",
+      "last_seen": "20201018135251",
+      "history": [
+        {
+          "timestamp": "20150817173621",
+          "digest": "SWEBSPXGLNLRWSRX4FVBTS5XO5QYWPFG",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155119",
+          "digest": "SWEBSPXGLNLRWSRX4FVBTS5XO5QYWPFG",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171121163955",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20191113020928",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20201018135251",
+          "digest": "DWK4VOK4Q2FWFOUZFJ7IFZ6Z7A7EN2OK",
+          "status": "200",
+          "year": "2020"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/",
+      "snapshot_count": 7,
+      "unique_versions": 2,
+      "first_seen": "20161115003659",
+      "last_seen": "20230604164548",
+      "history": [
+        {
+          "timestamp": "20161115003659",
+          "digest": "XRIXX4LTIQG22FNZTICRHCP23Q3G2XPS",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161123041504",
+          "digest": "XRIXX4LTIQG22FNZTICRHCP23Q3G2XPS",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20180324144551",
+          "digest": "XRIXX4LTIQG22FNZTICRHCP23Q3G2XPS",
+          "status": "-",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181111130339",
+          "digest": "XRIXX4LTIQG22FNZTICRHCP23Q3G2XPS",
+          "status": "-",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20220418033541",
+          "digest": "N2DUSBUP224EFGJOKVFU72RS7EEJGGFN",
+          "status": "200",
+          "year": "2022"
+        },
+        {
+          "timestamp": "20220815062126",
+          "digest": "N2DUSBUP224EFGJOKVFU72RS7EEJGGFN",
+          "status": "200",
+          "year": "2022"
+        },
+        {
+          "timestamp": "20230604164548",
+          "digest": "N2DUSBUP224EFGJOKVFU72RS7EEJGGFN",
+          "status": "200",
+          "year": "2023"
+        }
+      ]
+    },
+    {
+      "endpoint": "https://gis.huntingtonbeachca.gov/",
+      "snapshot_count": 11,
+      "unique_versions": 2,
+      "first_seen": "20210411150440",
+      "last_seen": "20250224095230",
+      "history": [
+        {
+          "timestamp": "20210411150440",
+          "digest": "XRIXX4LTIQG22FNZTICRHCP23Q3G2XPS",
+          "status": "200",
+          "year": "2021"
+        },
+        {
+          "timestamp": "20220418031951",
+          "digest": "N2DUSBUP224EFGJOKVFU72RS7EEJGGFN",
+          "status": "200",
+          "year": "2022"
+        },
+        {
+          "timestamp": "20220418032340",
+          "digest": "N2DUSBUP224EFGJOKVFU72RS7EEJGGFN",
+          "status": "200",
+          "year": "2022"
+        },
+        {
+          "timestamp": "20230604164608",
+          "digest": "N2DUSBUP224EFGJOKVFU72RS7EEJGGFN",
+          "status": "200",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20230604164625",
+          "digest": "N2DUSBUP224EFGJOKVFU72RS7EEJGGFN",
+          "status": "200",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20230810175142",
+          "digest": "N2DUSBUP224EFGJOKVFU72RS7EEJGGFN",
+          "status": "200",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20230929125205",
+          "digest": "N2DUSBUP224EFGJOKVFU72RS7EEJGGFN",
+          "status": "200",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20240926211119",
+          "digest": "N2DUSBUP224EFGJOKVFU72RS7EEJGGFN",
+          "status": "200",
+          "year": "2024"
+        },
+        {
+          "timestamp": "20240926211149",
+          "digest": "N2DUSBUP224EFGJOKVFU72RS7EEJGGFN",
+          "status": "200",
+          "year": "2024"
+        },
+        {
+          "timestamp": "20250206050256",
+          "digest": "N2DUSBUP224EFGJOKVFU72RS7EEJGGFN",
+          "status": "200",
+          "year": "2025"
+        },
+        {
+          "timestamp": "20250224095230",
+          "digest": "N2DUSBUP224EFGJOKVFU72RS7EEJGGFN",
+          "status": "200",
+          "year": "2025"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/CD-Projects-Map/",
+      "snapshot_count": 6,
+      "unique_versions": 2,
+      "first_seen": "20200925160607",
+      "last_seen": "20230604164633",
+      "history": [
+        {
+          "timestamp": "20200925160607",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201016232639",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20211211014820",
+          "digest": "77QAJ7C24FSNSF2DQLFDNKAAEHBGODJQ",
+          "status": "302",
+          "year": "2021"
+        },
+        {
+          "timestamp": "20221109132408",
+          "digest": "77QAJ7C24FSNSF2DQLFDNKAAEHBGODJQ",
+          "status": "302",
+          "year": "2022"
+        },
+        {
+          "timestamp": "20221223130231",
+          "digest": "77QAJ7C24FSNSF2DQLFDNKAAEHBGODJQ",
+          "status": "302",
+          "year": "2022"
+        },
+        {
+          "timestamp": "20230604164633",
+          "digest": "77QAJ7C24FSNSF2DQLFDNKAAEHBGODJQ",
+          "status": "302",
+          "year": "2023"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov:80/cip/",
+      "snapshot_count": 13,
+      "unique_versions": 2,
+      "first_seen": "20160219035759",
+      "last_seen": "20170430223021",
+      "history": [
+        {
+          "timestamp": "20160219035759",
+          "digest": "ICBYBT4P5HDWAAPFRGTZKYNVLKTXIOKS",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160220104611",
+          "digest": "ICBYBT4P5HDWAAPFRGTZKYNVLKTXIOKS",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160220215113",
+          "digest": "ICBYBT4P5HDWAAPFRGTZKYNVLKTXIOKS",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160321021307",
+          "digest": "ICBYBT4P5HDWAAPFRGTZKYNVLKTXIOKS",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160421134031",
+          "digest": "ICBYBT4P5HDWAAPFRGTZKYNVLKTXIOKS",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160424070449",
+          "digest": "ICBYBT4P5HDWAAPFRGTZKYNVLKTXIOKS",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160701124054",
+          "digest": "ICBYBT4P5HDWAAPFRGTZKYNVLKTXIOKS",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160801102122",
+          "digest": "ICBYBT4P5HDWAAPFRGTZKYNVLKTXIOKS",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160901111333",
+          "digest": "HV373MH5OLLKDR7LWTKXAUQUL6BQHL3B",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161003032426",
+          "digest": "HV373MH5OLLKDR7LWTKXAUQUL6BQHL3B",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161103140140",
+          "digest": "HV373MH5OLLKDR7LWTKXAUQUL6BQHL3B",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20170127141056",
+          "digest": "HV373MH5OLLKDR7LWTKXAUQUL6BQHL3B",
+          "status": "200",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20170430223021",
+          "digest": "HV373MH5OLLKDR7LWTKXAUQUL6BQHL3B",
+          "status": "200",
+          "year": "2017"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov:80/servicesmap/",
+      "snapshot_count": 46,
+      "unique_versions": 2,
+      "first_seen": "20150807205251",
+      "last_seen": "20200224210700",
+      "history": [
+        {
+          "timestamp": "20150807205251",
+          "digest": "SWEBSPXGLNLRWSRX4FVBTS5XO5QYWPFG",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20150822033840",
+          "digest": "SWEBSPXGLNLRWSRX4FVBTS5XO5QYWPFG",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20150907114711",
+          "digest": "SWEBSPXGLNLRWSRX4FVBTS5XO5QYWPFG",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20160714211850",
+          "digest": "SWEBSPXGLNLRWSRX4FVBTS5XO5QYWPFG",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160815021531",
+          "digest": "SWEBSPXGLNLRWSRX4FVBTS5XO5QYWPFG",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160912033051",
+          "digest": "SWEBSPXGLNLRWSRX4FVBTS5XO5QYWPFG",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160915035543",
+          "digest": "SWEBSPXGLNLRWSRX4FVBTS5XO5QYWPFG",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161016052206",
+          "digest": "SWEBSPXGLNLRWSRX4FVBTS5XO5QYWPFG",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161116113135",
+          "digest": "SWEBSPXGLNLRWSRX4FVBTS5XO5QYWPFG",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161117165413",
+          "digest": "SWEBSPXGLNLRWSRX4FVBTS5XO5QYWPFG",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171013035432",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20171113125447",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20171214110310",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20180114150016",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180214182330",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180317184445",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180417224151",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180418234158",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180519200613",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180619184422",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180620215016",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180721114121",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180821094159",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180918151508",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180921083709",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181022053058",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181122211236",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181223213001",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20190123183236",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190224020518",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190326232149",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190327025936",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190427013437",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190527162926",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190529154102",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190627103657",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190728054119",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190731125727",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190828204812",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190929035855",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20191001101352",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20191026171349",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20191125235110",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20191226043722",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20200125151115",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20200224210700",
+          "digest": "MZIY2HGBL6CYKSECAUAAL2P6D2EYTTRZ",
+          "status": "200",
+          "year": "2020"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/js/homePage.js",
+      "snapshot_count": 4,
+      "unique_versions": 2,
+      "first_seen": "20151104024629",
+      "last_seen": "20201029155326",
+      "history": [
+        {
+          "timestamp": "20151104024629",
+          "digest": "SG3LKQYJJADL5MUCIH3TURMC2GKFBAPV",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155306",
+          "digest": "SG3LKQYJJADL5MUCIH3TURMC2GKFBAPV",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211183919",
+          "digest": "SG3LKQYJJADL5MUCIH3TURMC2GKFBAPV",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20201029155326",
+          "digest": "DKF55PKNVDQUSLGYT3SNWPPHWD46PJBQ",
+          "status": "200",
+          "year": "2020"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/js/Utils.js",
+      "snapshot_count": 4,
+      "unique_versions": 2,
+      "first_seen": "20151103203501",
+      "last_seen": "20201029155332",
+      "history": [
+        {
+          "timestamp": "20151103203501",
+          "digest": "3IEE7VR5BVOKH2I3ENM5HHTSK7ECKISM",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155249",
+          "digest": "3IEE7VR5BVOKH2I3ENM5HHTSK7ECKISM",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211182815",
+          "digest": "3IEE7VR5BVOKH2I3ENM5HHTSK7ECKISM",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20201029155332",
+          "digest": "ZZRZHMX6ZNF2TVZ7GFSPTW2OLDGPSW2C",
+          "status": "200",
+          "year": "2020"
+        }
+      ]
+    },
+    {
+      "endpoint": "https://gis.huntingtonbeachca.gov/.well-known/ai-plugin.json",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20230604164606",
+      "last_seen": "20250224140217",
+      "history": [
+        {
+          "timestamp": "20230604164606",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20230810175259",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20250224140217",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2025"
+        }
+      ]
+    },
+    {
+      "endpoint": "https://gis.huntingtonbeachca.gov/.well-known/assetlinks.json",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20230604164941",
+      "last_seen": "20250224114602",
+      "history": [
+        {
+          "timestamp": "20230604164941",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20230810175324",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20250224114602",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2025"
+        }
+      ]
+    },
+    {
+      "endpoint": "https://gis.huntingtonbeachca.gov/.well-known/dnt-policy.txt",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20230604164705",
+      "last_seen": "20250224100418",
+      "history": [
+        {
+          "timestamp": "20230604164705",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20230810175255",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20250224100418",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2025"
+        }
+      ]
+    },
+    {
+      "endpoint": "https://gis.huntingtonbeachca.gov/.well-known/gpc.json",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20230604165044",
+      "last_seen": "20250224134840",
+      "history": [
+        {
+          "timestamp": "20230604165044",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20230810175250",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20250224134840",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2025"
+        }
+      ]
+    },
+    {
+      "endpoint": "https://gis.huntingtonbeachca.gov/.well-known/nodeinfo",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20230604164646",
+      "last_seen": "20250224120327",
+      "history": [
+        {
+          "timestamp": "20230604164646",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20230810175443",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20250224120327",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2025"
+        }
+      ]
+    },
+    {
+      "endpoint": "https://gis.huntingtonbeachca.gov/.well-known/openid-configuration",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20230604164929",
+      "last_seen": "20250224152106",
+      "history": [
+        {
+          "timestamp": "20230604164929",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20230810175333",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20250224152106",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2025"
+        }
+      ]
+    },
+    {
+      "endpoint": "https://gis.huntingtonbeachca.gov/.well-known/security.txt",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20230604164940",
+      "last_seen": "20250224123812",
+      "history": [
+        {
+          "timestamp": "20230604164940",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20230810175320",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20250224123812",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2025"
+        }
+      ]
+    },
+    {
+      "endpoint": "https://gis.huntingtonbeachca.gov/.well-known/trust.txt",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20230604164624",
+      "last_seen": "20250224142420",
+      "history": [
+        {
+          "timestamp": "20230604164624",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20230810175400",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20250224142420",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2025"
+        }
+      ]
+    },
+    {
+      "endpoint": "https://gis.huntingtonbeachca.gov/ads.txt",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20230604164640",
+      "last_seen": "20250224133612",
+      "history": [
+        {
+          "timestamp": "20230604164640",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20230810175328",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20250224133612",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2025"
+        }
+      ]
+    },
+    {
+      "endpoint": "https://gis.huntingtonbeachca.gov/app-ads.txt",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20230604164602",
+      "last_seen": "20250224114513",
+      "history": [
+        {
+          "timestamp": "20230604164602",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20230810175315",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20250224114513",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2025"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov:80/arcgis/rest/services/Planning/MapServer/1",
+      "snapshot_count": 5,
+      "unique_versions": 1,
+      "first_seen": "20170716134600",
+      "last_seen": "20171117124757",
+      "history": [
+        {
+          "timestamp": "20170716134600",
+          "digest": "5I3DSKCP4KVXEW2G2RX3CAUXKZ7BUVI4",
+          "status": "200",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20170816145940",
+          "digest": "5I3DSKCP4KVXEW2G2RX3CAUXKZ7BUVI4",
+          "status": "200",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20170916175533",
+          "digest": "5I3DSKCP4KVXEW2G2RX3CAUXKZ7BUVI4",
+          "status": "200",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20171017165719",
+          "digest": "5I3DSKCP4KVXEW2G2RX3CAUXKZ7BUVI4",
+          "status": "200",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20171117124757",
+          "digest": "5I3DSKCP4KVXEW2G2RX3CAUXKZ7BUVI4",
+          "status": "200",
+          "year": "2017"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov:80/CD-Projects-Map",
+      "snapshot_count": 17,
+      "unique_versions": 1,
+      "first_seen": "20180522010928",
+      "last_seen": "20190903095618",
+      "history": [
+        {
+          "timestamp": "20180522010928",
+          "digest": "U3TVYBE4F3FS3NRLUNEHT5YA6PTWW7IG",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180622004348",
+          "digest": "U3TVYBE4F3FS3NRLUNEHT5YA6PTWW7IG",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180722215212",
+          "digest": "U3TVYBE4F3FS3NRLUNEHT5YA6PTWW7IG",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180822224919",
+          "digest": "U3TVYBE4F3FS3NRLUNEHT5YA6PTWW7IG",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180923165110",
+          "digest": "U3TVYBE4F3FS3NRLUNEHT5YA6PTWW7IG",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181025054448",
+          "digest": "U3TVYBE4F3FS3NRLUNEHT5YA6PTWW7IG",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181026092207",
+          "digest": "U3TVYBE4F3FS3NRLUNEHT5YA6PTWW7IG",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181126102928",
+          "digest": "U3TVYBE4F3FS3NRLUNEHT5YA6PTWW7IG",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181227155940",
+          "digest": "U3TVYBE4F3FS3NRLUNEHT5YA6PTWW7IG",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20190127185011",
+          "digest": "U3TVYBE4F3FS3NRLUNEHT5YA6PTWW7IG",
+          "status": "301",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190228034709",
+          "digest": "U3TVYBE4F3FS3NRLUNEHT5YA6PTWW7IG",
+          "status": "301",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190331032558",
+          "digest": "U3TVYBE4F3FS3NRLUNEHT5YA6PTWW7IG",
+          "status": "301",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190501150023",
+          "digest": "U3TVYBE4F3FS3NRLUNEHT5YA6PTWW7IG",
+          "status": "301",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190601111559",
+          "digest": "U3TVYBE4F3FS3NRLUNEHT5YA6PTWW7IG",
+          "status": "301",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190702173853",
+          "digest": "U3TVYBE4F3FS3NRLUNEHT5YA6PTWW7IG",
+          "status": "301",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190803065617",
+          "digest": "U3TVYBE4F3FS3NRLUNEHT5YA6PTWW7IG",
+          "status": "301",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190903095618",
+          "digest": "U3TVYBE4F3FS3NRLUNEHT5YA6PTWW7IG",
+          "status": "301",
+          "year": "2019"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov:80/CD-Projects-Map/",
+      "snapshot_count": 26,
+      "unique_versions": 1,
+      "first_seen": "20180522010928",
+      "last_seen": "20200131092042",
+      "history": [
+        {
+          "timestamp": "20180522010928",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180622004348",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180722215212",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180822224919",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180918140809",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180923165110",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181025054448",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181026092207",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181126102928",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181227155940",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20190127185011",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190228034709",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190329110148",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190330152125",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190331032558",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190501150023",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190531012047",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190601111559",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190702173853",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190731135750",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190803065617",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190903095618",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20191001093113",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20191101183819",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20191202003214",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20200131092042",
+          "digest": "ZMHRZMVPY2UCJNFU2J3GVZC5EAZHM66N",
+          "status": "200",
+          "year": "2020"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov:80/cip",
+      "snapshot_count": 10,
+      "unique_versions": 1,
+      "first_seen": "20160219035759",
+      "last_seen": "20170430223021",
+      "history": [
+        {
+          "timestamp": "20160219035759",
+          "digest": "3JVN22DMXTCK3AGZ74K4ORQNJSCK7TJJ",
+          "status": "301",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160321021307",
+          "digest": "3JVN22DMXTCK3AGZ74K4ORQNJSCK7TJJ",
+          "status": "301",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160421134031",
+          "digest": "3JVN22DMXTCK3AGZ74K4ORQNJSCK7TJJ",
+          "status": "301",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160701124054",
+          "digest": "3JVN22DMXTCK3AGZ74K4ORQNJSCK7TJJ",
+          "status": "301",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160801102122",
+          "digest": "3JVN22DMXTCK3AGZ74K4ORQNJSCK7TJJ",
+          "status": "301",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160901111333",
+          "digest": "3JVN22DMXTCK3AGZ74K4ORQNJSCK7TJJ",
+          "status": "301",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161003032426",
+          "digest": "3JVN22DMXTCK3AGZ74K4ORQNJSCK7TJJ",
+          "status": "301",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161103140140",
+          "digest": "3JVN22DMXTCK3AGZ74K4ORQNJSCK7TJJ",
+          "status": "301",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20170127141056",
+          "digest": "3JVN22DMXTCK3AGZ74K4ORQNJSCK7TJJ",
+          "status": "301",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20170430223021",
+          "digest": "3JVN22DMXTCK3AGZ74K4ORQNJSCK7TJJ",
+          "status": "301",
+          "year": "2017"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/cip/app/stylesheets/app.css",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20160606223205",
+      "last_seen": "20170830223512",
+      "history": [
+        {
+          "timestamp": "20160606223205",
+          "digest": "66M5SYXAF6EZBHA46A3FU3M72ZVWPW3R",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161214214012",
+          "digest": "66M5SYXAF6EZBHA46A3FU3M72ZVWPW3R",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20170830223512",
+          "digest": "66M5SYXAF6EZBHA46A3FU3M72ZVWPW3R",
+          "status": "-",
+          "year": "2017"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/favicon.ico",
+      "snapshot_count": 21,
+      "unique_versions": 1,
+      "first_seen": "20150906160717",
+      "last_seen": "20211211020230",
+      "history": [
+        {
+          "timestamp": "20150906160717",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20151004130233",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20151104070452",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20160508144357",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160606231603",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161115053224",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161123041506",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20170126031920",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20171211184721",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20180531190800",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181128142121",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20190521195639",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190816200834",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20200507171801",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20200701165024",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20200820125828",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201002010502",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201018111744",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201203114343",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20210902163532",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2021"
+        },
+        {
+          "timestamp": "20211211020230",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2021"
+        }
+      ]
+    },
+    {
+      "endpoint": "https://gis.huntingtonbeachca.gov/favicon.ico",
+      "snapshot_count": 9,
+      "unique_versions": 1,
+      "first_seen": "20210928233840",
+      "last_seen": "20250224135359",
+      "history": [
+        {
+          "timestamp": "20210928233840",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2021"
+        },
+        {
+          "timestamp": "20211104021435",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2021"
+        },
+        {
+          "timestamp": "20211211021909",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2021"
+        },
+        {
+          "timestamp": "20220412025040",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2022"
+        },
+        {
+          "timestamp": "20220418032401",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2022"
+        },
+        {
+          "timestamp": "20221008072110",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2022"
+        },
+        {
+          "timestamp": "20230604165155",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20230810175302",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20250224135359",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2025"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/hbgis/images/hbgis.jpg",
+      "snapshot_count": 6,
+      "unique_versions": 1,
+      "first_seen": "20150906144358",
+      "last_seen": "20201016220407",
+      "history": [
+        {
+          "timestamp": "20150906144358",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20160405005945",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161214214125",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20170210095217",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20170707161327",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20201016220407",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "200",
+          "year": "2020"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/hbgis/Images/hbgis.jpg",
+      "snapshot_count": 18,
+      "unique_versions": 1,
+      "first_seen": "20151003084147",
+      "last_seen": "20201126111803",
+      "history": [
+        {
+          "timestamp": "20151003084147",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20160322144541",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160402214858",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20170125203908",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20190218023627",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190816200829",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20200505233247",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20200520062351",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "200",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20200602113038",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20200602113316",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20200602113710",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20200602113917",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20200602114151",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20200602114422",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201002003142",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201002012728",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201122221416",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201126111803",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2020"
+        }
+      ]
+    },
+    {
+      "endpoint": "https://gis.huntingtonbeachca.gov/hbgis/Images/hbgis.jpg",
+      "snapshot_count": 9,
+      "unique_versions": 1,
+      "first_seen": "20210928233826",
+      "last_seen": "20230810175117",
+      "history": [
+        {
+          "timestamp": "20210928233826",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2021"
+        },
+        {
+          "timestamp": "20211003182801",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2021"
+        },
+        {
+          "timestamp": "20211030093708",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2021"
+        },
+        {
+          "timestamp": "20211102040756",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "200",
+          "year": "2021"
+        },
+        {
+          "timestamp": "20220403230040",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "200",
+          "year": "2022"
+        },
+        {
+          "timestamp": "20221006041939",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "-",
+          "year": "2022"
+        },
+        {
+          "timestamp": "20221108021541",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "200",
+          "year": "2022"
+        },
+        {
+          "timestamp": "20221109220255",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "200",
+          "year": "2022"
+        },
+        {
+          "timestamp": "20230810175117",
+          "digest": "EZBPJ3QPR46Q2GICXFL2ABBWSL4OPJXO",
+          "status": "200",
+          "year": "2023"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov:80/MapTour",
+      "snapshot_count": 7,
+      "unique_versions": 1,
+      "first_seen": "20180914215153",
+      "last_seen": "20200116145439",
+      "history": [
+        {
+          "timestamp": "20180914215153",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20190326222132",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190529173838",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190730011253",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190929144233",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20191102084006",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20200116145439",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2020"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/photos/CDProjects/Banner.png",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20201002034443",
+      "last_seen": "20201018172641",
+      "history": [
+        {
+          "timestamp": "20201002034443",
+          "digest": "Q6AD7MYNNDDHDZATYRBVXJ73LIVWY4WW",
+          "status": "200",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201002042742",
+          "digest": "Q6AD7MYNNDDHDZATYRBVXJ73LIVWY4WW",
+          "status": "200",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201018172641",
+          "digest": "Q6AD7MYNNDDHDZATYRBVXJ73LIVWY4WW",
+          "status": "200",
+          "year": "2020"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/robots.txt",
+      "snapshot_count": 75,
+      "unique_versions": 1,
+      "first_seen": "20150817173617",
+      "last_seen": "20211211015126",
+      "history": [
+        {
+          "timestamp": "20150817173617",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20150906144353",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20150906160711",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20151003084143",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20151004130231",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20151103190550",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20160322144537",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160402214857",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160405005744",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160405005940",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160508144353",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160606221248",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160606221820",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160606225647",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160606231600",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161115003658",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161123041502",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161130125730",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161214213957",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161219155116",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20170125203903",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20170210095213",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20170213034510",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20170706023130",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20170707161324",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20170830223508",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20171121163951",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20171211182533",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20171211182727",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20171211182812",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20171211182821",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20171211183242",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20171215151924",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20171215162707",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20180324144547",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180531180303",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180531190755",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181111130336",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181128142112",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181128161501",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20190218023623",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190521195636",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190816200828",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190816200833",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20200505233244",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20200507171800",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20200520062344",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20200602113028",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20200602113305",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20200602113701",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20200602114127",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20200701165016",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20200820125822",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20200925160606",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201001233232",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201016220403",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201016232639",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201018111744",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201018135249",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201018145801",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201018152348",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201018172641",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201019164537",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201024223419",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201025013449",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201027233336",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201029155310",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201030065618",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201030082737",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201031015107",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201122221413",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201126111802",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20201203114343",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20210902163523",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2021"
+        },
+        {
+          "timestamp": "20211211015126",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2021"
+        }
+      ]
+    },
+    {
+      "endpoint": "https://gis.huntingtonbeachca.gov/robots.txt",
+      "snapshot_count": 14,
+      "unique_versions": 1,
+      "first_seen": "20201019154158",
+      "last_seen": "20250224115742",
+      "history": [
+        {
+          "timestamp": "20201019154158",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2020"
+        },
+        {
+          "timestamp": "20210928233825",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2021"
+        },
+        {
+          "timestamp": "20210928233838",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2021"
+        },
+        {
+          "timestamp": "20211030093707",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2021"
+        },
+        {
+          "timestamp": "20211102045228",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2021"
+        },
+        {
+          "timestamp": "20211104021433",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2021"
+        },
+        {
+          "timestamp": "20220403230039",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2022"
+        },
+        {
+          "timestamp": "20220412025039",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2022"
+        },
+        {
+          "timestamp": "20220418032359",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2022"
+        },
+        {
+          "timestamp": "20221006041939",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2022"
+        },
+        {
+          "timestamp": "20221008072107",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2022"
+        },
+        {
+          "timestamp": "20230604164949",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20230810175326",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20250224115742",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2025"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov:80/servicesmap",
+      "snapshot_count": 34,
+      "unique_versions": 1,
+      "first_seen": "20150807205251",
+      "last_seen": "20190929035855",
+      "history": [
+        {
+          "timestamp": "20150807205251",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20150907114711",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20160714211850",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160815021531",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20160915035543",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161016052206",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161116113135",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161117165413",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171013035432",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20171113125447",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20171214110310",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20180114150016",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180214182330",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180317184445",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180417224151",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180418234158",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180519200613",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180619184422",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180620215016",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180721114121",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180821094159",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20180921083709",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181022053058",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181122211236",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181223213001",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20190123183236",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190224020518",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190327025936",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190427013437",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190527162926",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190627103657",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190728054119",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190828204812",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2019"
+        },
+        {
+          "timestamp": "20190929035855",
+          "digest": "ALKDY2BDB6UNCGAJ7AP76QGHFOWKG5GK",
+          "status": "301",
+          "year": "2019"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/images/appIcon.png",
+      "snapshot_count": 4,
+      "unique_versions": 1,
+      "first_seen": "20151103215051",
+      "last_seen": "20201030082744",
+      "history": [
+        {
+          "timestamp": "20151103215051",
+          "digest": "WLFAZOBVMIUJFHFSAYVTMOBTPXAB4ZFI",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155138",
+          "digest": "WLFAZOBVMIUJFHFSAYVTMOBTPXAB4ZFI",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211183017",
+          "digest": "WLFAZOBVMIUJFHFSAYVTMOBTPXAB4ZFI",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20201030082744",
+          "digest": "WLFAZOBVMIUJFHFSAYVTMOBTPXAB4ZFI",
+          "status": "200",
+          "year": "2020"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/images/close.png",
+      "snapshot_count": 4,
+      "unique_versions": 1,
+      "first_seen": "20151104055845",
+      "last_seen": "20201024223430",
+      "history": [
+        {
+          "timestamp": "20151104055845",
+          "digest": "IE6EQL4BOYBBK42CKIJOLPIY7JBOCOKW",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155339",
+          "digest": "IE6EQL4BOYBBK42CKIJOLPIY7JBOCOKW",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211184515",
+          "digest": "IE6EQL4BOYBBK42CKIJOLPIY7JBOCOKW",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20201024223430",
+          "digest": "IE6EQL4BOYBBK42CKIJOLPIY7JBOCOKW",
+          "status": "200",
+          "year": "2020"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/images/getDirection.png",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20151104060318",
+      "last_seen": "20171211184523",
+      "history": [
+        {
+          "timestamp": "20151104060318",
+          "digest": "4LEVL7FL5I7O6XYH5YQTMJ3HNX32RWK7",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155415",
+          "digest": "4LEVL7FL5I7O6XYH5YQTMJ3HNX32RWK7",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211184523",
+          "digest": "4LEVL7FL5I7O6XYH5YQTMJ3HNX32RWK7",
+          "status": "-",
+          "year": "2017"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/images/goBack.png",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20151104040832",
+      "last_seen": "20171211184203",
+      "history": [
+        {
+          "timestamp": "20151104040832",
+          "digest": "GTDWL4ZOPSADHGRXHZJ2SAEFZLCHNVQ5",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155358",
+          "digest": "GTDWL4ZOPSADHGRXHZJ2SAEFZLCHNVQ5",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211184203",
+          "digest": "GTDWL4ZOPSADHGRXHZJ2SAEFZLCHNVQ5",
+          "status": "-",
+          "year": "2017"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/images/HB%20Logo%20blue.jpg",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20151103203927",
+      "last_seen": "20171211182824",
+      "history": [
+        {
+          "timestamp": "20151103203927",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155129",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211182824",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "-",
+          "year": "2017"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/images/help.png",
+      "snapshot_count": 4,
+      "unique_versions": 1,
+      "first_seen": "20151103232723",
+      "last_seen": "20201029155318",
+      "history": [
+        {
+          "timestamp": "20151103232723",
+          "digest": "HLNQYS6X27FVFEPRT7TZD33PSUSASX45",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155335",
+          "digest": "HLNQYS6X27FVFEPRT7TZD33PSUSASX45",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211183316",
+          "digest": "HLNQYS6X27FVFEPRT7TZD33PSUSASX45",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20201029155318",
+          "digest": "HLNQYS6X27FVFEPRT7TZD33PSUSASX45",
+          "status": "200",
+          "year": "2020"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/images/img_email.png",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20151104084900",
+      "last_seen": "20171211185122",
+      "history": [
+        {
+          "timestamp": "20151104084900",
+          "digest": "7BTMFA7GQ5AIANRCNCZMA22FFU4ZM4MB",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155352",
+          "digest": "7BTMFA7GQ5AIANRCNCZMA22FFU4ZM4MB",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211185122",
+          "digest": "7BTMFA7GQ5AIANRCNCZMA22FFU4ZM4MB",
+          "status": "-",
+          "year": "2017"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/images/img_facebook.png",
+      "snapshot_count": 4,
+      "unique_versions": 1,
+      "first_seen": "20151103211445",
+      "last_seen": "20201030065622",
+      "history": [
+        {
+          "timestamp": "20151103211445",
+          "digest": "USVQIMRYZDL55ZIF3MVAUZUAD6Z5AYZW",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155344",
+          "digest": "USVQIMRYZDL55ZIF3MVAUZUAD6Z5AYZW",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211182914",
+          "digest": "USVQIMRYZDL55ZIF3MVAUZUAD6Z5AYZW",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20201030065622",
+          "digest": "USVQIMRYZDL55ZIF3MVAUZUAD6Z5AYZW",
+          "status": "200",
+          "year": "2020"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/images/img_twitter.png",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20151103230155",
+      "last_seen": "20171211183246",
+      "history": [
+        {
+          "timestamp": "20151103230155",
+          "digest": "NEBIYAZPEY5RDNZURRZD4NYYBHMYBX4K",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155349",
+          "digest": "NEBIYAZPEY5RDNZURRZD4NYYBHMYBX4K",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211183246",
+          "digest": "NEBIYAZPEY5RDNZURRZD4NYYBHMYBX4K",
+          "status": "-",
+          "year": "2017"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/images/imgSocialMedia.png",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20151104033705",
+      "last_seen": "20171211184053",
+      "history": [
+        {
+          "timestamp": "20151104033705",
+          "digest": "GXAGPWO3G4MLMLY7ZH7V3O54QFJ352C7",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155332",
+          "digest": "GXAGPWO3G4MLMLY7ZH7V3O54QFJ352C7",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211184053",
+          "digest": "GXAGPWO3G4MLMLY7ZH7V3O54QFJ352C7",
+          "status": "-",
+          "year": "2017"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/images/loader.gif",
+      "snapshot_count": 4,
+      "unique_versions": 1,
+      "first_seen": "20151104001746",
+      "last_seen": "20201027233357",
+      "history": [
+        {
+          "timestamp": "20151104001746",
+          "digest": "4TENDD7HDEJCPRGGQBBBEEEQ347D4CLR",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155341",
+          "digest": "4TENDD7HDEJCPRGGQBBBEEEQ347D4CLR",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211183445",
+          "digest": "4TENDD7HDEJCPRGGQBBBEEEQ347D4CLR",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20201027233357",
+          "digest": "4TENDD7HDEJCPRGGQBBBEEEQ347D4CLR",
+          "status": "200",
+          "year": "2020"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/images/locate.png",
+      "snapshot_count": 4,
+      "unique_versions": 1,
+      "first_seen": "20151104073853",
+      "last_seen": "20201031015107",
+      "history": [
+        {
+          "timestamp": "20151104073853",
+          "digest": "J34UCVQJCTOXMH5EX3RUNVPFGRXZV47K",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155319",
+          "digest": "J34UCVQJCTOXMH5EX3RUNVPFGRXZV47K",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211184828",
+          "digest": "J34UCVQJCTOXMH5EX3RUNVPFGRXZV47K",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20201031015107",
+          "digest": "J34UCVQJCTOXMH5EX3RUNVPFGRXZV47K",
+          "status": "200",
+          "year": "2020"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/images/menu.png",
+      "snapshot_count": 4,
+      "unique_versions": 1,
+      "first_seen": "20151104003901",
+      "last_seen": "20201025013557",
+      "history": [
+        {
+          "timestamp": "20151104003901",
+          "digest": "4DXDLM7SEXRFW4CUY73SQA3NZR6VI642",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155356",
+          "digest": "4DXDLM7SEXRFW4CUY73SQA3NZR6VI642",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211183511",
+          "digest": "4DXDLM7SEXRFW4CUY73SQA3NZR6VI642",
+          "status": "-",
+          "year": "2017"
+        },
+        {
+          "timestamp": "20201025013557",
+          "digest": "4DXDLM7SEXRFW4CUY73SQA3NZR6VI642",
+          "status": "200",
+          "year": "2020"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/images/zoom.png",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20151103192804",
+      "last_seen": "20171211182620",
+      "history": [
+        {
+          "timestamp": "20151103192804",
+          "digest": "YWCMTF37KMFUEFNAY3P3YV7GAWTGLPTM",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155312",
+          "digest": "YWCMTF37KMFUEFNAY3P3YV7GAWTGLPTM",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211182620",
+          "digest": "YWCMTF37KMFUEFNAY3P3YV7GAWTGLPTM",
+          "status": "-",
+          "year": "2017"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/js/BaseMapGallery.js",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20151104035140",
+      "last_seen": "20171211184125",
+      "history": [
+        {
+          "timestamp": "20151104035140",
+          "digest": "A2K2XFUOXOKJR7A6J3TSTTEALEWPE426",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155224",
+          "digest": "A2K2XFUOXOKJR7A6J3TSTTEALEWPE426",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211184125",
+          "digest": "A2K2XFUOXOKJR7A6J3TSTTEALEWPE426",
+          "status": "-",
+          "year": "2017"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/js/carousel.js",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20151103190554",
+      "last_seen": "20171211182537",
+      "history": [
+        {
+          "timestamp": "20151103190554",
+          "digest": "MZMX54PUOPHPUUH2VPG4L372NL5AKUI4",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155258",
+          "digest": "MZMX54PUOPHPUUH2VPG4L372NL5AKUI4",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211182537",
+          "digest": "MZMX54PUOPHPUUH2VPG4L372NL5AKUI4",
+          "status": "-",
+          "year": "2017"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/js/date.js",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20151104042818",
+      "last_seen": "20171211184232",
+      "history": [
+        {
+          "timestamp": "20151104042818",
+          "digest": "VJS3FUEBCB6E6PPRPUIMLXF5LC3JX7FR",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155252",
+          "digest": "VJS3FUEBCB6E6PPRPUIMLXF5LC3JX7FR",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211184232",
+          "digest": "VJS3FUEBCB6E6PPRPUIMLXF5LC3JX7FR",
+          "status": "-",
+          "year": "2017"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/js/infoWindow.js",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20151103194230",
+      "last_seen": "20171211182646",
+      "history": [
+        {
+          "timestamp": "20151103194230",
+          "digest": "MTXZOCB2K2PBMTCPALW57PKY6YDOGQBC",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155156",
+          "digest": "MTXZOCB2K2PBMTCPALW57PKY6YDOGQBC",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211182646",
+          "digest": "MTXZOCB2K2PBMTCPALW57PKY6YDOGQBC",
+          "status": "-",
+          "year": "2017"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/js/locator.js",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20151104064925",
+      "last_seen": "20171211184646",
+      "history": [
+        {
+          "timestamp": "20151104064925",
+          "digest": "ZORFX4TBUIHZTI27K7CZOSAYOXYK6LAY",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155245",
+          "digest": "ZORFX4TBUIHZTI27K7CZOSAYOXYK6LAY",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211184646",
+          "digest": "ZORFX4TBUIHZTI27K7CZOSAYOXYK6LAY",
+          "status": "-",
+          "year": "2017"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/js/modernizr-2.5.3.js",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20151104070124",
+      "last_seen": "20171211184714",
+      "history": [
+        {
+          "timestamp": "20151104070124",
+          "digest": "OWPEKTY6K5STDEOIVIHGN6QEZ2E7N76M",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155237",
+          "digest": "OWPEKTY6K5STDEOIVIHGN6QEZ2E7N76M",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211184714",
+          "digest": "OWPEKTY6K5STDEOIVIHGN6QEZ2E7N76M",
+          "status": "-",
+          "year": "2017"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/js/Route.js",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20151104050304",
+      "last_seen": "20171211184305",
+      "history": [
+        {
+          "timestamp": "20151104050304",
+          "digest": "BK2VWF5M2D2RG3KFMBEIFW2U7EJPSYPD",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155309",
+          "digest": "BK2VWF5M2D2RG3KFMBEIFW2U7EJPSYPD",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211184305",
+          "digest": "BK2VWF5M2D2RG3KFMBEIFW2U7EJPSYPD",
+          "status": "-",
+          "year": "2017"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/servicesmap/styles/myGovServices.css",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20151103200050",
+      "last_seen": "20171211182730",
+      "history": [
+        {
+          "timestamp": "20151103200050",
+          "digest": "TZDFVC3HXFTI6CPTLEC7WURIS55HUUO3",
+          "status": "200",
+          "year": "2015"
+        },
+        {
+          "timestamp": "20161219155144",
+          "digest": "TZDFVC3HXFTI6CPTLEC7WURIS55HUUO3",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20171211182730",
+          "digest": "TZDFVC3HXFTI6CPTLEC7WURIS55HUUO3",
+          "status": "-",
+          "year": "2017"
+        }
+      ]
+    },
+    {
+      "endpoint": "https://gis.huntingtonbeachca.gov/sitemap.xml",
+      "snapshot_count": 3,
+      "unique_versions": 1,
+      "first_seen": "20230604164623",
+      "last_seen": "20250224130808",
+      "history": [
+        {
+          "timestamp": "20230604164623",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20230810175329",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2023"
+        },
+        {
+          "timestamp": "20250224130808",
+          "digest": "AS23RBWCBWELK7XKNWH7RATCJJFMDZI5",
+          "status": "404",
+          "year": "2025"
+        }
+      ]
+    },
+    {
+      "endpoint": "http://gis.huntingtonbeachca.gov/welcome.png",
+      "snapshot_count": 4,
+      "unique_versions": 1,
+      "first_seen": "20161115053226",
+      "last_seen": "20181128161504",
+      "history": [
+        {
+          "timestamp": "20161115053226",
+          "digest": "BAWGQGGLJ76VNRVRQ3Z4KVQCV342S2VV",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20161123041508",
+          "digest": "BAWGQGGLJ76VNRVRQ3Z4KVQCV342S2VV",
+          "status": "200",
+          "year": "2016"
+        },
+        {
+          "timestamp": "20180531180306",
+          "digest": "BAWGQGGLJ76VNRVRQ3Z4KVQCV342S2VV",
+          "status": "-",
+          "year": "2018"
+        },
+        {
+          "timestamp": "20181128161504",
+          "digest": "BAWGQGGLJ76VNRVRQ3Z4KVQCV342S2VV",
+          "status": "-",
+          "year": "2018"
+        }
+      ]
+    }
+  ],
+  "forensic_matches": [
+    {
+      "category": "PARCEL",
+      "year": "2025",
+      "timestamp": "20250417132155",
+      "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/Parcels/MapServer/0/query?f=json&geometry=%7B%22xmin%22%3A-13134938.940524247%2C%22ymin%22%3A3985732.402904175%2C%22xmax%22%3A-13133715.948071683%2C%22ymax%22%3A3986955.395356737%7D&orderByFields=Huntington.DBO.Parcels.OBJECTID&outFields=Huntington.DBO.Parcels.APN%2CHuntington.DBO.Parcels.OBJECTID&outSR=102100&quantizationParameters=%7B%22extent%22%3A%7B%22spatialReference%22%3A%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D%2C%22xmin%22%3A-13134938.940524247%2C%22ymin%22%3A3985732.402904175%2C%22xmax%22%3A-13133715.948071683%2C%22ymax%22%3A3986955.395356737%7D%2C%22mode%22%3A%22view%22%2C%22originPosition%22%3A%22upperLeft%22%2C%22tolerance%22%3A2.388657133911135%7D&resultType=tile&returnCentroid=true&returnExceededLimitFeatures=false&spatialRel=esriSpatialRelIntersects&where=1%3D1&geometryType=esriGeometryEnvelope&inSR=102100",
+      "digest": "IXI3UK67SOGAHCS7NI3LWCSKAA5CDMY3",
+      "status": "200",
+      "archive_url": "https://web.archive.org/web/20250417132155/https://gis.huntingtonbeachca.gov/arcgis/rest/services/Parcels/MapServer/0/query?f=json&geometry=%7B%22xmin%22%3A-13134938.940524247%2C%22ymin%22%3A3985732.402904175%2C%22xmax%22%3A-13133715.948071683%2C%22ymax%22%3A3986955.395356737%7D&orderByFields=Huntington.DBO.Parcels.OBJECTID&outFields=Huntington.DBO.Parcels.APN%2CHuntington.DBO.Parcels.OBJECTID&outSR=102100&quantizationParameters=%7B%22extent%22%3A%7B%22spatialReference%22%3A%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D%2C%22xmin%22%3A-13134938.940524247%2C%22ymin%22%3A3985732.402904175%2C%22xmax%22%3A-13133715.948071683%2C%22ymax%22%3A3986955.395356737%7D%2C%22mode%22%3A%22view%22%2C%22originPosition%22%3A%22upperLeft%22%2C%22tolerance%22%3A2.388657133911135%7D&resultType=tile&returnCentroid=true&returnExceededLimitFeatures=false&spatialRel=esriSpatialRelIntersects&where=1%3D1&geometryType=esriGeometryEnvelope&inSR=102100"
+    },
+    {
+      "category": "PARCEL",
+      "year": "2025",
+      "timestamp": "20250417132155",
+      "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/Parcels/MapServer/0/query?f=json&geometry=%7B%22xmin%22%3A-13136161.932976808%2C%22ymin%22%3A3985732.402904175%2C%22xmax%22%3A-13134938.940524247%2C%22ymax%22%3A3986955.395356737%7D&orderByFields=Huntington.DBO.Parcels.OBJECTID&outFields=Huntington.DBO.Parcels.APN%2CHuntington.DBO.Parcels.OBJECTID&outSR=102100&quantizationParameters=%7B%22extent%22%3A%7B%22spatialReference%22%3A%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D%2C%22xmin%22%3A-13136161.932976808%2C%22ymin%22%3A3985732.402904175%2C%22xmax%22%3A-13134938.940524247%2C%22ymax%22%3A3986955.395356737%7D%2C%22mode%22%3A%22view%22%2C%22originPosition%22%3A%22upperLeft%22%2C%22tolerance%22%3A2.388657133911135%7D&resultType=tile&returnCentroid=true&returnExceededLimitFeatures=false&spatialRel=esriSpatialRelIntersects&where=1%3D1&geometryType=esriGeometryEnvelope&inSR=102100",
+      "digest": "JPNWUVJNAJQVIASO5FK7GFZ66JLSZHXV",
+      "status": "200",
+      "archive_url": "https://web.archive.org/web/20250417132155/https://gis.huntingtonbeachca.gov/arcgis/rest/services/Parcels/MapServer/0/query?f=json&geometry=%7B%22xmin%22%3A-13136161.932976808%2C%22ymin%22%3A3985732.402904175%2C%22xmax%22%3A-13134938.940524247%2C%22ymax%22%3A3986955.395356737%7D&orderByFields=Huntington.DBO.Parcels.OBJECTID&outFields=Huntington.DBO.Parcels.APN%2CHuntington.DBO.Parcels.OBJECTID&outSR=102100&quantizationParameters=%7B%22extent%22%3A%7B%22spatialReference%22%3A%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D%2C%22xmin%22%3A-13136161.932976808%2C%22ymin%22%3A3985732.402904175%2C%22xmax%22%3A-13134938.940524247%2C%22ymax%22%3A3986955.395356737%7D%2C%22mode%22%3A%22view%22%2C%22originPosition%22%3A%22upperLeft%22%2C%22tolerance%22%3A2.388657133911135%7D&resultType=tile&returnCentroid=true&returnExceededLimitFeatures=false&spatialRel=esriSpatialRelIntersects&where=1%3D1&geometryType=esriGeometryEnvelope&inSR=102100"
+    },
+    {
+      "category": "PARCEL",
+      "year": "2025",
+      "timestamp": "20250417132155",
+      "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/Parcels/MapServer/0/query?f=json&geometry=%7B%22xmin%22%3A-13137384.92542937%2C%22ymin%22%3A3984509.4104516115%2C%22xmax%22%3A-13136161.932976808%2C%22ymax%22%3A3985732.402904175%7D&orderByFields=Huntington.DBO.Parcels.OBJECTID&outFields=Huntington.DBO.Parcels.APN%2CHuntington.DBO.Parcels.OBJECTID&outSR=102100&quantizationParameters=%7B%22extent%22%3A%7B%22spatialReference%22%3A%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D%2C%22xmin%22%3A-13137384.92542937%2C%22ymin%22%3A3984509.4104516115%2C%22xmax%22%3A-13136161.932976808%2C%22ymax%22%3A3985732.402904175%7D%2C%22mode%22%3A%22view%22%2C%22originPosition%22%3A%22upperLeft%22%2C%22tolerance%22%3A2.388657133911135%7D&resultType=tile&returnCentroid=true&returnExceededLimitFeatures=false&spatialRel=esriSpatialRelIntersects&where=1%3D1&geometryType=esriGeometryEnvelope&inSR=102100",
+      "digest": "P2IF536LY2HL6I4JZCOP7IALZ3VNLCBF",
+      "status": "200",
+      "archive_url": "https://web.archive.org/web/20250417132155/https://gis.huntingtonbeachca.gov/arcgis/rest/services/Parcels/MapServer/0/query?f=json&geometry=%7B%22xmin%22%3A-13137384.92542937%2C%22ymin%22%3A3984509.4104516115%2C%22xmax%22%3A-13136161.932976808%2C%22ymax%22%3A3985732.402904175%7D&orderByFields=Huntington.DBO.Parcels.OBJECTID&outFields=Huntington.DBO.Parcels.APN%2CHuntington.DBO.Parcels.OBJECTID&outSR=102100&quantizationParameters=%7B%22extent%22%3A%7B%22spatialReference%22%3A%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D%2C%22xmin%22%3A-13137384.92542937%2C%22ymin%22%3A3984509.4104516115%2C%22xmax%22%3A-13136161.932976808%2C%22ymax%22%3A3985732.402904175%7D%2C%22mode%22%3A%22view%22%2C%22originPosition%22%3A%22upperLeft%22%2C%22tolerance%22%3A2.388657133911135%7D&resultType=tile&returnCentroid=true&returnExceededLimitFeatures=false&spatialRel=esriSpatialRelIntersects&where=1%3D1&geometryType=esriGeometryEnvelope&inSR=102100"
+    },
+    {
+      "category": "PARCEL",
+      "year": "2025",
+      "timestamp": "20250417132155",
+      "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/Parcels/MapServer/0/query?f=json&geometry=%7B%22xmin%22%3A-13137384.92542937%2C%22ymin%22%3A3985732.402904175%2C%22xmax%22%3A-13136161.932976808%2C%22ymax%22%3A3986955.395356737%7D&orderByFields=Huntington.DBO.Parcels.OBJECTID&outFields=Huntington.DBO.Parcels.APN%2CHuntington.DBO.Parcels.OBJECTID&outSR=102100&quantizationParameters=%7B%22extent%22%3A%7B%22spatialReference%22%3A%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D%2C%22xmin%22%3A-13137384.92542937%2C%22ymin%22%3A3985732.402904175%2C%22xmax%22%3A-13136161.932976808%2C%22ymax%22%3A3986955.395356737%7D%2C%22mode%22%3A%22view%22%2C%22originPosition%22%3A%22upperLeft%22%2C%22tolerance%22%3A2.388657133911135%7D&resultType=tile&returnCentroid=true&returnExceededLimitFeatures=false&spatialRel=esriSpatialRelIntersects&where=1%3D1&geometryType=esriGeometryEnvelope&inSR=102100",
+      "digest": "J3DE624WPZAXJ3Q4DP5MUNJSD6IMUZRN",
+      "status": "200",
+      "archive_url": "https://web.archive.org/web/20250417132155/https://gis.huntingtonbeachca.gov/arcgis/rest/services/Parcels/MapServer/0/query?f=json&geometry=%7B%22xmin%22%3A-13137384.92542937%2C%22ymin%22%3A3985732.402904175%2C%22xmax%22%3A-13136161.932976808%2C%22ymax%22%3A3986955.395356737%7D&orderByFields=Huntington.DBO.Parcels.OBJECTID&outFields=Huntington.DBO.Parcels.APN%2CHuntington.DBO.Parcels.OBJECTID&outSR=102100&quantizationParameters=%7B%22extent%22%3A%7B%22spatialReference%22%3A%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D%2C%22xmin%22%3A-13137384.92542937%2C%22ymin%22%3A3985732.402904175%2C%22xmax%22%3A-13136161.932976808%2C%22ymax%22%3A3986955.395356737%7D%2C%22mode%22%3A%22view%22%2C%22originPosition%22%3A%22upperLeft%22%2C%22tolerance%22%3A2.388657133911135%7D&resultType=tile&returnCentroid=true&returnExceededLimitFeatures=false&spatialRel=esriSpatialRelIntersects&where=1%3D1&geometryType=esriGeometryEnvelope&inSR=102100"
+    },
+    {
+      "category": "PARCEL",
+      "year": "2025",
+      "timestamp": "20250417132150",
+      "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/Parcels/MapServer/0?f=json",
+      "digest": "BEBAXNGG3PJ7HKDXLPGBGCSW7TNMRH37",
+      "status": "200",
+      "archive_url": "https://web.archive.org/web/20250417132150/https://gis.huntingtonbeachca.gov/arcgis/rest/services/Parcels/MapServer/0?f=json"
+    },
+    {
+      "category": "PLANNING",
+      "year": "2017",
+      "timestamp": "20170716134600",
+      "url": "http://gis.huntingtonbeachca.gov:80/arcgis/rest/services/Planning/MapServer/1",
+      "digest": "5I3DSKCP4KVXEW2G2RX3CAUXKZ7BUVI4",
+      "status": "200",
+      "archive_url": "https://web.archive.org/web/20170716134600/http://gis.huntingtonbeachca.gov:80/arcgis/rest/services/Planning/MapServer/1"
+    },
+    {
+      "category": "PLANNING",
+      "year": "2017",
+      "timestamp": "20170816145940",
+      "url": "http://gis.huntingtonbeachca.gov:80/arcgis/rest/services/Planning/MapServer/1",
+      "digest": "5I3DSKCP4KVXEW2G2RX3CAUXKZ7BUVI4",
+      "status": "200",
+      "archive_url": "https://web.archive.org/web/20170816145940/http://gis.huntingtonbeachca.gov:80/arcgis/rest/services/Planning/MapServer/1"
+    },
+    {
+      "category": "PLANNING",
+      "year": "2017",
+      "timestamp": "20170916175533",
+      "url": "http://gis.huntingtonbeachca.gov:80/arcgis/rest/services/Planning/MapServer/1",
+      "digest": "5I3DSKCP4KVXEW2G2RX3CAUXKZ7BUVI4",
+      "status": "200",
+      "archive_url": "https://web.archive.org/web/20170916175533/http://gis.huntingtonbeachca.gov:80/arcgis/rest/services/Planning/MapServer/1"
+    },
+    {
+      "category": "PLANNING",
+      "year": "2017",
+      "timestamp": "20171017165719",
+      "url": "http://gis.huntingtonbeachca.gov:80/arcgis/rest/services/Planning/MapServer/1",
+      "digest": "5I3DSKCP4KVXEW2G2RX3CAUXKZ7BUVI4",
+      "status": "200",
+      "archive_url": "https://web.archive.org/web/20171017165719/http://gis.huntingtonbeachca.gov:80/arcgis/rest/services/Planning/MapServer/1"
+    },
+    {
+      "category": "PLANNING",
+      "year": "2017",
+      "timestamp": "20171117124757",
+      "url": "http://gis.huntingtonbeachca.gov:80/arcgis/rest/services/Planning/MapServer/1",
+      "digest": "5I3DSKCP4KVXEW2G2RX3CAUXKZ7BUVI4",
+      "status": "200",
+      "archive_url": "https://web.archive.org/web/20171117124757/http://gis.huntingtonbeachca.gov:80/arcgis/rest/services/Planning/MapServer/1"
+    }
+  ]
+}
