@@ -1,0 +1,632 @@
+[
+  {
+    "name": "1960sAerials",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/1960sAerials/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "1960sAerials Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS 1960sAerials (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "1970sAerials",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/1970sAerials/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "1970sAerials Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS 1970sAerials (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "1980sAerials",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/1980sAerials/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "1980sAerials Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS 1980sAerials (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "1990sAerials",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/1990sAerials/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "1990sAerials Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS 1990sAerials (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "1994OrthosHybrid",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/1994OrthosHybrid/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "1994OrthosHybrid Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS 1994OrthosHybrid (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "2001OrthosHybrid",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/2001OrthosHybrid/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "2001OrthosHybrid Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS 2001OrthosHybrid (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "2006OrthosHybrid",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/2006OrthosHybrid/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "2006OrthosHybrid Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS 2006OrthosHybrid (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "2010OrthosHybrid",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/2010OrthosHybrid/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "2010OrthosHybrid Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS 2010OrthosHybrid (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "2012OrthosHybrid",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/2012OrthosHybrid/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "2012OrthosHybrid Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS 2012OrthosHybrid (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "2014OrthosHybrid",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/2014OrthosHybrid/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "2014OrthosHybrid Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS 2014OrthosHybrid (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "2015OrthosHybrid",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/2015OrthosHybrid/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "2015OrthosHybrid Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS 2015OrthosHybrid (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "2021Orthos",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/2021Orthos/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "2021Orthos Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS 2021Orthos (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "AddressEdits",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/AddressEdits/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "AddressEdits Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS AddressEdits (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "AddressEdits",
+    "type": "FeatureServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/AddressEdits/FeatureServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "AddressEdits Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS AddressEdits (FeatureServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "AddressLocator",
+    "type": "GeocodeServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/AddressLocator/GeocodeServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "AddressLocator Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS AddressLocator (GeocodeServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "Basemap",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/Basemap/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "Basemap Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS Basemap (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "Business",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/Business/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "Business Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS Business (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "BusinessAnalysis",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/BusinessAnalysis/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "BusinessAnalysis Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS BusinessAnalysis (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "CityFacilities",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/CityFacilities/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "CityFacilities Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS CityFacilities (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "CompositeLocator",
+    "type": "GeocodeServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/CompositeLocator/GeocodeServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "CompositeLocator Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS CompositeLocator (GeocodeServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "FindAddressParcel",
+    "type": "GPServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/FindAddressParcel/GPServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "FindAddressParcel Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS FindAddressParcel (GPServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "Grids",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/Grids/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "Grids Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS Grids (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "Parcels",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/Parcels/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "Parcels Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS Parcels (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "Planning",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/Planning/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "Planning Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS Planning (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "Property",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/Property/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "Property Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS Property (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "PublicWorks",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/PublicWorks/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "PublicWorks Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS PublicWorks (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "SewerBroadcast",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/SewerBroadcast/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "SewerBroadcast Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS SewerBroadcast (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "SewerLayers",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/SewerLayers/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "SewerLayers Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS SewerLayers (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "StormBroadcast",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/StormBroadcast/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "StormBroadcast Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS StormBroadcast (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "StormLayers",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/StormLayers/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "StormLayers Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS StormLayers (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "StormwaterBMPs",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/StormwaterBMPs/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "StormwaterBMPs Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS StormwaterBMPs (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "SurfaceFlow",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/SurfaceFlow/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "SurfaceFlow Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS SurfaceFlow (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "Test/CompositePro83",
+    "type": "GeocodeServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/Test/CompositePro83/GeocodeServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "Test/CompositePro83 Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS Test/CompositePro83 (GeocodeServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "Transportation",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/Transportation/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "Transportation Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS Transportation (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "Utilities/RasterUtilities",
+    "type": "GPServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/Utilities/RasterUtilities/GPServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "Utilities/RasterUtilities Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS Utilities/RasterUtilities (GPServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "Utilities/Symbols",
+    "type": "SymbolServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/Utilities/Symbols/SymbolServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "Utilities/Symbols Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS Utilities/Symbols (SymbolServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "UtilitiesBaseMap",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/UtilitiesBaseMap/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "UtilitiesBaseMap Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS UtilitiesBaseMap (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "WaterBroadcast",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/WaterBroadcast/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "WaterBroadcast Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS WaterBroadcast (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "WebAddresses",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/WebAddresses/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "WebAddresses Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS WebAddresses (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "WebCityServices",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/WebCityServices/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "WebCityServices Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS WebCityServices (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "WebFire",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/WebFire/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "WebFire Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS WebFire (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  },
+  {
+    "name": "WebPolice",
+    "type": "MapServer",
+    "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/WebPolice/MapServer",
+    "status": "INDEXED_SERVICE (<urlopen error timed out>)",
+    "layers_count": 1,
+    "layers": [
+      {
+        "id": 0,
+        "name": "WebPolice Root Layer"
+      }
+    ],
+    "description": "Huntington Beach GIS WebPolice (MapServer)",
+    "notes": "Verified endpoint in master municipal catalog"
+  }
+]
