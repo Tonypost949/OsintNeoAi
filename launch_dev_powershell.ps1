@@ -1,5 +1,18 @@
-# Universal Visual Studio Developer PowerShell Auto-Detector
+# Universal Visual Studio Developer PowerShell Auto-Detector for OSINT Neo AI
 # Auto-detects Visual Studio 2026 or 2022 and loads C++ x64 build toolchain
+
+try {
+    Add-Type -MemberDefinition @'
+[DllImport("user32.dll")]
+public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+[DllImport("kernel32.dll")]
+public static extern IntPtr GetConsoleWindow();
+'@ -Name Win32ConsoleMax -Namespace Win32Utils -ErrorAction SilentlyContinue
+    $consoleHwnd = [Win32Utils.Win32ConsoleMax]::GetConsoleWindow()
+    if ($consoleHwnd -ne [IntPtr]::Zero) {
+        [void][Win32Utils.Win32ConsoleMax]::ShowWindow($consoleHwnd, 3) # 3 = SW_MAXIMIZE
+    }
+} catch {}
 
 $VsPath = ""
 if (Test-Path "${env:ProgramFiles}\Microsoft Visual Studio\2026\Community") {
@@ -17,9 +30,9 @@ if (Test-Path $DevShellDll) {
     Enter-VsDevShell -VsInstallPath $VsPath -SkipAutomaticLocation -DevCmdArguments "-arch=x64 -host_arch=x64"
 }
 
-Set-Location C:\OsintNeoAi
-Write-Host "=========================================================" -ForegroundColor Cyan
-Write-Host "  Visual Studio Developer PowerShell (x64) Ready!      " -ForegroundColor Green
-Write-Host "  VS Target Path: $VsPath                               " -ForegroundColor Yellow
-Write-Host "  Working Directory: C:\OsintNeoAi                      " -ForegroundColor Yellow
-Write-Host "=========================================================" -ForegroundColor Cyan
+Set-Location "C:\OsintNeoAi"
+if (Test-Path "C:\OsintNeoAi\cli\developer_menu.ps1") {
+    . "C:\OsintNeoAi\cli\developer_menu.ps1"
+}
+
+Show-DeveloperMenu

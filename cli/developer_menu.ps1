@@ -6,27 +6,29 @@ function Show-DeveloperMenu {
     Write-Host "=========================================" -ForegroundColor Cyan
     Write-Host "  PRIMARY AI & AGENT CLIs:" -ForegroundColor Yellow
     Write-Host "   [1]  Antigravity (agy)"
-    Write-Host "   [2]  OpenCode Pentest (Kali WSL + Auto-Installer)"
+    Write-Host "   [2]  OpenCode Pentest (Kali WSL)"
     Write-Host "   [3]  Gemini CLI (gemini)"
-    Write-Host "   [4]  OSINTNEOAI Master Intelligence (osintneoai)"
+    Write-Host "   [4]  OSINTNEOAI Master Intelligence (cli.py)"
     Write-Host "   [5]  Standard OpenCode (opencode)"
     Write-Host "   [6]  GitHub Copilot (gh copilot)"
-    Write-Host "   [7]  Ollama (ollama)"
+    Write-Host "   [7]  Ollama (ollama run qwen2.5-coder:7b)"
     Write-Host ""
     Write-Host "  DEVELOPMENT & RUNTIMES:" -ForegroundColor Yellow
-    Write-Host "   [8]  Python 3 (python)"
-    Write-Host "   [9]  Git (git)"
-    Write-Host "   [10] VS Code (code .)"
-    Write-Host "   [Q]  Quit / Cancel"
+    Write-Host "   [8]  Python 3 Shell (python)"
+    Write-Host "   [9]  Git Status / CLI (git)"
+    Write-Host "   [10] Open in VS Code (code C:\OsintNeoAi)"
+    Write-Host "   [Q]  Quit / Drop to Developer Shell"
     Write-Host "=========================================" -ForegroundColor Cyan
     Write-Host ""
 
     $choice = Read-Host "Select a CLI tool to launch [1-10, Q]"
+    Set-Location "C:\OsintNeoAi"
+
     switch ($choice.ToString().Trim()) {
         "1" { agy $ScriptArgs }
         "2" {
             $tool_prompt = Read-Host "Paste target prompt, code snippet, or tool request"
-            wsl -d kali-linux -- opencode-pentest "$tool_prompt"
+            wsl -d kali-linux --cd /mnt/c/OsintNeoAi -- opencode-pentest "$tool_prompt"
         }
         "3" { gemini $ScriptArgs }
         "4" {
@@ -37,8 +39,8 @@ function Show-DeveloperMenu {
         "6" { gh copilot suggest }
         "7" { ollama run qwen2.5-coder:7b }
         "8" { python }
-        "9" { git $ScriptArgs }
-        "10" { code C:\OsintNeoAi }
+        "9" { git status }
+        "10" { code "C:\OsintNeoAi" }
         "Q" { return }
         "q" { return }
         Default { Write-Host "Invalid selection." -ForegroundColor Red }
@@ -47,3 +49,4 @@ function Show-DeveloperMenu {
 
 Set-Alias -Name cli -Value Show-DeveloperMenu -Option AllScope -Force -ErrorAction SilentlyContinue
 Set-Alias -Name launch -Value Show-DeveloperMenu -Option AllScope -Force -ErrorAction SilentlyContinue
+Set-Alias -Name aicli -Value Show-DeveloperMenu -Option AllScope -Force -ErrorAction SilentlyContinue
