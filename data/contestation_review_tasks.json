@@ -1,0 +1,22 @@
+{
+  "updated_at": "2026-09-10T18:51:09.421061+00:00",
+  "total_active_contestations": 1,
+  "lifecycle_state": "ACTIVE_QUEUE",
+  "contestation_tasks": [
+    {
+      "contestation_id": "CONT-63E3B8B0D4",
+      "task_id": "TASK-071",
+      "objector_id": "0xf589232E030923FF2da5Bd4DA85b190510717F35",
+      "target_entity": "Woodbridge Apartments",
+      "reason": "Landlord intentionally concealed DTSC hazardous plume data during unlawful detainer filing in violation of Cal. CCP \u00a7 116.223 and AB 1482.",
+      "evidence_refs": [
+        "evidence/FORENSIC_ANALYSIS_DIMARCELLO_RICO_2021-2026.md",
+        "data/neo_environmental_justice_forensic_ledger.json"
+      ],
+      "submitted_at": "2026-09-10T18:51:09.419787+00:00",
+      "status": "QUEUED_FOR_HUMAN_REVIEW",
+      "sha256_hash": "63e3b8b0d4c2b9ed65c7fb992c5e5da0581a89f0e7635408398f75a28fb8dee4",
+      "reputation_stake": 100
+    }
+  ]
+}

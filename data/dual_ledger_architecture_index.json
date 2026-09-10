@@ -1,0 +1,66 @@
+{
+  "indexed_at": "2026-09-10T18:50:13.222173+00:00",
+  "total_documents": 4,
+  "dual_ledger_system": "OSINT_COIN_A_TAXFUNDED_B",
+  "documents": [
+    {
+      "doc_id": "ARCH-001",
+      "title": "Dual-Ledger OSINT Exchange Tokenomics Blueprint",
+      "relative_path": "workspaces/NWORICO/data/osint_exchange_tokenomics_blueprint.md",
+      "exists": true,
+      "size_bytes": 1657,
+      "sha256_hash": "7c0238e90281f84b0bb35118b75422e31b07fe38b97fc4bf8380462af352ae6f",
+      "ledger_type": "DUAL_LEDGER_A_B",
+      "domain_tags": [
+        "Tokenomics",
+        "Staking",
+        "UTXO",
+        "BountySplits"
+      ]
+    },
+    {
+      "doc_id": "ARCH-002",
+      "title": "OSINT Exchange User Journeys and Relator Flows",
+      "relative_path": "workspaces/NWORICO/data/osint_exchange_user_journeys.md",
+      "exists": true,
+      "size_bytes": 1648,
+      "sha256_hash": "f6a9fdb58742fb3d1b75156aac2a8eaf5dea1836c14e221ed4e3cd9b1d78d623",
+      "ledger_type": "USER_JOURNEY",
+      "domain_tags": [
+        "Relators",
+        "Victims",
+        "Whistleblowers",
+        "FranchisePress"
+      ]
+    },
+    {
+      "doc_id": "ARCH-003",
+      "title": "Crypto Architecture Core Reference",
+      "relative_path": "workspaces/NWORICO/data/crypto_architecture_core_docs.txt",
+      "exists": true,
+      "size_bytes": 774,
+      "sha256_hash": "6ffc0f8795f630d1deebc0cfc8692740f115ee268ea36dde80ced23727244f6e",
+      "ledger_type": "CORE_CRYPTO",
+      "domain_tags": [
+        "SmartContracts",
+        "ERC20Mock",
+        "DualAuditTokenSystem"
+      ]
+    },
+    {
+      "doc_id": "ARCH-004",
+      "title": "Immutable Eviction Wiki & Citizen Intelligence Workspace",
+      "relative_path": "workspace_v2.html",
+      "exists": true,
+      "size_bytes": 18762,
+      "sha256_hash": "82667e6cf2d2392ab23c7890bc9bf0631aed704df709a63e174cb29c5a0467af",
+      "ledger_type": "CITIZEN_WORKSPACE",
+      "domain_tags": [
+        "GenesisWiki",
+        "MaltegoGraph",
+        "ToxicPlumeIntercept",
+        "AcrylicHUD"
+      ]
+    }
+  ]
+}
