@@ -1029,6 +1029,76 @@ def workspace_roa_entries():
     return res
 
 
+@app.route("/api/workspace/motion/generate", methods=["GET", "POST", "OPTIONS"])
+def workspace_generate_motion():
+    if request.method == "OPTIONS":
+        res = jsonify({"status": "ok"})
+        res.headers.add("Access-Control-Allow-Origin", "*")
+        res.headers.add("Access-Control-Allow-Headers", "*")
+        res.headers.add("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        return res
+
+    data = request.get_json(silent=True) if request.method == "POST" else {}
+    if not data:
+        data = request.args.to_dict()
+
+    tenant_name = data.get("tenant_name", "Anthony DiMarcello")
+    landlord_name = data.get("landlord_name", "Woodbridge Meadows Apartments LLC")
+    case_number = data.get("case_number", "30-2021-01201327-CL-UD-CJC")
+    property_address = data.get("property_address", "17642 Beach Blvd, Huntington Beach, CA 92647")
+    grounds = data.get("grounds", ["VOID_MULTIPLE_JUDGMENTS", "POST_HEARING_JUDGE_SHOPPING"])
+
+    motion_text = f"""SUPERIOR COURT OF CALIFORNIA, COUNTY OF ORANGE
+CENTRAL JUSTICE CENTER - UNLAWFUL DETAINER DIVISION
+
+{landlord_name},
+    Plaintiff,
+v.
+{tenant_name}, and DOES 1-5,
+    Defendants.
+
+Case No.: {case_number}
+
+DEFENDANT'S EX PARTE MOTION AND MOTION TO VACATE VOID JUDGMENT AND SET ASIDE PURSUANT TO CAL. CIV. PROC. CODE § 473(d) AND THE INHERENT EQUITABLE POWERS OF THE COURT; MEMORANDUM OF POINTS AND AUTHORITIES; DECLARATION OF {tenant_name.upper()}
+
+GROUNDS FOR VACATUR:
+1. ENTRY OF MULTIPLE SUCCESSIVE DEFAULT JUDGMENTS (ROA #50 & #59) ON SINGLE DISPOSED COMPLAINT (VOID UNDER ROCHIN V. PAT JOHNSON MANUFACTURING CO. (1998) 67 CAL.APP.4TH 1228).
+2. IMPROPER POST-HEARING PEREMPTORY JUDGE CHALLENGE (ROA #37) PURSUANT TO CAL. CIV. PROC. CODE § 170.6 AFTER EX PARTE HEARING ON THE MERITS.
+3. CONCEALED TOXIC ENVIRONMENTAL PLUME (DTSC GEOTRACKER T10000018579 / HEXAVALENT CHROMIUM 980 µg/kg) AT SUBJECT PREMISES ({property_address}).
+
+I. MEMORANDUM OF POINTS AND AUTHORITIES
+Pursuant to California Code of Civil Procedure § 473(d), "The court may, upon motion of the injured party, or its own motion, correct clerical mistakes in its judgment or orders as entered, so as to conform to the judgment or order directed, and may, on motion of either party after notice to the other party, set aside any void judgment or order."
+A judgment void on the face of the record may be set aside at any time without limitation. (Heidary v. Yadollahi (2002) 99 Cal.App.4th 857).
+
+II. DECLARATION OF {tenant_name.upper()}
+I, {tenant_name}, declare:
+1. I am the Defendant in the above-entitled action.
+2. The records of the Orange County Superior Court demonstrate structural defects and void successive judgments entered against me.
+3. The subject property at {property_address} is situated within an active DTSC/OCHCA toxic contamination boundary.
+
+I declare under penalty of perjury under the laws of the State of California that the foregoing is true and correct.
+Executed on {datetime.now(timezone.utc).strftime('%B %d, %Y')}.
+
+_____________________________
+{tenant_name}, Defendant in Pro Per
+"""
+
+    res = jsonify({
+        "status": "success",
+        "case_number": case_number,
+        "tenant_name": tenant_name,
+        "landlord_name": landlord_name,
+        "property_address": property_address,
+        "grounds": grounds,
+        "statutory_authority": "Cal. Civ. Proc. Code § 473(d) / Rule 60(d)(3)",
+        "pleading_text": motion_text,
+        "word_count": len(motion_text.split()),
+        "generated_at": datetime.now(timezone.utc).isoformat()
+    })
+    res.headers.add("Access-Control-Allow-Origin", "*")
+    return res
+
+
 
 # ── Zero-Trust Encrypted Lockbox Vault ─────────────────────────
 LOCKBOX_VAULT_DIR = Path(__file__).parent.parent / "data" / "lockbox_vault"
