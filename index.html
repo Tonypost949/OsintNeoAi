@@ -1,115 +1,392 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OSINT Neo AI — Planetary Reconnaissance & Intelligence Cockpit</title>
   
-  <!-- Tailwind CSS & Fonts -->
+  <!-- ========================================================================= -->
+  <!-- PRIMARY SEO META TAGS                                                     -->
+  <!-- ========================================================================= -->
+  <title>OSINT Neo AI — Autonomous Open-Source Intelligence & 3D Forensic Graph Platform</title>
+  <meta name="title" content="OSINT Neo AI — Autonomous Open-Source Intelligence & 3D Forensic Graph Platform">
+  <meta name="description" content="Enterprise-grade OSINT platform bridging BigQuery forensic knowledge graphs, autonomous multi-agent AI swarms, 3D WebGL tactical geospatial cockpits, and Web3 cryptographic evidence provenance.">
+  <meta name="keywords" content="OSINT, Open Source Intelligence, Digital Forensics, BigQuery, AI Agents, MCP Server, MapLibre 3D, Smart Contracts, Ethereum Sepolia, Threat Intelligence, Cybersecurity, Investigations">
+  <meta name="author" content="OSINT Neo AI Engineering Team">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tonypost949.github.io/OsintNeoAi/">
+  <meta name="theme-color" content="#080c14">
+
+  <!-- ========================================================================= -->
+  <!-- OPEN GRAPH / FACEBOOK / LINKEDIN META TAGS                                -->
+  <!-- ========================================================================= -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tonypost949.github.io/OsintNeoAi/">
+  <meta property="og:title" content="OSINT Neo AI — Autonomous Open-Source Intelligence & Forensic Platform">
+  <meta property="og:description" content="Decentralized hybrid-cloud OSINT intelligence platform with 3D tactical GIS, 19 native MCP tools, BigQuery forensic pipelines, and Web3 evidence lineage.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/Tonypost949/OsintNeoAi/main/osint_neo_ai_banner.png">
+  <meta property="og:site_name" content="OSINT Neo AI">
+
+  <!-- ========================================================================= -->
+  <!-- TWITTER CARDS                                                             -->
+  <!-- ========================================================================= -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://tonypost949.github.io/OsintNeoAi/">
+  <meta name="twitter:title" content="OSINT Neo AI — Autonomous Open-Source Intelligence Platform">
+  <meta name="twitter:description" content="Enterprise OSINT automation, 3D tactical geospatial cockpits, 19 native MCP tools, and Web3 cryptographic evidence verification.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/Tonypost949/OsintNeoAi/main/osint_neo_ai_banner.png">
+
+  <!-- ========================================================================= -->
+  <!-- SCHEMA.ORG JSON-LD STRUCTURED DATA                                        -->
+  <!-- ========================================================================= -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "OSINT Neo AI",
+    "operatingSystem": "Linux, Windows, macOS, Android (Termux)",
+    "applicationCategory": "SecurityApplication, DeveloperApplication",
+    "description": "Autonomous open-source intelligence and forensic knowledge graph platform bridging BigQuery, 3D tactical GIS, and Web3 evidence verification.",
+    "url": "https://tonypost949.github.io/OsintNeoAi/",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "OSINT Neo AI Project"
+    }
+  }
+  </script>
+
+  <!-- Tailwind CSS & Google Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  
-  <!-- Leaflet GIS Map Engine CDN -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#06090e',
+              surface: '#0b111e',
+              border: '#1b263b',
+              cyan: '#06b6d4',
+              neon: '#38bdf8',
+              emerald: '#10b981',
+              purple: '#a855f7'
+            }
+          },
+          fontFamily: {
+            orbitron: ['Orbitron', 'sans-serif'],
+            rajdhani: ['Rajdhani', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+            sans: ['"DM Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
 
   <style>
     body {
-      background-color: #0b0f19;
+      background-color: #06090e;
       color: #e2e8f0;
-      font-family: 'Rajdhani', sans-serif;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
+      font-family: 'DM Sans', sans-serif;
     }
-    .orbitron { font-family: 'Orbitron', sans-serif; }
-    .mono { font-family: 'JetBrains Mono', monospace; }
-    #map { width: 100vw; height: 100vh; z-index: 1; }
-    .glass-panel {
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(56, 189, 248, 0.2);
+    .glass-card {
+      background: rgba(11, 17, 30, 0.75);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+    }
+    .glass-card:hover {
+      border-color: rgba(56, 189, 248, 0.45);
+    }
+    .glow-cyan {
+      box-shadow: 0 0 40px -10px rgba(6, 182, 212, 0.35);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #06b6d4 50%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   </style>
 </head>
-<body>
+<body class="selection:bg-cyan-500 selection:text-black">
 
-  <!-- TOP HUD NAVIGATION BAR -->
-  <div class="absolute top-4 left-4 right-4 z-50 flex items-center justify-between glass-panel p-4 rounded-xl shadow-2xl">
-    <div class="flex items-center gap-3">
-      <div class="w-3 h-3 rounded-full bg-cyan-400 animate-ping"></div>
-      <h1 class="orbitron text-xl font-bold tracking-wider text-cyan-400">OSINT NEO AI — GOD'S EYE VIEW</h1>
-    </div>
-    <div class="flex items-center gap-4 text-xs mono text-slate-400">
-      <a href="https://experience.arcgis.com/experience/88eb50885b724d9990feb102001b1447/page/DAC-Mapping-Tool?org=DWR" target="_blank" class="px-3 py-1.5 bg-cyan-500/20 hover:bg-cyan-500/40 border border-cyan-400/40 rounded text-cyan-300 font-bold transition">🗺️ DWR DAC GIS TOOL</a>
-      <div>STATUS: <span class="text-emerald-400 font-bold">LIVE ONLINE</span></div>
-      <div>ENTITIES: <span class="text-cyan-400 font-bold">143 RECORDED</span></div>
-    </div>
-  </div>
+  <!-- TOP STICKY NAVIGATION -->
+  <header class="sticky top-0 z-50 border-b border-brand-border/80 bg-brand-dark/90 backdrop-blur-md px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-4 h-4 rounded-full bg-cyan-400 animate-ping"></div>
+        <span class="font-orbitron font-extrabold text-xl tracking-wider text-white">OSINT <span class="text-cyan-400">NEO AI</span></span>
+      </a>
 
-  <!-- LEAFLET GIS MAP CONTAINER -->
-  <div id="map"></div>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#features" class="hover:text-cyan-400 transition">Features</a>
+        <a href="#cockpit" class="hover:text-cyan-400 transition">OSINT Eye View</a>
+        <a href="#mcp" class="hover:text-cyan-400 transition">MCP Tools</a>
+        <a href="#architecture" class="hover:text-cyan-400 transition">Architecture</a>
+        <a href="#quickstart" class="hover:text-cyan-400 transition">Quickstart</a>
+      </nav>
 
-  <!-- FLOATING EVIDENCE & UTILITY LAYER PANEL -->
-  <div class="absolute bottom-4 left-4 z-50 w-96 max-h-80 glass-panel p-4 rounded-xl overflow-y-auto border-cyan-500/30">
-    <h2 class="orbitron text-sm font-bold text-cyan-400 mb-3 uppercase tracking-wider">🛠️ Municipal Utility & Infrastructure Layer</h2>
-    <div class="space-y-3 text-xs mono">
-      <div class="p-2 bg-slate-900/60 rounded border border-cyan-500/20">
-        <div class="text-amber-400 font-bold">7561 CENTER AVE UTILITY ENCLOSURES</div>
-        <div class="text-slate-300">Category 2 Structural Observation: 1960s-70s subterranean utility vaults (Units D1, E1, G1, J1).</div>
-      </div>
-      <div class="p-2 bg-slate-900/60 rounded border border-cyan-500/20">
-        <div class="text-cyan-400 font-bold">WELL CA3000618_001_001 MONITORING NODE</div>
-        <div class="text-slate-300">State Water Resources Control Board groundwater quality audit site (13,613 records).</div>
-      </div>
-      <div class="p-2 bg-slate-900/60 rounded border border-cyan-500/20">
-        <div class="text-emerald-400 font-bold">CA DWR DAC MAPPING TOOL (ARCGIS)</div>
-        <div class="text-slate-300">Target URL: <a href="https://experience.arcgis.com/experience/88eb50885b724d9990feb102001b1447/page/DAC-Mapping-Tool?org=DWR" target="_blank" class="underline text-cyan-400">DWR DAC Experience App</a></div>
+      <div class="flex items-center gap-3">
+        <a href="https://github.com/Tonypost949/OsintNeoAi" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-mono border border-slate-700 transition">
+          <i class="fa-brands fa-github text-sm"></i> Star on GitHub
+        </a>
+        <a href="#quickstart" class="px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs font-mono transition shadow-lg shadow-cyan-500/25">
+          Deploy Cluster
+        </a>
       </div>
     </div>
-  </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative pt-24 pb-20 px-6 overflow-hidden">
+    <!-- Ambient Background Glows -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-cyan-500/10 blur-[130px] rounded-full pointer-events-none"></div>
+    <div class="absolute top-1/3 right-10 w-[300px] h-[300px] bg-purple-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 font-mono text-xs mb-6">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        v2.4 Enterprise Release — 19 Native MCP Reconnaissance Tools Active
+      </div>
+
+      <h1 class="font-orbitron font-extrabold text-4xl sm:text-6xl md:text-7xl leading-tight tracking-tight text-white mb-6">
+        Autonomous OSINT & <br/>
+        <span class="gradient-text">Forensic Intelligence</span>
+      </h1>
+
+      <p class="text-slate-400 text-lg sm:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
+        Bridge multi-million entity BigQuery knowledge graphs, autonomous multi-agent AI swarms, and 3D tactical GIS cockpits with immutable Web3 cryptographic evidence verification.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 mb-16">
+        <a href="http://localhost:10000/map/osinteye" class="px-6 py-3.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-orbitron font-bold text-sm transition shadow-xl shadow-cyan-500/25 flex items-center gap-2">
+          <i class="fa-solid fa-satellite-dish"></i> Launch OSINT Eye View
+        </a>
+        <a href="#mcp" class="px-6 py-3.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-white font-orbitron font-bold text-sm border border-slate-700 transition flex items-center gap-2">
+          <i class="fa-solid fa-microchip text-cyan-400"></i> Explore 19 MCP Tools
+        </a>
+      </div>
+
+      <!-- LIVE METRIC TELEMETRY RIBBON -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
+        <div class="glass-card p-4 rounded-xl">
+          <div class="text-xs font-mono text-slate-400 uppercase">Evidence Indexed</div>
+          <div class="font-orbitron font-bold text-2xl text-cyan-400 mt-1">3,510 Docs</div>
+          <div class="text-[11px] font-mono text-emerald-400 mt-0.5">SHA-256 Verified</div>
+        </div>
+        <div class="glass-card p-4 rounded-xl">
+          <div class="text-xs font-mono text-slate-400 uppercase">Target Accounts</div>
+          <div class="font-orbitron font-bold text-2xl text-purple-400 mt-1">32 Registry</div>
+          <div class="text-[11px] font-mono text-emerald-400 mt-0.5">16 BigQuery Matches</div>
+        </div>
+        <div class="glass-card p-4 rounded-xl">
+          <div class="text-xs font-mono text-slate-400 uppercase">MCP Server</div>
+          <div class="font-orbitron font-bold text-2xl text-emerald-400 mt-1">19 Tools</div>
+          <div class="text-[11px] font-mono text-slate-400 mt-0.5">Native JSON-RPC</div>
+        </div>
+        <div class="glass-card p-4 rounded-xl">
+          <div class="text-xs font-mono text-slate-400 uppercase">Smart Contracts</div>
+          <div class="font-orbitron font-bold text-2xl text-amber-400 mt-1">Sepolia</div>
+          <div class="text-[11px] font-mono text-emerald-400 mt-0.5">Verified on Etherscan</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE TERMINAL QUICKSTART -->
+  <section id="quickstart" class="py-16 px-6 bg-brand-dark border-t border-b border-brand-border/60">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-8">
+        <h2 class="font-orbitron font-bold text-2xl text-white">Deploy In Seconds</h2>
+        <p class="text-slate-400 text-sm mt-1 font-mono">1-command bootstrap across Windows, Linux, Azure, Oracle, and Termux</p>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-brand-border bg-black/90 shadow-2xl">
+        <div class="bg-slate-900/90 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+            <span class="text-xs font-mono text-slate-400 ml-2">bash — OsintNeoAi Cloud Node Provisioner</span>
+          </div>
+          <button onclick="copyInstallCmd()" class="text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5">
+            <i class="fa-regular fa-copy" id="copy-icon"></i> <span id="copy-text">Copy Command</span>
+          </button>
+        </div>
+        <div class="p-5 font-mono text-sm leading-relaxed overflow-x-auto">
+          <span class="text-emerald-400"># 1-Line Universal Cloud Headless Node Bootstrap</span><br/>
+          <span class="text-cyan-300">curl</span> -sSL https://raw.githubusercontent.com/Tonypost949/OsintNeoAi/main/scripts/deploy_headless_compute.sh | <span class="text-cyan-300">bash</span><br/><br/>
+          <span class="text-slate-500"># Or Launch Locally on Windows Terminal (ConPTY Zero-Lag):</span><br/>
+          <span class="text-purple-300">wt-dev</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES GRID -->
+  <section id="features" class="py-24 px-6 max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="font-orbitron font-extrabold text-3xl sm:text-4xl text-white">Engineered for Deep Investigations</h2>
+      <p class="text-slate-400 text-base mt-3">From raw document OCR to live satellite spatial correlation, every module is designed for verifiable chain-of-custody.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Feature 1 -->
+      <div class="glass-card p-6 rounded-2xl">
+        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-400/30 flex items-center justify-center text-cyan-400 text-xl mb-5">
+          <i class="fa-solid fa-satellite"></i>
+        </div>
+        <h3 class="font-orbitron font-bold text-lg text-white mb-2">OSINT Eye View & 3D GIS</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Interactive WebGL and Leaflet tactical cockpit with time-slider trajectory scrubber, animated GPS patrol playback, and instant entity dossier drawer.
+        </p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="glass-card p-6 rounded-2xl">
+        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-400/30 flex items-center justify-center text-purple-400 text-xl mb-5">
+          <i class="fa-solid fa-network-wired"></i>
+        </div>
+        <h3 class="font-orbitron font-bold text-lg text-white mb-2">19 Native MCP Tools</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Full Model Context Protocol (MCP) server integration. Autonomous AI agents can execute WHOIS, reverse phone, court docket, and corporate lookups directly.
+        </p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="glass-card p-6 rounded-2xl">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-400/30 flex items-center justify-center text-emerald-400 text-xl mb-5">
+          <i class="fa-solid fa-database"></i>
+        </div>
+        <h3 class="font-orbitron font-bold text-lg text-white mb-2">BigQuery Forensic Graph</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          High-performance analytics target on `noble-beanbag-497411-m4` with pre-computed cross-reference matrix matching 32 target account identities.
+        </p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="glass-card p-6 rounded-2xl">
+        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-400/30 flex items-center justify-center text-amber-400 text-xl mb-5">
+          <i class="fa-brands fa-ethereum"></i>
+        </div>
+        <h3 class="font-orbitron font-bold text-lg text-white mb-2">Web3 Provenance & Bounties</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Sepolia-verified smart contracts with 40/30/30 automated contributor payouts, UTXO parent-hash evidence lineage, and Sybil-proof staking gates.
+        </p>
+      </div>
+
+      <!-- Feature 5 -->
+      <div class="glass-card p-6 rounded-2xl">
+        <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-400/30 flex items-center justify-center text-blue-400 text-xl mb-5">
+          <i class="fa-solid fa-cloud"></i>
+        </div>
+        <h3 class="font-orbitron font-bold text-lg text-white mb-2">Zero Local Compute</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Offload 100% of neural OCR and graph pipelines to free student and always-free cloud nodes (Azure, Oracle 4-Core ARM 24GB, DigitalOcean) over Tailscale.
+        </p>
+      </div>
+
+      <!-- Feature 6 -->
+      <div class="glass-card p-6 rounded-2xl">
+        <div class="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-400/30 flex items-center justify-center text-rose-400 text-xl mb-5">
+          <i class="fa-solid fa-terminal"></i>
+        </div>
+        <h3 class="font-orbitron font-bold text-lg text-white mb-2">ConPTY Zero-Lag Terminal</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Dedicated Windows Terminal `wt-dev` launcher with native bracketed paste streams, eliminating character-by-character clipboard delays completely.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MCP TOOL CATALOG -->
+  <section id="mcp" class="py-20 px-6 bg-brand-surface/60 border-t border-brand-border">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="text-xs font-mono text-cyan-400 uppercase tracking-wider mb-2">Model Context Protocol</div>
+        <h2 class="font-orbitron font-bold text-3xl text-white">19 Native Reconnaissance Modules</h2>
+        <p class="text-slate-400 text-sm mt-2 font-mono">Available programmatically via tools/openosint_mcp_server.py</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 font-mono text-xs">
+        <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i class="fa-solid fa-user-tag text-cyan-400"></i>
+          <div><div class="text-white font-bold">osint_lookup_person</div><div class="text-slate-400 text-[11px]">Public records & voter registers</div></div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i class="fa-solid fa-envelope text-cyan-400"></i>
+          <div><div class="text-white font-bold">osint_lookup_email</div><div class="text-slate-400 text-[11px]">MX check & breach exposure</div></div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i class="fa-solid fa-phone text-cyan-400"></i>
+          <div><div class="text-white font-bold">osint_lookup_phone</div><div class="text-slate-400 text-[11px]">Carrier & reverse phone lookup</div></div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i class="fa-solid fa-globe text-cyan-400"></i>
+          <div><div class="text-white font-bold">osint_lookup_domain</div><div class="text-slate-400 text-[11px]">WHOIS, DNS & SSL hierarchy</div></div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i class="fa-solid fa-server text-cyan-400"></i>
+          <div><div class="text-white font-bold">osint_lookup_ip</div><div class="text-slate-400 text-[11px]">ASN, GeoIP & threat intelligence</div></div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i class="fa-solid fa-building text-cyan-400"></i>
+          <div><div class="text-white font-bold">osint_search_entity</div><div class="text-slate-400 text-[11px]">Corporate filings, LLCs & officers</div></div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i class="fa-solid fa-gavel text-cyan-400"></i>
+          <div><div class="text-white font-bold">osint_court_records</div><div class="text-slate-400 text-[11px]">Docket, complaints & judgements</div></div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i class="fa-solid fa-house text-cyan-400"></i>
+          <div><div class="text-white font-bold">osint_property_records</div><div class="text-slate-400 text-[11px]">Assessor, parcels & deeds</div></div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i class="fa-brands fa-bitcoin text-cyan-400"></i>
+          <div><div class="text-white font-bold">osint_crypto_wallet</div><div class="text-slate-400 text-[11px]">BTC/ETH/SOL transaction tracing</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-12 px-6 border-t border-brand-border bg-brand-dark text-slate-400 text-xs font-mono">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <span class="font-orbitron font-bold text-white">OSINT NEO AI</span>
+        <span>•</span>
+        <span>MIT Open-Source License</span>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a href="https://github.com/Tonypost949/OsintNeoAi" target="_blank" class="hover:text-cyan-400 transition">GitHub Repository</a>
+        <a href="https://sepolia.etherscan.io/address/0x15564C9A8a5903336CC67F2cBa00dBdAd944dC5B" target="_blank" class="hover:text-cyan-400 transition">Etherscan Contracts</a>
+        <a href="http://localhost:10000/map/osinteye" class="hover:text-cyan-400 transition">Local Cockpit</a>
+      </div>
+    </div>
+  </footer>
 
   <script>
-    const map = L.map('map', { zoomControl: false }).setView([33.6950, -117.9920], 13);
-    L.control.zoom({ position: 'topright' }).addTo(map);
-
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; OSINT Neo AI Intelligence Systems',
-      subdomains: 'abcd',
-      maxZoom: 19
-    }).addTo(map);
-
-    const locations = [
-      { lat: 33.7042, lng: -117.9898, title: "17631 Cameron Lane, Huntington Beach CA", desc: "GeoTracker Environmental Site (Lead 101 mg/kg / Soil Assessment Report / EV-004)", color: "#ef4444" },
-      { lat: 33.7045, lng: -117.9899, title: "Monitoring Well CA3000618_001_001", desc: "GeoTracker Groundwater Quality Station (Global ID: W0603000618)", color: "#10b981" },
-      { lat: 33.6927, lng: -117.9974, title: "7561 Center Ave Utility Enclosures", desc: "Category 2 Structural Observation: 1960s-70s Subterranean Utility Vaults (Units D1, E1, G1, J1)", color: "#f59e0b" },
-      { lat: 33.6828, lng: -117.8016, title: "212 Southbrook, Irvine CA", desc: "Woodbridge Meadows Apartments (Eviction Site / EV-028 / EV-030)", color: "#38bdf8" },
-      { lat: 33.7500, lng: -117.8678, title: "Orange County Superior Court", desc: "Central Justice Center (3:11 PM Stay Order / EV-027)", color: "#a855f7" },
-      { lat: 33.6548, lng: -117.9981, title: "412 Olive Ave, Huntington Beach CA", desc: "Chase Customer Correspondence Address (EV-032)", color: "#38bdf8" },
-      { lat: 40.2170, lng: -74.7429, title: "1456 Cedar Ln, Mercer County NJ", desc: "Innocenzi Property Record Site (EV-031)", color: "#64748b" }
-    ];
-
-    locations.forEach(loc => {
-      const marker = L.circleMarker([loc.lat, loc.lng], {
-        radius: 9,
-        fillColor: loc.color,
-        color: "#ffffff",
-        weight: 2,
-        opacity: 1,
-        fillOpacity: 0.85
-      }).addTo(map);
-      marker.bindPopup(`<div class="orbitron font-bold text-cyan-400">${loc.title}</div><div class="mono text-xs text-slate-700">${loc.desc}</div>`);
-    });
-
-    // Groundwater Southwest Flow Polyline Vector
-    const flowVector = [
-      [33.7060, -117.9880],
-      [33.7042, -117.9898],
-      [33.7010, -117.9930]
-    ];
-    L.polyline(flowVector, { color: '#38bdf8', weight: 3, dashArray: '5, 10', opacity: 0.7 }).addTo(map)
-      .bindPopup("<div class='orbitron text-xs font-bold text-cyan-400'>Hydrogeological Flow Vector</div><div class='mono text-xs'>Confirmed Regional Groundwater Southwest Flow (23-24 ft bgs)</div>");
-
+    function copyInstallCmd() {
+      const cmd = "curl -sSL https://raw.githubusercontent.com/Tonypost949/OsintNeoAi/main/scripts/deploy_headless_compute.sh | bash";
+      navigator.clipboard.writeText(cmd).then(() => {
+        document.getElementById('copy-text').innerText = "Copied!";
+        document.getElementById('copy-icon').className = "fa-solid fa-check text-emerald-400";
+        setTimeout(() => {
+          document.getElementById('copy-text').innerText = "Copy Command";
+          document.getElementById('copy-icon').className = "fa-regular fa-copy";
+        }, 2000);
+      });
+    }
   </script>
 </body>
 </html>
