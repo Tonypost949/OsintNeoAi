@@ -17,6 +17,8 @@ MAP_ROUTES = {
     "/map/master": "master_tactical_gis.html",
     "/map/3d": "maplibre_3d_tactical.html",
     "/map/godseye": "gods_eye_view.html",
+    "/map/osinteye": "gods_eye_view.html",
+    "/osinteye": "gods_eye_view.html",
     "/map/swipe": "comparison_swipe_map.html",
     "/map/comparison": "comparison_swipe_map.html",
     "/map/kml": "OSINT_MASTER_3D_SURVEILLANCE.kml",
