@@ -4,6 +4,9 @@ cls
 echo =================================================
 echo      OSINTNEOAI DEVELOPER CLI LAUNCHER (WINDOWS)
 echo =================================================
+echo   MODERN TERMINAL (ZERO-LAG CLIPBOARD):
+echo    [0]  Windows Terminal (ConPTY / Bracketed Paste)
+echo.
 echo   PRIMARY AI ^& AGENT CLIs:
 echo    [1]  Antigravity (agy)
 echo    [2]  OpenCode Pentest (Kali WSL + Auto-Installer)
@@ -19,9 +22,15 @@ echo    [9]  Git (git)
 echo    [10] VS Code (code .)
 echo    [Q]  Quit / Cancel
 echo =================================================
+echo Tip: Use Ctrl+V in Windows Terminal for zero-lag instant paste.
 echo.
 
-set /p choice="Select a CLI tool to launch [1-10, Q]: "
+set /p choice="Select a CLI tool to launch [0-10, Q]: "
+
+if /i "%choice%"=="0" (
+    start "" "%LOCALAPPDATA%\Microsoft\WindowsApps\wt.exe" -p "OsintNeoAi VS2022 + AGY" -d "C:\OsintNeoAi"
+    goto end
+)
 
 if /i "%choice%"=="1" (
     agy %*

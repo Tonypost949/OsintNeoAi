@@ -4,6 +4,9 @@ function Show-DeveloperMenu {
     Write-Host "=========================================" -ForegroundColor Cyan
     Write-Host "     OSINTNEOAI DEVELOPER CLI LAUNCHER   " -ForegroundColor Yellow
     Write-Host "=========================================" -ForegroundColor Cyan
+    Write-Host "  MODERN TERMINAL (ZERO-LAG CLIPBOARD):" -ForegroundColor Green
+    Write-Host "   [0]  Launch Windows Terminal (ConPTY / Bracketed Paste)" -ForegroundColor Green
+    Write-Host ""
     Write-Host "  PRIMARY AI & AGENT CLIs:" -ForegroundColor Yellow
     Write-Host "   [1]  Antigravity (agy)"
     Write-Host "   [2]  OpenCode Pentest (Kali WSL)"
@@ -19,12 +22,21 @@ function Show-DeveloperMenu {
     Write-Host "   [10] Open in VS Code (code C:\OsintNeoAi)"
     Write-Host "   [Q]  Quit / Drop to Developer Shell"
     Write-Host "=========================================" -ForegroundColor Cyan
+    Write-Host "💡 Tip: Use Ctrl+V in Windows Terminal for instant zero-lag multi-line paste." -ForegroundColor DarkGray
     Write-Host ""
 
-    $choice = Read-Host "Select a CLI tool to launch [1-10, Q]"
+    $choice = Read-Host "Select a CLI tool to launch [0-10, Q]"
     Set-Location "C:\OsintNeoAi"
 
     switch ($choice.ToString().Trim()) {
+        "0" {
+            $wtExe = "$env:LOCALAPPDATA\Microsoft\WindowsApps\wt.exe"
+            if (Test-Path $wtExe) {
+                Start-Process $wtExe -ArgumentList "-p `"OsintNeoAi VS2022 + AGY`" -d `"C:\OsintNeoAi`""
+            } else {
+                Write-Host "Windows Terminal (wt.exe) not found." -ForegroundColor Red
+            }
+        }
         "1" { agy $ScriptArgs }
         "2" {
             $tool_prompt = Read-Host "Paste target prompt, code snippet, or tool request"
@@ -50,3 +62,5 @@ function Show-DeveloperMenu {
 Set-Alias -Name cli -Value Show-DeveloperMenu -Option AllScope -Force -ErrorAction SilentlyContinue
 Set-Alias -Name launch -Value Show-DeveloperMenu -Option AllScope -Force -ErrorAction SilentlyContinue
 Set-Alias -Name aicli -Value Show-DeveloperMenu -Option AllScope -Force -ErrorAction SilentlyContinue
+Set-Alias -Name wt-dev -Value "$env:LOCALAPPDATA\Microsoft\WindowsApps\wt.exe" -Option AllScope -Force -ErrorAction SilentlyContinue
+
