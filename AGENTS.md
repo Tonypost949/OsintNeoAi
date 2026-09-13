@@ -61,6 +61,12 @@ No file is touched until backups at 2 locations (GitHub + Sharedall GDrive) are 
 - Bugs, restrictions, and broken APIs are not excuses. Find the correct approach or build it.
 - "Can't" is not an answer. If one path is blocked, try another.
 
+### Rule 6: Terminal-Responsive Diagrams (<80 Columns)
+- All Mermaid diagrams and visual flows MUST be formatted vertically (`flowchart TD`) and fit within standard 80-column terminal windows.
+- Never use wide parallel branching (`A --> B1 & B2 & B3 & B4 & B5`) or wide side-by-side subgraphs that exceed terminal width.
+- Wrap node labels with `<br/>` every 20-25 characters.
+- Use structured Markdown tables or compact ASCII trees for wide multi-item matrices instead of expansive graphs.
+
 ## Resurrection Requirements
 Before any change, the system must be in a state where it can be fully resurrected from:
 1. GitHub clone

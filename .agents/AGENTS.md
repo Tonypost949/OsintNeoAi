@@ -1,3 +1,3 @@
-
 - Run all git commands from C:\OsintNeoAi instead of the OneDrive path to avoid .git corruption.
 - Note: Ensure .git is added to the OneDrive exclusion list.
+- Format all Mermaid diagrams vertically (flowchart TD) with max width <80 columns to prevent terminal rendering overflows.
