@@ -1,7 +1,7 @@
 <div align="center">
 
-# ⚡ OSINT Neo AI
-### Autonomous Open-Source Intelligence & Forensic Knowledge Graph Platform
+# ⚡ OSINT Neo AI — Master Architecture
+### Tokenized Data Mining, Web3 Intelligence Exchange & Forensic Knowledge Graph Platform
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-3776AB.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
@@ -11,10 +11,10 @@
 [![Zero-Lag ConPTY](https://img.shields.io/badge/Windows_Terminal-wt--dev-4E1A3D.svg?style=for-the-badge&logo=windows-terminal&logoColor=white)](https://github.com/Tonypost949/OsintNeoAi)
 
 <p align="center">
-  <b>Enterprise-Grade OSINT Automation • BigQuery Forensic Graph • 3D Tactical Geospatial Cockpit • Web3 Cryptographic Provenance</b>
+  <b>Decentralized Data Mining • Tokenized Bounty Settlement • Multi-Pool Escrow • BigQuery Forensic Graph • 3D Tactical Geospatial Cockpit</b>
 </p>
 
-[🌐 Live Demo Cockpit](http://localhost:10000/map/osinteye) • [📖 Documentation](docs/MOBILE_REMOTE_SHELL_SETUP.md) • [🛠️ MCP Tool Catalog](tools/openosint_mcp_server.py) • [🚀 Quickstart](#-quickstart)
+[🌐 Live Demo Cockpit](http://localhost:10000/map/osinteye) • [🔗 Sepolia Contracts](#-live-sepolia-testnet-architecture) • [⚙️ E2E Pipeline](#️-the-e2e-data-mining--intelligence-pipeline) • [🛠️ MCP Tool Catalog](tools/openosint_mcp_server.py) • [🚀 Quickstart](#-quickstart)
 
 ---
 
@@ -22,115 +22,140 @@
 
 ## 🌟 Executive Overview
 
-**OSINT Neo AI** is a decentralized, hybrid-cloud open-source intelligence and forensic investigation platform. Designed for forensic auditors, investigative journalists, municipal researchers, and national cybersecurity teams, OSINT Neo AI bridges **high-throughput Web2 data pipelines** (Google Cloud BigQuery, Azure Cognitive Services) with **Web3 cryptographic provenance** (Ethereum Sepolia smart contracts) and **autonomous multi-agent AI swarms**.
+**OSINT Neo AI** is a decentralized, hybrid-cloud open-source intelligence platform and data mining crypto exchange. It bridges **high-throughput Web2 data pipelines** (Google Cloud BigQuery, Azure Cognitive Services) with **Web3 smart contracts** (Ethereum Sepolia) to create a **zero-trust, append-only ecosystem for digital forensics and verifiable investigative bounties**.
 
-The platform operates on a **Zero Local Compute** architecture—allowing resource-intensive operations (neural OCR, multi-million node graph traversals, 3D WebGL tactical GIS) to execute seamlessly across headless remote cloud clusters while physical devices (Windows, Linux, Android) act as lightweight, zero-lag terminals.
+The platform turns intelligence gathering and forensic auditing into an incentivized, trustless cryptographic data mining network. Contributors earn automated deterministic payouts in fiat-backed USDC and domain-specific utility tokens (`OSINT`, `TFT`) through verified UTXO-style evidence lineage trees and automated multi-pool escrow contracts.
 
 ---
 
-## 🏛️ Core Platform Architecture
+## 🔗 Live Sepolia Testnet Architecture
+
+The core financial, staking, and escrow logic is fully deployed and verified on the **Ethereum Sepolia Testnet**:
+
+| Contract / Asset | Contract Address | Explorer Verification | Purpose |
+| :--- | :--- | :--- | :--- |
+| **USDC (Settlement)** | [`0x7236F4982a31537d07f3182A1CdAD3f3E4452A53`](https://sepolia.etherscan.io/address/0x7236F4982a31537d07f3182A1CdAD3f3E4452A53#code) | [View on Etherscan](https://sepolia.etherscan.io/address/0x7236F4982a31537d07f3182A1CdAD3f3E4452A53#code) | Primary fiat-pegged settlement asset for whistleblower & investigative bounties |
+| **OSINT (Utility Token)** | [`0xA74B3fAfd838fC273f7c6e201B6210AC2b3A0296`](https://sepolia.etherscan.io/address/0xA74B3fAfd838fC273f7c6e201B6210AC2b3A0296#code) | [View on Etherscan](https://sepolia.etherscan.io/address/0xA74B3fAfd838fC273f7c6e201B6210AC2b3A0296#code) | Platform staking collateral, miner reputation weight & access token |
+| **TFT (Tax-Funded Token)** | [`0x0977909b254EC33C4D1039135F351B1d3Fb27F14`](https://sepolia.etherscan.io/address/0x0977909b254EC33C4D1039135F351B1d3Fb27F14#code) | [View on Etherscan](https://sepolia.etherscan.io/address/0x0977909b254EC33C4D1039135F351B1d3Fb27F14#code) | Domain-specific mining reward minted for municipal & government audit bounties |
+| **StakingGate** | [`0xdA7655b7007a1C7F8191066Bb9A69E4D8987E725`](https://sepolia.etherscan.io/address/0xdA7655b7007a1C7F8191066Bb9A69E4D8987E725#code) | [View on Etherscan ✅](https://sepolia.etherscan.io/address/0xdA7655b7007a1C7F8191066Bb9A69E4D8987E725#code) | Sybil defense gateway collateralizing data submissions (100 OSINT stake required) |
+| **MultiPoolEscrow** | [`0x15564C9A8a5903336CC67F2cBa00dBdAd944dC5B`](https://sepolia.etherscan.io/address/0x15564C9A8a5903336CC67F2cBa00dBdAd944dC5B#code) | [View on Etherscan ✅](https://sepolia.etherscan.io/address/0x15564C9A8a5903336CC67F2cBa00dBdAd944dC5B#code) | UTXO provenance graph tracking evidence lineage with automated 40/30/30 deterministic payouts |
+
+---
+
+## 🏛️ Platform Architecture Diagram
 
 ```
 ┌────────────────────────────────────────────────────────┐
-│  1. Universal Client & Dumb Terminal Layer             │
-│  • Windows Terminal (wt-dev ConPTY Bracketed Paste)    │
-│  • Mobile Termux / JuiceSSH via Tailscale Mesh         │
-│  • Browser Web-Shell (ttyd / GitHub Codespaces)        │
+│  1. Multimodal Workspace UI & Staking Gate             │
+│  • WebRTC Camera / Audio Recorder / Document Ingest    │
+│  • Client-side SHA-256 Hashing                         │
+│  • MetaMask: stakeAndSubmit(hash) [100 OSINT]         │
 └───────────────────────────┬────────────────────────────┘
                             │
                             ▼
 ┌────────────────────────────────────────────────────────┐
-│  2. AI Orchestration & OpenOSINT MCP Server            │
-│  • 19 Native Model Context Protocol (MCP) Tools        │
-│  • Tiered Inference: Ollama Qwen 1.5B/7B & Gemini Pro  │
-│  • Dynamic Cognitive Router for Image / Document OCR   │
+│  2. Evasive Azure Proxy & BigQuery V1 Append           │
+│  • FastAPI workspace_api.py router                     │
+│  • BigQuery V1 Raw Ledger (Workload Identity Fed)      │
 └───────────────────────────┬────────────────────────────┘
                             │
                             ▼
 ┌────────────────────────────────────────────────────────┐
-│  3. Forensic Data Engine & BigQuery Graph              │
-│  • Target Accounts Master Registry (32 Targets Synced) │
-│  • 3,510 Evidence Documents with SHA-256 Checksums     │
-│  • Append-Only Data Ledger (noble-beanbag-497411-m4)   │
+│  3. Background AI Consumer (Gemini Extraction)         │
+│  • Async Entity Extraction (FOIA, Citations, Names)    │
+│  • Domain Tagging ([OSINT], [Tax-Funded])             │
+│  • BigQuery V2 Enriched Ledger Append                  │
 └───────────────────────────┬────────────────────────────┘
                             │
                             ▼
 ┌────────────────────────────────────────────────────────┐
-│  4. Visualization & Tactical Cockpits                  │
-│  • OSINT Eye View: Real-Time GPS Trajectory Playback   │
-│  • MapLibre 3D WebGL: Vector Building Extrusions       │
-│  • Syncfusion Enterprise Grid: Multi-Column Analytics  │
+│  4. Web3 Oracle Bridge (Python web3.py)                │
+│  • StakingGate.reviewSubmission(hash, true) -> Refund  │
+│  • MultiPoolEscrow.registerDataBlock(UTXO Lineage)     │
+└───────────────────────────┬────────────────────────────┘
+                            │
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│  5. MultiPoolEscrow Payout Engine & 3D HUD             │
+│  • 40/30/30 USDC Split (Catalyst / Corroborator / Close)│
+│  • OSINT & TFT Domain Mining Token Minting             │
+│  • OSINT Eye View & MapLibre 3D Tactical Cockpits      │
 └────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 🚀 Key Features
+## ⚙️ The E2E Data Mining & Intelligence Pipeline
 
-### 🛰️ 1. OSINT Eye View & 3D Tactical Geospatial Engine
-- **Live Reconnaissance Cockpit**: Real-time interactive spatial map integrating municipal zoning, utility infrastructure, and environmental monitoring nodes.
-- **Historical Trajectory Scrubber**: Animated playback scrubber with time-series controls and speed indicators tracking physical entity waypoints.
-- **Click-to-Inspect Dossier Drawer**: Dynamic HUD slide-out panel querying the 3,510-document evidence ledger in real-time with zero UI lag.
-- **MapLibre 3D WebGL Extrusions**: Hardware-accelerated 3D vector building heights with pitch, bearing, and sun angle simulation.
+```mermaid
+flowchart TD
+    A["1. Workspace UI<br/>Multimodal Ingestion"] -->|"Local SHA-256 +<br/>Stake 100 OSINT"| B["StakingGate Contract<br/>0xdA76...E725"]
+    A -->|"Encrypted FormData"| C["2. Evasive Azure Proxy<br/>FastAPI Router"]
+    C -->|"Raw Payload Append<br/>(WIF Auth)"| D["BigQuery Ledger<br/>Version ID = 1"]
+    C -->|"Enqueue Job"| E["3. Background AI Consumer<br/>Gemini Pro Worker"]
+    E -->|"Extract FOIA, Entities<br/>& Domain Tags"| F["BigQuery Ledger<br/>Version ID = 2"]
+    E -->|"Signed Validation"| G["4. Web3 Oracle Bridge<br/>web3.py Signer"]
+    G -->|"reviewSubmission(hash, true)<br/>Refund Stake + 10 Rep"| B
+    G -->|"registerDataBlock(UTXO)<br/>Map Evidence Lineage"| H["5. MultiPoolEscrow<br/>0x1556...dC5B"]
+    H -->|"Deterministic USDC Settlement"| I["40% Catalyst<br/>30% Corroborator<br/>30% Closer"]
+    H -->|"Dynamic Mining Mint"| J["OSINT / TFT Utility<br/>Reward Distribution"]
+```
 
-### 🤖 2. Autonomous Multi-Agent Swarm & OpenOSINT MCP
-- **19 Native MCP Tools**: Fully registered in `mcp.json` for Antigravity (`agy`), Claude Code, and Gemini CLI:
-  `osint_lookup_person`, `osint_lookup_email`, `osint_lookup_phone`, `osint_lookup_domain`, `osint_lookup_ip`, `osint_search_entity`, `osint_court_records`, `osint_property_records`, `osint_social_footprint`, `osint_crypto_wallet`, `osint_foia_tracker`, `osint_fca_timeline`, `osint_sec_edgar`, `osint_wayback_history`, `osint_geo_telemetry`, `osint_breach_scanner`, `osint_license_lookup`, `osint_charity_990`, `osint_system_health`.
-- **Tiered AI Inference**: Ultra-fast offline inference on local open-weight models (Qwen 1.5B/7B) with automatic cloud fallback for complex forensic reasoning.
+### 1. The Workspace UI (Frontend)
+The user interface (`workspace_chat.html`) acts as a frictionless chat environment resembling standard LLM interfaces:
+- **Multimodal Capture**: Users can upload documents, take physical pictures via WebRTC HTML5 canvas, or record audio memos via `MediaRecorder`.
+- **Sybil Defense (Staking Gate)**: Before payload submission, the client computes a local SHA-256 hash and prompts MetaMask to execute `stakeAndSubmit(hash)` on the `StakingGate` contract. Users must stake 100 `OSINT` to deter bot spam.
 
-### 🔒 3. Web3 Cryptographic Provenance & Smart Contracts
-- **Verified on Sepolia Testnet**: Immutable chain of custody for digital evidence and whistleblower bounties:
-  - **USDC Settlement**: [`0x7236F4982a31537d07f3182A1CdAD3f3E4452A53`](https://sepolia.etherscan.io/address/0x7236F4982a31537d07f3182A1CdAD3f3E4452A53#code)
-  - **OSINT Utility Token**: [`0xA74B3fAfd838fC273f7c6e201B6210AC2b3A0296`](https://sepolia.etherscan.io/address/0xA74B3fAfd838fC273f7c6e201B6210AC2b3A0296#code)
-  - **StakingGate (Sybil Defense)**: [`0xdA7655b7007a1C7F8191066Bb9A69E4D8987E725`](https://sepolia.etherscan.io/address/0xdA7655b7007a1C7F8191066Bb9A69E4D8987E725#code)
-  - **MultiPoolEscrow**: [`0x15564C9A8a5903336CC67F2cBa00dBdAd944dC5B`](https://sepolia.etherscan.io/address/0x15564C9A8a5903336CC67F2cBa00dBdAd944dC5B#code)
+### 2. Evasive Azure Proxy (API Router)
+The frontend sends raw FormData to the FastAPI backend (`workspace_api.py`):
+- **File Decoding**: Standard text/PDF files are decoded. Binary media is flagged for downstream Vision processing.
+- **BigQuery V1 (Raw Append)**: The payload is immediately logged to the BigQuery Master Ledger (`noble-beanbag-497411-m4`) as `version_id = 1` using Workload Identity Federation (WIF) credentials—eliminating static key vulnerabilities.
 
-### ☁️ 4. Zero Local Compute & Cloud VM Matrix
-- **Headless Cloud Node Deployment**: 1-command bootstrap for Azure for Students, Oracle Cloud Always Free (4 ARM cores, 24GB RAM), and DigitalOcean Droplets.
-- **Session Durability**: Persistent `tmux` workspaces keep scrapers, BigQuery batch streams, and agent swarms running 24/7 without terminal dropouts.
-- **Mobile Mesh Connect**: Connect from Android Termux or JuiceSSH over encrypted Tailscale private mesh.
+### 3. Background AI Consumer
+Heavy computational workloads are pushed to the background queue (`background_consumer.py`) to prevent API timeouts:
+- **Gemini Extraction**: A Gemini-1.5-Pro micro-worker deeply parses the text, extracts specific entities (e.g., FOIA headers, legal citations, names), and tags the domain (e.g., `[OSINT]`, `[Tax-Funded]`).
+- **BigQuery V2 (Enriched Append)**: The structured metadata is appended to BigQuery as `version_id = 2`. The original file remains untouched.
+
+### 4. The Web3 Oracle Bridge
+Once the AI validates the data is authentic and not spam, the Python backend signs an Oracle transaction natively using `web3.py`:
+- **Lifting Quarantine**: The Oracle calls `reviewSubmission(hash, true)` on the `StakingGate`, refunding the user's `OSINT` stake and granting **+10 Reputation points**.
+- **Registering Lineage**: The Oracle maps the data's ancestry onto the blockchain via `registerDataBlock(assetHash, parentHash, minerAddress, domainTags)` on the `MultiPoolEscrow`.
+
+### 5. Automated Multi-Pool Payouts
+When a case is solved and an organization deposits fiat-backed `USDC` into the `MultiPoolEscrow`:
+- **The UTXO Provenance Graph**: The contract traverses `parentHash` pointers to determine exactly who contributed to the case.
+- **The 40/30/30 Split**: Funds are deterministically distributed across the lineage tree:
+  - **40%** to the **Catalyst** (First Discoverer).
+  - **30%** to the **Corroborator** (Evidence Enricher).
+  - **30%** to the **Closer** (Final Verification / Lead Investigator).
+- **Domain Minting**: Based on the `domainTags` array, the system dynamically mints secondary utility rewards (`OSINT` or `TFT`) directly to the contributors' Web3 wallets.
 
 ---
 
-## ⚡ Quickstart
+## 🔒 Security Design (The 5 Vulnerabilities Sealed)
 
-### Option A: Local Terminal Launch (Windows / Linux / macOS)
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/Tonypost949/OsintNeoAi.git
-cd OsintNeoAi
-
-# 2. Setup Python environment
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-pip install -r requirements.txt rich requests google-cloud-bigquery
-
-# 3. Launch the Interactive Swarm Launcher
-python cli/agent_launcher.py
-# Or on Windows Terminal: wt-dev
-```
-
-### Option B: 1-Command Headless Cloud Server Bootstrap
-
-Deploy to any clean Ubuntu 22.04 / 24.04 or Debian VPS (Azure, Oracle, DigitalOcean, FreeVPS):
-
-```bash
-curl -sSL https://raw.githubusercontent.com/Tonypost949/OsintNeoAi/main/scripts/deploy_headless_compute.sh | bash
-```
-
-### Option C: Launch the 3D Tactical Map Server
-
-```bash
-python simple_map_server.py
-```
-Open **[http://localhost:10000/map/osinteye](http://localhost:10000/map/osinteye)** in your browser.
+1. **Pointer Corruption**: Eliminated by strict `parentHash` cryptographic linking (UTXO style).
+2. **File Forgery**: Prevented by SHA-256 hashing at the point of upload and append-only BigQuery database schemas.
+3. **Sybil Attacks**: Mitigated by the Web3 Staking Gate requiring collateralized submissions (100 `OSINT` stake).
+4. **Compute Bottlenecks**: Solved by offloading heavy extraction to the asynchronous `background_consumer.py`.
+5. **Rate-Limit Guillotine**: Bypassed using off-peak cron caching (`bulk_caching_queue.py`) instead of live API queries.
 
 ---
 
-## 🛠️ MCP (Model Context Protocol) Integration
+## 🛰️ OSINT Eye View & 3D Geospatial Engine
 
-OSINT Neo AI provides native MCP server support. Add the configuration below to your AI assistant's `mcp.json` (Claude Desktop, Antigravity, Cursor, or Gemini CLI):
+In addition to the Web3 data mining layer, OSINT Neo AI includes a tactical command cockpit:
+- **OSINT Eye View Cockpit** (`/map/osinteye`): Real-time interactive spatial map integrating municipal zoning, utility infrastructure, and environmental monitoring nodes.
+- **Animated GPS Scrubber**: Trajectory playback with time-series controls tracking physical entity waypoints.
+- **Slide-out Entity Dossier Drawer**: Dynamic HUD slide-out panel querying the 3,510-document evidence ledger in real-time.
+- **MapLibre 3D WebGL Extrusions** (`/map/3d`): Hardware-accelerated 3D vector building heights with pitch, bearing, and sun angle simulation.
+- **Syncfusion Enterprise Grid** (`/grid`): Multi-column filtering, Excel/CSV export, and deep search across all forensic entities.
+
+---
+
+## 🛠️ OpenOSINT Model Context Protocol (MCP)
+
+OSINT Neo AI provides **19 native MCP tools** registered in `mcp.json` for AI assistants (Antigravity CLI, Claude Code, Gemini CLI):
 
 ```json
 {
@@ -143,17 +168,28 @@ OSINT Neo AI provides native MCP server support. Add the configuration below to 
 }
 ```
 
-### Sample MCP Tool Invocations:
-```python
-# Check entity evidence ledger
-osint_search_entity(entity_name="Huntington Beach", state="CA")
+### 19 Native MCP Tools:
+`osint_lookup_person`, `osint_lookup_email`, `osint_lookup_phone`, `osint_lookup_domain`, `osint_lookup_ip`, `osint_search_entity`, `osint_court_records`, `osint_property_records`, `osint_social_footprint`, `osint_crypto_wallet`, `osint_foia_tracker`, `osint_fca_timeline`, `osint_sec_edgar`, `osint_wayback_history`, `osint_geo_telemetry`, `osint_breach_scanner`, `osint_license_lookup`, `osint_charity_990`, `osint_system_health`.
 
-# Lookup blockchain wallet transactions
-osint_crypto_wallet(address="0x15564C9A8a5903336CC67F2cBa00dBdAd944dC5B")
+---
 
-# Generate 3D Map Telemetry GeoJSON
-osint_geo_telemetry(lat=33.7455, lng=-117.8677, title="Santa Ana Civic Center", category="Municipal")
+## ⚡ Quickstart
+
+### Local Setup (Windows / Linux / macOS)
+
+```bash
+# 1. Clone repository
+git clone https://github.com/Tonypost949/OsintNeoAi.git
+cd OsintNeoAi
+
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Launch HTTP & WebSocket Map Server
+python simple_map_server.py
 ```
+
+Open your browser at `http://localhost:10000/map/osinteye`.
 
 ---
 
@@ -168,14 +204,6 @@ osint_geo_telemetry(lat=33.7455, lng=-117.8677, title="Santa Ana Civic Center", 
 | `/telemetry` | HTTP / GeoJSON | Live GeoJSON telemetry stream for tactical mapping layers |
 | `/api/inspect` | REST / JSON | Real-time entity search querying 3,510 evidence documents with SHA-256 hashes |
 | `/health` | REST / JSON | Microservice health check and WebGL engine diagnostic |
-
----
-
-## 🛡️ Security & Evidence Integrity
-1. **Chain-of-Custody**: Every ingested document receives an immutable SHA-256 hash at capture time.
-2. **Append-Only Storage**: Raw evidence records are immutable in BigQuery versioned datasets (`version_id = 1` raw, `version_id = 2` enriched).
-3. **Sybil Resistance**: Web3 Staking Gate collateralizes submissions to eliminate automated spam attacks.
-4. **Terminal ConPTY Optimization**: Bracketed paste mode prevents character-by-character clipboard lag and buffer corruption.
 
 ---
 
