@@ -7,7 +7,7 @@ import time
 
 REMOTE_BASE = "gdrive:Sharedall/takeouts all 22226"
 LOCAL_CHUNK_DIR = r"C:\OsintNeoAi\data\takeout_chunks_tmp"
-EXTRACT_DIR = r"C:\OsintNeoAi\data\takeouts\gmd949609_takeout_20260913"
+EXTRACT_DIR = r"C:\OsintNeoAi\data\takeouts\etp949609_takeout_20260913"
 PROJECT_ID = "noble-beanbag-497411-m4"
 
 os.makedirs(LOCAL_CHUNK_DIR, exist_ok=True)
