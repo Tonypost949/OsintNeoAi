@@ -1,82 +1,80 @@
-# Implementation Plan: Zero Local Compute "Dumb Terminal" Multi-Cloud VM Matrix
+# Implementation Plan: God's Eye View Next-Gen Spatial Intelligence & Real-Time Telemetry
 
 ## Overview
-This implementation plan establishes a **Zero Local Compute** architecture for [OsintNeoAi](file:///C:/OsintNeoAi). All resource-heavy operations—including neural OCR, BigQuery graph pipelines, automated scrapers, 3D geospatial rendering, and AI agent swarms—are offloaded 100% to remote cloud VPS/VM instances. Local physical devices (Windows PC, Linux laptops, Android phones/tablets) act exclusively as lightweight "dumb terminals" connected via SSH, RDP, Termius Pro, and browser web-shells (`ttyd`).
+This plan upgrades the [God's Eye View](http://localhost:10000/map/godseye) reconnaissance cockpit into a real-time tactical intelligence dashboard with animated trajectory playback, AI entity inspector popups powered by [tools/openosint_mcp_server.py](file:///C:/OsintNeoAi/tools/openosint_mcp_server.py), and 3D building extrusions.
 
 ---
 
-## Target Cloud Infrastructure Matrix
+## Architecture Flow (<50 Columns)
 
-```mermaid
-flowchart TD
-    A["1. Dumb Terminals (PC/Mobile/Web)"]
-    B["2. Cloud Matrix (Azure/Oracle/DO)"]
-    C["3. Headless Workloads (OCR/BQ/Swarm)"]
-    A --> B --> C
+```
+┌────────────────────────────────────────────────────────┐
+│  1. GPS / Takeout / EXIF Telemetry Streams             │
+└───────────────────────────┬────────────────────────────┘
+                            │
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│  2. Live GeoJSON Transformer & Socket Streamer         │
+└───────────────────────────┬────────────────────────────┘
+                            │
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│  3. God's Eye Tactical Cockpit (Port 10000)            │
+│     • Animated Path Trajectory Playback                │
+│     • 3D Building Extrusions (MapLibre GL)             │
+│     • OpenOSINT AI Entity Inspector Popup              │
+└────────────────────────────────────────────────────────┘
 ```
 
 ---
 
 ## Architecture Decisions
-1. **Dumb Terminal Paradigm**: Local hardware performs zero CPU/GPU rendering or data processing. Local files are mirrored or pushed to remote compute clusters.
-2. **Multi-Server Role Specialization**:
-   - **Heavy Compute / AI Agents**: Oracle Cloud Always Free ARM (4 cores, 24GB RAM) & Azure B2pts v2 ARM instances.
-   - **24/7 Scrapers & Webhook Relays**: DigitalOcean Droplets & GCP e2-micro.
-   - **Emergency / Out-of-Band Fallback**: FreeVPS.edu.pl (permanent educational VPS).
-3. **Universal Access Channels**:
-   - **Terminal**: OpenSSH with ed25519 key authentication + Termius Pro synchronized vault across PC, tablet, and mobile.
-   - **Session Durability**: Remote `tmux` and `ttyd` web terminal multiplexing to prevent dropped connections from terminating long-running forensic jobs.
-   - **GUI / Desktop**: Windows Server RDP via native Microsoft Remote Desktop clients.
+- **Decoupled Telemetry**: Location streams feed into `public/live_telemetry.geojson` with time-stamped waypoints, allowing front-end animation scrubbers to replay historical movement chronologically.
+- **Dynamic Entity Enrichment**: Clicking a marker queries the OpenOSINT API route (`/api/inspect_entity`) to display real-time intelligence cards directly inside the HUD overlay.
+- **Hybrid 2D/3D Rendering**: Seamless toggle between lightweight Leaflet satellite tiles and GPU-accelerated MapLibre 3D vector extrusions.
 
 ---
 
 ## Task List
 
-### Phase 1: Automated Multi-Cloud Provisioning & Bootstrap Automation
-- [ ] **Task 1: Universal Headless Node Bootstrap Script (`bootstrap_cloud_node.sh`)**
-  - Create a 1-command Linux provisioning script that installs PowerShell 7 (`pwsh`), Python 3.11+, Antigravity (`agy`), `tmux`, `ttyd`, and git dependencies on any Ubuntu/Debian/AlmaLinux VPS.
-- [ ] **Task 2: SSH Key Generation & Termius Sync Configuration**
-  - Create a helper script to generate standard `ed25519` key pairs, configure `~/.ssh/config` profiles for all cloud tiers, and export connection profiles for Termius Pro.
+### Phase 1: Real-Time Telemetry Stream & Historical Trajectory Scrubber
+- [ ] **Task 1: GPS Trajectory Extractor & Time-Series Formatter**
+  - Extract chronologically ordered waypoints from `edr_all_gps_coordinates.json` into a GeoJSON `FeatureCollection` of `LineString` tracks with timestamp metadata.
+- [ ] **Task 2: God's Eye Interactive Time-Slider HUD Control**
+  - Add playback timeline scrubber to `gods_eye_view.html` to animate target movements over time.
 
-#### Checkpoint: Provisioning Foundation
-- [ ] Bootstrap script validates on clean Ubuntu/Debian containers without errors.
-- [ ] SSH config cleanly references Azure, DigitalOcean, Oracle, and FreeVPS endpoints.
-
----
-
-### Phase 2: Remote Session Persistence & Browser Web Shell (`ttyd` + `tmux`)
-- [ ] **Task 3: Persistent Background Worker Supervisor (`tmux` + Systemd)**
-  - Implement systemd unit files and `tmux` workspace session templates to run OsintNeoAi ingestion workers 24/7 independently of active SSH sessions.
-- [ ] **Task 4: Secure Web-Shell Access Gateway (`ttyd` / Cloudflare Tunnel)**
-  - Configure a secure HTTPS browser-accessible web shell using `ttyd` protected by Cloudflare Access or token authentication for instant browser access without local apps.
-
-#### Checkpoint: Session Durability
-- [ ] Remote `tmux` session survives SSH disconnect and network changes.
-- [ ] Web shell loads in mobile and desktop browsers over HTTPS.
+#### Checkpoint 1: Trajectory Engine
+- [ ] Historical waypoints animate smoothly on map without frame drops.
+- [ ] Time slider controls timeline playback accurately.
 
 ---
 
-### Phase 3: Remote Offloading & Workspace Sync Pipelines
-- [ ] **Task 5: VS Code Remote-SSH & Codespaces Devcontainer Config**
-  - Standardize `.devcontainer/devcontainer.json` and SSH workspace configurations to open remote cloud repositories seamlessly in VS Code with zero local file bloat.
-- [ ] **Task 6: Cloud-to-BigQuery Direct Pipeline Offloader**
-  - Configure direct remote-to-BigQuery evidence streaming so downloaded evidence never touches local disk or RAM.
+### Phase 2: OpenOSINT Entity Inspector Popups & HUD Enrichment
+- [ ] **Task 3: Live Entity Inspector API Route in `simple_map_server.py`**
+  - Add `/api/inspect` endpoint that connects marker coordinates to extracted evidence ledger records in `data/extracted_evidence_entities.json`.
+- [ ] **Task 4: HUD Entity Dossier Modal in `gods_eye_view.html`**
+  - Create interactive sidepanel displaying legal dockets, monetary amounts, and target emails upon marker click.
 
-#### Checkpoint: End-to-End Dumb Terminal Flow
-- [ ] Code editing, terminal execution, and forensic data processing happen 100% in cloud instances.
-- [ ] Local CPU/RAM utilization remains at idle baseline (< 5%).
+#### Checkpoint 2: Intelligence Popups
+- [ ] Clicking map marker displays full extracted entity dossier.
+- [ ] Zero latency (< 50ms) retrieval from local evidence ledger.
+
+---
+
+### Phase 3: 3D MapLibre Extrusions & Multi-Layer GIS Overlays
+- [ ] **Task 5: 3D Vector Building Extrusions & Parcel Boundaries**
+  - Integrate MapLibre 3D building height layers and municipal parcel boundary polygons.
+- [ ] **Task 6: Multi-Layer Satellite & Tactical Filter HUD**
+  - Add instant toggles for Thermal/Surveillance, Municipal Utilities, Court Venues, and Commercial Entities.
+
+#### Checkpoint 3: Complete Cockpit Upgrade
+- [ ] 3D buildings extrude cleanly with hardware acceleration.
+- [ ] All code committed and pushed to `origin/main`.
 
 ---
 
 ## Risks and Mitigations
 | Risk | Impact | Mitigation |
 |------|--------|------------|
-| Cloud trial credit expiration | Medium | Architecture uses permanent Free Tiers (Oracle, FreeVPS, GCP) as durable anchors |
-| Dropped mobile data connection | High | `tmux` and systemd background daemons ensure pipelines execute continuously |
-| Unauthorized SSH brute force | High | Enforce SSH key-only authentication (`PasswordAuthentication no`) & fail2ban |
-
----
-
-## Open Questions
-- Which cloud provider would you like to bootstrap first (e.g. **Azure for Students**, **Oracle Cloud**, **DigitalOcean**, or **FreeVPS**)?
-- Would you like us to generate the automated cloud node bootstrap script now?
+| Large trajectory datasets lagging the browser | Medium | Chunk waypoints into GeoJSON MultiLineString with simplified geometry |
+| Missing WebGL support on legacy hardware | Low | Automatic fallback to 2D Leaflet raster tiles |
