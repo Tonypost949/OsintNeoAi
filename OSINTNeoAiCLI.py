@@ -1228,7 +1228,7 @@ def api_ai_chat():
             except Exception:
                 data = {"message": data}
         user_msg = str(data.get("message") or data.get("prompt") or data.get("query") or data.get("input") or "").strip()
-        model_name = data.get("model", "gemini_25")
+        model_name = data.get("model", "gemini_36_flash")
         persona = data.get("persona", "general")
         enable_thinking = data.get("thinking", True)
         use_graph = data.get("use_graph", True)
@@ -1252,7 +1252,7 @@ def api_ai_chat():
         # 1. Chain-of-Thought (CoT) Reasoning Engine
         thinking_log = []
         if enable_thinking:
-            thinking_log.append(f"1. Model Profile: {model_name.upper()} | Persona: {persona.upper()}")
+            thinking_log.append(f"1. Model Profile: {model_name.upper()} (Gemini 3.6 Flash Engine) | Persona: {persona.upper()}")
             thinking_log.append(f"2. Semantic analysis on query: '{user_msg[:60]}...'")
             if use_graph:
                 thinking_log.append("3. Scanning 17,488 nodes & 18,712 relational edges in graph registry...")
@@ -1275,7 +1275,7 @@ def api_ai_chat():
                 return jsonify({
                     "status": "success",
                     "reply": resp.text,
-                    "engine": f"{model_name.upper()} (Cloud API)",
+                    "engine": f"{model_name.upper()} (Gemini 3.6 Flash Cloud API)",
                     "thinking_process": thinking_process,
                     "citations": [{"title": "Global Knowledge Base", "url": "/docs"}]
                 })
