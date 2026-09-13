@@ -1,0 +1,95 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "generator": "OsintNeoAi GeoJSON Telemetry Engine",
+    "count": 5,
+    "generated_at": "2026-09-13T04:56:03.328235+00:00"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.8677,
+          33.7455
+        ]
+      },
+      "properties": {
+        "title": "Santa Ana Municipal Center",
+        "category": "Municipal",
+        "description": "Orange County Administration",
+        "timestamp": "2026-09-13T04:56:03.328235+00:00",
+        "marker-color": "#3498db"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.9988,
+          33.6595
+        ]
+      },
+      "properties": {
+        "title": "Huntington Beach Police Dept",
+        "category": "Surveillance",
+        "description": "Public Safety & Records Hub",
+        "timestamp": "2026-09-13T04:56:03.328235+00:00",
+        "marker-color": "#e74c3c"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.9143,
+          33.8366
+        ]
+      },
+      "properties": {
+        "title": "Anaheim Corporate Complex",
+        "category": "Corporate",
+        "description": "Corporate Registry Ingestion",
+        "timestamp": "2026-09-13T04:56:03.328235+00:00",
+        "marker-color": "#2ecc71"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.0589,
+          42.3601
+        ]
+      },
+      "properties": {
+        "title": "Massachusetts Federal Court",
+        "category": "Court",
+        "description": "First Circuit District Court",
+        "timestamp": "2026-09-13T04:56:03.328235+00:00",
+        "marker-color": "#3498db"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.1611,
+          32.7157
+        ]
+      },
+      "properties": {
+        "title": "San Diego Cross-Border Node",
+        "category": "Target",
+        "description": "Cross-border surveillance node",
+        "timestamp": "2026-09-13T04:56:03.328235+00:00",
+        "marker-color": "#e74c3c"
+      }
+    }
+  ]
+}

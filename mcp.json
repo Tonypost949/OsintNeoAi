@@ -15,6 +15,10 @@
     "time": {
       "command": "uvx",
       "args": ["mcp-server-time"]
+    },
+    "openosint": {
+      "command": "python",
+      "args": ["C:\\OsintNeoAi\\tools\\openosint_mcp_server.py"]
     }
   }
 }
