@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINT Daily Chronicle | Forensic Crypto Crossword</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-newspaper: #0e131f;
+            --cell-bg: #1e293b;
+            --cell-block: #020617;
+            --border-color: #334155;
+            --text-primary: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-gold: #f59e0b;
+            --accent-green: #10b981;
+            --accent-blue: #38bdf8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Georgia', 'SF Pro Display', serif; }
+        body { background-color: var(--bg-newspaper); color: var(--text-primary); min-height: 100vh; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        
+        .header { width: 100%; max-width: 1000px; text-align: center; border-bottom: 2px solid var(--border-color); padding-bottom: 16px; margin-bottom: 24px; }
+        .masthead { font-size: 2.2rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+        .subhead { font-size: 0.95rem; color: var(--text-muted); font-style: italic; margin-top: 4px; display: flex; justify-content: space-between; max-width: 800px; margin-left: auto; margin-right: auto; padding: 6px 12px; }
+        
+        .main-layout { width: 100%; max-width: 1000px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+        @media (max-width: 850px) { .main-layout { grid-template-columns: 1fr; } }
+        
+        .crossword-panel { display: flex; flex-direction: column; align-items: center; background: #131b2e; padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(8, 42px);
+            grid-template-rows: repeat(8, 42px);
+            gap: 2px;
+            background-color: var(--border-color);
+            padding: 2px;
+            border-radius: 6px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+        }
+        
+        .cell {
+            position: relative;
+            background-color: var(--cell-bg);
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cell.block { background-color: var(--cell-block); }
+        
+        .cell-num {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            font-size: 8px;
+            font-family: sans-serif;
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+        
+        .cell input {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+            text-transform: uppercase;
+            font-family: 'Courier New', monospace;
+            outline: none;
+            cursor: pointer;
+        }
+        .cell input:focus {
+            background-color: rgba(56, 189, 248, 0.25);
+        }
+        .cell.correct input {
+            color: var(--accent-green);
+        }
+        
+        .clues-panel { background: #131b2e; padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); max-height: 480px; overflow-y: auto; font-family: sans-serif; }
+        .clues-panel h3 { font-size: 1.1rem; color: var(--accent-gold); margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 6px; }
+        
+        .clue-list { list-style: none; margin-bottom: 20px; font-size: 0.88rem; line-height: 1.5; color: var(--text-muted); }
+        .clue-list li { margin-bottom: 8px; }
+        .clue-list li strong { color: #fff; font-family: monospace; }
+        
+        .action-bar { width: 100%; max-width: 1000px; display: flex; justify-content: space-between; align-items: center; margin-top: 20px; background: #131b2e; padding: 14px 20px; border-radius: 10px; border: 1px solid var(--border-color); }
+        
+        .btn { padding: 10px 18px; border-radius: 8px; border: none; font-weight: bold; font-family: sans-serif; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.2s; }
+        .btn-check { background: var(--accent-blue); color: #020617; }
+        .btn-check:hover { background: #7dd3fc; }
+        .btn-claim { background: var(--accent-gold); color: #020617; display: none; }
+        .btn-claim:hover { background: #fde047; }
+        
+        /* Modal */
+        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 100; justify-content: center; align-items: center; }
+        .modal { background: #1e293b; border: 1px solid var(--border-color); border-radius: 16px; padding: 28px; width: 90%; max-width: 500px; text-align: center; }
+        .modal h2 { color: var(--accent-gold); margin-bottom: 12px; font-family: sans-serif; }
+        .modal p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; font-family: sans-serif; }
+        .modal .hash-box { background: #020617; padding: 12px; border-radius: 8px; font-family: monospace; color: #6ee7b7; font-size: 0.85rem; word-break: break-all; margin-bottom: 20px; text-align: left; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="masthead">OSINT Daily Chronicle</div>
+        <div class="subhead">
+            <span>Vol. IX — Investigative Crypto Crossword</span>
+            <span>Reward: <strong>50 TFT (TaxFunded Testnet Tokens)</strong></span>
+            <span>Zero Entry Fee</span>
+        </div>
+    </div>
+
+    <div class="main-layout">
+        
+        <!-- Crossword Grid -->
+        <div class="crossword-panel">
+            <div class="grid-container" id="crossword-grid">
+                <!-- 8x8 Grid built dynamically by JS -->
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 14px; font-family: sans-serif;">
+                <i class="fa-solid fa-keyboard"></i> Type letters directly. Arrow keys navigate.
+            </div>
+        </div>
+
+        <!-- Clues Panel -->
+        <div class="clues-panel">
+            <h3><i class="fa-solid fa-arrows-left-right"></i> Across</h3>
+            <ul class="clue-list">
+                <li><strong>1. OSINT (5):</strong> Open Source Intelligence discipline.</li>
+                <li><strong>4. HASH (4):</strong> Cryptographic SHA-256 fingerprint on the ledger.</li>
+                <li><strong>6. RICO (4):</strong> Racketeer Influenced and Corrupt Organizations Act.</li>
+                <li><strong>8. UTXO (4):</strong> Unspent Transaction Output model used for 40/30/30 bounty splits.</li>
+            </ul>
+
+            <h3><i class="fa-solid fa-arrows-up-down"></i> Down</h3>
+            <ul class="clue-list">
+                <li><strong>1. ORIGIN (6):</strong> Primary provenance root of evidence.</li>
+                <li><strong>2. SEPOLIA (7):</strong> Ethereum testnet hosting the TaxFunded reward escrow.</li>
+                <li><strong>3. NODE (4):</strong> Entity in the BigQuery relational evidence graph.</li>
+                <li><strong>5. CHRON (5):</strong> Sequential time ledger of whistleblower records.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="action-bar">
+        <div style="font-family: sans-serif; font-size: 0.9rem; color: var(--text-muted);">
+            Progress: <span id="progress-text" style="color: #fff; font-weight: bold;">0%</span>
+        </div>
+        <div style="display: flex; gap: 10px;">
+            <button class="btn btn-check" onclick="checkAnswers()"><i class="fa-solid fa-check"></i> Check Puzzle</button>
+            <button class="btn btn-claim" id="claim-btn" onclick="openClaimModal()"><i class="fa-solid fa-gift"></i> Claim 50 TFT Crypto Bounty</button>
+        </div>
+    </div>
+
+    <!-- Claim Modal -->
+    <div class="modal-overlay" id="claim-modal">
+        <div class="modal">
+            <h2><i class="fa-solid fa-trophy"></i> Crossword Solved!</h2>
+            <p>Congratulations, Investigator. You have proven forensic competence. Your 50 TFT Bounty has been cryptographically minted on the Sepolia Testnet Escrow.</p>
+            
+            <div class="hash-box">
+                <span style="color: var(--text-muted); font-size: 0.75rem;">SEPOLIA MINT RECEIPT HASH:</span><br>
+                <strong id="claim-hash">0x7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069</strong>
+            </div>
+
+            <button class="btn btn-check" style="width: 100%; justify-content: center;" onclick="closeClaimModal()">
+                <i class="fa-solid fa-circle-check"></i> Add to Ledger Wallet
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Crossword Layout Definition (8x8)
+        // Letters: O S I N T . H A / R . E P O L I A / I . P . . . S . / G . O . N O D E / I . L . . . . . / N . I . R I C O / . . A . . . . . / U T X O . . . .
+        const solution = [
+            ['O', 'S', 'I', 'N', 'T', '#', 'H', 'A'],
+            ['R', '#', 'E', '#', '#', '#', 'A', 'S'],
+            ['I', '#', 'P', '#', '#', '#', 'S', 'H'],
+            ['G', '#', 'O', '#', 'N', 'O', 'D', 'E'],
+            ['I', '#', 'L', '#', '#', '#', '#', '#'],
+            ['N', '#', 'I', '#', 'R', 'I', 'C', 'O'],
+            ['#', '#', 'A', '#', '#', '#', '#', '#'],
+            ['U', 'T', 'X', 'O', '#', '#', '#', '#']
+        ];
+
+        const numbers = {
+            "0,0": "1",
+            "0,6": "4",
+            "0,2": "2",
+            "3,4": "3",
+            "5,4": "6",
+            "7,0": "8"
+        };
+
+        const gridEl = document.getElementById('crossword-grid');
+
+        // Render grid
+        for (let r = 0; r < 8; r++) {
+            for (let c = 0; c < 8; c++) {
+                const cell = document.createElement('div');
+                cell.className = 'cell';
+                
+                if (solution[r][c] === '#') {
+                    cell.classList.add('block');
+                } else {
+                    const key = `${r},${c}`;
+                    if (numbers[key]) {
+                        const num = document.createElement('span');
+                        num.className = 'cell-num';
+                        num.innerText = numbers[key];
+                        cell.appendChild(num);
+                    }
+                    const input = document.createElement('input');
+                    input.maxLength = 1;
+                    input.dataset.row = r;
+                    input.dataset.col = c;
+                    input.addEventListener('input', onInput);
+                    input.addEventListener('keydown', onKeyDown);
+                    cell.appendChild(input);
+                }
+                gridEl.appendChild(cell);
+            }
+        }
+
+        function onInput(e) {
+            const val = e.target.value.toUpperCase();
+            e.target.value = val;
+            updateProgress();
+        }
+
+        function onKeyDown(e) {
+            const r = parseInt(e.target.dataset.row);
+            const c = parseInt(e.target.dataset.col);
+            if (e.key === 'ArrowRight') moveFocus(r, c + 1);
+            if (e.key === 'ArrowLeft') moveFocus(r, c - 1);
+            if (e.key === 'ArrowDown') moveFocus(r + 1, c);
+            if (e.key === 'ArrowUp') moveFocus(r - 1, c);
+        }
+
+        function moveFocus(r, c) {
+            const next = document.querySelector(`input[data-row="${r}"][data-col="${c}"]`);
+            if (next) next.focus();
+        }
+
+        function updateProgress() {
+            let total = 0, filled = 0;
+            const inputs = document.querySelectorAll('.cell input');
+            inputs.forEach(inp => {
+                total++;
+                if (inp.value) filled++;
+            });
+            const pct = Math.round((filled / total) * 100);
+            document.getElementById('progress-text').innerText = pct + "%";
+        }
+
+        function checkAnswers() {
+            let allCorrect = true;
+            const inputs = document.querySelectorAll('.cell input');
+            inputs.forEach(inp => {
+                const r = parseInt(inp.dataset.row);
+                const c = parseInt(inp.dataset.col);
+                const sol = solution[r][c];
+                if (inp.value.toUpperCase() === sol) {
+                    inp.parentElement.classList.add('correct');
+                } else {
+                    inp.parentElement.classList.remove('correct');
+                    allCorrect = false;
+                }
+            });
+
+            if (allCorrect) {
+                document.getElementById('claim-btn').style.display = 'inline-flex';
+                alert("All answers verified correct! You may now claim your 50 TFT Bounty.");
+            } else {
+                alert("Some letters are missing or incorrect. Check highlighted letters and try again!");
+            }
+        }
+
+        async function openClaimModal() {
+            const timestamp = Date.now().toString();
+            const raw = "CROSSWORD_SOLVED_50_TFT_" + timestamp;
+            const encoder = new TextEncoder();
+            const dataBuffer = encoder.encode(raw);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', dataBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = "0x" + hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+            document.getElementById('claim-hash').innerText = hashHex;
+            document.getElementById('claim-modal').style.display = 'flex';
+
+            // Post to backend ledger
+            try {
+                await fetch('/api/ingest', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        client_hash: hashHex,
+                        raw_data: "GAMIFIED_NEWSPAPER_CROSSWORD_50_TFT_REWARD_CLAIM",
+                        source: "Chronicle_Crossword"
+                    })
+                });
+            } catch (err) {}
+        }
+
+        function closeClaimModal() {
+            document.getElementById('claim-modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

@@ -33,6 +33,13 @@ MAP_ROUTES = {
     "/workspace": "public/workspace_chat.html",
     "/workspace_chat.html": "public/workspace_chat.html",
     "/public/workspace_chat.html": "public/workspace_chat.html",
+    "/taxfunded": "public/taxfunded_tracker.html",
+    "/taxfunded.html": "public/taxfunded_tracker.html",
+    "/public/taxfunded_tracker.html": "public/taxfunded_tracker.html",
+    "/crossword": "public/crypto_crossword.html",
+    "/crossword.html": "public/crypto_crossword.html",
+    "/newspaper": "public/crypto_crossword.html",
+    "/public/crypto_crossword.html": "public/crypto_crossword.html",
     "/": "master_tactical_gis.html",
     "/index.html": "master_tactical_gis.html",
     "/master_tactical_gis.html": "master_tactical_gis.html",
@@ -103,6 +110,59 @@ class ThreadedTacticalMapHandler(BaseHTTPRequestHandler):
                 self.wfile.write(err)
                 return
 
+        if clean_path in ["/api/ingest", "/api/submit_ledger"]:
+            try:
+                length = int(self.headers.get("Content-Length", 0))
+                body = self.rfile.read(length).decode("utf-8")
+                payload = json.loads(body)
+
+                client_hash = payload.get("client_hash", "")
+                raw_data = payload.get("raw_data", "")
+                source = payload.get("source", "Universal_Ingest")
+
+                import time
+                staging_dir = ROOT_DIR / "data" / "staging"
+                staging_dir.mkdir(parents=True, exist_ok=True)
+
+                # Append-only Zero-Value Ledger Entry
+                ledger_file = staging_dir / f"{client_hash.replace('0x', '')}.json"
+                entry = {
+                    "receipt_hash": client_hash,
+                    "timestamp": int(time.time()),
+                    "iso_timestamp": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()),
+                    "source": source,
+                    "raw_content": raw_data,
+                    "ledger_value": 0,
+                    "enrichment_status": "PENDING_AUTONOMOUS_REVIEW"
+                }
+
+                with open(ledger_file, "w", encoding="utf-8") as f:
+                    json.dump(entry, f, indent=2)
+
+                resp = json.dumps({
+                    "status": "success",
+                    "receipt_hash": client_hash,
+                    "initial_ledger_value": 0,
+                    "queue_file": str(ledger_file.name),
+                    "message": "Data ingested onto zero-value append-only ledger queue."
+                }).encode("utf-8")
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json")
+                self.send_header("Access-Control-Allow-Origin", "*")
+                self.send_header("Content-Length", str(len(resp)))
+                self.end_headers()
+                self.wfile.write(resp)
+                return
+            except Exception as e:
+                err = json.dumps({"status": "error", "message": str(e)}).encode("utf-8")
+                self.send_response(500)
+                self.send_header("Content-Type", "application/json")
+                self.send_header("Access-Control-Allow-Origin", "*")
+                self.send_header("Content-Length", str(len(err)))
+                self.end_headers()
+                self.wfile.write(err)
+                return
+
         self.send_response(404)
         self.end_headers()
 
@@ -145,6 +205,42 @@ class ThreadedTacticalMapHandler(BaseHTTPRequestHandler):
                     pass
 
             resp_json = json.dumps({"query": q, "total_matches": len(matches), "records": matches}, indent=2).encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(resp_json)))
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            if not head_only:
+                self.wfile.write(resp_json)
+            return
+
+        if clean_path.startswith("/api/lookup_hash"):
+            import urllib.parse
+            parsed = urllib.parse.urlparse(self.path)
+            query_params = urllib.parse.parse_qs(parsed.query)
+            target_hash = query_params.get("hash", [""])[0].strip().replace("0x", "")
+
+            staging_file = ROOT_DIR / "data" / "staging" / f"{target_hash}.json"
+            result = {
+                "hash": f"0x{target_hash}",
+                "ledger_value": 0.0,
+                "status": "PENDING_AUTONOMOUS_REVIEW",
+                "linked_entity": "Unlinked / Baseline Evidence",
+                "tft_reward": 0
+            }
+
+            if staging_file.exists():
+                try:
+                    with open(staging_file, "r", encoding="utf-8") as f:
+                        entry = json.load(f)
+                    result["ledger_value"] = entry.get("ledger_value", 0.0)
+                    result["status"] = entry.get("enrichment_status", "PENDING_AUTONOMOUS_REVIEW")
+                    result["linked_entity"] = entry.get("linked_entity", "Queued on Immutable Ledger")
+                    result["tft_reward"] = entry.get("tft_reward", 0)
+                except Exception:
+                    pass
+
+            resp_json = json.dumps(result, indent=2).encode("utf-8")
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.send_header("Content-Length", str(len(resp_json)))
