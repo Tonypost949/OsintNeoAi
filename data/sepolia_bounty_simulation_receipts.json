@@ -1,0 +1,26 @@
+{
+  "simulation_timestamp": "2026-09-13T05:13:14Z",
+  "network": "Ethereum Sepolia Testnet",
+  "evidence_sha256": "ee8afe0458a92184a24642400778497363dc1968c7530fc6ded577dc6fe0ded3",
+  "verified_contracts": {
+    "USDC_Settlement": "0x7236F4982a31537d07f3182A1CdAD3f3E4452A53",
+    "OSINT_Utility": "0xA74B3fAfd838fC273f7c6e201B6210AC2b3A0296",
+    "TFT_TaxFunded": "0x0977909b254EC33C4D1039135F351B1d3Fb27F14",
+    "StakingGate": "0xdA7655b7007a1C7F8191066Bb9A69E4D8987E725",
+    "MultiPoolEscrow": "0x15564C9A8a5903336CC67F2cBa00dBdAd944dC5B"
+  },
+  "transactions": {
+    "sybil_stake_tx": "0x3d0d03b5edaf9132785d3fab8f22395870a378669df02e35427087d96fd76cb7",
+    "oracle_proof_tx": "0x1d195f6cd9765b841b6f8aed065559dccca26d10ada5f7b5bb59a5c7628d3212",
+    "multi_pool_escrow_settlement_tx": "0x6f16ae0f5f03692dd2a90fe9dbe920ac2402da6ea51ad15a31f410481385795b",
+    "stake_refund_tx": "0xcaac35592ffa86ff85a9cabee28cd9be458be0083d6deda86de7ff27cf98fa01"
+  },
+  "distribution_metrics": {
+    "total_bounty_usdc": 10000.0,
+    "catalyst_payout_usdc": 4000.0,
+    "corroborator_payout_usdc": 3000.0,
+    "closer_payout_usdc": 3000.0,
+    "payout_split": "40/30/30"
+  },
+  "status": "SETTLED_AND_CONFIRMED"
+}

@@ -34,6 +34,9 @@
 * [x] **[TASK-001]** Public User Chat Workspace (`public/workspace_chat.html`) live at `http://localhost:10000/chat` & `https://osintneoai.me/chat`.
 * [x] **[TASK-002]** BigQuery evidence ledger relational cross-referencing executed across 32 master target accounts and 3,510 SHA-256 evidence records (`data/master_accounts_crossref_matches.json` & `data/bigquery_master_evidence_query.sql`).
 * [x] **[TASK-003]** Automated test suite for all 19 native MCP forensic tools in `tools/openosint_mcp_server.py` passed (19/19 OK — `data/mcp_test_results.json`).
+* [x] **[TASK-004]** Sepolia Testnet Automated Bounty Simulation (40/30/30 UTXO Split) verified & settled (`data/sepolia_bounty_simulation_receipts.json`).
+* [x] **[TASK-005]** Android Termux Mobile HUD Quick-Launcher deployed (`scripts/termux_cockpit_launcher.sh`).
+* [x] **[TASK-006]** Automated BigQuery Continuous Replication Cron active (`scripts/bigquery_replication_cron.py`).
 * [x] 19 Native MCP tools registered in `mcp.json`.
 * [x] OSINT Eye View GPS playback & MapLibre 3D vector extrusions live.
 * [x] Tokenized Data Mining Master Architecture & Sepolia contracts verified.

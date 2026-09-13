@@ -1,28 +1,6 @@
 {
   "type": "FeatureCollection",
-  "metadata": {
-    "generator": "OsintNeoAi GeoJSON Telemetry Engine",
-    "count": 5,
-    "generated_at": "2026-09-13T04:56:03.328235+00:00"
-  },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -117.8677,
-          33.7455
-        ]
-      },
-      "properties": {
-        "title": "Santa Ana Municipal Center",
-        "category": "Municipal",
-        "description": "Orange County Administration",
-        "timestamp": "2026-09-13T04:56:03.328235+00:00",
-        "marker-color": "#3498db"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
@@ -33,11 +11,10 @@
         ]
       },
       "properties": {
-        "title": "Huntington Beach Police Dept",
-        "category": "Surveillance",
-        "description": "Public Safety & Records Hub",
-        "timestamp": "2026-09-13T04:56:03.328235+00:00",
-        "marker-color": "#e74c3c"
+        "title": "geoffreycarlyenutt@gmail.com",
+        "category": "excluded_gmail",
+        "status": "Active Surveillance",
+        "timestamp": "2026-09-13T05:14:11Z"
       }
     },
     {
@@ -45,16 +22,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -117.9143,
-          33.8366
+          -118.00280000000001,
+          33.664500000000004
         ]
       },
       "properties": {
-        "title": "Anaheim Corporate Complex",
-        "category": "Corporate",
-        "description": "Corporate Registry Ingestion",
-        "timestamp": "2026-09-13T04:56:03.328235+00:00",
-        "marker-color": "#2ecc71"
+        "title": "mistresskaylabdsm@gmail.com",
+        "category": "excluded_gmail",
+        "status": "Active Surveillance",
+        "timestamp": "2026-09-13T05:14:11Z"
       }
     },
     {
@@ -62,16 +38,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -71.0589,
-          42.3601
+          -118.0068,
+          33.6695
         ]
       },
       "properties": {
-        "title": "Massachusetts Federal Court",
-        "category": "Court",
-        "description": "First Circuit District Court",
-        "timestamp": "2026-09-13T04:56:03.328235+00:00",
-        "marker-color": "#3498db"
+        "title": "my4angels1984@gmail.com",
+        "category": "excluded_gmail",
+        "status": "Active Surveillance",
+        "timestamp": "2026-09-13T05:14:11Z"
       }
     },
     {
@@ -79,16 +54,191 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -117.1611,
-          32.7157
+          -118.0108,
+          33.6745
         ]
       },
       "properties": {
-        "title": "San Diego Cross-Border Node",
-        "category": "Target",
-        "description": "Cross-border surveillance node",
-        "timestamp": "2026-09-13T04:56:03.328235+00:00",
-        "marker-color": "#e74c3c"
+        "title": "rolandgallardo714@gmail.com",
+        "category": "excluded_gmail",
+        "status": "Active Surveillance",
+        "timestamp": "2026-09-13T05:14:11Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.01480000000001,
+          33.679500000000004
+        ]
+      },
+      "properties": {
+        "title": "sunsetmaverick949@gmail.com",
+        "category": "new_gmail_accounts",
+        "status": "Active Surveillance",
+        "timestamp": "2026-09-13T05:14:11Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0188,
+          33.6845
+        ]
+      },
+      "properties": {
+        "title": "makeitsoxo@gmail.com",
+        "category": "new_gmail_accounts",
+        "status": "Active Surveillance",
+        "timestamp": "2026-09-13T05:14:11Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0228,
+          33.6895
+        ]
+      },
+      "properties": {
+        "title": "johnyrocketoc@gmail.com",
+        "category": "new_gmail_accounts",
+        "status": "Active Surveillance",
+        "timestamp": "2026-09-13T05:14:11Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.02680000000001,
+          33.6945
+        ]
+      },
+      "properties": {
+        "title": "atlasoccustomcabinets@gmail.com",
+        "category": "new_gmail_accounts",
+        "status": "Active Surveillance",
+        "timestamp": "2026-09-13T05:14:11Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0308,
+          33.6995
+        ]
+      },
+      "properties": {
+        "title": "disoledesign@gmail.com",
+        "category": "new_gmail_accounts",
+        "status": "Active Surveillance",
+        "timestamp": "2026-09-13T05:14:11Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0348,
+          33.7045
+        ]
+      },
+      "properties": {
+        "title": "amd949609@gmail.com",
+        "category": "primary_gmail_accounts",
+        "status": "Active Surveillance",
+        "timestamp": "2026-09-13T05:14:11Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.03880000000001,
+          33.7095
+        ]
+      },
+      "properties": {
+        "title": "osintneoai@gmail.com",
+        "category": "primary_gmail_accounts",
+        "status": "Active Surveillance",
+        "timestamp": "2026-09-13T05:14:11Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0428,
+          33.7145
+        ]
+      },
+      "properties": {
+        "title": "txtdjdrop@gmail.com",
+        "category": "primary_gmail_accounts",
+        "status": "Active Surveillance",
+        "timestamp": "2026-09-13T05:14:11Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0468,
+          33.719500000000004
+        ]
+      },
+      "properties": {
+        "title": "pmportal949@gmail.com",
+        "category": "primary_gmail_accounts",
+        "status": "Active Surveillance",
+        "timestamp": "2026-09-13T05:14:11Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.05080000000001,
+          33.7245
+        ]
+      },
+      "properties": {
+        "title": "anthonymichaeldimarcello@gmail.com",
+        "category": "primary_gmail_accounts",
+        "status": "Active Surveillance",
+        "timestamp": "2026-09-13T05:14:11Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.0548,
+          33.7295
+        ]
+      },
+      "properties": {
+        "title": "drillingoilandgasinfo@gmail.com",
+        "category": "primary_gmail_accounts",
+        "status": "Active Surveillance",
+        "timestamp": "2026-09-13T05:14:11Z"
       }
     }
   ]
