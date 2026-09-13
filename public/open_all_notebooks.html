@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NotebookLM 1-Click Batch Workspace Launcher</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0d1117; color: #c9d1d9; padding: 30px; }
+    h1 { color: #58a6ff; }
+    .btn-group { margin: 20px 0; display: flex; gap: 12px; flex-wrap: wrap; }
+    button { background: #238636; color: white; border: 1px solid rgba(240,246,252,0.1); padding: 12px 20px; font-size: 15px; font-weight: 600; border-radius: 6px; cursor: pointer; transition: 0.2s; }
+    button:hover { background: #2ea043; }
+    button.secondary { background: #21262d; color: #58a6ff; border-color: #30363d; }
+    button.secondary:hover { background: #30363d; }
+    table { width: 100%; border-collapse: collapse; margin-top: 25px; font-size: 14px; }
+    th, td { border: 1px solid #30363d; padding: 10px 14px; text-align: left; }
+    th { background: #161b22; color: #8b949e; }
+    a { color: #58a6ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .badge { background: #388bfd26; color: #58a6ff; padding: 3px 8px; border-radius: 12px; font-weight: bold; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <h1>⚡ NotebookLM 1-Click Batch Tab Launcher</h1>
+  <p>Click any button below to instantly open notebook workspaces as tabs in your browser. (Allow popups if prompted).</p>
+
+  <div class="btn-group">
+    <button onclick="openBatch(0, 5)">🚀 Open Top 5 Heavy Cases (560+ Sources)</button>
+    <button onclick="openBatch(0, 10)">📂 Open Top 10 Active Workspaces</button>
+    <button class="secondary" onclick="openBatch(10, 25)">📑 Open Next Batch (11 - 25)</button>
+    <button class="secondary" onclick="openBatch(25, 42)">📚 Open Final Batch (26 - 42)</button>
+    <button style="background: #8957e5;" onclick="openBatch(0, 42)">🔥 Open All 42 Workspaces at Once</button>
+  </div>
+
+  <table id="notebookTable">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Workspace Title</th>
+        <th>Direct URL</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const notebooks = [
+      {"title": "EDR OPEN SITE AND FAKE ESA", "url": "https://notebooklm.google.com/notebook/1d36466c-d1d6-4571-a1c6-117fff92ac53", "sources": 131},
+      {"title": "ricoNOW", "url": "https://notebooklm.google.com/notebook/f65bdef5-e928-4b1c-a0b3-90f7219e5c57", "sources": 122},
+      {"title": "The Homeless Services Public Funding Oversight and Whistleblower Framework", "url": "https://notebooklm.google.com/notebook/77558ac8-bc57-402c-9f55-65ddd3cafa3a", "sources": 100},
+      {"title": "OSINTNeoAiMaltGemWWJD", "url": "https://notebooklm.google.com/notebook/ebd3b1b3-2d3c-4f9b-af32-59286dee668f", "sources": 75},
+      {"title": "NWORICO HB CIA BOLSA CHICA", "url": "https://notebooklm.google.com/notebook/ab017e7b-0c6b-4090-be40-fe4d19146d31", "sources": 70},
+      {"title": "Osintneoai new tools", "url": "https://notebooklm.google.com/notebook/3beb4591-c93c-4a70-ac7c-2bdf1856c54c", "sources": 26},
+      {"title": "Audit of California Homelessness Spending and Program Effectiveness", "url": "https://notebooklm.google.com/notebook/7a2de072-9315-4fab-84b8-ed8aa8cc2d16", "sources": 26},
+      {"title": "Institutional Retaliation and Environmental Malfeasance Investigative Report", "url": "https://notebooklm.google.com/notebook/de6902fc-87d5-4020-82d1-461b97b38c8a", "sources": 24},
+      {"title": "EATON DIRTY DEVIL DIX", "url": "https://notebooklm.google.com/notebook/3563df6c-b30e-4105-8803-3a070c9c7eb7", "sources": 19},
+      {"title": "RxCO MD", "url": "https://notebooklm.google.com/notebook/057d6718-f2fb-4c43-b9b3-63348cc169e5", "sources": 13},
+      {"title": "Real value id compliance", "url": "https://notebooklm.google.com/notebook/6231a68c-93f3-4263-b923-e59d7afacb40", "sources": 9},
+      {"title": "OSINT EXCHANGE", "url": "https://notebooklm.google.com/notebook/d8cc56a8-1b1d-4574-88a7-72004558fe80", "sources": 7},
+      {"title": "1 osintneoai user workspace and logic", "url": "https://notebooklm.google.com/notebook/12ed730d-186f-4504-bdf9-7b69c7d73dc8", "sources": 7},
+      {"title": "Compliance gis", "url": "https://notebooklm.google.com/notebook/718445e8-b025-4400-8986-726dd11aa1e1", "sources": 7},
+      {"title": "Anthony DiMarcello Bio", "url": "https://notebooklm.google.com/notebook/755a9130-1a3e-4594-9f81-a8be7d78bcbd", "sources": 6},
+      {"title": "OceanAi", "url": "https://notebooklm.google.com/notebook/7fd07f01-7f89-4bb3-a8ff-5f3e973dc549", "sources": 6},
+      {"title": "PacerMonitor Portal Authentication Interface", "url": "https://notebooklm.google.com/notebook/fa155bfd-25c6-4d49-8505-2e2bd9638acd", "sources": 5},
+      {"title": "Orange County Forensic Audit: Weaver & Tidwell Appointment", "url": "https://notebooklm.google.com/notebook/ed4fa5aa-c2a9-4377-8f69-f955e8189349", "sources": 5},
+      {"title": "Qoldfinger", "url": "https://notebooklm.google.com/notebook/42714cce-f2f6-4504-8f12-0de6fdb10e8b", "sources": 5},
+      {"title": "The Huntington Beach Environmental Fraud and Infrastructure Investigation", "url": "https://notebooklm.google.com/notebook/1973010f-6be6-41e1-ba31-f299b67a8fa1", "sources": 5},
+      {"title": "The Orange County Administrative Attack and Institutional Malfeasance Report", "url": "https://notebooklm.google.com/notebook/15e235d2-302a-4ff6-bdee-9cb2e74e9547", "sources": 3},
+      {"title": "OSINT & Compliance Intelligence Workspace", "url": "https://notebooklm.google.com/notebook/bd91f569-5e73-4780-b816-1a69570b2962", "sources": 3},
+      {"title": "Hydrogeological and Historical Analysis of the Cameron Lane Tract", "url": "https://notebooklm.google.com/notebook/6d5da6fc-35e0-463a-a776-bff1b4c13a5c", "sources": 2},
+      {"title": "AIOS OFFLINE BT", "url": "https://notebooklm.google.com/notebook/10ecd939-1d18-4d77-9c0f-7ca79ff5b455", "sources": 2},
+      {"title": "The Manufactured Neglect Pipeline: A Forensic Audit of Institutional Profit", "url": "https://notebooklm.google.com/notebook/2a9bdef7-f75c-4330-8840-aabdec025c18", "sources": 2},
+      {"title": "Knabb v. Huntington Beach: Toxic Endangerment and Regulatory Fraud", "url": "https://notebooklm.google.com/notebook/be400745-7513-43c1-a6b1-a436a4359d07", "sources": 1},
+      {"title": "Microsoft Azure Portal Authentication Interface", "url": "https://notebooklm.google.com/notebook/528fa062-67b2-4bbf-8253-0c5bf7c52ff7", "sources": 1},
+      {"title": "Osintneoai link checks", "url": "https://notebooklm.google.com/notebook/1cd50a2f-36c6-4521-905b-66b7b73cb294", "sources": 1},
+      {"title": "Osintneoai new leads", "url": "https://notebooklm.google.com/notebook/89b7fcb3-ad66-42b9-b800-e800dfa01be1", "sources": 1},
+      {"title": "Osintneoai link checks", "url": "https://notebooklm.google.com/notebook/e608b04b-a620-4671-8af9-846be0f697f6", "sources": 1},
+      {"title": "The Sirhan Sirhan CIA Case Files and Foreign Dispatches", "url": "https://notebooklm.google.com/notebook/2af97fc3-6880-44d4-aaf9-85542f580934", "sources": 1},
+      {"title": "The Toxins and Ties of Huntington Beach Navigation Center", "url": "https://notebooklm.google.com/notebook/22a1d5de-7746-418e-bbf6-1eae92d516cd", "sources": 1},
+      {"title": "Orange County Homelessness Services Corruption Investigative Dossier", "url": "https://notebooklm.google.com/notebook/312c7a3b-6e70-47ad-9849-d4de8cad5c80", "sources": 1},
+      {"title": "The Pipeline: Systems of Manufactured Homelessness and Profit", "url": "https://notebooklm.google.com/notebook/513f9bb3-321f-48a3-9823-dbc76a564396", "sources": 1},
+      {"title": "California Homelessness Spending Oversight and Accountability Report", "url": "https://notebooklm.google.com/notebook/59b335bf-0e3b-4b42-b54c-21c1ff05742b", "sources": 1},
+      {"title": "My notebook", "url": "https://notebooklm.google.com/notebook/3cac5411-fd0d-4d87-aa05-31ea236fd6d3", "sources": 0},
+      {"title": "YouthFigureSkatingMentalHealth", "url": "https://notebooklm.google.com/notebook/efdd0dad-f674-400e-a6c6-c81ac578cd82", "sources": 0},
+      {"title": "Untitled notebook 1", "url": "https://notebooklm.google.com/notebook/ec4b3d64-5396-4fb2-bd76-c296d040fb65", "sources": 0},
+      {"title": "Untitled notebook 2", "url": "https://notebooklm.google.com/notebook/f59b80ea-b188-45b1-a177-57062e2a3051", "sources": 0},
+      {"title": "Untitled notebook 3", "url": "https://notebooklm.google.com/notebook/4b26be44-e331-4bbb-933d-154948174433", "sources": 0},
+      {"title": "Untitled notebook 4", "url": "https://notebooklm.google.com/notebook/c41df7c1-773b-4b63-a0e6-286e62edbdff", "sources": 0},
+      {"title": "Untitled notebook 5", "url": "https://notebooklm.google.com/notebook/8e2658a3-3a58-46a2-a066-c562735fe066", "sources": 0}
+    ];
+
+    const tbody = document.querySelector('#notebookTable tbody');
+    notebooks.forEach((nb, idx) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${idx + 1}</td>
+        <td><strong>${nb.title}</strong> <span class="badge">${nb.sources} sources</span></td>
+        <td><a href="${nb.url}" target="_blank">${nb.url}</a></td>
+        <td><button class="secondary" style="padding:4px 10px;font-size:12px;" onclick="window.open('${nb.url}', '_blank')">Open</button></td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    function openBatch(start, end) {
+      const slice = notebooks.slice(start, end);
+      slice.forEach(nb => {
+        window.open(nb.url, '_blank');
+      });
+    }
+  </script>
+</body>
+</html>
