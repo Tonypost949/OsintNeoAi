@@ -5,6 +5,8 @@ Uses ThreadingHTTPServer to handle concurrent requests instantly without blockin
 """
 import os
 import sys
+import json
+import urllib.parse
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 
@@ -67,11 +69,42 @@ class ThreadedTacticalMapHandler(BaseHTTPRequestHandler):
                 self.wfile.write(body)
             return
 
+        if clean_path.startswith("/api/inspect"):
+            import urllib.parse
+            parsed = urllib.parse.urlparse(self.path)
+            query_params = urllib.parse.parse_qs(parsed.query)
+            q = query_params.get("query", [""])[0].lower()
+            
+            entities_file = ROOT_DIR / "data" / "extracted_evidence_entities.json"
+            matches = []
+            if entities_file.exists():
+                try:
+                    with open(entities_file, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                    records = data.get("records", [])
+                    for r in records:
+                        if not q or q in r.get("filename", "").lower() or q in r.get("relative_path", "").lower():
+                            matches.append(r)
+                            if len(matches) >= 15:
+                                break
+                except Exception as e:
+                    pass
+
+            resp_json = json.dumps({"query": q, "total_matches": len(matches), "records": matches}, indent=2).encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(resp_json)))
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            if not head_only:
+                self.wfile.write(resp_json)
+            return
+
         target_name = MAP_ROUTES.get(clean_path)
         if not target_name:
             candidate = ROOT_DIR / clean_path.lstrip("/")
             if candidate.is_file():
-                target_name = candidate.name
+                target_name = str(candidate.relative_to(ROOT_DIR))
 
         if target_name:
             file_path = ROOT_DIR / target_name
@@ -80,7 +113,16 @@ class ThreadedTacticalMapHandler(BaseHTTPRequestHandler):
 
             if file_path.exists():
                 data = file_path.read_bytes()
-                mime = "application/vnd.google-earth.kml+xml" if file_path.suffix == ".kml" else "text/html; charset=utf-8"
+                if file_path.suffix == ".kml":
+                    mime = "application/vnd.google-earth.kml+xml"
+                elif file_path.suffix in [".geojson", ".json"]:
+                    mime = "application/json"
+                elif file_path.suffix == ".js":
+                    mime = "application/javascript"
+                elif file_path.suffix == ".css":
+                    mime = "text/css"
+                else:
+                    mime = "text/html; charset=utf-8"
                 self.send_response(200)
                 self.send_header("Content-Type", mime)
                 self.send_header("Content-Length", str(len(data)))

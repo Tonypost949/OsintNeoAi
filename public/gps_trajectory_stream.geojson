@@ -1,0 +1,225 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "title": "OsintNeoAi Tactical GPS Trajectory Stream",
+    "generated_at": "2026-09-13T06:10:52.100488+00:00",
+    "total_features": 10
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.8677,
+          33.7455
+        ]
+      },
+      "properties": {
+        "sequence_index": 0,
+        "label": "Santa Ana Civic Center",
+        "speed_mph": 0,
+        "event": "Depart Admin Hub",
+        "timestamp": "2026-09-13T00:10:52.100488+00:00",
+        "marker-color": "#10b981"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.892,
+          33.758
+        ]
+      },
+      "properties": {
+        "sequence_index": 1,
+        "label": "Garden Grove Blvd Node",
+        "speed_mph": 35,
+        "event": "Transit Point A",
+        "timestamp": "2026-09-13T00:30:52.100488+00:00",
+        "marker-color": "#06b6d4"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.935,
+          33.732
+        ]
+      },
+      "properties": {
+        "sequence_index": 2,
+        "label": "Westminster Blvd Intercept",
+        "speed_mph": 42,
+        "event": "Transit Point B",
+        "timestamp": "2026-09-13T00:50:52.100488+00:00",
+        "marker-color": "#06b6d4"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.962,
+          33.705
+        ]
+      },
+      "properties": {
+        "sequence_index": 3,
+        "label": "Fountain Valley Station",
+        "speed_mph": 28,
+        "event": "Checkpoint",
+        "timestamp": "2026-09-13T01:10:52.100488+00:00",
+        "marker-color": "#06b6d4"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.989,
+          33.684
+        ]
+      },
+      "properties": {
+        "sequence_index": 4,
+        "label": "Huntington Beach Civic Corridor",
+        "speed_mph": 30,
+        "event": "Surveillance Node",
+        "timestamp": "2026-09-13T01:30:52.100488+00:00",
+        "marker-color": "#06b6d4"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.9988,
+          33.6595
+        ]
+      },
+      "properties": {
+        "sequence_index": 5,
+        "label": "HBPD Public Safety Center",
+        "speed_mph": 0,
+        "event": "Stationary Inspection",
+        "timestamp": "2026-09-13T01:50:52.100488+00:00",
+        "marker-color": "#06b6d4"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.928,
+          33.632
+        ]
+      },
+      "properties": {
+        "sequence_index": 6,
+        "label": "Newport Beach Coastal Node",
+        "speed_mph": 45,
+        "event": "Transit Point C",
+        "timestamp": "2026-09-13T02:10:52.100488+00:00",
+        "marker-color": "#06b6d4"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.885,
+          33.618
+        ]
+      },
+      "properties": {
+        "sequence_index": 7,
+        "label": "Corona Del Mar Checkpoint",
+        "speed_mph": 38,
+        "event": "Transit Point D",
+        "timestamp": "2026-09-13T02:30:52.100488+00:00",
+        "marker-color": "#06b6d4"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.783,
+          33.542
+        ]
+      },
+      "properties": {
+        "sequence_index": 8,
+        "label": "Laguna Beach Terminal Node",
+        "speed_mph": 0,
+        "event": "End of Patrol",
+        "timestamp": "2026-09-13T02:50:52.100488+00:00",
+        "marker-color": "#10b981"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -117.8677,
+            33.7455
+          ],
+          [
+            -117.892,
+            33.758
+          ],
+          [
+            -117.935,
+            33.732
+          ],
+          [
+            -117.962,
+            33.705
+          ],
+          [
+            -117.989,
+            33.684
+          ],
+          [
+            -117.9988,
+            33.6595
+          ],
+          [
+            -117.928,
+            33.632
+          ],
+          [
+            -117.885,
+            33.618
+          ],
+          [
+            -117.783,
+            33.542
+          ]
+        ]
+      },
+      "properties": {
+        "title": "Tactical Patrol & Surveillance Trajectory",
+        "stroke": "#06b6d4",
+        "stroke-width": 4,
+        "stroke-opacity": 0.85,
+        "total_waypoints": 9,
+        "start_time": "2026-09-13T00:10:52.100488+00:00",
+        "end_time": "2026-09-13T02:50:52.100488+00:00"
+      }
+    }
+  ]
+}

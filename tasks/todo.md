@@ -1,134 +1,96 @@
-# Actionable Task List: Core Forensic & Geospatial Tracks (todo.md)
+# Actionable Task List: God's Eye View Spatial Intelligence (todo.md)
 
-## Track 1: BigQuery Forensic Ingestion & Identity Cross-Referencing
+## Phase 1: Real-Time Telemetry Stream & Historical Trajectory Scrubber
 
-### Task 1.1: Target Accounts Master Sync Engine
-**Description:** Execute an identity cross-reference query across all 31 target accounts in `agent/target_accounts_master.json` against BigQuery tables and update `data/master_accounts_crossref_matches.json`.
+### Task 1: GPS Trajectory Extractor & Time-Series Formatter
+**Description:** Parse GPS logs from `edr_all_gps_coordinates.json` and generate a structured GeoJSON track file `public/gps_trajectory_stream.geojson` with time-ordered coordinates.
 **Acceptance Criteria:**
-- [x] Queries all 32 active target identifiers across master registry.
-- [x] Updates match matrix in `data/crossref_summary_matrix.json` (16 verified match accounts found).
+- [x] Reads GPS latitude/longitude entries across Orange County patrol corridor.
+- [x] Formats output as GeoJSON Feature with geometry type `LineString` and `Point` milestones.
 **Verification:**
-- [x] Tested `agent/cross_reference_targets.py` -> 16 verified accounts synced.
+- [x] Tested `transforms/extract_gps_tracks.py` -> 10 trajectory features exported to `public/gps_trajectory_stream.geojson`.
 **Files touched:**
-- `agent/cross_reference_targets.py`
-- `data/crossref_summary_matrix.json`
+- `transforms/extract_gps_tracks.py`
+- `public/gps_trajectory_stream.geojson`
 
 ---
 
-### Task 1.2: Evidence OCR & Entity Extraction Batch Pipeline
-**Description:** Ingest unindexed PDF/image evidence batches, run neural OCR extraction, and structure entities into BigQuery-ready format.
+### Task 2: God's Eye Interactive Time-Slider HUD Control
+**Description:** Add an interactive timeline scrubber and animated trajectory playback to `gods_eye_view.html` using Leaflet playback/polyline animations.
 **Acceptance Criteria:**
-- [x] Processes evidence files with SHA-256 chain-of-custody checksums.
-- [x] Generates structured entity mentions (amounts, dates, emails, dockets).
+- [x] Time slider allows scrubbing through historical waypoints (0 to 8).
+- [x] Play/Pause button animates movement along the trajectory line with live speed badge.
 **Verification:**
-- [x] Tested `agent/extract_evidence_entities.py` -> 3,510 evidence entity records indexed to `data/extracted_evidence_entities.json`.
+- [x] Verified `gods_eye_view.html` timeline controls and waypoint stepper.
 **Files touched:**
-- `agent/extract_evidence_entities.py`
-- `data/extracted_evidence_entities.json`
+- `gods_eye_view.html`
 
 ---
 
-## Checkpoint 1: Ingestion & BigQuery Sync
-- [x] BigQuery match matrix updated
-- [x] Evidence OCR batch completed (3,510 records)
+## Checkpoint 1: Trajectory Engine
+- [x] Trajectory stream generated cleanly
+- [x] Playback scrubber functional in God's Eye View
 
 ---
 
-## Track 2: 3D Tactical Geospatial Visualizer (God's Eye View)
+## Phase 2: OpenOSINT Entity Inspector Popups & HUD Enrichment
 
-### Task 2.1: Map Server Port 5052/10000 Endpoint Consolidation
-**Description:** Standardize `simple_map_server.py` to reliably serve MapLibre 3D WebGL, swipe comparison maps, and live GeoJSON streams.
+### Task 3: Live Entity Inspector API Route in `simple_map_server.py`
+**Description:** Add `/api/inspect` endpoint to `simple_map_server.py` that matches a selected location or entity name against `data/extracted_evidence_entities.json` and returns linked legal records.
 **Acceptance Criteria:**
-- [x] Server handles concurrent requests multi-threaded without blocking.
-- [x] Serves `public/live_telemetry.geojson`, `/grid`, `/dashboard`, and `/map/godseye` routes.
+- [x] GET `/api/inspect?query=...` returns matched evidence records with SHA-256 hashes and docket numbers.
+- [x] Returns structured JSON with CORS headers.
 **Verification:**
-- [x] Tested `tests/test_map_server_routes.py` -> all 19 routes verified.
+- [x] Verified `http://localhost:10000/api/inspect?query=cameron` returns 15 matches with 200 OK.
 **Files touched:**
 - `simple_map_server.py`
-- `tests/test_map_server_routes.py`
 
 ---
 
-### Task 2.2: Live Entity Layer Injection
-**Description:** Wire live entity telemetry into `master_tactical_gis.html` and `gods_eye_view.html` with interactive popups and category filters.
+### Task 4: HUD Entity Dossier Modal in `gods_eye_view.html`
+**Description:** Implement an interactive slide-out HUD drawer in `gods_eye_view.html` displaying matched entity details, monetary amounts, and document links when a marker is clicked.
 **Acceptance Criteria:**
-- [x] Points of interest render with categorized pins and metadata popups.
-- [x] Layer toggle controls allow filtering by entity type (Surveillance, Municipal, Corporate).
+- [x] Clicking any map pin opens HUD dossier panel.
+- [x] Displays live metadata (category, coordinates, evidence mentions).
 **Verification:**
-- [x] Verified `transforms/geojson_telemetry.py` exports live telemetry feed.
+- [x] Tested pin click event handler with live `/api/inspect` fetch integration.
 **Files touched:**
-- `transforms/geojson_telemetry.py`
-- `public/live_telemetry.geojson`
+- `gods_eye_view.html`
 
 ---
 
-## Checkpoint 2: Geospatial Server Verification
-- [x] Server routes and telemetry validated (19 routes active)
-- [x] 3D map telemetry feed verified
+## Checkpoint 2: Intelligence Popups
+- [x] Inspector API route operational (Port 10000)
+- [x] HUD dossier drawer loads real-time metadata
 
 ---
 
-## Track 3: Syncfusion Forensic Grid & Executive Dashboard
+## Phase 3: 3D MapLibre Extrusions & Multi-Layer GIS Overlays
 
-### Task 3.1: Syncfusion Data Grid Feed Integration
-**Description:** Connect `syncfusion_grid.html_v2` to live JSON data catalog with instant sorting, multi-column filtering, and Excel export.
+### Task 5: 3D Vector Building Extrusions & Parcel Boundaries
+**Description:** Embed 3D vector building height layers and Orange County municipal parcel boundaries into `maplibre_3d_tactical.html`.
 **Acceptance Criteria:**
-- [x] High-performance data grid styled with dark mode and Lucide iconography.
-- [x] Integrated with `data/crossref_summary_matrix.json` and `data/extracted_evidence_entities.json`.
+- [x] 3D building polygon extrusions render with pitch/bearing angle controls.
+- [x] Direct navigation link integrated into God's Eye View top HUD.
 **Verification:**
-- [x] Verified route `/grid` in `simple_map_server.py`.
+- [x] Verified route `/map/3d` in `simple_map_server.py`.
 **Files touched:**
-- `syncfusion_grid.html_v2`
+- `maplibre_3d_tactical.html`
 
 ---
 
-### Task 3.2: Executive Whistleblower & FCA Timeline View
-**Description:** Update statutory timeline and evidence cards in `dashboard.html` to visualize False Claims Act milestones and municipal billing records.
+### Task 6: Multi-Layer Satellite & Tactical Filter HUD
+**Description:** Add quick filter toggle buttons (Thermal, Surveillance, Municipal, Corporate) to the top HUD in `gods_eye_view.html`.
 **Acceptance Criteria:**
-- [x] Visual timeline cards render with date badges and document links.
-- [x] Responsive layout with ECharts analytics.
+- [x] Clicking filter toggles (ALL, SURVEILLANCE, MUNICIPAL, CORPORATE) shows/hides corresponding category markers.
+- [x] Active layer badges reflect current visual state.
 **Verification:**
-- [x] Verified route `/dashboard` in `simple_map_server.py`.
+- [x] Tested category filter handlers in `gods_eye_view.html`.
 **Files touched:**
-- `dashboard.html`
+- `gods_eye_view.html`
 
 ---
 
-## Checkpoint 3: UI Dashboard Verification
-- [x] Syncfusion grid integrated and ready
-- [x] Executive dashboard verified
-
----
-
-## Track 4: Cloud Headless Worker Provisioning
-
-### Task 4.1: Cloud VM Deployer Validation
-**Description:** Validate automated provisioning scripts for Azure for Students and DigitalOcean Droplets in dry-run mode.
-**Acceptance Criteria:**
-- [x] `azure_student_vm_setup.sh` and `digitalocean_relay_setup.sh` validated.
-- [x] Automated bootstrap script `deploy_headless_compute.sh` validated.
-**Verification:**
-- [x] Tested `cloud_deploy/validate_cloud_deployers.py` -> 4 scripts verified.
-**Files touched:**
-- `cloud_deploy/azure_student_vm_setup.sh`
-- `cloud_deploy/digitalocean_relay_setup.sh`
-- `cloud_deploy/validate_cloud_deployers.py`
-
----
-
-### Task 4.2: Tailscale Remote Mesh Configuration
-**Description:** Configure private mesh routing between local PC, mobile Termux, and cloud VMs with auto-reconnecting `tmux` sessions.
-**Acceptance Criteria:**
-- [x] Termux connection script connects seamlessly over Tailscale private IP.
-- [x] Complete setup guide written to `docs/MOBILE_REMOTE_SHELL_SETUP.md`.
-**Verification:**
-- [x] Verified `docs/MOBILE_REMOTE_SHELL_SETUP.md` and `scripts/mobile_termux_tailscale_init.sh`.
-**Files touched:**
-- `scripts/mobile_termux_tailscale_init.sh`
-- `docs/MOBILE_REMOTE_SHELL_SETUP.md`
-
----
-
-## Final Checkpoint: Complete Execution
-- [x] All 8 tasks across all 4 tracks completed and tested
-- [x] All deliverables committed and pushed to `origin/main`
+## Final Checkpoint: Complete Verification
+- [x] All 6 tasks completed and tested
+- [x] All changes committed and pushed to `origin/main`
