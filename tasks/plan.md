@@ -9,18 +9,10 @@ This implementation plan establishes a **Zero Local Compute** architecture for [
 
 ```mermaid
 flowchart TD
-    subgraph S1 ["1. Dumb Terminals (0% Local Compute)"]
-        T1["PC / Mobile / Browser<br/>(wt-dev / Termius / Codespaces)"]
-    end
-    subgraph S2 ["2. Remote Cloud Compute"]
-        C1["Azure & Oracle ARM (Heavy AI)"]
-        C2["DigitalOcean & FreeVPS (Relays)"]
-    end
-    subgraph S3 ["3. Headless Processing"]
-        W1["Neural OCR & BigQuery Graph"]
-        W2["AI Swarm & 3D Map Server"]
-    end
-    S1 --> S2 --> S3
+    A["1. Dumb Terminals (PC/Mobile/Web)"]
+    B["2. Cloud Matrix (Azure/Oracle/DO)"]
+    C["3. Headless Workloads (OCR/BQ/Swarm)"]
+    A --> B --> C
 ```
 
 ---
