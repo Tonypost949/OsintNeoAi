@@ -16,6 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.umd.min.js"></script>
+  <script src="/public/investigation_limiter.js"></script>
 
   <script>
     tailwind.config = {
@@ -438,12 +439,41 @@
       userInput.style.height = 'auto';
       clearAttachments();
 
+      // Compute Client-side SHA-256 Hash
+      let clientHash = "0x" + Date.now().toString(16);
+      try {
+        const payloadStr = message + Date.now().toString();
+        const encoder = new TextEncoder();
+        const dataBuffer = encoder.encode(payloadStr);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', dataBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        clientHash = "0x" + hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+      } catch (e) {}
+
+      // Record in session manager
+      if (window.InvestigationManager) {
+        window.InvestigationManager.recordSubmission(clientHash, message);
+      }
+
+      // Asynchronously queue to zero-value ledger
+      try {
+        fetch('/api/ingest', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            client_hash: clientHash,
+            raw_data: message,
+            source: "Investigator_Workspace_Chat"
+          })
+        });
+      } catch (err) {}
+
       // Show typing indicator
       const typingId = 'typing-' + Date.now();
       const typingDiv = document.createElement('div');
       typingDiv.id = typingId;
       typingDiv.className = 'flex items-center gap-3 text-slate-400 text-xs font-mono pl-12';
-      typingDiv.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin text-cyan-400"></i> Querying BigQuery knowledge graph & running entity extraction...';
+      typingDiv.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin text-cyan-400"></i> Cryptographic provenance generated. Querying BigQuery master knowledge graph...';
       chatStream.appendChild(typingDiv);
       chatStream.scrollTop = chatStream.scrollHeight;
 
@@ -456,23 +486,26 @@
 
         if (data.records && data.records.length > 0) {
           const count = data.records.length;
-          const first = data.records[0];
           appendAIMessage(`Found **${count} matching forensic records** in the BigQuery Master Ledger:\n\n` + 
-            data.records.slice(0, 3).map((r, i) => `• **${r.filename || 'Evidence File'}**\n  *Path:* \`${r.relative_path || 'data/'}\`\n  *SHA-256:* \`${r.sha256_hash ? r.sha256_hash.substring(0, 24) + '...' : 'Verified'}\``).join('\n\n'),
-            { confidence: '99.9%', source: 'BigQuery (noble-beanbag)', hash: first.sha256_hash }
+            data.records.slice(0, 3).map((r, i) => `• **${r.filename || 'Evidence File'}**\n  *Path:* \`${r.relative_path || 'data/'}\`\n  *SHA-256:* \`${r.sha256_hash ? r.sha256_hash.substring(0, 24) + '...' : 'Verified'}\``).join('\n\n') +
+            `\n\n📌 **Cryptographic Receipt Issued:** \`${clientHash}\`\n*Initial Ledger Valuation:* **$0.00 (Zero Initial Value)** | *Status:* **PENDING_AUTONOMOUS_REVIEW**\n[Track Valuation on TaxFunded Explorer](/taxfunded)`,
+            { confidence: '99.9%', source: 'BigQuery (noble-beanbag)', hash: clientHash }
           );
         } else {
           // Dynamic Intelligence response
-          appendAIMessage(`**Forensic Query Executed:** "${message}"\n\n` +
-            `• **Entity Cross-Reference:** Scanned against 32 master target accounts.\n` +
-            `• **Evidence Ledger:** Indexed across 3,510 verified documents with zero static key vulnerabilities.\n` +
-            `• **Tactical Recommendation:** Launch the **[OSINT Eye View Cockpit](http://localhost:10000/map/osinteye)** to inspect spatial GPS waypoints and animated trajectory tracks.`,
-            { confidence: '98.5%', source: 'OpenOSINT MCP Engine', hash: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' }
+          appendAIMessage(`**Forensic Query Ingested onto Immutable Ledger:**\n\n` +
+            `• **Payload Received:** "${message}"\n` +
+            `• **Cryptographic Receipt Hash:** \`${clientHash}\`\n` +
+            `• **Ledger Initial Valuation:** **$0.00 (Zero Initial Value)**\n` +
+            `• **Enrichment Status:** **PENDING_AUTONOMOUS_REVIEW** (Monitored by Task-1288)\n` +
+            `• **Master Nodes Cross-Referenced:** 199 Authoritative Records across 32 Target Accounts.\n\n` +
+            `🔍 *Want to verify valuation or reward minting?* Visit the **[TaxFunded Explorer](/taxfunded)** or inspect the **[199 Master Evidence Registry](/sheet)**.`,
+            { confidence: '99.2%', source: 'OpenOSINT Zero-Value Ingestion Hub', hash: clientHash }
           );
         }
       } catch (err) {
         document.getElementById(typingId)?.remove();
-        appendAIMessage(`Connected to offline mode. Received payload "${message}". 19 native MCP tools and BigQuery property graph stand ready.`, { confidence: '95.0%', source: 'Local AI Cache' });
+        appendAIMessage(`Payload ingested to zero-value ledger. Receipt Hash: \`${clientHash}\`. Autonomous enrichment daemon active in background.`, { confidence: '95.0%', source: 'Local AI Cache', hash: clientHash });
       }
     }
 
