@@ -52,9 +52,58 @@ class ThreadedTacticalMapHandler(BaseHTTPRequestHandler):
     def do_OPTIONS(self):
         self.send_response(200)
         self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS")
+        self.send_header("Access-Control-Allow-Methods", "GET, HEAD, POST, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "*")
         self.send_header("Content-Length", "0")
+        self.end_headers()
+
+    def do_POST(self):
+        clean_path = self.path.split("?")[0].rstrip("/")
+        if clean_path in ["/api/notebook_dump", "/api/rip_evidence", "/api/extract"]:
+            try:
+                length = int(self.headers.get("Content-Length", 0))
+                body = self.rfile.read(length).decode("utf-8")
+                payload = json.loads(body)
+                
+                title = payload.get("title", "untitled_notebook")
+                safe_title = "".join(c if c.isalnum() else "_" for c in title).lower()
+                
+                out_dir = ROOT_DIR / "data" / "chats" / "notebooks" / "extracted"
+                out_dir.mkdir(parents=True, exist_ok=True)
+                
+                filtered_dir = ROOT_DIR / "data" / "filtered_chats"
+                filtered_dir.mkdir(parents=True, exist_ok=True)
+                
+                # Save raw JSON
+                json_file = out_dir / f"{safe_title}_dump.json"
+                with open(json_file, "w", encoding="utf-8") as f:
+                    json.dump(payload, f, indent=2)
+                
+                # Save clean text
+                txt_file = filtered_dir / f"{safe_title}_clean.txt"
+                raw_text = payload.get("raw_text", "") or payload.get("raw_text_dump", "")
+                with open(txt_file, "w", encoding="utf-8") as f:
+                    f.write(f"# {title}\nURL: {payload.get('url', '')}\nTimestamp: {payload.get('timestamp', '')}\n\n## Content:\n{raw_text}")
+                
+                resp = json.dumps({"status": "success", "saved_json": str(json_file.name), "saved_txt": str(txt_file.name)}).encode("utf-8")
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json")
+                self.send_header("Access-Control-Allow-Origin", "*")
+                self.send_header("Content-Length", str(len(resp)))
+                self.end_headers()
+                self.wfile.write(resp)
+                return
+            except Exception as e:
+                err = json.dumps({"status": "error", "message": str(e)}).encode("utf-8")
+                self.send_response(500)
+                self.send_header("Content-Type", "application/json")
+                self.send_header("Access-Control-Allow-Origin", "*")
+                self.send_header("Content-Length", str(len(err)))
+                self.end_headers()
+                self.wfile.write(err)
+                return
+
+        self.send_response(404)
         self.end_headers()
 
     def _handle(self, head_only=False):
