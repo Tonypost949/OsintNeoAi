@@ -1,38 +1,32 @@
-# Universal Visual Studio Developer PowerShell Auto-Detector for OSINT Neo AI
-# Auto-detects Visual Studio 2026 or 2022 and loads C++ x64 build toolchain
-
-try {
-    Add-Type -MemberDefinition @'
-[DllImport("user32.dll")]
-public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
-[DllImport("kernel32.dll")]
-public static extern IntPtr GetConsoleWindow();
-'@ -Name Win32ConsoleMax -Namespace Win32Utils -ErrorAction SilentlyContinue
-    $consoleHwnd = [Win32Utils.Win32ConsoleMax]::GetConsoleWindow()
-    if ($consoleHwnd -ne [IntPtr]::Zero) {
-        [void][Win32Utils.Win32ConsoleMax]::ShowWindow($consoleHwnd, 3) # 3 = SW_MAXIMIZE
+# Universal Visual Studio Developer PowerShell Auto-Detector for OsintNeoAi
+# 1. vsdev FIRST
+if (-not $env:VSCMD_VER) {
+    $VsPath = ""
+    if (Test-Path "${env:ProgramFiles}\Microsoft Visual Studio\2026\Community") {
+        $VsPath = "${env:ProgramFiles}\Microsoft Visual Studio\2026\Community"
+    } elseif (Test-Path "${env:ProgramFiles}\Microsoft Visual Studio\vNext\Community") {
+        $VsPath = "${env:ProgramFiles}\Microsoft Visual Studio\vNext\Community"
+    } else {
+        $VsPath = "${env:ProgramFiles}\Microsoft Visual Studio\2022\Community"
     }
-} catch {}
 
-$VsPath = ""
-if (Test-Path "${env:ProgramFiles}\Microsoft Visual Studio\2026\Community") {
-    $VsPath = "${env:ProgramFiles}\Microsoft Visual Studio\2026\Community"
-} elseif (Test-Path "${env:ProgramFiles}\Microsoft Visual Studio\vNext\Community") {
-    $VsPath = "${env:ProgramFiles}\Microsoft Visual Studio\vNext\Community"
-} else {
-    $VsPath = "${env:ProgramFiles}\Microsoft Visual Studio\2022\Community"
+    $DevShellDll = "$VsPath\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"
+    if (Test-Path $DevShellDll) {
+        Import-Module $DevShellDll
+        Enter-VsDevShell -VsInstallPath $VsPath -SkipAutomaticLocation -DevCmdArguments "-arch=x64 -host_arch=x64"
+    }
 }
 
-$DevShellDll = "$VsPath\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"
+# 2. Ensure PATH for all tools & agents
+$env:PATH += ";C:\Users\Amd949609\AppData\Local\agy\bin;C:\Users\Amd949609\AppData\Local\Programs\Ollama;C:\Users\Amd949609\AppData\Roaming\npm;C:\OsintNeoAi\bin;C:\TaxFunded\bin;C:\Users\Amd949609\.local\bin;C:\Program Files (x86)\Microsoft Visual Studio\Installer"
 
-if (Test-Path $DevShellDll) {
-    Import-Module $DevShellDll
-    Enter-VsDevShell -VsInstallPath $VsPath -SkipAutomaticLocation -DevCmdArguments "-arch=x64 -host_arch=x64"
-}
-
+# 3. Set Workspace Directory
 Set-Location "C:\OsintNeoAi"
+
+# 4. Load aicli Developer Menu THEN
 if (Test-Path "C:\OsintNeoAi\cli\developer_menu.ps1") {
     . "C:\OsintNeoAi\cli\developer_menu.ps1"
 }
 
+# 5. Launch aicli menu
 Show-DeveloperMenu
