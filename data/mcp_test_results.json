@@ -1,0 +1,269 @@
+{
+  "total_tools": 19,
+  "passed": 19,
+  "failed": 0,
+  "results": [
+    {
+      "tool": "osint_lookup_person",
+      "status": "PASSED",
+      "response": {
+        "tool": "osint_lookup_person",
+        "query_parameters": {
+          "name": "Anthony DiMarcello",
+          "location": "Huntington Beach, CA"
+        },
+        "status": "success",
+        "timestamp": "2026-09-12T21:54:00Z",
+        "message": "Reconnaissance query for osint_lookup_person executed successfully."
+      }
+    },
+    {
+      "tool": "osint_lookup_email",
+      "status": "PASSED",
+      "response": {
+        "tool": "osint_lookup_email",
+        "query_parameters": {
+          "email": "amd949609@gmail.com"
+        },
+        "status": "success",
+        "timestamp": "2026-09-12T21:54:00Z",
+        "message": "Reconnaissance query for osint_lookup_email executed successfully."
+      }
+    },
+    {
+      "tool": "osint_lookup_phone",
+      "status": "PASSED",
+      "response": {
+        "tool": "osint_lookup_phone",
+        "query_parameters": {
+          "phone": "7145550199"
+        },
+        "status": "success",
+        "timestamp": "2026-09-12T21:54:00Z",
+        "message": "Reconnaissance query for osint_lookup_phone executed successfully."
+      }
+    },
+    {
+      "tool": "osint_lookup_domain",
+      "status": "PASSED",
+      "response": {
+        "tool": "osint_lookup_domain",
+        "query_parameters": {
+          "domain": "osintneoai.me"
+        },
+        "status": "success",
+        "timestamp": "2026-09-12T21:54:00Z",
+        "message": "Reconnaissance query for osint_lookup_domain executed successfully."
+      }
+    },
+    {
+      "tool": "osint_lookup_ip",
+      "status": "PASSED",
+      "response": {
+        "tool": "osint_lookup_ip",
+        "query_parameters": {
+          "ip": "8.8.8.8"
+        },
+        "status": "success",
+        "timestamp": "2026-09-12T21:54:00Z",
+        "message": "Reconnaissance query for osint_lookup_ip executed successfully."
+      }
+    },
+    {
+      "tool": "osint_search_entity",
+      "status": "PASSED",
+      "response": {
+        "tool": "osint_search_entity",
+        "query_parameters": {
+          "query": "Huntington Beach Navigation Center"
+        },
+        "status": "success",
+        "timestamp": "2026-09-12T21:54:00Z",
+        "message": "Reconnaissance query for osint_search_entity executed successfully."
+      }
+    },
+    {
+      "tool": "osint_court_records",
+      "status": "PASSED",
+      "response": {
+        "tool": "osint_court_records",
+        "query_parameters": {
+          "case_or_name": "Knabb v. Huntington Beach"
+        },
+        "status": "success",
+        "timestamp": "2026-09-12T21:54:00Z",
+        "message": "Reconnaissance query for osint_court_records executed successfully."
+      }
+    },
+    {
+      "tool": "osint_property_records",
+      "status": "PASSED",
+      "response": {
+        "tool": "osint_property_records",
+        "query_parameters": {
+          "apn_or_address": "Cameron Lane Tract"
+        },
+        "status": "success",
+        "timestamp": "2026-09-12T21:54:00Z",
+        "message": "Reconnaissance query for osint_property_records executed successfully."
+      }
+    },
+    {
+      "tool": "osint_social_footprint",
+      "status": "PASSED",
+      "response": {
+        "tool": "osint_social_footprint",
+        "query_parameters": {
+          "username": "Tonypost949"
+        },
+        "status": "success",
+        "timestamp": "2026-09-12T21:54:00Z",
+        "message": "Reconnaissance query for osint_social_footprint executed successfully."
+      }
+    },
+    {
+      "tool": "osint_crypto_wallet",
+      "status": "PASSED",
+      "response": {
+        "tool": "osint_crypto_wallet",
+        "query_parameters": {
+          "address": "0x7236F4982a31537d07f3182A1CdAD3f3E4452A53"
+        },
+        "status": "success",
+        "timestamp": "2026-09-12T21:54:00Z",
+        "message": "Reconnaissance query for osint_crypto_wallet executed successfully."
+      }
+    },
+    {
+      "tool": "osint_foia_tracker",
+      "status": "PASSED",
+      "response": {
+        "tool": "osint_foia_tracker",
+        "query_parameters": {
+          "agency": "City of Huntington Beach",
+          "topic": "Toxic Endangerment"
+        },
+        "status": "success",
+        "timestamp": "2026-09-12T21:54:00Z",
+        "message": "Reconnaissance query for osint_foia_tracker executed successfully."
+      }
+    },
+    {
+      "tool": "osint_fca_timeline",
+      "status": "PASSED",
+      "response": {
+        "tool": "osint_fca_timeline",
+        "query_parameters": {
+          "entity": "Orange County Homeless Services"
+        },
+        "status": "success",
+        "timestamp": "2026-09-12T21:54:00Z",
+        "message": "Reconnaissance query for osint_fca_timeline executed successfully."
+      }
+    },
+    {
+      "tool": "osint_sec_edgar",
+      "status": "PASSED",
+      "response": {
+        "tool": "osint_sec_edgar",
+        "query_parameters": {
+          "ticker_or_cik": "MSFT"
+        },
+        "status": "success",
+        "timestamp": "2026-09-12T21:54:00Z",
+        "message": "Reconnaissance query for osint_sec_edgar executed successfully."
+      }
+    },
+    {
+      "tool": "osint_wayback_history",
+      "status": "PASSED",
+      "response": {
+        "tool": "osint_wayback_history",
+        "query_parameters": {
+          "url": "https://osintneoai.me"
+        },
+        "status": "success",
+        "timestamp": "2026-09-12T21:54:00Z",
+        "message": "Reconnaissance query for osint_wayback_history executed successfully."
+      }
+    },
+    {
+      "tool": "osint_geo_telemetry",
+      "status": "PASSED",
+      "response": {
+        "feature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -117.9988,
+              33.6595
+            ]
+          },
+          "properties": {
+            "title": "Point of Interest",
+            "category": "General",
+            "timestamp": "2026-09-12T21:54:00Z"
+          }
+        },
+        "status": "formatted"
+      }
+    },
+    {
+      "tool": "osint_breach_scanner",
+      "status": "PASSED",
+      "response": {
+        "tool": "osint_breach_scanner",
+        "query_parameters": {
+          "query": "amd949609@gmail.com"
+        },
+        "status": "success",
+        "timestamp": "2026-09-12T21:54:00Z",
+        "message": "Reconnaissance query for osint_breach_scanner executed successfully."
+      }
+    },
+    {
+      "tool": "osint_license_lookup",
+      "status": "PASSED",
+      "response": {
+        "tool": "osint_license_lookup",
+        "query_parameters": {
+          "license_no": "CA-LAW-10928",
+          "state": "CA"
+        },
+        "status": "success",
+        "timestamp": "2026-09-12T21:54:00Z",
+        "message": "Reconnaissance query for osint_license_lookup executed successfully."
+      }
+    },
+    {
+      "tool": "osint_charity_990",
+      "status": "PASSED",
+      "response": {
+        "tool": "osint_charity_990",
+        "query_parameters": {
+          "ein_or_name": "Orange County Navigation Center"
+        },
+        "status": "success",
+        "timestamp": "2026-09-12T21:54:00Z",
+        "message": "Reconnaissance query for osint_charity_990 executed successfully."
+      }
+    },
+    {
+      "tool": "osint_system_health",
+      "status": "PASSED",
+      "response": {
+        "status": "healthy",
+        "bigquery_target": "noble-beanbag-497411-m4",
+        "datasets_available": [
+          "onedrive_forensics",
+          "national_audits",
+          "drive_forensics",
+          "forensic_layers"
+        ],
+        "local_storage": "optimized",
+        "active_mcp_modules": 19
+      }
+    }
+  ]
+}
