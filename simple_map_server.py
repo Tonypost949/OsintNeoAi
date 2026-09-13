@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 High-performance, multi-threaded HTTP server for tactical 3D GIS maps on port 10000.
 Uses ThreadingHTTPServer to handle concurrent requests instantly without blocking.
@@ -12,8 +12,9 @@ PORT = int(os.environ.get("PORT", 10000))
 ROOT_DIR = Path("C:/OsintNeoAi")
 
 MAP_ROUTES = {
-    "/map/master": "maplibre_3d_tactical.html",
+    "/map/master": "master_tactical_gis.html",
     "/map/3d": "maplibre_3d_tactical.html",
+    "/map/godseye": "gods_eye_view.html",
     "/map/swipe": "comparison_swipe_map.html",
     "/map/comparison": "comparison_swipe_map.html",
     "/map/kml": "OSINT_MASTER_3D_SURVEILLANCE.kml",
@@ -21,10 +22,15 @@ MAP_ROUTES = {
     "/map/hbnc": "hbnc_rico_gis.html",
     "/map/coc": "nationwide_coc_map.html",
     "/map/pipeline": "nationwide_pipeline_map.html",
-    "/": "maplibre_3d_tactical.html",
-    "/index.html": "maplibre_3d_tactical.html",
+    "/grid": "syncfusion_grid.html_v2",
+    "/dashboard": "dashboard.html",
+    "/telemetry": "public/live_telemetry.geojson",
+    "/public/live_telemetry.geojson": "public/live_telemetry.geojson",
+    "/": "master_tactical_gis.html",
+    "/index.html": "master_tactical_gis.html",
     "/master_tactical_gis.html": "master_tactical_gis.html",
-    "/maplibre_3d_tactical.html": "maplibre_3d_tactical.html"
+    "/maplibre_3d_tactical.html": "maplibre_3d_tactical.html",
+    "/gods_eye_view.html": "gods_eye_view.html"
 }
 
 class ThreadedTacticalMapHandler(BaseHTTPRequestHandler):
