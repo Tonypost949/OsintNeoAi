@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINT Daily Dispatch | Crypto Crossword</title>
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .newspaper-card {
+            background: #161b22;
+            border: 2px solid #30363d;
+            border-radius: 8px;
+            padding: 24px;
+            max-width: 680px;
+            width: 100%;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+        }
+        h1 { color: #58a6ff; margin-top: 0; text-transform: uppercase; border-bottom: 1px solid #30363d; padding-bottom: 8px; }
+        .tagline { color: #8b949e; font-size: 0.85em; margin-bottom: 20px; }
+        .grid-row { display: flex; gap: 6px; margin-bottom: 6px; justify-content: center; }
+        .crossword-cell {
+            width: 44px; height: 44px; background: #010409;
+            border: 1px solid #58a6ff; color: #58a6ff;
+            font-size: 1.3em; font-weight: bold; text-align: center;
+            text-transform: uppercase; border-radius: 4px;
+        }
+        .clues { margin-top: 20px; background: #090d13; padding: 14px; border-radius: 6px; font-size: 0.9em; }
+        .btn {
+            background: #238636; color: #fff; border: none; padding: 12px 20px;
+            font-size: 1em; font-weight: bold; border-radius: 4px; cursor: pointer;
+            width: 100%; margin-top: 16px; font-family: monospace;
+        }
+        .btn:hover { background: #2ea043; }
+        .prize-box {
+            display: none; margin-top: 16px; padding: 14px;
+            background: #010409; border-left: 4px solid #3fb950;
+        }
+    </style>
+</head>
+<body>
+    <div class="newspaper-card">
+        <h1>THE OSINT CHRONICLE</h1>
+        <div class="tagline">Daily Crypto Cipher #042 | Free to Play | Solve to Claim Reward Hash</div>
+
+        <div id="grid">
+            <div class="grid-row">
+                <input class="crossword-cell" maxlength="1" id="c0" data-sol="L">
+                <input class="crossword-cell" maxlength="1" id="c1" data-sol="E">
+                <input class="crossword-cell" maxlength="1" id="c2" data-sol="D">
+                <input class="crossword-cell" maxlength="1" id="c3" data-sol="G">
+                <input class="crossword-cell" maxlength="1" id="c4" data-sol="E">
+                <input class="crossword-cell" maxlength="1" id="c5" data-sol="R">
+            </div>
+        </div>
+
+        <div class="clues">
+            <strong>CLUE:</strong> The decentralized append-only book of truth where zero-value records gain provenance (6 Letters).
+        </div>
+
+        <button class="btn" onclick="verifyCrossword()">VERIFY & MINT REWARD RECEIPT</button>
+
+        <div id="prize" class="prize-box">
+            <strong style="color: #3fb950;">🎉 PUZZLE SOLVED!</strong><br>
+            <span style="font-size: 0.85em; color: #8b949e;">Airdrop Proof Hash (Submitted to Ledger Queue):</span><br>
+            <code id="reward-hash" style="color: #79c0ff; word-break: break-all;"></code>
+        </div>
+    </div>
+
+    <script>
+        async function verifyCrossword() {
+            let answer = "";
+            let correct = true;
+            for (let i = 0; i < 6; i++) {
+                const cell = document.getElementById('c' + i);
+                answer += cell.value.toUpperCase();
+                if (cell.value.toUpperCase() !== cell.dataset.sol) {
+                    correct = false;
+                }
+            }
+
+            if (!correct) {
+                alert("Incorrect letters. Keep analyzing the cipher.");
+                return;
+            }
+
+            const payload = "CROSSWORD_SOLVE_042_" + answer + "_" + Date.now();
+            const encoder = new TextEncoder();
+            const dataBuffer = encoder.encode(payload);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', dataBuffer);
+            const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+
+            document.getElementById('reward-hash').innerText = "0x" + hashHex;
+            document.getElementById('prize').style.display = 'block';
+            console.log("Crossword Claim Hash auto-queued:", hashHex);
+        }
+    </script>
+</body>
+</html>
