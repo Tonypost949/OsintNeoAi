@@ -40,7 +40,7 @@ def generate_spark_digest_and_enrichments(raw_data):
     if not GEMINI_API_KEY:
         return "GEMINI_API_KEY_MISSING", []
         
-    model = genai.GenerativeModel('gemini-pro')
+    model = genai.GenerativeModel('gemini-3.7-flash')
     prompt = f"""
     You are an expert OSINT and Regulatory Intelligence AI. 
     Based on the following raw data, generate an executive digest covering financial compliance, regulatory enforcement, and whistleblower frameworks.
