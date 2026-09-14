@@ -26,6 +26,9 @@
     .orbitron { font-family: 'Orbitron', sans-serif; }
     .mono { font-family: 'JetBrains Mono', monospace; }
     #map { width: 100vw; height: 100vh; z-index: 1; }
+    .leaflet-tile-pane {
+      filter: invert(100%) hue-rotate(180deg) brightness(88%) contrast(110%);
+    }
     .glass-panel {
       background: rgba(11, 17, 32, 0.88);
       backdrop-filter: blur(14px);
@@ -110,9 +113,8 @@
     const map = L.map('map', { zoomControl: false }).setView([33.6950, -117.9300], 12);
     L.control.zoom({ position: 'topright' }).addTo(map);
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; OSINT Neo AI Intelligence Systems',
-      subdomains: 'abcd',
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | &copy; OSINT Neo AI Intelligence Systems',
       maxZoom: 19
     }).addTo(map);
 

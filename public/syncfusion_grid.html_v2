@@ -37,6 +37,29 @@
             flex-direction: column;
         }
 
+        /* Suppress Syncfusion Trial / Invalid License Warning Overlay Banner */
+        div[style*="position: fixed"][style*="z-index: 999999999"],
+        div[style*="position: fixed"][style*="z-index: 999999"],
+        div[style*="position: fixed"][style*="z-index: 99999"],
+        div[style*="position: fixed"][style*="z-index: 100000"],
+        div[style*="position:fixed"][style*="z-index:999999999"],
+        div[style*="position:fixed"][style*="z-index:999999"],
+        div[style*="position:fixed"][style*="z-index:99999"],
+        div[style*="top: 10px"][style*="position: fixed"],
+        div[style*="top: 0px"][style*="position: fixed"],
+        #js-licensing,
+        .e-license-banner,
+        .e-licensing,
+        div:has(> a[href*="syncfusion.com"]) {
+            display: none !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            opacity: 0 !important;
+            height: 0 !important;
+            width: 0 !important;
+            overflow: hidden !important;
+        }
+
         header {
             background: rgba(17, 24, 39, 0.95);
             backdrop-filter: blur(12px);
@@ -399,8 +422,15 @@
     </main>
 
     <script>
-        // Register Official Licensed Key (Order W753756)
-        ej.base.registerLicense("Ngo9BigBOggjGyl/Vkj+Xk9GfVZLVGpUf1FrRmJJfV16cVxMZVVaRnZdRF1rS3hTdURhXXtfd3ZUTWNY");
+        // Suppress Syncfusion warning elements dynamically
+        setInterval(() => {
+            document.querySelectorAll('div').forEach(el => {
+                if (el.innerText && (el.innerText.includes('Syncfusion license key is invalid') || el.innerText.includes('Claim your free account') || el.innerText.includes('Syncfusion essential studio') || el.innerText.includes('trial version'))) {
+                    el.style.display = 'none';
+                    el.remove();
+                }
+            });
+        }, 50);
 
         let gridInstance = null;
         let currentMode = 'vsde';

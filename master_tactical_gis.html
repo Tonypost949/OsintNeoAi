@@ -378,7 +378,38 @@ const LOCATIONS = [
 // INITIALIZE MAPLIBRE 3D ENGINE
 const map = new maplibregl.Map({
     container: 'map',
-    style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+    style: {
+        version: 8,
+        sources: {
+            'esri-dark': {
+                type: 'raster',
+                tiles: ['https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}'],
+                tileSize: 256,
+                attribution: '&copy; Esri, OpenStreetMap contributors | OSINT Neo AI'
+            },
+            'esri-labels': {
+                type: 'raster',
+                tiles: ['https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}'],
+                tileSize: 256
+            }
+        },
+        layers: [
+            {
+                id: 'esri-dark-layer',
+                type: 'raster',
+                source: 'esri-dark',
+                minzoom: 0,
+                maxzoom: 19
+            },
+            {
+                id: 'esri-labels-layer',
+                type: 'raster',
+                source: 'esri-labels',
+                minzoom: 0,
+                maxzoom: 19
+            }
+        ]
+    },
     center: [-117.9881801, 33.7064036],
     zoom: 16.8,
     pitch: 65,
