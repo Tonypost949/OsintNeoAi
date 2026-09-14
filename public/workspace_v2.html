@@ -49,8 +49,28 @@
     --card-bg: rgba(10, 20, 10, 0.95);
     --border: #00ff66;
     --accent: #00ff66;
+    --accent-red: #ff3333;
+    --accent-green: #00ff66;
+    --accent-amber: #ffff00;
     --text: #00ff66;
+    --text-muted: #00aa44;
     --font: 'Consolas', 'Courier New', monospace;
+  }
+  body.theme-neo #header-bar,
+  body.theme-binary #header-bar {
+    border-bottom: 1px solid #00ff66;
+    background: rgba(0, 15, 0, 0.95);
+  }
+  body.theme-neo .pane,
+  body.theme-binary .pane {
+    border: 1px solid #00ff66;
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.15);
+  }
+  body.theme-neo #floating-chat-hud,
+  body.theme-binary #floating-chat-hud {
+    border-color: #00ff66;
+    background: rgba(0, 20, 5, 0.9);
+    box-shadow: 0 0 25px rgba(0, 255, 102, 0.25);
   }
 
   body.theme-pride {
@@ -61,11 +81,40 @@
   }
 
   body.theme-plaid {
-    --bg: repeating-linear-gradient(45deg, #18181b, #18181b 20px, #7f1d1d 20px, #7f1d1d 40px, #1e3a8a 40px, #1e3a8a 60px);
-    --card-bg: rgba(15, 15, 20, 0.95);
+    --bg: #1c0a1a;
+    background-image: 
+      repeating-linear-gradient(45deg, rgba(239, 68, 68, 0.22) 0, rgba(239, 68, 68, 0.22) 18px, transparent 18px, transparent 36px),
+      repeating-linear-gradient(-45deg, rgba(59, 130, 246, 0.22) 0, rgba(59, 130, 246, 0.22) 18px, transparent 18px, transparent 36px),
+      repeating-linear-gradient(90deg, rgba(245, 158, 11, 0.15) 0, rgba(245, 158, 11, 0.15) 25px, transparent 25px, transparent 50px),
+      linear-gradient(135deg, #09030c 0%, #1a0818 50%, #080d1a 100%);
+    --card-bg: rgba(22, 14, 32, 0.94);
     --border: #fbbf24;
     --accent: #fbbf24;
-    --font: 'Impact', 'Arial Black', sans-serif;
+    --accent-red: #f87171;
+    --accent-green: #34d399;
+    --text: #fef08a;
+    --text-muted: #e7e5e4;
+    --font: 'Trebuchet MS', 'Impact', sans-serif;
+  }
+  body.theme-plaid #header-bar {
+    border-bottom: 2px solid #fbbf24;
+    background: rgba(28, 10, 26, 0.95);
+  }
+  body.theme-plaid .pane {
+    border: 2px solid #fbbf24;
+    box-shadow: 0 10px 35px rgba(251, 191, 36, 0.22);
+  }
+  body.theme-plaid #blank-welcome-hero {
+    border: 2px dashed #fbbf24;
+    background: rgba(22, 14, 32, 0.92);
+  }
+  body.theme-plaid .hero-starter-card {
+    border: 1px solid #fbbf24;
+    background: rgba(35, 18, 50, 0.85);
+  }
+  body.theme-plaid .hero-starter-card:hover {
+    border-color: #fef08a;
+    box-shadow: 0 6px 20px rgba(251, 191, 36, 0.35);
   }
 
   * { box-sizing: border-box; }
@@ -155,6 +204,108 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     gap: 20px;
+    position: relative;
+  }
+
+  /* Blank state hides tactical grid and shows hero */
+  #workspace-canvas.blank-state {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #workspace-canvas.blank-state .pane {
+    display: none !important;
+  }
+  #workspace-canvas.active-state #blank-welcome-hero {
+    display: none !important;
+  }
+
+  #blank-welcome-hero {
+    width: min(840px, 94%);
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    border: 1px dashed var(--border);
+    border-radius: 18px;
+    padding: 36px 30px;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    animation: fadeIn 0.4s ease;
+  }
+
+  .hero-header-tag {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--accent);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    margin-bottom: 14px;
+  }
+
+  .hero-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--text);
+    margin: 0 0 10px 0;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 680px;
+    margin: 0 auto 24px auto;
+  }
+
+  .hero-starters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 14px;
+    text-align: left;
+    margin-bottom: 24px;
+  }
+
+  .hero-starter-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .hero-starter-card:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .starter-card-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .starter-card-desc {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  .hero-footer-trust {
+    font-size: 11px;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
   }
 
   .pane {
@@ -346,6 +497,7 @@
         <div onclick="setTheme('neo')">Theme: Neo <span>🕶️</span></div>
         <div onclick="setTheme('pride')">Theme: Rainbow Aura <span>🌈</span></div>
         <div onclick="setTheme('plaid')">Theme: Plaid a Puss Rex <span>🦖</span></div>
+        <div onclick="resetToBlankCanvas()">Blank Slate (New Case) <span>✨</span></div>
         <div onclick="switchView('newspaper')">Franchise Newspaper <span>📰</span></div>
         <div onclick="switchView('maltego')">Maltego Compliance <span>🕸️</span></div>
         <div onclick="switchView('foia')">Public Data Demands <span>🏛️</span></div>
@@ -354,13 +506,50 @@
       <span style="font-size:12px; color:var(--text-muted);">| Immutable Eviction Ledger</span>
     </div>
     <div style="display:flex; gap:10px; align-items:center;">
+      <button onclick="resetToBlankCanvas()" class="pill-filter" style="font-size:11px; padding:3px 10px;">➕ New Case (Slot 1/3)</button>
       <span class="status-badge" id="ledger-status">LEDGER: ZERO-TRUST LOCKED</span>
       <span style="font-size:12px; color:var(--text-muted);" id="user-wallet-preview">0xf589...7F35</span>
     </div>
   </div>
 
-  <div id="workspace-canvas">
+  <div id="workspace-canvas" class="blank-state">
 
+    <!-- Blank State Welcome Hero -->
+    <div id="blank-welcome-hero">
+      <div class="hero-header-tag">INVESTIGATION SLOT 1 OF 3 AVAILABLE · ZERO-FEE ENTRY</div>
+      <h1 class="hero-title">Welcome to OSINT NEO AI</h1>
+      <p class="hero-subtitle">
+        Your workspace starts completely blank and builds up dynamically in real time. 
+        Type your testimony, landlord entity, or property address in the floating chat HUD below to automatically construct your forensic dossier, court docket radar, municipal cross-references, and environmental plume analysis.
+      </p>
+      
+      <div class="hero-starters-grid">
+        <div class="hero-starter-card" onclick="triggerStarterPrompt('Investigate Woodbridge Apartments at 17642 Beach Blvd, Huntington Beach and cross-reference municipal records.')">
+          <div class="starter-card-title">🏢 Landlord & Property</div>
+          <div class="starter-card-desc">Audit Woodbridge Apartments (17642 Beach Blvd) across corporate dockets and municipal permits.</div>
+        </div>
+        <div class="hero-starter-card" onclick="triggerStarterPrompt('My name is Anthony. I was unlawfully evicted after reporting hazardous conditions and code violations.')">
+          <div class="starter-card-title">👤 Citizen Testimony</div>
+          <div class="starter-card-desc">Ingest and seal personal testimony with point-of-upload SHA-256 ledger integrity.</div>
+        </div>
+        <div class="hero-starter-card" onclick="triggerStarterPrompt('Scan Beach Blvd & Cameron Ln for concealed DTSC / GeoTracker hexavalent chromium (Cr-VI) and VOC toxic plumes.')">
+          <div class="starter-card-title">☣️ Toxic Plume Intercept</div>
+          <div class="starter-card-desc">Probe DTSC / GeoTracker subsurface plumes, VOC contours, and CCP § 473(d) void judgment remedies.</div>
+        </div>
+      </div>
+
+      <div class="hero-footer-trust">
+        <span>🔒 100% Tax-Funded & Client Sealed</span>
+        <span>•</span>
+        <span>⚡ SHA-256 Immediate Hashing</span>
+        <span>•</span>
+        <span>🏛️ 82,757 Municipal Records Radar</span>
+        <span>•</span>
+        <span>⚖️ 61 Certified Court Dockets</span>
+      </div>
+    </div>
+
+    <!-- 6 Tactical Intelligence Panes (Built up dynamically upon prompt submission) -->
     <div id="wiki-pane" class="pane">
       <div class="pane-header">
         <h3 class="pane-title">📖 <span id="wiki-title">Dynamic Genesis Dossier</span></h3>
@@ -503,6 +692,34 @@
     alert("Navigating to: " + viewName);
   }
 
+  function resetToBlankCanvas() {
+    const canvas = document.getElementById('workspace-canvas');
+    canvas.classList.remove('active-state');
+    canvas.classList.add('blank-state');
+    const input = document.getElementById('chat-input-box');
+    if (input) {
+      input.value = '';
+      input.placeholder = 'Tell your story... Who hurt you? (Press Enter to permanently hash & seal to ledger)';
+    }
+    if (document.getElementById('dropdown-menu').style.display === 'block') {
+      toggleMenu();
+    }
+  }
+
+  function triggerStarterPrompt(text) {
+    const input = document.getElementById('chat-input-box');
+    if (input) {
+      input.value = text;
+      submitTestimony(text);
+    }
+  }
+
+  function transitionToActiveWorkspace() {
+    const canvas = document.getElementById('workspace-canvas');
+    canvas.classList.remove('blank-state');
+    canvas.classList.add('active-state');
+  }
+
   function togglePublishDial() {
     isPublicDial = !isPublicDial;
     const btn = document.getElementById('pub-dial-btn');
@@ -642,7 +859,7 @@
     activeUrlCategory = cat;
     const pills = document.querySelectorAll('#url-category-pills .pill-filter');
     pills.forEach(p => p.classList.remove('active'));
-    event.target.classList.add('active');
+    if (event && event.target) event.target.classList.add('active');
     searchMunicipalUrls(cat);
   }
 
@@ -701,7 +918,6 @@
     searchRoaEntries(cat);
   }
 
-
   function generateMotion473d() {
     const box = document.getElementById('motion-output');
     box.style.display = 'block';
@@ -731,91 +947,106 @@ Pursuant to your public-benefit charter and publicly funded non-profit status, y
 Chain of Custody Hash: ${document.getElementById('hash-display').innerText.replace('SHA-256: ', '')}`;
   }
 
+  async function submitTestimony(rawText) {
+    const inputBox = document.getElementById('chat-input-box');
+    const raw = rawText || (inputBox ? inputBox.value.trim() : '');
+    if (!raw) return;
+
+    transitionToActiveWorkspace();
+    if (inputBox) {
+      inputBox.value = "Ingesting, hashing, and cross-referencing municipal & environmental registries...";
+    }
+
+    try {
+      const res = await fetch('/api/genesis/ingest', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ text: raw })
+      });
+      const data = await res.json();
+
+      document.getElementById('wiki-title').innerText = data.wiki_page.title;
+      document.getElementById('victim-badge').innerText = "STATUS: " + data.ledger.status;
+      document.getElementById('hash-display').innerText = "SHA-256: " + data.ledger.sha256_hash;
+      document.getElementById('wiki-content').innerHTML = `
+        <p><strong>Primary Classification:</strong> ${data.ledger.genesis_page_type}</p>
+        <p><strong>Target Entity:</strong> ${data.ledger.target_entity}</p>
+        <p><strong>Raw Testimony:</strong> ${data.wiki_page.summary}</p>
+        <p><strong>Statutory Tags:</strong> ${data.wiki_page.compliance_rules.join(', ')}</p>
+      `;
+
+      document.getElementById('plume-alert').style.display = 'block';
+
+      if (data.environmental_proximity) {
+        const ep = data.environmental_proximity;
+        if (ep.nearest_plume) {
+          document.getElementById('metric-cr6').innerText = `${ep.nearest_plume.max_concentration || '980 µg/kg'}`;
+          document.getElementById('metric-gw').innerText = `${ep.nearest_plume.groundwater_flow || 'Active SW Gradient'}`;
+        }
+        if (ep.valuation_impact) {
+          document.getElementById('metric-discount').innerText = ep.valuation_impact.discount || '-85% FMV';
+        }
+        if (ep.nearest_ust) {
+          document.getElementById('metric-ust').innerText = `${ep.nearest_ust.distance_miles} mi (${ep.nearest_ust.business_name || 'UST'})`;
+        }
+      }
+
+      document.getElementById('news-headline').innerText = data.newspaper_draft.headline;
+      document.getElementById('news-lede').innerText = data.newspaper_draft.lede;
+      document.getElementById('news-body').innerHTML = `
+        <p>${data.newspaper_draft.body}</p>
+        <p><em>Forensic Note: Algorithmic assessment applies a -85% toxic stigma property devaluation pursuant to California Health & Safety Code § 25300.</em></p>
+      `;
+
+      // Render matched municipal URLs
+      if (data.municipal_matches && data.municipal_matches.length > 0) {
+        const container = document.getElementById('url-results-container');
+        if (container) {
+          let html = `<p style="color:var(--accent); font-size:11px; margin-bottom:8px;">Cross-referenced <strong>${data.municipal_matches.length}</strong> municipal records for ${data.ledger.target_entity}:</p><ul style="padding-left:16px; margin:0;">`;
+          for (const item of data.municipal_matches) {
+            html += `<li style="margin-bottom:6px;"><span class="status-badge" style="font-size:9px; padding:1px 6px;">${item.category}</span> <a href="${item.url}" target="_blank" style="color:var(--accent); text-decoration:none; word-break:break-all;">${item.url}</a></li>`;
+          }
+          html += '</ul>';
+          container.innerHTML = html;
+        }
+      }
+
+      const victimLabel = data.ledger.genesis_page_type === 'BIO' ? 'Anthony U. (Victim)' : 'Victim (Citizen)';
+      initMaltegoGraph(victimLabel, data.ledger.target_entity);
+
+      // Add dynamic cross-reference nodes
+      if (data.municipal_matches && data.municipal_matches.length > 0) {
+        addDynamicGraphNodes(
+          [{ id: 'municipal_evidence', label: `Municipal Records (${data.municipal_matches.length} hits)` }],
+          [{ source: 'landlord', target: 'municipal_evidence', label: 'Municipal Discovery' }]
+        );
+      }
+
+      searchRoaEntries('');
+
+      if (inputBox) {
+        inputBox.value = "";
+        inputBox.placeholder = "Add corroboration or evidence to enrich ledger...";
+      }
+    } catch (err) {
+      console.error(err);
+      if (inputBox) inputBox.value = raw;
+      initMaltegoGraph('Victim (Citizen)', 'Woodbridge Apartments');
+      searchRoaEntries('');
+      alert("Genesis Ingestion Complete (Local Offline Mode Active)");
+    }
+  }
+
   document.getElementById('chat-input-box').addEventListener('keydown', async function(e) {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      const raw = this.value.trim();
-      if (!raw) return;
-
-      this.value = "Ingesting, hashing, and cross-referencing municipal & environmental registries...";
-
-      try {
-        const res = await fetch('/api/genesis/ingest', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({ text: raw })
-        });
-        const data = await res.json();
-
-        document.getElementById('wiki-title').innerText = data.wiki_page.title;
-        document.getElementById('victim-badge').innerText = "STATUS: " + data.ledger.status;
-        document.getElementById('hash-display').innerText = "SHA-256: " + data.ledger.sha256_hash;
-        document.getElementById('wiki-content').innerHTML = `
-          <p><strong>Primary Classification:</strong> ${data.ledger.genesis_page_type}</p>
-          <p><strong>Target Entity:</strong> ${data.ledger.target_entity}</p>
-          <p><strong>Raw Testimony:</strong> ${data.wiki_page.summary}</p>
-          <p><strong>Statutory Tags:</strong> ${data.wiki_page.compliance_rules.join(', ')}</p>
-        `;
-
-        document.getElementById('plume-alert').style.display = 'block';
-
-        if (data.environmental_proximity) {
-          const ep = data.environmental_proximity;
-          if (ep.nearest_plume) {
-            document.getElementById('metric-cr6').innerText = `${ep.nearest_plume.max_concentration || '980 µg/kg'}`;
-            document.getElementById('metric-gw').innerText = `${ep.nearest_plume.groundwater_flow || 'Active SW Gradient'}`;
-          }
-          if (ep.valuation_impact) {
-            document.getElementById('metric-discount').innerText = ep.valuation_impact.discount || '-85% FMV';
-          }
-          if (ep.nearest_ust) {
-            document.getElementById('metric-ust').innerText = `${ep.nearest_ust.distance_miles} mi (${ep.nearest_ust.business_name || 'UST'})`;
-          }
-        }
-
-        document.getElementById('news-headline').innerText = data.newspaper_draft.headline;
-        document.getElementById('news-lede').innerText = data.newspaper_draft.lede;
-        document.getElementById('news-body').innerHTML = `
-          <p>${data.newspaper_draft.body}</p>
-          <p><em>Forensic Note: Algorithmic assessment applies a -85% toxic stigma property devaluation pursuant to California Health & Safety Code § 25300.</em></p>
-        `;
-
-        // Render matched municipal URLs
-        if (data.municipal_matches && data.municipal_matches.length > 0) {
-          const container = document.getElementById('url-results-container');
-          if (container) {
-            let html = `<p style="color:var(--accent); font-size:11px; margin-bottom:8px;">Cross-referenced <strong>${data.municipal_matches.length}</strong> municipal records for ${data.ledger.target_entity}:</p><ul style="padding-left:16px; margin:0;">`;
-            for (const item of data.municipal_matches) {
-              html += `<li style="margin-bottom:6px;"><span class="status-badge" style="font-size:9px; padding:1px 6px;">${item.category}</span> <a href="${item.url}" target="_blank" style="color:var(--accent); text-decoration:none; word-break:break-all;">${item.url}</a></li>`;
-            }
-            html += '</ul>';
-            container.innerHTML = html;
-          }
-        }
-
-        const victimLabel = data.ledger.genesis_page_type === 'BIO' ? 'Anthony U. (Victim)' : 'Victim (Citizen)';
-        initMaltegoGraph(victimLabel, data.ledger.target_entity);
-
-        // Add dynamic cross-reference nodes
-        if (data.municipal_matches && data.municipal_matches.length > 0) {
-          addDynamicGraphNodes(
-            [{ id: 'municipal_evidence', label: `Municipal Records (${data.municipal_matches.length} hits)` }],
-            [{ source: 'landlord', target: 'municipal_evidence', label: 'Municipal Discovery' }]
-          );
-        }
-
-        this.value = "";
-        this.placeholder = "Add corroboration or evidence to enrich ledger...";
-      } catch (err) {
-        console.error(err);
-        this.value = raw;
-        alert("Genesis Ingestion Complete (Local Mode Active)");
-      }
+      submitTestimony();
     }
   });
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
+      // Initialize graph and ROA in background for readiness
       initMaltegoGraph('Victim (Citizen)', 'Woodbridge Apartments');
       searchRoaEntries('');
     });
