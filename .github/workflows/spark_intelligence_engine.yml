@@ -1,0 +1,46 @@
+name: Spark Intelligence Engine (Daily)
+
+on:
+  schedule:
+    # Runs daily at 13:00 UTC (6:00 AM Pacific)
+    - cron: '0 13 * * *'
+  workflow_dispatch: # Allows manual trigger from the Actions tab
+
+jobs:
+  run-spark-engine:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install google-generativeai python-dotenv
+
+    - name: Run Spark Intelligence Engine
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+        SMTP_SERVER: smtp.gmail.com
+        SMTP_PORT: 587
+        SMTP_USER: ${{ secrets.SMTP_USER || 'amd949609@gmail.com' }}
+        ALERT_RECIPIENT_EMAIL: ${{ secrets.ALERT_RECIPIENT_EMAIL || 'amd949609@gmail.com' }}
+      run: |
+        python spark_intelligence_engine.py
+
+    - name: Commit and Push Spark Digest
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add reports/spark_digests/ master_osint_sheet/SPARK_Correlations.csv
+        git commit -m "Automated Spark Intelligence Digest & Enrichments [skip ci]" || echo "No changes to commit"
+        git push
