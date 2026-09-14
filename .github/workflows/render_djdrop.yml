@@ -1,0 +1,65 @@
+name: Cloud Render DJ DROP Universal Intro
+
+on:
+  workflow_dispatch:
+    inputs:
+      resolution_pct:
+        description: 'Resolution percentage (e.g. 100 for 1080p, 67 for 720p)'
+        required: false
+        default: '100'
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install System Dependencies & FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libxxf86vm1 libxfixes3 libxi6 libxrender1 libgl1-mesa-glx libglu1-mesa xvfb
+
+      - name: Download Blender 5.2.1 LTS
+        run: |
+          echo "Downloading Blender 5.2.1 LTS..."
+          wget -q -c https://download.blender.org/release/Blender5.2/blender-5.2.1-linux-x64.tar.xz
+          tar -xf blender-5.2.1-linux-x64.tar.xz
+          echo "Blender extracted successfully."
+
+      - name: Download Blend File from Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Fetching universal_DJDROP.blend from release assets..."
+          gh release download "render-assets" --pattern "universal_DJDROP.blend" --repo ${{ github.repository }}
+
+      - name: Render Animation Headless
+        run: |
+          mkdir -p farm_frames
+          echo "Starting Blender EEVEE Render (Frames 1-600)..."
+          xvfb-run -a ./blender-5.2.1-linux-x64/blender -b universal_DJDROP.blend \
+            -S "Letters and Earth" \
+            -E BLENDER_EEVEE \
+            -s 1 -e 600 \
+            -o "$(pwd)/farm_frames/frame_####" \
+            -F PNG \
+            -a
+
+      - name: Compile Mobile H.264 MP4 Video
+        run: |
+          echo "Stitching frames into MP4 with faststart..."
+          ffmpeg -y -framerate 24 -i farm_frames/frame_%04d.png \
+            -c:v libx264 -preset slow -crf 18 -pix_fmt yuv420p \
+            -movflags +faststart \
+            DJDROP_intro.mp4
+          ls -lh DJDROP_intro.mp4
+
+      - name: Upload Video Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: DJDROP_intro_mp4
+          path: DJDROP_intro.mp4
+          retention-days: 7
