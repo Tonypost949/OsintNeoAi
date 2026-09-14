@@ -1,0 +1,94 @@
+﻿name: DJ DROP Cloud Render Farm (20-Node Parallel)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  render_chunk:
+    name: Render Frames ${{ matrix.chunk.start }} to ${{ matrix.chunk.end }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        chunk:
+          - { start: 1, end: 30 }
+          - { start: 31, end: 60 }
+          - { start: 61, end: 90 }
+          - { start: 91, end: 120 }
+          - { start: 121, end: 150 }
+          - { start: 151, end: 180 }
+          - { start: 181, end: 210 }
+          - { start: 211, end: 240 }
+          - { start: 241, end: 270 }
+          - { start: 271, end: 300 }
+          - { start: 301, end: 330 }
+          - { start: 331, end: 360 }
+          - { start: 361, end: 390 }
+          - { start: 391, end: 420 }
+          - { start: 421, end: 450 }
+          - { start: 451, end: 480 }
+          - { start: 481, end: 510 }
+          - { start: 511, end: 540 }
+          - { start: 541, end: 570 }
+          - { start: 571, end: 600 }
+    steps:
+      - name: Install System Dependencies for Blender EEVEE
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb libxi6 libgconf-2-4 libxrender1 libxfixes3 libgl1-mesa-glx xz-utils curl wget
+
+      - name: Download Blender 3.6 LTS (More stable for llvmpipe EEVEE)
+        run: |
+          wget -q https://download.blender.org/release/Blender3.6/blender-3.6.11-linux-x64.tar.xz
+          tar -xf blender-3.6.11-linux-x64.tar.xz
+          mv blender-3.6.11-linux-x64 blender
+          
+      - name: Download Blend File
+        run: |
+          curl -L -o universal_DJDROP.blend https://github.com/Tonypost949/OsintNeoAi/releases/download/render-assets/universal_DJDROP.blend
+
+      - name: Render Chunk via xvfb (Software OpenGL)
+        run: |
+          mkdir frames
+          xvfb-run -a ./blender/blender -b universal_DJDROP.blend -S "Letters and Earth" -s ${{ matrix.chunk.start }} -e ${{ matrix.chunk.end }} -a -o //frames/frame_####.png || true
+
+      - name: Upload Frame Chunk Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frames-chunk-${{ matrix.chunk.start }}
+          path: frames/
+
+  compile_video:
+    name: Compile MP4 and Publish
+    needs: render_chunk
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download All Frames
+        uses: actions/download-artifact@v4
+        with:
+          path: all_frames
+          pattern: frames-chunk-*
+          merge-multiple: true
+
+      - name: Install FFmpeg
+        run: sudo apt-get install -y ffmpeg
+
+      - name: Compile FastStart H.264 MP4
+        run: |
+          ffmpeg -y -framerate 24 -i all_frames/frame_%04d.png -c:v libx264 -preset fast -crf 18 -pix_fmt yuv420p -movflags +faststart DJDROP_intro.mp4
+
+      - name: Upload Final Video Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: DJDROP_Final_Video
+          path: DJDROP_intro.mp4
+          
+      - name: Release Video
+        uses: softprops/action-gh-release@v2
+        with:
+          files: DJDROP_intro.mp4
+          tag_name: final-render
+          name: "DJDROP Final Render"
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
