@@ -37,6 +37,7 @@
 * [x] **[TASK-004]** Sepolia Testnet Automated Bounty Simulation (40/30/30 UTXO Split) verified & settled (`data/sepolia_bounty_simulation_receipts.json`).
 * [x] **[TASK-005]** Android Termux Mobile HUD Quick-Launcher deployed (`scripts/termux_cockpit_launcher.sh`).
 * [x] **[TASK-006]** Automated BigQuery Continuous Replication Cron active (`scripts/bigquery_replication_cron.py`).
+* [x] **[TASK-007]** ETP949609 September 11 Phone Theft/Loss Pipeline & 4-Tier Automated Isolation (`scripts/etp_master_takeout_pipeline.py` -> `sept_11_phone_theft_investigation/`, `data/`, `data/metadata/`, `metamedia/`).
 * [x] 19 Native MCP tools registered in `mcp.json`.
 * [x] OSINT Eye View GPS playback & MapLibre 3D vector extrusions live.
 * [x] Tokenized Data Mining Master Architecture & Sepolia contracts verified.
