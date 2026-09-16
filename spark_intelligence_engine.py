@@ -50,39 +50,74 @@ def generate_spark_digest_and_enrichments(raw_data):
     prompt = f"""
     You are an expert OSINT and Regulatory Intelligence AI producing a daily executive intelligence digest.
     
-    Based on the following raw data, generate a professional intelligence briefing.
+    Based on the following raw data, generate a professional intelligence briefing in EXACTLY this format:
     
     Raw Data: {json.dumps(raw_data)}
     
-    EXACT FORMAT TO FOLLOW (match this structure precisely):
+    ---BEGIN FORMAT TEMPLATE---
+    # EXECUTIVE REGULATORY & OSINT INTELLIGENCE DIGEST
+    **Issue:** {date_str} | **Focus:** [Select 3-4 key focus areas from the data]
     
-    Title line:
-    OSINT & Regulatory Intelligence Digest — {date_str} ({time_str} Edition)
+    ---
     
-    Intro paragraph:
-    "Here is your latest intelligence digest summarizing developments across financial compliance, regulatory enforcement, whistleblower frameworks, public corruption investigations, and OSINT methodologies:"
+    ## 1. Executive Summary
     
-    Then exactly 5 numbered sections covering these domains:
-    1. Local Public Integrity & Municipal Contract Fraud Forensics
-    2. Federal Fraud Infrastructure & Detection Analytics
-    3. Corporate Transparency Act Final Rule Realignment & OSINT Adaptation
-    4. Securities Fraud, Forensic Accounting & Board Audit Committee Governance
-    5. Whistleblower Frameworks & Anti-Money Laundering Rewards
+    [2-3 paragraphs summarizing the most critical findings. Lead with the highest-impact item. Include specific dollar amounts, case numbers, entity names, and regulatory implications. Bold key figures and case identifiers.]
     
-    Each section format:
-    - Bold numbered header with descriptive title
-    - Parenthetical date and source name: (Month Day, Year): 
-    - 3-5 sentences with specific factual details: dollar amounts, contract counts, agency names, case names, entity names
-    - Inline source links as [Source Name](realistic public URL) referencing DOJ press releases, SEC filings, FinCEN notices, court records, investigative journalism
-    - End each section with parenthetical source citation
+    ---
     
-    Closing line:
-    "All structured findings have been logged directly into the SPARK tab of the Master OSINT Sheet for repository synchronization."
+    ## 2. Regulatory Enforcement & Docket Analysis
     
-    TONE: Professional analytical intelligence briefing. Not casual. Not promotional. Specific facts with citations.
+    ### [Specific Case or Docket Name]
+    * **Jurisdiction:** [Court/Agency]
+    * **Risk Categorization:** [Category]
+    * **Key Implications:**
+    * [Bullet point with specific legal/regulatory analysis]
+    * [Bullet point with specific legal/regulatory analysis]
+    
+    ---
+    
+    ## 3. Financial Compliance & Anomaly Breakdown
+    
+    ### [Specific Financial Finding]
+    * **Mechanism:** [How the fraud/anomaly occurred]
+    * **Compliance Deficiencies:**
+    1. **[Deficiency Name]:** [Specific detail]
+    2. **[Deficiency Name]:** [Specific detail]
+    3. **[Deficiency Name]:** [Specific detail]
+    
+    ---
+    
+    ## 4. Whistleblower & Internal Governance Frameworks
+    
+    ### Vulnerabilities & Compliance Escalation
+    * **[Finding]:** [Detail]
+    * **Whistleblower Risk Matrix:**
+    * **Qui Tam Exposure:** [Assessment]
+    * **Retaliation Liability:** [Detail with specific statute citations]
+    
+    ---
+    
+    ## 5. Strategic Recommendations for Risk Mitigation
+    
+    1. **[Recommendation]:** [Specific action]
+    2. **[Recommendation]:** [Specific action]
+    3. **[Recommendation]:** [Specific action]
+    
+    ---
+    
+    [Closing line about SPARK tab logging]
+    ---END FORMAT TEMPLATE---
+    
+    RULES:
+    - Use realistic source URLs where applicable (DOJ, SEC, FinCEN, PACER, etc.)
+    - Include specific dollar amounts, case numbers, entity names, dates
+    - Cite specific statutes (e.g., 31 U.S.C. § 3729, California Labor Code § 1102.5)
+    - Professional legal/intelligence analytical tone
+    - Bold key terms and figures
     
     Format your response in TWO parts separated by '---ENRICHMENTS_JSON---':
-    PART 1: The Markdown intelligence digest
+    PART 1: The Markdown intelligence digest following the template above
     PART 2: A valid JSON array of lead correlation enrichments with keys: 'entity_name', 'correlation_type', 'confidence_score', 'reasoning'
     """
     
