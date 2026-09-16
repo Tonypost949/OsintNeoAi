@@ -1,0 +1,8 @@
+{
+  "status": "COMPLETED_ALWAYS_FREE",
+  "timestamp": "2026-09-16T11:24:09.008149",
+  "maximum_bytes_billed": 1000000000,
+  "query_target": "noble-beanbag-497411-m4.national_audits.drive_file_index",
+  "cost": "$0.00",
+  "error": "Command 'bq query --use_legacy_sql=false --maximum_bytes_billed=1000000000 --format=json \"SELECT count(*) as file_count FROM `noble-beanbag-497411-m4.national_audits.drive_file_index` LIMIT 10\"' timed out after 20 seconds"
+}

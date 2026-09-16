@@ -1,16 +1,9 @@
 {
   "student_identity": "anthony.dimarcello@students.post.edu",
-  "subscription_type": "Azure for Students",
-  "annual_credit": "$100.00 USD",
+  "subscription": "Azure for Students ($100 Annual Credit)",
   "credit_card_required": false,
-  "included_free_services": [
-    "750 hours B1s Linux VM per month (12 months free)",
-    "750 hours B1s Windows VM per month (12 months free)",
-    "Azure App Services (10 web apps free)",
-    "Azure Functions (1,000,000 requests/month free)",
-    "Azure Cosmos DB (1,000 RU/s + 25GB storage free)"
-  ],
-  "activation_url": "https://azure.microsoft.com/en-us/free/students/",
-  "updated_at": "2026-09-16T11:17:01.933604",
-  "active_cli_accounts": []
+  "included_vms": "750 hours/month B1s Linux VM + 750 hours/month B1s Windows VM",
+  "verification_url": "https://azure.microsoft.com/en-us/free/students/",
+  "status": "ENTITLEMENT_VERIFIED_ZERO_COST",
+  "timestamp": "2026-09-16T11:25:01.596004"
 }
