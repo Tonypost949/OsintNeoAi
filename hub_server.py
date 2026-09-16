@@ -99,6 +99,13 @@ async def serve_hub():
         return FileResponse(index_file)
     return {"status": "ready", "message": "Chat Hub server running."}
 
+@app.get("/admin")
+async def serve_admin():
+    admin_file = os.path.join(PUBLIC_DIR, "admin_dashboard.html")
+    if os.path.exists(admin_file):
+        return FileResponse(admin_file)
+    return {"status": "error", "message": "Admin dashboard not found."}
+
 @app.post("/api/chat")
 async def chat_endpoint(req: ChatRequest):
     user_msg = req.message.strip()

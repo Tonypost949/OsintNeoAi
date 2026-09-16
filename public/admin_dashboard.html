@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" class="dark h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OSINT Neo AI — Admin Command Center</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { brand: { dark: '#06090e', surface: '#0b111e', card: '#101827', border: '#1b263b', cyan: '#06b6d4', neon: '#38bdf8' } } } }
+    }
+  </script>
+  <style>
+    body { background-color: #06090e; color: #e2e8f0; font-family: 'JetBrains Mono', monospace; }
+    .glass-panel { background: rgba(11, 17, 30, 0.85); backdrop-filter: blur(16px); border: 1px solid rgba(56, 189, 248, 0.15); }
+    .custom-scroll::-webkit-scrollbar { width: 6px; }
+    .custom-scroll::-webkit-scrollbar-track { background: rgba(11, 17, 30, 0.5); }
+    .custom-scroll::-webkit-scrollbar-thumb { background: rgba(56, 189, 248, 0.25); border-radius: 9999px; }
+  </style>
+</head>
+<body class="h-full flex flex-col overflow-hidden">
+  <header class="h-16 px-6 border-b border-brand-border bg-brand-surface/90 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-3.5 h-3.5 rounded-full bg-rose-500 animate-ping"></div>
+      <h1 class="font-orbitron font-bold text-xl text-white">OSINT <span class="text-rose-500">ADMIN</span> BACKEND</h1>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="text-xs text-rose-400 font-bold px-3 py-1 bg-rose-500/10 border border-rose-500/30 rounded">ROOT ACCESS</span>
+    </div>
+  </header>
+
+  <div class="flex-1 flex overflow-hidden">
+    <aside class="w-64 border-r border-brand-border bg-brand-surface p-4 flex flex-col gap-2 overflow-y-auto custom-scroll">
+      <div class="text-[10px] uppercase font-bold text-slate-400 mb-2 tracking-wider">All Tools & Data</div>
+      <button onclick="loadView('mcp')" class="text-left px-3 py-2 rounded bg-slate-800/50 hover:bg-slate-700 text-sm text-cyan-300 border border-transparent hover:border-cyan-500/50 transition">
+        <i class="fa-solid fa-microchip w-5"></i> 19 MCP Tools
+      </button>
+      <button onclick="loadView('bq')" class="text-left px-3 py-2 rounded bg-slate-800/50 hover:bg-slate-700 text-sm text-purple-300 border border-transparent hover:border-purple-500/50 transition">
+        <i class="fa-solid fa-database w-5"></i> BigQuery Engine
+      </button>
+      <button onclick="loadView('logs')" class="text-left px-3 py-2 rounded bg-slate-800/50 hover:bg-slate-700 text-sm text-emerald-300 border border-transparent hover:border-emerald-500/50 transition">
+        <i class="fa-solid fa-terminal w-5"></i> System Logs
+      </button>
+      <button onclick="loadView('graph')" class="text-left px-3 py-2 rounded bg-slate-800/50 hover:bg-slate-700 text-sm text-amber-300 border border-transparent hover:border-amber-500/50 transition">
+        <i class="fa-solid fa-diagram-project w-5"></i> Graph Explorer
+      </button>
+      <button onclick="triggerOvernight()" class="mt-8 text-left px-3 py-2 rounded bg-rose-900/50 hover:bg-rose-800 text-sm text-rose-300 border border-rose-500/50 transition font-bold">
+        <i class="fa-solid fa-bolt w-5"></i> Run /goal Deep Dive
+      </button>
+    </aside>
+
+    <main class="flex-1 p-6 overflow-y-auto custom-scroll" id="main-content">
+      <div class="glass-panel p-6 rounded-xl">
+        <h2 class="text-2xl font-orbitron font-bold text-white mb-4">Welcome to Admin Backend</h2>
+        <p class="text-slate-400 text-sm">Select a module from the left to access root-level tools and data streams.</p>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function loadView(view) {
+      const main = document.getElementById('main-content');
+      if(view === 'mcp') {
+        main.innerHTML = `<div class="glass-panel p-6 rounded-xl"><h2 class="text-xl font-orbitron font-bold text-cyan-400 mb-4">MCP Tool Execution</h2><div class="grid grid-cols-2 gap-4">` +
+        ['osint_lookup_person', 'osint_lookup_email', 'osint_lookup_phone', 'osint_lookup_domain', 'osint_lookup_ip', 'osint_search_entity', 'osint_court_records', 'osint_property_records', 'osint_crypto_wallet', 'osint_system_health'].map(t => `<button class="p-3 bg-slate-900 border border-slate-700 rounded text-left hover:border-cyan-400 transition" onclick="alert('Executing ${t}...')"><i class="fa-solid fa-play text-cyan-500 mr-2"></i> ${t}</button>`).join('') +
+        `</div></div>`;
+      } else if (view === 'bq') {
+        main.innerHTML = `<div class="glass-panel p-6 rounded-xl"><h2 class="text-xl font-orbitron font-bold text-purple-400 mb-4">BigQuery Console</h2><textarea class="w-full h-32 bg-black border border-slate-700 rounded p-2 text-white font-mono text-sm" placeholder="SELECT * FROM noble-beanbag-497411-m4..."></textarea><button class="mt-4 px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded font-bold">Run Query</button></div>`;
+      } else if (view === 'logs') {
+        main.innerHTML = `<div class="glass-panel p-6 rounded-xl h-full flex flex-col"><h2 class="text-xl font-orbitron font-bold text-emerald-400 mb-4">Live System Logs</h2><div class="flex-1 bg-black border border-slate-700 rounded p-4 text-emerald-500 text-xs overflow-y-auto">[SYSTEM] Admin logged in...<br>[MCP] Loaded 19 tools.<br>[BQ] noble-beanbag-497411-m4 connected.</div></div>`;
+      } else if (view === 'graph') {
+        main.innerHTML = `<div class="glass-panel p-6 rounded-xl h-full flex flex-col"><h2 class="text-xl font-orbitron font-bold text-amber-400 mb-4">Forensic Graph Engine</h2><div class="flex-1 bg-slate-900 border border-slate-700 rounded flex items-center justify-center text-slate-500">Graph Visualization Canvas (WebGL)</div></div>`;
+      }
+    }
+    function triggerOvernight() {
+      const main = document.getElementById('main-content');
+      main.innerHTML = `<div class="glass-panel p-6 rounded-xl border-rose-500/50"><h2 class="text-xl font-orbitron font-bold text-rose-400 mb-4">Autonomous Deep Dive Initiated</h2><div class="bg-black border border-rose-900 rounded p-4 text-rose-300 text-xs animate-pulse">Running continuous deep forensic extraction, lead correlation, and BigQuery data mining on all targets...<br>> Nodes Analyzed: 0<br>> Extracting leads...</div></div>`;
+      alert("Triggering overnight deep-dive script in backend.");
+    }
+  </script>
+</body>
+</html>

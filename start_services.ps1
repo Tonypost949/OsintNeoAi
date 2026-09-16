@@ -1,0 +1,5 @@
+echo "[+] Starting OSINT Neo AI Services..."
+Start-Process -NoNewWindow -FilePath "python" -ArgumentList "hub_server.py"
+Start-Process -NoNewWindow -FilePath "python" -ArgumentList "scripts/autonomous_enrichment_worker.py"
+Start-Process -NoNewWindow -FilePath "python" -ArgumentList "scripts/overnight_deep_dive.py"
+echo "[✓] Hub Server, Autonomous Worker, and Deep Dive engines launched in background."
