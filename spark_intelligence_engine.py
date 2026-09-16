@@ -42,14 +42,48 @@ def generate_spark_digest_and_enrichments(raw_data):
     if not client:
         return "GEMINI_API_KEY_MISSING", []
         
+    from datetime import datetime, timezone
+    now = datetime.now(timezone.utc)
+    date_str = now.strftime("%B %d, %Y")
+    time_str = now.strftime("%H:%M")
+    
     prompt = f"""
-    You are an expert OSINT and Regulatory Intelligence AI. 
-    Based on the following raw data, generate an executive digest covering financial compliance, regulatory enforcement, and whistleblower frameworks.
+    You are an expert OSINT and Regulatory Intelligence AI producing a daily executive intelligence digest.
+    
+    Based on the following raw data, generate a professional intelligence briefing.
+    
     Raw Data: {json.dumps(raw_data)}
     
+    EXACT FORMAT TO FOLLOW (match this structure precisely):
+    
+    Title line:
+    OSINT & Regulatory Intelligence Digest — {date_str} ({time_str} Edition)
+    
+    Intro paragraph:
+    "Here is your latest intelligence digest summarizing developments across financial compliance, regulatory enforcement, whistleblower frameworks, public corruption investigations, and OSINT methodologies:"
+    
+    Then exactly 5 numbered sections covering these domains:
+    1. Local Public Integrity & Municipal Contract Fraud Forensics
+    2. Federal Fraud Infrastructure & Detection Analytics
+    3. Corporate Transparency Act Final Rule Realignment & OSINT Adaptation
+    4. Securities Fraud, Forensic Accounting & Board Audit Committee Governance
+    5. Whistleblower Frameworks & Anti-Money Laundering Rewards
+    
+    Each section format:
+    - Bold numbered header with descriptive title
+    - Parenthetical date and source name: (Month Day, Year): 
+    - 3-5 sentences with specific factual details: dollar amounts, contract counts, agency names, case names, entity names
+    - Inline source links as [Source Name](realistic public URL) referencing DOJ press releases, SEC filings, FinCEN notices, court records, investigative journalism
+    - End each section with parenthetical source citation
+    
+    Closing line:
+    "All structured findings have been logged directly into the SPARK tab of the Master OSINT Sheet for repository synchronization."
+    
+    TONE: Professional analytical intelligence briefing. Not casual. Not promotional. Specific facts with citations.
+    
     Format your response in TWO parts separated by '---ENRICHMENTS_JSON---':
-    1. A professional Markdown intelligence digest (similar to an executive newsletter).
-    2. A valid JSON array of new lead correlation enrichments containing keys: 'entity_name', 'correlation_type', 'confidence_score', 'reasoning'.
+    PART 1: The Markdown intelligence digest
+    PART 2: A valid JSON array of lead correlation enrichments with keys: 'entity_name', 'correlation_type', 'confidence_score', 'reasoning'
     """
     
     max_retries = 3
@@ -76,7 +110,7 @@ def generate_spark_digest_and_enrichments(raw_data):
                     
             return digest_md, enrichments
         except Exception as e:
-            if "429" in str(e) or "quota" in str(e).lower():
+            if "429" in str(e) or "quota" in str(e).lower() or "503" in str(e) or "UNAVAILABLE" in str(e):
                 wait = 60 * (attempt + 1)
                 print(f"⚠️ Rate limited (attempt {attempt+1}/{max_retries}). Waiting {wait}s...")
                 time.sleep(wait)
