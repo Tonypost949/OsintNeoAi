@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINT NEO AI — MASTER ADMIN DASHBOARD OF EVERYTHING</title>
+    <style>
+        :root {
+            --bg-primary: #0a0c10;
+            --bg-secondary: #12161f;
+            --bg-card: #1a202c;
+            --accent-cyan: #00f0ff;
+            --accent-green: #00ff66;
+            --accent-gold: #ffb700;
+            --accent-purple: #9d00ff;
+            --accent-red: #ff3366;
+            --text-main: #f0f4f8;
+            --text-muted: #8a99ad;
+            --border-color: #2d3748;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* ── Top Header Navigation ── */
+        header {
+            background: linear-gradient(90deg, #0d1117 0%, #161b22 100%);
+            border-bottom: 2px solid var(--accent-cyan);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 240, 255, 0.15);
+            z-index: 10;
+        }
+
+        .brand-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+        }
+
+        .brand-badge {
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid var(--accent-cyan);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--accent-green);
+        }
+
+        .system-status-bar {
+            display: flex;
+            gap: 20px;
+            font-size: 0.85rem;
+        }
+
+        .status-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-secondary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--accent-green);
+            box-shadow: 0 0 8px var(--accent-green);
+        }
+
+        .dot.purple {
+            background-color: var(--accent-purple);
+            box-shadow: 0 0 8px var(--accent-purple);
+        }
+
+        .dot.gold {
+            background-color: var(--accent-gold);
+            box-shadow: 0 0 8px var(--accent-gold);
+        }
+
+        /* ── Main Layout ── */
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* ── Sidebar Navigation ── */
+        sidebar {
+            width: 280px;
+            background-color: var(--bg-secondary);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            padding: 16px 0;
+            overflow-y: auto;
+        }
+
+        .nav-section-title {
+            padding: 12px 20px 6px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .nav-item:hover {
+            background-color: rgba(0, 240, 255, 0.05);
+            color: var(--accent-cyan);
+        }
+
+        .nav-item.active {
+            background-color: rgba(0, 240, 255, 0.1);
+            color: var(--accent-cyan);
+            border-left-color: var(--accent-cyan);
+        }
+
+        .nav-icon {
+            font-size: 1.1rem;
+        }
+
+        /* ── Main Viewport ── */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-primary);
+            position: relative;
+        }
+
+        .view-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #000;
+        }
+
+        /* ── Ticker Footer ── */
+        footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 8px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .ticker {
+            display: flex;
+            gap: 30px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .ticker-item {
+            display: flex;
+            gap: 8px;
+        }
+
+        .ticker-label {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-title">
+            <span>🛡️ OSINT NEO AI</span>
+            <span class="brand-badge">MASTER ADMIN CONTROL</span>
+        </div>
+        <div class="system-status-bar">
+            <div class="status-pill">
+                <div class="dot"></div>
+                <span>Ubuntu WSL: agy v1.2.4</span>
+            </div>
+            <div class="status-pill">
+                <div class="dot purple"></div>
+                <span>Kali Linux WSL: agy v1.2.4</span>
+            </div>
+            <div class="status-pill">
+                <div class="dot gold"></div>
+                <span>14 AI Laws Active</span>
+            </div>
+            <div class="status-pill">
+                <div class="dot"></div>
+                <span>BigQuery Synced</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <sidebar>
+            <div class="nav-section-title">Master Control Center</div>
+            <div class="nav-item active" onclick="loadView('workspace_v2.html', this)">
+                <span class="nav-icon">🌐</span> Master Workspace v2
+            </div>
+            <div class="nav-item" onclick="loadView('tasks.html', this)">
+                <span class="nav-icon">⚖️</span> Task System & 14 AI Laws
+            </div>
+
+            <div class="nav-section-title">Intelligence & Tools</div>
+            <div class="nav-item" onclick="loadView('osint_toolkit_hub.html', this)">
+                <span class="nav-icon">🧰</span> OSINT Toolkit Hub (30+ Tools)
+            </div>
+            <div class="nav-item" onclick="loadView('interactive_evidence_showcase.html', this)">
+                <span class="nav-icon">📂</span> Interactive Evidence Showcase
+            </div>
+            <div class="nav-item" onclick="loadView('taxfunded_explorer.html', this)">
+                <span class="nav-icon">🏛️</span> Tax-Funded Enterprise Explorer
+            </div>
+
+            <div class="nav-section-title">Tactical GIS & Mapping</div>
+            <div class="nav-item" onclick="loadView('badass_arcgis_tactical_map.html', this)">
+                <span class="nav-icon">🗺️</span> 3D ArcGIS Tactical Map
+            </div>
+            <div class="nav-item" onclick="loadView('master_tactical_gis.html', this)">
+                <span class="nav-icon">📡</span> Nationwide Pipeline GIS
+            </div>
+
+            <div class="nav-section-title">System & Execution</div>
+            <div class="nav-item" onclick="loadView('terminal.html', this)">
+                <span class="nav-icon">💻</span> Interactive Web Terminal
+            </div>
+            <div class="nav-item" onclick="loadView('account_connect_hub.html', this)">
+                <span class="nav-icon">🔑</span> 31 Identity Accounts Registry
+            </div>
+            <div class="nav-item" onclick="loadView('index.html', this)">
+                <span class="nav-icon">🚀</span> System Portal Landing Page
+            </div>
+        </sidebar>
+
+        <main>
+            <iframe id="main-viewport" class="view-frame" src="workspace_v2.html"></iframe>
+        </main>
+    </div>
+
+    <footer>
+        <div class="ticker">
+            <div class="ticker-item"><span class="ticker-label">ROOT:</span> C:\OsintNeoAi</div>
+            <div class="ticker-item"><span class="ticker-label">GITHUB:</span> Tonypost949/OsintNeoAi (main)</div>
+            <div class="ticker-item"><span class="ticker-label">GDRIVE:</span> Sharedall/OsintNeoAi/ (Live Sync)</div>
+            <div class="ticker-item"><span class="ticker-label">TARGETS:</span> 31 Gmail/OneDrive/EDU Accounts</div>
+        </div>
+        <div>OSINT Neo AI Master Admin Dash v1.0</div>
+    </footer>
+
+    <script>
+        function loadView(url, element) {
+            document.getElementById('main-viewport').src = url;
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            if(element) element.classList.add('active');
+        }
+    </script>
+</body>
+</html>
