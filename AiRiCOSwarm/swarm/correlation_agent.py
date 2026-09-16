@@ -1,4 +1,4 @@
-﻿"""RICOCorrelationAgent: Deep semantic reasoning with Gemini AI and rule-based predicate detection."""
+"""RICOCorrelationAgent: Deep semantic reasoning with Gemini AI and rule-based predicate detection."""
 
 import os
 import re
@@ -18,9 +18,16 @@ class RICOCorrelationAgent:
             try:
                 from google import genai
                 self.ai_client = genai.Client(api_key=api_key)
-                print("[CORRELATION] Gemini AI Generative Client enabled.")
-            except Exception as e:
-                print(f"[CORRELATION] AI init fallback to rule-based: {e}")
+                print("[CORRELATION] Gemini AI (google.genai) Client enabled.")
+            except Exception:
+                try:
+                    import google.generativeai as genai_alt
+                    genai_alt.configure(api_key=api_key)
+                    self.ai_client = genai_alt
+                    self._use_legacy = True
+                    print("[CORRELATION] Gemini AI (google.generativeai) Client enabled.")
+                except Exception as e2:
+                    print(f"[CORRELATION] AI init fallback to rule-based: {e2}")
         else:
             print("[CORRELATION] Running in deterministic rule-based predicate mode.")
 
