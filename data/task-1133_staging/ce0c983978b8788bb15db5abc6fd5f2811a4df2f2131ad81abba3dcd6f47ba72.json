@@ -1,0 +1,19 @@
+{
+  "receipt_hash": "ce0c983978b8788bb15db5abc6fd5f2811a4df2f2131ad81abba3dcd6f47ba72",
+  "parent_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "timestamp_unix": 1789413189,
+  "timestamp_iso": "2026-09-14T19:13:09.985460+00:00",
+  "source_origin": "OSINTNeoAI_Main",
+  "genesis_type": "CORP_ENTITY_WIKI",
+  "target_entity": "Woodbridge Apartments",
+  "raw_payload": "Woodbridge apartments illegally evicted me",
+  "ledger_value": 0.0,
+  "verification_status": "UNVERIFIED_GENESIS",
+  "enrichment_status": "PENDING_AUTONOMOUS_REVIEW",
+  "metadata": {
+    "wallet": "ANONYMOUS",
+    "client_meta": {},
+    "pipeline": "TASK-084-WIF-INGEST"
+  },
+  "persisted_to_bq": false
+}

@@ -1,0 +1,19 @@
+{
+  "receipt_hash": "6b0ce0ccaa0a7de9f52e5ac454cebdd6534fdb9298c6ac4c7181ffeb4ed02000",
+  "parent_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "timestamp_unix": 1789434167,
+  "timestamp_iso": "2026-09-15T01:02:47.502541+00:00",
+  "source_origin": "WEBHOOK_API",
+  "genesis_type": "CORP_ENTITY_WIKI",
+  "target_entity": "TEST",
+  "raw_payload": "TEST payload from TaxFunded for user test_user_001",
+  "ledger_value": 0.0,
+  "verification_status": "UNVERIFIED_GENESIS",
+  "enrichment_status": "PENDING_AUTONOMOUS_REVIEW",
+  "metadata": {
+    "wallet": "ANONYMOUS",
+    "client_meta": {},
+    "pipeline": "TASK-084-WIF-INGEST"
+  },
+  "persisted_to_bq": false
+}
