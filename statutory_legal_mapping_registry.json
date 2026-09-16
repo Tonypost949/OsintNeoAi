@@ -1,23 +1,29 @@
 {
-  "event_description": "17631 Cameron & 17642 Beach Blvd land purchase and 1-year asphalt cap contract.",
+  "event_description": "Test legal contract mapping with Law IDs",
   "event_type": "FINANCIAL_COST_AND_CONTRACTS",
   "governing_statutes_linked": [
     {
+      "law_id": "LAW-001",
       "code": "Cal. Gov. Code \u00a7 1090",
       "title": "Prohibition Against Financial Interest in Public Contracts",
-      "scope": "Applies to all public purchases, land deals, trade agreements, and vendor contracts."
+      "scope": "Applies to all public purchases, land deals, trade agreements, and vendor contracts.",
+      "hyperlink": "[Cal. Gov. Code \u00a7 1090](file:///C:/OsintNeoAi/statutory_legal_mapping_registry.json#L6-L10)"
     },
     {
+      "law_id": "LAW-002",
       "code": "Cal. Gov. Code \u00a7 87100 (PRA)",
       "title": "Conflict of Interest & Form 700 Disclosure",
-      "scope": "Mandates full disclosure of economic interests by public officials and land trusts."
+      "scope": "Mandates full disclosure of economic interests by public officials and land trusts.",
+      "hyperlink": "[Cal. Gov. Code \u00a7 87100](file:///C:/OsintNeoAi/statutory_legal_mapping_registry.json#L11-L15)"
     },
     {
+      "law_id": "LAW-003",
       "code": "31 U.S.C. \u00a7 3729 (False Claims Act)",
       "title": "Federal Qui Tam & Public Waste Liability",
-      "scope": "Applies to fraudulent billing or improper government contract expenditures."
+      "scope": "Applies to fraudulent billing or improper government contract expenditures.",
+      "hyperlink": "[31 U.S.C. \u00a7 3729](file:///C:/OsintNeoAi/statutory_legal_mapping_registry.json#L16-L20)"
     }
   ],
   "mandatory_repo_rule": "EVERY COST, DEAL, OR RISK MUST BE STATUTORILY LINKED TO LEGAL DATA IN LEGAL SECTION",
-  "timestamp": "2026-09-05T22:04:41.726070"
+  "timestamp": "2026-09-16T11:26:35.259172"
 }
