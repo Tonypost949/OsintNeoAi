@@ -1,0 +1,42 @@
+{
+  "scraped_at": "2026-09-16T06:20:35.861825",
+  "base_url": "https://www.ocgis.com/survey/rest/services",
+  "total_records": 0,
+  "layers": [
+    {
+      "layer": "OCLandInsights/Geodetic/999018",
+      "name": "Horizontal_Control_Points",
+      "records": 0
+    },
+    {
+      "layer": "OCLandInsights/Geodetic/999020",
+      "name": "Vertical_Control_Points",
+      "records": 0
+    },
+    {
+      "layer": "OCLandInsights/Geodetic/0",
+      "name": "Geodetic_Levels_Table",
+      "records": 0
+    },
+    {
+      "layer": "Landbase/Landbase_Lines/0",
+      "name": "Landbase_Lines",
+      "records": 0
+    },
+    {
+      "layer": "Landbase/RoWService/0",
+      "name": "RoW_Service",
+      "records": 0
+    },
+    {
+      "layer": "Landbase/TentativeMaps/10",
+      "name": "Tentative_Maps",
+      "records": 0
+    },
+    {
+      "layer": "Landbase/MapLayers/0",
+      "name": "Map_Layers",
+      "records": 0
+    }
+  ]
+}
