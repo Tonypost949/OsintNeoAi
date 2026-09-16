@@ -1,0 +1,20 @@
+{
+  "edu_account": "anthony.dimarcello@students.post.edu",
+  "google_cloud_always_free": {
+    "bigquery": "10 GB storage + 1 TB query processing per month (FREE forever)",
+    "cloud_shell": "100% Free 5GB persistent Linux VM & Web Preview (https://shell.cloud.google.com)",
+    "cloud_run": "2 Million requests / 360,000 GB-seconds per month FREE",
+    "cloud_functions": "2 Million invocations per month FREE",
+    "gcs": "5 GB-months standard storage FREE"
+  },
+  "google_ai_free_tier": {
+    "ai_studio_gemini_api": "15 RPM, 1M TPM, 1,500 RPD FREE (https://aistudio.google.com)",
+    "google_colab": "Free T4 GPU & TPU notebook acceleration (https://colab.research.google.com)",
+    "kaggle_gpu_tpu": "30 hrs/wk free P100/T4 GPU + 20 hrs/wk TPU v3-8 (https://www.kaggle.com)"
+  },
+  "student_edu_perks": {
+    "gcp_education_credits": "Up to $500 free semester credits (https://edu.google.com/programs/credits/)",
+    "github_student_pack": "Free Azure $100, free JetBrains, free domains (https://education.github.com/pack)",
+    "qwiklabs_cloud_skills": "Free hands-on GCP lab sandboxes (https://www.cloudskillsboost.google)"
+  }
+}
