@@ -1,0 +1,12 @@
+[
+  {
+    "timestamp": "2026-09-16T11:45:24.178773",
+    "daemon_status": "RUNNING_24_7",
+    "target_location": "17631 Cameron Ln, Huntington Beach, CA",
+    "active_tasks": [
+      "OCGIS Land Insights Historical APN Scraper",
+      "BigQuery Municipal Table Indexer",
+      "EDR Historical Data Extractor"
+    ]
+  }
+]
