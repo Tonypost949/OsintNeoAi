@@ -3,19 +3,21 @@ import json
 import csv
 import hashlib
 import smtplib
+import time
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime, timezone
 from pathlib import Path
-import google.generativeai as genai
+from google import genai
 from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
+client = None
 if GEMINI_API_KEY:
-    genai.configure(api_key=GEMINI_API_KEY)
+    client = genai.Client(api_key=GEMINI_API_KEY)
 else:
     print("⚠️ Warning: GEMINI_API_KEY not found in environment.")
 
@@ -37,10 +39,9 @@ def generate_spark_digest_and_enrichments(raw_data):
     """
     print("[*] Engaging Gemini (Spark) to generate intelligence digest and lead enrichments...")
     
-    if not GEMINI_API_KEY:
+    if not client:
         return "GEMINI_API_KEY_MISSING", []
         
-    model = genai.GenerativeModel('gemini-3.7-flash')
     prompt = f"""
     You are an expert OSINT and Regulatory Intelligence AI. 
     Based on the following raw data, generate an executive digest covering financial compliance, regulatory enforcement, and whistleblower frameworks.
@@ -51,28 +52,40 @@ def generate_spark_digest_and_enrichments(raw_data):
     2. A valid JSON array of new lead correlation enrichments containing keys: 'entity_name', 'correlation_type', 'confidence_score', 'reasoning'.
     """
     
-    try:
-        response = model.generate_content(prompt)
-        text = response.text
-        
-        parts = text.split("---ENRICHMENTS_JSON---")
-        digest_md = parts[0].strip()
-        enrichments = []
-        
-        if len(parts) > 1:
-            try:
-                enrichments_text = parts[1].strip()
-                # Clean up markdown code blocks if present
-                if enrichments_text.startswith("```json"):
-                    enrichments_text = enrichments_text[7:-3].strip()
-                enrichments = json.loads(enrichments_text)
-            except json.JSONDecodeError as e:
-                print(f"⚠️ Failed to parse enrichments JSON: {e}")
-                
-        return digest_md, enrichments
-    except Exception as e:
-        print(f"⚠️ Gemini API Error: {e}")
-        return "ERROR_GENERATING_DIGEST", []
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            response = client.models.generate_content(
+                model='gemini-3.6-flash',
+                contents=prompt
+            )
+            text = response.text
+            
+            parts = text.split("---ENRICHMENTS_JSON---")
+            digest_md = parts[0].strip()
+            enrichments = []
+            
+            if len(parts) > 1:
+                try:
+                    enrichments_text = parts[1].strip()
+                    if enrichments_text.startswith("```json"):
+                        enrichments_text = enrichments_text[7:-3].strip()
+                    enrichments = json.loads(enrichments_text)
+                except json.JSONDecodeError as e:
+                    print(f"⚠️ Failed to parse enrichments JSON: {e}")
+                    
+            return digest_md, enrichments
+        except Exception as e:
+            if "429" in str(e) or "quota" in str(e).lower():
+                wait = 60 * (attempt + 1)
+                print(f"⚠️ Rate limited (attempt {attempt+1}/{max_retries}). Waiting {wait}s...")
+                time.sleep(wait)
+            else:
+                print(f"⚠️ Gemini API Error: {e}")
+                return "ERROR_GENERATING_DIGEST", []
+    
+    print("⚠️ Gemini API: Max retries exceeded.")
+    return "ERROR_GENERATING_DIGEST", []
 
 def save_and_hash_digest(digest_md, report_date):
     """
