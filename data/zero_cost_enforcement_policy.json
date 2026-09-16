@@ -1,0 +1,31 @@
+{
+  "policy_name": "STRICT_ZERO_REAL_MONEY_POLICY",
+  "status": "ENFORCED_PERMANENTLY",
+  "updated_at": "2026-09-16T11:03:33.003011",
+  "rules": [
+    {
+      "id": "RULE-FREE-1",
+      "name": "Always-Free Priority",
+      "description": "Must exhaust 100% Always-Free tiers before touching any promotional or student credits."
+    },
+    {
+      "id": "RULE-FREE-2",
+      "name": "Zero Real Money Policy",
+      "description": "NEVER enable paid features or billing resources that can draw from credit cards or generate real bills."
+    },
+    {
+      "id": "RULE-FREE-3",
+      "name": "Credit Guardrails",
+      "description": "Promotional credits (e.g. $100-$500 Edu grants, $200 DigitalOcean, $100 Azure) may only be used after setup is complete and zero risk of overage exists."
+    }
+  ],
+  "approved_free_services": [
+    "Google Cloud Shell (5GB Free Linux VM)",
+    "Google AI Studio Gemini API Free Tier (15 RPM / 1M TPM)",
+    "BigQuery Always-Free (10 GB storage / 1 TB SQL queries per month)",
+    "Oracle Cloud Always-Free ARM VPS (4 vCPU / 24 GB RAM / 200 GB Storage)",
+    "Azure for Students ($100 Credit - No Credit Card Required)",
+    "DigitalOcean Student Pack ($200 Credit for 12 Months via .edu)",
+    "Cloudflare Pages & Workers Free Tier"
+  ]
+}
