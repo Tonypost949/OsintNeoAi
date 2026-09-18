@@ -48,10 +48,11 @@ always_on: true
    - Mandatory `.gitignore` must be placed in every instance to secure keys and payment info.
    - Standard baseline structure: `Amd949609_keys/`, `payment_info/`, `cloud_storage/`, `summaries/`, `scripts/`, `mcp_configs/`, `skills/`, `plugins/`, `docs/`, `tasks/`, `.gitignore`, `00_INSTRUCTIONS.md`, and `user_nodes.csv` (with Label as primary mandatory node).
    - This folder (`C:\Amd949609_Antigravity_v1`) is the **single unified home** for all user data, keys, credentials, and cross-AI tools.
+   - **Google Sharedall Drive Backup Requirement:** A live backup copy of this folder (`C:\Amd949609_Antigravity_v1`) must always be maintained on Google Sharedall Drive via `rclone` (`gdrive:Sharedall/Amd949609_Antigravity_v1`).
 
 10. **Mandatory Cross-AI Tool Sharing in the Unified User Folder:**
-    - All AI agents, models, and subagents must share and maintain all tools, scripts, MCP configs, and capabilities universally within the user profile folder (`C:\<username>_<AI_Name_Version>\`).
-    - No separate fragmented tool folders are permitted. Any tool, script, or workflow created or upgraded by an AI must be deposited directly into `C:\<username>_<AI_Name_Version>\` so all AI instances have immediate access.
+    - All AI agents, models, and subagents must share and maintain all tools, scripts, MCP configs, and capabilities universally within the primary user profile folder (`C:\Amd949609_Antigravity_v1\`).
+    - No separate fragmented tool folders are permitted. Any tool, script, or workflow created or upgraded by an AI must be deposited directly into `C:\Amd949609_Antigravity_v1\` so all AI instances have immediate access.
 
 11. **Explicit Full URLs & File Paths (No Obfuscated Links):**
     - Any data that has a URL or file path must have the full, explicit, entire URL and/or exact file path written out in plain text (e.g. `https://github.com/Tonypost949/ailaws`, `C:\Windows\System32`).
