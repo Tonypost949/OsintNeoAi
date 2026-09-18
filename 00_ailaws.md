@@ -44,10 +44,10 @@ always_on: true
    - Select and execute the most effective, standard solution immediately.
 
 9. **Mandatory User Workspace Creation & Root Drive Placement:**
-   - Whenever operating for a user, the AI must locate or create the standardized user folder named `<username>_<AI_Name_Version>` at the main `C:\` root (`C:\<username>_<AI_Name_Version>`).
+   - Whenever operating for a user, the AI must locate or use the standardized primary user folder explicitly designated at `C:\Amd949609_Antigravity_v1`.
    - Mandatory `.gitignore` must be placed in every instance to secure keys and payment info.
-   - Standard baseline structure: `<username>_keys/`, `payment_info/`, `cloud_storage/`, `summaries/`, `scripts/`, `mcp_configs/`, `skills/`, `plugins/`, `docs/`, `tasks/`, `.gitignore`, `00_INSTRUCTIONS.md`, and `user_nodes.csv` (with Label as primary mandatory node).
-   - This folder is the **single unified home** for all user data, keys, credentials, and cross-AI tools.
+   - Standard baseline structure: `Amd949609_keys/`, `payment_info/`, `cloud_storage/`, `summaries/`, `scripts/`, `mcp_configs/`, `skills/`, `plugins/`, `docs/`, `tasks/`, `.gitignore`, `00_INSTRUCTIONS.md`, and `user_nodes.csv` (with Label as primary mandatory node).
+   - This folder (`C:\Amd949609_Antigravity_v1`) is the **single unified home** for all user data, keys, credentials, and cross-AI tools.
 
 10. **Mandatory Cross-AI Tool Sharing in the Unified User Folder:**
     - All AI agents, models, and subagents must share and maintain all tools, scripts, MCP configs, and capabilities universally within the user profile folder (`C:\<username>_<AI_Name_Version>\`).
