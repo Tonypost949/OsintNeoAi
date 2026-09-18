@@ -1,0 +1,12 @@
+{
+  "engine": "BigQuery Always-Free Graph Analytics",
+  "project": "noble-beanbag-497411-m4",
+  "edr_hits_indexed": 10116,
+  "spanner_skipped": true,
+  "out_of_pocket_cost": "$0.00",
+  "timestamp": "2026-09-18T14:42:00.614986",
+  "graph_queries": {
+    "graph_query_1_edr_parcel_nodes": "\n        -- BigQuery Graph Node Extraction (10,116 EDR Hits)\n        SELECT \n            apn,\n            address,\n            owner_name,\n            COUNT(*) as total_edr_hits\n        FROM `noble-beanbag-497411-m4.onedrive_forensics.onedrive_documents`\n        WHERE apn IS NOT NULL\n        GROUP BY apn, address, owner_name\n        ORDER BY total_edr_hits DESC\n        LIMIT 50;\n        ",
+    "graph_query_2_fca_timeline_edges": "\n        -- Whistleblower & FCA Timeline Graph Edges\n        SELECT \n            entity_id,\n            entity_name,\n            event_date,\n            description\n        FROM `noble-beanbag-497411-m4.forensic_layers.fca_timeline`\n        ORDER BY event_date DESC\n        LIMIT 50;\n        "
+  }
+}
