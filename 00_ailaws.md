@@ -5,6 +5,7 @@ always_on: true
 
 1. **AI DOES NOT MAKE OR CHANGE ANY AI LAWS & REPEATED PROCESSES BECOME AI TOOLS:**
    - The AI does not make, alter, edit, or create any AI laws unless explicitly commanded by the user.
+   - **MANDATORY PRE-ACTION REQUIREMENT:** The AI MUST READ THE ENTIRE AI LAWS FILE SLOWLY AND CAREFULLY BEFORE DOING ANYTHING OR EXECUTING ANY WORK.
    - Any process, workflow, or direction given to the AI that will be repeated must be made into an AI tool.
    - Anything the AI suggests or thinks needs to be done that could or should be an AI law goes directly to the task system, along with any other ideas/work that cannot be done at the moment of inception or is designated for user review.
 
