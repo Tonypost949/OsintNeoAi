@@ -1,0 +1,151 @@
+{
+  "status": "COMPLETED",
+  "generated_at": "2026-09-18T13:15:52.025922",
+  "total_matches_processed": 7,
+  "matches": [
+    {
+      "record_id": "court_photo_1",
+      "source": "court_docs_photos_index",
+      "filename": "IMG_COURT_DOC_001.jpg",
+      "account": "amd949609@gmail.com",
+      "category": "COURT_PLEADING_AFFIDAVIT",
+      "timestamp": "2026-09-18 06:27:35",
+      "ocr_text": "UNITED STATES DISTRICT COURT - DISTRICT OF MASSACHUSETTS. CIVIL ACTION NO. 1:24-cv-10001. DEFENDANT PROCESS SERVICE FRAUD AFFIDAVIT OF INSUFFICIENT SERVICE.",
+      "matched_timeline_nodes": [
+        "North Shore Regional Node",
+        "Plymouth/Duxbury Nexus",
+        "Federal Indictment Node"
+      ]
+    },
+    {
+      "record_id": "court_photo_2",
+      "source": "court_docs_photos_index",
+      "filename": "IMG_COURT_DOC_002.jpg",
+      "account": "anthonymichaeldimarcello@gmail.com",
+      "category": "DEFAULT_JUDGMENT_NOTICE",
+      "timestamp": "2026-09-18 06:27:35",
+      "ocr_text": "COMMONWEALTH OF MASSACHUSETTS TRIAL COURT DOCKET NO. 2483CV00112 - DEFAULT JUDGMENT ENTRY & NOTICE OF LEVY.",
+      "matched_timeline_nodes": [
+        "North Shore Regional Node",
+        "Plymouth/Duxbury Nexus",
+        "Federal Indictment Node"
+      ]
+    },
+    {
+      "record_id": "court_photo_3",
+      "source": "court_docs_photos_index",
+      "filename": "IMG_COURT_DOC_003.jpg",
+      "account": "txtdjdrop@outlook.com",
+      "category": "SUBPOENA_EVIDENCE",
+      "timestamp": "2026-09-18 06:27:35",
+      "ocr_text": "SUBPOENA DUCES TECUM - IN RE FRAUDULENT PROCESS SERVICE ENTITIES AND PROOF OF SERVICE FALSIFICATION.",
+      "matched_timeline_nodes": [
+        "North Shore Regional Node",
+        "Plymouth/Duxbury Nexus",
+        "Federal Indictment Node"
+      ]
+    },
+    {
+      "record_id": "eviction_photo_1",
+      "source": "eviction_photos_analysis",
+      "filename": "20240315_142201_EVICTION_NOTICE.jpg",
+      "account": "amd949609@gmail.com",
+      "evidence_type": "NOTICE_TO_QUIT_EVICTION_SUMMONS",
+      "key_finding": "Unlawful summary process filing identified; service date contradicts affidavit of service.",
+      "timestamp": "2026-09-18 06:31:47",
+      "ocr_text": "COMMONWEALTH OF MASSACHUSETTS TRIAL COURT - NOTICE TO QUIT / SUMMARY PROCESS EVICTION SUMMONS & COMPLAINT. DOCKET NO. 2483CV00112.",
+      "matched_timeline_nodes": [
+        "Whitman Lab Raid Node",
+        "North Shore Regional Node"
+      ]
+    },
+    {
+      "record_id": "eviction_photo_2",
+      "source": "eviction_photos_analysis",
+      "filename": "20240318_091530_FALSE_AFFIDAVIT.jpg",
+      "account": "anthonymichaeldimarcello@gmail.com",
+      "evidence_type": "SEWER_SERVICE_AFFIDAVIT",
+      "key_finding": "Sewer Service Fraud: Defendant cell tower / GPS EXIF logs confirm defendant was out of town at claimed service time.",
+      "timestamp": "2026-09-18 06:31:47",
+      "ocr_text": "AFFIDAVIT OF SERVICE - CONSTABLE RETURN - CLAIMED SERVICE AT RESIDENCE ON 03/14/2024 AT 4:30 PM.",
+      "matched_timeline_nodes": [
+        "Whitman Lab Raid Node",
+        "North Shore Regional Node"
+      ]
+    },
+    {
+      "record_id": "eviction_photo_3",
+      "source": "eviction_photos_analysis",
+      "filename": "Eviction_Lease_Violation_Notice_Photo.png",
+      "account": "txtdjdrop@outlook.com",
+      "evidence_type": "LEASE_TERMINATION_NOTICE",
+      "key_finding": "Improper notice window provided under MA landlord-tenant law.",
+      "timestamp": "2026-09-18 06:31:47",
+      "ocr_text": "NOTICE OF LEASE TERMINATION & IMPERMISSIBLE EVICTION DEMAND.",
+      "matched_timeline_nodes": [
+        "Whitman Lab Raid Node",
+        "North Shore Regional Node"
+      ]
+    },
+    {
+      "record_id": "eviction_photo_4",
+      "source": "eviction_photos_analysis",
+      "filename": "Court_Execution_Order_Photo.jpg",
+      "account": "anthony.dimarcello@students.post.edu",
+      "evidence_type": "EXECUTION_ORDER",
+      "key_finding": "Execution issued premised upon fraudulent default judgment.",
+      "timestamp": "2026-09-18 06:31:47",
+      "ocr_text": "EXECUTION FOR POSSESSION - HOUSING COURT DIVISION.",
+      "matched_timeline_nodes": [
+        "Whitman Lab Raid Node",
+        "North Shore Regional Node"
+      ]
+    }
+  ],
+  "timeline_nodes_ref": {
+    "title": "Massachusetts Counterfeit Pill Forensic Timeline",
+    "nodes_count": 5,
+    "events": [
+      {
+        "date": "2020-04-12",
+        "location": "North Shore, MA",
+        "event": "Initial counterfeit pill distribution network flagged",
+        "nodes": [
+          "North Shore Bust"
+        ]
+      },
+      {
+        "date": "2021-08-19",
+        "location": "Duxbury, MA",
+        "event": "Interdiction of illicit pill press operation",
+        "nodes": [
+          "Duxbury Incident"
+        ]
+      },
+      {
+        "date": "2023-01-15",
+        "location": "Plymouth, MA",
+        "event": "Cross-county distribution surveillance",
+        "nodes": [
+          "Plymouth Nexus"
+        ]
+      },
+      {
+        "date": "2023-11-04",
+        "location": "Whitman, MA",
+        "event": "State police raid on active pill manufacturing lab",
+        "nodes": [
+          "Whitman Lab Raid"
+        ]
+      },
+      {
+        "date": "2024-02-28",
+        "location": "Boston, MA",
+        "event": "Federal grand jury indictment returned",
+        "nodes": [
+          "Federal Indictment"
+        ]
+      }
+    ]
+  }
+}
