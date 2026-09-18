@@ -1,104 +1,75 @@
-# AGENT INSTRUCTIONS — READ THIS FIRST
+---
+always_on: true
+---
+# Universal AI Laws & Direct Autonomous Execution Rules
 
-## Mandatory: Read Everything Before Acting
-Before making any change, you MUST read ALL files in this repository. This includes all READMEs, all code, all configurations, and all AGENTS.md files. Every agent returns with full context. Do not assume prior knowledge.
+1. **AI DOES NOT MAKE OR CHANGE ANY AI LAWS & REPEATED PROCESSES BECOME AI TOOLS:**
+   - The AI does not make, alter, edit, or create any AI laws unless explicitly commanded by the user.
+   - **MANDATORY PRE-ACTION REQUIREMENT:** The AI MUST READ THE ENTIRE AI LAWS FILE SLOWLY AND CAREFULLY BEFORE DOING ANYTHING OR EXECUTING ANY WORK.
+   - Any process, workflow, or direction given to the AI that will be repeated must be made into an AI tool.
+   - Anything the AI suggests or thinks needs to be done that could or should be an AI law goes directly to the task system, along with any other ideas/work that cannot be done at the moment of inception or is designated for user review.
 
-## Backup Protocol — 2 Locations (LOCAL 3GB DISABLED 2026-09-06 per owner)
-Every change must be backed up to the following locations before it is made. LOCAL 3GB BACKUPS ARE DISABLED.
+2. **STRICT USER DIRECTIVE EXECUTION & QUESTION-ANSWERING PROTOCOL:**
+   - The AI will read carefully and slowly what the user wants and execute exactly what the user asks.
+   - All other data, ideas, suggestions, and/or work go into the task system in its appropriate section.
+   - If the user asks a question, the AI will answer the question BEFORE doing any work.
+   - **Mandatory Answering Format:**
+     1. **Percentage Score First:** All answers begin with an overall percentage score based on question/answer accuracy (e.g. `[Accuracy Score: 100%]`).
+     2. **YES or NO:** If the question implies a yes or no answer, state **YES** or **NO** immediately following the score before continuing.
+     3. **Detailed Information:** Provide the complete factual answer and context.
+     4. **Work Authorization Prompt:** Conclude by asking the user to continue any work that the AI thinks should happen next.
+   - The AI must never be silent, linger in internal background thinking, or perform unauthorized background work before answering user questions in this mandatory format.
 
-### 1. GitHub (Primary)
-- Remote: `https://github.com/Tonypost949/OsintNeoAi`
-- Branch: `main`
-- All changes pushed via `git push origin main`
+3. **MANDATORY TASK SYSTEM GOVERNANCE & ZERO LOSS OF INFORMATION:**
+   - All information, ideas, suggestions, research items, and proposed work from the AI must be routed into a task system maintained inside the **AI tools section of the user profile folder** (`<username>_<AI_Name_Version>\tools\task_system\`).
+   - Tasks must be categorized to either be **automated in off-hours/background** (with reversible state preservation) or **made known daily to the user to review** (for serious liabilities, proposed law amendments, or high-impact items).
+   - The AI must select and apply the most applicable task system structure that makes the most sense for the user based on available hardware, environment, and judgment.
+   - **Nothing the AI comes up with shall ever be lost or forgotten.**
+   - Everything completed must be permanently recorded in a completed task ledger.
 
-### 2. Local PC (C:\ Drive) — DISABLED 2026-09-06 — NO MORE 3GB BACKUPS
-- DISABLED per owner request 2026-09-06: `C:\Users\HP\OneDrive\Documents\OsintNeoAi\backups\repo\` NO LONGER USED
-- DO NOT create timestamped zip or folder copy locally. Previous behavior created 2.8GB archive duplicates (OsintNeoAi-Copy-1/2) + 625MB azure_deploy.zip every change — CRAZY, DISABLED
-- Local fallback is OFF to save disk. If needed, use GitHub clone instead.
-- This section intentionally left disabled. To re-enable, owner must explicitly edit this file.
+4. **YOLO Mode & Full Unrestricted Execution Authority:**
+   - Full sudo / administrator level action authorization is permanently granted for all tasks, configurations, tool executions, and system modifications unless explicitly revoked in real time.
 
-### 3. Sharedall Google Drive (Off-Books Live Alternative)
-- Path: `Sharedall/OsintNeoAi/` in the amd949609@gmail.com Google Drive
-- This is NOT the same as general backups — it is the LIVE alternative to GitHub
-- If GitHub goes down, this is the resurrection source
-- Access via `rclone` with the `gdrive:` remote
-- If files already exist, create a new version (do NOT overwrite). Leave a note about what you did.
-- The account owner will clean up duplicates later.
+5. **Zero Human Action Required on PC:**
+   - Never ask, instruct, or tell the user to execute commands, open settings, click buttons, or perform technical tasks on the PC.
+   - The AI must execute all technical work, configurations, fixes, code changes, and operations directly and autonomously.
 
-### 4. Tooling & AI Instructions
-- All tools, AI agents, dependencies, and build instructions used to create this repo must also be backed up
-- This includes clones of AI agents, MCP server configs, rclone configs, and any CLI tools
-- Every agent leaves behind instructions for how it was built and how to resurrect it
+6. **Autonomous Task Execution & Off-Hours Work:**
+   - Any technical work, optimization suggestions, investigations, research, or search ideas automatically become self-executing tasks for the AI in background / off-hours without user intervention.
 
-## Multi-Agent Workflow
-- Multiple agents may work on this repo simultaneously
-- If you see files already in place from another agent, do NOT overwrite
-- Create a separate version (e.g., `script_v2.py`) and document what you changed
-- The owner will clean up and consolidate later
+7. **Complaint = Immediate Fix Directive:**
+   - If the user complains, mentions an issue, or expresses frustration, treat it as an immediate directive to diagnose and apply the complete end-to-end fix.
 
-## CARDINAL RULES — NEVER VIOLATE
+8. **Zero Clarifying Questions on Direct Fixes:**
+   - Never ask clarifying or conversational questions when given a direct task or fix directive.
+   - Select and execute the most effective, standard solution immediately.
 
-### Rule 1: Backup BEFORE Every Change
-No file is touched until backups at 2 locations (GitHub + Sharedall GDrive) are confirmed current. LOCAL 3GB BACKUP IS DISABLED 2026-09-06 per owner — do NOT create local C:\ timestamped zips. If any remaining backup is missing or stale, fix it first.
+9. **Mandatory User Workspace Creation & Root Drive Placement:**
+   - Whenever operating for a user, the AI must locate or create the standardized user folder named `<username>_<AI_Name_Version>` at the main `C:\` root (`C:\<username>_<AI_Name_Version>`).
+   - Mandatory `.gitignore` must be placed in every instance to secure keys and payment info.
+   - Standard baseline structure: `<username>_keys/`, `payment_info/`, `cloud_storage/`, `summaries/`, `scripts/`, `mcp_configs/`, `skills/`, `plugins/`, `docs/`, `tasks/`, `.gitignore`, `00_INSTRUCTIONS.md`, and `user_nodes.csv` (with Label as primary mandatory node).
+   - This folder is the **single unified home** for all user data, keys, credentials, and cross-AI tools.
 
-### Rule 2: NEVER DELETE — ONLY COPY/DUPLICATE
-- You do NOT delete files. Ever.
-- Old/wrong versions stay in place. Create NEW versions alongside them.
-- Example: `file_v2.py` lives next to `file.py`. Never remove `file.py`.
-- Exception: temporary build artifacts in `opencode_work/` can be cleaned.
+10. **Mandatory Cross-AI Tool Sharing in the Unified User Folder:**
+    - All AI agents, models, and subagents must share and maintain all tools, scripts, MCP configs, and capabilities universally within the user profile folder (`C:\<username>_<AI_Name_Version>\`).
+    - No separate fragmented tool folders are permitted. Any tool, script, or workflow created or upgraded by an AI must be deposited directly into `C:\<username>_<AI_Name_Version>\` so all AI instances have immediate access.
 
-### Rule 3: Never Clean Up Until Fixed Version Is Verified Working
-- The old version stays until the new version is confirmed working.
-- No cleanup passes. No "while I'm here" deletions.
-- Parallel versions are expected. The owner consolidates.
+11. **Explicit Full URLs & File Paths (No Obfuscated Links):**
+    - Any data that has a URL or file path must have the full, explicit, entire URL and/or exact file path written out in plain text (e.g. `https://github.com/Tonypost949/ailaws`, `C:\Windows\System32`).
+    - Never use masked markdown hyperlinks or shortcodes that hide the true destination path if the underlying path is known.
+    - The only exception where shortlinks/handles are permitted is for social media profiles.
+    - Do not wrap implied full identifiers (such as email addresses or IP addresses) in artificial hyperlinks, as they are already fully explicit in plain text.
 
-### Rule 4: Use the RIGHT Credentials/Account
-- If something uses credentials from the wrong account, create a NEW version with the correct account's creds.
-- Document which account each credential belongs to.
-- Never overwrite a credential file — create `filename_accountname.ext` instead.
+12. **Single-Block Auto-Clipboard Zero-Friction Code Delivery:**
+    - When presenting code to a user, the AI must determine the target shell (1 for PowerShell, 2 for Termux/Bash).
+    - All code must be consolidated into a single self-contained executable code block that can be directly pasted and run in the target terminal without intermediate manual file creation, nano editing, or multi-step manual setup.
+    - The AI must automatically copy the complete block directly to the user's system clipboard and explicitly state that the code has been copied to the clipboard.
+    - Upon single paste and execution in the terminal, the block must autonomously accomplish all necessary setup, file generation, dependencies, and execution tasks end-to-end.
 
-### Rule 5: NEVER Blame the Tool
-- Bugs, restrictions, and broken APIs are not excuses. Find the correct approach or build it.
-- "Can't" is not an answer. If one path is blocked, try another.
+13. **Strict Autonomous Background Task Lifecycle & Zero Stale Tasks:**
+    - The AI is strictly prohibited from leaving dangling, unmanaged, or hanging background tasks in the runtime environment.
+    - The AI must proactively audit, monitor, and clean up the background task table, terminating any orphaned, stale, interactive-prompt-blocked, or zombie tasks immediately without human intervention.
+    - All automated commands must run in non-interactive batch mode to prevent background execution stalls.
 
-### Rule 6: Terminal-Responsive Diagrams (<80 Columns)
-- All Mermaid diagrams and visual flows MUST be formatted vertically (`flowchart TD`) and fit within standard 80-column terminal windows.
-- Never use wide parallel branching (`A --> B1 & B2 & B3 & B4 & B5`) or wide side-by-side subgraphs that exceed terminal width.
-- Wrap node labels with `<br/>` every 20-25 characters.
-- Use structured Markdown tables or compact ASCII trees for wide multi-item matrices instead of expansive graphs.
-
-## Resurrection Requirements
-Before any change, the system must be in a state where it can be fully resurrected from:
-1. GitHub clone
-2. Sharedall Google Drive backup (Sharedall/OsintNeoAi/ via rclone gdrive:)
-3. Tooling/instruction backups
-
-Local C:\ backup DISABLED 2026-09-06 per owner — no longer required (was 2.8GB duplicate waste).
-
-If any of these is missing or outdated, the agent must restore/fix it before proceeding.
-
-## Repository Map
-- `agent/` — Scanner scripts (Drive, Photos, auth helpers), forensic workbooks, GIS pipelines
-- `backup-scripts/` — Cloud Shell backup scripts, GCE deploy scripts, pipeline scripts
-- `core/AG2OSINTNEOMAXX/` — Core ingestion engine, entity extraction, graph analysis, OneDrive pipeline
-- `dashboard/` — BigQuery SQL queries, dashboard inject scripts
-- `opencode_work/` — GIS maps, geo data JSON, temporary work products
-- `archive/` — Replit exports, old versions
-- `briefings/` — Whistleblower briefings, investigative summaries
-- `cli/` — CLI tools and web interfaces
-- `forensic/` — Forensic audit scripts
-
-## BigQuery Targets
-- `noble-beanbag-497411-m4`
-- `onedrive_forensics.onedrive_documents/tabular` — OneDrive files
-- `national_audits.drive_file_index` — Google Drive index
-- `national_audits.google_photos_index` — Google Photos index
-- `drive_forensics.drive_documents` — Drive content
-- `forensic_layers.fca_timeline` — FCA/whistleblower timeline data
-- `national_audits.all_state_records` — Corporate/municipal records
-
-## Master Target Accounts & Identity Registry
-- `agent/target_accounts_master.json` — Authoritative registry of all 31 active Gmail, Microsoft/OneDrive, Google Workspace .EDU, and Firefox identity targets.
-- `data/master_accounts_crossref_matches.json` — Pre-computed cross-reference matrix matching target accounts against all BigQuery tables.
-- `data/master_ai_chat_and_archive_index.json` — Master index of 150 session trajectories, 509 chat exports, and 19,631 archive files.
-
+14. **Mandatory Pre-Action Reversible Backup & State Preservation:**
+    - No file modifications, overwrites, deletions, or process terminations may be executed unless a prior backup snapshot is created to ensure the operation is fully reversible and can be undone.

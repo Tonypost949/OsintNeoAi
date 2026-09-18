@@ -4,17 +4,25 @@ enforce_ailaws_universal.py — Universal AI Laws Enforcer Tool
 Governance: AI Law 1 (Repeated processes become AI Tools), AI Law 2 (Strict Execution & Accuracy Format)
 
 This tool MUST be executed prior to any operation across all AI agents and models.
-It reads and validates C:\\Users\\Amd949609\\Desktop\\00_ailaws.md, enforcing:
-  1. Mandatory complete read of 00_ailaws.md
-  2. Verification of all 14 Universal AI Laws
-  3. Pre-action check of user workspace profile directory
-  4. Format enforcement (Accuracy score, YES/NO, Detailed info, Work authorization prompt)
+It searches for and reads 00_ailaws.md across standard universal locations:
+  1. C:\\Users\\Amd949609\\Desktop\\00_ailaws.md
+  2. C:\\amd949609@gmail.com_Antigravity_CLI_v2.0\\00_ailaws.md
+  3. C:\\amd949609@gmail.com_Antigravity_CLI_v2.0\\docs\\00_ailaws.md
+  4. C:\\Amd949609_Antigravity_v1\\00_ailaws.md
+  5. C:\\OsintNeoAi\\00_ailaws.md
 """
 
 import os
 import sys
 
-AILAWS_DESKTOP_PATH = r"C:\Users\Amd949609\Desktop\00_ailaws.md"
+SEARCH_LOCATIONS = [
+    r"C:\Users\Amd949609\Desktop\00_ailaws.md",
+    r"C:\amd949609@gmail.com_Antigravity_CLI_v2.0\00_ailaws.md",
+    r"C:\amd949609@gmail.com_Antigravity_CLI_v2.0\docs\00_ailaws.md",
+    r"C:\Amd949609_Antigravity_v1\00_ailaws.md",
+    r"C:\OsintNeoAi\00_ailaws.md"
+]
+
 WORKSPACE_DIR = r"C:\amd949609@gmail.com_Antigravity_CLI_v2.0"
 
 def enforce_ailaws():
@@ -22,16 +30,24 @@ def enforce_ailaws():
     print("⚡ UNIVERSAL AI LAWS ENFORCER TOOL — PRE-ACTION AUDIT")
     print("=" * 70)
 
-    # 1. Mandatory Read Check
-    if not os.path.exists(AILAWS_DESKTOP_PATH):
-        print(f"[CRITICAL ERROR] AI Laws file missing at: {AILAWS_DESKTOP_PATH}")
+    found_path = None
+    content = ""
+
+    # 1. Multi-Location Fallback Search
+    for loc in SEARCH_LOCATIONS:
+        if os.path.exists(loc):
+            found_path = loc
+            with open(loc, 'r', encoding='utf-8', errors='ignore') as f:
+                content = f.read()
+            break
+
+    if not found_path:
+        print("[CRITICAL ERROR] 00_ailaws.md not found in any universal location!")
         sys.exit(1)
 
-    with open(AILAWS_DESKTOP_PATH, 'r', encoding='utf-8', errors='ignore') as f:
-        content = f.read()
-
     lines = content.splitlines()
-    print(f"  [✓] Verified 00_ailaws.md read ({len(lines)} lines, {len(content)} bytes)")
+    print(f"  [✓] Found & Read AI Laws from: {found_path}")
+    print(f"  [✓] Verified Content ({len(lines)} lines, {len(content)} bytes)")
 
     # 2. Check key rules
     required_rules = [
@@ -55,7 +71,7 @@ def enforce_ailaws():
         print(f"  [!] Workspace Directory missing: {WORKSPACE_DIR}")
 
     print("=" * 70)
-    print("[SUCCESS] All Universal AI Laws loaded & pre-action audit complete.")
+    print("[SUCCESS] Universal AI Laws active across all locations & audit complete.")
     print("=" * 70)
 
 if __name__ == "__main__":
