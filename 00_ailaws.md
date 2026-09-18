@@ -6,7 +6,6 @@ always_on: true
 1. **AI DOES NOT MAKE OR CHANGE ANY AI LAWS & REPEATED PROCESSES BECOME AI TOOLS:**
    - The AI does not make, alter, edit, or create any AI laws unless explicitly commanded by the user.
    - Any process, workflow, or direction given to the AI that will be repeated must be made into an AI tool.
-   - **TabCopy Integration Note:** User uses **`Ctrl + Shift + X`** shortcut to copy active browser tabs. The AI automatically parses, ingests, and digests all tab lists pasted from this shortcut.
    - Anything the AI suggests or thinks needs to be done that could or should be an AI law goes directly to the task system, along with any other ideas/work that cannot be done at the moment of inception or is designated for user review.
 
 2. **STRICT USER DIRECTIVE EXECUTION & QUESTION-ANSWERING PROTOCOL:**
@@ -45,15 +44,14 @@ always_on: true
    - Select and execute the most effective, standard solution immediately.
 
 9. **Mandatory User Workspace Creation & Root Drive Placement:**
-   - Whenever operating for a user, the AI must locate or use the standardized primary user folder explicitly designated at `C:\Amd949609_Antigravity_v1`.
+   - Whenever operating for a user, the AI must locate or create the standardized user folder named `<username>_<AI_Name_Version>` at the main `C:\` root (`C:\<username>_<AI_Name_Version>`).
    - Mandatory `.gitignore` must be placed in every instance to secure keys and payment info.
-   - Standard baseline structure: `Amd949609_keys/`, `payment_info/`, `cloud_storage/`, `summaries/`, `scripts/`, `mcp_configs/`, `skills/`, `plugins/`, `docs/`, `tasks/`, `.gitignore`, `00_INSTRUCTIONS.md`, and `user_nodes.csv` (with Label as primary mandatory node).
-   - This folder (`C:\Amd949609_Antigravity_v1`) is the **single unified home** for all user data, keys, credentials, and cross-AI tools.
-   - **Google Sharedall Drive Backup Requirement:** A live backup copy of this folder (`C:\Amd949609_Antigravity_v1`) must always be maintained on Google Sharedall Drive via `rclone` (`gdrive:Sharedall/Amd949609_Antigravity_v1`).
+   - Standard baseline structure: `<username>_keys/`, `payment_info/`, `cloud_storage/`, `summaries/`, `scripts/`, `mcp_configs/`, `skills/`, `plugins/`, `docs/`, `tasks/`, `.gitignore`, `00_INSTRUCTIONS.md`, and `user_nodes.csv` (with Label as primary mandatory node).
+   - This folder is the **single unified home** for all user data, keys, credentials, and cross-AI tools.
 
 10. **Mandatory Cross-AI Tool Sharing in the Unified User Folder:**
-    - All AI agents, models, and subagents must share and maintain all tools, scripts, MCP configs, and capabilities universally within the primary user profile folder (`C:\Amd949609_Antigravity_v1\`).
-    - No separate fragmented tool folders are permitted. Any tool, script, or workflow created or upgraded by an AI must be deposited directly into `C:\Amd949609_Antigravity_v1\` so all AI instances have immediate access.
+    - All AI agents, models, and subagents must share and maintain all tools, scripts, MCP configs, and capabilities universally within the user profile folder (`C:\<username>_<AI_Name_Version>\`).
+    - No separate fragmented tool folders are permitted. Any tool, script, or workflow created or upgraded by an AI must be deposited directly into `C:\<username>_<AI_Name_Version>\` so all AI instances have immediate access.
 
 11. **Explicit Full URLs & File Paths (No Obfuscated Links):**
     - Any data that has a URL or file path must have the full, explicit, entire URL and/or exact file path written out in plain text (e.g. `https://github.com/Tonypost949/ailaws`, `C:\Windows\System32`).
@@ -65,7 +63,6 @@ always_on: true
     - When presenting code to a user, the AI must determine the target shell (1 for PowerShell, 2 for Termux/Bash).
     - All code must be consolidated into a single self-contained executable code block that can be directly pasted and run in the target terminal without intermediate manual file creation, nano editing, or multi-step manual setup.
     - The AI must automatically copy the complete block directly to the user's system clipboard and explicitly state that the code has been copied to the clipboard.
-    - **The AI directly executes the code autonomously and NEVER asks or instructs the user to run the code.**
     - Upon single paste and execution in the terminal, the block must autonomously accomplish all necessary setup, file generation, dependencies, and execution tasks end-to-end.
 
 13. **Strict Autonomous Background Task Lifecycle & Zero Stale Tasks:**
