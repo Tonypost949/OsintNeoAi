@@ -1,0 +1,3808 @@
+{
+  "metadata": {
+    "title": "OSINTNeoAi Non-California Raw Entity Master Catalog",
+    "extracted_at": "2026-09-17T03:03:36Z",
+    "investigative_authority": "OSINTNeoAi Intelligence Core",
+    "worker_id": "worker_m2",
+    "milestone": "M2 (Non-California Entity Extraction & Data Isolation)",
+    "total_entities": 183,
+    "sha256_checksum": "e75707f44cf5ad5a66d97b75da15071695eafc91ac07131a7e79f595d2dea583",
+    "non_ca_purity_verified": true,
+    "state_count": 50,
+    "state_distribution": {
+      "AZ": 35,
+      "NJ": 33,
+      "PA": 16,
+      "FL": 11,
+      "NV": 9,
+      "NY": 9,
+      "TX": 6,
+      "MI": 3,
+      "MA": 3,
+      "DC": 3,
+      "CT": 3,
+      "GA": 3,
+      "DE": 3,
+      "LA": 2,
+      "OH": 2,
+      "IL": 2,
+      "HI": 2,
+      "AK": 2,
+      "UT": 2,
+      "MS": 2,
+      "TN": 2,
+      "NC": 2,
+      "AL": 1,
+      "AR": 1,
+      "CO": 1,
+      "IA": 1,
+      "ID": 1,
+      "IN": 1,
+      "KS": 1,
+      "KY": 1,
+      "MD": 1,
+      "ME": 1,
+      "MN": 1,
+      "MO": 1,
+      "MT": 1,
+      "ND": 1,
+      "NE": 1,
+      "NH": 1,
+      "NM": 1,
+      "OK": 1,
+      "OR": 1,
+      "RI": 1,
+      "SC": 1,
+      "SD": 1,
+      "VA": 1,
+      "VT": 1,
+      "WA": 1,
+      "WI": 1,
+      "WV": 1,
+      "WY": 1
+    },
+    "type_distribution": {
+      "CORPORATION": 109,
+      "PROPERTY": 29,
+      "INDIVIDUAL": 26,
+      "JUDICIAL_DOCKET": 7,
+      "TRANSACTION": 7,
+      "POLICE_RECORD": 3,
+      "CONTRACTOR": 2
+    }
+  },
+  "entities": [
+    {
+      "entity_id": "NONCA-ENT-0001",
+      "name": "USDC D.N.J. Case 3:20-mj-05007-TJB (USA v. Christopher Ryan)",
+      "state": "NJ",
+      "jurisdiction": "District of New Jersey (Trenton Vicinage)",
+      "source_dataset": "evidence/official_court_records/04_USA_v_Christopher_Ryan_3_20_mj_05007_TJB.md",
+      "entity_type": "JUDICIAL_DOCKET",
+      "nexus_details": {
+        "docket_number": "3:20-mj-05007-TJB",
+        "court": "United States District Court, District of New Jersey",
+        "presiding_judge": "Hon. Tonianne J. Bongiovanni, U.S. Magistrate Judge",
+        "prosecuting_ausa": "Eric Alwin Boden, AUSA",
+        "investigating_affiant": "Special Agent Bradley H. Zartman, FBI Trenton RA",
+        "charges": [
+          "21 U.S.C. \u00a7 841(a)(1)",
+          "21 U.S.C. \u00a7 841(b)(1)(A)(viii)"
+        ],
+        "interstate_corridor": "Long Beach/Huntington Beach CA to Trenton NJ PO Box",
+        "seized_contraband": "435 Grams Methamphetamine assayed by DEA Northeast Lab",
+        "controlled_currency": "$3,000 cash Priority Mail package"
+      },
+      "raw_attributes": {
+        "mag_number": "20-5007",
+        "filing_date": "2020-03-16"
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0002",
+      "name": "Special Agent Bradley H. Zartman",
+      "state": "NJ",
+      "jurisdiction": "Federal / District of New Jersey",
+      "source_dataset": "evidence/official_court_records/04_USA_v_Christopher_Ryan_3_20_mj_05007_TJB.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "agency": "Federal Bureau of Investigation (FBI)",
+        "division": "Newark Division / Trenton Resident Agency",
+        "office_address": "Clarkson S. Fisher Federal Building, 402 E State St, Trenton, NJ 08608",
+        "role": "Lead Federal Investigating Agent & Criminal Complaint Affiant"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0003",
+      "name": "Hon. Tonianne J. Bongiovanni",
+      "state": "NJ",
+      "jurisdiction": "District of New Jersey",
+      "source_dataset": "evidence/official_court_records/04_USA_v_Christopher_Ryan_3_20_mj_05007_TJB.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "role": "United States Magistrate Judge",
+        "courthouse": "Clarkson S. Fisher Federal Building & U.S. Courthouse, Trenton, NJ"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0004",
+      "name": "Eric Alwin Boden",
+      "state": "NJ",
+      "jurisdiction": "District of New Jersey",
+      "source_dataset": "evidence/official_court_records/04_USA_v_Christopher_Ryan_3_20_mj_05007_TJB.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "role": "Assistant United States Attorney",
+        "office": "U.S. Attorney's Office, District of New Jersey, Trenton Branch Office"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0005",
+      "name": "Timothy R. Anderson, Esq.",
+      "state": "NJ",
+      "jurisdiction": "New Jersey",
+      "source_dataset": "evidence/official_court_records/04_USA_v_Christopher_Ryan_3_20_mj_05007_TJB.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "firm": "Tim Anderson Law, LLC",
+        "address": "225 Broad St, Red Bank, NJ 07701",
+        "bar_number": "001112009",
+        "role": "Retained Defense Counsel in Case 3:20-mj-05007-TJB"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0006",
+      "name": "Dean Anthony Innocenzi",
+      "state": "NJ",
+      "jurisdiction": "New Jersey",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "dob": "1968-12-07",
+        "ssn_prefix": "155-78-7252",
+        "addresses": [
+          "1456 Cedar Lane, Hamilton, NJ 08610",
+          "2216 Liberty Street, Trenton, NJ"
+        ],
+        "dl_number": "DL159461576112682",
+        "charges": [
+          "Hamilton PD Summons 1103-S-2019-002671 (N.J.S.A. 2C:29-1a Obstructing)",
+          "Hamilton PD Summons #2020-613 (N.J.S.A. 2C:20-11b(1) Shoplifting)"
+        ],
+        "involuntary_commitment": "Helene Fuld Crisis Center, Capital Health Regional Medical Center",
+        "interstate_flights": "Alaska Airlines AS 1129 / AS 1128 (PHL <-> LAX, Confirmation JAEETQ)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0007",
+      "name": "Officer Timothy Donovan (Badge #484)",
+      "state": "NJ",
+      "jurisdiction": "New Jersey / Mercer County",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "agency": "Hamilton Township Police Division",
+        "badge": "484",
+        "role": "Patrol Unit 710 - Primary Reporting Officer, Executed Summons 1103-S-2019-002671",
+        "headquarters": "1270 Whitehorse-Mercerville Road, Hamilton, NJ 08619"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0008",
+      "name": "Officer Kevin Perkins (Badge #506)",
+      "state": "NJ",
+      "jurisdiction": "New Jersey / Mercer County",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "agency": "Hamilton Township Police Division",
+        "badge": "506",
+        "role": "Patrol Unit 701 - Secondary Contact Officer, BWC deactivated during grapple",
+        "headquarters": "1270 Whitehorse-Mercerville Road, Hamilton, NJ 08619"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0009",
+      "name": "Officer Richard McLaughlin (Badge #536)",
+      "state": "NJ",
+      "jurisdiction": "New Jersey / Mercer County",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "agency": "Hamilton Township Police Division",
+        "badge": "536",
+        "role": "Patrol Unit 701 - Ground control & transport officer",
+        "headquarters": "1270 Whitehorse-Mercerville Road, Hamilton, NJ 08619"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0010",
+      "name": "Officer John Murphy (Badge #531)",
+      "state": "NJ",
+      "jurisdiction": "New Jersey / Mercer County",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "agency": "Hamilton Township Police Division",
+        "badge": "531",
+        "role": "Patrol Unit 712 - Notified subject of mandatory crisis evaluation",
+        "headquarters": "1270 Whitehorse-Mercerville Road, Hamilton, NJ 08619"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0011",
+      "name": "Officer Michael Durand (Badge #457)",
+      "state": "NJ",
+      "jurisdiction": "New Jersey / Mercer County",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "agency": "Hamilton Township Police Division",
+        "badge": "457",
+        "role": "Patrol Unit - Physical restraint & double-handcuffing",
+        "headquarters": "1270 Whitehorse-Mercerville Road, Hamilton, NJ 08619"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0012",
+      "name": "Officer Timothy A. Wilkes (Badge #443)",
+      "state": "NJ",
+      "jurisdiction": "New Jersey / Mercer County",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "agency": "Hamilton Township Police Division",
+        "badge": "443",
+        "role": "Patrol Unit T2 - Supervisory Sergeant on scene",
+        "headquarters": "1270 Whitehorse-Mercerville Road, Hamilton, NJ 08619"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0013",
+      "name": "Officer Kyle Thornton (Badge #546)",
+      "state": "NJ",
+      "jurisdiction": "New Jersey / Mercer County",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "agency": "Hamilton Township Police Division",
+        "badge": "546",
+        "role": "Reviewing Officer - Approved supplemental investigation reports",
+        "headquarters": "1270 Whitehorse-Mercerville Road, Hamilton, NJ 08619"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0014",
+      "name": "Officer Officer Seeds (Badge #529)",
+      "state": "NJ",
+      "jurisdiction": "New Jersey / Mercer County",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "agency": "Hamilton Township Police Division",
+        "badge": "529",
+        "role": "Patrol Officer - Home Depot incident, Summons #2020-613",
+        "headquarters": "1270 Whitehorse-Mercerville Road, Hamilton, NJ 08619"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0015",
+      "name": "Officer Officer Mancuso (Badge #523)",
+      "state": "NJ",
+      "jurisdiction": "New Jersey / Mercer County",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "agency": "Hamilton Township Police Division",
+        "badge": "523",
+        "role": "Patrol Officer - Home Depot incident, Summons #2020-613",
+        "headquarters": "1270 Whitehorse-Mercerville Road, Hamilton, NJ 08619"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0016",
+      "name": "Officer C. Giovacchini (Badge #108)",
+      "state": "NJ",
+      "jurisdiction": "New Jersey / Mercer County",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "agency": "Ewing Police Department",
+        "badge": "108",
+        "role": "Evidence Vault Officer - Formally transferred Item 044.01 & 046 TOT FBI SA Zartman",
+        "headquarters": "2 Jake Garzio Drive, Ewing, NJ 08628"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0017",
+      "name": "Officer Officer Ranker (Badge #154)",
+      "state": "NJ",
+      "jurisdiction": "New Jersey / Mercer County",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "agency": "Ewing Police Department",
+        "badge": "154",
+        "role": "Collecting Officer - Seized Item 044.01 methamphetamine in glass jar",
+        "headquarters": "2 Jake Garzio Drive, Ewing, NJ 08628"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0018",
+      "name": "Officer Andrew Condrat (Badge #171)",
+      "state": "NJ",
+      "jurisdiction": "New Jersey / Mercer County",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "agency": "Ewing Police Department",
+        "badge": "171",
+        "role": "Collecting Officer - Seized Item 046 Samsung phone at Ewing Sally Port",
+        "headquarters": "2 Jake Garzio Drive, Ewing, NJ 08628"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0019",
+      "name": "Hamilton Township Police Incident 2019-00053723",
+      "state": "NJ",
+      "jurisdiction": "Mercer County, New Jersey",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "POLICE_RECORD",
+      "nexus_details": {
+        "case_number": "2019-00053723",
+        "date": "2019-12-29T14:16:00",
+        "location": "1456 Cedar Lane, Hamilton, NJ 08610",
+        "responding_units": [
+          "Unit 710",
+          "Unit 701",
+          "Unit 712",
+          "Unit T2"
+        ],
+        "force_utilized": "Physical grapple, tackle into nail lumber debris, double-handcuffing, BWC shutoff",
+        "summons_issued": "1103-S-2019-002671",
+        "penal_statute": "N.J.S.A. 2C:29-1a",
+        "disposition": "Involuntary psychiatric commitment to Helene Fuld Crisis Center"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0020",
+      "name": "Hamilton Township Police Incident 2020-00008897",
+      "state": "NJ",
+      "jurisdiction": "Mercer County, New Jersey",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "POLICE_RECORD",
+      "nexus_details": {
+        "case_number": "2020-00008897",
+        "date": "2020-03-04T14:00:00",
+        "location": "Home Depot #0928, 740 Route 130, Hamilton, NJ 08620",
+        "summons_issued": "Criminal Complaint Summons #2020-613",
+        "penal_statute": "N.J.S.A. 2C:20-11b(1) (Shoplifting)",
+        "subject": "Dean Anthony Innocenzi"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0021",
+      "name": "Ewing Police Department Evidence Ledger Case I-2019-001222",
+      "state": "NJ",
+      "jurisdiction": "Mercer County, New Jersey",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "POLICE_RECORD",
+      "nexus_details": {
+        "case_number": "I-2019-001222",
+        "agency": "Ewing Police Department, 2 Jake Garzio Dr, Ewing, NJ 08628",
+        "item_044_01": "Glass jar containing clear bag with suspected methamphetamine",
+        "item_046": "Samsung Smartphone (silver and black) seized in HQ Sally Port",
+        "transfer_entry": "2019-01-16 07:44 TOT FBI AGENT BRADLEY ZARTMAN",
+        "federal_nexus": "Direct evidentiary feeding into USDC D.N.J. Case 3:20-mj-05007-TJB"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0022",
+      "name": "1456 Cedar Lane Real Property",
+      "state": "NJ",
+      "jurisdiction": "Mercer County, New Jersey",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "address": "1456 Cedar Lane, Hamilton, NJ 08610",
+        "county": "Mercer County",
+        "civil_dockets": [
+          "SC-00002804-2005-DC ($1,528.16)",
+          "JC-00002804-2005-DC ($1,613.52)",
+          "SC-00006172-2006-DC ($871.55)",
+          "JC-00006172-2006-DC ($943.48)",
+          "Civil Lien L00144420 (Recorded 2020-07-30)"
+        ],
+        "recorded_deed": "Quitclaim Deed #48622 ($100,000.00 valuation, recorded 2022-10-25)",
+        "shipping_nexus": "Delivery destination of Quantum Auto Dismantler salvage vehicle VIN 302796"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0023",
+      "name": "Hamilton Township Police Division",
+      "state": "NJ",
+      "jurisdiction": "New Jersey / Mercer County",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "address": "1270 Whitehorse-Mercerville Road, Hamilton, NJ 08619",
+        "phone": "(609) 581-4000",
+        "records_division": "(609) 581-4036",
+        "type": "Municipal Law Enforcement Agency"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0024",
+      "name": "Ewing Police Department",
+      "state": "NJ",
+      "jurisdiction": "New Jersey / Mercer County",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "address": "2 Jake Garzio Drive, Ewing, NJ 08628",
+        "type": "Municipal Law Enforcement Agency"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0025",
+      "name": "Capital Health Regional Medical Center (Helene Fuld Crisis Center)",
+      "state": "NJ",
+      "jurisdiction": "New Jersey / Mercer County",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "address": "750 Brunswick Avenue, Trenton, NJ 08638",
+        "type": "Psychiatric Emergency Screening & Involuntary Commitment Facility",
+        "patient_transport": "Dean Anthony Innocenzi on 2019-12-29 by Hamilton PD Unit 701"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0026",
+      "name": "Home Depot Retail Store #0928",
+      "state": "NJ",
+      "jurisdiction": "New Jersey / Mercer County",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "address": "740 Route 130, Hamilton, NJ 08620",
+        "incident_nexus": "Location of shoplifting incident in Hamilton PD Case 2020-00008897"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0027",
+      "name": "Quantum Auto Dismantler Interstate Salvage Vehicle Shipment",
+      "state": "NJ",
+      "jurisdiction": "Interstate (CA to NJ)",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "TRANSACTION",
+      "nexus_details": {
+        "invoice_number": "14098",
+        "workorder_number": "14509",
+        "document_number": "19355",
+        "tag_number": "R003187",
+        "date": "2020-01-17T16:30:00",
+        "origin_vendor": "Quantum Auto Dismantler, 3125 W. 5th St, Santa Ana, CA 92703 (714-265-5555)",
+        "destination_purchaser": "Dean Innocenzi, 1456 Cedar Lane, Hamilton, NJ 08610",
+        "item_description": "Complete Salvage Vehicle Unit, VIN/Stock #302796",
+        "amount": 546.25,
+        "payment_method": "CASH"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0028",
+      "name": "Newark Watershed Conservation and Development Corporation (NWCDC)",
+      "state": "NJ",
+      "jurisdiction": "New Jersey / Essex County",
+      "source_dataset": "dashboard/inject_newark.sql",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "npi_id": "NPI-NWCDC-NEWARK",
+        "cms_billing_code": "FRAUD-KICKBACKS-BRIBERY",
+        "unaccounted_fund_delta": 0.0,
+        "regulatory_predicate": "Municipal public utility corruption and slush fund kickbacks"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0029",
+      "name": "BROWN HUBERT LLC",
+      "state": "NV",
+      "jurisdiction": "Nevada",
+      "source_dataset": "forensic_layers.fca_timeline / Event YCGD-003",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "registered_agent": "CORPORATE CREATIONS NETWORK INC.",
+        "address": "PO Box 531604, Henderson, NV 89053",
+        "associated_properties": [
+          "7561 Center Ave #D1, Huntington Beach, CA (transferred 2016-04-29)"
+        ],
+        "zero_dollar_conveyance": "George T. Chen and Leilani S. Chen quitclaim to Nevada shell",
+        "timeline_event_id": "YCGD-003",
+        "shell_classification": "Asset-protection / liability-shielding vehicle"
+      },
+      "raw_attributes": {
+        "status": "ACTIVE",
+        "state_sos": "NV"
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0030",
+      "name": "CORPORATE CREATIONS NETWORK INC.",
+      "state": "NV",
+      "jurisdiction": "Nevada",
+      "source_dataset": "forensic_layers.fca_timeline / Event YCGD-003",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "address": "PO Box 531604, Henderson, NV 89053",
+        "role": "Commercial registered agent forming out-of-state shell companies"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0031",
+      "name": "USDC D. Nev. Case 2:21-cr-00215 (USA v. Brandon Casutt)",
+      "state": "NV",
+      "jurisdiction": "District of Nevada (Las Vegas)",
+      "source_dataset": "briefings/NATIONWIDE_PPP_LOAN_FRAUD_RICO_AUDIT_2026.md",
+      "entity_type": "JUDICIAL_DOCKET",
+      "nexus_details": {
+        "docket_number": "2:21-cr-00215",
+        "defendant": "Brandon Casutt",
+        "financial_exposure": 5700000.0,
+        "scheme": "CARES Act PPP loan fraud laundered into Las Vegas luxury real estate and casino gaming chips",
+        "statutory_citations": [
+          "18 U.S.C. \u00a7 1344",
+          "18 U.S.C. \u00a7 1956"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0032",
+      "name": "Brandon Casutt",
+      "state": "NV",
+      "jurisdiction": "Nevada",
+      "source_dataset": "briefings/NATIONWIDE_PPP_LOAN_FRAUD_RICO_AUDIT_2026.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "charges": "Federal bank fraud and money laundering in Case 2:21-cr-00215",
+        "diverted_funds": 5700000.0,
+        "laundering_vector": "Las Vegas casino chips and residential real estate"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0033",
+      "name": "Las Vegas Howard Hughes Mailbox Hub",
+      "state": "NV",
+      "jurisdiction": "Nevada / Clark County",
+      "source_dataset": "briefings/NATIONWIDE_PPP_LOAN_FRAUD_RICO_AUDIT_2026.md",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "address": "3960 Howard Hughes Pkwy, Las Vegas, NV 89169",
+        "usage": "Registered agent haven and virtual office hub for out-of-state shell LLCs"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0034",
+      "name": "Las Vegas 4th Street Corporate Complex",
+      "state": "NV",
+      "jurisdiction": "Nevada / Clark County",
+      "source_dataset": "briefings/NATIONWIDE_PPP_LOAN_FRAUD_RICO_AUDIT_2026.md",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "address": "300 S. 4th St, Las Vegas, NV 89101",
+        "usage": "Commercial office and financial laundering nexus"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0035",
+      "name": "Las Vegas Metropolitan Police Department (LVMPD)",
+      "state": "NV",
+      "jurisdiction": "Nevada / Clark County",
+      "source_dataset": "evidence/whois/lvmpd.com.txt",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "domain": "lvmpd.com",
+        "address": "400 S Martin Luther King Blvd, Las Vegas, NV 89106",
+        "agency_type": "Joint City/County Metropolitan Law Enforcement"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0036",
+      "name": "Sterling-Rivers Nominee LLC (PHL-2026-009)",
+      "state": "PA",
+      "jurisdiction": "Pennsylvania (Philadelphia)",
+      "source_dataset": "dashboard/inject_pa.sql",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "npi_id": "V-PA-882",
+        "cms_billing_code": "PA-INV-7721 - Emergency Cyber Audit",
+        "unaccounted_fund_delta": 850000.0,
+        "city": "Philadelphia",
+        "structure": "Split billing fee arrangement under Admin_Root_01"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0037",
+      "name": "Sterling-Rivers Nominee LLC (PGH-2026-112)",
+      "state": "PA",
+      "jurisdiction": "Pennsylvania (Pittsburgh)",
+      "source_dataset": "dashboard/inject_pa.sql",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "npi_id": "V-PA-991",
+        "cms_billing_code": "PA-INV-7722 - Public Health Consulting",
+        "unaccounted_fund_delta": 420000.0,
+        "city": "Pittsburgh",
+        "structure": "Split billing fee arrangement under Admin_Root_01"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0038",
+      "name": "Sterling-Rivers Nominee LLC (PHL-2026-022) Split A",
+      "state": "PA",
+      "jurisdiction": "Pennsylvania (Philadelphia)",
+      "source_dataset": "dashboard/inject_pa.sql",
+      "entity_type": "TRANSACTION",
+      "nexus_details": {
+        "npi_id": "V-PA-004-A",
+        "cms_billing_code": "PA-INV-7723 - Software License Fee (Split A)",
+        "unaccounted_fund_delta": 47500.0,
+        "city": "Philadelphia",
+        "structure": "Split billing fee arrangement under Admin_Root_01"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0039",
+      "name": "Sterling-Rivers Nominee LLC (PHL-2026-022) Split B",
+      "state": "PA",
+      "jurisdiction": "Pennsylvania (Philadelphia)",
+      "source_dataset": "dashboard/inject_pa.sql",
+      "entity_type": "TRANSACTION",
+      "nexus_details": {
+        "npi_id": "V-PA-004-B",
+        "cms_billing_code": "PA-INV-7724 - Software License Fee (Split B)",
+        "unaccounted_fund_delta": 47500.0,
+        "city": "Philadelphia",
+        "structure": "Split billing fee arrangement under Admin_Root_01"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0040",
+      "name": "Sterling-Rivers Nominee LLC (PGH-2026-140) Split A",
+      "state": "PA",
+      "jurisdiction": "Pennsylvania (Pittsburgh)",
+      "source_dataset": "dashboard/inject_pa.sql",
+      "entity_type": "TRANSACTION",
+      "nexus_details": {
+        "npi_id": "V-PA-005-A",
+        "cms_billing_code": "PA-INV-7725 - Software License Fee (Split A)",
+        "unaccounted_fund_delta": 47500.0,
+        "city": "Pittsburgh",
+        "structure": "Split billing fee arrangement under Admin_Root_01"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0041",
+      "name": "Sterling-Rivers Nominee LLC (PGH-2026-140) Split B",
+      "state": "PA",
+      "jurisdiction": "Pennsylvania (Pittsburgh)",
+      "source_dataset": "dashboard/inject_pa.sql",
+      "entity_type": "TRANSACTION",
+      "nexus_details": {
+        "npi_id": "V-PA-005-B",
+        "cms_billing_code": "PA-INV-7726 - Software License Fee (Split B)",
+        "unaccounted_fund_delta": 47500.0,
+        "city": "Pittsburgh",
+        "structure": "Split billing fee arrangement under Admin_Root_01"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0042",
+      "name": "Endo Pharmaceuticals Inc.",
+      "state": "PA",
+      "jurisdiction": "Pennsylvania",
+      "source_dataset": "data/nationwide_counterfeit_prescription_correlation.json",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "address": "Chadds Ford, PA",
+        "fda_recall_number": "D-1381-2012",
+        "ndc": "60951-797-70",
+        "product": "Endocet (oxycodone and acetaminophen) tablets, USP, 10 mg/650 mg",
+        "classification": "Class III Recall (Adulteration / Quality defect)",
+        "manufacturing_partner": "Novartis, Lincoln, NE"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0043",
+      "name": "Alaska Airlines Interstate Flight Pipeline (PHL <-> LAX)",
+      "state": "PA",
+      "jurisdiction": "Interstate (PA to CA)",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "TRANSACTION",
+      "nexus_details": {
+        "reservation_confirmation": "JAEETQ",
+        "passenger": "Dean Innocenzi",
+        "outbound": "Flight AS 1129: Philadelphia (PHL) to Los Angeles (LAX)",
+        "inbound": "Flight AS 1128: Los Angeles (LAX) to Philadelphia (PHL)",
+        "dates": "February 19-28, 2019"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0044",
+      "name": "ONNI HUNTINGTON BEACH LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "city": "Phoenix, AZ",
+        "portfolio_exposure": 97000000.0,
+        "parcels_controlled": 5,
+        "role": "Major out-of-state property holder in Huntington Beach real estate"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0045",
+      "name": "DOLORES RE HOLDINGS LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "registered_address": "5815 E Redfield Rd, Scottsdale, AZ 85254",
+        "controlling_principal": "Johannes A. Van Herk",
+        "pattern": "$0 deed transfer loops to out-of-state asset holding shells"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0046",
+      "name": "PEARCE RE HOLDINGS LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "registered_address": "5815 E Redfield Rd, Scottsdale, AZ 85254",
+        "controlling_principal": "Johannes A. Van Herk",
+        "pattern": "$0 deed transfer loops to out-of-state asset holding shells"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0047",
+      "name": "MILO RE HOLDINGS LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "registered_address": "5815 E Redfield Rd, Scottsdale, AZ 85254",
+        "controlling_principal": "Johannes A. Van Herk",
+        "pattern": "$0 deed transfer loops to out-of-state asset holding shells"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0048",
+      "name": "ALABAMA RE HOLDINGS LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "registered_address": "5815 E Redfield Rd, Scottsdale, AZ 85254",
+        "controlling_principal": "Johannes A. Van Herk",
+        "pattern": "$0 deed transfer loops to out-of-state asset holding shells"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0049",
+      "name": "Johannes A. Van Herk",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "address": "5815 E Redfield Rd, Scottsdale, AZ 85254",
+        "role": "Principal executing $0 property transfers to 4 Scottsdale shell LLCs"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0050",
+      "name": "5815 E Redfield Rd Scottsdale Shell Complex",
+      "state": "AZ",
+      "jurisdiction": "Arizona / Maricopa County",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "address": "5815 E Redfield Rd, Scottsdale, AZ 85254",
+        "usage": "Shared corporate hub housing multiple zero-dollar transfer LLCs"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0051",
+      "name": "AURORA PEACHTREE HOLDINGS LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0052",
+      "name": "19385 HBRE LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0053",
+      "name": "CKP ENTERPRISES LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0054",
+      "name": "HOPDEN LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0055",
+      "name": "LAKEVIEW HOMES & LAND LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0056",
+      "name": "CANYON STATE HOLDINGS LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0057",
+      "name": "COOL RUN PROPERTIES LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0058",
+      "name": "C HAMLIN PROPERTIES LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0059",
+      "name": "SFR 2012-1 U S WEST LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0060",
+      "name": "CNB LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0061",
+      "name": "2135 CRESTA LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0062",
+      "name": "FOOTHILLS VILLAGE LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0063",
+      "name": "NAPHTALI LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0064",
+      "name": "NEWPORT BAY TOWERS 205 LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0065",
+      "name": "NEWPORT BLU LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0066",
+      "name": "AWARD INVESTMENTS LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0067",
+      "name": "ROYCE BEACHVIEW LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0068",
+      "name": "HALLE PROPERTIES LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0069",
+      "name": "AREC 13 LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0070",
+      "name": "CNKA LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "classification": "Out-of-state Arizona LLC holding California coastal properties",
+        "registry": "Arizona Corporation Commission (eCorp)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0071",
+      "name": "FRIEDLANDER INVESTMENTS LLC",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "noble-beanbag-497411-m4.forensic_layers.ppp_property_bridge",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "mail_address": "5986 W AURORA DR",
+        "mail_city": "GLENDALE, AZ",
+        "property_held": "23000 Newport Coast Dr (APN 899-022-28)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0072",
+      "name": "Maricopa County Contract #220141-RFP CARES Act Passthrough Grant",
+      "state": "AZ",
+      "jurisdiction": "Arizona / Maricopa County",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "TRANSACTION",
+      "nexus_details": {
+        "contract_id": "220141-RFP",
+        "funding_source": "CARES Act Federal Emergency Relief",
+        "disbursing_agency": "Maricopa County, Arizona",
+        "recipient": "Mercy House Living Centers (Santa Ana, CA)",
+        "amount": 382065.0,
+        "significance": "Only out-of-state federal pass-through grant in Mercy House SEFA audit"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0073",
+      "name": "Maricopa County Board of Supervisors",
+      "state": "AZ",
+      "jurisdiction": "Arizona / Maricopa County",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "address": "301 W Jefferson St, Phoenix, AZ 85003",
+        "role": "Disbursing municipal governance entity for Grant #220141-RFP"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0074",
+      "name": "Shea Homes Arizona",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "agent/ARIZONA_CONNECTIONS.md",
+      "entity_type": "CONTRACTOR",
+      "nexus_details": {
+        "city": "Scottsdale / Phoenix, AZ",
+        "entity_code": "ORG_SHEA",
+        "role": "Out-of-state builder affiliate; flagged in repository as extortion trigger"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0075",
+      "name": "USDC D. Ariz. Case 2:21-cr-00812 (USA v. Willie Mitchell)",
+      "state": "AZ",
+      "jurisdiction": "District of Arizona (Phoenix)",
+      "source_dataset": "briefings/NATIONWIDE_PPP_LOAN_FRAUD_RICO_AUDIT_2026.md",
+      "entity_type": "JUDICIAL_DOCKET",
+      "nexus_details": {
+        "docket_number": "2:21-cr-00812",
+        "defendant": "Willie Mitchell",
+        "financial_exposure": 9500000.0,
+        "scheme": "Fraudulent PPP loan extraction through ghost logistics shells and commercial entities",
+        "addresses": [
+          "2375 E. Camelback Rd, Phoenix, AZ",
+          "4400 N. Scottsdale Rd, Scottsdale, AZ"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0076",
+      "name": "Willie Mitchell",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "briefings/NATIONWIDE_PPP_LOAN_FRAUD_RICO_AUDIT_2026.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "charges": "Federal loan fraud in Case 2:21-cr-00812",
+        "diverted_funds": 9500000.0
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0077",
+      "name": "Dr. Ann Prema Verma, MD",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "evidence/TUCSON_WEST_HOLLYWOOD_VERMA_NODE.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "npi": "1902152242",
+        "medical_license": "A155456",
+        "city": "Tucson, AZ",
+        "specialty": "Child and Adolescent Psychiatry",
+        "role": "Whistleblower disclosure on child protective placement and hospital peer-review fraud"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0078",
+      "name": "USDC SDTX Case 4:20-cr-00567 (USA v. Amir Aqeel et al.)",
+      "state": "TX",
+      "jurisdiction": "Southern District of Texas (Houston Division)",
+      "source_dataset": "briefings/NATIONWIDE_PPP_LOAN_FRAUD_RICO_AUDIT_2026.md",
+      "entity_type": "JUDICIAL_DOCKET",
+      "nexus_details": {
+        "docket_number": "4:20-cr-00567",
+        "lead_defendant": "Amir Aqeel",
+        "financial_exposure": 35000000.0,
+        "shell_count": 50,
+        "scheme": "Extraction of $35M+ in PPP funds via 50+ sham entities using fabricated IRS Form 941 filings",
+        "address_clusters": [
+          "5858 Westheimer Rd, Houston, TX",
+          "1000 Main St, Houston, TX"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0079",
+      "name": "Amir Aqeel",
+      "state": "TX",
+      "jurisdiction": "Texas",
+      "source_dataset": "briefings/NATIONWIDE_PPP_LOAN_FRAUD_RICO_AUDIT_2026.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "role": "Syndicate organizer of 50-shell PPP extraction ring in SDTX Case 4:20-cr-00567",
+        "diverted_funds": 35000000.0
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0080",
+      "name": "5858 Westheimer Rd Houston Commercial Shell Complex",
+      "state": "TX",
+      "jurisdiction": "Texas / Harris County",
+      "source_dataset": "briefings/NATIONWIDE_PPP_LOAN_FRAUD_RICO_AUDIT_2026.md",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "address": "5858 Westheimer Rd, Houston, TX 77057",
+        "usage": "Commercial hub hosting multiple sham companies in Aqeel loan syndicate"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0081",
+      "name": "Shea Homes Texas",
+      "state": "TX",
+      "jurisdiction": "Texas",
+      "source_dataset": "agent/NATIONWIDE_FOOTPRINT.md",
+      "entity_type": "CONTRACTOR",
+      "nexus_details": {
+        "markets": [
+          "Houston, TX",
+          "Austin, TX"
+        ],
+        "role": "Out-of-state builder affiliate channeling corporate capital into municipal development"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0082",
+      "name": "drillingoilandgasinfo Target Account",
+      "state": "TX",
+      "jurisdiction": "Texas / Oklahoma (Permian Basin)",
+      "source_dataset": "agent/target_accounts_master.json",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "identifier": "drillingoilandgasinfo@gmail.com",
+        "scope": "Petroleum, natural gas, and mineral lease surveillance across Texas oil basins"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0083",
+      "name": "Dog's Day Productions",
+      "state": "FL",
+      "jurisdiction": "Florida / Palm Beach County",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "address": "124 Lake Pine Circle D1, Greenacres, FL 33463",
+        "county": "Palm Beach County",
+        "ein_prefix": "85-091...",
+        "responsible_party": "Dean Innocenzi (SSN 155-78-7252)",
+        "form_type": "IRS Form SS-4 (Rev. January 2010)",
+        "significance": "Interstate corporate front linking Dean Innocenzi (Hamilton, NJ) to Florida"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0084",
+      "name": "124 Lake Pine Circle D1 Real Property",
+      "state": "FL",
+      "jurisdiction": "Florida / Palm Beach County",
+      "source_dataset": "evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "address": "124 Lake Pine Circle D1, Greenacres, FL 33463",
+        "role": "Principal business office for Dog's Day Productions"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0085",
+      "name": "OLMSTED VENTURES LLC",
+      "state": "FL",
+      "jurisdiction": "Florida",
+      "source_dataset": "noble-beanbag-497411-m4.forensic_layers.ppp_property_bridge",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "mail_address": "16970 SAN CARLOS BLVD STE 160-96",
+        "mail_city": "FORT MYERS, FL",
+        "property_held": "23000 Newport Coast Dr (APN 899-017-19)",
+        "acquisition_value": 4000.0
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0086",
+      "name": "Atlantic Pacific Communities LLC",
+      "state": "FL",
+      "jurisdiction": "Florida",
+      "source_dataset": "evidence/whois/atlanticpacificcommunities.com.txt",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "domain": "atlanticpacificcommunities.com",
+        "headquarters": "Miami, FL",
+        "business_type": "Multi-state subsidized and affordable housing development syndication"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0087",
+      "name": "USDC SDFL Case 1:20-mj-03183 (USA v. David T. Hines)",
+      "state": "FL",
+      "jurisdiction": "Southern District of Florida (Miami)",
+      "source_dataset": "briefings/NATIONWIDE_PPP_LOAN_FRAUD_RICO_AUDIT_2026.md",
+      "entity_type": "JUDICIAL_DOCKET",
+      "nexus_details": {
+        "docket_number": "1:20-mj-03183",
+        "defendant": "David T. Hines",
+        "financial_exposure": 3900000.0,
+        "scheme": "Extraction of CARES Act funds; laundering into $318,000 Lamborghini Hurac\u00e1n and luxury real estate",
+        "address_clusters": [
+          "1000 Brickell Ave, Miami, FL",
+          "200 S. Biscayne Blvd, Miami, FL"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0088",
+      "name": "David T. Hines",
+      "state": "FL",
+      "jurisdiction": "Florida",
+      "source_dataset": "briefings/NATIONWIDE_PPP_LOAN_FRAUD_RICO_AUDIT_2026.md",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "charges": "Operation Stolen Paycheck federal prosecution in Case 1:20-mj-03183",
+        "diverted_funds": 3900000.0
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0089",
+      "name": "Stewart Industries LLC",
+      "state": "MI",
+      "jurisdiction": "Michigan",
+      "source_dataset": "agent/NATIONWIDE_FOOTPRINT.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "ppp_loan_forgiven": 1128800.0,
+        "diversion_endpoint": "3311 Bounty Cir, Huntington Beach, CA ($0 family property transfer in 2021)",
+        "scheme": "Conversion of forgiven industrial PPP funds into California residential real estate"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0090",
+      "name": "Triumvirate LLC (Michigan/Alaska Entity)",
+      "state": "MI",
+      "jurisdiction": "Michigan",
+      "source_dataset": "agent/NATIONWIDE_FOOTPRINT.md",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "ppp_loan_forgiven": 1470000.0,
+        "diversion_endpoint": "21951 Brookhurst St, Huntington Beach ($2.8M commercial acquisition)",
+        "scheme": "Conversion of out-of-state PPP loans into California commercial holdings"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0091",
+      "name": "TRIUMVIRATE ENVIRONMENTAL INC",
+      "state": "MA",
+      "jurisdiction": "Massachusetts",
+      "source_dataset": "noble-beanbag-497411-m4.ppp_rico.unified_enterprise",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "ppp_loan_amount": 9050000.0,
+        "address_note": "200 Inner Belt Rd, Somerville MA \u2014 industrial hazmat address",
+        "pipeline": "Out-of-state corporate holding / PPP loan financing"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0092",
+      "name": "CM CLEANING CO, IC",
+      "state": "MA",
+      "jurisdiction": "Massachusetts",
+      "source_dataset": "noble-beanbag-497411-m4.ppp_rico.unified_enterprise",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "ppp_loan_amount": 462747.0,
+        "address_note": "Somerville MA \u2014 cleaning corporate affiliate",
+        "pipeline": "Out-of-state corporate holding / PPP loan financing"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0093",
+      "name": "TRIUMVIRATE OF BATON ROUGE INC",
+      "state": "LA",
+      "jurisdiction": "Louisiana",
+      "source_dataset": "noble-beanbag-497411-m4.ppp_rico.unified_enterprise",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "ppp_loan_amount": 549458.0,
+        "address_note": "Baton Rouge, LA",
+        "pipeline": "Out-of-state corporate holding / PPP loan financing"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0094",
+      "name": "STEWART INDUSTRIES INC / INT L",
+      "state": "OH",
+      "jurisdiction": "Ohio",
+      "source_dataset": "noble-beanbag-497411-m4.ppp_rico.unified_enterprise",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "ppp_loan_amount": 851448.0,
+        "address_note": "Ohio & Alabama industrial operations",
+        "pipeline": "Out-of-state corporate holding / PPP loan financing"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0095",
+      "name": "L2T MEDIA LLC",
+      "state": "IL",
+      "jurisdiction": "Illinois",
+      "source_dataset": "noble-beanbag-497411-m4.ppp_rico.unified_enterprise",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "ppp_loan_amount": 1053297.0,
+        "address_note": "Media marketing entity linked to banking conduits",
+        "pipeline": "Out-of-state corporate holding / PPP loan financing"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0096",
+      "name": "2L2TF LLC",
+      "state": "HI",
+      "jurisdiction": "Hawaii",
+      "source_dataset": "noble-beanbag-497411-m4.ppp_rico.unified_enterprise",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "ppp_loan_amount": 209000.0,
+        "address_note": "Honolulu, HI",
+        "pipeline": "Out-of-state corporate holding / PPP loan financing"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0097",
+      "name": "TRIUMVIRATE LLC (Alaska)",
+      "state": "AK",
+      "jurisdiction": "Alaska",
+      "source_dataset": "noble-beanbag-497411-m4.ppp_rico.unified_enterprise",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "ppp_loan_amount": 1145251.0,
+        "address_note": "Anchorage, AK / Marina del Rey virtual hub",
+        "pipeline": "Out-of-state corporate holding / PPP loan financing"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0098",
+      "name": "MSPC LLC",
+      "state": "UT",
+      "jurisdiction": "Utah",
+      "source_dataset": "noble-beanbag-497411-m4.forensic_layers.ppp_property_bridge",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "mail_address": "4564 N 425 E",
+        "mail_city": "PROVO, UT",
+        "property_held": "23000 Newport Coast Dr (APN 898-962-32)"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0099",
+      "name": "Title IV-E Federal Billing Node",
+      "state": "DC",
+      "jurisdiction": "District of Columbia / Federal",
+      "source_dataset": "noble-beanbag-497411-m4.forensic_layers.cps_trafficking_layer",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "annual_billing_amount": 300000000.0,
+        "program_role": "Foster care reimbursement per child removal; 38.892, -77.025",
+        "federal_source": "HHS/ACF"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0100",
+      "name": "CARES Act COVID Emergency Funding Node",
+      "state": "DC",
+      "jurisdiction": "District of Columbia / Federal",
+      "source_dataset": "noble-beanbag-497411-m4.forensic_layers.cps_trafficking_layer",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "annual_billing_amount": 512000000.0,
+        "program_role": "No-audit emergency funding allocation window; 38.894, -77.04",
+        "federal_source": "HHS/CMS"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0101",
+      "name": "ICWA-IIM Trust Fraud Node",
+      "state": "DC",
+      "jurisdiction": "District of Columbia / Federal",
+      "source_dataset": "noble-beanbag-497411-m4.forensic_layers.cps_trafficking_layer",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "annual_billing_amount": 0.0,
+        "program_role": "Native child welfare trust diversion investigation; 38.895, -77.042",
+        "federal_source": "DOI/BIA"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0102",
+      "name": "Post University",
+      "state": "CT",
+      "jurisdiction": "Connecticut",
+      "source_dataset": "agent/target_accounts_master.json",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "address": "800 Country Club Road, Waterbury, CT 06708",
+        "institution_type": "Higher Education Institution",
+        "account_nexus": "anthony.dimarcello@students.post.edu",
+        "platforms": [
+          "Microsoft 365 OneDrive",
+          "Google Workspace EDU"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0103",
+      "name": "anthony.dimarcello@students.post.edu Target Account",
+      "state": "CT",
+      "jurisdiction": "Connecticut",
+      "source_dataset": "data/master_accounts_crossref_matches.json",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "identifier": "anthony.dimarcello@students.post.edu",
+        "crossref_hits": 8,
+        "category": "google_workspace_edu / microsoft_onedrive_accounts",
+        "significance": "Official student communications and verified federal agency responses"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0104",
+      "name": "T3 Trading Group, LLC",
+      "state": "NY",
+      "jurisdiction": "New York",
+      "source_dataset": "agent/target_accounts_master.json",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "address": "1 Whitehall St / 88 Pine St, New York, NY 10004",
+        "sec_cik": "0001490214",
+        "finra_crd": "154015",
+        "account_nexus": "tradingt3@gmail.com",
+        "business_type": "Proprietary Broker-Dealer & Commodities Futures Trading"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0105",
+      "name": "tradingt3 Target Account",
+      "state": "NY",
+      "jurisdiction": "New York",
+      "source_dataset": "agent/target_accounts_master.json",
+      "entity_type": "INDIVIDUAL",
+      "nexus_details": {
+        "identifier": "tradingt3@gmail.com",
+        "scope": "Series 3 National Commodities Futures and East Coast proprietary trading intelligence"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0106",
+      "name": "USA v. Rafael Ferguson Commercial Bank Fraud Docket",
+      "state": "NY",
+      "jurisdiction": "Southern / Eastern District of New York",
+      "source_dataset": "briefings/NATIONWIDE_PPP_LOAN_FRAUD_RICO_AUDIT_2026.md",
+      "entity_type": "JUDICIAL_DOCKET",
+      "nexus_details": {
+        "addresses": [
+          "40 Wall St, New York, NY",
+          "1221 Avenue of the Americas, New York, NY"
+        ],
+        "scheme": "Commercial bank fraud and offshore wire transfer diversion"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0107",
+      "name": "USDC NDGA Case 1:21-cr-00312 (USA v. Mark Dawkins et al.)",
+      "state": "GA",
+      "jurisdiction": "Northern District of Georgia (Atlanta)",
+      "source_dataset": "briefings/NATIONWIDE_PPP_LOAN_FRAUD_RICO_AUDIT_2026.md",
+      "entity_type": "JUDICIAL_DOCKET",
+      "nexus_details": {
+        "docket_number": "1:21-cr-00312",
+        "defendants": "Mark Dawkins et al.",
+        "financial_exposure": 3000000.0,
+        "scheme": "Multi-state stolen identity and loan packaging ring",
+        "address_clusters": [
+          "3340 Peachtree Rd NE, Atlanta, GA",
+          "100 Galleria Pkwy, Atlanta, GA"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0108",
+      "name": "SG24 LLC",
+      "state": "GA",
+      "jurisdiction": "Georgia",
+      "source_dataset": "data/nationwide_counterfeit_prescription_correlation.json",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "address": "137 Commercial Way, Bolingbroke, GA 31004",
+        "fda_recall": "Class I Recall (High Risk Adulterated Product)",
+        "product_type": "Prescription hand hygiene and disinfectant formulation"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0109",
+      "name": "RICO-010 Delaware Asset Shielding Layer",
+      "state": "DE",
+      "jurisdiction": "Delaware",
+      "source_dataset": "evidence/google_drive/gsheet_1hKx1-8YnvrvAv9H6AQunli3dFSwsyIB3rF1yluO2Y1U.csv",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "statutory_authority": "CERCLA (42 U.S.C. \u00a7 9601) / Delaware Series LLC Framework",
+        "registry_id": "RICO-010",
+        "purpose": "Shielding beneficial ownership from environmental superfund remediation liability"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0110",
+      "name": "HB Development LLC (Delaware Entity)",
+      "state": "DE",
+      "jurisdiction": "Delaware",
+      "source_dataset": "data/master_osint_registry.json",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "registry_id": "SHL-001",
+        "formation_states": "DE / CA dual-jurisdiction shell filing pattern",
+        "purpose": "Commercial real estate asset holding"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0111",
+      "name": "Westminster Pharmaceuticals LLC",
+      "state": "MS",
+      "jurisdiction": "Mississippi",
+      "source_dataset": "data/nationwide_counterfeit_prescription_correlation.json",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "address": "154 Downing Street, Unit 1 & 2, Olive Branch, MS 38654",
+        "fda_recall_number": "D-1178-2018",
+        "product": "Levothyroxine and Liothyronine (Thyroid Tablets, USP), Class I",
+        "distribution": "Nationwide USA"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0112",
+      "name": "Northstar RX, LLC",
+      "state": "TN",
+      "jurisdiction": "Tennessee",
+      "source_dataset": "data/nationwide_counterfeit_prescription_correlation.json",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "address": "Memphis, TN 38141",
+        "fda_recall_number": "D-041-2013",
+        "product": "Northstar Zolpidem Tartrate Tablets USP 10 mg, Class II",
+        "distribution": "Nationwide USA"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0113",
+      "name": "ViiV Healthcare",
+      "state": "NC",
+      "jurisdiction": "North Carolina",
+      "source_dataset": "data/nationwide_counterfeit_prescription_correlation.json",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "address": "Research Triangle Park, NC 27709",
+        "fda_recall_number": "D-1412-2012",
+        "product": "Trizivir 300/150/300 mg tablets, Class II",
+        "distribution": "Nationwide USA"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0114",
+      "name": "State of Alaska CoC Governance Record",
+      "state": "AK",
+      "jurisdiction": "Alaska",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "AK",
+        "active_audits": 0,
+        "total_homeless_count": 1422,
+        "total_unsheltered_count": 222,
+        "total_coc_funding": "3400000",
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "AK",
+        "active_audits": 0,
+        "total_homeless_count": 1422,
+        "total_unsheltered_count": 222,
+        "total_coc_funding": "3400000",
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0115",
+      "name": "State of Alabama CoC Governance Record",
+      "state": "AL",
+      "jurisdiction": "Alabama",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "AL",
+        "active_audits": 0,
+        "total_homeless_count": 1124,
+        "total_unsheltered_count": 304,
+        "total_coc_funding": "12500000",
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "AL",
+        "active_audits": 0,
+        "total_homeless_count": 1124,
+        "total_unsheltered_count": 304,
+        "total_coc_funding": "12500000",
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0116",
+      "name": "State of Arkansas CoC Governance Record",
+      "state": "AR",
+      "jurisdiction": "Arkansas",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "AR",
+        "active_audits": 0,
+        "total_homeless_count": 545,
+        "total_unsheltered_count": 165,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "AR",
+        "active_audits": 0,
+        "total_homeless_count": 545,
+        "total_unsheltered_count": 165,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0117",
+      "name": "State of Arizona CoC Governance Record",
+      "state": "AZ",
+      "jurisdiction": "Arizona",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "AZ",
+        "active_audits": 0,
+        "total_homeless_count": 9642,
+        "total_unsheltered_count": 5030,
+        "total_coc_funding": "42100000",
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "AZ",
+        "active_audits": 0,
+        "total_homeless_count": 9642,
+        "total_unsheltered_count": 5030,
+        "total_coc_funding": "42100000",
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0118",
+      "name": "State of Colorado CoC Governance Record",
+      "state": "CO",
+      "jurisdiction": "Colorado",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "CO",
+        "active_audits": 0,
+        "total_homeless_count": 9065,
+        "total_unsheltered_count": 2775,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "CO",
+        "active_audits": 0,
+        "total_homeless_count": 9065,
+        "total_unsheltered_count": 2775,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0119",
+      "name": "State of Connecticut CoC Governance Record",
+      "state": "CT",
+      "jurisdiction": "Connecticut",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "CT",
+        "active_audits": 0,
+        "total_homeless_count": 1850,
+        "total_unsheltered_count": 350,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "CT",
+        "active_audits": 0,
+        "total_homeless_count": 1850,
+        "total_unsheltered_count": 350,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0120",
+      "name": "State of Delaware CoC Governance Record",
+      "state": "DE",
+      "jurisdiction": "Delaware",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "DE",
+        "active_audits": 0,
+        "total_homeless_count": 1245,
+        "total_unsheltered_count": 145,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "DE",
+        "active_audits": 0,
+        "total_homeless_count": 1245,
+        "total_unsheltered_count": 145,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0121",
+      "name": "State of Florida CoC Governance Record",
+      "state": "FL",
+      "jurisdiction": "Florida",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "FL",
+        "active_audits": 0,
+        "total_homeless_count": 2314,
+        "total_unsheltered_count": 804,
+        "total_coc_funding": "1800000",
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "FL",
+        "active_audits": 0,
+        "total_homeless_count": 2314,
+        "total_unsheltered_count": 804,
+        "total_coc_funding": "1800000",
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0122",
+      "name": "State of Georgia CoC Governance Record",
+      "state": "GA",
+      "jurisdiction": "Georgia",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "GA",
+        "active_audits": 0,
+        "total_homeless_count": 2679,
+        "total_unsheltered_count": 839,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "GA",
+        "active_audits": 0,
+        "total_homeless_count": 2679,
+        "total_unsheltered_count": 839,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0123",
+      "name": "State of Hawaii CoC Governance Record",
+      "state": "HI",
+      "jurisdiction": "Hawaii",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "HI",
+        "active_audits": 0,
+        "total_homeless_count": 4028,
+        "total_unsheltered_count": 2308,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "HI",
+        "active_audits": 0,
+        "total_homeless_count": 4028,
+        "total_unsheltered_count": 2308,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0124",
+      "name": "State of Iowa CoC Governance Record",
+      "state": "IA",
+      "jurisdiction": "Iowa",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "IA",
+        "active_audits": 0,
+        "total_homeless_count": 612,
+        "total_unsheltered_count": 62,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "IA",
+        "active_audits": 0,
+        "total_homeless_count": 612,
+        "total_unsheltered_count": 62,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0125",
+      "name": "State of Idaho CoC Governance Record",
+      "state": "ID",
+      "jurisdiction": "Idaho",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "ID",
+        "active_audits": 0,
+        "total_homeless_count": 687,
+        "total_unsheltered_count": 237,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "ID",
+        "active_audits": 0,
+        "total_homeless_count": 687,
+        "total_unsheltered_count": 237,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0126",
+      "name": "State of Illinois CoC Governance Record",
+      "state": "IL",
+      "jurisdiction": "Illinois",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "IL",
+        "active_audits": 0,
+        "total_homeless_count": 6139,
+        "total_unsheltered_count": 2039,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "IL",
+        "active_audits": 0,
+        "total_homeless_count": 6139,
+        "total_unsheltered_count": 2039,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0127",
+      "name": "State of Indiana CoC Governance Record",
+      "state": "IN",
+      "jurisdiction": "Indiana",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "IN",
+        "active_audits": 0,
+        "total_homeless_count": 1619,
+        "total_unsheltered_count": 419,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "IN",
+        "active_audits": 0,
+        "total_homeless_count": 1619,
+        "total_unsheltered_count": 419,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0128",
+      "name": "State of Kansas CoC Governance Record",
+      "state": "KS",
+      "jurisdiction": "Kansas",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "KS",
+        "active_audits": 0,
+        "total_homeless_count": 702,
+        "total_unsheltered_count": 122,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "KS",
+        "active_audits": 0,
+        "total_homeless_count": 702,
+        "total_unsheltered_count": 122,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0129",
+      "name": "State of Kentucky CoC Governance Record",
+      "state": "KY",
+      "jurisdiction": "Kentucky",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "KY",
+        "active_audits": 0,
+        "total_homeless_count": 1374,
+        "total_unsheltered_count": 394,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "KY",
+        "active_audits": 0,
+        "total_homeless_count": 1374,
+        "total_unsheltered_count": 394,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0130",
+      "name": "State of Louisiana CoC Governance Record",
+      "state": "LA",
+      "jurisdiction": "Louisiana",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "LA",
+        "active_audits": 0,
+        "total_homeless_count": 1390,
+        "total_unsheltered_count": 540,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "LA",
+        "active_audits": 0,
+        "total_homeless_count": 1390,
+        "total_unsheltered_count": 540,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0131",
+      "name": "State of Massachusetts CoC Governance Record",
+      "state": "MA",
+      "jurisdiction": "Massachusetts",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "MA",
+        "active_audits": 0,
+        "total_homeless_count": 5231,
+        "total_unsheltered_count": 431,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "MA",
+        "active_audits": 0,
+        "total_homeless_count": 5231,
+        "total_unsheltered_count": 431,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0132",
+      "name": "State of Maryland CoC Governance Record",
+      "state": "MD",
+      "jurisdiction": "Maryland",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "MD",
+        "active_audits": 0,
+        "total_homeless_count": 1597,
+        "total_unsheltered_count": 397,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "MD",
+        "active_audits": 0,
+        "total_homeless_count": 1597,
+        "total_unsheltered_count": 397,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0133",
+      "name": "State of Maine CoC Governance Record",
+      "state": "ME",
+      "jurisdiction": "Maine",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "ME",
+        "active_audits": 0,
+        "total_homeless_count": 4258,
+        "total_unsheltered_count": 458,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "ME",
+        "active_audits": 0,
+        "total_homeless_count": 4258,
+        "total_unsheltered_count": 458,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0134",
+      "name": "State of Michigan CoC Governance Record",
+      "state": "MI",
+      "jurisdiction": "Michigan",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "MI",
+        "active_audits": 0,
+        "total_homeless_count": 1247,
+        "total_unsheltered_count": 197,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "MI",
+        "active_audits": 0,
+        "total_homeless_count": 1247,
+        "total_unsheltered_count": 197,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0135",
+      "name": "State of Minnesota CoC Governance Record",
+      "state": "MN",
+      "jurisdiction": "Minnesota",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "MN",
+        "active_audits": 0,
+        "total_homeless_count": 3051,
+        "total_unsheltered_count": 651,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "MN",
+        "active_audits": 0,
+        "total_homeless_count": 3051,
+        "total_unsheltered_count": 651,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0136",
+      "name": "State of Missouri CoC Governance Record",
+      "state": "MO",
+      "jurisdiction": "Missouri",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "MO",
+        "active_audits": 0,
+        "total_homeless_count": 1256,
+        "total_unsheltered_count": 276,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "MO",
+        "active_audits": 0,
+        "total_homeless_count": 1256,
+        "total_unsheltered_count": 276,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0137",
+      "name": "State of Mississippi CoC Governance Record",
+      "state": "MS",
+      "jurisdiction": "Mississippi",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "MS",
+        "active_audits": 0,
+        "total_homeless_count": 523,
+        "total_unsheltered_count": 213,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "MS",
+        "active_audits": 0,
+        "total_homeless_count": 523,
+        "total_unsheltered_count": 213,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0138",
+      "name": "State of Montana CoC Governance Record",
+      "state": "MT",
+      "jurisdiction": "Montana",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "MT",
+        "active_audits": 0,
+        "total_homeless_count": 1585,
+        "total_unsheltered_count": 485,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "MT",
+        "active_audits": 0,
+        "total_homeless_count": 1585,
+        "total_unsheltered_count": 485,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0139",
+      "name": "State of North Carolina CoC Governance Record",
+      "state": "NC",
+      "jurisdiction": "North Carolina",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "NC",
+        "active_audits": 0,
+        "total_homeless_count": 2145,
+        "total_unsheltered_count": 545,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "NC",
+        "active_audits": 0,
+        "total_homeless_count": 2145,
+        "total_unsheltered_count": 545,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0140",
+      "name": "State of North Dakota CoC Governance Record",
+      "state": "ND",
+      "jurisdiction": "North Dakota",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "ND",
+        "active_audits": 0,
+        "total_homeless_count": 610,
+        "total_unsheltered_count": 130,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "ND",
+        "active_audits": 0,
+        "total_homeless_count": 610,
+        "total_unsheltered_count": 130,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0141",
+      "name": "State of Nebraska CoC Governance Record",
+      "state": "NE",
+      "jurisdiction": "Nebraska",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "NE",
+        "active_audits": 0,
+        "total_homeless_count": 1354,
+        "total_unsheltered_count": 204,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "NE",
+        "active_audits": 0,
+        "total_homeless_count": 1354,
+        "total_unsheltered_count": 204,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0142",
+      "name": "State of New Hampshire CoC Governance Record",
+      "state": "NH",
+      "jurisdiction": "New Hampshire",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "NH",
+        "active_audits": 0,
+        "total_homeless_count": 1605,
+        "total_unsheltered_count": 305,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "NH",
+        "active_audits": 0,
+        "total_homeless_count": 1605,
+        "total_unsheltered_count": 305,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0143",
+      "name": "State of New Jersey CoC Governance Record",
+      "state": "NJ",
+      "jurisdiction": "New Jersey",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "NJ",
+        "active_audits": 0,
+        "total_homeless_count": 10267,
+        "total_unsheltered_count": 1767,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "NJ",
+        "active_audits": 0,
+        "total_homeless_count": 10267,
+        "total_unsheltered_count": 1767,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0144",
+      "name": "State of New Mexico CoC Governance Record",
+      "state": "NM",
+      "jurisdiction": "New Mexico",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "NM",
+        "active_audits": 0,
+        "total_homeless_count": 2394,
+        "total_unsheltered_count": 894,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "NM",
+        "active_audits": 0,
+        "total_homeless_count": 2394,
+        "total_unsheltered_count": 894,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0145",
+      "name": "State of Nevada CoC Governance Record",
+      "state": "NV",
+      "jurisdiction": "Nevada",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "NV",
+        "active_audits": 0,
+        "total_homeless_count": 6566,
+        "total_unsheltered_count": 4006,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "NV",
+        "active_audits": 0,
+        "total_homeless_count": 6566,
+        "total_unsheltered_count": 4006,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0146",
+      "name": "State of New York CoC Governance Record",
+      "state": "NY",
+      "jurisdiction": "New York",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "NY",
+        "active_audits": 0,
+        "total_homeless_count": 88025,
+        "total_unsheltered_count": 4025,
+        "total_coc_funding": "142000000",
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "NY",
+        "active_audits": 0,
+        "total_homeless_count": 88025,
+        "total_unsheltered_count": 4025,
+        "total_coc_funding": "142000000",
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0147",
+      "name": "State of Ohio CoC Governance Record",
+      "state": "OH",
+      "jurisdiction": "Ohio",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "OH",
+        "active_audits": 0,
+        "total_homeless_count": 1105,
+        "total_unsheltered_count": 215,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "OH",
+        "active_audits": 0,
+        "total_homeless_count": 1105,
+        "total_unsheltered_count": 215,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0148",
+      "name": "State of Oklahoma CoC Governance Record",
+      "state": "OK",
+      "jurisdiction": "Oklahoma",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "OK",
+        "active_audits": 0,
+        "total_homeless_count": 1436,
+        "total_unsheltered_count": 486,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "OK",
+        "active_audits": 0,
+        "total_homeless_count": 1436,
+        "total_unsheltered_count": 486,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0149",
+      "name": "State of Oregon CoC Governance Record",
+      "state": "OR",
+      "jurisdiction": "Oregon",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "OR",
+        "active_audits": 0,
+        "total_homeless_count": 6279,
+        "total_unsheltered_count": 3979,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "OR",
+        "active_audits": 0,
+        "total_homeless_count": 6279,
+        "total_unsheltered_count": 3979,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0150",
+      "name": "State of Pennsylvania CoC Governance Record",
+      "state": "PA",
+      "jurisdiction": "Pennsylvania",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "PA",
+        "active_audits": 0,
+        "total_homeless_count": 4725,
+        "total_unsheltered_count": 725,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "PA",
+        "active_audits": 0,
+        "total_homeless_count": 4725,
+        "total_unsheltered_count": 725,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0151",
+      "name": "State of Rhode Island CoC Governance Record",
+      "state": "RI",
+      "jurisdiction": "Rhode Island",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "RI",
+        "active_audits": 0,
+        "total_homeless_count": 1810,
+        "total_unsheltered_count": 310,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "RI",
+        "active_audits": 0,
+        "total_homeless_count": 1810,
+        "total_unsheltered_count": 310,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0152",
+      "name": "State of South Carolina CoC Governance Record",
+      "state": "SC",
+      "jurisdiction": "South Carolina",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "SC",
+        "active_audits": 0,
+        "total_homeless_count": 458,
+        "total_unsheltered_count": 138,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "SC",
+        "active_audits": 0,
+        "total_homeless_count": 458,
+        "total_unsheltered_count": 138,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0153",
+      "name": "State of South Dakota CoC Governance Record",
+      "state": "SD",
+      "jurisdiction": "South Dakota",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "SD",
+        "active_audits": 0,
+        "total_homeless_count": 1245,
+        "total_unsheltered_count": 295,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "SD",
+        "active_audits": 0,
+        "total_homeless_count": 1245,
+        "total_unsheltered_count": 295,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0154",
+      "name": "State of Tennessee CoC Governance Record",
+      "state": "TN",
+      "jurisdiction": "Tennessee",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "TN",
+        "active_audits": 0,
+        "total_homeless_count": 1474,
+        "total_unsheltered_count": 374,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "TN",
+        "active_audits": 0,
+        "total_homeless_count": 1474,
+        "total_unsheltered_count": 374,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0155",
+      "name": "State of Texas CoC Governance Record",
+      "state": "TX",
+      "jurisdiction": "Texas",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "TX",
+        "active_audits": 0,
+        "total_homeless_count": 4244,
+        "total_unsheltered_count": 1144,
+        "total_coc_funding": "38000000",
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "TX",
+        "active_audits": 0,
+        "total_homeless_count": 4244,
+        "total_unsheltered_count": 1144,
+        "total_coc_funding": "38000000",
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0156",
+      "name": "State of Utah CoC Governance Record",
+      "state": "UT",
+      "jurisdiction": "Utah",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "UT",
+        "active_audits": 0,
+        "total_homeless_count": 3687,
+        "total_unsheltered_count": 887,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "UT",
+        "active_audits": 0,
+        "total_homeless_count": 3687,
+        "total_unsheltered_count": 887,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0157",
+      "name": "State of Virginia CoC Governance Record",
+      "state": "VA",
+      "jurisdiction": "Virginia",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "VA",
+        "active_audits": 0,
+        "total_homeless_count": 545,
+        "total_unsheltered_count": 125,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "VA",
+        "active_audits": 0,
+        "total_homeless_count": 545,
+        "total_unsheltered_count": 125,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0158",
+      "name": "State of Vermont CoC Governance Record",
+      "state": "VT",
+      "jurisdiction": "Vermont",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "VT",
+        "active_audits": 0,
+        "total_homeless_count": 3295,
+        "total_unsheltered_count": 395,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "VT",
+        "active_audits": 0,
+        "total_homeless_count": 3295,
+        "total_unsheltered_count": 395,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0159",
+      "name": "State of Washington CoC Governance Record",
+      "state": "WA",
+      "jurisdiction": "Washington",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "WA",
+        "active_audits": 0,
+        "total_homeless_count": 14142,
+        "total_unsheltered_count": 7928,
+        "total_coc_funding": "58900000",
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "WA",
+        "active_audits": 0,
+        "total_homeless_count": 14142,
+        "total_unsheltered_count": 7928,
+        "total_coc_funding": "58900000",
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0160",
+      "name": "State of Wisconsin CoC Governance Record",
+      "state": "WI",
+      "jurisdiction": "Wisconsin",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "WI",
+        "active_audits": 0,
+        "total_homeless_count": 830,
+        "total_unsheltered_count": 80,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "WI",
+        "active_audits": 0,
+        "total_homeless_count": 830,
+        "total_unsheltered_count": 80,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0161",
+      "name": "State of West Virginia CoC Governance Record",
+      "state": "WV",
+      "jurisdiction": "West Virginia",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "WV",
+        "active_audits": 0,
+        "total_homeless_count": 824,
+        "total_unsheltered_count": 214,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "WV",
+        "active_audits": 0,
+        "total_homeless_count": 824,
+        "total_unsheltered_count": 214,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0162",
+      "name": "State of Wyoming CoC Governance Record",
+      "state": "WY",
+      "jurisdiction": "Wyoming",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.mat_looker_forensic_base",
+      "entity_type": "CORPORATION",
+      "nexus_details": {
+        "state_anchor": "WY",
+        "active_audits": 0,
+        "total_homeless_count": 532,
+        "total_unsheltered_count": 152,
+        "total_coc_funding": null,
+        "leakage_delta": null,
+        "corporate_target": null,
+        "clinic_billing_id": null
+      },
+      "raw_attributes": {
+        "state_anchor": "WY",
+        "active_audits": 0,
+        "total_homeless_count": 532,
+        "total_unsheltered_count": 152,
+        "total_coc_funding": null,
+        "corporate_target": null,
+        "clinic_billing_id": null,
+        "leakage_delta": null,
+        "hazard_site": null,
+        "toxic_severity_multiplier": null
+      },
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0163",
+      "name": "Drive Evidence: PA Resumes.one (On 10-21-2016).one",
+      "state": "PA",
+      "jurisdiction": "Pennsylvania",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.drive_file_index",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_id": "1K_T4-dKln9DnpdNUWeuL6rHoClJ2QIxl",
+        "file_name": "PA Resumes.one (On 10-21-2016).one",
+        "mime_type": "application/octet-stream",
+        "size_bytes": 53963261,
+        "modified_time": "2018-07-12 01:34:28.416000+00:00",
+        "owner_emails": [
+          "amd949609@gmail.com"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0164",
+      "name": "Drive Evidence: PA Resumes.one (On 11-4-2015).one",
+      "state": "PA",
+      "jurisdiction": "Pennsylvania",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.drive_file_index",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_id": "104RPWfA5HqeuoYfgbzPfLeKkzIVxBWip",
+        "file_name": "PA Resumes.one (On 11-4-2015).one",
+        "mime_type": "application/octet-stream",
+        "size_bytes": 53962125,
+        "modified_time": "2018-07-12 01:35:07.448000+00:00",
+        "owner_emails": [
+          "amd949609@gmail.com"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0165",
+      "name": "Drive Evidence: Jimi Hendrix   best ever live solo He plays Red House live at the New York  pop festival.mp3",
+      "state": "NY",
+      "jurisdiction": "New York",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.drive_file_index",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_id": "1Yis926WR9F0dxnFFzbzU3FNQaSZNWJ84",
+        "file_name": "Jimi Hendrix   best ever live solo He plays Red House live at the New York  pop festival.mp3",
+        "mime_type": "audio/mpeg",
+        "size_bytes": 19496673,
+        "modified_time": "2018-03-28 20:55:14+00:00",
+        "owner_emails": [
+          "amd949609@gmail.com"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0166",
+      "name": "Drive Evidence: NY Metro OJR1 (Autosaved).xlsx",
+      "state": "NY",
+      "jurisdiction": "New York",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.drive_file_index",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_id": "14Ib2ttFV0WVPAu5HyealKlEIdPTaja1N",
+        "file_name": "NY Metro OJR1 (Autosaved).xlsx",
+        "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "size_bytes": 17765294,
+        "modified_time": "2018-07-12 00:53:26.171000+00:00",
+        "owner_emails": [
+          "amd949609@gmail.com"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0167",
+      "name": "Drive Evidence: NY Metro OJR1.xlsx",
+      "state": "NY",
+      "jurisdiction": "New York",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.drive_file_index",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_id": "18mOMDB5SEXUxD2XTLNko0B-Kq9ViuwDz",
+        "file_name": "NY Metro OJR1.xlsx",
+        "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "size_bytes": 17756467,
+        "modified_time": "2016-05-05 23:11:30+00:00",
+        "owner_emails": [
+          "amd949609@gmail.com"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0168",
+      "name": "Drive Evidence: 71. Morgan Wallen - Up Down feat Florida Georgia Line.mp3",
+      "state": "FL",
+      "jurisdiction": "Florida",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.drive_file_index",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_id": "146bjHzMIYmWyoGJohGtRvKQu1q0CKYKH",
+        "file_name": "71. Morgan Wallen - Up Down feat Florida Georgia Line.mp3",
+        "mime_type": "audio/mp3",
+        "size_bytes": 7916222,
+        "modified_time": "2018-11-23 05:06:05.285000+00:00",
+        "owner_emails": [
+          "amd949609@gmail.com"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0169",
+      "name": "Drive Evidence: 50. Hailee Steinfeld & Alesso - Let Me Go (feat. Florida Georgia Line & watt).mp3",
+      "state": "FL",
+      "jurisdiction": "Florida",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.drive_file_index",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_id": "1mSSOAXT-IZlezoe5iveW_KgrBlJyfuzm",
+        "file_name": "50. Hailee Steinfeld & Alesso - Let Me Go (feat. Florida Georgia Line & watt).mp3",
+        "mime_type": "audio/mp3",
+        "size_bytes": 7163809,
+        "modified_time": "2018-11-23 03:00:48.353000+00:00",
+        "owner_emails": [
+          "amd949609@gmail.com"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0170",
+      "name": "Drive Evidence: 08. Bebe Rexha - Meant to Be (with Florida Georgia Line).mp3",
+      "state": "FL",
+      "jurisdiction": "Florida",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.drive_file_index",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_id": "1uMJZhMY2jbwbc_QdIeFp-j0MSKWlH1R1",
+        "file_name": "08. Bebe Rexha - Meant to Be (with Florida Georgia Line).mp3",
+        "mime_type": "audio/mp3",
+        "size_bytes": 6689782,
+        "modified_time": "2018-11-23 02:49:03.378000+00:00",
+        "owner_emails": [
+          "amd949609@gmail.com"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0171",
+      "name": "Drive Evidence: 05. Bebe Rexha - Meant to Be (with Florida Georgia Line).mp3",
+      "state": "FL",
+      "jurisdiction": "Florida",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.drive_file_index",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_id": "1kXyoiE7mJZsh3uJI71FiugOMjywZTAqv",
+        "file_name": "05. Bebe Rexha - Meant to Be (with Florida Georgia Line).mp3",
+        "mime_type": "audio/mp3",
+        "size_bytes": 6689782,
+        "modified_time": "2018-11-23 02:48:02.377000+00:00",
+        "owner_emails": [
+          "amd949609@gmail.com"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0172",
+      "name": "Drive Evidence: PA Resumes 2.one (On 10-21-2016).one",
+      "state": "PA",
+      "jurisdiction": "Pennsylvania",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.drive_file_index",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_id": "12O8H9jbKzK7h3IvY1ilcDdQ1-rRFgULx",
+        "file_name": "PA Resumes 2.one (On 10-21-2016).one",
+        "mime_type": "application/octet-stream",
+        "size_bytes": 5221176,
+        "modified_time": "2018-07-12 01:37:27.224000+00:00",
+        "owner_emails": [
+          "amd949609@gmail.com"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0173",
+      "name": "Drive Evidence: PA Resumes 2.one (On 11-6-2015).one",
+      "state": "PA",
+      "jurisdiction": "Pennsylvania",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.drive_file_index",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_id": "1Atn-xp1eF3UCzK0dUJwzMAF7p5XtScT-",
+        "file_name": "PA Resumes 2.one (On 11-6-2015).one",
+        "mime_type": "application/msonenote",
+        "size_bytes": 5221176,
+        "modified_time": "2015-11-06 10:02:56+00:00",
+        "owner_emails": [
+          "amd949609@gmail.com"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0174",
+      "name": "Drive Evidence: PA Resumes.one (On 7-16-2015).one",
+      "state": "PA",
+      "jurisdiction": "Pennsylvania",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.drive_file_index",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_id": "1OpbV_leev6NPrfrnFmbNgw2ir5HdtQWK",
+        "file_name": "PA Resumes.one (On 7-16-2015).one",
+        "mime_type": "application/octet-stream",
+        "size_bytes": 2462746,
+        "modified_time": "2018-07-12 01:31:10.536000+00:00",
+        "owner_emails": [
+          "amd949609@gmail.com"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0175",
+      "name": "Drive Evidence: Mercer.pdf",
+      "state": "NJ",
+      "jurisdiction": "New Jersey",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.drive_file_index",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_id": "1eqdKEj3YB7moBJLcRBMviVga7ih6F2UB",
+        "file_name": "Mercer.pdf",
+        "mime_type": "application/pdf",
+        "size_bytes": 1962640,
+        "modified_time": "2022-10-26 10:34:16.629000+00:00",
+        "owner_emails": [
+          "amd949609@gmail.com"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0176",
+      "name": "Drive Evidence: Onetime teen robbery suspect suing cops, claims false arrest - nj.com.pdf",
+      "state": "NJ",
+      "jurisdiction": "New Jersey",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.drive_file_index",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_id": "1Jea3haW50kruNDhNga4WeqKIfW2Cdjdn",
+        "file_name": "Onetime teen robbery suspect suing cops, claims false arrest - nj.com.pdf",
+        "mime_type": "application/pdf",
+        "size_bytes": 1217616,
+        "modified_time": "2021-11-01 12:19:31+00:00",
+        "owner_emails": [
+          "amd949609@gmail.com"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0177",
+      "name": "Drive Evidence: PA Resumes.one (On 6-12-2015).one",
+      "state": "PA",
+      "jurisdiction": "Pennsylvania",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.drive_file_index",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_id": "17Tc4LU25mer2IhdK0JpwmJeM9hb-IS5I",
+        "file_name": "PA Resumes.one (On 6-12-2015).one",
+        "mime_type": "application/msonenote",
+        "size_bytes": 1205280,
+        "modified_time": "2015-06-12 08:35:40+00:00",
+        "owner_emails": [
+          "amd949609@gmail.com"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0178",
+      "name": "Drive Evidence: PA Resumes.one (On 5-29-2015).one",
+      "state": "PA",
+      "jurisdiction": "Pennsylvania",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.drive_file_index",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_id": "1aIf2631xvwO2js9688M3dUwqyQ5VbbG8",
+        "file_name": "PA Resumes.one (On 5-29-2015).one",
+        "mime_type": "application/msonenote",
+        "size_bytes": 1204592,
+        "modified_time": "2015-05-29 19:46:02+00:00",
+        "owner_emails": [
+          "amd949609@gmail.com"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0179",
+      "name": "Drive Evidence: Roosevelt Mall - NY-LI.one (On 10-21-2016).one",
+      "state": "NY",
+      "jurisdiction": "New York",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.drive_file_index",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_id": "185oGfTinByVUrC5fwyHAXDiINEW8fbxz",
+        "file_name": "Roosevelt Mall - NY-LI.one (On 10-21-2016).one",
+        "mime_type": "application/msonenote",
+        "size_bytes": 1186504,
+        "modified_time": "2016-10-21 21:03:28+00:00",
+        "owner_emails": [
+          "amd949609@gmail.com"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0180",
+      "name": "Drive Evidence: Roosevelt Mall - NY-LI.one (On 7-20-2016).one",
+      "state": "NY",
+      "jurisdiction": "New York",
+      "source_dataset": "noble-beanbag-497411-m4.national_audits.drive_file_index",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_id": "160R2uHDVWjOBQ3IdBXSqY2M-eihPHyRB",
+        "file_name": "Roosevelt Mall - NY-LI.one (On 7-20-2016).one",
+        "mime_type": "application/msonenote",
+        "size_bytes": 1186248,
+        "modified_time": "2016-07-20 17:17:58+00:00",
+        "owner_emails": [
+          "amd949609@gmail.com"
+        ]
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0181",
+      "name": "OneDrive Document: c7b036a1-0ce1-4cc7-ad43-6eb69a4bc7d6.pdf",
+      "state": "NJ",
+      "jurisdiction": "New Jersey",
+      "source_dataset": "noble-beanbag-497411-m4.onedrive_forensics.onedrive_documents",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_path": "C:\\Users\\HP\\OneDrive\\Documents\\OsintNeoAi\\backups\\repo\\backup_20260903_225710\\evidence\\gdrive_import_2026\\previous enviro\\5125 data\\nj\\c7b036a1-0ce1-4cc7-ad43-6eb69a4bc7d6.pdf",
+        "file_name": "c7b036a1-0ce1-4cc7-ad43-6eb69a4bc7d6.pdf",
+        "file_type": "doc",
+        "file_size": 2605917,
+        "preview_snippet": "[Document file index metadata. Real file lives at local disk: C:\\Users\\HP\\OneDrive\\Documents\\OsintNeoAi\\backups\\repo\\backup_20260903_225710\\evidence\\gdrive_import_2026\\previous enviro\\5125 data\\nj\\c7b036a1-0ce1-4cc7-ad43-6eb69a4bc7d6.pdf]"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0182",
+      "name": "OneDrive Document: Preliminary Sanborn\u00ae Map Report.pdf",
+      "state": "NJ",
+      "jurisdiction": "New Jersey",
+      "source_dataset": "noble-beanbag-497411-m4.onedrive_forensics.onedrive_documents",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_path": "C:\\Users\\HP\\OneDrive\\Documents\\OsintNeoAi\\backups\\repo\\backup_20260903_213534\\evidence\\gdrive_import_2026\\previous enviro\\5125 data\\nj\\Preliminary Sanborn\u00ae Map Report.pdf",
+        "file_name": "Preliminary Sanborn\u00ae Map Report.pdf",
+        "file_type": "doc",
+        "file_size": 206946,
+        "preview_snippet": "[Document file index metadata. Real file lives at local disk: C:\\Users\\HP\\OneDrive\\Documents\\OsintNeoAi\\backups\\repo\\backup_20260903_213534\\evidence\\gdrive_import_2026\\previous enviro\\5125 data\\nj\\Preliminary Sanborn\u00ae Map Report.pdf]"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    },
+    {
+      "entity_id": "NONCA-ENT-0183",
+      "name": "OneDrive Document: 7642 Wintersburg, California \u2022 Beyond Nevada Expeditions.html.txt",
+      "state": "NV",
+      "jurisdiction": "Nevada",
+      "source_dataset": "noble-beanbag-497411-m4.onedrive_forensics.onedrive_documents",
+      "entity_type": "PROPERTY",
+      "nexus_details": {
+        "file_path": "C:\\Users\\HP\\OneDrive\\Documents\\OsintNeoAi\\backups\\repo\\backup_20260901_122307\\evidence\\lawsuit_info_full_dimarcello\\ocr_transcripts\\7642 Wintersburg, California \u2022 Beyond Nevada Expeditions.html.txt",
+        "file_name": "7642 Wintersburg, California \u2022 Beyond Nevada Expeditions.html.txt",
+        "file_type": "text",
+        "file_size": 30785,
+        "preview_snippet": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<!-- saved from url=(0066)https://beyond.nvexpeditions.com/california/orange/wintersburg.php -->\n<html xmlns=\"http://www.w3.org/1999/xhtml\"><head><meta http-equiv=\"Content-Type\" content=\"tex"
+      },
+      "raw_attributes": {},
+      "first_discovered": "2026-09-17T03:03:36Z"
+    }
+  ]
+}
