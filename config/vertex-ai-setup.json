@@ -1,0 +1,11 @@
+{
+  "comment": "ADC credentials for blah-905ad - Vertex AI auth",
+  "project_id": "blah-905ad",
+  "type": "authorized_user",
+  "location": "us-central1",
+  "instructions": [
+    "1. gcloud auth application-default login --project=blah-905ad",
+    "2. Copy result to ~/.config/gcloud/application_default_credentials.json",
+    "3. Run: config/fix-gemini-vertexai.ps1"
+  ]
+}

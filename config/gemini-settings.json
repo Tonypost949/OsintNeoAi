@@ -1,0 +1,27 @@
+{
+  "security": {
+    "auth": {
+      "selectedType": "vertex-ai"
+    }
+  },
+  "model": {
+    "name": "gemini-2.5-flash"
+  },
+  "modelIdResolutions": {
+    "gemini-2.5-flash": {
+      "default": "gemini-2.5-flash"
+    },
+    "gemini-3-flash-preview": {
+      "default": "gemini-2.5-flash"
+    },
+    "gemini-3.5-flash": {
+      "default": "gemini-2.5-flash"
+    },
+    "flash": {
+      "default": "gemini-2.5-flash"
+    },
+    "auto": {
+      "default": "gemini-2.5-flash"
+    }
+  }
+}
