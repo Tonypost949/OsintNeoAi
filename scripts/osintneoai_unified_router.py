@@ -8,8 +8,25 @@ PORT = 8095
 
 class UnifiedRouterHandler(http.server.SimpleHTTPRequestHandler):
 
+    def do_POST(self):
+        if self.path == '/api/auth/register':
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.end_headers()
+            response = '{"status": "SUCCESS", "message": "User registered successfully", "workspace_id": "usr_workspace_clean_001", "redirect_url": "/workspace"}'
+            self.wfile.write(response.encode('utf-8'))
+        else:
+            self.send_error(404, "Endpoint not found")
+
     def do_GET(self):
-        if self.path == '/' or self.path == '/signup' or self.path == '/landing':
+        if self.path == '/api/auth/session':
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.end_headers()
+            response = '{"authenticated": true, "user_type": "public_investigator", "workspace_id": "usr_workspace_clean_001", "is_blank_workspace": true, "personal_data_isolated": true}'
+            self.wfile.write(response.encode('utf-8'))
+            return
+        elif self.path == '/' or self.path == '/signup' or self.path == '/landing':
             self.path = '/core/AG2OSINTNEOMAXX/public_landing.html'
         elif self.path == '/workspace' or self.path == '/workspace/' or self.path == '/chat':
             self.path = '/public/workspace_chat.html'
