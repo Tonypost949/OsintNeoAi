@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OsintNeoAi - 3D Photorealistic Geospatial Intelligence Viewer</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            overflow: hidden;
+        }
+        #map {
+            width: 100%;
+            height: 100vh;
+        }
+        .osint-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            background: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(8px);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 320px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .osint-overlay h2 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: #00e676;
+            letter-spacing: 1px;
+        }
+        .osint-input-group {
+            margin-bottom: 12px;
+        }
+        .osint-input-group label {
+            display: block;
+            font-size: 0.8rem;
+            color: #aaaaaa;
+            margin-bottom: 4px;
+        }
+        .osint-input-group input {
+            width: 100%;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #333;
+            background: #1e1e1e;
+            color: #fff;
+            box-sizing: border-box;
+        }
+        .osint-button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            background: #00e676;
+            color: #121212;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        .osint-button:hover {
+            background: #00c853;
+        }
+    </style>
+    <!-- Source: Google Maps Platform Code Assist -->
+    <script>
+        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+            key: "DEMO_MAP_ID",
+            v: "beta"
+        });
+    </script>
+</head>
+<body>
+
+    <div class="osint-overlay">
+        <h2>OSINT GEO-INT VIEWER</h2>
+        <div class="osint-input-group">
+            <label for="target-coords">Target Coordinates (Lat, Lng)</label>
+            <input type="text" id="target-coords" value="37.7749,-122.4194" placeholder="e.g. 37.7749,-122.4194">
+        </div>
+        <button class="osint-button" onclick="flyToTarget()">RECON TARGET</button>
+    </div>
+
+    <div id="map"></div>
+
+    <script>
+        let map;
+
+        async function initMap() {
+            const { Map } = await google.maps.importLibrary("maps");
+            
+            // Mandatory Map ID requirement for 3D and Advanced Markers
+            map = new Map(document.getElementById("map"), {
+                center: { lat: 37.7749, lng: -122.4194 },
+                zoom: 17,
+                heading: 45,
+                tilt: 67.5,
+                mapId: "DEMO_MAP_ID",
+                internalUsageAttributionIds: ["gmp_git_agentskills_v1"]
+            });
+        }
+
+        function flyToTarget() {
+            const coordsStr = document.getElementById("target-coords").value;
+            const parts = coordsStr.split(",");
+            if (parts.length === 2) {
+                const lat = parseFloat(parts[0].trim());
+                const lng = parseFloat(parts[1].trim());
+                if (!isNaN(lat) && !isNaN(lng)) {
+                    map.moveCamera({
+                        center: { lat, lng },
+                        zoom: 18,
+                        heading: 90,
+                        tilt: 67.5
+                    });
+                }
+            }
+        }
+
+        window.onload = initMap;
+    </script>
+</body>
+</html>
