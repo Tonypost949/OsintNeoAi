@@ -9,8 +9,10 @@ PORT = 8095
 class UnifiedRouterHandler(http.server.SimpleHTTPRequestHandler):
 
     def do_GET(self):
-        if self.path == '/' or self.path == '/signup' or self.path == '/chat':
-            self.path = '/AG2OSINTNEOMAXX/index.html'
+        if self.path == '/' or self.path == '/signup' or self.path == '/landing':
+            self.path = '/core/AG2OSINTNEOMAXX/public_landing.html'
+        elif self.path == '/workspace' or self.path == '/workspace/' or self.path == '/chat':
+            self.path = '/public/workspace_chat.html'
         elif self.path == '/admin' or self.path == '/admin/':
             self.path = '/admin/master_admin_dashboard.html'
         elif self.path == '/dev' or self.path == '/dev/' or self.path == '/3d':
