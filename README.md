@@ -175,21 +175,53 @@ OSINT Neo AI provides **19 native MCP tools** registered in `mcp.json` for AI as
 
 ## ⚡ Quickstart
 
-### Local Setup (Windows / Linux / macOS)
+### 1. Clone & Setup
 
 ```bash
-# 1. Clone repository
-git clone https://github.com/Tonypost949/OsintNeoAi.git
+# Clone repository
+git clone https://github.com/brainmedus-arch/OsintNeoAi.git
 cd OsintNeoAi
 
-# 2. Install dependencies
-pip install -r requirements.txt
+# Create virtual environment
+python -m venv .venv
+.\.venv\Scripts\activate  # Windows
+# source .venv/bin/activate  # Linux/Mac
 
-# 3. Launch HTTP & WebSocket Map Server
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### 2. Configure Environment
+
+Copy `.env.example` to `.env` and fill in your API keys:
+
+```bash
+cp .env.example .env
+```
+
+Required environment variables:
+| Variable | Description | Source |
+|----------|-------------|--------|
+| `GEMINI_API_KEY` | Google Gemini API key | [Google AI Studio](https://aistudio.google.com/apikey) |
+| `GOOGLE_MAPS_API_KEY` | Google Maps/Geocoding API key | [GCP Console](https://console.cloud.google.com/apis/credentials) |
+| `SMTP_USER` | Gmail address for alerts | Your Gmail |
+| `SMTP_PASSWORD` | Gmail app password | [Google Account](https://myaccount.google.com/apppasswords) |
+| `ALERT_RECIPIENT_EMAIL` | Email for digest delivery | Your email |
+| `GITHUB_PAT` | GitHub personal access token | [GitHub Settings](https://github.com/settings/tokens) |
+
+### 3. Run Spark Intelligence Engine
+
+```bash
+python spark_intelligence_engine.py
+```
+
+### 4. Launch Map Server
+
+```bash
 python simple_map_server.py
 ```
 
-Open your browser at `http://localhost:10000/map/osinteye`.
+Open browser at `http://localhost:10000/map/osinteye`.
 
 ---
 
@@ -211,8 +243,8 @@ Open your browser at `http://localhost:10000/map/osinteye`.
 
 Contributions are welcome! Please follow our established [AGENTS.md](AGENTS.md) multi-agent guidelines and ensure all code submissions include automated test validation.
 
-- **Issues & Bounties**: [GitHub Issues](https://github.com/Tonypost949/OsintNeoAi/issues)
-- **Repository**: [https://github.com/Tonypost949/OsintNeoAi](https://github.com/Tonypost949/OsintNeoAi)
+- **Issues & Buggs**: [GitHub Issues](https://github.com/brainmedus-arch/OsintNeoAi/issues)
+- **Repository**: [https://github.com/brainmedus-arch/OsintNeoAi](https://github.com/brainmedus-arch/OsintNeoAi)
 
 ---
 
