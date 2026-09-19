@@ -61,7 +61,7 @@ class DualAuditTokenBridge:
         
         self.ledger["ledger_blocks"].insert(0, block)
         self.ledger["metrics"]["total_osint_minted"] += reward_amount
-        self.save_state()
+        self._save_ledger()
         return block
 
     def bridge_osint_to_tft(self, user_wallet, osint_amount):
@@ -86,7 +86,7 @@ class DualAuditTokenBridge:
         
         self.ledger["ledger_blocks"].insert(0, block)
         self.ledger["metrics"]["total_tft_bridged"] += tft_amount
-        self.save_state()
+        self._save_ledger()
         return block
 
     def save_state(self):
