@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+</head>
+<body class="bg-transparent text-[var(--foreground)] antialiased p-5">
+  <div class="bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] rounded-xl p-5 shadow-sm">
+    <h2 class="text-[var(--foreground)] font-semibold text-lg mb-4">⚡ OSINT Neo AI — System Status</h2>
+    
+    <!-- Flask Routes -->
+    <div class="mb-4">
+      <h3 class="text-[var(--muted-foreground)] text-sm font-medium mb-2">Flask Routes</h3>
+      <div class="grid grid-cols-2 gap-2">
+        <div class="flex items-center gap-2 text-sm">
+          <span class="w-2 h-2 rounded-full bg-green-500"></span>
+          <span class="text-[var(--foreground)]">/ (Landing)</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm">
+          <span class="w-2 h-2 rounded-full bg-green-500"></span>
+          <span class="text-[var(--foreground)]">/admin</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm">
+          <span class="w-2 h-2 rounded-full bg-green-500"></span>
+          <span class="text-[var(--foreground)]">/workspace</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm">
+          <span class="w-2 h-2 rounded-full bg-green-500"></span>
+          <span class="text-[var(--foreground)]">/chat</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm">
+          <span class="w-2 h-2 rounded-full bg-green-500"></span>
+          <span class="text-[var(--foreground)]">/dev</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm">
+          <span class="w-2 h-2 rounded-full bg-green-500"></span>
+          <span class="text-[var(--foreground)]">/legal</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm">
+          <span class="w-2 h-2 rounded-full bg-green-500"></span>
+          <span class="text-[var(--foreground)]">/api/status</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm">
+          <span class="w-2 h-2 rounded-full bg-green-500"></span>
+          <span class="text-[var(--foreground)]">/api/auth/session</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Token Ledger -->
+    <div class="mb-4">
+      <h3 class="text-[var(--muted-foreground)] text-sm font-medium mb-2">Token Ledger (Sepolia)</h3>
+      <div class="grid grid-cols-2 gap-3">
+        <div class="bg-[var(--background)] rounded-lg p-3 border border-[var(--border)]">
+          <div class="text-2xl font-bold text-[var(--foreground)]">100</div>
+          <div class="text-xs text-[var(--muted-foreground)]">OSINT Minted</div>
+        </div>
+        <div class="bg-[var(--background)] rounded-lg p-3 border border-[var(--border)]">
+          <div class="text-2xl font-bold text-[var(--foreground)]">10.0</div>
+          <div class="text-xs text-[var(--muted-foreground)]">TFT Bridged</div>
+        </div>
+        <div class="bg-[var(--background)] rounded-lg p-3 border border-[var(--border)]">
+          <div class="text-2xl font-bold text-[var(--foreground)]">4</div>
+          <div class="text-xs text-[var(--muted-foreground)]">Ledger Blocks</div>
+        </div>
+        <div class="bg-[var(--background)] rounded-lg p-3 border border-[var(--border)]">
+          <div class="text-2xl font-bold text-[var(--foreground)]">12.5%</div>
+          <div class="text-xs text-[var(--muted-foreground)]">Staking APY</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Smart Contracts -->
+    <div class="mb-4">
+      <h3 class="text-[var(--muted-foreground)] text-sm font-medium mb-2">Smart Contracts (Sepolia)</h3>
+      <div class="space-y-1 text-xs font-mono">
+        <div class="flex justify-between">
+          <span class="text-[var(--muted-foreground)]">StakingGate:</span>
+          <span class="text-[var(--foreground)]">0xdA76...E725</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-[var(--muted-foreground)]">MultiPoolEscrow:</span>
+          <span class="text-[var(--foreground)]">0x1556...dC5B</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-[var(--muted-foreground)]">OSINT Token:</span>
+          <span class="text-[var(--foreground)]">0xA74B...0296</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-[var(--muted-foreground)]">TFT Token:</span>
+          <span class="text-[var(--foreground)]">0x0977...F14</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- API Keys -->
+    <div>
+      <h3 class="text-[var(--muted-foreground)] text-sm font-medium mb-2">API Keys</h3>
+      <div class="flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-1 px-2 py-1 bg-green-500/10 text-green-500 text-xs rounded-full border border-green-500/20">
+          <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+          GEMINI_API_KEY
+        </span>
+        <span class="inline-flex items-center gap-1 px-2 py-1 bg-green-500/10 text-green-500 text-xs rounded-full border border-green-500/20">
+          <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+          GOOGLE_MAPS_API_KEY
+        </span>
+        <span class="inline-flex items-center gap-1 px-2 py-1 bg-green-500/10 text-green-500 text-xs rounded-full border border-green-500/20">
+          <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+          SMTP
+        </span>
+        <span class="inline-flex items-center gap-1 px-2 py-1 bg-green-500/10 text-green-500 text-xs rounded-full border border-green-500/20">
+          <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+          GITHUB_PAT
+        </span>
+      </div>
+    </div>
+
+    <!-- GitHub Actions -->
+    <div class="mt-4 pt-4 border-t border-[var(--border)]">
+      <div class="flex items-center justify-between">
+        <span class="text-[var(--muted-foreground)] text-sm">GitHub Actions</span>
+        <span class="inline-flex items-center gap-1 px-2 py-1 bg-red-500/10 text-red-500 text-xs rounded-full border border-red-500/20">
+          <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+          Billing Locked
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

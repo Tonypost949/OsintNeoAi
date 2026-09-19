@@ -32,4 +32,10 @@ def legal_conflicts():
     legal_file = r"C:\OsintNeoAi\workspace\legal_conflict_audit_dossier.html"
     return send_file(legal_file)
 
+@workspace_bp.route('/status')
+@workspace_bp.route('/dashboard/status')
+def system_status():
+    status_file = r"C:\OsintNeoAi\workspace\system_status_widget.html"
+    return send_file(status_file)
+
 
