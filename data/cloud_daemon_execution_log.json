@@ -8,5 +8,15 @@
       "BigQuery Municipal Table Indexer",
       "EDR Historical Data Extractor"
     ]
+  },
+  {
+    "timestamp": "2026-09-18T18:45:04.999299",
+    "daemon_status": "RUNNING_24_7",
+    "target_location": "17631 Cameron Ln, Huntington Beach, CA",
+    "active_tasks": [
+      "OCGIS Land Insights Historical APN Scraper",
+      "BigQuery Municipal Table Indexer",
+      "EDR Historical Data Extractor"
+    ]
   }
 ]
