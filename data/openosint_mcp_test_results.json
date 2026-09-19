@@ -1,0 +1,103 @@
+{
+  "summary": {
+    "passed": 19,
+    "failed": 0
+  },
+  "results": [
+    {
+      "tool": "osint_lookup_person",
+      "status": "PASSED",
+      "output_len": 247
+    },
+    {
+      "tool": "osint_lookup_email",
+      "status": "PASSED",
+      "output_len": 240
+    },
+    {
+      "tool": "osint_lookup_phone",
+      "status": "PASSED",
+      "output_len": 216
+    },
+    {
+      "tool": "osint_lookup_domain",
+      "status": "PASSED",
+      "output_len": 220
+    },
+    {
+      "tool": "osint_lookup_ip",
+      "status": "PASSED",
+      "output_len": 202
+    },
+    {
+      "tool": "osint_search_entity",
+      "status": "PASSED",
+      "output_len": 226
+    },
+    {
+      "tool": "osint_court_records",
+      "status": "PASSED",
+      "output_len": 228
+    },
+    {
+      "tool": "osint_property_records",
+      "status": "PASSED",
+      "output_len": 220
+    },
+    {
+      "tool": "osint_social_footprint",
+      "status": "PASSED",
+      "output_len": 224
+    },
+    {
+      "tool": "osint_crypto_wallet",
+      "status": "PASSED",
+      "output_len": 250
+    },
+    {
+      "tool": "osint_foia_tracker",
+      "status": "PASSED",
+      "output_len": 227
+    },
+    {
+      "tool": "osint_fca_timeline",
+      "status": "PASSED",
+      "output_len": 214
+    },
+    {
+      "tool": "osint_sec_edgar",
+      "status": "PASSED",
+      "output_len": 206
+    },
+    {
+      "tool": "osint_wayback_history",
+      "status": "PASSED",
+      "output_len": 229
+    },
+    {
+      "tool": "osint_geo_telemetry",
+      "status": "PASSED",
+      "output_len": 229
+    },
+    {
+      "tool": "osint_breach_scanner",
+      "status": "PASSED",
+      "output_len": 227
+    },
+    {
+      "tool": "osint_license_lookup",
+      "status": "PASSED",
+      "output_len": 226
+    },
+    {
+      "tool": "osint_charity_990",
+      "status": "PASSED",
+      "output_len": 210
+    },
+    {
+      "tool": "osint_system_health",
+      "status": "PASSED",
+      "output_len": 226
+    }
+  ]
+}
