@@ -1,0 +1,58 @@
+{
+  "status": "COMPLETED",
+  "audited_at": "2026-09-18T18:04:32.591706",
+  "total_clis_audited": 10,
+  "all_clis_healthy": true,
+  "clis": {
+    "uv": {
+      "installed": true,
+      "path": "C:\\Users\\Amd949609\\.local\\bin\\uv.EXE",
+      "version": "uv 0.12.4 (77803aa22 2026-08-13 x86_64-pc-windows-msvc)"
+    },
+    "node": {
+      "installed": true,
+      "path": "C:\\Users\\Amd949609\\AppData\\Local\\Programs\\nodejs\\node.EXE",
+      "version": "v24.19.0"
+    },
+    "npm": {
+      "installed": true,
+      "path": "C:\\Users\\Amd949609\\AppData\\Local\\Programs\\nodejs\\npm.CMD",
+      "version": "Installed"
+    },
+    "gcloud": {
+      "installed": true,
+      "path": "C:\\Users\\Amd949609\\AppData\\Local\\Google\\Cloud SDK\\google-cloud-sdk\\bin\\gcloud.CMD",
+      "version": "Installed"
+    },
+    "bq": {
+      "installed": true,
+      "path": "C:\\Users\\Amd949609\\AppData\\Local\\Google\\Cloud SDK\\google-cloud-sdk\\bin\\bq.CMD",
+      "version": "Installed"
+    },
+    "firebase": {
+      "installed": true,
+      "path": "C:\\Users\\Amd949609\\.local\\bin\\firebase.EXE",
+      "version": "Pkg: Error reading from file."
+    },
+    "adb": {
+      "installed": true,
+      "path": "C:\\Users\\Amd949609\\AppData\\Local\\Android\\Sdk\\platform-tools\\adb.EXE",
+      "version": "Android Debug Bridge version 1.0.41"
+    },
+    "rclone": {
+      "installed": true,
+      "path": "C:\\Users\\Amd949609\\AppData\\Local\\Microsoft\\WinGet\\Links\\rclone.EXE",
+      "version": "rclone v1.75.0"
+    },
+    "git": {
+      "installed": true,
+      "path": "C:\\Users\\Amd949609\\AppData\\Local\\Programs\\Git\\cmd\\git.EXE",
+      "version": "git version 2.48.1.windows.1"
+    },
+    "python": {
+      "installed": true,
+      "path": "C:\\OsintNeoAi\\.venv\\Scripts\\python.EXE",
+      "version": "Python 3.14.7"
+    }
+  }
+}
