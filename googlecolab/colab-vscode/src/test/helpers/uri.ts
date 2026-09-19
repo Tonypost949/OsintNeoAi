@@ -1,0 +1,135 @@
+/**
+ * @license
+ * Copyright 2025 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/* eslint-disable jsdoc/require-jsdoc */
+
+import { join } from 'path/posix';
+import * as sinon from 'sinon';
+import { Uri } from 'vscode';
+
+interface UriOptions {
+  scheme: string;
+  authority?: string;
+  path?: string;
+  query?: string;
+  fragment?: string;
+}
+
+/**
+ * A test fake for {@link Uri}.
+ */
+export class TestUri implements Uri {
+  static parse(stringUri: string): TestUri {
+    const url = new URL(stringUri);
+    return new TestUri(
+      url.protocol.replace(/:$/, ''),
+      url.hostname,
+      url.pathname,
+      url.search.replace(/^\?/, ''),
+      url.hash.replace(/^#/, ''),
+    );
+  }
+
+  static file(filePath: string): TestUri {
+    return new TestUri(
+      'file',
+      '',
+      filePath.split('?')[0] || '',
+      filePath.split('?')[1] || '',
+      '',
+    );
+  }
+
+  static joinPath(base: TestUri, ...pathSegments: string[]): TestUri {
+    const { path: p, ...rest } = base;
+    const normalizedSegments = pathSegments.map((segment) =>
+      segment.replaceAll('\\', '/'),
+    );
+    return new this(
+      rest.scheme,
+      rest.authority,
+      join(p, ...normalizedSegments),
+      rest.query,
+      rest.fragment,
+    );
+  }
+
+  static from(components: UriOptions): Uri {
+    return new TestUri(
+      components.scheme,
+      components.authority ?? '',
+      components.path ?? '',
+      components.query ?? '',
+      components.fragment ?? '',
+    );
+  }
+
+  scheme: string;
+  authority: string;
+  path: string;
+  query: string;
+  fragment: string;
+
+  get fsPath(): string {
+    return this.path;
+  }
+
+  constructor(
+    scheme: string,
+    authority: string,
+    path: string,
+    query: string,
+    fragment: string,
+  ) {
+    this.scheme = scheme;
+    this.authority = authority;
+    this.path = path;
+    this.query = query;
+    this.fragment = fragment;
+  }
+
+  with(change: Partial<UriOptions>): Uri {
+    return new TestUri(
+      change.scheme ?? this.scheme,
+      change.authority ?? this.authority,
+      change.path ?? this.path,
+      change.query ?? this.query,
+      change.fragment ?? this.fragment,
+    );
+  }
+
+  toString(): string {
+    // eslint-disable-next-line prefer-const
+    let { scheme, authority, path, query, fragment } = this;
+    if (query.length > 0) query = `?${query}`;
+    if (fragment.length > 0) fragment = `#${fragment}`;
+    return `${scheme}://${authority}${path}${query}${fragment}`;
+  }
+
+  toJSON(): string {
+    return JSON.stringify({
+      scheme: this.scheme,
+      authority: this.authority,
+      path: this.path,
+      query: this.query,
+      fragment: this.fragment,
+    });
+  }
+}
+
+/**
+ * Creates a Sinon matcher for a {@link Uri} that matches the provided
+ * regular expression.
+ *
+ * @param regExp - A regular expression to match against the stringified URI.
+ * @returns A Sinon matcher for the URI.
+ */
+export function matchUri(regExp: RegExp | string): sinon.SinonMatcher {
+  if (typeof regExp === 'string') {
+    regExp = new RegExp(regExp);
+  }
+  return sinon.match((uri: Uri) => regExp.test(uri.toString()));
+}

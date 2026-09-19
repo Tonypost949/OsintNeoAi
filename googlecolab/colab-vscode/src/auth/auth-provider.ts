@@ -1,0 +1,510 @@
+/**
+ * @license
+ * Copyright 2025 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import { GaxiosError } from 'gaxios';
+import { OAuth2Client } from 'google-auth-library';
+import fetch from 'node-fetch';
+import { v4 as uuid } from 'uuid';
+import vscode, {
+  AuthenticationProvider,
+  AuthenticationProviderAuthenticationSessionsChangeEvent,
+  AuthenticationProviderSessionOptions,
+  AuthenticationSession,
+  Disposable,
+  Event,
+  EventEmitter,
+} from 'vscode';
+import { z } from 'zod';
+import { AUTHORIZATION_HEADER } from '../colab/headers';
+import { log } from '../common/logging';
+import { Toggleable } from '../common/toggleable';
+import { telemetry } from '../telemetry';
+import { Credentials, LoginOptions } from './login';
+import { areScopesAllowed, ALLOWED_SCOPES, REQUIRED_SCOPES } from './scopes';
+import { AuthStorage, RefreshableAuthenticationSession } from './storage';
+
+const PROVIDER_ID = 'google';
+const PROVIDER_LABEL = 'Google';
+const REFRESH_MARGIN_MS = 5 * 60 * 1000; // 5 minutes
+
+/**
+ * An {@link Event} which fires when an authentication session is added,
+ * removed, or changed.
+ */
+export interface AuthChangeEvent
+  extends AuthenticationProviderAuthenticationSessionsChangeEvent {
+  /**
+   * True when there is a valid {@link AuthenticationSession} for the
+   * {@link AuthenticationProvider}.
+   */
+  hasValidSession: boolean;
+}
+
+/**
+ * Provides authentication using Google OAuth2.
+ *
+ * Registers itself with the VS Code authentication API and emits events when
+ * authentication sessions change.
+ *
+ * Session access tokens are refreshed JIT upon access if they are near or past
+ * their expiry.
+ */
+export class GoogleAuthProvider implements AuthenticationProvider, Disposable {
+  readonly onDidChangeSessions: Event<AuthChangeEvent>;
+  private isDisposed = false;
+  private isInitialized = false;
+  private authProvider?: Disposable;
+  private readonly emitter: EventEmitter<AuthChangeEvent>;
+  private session?: Readonly<AuthenticationSession>;
+  private readonly disposeController = new AbortController();
+  private readonly disposeSignal: AbortSignal = this.disposeController.signal;
+
+  /**
+   * Initializes the GoogleAuthProvider.
+   *
+   * @param vs - The VS Code API.
+   * @param storage - The storage client for persisting sessions.
+   * @param oAuth2Client - The OAuth2 client for handling Google authentication.
+   * @param login - A function that initiates the login process with the
+   * specified scopes.
+   */
+  constructor(
+    private readonly vs: typeof vscode,
+    private readonly storage: AuthStorage,
+    private readonly oAuth2Client: OAuth2Client,
+    private readonly login: (
+      scopes: string[],
+      options?: LoginOptions,
+    ) => Promise<Credentials>,
+  ) {
+    this.emitter = new vs.EventEmitter<AuthChangeEvent>();
+    this.onDidChangeSessions = this.emitter.event;
+
+    this.onDidChangeSessions(() => {
+      void this.setSignedInContext();
+    });
+  }
+
+  /**
+   * Retrieves the Google OAuth2 authentication session.
+   *
+   * @param vs - The VS Code API.
+   * @param scopes - The required scopes for the authentication session
+   * @returns The authentication session.
+   */
+  static async getOrCreateSession(
+    vs: typeof vscode,
+    scopes: readonly string[],
+  ): Promise<AuthenticationSession> {
+    const session = await vs.authentication.getSession(PROVIDER_ID, scopes, {
+      createIfNone: true,
+    });
+    return session;
+  }
+
+  /**
+   * Disposes the provider and cleans up resources.
+   */
+  dispose() {
+    this.isDisposed = true;
+    this.authProvider?.dispose();
+    this.disposeController.abort(new Error('GoogleAuthProvider was disposed.'));
+  }
+
+  /**
+   * Initializes the provider by loading the session from storage, saturating
+   * and refreshing the OAuth2 client.
+   */
+  async initialize() {
+    this.guardDisposed();
+    if (this.disposeSignal.aborted) {
+      throw this.disposeSignal.reason;
+    }
+    if (this.isInitialized) {
+      return;
+    }
+
+    const session = await this.getSession();
+    if (!session) {
+      this.isInitialized = true;
+      this.register();
+      return;
+    }
+    this.oAuth2Client.setCredentials({
+      refresh_token: session.refreshToken,
+      token_type: 'Bearer',
+      scope: session.scopes.join(' '),
+    });
+    try {
+      await this.oAuth2Client.refreshAccessToken();
+    } catch (err: unknown) {
+      const { shouldClearSession, reason } =
+        this.shouldClearSessionOnRefreshError(err);
+      if (shouldClearSession) {
+        log.warn(`${reason}. Clearing session.`, err);
+        await this.storage.removeSession(session.id);
+        await this.initialize();
+        return;
+      }
+      log.error('Unable to refresh access token', err);
+      throw err;
+    }
+    const accessToken = this.oAuth2Client.credentials.access_token;
+    if (!accessToken) {
+      throw new Error('Failed to refresh Google OAuth token.');
+    }
+
+    this.session = {
+      id: session.id,
+      accessToken,
+      account: session.account,
+      scopes: session.scopes,
+    };
+    this.isInitialized = true;
+    this.emitter.fire({
+      added: [],
+      removed: [],
+      changed: [this.session],
+      hasValidSession: true,
+    });
+    this.register();
+  }
+
+  /**
+   * Sets the state of the toggles based on the authentication session.
+   *
+   * @param toggles - The toggles to manage based on authorization status.
+   * @returns A {@link Disposable} that can be used to stop toggling the
+   * provided toggles when there are changes to the authorization status.
+   */
+  whileAuthorized(...toggles: Toggleable[]): Disposable {
+    this.guardDisposed();
+    this.assertReady();
+    const setToggles = () => {
+      if (this.session === undefined) {
+        toggles.forEach((t) => {
+          t.off();
+        });
+      } else {
+        toggles.forEach((t) => {
+          t.on();
+        });
+      }
+    };
+    const listener = this.onDidChangeSessions(setToggles);
+    // Call the function initially to set the correct state.
+    setToggles();
+    return listener;
+  }
+
+  /**
+   * Get the list of managed sessions.
+   *
+   * The session's access token is refreshed if it is near or past its expiry.
+   *
+   * @param scopes - An optional array of scopes. If provided, the sessions
+   * returned will match these permissions. Otherwise, all sessions are
+   * returned.
+   * @param options - Additional options for getting sessions. If an account is
+   * passed in, sessions returned are limited to it.
+   * @returns An array of managed authentication sessions.
+   */
+  async getSessions(
+    scopes: readonly string[] | undefined,
+    options: AuthenticationProviderSessionOptions,
+  ): Promise<AuthenticationSession[]> {
+    this.guardDisposed();
+    this.assertReady();
+    // Snapshot the session rather than narrowing `this.session` directly:
+    // narrowing a field survives the `await` below in the type system, but not
+    // at runtime.
+    const current = this.session;
+    if (
+      !current ||
+      !areScopesAllowed(scopes) ||
+      // Checks if provided scopes are a subset of the current session's scopes
+      (scopes && !scopes.every((r) => current.scopes.includes(r)))
+    ) {
+      return [];
+    }
+    try {
+      await this.refreshSessionIfNeeded();
+    } catch (err: unknown) {
+      const { shouldClearSession, reason } =
+        this.shouldClearSessionOnRefreshError(err);
+      if (shouldClearSession) {
+        log.warn(`${reason}. Clearing session.`, err);
+        await this.removeSession(current.id);
+        return [];
+      }
+      log.error('Unable to refresh access token', err);
+    }
+    // Re-read the session: it may have been cleared or replaced while the
+    // refresh above was in flight.
+    const session = this.session;
+    if (!session) {
+      return [];
+    }
+    if (options.account && session.account != options.account) {
+      return [];
+    }
+    return [session];
+  }
+
+  /**
+   * Creates and stores an authentication session with the given scopes.
+   *
+   * @param scopes - Scopes required for the session. All values must be
+   * in {@link ALLOWED_SCOPES}
+   * @returns The created session.
+   * @throws An error if login fails.
+   */
+  async createSession(scopes: string[]): Promise<AuthenticationSession> {
+    this.guardDisposed();
+    this.assertReady();
+    try {
+      const sortedScopes = Array.from(new Set(scopes).values()).sort();
+      if (!areScopesAllowed(sortedScopes)) {
+        throw new Error(
+          `Only supports the following scopes: ${Array.from(ALLOWED_SCOPES.values()).join(', ')}`,
+        );
+      }
+
+      if (
+        sortedScopes.length < REQUIRED_SCOPES.length ||
+        !REQUIRED_SCOPES.every((r) => sortedScopes.includes(r))
+      ) {
+        throw new Error(
+          `Sessions must request at least the required scopes: ${Array.from(REQUIRED_SCOPES.values()).join(', ')}`,
+        );
+      }
+      const existingSession = await this.getSession();
+      const loginHint = existingSession
+        ? existingSession.account.id
+        : undefined;
+      const tokenInfo = await this.login(sortedScopes, {
+        includeGrantedScopes: !!existingSession,
+        loginHint,
+      });
+      const user = await this.getUserInfo(tokenInfo.access_token);
+      const newSession: RefreshableAuthenticationSession = {
+        id: existingSession ? existingSession.id : uuid(),
+        refreshToken: tokenInfo.refresh_token,
+        account: {
+          id: user.email,
+          label: user.name,
+        },
+        scopes: sortedScopes,
+      };
+      await this.storage.storeSession(newSession);
+      this.oAuth2Client.setCredentials(tokenInfo);
+      this.session = {
+        id: newSession.id,
+        accessToken: tokenInfo.access_token,
+        account: newSession.account,
+        scopes: sortedScopes,
+      };
+
+      if (existingSession) {
+        this.emitter.fire({
+          added: [],
+          removed: [],
+          changed: [this.session],
+          hasValidSession: true,
+        });
+      } else {
+        this.emitter.fire({
+          added: [this.session],
+          removed: [],
+          changed: [],
+          hasValidSession: true,
+        });
+      }
+      this.vs.window.showInformationMessage('Signed in to Google!');
+      return this.session;
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'unknown error';
+      this.vs.window.showErrorMessage(`Sign in failed: ${msg}`);
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a session by ID.
+   *
+   * This will revoke the credentials (if the matching session is managed) and
+   * remove the session from storage.
+   *
+   * @param sessionId - The session ID.
+   * @returns A promise that resolves when the session is removed.
+   */
+  async removeSession(sessionId: string): Promise<void> {
+    this.guardDisposed();
+    this.assertReady();
+    if (this.session?.id !== sessionId) {
+      return;
+    }
+    const removedSession = this.session;
+    this.session = undefined;
+    try {
+      await this.oAuth2Client.revokeCredentials();
+    } catch {
+      // It's possible the token is already expired or revoked. We can swallow
+      // errors since the user will be required to login again.
+    }
+    await this.storage.removeSession(sessionId);
+
+    this.emitter.fire({
+      added: [],
+      removed: [removedSession],
+      changed: [],
+      hasValidSession: false,
+    });
+  }
+
+  /**
+   * Signs out of the current Google authentication session.
+   */
+  async signOut() {
+    this.guardDisposed();
+    if (!this.session) {
+      return;
+    }
+    telemetry.logSignOut();
+    await this.removeSession(this.session.id);
+  }
+
+  private guardDisposed() {
+    if (this.isDisposed) {
+      throw new Error(
+        'Cannot use GoogleAuthProvider after it has been disposed',
+      );
+    }
+  }
+
+  private register() {
+    this.authProvider = this.vs.authentication.registerAuthenticationProvider(
+      PROVIDER_ID,
+      PROVIDER_LABEL,
+      this,
+      { supportsMultipleAccounts: false },
+    );
+  }
+
+  private async setSignedInContext() {
+    await this.vs.commands.executeCommand(
+      'setContext',
+      'colab.isSignedIn',
+      !!this.session,
+    );
+  }
+
+  private shouldClearSessionOnRefreshError(err: unknown): {
+    shouldClearSession: boolean;
+    reason: string;
+  } {
+    if (isInvalidGrantError(err)) {
+      return {
+        shouldClearSession: true,
+        reason: 'OAuth app access to Colab was revoked.',
+      };
+    }
+    // This should only ever be the case when developer building from source
+    if (isOAuthClientSwitchedError(err)) {
+      return {
+        shouldClearSession: true,
+        reason: 'The configured OAuth client has changed',
+      };
+    }
+    return { shouldClearSession: false, reason: '' };
+  }
+
+  private async refreshSessionIfNeeded(): Promise<void> {
+    const session = this.session;
+    if (!session) {
+      return;
+    }
+    const expiryDateMs = this.oAuth2Client.credentials.expiry_date;
+    if (expiryDateMs && expiryDateMs > Date.now() + REFRESH_MARGIN_MS) {
+      return;
+    }
+    await this.oAuth2Client.refreshAccessToken();
+    const accessToken = this.oAuth2Client.credentials.access_token;
+    if (!accessToken) {
+      throw new Error('Failed to refresh Google OAuth token.');
+    }
+    // The managed session may have been cleared (sign out) or replaced
+    // (re-authentication) while the refresh was in flight. Writing back here
+    // would resurrect the session we started with, and spreading a cleared
+    // session yields a partial object missing `scopes`, `id` and `account`.
+    if (this.session !== session) {
+      return;
+    }
+
+    this.session = {
+      ...session,
+      accessToken,
+    };
+  }
+
+  private async getUserInfo(
+    token: string,
+  ): Promise<z.infer<typeof UserInfoSchema>> {
+    const url = 'https://www.googleapis.com/oauth2/v2/userinfo';
+    const response = await fetch(url, {
+      headers: {
+        [AUTHORIZATION_HEADER.key]: `Bearer ${token}`,
+      },
+    });
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(
+        `Failed to fetch user info: ${response.statusText}. Response: ${errorText}`,
+      );
+    }
+    const json: unknown = await response.json();
+    return UserInfoSchema.parse(json);
+  }
+
+  private async getSession() {
+    const sessions = await this.storage.getSessions();
+    if (sessions.length > 1) {
+      throw new Error(
+        `Expected at most 1 session, but found ${sessions.length.toString()}`,
+      );
+    }
+    return sessions.length > 0 ? sessions[0] : undefined;
+  }
+
+  private assertReady(): void {
+    if (!this.isInitialized) {
+      throw new Error(`Must call initialize() first.`);
+    }
+    if (this.disposeSignal.aborted) {
+      throw this.disposeSignal.reason;
+    }
+  }
+}
+
+function isInvalidGrantError(err: unknown): boolean {
+  return (
+    err instanceof GaxiosError &&
+    err.status === 400 &&
+    err.message.includes('invalid_grant')
+  );
+}
+
+function isOAuthClientSwitchedError(err: unknown): boolean {
+  return err instanceof GaxiosError && err.status === 401;
+}
+
+/**
+ * User information queried for following a successful login.
+ */
+const UserInfoSchema = z.object({
+  name: z.string(),
+  email: z.string(),
+});

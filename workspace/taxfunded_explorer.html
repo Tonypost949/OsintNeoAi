@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaxFunded - Public Ledger Explorer</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #00ffcc;
+            font-family: 'Courier New', monospace;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: #111;
+            border: 1px solid #333;
+            padding: 30px;
+        }
+        h1 { margin-top: 0; color: #fff; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        textarea {
+            width: 100%;
+            height: 100px;
+            background: #000;
+            color: #fff;
+            border: 1px solid #444;
+            padding: 10px;
+            font-family: inherit;
+            margin-bottom: 15px;
+            resize: vertical;
+        }
+        button {
+            background: #00ffcc;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: inherit;
+        }
+        button:hover { background: #00ccaa; }
+        .receipt-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #001100;
+            border: 1px dashed #00ffcc;
+            display: none;
+            word-wrap: break-word;
+        }
+        .status { color: #888; font-size: 0.85em; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>TaxFunded Public Ledger</h1>
+        <p>READ-ONLY EXPLORER. Submit raw intelligence to generate a zero-value immutable hash.</p>
+        
+        <textarea id="genesisInput" placeholder="Enter claim or intelligence here..."></textarea>
+        <button onclick="submitToLedger()">GENERATE HASH RECEIPT</button>
+
+        <div id="receiptBox" class="receipt-box">
+            <strong>STATUS:</strong> <span id="statusOut"></span><br><br>
+            <strong>RECEIPT HASH:</strong> <span id="hashOut"></span><br><br>
+            <span style="font-size: 0.8em; color: #aaa;">This unverified block has been appended to the public ledger.</span>
+        </div>
+
+        <div class="status">System Status: LIVE | Ledger: APPEND-ONLY | Cost: $0.00</div>
+    </div>
+
+    <script>
+        async function submitToLedger() {
+            const text = document.getElementById('genesisInput').value;
+            if (!text) return;
+
+            // Target the background ingestion webhook you already built
+            try {
+                const res = await fetch('http://localhost:10001/api/genesis/ingest', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        raw_text: text,
+                        source: "TaxFunded_Fallback"
+                    })
+                });
+                
+                const data = await res.json();
+                
+                document.getElementById('receiptBox').style.display = 'block';
+                document.getElementById('statusOut').innerText = data.status || "ACCEPTED";
+                document.getElementById('hashOut').innerText = data.receipt_hash;
+                document.getElementById('genesisInput').value = '';
+                
+            } catch (err) {
+                alert("Connection to ledger failed. Ensure backend webhook is running.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+/**
+ * @license
+ * Copyright 2025 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import { OAuth2Client } from 'google-auth-library';
+import vscode from 'vscode';
+import { CONFIG } from '../../colab-config';
+import {
+  MultiStepInput,
+  InputFlowAction,
+} from '../../common/multi-step-quickpick';
+import { CodeManager } from '../code-manager';
+import {
+  DEFAULT_AUTH_URL_OPTS,
+  OAuth2Flow,
+  OAuth2TriggerOptions,
+  FlowResult,
+} from './flows';
+
+const PROXIED_REDIRECT_URI = `${CONFIG.ColabApiDomain}/vscode/redirect`;
+
+/**
+ * An OAuth2 flow that uses a proxied redirect URI to handle the authorization
+ * code.
+ */
+export class ProxiedRedirectFlow implements OAuth2Flow, vscode.Disposable {
+  private isDisposed = false;
+  private readonly codeManager = new CodeManager();
+
+  /**
+   * Initializes a new instance.
+   *
+   * @param vs - The VS Code API instance.
+   * @param oAuth2Client - The OAuth2 client instance.
+   * @param extensionUri - The URI of the extension.
+   */
+  constructor(
+    private readonly vs: typeof vscode,
+    private readonly oAuth2Client: OAuth2Client,
+    private readonly extensionUri: string,
+  ) {}
+
+  /**
+   * Disposes of the flow.
+   */
+  dispose() {
+    this.isDisposed = true;
+    this.codeManager.dispose();
+  }
+
+  /**
+   * Triggers the OAuth2 flow, opening the authorization URL in the user's
+   * browser and prompting them to enter the authorization code. The flow uses a
+   * proxied redirect URI, so the extension must prompt the user to paste the
+   * code after authorization.
+   *
+   * @param options - Configuration options for the operation.
+   * @returns The result of the flow, including the authorization code and
+   * redirect URI.
+   */
+  async trigger(options: OAuth2TriggerOptions): Promise<FlowResult> {
+    this.guardDisposed();
+    const cancelTokenSource = new this.vs.CancellationTokenSource();
+    options.cancel.onCancellationRequested(() => {
+      cancelTokenSource.cancel();
+    });
+    try {
+      const code = this.codeManager.waitForCode(
+        options.nonce,
+        cancelTokenSource.token,
+      );
+      const vsCodeRedirectUri = this.vs.Uri.parse(
+        `${this.extensionUri}?nonce=${options.nonce}`,
+      );
+      const externalProxiedRedirectUri =
+        await this.vs.env.asExternalUri(vsCodeRedirectUri);
+      const authUrl = this.oAuth2Client.generateAuthUrl({
+        ...DEFAULT_AUTH_URL_OPTS,
+        redirect_uri: PROXIED_REDIRECT_URI,
+        state: externalProxiedRedirectUri.toString(),
+        scope: options.scopes,
+        code_challenge: options.pkceChallenge,
+        include_granted_scopes: options.includeGrantedScopes,
+        login_hint: options.loginHint,
+        prompt: options.prompt,
+      });
+
+      await this.vs.env.openExternal(this.vs.Uri.parse(authUrl));
+      this.promptForAuthorizationCode(options.nonce, cancelTokenSource);
+      return { code: await code, redirectUri: PROXIED_REDIRECT_URI };
+    } finally {
+      cancelTokenSource.dispose();
+    }
+  }
+
+  private guardDisposed() {
+    if (this.isDisposed) {
+      throw new Error(
+        'Cannot use ProxiedRedirectFlow after it has been disposed',
+      );
+    }
+  }
+
+  private promptForAuthorizationCode(
+    nonce: string,
+    cancelTokenSource: vscode.CancellationTokenSource,
+  ) {
+    void MultiStepInput.run(this.vs, async (input) => {
+      try {
+        const pastedCode = await input.showInputBox({
+          buttons: undefined,
+          ignoreFocusOut: true,
+          password: true,
+          prompt: 'Enter your authorization code',
+          title: 'Sign in to Google',
+          validate: (value: string) => {
+            return value.length === 0
+              ? 'Authorization code cannot be empty'
+              : undefined;
+          },
+          value: '',
+        });
+        this.codeManager.resolveCode(nonce, pastedCode);
+        return undefined;
+      } catch (e) {
+        if (e === InputFlowAction.cancel) {
+          cancelTokenSource.cancel();
+          return;
+        }
+        throw e;
+      }
+    });
+  }
+}

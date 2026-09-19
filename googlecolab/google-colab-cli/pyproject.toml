@@ -1,0 +1,81 @@
+[project]
+name = "google-colab-cli"
+dynamic = ["version"]
+description = "CLI for interacting with Colab."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+keywords = [
+    "colab",
+    "google-colab",
+    "jupyter",
+    "notebook",
+    "cli",
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development",
+]
+dependencies = [
+    "click>=8.0",
+    "filelock>=3.29.2",
+    "google-auth>=2.49.1",
+    "google-auth-oauthlib>=1.3.0",
+    "html2text>=2024.2.26",
+    "jupyter-kernel-client",
+    "nbformat>=5.10.4",
+    "packaging>=24.0",
+    "prompt-toolkit>=3.0.52",
+    "pydantic>=2.12.5",
+    "pygments>=2.19.2",
+    "requests>=2.32.5",
+    "rich>=14.3.3",
+    "typer>=0.24.1",
+    "typing-extensions>=4.0",
+    "websocket-client>=1.0",
+]
+
+[project.scripts]
+colab = "colab_cli.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/googlecolab/google-colab-cli"
+Repository = "https://github.com/googlecolab/google-colab-cli"
+Issues = "https://github.com/googlecolab/google-colab-cli/issues"
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/colab_cli"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"README.md" = "colab_cli/README.md"
+"skills/colab-operator/SKILL.md" = "colab_cli/SKILL.md"
+
+[tool.uv]
+package = true
+
+[[tool.uv.index]]
+url = "https://pypi.org/simple"
+
+[tool.uv.sources]
+jupyter-kernel-client = { git = "https://github.com/googlecolab/jupyter-kernel-client.git" }
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "pytest-cov>=7.0.0",
+    "pytest-mock>=3.15.1",
+    "ruff>=0.15.6",
+]

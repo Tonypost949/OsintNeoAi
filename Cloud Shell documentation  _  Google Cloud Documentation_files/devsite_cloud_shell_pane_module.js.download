@@ -1,0 +1,51 @@
+(function(_ds){var window=this;var ioa=async function(){var a=(await _ds.w()).getStaticPath();return(0,_ds.O)`<img src="${a}/images/cloud-shell-cta-art.png" />`};var joa=async function(){return await (await _ds.w()).getStorage().get("cloudshell","hide_fte_banner")},rX=class extends _ds.JC{constructor(){super(...arguments);this.isResizing=!1;this.offset=0;this.Hv="";this.cloudtrack=new _ds.fG;this.Ug=a=>{this.Qr(a)};this.Vg=()=>{this.Rr()};this.RC=()=>{document.body.setAttribute("no-scroll","")};this.QC=()=>{document.body.hasAttribute("no-scroll")&&document.body.removeAttribute("no-scroll")}}Qr(a){this.isResizing&&this.Te&&(a=Math.floor(this.Te.bottom-a.clientY+
+this.offset).toString(),this.resizer.setAttribute("aria-valuenow",a),this.style.height=a+"px")}Rr(){this.isResizing=!1;window.removeEventListener("pointermove",this.Ug);window.removeEventListener("pointerup",this.Vg);this.style.pointerEvents="auto";this.Ve("pane_resize",{LP:!0})}Na(){return this}render(){this.setAttribute("height-visual-offset","24");return(0,_ds.O)`
+    <div
+      class="resizer"
+      role="separator"
+      aria-valuemin="0"
+      aria-valuemax="0"
+      @pointerdown="${this.Tr}">
+      <div class="grabber-focus">
+        <div class="grabber"></div>
+      </div>
+    </div>
+    <devsite-shell
+      @pointerover="${this.RC}"
+      @pointerout="${this.QC}"
+      @devsite-shell-opened="${this.XC}"
+      @devsite-shell-closed="${this.UC}"
+      @devsite-shell-resized="${this.YC}"
+      @devsite-shell-maximized="${this.WC}">
+    </devsite-shell>
+    ${(0,_ds.O)` <div class="free-trial-banner">
+    <a
+      @click="${this.OC}"
+      class="close-btn button-white material-icons"
+      aria-label="${"Close Cloud Shell"}"
+      >close</a
+    >
+    <div class="banner-text">
+      <h3>${"Welcome to Cloud Shell"}</h3>
+      <p>${"Cloud Shell is a development environment that you can use in the browser:"}</p>
+      <ul>
+        <li>${"Activate Cloud Shell to explore Google Cloud with a terminal and an editor"}</li>
+        <li>${"Start a free trial to get $300 in free credits"}</li>
+      </ul>
+      <div class="row">
+        <button
+          @click="${this.GC}"
+          class="button-blue"
+          >${"Activate Cloud Shell"}
+        </button>
+        <button @click="${this.Ur}">
+          ${"Start a free trial"}</button
+        >
+      </div>
+    </div>
+    ${(0,_ds.wM)(ioa(),"")}
+  </div>`}
+  `}YC(a){if(a==null?0:a.detail)a=(a.detail.sC+this.resizer.offsetHeight).toString(),this.resizer.setAttribute("aria-valuenow",a),this.style.height=a+"px",this.removeAttribute("devsite-size"),this.yn.isMaximized=!1,this.Ve("pane_resize",{isManual:!1})}async XC(){await joa()==="true"&&this.removeAttribute("enable-fte-user-flow");this.classList.add("opened");this.Ve("pane_open")}UC(){this.classList.remove("opened");this.Ve("pane_close");this.hasAttribute("devsite-size")&&(this.removeAttribute("devsite-size"),
+this.yn.isMaximized=!1,this.style.height=this.Hv);document.body.hasAttribute("no-scroll")&&document.body.removeAttribute("no-scroll")}WC(){_ds.cb()&&this.setAttribute("cr-os","");this.Hv=this.style.height;this.setAttribute("devsite-size","content-area");this.style.height="100%"}Tr(a){this.isResizing=!0;this.Te=this.getBoundingClientRect();window.addEventListener("pointermove",this.Ug);window.addEventListener("pointerup",this.Vg);this.offset=a.offsetY;this.style.pointerEvents="none"}Ve(a,b){_ds.dG(this.cloudtrack,
+"interaction",{component:"cloudShell",text:a.toString(),metadata:_ds.nu(b!=null?b:{})})}OC(){if(this.yn){var a=this.yn;a.j.isOpen&&a.j.close()}}GC(){this.bu&&this.bu.classList.add("hidden")}Ur(){this.Ve("pane_free_trial_click");var a=new URL("https://console.cloud.google.com/freetrial");a.searchParams.set("redirectPath",window.location.href);a.searchParams.set("utm_source","ext");a.searchParams.set("utm_medium","partner");a.searchParams.set("utm_campaign","CDR_cma_gcp_cloudshell_freetrial_020222");
+a.searchParams.set("utm_content","-");_ds.Kg(window.location,a.toString())}};_ds.x([_ds.Dt(".free-trial-banner"),_ds.y("design:type",HTMLElement)],rX.prototype,"bu",void 0);_ds.x([_ds.Dt(".resizer"),_ds.y("design:type",HTMLElement)],rX.prototype,"resizer",void 0);_ds.x([_ds.Dt("devsite-shell"),_ds.y("design:type",_ds.yN)],rX.prototype,"yn",void 0);_ds.x([_ds.G({Aa:"is-resizing",Ma:!0,type:Boolean}),_ds.y("design:type",Object)],rX.prototype,"isResizing",void 0);try{customElements.define("cloud-shell-pane",rX)}catch(a){console.warn("Unrecognized DevSite custom element - CloudShellPane",a)};})(_ds_www);

@@ -1,0 +1,53 @@
+/**
+ * @license
+ * Copyright 2025 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/* eslint-disable jsdoc/require-jsdoc */
+
+import vscode from 'vscode';
+
+/**
+ * A test fake for {@link vscode.EventEmitter}.
+ */
+export class TestEventEmitter<T> implements vscode.EventEmitter<T> {
+  private listeners = new Set<(data: T) => void>();
+  private disposed = false;
+
+  constructor() {
+    this.event = (listener: (data: T) => void) => {
+      if (this.disposed) {
+        throw new Error('EventEmitter has been disposed');
+      }
+      this.listeners.add(listener);
+
+      return {
+        dispose: () => {
+          this.listeners.delete(listener);
+        },
+      };
+    };
+  }
+
+  readonly event: (listener: (data: T) => void) => { dispose: () => void };
+
+  fire(data: T): void {
+    if (this.disposed) {
+      throw new Error('EventEmitter has been disposed');
+    }
+
+    for (const listener of this.listeners) {
+      listener(data);
+    }
+  }
+
+  hasListeners(): boolean {
+    return this.listeners.size > 0;
+  }
+
+  dispose(): void {
+    this.disposed = true;
+    this.listeners.clear();
+  }
+}

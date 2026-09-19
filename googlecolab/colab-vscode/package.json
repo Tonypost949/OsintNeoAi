@@ -1,0 +1,448 @@
+{
+  "name": "colab",
+  "publisher": "google",
+  "displayName": "Colab",
+  "description": "Connect notebooks to Colab servers.",
+  "icon": "icon.png",
+  "version": "0.9.5",
+  "pricing": "Free",
+  "homepage": "https://github.com/googlecolab/colab-vscode",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/googlecolab/colab-vscode"
+  },
+  "bugs": {
+    "url": "https://github.com/googlecolab/colab-vscode/issues"
+  },
+  "qna": "https://github.com/googlecolab/colab-vscode/discussions",
+  "type": "commonjs",
+  "engines": {
+    "vscode": "^1.99.3"
+  },
+  "extensionDependencies": [
+    "ms-toolsai.jupyter"
+  ],
+  "categories": [
+    "Data Science",
+    "Machine Learning",
+    "Notebooks"
+  ],
+  "keywords": [
+    "colab",
+    "google",
+    "interactive",
+    "julia",
+    "jupyter",
+    "notebook",
+    "notebookKernelJupyterNotebook",
+    "python",
+    "r"
+  ],
+  "activationEvents": [
+    "onNotebook:jupyter-notebook",
+    "onNotebook:interactive",
+    "onUri"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "Colab",
+      "properties": {
+        "colab.logging.level": {
+          "type": "string",
+          "default": "info",
+          "enum": [
+            "off",
+            "error",
+            "warn",
+            "info",
+            "debug",
+            "trace"
+          ],
+          "enumDescriptions": [
+            "Nothing is logged.",
+            "Error logs only are logged.",
+            "Warning logs and higher (error) are logged.",
+            "Info logs and higher (warning and error) are logged.",
+            "Debug logs and higher (info, warning and error).",
+            "Trace logs and higher (debug, info, warning and error) are logged."
+          ],
+          "description": "Controls the verbosity of logs from the Colab extension. These can be found in the 'Colab' output channel."
+        },
+        "colab.uploading": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Enables the ability to upload files and folders to Colab servers from the explorer context menu (e.g. right-click a local file > _Upload to Colab_)."
+        },
+        "colab.activityBarContentView": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Enables the content view in the Colab activity bar where you can view servers and interact with their `/content` directories."
+        },
+        "colab.activityBarResourceView": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enables the resource view in the Colab activity bar where you can monitor server resources (RAM and disk usage)."
+        },
+        "colab.serverMounting": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enables the ability to mount Colab server filesystems in your workspace.",
+          "tags": [
+            "experimental"
+          ]
+        },
+        "colab.terminal": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enables the ability to open a terminal connected to Colab runtimes.",
+          "tags": [
+            "experimental"
+          ]
+        },
+        "colab.importNotebookFromUrl": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enables the ability to import a notebook file from a URL.",
+          "tags": [
+            "experimental"
+          ]
+        }
+      }
+    },
+    "authentication": [
+      {
+        "label": "Google",
+        "id": "google"
+      }
+    ],
+    "commands": [
+      {
+        "category": "Colab",
+        "command": "colab.mountDrive",
+        "enablement": "colab.hasAssignedServer",
+        "title": "Mount Google Drive to Server..."
+      },
+      {
+        "category": "Colab",
+        "command": "colab.mountServer",
+        "enablement": "colab.hasAssignedServer",
+        "title": "Mount Server to Workspace..."
+      },
+      {
+        "category": "Colab",
+        "command": "colab.removeServer",
+        "enablement": "colab.hasAssignedServer",
+        "title": "Remove Server"
+      },
+      {
+        "category": "Colab",
+        "command": "colab.upload",
+        "enablement": "colab.hasAssignedServer",
+        "title": "Upload to Colab"
+      },
+      {
+        "category": "Colab",
+        "command": "colab.signOut",
+        "enablement": "colab.isSignedIn",
+        "title": "Sign Out"
+      },
+      {
+        "command": "colab.toolbarCommand",
+        "category": "Colab",
+        "title": "Colab",
+        "icon": "$(colab-logo)"
+      },
+      {
+        "command": "colab.newFile",
+        "title": "New File..."
+      },
+      {
+        "command": "colab.newFolder",
+        "title": "New Folder..."
+      },
+      {
+        "command": "colab.download",
+        "title": "Download..."
+      },
+      {
+        "command": "colab.renameFile",
+        "title": "Rename"
+      },
+      {
+        "command": "colab.deleteFile",
+        "title": "Delete"
+      },
+      {
+        "command": "colab.refreshServerContentView",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "colab.refreshServerResourceView",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "category": "Colab",
+        "command": "colab.openTerminal",
+        "enablement": "colab.hasAssignedServer",
+        "title": "Open Terminal",
+        "icon": "$(terminal)"
+      },
+      {
+        "category": "Colab",
+        "command": "colab.importNotebookFromUrl",
+        "title": "Import notebook file from URL",
+        "icon": "$(arrow-down)"
+      }
+    ],
+    "icons": {
+      "colab-logo": {
+        "description": "Google Colab logo",
+        "default": {
+          "fontPath": "./resources/colab-font.woff",
+          "fontCharacter": "\\e900"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "colab-extension",
+          "title": "Colab",
+          "icon": "$(colab-logo)"
+        }
+      ]
+    },
+    "views": {
+      "colab-extension": [
+        {
+          "id": "colab-server-content-view",
+          "icon": "$(remote-explorer)",
+          "name": "Contents",
+          "when": "config.colab.activityBarContentView"
+        },
+        {
+          "id": "colab-server-resource-view",
+          "icon": "$(pulse)",
+          "name": "Resources",
+          "when": "config.colab.activityBarResourceView"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "colab-server-content-view",
+        "contents": "No assigned Colab servers."
+      },
+      {
+        "view": "colab-server-resource-view",
+        "contents": "No assigned Colab servers."
+      }
+    ],
+    "menus": {
+      "notebook/toolbar": [
+        {
+          "command": "colab.toolbarCommand",
+          "group": "navigation/control"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "colab.toolbarCommand",
+          "when": "false"
+        },
+        {
+          "command": "colab.upload",
+          "when": "false"
+        },
+        {
+          "command": "colab.download",
+          "when": "false"
+        },
+        {
+          "command": "colab.newFolder",
+          "when": "false"
+        },
+        {
+          "command": "colab.newFile",
+          "when": "false"
+        },
+        {
+          "command": "colab.renameFile",
+          "when": "false"
+        },
+        {
+          "command": "colab.deleteFile",
+          "when": "false"
+        },
+        {
+          "command": "colab.refreshServerContentView",
+          "when": "false"
+        },
+        {
+          "command": "colab.refreshServerResourceView",
+          "when": "false"
+        },
+        {
+          "command": "colab.mountDrive",
+          "when": "activeEditor == 'workbench.editor.notebook'"
+        },
+        {
+          "command": "colab.mountServer",
+          "when": "config.colab.serverMounting"
+        },
+        {
+          "command": "colab.openTerminal",
+          "when": "config.colab.terminal"
+        },
+        {
+          "command": "colab.importNotebookFromUrl",
+          "when": "config.colab.importNotebookFromUrl"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "colab.upload",
+          "group": "5b_importexport@30",
+          "when": "resourceScheme == file && config.colab.uploading"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "colab.refreshServerContentView",
+          "when": "view == colab-server-content-view",
+          "group": "navigation"
+        },
+        {
+          "command": "colab.refreshServerResourceView",
+          "when": "view == colab-server-resource-view",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "colab.openTerminal",
+          "when": "view == colab-server-content-view && viewItem == server && config.colab.terminal",
+          "group": "inline"
+        },
+        {
+          "command": "colab.newFile",
+          "when": "view == colab-server-content-view",
+          "group": "navigation"
+        },
+        {
+          "command": "colab.newFolder",
+          "when": "view == colab-server-content-view",
+          "group": "navigation"
+        },
+        {
+          "command": "colab.download",
+          "when": "view == colab-server-content-view && viewItem == file",
+          "group": "5b_importexport"
+        },
+        {
+          "command": "colab.renameFile",
+          "when": "view == colab-server-content-view && viewItem != server",
+          "group": "7_modification"
+        },
+        {
+          "command": "colab.deleteFile",
+          "when": "view == colab-server-content-view && viewItem != server",
+          "group": "7_modification"
+        }
+      ]
+    }
+  },
+  "main": "./out/extension.js",
+  "scripts": {
+    "clean": "rm -rf out/*",
+    "generate:config": "tsx ./scripts/generate-config.mts",
+    "generate:colabclient": "tsx ./src/colab/client/v2/generate.mts",
+    "generate:jupyterclient": "tsx ./src/jupyter/client/generate.mts",
+    "build": "concurrently \"npm:build:extension\" \"npm:build:tests\" \"npm:typecheck\" --prefixColors=auto",
+    "build:extension": "tsx esbuild.config.mts",
+    "build:tests": "npm run build:extension -- --tests",
+    "typecheck": "tsc --noEmit",
+    "typecheck:prod": "npm run typecheck -- -p tsconfig.prod.json",
+    "watch": "concurrently \"npm:watch:extension\" \"npm:watch:tests\" \"npm:watch:typecheck\" --prefixColors=auto",
+    "watch:prod": "concurrently \"npm:watch:extension\" \"npm:watch:typecheck:prod\" --prefixColors=auto",
+    "watch:extension": "npm run build:extension -- --watch",
+    "watch:tests": "npm run build:tests -- --watch",
+    "watch:typecheck": "npm run typecheck -- --watch --preserveWatchOutput",
+    "watch:typecheck:prod": "npm run typecheck:prod -- --watch --preserveWatchOutput",
+    "lint": "npx --node-options='--experimental-strip-types' eslint src/ scripts/ *.mts --flag unstable_native_nodejs_ts_config",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "pretest": "npm run build && npm run lint",
+    "test:unit": "npm run build:tests && mocha --require ./out/test/test/test-setup.js './out/test/**/*.unit.test.js'",
+    "test:integration": "concurrently \"npm:build:extension\" \"npm:build:tests\" --prefixColors=auto && vscode-test",
+    "test:integration:headless": "concurrently \"npm:build:extension\" \"npm:build:tests\" --prefixColors=auto && xvfb-run -s '-screen 0 1024x768x24' vscode-test",
+    "pretest:e2e": "npm run build:tests",
+    "test:e2e": "scripts/test_e2e.sh",
+    "test:e2e:headless": "npm run test:e2e -- --headless",
+    "vscode:prepublish": "npm run package",
+    "package": "concurrently \"npm:typecheck:prod\" \"npm:build:extension -- --production\" --prefixColors=auto"
+  },
+  "devDependencies": {
+    "@cspell/eslint-plugin": "^8.17.3",
+    "@eslint/js": "^9.39.4",
+    "@openapitools/openapi-generator-cli": "^2.40.1",
+    "@stylistic/eslint-plugin": "^5.2.2",
+    "@types/chai": "^4.3.20",
+    "@types/chai-as-promised": "^7.1.8",
+    "@types/eslint": "^9.6.1",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/node-fetch": "^2.6.12",
+    "@types/react": "^19.2.10",
+    "@types/semver": "^7.7.1",
+    "@types/sinon": "^17.0.3",
+    "@types/uuid": "^11.0.0",
+    "@types/vscode": "^1.99.3",
+    "@vscode/jupyter-extension": "1.0.93",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "chai": "^4.5.0",
+    "chai-as-promised": "^7.1.2",
+    "clipboardy": "^4.0.0",
+    "concurrently": "^9.1.2",
+    "cspell": "^8.17.3",
+    "dotenv": "^16.5.0",
+    "esbuild": "^0.28.1",
+    "esbuild-node-externals": "^1.23.1",
+    "eslint": "^9.39.4",
+    "eslint-config-prettier": "^9.1.2",
+    "eslint-plugin-check-file": "^3.1.0",
+    "eslint-plugin-headers": "^1.3.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsdoc": "^62.8.0",
+    "eslint-plugin-tsdoc": "^0.5.2",
+    "mocha": "^10.8.2",
+    "msw": "^2.14.6",
+    "prettier": "^3.4.2",
+    "prettier-plugin-sort-json": "^4.2.0",
+    "selenium-webdriver": "^4.41.0",
+    "sinon": "^21.0.1",
+    "source-map-support": "^0.5.21",
+    "tsx": "^4.22.4",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.57.1",
+    "vscode-extension-tester": "^8.25.0",
+    "yaml": "^2.8.2"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.14.4",
+    "@jupyterlab/services": "^7.5.3",
+    "glob": "^11.1.0",
+    "google-auth-library": "^10.9.0",
+    "node-fetch": "^2.6.7",
+    "semver": "^7.7.3",
+    "uuid": "^14.0.1",
+    "vscode-languageclient": "^10.0.0-next.17",
+    "ws": "^6.2.4",
+    "zod": "^4.0.17"
+  }
+}

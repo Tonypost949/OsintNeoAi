@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Neo AI - Evidence & Legal Showcase</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0d1117; color: #c9d1d9; margin: 0; display: flex; height: 100vh; overflow: hidden; }
+        .sidebar { width: 260px; background: #161b22; border-right: 1px solid #30363d; display: flex; flex-direction: column; padding: 20px 0; box-shadow: 2px 0 5px rgba(0,0,0,0.2); z-index: 10; }
+        .sidebar h2 { color: #58a6ff; text-align: center; margin-top: 0; font-size: 16px; text-transform: uppercase; letter-spacing: 2px; padding-bottom: 20px; border-bottom: 1px solid #30363d; }
+        .nav-item { padding: 15px 25px; cursor: pointer; color: #8b949e; border-left: 3px solid transparent; transition: 0.2s; font-weight: 500; }
+        .nav-item:hover, .nav-item.active { background: #0d1117; color: #ffffff; border-left-color: #58a6ff; }
+        .main-content { flex-grow: 1; overflow-y: auto; padding: 40px; position: relative; }
+        .section { display: none; animation: fadeIn 0.3s; }
+        .section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        h1 { border-bottom: 1px solid #30363d; padding-bottom: 10px; color: #ffffff; font-size: 28px; font-weight: 400; }
+        .subtitle { color: #8b949e; margin-bottom: 30px; }
+        
+        /* Table Styling */
+        .table-container { overflow-x: auto; background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 0; max-height: 70vh; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        table { border-collapse: collapse; width: 100%; text-align: left; font-size: 13px; }
+        th, td { padding: 12px 15px; border-bottom: 1px solid #30363d; white-space: nowrap; }
+        th { background: #21262d; color: #58a6ff; font-weight: 600; position: sticky; top: 0; z-index: 2; box-shadow: 0 2px 2px rgba(0,0,0,0.1); }
+        tr:hover { background: #21262d; }
+        
+        /* Link Cards */
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+        .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 25px; transition: 0.2s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+        .card:hover { border-color: #58a6ff; transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.4); }
+        .card h3 { color: #58a6ff; margin: 0 0 10px 0; font-size: 18px; }
+        .tag { display: inline-block; background: #238636; color: white; padding: 4px 10px; border-radius: 12px; font-size: 11px; margin-bottom: 15px; font-weight: 600; text-transform: uppercase; align-self: flex-start; }
+        .tag.legal { background: #8957e5; }
+        .tag.evidence { background: #d29922; }
+        
+        /* Connection Line logic */
+        .correlation-box { background: rgba(137, 87, 229, 0.1); border: 1px dashed #8957e5; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        .correlation-box h3 { color: #d2a8ff; margin-top: 0; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Neo AI Vault</h2>
+        <div class="nav-item active" onclick="showSection('osint')">OSINT Master Sheet</div>
+        <div class="nav-item" onclick="showSection('evidence')">Evidence Exhibits</div>
+        <div class="nav-item" onclick="showSection('legal')">Legal Framework Correlation</div>
+    </div>
+    
+    <div class="main-content">
+        <!-- OSINT Sheet -->
+        <div id="osint" class="section active">
+            <h1>Master OSINT Consolidated Sheet</h1>
+            <p class="subtitle">Live interactive view of the primary intelligence ledger (MASTER_OSINT_CONSOLIDATED_SHEET.csv).</p>
+            <div class="table-container">
+                <table><thead><tr><th>Category</th><th>Asset_Name</th><th>Target_Identifier</th><th>Status</th><th>Path_Or_URL</th><th>Description</th></tr></thead><tbody><tr><td>GitHub Repo</td><td>OsintNeoAi</td><td>Tonypost949/OsintNeoAi</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/OsintNeoAi" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>Master evidence clearinghouse & BigQuery ingestion repository</td></tr><tr><td>GitHub Repo</td><td>OsintNeoAiXXXL</td><td>Tonypost949/OsintNeoAiXXXL</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/OsintNeoAiXXXL" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>Real-time threat intelligence & network attack pattern dashboard</td></tr><tr><td>GitHub Repo</td><td>OSINTNeoAiXL</td><td>Tonypost949/OSINTNeoAiXL</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/OSINTNeoAiXL" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>Extended OSINT analysis pipeline</td></tr><tr><td>GitHub Repo</td><td>OSINTNeoAiCLI</td><td>Tonypost949/OSINTNeoAiCLI</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/OSINTNeoAiCLI" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>Command-line interface tool for OSINT workflows</td></tr><tr><td>GitHub Repo</td><td>osint-agent</td><td>Tonypost949/osint-agent</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/osint-agent" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>Autonomous agent for OSINT investigations</td></tr><tr><td>GitHub Repo</td><td>osint_analyzer</td><td>Tonypost949/osint_analyzer</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/osint_analyzer" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>Entity extraction & visual network graph web app</td></tr><tr><td>GitHub Repo</td><td>OsintNeoAiReplit</td><td>Tonypost949/OsintNeoAiReplit</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/OsintNeoAiReplit" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>Replit cloud workspace deployment</td></tr><tr><td>GitHub Repo</td><td>OsintNeoAi52026</td><td>Tonypost949/OsintNeoAi52026</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/OsintNeoAi52026" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>OSINT investigation release iteration</td></tr><tr><td>GitHub Repo</td><td>Osint-Arte-Ai</td><td>Tonypost949/Osint-Arte-Ai</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/Osint-Arte-Ai" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>Visual & creative OSINT intelligence</td></tr><tr><td>GitHub Repo</td><td>vertex-ai-creative-studio</td><td>Tonypost949/vertex-ai-creative-studio</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/vertex-ai-creative-studio" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>Vertex AI generative media studio (Gemini</td><td> Veo</td><td> TTS</td><td> Chirp 3</td><td> Lyria)</td></tr><tr><td>GitHub Repo</td><td>ai-agents-for-beginners</td><td>Tonypost949/ai-agents-for-beginners</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/ai-agents-for-beginners" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>18-lesson agentic AI framework (Fork)</td></tr><tr><td>GitHub Repo</td><td>civil-rights-activist-emailer</td><td>Tonypost949/civil-rights-activist-emailer</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/civil-rights-activist-emailer" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>Civil rights & authority abuse reporting tool</td></tr><tr><td>GitHub Repo</td><td>NPI---Non-Profiteers-Index</td><td>Tonypost949/NPI---Non-Profiteers-Index</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/NPI---Non-Profiteers-Index" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>Non-Profiteers Index Calculator</td></tr><tr><td>GitHub Repo</td><td>riconow</td><td>Tonypost949/riconow</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/riconow" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>RICO network correlation & running analysis engine</td></tr><tr><td>GitHub Repo</td><td>landgrabpro</td><td>Tonypost949/landgrabpro</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/landgrabpro" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>Municipal land & real estate transaction audit tool</td></tr><tr><td>GitHub Repo</td><td>landgrabpro2</td><td>Tonypost949/landgrabpro2</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/landgrabpro2" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>Extended municipal property audit engine</td></tr><tr><td>GitHub Repo</td><td>landgrabpromo</td><td>Tonypost949/landgrabpromo</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/landgrabpromo" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>Promotional portal for municipal land audit</td></tr><tr><td>GitHub Repo</td><td>social-media-campaign-manager</td><td>Tonypost949/social-media-campaign-manager</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/social-media-campaign-manager" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>Social media analytics & campaign manager</td></tr><tr><td>GitHub Repo</td><td>AGcliontermux</td><td>Tonypost949/AGcliontermux</td><td>PRIVATE</td><td><a href="https://github.com/Tonypost949/AGcliontermux" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>Mobile & Termux deployment setup</td></tr><tr><td>GitHub Repo</td><td>demo-api-scalar-galaxy-docs</td><td>Tonypost949/demo-api-scalar-galaxy-docs</td><td>PRIVATE</td><td><a href="https://github.com/Tonypost949/demo-api-scalar-galaxy-docs" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>Scalar Galaxy API documentation</td></tr><tr><td>GitHub Repo</td><td>Tonypost949.github.io</td><td>Tonypost949/Tonypost949.github.io</td><td>ACTIVE</td><td><a href="https://Tonypost949.github.io/OsintNeoAi/" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>GitHub Pages master web dashboard deployment</td></tr><tr><td>GitHub Repo</td><td>altwarp</td><td>Tonypost949/altwarp</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/altwarp" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>Alternative network warping utility</td></tr><tr><td>BigQuery Table</td><td>takeout_documents</td><td>noble-beanbag-497411-m4.national_audits.takeout_documents</td><td>LIVE</td><td>BigQuery</td><td>1142 ingested files (201.3 MB) extracted text & tables</td></tr><tr><td>BigQuery Table</td><td>takeout_chrome_history</td><td>noble-beanbag-497411-m4.national_audits.takeout_chrome_history</td><td>LIVE</td><td>BigQuery</td><td>1340 Chrome timeline browser history records</td></tr><tr><td>BigQuery Table</td><td>ppp_target_addresses</td><td>noble-beanbag-497411-m4.national_audits.ppp_target_addresses</td><td>LIVE</td><td>BigQuery</td><td>Mercy House & PPP target address verification matrix</td></tr><tr><td>BigQuery Table</td><td>regional_llcs_summary</td><td>noble-beanbag-497411-m4.national_audits.regional_llcs_summary</td><td>LIVE</td><td>BigQuery</td><td>Shell LLC corporate entity cross-reference dataset</td></tr><tr><td>BigQuery Table</td><td>entity_nodes</td><td>noble-beanbag-497411-m4.national_audits.entity_nodes</td><td>LIVE</td><td>BigQuery</td><td>Graph node entity definitions</td></tr><tr><td>BigQuery Table</td><td>entity_edges</td><td>noble-beanbag-497411-m4.national_audits.entity_edges</td><td>LIVE</td><td>BigQuery</td><td>Graph edge relationship definitions</td></tr><tr><td>Audit Report</td><td>Forensic Audit Report</td><td>Municipal Reconnaissance</td><td>LIVE</td><td><a href="https://github.com/Tonypost949/OsintNeoAi/blob/main/FORENSIC_AUDIT_REPORT.md" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>438 exposed endpoints & 23 critical vulnerabilities (Scottsdale origin 208.109.36.19)</td></tr><tr><td>Audit Report</td><td>Dehashed HBPD Scan</td><td>Breach Analysis</td><td>LIVE</td><td><a href="https://github.com/Tonypost949/OsintNeoAi/blob/main/DEHASHED_HBPD_SCAN_REPORT.md" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>400 compromised employee listings & login credentials</td></tr><tr><td>Audit Report</td><td>HBPD Port Scan</td><td>Network Security</td><td>LIVE</td><td><a href="https://github.com/Tonypost949/OsintNeoAi/blob/main/HBPD_PORT_SCAN_REPORT.md" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>41 open TCP ports on hbpd.org (RPC/SMB</td><td> LDAP</td><td> SQL ports)</td></tr><tr><td>Entity Record</td><td>15 SWIFT LLC</td><td>CA File #201415510595</td><td>ACTIVE</td><td><a href="https://github.com/Tonypost949/OsintNeoAi/blob/main/15_SWIFT_LLC_OWNERSHIP_FINDINGS.md" target="_blank" style="color:#58a6ff;">[Link]</a></td><td>Agent Thanh Nguyen co-indicted with fugitive Peter Anh Pham in COVID fraud</td></tr></tbody></table>
+            </div>
+        </div>
+
+        <!-- Evidence Section -->
+        <div id="evidence" class="section">
+            <h1>Evidence Repository</h1>
+            <p class="subtitle">Cross-referenced artifacts, forensic documentation, and raw data gathered during the investigation.</p>
+            
+            <div class="correlation-box">
+                <h3>⚖️ Legal Correlation Active</h3>
+                <p>Evidence files in this directory are actively mapped to the statutory structures in the Legal Framework module.</p>
+            </div>
+            
+            <div class="card-grid">
+                <a href="EVIDENCE_MATRIX.md" target="_blank" class="card">
+                    <span class="tag evidence">Core Ledger</span>
+                    <h3>Evidence Matrix</h3>
+                    <p>The primary Markdown mapping of all gathered evidence and investigation artifacts.</p>
+                </a>
+                <a href="EVIDENCE_QUICK_VIEW.md" target="_blank" class="card">
+                    <span class="tag evidence">Summary</span>
+                    <h3>Evidence Quick View</h3>
+                    <p>High-level summary of critical findings for rapid briefing.</p>
+                </a>
+                <a href="evidence/" target="_blank" class="card">
+                    <span class="tag evidence">Raw Directory</span>
+                    <h3>Raw Evidence Vault</h3>
+                    <p>Direct filesystem access to the /evidence/ directory containing PDFs, images, and forensic logs.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Legal Section -->
+        <div id="legal" class="section">
+            <h1>Legal Correlation Engine</h1>
+            <p class="subtitle">Statutory mappings linking gathered OSINT evidence directly to legal precedent and state/federal codes.</p>
+            
+            <div class="card-grid">
+                <a href="statutory_legal_index.html" target="_blank" class="card">
+                    <span class="tag legal">Live Portal</span>
+                    <h3>Statutory Legal Index</h3>
+                    <p>Interactive HTML index of all mapped statutory violations and code frameworks.</p>
+                </a>
+                <a href="whistleblower_legal_index.html" target="_blank" class="card">
+                    <span class="tag legal">Live Portal</span>
+                    <h3>Whistleblower Framework</h3>
+                    <p>Mapped legal protections, reporting channels, and statutes specific to whistleblowers.</p>
+                </a>
+                <a href="legal_library/" target="_blank" class="card">
+                    <span class="tag legal">Raw Directory</span>
+                    <h3>Legal Library</h3>
+                    <p>Browse all raw statutory documents, exported JSON mappings, and legal text.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(id) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
+            // Remove active state from nav
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            
+            // Show target section and highlight nav
+            document.getElementById(id).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>

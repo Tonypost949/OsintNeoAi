@@ -1,0 +1,1247 @@
+openapi: 3.0.1
+info:
+  title: Jupyter Server API
+  description: Server API
+  version: "5"
+  contact:
+    name: Jupyter Project
+    url: https://jupyter.org
+servers:
+  - url: /
+paths:
+  /api/:
+    get:
+      summary: Get the Jupyter Server version
+      description: |
+        This endpoint returns only the Jupyter Server version.
+        It does not require any authentication.
+      responses:
+        "200":
+          description: Jupyter Server version information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: string
+                    description: The Jupyter Server version number as a string.
+  /api/contents/{path}:
+    get:
+      tags:
+        - contents
+      summary: Get contents of file or directory
+      description: "A client can optionally specify a type and/or format argument via URL parameter. When given, the Contents service shall return a model in the requested type and/or format. If the request cannot be satisfied, e.g. type=text is requested, but the file is binary, then the request shall fail with 400 and have a JSON response containing a 'reason' field, with the value 'bad format' or 'bad type', depending on what was requested."
+      parameters:
+        - name: path
+          in: path
+          description: file path
+          required: true
+          schema:
+            type: string
+        - name: type
+          in: query
+          description: "File type ('file', 'directory')"
+          schema:
+            type: string
+            enum:
+              - file
+              - directory
+        - name: format
+          in: query
+          description: "How file content should be returned ('text', 'base64')"
+          schema:
+            type: string
+            enum:
+              - text
+              - base64
+        - name: content
+          in: query
+          description: "Return content (0 for no content, 1 for return content)"
+          schema:
+            type: integer
+        - name: hash
+          in: query
+          description: "May return hash hexdigest string of content and the hash algorithm (0 for no hash - default, 1 for return hash). It may be ignored by the content manager."
+          schema:
+            type: integer
+      responses:
+        "404":
+          description: No item found
+          content: {}
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error condition
+                  reason:
+                    type: string
+                    description: Explanation of error reason
+        "200":
+          description: Contents of file or directory
+          headers:
+            Last-Modified:
+              description: Last modified date for file
+              schema:
+                type: string
+                format: dateTime
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Contents"
+        "500":
+          description: Model key error
+          content: {}
+    put:
+      tags:
+        - contents
+      summary: Save or upload file.
+      description: "Saves the file in the location specified by name and path.  PUT is very similar to POST, but the requester specifies the name, whereas with POST, the server picks the name."
+      parameters:
+        - name: path
+          in: path
+          description: file path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: New path for file or directory
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The new filename if changed
+                path:
+                  type: string
+                  description: New path for file or directory
+                type:
+                  type: string
+                  description: "Path dtype ('notebook', 'file', 'directory')"
+                format:
+                  type: string
+                  description: "File format ('json', 'text', 'base64')"
+                content:
+                  type: string
+                  description:
+                    The actual body of the document excluding directory
+                    type
+        required: false
+      responses:
+        "200":
+          description: File saved
+          headers:
+            Location:
+              description: Updated URL for the file or directory
+              schema:
+                type: string
+                format: url
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Contents"
+        "201":
+          description: Path created
+          headers:
+            Location:
+              description: URL for the file or directory
+              schema:
+                type: string
+                format: url
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Contents"
+        "400":
+          description: No data provided
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error condition
+                  reason:
+                    type: string
+                    description: Explanation of error reason
+      x-codegen-request-body-name: model
+    post:
+      tags:
+        - contents
+      summary: Create a new file in the specified path
+      description: "A POST to /api/contents/path creates a New untitled, empty file or directory. A POST to /api/contents/path with body {'copy_from': '/path/to/OtherNotebook.ipynb'} creates a new copy of OtherNotebook in path."
+      parameters:
+        - name: path
+          in: path
+          description: file path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Path of file to copy
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                copy_from:
+                  type: string
+                ext:
+                  type: string
+                type:
+                  type: string
+        required: false
+      responses:
+        "201":
+          description: File created
+          headers:
+            Location:
+              description: URL for the new file
+              schema:
+                type: string
+                format: url
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Contents"
+        "404":
+          description: No item found
+          content: {}
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error condition
+                  reason:
+                    type: string
+                    description: Explanation of error reason
+      x-codegen-request-body-name: model
+    delete:
+      tags:
+        - contents
+      summary: Delete a file in the given path
+      parameters:
+        - name: path
+          in: path
+          description: file path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: File deleted
+          headers:
+            Location:
+              description: URL for the removed file
+              schema:
+                type: string
+                format: url
+          content: {}
+    patch:
+      tags:
+        - contents
+      summary: Rename a file or directory without re-uploading content
+      parameters:
+        - name: path
+          in: path
+          description: file path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: New path for file or directory.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                path:
+                  type: string
+                  description: New path for file or directory
+                  format: path
+        required: true
+      responses:
+        "200":
+          description: Path updated
+          headers:
+            Location:
+              description: Updated URL for the file or directory
+              schema:
+                type: string
+                format: url
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Contents"
+        "400":
+          description: No data provided
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error condition
+                  reason:
+                    type: string
+                    description: Explanation of error reason
+      x-codegen-request-body-name: rename
+  /api/contents/{path}/checkpoints:
+    get:
+      tags:
+        - contents
+      summary: Get a list of checkpoints for a file
+      description:
+        List checkpoints for a given file. There will typically be zero
+        or one results.
+      parameters:
+        - name: path
+          in: path
+          description: file path
+          required: true
+          schema:
+            type: string
+      responses:
+        "404":
+          description: No item found
+          content: {}
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error condition
+                  reason:
+                    type: string
+                    description: Explanation of error reason
+        "200":
+          description: List of checkpoints for a file
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Checkpoints"
+        "500":
+          description: Model key error
+          content: {}
+    post:
+      tags:
+        - contents
+      summary: Create a new checkpoint for a file
+      description: "Create a new checkpoint with the current state of a file. With the default FileContentsManager, only one checkpoint is supported, so creating new checkpoints clobbers existing ones."
+      parameters:
+        - name: path
+          in: path
+          description: file path
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: Checkpoint created
+          headers:
+            Location:
+              description: URL for the checkpoint
+              schema:
+                type: string
+                format: url
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Checkpoints"
+        "404":
+          description: No item found
+          content: {}
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error condition
+                  reason:
+                    type: string
+                    description: Explanation of error reason
+  /api/contents/{path}/checkpoints/{checkpoint_id}:
+    post:
+      tags:
+        - contents
+      summary: Restore a file to a particular checkpointed state
+      parameters:
+        - name: path
+          in: path
+          description: file path
+          required: true
+          schema:
+            type: string
+        - name: checkpoint_id
+          in: path
+          description: Checkpoint id for a file
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Checkpoint restored
+          content: {}
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error condition
+                  reason:
+                    type: string
+                    description: Explanation of error reason
+    delete:
+      tags:
+        - contents
+      summary: Delete a checkpoint
+      parameters:
+        - name: path
+          in: path
+          description: file path
+          required: true
+          schema:
+            type: string
+        - name: checkpoint_id
+          in: path
+          description: Checkpoint id for a file
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Checkpoint deleted
+          content: {}
+  /api/sessions/{session}:
+    get:
+      tags:
+        - sessions
+      summary: Get session
+      parameters:
+        - name: session
+          in: path
+          description: session uuid
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Session
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Session"
+    delete:
+      tags:
+        - sessions
+      summary: Delete a session
+      parameters:
+        - name: session
+          in: path
+          description: session uuid
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "204":
+          description: Session (and kernel) were deleted
+          content: {}
+        "410":
+          description: "Kernel was deleted before the session, and the session was *not* deleted (TODO - check to make sure session wasn't deleted)"
+          content: {}
+    patch:
+      tags:
+        - sessions
+      summary: This can be used to rename the session.
+      parameters:
+        - name: session
+          in: path
+          description: session uuid
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Session"
+        required: true
+      responses:
+        "200":
+          description: Session
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Session"
+        "400":
+          description: No data provided
+          content: {}
+      x-codegen-request-body-name: model
+  /api/sessions:
+    get:
+      tags:
+        - sessions
+      summary: List available sessions
+      responses:
+        "200":
+          description: List of current sessions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Session"
+    post:
+      tags:
+        - sessions
+      summary: "Create a new session, or return an existing session if a session of the same name already exists"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Session"
+        required: false
+      responses:
+        "201":
+          description: Session created or returned
+          headers:
+            Location:
+              description: URL for session commands
+              schema:
+                type: string
+                format: url
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Session"
+        "501":
+          description: Session not available
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  short_message:
+                    type: string
+                description: error message
+      x-codegen-request-body-name: session
+  /api/kernels:
+    get:
+      tags:
+        - kernels
+      summary: List the JSON data for all kernels that are currently running
+      responses:
+        "200":
+          description: List of currently-running kernel uuids
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Kernel"
+    post:
+      tags:
+        - kernels
+      summary: Start a kernel and return the uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+                - name
+              type: object
+              properties:
+                name:
+                  type: string
+                  description:
+                    Kernel spec name (defaults to default kernel spec for
+                    server)
+                path:
+                  type: string
+                  description: API path from root to the cwd of the kernel
+        required: false
+      responses:
+        "201":
+          description: Kernel started
+          headers:
+            Location:
+              description: Model for started kernel
+              schema:
+                type: string
+                format: url
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Kernel"
+      x-codegen-request-body-name: options
+  /api/kernels/{kernel_id}:
+    get:
+      tags:
+        - kernels
+      summary: Get kernel information
+      parameters:
+        - name: kernel_id
+          in: path
+          description: kernel uuid
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Kernel information
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Kernel"
+    delete:
+      tags:
+        - kernels
+      summary: Kill a kernel and delete the kernel id
+      parameters:
+        - name: kernel_id
+          in: path
+          description: kernel uuid
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "204":
+          description: Kernel deleted
+          content: {}
+  /api/kernels/{kernel_id}/interrupt:
+    post:
+      tags:
+        - kernels
+      summary: Interrupt a kernel
+      parameters:
+        - name: kernel_id
+          in: path
+          description: kernel uuid
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "204":
+          description: Kernel interrupted
+          content: {}
+  /api/kernels/{kernel_id}/restart:
+    post:
+      tags:
+        - kernels
+      summary: Restart a kernel
+      parameters:
+        - name: kernel_id
+          in: path
+          description: kernel uuid
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Kernel restarted
+          headers:
+            Location:
+              description: URL for kernel commands
+              schema:
+                type: string
+                format: url
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Kernel"
+  /api/kernelspecs:
+    get:
+      tags:
+        - kernelspecs
+      summary: Get kernel specs
+      responses:
+        "200":
+          description: Kernel specs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  default:
+                    type: string
+                    description: Default kernel name
+                  kernelspecs:
+                    type: object
+                    additionalProperties:
+                      $ref: "#/components/schemas/KernelSpec"
+  /api/config/{section_name}:
+    get:
+      tags:
+        - config
+      summary: Get a configuration section by name
+      parameters:
+        - name: section_name
+          in: path
+          description: Name of config section
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Configuration object
+          content:
+            application/json:
+              schema:
+                type: object
+    patch:
+      tags:
+        - config
+      summary: Update a configuration section by name
+      parameters:
+        - name: section_name
+          in: path
+          description: Name of config section
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+        required: false
+      responses:
+        "200":
+          description: Configuration object
+          content:
+            application/json:
+              schema:
+                type: object
+      x-codegen-request-body-name: configuration
+  /api/terminals:
+    get:
+      tags:
+        - terminals
+      summary: Get available terminals
+      responses:
+        "200":
+          description: A list of all available terminal ids.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Terminal"
+        "403":
+          description: Forbidden to access
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+    post:
+      tags:
+        - terminals
+      summary: Create a new terminal
+      responses:
+        "200":
+          description: Successfully created a new terminal
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Terminal"
+        "403":
+          description: Forbidden to access
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+  /api/terminals/{terminal_id}:
+    get:
+      tags:
+        - terminals
+      summary: Get a terminal session corresponding to an id.
+      parameters:
+        - name: terminal_id
+          in: path
+          description: ID of terminal session
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Terminal session with given id
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Terminal"
+        "403":
+          description: Forbidden to access
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+    delete:
+      tags:
+        - terminals
+      summary: Delete a terminal session corresponding to an id.
+      parameters:
+        - name: terminal_id
+          in: path
+          description: ID of terminal session
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Successfully deleted terminal session
+          content: {}
+        "403":
+          description: Forbidden to access
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+  /api/me:
+    get:
+      tags:
+        - identity
+      summary: |
+        Get the identity of the currently authenticated user.
+        If present, a `permissions` argument may be specified
+        to check what actions the user currently is authorized to take.
+      parameters:
+        - name: permissions
+          in: query
+          description: |
+            JSON-serialized dictionary of `{"resource": ["action",]}`
+            (dict of lists of strings) to check.
+            The same dictionary structure will be returned,
+            containing only the actions for which the user is authorized.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The user's identity and permissions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  identity:
+                    $ref: "#/components/schemas/Identity"
+                  permissions:
+                    $ref: "#/components/schemas/Permissions"
+                example:
+                  identity:
+                    username: minrk
+                    name: Min Ragan-Kelley
+                    display_name: Min RK
+                    initials: MRK
+                  permissions:
+                    contents:
+                      - read
+                      - write
+                    kernels:
+                      - read
+                      - write
+                      - execute
+  /api/status:
+    get:
+      tags:
+        - status
+      summary: Get the current status/activity of the server.
+      responses:
+        "200":
+          description: The current status of the server
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIStatus"
+  /api/spec.yaml:
+    get:
+      tags:
+        - api-spec
+      summary: Get the current spec for the notebook server's APIs.
+      responses:
+        "200":
+          description: The current spec for the notebook server's APIs.
+          content:
+            text/x-yaml:
+              schema:
+                type: string
+components:
+  schemas:
+    APIStatus:
+      type: object
+      properties:
+        started:
+          type: string
+          description: |
+            ISO8601 timestamp indicating when the notebook server started.
+        last_activity:
+          type: string
+          description: |
+            ISO8601 timestamp indicating the last activity on the server,
+            either on the REST API or kernel activity.
+        connections:
+          type: number
+          description: |
+            The total number of currently open connections to kernels.
+        kernels:
+          type: number
+          description: |
+            The total number of running kernels.
+      description: |
+        Notebook server API status.
+        Added in notebook 5.0.
+    Identity:
+      type: object
+      properties:
+        username:
+          type: string
+          description: |
+            Unique string identifying the user
+        name:
+          type: string
+          description: |
+            For-humans name of the user.
+            May be the same as `username` in systems where
+            only usernames are available.
+        display_name:
+          type: string
+          description: |
+            Alternate rendering of name for display.
+            Often the same as `name`.
+        initials:
+          type: string
+          description: |
+            Short string of initials.
+            Initials should not be derived automatically due to localization issues.
+            May be `null` if unavailable.
+        avatar_url:
+          type: string
+          description: |
+            URL of an avatar to be used for the user.
+            May be `null` if unavailable.
+        color:
+          type: string
+          description: |
+            A CSS color string to use as a preferred color,
+            such as for collaboration cursors.
+            May be `null` if unavailable.
+      description: The identity of the currently authenticated user
+    Permissions:
+      type: object
+      additionalProperties:
+        type: array
+        items:
+          type: string
+      description: |
+        A dict of the form: `{"resource": ["action",]}`
+        containing only the AUTHORIZED subset of resource+actions
+        from the permissions specified in the request.
+        If no permission checks were made in the request,
+        this will be empty.
+    KernelSpec:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Unique name for kernel
+        KernelSpecFile:
+          $ref: "#/components/schemas/KernelSpecFile"
+        resources:
+          type: object
+          properties:
+            kernel.js:
+              type: string
+              description: path for kernel.js file
+              format: filename
+            kernel.css:
+              type: string
+              description: path for kernel.css file
+              format: filename
+            logo-*:
+              type: string
+              description: path for logo file.  Logo filenames are of the form `logo-widthxheight`
+              format: filename
+      description: Kernel spec (contents of kernel.json)
+    KernelSpecFile:
+      required:
+        - argv
+        - display_name
+        - language
+      type: object
+      properties:
+        language:
+          type: string
+          description:
+            The programming language which this kernel runs. This will
+            be stored in notebook metadata.
+        argv:
+          type: array
+          description: "A list of command line arguments used to start the kernel. The text `{connection_file}` in any argument will be replaced with the path to the connection file."
+          items:
+            type: string
+        display_name:
+          type: string
+          description: "The kernel's name as it should be displayed in the UI. Unlike the kernel name used in the API, this can contain arbitrary unicode characters."
+        codemirror_mode:
+          type: string
+          description:
+            Codemirror mode.  Can be a string *or* an valid Codemirror
+            mode object.  This defaults to the string from the `language` property.
+        env:
+          type: object
+          additionalProperties:
+            type: string
+          description:
+            A dictionary of environment variables to set for the kernel.
+            These will be added to the current environment variables.
+        help_links:
+          type: array
+          description:
+            Help items to be displayed in the help menu in the notebook
+            UI.
+          items:
+            required:
+              - text
+              - url
+            type: object
+            properties:
+              text:
+                type: string
+                description: menu item link text
+              url:
+                type: string
+                description: menu item link url
+                format: URL
+      description: Kernel spec json file
+    Kernel:
+      required:
+        - id
+        - name
+      type: object
+      properties:
+        id:
+          type: string
+          description: uuid of kernel
+          format: uuid
+        name:
+          type: string
+          description: kernel spec name
+        last_activity:
+          type: string
+          description: |
+            ISO 8601 timestamp for the last-seen activity on this kernel.
+            Use this in combination with execution_state == 'idle' to identify
+            which kernels have been idle since a given time.
+            Timestamps will be UTC, indicated 'Z' suffix.
+            Added in notebook server 5.0.
+        connections:
+          type: number
+          description: |
+            The number of active connections to this kernel.
+        execution_state:
+          type: string
+          description: |
+            Current execution state of the kernel (typically 'idle' or 'busy', but may be other values, such as 'starting').
+            Added in notebook server 5.0.
+      description: Kernel information
+    Session:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        path:
+          type: string
+          description: path to the session
+        name:
+          type: string
+          description: name of the session
+        type:
+          type: string
+          description: session type
+        kernel:
+          $ref: "#/components/schemas/Kernel"
+      description: A session
+    Contents:
+      required:
+        - created
+        - format
+        - last_modified
+        - mimetype
+        - name
+        - path
+        - type
+        - writable
+      type: object
+      properties:
+        name:
+          type: string
+          description: "Name of file or directory, equivalent to the last part of the path"
+        path:
+          type: string
+          description: Full path for file or directory
+        type:
+          type: string
+          description: Type of content
+          enum:
+            - directory
+            - file
+            - notebook
+        writable:
+          type: boolean
+          description:
+            indicates whether the requester has permission to edit the
+            file
+        created:
+          type: string
+          description: Creation timestamp
+          format: dateTime
+        last_modified:
+          type: string
+          description: Last modified timestamp
+          format: dateTime
+        size:
+          type: integer
+          description: "The size of the file or notebook in bytes. If no size is provided, defaults to null."
+        mimetype:
+          type: string
+          description: "The mimetype of a file.  If content is not null, and type is 'file', this will contain the mimetype of the file, otherwise this will be null."
+        content:
+          $ref: "#/components/schemas/Content"
+        format:
+          type: string
+          description: "Format of content (one of null, 'text', 'base64', 'json')"
+        hash:
+          type: string
+          description: "[optional] The hexdigest hash string of content, if requested (otherwise null). It cannot be null if hash_algorithm is defined."
+        hash_algorithm:
+          type: string
+          description: "[optional] The algorithm used to produce the hash, if requested (otherwise null). It cannot be null if hash is defined."
+      description: "A contents object.  The content and format keys may be null if content is not contained. The hash maybe null if hash is not required.  If type is 'file', then the mimetype will be null."
+    Content:
+      description: "The content, if requested (otherwise null).  Will be an array if type is 'directory'"
+      oneOf:
+        - type: string
+        - type: array
+          items:
+            $ref: "#/components/schemas/Contents"
+    Checkpoints:
+      required:
+        - id
+        - last_modified
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique id for the checkpoint.
+        last_modified:
+          type: string
+          description: Last modified timestamp
+          format: dateTime
+      description: A checkpoint object.
+    Terminal:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: name of terminal
+        last_activity:
+          type: string
+          description: |
+            ISO 8601 timestamp for the last-seen activity on this terminal.  Use
+            this to identify which terminals have been inactive since a given time.
+            Timestamps will be UTC, indicated 'Z' suffix.
+      description: A Terminal object
+  parameters:
+    kernel:
+      name: kernel_id
+      in: path
+      description: kernel uuid
+      required: true
+      schema:
+        type: string
+        format: uuid
+    session:
+      name: session
+      in: path
+      description: session uuid
+      required: true
+      schema:
+        type: string
+        format: uuid
+    path:
+      name: path
+      in: path
+      description: file path
+      required: true
+      schema:
+        type: string
+    permissions:
+      name: permissions
+      in: query
+      description: |
+        JSON-serialized dictionary of `{"resource": ["action",]}`
+        (dict of lists of strings) to check.
+        The same dictionary structure will be returned,
+        containing only the actions for which the user is authorized.
+      schema:
+        type: string
+    checkpoint_id:
+      name: checkpoint_id
+      in: path
+      description: Checkpoint id for a file
+      required: true
+      schema:
+        type: string
+    section_name:
+      name: section_name
+      in: path
+      description: Name of config section
+      required: true
+      schema:
+        type: string
+    terminal_id:
+      name: terminal_id
+      in: path
+      description: ID of terminal session
+      required: true
+      schema:
+        type: string

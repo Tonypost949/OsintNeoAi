@@ -1,0 +1,201 @@
+/**
+ * @license
+ * Copyright 2025 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import vscode, { Disposable, Event } from 'vscode';
+import { telemetry } from '../../telemetry';
+import { CommandSource, LowBalanceSeverity } from '../../telemetry/api';
+import { ConsumptionUserInfo } from '../client/v1/api';
+import { openColabSignup } from '../commands/external';
+import { SubscriptionTier } from '../types';
+
+const WARN_WHEN_LESS_THAN_MINUTES = 30;
+const DEFAULT_SNOOZE_MINUTES = 10;
+
+/**
+ * The type of notification the notifier dispatches.
+ */
+type Notify =
+  | typeof vscode.window.showErrorMessage
+  | typeof vscode.window.showWarningMessage;
+
+/**
+ * Monitors Colab Compute Units (CCU) balance and consumption rate, notifying
+ * the user when their CCU-s are depleted or running low.
+ */
+export class ConsumptionNotifier implements Disposable {
+  private isDisposed = false;
+  private ccuListener: Disposable;
+  private snoozeError = false;
+  private snoozeWarn = false;
+  private errorTimeout?: NodeJS.Timeout;
+  private warnTimeout?: NodeJS.Timeout;
+
+  /**
+   * Initializes a new instance.
+   *
+   * @param vs - The VS Code API instance.
+   * @param onDidChangeCcuInfo - Event fired when CCU info changes.
+   * @param snoozeMinutes - The number of minutes to snooze notifications.
+   */
+  constructor(
+    private readonly vs: typeof vscode,
+    onDidChangeCcuInfo: Event<ConsumptionUserInfo>,
+    private readonly snoozeMinutes: number = DEFAULT_SNOOZE_MINUTES,
+  ) {
+    this.ccuListener = onDidChangeCcuInfo((e) => this.notifyCcuConsumption(e));
+  }
+
+  /**
+   * Disposes of the notifier, cleaning up any resources.
+   */
+  dispose() {
+    if (this.isDisposed) {
+      return;
+    }
+    this.isDisposed = true;
+    this.ccuListener.dispose();
+    clearTimeout(this.errorTimeout);
+    clearTimeout(this.warnTimeout);
+  }
+
+  /**
+   * When applicable, notifies the user about their Colab Compute Units (CCU).
+   *
+   * Gives the user an action to sign up, upgrade or purchase more CCU-s (link
+   * to the signup page).
+   *
+   * @param info - The updated consumption user info.
+   */
+  protected async notifyCcuConsumption(
+    info: ConsumptionUserInfo,
+  ): Promise<void> {
+    this.guardDisposed();
+    // When the user is not consuming any CCU-s, no need to notify.
+    if (info.consumptionRateHourly <= 0) {
+      return;
+    }
+    const paidMinutesLeft =
+      (info.paidComputeUnitsBalance / info.consumptionRateHourly) * 60;
+    const freeMinutesLeft = calculateRoughMinutesLeft(info);
+    // Quantize to 10 minutes.
+    const totalMinutesLeft = ((paidMinutesLeft + freeMinutesLeft) / 10) * 10;
+    if (totalMinutesLeft > WARN_WHEN_LESS_THAN_MINUTES) {
+      return;
+    }
+
+    const notification = this.buildNotification(totalMinutesLeft);
+    if (!notification) {
+      return;
+    }
+
+    const severity =
+      notification.notify === this.vs.window.showErrorMessage
+        ? LowBalanceSeverity.SEVERITY_DEPLETED
+        : LowBalanceSeverity.SEVERITY_LOW;
+    const action = notification.notify(
+      notification.message,
+      this.getTierRelevantAction(info.subscriptionTier, paidMinutesLeft > 0),
+    );
+    this.setSnoozeTimeout(notification.notify);
+    const clicked = !!(await action);
+    if (clicked) {
+      openColabSignup(this.vs, CommandSource.COMMAND_SOURCE_NOTIFICATION);
+    }
+    telemetry.logLowCcuNotification(severity, info.subscriptionTier, clicked);
+  }
+
+  private buildNotification(totalMinutesLeft: number):
+    | {
+        message: string;
+        notify: Notify;
+      }
+    | undefined {
+    let notify: Notify;
+    let message: string;
+
+    // Completely ran out.
+    if (totalMinutesLeft <= 0) {
+      if (this.snoozeError) {
+        return undefined;
+      }
+      message = 'Colab Compute Units (CCU) depleted!';
+      notify = this.vs.window.showErrorMessage;
+    } else {
+      // Close to running out.
+      if (this.snoozeWarn) {
+        return undefined;
+      }
+      message = `Low Colab Compute Units (CCU) balance! ${totalMinutesLeft.toString()} minutes left.`;
+      notify = this.vs.window.showWarningMessage;
+    }
+
+    return { message, notify };
+  }
+
+  private getTierRelevantAction(
+    tier: SubscriptionTier,
+    hasPaidBalance: boolean,
+  ): SignupAction {
+    switch (tier) {
+      case SubscriptionTier.NONE:
+        return hasPaidBalance
+          ? SignupAction.PURCHASE_MORE_CCU
+          : SignupAction.SIGNUP_FOR_COLAB;
+      case SubscriptionTier.PRO:
+        return SignupAction.UPGRADE_TO_PRO_PLUS;
+      case SubscriptionTier.PRO_PLUS:
+        return SignupAction.PURCHASE_MORE_CCU;
+    }
+  }
+
+  private setSnoozeTimeout(notifyType: Notify) {
+    const snoozeMs = this.snoozeMinutes * 60 * 1000;
+
+    if (notifyType === this.vs.window.showErrorMessage) {
+      this.snoozeError = true;
+      if (this.errorTimeout) {
+        clearTimeout(this.errorTimeout);
+      }
+      this.errorTimeout = setTimeout(() => {
+        this.snoozeError = false;
+      }, snoozeMs);
+    } else {
+      this.snoozeWarn = true;
+      if (this.warnTimeout) {
+        clearTimeout(this.warnTimeout);
+      }
+      this.warnTimeout = setTimeout(() => {
+        this.snoozeWarn = false;
+      }, snoozeMs);
+    }
+  }
+
+  private guardDisposed() {
+    if (this.isDisposed) {
+      throw new Error(
+        'Cannot use ConsumptionNotifier after it has been disposed',
+      );
+    }
+  }
+}
+
+function calculateRoughMinutesLeft(
+  consumptionUserInfo: ConsumptionUserInfo,
+): number {
+  const freeQuota = consumptionUserInfo.freeCcuQuotaInfo;
+  if (!freeQuota) {
+    return 0;
+  }
+  // Free quota is in milli-CCUs.
+  const freeCcu = (freeQuota.remainingTokens ?? 0) / 1000;
+  return Math.floor((freeCcu / consumptionUserInfo.consumptionRateHourly) * 60);
+}
+
+enum SignupAction {
+  SIGNUP_FOR_COLAB = 'Sign Up for Colab',
+  UPGRADE_TO_PRO_PLUS = 'Upgrade to Pro+',
+  PURCHASE_MORE_CCU = 'Purchase More CCUs',
+}

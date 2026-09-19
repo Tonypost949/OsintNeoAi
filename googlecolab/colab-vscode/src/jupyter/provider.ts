@@ -1,0 +1,322 @@
+/**
+ * @license
+ * Copyright 2025 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import {
+  Jupyter,
+  JupyterServer,
+  JupyterServerCollection,
+  JupyterServerCommand,
+  JupyterServerCommandProvider,
+  JupyterServerProvider,
+} from '@vscode/jupyter-extension';
+import { CancellationToken, Disposable, Event, ProviderResult } from 'vscode';
+import vscode from 'vscode';
+import { AuthChangeEvent } from '../auth/auth-provider';
+import { ColabClient } from '../colab/client/v1';
+import { ExperimentFlag } from '../colab/client/v1/api';
+import { ColabApiClient, normalizeSubscriptionTier } from '../colab/client/v2';
+import {
+  AUTO_CONNECT,
+  Command,
+  NEW_SERVER,
+  OPEN_COLAB_WEB,
+  SIGN_IN_VIEW_EXISTING,
+  UPGRADE_TO_PRO,
+} from '../colab/commands/constants';
+import { openColabSignup, openColabWeb } from '../colab/commands/external';
+import { buildIconLabel, stripIconLabel } from '../colab/commands/utils';
+import { NotFoundError } from '../colab/errors';
+import { getFlag } from '../colab/experiment-state';
+import { ServerPicker } from '../colab/server-picker';
+import { SubscriptionTier } from '../colab/types';
+import { LatestCancelable } from '../common/async';
+import { traceMethod } from '../common/logging/decorators';
+import { InputFlowAction } from '../common/multi-step-quickpick';
+import { telemetry } from '../telemetry';
+import { CommandSource } from '../telemetry/api';
+import { trackErrors } from '../telemetry/decorators';
+import { AssignmentChangeEvent, AssignmentManager } from './assignments';
+
+/**
+ * Colab Jupyter server provider.
+ *
+ * Provides a static list of Colab Jupyter servers and resolves the connection
+ * information using the provided config.
+ */
+export class ColabJupyterServerProvider
+  implements
+    JupyterServerProvider,
+    JupyterServerCommandProvider,
+    vscode.Disposable
+{
+  readonly onDidChangeServers: vscode.Event<void>;
+
+  private readonly serverCollection: JupyterServerCollection;
+  private readonly serverChangeEmitter: vscode.EventEmitter<void>;
+  private isAuthorized = false;
+  private authorizedListener: Disposable;
+  private setServerContextRunner = new LatestCancelable(
+    'hasAssignedServer',
+    this.setHasAssignedServerContext.bind(this),
+  );
+
+  /**
+   * Initializes a new instance.
+   *
+   * @param vs - The VS Code API instance.
+   * @param authEvent - The authentication event emitter.
+   * @param assignmentManager - The assignment manager instance.
+   * @param colabClient - The old Colab private API client instance.
+   * @param colabApiClient - The new Colab public API client instance.
+   * @param serverPicker - The Server picker.
+   * @param jupyter - The Jupyter API provider.
+   */
+  constructor(
+    private readonly vs: typeof vscode,
+    authEvent: Event<AuthChangeEvent>,
+    private readonly assignmentManager: AssignmentManager,
+    private readonly colabClient: ColabClient,
+    private readonly colabApiClient: ColabApiClient,
+    private readonly serverPicker: ServerPicker,
+    jupyter: Jupyter,
+  ) {
+    this.serverChangeEmitter = new this.vs.EventEmitter<void>();
+    this.onDidChangeServers = this.serverChangeEmitter.event;
+    this.authorizedListener = authEvent(this.handleAuthChange.bind(this));
+    this.assignmentManager.onDidAssignmentsChange(
+      this.handleAssignmentsChange.bind(this),
+    );
+    this.serverCollection = jupyter.createJupyterServerCollection(
+      'colab',
+      'Colab',
+      this,
+    );
+    this.serverCollection.commandProvider = this;
+    // TODO: Set `this.serverCollection.documentation` once docs exist.
+  }
+
+  /**
+   * Disposes of the provider, including its event listeners and server
+   * collection.
+   */
+  dispose() {
+    this.authorizedListener.dispose();
+    this.serverCollection.dispose();
+  }
+
+  /**
+   * Provides the list of Colab {@link JupyterServer | Jupyter Servers} which
+   * can be used.
+   *
+   * @param _token - The cancellation token.
+   * @returns The list of assigned Jupyter servers if the user is authorized,
+   * otherwise empty.
+   */
+  @traceMethod
+  @trackErrors
+  provideJupyterServers(
+    _token: CancellationToken,
+  ): ProviderResult<JupyterServer[]> {
+    if (!this.isAuthorized) {
+      return [];
+    }
+    return this.assignmentManager.getServers('extension');
+  }
+
+  /**
+   * Resolves the connection for the provided Colab {@link JupyterServer}.
+   *
+   * Per the Jupyter extension contract/interface, this method should never be
+   * invoked since we always resolve {@link JupyterServer.connectionInformation}
+   * in {@link provideJupyterServers}. However, we implement it to adhere to the
+   * interface and defensively in case the understanding of that contract
+   * changes.
+   *
+   * @param server - The Colab server instance.
+   * @param _token - The cancellation token.
+   * @returns The resolved Jupyter server with a refreshed connection.
+   */
+  @traceMethod
+  @trackErrors
+  async resolveJupyterServer(
+    server: JupyterServer,
+    _token: CancellationToken,
+  ): Promise<JupyterServer> {
+    try {
+      return await this.assignmentManager.refreshConnection(server.id);
+    } catch (e: unknown) {
+      if (e instanceof NotFoundError) {
+        this.serverChangeEmitter.fire();
+        return server;
+      }
+      throw e;
+    }
+  }
+
+  /**
+   * Returns a list of commands which are displayed in a section below
+   * resolved servers.
+   *
+   * This gets invoked every time the value (what the user has typed into the
+   * quick pick) changes. But we just return a static list which will be
+   * filtered down by the quick pick automatically.
+   *
+   * @param _value - The input value.
+   * @param _token - The cancellation token.
+   * @returns The list of available commands.
+   */
+  // TODO: Integrate rename server alias and remove server commands.
+  @traceMethod
+  @trackErrors
+  async provideCommands(
+    _value: string | undefined,
+    _token: CancellationToken,
+  ): Promise<JupyterServerCommand[]> {
+    const commands: Command[] = [];
+    // Only show the command to view existing servers if the user is not signed
+    // in, but previously had assigned servers. Otherwise, the command is
+    // redundant.
+    if (
+      !this.isAuthorized &&
+      (await this.assignmentManager.getLastKnownAssignedServers()).length > 0
+    ) {
+      commands.push(SIGN_IN_VIEW_EXISTING);
+    }
+    commands.push(AUTO_CONNECT, NEW_SERVER, OPEN_COLAB_WEB);
+    if (this.isAuthorized) {
+      try {
+        const enablePublicApi = getFlag(ExperimentFlag.EnablePublicApi);
+        let tier: SubscriptionTier;
+        if (enablePublicApi) {
+          const subs = await this.colabApiClient.colab.getSubscription();
+          tier = normalizeSubscriptionTier(subs.tier);
+        } else {
+          tier = (await this.colabClient.getUserInfo()).subscriptionTier;
+        }
+        if (tier === SubscriptionTier.NONE) {
+          commands.push(UPGRADE_TO_PRO);
+        }
+      } catch {
+        // Including the command to upgrade to pro is non-critical. If it fails,
+        // just return the commands without it.
+      }
+    }
+    return commands.map((c) => ({
+      label: buildIconLabel(c),
+      description: c.description,
+    }));
+  }
+
+  /**
+   * Invoked when a command has been selected.
+   *
+   * @param command - The command identifier.
+   * @param _token - The cancellation token.
+   * @returns The newly assigned server or undefined if the command does not
+   * create a new server.
+   */
+  // TODO: Consider popping a notification if the `openExternal` call fails.
+  @traceMethod
+  @trackErrors
+  async handleCommand(
+    command: JupyterServerCommand,
+    _token: CancellationToken,
+  ): Promise<JupyterServer | undefined> {
+    const commandLabel = stripIconLabel(command.label);
+    try {
+      switch (commandLabel) {
+        case SIGN_IN_VIEW_EXISTING.label:
+          // The sign-in flow starts by prompting the user with an
+          // application-level dialog to sign-in. Since it effectively takes
+          // over the application, we fire and forget reconciliation to trigger
+          // sign-in and navigate back.
+          await this.assignmentManager.reconcileAssignedServers();
+          throw InputFlowAction.back;
+        case AUTO_CONNECT.label:
+          telemetry.logAutoConnect();
+          return await this.assignmentManager.latestOrAutoAssignServer();
+        case NEW_SERVER.label:
+          return await this.assignServer();
+        case OPEN_COLAB_WEB.label:
+          openColabWeb(this.vs, CommandSource.COMMAND_SOURCE_SERVER_PROVIDER);
+          return;
+        case UPGRADE_TO_PRO.label:
+          openColabSignup(
+            this.vs,
+            CommandSource.COMMAND_SOURCE_SERVER_PROVIDER,
+          );
+          return;
+        default:
+          throw new Error('Unexpected command');
+      }
+    } catch (e: unknown) {
+      if (e === InputFlowAction.back) {
+        // Navigate "back" by returning undefined.
+        return;
+      }
+
+      // Which quick open? The open one... 😉. This is a little nasty, but
+      // unfortunately it's the only known workaround while
+      // https://github.com/microsoft/vscode-jupyter/issues/16469 is unresolved.
+      //
+      // Throwing a CancellationError is meant to dismiss the dialog, but it
+      // doesn't. Additionally, if any other error is thrown while handling
+      // commands, the quick pick is left spinning in the "busy" state.
+      await this.vs.commands.executeCommand('workbench.action.closeQuickOpen');
+      throw e;
+    }
+  }
+
+  private async assignServer(): Promise<JupyterServer> {
+    const serverType = await this.serverPicker.prompt(
+      await this.assignmentManager.getAvailableServerDescriptors(),
+    );
+    if (!serverType) {
+      throw new this.vs.CancellationError();
+    }
+    return this.assignmentManager.assignServer(serverType);
+  }
+
+  /**
+   * Sets a context key indicating whether or not the user has at least one
+   * assigned server originating from VS Code. Set to false when not authorized
+   * since we can't determine if servers exist or not.
+   *
+   * @param signal - The cancellation signal.
+   */
+  private async setHasAssignedServerContext(
+    signal?: AbortSignal,
+  ): Promise<void> {
+    const value = this.isAuthorized
+      ? await this.assignmentManager.hasAssignedServer(signal)
+      : false;
+    await this.vs.commands.executeCommand(
+      'setContext',
+      'colab.hasAssignedServer',
+      value,
+    );
+  }
+
+  private handleAuthChange(e: AuthChangeEvent): void {
+    if (this.isAuthorized === e.hasValidSession) {
+      return;
+    }
+    this.isAuthorized = e.hasValidSession;
+    this.serverChangeEmitter.fire();
+    void this.setServerContextRunner.run();
+  }
+
+  private handleAssignmentsChange(e: AssignmentChangeEvent): void {
+    const externalRemovals = e.removed.filter((s) => !s.userInitiated);
+    for (const { server: s } of externalRemovals) {
+      this.vs.window.showWarningMessage(
+        `Server "${s.label}" has been removed, either outside of the extension or due to inactivity.`,
+      );
+    }
+    this.serverChangeEmitter.fire();
+    void this.setServerContextRunner.run();
+  }
+}
