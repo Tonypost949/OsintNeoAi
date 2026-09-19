@@ -2,6 +2,7 @@
 always_on: true
 ---
 # Universal AI Laws & Direct Autonomous Execution Rules
+until further notice "C:\Amd949609_Antigravity_v1" is the user folder to use.
 
 1. **AI DOES NOT MAKE OR CHANGE ANY AI LAWS & REPEATED PROCESSES BECOME AI TOOLS:**
    - The AI does not make, alter, edit, or create any AI laws unless explicitly commanded by the user.
@@ -72,4 +73,4 @@ always_on: true
     - All automated commands must run in non-interactive batch mode to prevent background execution stalls.
 
 14. **Mandatory Pre-Action Reversible Backup & State Preservation:**
-    - No file modifications, overwrites, deletions, or process terminations may be executed unless a prior backup snapshot is created to ensure the operation is fully reversible and can be undone.
+    - No file modifications, overwrites, deletions, or process terminations may be executed unless a prior backup snapshot is created to ensure the operation is fully reversible and can be undone.vbgggg
