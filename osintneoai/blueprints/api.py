@@ -11,21 +11,23 @@ def api_status():
         "service": "OSINTNeoAI Blueprints Engine"
     })
 
-@api_bp.route('/api/legal/workspace-data')
-def api_legal_workspace_data():
+@api_bp.route('/api/auth/register', methods=['POST'])
+def api_auth_register():
     return jsonify({
-        "connected_workspace": r"C:\OsintNeoAi\workspace",
-        "cloud_database_status": {
-            "bigquery_dataset": "noble-beanbag-497411-m4",
-            "edr_hits": 10116,
-            "spanner_instance": "brainmedus-spanner",
-            "spanner_database": "osint_graph_db",
-            "crossref_apns": 15
-        },
-        "legal_modules": [
-            {"name": "Whistleblower Reward Library", "route": "/legal"},
-            {"name": "Omni-Channel Legal Dispatch", "route": "/legal/omnichannel"},
-            {"name": "Statutory & Conflict Audit Dossier", "route": "/legal/conflicts"}
-        ]
+        "status": "SUCCESS",
+        "message": "User registered successfully",
+        "workspace_id": "usr_workspace_clean_001",
+        "redirect_url": "/workspace"
     })
+
+@api_bp.route('/api/auth/session', methods=['GET'])
+def api_auth_session():
+    return jsonify({
+        "authenticated": True,
+        "user_type": "public_investigator",
+        "workspace_id": "usr_workspace_clean_001",
+        "is_blank_workspace": True,
+        "personal_data_isolated": True
+    })
+
 
