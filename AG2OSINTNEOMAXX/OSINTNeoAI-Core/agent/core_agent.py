@@ -5,6 +5,7 @@ from processing.correlation import AegisCorrelationEngine
 from graph.schema import GraphSchema
 from graph.graph_builder import GraphBuilder
 from agent.ai_client import AIClient
+from processing.claim_verification import Claim
 
 class CoreAgent:
     """Consolidated main orchestrator driving continuous ingestion, resolution, and graph exporting."""
@@ -17,6 +18,11 @@ class CoreAgent:
         self.correlation = AegisCorrelationEngine()
         self.graph = GraphBuilder()
         self.ai = AIClient()
+
+    def verify_ai_extraction(self, text):
+        claim = Claim(claim_id="ai-extraction", text=text or "")
+        status = claim.adjudicate()
+        return {"status": status.value, "present_as_fact": claim.can_be_presented_as_fact()}
 
     def execute_forensic_cycle(self, search_keyword):
         """Orchestrates an entire end-to-end collection, matching, and mapping cycle."""
@@ -49,7 +55,10 @@ class CoreAgent:
             print("\n[CoreAgent] --- Running AI Semantic Processing ---")
             raw_text = " ".join([f.get("name", "") for f in results["gdrive_files"][:5]])
             ai_extractions = self.ai.extract_entity_relationships(raw_text)
-            print(f"[CoreAgent] Semantic extraction results: {ai_extractions[:100]}...")
+            verification = self.verify_ai_extraction(ai_extractions)
+            print(f"[CoreAgent] Verification gate: {verification['status']} (present_as_fact={verification['present_as_fact']})")
+            results["ai_verification"] = verification
             
+        results.setdefault("ai_verification", {"status": "UNSUPPORTED", "present_as_fact": False})
         print("\n[CoreAgent] --- Core OSINT cycle completed successfully. ---")
         return results
