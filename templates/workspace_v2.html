@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OSINT NEO AI — Immutable Eviction Wiki & Citizen Intelligence Workspace</title>
+<title>OSINT NEO AI — User Intelligence Workspace</title>
 <!-- Cytoscape for Stripped-Down Maltego Graph -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
 <style>
@@ -552,7 +552,7 @@
     <!-- 6 Tactical Intelligence Panes (Built up dynamically upon prompt submission) -->
     <div id="wiki-pane" class="pane">
       <div class="pane-header">
-        <h3 class="pane-title">📖 <span id="wiki-title">Dynamic Genesis Dossier</span></h3>
+        <h3 class="pane-title">📖 <span id="wiki-title">User Knowledge Dossier</span></h3>
         <span id="victim-badge" class="tag-victim">STATUS: INITIALIZING</span>
       </div>
       <div id="hash-display" class="hash-box">SHA-256: Awaiting initial testimony...</div>
@@ -596,7 +596,7 @@
 
     <div id="plume-pane" class="pane">
       <div class="pane-header">
-        <h3 class="pane-title" style="color:#ef4444;">☣️ Concealed Toxic Plume Intercept</h3>
+        <h3 class="pane-title" style="color:#ef4444;">☣️ Environmental GIS Radar</h3>
         <span style="background:#7f1d1d; color:#fca5a5; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:bold;">DTSC / GeoTracker</span>
       </div>
       <div id="plume-alert">
@@ -735,17 +735,7 @@
   function initMaltegoGraph(victimName, entityName) {
     window.cy = cy = cytoscape({
       container: document.getElementById('maltego-cy'),
-      elements: [
-        { data: { id: 'victim', label: victimName || 'Victim (Citizen)' } },
-        { data: { id: 'landlord', label: entityName || 'Woodbridge Apts (Corporate Landlord)' } },
-        { data: { id: 'plume', label: 'Concealed Toxic Plume (DTSC / GeoTracker)' } },
-        { data: { id: 'contractor', label: 'Remediation Contractor / PRP' } },
-        { data: { id: 'court', label: 'Court Reopening (§ 473(d))' } },
-        { data: { source: 'victim', target: 'landlord', label: 'Unlawful Eviction' } },
-        { data: { source: 'landlord', target: 'plume', label: 'Suppressed Contamination' } },
-        { data: { source: 'plume', target: 'contractor', label: 'CERCLA Liability' } },
-        { data: { source: 'plume', target: 'court', label: 'Fraud on Court' } }
-      ],
+      elements: [],
       style: [
         {
           selector: 'node',

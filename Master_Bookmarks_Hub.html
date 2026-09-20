@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Central Bookmarks & Master Favorites Hub - Google & Microsoft Accounts</title>
+    <title>Central Bookmarks & Master Favorites Hub - Google, Microsoft, ArcGIS & Evidence Locker</title>
     <style>
         :root {
             --bg-primary: #0a0e17;
@@ -13,8 +13,10 @@
             --accent-cyan: #00d2ff;
             --accent-google: #4285f4;
             --accent-msft: #00a4ef;
+            --accent-esri: #007ac2;
             --accent-purple: #8764b8;
             --accent-green: #107c41;
+            --accent-evidence: #f59e0b;
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --border-color: #2d3748;
@@ -98,13 +100,10 @@
             gap: 8px;
         }
 
-        .card h2.google-header {
-            color: #4285f4;
-        }
-
-        .card h2.msft-header {
-            color: #00a4ef;
-        }
+        .card h2.google-header { color: #4285f4; }
+        .card h2.msft-header { color: #00a4ef; }
+        .card h2.esri-header { color: #007ac2; }
+        .card h2.evidence-header { color: #f59e0b; }
 
         .bookmark-list {
             list-style: none;
@@ -153,25 +152,12 @@
             font-weight: 600;
         }
 
-        .badge-google {
-            background-color: #1a2a47;
-            color: #60a5fa;
-        }
-
-        .badge-msft {
-            background-color: #0c344b;
-            color: #38bdf8;
-        }
-
-        .badge-purple {
-            background-color: #3b2a54;
-            color: #c084fc;
-        }
-
-        .badge-green {
-            background-color: #1b472c;
-            color: #4ade80;
-        }
+        .badge-google { background-color: #1a2a47; color: #60a5fa; }
+        .badge-msft { background-color: #0c344b; color: #38bdf8; }
+        .badge-esri { background-color: #0d3859; color: #38bdf8; }
+        .badge-evidence { background-color: #451a03; color: #fbbf24; }
+        .badge-purple { background-color: #3b2a54; color: #c084fc; }
+        .badge-green { background-color: #1b472c; color: #4ade80; }
 
         a.btn {
             display: inline-block;
@@ -185,29 +171,60 @@
             margin-right: 8px;
         }
 
-        a.btn-google {
-            background-color: #ea4335;
-        }
-
-        a.btn-google:hover {
-            background-color: #c5221f;
-        }
-
-        a.btn:hover {
-            background-color: #005a9e;
-        }
+        a.btn-google { background-color: #ea4335; }
+        a.btn-esri { background-color: #007ac2; }
+        a.btn-evidence { background-color: #d97706; }
+        a.btn:hover { background-color: #005a9e; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>📌 Unified Master Bookmarks Hub - Google & Microsoft Accounts</h1>
+        <h1>📌 Master Bookmarks Hub - Verified Cloud Lockers & Services</h1>
         <div class="user-badge">👤 anthony.dimarcello@students.post.edu</div>
     </header>
 
-    <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search Google Drive, Gmail, Power Apps, Copilot Studio, Azure, or URLs..." onkeyup="filterBookmarks()">
+    <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search Evidence Locker, Google Drive, ArcGIS, Power Apps, Copilot Studio, Azure..." onkeyup="filterBookmarks()">
 
     <div class="grid-container">
+
+        <!-- Verified Master Evidence Locker -->
+        <div class="card">
+            <h2 class="evidence-header">📁 Verified Master Evidence Locker</h2>
+            <ul class="bookmark-list">
+                <li class="bookmark-item">
+                    <span class="title">Google Drive Verified Master Evidence Locker (3,519 Files)</span>
+                    <span class="url-text">https://drive.google.com/drive/my-drive</span>
+                    <div class="meta"><span class="badge badge-evidence">Cloud Mirror</span> Path: <code>gdrive:Sharedall/OsintNeoAi/evidence/</code></div>
+                    <a class="btn btn-evidence" href="https://drive.google.com/drive/my-drive" target="_blank">Open Master Evidence Drive</a>
+                </li>
+                <li class="bookmark-item">
+                    <span class="title">Local Physical Evidence Locker & Manifest</span>
+                    <span class="url-text">C:\OsintNeoAi\EVIDENCE_LOCKER_SHA256_MANIFEST.json</span>
+                    <div class="meta"><span class="badge badge-green">SHA-256 Verified</span> Total Files: <code>3,519</code> (0 Deletions)</div>
+                    <a class="btn" href="file:///C:/OsintNeoAi/EVIDENCE_LOCKER_SHA256_MANIFEST.json" target="_blank">Open Integrity Manifest</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ArcGIS for Teams & Esri GIS Integrations -->
+        <div class="card">
+            <h2 class="esri-header">🗺️ ArcGIS for Teams & Esri GIS Hub</h2>
+            <ul class="bookmark-list">
+                <li class="bookmark-item">
+                    <span class="title">ArcGIS for Teams Portal (Microsoft Teams App)</span>
+                    <span class="url-text">https://www.esri.com/en-us/arcgis/products/arcgis-for-teams/overview</span>
+                    <div class="meta"><span class="badge badge-esri">ArcGIS Teams</span> Collaborative GIS Mapping in M365 / Teams</div>
+                    <a class="btn btn-esri" href="https://www.esri.com/en-us/arcgis/products/arcgis-for-teams/overview" target="_blank">Open ArcGIS Teams App</a>
+                </li>
+                <li class="bookmark-item">
+                    <span class="title">ArcGIS Online Map Viewer</span>
+                    <span class="url-text">https://www.arcgis.com/home/webmap/viewer.html</span>
+                    <div class="meta"><span class="badge badge-esri">Esri GIS</span> Web Maps & Spatial Layer Index</div>
+                    <a class="btn btn-esri" href="https://www.arcgis.com/home/webmap/viewer.html" target="_blank">Open Map Viewer</a>
+                </li>
+            </ul>
+        </div>
 
         <!-- Google Services & Workspace -->
         <div class="card">
@@ -216,7 +233,7 @@
                 <li class="bookmark-item">
                     <span class="title">Google Drive Root Workspace</span>
                     <span class="url-text">https://drive.google.com/drive/my-drive</span>
-                    <div class="meta"><span class="badge badge-google">Google Cloud</span> Workspace Root & OSINT Lockers</div>
+                    <div class="meta"><span class="badge badge-google">Google Cloud</span> Workspace Root</div>
                     <a class="btn btn-google" href="https://drive.google.com/drive/my-drive" target="_blank">Open Google Drive</a>
                 </li>
                 <li class="bookmark-item">
@@ -230,18 +247,6 @@
                     <span class="url-text">https://gemini.google.com/app</span>
                     <div class="meta"><span class="badge badge-google">Google AI</span> Gemini Live & Advanced Pro</div>
                     <a class="btn btn-google" href="https://gemini.google.com/app" target="_blank">Open Gemini AI</a>
-                </li>
-                <li class="bookmark-item">
-                    <span class="title">Google Cloud Platform Console (GCP)</span>
-                    <span class="url-text">https://console.cloud.google.com/</span>
-                    <div class="meta"><span class="badge badge-google">GCP</span> Projects, BigQuery & Cloud Storage</div>
-                    <a class="btn btn-google" href="https://console.cloud.google.com/" target="_blank">Open GCP Console</a>
-                </li>
-                <li class="bookmark-item">
-                    <span class="title">Google Photos Library</span>
-                    <span class="url-text">https://photos.google.com/</span>
-                    <div class="meta"><span class="badge badge-google">Google Media</span> Media & Forensic Imagery</div>
-                    <a class="btn btn-google" href="https://photos.google.com/" target="_blank">Open Google Photos</a>
                 </li>
             </ul>
         </div>
@@ -257,90 +262,10 @@
                     <a class="btn" href="https://m365.cloud.microsoft/chat/agent/P_057b249d-1fcd-c93c-0556-04e54a042f7c.ProjectedDeclarativeAgent.MessageExtension/conversation/7cfaf673-43cf-4acd-ac5c-2e02cbc634f0" target="_blank">Open M365 Agent</a>
                 </li>
                 <li class="bookmark-item">
-                    <span class="title">Copilot Studio Maker Portal</span>
-                    <span class="url-text">https://copilotstudio.microsoft.com/environments/d5b42781-da97-e29a-a5bc-d88f977ebd01/bots/7450e379-710b-404f-923d-9ac7150384e9/canvas</span>
-                    <div class="meta"><span class="badge badge-msft">Copilot Studio</span> Title ID: <code>T_33575887-1137-f3a4-38a0-690e55118319</code></div>
-                    <a class="btn" href="https://copilotstudio.microsoft.com/environments/d5b42781-da97-e29a-a5bc-d88f977ebd01/bots/7450e379-710b-404f-923d-9ac7150384e9/canvas" target="_blank">Open Copilot Studio</a>
-                </li>
-                <li class="bookmark-item">
-                    <span class="title">Outlook Mail & Office 365</span>
-                    <span class="url-text">https://outlook.office365.com/mail/</span>
-                    <div class="meta"><span class="badge badge-msft">M365 Student Perk</span> Email: <code>anthony.dimarcello@students.post.edu</code></div>
-                    <a class="btn" href="https://outlook.office365.com/mail/" target="_blank">Open Outlook Mail</a>
-                </li>
-                <li class="bookmark-item">
-                    <span class="title">OneDrive Personal / Student Vault</span>
-                    <span class="url-text">https://onedrive.live.com/</span>
-                    <div class="meta"><span class="badge badge-msft">Microsoft Storage</span> Cloud Document Locker</div>
-                    <a class="btn" href="https://onedrive.live.com/" target="_blank">Open OneDrive</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Power Apps & Vibe Projects -->
-        <div class="card">
-            <h2 class="msft-header">📱 Power Apps & Vibe Projects</h2>
-            <ul class="bookmark-list">
-                <li class="bookmark-item">
-                    <span class="title">OsintNeoAi Studio (Published Play App)</span>
-                    <span class="url-text">https://apps.powerapps.com/play/e/584c706d-38a2-e52e-b6e3-24a809f10508/app/bbbf5a84-2001-4fc0-b6f1-8882f2939050?tenantId=dc2273e5-b77e-4b19-ae61-f4b69fb7609c</span>
-                    <div class="meta"><span class="badge badge-msft">Canvas App</span> App ID: <code>bbbf5a84-2001-4fc0-b6f1-8882f2939050</code></div>
-                    <a class="btn" href="https://apps.powerapps.com/play/e/584c706d-38a2-e52e-b6e3-24a809f10508/app/bbbf5a84-2001-4fc0-b6f1-8882f2939050?tenantId=dc2273e5-b77e-4b19-ae61-f4b69fb7609c" target="_blank">Launch App</a>
-                </li>
-                <li class="bookmark-item">
-                    <span class="title">OsintNeoAi Studio (Vibe Project Studio)</span>
-                    <span class="url-text">https://vibe.powerapps.com/e/584c706d-38a2-e52e-b6e3-24a809f10508/s/00000001-0000-0000-0001-00000000009b/w/modelType/project/modelId/a25e1eb1-f951-47ac-a54b-6b6321e6998b/app</span>
-                    <div class="meta"><span class="badge badge-purple">Vibe Model</span> Model ID: <code>a25e1eb1-f951-47ac-a54b-6b6321e6998b</code></div>
-                    <a class="btn" href="https://vibe.powerapps.com/e/584c706d-38a2-e52e-b6e3-24a809f10508/s/00000001-0000-0000-0001-00000000009b/w/modelType/project/modelId/a25e1eb1-f951-47ac-a54b-6b6321e6998b/app" target="_blank">Open Vibe Studio</a>
-                </li>
-                <li class="bookmark-item">
-                    <span class="title">OSINTNeoAI Source Manager (Vibe Project)</span>
-                    <span class="url-text">https://vibe.powerapps.com/e/584c706d-38a2-e52e-b6e3-24a809f10508/s/00000001-0000-0000-0001-00000000009b/w/modelType/project/modelId/55e3f731-1099-484f-bd65-fb4c675c4a37/app</span>
-                    <div class="meta"><span class="badge badge-purple">Vibe Model</span> Model ID: <code>55e3f731-1099-484f-bd65-fb4c675c4a37</code></div>
-                    <a class="btn" href="https://vibe.powerapps.com/e/584c706d-38a2-e52e-b6e3-24a809f10508/s/00000001-0000-0000-0001-00000000009b/w/modelType/project/modelId/55e3f731-1099-484f-bd65-fb4c675c4a37/app" target="_blank">Open Vibe Source Manager</a>
-                </li>
-                <li class="bookmark-item">
-                    <span class="title">Power Apps Maker Portal Solutions</span>
-                    <span class="url-text">https://make.powerapps.com/environments/584c706d-38a2-e52e-b6e3-24a809f10508/apps#</span>
-                    <div class="meta"><span class="badge badge-msft">Maker Portal</span> Env ID: <code>584c706d-38a2-e52e-b6e3-24a809f10508</code></div>
-                    <a class="btn" href="https://make.powerapps.com/environments/584c706d-38a2-e52e-b6e3-24a809f10508/apps#" target="_blank">Open Maker Portal</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Microsoft Azure & Power Platform Orgs -->
-        <div class="card">
-            <h2 class="msft-header">🌍 Azure Portal & Tenant Environments</h2>
-            <ul class="bookmark-list">
-                <li class="bookmark-item">
-                    <span class="title">Microsoft Azure Management Portal</span>
-                    <span class="url-text">https://portal.azure.com/</span>
-                    <div class="meta"><span class="badge badge-msft">Azure Cloud</span> Student Credits & App Services</div>
-                    <a class="btn" href="https://portal.azure.com/" target="_blank">Open Azure Portal</a>
-                </li>
-                <li class="bookmark-item">
-                    <span class="title">Anthony DiMarcello's Environment (Primary Dev)</span>
-                    <span class="url-text">https://org5acee2ec.crm.dynamics.com/</span>
-                    <div class="meta"><span class="badge badge-msft">Developer</span> Env ID: <code>584c706d-38a2-e52e-b6e3-24a809f10508</code></div>
-                    <a class="btn" href="https://org5acee2ec.crm.dynamics.com/" target="_blank">Open Dynamics CRM</a>
-                </li>
-                <li class="bookmark-item">
-                    <span class="title">OsintNeoAi-TaxFunded-Producer (Agents Host)</span>
-                    <span class="url-text">https://org7bce3bad.crm.dynamics.com/</span>
-                    <div class="meta"><span class="badge badge-msft">Developer</span> Env ID: <code>d5b42781-da97-e29a-a5bc-d88f977ebd01</code></div>
-                    <a class="btn" href="https://org7bce3bad.crm.dynamics.com/" target="_blank">Open Dynamics CRM</a>
-                </li>
-                <li class="bookmark-item">
-                    <span class="title">OsintNeoAi-Developer-Max (Maxed Free Dev)</span>
-                    <span class="url-text">https://orga688b98f.crm.dynamics.com/</span>
-                    <div class="meta"><span class="badge badge-green">New Dev</span> Env ID: <code>31e6417a-e293-e858-b17f-ff9f3f926703</code></div>
-                    <a class="btn" href="https://orga688b98f.crm.dynamics.com/" target="_blank">Open Dataverse Org</a>
-                </li>
-                <li class="bookmark-item">
-                    <span class="title">OsintNeoAi-MaxDev (Maxed Free Trial)</span>
-                    <span class="url-text">https://org17f1dc28.crm.dynamics.com/</span>
-                    <div class="meta"><span class="badge badge-green">New Trial</span> Env ID: <code>34eb9996-3f4d-eeb4-a94c-e4c1a26d6e1b</code></div>
-                    <a class="btn" href="https://org17f1dc28.crm.dynamics.com/" target="_blank">Open Dataverse Org</a>
+                    <span class="title">Copilot Studio Maker Portal (Sentinel Agent)</span>
+                    <span class="url-text">https://copilotstudio.microsoft.com/environments/d5b42781-da97-e29a-a5bc-d88f977ebd01/bots/e6781ec6-79e6-4868-90be-60e88d51435b/canvas</span>
+                    <div class="meta"><span class="badge badge-msft">Copilot Studio</span> Bot ID: <code>e6781ec6-79e6-4868-90be-60e88d51435b</code></div>
+                    <a class="btn" href="https://copilotstudio.microsoft.com/environments/d5b42781-da97-e29a-a5bc-d88f977ebd01/bots/e6781ec6-79e6-4868-90be-60e88d51435b/canvas" target="_blank">Open Copilot Studio</a>
                 </li>
             </ul>
         </div>
