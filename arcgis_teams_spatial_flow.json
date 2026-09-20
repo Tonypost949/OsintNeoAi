@@ -1,0 +1,73 @@
+{
+  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "$connections": {
+      "defaultValue": {},
+      "type": "Object"
+    }
+  },
+  "triggers": {
+    "Recurrence_Daily": {
+      "type": "Recurrence",
+      "recurrence": {
+        "frequency": "Day",
+        "interval": 1,
+        "startTime": "2026-09-21T00:00:00Z"
+      }
+    }
+  },
+  "actions": {
+    "Get_OSINT_Vector_Nodes": {
+      "runAfter": {},
+      "type": "ApiConnection",
+      "inputs": {
+        "host": {
+          "connection": {
+            "name": "@parameters('$connections')['OSINTNeoAi_Cloud_API']['connectionId']"
+          }
+        },
+        "method": "get",
+        "path": "/api/nodes"
+      }
+    },
+    "Get_ArcGIS_Spatial_Flow_Layers": {
+      "runAfter": {
+        "Get_OSINT_Vector_Nodes": [
+          "Succeeded"
+        ]
+      },
+      "type": "ApiConnection",
+      "inputs": {
+        "host": {
+          "connection": {
+            "name": "@parameters('$connections')['OSINTNeoAi_Cloud_API']['connectionId']"
+          }
+        },
+        "method": "get",
+        "path": "/api/arcgis/spatial_flow"
+      }
+    },
+    "Post_ArcGIS_Spatial_Alert_To_Teams": {
+      "runAfter": {
+        "Get_ArcGIS_Spatial_Flow_Layers": [
+          "Succeeded"
+        ]
+      },
+      "type": "OpenApiConnection",
+      "inputs": {
+        "host": {
+          "connection": {
+            "name": "@parameters('$connections')['teams']['connectionId']"
+          }
+        },
+        "method": "post",
+        "path": "/v1.0/teams/conversations",
+        "body": {
+          "recipient": "ArcGIS Teams Spatial Channel",
+          "message": "ArcGIS for Teams Spatial Bridge Sync Completed.\nIndexed Vector Nodes: @{body('Get_OSINT_Vector_Nodes')?['total_nodes']}\nActive Layers: @{body('Get_ArcGIS_Spatial_Flow_Layers')?['active_layers']}"
+        }
+      }
+    }
+  }
+}

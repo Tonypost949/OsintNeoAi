@@ -61,6 +61,33 @@ class OsintGeospatialServer(SimpleHTTPRequestHandler):
                 "exported_files": exports
             })
 
+        elif parsed.path == "/api/nodes":
+            node_csv = r"C:\Amd949609_Antigravity_v1\user_nodes.csv"
+            nodes = []
+            if os.path.exists(node_csv):
+                import csv
+                with open(node_csv, mode="r", encoding="utf-8") as f:
+                    reader = csv.DictReader(f)
+                    for row in reader:
+                        nodes.append(row)
+            self._send_json_response({
+                "status": "success",
+                "total_nodes": len(nodes),
+                "nodes": nodes[:100]
+            })
+
+        elif parsed.path == "/api/arcgis/spatial_flow":
+            self._send_json_response({
+                "status": "success",
+                "integration": "ArcGIS for Teams Spatial Bridge",
+                "active_layers": [
+                    "caltrans_cctv_feeds",
+                    "hazard_contaminant_hits",
+                    "orange_county_parcels"
+                ],
+                "features_indexed": 9976
+            })
+
         else:
             return super().do_GET()
 

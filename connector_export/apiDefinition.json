@@ -1,0 +1,234 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "OSINTNeoAi Cloud API",
+    "description": "Enterprise Microsoft Power Apps \u0026 Power Automate Custom Connector for OSINTNeoAi Master Hub, Tactical GIS Maps, Forensic Intelligence Vault, and Chat Log Exporter.",
+    "version": "1.1.0"
+  },
+  "host": "osintneoai-app-949.azurewebsites.net",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/scan": {
+      "get": {
+        "summary": "Scan Developer CLIs \u0026 Cloud SDKs",
+        "description": "Scans and returns the status of all developer CLIs, runtimes, and Google Cloud SDKs.",
+        "operationId": "ScanCLIs",
+        "responses": {
+          "200": {
+            "description": "List of discovered CLIs and status"
+          }
+        }
+      }
+    },
+    "/api/maps": {
+      "get": {
+        "summary": "List Tactical Intelligence Maps",
+        "description": "Returns all available interactive GIS maps, 3D Globe, and CCTV video feeds.",
+        "operationId": "ListMaps",
+        "responses": {
+          "200": {
+            "description": "List of maps"
+          }
+        }
+      }
+    },
+    "/api/tasks": {
+      "get": {
+        "summary": "Get Cloud Tasks \u0026 Roadmap",
+        "description": "Returns all 52 investigation tasks, VSDE benefits status, and forensic audit roadmap.",
+        "operationId": "GetTasks",
+        "responses": {
+          "200": {
+            "description": "Task list object"
+          }
+        }
+      }
+    },
+    "/api/submit-victim": {
+      "post": {
+        "summary": "Submit Case Lead / Mutual Aid Intake",
+        "description": "Submits a new investigation lead or intake report directly into the persistent forensic vault.",
+        "operationId": "SubmitVictimReport",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "victim_name": {
+                  "type": "string",
+                  "example": "Jane Doe"
+                },
+                "contact_info": {
+                  "type": "string",
+                  "example": "jane@proton.me"
+                },
+                "incident_type": {
+                  "type": "string",
+                  "example": "Whistleblower Retaliation / Illegal Eviction"
+                },
+                "location": {
+                  "type": "string",
+                  "example": "Huntington Beach, CA"
+                },
+                "summary": {
+                  "type": "string",
+                  "example": "Witness tampering and procurement irregularities."
+                }
+              },
+              "required": [
+                "incident_type",
+                "summary"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Submission confirmation"
+          }
+        }
+      }
+    },
+    "/api/search": {
+      "get": {
+        "summary": "Search Entities \u0026 APNs",
+        "description": "Searches 17,000\u002B nodes, APN parcel records, and corporate entities.",
+        "operationId": "SearchEntities",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "Search keyword"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search results list"
+          }
+        }
+      }
+    },
+    "/api/export_chat": {
+      "post": {
+        "summary": "Export Copilot Agent Chat Transcript",
+        "description": "Persists and exports full conversation history into C:\\OsintNeoAi\\chat_exports for audit and legal recordkeeping.",
+        "operationId": "ExportChatLog",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "agent_name": {
+                  "type": "string",
+                  "example": "Sentinel"
+                },
+                "conversation_id": {
+                  "type": "string",
+                  "example": "sess_12345"
+                },
+                "messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "role": {
+                        "type": "string"
+                      },
+                      "text": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "agent_name",
+                "messages"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Chat log export confirmation"
+          }
+        }
+      },
+      "get": {
+        "summary": "List Exported Chat Logs",
+        "description": "Returns the directory catalog of all exported agent conversation logs.",
+        "operationId": "ListExportedChats",
+        "responses": {
+          "200": {
+            "description": "List of exported chat files"
+          }
+        }
+      }
+    },
+    "/api/correlate": {
+      "get": {
+        "summary": "Get Forensic Correlation Matrix",
+        "description": "Returns cross-domain correlation metrics and high-risk entity rankings.",
+        "operationId": "GetCorrelations",
+        "responses": {
+          "200": {
+            "description": "Correlation matrix"
+          }
+        }
+      }
+    },
+    "/api/dossiers": {
+      "get": {
+        "summary": "List Forensic Dossiers",
+        "description": "Returns the complete catalog of forensic dossiers and whistleblower briefs.",
+        "operationId": "ListDossiers",
+        "responses": {
+          "200": {
+            "description": "List of available dossiers"
+          }
+        }
+      }
+    },
+    "/api/nodes": {
+      "get": {
+        "summary": "Get Indexed OSINT Vector Nodes",
+        "description": "Returns the ingested vector nodes and metadata from user_nodes.csv.",
+        "operationId": "GetNodes",
+        "responses": {
+          "200": {
+            "description": "List of vector nodes"
+          }
+        }
+      }
+    },
+    "/api/arcgis/spatial_flow": {
+      "get": {
+        "summary": "ArcGIS for Teams Spatial Bridge Data",
+        "description": "Returns spatial layers, CCTV feeds, and parcel bounds for ArcGIS Teams integration.",
+        "operationId": "GetArcGISSpatialFlow",
+        "responses": {
+          "200": {
+            "description": "Spatial layer catalog"
+          }
+        }
+      }
+    }
+  }
+}
