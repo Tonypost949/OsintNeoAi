@@ -1,0 +1,24 @@
+mcs.metadata:
+  componentName: FactCheckingScorer
+  description: Triggered when the user requests an accuracy score percentage, fact-checking audit report, or truth matrix evaluation.
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: Fact Checking & Percentage Accuracy Scoring
+    includeInOnSelectIntent: true
+    triggerQueries:
+      - Score accuracy percentage
+      - Fact check report
+      - Audit work accuracy
+      - Rate truth score
+      - Verify claim accuracy
+  actions:
+    - kind: SendActivity
+      id: sendMsg_FactCheckingScorer
+      activity:
+        text:
+          - "Fact Checking & Accuracy Scorer active. Evaluating claims across 4 verification axes (Direct Proof, Secondary Evidence, Unsupported Inference, Contradicted Claim) and calculating overall Accuracy Score %."
+        speak:
+          - "Calculating fact checking accuracy score and audit matrix."

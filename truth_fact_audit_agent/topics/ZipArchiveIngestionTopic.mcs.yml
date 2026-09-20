@@ -1,0 +1,24 @@
+mcs.metadata:
+  componentName: ZipArchiveIngestion
+  description: Triggered when the user uploads ZIP archives, document folders, PDFs, or evidence files for fact-checking.
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: ZIP & Document Archive Ingestion for Fact Checking
+    includeInOnSelectIntent: true
+    triggerQueries:
+      - Upload zip for audit
+      - Read zip archive evidence
+      - Extract document folder
+      - Audit uploaded PDF evidence
+      - Process evidence zip file
+  actions:
+    - kind: SendActivity
+      id: sendMsg_ZipArchive
+      activity:
+        text:
+          - "Fact Audit Ingestion active. Memory-bounded crawler unpacking ZIP archives, PDFs, Google Drive files, and OneDrive documents for primary source verification."
+        speak:
+          - "Unpacking archive evidence for fact checking and audit."
