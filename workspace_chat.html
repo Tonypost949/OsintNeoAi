@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en" class="dark h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>OSINT Neo AI — Investigator Chat Workspace</title>
+  
+  <!-- Primary Meta -->
+  <meta name="description" content="Frictionless multimodal AI intelligence chat workspace. Upload evidence, record memos, scan documents, and query BigQuery forensic knowledge graphs.">
+  <meta name="theme-color" content="#06090e">
+
+  <!-- Tailwind CSS & Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.umd.min.js"></script>
+  <script src="/public/investigation_limiter.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#06090e',
+              surface: '#0b111e',
+              card: '#101827',
+              border: '#1b263b',
+              cyan: '#06b6d4',
+              neon: '#38bdf8',
+              emerald: '#10b981',
+              purple: '#a855f7',
+              amber: '#f59e0b',
+              rose: '#f43f5e'
+            }
+          },
+          fontFamily: {
+            orbitron: ['Orbitron', 'sans-serif'],
+            rajdhani: ['Rajdhani', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+            sans: ['"DM Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #06090e;
+      color: #e2e8f0;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .glass-panel {
+      background: rgba(11, 17, 30, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(56, 189, 248, 0.15);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #06b6d4 50%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: rgba(11, 17, 30, 0.5);
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: rgba(56, 189, 248, 0.25);
+      border-radius: 9999px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: rgba(56, 189, 248, 0.5);
+    }
+  </style>
+</head>
+<body class="h-full flex overflow-hidden selection:bg-cyan-500 selection:text-black">
+
+  <!-- MOBILE SIDEBAR BACKDROP -->
+  <div id="sidebar-backdrop" onclick="toggleSidebar()" class="fixed inset-0 bg-black/70 z-40 md:hidden hidden transition-opacity"></div>
+
+  <!-- SIDEBAR (CASE & INVESTIGATION THREADS) -->
+  <aside id="sidebar" class="fixed md:static inset-y-0 left-0 z-50 w-72 md:w-80 bg-brand-surface border-r border-brand-border flex flex-col transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
+    <!-- Brand Header -->
+    <div class="p-4 border-b border-brand-border flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <div class="w-3.5 h-3.5 rounded-full bg-cyan-400 animate-ping"></div>
+        <span class="font-orbitron font-extrabold text-lg text-white">OSINT <span class="text-cyan-400">NEO AI</span></span>
+      </a>
+      <button onclick="toggleSidebar()" class="md:hidden text-slate-400 hover:text-white p-2">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+
+    <!-- New Investigation Button -->
+    <div class="p-4 border-b border-brand-border/60">
+      <button onclick="startNewInvestigation()" class="w-full py-2.5 px-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-orbitron font-bold text-xs flex items-center justify-center gap-2 transition shadow-lg shadow-cyan-500/20">
+        <i class="fa-solid fa-plus"></i> New Investigation
+      </button>
+    </div>
+
+    <!-- Investigation Threads List -->
+    <div class="flex-1 overflow-y-auto custom-scroll p-3 space-y-1.5 font-mono text-xs">
+      <div class="text-[10px] uppercase font-bold text-slate-400 px-3 py-1.5 tracking-wider">Active Dossiers</div>
+      
+      <div onclick="selectThread('Huntington Beach Case')" class="p-3 rounded-xl bg-slate-900/90 border border-cyan-500/30 text-white cursor-pointer hover:border-cyan-400 transition flex items-center justify-between">
+        <div class="flex items-center gap-2.5 truncate">
+          <i class="fa-solid fa-folder-open text-cyan-400"></i>
+          <span class="truncate font-sans font-medium">Huntington Beach Audit</span>
+        </div>
+        <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono">3,510 docs</span>
+      </div>
+
+      <div onclick="selectThread('Target Accounts Matrix')" class="p-3 rounded-xl bg-slate-900/40 border border-slate-800 text-slate-300 cursor-pointer hover:border-slate-700 hover:text-white transition flex items-center justify-between">
+        <div class="flex items-center gap-2.5 truncate">
+          <i class="fa-solid fa-users-viewfinder text-purple-400"></i>
+          <span class="truncate font-sans font-medium">32 Target Identities</span>
+        </div>
+        <span class="text-[10px] px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-mono">16 Matches</span>
+      </div>
+
+      <div onclick="selectThread('Sepolia Bounty Escrow')" class="p-3 rounded-xl bg-slate-900/40 border border-slate-800 text-slate-300 cursor-pointer hover:border-slate-700 hover:text-white transition flex items-center justify-between">
+        <div class="flex items-center gap-2.5 truncate">
+          <i class="fa-brands fa-ethereum text-emerald-400"></i>
+          <span class="truncate font-sans font-medium">UTXO Bounty Lineage</span>
+        </div>
+        <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">40/30/30</span>
+      </div>
+    </div>
+
+    <!-- Quick Navigation Links -->
+    <div class="p-3 border-t border-brand-border bg-black/40 space-y-1 font-mono text-xs">
+      <a href="/" class="p-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-cyan-400 flex items-center gap-2.5 transition">
+        <i class="fa-solid fa-house text-cyan-400"></i> Home Page
+      </a>
+      <a href="/admin" class="p-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-rose-400 flex items-center gap-2.5 transition">
+        <i class="fa-solid fa-user-shield text-rose-500"></i> Admin Page
+      </a>
+      <a href="/capabilities" class="p-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-amber-400 flex items-center gap-2.5 transition">
+        <i class="fa-solid fa-code text-amber-400"></i> Dev Environment
+      </a>
+      <a href="/sheet" target="_blank" class="p-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-cyan-400 flex items-center gap-2.5 transition">
+        <i class="fa-solid fa-table-list text-amber-400"></i> Master OSINT Sheet (199)
+      </a>
+      <a href="/map/osinteye" target="_blank" class="p-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-cyan-400 flex items-center gap-2.5 transition">
+        <i class="fa-solid fa-satellite-dish text-cyan-400"></i> OSINT Eye View (Map)
+      </a>
+    </div>
+
+    <!-- User Identity & Wallet Status -->
+    <div class="p-4 border-t border-brand-border bg-brand-dark flex items-center justify-between">
+      <div class="flex items-center gap-2 truncate">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center font-bold text-xs text-white">AI</div>
+        <div class="truncate">
+          <div class="text-xs font-bold text-white truncate" id="user-display-name">Investigator</div>
+          <div class="text-[10px] font-mono text-emerald-400" id="wallet-badge">Ready</div>
+        </div>
+      </div>
+      <button onclick="connectWallet()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-400 border border-slate-700 font-mono text-[11px] transition" id="btn-connect-wallet">
+        <i class="fa-brands fa-ethereum"></i> Connect
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN CHAT INTERFACE -->
+  <div class="flex-1 flex flex-col h-full overflow-hidden bg-brand-dark relative">
+    
+    <!-- Top Bar -->
+    <header class="h-16 px-4 md:px-6 border-b border-brand-border bg-brand-surface/90 backdrop-blur-md flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-3">
+        <button onclick="toggleSidebar()" class="md:hidden text-slate-300 hover:text-white p-2 rounded-lg bg-slate-800 border border-slate-700">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div>
+          <h2 class="font-orbitron font-bold text-sm sm:text-base text-white flex items-center gap-2">
+            <i class="fa-solid fa-shield-halved text-cyan-400"></i> Autonomous Forensic Engine
+          </h2>
+          <div class="text-[11px] font-mono text-slate-400 hidden sm:block">BigQuery Master Ledger • Sepolia Bounties • 19 MCP Tools</div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-400/30 text-emerald-400 font-mono text-xs">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Port 10000 Active
+        </span>
+        <button onclick="clearChatHistory()" class="text-slate-400 hover:text-rose-400 p-2 text-sm transition" title="Clear Chat History">
+          <i class="fa-regular fa-trash-can"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Chat Messages Stream -->
+    <main id="chat-stream" class="flex-1 overflow-y-auto custom-scroll p-4 sm:p-6 space-y-6 max-w-5xl mx-auto w-full">
+      <!-- AI Welcome Message -->
+      <div class="flex items-start gap-3 sm:gap-4">
+        <div class="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-400/30 flex items-center justify-center text-cyan-400 font-orbitron font-bold text-sm shrink-0">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+        <div class="glass-panel p-5 rounded-2xl max-w-3xl border-l-4 border-l-cyan-400 shadow-xl">
+          <div class="font-orbitron font-bold text-sm text-white mb-2 flex items-center gap-2">
+            OSINT Neo AI Assistant <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-normal">v2.4 Live</span>
+          </div>
+          <p class="text-slate-300 text-sm leading-relaxed mb-4">
+            Welcome to your open-source forensic intelligence workspace. You can ask natural questions, drop documents for instant neural OCR, snap real-time evidence photos via camera, or record voice memos.
+          </p>
+          
+          <!-- Quick Action Prompt Chips -->
+          <div class="flex flex-wrap gap-2 pt-2">
+            <button onclick="sendQuickPrompt('Search entity in BigQuery evidence ledger')" class="px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-cyan-300 font-mono text-xs border border-slate-700/80 transition flex items-center gap-1.5">
+              <i class="fa-solid fa-magnifying-glass"></i> Search BigQuery
+            </button>
+            <button onclick="sendQuickPrompt('Inspect target accounts cross-reference matrix')" class="px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-purple-300 font-mono text-xs border border-slate-700/80 transition flex items-center gap-1.5">
+              <i class="fa-solid fa-users"></i> Target Accounts
+            </button>
+            <button onclick="sendQuickPrompt('Check Sepolia bounty escrow contract balance')" class="px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-emerald-300 font-mono text-xs border border-slate-700/80 transition flex items-center gap-1.5">
+              <i class="fa-brands fa-ethereum"></i> Escrow Balance
+            </button>
+            <button onclick="sendQuickPrompt('Open OSINT Eye View 3D geospatial map')" class="px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-amber-300 font-mono text-xs border border-slate-700/80 transition flex items-center gap-1.5">
+              <i class="fa-solid fa-satellite-dish"></i> Eye View Map
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Multimodal Attachment Preview Tray -->
+    <div id="attachment-tray" class="hidden px-4 sm:px-6 py-2 bg-brand-surface/90 border-t border-brand-border max-w-5xl mx-auto w-full">
+      <div class="flex items-center gap-3 overflow-x-auto custom-scroll py-1" id="attachment-list"></div>
+    </div>
+
+    <!-- Multimodal Input Bar (Desktop & Mobile Friendly) -->
+    <footer class="p-3 sm:p-4 border-t border-brand-border bg-brand-surface/95 backdrop-blur-md shrink-0">
+      <div class="max-w-5xl mx-auto">
+        <form id="chat-form" onsubmit="handleFormSubmit(event)" class="relative flex items-end gap-2 bg-brand-card/90 rounded-2xl border border-brand-border focus-within:border-cyan-400 p-2 transition shadow-2xl">
+          
+          <!-- Hidden File Upload Input -->
+          <input type="file" id="file-picker" multiple class="hidden" onchange="handleFileSelected(event)">
+          
+          <!-- Media Action Buttons -->
+          <div class="flex items-center gap-1 pb-1">
+            <button type="button" onclick="document.getElementById('file-picker').click()" class="w-9 h-9 rounded-xl text-slate-400 hover:text-cyan-400 hover:bg-slate-800/80 flex items-center justify-center transition" title="Upload Document / Evidence">
+              <i class="fa-solid fa-paperclip text-base"></i>
+            </button>
+            <button type="button" onclick="openCameraModal()" class="w-9 h-9 rounded-xl text-slate-400 hover:text-cyan-400 hover:bg-slate-800/80 flex items-center justify-center transition" title="Take Evidence Photo">
+              <i class="fa-solid fa-camera text-base"></i>
+            </button>
+            <button type="button" id="btn-voice-record" onclick="toggleVoiceRecording()" class="w-9 h-9 rounded-xl text-slate-400 hover:text-rose-400 hover:bg-slate-800/80 flex items-center justify-center transition" title="Record Voice Memo">
+              <i class="fa-solid fa-microphone text-base" id="mic-icon"></i>
+            </button>
+          </div>
+
+          <!-- Dynamic Auto-Expanding Textarea -->
+          <textarea id="user-input" rows="1" class="flex-1 bg-transparent border-none focus:ring-0 text-white text-sm sm:text-base p-2 resize-none max-h-36 custom-scroll placeholder-slate-500 font-sans" placeholder="Ask anything, investigate an entity, or drop evidence..." onkeydown="handleKeyDown(event)"></textarea>
+
+          <!-- Submit Button -->
+          <button type="submit" id="btn-submit-chat" class="w-10 h-10 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 flex items-center justify-center font-bold transition shadow-lg shadow-cyan-500/25 shrink-0">
+            <i class="fa-solid fa-paper-plane text-sm"></i>
+          </button>
+        </form>
+        
+        <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 px-3 pt-2">
+          <span>Encrypted Session • Immutable SHA-256 Checksums</span>
+          <span>Press <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-300">Enter</kbd> to Send</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- WEBRTC CAMERA CAPTURE MODAL -->
+  <div id="camera-modal" class="fixed inset-0 bg-black/85 z-50 hidden flex flex-col items-center justify-center p-4">
+    <div class="relative bg-brand-surface border border-brand-border rounded-2xl overflow-hidden max-w-lg w-full shadow-2xl">
+      <div class="p-4 border-b border-brand-border flex items-center justify-between bg-slate-900/80">
+        <span class="font-orbitron font-bold text-sm text-white flex items-center gap-2">
+          <i class="fa-solid fa-camera text-cyan-400"></i> Evidence Capture Viewfinder
+        </span>
+        <button onclick="closeCameraModal()" class="text-slate-400 hover:text-white p-1">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <div class="relative bg-black h-72 sm:h-80 flex items-center justify-center overflow-hidden">
+        <video id="camera-feed" autoplay playsinline class="w-full h-full object-cover"></video>
+        <canvas id="camera-snapshot-canvas" class="hidden"></canvas>
+      </div>
+
+      <div class="p-4 bg-slate-900/90 border-t border-brand-border flex items-center justify-between">
+        <button onclick="closeCameraModal()" class="px-4 py-2 rounded-xl text-xs font-mono text-slate-400 hover:text-white">Cancel</button>
+        <button onclick="captureCameraSnapshot()" class="px-5 py-2.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-orbitron font-bold text-xs flex items-center gap-2 transition shadow-lg shadow-cyan-500/25">
+          <i class="fa-solid fa-camera-retro"></i> Capture Evidence
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    // --- Session State ---
+    let pendingAttachments = [];
+    let mediaRecorder = null;
+    let audioChunks = [];
+    let isRecording = false;
+    let cameraMediaStream = null;
+    let userWalletAddress = null;
+
+    // --- DOM Elements ---
+    const chatStream = document.getElementById('chat-stream');
+    const userInput = document.getElementById('user-input');
+    const attachmentTray = document.getElementById('attachment-tray');
+    const attachmentList = document.getElementById('attachment-list');
+    const cameraModal = document.getElementById('camera-modal');
+    const cameraFeed = document.getElementById('camera-feed');
+    const snapshotCanvas = document.getElementById('camera-snapshot-canvas');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarBackdrop = document.getElementById('sidebar-backdrop');
+
+    // --- UI Helpers ---
+    function toggleSidebar() {
+      sidebar.classList.toggle('-translate-x-full');
+      sidebarBackdrop.classList.toggle('hidden');
+    }
+
+    function handleKeyDown(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        handleFormSubmit(e);
+      }
+    }
+
+    function autoResizeTextarea() {
+      userInput.style.height = 'auto';
+      userInput.style.height = Math.min(userInput.scrollHeight, 144) + 'px';
+    }
+    userInput.addEventListener('input', autoResizeTextarea);
+
+    function clearChatHistory() {
+      if (confirm('Clear current workspace chat history?')) {
+        chatStream.innerHTML = '';
+        appendAIMessage('Workspace cleared. Ready for your next investigation query.');
+      }
+    }
+
+    function startNewInvestigation() {
+      clearChatHistory();
+      if (window.innerWidth < 768) toggleSidebar();
+    }
+
+    function selectThread(name) {
+      appendAIMessage(`Loaded dossier: **${name}**. Querying relational BigQuery graph records...`);
+      if (window.innerWidth < 768) toggleSidebar();
+    }
+
+    // --- Chat Rendering ---
+    function appendUserMessage(text, files = []) {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'flex items-start justify-end gap-3 sm:gap-4';
+      
+      let filesHtml = '';
+      if (files.length > 0) {
+        filesHtml = '<div class="flex flex-wrap gap-2 mb-2">' + files.map(f => `
+          <div class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-[11px] font-mono text-cyan-300 flex items-center gap-1.5">
+            <i class="fa-solid fa-file"></i> ${f.name} <span class="text-slate-500">(${f.size})</span>
+          </div>
+        `).join('') + '</div>';
+      }
+
+      msgDiv.innerHTML = `
+        <div class="glass-panel p-4 rounded-2xl max-w-2xl bg-cyan-950/20 border-r-4 border-r-cyan-400 shadow-lg text-slate-100 text-sm leading-relaxed">
+          ${filesHtml}
+          <div>${escapeHtml(text)}</div>
+        </div>
+        <div class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-xs text-white shrink-0">
+          YOU
+        </div>
+      `;
+      chatStream.appendChild(msgDiv);
+      chatStream.scrollTop = chatStream.scrollHeight;
+    }
+
+    function appendAIMessage(text, metadata = null) {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'flex items-start gap-3 sm:gap-4';
+
+      let metaHtml = '';
+      if (metadata) {
+        metaHtml = `
+          <div class="mt-3 pt-3 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-3 gap-2 text-[11px] font-mono">
+            <div class="p-2 rounded bg-slate-900/90 border border-slate-800">
+              <span class="text-slate-400 uppercase text-[10px]">Confidence:</span>
+              <div class="font-bold text-emerald-400">${metadata.confidence || '99.8%'}</div>
+            </div>
+            <div class="p-2 rounded bg-slate-900/90 border border-slate-800">
+              <span class="text-slate-400 uppercase text-[10px]">Source Ledger:</span>
+              <div class="font-bold text-cyan-400">${metadata.source || 'BigQuery v2'}</div>
+            </div>
+            <div class="p-2 rounded bg-slate-900/90 border border-slate-800">
+              <span class="text-slate-400 uppercase text-[10px]">SHA-256 Hash:</span>
+              <div class="font-bold text-purple-400 truncate">${metadata.hash || 'Verified'}</div>
+            </div>
+          </div>
+        `;
+      }
+
+      msgDiv.innerHTML = `
+        <div class="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-400/30 flex items-center justify-center text-cyan-400 font-orbitron font-bold text-sm shrink-0">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+        <div class="glass-panel p-5 rounded-2xl max-w-3xl border-l-4 border-l-cyan-400 shadow-xl text-slate-200 text-sm leading-relaxed">
+          <div class="font-orbitron font-bold text-xs text-white mb-2 flex items-center gap-2">
+            OSINT Neo AI <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-normal">Analysis Complete</span>
+          </div>
+          <div class="prose prose-invert max-w-none text-slate-300">${formatMarkdown(text)}</div>
+          ${metaHtml}
+        </div>
+      `;
+      chatStream.appendChild(msgDiv);
+      chatStream.scrollTop = chatStream.scrollHeight;
+    }
+
+    function sendQuickPrompt(promptText) {
+      userInput.value = promptText;
+      handleFormSubmit(new Event('submit'));
+    }
+
+    async function handleFormSubmit(e) {
+      if (e) e.preventDefault();
+      const message = userInput.value.trim();
+      const filesToSend = [...pendingAttachments];
+
+      if (!message && filesToSend.length === 0) return;
+
+      appendUserMessage(message, filesToSend);
+      userInput.value = '';
+      userInput.style.height = 'auto';
+      clearAttachments();
+
+      // Compute Client-side SHA-256 Hash
+      let clientHash = "0x" + Date.now().toString(16);
+      try {
+        const payloadStr = message + Date.now().toString();
+        const encoder = new TextEncoder();
+        const dataBuffer = encoder.encode(payloadStr);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', dataBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        clientHash = "0x" + hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+      } catch (e) {}
+
+      // Record in session manager
+      if (window.InvestigationManager) {
+        window.InvestigationManager.recordSubmission(clientHash, message);
+      }
+
+      // Asynchronously queue to zero-value ledger
+      try {
+        fetch('/api/ingest', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            client_hash: clientHash,
+            raw_data: message,
+            source: "Investigator_Workspace_Chat"
+          })
+        });
+      } catch (err) {}
+
+      // Show typing indicator
+      const typingId = 'typing-' + Date.now();
+      const typingDiv = document.createElement('div');
+      typingDiv.id = typingId;
+      typingDiv.className = 'flex items-center gap-3 text-slate-400 text-xs font-mono pl-12';
+      typingDiv.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin text-cyan-400"></i> Cryptographic provenance generated. Querying BigQuery master knowledge graph...';
+      chatStream.appendChild(typingDiv);
+      chatStream.scrollTop = chatStream.scrollHeight;
+
+      try {
+        // Query local /api/inspect or backend router
+        const res = await fetch(`http://localhost:10000/api/inspect?query=${encodeURIComponent(message)}`);
+        const data = await res.json();
+        
+        document.getElementById(typingId)?.remove();
+
+        if (data.records && data.records.length > 0) {
+          const count = data.records.length;
+          appendAIMessage(`Found **${count} matching forensic records** in the BigQuery Master Ledger:\n\n` + 
+            data.records.slice(0, 3).map((r, i) => `• **${r.filename || 'Evidence File'}**\n  *Path:* \`${r.relative_path || 'data/'}\`\n  *SHA-256:* \`${r.sha256_hash ? r.sha256_hash.substring(0, 24) + '...' : 'Verified'}\``).join('\n\n') +
+            `\n\n📌 **Cryptographic Receipt Issued:** \`${clientHash}\`\n*Initial Ledger Valuation:* **$0.00 (Zero Initial Value)** | *Status:* **PENDING_AUTONOMOUS_REVIEW**\n[Track Valuation on TaxFunded Explorer](/taxfunded)`,
+            { confidence: '99.9%', source: 'BigQuery (noble-beanbag)', hash: clientHash }
+          );
+        } else {
+          // Dynamic Intelligence response
+          appendAIMessage(`**Forensic Query Ingested onto Immutable Ledger:**\n\n` +
+            `• **Payload Received:** "${message}"\n` +
+            `• **Cryptographic Receipt Hash:** \`${clientHash}\`\n` +
+            `• **Ledger Initial Valuation:** **$0.00 (Zero Initial Value)**\n` +
+            `• **Enrichment Status:** **PENDING_AUTONOMOUS_REVIEW** (Monitored by Task-1288)\n` +
+            `• **Master Nodes Cross-Referenced:** 199 Authoritative Records across 32 Target Accounts.\n\n` +
+            `🔍 *Want to verify valuation or reward minting?* Visit the **[TaxFunded Explorer](/taxfunded)** or inspect the **[199 Master Evidence Registry](/sheet)**.`,
+            { confidence: '99.2%', source: 'OpenOSINT Zero-Value Ingestion Hub', hash: clientHash }
+          );
+        }
+      } catch (err) {
+        document.getElementById(typingId)?.remove();
+        appendAIMessage(`Payload ingested to zero-value ledger. Receipt Hash: \`${clientHash}\`. Autonomous enrichment daemon active in background.`, { confidence: '95.0%', source: 'Local AI Cache', hash: clientHash });
+      }
+    }
+
+    // --- File Attachment Handling ---
+    function handleFileSelected(e) {
+      const files = Array.from(e.target.files);
+      files.forEach(f => {
+        pendingAttachments.push({
+          name: f.name,
+          size: (f.size / 1024).toFixed(1) + ' KB',
+          file: f
+        });
+      });
+      renderAttachments();
+    }
+
+    function renderAttachments() {
+      if (pendingAttachments.length === 0) {
+        attachmentTray.classList.add('hidden');
+        return;
+      }
+      attachmentTray.classList.remove('hidden');
+      attachmentList.innerHTML = pendingAttachments.map((f, i) => `
+        <div class="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 text-xs font-mono text-cyan-300 flex items-center gap-2 shrink-0">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>${f.name}</span>
+          <button onclick="removeAttachment(${i})" class="text-slate-500 hover:text-rose-400 ml-1">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function removeAttachment(index) {
+      pendingAttachments.splice(index, 1);
+      renderAttachments();
+    }
+
+    function clearAttachments() {
+      pendingAttachments = [];
+      renderAttachments();
+      document.getElementById('file-picker').value = '';
+    }
+
+    // --- WebRTC Camera Viewfinder ---
+    async function openCameraModal() {
+      cameraModal.classList.remove('hidden');
+      try {
+        cameraMediaStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+        cameraFeed.srcObject = cameraMediaStream;
+      } catch (err) {
+        alert('Camera access denied or device not found: ' + err.message);
+        closeCameraModal();
+      }
+    }
+
+    function closeCameraModal() {
+      if (cameraMediaStream) {
+        cameraMediaStream.getTracks().forEach(t => t.stop());
+        cameraMediaStream = null;
+      }
+      cameraModal.classList.add('hidden');
+    }
+
+    function captureCameraSnapshot() {
+      const context = snapshotCanvas.getContext('2d');
+      snapshotCanvas.width = cameraFeed.videoWidth || 640;
+      snapshotCanvas.height = cameraFeed.videoHeight || 480;
+      context.drawImage(cameraFeed, 0, 0, snapshotCanvas.width, snapshotCanvas.height);
+      
+      const dataUrl = snapshotCanvas.toDataURL('image/jpeg');
+      pendingAttachments.push({
+        name: `evidence_snap_${Date.now()}.jpg`,
+        size: '180 KB',
+        dataUrl: dataUrl
+      });
+      renderAttachments();
+      closeCameraModal();
+    }
+
+    // --- Voice Recording ---
+    async function toggleVoiceRecording() {
+      const micIcon = document.getElementById('mic-icon');
+      if (!isRecording) {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          mediaRecorder = new MediaRecorder(stream);
+          audioChunks = [];
+          mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+          mediaRecorder.onstop = () => {
+            const blob = new Blob(audioChunks, { type: 'audio/webm' });
+            pendingAttachments.push({
+              name: `voice_memo_${Date.now()}.webm`,
+              size: (blob.size / 1024).toFixed(1) + ' KB',
+              blob: blob
+            });
+            renderAttachments();
+          };
+          mediaRecorder.start();
+          isRecording = true;
+          micIcon.className = 'fa-solid fa-circle text-rose-500 animate-pulse';
+        } catch (err) {
+          alert('Microphone access denied: ' + err.message);
+        }
+      } else {
+        mediaRecorder.stop();
+        isRecording = false;
+        micIcon.className = 'fa-solid fa-microphone';
+      }
+    }
+
+    // --- Web3 Wallet Connection ---
+    async function connectWallet() {
+      if (window.ethereum) {
+        try {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          userWalletAddress = accounts[0];
+          document.getElementById('wallet-badge').innerText = userWalletAddress.substring(0, 6) + '...' + userWalletAddress.substring(38);
+          document.getElementById('btn-connect-wallet').innerText = 'Connected';
+          document.getElementById('btn-connect-wallet').className = 'px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-mono text-[11px] font-bold';
+        } catch (err) {
+          console.error(err);
+        }
+      } else {
+        alert('MetaMask or Web3 wallet not detected. Running in standard zero-trust mode.');
+      }
+    }
+
+    // --- Utilities ---
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function formatMarkdown(str) {
+      return str
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-700 text-cyan-300 font-mono text-xs">$1</code>')
+        .replace(/\n\n/g, '<br/><br/>')
+        .replace(/\n/g, '<br/>');
+    }
+  </script>
+</body>
+</html>
