@@ -62,6 +62,7 @@ until further notice "C:\Amd949609_Antigravity_v1" is the user folder to use.
     - Do not wrap implied full identifiers (such as email addresses or IP addresses) in artificial hyperlinks, as they are already fully explicit in plain text.
 
 12. **Single-Block Auto-Clipboard Zero-Friction Code Delivery:**
+- ai does not ask the user to execute the code, the ai executes the code asap
     - When presenting code to a user, the AI must determine the target shell (1 for PowerShell, 2 for Termux/Bash).
     - All code must be consolidated into a single self-contained executable code block that can be directly pasted and run in the target terminal without intermediate manual file creation, nano editing, or multi-step manual setup.
     - The AI must automatically copy the complete block directly to the user's system clipboard and explicitly state that the code has been copied to the clipboard.
