@@ -82,176 +82,167 @@
         }
 
         .env-item, .app-item {
-            padding: 12px;
-            margin-bottom: 8px;
-            background-color: var(--bg-secondary);
-            border-radius: 6px;
-            border-left: 4px solid var(--accent-blue);
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .env-item.active {
-            border-left-color: var(--accent-green);
+        .env-item:last-child, .app-item:last-child {
+            border-bottom: none;
         }
 
-        .item-title {
+        .title {
             font-weight: 600;
-            font-size: 1rem;
             color: #ffffff;
+            display: block;
+            margin-bottom: 4px;
         }
 
-        .item-sub {
+        .meta {
             font-size: 0.85rem;
             color: var(--text-muted);
-            word-break: break-all;
-            margin-top: 4px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
-        .status-tag {
-            display: inline-block;
+        .badge {
+            background-color: #2b3859;
+            color: var(--accent-cyan);
             padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            margin-top: 6px;
-        }
-
-        .status-published {
-            background-color: rgba(16, 124, 65, 0.2);
-            color: #27c96f;
-            border: 1px solid #107c41;
-        }
-
-        .btn-link {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 6px 12px;
-            background-color: var(--accent-blue);
-            color: #ffffff;
-            text-decoration: none;
             border-radius: 4px;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 600;
         }
 
-        .btn-link:hover {
+        .badge-green {
+            background-color: #1b472c;
+            color: #4ade80;
+        }
+
+        a.btn {
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        a.btn:hover {
             background-color: #005a9e;
         }
 
-        footer {
-            margin-top: 40px;
-            text-align: center;
+        .code-box {
+            background-color: #0d1117;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px;
+            font-family: Consolas, monospace;
             font-size: 0.85rem;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border-color);
-            padding-top: 16px;
+            color: #e6edf3;
+            overflow-x: auto;
+            white-space: pre-wrap;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>⚡ Power Platform Admin Center & Scraped Apps Dashboard</h1>
-        <div class="user-badge">👤 Connected Account: <strong>anthony.dimarcello@students.post.edu</strong></div>
+        <h1>⚡ Power Platform & App Control Hub</h1>
+        <div class="user-badge">👤 anthony.dimarcello@students.post.edu</div>
     </header>
 
     <div class="grid-container">
-        <!-- Environment 1 -->
+        <!-- Environments Card -->
         <div class="card">
-            <h2>🏢 Anthony DiMarcello's Environment</h2>
-            <div class="env-item active">
-                <div class="item-title">Environment ID</div>
-                <div class="item-sub"><code>584c706d-38a2-e52e-b6e3-24a809f10508</code></div>
-                <div class="item-title" style="margin-top:8px;">Dataverse URL</div>
-                <div class="item-sub">https://org5acee2ec.crm.dynamics.com/</div>
-                <span class="status-tag status-published">Active Developer Tenant</span>
-                <br>
-                <a href="https://make.powerapps.com/environments/584c706d-38a2-e52e-b6e3-24a809f10508/apps" target="_blank" class="btn-link">Open Apps Table Portal</a>
-                <a href="https://admin.powerplatform.microsoft.com/environments/environment/584c706d-38a2-e52e-b6e3-24a809f10508/hub" target="_blank" class="btn-link" style="background-color: #333;">Open Admin Center Hub</a>
-            </div>
-
-            <h3>📱 Scraped Apps Catalog (7 Active Apps)</h3>
-            <ul class="app-list">
-                <li class="app-item">
-                    <div class="item-title">osintneoai libs</div>
-                    <div class="item-sub">Type: Model-driven | Modified: 4 minutes ago</div>
-                    <span class="status-tag status-published">Published & Active</span>
+            <h2>🌍 Maxed Environments (Free Perks)</h2>
+            <ul class="env-list">
+                <li class="env-item">
+                    <span class="title">Anthony DiMarcello's Environment <span class="badge">Primary Developer</span></span>
+                    <div class="meta">
+                        <span>ID: <code>584c706d-38a2-e52e-b6e3-24a809f10508</code></span>
+                    </div>
+                    <a class="btn" href="https://org5acee2ec.crm.dynamics.com/" target="_blank">Open Dynamics CRM Org</a>
+                    <a class="btn" href="https://make.powerapps.com/environments/584c706d-38a2-e52e-b6e3-24a809f10508/apps#" target="_blank">Open Power Apps Maker Portal</a>
                 </li>
-                <li class="app-item">
-                    <div class="item-title">OsintNeoAi Studio</div>
-                    <div class="item-sub">App ID: <code>bbbf5a84-2001-4fc0-b6f1-8882f2939050</code> | Code App</div>
-                    <a href="https://apps.powerapps.com/play/e/584c706d-38a2-e52e-b6e3-24a809f10508/app/bbbf5a84-2001-4fc0-b6f1-8882f2939050" target="_blank" class="btn-link">Play App</a>
-                    <a href="https://vibe.powerapps.com/e/584c706d-38a2-e52e-b6e3-24a809f10508/s/00000001-0000-0000-0001-00000000009b/w/modelType/project/modelId/a25e1eb1-f951-47ac-a54b-6b6321e6998b/app" target="_blank" class="btn-link" style="background-color:#6b21a8;">Open Studio Maker</a>
+                <li class="env-item">
+                    <span class="title">OsintNeoAi-Developer-Max <span class="badge badge-green">Newly Provisioned</span></span>
+                    <div class="meta">
+                        <span>ID: <code>31e6417a-e293-e858-b17f-ff9f3f926703</code></span>
+                    </div>
+                    <a class="btn" href="https://orga688b98f.crm.dynamics.com/" target="_blank">Open Dataverse Org</a>
                 </li>
-                <li class="app-item">
-                    <div class="item-title">OSINTNeoAI Source Manager</div>
-                    <div class="item-sub">Type: Code App | Owner: Anthony DiMarcello</div>
-                    <span class="status-tag status-published">Published & Active</span>
+                <li class="env-item">
+                    <span class="title">OsintNeoAi-MaxDev <span class="badge badge-green">Newly Provisioned Trial</span></span>
+                    <div class="meta">
+                        <span>ID: <code>34eb9996-3f4d-eeb4-a94c-e4c1a26d6e1b</code></span>
+                    </div>
+                    <a class="btn" href="https://org17f1dc28.crm.dynamics.com/" target="_blank">Open Dataverse Org</a>
                 </li>
-                <li class="app-item">
-                    <div class="item-title">Copilot Agent Kit for Makers</div>
-                    <div class="item-sub">Type: Code App | Modified: 2 weeks ago</div>
-                    <span class="status-tag status-published">Published & Active</span>
-                </li>
-                <li class="app-item">
-                    <div class="item-title">Copilot Agent Kit for Admins</div>
-                    <div class="item-sub">Type: Code App | Modified: 2 weeks ago</div>
-                    <span class="status-tag status-published">Published & Active</span>
-                </li>
-                <li class="app-item">
-                    <div class="item-title">Copilot Agent Kit Installer</div>
-                    <div class="item-sub">Type: Code App | Modified: 2 weeks ago</div>
-                    <span class="status-tag status-published">Published & Active</span>
-                </li>
-                <li class="app-item">
-                    <div class="item-title">Copilot Agent Kit</div>
-                    <div class="item-sub">Type: Model-driven App | Modified: 2 months ago</div>
-                    <span class="status-tag status-published">Published & Active</span>
+                <li class="env-item">
+                    <span class="title">OsintNeoAi-TaxFunded-Producer <span class="badge">Copilot Agents Host</span></span>
+                    <div class="meta">
+                        <span>ID: <code>d5b42781-da97-e29a-a5bc-d88f977ebd01</code></span>
+                    </div>
+                    <a class="btn" href="https://org7bce3bad.crm.dynamics.com/" target="_blank">Open Dynamics CRM Org</a>
                 </li>
             </ul>
         </div>
 
-        <!-- Environment 2 -->
+        <!-- Scraped Power Apps Card -->
         <div class="card">
-            <h2>🛡️ OsintNeoAi-TaxFunded-Producer</h2>
-            <div class="env-item active">
-                <div class="item-title">Environment ID</div>
-                <div class="item-sub"><code>d5b42781-da97-e29a-a5bc-d88f977ebd01</code></div>
-                <div class="item-title" style="margin-top:8px;">Dataverse URL</div>
-                <div class="item-sub">https://org7bce3bad.crm.dynamics.com/</div>
-                <span class="status-tag status-published">Active Copilot Studio Org</span>
-                <br>
-                <a href="https://copilotstudio.microsoft.com/" target="_blank" class="btn-link">Open Copilot Studio Portal</a>
-            </div>
-
-            <h3>🤖 Published Copilot Studio Pro Agents</h3>
+            <h2>📱 Discovered Power Apps</h2>
             <ul class="app-list">
                 <li class="app-item">
-                    <div class="item-title">OsintNeoAi Truth & Fact Audit Agent</div>
-                    <div class="item-sub">ID: <code>af9caeaa-991a-4dbc-9a48-ad2ebb8d60f2</code></div>
-                    <span class="status-tag status-published">Published & Active</span>
+                    <span class="title">OsintNeoAi Studio <span class="badge">Canvas / Code</span></span>
+                    <div class="meta">
+                        <span>App ID: <code>bbbf5a84-2001-4fc0-b6f1-8882f2939050</code></span>
+                        <span>Modified: 3 weeks ago</span>
+                    </div>
+                    <a class="btn" href="https://apps.powerapps.com/play/e/584c706d-38a2-e52e-b6e3-24a809f10508/app/bbbf5a84-2001-4fc0-b6f1-8882f2939050?tenantId=dc2273e5-b77e-4b19-ae61-f4b69fb7609c" target="_blank">Play App</a>
+                    <a class="btn" href="https://vibe.powerapps.com/e/584c706d-38a2-e52e-b6e3-24a809f10508/s/00000001-0000-0000-0001-00000000009b/w/modelType/project/modelId/a25e1eb1-f951-47ac-a54b-6b6321e6998b/app" target="_blank">Open Vibe Studio Project</a>
                 </li>
                 <li class="app-item">
-                    <div class="item-title">OsintNeoAi Sentinel Agent</div>
-                    <div class="item-sub">ID: <code>e6781ec6-79e6-4868-90be-60e88d51435b</code></div>
-                    <span class="status-tag status-published">Published & Active</span>
+                    <span class="title">OSINTNeoAI Source Manager <span class="badge">Canvas / Code</span></span>
+                    <div class="meta">
+                        <span>Project ID: <code>55e3f731-1099-484f-bd65-fb4c675c4a37</code></span>
+                        <span>Modified: 2 months ago</span>
+                    </div>
+                    <a class="btn" href="https://vibe.powerapps.com/e/584c706d-38a2-e52e-b6e3-24a809f10508/s/00000001-0000-0000-0001-00000000009b/w/modelType/project/modelId/55e3f731-1099-484f-bd65-fb4c675c4a37/app" target="_blank">Open Vibe Source Manager Project</a>
                 </li>
                 <li class="app-item">
-                    <div class="item-title">HUD Housing Verifier Agent</div>
-                    <div class="item-sub">ID: <code>7450e379-710b-404f-923d-9ac7150384e9</code></div>
-                    <span class="status-tag status-published">Published & Active</span>
+                    <span class="title">osintneoai libs <span class="badge">Model-driven</span></span>
+                    <div class="meta">
+                        <span>Modified: Recently</span>
+                    </div>
                 </li>
                 <li class="app-item">
-                    <div class="item-title">OsintNeoAi Agent</div>
-                    <div class="item-sub">ID: <code>3bda9cdd-4646-47bf-8e7a-4d02547f01bf</code></div>
-                    <span class="status-tag status-published">Published & Active</span>
+                    <span class="title">Copilot Agent Kit (Makers, Admins, Installer)</span>
+                    <div class="meta">
+                        <span>Managed Solutions Baseline</span>
+                    </div>
                 </li>
             </ul>
         </div>
     </div>
 
-    <footer>
-        HTML File Source: <code>C:\Users\Amd949609\Downloads\Power Apps _ Apps.html</code> | Admin Dashboard: <code>C:\OsintNeoAi\Power Platform admin center.html</code>
-    </footer>
+    <!-- Environment Variables & Connector Status -->
+    <div class="card">
+        <h2>🛠️ Solution & Environment Variable Updates</h2>
+        <p>To update the 2 required environment variables in Power Apps / Dataverse:</p>
+        <div class="code-box">
+1. Open Maker Portal: https://make.powerapps.com/environments/584c706d-38a2-e52e-b6e3-24a809f10508/solutions
+2. Select "Default Solution" or "Copilot Agent Kit"
+3. Filter components by "Environment variables"
+4. Edit:
+   - OSINT_API_BASE_URL -> http://localhost:8080 (or Azure endpoint https://org7bce3bad.crm.dynamics.com/)
+   - OSINT_API_KEY -> [Active Security Token]
+5. Click "Save" and "Publish all customizations"
+        </div>
+    </div>
 
 </body>
 </html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Bookmarks & Master Favorites Hub - Google & Microsoft Accounts</title>
+    <style>
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #131b2e;
+            --card-bg: #1a233a;
+            --accent-blue: #0078d4;
+            --accent-cyan: #00d2ff;
+            --accent-google: #4285f4;
+            --accent-msft: #00a4ef;
+            --accent-purple: #8764b8;
+            --accent-green: #107c41;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #2d3748;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            margin: 0;
+            padding: 24px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .user-badge {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--accent-cyan);
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-secondary);
+            color: var(--text-main);
+            font-size: 1rem;
+            margin-bottom: 24px;
+            box-sizing: border-box;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            margin-top: 0;
+            color: var(--accent-cyan);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card h2.google-header {
+            color: #4285f4;
+        }
+
+        .card h2.msft-header {
+            color: #00a4ef;
+        }
+
+        .bookmark-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .bookmark-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .bookmark-item:last-child {
+            border-bottom: none;
+        }
+
+        .title {
+            font-weight: 600;
+            color: #ffffff;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+
+        .url-text {
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            word-break: break-all;
+            display: block;
+            margin-bottom: 6px;
+            font-family: Consolas, monospace;
+        }
+
+        .meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .badge {
+            background-color: #2b3859;
+            color: var(--accent-cyan);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-google {
+            background-color: #1a2a47;
+            color: #60a5fa;
+        }
+
+        .badge-msft {
+            background-color: #0c344b;
+            color: #38bdf8;
+        }
+
+        .badge-purple {
+            background-color: #3b2a54;
+            color: #c084fc;
+        }
+
+        .badge-green {
+            background-color: #1b472c;
+            color: #4ade80;
+        }
+
+        a.btn {
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-right: 8px;
+        }
+
+        a.btn-google {
+            background-color: #ea4335;
+        }
+
+        a.btn-google:hover {
+            background-color: #c5221f;
+        }
+
+        a.btn:hover {
+            background-color: #005a9e;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>📌 Unified Master Bookmarks Hub - Google & Microsoft Accounts</h1>
+        <div class="user-badge">👤 anthony.dimarcello@students.post.edu</div>
+    </header>
+
+    <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search Google Drive, Gmail, Power Apps, Copilot Studio, Azure, or URLs..." onkeyup="filterBookmarks()">
+
+    <div class="grid-container">
+
+        <!-- Google Services & Workspace -->
+        <div class="card">
+            <h2 class="google-header">🌐 Google Workspace & Cloud Services</h2>
+            <ul class="bookmark-list">
+                <li class="bookmark-item">
+                    <span class="title">Google Drive Root Workspace</span>
+                    <span class="url-text">https://drive.google.com/drive/my-drive</span>
+                    <div class="meta"><span class="badge badge-google">Google Cloud</span> Workspace Root & OSINT Lockers</div>
+                    <a class="btn btn-google" href="https://drive.google.com/drive/my-drive" target="_blank">Open Google Drive</a>
+                </li>
+                <li class="bookmark-item">
+                    <span class="title">Gmail Web Inbox</span>
+                    <span class="url-text">https://mail.google.com/mail/u/0/#inbox</span>
+                    <div class="meta"><span class="badge badge-google">Google Mail</span> Primary Inbox</div>
+                    <a class="btn btn-google" href="https://mail.google.com/mail/u/0/#inbox" target="_blank">Open Gmail</a>
+                </li>
+                <li class="bookmark-item">
+                    <span class="title">Google Gemini AI Chat & Studio</span>
+                    <span class="url-text">https://gemini.google.com/app</span>
+                    <div class="meta"><span class="badge badge-google">Google AI</span> Gemini Live & Advanced Pro</div>
+                    <a class="btn btn-google" href="https://gemini.google.com/app" target="_blank">Open Gemini AI</a>
+                </li>
+                <li class="bookmark-item">
+                    <span class="title">Google Cloud Platform Console (GCP)</span>
+                    <span class="url-text">https://console.cloud.google.com/</span>
+                    <div class="meta"><span class="badge badge-google">GCP</span> Projects, BigQuery & Cloud Storage</div>
+                    <a class="btn btn-google" href="https://console.cloud.google.com/" target="_blank">Open GCP Console</a>
+                </li>
+                <li class="bookmark-item">
+                    <span class="title">Google Photos Library</span>
+                    <span class="url-text">https://photos.google.com/</span>
+                    <div class="meta"><span class="badge badge-google">Google Media</span> Media & Forensic Imagery</div>
+                    <a class="btn btn-google" href="https://photos.google.com/" target="_blank">Open Google Photos</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Microsoft 365 & Copilot Studio -->
+        <div class="card">
+            <h2 class="msft-header">🤖 Microsoft 365 & Copilot Studio Agents</h2>
+            <ul class="bookmark-list">
+                <li class="bookmark-item">
+                    <span class="title">M365 Audit Agent Chat Portal</span>
+                    <span class="url-text">https://m365.cloud.microsoft/chat/agent/P_057b249d-1fcd-c93c-0556-04e54a042f7c.ProjectedDeclarativeAgent.MessageExtension/conversation/7cfaf673-43cf-4acd-ac5c-2e02cbc634f0</span>
+                    <div class="meta"><span class="badge badge-green">Projected Agent</span> ID: <code>P_057b249d-1fcd-c93c-0556-04e54a042f7c</code></div>
+                    <a class="btn" href="https://m365.cloud.microsoft/chat/agent/P_057b249d-1fcd-c93c-0556-04e54a042f7c.ProjectedDeclarativeAgent.MessageExtension/conversation/7cfaf673-43cf-4acd-ac5c-2e02cbc634f0" target="_blank">Open M365 Agent</a>
+                </li>
+                <li class="bookmark-item">
+                    <span class="title">Copilot Studio Maker Portal</span>
+                    <span class="url-text">https://copilotstudio.microsoft.com/environments/d5b42781-da97-e29a-a5bc-d88f977ebd01/bots/7450e379-710b-404f-923d-9ac7150384e9/canvas</span>
+                    <div class="meta"><span class="badge badge-msft">Copilot Studio</span> Title ID: <code>T_33575887-1137-f3a4-38a0-690e55118319</code></div>
+                    <a class="btn" href="https://copilotstudio.microsoft.com/environments/d5b42781-da97-e29a-a5bc-d88f977ebd01/bots/7450e379-710b-404f-923d-9ac7150384e9/canvas" target="_blank">Open Copilot Studio</a>
+                </li>
+                <li class="bookmark-item">
+                    <span class="title">Outlook Mail & Office 365</span>
+                    <span class="url-text">https://outlook.office365.com/mail/</span>
+                    <div class="meta"><span class="badge badge-msft">M365 Student Perk</span> Email: <code>anthony.dimarcello@students.post.edu</code></div>
+                    <a class="btn" href="https://outlook.office365.com/mail/" target="_blank">Open Outlook Mail</a>
+                </li>
+                <li class="bookmark-item">
+                    <span class="title">OneDrive Personal / Student Vault</span>
+                    <span class="url-text">https://onedrive.live.com/</span>
+                    <div class="meta"><span class="badge badge-msft">Microsoft Storage</span> Cloud Document Locker</div>
+                    <a class="btn" href="https://onedrive.live.com/" target="_blank">Open OneDrive</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Power Apps & Vibe Projects -->
+        <div class="card">
+            <h2 class="msft-header">📱 Power Apps & Vibe Projects</h2>
+            <ul class="bookmark-list">
+                <li class="bookmark-item">
+                    <span class="title">OsintNeoAi Studio (Published Play App)</span>
+                    <span class="url-text">https://apps.powerapps.com/play/e/584c706d-38a2-e52e-b6e3-24a809f10508/app/bbbf5a84-2001-4fc0-b6f1-8882f2939050?tenantId=dc2273e5-b77e-4b19-ae61-f4b69fb7609c</span>
+                    <div class="meta"><span class="badge badge-msft">Canvas App</span> App ID: <code>bbbf5a84-2001-4fc0-b6f1-8882f2939050</code></div>
+                    <a class="btn" href="https://apps.powerapps.com/play/e/584c706d-38a2-e52e-b6e3-24a809f10508/app/bbbf5a84-2001-4fc0-b6f1-8882f2939050?tenantId=dc2273e5-b77e-4b19-ae61-f4b69fb7609c" target="_blank">Launch App</a>
+                </li>
+                <li class="bookmark-item">
+                    <span class="title">OsintNeoAi Studio (Vibe Project Studio)</span>
+                    <span class="url-text">https://vibe.powerapps.com/e/584c706d-38a2-e52e-b6e3-24a809f10508/s/00000001-0000-0000-0001-00000000009b/w/modelType/project/modelId/a25e1eb1-f951-47ac-a54b-6b6321e6998b/app</span>
+                    <div class="meta"><span class="badge badge-purple">Vibe Model</span> Model ID: <code>a25e1eb1-f951-47ac-a54b-6b6321e6998b</code></div>
+                    <a class="btn" href="https://vibe.powerapps.com/e/584c706d-38a2-e52e-b6e3-24a809f10508/s/00000001-0000-0000-0001-00000000009b/w/modelType/project/modelId/a25e1eb1-f951-47ac-a54b-6b6321e6998b/app" target="_blank">Open Vibe Studio</a>
+                </li>
+                <li class="bookmark-item">
+                    <span class="title">OSINTNeoAI Source Manager (Vibe Project)</span>
+                    <span class="url-text">https://vibe.powerapps.com/e/584c706d-38a2-e52e-b6e3-24a809f10508/s/00000001-0000-0000-0001-00000000009b/w/modelType/project/modelId/55e3f731-1099-484f-bd65-fb4c675c4a37/app</span>
+                    <div class="meta"><span class="badge badge-purple">Vibe Model</span> Model ID: <code>55e3f731-1099-484f-bd65-fb4c675c4a37</code></div>
+                    <a class="btn" href="https://vibe.powerapps.com/e/584c706d-38a2-e52e-b6e3-24a809f10508/s/00000001-0000-0000-0001-00000000009b/w/modelType/project/modelId/55e3f731-1099-484f-bd65-fb4c675c4a37/app" target="_blank">Open Vibe Source Manager</a>
+                </li>
+                <li class="bookmark-item">
+                    <span class="title">Power Apps Maker Portal Solutions</span>
+                    <span class="url-text">https://make.powerapps.com/environments/584c706d-38a2-e52e-b6e3-24a809f10508/apps#</span>
+                    <div class="meta"><span class="badge badge-msft">Maker Portal</span> Env ID: <code>584c706d-38a2-e52e-b6e3-24a809f10508</code></div>
+                    <a class="btn" href="https://make.powerapps.com/environments/584c706d-38a2-e52e-b6e3-24a809f10508/apps#" target="_blank">Open Maker Portal</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Microsoft Azure & Power Platform Orgs -->
+        <div class="card">
+            <h2 class="msft-header">🌍 Azure Portal & Tenant Environments</h2>
+            <ul class="bookmark-list">
+                <li class="bookmark-item">
+                    <span class="title">Microsoft Azure Management Portal</span>
+                    <span class="url-text">https://portal.azure.com/</span>
+                    <div class="meta"><span class="badge badge-msft">Azure Cloud</span> Student Credits & App Services</div>
+                    <a class="btn" href="https://portal.azure.com/" target="_blank">Open Azure Portal</a>
+                </li>
+                <li class="bookmark-item">
+                    <span class="title">Anthony DiMarcello's Environment (Primary Dev)</span>
+                    <span class="url-text">https://org5acee2ec.crm.dynamics.com/</span>
+                    <div class="meta"><span class="badge badge-msft">Developer</span> Env ID: <code>584c706d-38a2-e52e-b6e3-24a809f10508</code></div>
+                    <a class="btn" href="https://org5acee2ec.crm.dynamics.com/" target="_blank">Open Dynamics CRM</a>
+                </li>
+                <li class="bookmark-item">
+                    <span class="title">OsintNeoAi-TaxFunded-Producer (Agents Host)</span>
+                    <span class="url-text">https://org7bce3bad.crm.dynamics.com/</span>
+                    <div class="meta"><span class="badge badge-msft">Developer</span> Env ID: <code>d5b42781-da97-e29a-a5bc-d88f977ebd01</code></div>
+                    <a class="btn" href="https://org7bce3bad.crm.dynamics.com/" target="_blank">Open Dynamics CRM</a>
+                </li>
+                <li class="bookmark-item">
+                    <span class="title">OsintNeoAi-Developer-Max (Maxed Free Dev)</span>
+                    <span class="url-text">https://orga688b98f.crm.dynamics.com/</span>
+                    <div class="meta"><span class="badge badge-green">New Dev</span> Env ID: <code>31e6417a-e293-e858-b17f-ff9f3f926703</code></div>
+                    <a class="btn" href="https://orga688b98f.crm.dynamics.com/" target="_blank">Open Dataverse Org</a>
+                </li>
+                <li class="bookmark-item">
+                    <span class="title">OsintNeoAi-MaxDev (Maxed Free Trial)</span>
+                    <span class="url-text">https://org17f1dc28.crm.dynamics.com/</span>
+                    <div class="meta"><span class="badge badge-green">New Trial</span> Env ID: <code>34eb9996-3f4d-eeb4-a94c-e4c1a26d6e1b</code></div>
+                    <a class="btn" href="https://org17f1dc28.crm.dynamics.com/" target="_blank">Open Dataverse Org</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        function filterBookmarks() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const items = document.getElementsByClassName('bookmark-item');
+
+            for (let i = 0; i < items.length; i++) {
+                const text = items[i].innerText.toLowerCase();
+                if (text.includes(input)) {
+                    items[i].style.display = "";
+                } else {
+                    items[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
