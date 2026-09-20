@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "title": "OSINTNeoAi Cloud API",
-    "description": "Enterprise Microsoft Power Apps & Power Automate Custom Connector for OSINTNeoAi Master Hub, Tactical GIS Maps, and Forensic Intelligence Vault.",
-    "version": "1.0.0"
+    "description": "Enterprise Microsoft Power Apps & Power Automate Custom Connector for OSINTNeoAi Master Hub, Tactical GIS Maps, Forensic Intelligence Vault, and Chat Log Exporter.",
+    "version": "1.1.0"
   },
   "host": "osintneoai-app-949.azurewebsites.net",
   "basePath": "/",
@@ -100,6 +100,53 @@
         "responses": {
           "200": {
             "description": "Search results list"
+          }
+        }
+      }
+    },
+    "/api/export_chat": {
+      "post": {
+        "summary": "Export Copilot Agent Chat Transcript",
+        "description": "Persists and exports full conversation history into C:\\OsintNeoAi\\chat_exports for audit and legal recordkeeping.",
+        "operationId": "ExportChatLog",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "agent_name": { "type": "string", "example": "Sentinel" },
+                "conversation_id": { "type": "string", "example": "sess_12345" },
+                "messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "role": { "type": "string" },
+                      "text": { "type": "string" }
+                    }
+                  }
+                }
+              },
+              "required": ["agent_name", "messages"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Chat log export confirmation"
+          }
+        }
+      },
+      "get": {
+        "summary": "List Exported Chat Logs",
+        "description": "Returns the directory catalog of all exported agent conversation logs.",
+        "operationId": "ListExportedChats",
+        "responses": {
+          "200": {
+            "description": "List of exported chat files"
           }
         }
       }

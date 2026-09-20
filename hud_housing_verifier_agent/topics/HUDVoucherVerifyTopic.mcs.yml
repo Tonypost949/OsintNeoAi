@@ -1,0 +1,24 @@
+mcs.metadata:
+  componentName: HUDVoucherVerify
+  description: Triggered when the user asks to verify HUD vouchers, Section 8, or tenant income limits.
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: Verify HUD Voucher & Income Limits
+    includeInOnSelectIntent: true
+    triggerQueries:
+      - Verify HUD voucher
+      - Section 8 verification
+      - Check income limits
+      - Housing Choice Voucher audit
+      - Verify tenant eligibility
+  actions:
+    - kind: SendActivity
+      id: sendMsg_HUDVoucher
+      activity:
+        text:
+          - "HUD Housing Verification active. Checking HUD Section 8 voucher guidelines, Area Median Income (AMI) thresholds, and Public Housing Authority eligibility databases."
+        speak:
+          - "Verifying HUD voucher and income limits."

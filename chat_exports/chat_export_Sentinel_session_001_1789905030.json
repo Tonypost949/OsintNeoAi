@@ -1,0 +1,15 @@
+{
+  "agent_name": "Sentinel",
+  "conversation_id": "session_001",
+  "timestamp": "2026-09-20T04:50:30.501314",
+  "messages": [
+    {
+      "role": "user",
+      "text": "Test query"
+    },
+    {
+      "role": "agent",
+      "text": "Diagnostic response OK"
+    }
+  ]
+}

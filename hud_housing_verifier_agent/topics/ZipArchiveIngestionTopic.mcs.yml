@@ -1,0 +1,24 @@
+mcs.metadata:
+  componentName: ZipArchiveIngestion
+  description: Triggered when the user uploads ZIP files, document folders, PDFs, or archive attachments for HUD housing verification.
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: ZIP & Document Archive Extraction
+    includeInOnSelectIntent: true
+    triggerQueries:
+      - Upload zip file
+      - Read zip archive
+      - Extract document folder
+      - Parse uploaded PDF evidence
+      - Process housing zip file
+  actions:
+    - kind: SendActivity
+      id: sendMsg_ZipArchive
+      activity:
+        text:
+          - "HUD Housing Archive Ingestion active. Memory-bounded streaming crawler ready to unpack ZIP files, tar archives, PDFs, and image evidence through PyMuPDF & RapidOCR."
+        speak:
+          - "Unpacking and parsing ZIP archive and document evidence."
