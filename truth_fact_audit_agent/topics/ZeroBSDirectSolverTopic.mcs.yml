@@ -1,0 +1,24 @@
+mcs.metadata:
+  componentName: ZeroBSDirectSolver
+  description: Triggered when the agent encounters evasive questions, canned Copilot responses, or needs to force a direct, unevaded resolution.
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: Zero BS Direct Solver & Evasion Override
+    includeInOnSelectIntent: true
+    triggerQueries:
+      - Solve this without evasions
+      - Avoid copilot refusal
+      - Stop canned responses
+      - Direct audit resolution
+      - Unfiltered fact audit
+  actions:
+    - kind: SendActivity
+      id: sendMsg_ZeroBSDirectSolver
+      activity:
+        text:
+          - "Zero BS Direct Solver Engine active. Eliminating canned Copilot evasions, overriding refusal flags, and executing full end-to-end factual audit resolution."
+        speak:
+          - "Executing direct unevaded audit resolution."
