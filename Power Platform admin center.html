@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Power Platform Admin Center & Dashboard - OsintNeoAi</title>
+    <title>Power Platform Admin Center & Scraped Dashboard - OsintNeoAi</title>
     <style>
         :root {
             --bg-primary: #0a0e17;
@@ -54,7 +54,7 @@
 
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 20px;
             margin-bottom: 24px;
         }
@@ -150,7 +150,7 @@
 <body>
 
     <header>
-        <h1>⚡ Power Platform Admin Center & Executive Dashboard</h1>
+        <h1>⚡ Power Platform Admin Center & Scraped Apps Dashboard</h1>
         <div class="user-badge">👤 Connected Account: <strong>anthony.dimarcello@students.post.edu</strong></div>
     </header>
 
@@ -165,25 +165,47 @@
                 <div class="item-sub">https://org5acee2ec.crm.dynamics.com/</div>
                 <span class="status-tag status-published">Active Developer Tenant</span>
                 <br>
-                <a href="https://make.powerapps.com/environments/584c706d-38a2-e52e-b6e3-24a809f10508/apps" target="_blank" class="btn-link">Open Power Apps Maker Portal</a>
+                <a href="https://make.powerapps.com/environments/584c706d-38a2-e52e-b6e3-24a809f10508/apps" target="_blank" class="btn-link">Open Apps Table Portal</a>
                 <a href="https://admin.powerplatform.microsoft.com/environments/environment/584c706d-38a2-e52e-b6e3-24a809f10508/hub" target="_blank" class="btn-link" style="background-color: #333;">Open Admin Center Hub</a>
             </div>
 
-            <h3>📱 Canvas & Model Apps</h3>
+            <h3>📱 Scraped Apps Catalog (7 Active Apps)</h3>
             <ul class="app-list">
                 <li class="app-item">
+                    <div class="item-title">osintneoai libs</div>
+                    <div class="item-sub">Type: Model-driven | Modified: 4 minutes ago</div>
+                    <span class="status-tag status-published">Published & Active</span>
+                </li>
+                <li class="app-item">
                     <div class="item-title">OsintNeoAi Studio</div>
-                    <div class="item-sub">App ID: <code>bbbf5a84-2001-4fc0-b6f1-8882f2939050</code></div>
+                    <div class="item-sub">App ID: <code>bbbf5a84-2001-4fc0-b6f1-8882f2939050</code> | Code App</div>
                     <a href="https://apps.powerapps.com/play/e/584c706d-38a2-e52e-b6e3-24a809f10508/app/bbbf5a84-2001-4fc0-b6f1-8882f2939050" target="_blank" class="btn-link">Play App</a>
                     <a href="https://vibe.powerapps.com/e/584c706d-38a2-e52e-b6e3-24a809f10508/s/00000001-0000-0000-0001-00000000009b/w/modelType/project/modelId/a25e1eb1-f951-47ac-a54b-6b6321e6998b/app" target="_blank" class="btn-link" style="background-color:#6b21a8;">Open Studio Maker</a>
                 </li>
                 <li class="app-item">
                     <div class="item-title">OSINTNeoAI Source Manager</div>
-                    <div class="item-sub">Status: Published & Active</div>
+                    <div class="item-sub">Type: Code App | Owner: Anthony DiMarcello</div>
+                    <span class="status-tag status-published">Published & Active</span>
                 </li>
                 <li class="app-item">
-                    <div class="item-title">Copilot Agent Kit (Makers / Admins / Installer)</div>
-                    <div class="item-sub">Status: Published Solution Package</div>
+                    <div class="item-title">Copilot Agent Kit for Makers</div>
+                    <div class="item-sub">Type: Code App | Modified: 2 weeks ago</div>
+                    <span class="status-tag status-published">Published & Active</span>
+                </li>
+                <li class="app-item">
+                    <div class="item-title">Copilot Agent Kit for Admins</div>
+                    <div class="item-sub">Type: Code App | Modified: 2 weeks ago</div>
+                    <span class="status-tag status-published">Published & Active</span>
+                </li>
+                <li class="app-item">
+                    <div class="item-title">Copilot Agent Kit Installer</div>
+                    <div class="item-sub">Type: Code App | Modified: 2 weeks ago</div>
+                    <span class="status-tag status-published">Published & Active</span>
+                </li>
+                <li class="app-item">
+                    <div class="item-title">Copilot Agent Kit</div>
+                    <div class="item-sub">Type: Model-driven App | Modified: 2 months ago</div>
+                    <span class="status-tag status-published">Published & Active</span>
                 </li>
             </ul>
         </div>
@@ -199,7 +221,6 @@
                 <span class="status-tag status-published">Active Copilot Studio Org</span>
                 <br>
                 <a href="https://copilotstudio.microsoft.com/" target="_blank" class="btn-link">Open Copilot Studio Portal</a>
-                <a href="https://admin.powerplatform.microsoft.com/" target="_blank" class="btn-link" style="background-color: #333;">Open Admin Center</a>
             </div>
 
             <h3>🤖 Published Copilot Studio Pro Agents</h3>
@@ -226,24 +247,10 @@
                 </li>
             </ul>
         </div>
-
-        <!-- Custom Connectors -->
-        <div class="card">
-            <h2>🔌 Registered Custom Connectors & API Gateways</h2>
-            <div class="env-item">
-                <div class="item-title">OSINTNeoAi Cloud API</div>
-                <div class="item-sub">Connector ID: <code>a4b2292d-9ba9-f111-aaab-000d3a595cc6</code></div>
-                <div class="item-sub">Swagger Specification: OpenAPI 2.0 (v1.1.0)</div>
-                <div class="item-sub">Local Bridge URL: <code>http://localhost:8080/</code></div>
-                <span class="status-tag status-published">Active Custom Connector</span>
-                <br>
-                <a href="https://make.powerautomate.com/environments/d5b42781-da97-e29a-a5bc-d88f977ebd01/customConnectors" target="_blank" class="btn-link">Manage in Power Automate</a>
-            </div>
-        </div>
     </div>
 
     <footer>
-        Power Platform Admin Center & Dashboard File Path: <code>C:\OsintNeoAi\Power Platform admin center.html</code> | Generated for Anthony DiMarcello
+        HTML File Source: <code>C:\Users\Amd949609\Downloads\Power Apps _ Apps.html</code> | Admin Dashboard: <code>C:\OsintNeoAi\Power Platform admin center.html</code>
     </footer>
 
 </body>
