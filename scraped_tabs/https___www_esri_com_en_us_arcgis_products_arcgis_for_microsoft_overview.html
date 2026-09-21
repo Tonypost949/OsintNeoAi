@@ -1,0 +1,2335 @@
+﻿<!DOCTYPE HTML>
+<html lang="en-us" dir="ltr">
+
+<head>
+	<meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+	<title>ArcGIS for Microsoft | Geospatially Enabling Microsoft Platforms</title>
+
+     
+    
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+     
+	
+    <meta name="description" content="ArcGIS for Microsoft integrates geospatial data &amp; spatial analysis into Microsoft 365, Microsoft Fabric &amp; Microsoft Power Platform, enhancing workflows and decision-making."/>
+	<meta name="template" content="esri-content-template"/>
+	
+
+	
+
+	
+<meta name="content-page-ref" content="ukWXiyDuvO9gvMDwTiuM7grxEJt5tOWKImZh7fGp1mbDM7SLGr2GUzqF1aTHVrLTPoKBivgS9YQqC9PYD-zDT5n2hbEmiB9uMHwVbKnEolfUxPHUqivsv1n-v85clZFc"/>
+<script defer="defer" type="text/javascript" src="/.rum/@adobe/helix-rum-js@%5E2/dist/micro.js"></script>
+<link rel="canonical" href="https://www.esri.com/en-us/arcgis/products/arcgis-for-microsoft/overview"/>
+
+
+	
+
+
+
+<link rel='preconnect' href='//webapps-cdn.esri.com' crossorigin/>
+<link rel='preconnect' href='//js.arcgis.com' crossorigin/>
+<link rel='preconnect' href='//assets.adobedtm.com'/>
+<link rel='preconnect' href='//fast.fonts.net' crossorigin/>
+
+<link rel="stylesheet" href="https://fast.fonts.net/t/1.css?apiType=css&projectid=f9e335c8-e150-4885-976e-f4c392e562c4"/>
+<link rel="stylesheet" href="https://webapps-cdn.esri.com/CDN/fonts/v1.4.2/fonts.css"/>
+
+
+<link rel='dns-prefetch' href='//pi.pardot.com'/>
+<link rel='dns-prefetch' href='//js-cdn.dynatrace.com'/>
+<link rel='dns-prefetch' href='//cdn.cookielaw.org'/>
+<link rel='dns-prefetch' href='//api.company-target.com'/>
+<link rel='dns-prefetch' href='//securetags.esri.com'/>
+<link rel='dns-prefetch' href='//environmentals.tt.omtrdc.net'/>
+<link rel='dns-prefetch' href='//geolocation.onetrust.com'/>
+
+
+<link rel="modulepreload" href="https://js.arcgis.com/calcite-components/1.8.0/calcite.esm.js" crossorigin/>
+<link rel="preload" as="style" href="https://js.arcgis.com/calcite-components/1.8.0/calcite.css" crossorigin/>
+<link rel="stylesheet" href="https://js.arcgis.com/calcite-components/1.8.0/calcite.css" type="text/css" crossorigin/>
+
+
+
+
+
+
+
+
+
+<link rel="preload" as="style" href="https://webapps-cdn.esri.com/CDN/components/esri-ui/0.9.0/css/esri-ui.css" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://webapps-cdn.esri.com/CDN/components/esri-ui/0.9.0/css/esri-ui.css" type="text/css" crossorigin="anonymous"/>
+
+
+<script type="module" src="https://js.arcgis.com/calcite-components/1.8.0/calcite.esm.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  window.gnav_jsonPath = "/content/experience-fragments/esri-sites/en-us/site-settings/global-navigation-config/2022-nav-config.25.json"
+</script>
+<script>
+  window.gnav_mode = ""
+  window.window.gnav_login = ""
+  window.window.gnav_collapseMenus = "" === 'true'
+</script>
+
+
+
+
+
+
+<script src="https://geoip.esri.com/geoip.js"></script>
+
+
+
+
+
+
+
+<style>
+  :root {
+    --secondarytheme-color: oklch(from #0079c1 l c h);
+
+    --theme-color: oklch(from #0079c1 l c h);
+    --theme-color10: oklch(from var(--theme-color) l c h / 10%);
+    --theme-color50: oklch(from var(--theme-color) l c h / 50%);
+    --theme-color-secondary: oklch(from #0079c1 l c h);
+    --theme-color-secondary10: oklch(from var(--theme-color-secondary) l c h / 10%);
+    --theme-color-secondary50: oklch(from var(--theme-color-secondary) l c h / 50%);
+
+    --theme-color-dark: oklch(from #0079c1 l c h);
+    --theme-color-dark10: oklch(from var(--theme-color-dark) l c h / 10%);
+    --theme-color-dark50: oklch(from var(--theme-color-dark) l c h / 50%);
+    --theme-color-secondary-dark: oklch(from var(--esri-ui-brand-default) l c h);
+    --theme-color-secondary-dark10: oklch(from var(--theme-color-secondary-dark) l c h / 10%);
+    --theme-color-secondary-dark50: oklch(from var(--theme-color-secondary-dark) l c h / 50%);
+  }
+
+  .calcite-mode-dark {
+    --theme-color: var(--theme-color-dark);
+    --theme-color10: var(--theme-color-dark10);
+    --theme-color50: var(--theme-color-dark50);
+    --theme-color-secondary: var(--theme-color-secondary-dark);
+    --theme-color-secondary10: var(--theme-color-secondary-dark10);
+    --theme-color-secondary50: var(--theme-color-secondary-dark50);
+  }
+
+  .calcite-mode-light {
+    --theme-color: oklch(from #0079c1 l c h);
+    --theme-color10: oklch(from var(--theme-color) l c h / 10%);
+    --theme-color50: oklch(from var(--theme-color) l c h / 50%);
+    --theme-color-secondary: oklch(from #0079c1 l c h);
+    --theme-color-secondary10: oklch(from var(--theme-color-secondary) l c h / 10%);
+    --theme-color-secondary50: oklch(from var(--theme-color-secondary) l c h / 50%);
+  }
+
+  .theme-secondary {
+    --theme-color: var(--theme-color-secondary);
+    --theme-color10: var(--theme-color-secondary10);
+    --theme-color50: var(--theme-color-secondary50);
+  }
+
+  .theme-secondary .calcite-mode-light {
+    --theme-color: var(--theme-color-secondary);
+    --theme-color10: var(--theme-color-secondary10);
+    --theme-color50: var(--theme-color-secondary50);
+  }
+  .theme-secondary .calcite-mode-dark {
+    --theme-color: var(--theme-color-secondary-dark);
+    --theme-color10: var(--theme-color-secondary-dark10);
+    --theme-color50: var(--theme-color-secondary-dark50);
+  }
+</style>
+
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="https://www.esri.com/content/dam/esrisites/en-us/common/favicon/esri-favicon-light-180.png"/>
+<link rel="icon" media="(prefers-color-scheme:dark)" type="image/png" sizes="32x32" href="https://www.esri.com/content/dam/esrisites/en-us/common/favicon/esri-favicon-dark-32.png"/>
+<link rel="icon" media="(prefers-color-scheme:light)" type="image/png" sizes="32x32" href="https://www.esri.com/content/dam/esrisites/en-us/common/favicon/esri-favicon-light-32.png"/>
+<link rel="icon" type="image/svg+xml" sizes="16x16 32x32 48x48 180x180" href="https://www.esri.com/content/dam/esrisites/en-us/common/favicon/esri-favicon.svg"/>
+
+
+
+  <link rel="alternate" href="https://www.esri.com/en-us/arcgis/products/arcgis-for-microsoft/overview" hreflang="en-us"/>
+
+  <link rel="alternate" href="https://www.esri.com/fr-fr/arcgis/products/arcgis-for-microsoft/overview" hreflang="fr-fr"/>
+
+  <link rel="alternate" href="https://www.esri.com/zh-cn/arcgis/products/arcgis-for-microsoft/overview" hreflang="zh-cn"/>
+
+  <link rel="alternate" href="https://www.esri.com/ja-jp/arcgis/products/arcgis-for-microsoft/overview" hreflang="ja-jp"/>
+
+  <link rel="alternate" href="https://www.esri.com/es-es/arcgis/products/arcgis-for-microsoft/overview" hreflang="es-es"/>
+
+  <link rel="alternate" href="https://www.esri.com/ru-ru/arcgis/products/arcgis-for-microsoft/overview" hreflang="ru-ru"/>
+
+  <link rel="alternate" href="https://www.esri.com/de-de/arcgis/products/arcgis-for-microsoft/overview" hreflang="de-de"/>
+
+  <link rel="alternate" href="https://www.esri.com/ar-sa/arcgis/products/arcgis-for-microsoft/overview" hreflang="ar-sa"/>
+
+  <link rel="alternate" href="https://www.esri.com/it-it/arcgis/products/arcgis-for-microsoft/overview" hreflang="it-it"/>
+
+  <link rel="alternate" href="https://www.esri.com/ko-kr/arcgis/products/arcgis-for-microsoft/overview" hreflang="ko-kr"/>
+
+  <link rel="alternate" href="https://www.esri.com/pl-pl/arcgis/products/arcgis-for-microsoft/overview" hreflang="pl-pl"/>
+
+  <link rel="alternate" href="https://www.esri.com/pt-br/arcgis/products/arcgis-for-microsoft/overview" hreflang="pt-br"/>
+
+  <link rel="alternate" href="https://www.esri.com/en-us/arcgis/products/arcgis-for-microsoft/overview" hreflang="x-default"/>
+
+
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@Esri"/>
+<meta name="twitter:title" content="ArcGIS for Microsoft | Geospatially Enabling Microsoft Platforms"/>
+<meta property="twitter:url" content="https://www.esri.com/en-us/arcgis/products/arcgis-for-microsoft/overview"/>
+<meta name="twitter:description" content="ArcGIS for Microsoft integrates geospatial data &amp; spatial analysis into Microsoft 365, Microsoft Fabric &amp; Microsoft Power Platform, enhancing workflows and decision-making."/>
+<meta property="twitter:image" content="https://www.esri.com/content/dam/esrisites/en-us/arcgis/products/arcgis-for-microsoft/overview/arcgis-microsoft-social-share.jpg"/>
+
+
+<meta property="fb:app_id" content="1703715456573377"/>
+<meta property="og:title" content="ArcGIS for Microsoft | Geospatially Enabling Microsoft Platforms"/>
+<meta property="og:url" content="https://www.esri.com/en-us/arcgis/products/arcgis-for-microsoft/overview"/>
+<meta property="og:description" content="ArcGIS for Microsoft integrates geospatial data &amp; spatial analysis into Microsoft 365, Microsoft Fabric &amp; Microsoft Power Platform, enhancing workflows and decision-making."/>
+<meta property="og:image" content="https://www.esri.com/content/dam/esrisites/en-us/arcgis/products/arcgis-for-microsoft/overview/arcgis-microsoft-social-share.jpg"/>
+<meta property="og:type" content="website"/>
+
+
+<meta name="date-sort" content="Tue, 01 Jul 2025 18:00:36 GMT"/>
+<meta name="last-modified" content="Tue, 01 Jul 2025 18:00:36 GMT"/>
+<meta name="created" content="Tue, 25 Feb 2025 00:33:36 GMT"/>
+
+
+
+
+
+
+
+
+    
+    <script type="application/ld+json">
+    {
+       "@context": "https://schema.org",
+       "@type": "WebPage",
+       "name": "ArcGIS for Microsoft | Geospatially Enabling Microsoft Platforms",
+        "sourceOrganization" : {
+            "@type": "Organization",
+            "name" : "Esri"
+            },
+            "url": "https://www.esri.com/en-us/arcgis/products/arcgis-for-microsoft/overview",
+            "image": "https://www.esri.com/content/dam/esrisites/en-us/arcgis/products/arcgis-for-microsoft/overview/microsoft-overview-fabric-tab.jpg",
+            "inLanguage" : {
+                "@type": "Language",
+                "name": "en-us"
+            },
+            "description":"ArcGIS for Microsoft integrates geospatial data &amp; spatial analysis into Microsoft 365, Microsoft Fabric &amp; Microsoft Power Platform, enhancing workflows and decision-making."
+        }
+    </script>
+
+
+
+
+
+    
+        <script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "FAQPage",
+"mainEntity": [
+   
+          {
+            "@type": "Question",
+            "name": "Do I need user types to access ArcGIS for Microsoft apps?",
+            "acceptedAnswer": {
+            "@type": "Answer",
+            "text": " <p>A user type can give you access to data from ArcGIS and enhanced functionality for ArcGIS for Excel, ArcGIS for Teams, and ArcGIS for SharePoint. A user type is required to use ArcGIS Connectors for Power Automate—ArcGIS Location Platform; ArcGIS Connectors for Power Automate—ArcGIS Enterprise; or ArcGIS Connectors for Power Automate—ArcGIS Online.&nbsp;</p>\r\n<p>User types provide role-based access to capabilities, apps, and content for ArcGIS. Please refer to the <a href=\"https://www.esri.com/en-us/arcgis/products/user-types/overview\">user types page</a> to learn about specific capabilities for each user type.</p>"
+            }
+          },
+    
+          {
+            "@type": "Question",
+            "name": "Do ArcGIS for Microsoft apps have to be installed separately?",
+            "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, each app must be installed separately, which allows for a more tailored and efficient deployment. Each app has its own installation process to ensure that the necessary capabilities can be integrated directly into the Microsoft apps already in use."
+            }
+          }
+    
+    ]
+    }
+    
+
+
+</script>
+    
+
+
+<!-- Sitelinks Search Box -->
+
+
+<!-- breadcrumb -->
+<script type="application/ld+json" id="breadcrumbs">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement":  [{"@type":"ListItem","position":1,"name":"ArcGIS","item":"/en-us/arcgis/geospatial-platform/overview"},{"@type":"ListItem","position":2,"name":"Products","item":"/en-us/arcgis/products/index"},{"@type":"ListItem","position":3,"name":"ArcGIS for Microsoft","item":"/en-us/arcgis/products/arcgis-for-microsoft/overview"},{"@type":"ListItem","position":4,"name":"Overview","item":"/en-us/arcgis/products/arcgis-for-microsoft/overview"}]
+ }
+</script>
+
+<meta name="format-detection" content="telephone=no"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="/etc.clientlibs/esri-sites/clientlibs/datalayer.js"></script>
+
+
+
+<script>
+  window.dataLayer = Object.assign({}, window.dataLayer, {
+    pageTitle: "Overview",
+    pageName: "Arcgis:Products:Arcgis For Microsoft:Overview",
+    pagePath: "/content/esri-sites/en-us/arcgis/products/arcgis-for-microsoft/overview",
+    pageType: "",
+    pageSubType: "",
+    metaOgTitle: "ArcGIS for Microsoft | Geospatially Enabling Microsoft Platforms",
+    metaOgUrl: "https://www.esri.com/en-us/arcgis/products/arcgis-for-microsoft/overview",
+    metaOgDescription: "ArcGIS for Microsoft integrates geospatial data &amp; spatial analysis into Microsoft 365, Microsoft Fabric &amp; Microsoft Power Platform, enhancing workflows and decision-making.",
+    metaOgImage: "https://www.esri.com/content/dam/esrisites/en-us/arcgis/products/arcgis-for-microsoft/overview/arcgis-microsoft-social-share.jpg",
+    datePublished: "",
+    domain: window.location.host,
+    environment: "crx3composite,nosamplecontent,publish,cloud\u002Dready",
+    hierarchy1: "Arcgis",
+    hierarchy2: "Products",
+    hierarchy3: "Arcgis For Microsoft",
+    hierarchy4: "",
+    locale: "en-us",
+    resourceType: "esri-sites/components/pages/editablecontentpage",
+    template: "/conf/esri-sites/settings/wcm/templates/esri-content-template",
+    language: "en",
+    countryCode: "us",
+    tags: "",
+  })
+</script>
+
+
+<script type="text/javascript">
+  window.storeVariables = Object.assign({}, window.storeVariables, {
+    eCommUrl: "https://www.esri.com/api/ecomm",
+    lookupUrl: "https://ecomm-api.esri.com/lookup",
+    accountsUrl: "https://www.esri.com/en-us/signin",
+    checkoutUrl: "https://www.esri.com/checkout",
+    cartUrl: "https://www.esri.com/en-us/store/cart",
+    customerNumberUrl: "https://www.esri.com/en-us/store/customer-number",
+  })
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="color theme" content="0079c1"/>
+
+<!-- /* Clientlibs */ -->
+
+    
+<link rel="stylesheet" href="/etc.clientlibs/esri-sites/clientlibs/components.css" type="text/css">
+
+
+
+
+	
+    
+    
+
+    
+
+    
+
+
+        <script type="text/javascript" src="//assets.adobedtm.com/2d251f50426c/e52f833be42a/launch-EN26af1ee4ef084984926fd80d1cb93835.min.js"></script>
+
+
+    
+    
+    
+    
+    
+
+
+	
+	
+</head>
+
+<body class="editablecontentpage page basicpage" id="editablecontentpage-82c0389019" data-instant-intensity="viewport">
+
+	
+
+
+
+
+
+	
+
+
+
+
+	
+<link rel="stylesheet" href="https://webapps-cdn.esri.com/CDN/components/global-nav/css/gn.css"/>
+<script src="https://webapps-cdn.esri.com/CDN/components/global-nav/js/gn.js"></script>
+<header id="globalnav" aria-label="Main" class="calcite-mode-light"></header>
+<main id="main-content">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="local-navigation aem-GridColumn aem-GridColumn--default--12">
+
+
+
+    <nav id="second-nav" domain="" navtype="newNavigation" path="/content/esri-sites/en-us/arcgis/products/arcgis-for-microsoft/overview"></nav>
+
+</div>
+<div class="hero-banner-global-v2 aem-GridColumn aem-GridColumn--default--12">
+ <link rel="stylesheet" href="/etc.clientlibs/esri-sites/components/content/hero-banner-global-v2/clientlibs.css" type="text/css">
+ <script src="/etc.clientlibs/clientlibs/granite/jquery/granite/csrf.js"></script>
+<script src="/etc.clientlibs/esri-sites/clientlibs/components.js"></script>
+<script src="/etc.clientlibs/esri-sites/components/content/hero-banner-global-v2/clientlibs.js"></script>
+ 
+
+
+
+
+
+
+<div class="hbg-container hbg-container--large calcite-mode-dark has-background has-background--img  has-background--cover " style="
+	--bg-gradient-end: var(--bg-color);;
+	--posX: center;
+	--posY: center;
+	">
+  <div class="hbg-container hbg-container--large">
+    
+      
+      <picture class="hbg-container--large--backgroundImage">
+        <source srcset="/is/image/esri/arcgis-microsoft-overview-banner-bg:43w?wid=840 840w, /is/image/esri/arcgis-microsoft-overview-banner-bg:43w?wid=1440 1440w, /is/image/esri/arcgis-microsoft-overview-banner-bg:215w?wid=2000 2000w" sizes="100vw"/>
+        <img alt fetchpriority="low" loading="lazy" class="hbg-container--large--backgroundImage" src="/content/dam/esrisites/en-us/arcgis/products/arcgis-for-microsoft/overview/arcgis-microsoft-overview-banner-bg.jpg"/>
+      </picture>
+      
+    
+
+    
+    
+
+    <div class="hbg-container--large--left">
+      <div class="hbg-container--content--large calcite-animate" data-animation="calcite-animate__in-up">
+        <div class="hbg-content">
+          <div class="esriText esri-text">
+
+    
+
+
+
+
+
+
+
+
+<div class="esri-text-container">
+	
+
+	
+
+	<h1 class="esri-text__title">ArcGIS for Microsoft</h1>
+
+	
+
+	<p class="esri-text__description ">Enhance your business decisions with location intelligence</p>
+</div>
+</div>
+
+        </div>
+        <div class="hbg-cta-buttons">
+          
+
+
+
+
+<!-- primary for video (if video then no other button)-->
+
+
+<!-- primary for no video -->
+
+  <a class="esri-ui-button esri-ui-button--brand esri-ui-button--solid  " href="https://www.esri.com/en-us/arcgis/products/arcgis-for-microsoft/get-started" data-component-link-placement="Primary-link - Get started" data-event="track-component" data-component-name="cta-buttons" data-link-type="internal" data-component-link-type="button" data-component-link="Get started">Get started</a>
+
+  <!-- secondary -->
+  
+
+  <!-- tertiary link -->
+  
+
+
+        </div>
+      </div>
+    </div>
+    <div class="hbg-container--large--right">
+      
+        <div class="hbg-container--large--foregroundImage">
+          
+          
+            <picture>
+              <source srcset="
+								/is/image/esri/arcgis-microsoft-overview-banner-fg:11w?wid=960&hei=960&amp;fmt=webp-alpha 960w,
+								/is/image/esri/arcgis-microsoft-overview-banner-fg:11w?wid=1200&hei=1200&amp;fmt=webp-alpha 1200w,
+								/is/image/esri/arcgis-microsoft-overview-banner-fg:11w?wid=1534&hei=1534&amp;fmt=webp-alpha 1534w,
+								/is/image/esri/arcgis-microsoft-overview-banner-fg:11w?wid=1400&hei=1400&amp;fmt=webp-alpha 1400w,
+								/is/image/esri/arcgis-microsoft-overview-banner-fg:11w?wid=2000&hei=2000&amp;fmt=webp-alpha 2000w" sizes="(max-width: 1023px) 90vw, (min-width: 1024px) and (max-width:1439px) 50vw, 700px"/>
+
+              <img loading="lazy" alt="Data visualization showing geographic clustering and network analysis shown by circles, data points, and connected lines" width="1400" height="1400" class="hbg-foregroundImage" data-aem-asset-id="8683d303-4bbe-48e4-8103-65acd98241ba" fetchpriority="high" src="/content/dam/esrisites/en-us/arcgis/products/arcgis-for-microsoft/overview/arcgis-microsoft-overview-banner-fg.png"/>
+            </picture>
+          
+          
+        </div>
+      
+
+      
+      
+    </div>
+  </div>
+</div>
+</div>
+<article class="media-split media-split__medium aem-GridColumn aem-GridColumn--default--12">
+    
+<link rel="stylesheet" href="/etc.clientlibs/esri-sites/components/content/media-split/clientlibs.css" type="text/css">
+
+
+
+
+
+	
+
+
+
+
+
+
+
+<div class="split calcite-animate split--swap" data-animation="calcite-animate__in-up">
+
+	<div class="split__copy">
+		<div class="split__copy--esritext">
+			<div class="esriText esri-text">
+
+    
+
+
+
+
+
+
+
+
+<div class="esri-text-container">
+	
+
+	
+
+	<h2 class="esri-text__title">Understand where things are and how they connect</h2>
+
+	
+
+	<p class="esri-text__description ">ArcGIS for Microsoft integrates geospatial data and location services into Microsoft platforms. It delivers mapping, visualization, spatial analysis, automation, and geospatial application development capabilities to Microsoft users.</p>
+</div>
+</div>
+
+			
+		</div>
+		<div class="split__copy--esritext">
+
+		</div>
+		
+	</div>
+
+	<div class="split__image">
+		
+			<div class="media-split-img">
+				
+<div data-cmp-is="image" data-cmp-widths="400,750,820,1440,1640,2160" data-cmp-dmimage data-cmp-src="https://www.esri.com/is/image/esri/arcgis-microsoft-understand-where?qlt=82&amp;wid=%7B.width%7D&amp;ts=1751392830146&amp;dpr=off" data-asset-id="dab3cd7d-8a4b-486c-b430-124548e02ed7" data-cmp-filereference="/content/dam/esrisites/en-us/arcgis/products/arcgis-for-microsoft/overview/arcgis-microsoft-understand-where.jpg" id="mediasplit-image-v3-d01304aae1" data-cmp-hook-image="imageV3" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject">
+    
+        <img src="https://www.esri.com/is/image/esri/arcgis-microsoft-understand-where?qlt=82&ts=1751392830146&dpr=off" srcset="https://www.esri.com/is/image/esri/arcgis-microsoft-understand-where?qlt=82&amp;wid=400&amp;ts=1751392830146&amp;dpr=off 400w,https://www.esri.com/is/image/esri/arcgis-microsoft-understand-where?qlt=82&amp;wid=750&amp;ts=1751392830146&amp;dpr=off 750w,https://www.esri.com/is/image/esri/arcgis-microsoft-understand-where?qlt=82&amp;wid=820&amp;ts=1751392830146&amp;dpr=off 820w,https://www.esri.com/is/image/esri/arcgis-microsoft-understand-where?qlt=82&amp;wid=1440&amp;ts=1751392830146&amp;dpr=off 1440w,https://www.esri.com/is/image/esri/arcgis-microsoft-understand-where?qlt=82&amp;wid=1640&amp;ts=1751392830146&amp;dpr=off 1640w,https://www.esri.com/is/image/esri/arcgis-microsoft-understand-where?qlt=82&amp;wid=2160&amp;ts=1751392830146&amp;dpr=off 2160w" loading="lazy" class="cmp-image__image" itemprop="contentUrl" width="2100" height="1575" sizes="(max-width: 820px) 100vw, 720px" alt=" Business professionals working around a table with inset images of sales data  with numbers and graphs and geographic maps"/>
+    
+    
+    
+</div>
+
+    
+
+
+				
+			</div>
+		
+		
+	</div>
+</div>
+</article>
+<div class="cards-container-v3 aem-GridColumn aem-GridColumn--default--12">
+
+
+
+	<link rel="stylesheet" href="/etc.clientlibs/esri-sites/components/layouts/cards-container-v3/clientlibs.css" type="text/css">
+<script defer src="/etc.clientlibs/esri-sites/components/layouts/cards-container-v3/clientlibs.js"></script>
+
+
+
+<div class="
+    padding-leader-2
+    padding-trailer-2
+    calcite-mode-light
+    has-background
+    has-background--color
+    
+    has-background--cover
+    " style="--bg-color: var(--esri-ui-background-default);  --bg-img: url(); --posX: center; --posY: center;  ;">
+    
+
+    
+    
+
+    
+    <div class="grid-container">
+    
+    
+        
+        
+        
+        
+        
+        
+        <div class="card-container-v3 card-container-v3--centered cardsPerRow-3 centered" data-author-mode="false">
+        
+        
+        
+            
+            <div class="container-v3 esri-text-container marginbottom50px ">
+                <h2 class="esri-text__title stylesystem ">Benefits of ArcGIS for Microsoft</h2>
+                
+                  
+            </div>
+            
+
+            
+            
+            
+            
+            
+            <ul class="no-list calcite-mode-light relatedLinkMatrix card-container-v3 card-container-v3--centered cardsPerRow-3 centered" data-author-mode="false">
+            
+            
+                <!-- Start Component Parsys -->
+                
+
+
+
+
+    
+    
+    <li class="block">
+ <link rel="stylesheet" href="/etc.clientlibs/esri-sites/components/content/text-link-stack-icon/clientlibs.css" type="text/css">
+ 
+
+
+
+<article class="esri-text--card text-link-stack-icon calcite-animate calcite-mode-light" calcite-animate="true" data-animation="calcite-animate__in-up">
+  
+
+  <div class="text-link-stack-icon-wrapper">
+    <div class="esri-text__iconContainer">
+      
+
+      
+
+      
+
+      
+      
+        <span><svg id="icon-ui-svg" class="icon-ui-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M35.285 29.9h-15.57a8.417 8.417 0 0 1-.305-.8h3.807c.013-.044.028-.083.04-.128a3.197 3.197 0 0 1 .339-.872c.318-.519-.17-1.063-.95-1.834-.6-.595-1.168-1.156-1.112-1.814.162-1.888 1.434-2.385 2.556-2.824a3.556 3.556 0 0 0 1.637-.987.426.426 0 0 0 .057-.174c.107-.636.615-2.09 2.96-1.891a2.384 2.384 0 0 0 1.298-.187 8.426 8.426 0 0 1 .881.337 2.693 2.693 0 0 1-2.247.647c-1.243-.106-1.95.304-2.103 1.226a1.16 1.16 0 0 1-.208.524 4.193 4.193 0 0 1-1.984 1.25c-1.078.422-1.93.755-2.05 2.148-.024.284.477.778.878 1.176.776.767 1.742 1.722 1.068 2.821a2.237 2.237 0 0 0-.224.582H35.59a8.417 8.417 0 0 1-.305.8zm-21.028-.8c.053.271.125.535.194.8H.1V.1h37.8v17.803a13.61 13.61 0 0 0-.8-.88V7.363c-.012.003-.021.01-.033.012a2.875 2.875 0 0 1-1.092.004 2.14 2.14 0 0 0-.825-.005 1.058 1.058 0 0 0-.669 1.241l.253 1.054a2.337 2.337 0 0 1-.468 1.872c-.42.686-.722 1.181.195 2.251l.303.35a1.088 1.088 0 0 1 .203.504 2.83 2.83 0 0 1 .053.648c-.272-.184-.557-.35-.843-.513a1.017 1.017 0 0 0-.042-.148l-.281-.321a2.278 2.278 0 0 1-.271-3.188 1.595 1.595 0 0 0 .374-1.268l-.253-1.054a1.844 1.844 0 0 1 1.241-2.201 2.835 2.835 0 0 1 1.134-.015 2.2 2.2 0 0 0 .802.011.855.855 0 0 0 .219-.109V.9H22.918a3.41 3.41 0 0 1-1.493 3.869 3.494 3.494 0 0 0-1.236 1.482c-.455.808-.97 1.723-2.188 1.723a2.398 2.398 0 0 1-1.505-.634 1.683 1.683 0 0 0-1.018-.471 1.048 1.048 0 0 0-.943 1.098c0 1.386-1.108 3.398-2.846 3.398a2.353 2.353 0 0 1-2.243-1.153c-.512-.917-.845-1.45-1.543-1.45a1.502 1.502 0 0 0-1.414 1.574 3.3 3.3 0 0 0 .144.882 4.064 4.064 0 0 1 .17 1.09 3.296 3.296 0 0 1-.52 1.649 2.548 2.548 0 0 0-.424 1.27c0 .435.488.703.94.703a2.549 2.549 0 0 0 1.021-.228 2.824 2.824 0 0 1 1.464-.243c1.009.102 1.386 1.266 1.386 1.977a3.398 3.398 0 0 1-1.321 2.323c-.895.893-1.415 1.497-.852 2.623.128.255.814.415 1.364.543 1.063.249 2.386.558 2.386 1.847a2.475 2.475 0 0 0 .135.694 1.832 1.832 0 0 1 .075 1.147 3.436 3.436 0 0 1-.62.969 2.161 2.161 0 0 0-.636 1.212 2.12 2.12 0 0 1 .064.216l.024.091zM.9 29.1h9.56a1.276 1.276 0 0 1-.06-.307 2.794 2.794 0 0 1 .815-1.713 2.907 2.907 0 0 0 .486-.73 1.198 1.198 0 0 0-.087-.66 3.161 3.161 0 0 1-.168-.92c0-.608-.699-.817-1.767-1.066-.824-.193-1.6-.375-1.897-.965-.85-1.699.177-2.724 1.002-3.547.558-.557 1.085-1.083 1.085-1.757 0-.298-.157-1.13-.666-1.181a2.054 2.054 0 0 0-1.093.192 3.295 3.295 0 0 1-1.311.283 1.625 1.625 0 0 1-1.74-1.502 3.307 3.307 0 0 1 .521-1.654 2.538 2.538 0 0 0 .423-1.267 3.281 3.281 0 0 0-.145-.886 4.03 4.03 0 0 1-.17-1.085A2.302 2.302 0 0 1 7.904 7.96c1.203 0 1.74.963 2.215 1.813a1.59 1.59 0 0 0 1.572.79c1.249 0 2.044-1.706 2.044-2.598a1.85 1.85 0 0 1 1.744-1.898 2.392 2.392 0 0 1 1.502.633A1.689 1.689 0 0 0 18 7.173c.716 0 1.019-.475 1.491-1.316a4.155 4.155 0 0 1 1.552-1.793c1.23-.665 1.26-1.939 1.058-3.164H.9zm28-6.1a.9.9 0 1 1-.9-.9.901.901 0 0 1 .9.9zm-.8 0a.1.1 0 1 0-.2 0c0 .11.2.11.2 0zM25.9 6a.9.9 0 1 1-.9-.9.901.901 0 0 1 .9.9zm-.8 0a.1.1 0 1 0-.2 0c0 .11.2.11.2 0zm3.8 2a.9.9 0 1 1-.9-.9.901.901 0 0 1 .9.9zm-.8 0a.1.1 0 1 0-.2 0c0 .11.2.11.2 0zm-7.2 3a.9.9 0 1 1-.9-.9.901.901 0 0 1 .9.9zm-.8 0a.1.1 0 1 0-.2 0c0 .11.2.11.2 0zm12 14a.9.9 0 1 1 .9.9.901.901 0 0 1-.9-.9zm.8 0c0 .11.2.11.2 0a.1.1 0 1 0-.2 0z" id="icon-ui-svg--base"/><path d="M47.466 44.348l-8.915-8.914-.745.746-1.95-1.95a11.412 11.412 0 1 0-1.727 1.526l2.051 2.05-.745.747 8.913 8.912a1.483 1.483 0 0 0 2.097 0l1.02-1.02a1.484 1.484 0 0 0 0-2.097zM16.9 26.5a10.6 10.6 0 1 1 10.6 10.6 10.612 10.612 0 0 1-10.6-10.6zm17.874 8.769c.18-.15.348-.311.519-.471l1.947 1.948-.494.495zM46.9 45.879l-1.02 1.02a.699.699 0 0 1-.965 0l-8.349-8.346 1.986-1.987 8.348 8.348a.683.683 0 0 1 0 .965z" id="icon-ui-svg--primary"/></svg></span>
+      
+    </div>
+
+    <div class="contentarea esri-text-container">
+      <h3 class="esri-text__title">Enrich your data with geospatial insights</h3>
+      <div class="esri-text__description trailer-1 richtext-container"><p>Enhance Microsoft 365, Microsoft Fabric, and Power Automate workflows with different types of geospatial data, including lifestyle, spending, and demographic data.</p>
+</div>
+
+      <div class="bottom-link">
+        <div class="esri-button-wrapper">
+          
+        </div>
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</article>
+</li>
+
+
+    
+    
+    <li class="block">
+  
+
+
+
+<article class="esri-text--card text-link-stack-icon calcite-animate calcite-mode-light" calcite-animate="true" data-animation="calcite-animate__in-up">
+  
+
+  <div class="text-link-stack-icon-wrapper">
+    <div class="esri-text__iconContainer">
+      
+
+      
+
+      
+
+      
+      
+        <span><svg xmlns="http://www.w3.org/2000/svg" id="icon-ui-svg" class="icon-ui-svg" viewBox="0 0 48 48"><path id="icon-ui-svg--base" d="m15.27 18.96.7.39c-.4.73-.7 1.52-.88 2.33-.19-.04-.39-.06-.59-.06-.07 0-.14 0-.21.01.19-.94.52-1.84.98-2.67M23.5 32.9c.17 0 .24 0 .39-.01l.01-.4-.05-.4c-.14.01-.2.01-.35.01-3.45 0-6.43-2.04-7.8-4.98-.24.11-.5.19-.77.23 1.47 3.27 4.76 5.55 8.57 5.55m-13.4-9.4c0 .59.04 1.18.12 1.75q.375-.165.78-.21a12.474 12.474 0 0 1 2.05-8.57l-.67-.44a13.3 13.3 0 0 0-2.28 7.47m2.81 8.2c2.45 3.16 6.29 5.2 10.59 5.2.15 0 .22 0 .35-.01l.05-.4-.08-.4c-.12.01-.18.01-.32.01-4.01 0-7.59-1.88-9.9-4.81-.21.17-.44.3-.69.41M6.45 20h.05c.26 0 .52.03.76.08.48-2.33 1.46-4.51 2.91-6.46l-.64-.48A17.15 17.15 0 0 0 6.45 20m8.42 18.6q.135-.39.36-.72a16.62 16.62 0 0 1-7.97-10.97c-.24.06-.5.09-.76.09h-.05c1.02 4.96 4.16 9.16 8.42 11.6m8.63 1.5c-1.04 0-2.05-.1-3.03-.28-.04.27-.1.53-.2.78 1.04.2 2.13.3 3.23.3.16 0 .23 0 .37-.01l.03-.4-.05-.4c-.14.01-.2.01-.35.01M43.94 21h.81C43.61 11.19 35.81 3.39 26 2.25v.81C35.37 4.19 42.81 11.63 43.94 21M26 43.94v.81c9.81-1.14 17.61-8.94 18.75-18.75h-.81C42.81 35.37 35.37 42.81 26 43.94M21 3.06v-.81C11.18 3.39 3.38 11.21 2.25 21.03h.81C4.17 11.65 11.62 4.19 21 3.06M3.06 26.03h-.8C3.41 35.82 11.2 43.61 21 44.75v-.81c-9.36-1.13-16.8-8.56-17.94-17.91M25.5 10.275a.776.776 0 1 0-.001-1.552.776.776 0 0 0 .001 1.552m7.775 3.225a.776.776 0 1 0-1.551.002.776.776 0 0 0 1.551-.002M30.5 37.275a.776.776 0 1 0-.001-1.552.776.776 0 0 0 .001 1.552M16.825 39.5a.776.776 0 1 0 1.552-.002.776.776 0 0 0-1.552.002m-3.1-15a.776.776 0 1 0 1.551-.002.776.776 0 0 0-1.551.002m12.576-1c0 1.544-1.257 2.8-2.801 2.8s-2.8-1.256-2.8-2.8c0-.628.214-1.202.565-1.67L11.217 11.784l.566-.566 10.048 10.048A2.78 2.78 0 0 1 23.5 20.7c1.544 0 2.8 1.256 2.8 2.8m-.801 0c0-1.103-.897-2-2-2s-2 .897-2 2 .897 2 2 2 2-.897 2-2M23.9 0h-.8v3h.8zM44 23.1v.8h3v-.8zM23.1 47h.8v-3h-.8zM3.03 23.131h-3v.8h3zm26.87-6.631c0 .772-.63 1.4-1.401 1.4s-1.4-.628-1.4-1.4.629-1.4 1.4-1.4 1.4.628 1.4 1.4m-.801 0a.6.6 0 1 0-1.2 0 .6.6 0 0 0 1.2 0m2 15c0-.772.629-1.4 1.4-1.4s1.4.628 1.4 1.4-.629 1.4-1.4 1.4-1.4-.628-1.4-1.4m.8 0a.6.6 0 1 0 1.2 0 .6.6 0 0 0-1.2 0M6.5 24.9c-.771 0-1.4-.628-1.4-1.4s.629-1.4 1.4-1.4 1.4.628 1.4 1.4-.629 1.4-1.4 1.4m0-.8a.6.6 0 1 0-.001-1.2.6.6 0 0 0 .001 1.2m5 5.8c-.771 0-1.4-.628-1.4-1.4s.629-1.4 1.4-1.4 1.4.628 1.4 1.4-.629 1.4-1.4 1.4m0-.8a.6.6 0 1 0-.001-1.2.6.6 0 0 0 .001 1.2m24-10c.771 0 1.4.628 1.4 1.4s-.629 1.4-1.4 1.4-1.4-.628-1.4-1.4.629-1.4 1.4-1.4m0 .8a.6.6 0 1 0 .001 1.2.6.6 0 0 0-.001-1.2"/></svg></span>
+      
+    </div>
+
+    <div class="contentarea esri-text-container">
+      <h3 class="esri-text__title">Integrate location intelligence into Microsoft platforms</h3>
+      <div class="esri-text__description trailer-1 richtext-container"><p>Empower your team to visualize and analyze geospatial data of any scale to gain a deeper understanding of where things are, their relationships, and the underlying patterns.</p>
+</div>
+
+      <div class="bottom-link">
+        <div class="esri-button-wrapper">
+          
+        </div>
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</article>
+</li>
+
+
+    
+    
+    <li class="block">
+  
+
+
+
+<article class="esri-text--card text-link-stack-icon calcite-animate calcite-mode-light" calcite-animate="true" data-animation="calcite-animate__in-up">
+  
+
+  <div class="text-link-stack-icon-wrapper">
+    <div class="esri-text__iconContainer">
+      
+
+      
+
+      
+
+      
+      
+        <span><svg id="icon-ui-svg" class="icon-ui-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M15.714 27.742c-.179.251-.357.504-.527.763a9.899 9.899 0 1 1 9.686 5.356c-.295.027-.59.04-.88.04a9.832 9.832 0 0 1-4.428-1.053c.134-.234.264-.471.407-.698a9.008 9.008 0 0 0 4.83.914 9.1 9.1 0 0 0-.795-18.165c-.268 0-.538.012-.81.037a9.077 9.077 0 0 0-7.483 12.806zm29.344-4.29l.175-.148-.876-5.022-.218-.078a10.016 10.016 0 0 0-4.372-.619l-1.973-3.46a10.329 10.329 0 0 0 1.652-4.157l.041-.226-3.856-3.278-.22.084a10.115 10.115 0 0 0-3.74 2.378l-3.692-1.36a10.366 10.366 0 0 0-1.367-4.261l-.114-.205-5.036.005-.114.205a10.362 10.362 0 0 0-1.357 4.263L16.3 8.941a10.103 10.103 0 0 0-3.744-2.37l-.221-.084-3.85 3.287.041.227a10.376 10.376 0 0 0 1.661 4.153l-1.964 3.464a10.028 10.028 0 0 0-4.371.628l-.218.08-.867 5.022.176.147a10.101 10.101 0 0 0 3.9 2.099l.69 3.94a10.244 10.244 0 0 0-2.954 3.331l-.114.2L6.98 37.48l.235-.002c.933-.007 3.578-.229 4.6-1.15l-.536-.594c-.654.59-2.586.896-3.838.939L5.39 33.069c.66-1.08 1.89-2.636 2.72-2.919l.324-.11-.914-5.233-.346.01h-.03c-.882 0-2.535-1.016-3.51-1.79l.71-4.104c1.188-.397 3.108-.784 3.923-.46l.324.129 2.614-4.608-.265-.214c-.686-.553-1.322-2.443-1.582-3.689l3.135-2.676c1.163.474 2.878 1.43 3.297 2.211l.165.307 4.929-1.827-.068-.335c-.176-.874.53-2.733 1.12-3.857l4.091-.004c.592 1.122 1.302 2.98 1.128 3.855l-.066.335 4.933 1.817.163-.307c.417-.782 2.13-1.742 3.292-2.218l3.14 2.669c-.257 1.247-.887 3.137-1.574 3.691l-.265.214 2.624 4.604.324-.13c.815-.325 2.735.058 3.924.452l.716 4.102c-.984.787-2.619 1.808-3.535 1.797l-.345-.009-.904 5.236.324.11c.832.28 2.064 1.833 2.726 2.913l-2.047 3.609c-1.252-.042-3.185-.345-3.84-.932l-.26-.233-4.013 3.424.176.291c.46.76.421 2.755.245 4.017l-3.843 1.425c-.935-.849-2.226-2.345-2.357-3.227l-.05-.342-5.248.006-.05.342c-.13.882-1.417 2.38-2.35 3.23l-3.928-1.45c-1.549-8.668 4.839-17.646 11.487-19.9l-1.573 4.426.753.267 1.971-5.544-5.346-2.307-.316.734 4.033 1.74a18.553 18.553 0 0 0-8.779 7.39 18.459 18.459 0 0 0-2.974 13.566l.043.221 4.8 1.773.178-.155a10.225 10.225 0 0 0 2.712-3.534l3.928-.004a10.232 10.232 0 0 0 2.72 3.529l.178.154 4.727-1.753.038-.229a10.412 10.412 0 0 0-.162-4.479l3.011-2.57a10.041 10.041 0 0 0 4.317.928l.235.001 2.508-4.42-.116-.199A10.203 10.203 0 0 0 40.48 29.5l.681-3.94a10.135 10.135 0 0 0 3.897-2.107z" id="icon-ui-svg--base"/></svg></span>
+      
+    </div>
+
+    <div class="contentarea esri-text-container">
+      <h3 class="esri-text__title">Incorporate no-code/low-code spatial automation</h3>
+      <div class="esri-text__description trailer-1 richtext-container"><p>Seamlessly integrate ArcGIS capabilities into Power Automate workflows, streamlining process automation while minimizing the need for IT resources and advanced coding skills.</p>
+</div>
+
+      <div class="bottom-link">
+        <div class="esri-button-wrapper">
+          
+        </div>
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</article>
+</li>
+
+
+    
+    
+    <li class="block">
+  
+
+
+
+<article class="esri-text--card text-link-stack-icon calcite-animate calcite-mode-light" calcite-animate="true" data-animation="calcite-animate__in-up">
+  
+
+  <div class="text-link-stack-icon-wrapper">
+    <div class="esri-text__iconContainer">
+      
+
+      
+
+      
+
+      
+      
+        <span><svg xmlns="http://www.w3.org/2000/svg" id="icon-ui-svg" class="icon-ui-svg" viewBox="0 0 48 48"><path id="icon-ui-svg--base" d="M29.756 23.9H2C.952 23.9.1 23.048.1 22v-1.9h4V2.5C4.1 1.177 5.177.1 6.5.1h26c1.323 0 2.4 1.077 2.4 2.4v9.32q-.418.277-.8.59V2.5c0-.882-.718-1.6-1.6-1.6h-26c-.882 0-1.6.718-1.6 1.6v17.6h12v.4a.6.6 0 0 0 .6.6h5a.6.6 0 0 0 .6-.6v-.4h7.903c.027.265.057.531.105.8h-7.266c-.173.578-.71 1-1.342 1h-5c-.633 0-1.17-.422-1.342-1H.9V22c0 .606.494 1.1 1.1 1.1h28.713zM18 8.9v-.8h-4v.8zM8 8.1v.8h.606l4.2-2.4-4.2-2.4H8v.8h.394l2.8 1.6-2.8 1.6zm7.5 34c-.772 0-1.4.629-1.4 1.4s.628 1.4 1.4 1.4 1.4-.629 1.4-1.4-.629-1.4-1.4-1.4m0 2a.6.6 0 1 1 0-1.2.6.6 0 0 1 0 1.2m32.233-26.017a.52.52 0 0 0-.574.073l-4.895 4.306-3.475-1.217-.905-3.82 5.624-4.33a.517.517 0 0 0-.228-.924c-3.405-.564-6.706.429-8.62 2.589-1.565 1.768-2.014 4.151-1.264 6.709a2.71 2.71 0 0 1-.861 2.843l-20.293 16.98a3.88 3.88 0 0 0-1.142 2.759c0 2.15 1.75 3.9 3.9 3.9 1.04 0 2.02-.406 2.768-1.154L35.695 27.43a2.7 2.7 0 0 1 2.747-.762c2.043.596 4.01.3 5.69-.849 2.129-1.456 3.6-4.225 3.868-7.231a.51.51 0 0 0-.267-.506M43.68 25.16c-1.475 1.01-3.209 1.266-5.015.741a3.49 3.49 0 0 0-3.557.987L17.192 46.242A3.08 3.08 0 0 1 15 47.15a3.103 3.103 0 0 1-2.218-5.268l20.266-16.956a3.51 3.51 0 0 0 1.116-3.682c-.68-2.318-.301-4.377 1.095-5.954 1.407-1.588 3.663-2.475 6.14-2.475q.539 0 1.089.057l-5.502 4.235 1.125 4.747 4.33 1.518 4.689-4.124c-.4 2.482-1.684 4.704-3.45 5.912"/></svg></span>
+      
+    </div>
+
+    <div class="contentarea esri-text-container">
+      <h3 class="esri-text__title">Enhance app functionality with location services</h3>
+      <div class="esri-text__description trailer-1 richtext-container"><p>Developers can build robust geospatial and location intelligence applications for both desktop and mobile platforms using ArcGIS Maps SDK for .NET, driving innovation with comprehensive location-based mapping solutions.</p>
+</div>
+
+      <div class="bottom-link">
+        <div class="esri-button-wrapper">
+          
+        </div>
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</article>
+</li>
+
+
+    
+    
+    <li class="block">
+  
+
+
+
+<article class="esri-text--card text-link-stack-icon calcite-animate calcite-mode-light" calcite-animate="true" data-animation="calcite-animate__in-up">
+  
+
+  <div class="text-link-stack-icon-wrapper">
+    <div class="esri-text__iconContainer">
+      
+
+      
+
+      
+
+      
+      
+        <span><svg id="icon-ui-svg" class="icon-ui-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M44.9 38.5a3.34 3.34 0 0 0-3.95-3.345l-4.77-16.512A2.901 2.901 0 0 0 37.9 16a2.868 2.868 0 0 0-.419-1.478l9.482-7.608-.5-.623-9.479 7.605a2.893 2.893 0 0 0-4.369 3.748l-4.813 4.411a6.864 6.864 0 0 0-7.591-1.361l-4.36-8.488a4.389 4.389 0 1 0-4.926-7.257L7.339.852l-.602.527 3.584 4.095a4.376 4.376 0 0 0 1.577 7.114l-2.484 8.554A2.86 2.86 0 0 0 9 21.1 2.905 2.905 0 0 0 6.1 24a2.872 2.872 0 0 0 .594 1.74L.217 32.216l.566.566 6.478-6.477a2.87 2.87 0 0 0 4.453-1.315l4.474.959a6.751 6.751 0 0 0 1.665 5.63l-5.26 5.26a3.366 3.366 0 0 0-2.093-.74 3.4 3.4 0 1 0 0 6.8l.024-.002.58 4.616.793-.1-.58-4.624a3.368 3.368 0 0 0 1.842-5.383l5.26-5.26a6.872 6.872 0 0 0 10.214-1.175l9.797 6.09a3.363 3.363 0 0 0-.33 1.438 3.404 3.404 0 0 0 3.4 3.4 3.357 3.357 0 0 0 1.1-.198l1.515 3.138.72-.348-1.51-3.132A3.394 3.394 0 0 0 44.9 38.5zM35 13.9a2.1 2.1 0 1 1-2.1 2.1 2.101 2.101 0 0 1 2.1-2.1zM9.9 8.5a3.6 3.6 0 1 1 3.6 3.6 3.603 3.603 0 0 1-3.6-3.6zM9 26.1a2.1 2.1 0 1 1 2.1-2.1A2.101 2.101 0 0 1 9 26.1zm2.88-1.893c.004-.07.02-.136.02-.207a2.901 2.901 0 0 0-1.717-2.642l2.48-8.542a4.266 4.266 0 0 0 2.48-.24l4.359 8.487a6.919 6.919 0 0 0-3.147 4.103zM10.5 42.1a2.6 2.6 0 1 1 2.6-2.6 2.602 2.602 0 0 1-2.6 2.6zm12.5-9a6.1 6.1 0 1 1 6.1-6.1 6.107 6.107 0 0 1-6.1 6.1zm6.06-2.804a6.883 6.883 0 0 0-.715-7.653l4.819-4.417a2.666 2.666 0 0 0 2.245.633l4.769 16.508a3.405 3.405 0 0 0-1.32 1.02zM41.5 41.1a2.6 2.6 0 1 1 2.6-2.6 2.602 2.602 0 0 1-2.6 2.6z" id="icon-ui-svg--base"/></svg></span>
+      
+    </div>
+
+    <div class="contentarea esri-text-container">
+      <h3 class="esri-text__title">Support cross-platform spatial data collaboration</h3>
+      <div class="esri-text__description trailer-1 richtext-container"><p>Enable collaboration on geospatial data and applications from a familiar Microsoft environment, reducing cross-platform switches and boosting productivity.</p>
+</div>
+
+      <div class="bottom-link">
+        <div class="esri-button-wrapper">
+          
+        </div>
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</article>
+</li>
+
+
+    
+    
+    <li class="block">
+  
+
+
+
+<article class="esri-text--card text-link-stack-icon calcite-animate calcite-mode-light" calcite-animate="true" data-animation="calcite-animate__in-up">
+  
+
+  <div class="text-link-stack-icon-wrapper">
+    <div class="esri-text__iconContainer">
+      
+
+      
+
+      
+
+      
+      
+        <span><svg id="icon-ui-svg" class="icon-ui-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M23.483 12.058c-4.671 0-9.4 1.003-9.4 2.919v14.037c0 1.916 4.729 2.92 9.4 2.92s9.4-1.004 9.4-2.92V14.977c0-1.916-4.728-2.919-9.4-2.919zm0 19.075c-5.328 0-8.6-1.234-8.6-2.12V21.33c1.542 1.096 5.087 1.664 8.6 1.664s7.059-.568 8.6-1.664v7.684c0 .885-3.271 2.12-8.6 2.12zm0-8.939c-5.328 0-8.6-1.234-8.6-2.12v-3.59c2.03 1.331 7.338 1.416 8.6 1.416s6.57-.085 8.6-1.417v3.592c0 .885-3.271 2.12-8.6 2.12zm0-5.094c-5.866 0-8.6-1.09-8.6-1.825v-.298c0-.885 3.272-2.12 8.6-2.12s8.6 1.235 8.6 2.12v.298c0 .736-2.733 1.825-8.6 1.825zm17.098-7.599l-.11-1.216-1.222-.062c-6.769-.34-11.608-1.928-14.796-4.857L23.5 2.49l-.953.876C19.36 6.295 14.52 7.884 7.751 8.223l-1.221.062L6.42 9.5c-1.13 12.431-.064 26.35 16.406 35.334l.674.368.674-.368c16.47-8.984 17.536-22.903 16.407-35.334zM23.792 44.133l-.292.158-.292-.158C7.146 35.37 6.11 21.746 7.216 9.573l.048-.525.528-.027c6.961-.348 11.965-2.005 15.296-5.066l.412-.378.412.378c3.33 3.06 8.335 4.718 15.296 5.066l.528.027.048.526c1.106 12.172.07 25.796-15.992 34.559z" id="icon-ui-svg--base"/></svg></span>
+      
+    </div>
+
+    <div class="contentarea esri-text-container">
+      <h3 class="esri-text__title">Securely share geospatial data within the Microsoft environment</h3>
+      <div class="esri-text__description trailer-1 richtext-container"><p>Facilitate secure and seamless sharing of data through robust identity and access management, as well as role enforcement, to manage who can access your organization’s data and assets. </p>
+</div>
+
+      <div class="bottom-link">
+        <div class="esri-button-wrapper">
+          
+        </div>
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</article>
+</li>
+
+
+
+                <!-- End Component Parsys -->
+            </ul>
+            
+            
+
+            
+
+            
+            <div class="card-container-v3_i18n">
+                <div class="card-container-v3_i18n-previous">Previous</div>
+                <div class="card-container-v3_i18n-next">Next</div>
+            </div>
+
+            
+            
+                
+                    <button class="paginate-container" hidden data-paginate="false">
+                      <span>Show More</span> <calcite-icon icon="chevron-down"/>
+                    </button>
+						        <calcite-pagination class="paginate-container" page-size="" start-item="1" total-items="" hidden data-paginate-calcite="false" scale="m" calcite-hydrated=""></calcite-pagination>
+                
+            
+            
+
+            
+            
+        </div>
+    </div>
+</div>
+</div>
+<div class="calcite-container centered-text text-center aem-GridColumn aem-GridColumn--default--12">
+
+
+
+
+<div class="
+  leader-0
+  trailer-0
+  padding-leader-2
+  padding-trailer-0
+  has-background
+  has-background--
+  
+  has-background--cover
+  
+  " style=" ;
+     ;
+    --bg-img: url();
+    --bg-img-position: center center;
+     ;">
+
+  <div class="grid-container ">
+    
+
+    
+    
+    
+    <div id="container-7cbd16fa96" class="cmp-container">
+        
+        <div class="esri-text">
+
+    
+
+
+
+
+
+
+
+
+<div class="esri-text-container">
+	
+
+	
+
+	<h2 class="esri-text__title">ArcGIS for Microsoft integrations</h2>
+
+	
+
+	
+</div>
+</div>
+
+        
+    </div>
+
+
+  </div>
+</div>
+
+
+</div>
+<div class="calcite-container aem-GridColumn aem-GridColumn--default--12">
+
+
+
+
+<div class="
+  leader-0
+  trailer-0
+  padding-leader-1
+  padding-trailer-2
+  has-background
+  has-background--
+  
+  
+  
+  " style=" ;
+     ;
+    --bg-img: url();
+    --bg-img-position: center center;
+     ;">
+
+  <div class="grid-container ">
+    
+
+    
+    
+    
+    <div id="container-8aa03de98a" class="cmp-container">
+        
+        <div data-cmp-is="tabs" class="esri-tabs tab-icons">
+<div id="tabs-10e663ccc1" class="cmp-tabs" data-cmp-is="tabs" data-placeholder-text="false">
+    <ol role="tablist" class="cmp-tabs__tablist" aria-multiselectable="false">
+        
+        <li role="tab" id="tabs-10e663ccc1-item-a96c421645-tab" class="cmp-tabs__tab cmp-tabs__tab--active" aria-controls="tabs-10e663ccc1-item-a96c421645-tabpanel" tabindex="0" data-cmp-hook-tabs="tab">ArcGIS for Microsoft 365</li>
+    
+        
+        <li role="tab" id="tabs-10e663ccc1-item-d3735ede92-tab" class="cmp-tabs__tab" aria-controls="tabs-10e663ccc1-item-d3735ede92-tabpanel" tabindex="-1" data-cmp-hook-tabs="tab">ArcGIS for Microsoft Fabric</li>
+    
+        
+        <li role="tab" id="tabs-10e663ccc1-item-9c60032bcb-tab" class="cmp-tabs__tab" aria-controls="tabs-10e663ccc1-item-9c60032bcb-tabpanel" tabindex="-1" data-cmp-hook-tabs="tab">ArcGIS for Power Platform</li>
+    
+        
+        <li role="tab" id="tabs-10e663ccc1-item-045c39af35-tab" class="cmp-tabs__tab" aria-controls="tabs-10e663ccc1-item-045c39af35-tabpanel" tabindex="-1" data-cmp-hook-tabs="tab">ArcGIS Maps SDK for .NET</li>
+    
+        
+        <li role="tab" id="tabs-10e663ccc1-item-1c8d5cc1bc-tab" class="cmp-tabs__tab" aria-controls="tabs-10e663ccc1-item-1c8d5cc1bc-tabpanel" tabindex="-1" data-cmp-hook-tabs="tab">ArcGIS Enterprise and Azure</li>
+    
+        
+        <li role="tab" id="tabs-10e663ccc1-item-fc7241e022-tab" class="cmp-tabs__tab" aria-controls="tabs-10e663ccc1-item-fc7241e022-tabpanel" tabindex="-1" data-cmp-hook-tabs="tab">ArcGIS Pro and Azure</li>
+    </ol>
+    <div id="tabs-10e663ccc1-item-a96c421645-tabpanel" role="tabpanel" aria-labelledby="tabs-10e663ccc1-item-a96c421645-tab" tabindex="0" class="cmp-tabs__tabpanel cmp-tabs__tabpanel--active" data-cmp-hook-tabs="tabpanel" data-cmp-data-layer="{&#34;tabs-10e663ccc1-item-a96c421645&#34;:{&#34;@type&#34;:&#34;esri-sites/components/core/tabs/item&#34;,&#34;dc:title&#34;:&#34;ArcGIS for Microsoft 365&#34;}}"><div class="responsivegrid">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="esri-image tab--icon aem-GridColumn aem-GridColumn--default--12">
+<div data-cmp-is="image" data-cmp-lazy data-cmp-lazythreshold="0" data-cmp-src="https://www.esri.com/is/content/esri/arcgis-for-microsoft-365-glyph-48?ts=1751392831592&amp;dpr=off" data-cmp-dmimage data-asset="/content/dam/esrisites/en-us/common/icons/meridian-/arcgis-for-microsoft-365-glyph-48.svg" data-asset-id="40b3d8cd-4cfb-4d17-9c0a-94174ece0473" id="image-c710a29c96" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject">
+    
+        <noscript data-cmp-hook-image="noscript">
+            
+            <img src="https://www.esri.com/is/content/esri/arcgis-for-microsoft-365-glyph-48?ts=1751392831592&dpr=off" class="cmp-image__image" itemprop="contentUrl" data-cmp-hook-image="image" alt/>
+            
+        </noscript>
+    
+    
+    
+</div>
+
+    
+
+</div>
+<article class="media-split media-split__small aem-GridColumn aem-GridColumn--default--12">
+    
+
+
+
+
+
+	
+
+
+
+
+
+
+
+<div class="split calcite-animate split--swap" data-animation="calcite-animate__in-up">
+
+	<div class="split__copy">
+		<div class="split__copy--esritext">
+			<div class="esriText esri-text">
+
+    
+
+
+
+
+
+
+
+
+<div class="esri-text-container">
+	
+
+	
+
+	<h3 class="esri-text__title">ArcGIS for Microsoft 365</h3>
+
+	
+
+	<p class="esri-text__description ">ArcGIS for Microsoft 365 integrates location analytics and provides access to spatially enabled apps and data in familiar Microsoft 365 applications. It enables everyone in your organization to visualize and analyze content geographically and gain insights from location intelligence.</p>
+</div>
+</div>
+
+			
+		</div>
+		<div class="split__copy--esritext">
+
+		</div>
+		<div class="split__copy--ctabuttons">
+			
+
+
+
+
+<!-- primary for video (if video then no other button)-->
+
+
+<!-- primary for no video -->
+
+  <a class="esri-ui-button esri-ui-button--brand esri-ui-button--outline  " href="https://www.esri.com/en-us/arcgis/products/arcgis-for-microsoft/arcgis-for-microsoft-365" data-component-link-placement="Primary-link - Explore ArcGIS for Microsoft 365" data-event="track-component" data-component-name="cta-buttons" data-link-type="internal" data-component-link-type="button" data-component-link="Explore ArcGIS for Microsoft 365">Explore ArcGIS for Microsoft 365</a>
+
+  <!-- secondary -->
+  
+
+  <!-- tertiary link -->
+  
+
+
+		</div>
+	</div>
+
+	<div class="split__image">
+		
+			<div class="media-split-img">
+				
+<div data-cmp-is="image" data-cmp-widths="400,750,820,1440,1640,2160" data-cmp-dmimage data-cmp-src="https://www.esri.com/is/image/esri/microsoft-overview-m365-tab?qlt=82&amp;wid=%7B.width%7D&amp;ts=1751392832008&amp;dpr=off" data-asset-id="bc50125b-8b11-47a1-ae6d-0f359aab479c" data-cmp-filereference="/content/dam/esrisites/en-us/arcgis/products/arcgis-for-microsoft/overview/microsoft-overview-m365-tab.jpg" id="mediasplit-image-v3-37ffe44659" data-cmp-hook-image="imageV3" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject">
+    
+        <img src="https://www.esri.com/is/image/esri/microsoft-overview-m365-tab?qlt=82&ts=1751392832008&dpr=off" srcset="https://www.esri.com/is/image/esri/microsoft-overview-m365-tab?qlt=82&amp;wid=400&amp;ts=1751392832008&amp;dpr=off 400w,https://www.esri.com/is/image/esri/microsoft-overview-m365-tab?qlt=82&amp;wid=750&amp;ts=1751392832008&amp;dpr=off 750w,https://www.esri.com/is/image/esri/microsoft-overview-m365-tab?qlt=82&amp;wid=820&amp;ts=1751392832008&amp;dpr=off 820w,https://www.esri.com/is/image/esri/microsoft-overview-m365-tab?qlt=82&amp;wid=1440&amp;ts=1751392832008&amp;dpr=off 1440w,https://www.esri.com/is/image/esri/microsoft-overview-m365-tab?qlt=82&amp;wid=1640&amp;ts=1751392832008&amp;dpr=off 1640w,https://www.esri.com/is/image/esri/microsoft-overview-m365-tab?qlt=82&amp;wid=2160&amp;ts=1751392832008&amp;dpr=off 2160w" loading="lazy" class="cmp-image__image" itemprop="contentUrl" width="2134" height="1200" sizes="(max-width: 820px) 100vw, 720px" alt=" World map displaying heat data in orange, blue, and yellow colors and country names in black text with inset images of tools"/>
+    
+    
+    
+</div>
+
+    
+
+
+				
+			</div>
+		
+		
+	</div>
+</div>
+</article>
+
+    
+</div>
+</div>
+</div>
+<div id="tabs-10e663ccc1-item-d3735ede92-tabpanel" role="tabpanel" aria-labelledby="tabs-10e663ccc1-item-d3735ede92-tab" tabindex="0" class="cmp-tabs__tabpanel" data-cmp-hook-tabs="tabpanel" data-cmp-data-layer="{&#34;tabs-10e663ccc1-item-d3735ede92&#34;:{&#34;@type&#34;:&#34;esri-sites/components/core/tabs/item&#34;,&#34;dc:title&#34;:&#34;ArcGIS for Microsoft Fabric&#34;}}"><div class="responsivegrid">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="esri-image tab--icon aem-GridColumn aem-GridColumn--default--12">
+<div data-cmp-is="image" data-cmp-lazy data-cmp-lazythreshold="0" data-cmp-src="https://www.esri.com/is/content/esri/spatial-analysis1-48-29?ts=1751392832256&amp;dpr=off" data-cmp-dmimage data-asset="/content/dam/esrisites/en-us/common/icons/meridian-/spatial-analysis1-48.svg" data-asset-id="35de12f7-d400-4a48-a1ba-ad1e4c4a9a65" id="image-918e5354d0" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject">
+    
+        <noscript data-cmp-hook-image="noscript">
+            
+            <img src="https://www.esri.com/is/content/esri/spatial-analysis1-48-29?ts=1751392832256&dpr=off" class="cmp-image__image" itemprop="contentUrl" data-cmp-hook-image="image" alt/>
+            
+        </noscript>
+    
+    
+    
+</div>
+
+    
+
+</div>
+<article class="media-split media-split__small aem-GridColumn aem-GridColumn--default--12">
+    
+
+
+
+
+
+	
+
+
+
+
+
+
+
+<div class="split calcite-animate split--swap" data-animation="calcite-animate__in-up">
+
+	<div class="split__copy">
+		<div class="split__copy--esritext">
+			<div class="esriText esri-text">
+
+    
+
+
+
+
+
+
+
+
+<div class="esri-text-container">
+	
+
+	
+
+	<h3 class="esri-text__title">ArcGIS for Microsoft Fabric</h3>
+
+	
+
+	<p class="esri-text__description ">ArcGIS for Microsoft Fabric integrates mapping capabilities and geospatial analytics tools directly into the Microsoft Fabric environment. It enables spatial analysis at any scale using Apache Spark to uncover patterns and trends that can be incorporated into Microsoft Power BI for business reporting and further analysis.</p>
+</div>
+</div>
+
+			
+		</div>
+		<div class="split__copy--esritext">
+
+		</div>
+		<div class="split__copy--ctabuttons">
+			
+
+
+
+
+<!-- primary for video (if video then no other button)-->
+
+
+<!-- primary for no video -->
+
+  <a class="esri-ui-button esri-ui-button--brand esri-ui-button--outline  " href="https://www.esri.com/en-us/arcgis/products/arcgis-for-microsoft/arcgis-for-microsoft-fabric" data-component-link-placement="Primary-link - Explore ArcGIS for Microsoft Fabric" data-event="track-component" data-component-name="cta-buttons" data-link-type="internal" data-component-link-type="button" data-component-link="Explore ArcGIS for Microsoft Fabric">Explore ArcGIS for Microsoft Fabric</a>
+
+  <!-- secondary -->
+  
+
+  <!-- tertiary link -->
+  
+
+
+		</div>
+	</div>
+
+	<div class="split__image">
+		
+			<div class="media-split-img">
+				
+<div data-cmp-is="image" data-cmp-widths="400,750,820,1440,1640,2160" data-cmp-dmimage data-cmp-src="https://www.esri.com/is/image/esri/microsoft-overview-fabric-tab?qlt=82&amp;wid=%7B.width%7D&amp;ts=1751392832630&amp;dpr=off" data-asset-id="3e8b5e1d-3637-455c-95aa-c01ac2cab23d" data-cmp-filereference="/content/dam/esrisites/en-us/arcgis/products/arcgis-for-microsoft/overview/microsoft-overview-fabric-tab.jpg" id="mediasplit-image-v3-4373a37fe2" data-cmp-hook-image="imageV3" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject">
+    
+        <img src="https://www.esri.com/is/image/esri/microsoft-overview-fabric-tab?qlt=82&ts=1751392832630&dpr=off" srcset="https://www.esri.com/is/image/esri/microsoft-overview-fabric-tab?qlt=82&amp;wid=400&amp;ts=1751392832630&amp;dpr=off 400w,https://www.esri.com/is/image/esri/microsoft-overview-fabric-tab?qlt=82&amp;wid=750&amp;ts=1751392832630&amp;dpr=off 750w,https://www.esri.com/is/image/esri/microsoft-overview-fabric-tab?qlt=82&amp;wid=820&amp;ts=1751392832630&amp;dpr=off 820w,https://www.esri.com/is/image/esri/microsoft-overview-fabric-tab?qlt=82&amp;wid=1440&amp;ts=1751392832630&amp;dpr=off 1440w,https://www.esri.com/is/image/esri/microsoft-overview-fabric-tab?qlt=82&amp;wid=1640&amp;ts=1751392832630&amp;dpr=off 1640w,https://www.esri.com/is/image/esri/microsoft-overview-fabric-tab?qlt=82&amp;wid=2160&amp;ts=1751392832630&amp;dpr=off 2160w" loading="lazy" class="cmp-image__image" itemprop="contentUrl" width="2134" height="1200" sizes="(max-width: 820px) 100vw, 720px" alt=" Power BI dashboard showing US map with data points, line graphs, a pie chart, and numerical data"/>
+    
+    
+    
+</div>
+
+    
+
+
+				
+			</div>
+		
+		
+	</div>
+</div>
+</article>
+
+    
+</div>
+</div>
+</div>
+<div id="tabs-10e663ccc1-item-9c60032bcb-tabpanel" role="tabpanel" aria-labelledby="tabs-10e663ccc1-item-9c60032bcb-tab" tabindex="0" class="cmp-tabs__tabpanel" data-cmp-hook-tabs="tabpanel" data-cmp-data-layer="{&#34;tabs-10e663ccc1-item-9c60032bcb&#34;:{&#34;@type&#34;:&#34;esri-sites/components/core/tabs/item&#34;,&#34;dc:title&#34;:&#34;ArcGIS for Power Platform&#34;}}"><div class="responsivegrid">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="esri-image tab--icon aem-GridColumn aem-GridColumn--default--12">
+<div data-cmp-is="image" data-cmp-lazy data-cmp-lazythreshold="0" data-cmp-src="https://www.esri.com/is/content/esri/arcgis-connectors-for-power-automate-glyph-48?ts=1751392832868&amp;dpr=off" data-cmp-dmimage data-asset="/content/dam/esrisites/en-us/common/icons/meridian-/arcgis-connectors-for-power-automate-glyph-48.svg" data-asset-id="ef61f502-cce5-43f1-b992-402b4023e99c" id="image-9ddc173fef" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject">
+    
+        <noscript data-cmp-hook-image="noscript">
+            
+            <img src="https://www.esri.com/is/content/esri/arcgis-connectors-for-power-automate-glyph-48?ts=1751392832868&dpr=off" class="cmp-image__image" itemprop="contentUrl" data-cmp-hook-image="image" alt/>
+            
+        </noscript>
+    
+    
+    
+</div>
+
+    
+
+</div>
+<article class="media-split media-split__small aem-GridColumn aem-GridColumn--default--12">
+    
+
+
+
+
+
+	
+
+
+
+
+
+
+
+<div class="split calcite-animate split--swap" data-animation="calcite-animate__in-up">
+
+	<div class="split__copy">
+		<div class="split__copy--esritext">
+			<div class="esriText esri-text">
+
+    
+
+
+
+
+
+
+
+
+<div class="esri-text-container">
+	
+
+	
+
+	<h3 class="esri-text__title">ArcGIS for Power Platform</h3>
+
+	
+
+	<p class="esri-text__description ">ArcGIS for Power Platform offers no-code/low-code development tools to support the development of geospatial apps and automated workflows. It enables the secure integration of geospatial capabilities and data into workflows across Microsoft and other business systems, driving operational efficiency and improving overall business performance.</p>
+</div>
+</div>
+
+			
+		</div>
+		<div class="split__copy--esritext">
+
+		</div>
+		<div class="split__copy--ctabuttons">
+			
+
+
+
+
+<!-- primary for video (if video then no other button)-->
+
+
+<!-- primary for no video -->
+
+  <a class="esri-ui-button esri-ui-button--brand esri-ui-button--outline  " href="https://www.esri.com/en-us/arcgis/products/arcgis-for-microsoft/arcgis-for-power-platform" data-component-link-placement="Primary-link - Explore ArcGIS for Power Platform" data-event="track-component" data-component-name="cta-buttons" data-link-type="internal" data-component-link-type="button" data-component-link="Explore ArcGIS for Power Platform">Explore ArcGIS for Power Platform</a>
+
+  <!-- secondary -->
+  
+
+  <!-- tertiary link -->
+  
+
+
+		</div>
+	</div>
+
+	<div class="split__image">
+		
+			<div class="media-split-img">
+				
+<div data-cmp-is="image" data-cmp-widths="400,750,820,1440,1640,2160" data-cmp-dmimage data-cmp-src="https://www.esri.com/is/image/esri/microsoft-overview-power-platform-tab?qlt=82&amp;wid=%7B.width%7D&amp;ts=1751392833242&amp;dpr=off" data-asset-id="d696cf1c-7f3d-4bd2-83a4-c46a56d06428" data-cmp-filereference="/content/dam/esrisites/en-us/arcgis/products/arcgis-for-microsoft/overview/microsoft-overview-power-platform-tab.jpg" id="mediasplit-image-v3-94ca9f0764" data-cmp-hook-image="imageV3" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject">
+    
+        <img src="https://www.esri.com/is/image/esri/microsoft-overview-power-platform-tab?qlt=82&ts=1751392833242&dpr=off" srcset="https://www.esri.com/is/image/esri/microsoft-overview-power-platform-tab?qlt=82&amp;wid=400&amp;ts=1751392833242&amp;dpr=off 400w,https://www.esri.com/is/image/esri/microsoft-overview-power-platform-tab?qlt=82&amp;wid=750&amp;ts=1751392833242&amp;dpr=off 750w,https://www.esri.com/is/image/esri/microsoft-overview-power-platform-tab?qlt=82&amp;wid=820&amp;ts=1751392833242&amp;dpr=off 820w,https://www.esri.com/is/image/esri/microsoft-overview-power-platform-tab?qlt=82&amp;wid=1440&amp;ts=1751392833242&amp;dpr=off 1440w,https://www.esri.com/is/image/esri/microsoft-overview-power-platform-tab?qlt=82&amp;wid=1640&amp;ts=1751392833242&amp;dpr=off 1640w,https://www.esri.com/is/image/esri/microsoft-overview-power-platform-tab?qlt=82&amp;wid=2160&amp;ts=1751392833242&amp;dpr=off 2160w" loading="lazy" class="cmp-image__image" itemprop="contentUrl" width="2134" height="1200" sizes="(max-width: 820px) 100vw, 720px" alt="  Map of North America in beige and green with an ArcGIS Connectors for Power Automate pop-up window for creating point geometry"/>
+    
+    
+    
+</div>
+
+    
+
+
+				
+			</div>
+		
+		
+	</div>
+</div>
+</article>
+
+    
+</div>
+</div>
+</div>
+<div id="tabs-10e663ccc1-item-045c39af35-tabpanel" role="tabpanel" aria-labelledby="tabs-10e663ccc1-item-045c39af35-tab" tabindex="0" class="cmp-tabs__tabpanel" data-cmp-hook-tabs="tabpanel" data-cmp-data-layer="{&#34;tabs-10e663ccc1-item-045c39af35&#34;:{&#34;@type&#34;:&#34;esri-sites/components/core/tabs/item&#34;,&#34;dc:title&#34;:&#34;ArcGIS Maps SDK for .NET&#34;}}"><div class="responsivegrid">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="esri-image tab--icon aem-GridColumn aem-GridColumn--default--12">
+<div data-cmp-is="image" data-cmp-lazy data-cmp-lazythreshold="0" data-cmp-src="https://www.esri.com/is/content/esri/arcgis-runtime-sdks-glyph-48?ts=1751392833506&amp;dpr=off" data-cmp-dmimage data-asset="/content/dam/esrisites/en-us/common/icons/meridian-/arcgis-runtime-sdks-glyph-48.svg" data-asset-id="1363d6d2-3a66-40ef-8e5d-301bbb38459f" id="image-b22dea1115" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject">
+    
+        <noscript data-cmp-hook-image="noscript">
+            
+            <img src="https://www.esri.com/is/content/esri/arcgis-runtime-sdks-glyph-48?ts=1751392833506&dpr=off" class="cmp-image__image" itemprop="contentUrl" data-cmp-hook-image="image" alt/>
+            
+        </noscript>
+    
+    
+    
+</div>
+
+    
+
+</div>
+<article class="media-split media-split__small aem-GridColumn aem-GridColumn--default--12">
+    
+
+
+
+
+
+	
+
+
+
+
+
+
+
+<div class="split calcite-animate split--swap" data-animation="calcite-animate__in-up">
+
+	<div class="split__copy">
+		<div class="split__copy--esritext">
+			<div class="esriText esri-text">
+
+    
+
+
+
+
+
+
+
+
+<div class="esri-text-container">
+	
+
+	
+
+	<h3 class="esri-text__title">ArcGIS Maps SDK for .NET</h3>
+
+	
+
+	<p class="esri-text__description ">ArcGIS Maps SDK for .NET allows you to build 2D and 3D location-based mapping applications that work online and offline. Use .NET MAUI, WinUI, and WPF to build apps for Windows, iOS, and Android that include capabilities like geocoding, geofencing, routing, and navigation.</p>
+</div>
+</div>
+
+			
+		</div>
+		<div class="split__copy--esritext">
+
+		</div>
+		<div class="split__copy--ctabuttons">
+			
+
+
+
+
+<!-- primary for video (if video then no other button)-->
+
+
+<!-- primary for no video -->
+
+  <a class="esri-ui-button esri-ui-button--brand esri-ui-button--outline  " href="https://www.esri.com/en-us/arcgis/products/develop-with-arcgis/features/arcgis-maps-sdks-for-native-apps" data-component-link-placement="Primary-link - Explore ArcGIS Maps SDK for .NET" data-event="track-component" data-component-name="cta-buttons" data-link-type="internal" data-component-link-type="button" data-component-link="Explore ArcGIS Maps SDK for .NET">Explore ArcGIS Maps SDK for .NET</a>
+
+  <!-- secondary -->
+  
+
+  <!-- tertiary link -->
+  
+
+
+		</div>
+	</div>
+
+	<div class="split__image">
+		
+		
+			
+<div id="embed-f1675b92f0" class="cmp-embed">
+    
+    
+    
+    
+<link rel="stylesheet" href="/etc.clientlibs/esri-sites/components/core/embed/embeddable/motion-graphic/clientlibs.css" type="text/css">
+
+
+
+
+
+  
+  <div class="embed-mg-wrapper">
+    <video class="embed-motion-graphic test" preload="metadata" type="video/mp4" muted playsinline webkit-playsinline data-video-type="foreground" data-video-src="/content/dam/esrisites/en-us/arcgis/products/arcgis-for-microsoft/overview/native-apps-ms-4.mp4" data-loop-video="false">
+      <source src="" type="video/mp4"/>
+    </video>
+    <button tabindex="0" class="video-play-pause" aria-label="Playing Animation " data-event="track-component" data-component-name="motion-graphic" data-component-link="Play/Pause Animation" data-component-link-placement="motion-graphic" data-component-link-type="button"></button>
+  </div>
+
+
+
+
+</div>
+
+    
+
+
+		
+	</div>
+</div>
+</article>
+
+    
+</div>
+</div>
+</div>
+<div id="tabs-10e663ccc1-item-1c8d5cc1bc-tabpanel" role="tabpanel" aria-labelledby="tabs-10e663ccc1-item-1c8d5cc1bc-tab" tabindex="0" class="cmp-tabs__tabpanel" data-cmp-hook-tabs="tabpanel" data-cmp-data-layer="{&#34;tabs-10e663ccc1-item-1c8d5cc1bc&#34;:{&#34;@type&#34;:&#34;esri-sites/components/core/tabs/item&#34;,&#34;dc:title&#34;:&#34;ArcGIS Enterprise and Azure&#34;}}"><div class="responsivegrid">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="esri-image tab--icon aem-GridColumn aem-GridColumn--default--12">
+<div data-cmp-is="image" data-cmp-lazy data-cmp-lazythreshold="0" data-cmp-src="https://www.esri.com/is/content/esri/arcgis-enterprise-glyph-48?ts=1751392834166&amp;dpr=off" data-cmp-dmimage data-asset="/content/dam/esrisites/en-us/common/icons/meridian-/arcgis-enterprise-glyph-48.svg" data-asset-id="5a42e08e-c0cb-4842-bab9-3d476d485be3" data-title="enterprise-48" id="image-108ff7771e" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject">
+    
+        <noscript data-cmp-hook-image="noscript">
+            
+            <img src="https://www.esri.com/is/content/esri/arcgis-enterprise-glyph-48?ts=1751392834166&dpr=off" class="cmp-image__image" itemprop="contentUrl" data-cmp-hook-image="image" alt title="enterprise-48"/>
+            
+        </noscript>
+    
+    
+    <meta itemprop="caption" content="enterprise-48"/>
+</div>
+
+    
+
+</div>
+<article class="media-split media-split__small aem-GridColumn aem-GridColumn--default--12">
+    
+
+
+
+
+
+	
+
+
+
+
+
+
+
+<div class="split calcite-animate split--swap" data-animation="calcite-animate__in-up">
+
+	<div class="split__copy">
+		<div class="split__copy--esritext">
+			<div class="esriText esri-text">
+
+    
+
+
+
+
+
+
+
+
+<div class="esri-text-container">
+	
+
+	
+
+	<h3 class="esri-text__title">ArcGIS Enterprise on Microsoft Azure</h3>
+
+	
+
+	<p class="esri-text__description ">Leverage the full power of a self-hosted infrastructure within a scalable, secure, and reliable cloud environment. Deploying ArcGIS Enterprise on Microsoft Azure enables organizations to improve efficiency and scale resources to meet evolving needs.</p>
+</div>
+</div>
+
+			
+		</div>
+		<div class="split__copy--esritext">
+
+		</div>
+		<div class="split__copy--ctabuttons">
+			
+
+
+
+
+<!-- primary for video (if video then no other button)-->
+
+
+<!-- primary for no video -->
+
+  <a class="esri-ui-button esri-ui-button--brand esri-ui-button--outline  " href="https://www.esri.com/en-us/arcgis/products/arcgis-enterprise/overview" data-component-link-placement="Primary-link - Explore ArcGIS Enterprise" data-event="track-component" data-component-name="cta-buttons" data-link-type="internal" data-component-link-type="button" data-component-link="Explore ArcGIS Enterprise">Explore ArcGIS Enterprise</a>
+
+  <!-- secondary -->
+  
+
+  <!-- tertiary link -->
+  
+
+
+		</div>
+	</div>
+
+	<div class="split__image">
+		
+			<div class="media-split-img">
+				
+<div data-cmp-is="image" data-cmp-widths="400,750,820,1440,1640,2160" data-cmp-dmimage data-cmp-src="https://www.esri.com/is/image/esri/microsoft-enterprise-azure?qlt=82&amp;wid=%7B.width%7D&amp;ts=1751392834552&amp;dpr=off" data-asset-id="b35079f6-98bd-451d-8412-de551cddbea5" data-cmp-filereference="/content/dam/esrisites/en-us/arcgis/products/arcgis-for-microsoft/overview/microsoft-enterprise-azure.jpg" id="mediasplit-image-v3-61e76450fd" data-cmp-hook-image="imageV3" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject">
+    
+        <img src="https://www.esri.com/is/image/esri/microsoft-enterprise-azure?qlt=82&ts=1751392834552&dpr=off" srcset="https://www.esri.com/is/image/esri/microsoft-enterprise-azure?qlt=82&amp;wid=400&amp;ts=1751392834552&amp;dpr=off 400w,https://www.esri.com/is/image/esri/microsoft-enterprise-azure?qlt=82&amp;wid=750&amp;ts=1751392834552&amp;dpr=off 750w,https://www.esri.com/is/image/esri/microsoft-enterprise-azure?qlt=82&amp;wid=820&amp;ts=1751392834552&amp;dpr=off 820w,https://www.esri.com/is/image/esri/microsoft-enterprise-azure?qlt=82&amp;wid=1440&amp;ts=1751392834552&amp;dpr=off 1440w,https://www.esri.com/is/image/esri/microsoft-enterprise-azure?qlt=82&amp;wid=1640&amp;ts=1751392834552&amp;dpr=off 1640w,https://www.esri.com/is/image/esri/microsoft-enterprise-azure?qlt=82&amp;wid=2160&amp;ts=1751392834552&amp;dpr=off 2160w" loading="lazy" class="cmp-image__image" itemprop="contentUrl" width="2134" height="1200" sizes="(max-width: 820px) 100vw, 720px" alt="  A male professional working on a computer deploying ArcGIS Enterprise on Microsoft Azure and monitoring data security"/>
+    
+    
+    
+</div>
+
+    
+
+
+				
+			</div>
+		
+		
+	</div>
+</div>
+</article>
+
+    
+</div>
+</div>
+</div>
+<div id="tabs-10e663ccc1-item-fc7241e022-tabpanel" role="tabpanel" aria-labelledby="tabs-10e663ccc1-item-fc7241e022-tab" tabindex="0" class="cmp-tabs__tabpanel" data-cmp-hook-tabs="tabpanel" data-cmp-data-layer="{&#34;tabs-10e663ccc1-item-fc7241e022&#34;:{&#34;@type&#34;:&#34;esri-sites/components/core/tabs/item&#34;,&#34;dc:title&#34;:&#34;ArcGIS Pro and Azure&#34;}}"><div class="responsivegrid">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="esri-image tab--icon aem-GridColumn aem-GridColumn--default--12">
+<div data-cmp-is="image" data-cmp-lazy data-cmp-lazythreshold="0" data-cmp-src="https://www.esri.com/is/content/esri/arcgis-pro-glyph-48?ts=1751392834819&amp;dpr=off" data-cmp-dmimage data-asset="/content/dam/esrisites/en-us/common/icons/meridian-/arcgis-pro-glyph-48.svg" data-asset-id="cfa9aba5-0a99-4b18-96b8-44c7c5bdc95f" data-title=" d" id="image-4ab285f2df" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject">
+    
+        <noscript data-cmp-hook-image="noscript">
+            
+            <img src="https://www.esri.com/is/content/esri/arcgis-pro-glyph-48?ts=1751392834819&dpr=off" class="cmp-image__image" itemprop="contentUrl" data-cmp-hook-image="image" alt=" d"/>
+            
+        </noscript>
+    
+    
+    
+</div>
+
+    
+
+</div>
+<article class="media-split media-split__small aem-GridColumn aem-GridColumn--default--12">
+    
+
+
+
+
+
+	
+
+
+
+
+
+
+
+<div class="split calcite-animate split--swap" data-animation="calcite-animate__in-up">
+
+	<div class="split__copy">
+		<div class="split__copy--esritext">
+			<div class="esriText esri-text">
+
+    
+
+
+
+
+
+
+
+
+<div class="esri-text-container">
+	
+
+	
+
+	<h3 class="esri-text__title">ArcGIS Pro on Microsoft Azure Virtual Desktop</h3>
+
+	
+
+	<p class="esri-text__description ">ArcGIS Pro deployed on Microsoft Azure Virtual Desktop (AVD) delivers a powerful, flexible geographic information system (GIS) solution by leveraging Azure’s scalable resources to ensure optimal performance. With support for Windows 11 multisession virtual machines, it provides a seamless user experience and maximizes your investment in cloud technology.</p>
+</div>
+</div>
+
+			
+		</div>
+		<div class="split__copy--esritext">
+
+		</div>
+		<div class="split__copy--ctabuttons">
+			
+
+
+
+
+<!-- primary for video (if video then no other button)-->
+
+
+<!-- primary for no video -->
+
+  <a class="esri-ui-button esri-ui-button--brand esri-ui-button--outline  " href="https://www.esri.com/en-us/arcgis/products/arcgis-pro/overview" data-component-link-placement="Primary-link - Explore ArcGIS Pro" data-event="track-component" data-component-name="cta-buttons" data-link-type="internal" data-component-link-type="button" data-component-link="Explore ArcGIS Pro">Explore ArcGIS Pro</a>
+
+  <!-- secondary -->
+  
+
+  <!-- tertiary link -->
+  
+
+
+		</div>
+	</div>
+
+	<div class="split__image">
+		
+			<div class="media-split-img">
+				
+<div data-cmp-is="image" data-cmp-widths="400,750,820,1440,1640,2160" data-cmp-dmimage data-cmp-src="https://www.esri.com/is/image/esri/microsoft-pro-azure?qlt=82&amp;wid=%7B.width%7D&amp;ts=1751392835206&amp;dpr=off" data-asset-id="5df04979-4baa-495a-b530-6c3d4d773db6" data-cmp-filereference="/content/dam/esrisites/en-us/arcgis/products/arcgis-for-microsoft/overview/microsoft-pro-azure.jpg" id="mediasplit-image-v3-22dce99ea0" data-cmp-hook-image="imageV3" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject">
+    
+        <img src="https://www.esri.com/is/image/esri/microsoft-pro-azure?qlt=82&ts=1751392835206&dpr=off" srcset="https://www.esri.com/is/image/esri/microsoft-pro-azure?qlt=82&amp;wid=400&amp;ts=1751392835206&amp;dpr=off 400w,https://www.esri.com/is/image/esri/microsoft-pro-azure?qlt=82&amp;wid=750&amp;ts=1751392835206&amp;dpr=off 750w,https://www.esri.com/is/image/esri/microsoft-pro-azure?qlt=82&amp;wid=820&amp;ts=1751392835206&amp;dpr=off 820w,https://www.esri.com/is/image/esri/microsoft-pro-azure?qlt=82&amp;wid=1440&amp;ts=1751392835206&amp;dpr=off 1440w,https://www.esri.com/is/image/esri/microsoft-pro-azure?qlt=82&amp;wid=1640&amp;ts=1751392835206&amp;dpr=off 1640w,https://www.esri.com/is/image/esri/microsoft-pro-azure?qlt=82&amp;wid=2160&amp;ts=1751392835206&amp;dpr=off 2160w" loading="lazy" class="cmp-image__image" itemprop="contentUrl" width="2134" height="1200" sizes="(max-width: 820px) 100vw, 720px" alt=""/>
+    
+    
+    
+</div>
+
+    
+
+
+				
+			</div>
+		
+		
+	</div>
+</div>
+</article>
+
+    
+</div>
+</div>
+</div>
+
+    
+</div>
+</div>
+
+        
+    </div>
+
+
+  </div>
+</div>
+
+
+</div>
+<div class="calcite-container calcite-mode-light aem-GridColumn aem-GridColumn--default--12">
+
+
+
+
+<div class="
+  leader-0
+  trailer-0
+  padding-leader-2
+  padding-trailer-2
+  has-background
+  has-background--color
+  
+  has-background--cover
+  parallax
+  " style="--bg-color: #F8F8F8;
+     ;
+    --bg-img: url();
+    --bg-img-position: center center;
+     ;">
+
+  <div class="grid-container ">
+    
+
+    
+    
+    
+    <div id="container-6f0a41b8c1" class="cmp-container">
+        
+        <div class="esri-title text-center">
+<div id="title-413cf5490c" class="cmp-title">
+    <h2 class="cmp-title__text">Frequently asked questions</h2>
+</div>
+
+    
+
+</div>
+<section data-cmp-is="accordion" class="esri-accordion calcite-mode-light calcite-theme-light">
+<div id="general-questions" class="cmp-accordion" data-cmp-is="accordion" data-placeholder-text="false">
+    <div class="cmp-accordion__item" data-cmp-hook-accordion="item" data-cmp-data-layer="{&#34;general-questions-item-d066e7c94e&#34;:{&#34;@type&#34;:&#34;esri-sites/components/core/accordion/item&#34;,&#34;dc:title&#34;:&#34;Do I need user types to access ArcGIS for Microsoft apps?&#34;}}" id="general-questions-item-d066e7c94e">
+        <h3 class="cmp-accordion__header">
+            <button id="general-questions-item-d066e7c94e-button" class="cmp-accordion__button" type="button" aria-controls="general-questions-item-d066e7c94e-panel" data-cmp-hook-accordion="button">
+                <span class="cmp-accordion__title">Do I need user types to access ArcGIS for Microsoft apps?</span>
+                <span class="cmp-accordion__icon"></span>
+            </button>
+        </h3>
+        <div data-cmp-hook-accordion="panel" id="general-questions-item-d066e7c94e-panel" class="cmp-accordion__panel cmp-accordion__panel--hidden" role="region" aria-labelledby="general-questions-item-d066e7c94e-button"><div class="responsivegrid">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="esri-text aem-GridColumn aem-GridColumn--default--12">
+<div id="text-de91333e44" class="cmp-text">
+    <p>A user type can give you access to data from ArcGIS and enhanced functionality for ArcGIS for Excel, ArcGIS for Teams, and ArcGIS for SharePoint. A user type is required to use ArcGIS Connectors for Power Automate—ArcGIS Location Platform; ArcGIS Connectors for Power Automate—ArcGIS Enterprise; or ArcGIS Connectors for Power Automate—ArcGIS Online. </p>
+<p>User types provide role-based access to capabilities, apps, and content for ArcGIS. Please refer to the <a href="/en-us/arcgis/products/user-types/overview">user types page</a> to learn about specific capabilities for each user type.</p>
+
+</div>
+
+    
+
+</div>
+
+    
+</div>
+</div>
+</div>
+    </div>
+<div class="cmp-accordion__item" data-cmp-hook-accordion="item" data-cmp-data-layer="{&#34;general-questions-item-6c3d83fd3e&#34;:{&#34;@type&#34;:&#34;esri-sites/components/core/accordion/item&#34;,&#34;dc:title&#34;:&#34;Do ArcGIS for Microsoft apps have to be installed separately?&#34;}}" id="general-questions-item-6c3d83fd3e">
+        <h3 class="cmp-accordion__header">
+            <button id="general-questions-item-6c3d83fd3e-button" class="cmp-accordion__button" type="button" aria-controls="general-questions-item-6c3d83fd3e-panel" data-cmp-hook-accordion="button">
+                <span class="cmp-accordion__title">Do ArcGIS for Microsoft apps have to be installed separately?</span>
+                <span class="cmp-accordion__icon"></span>
+            </button>
+        </h3>
+        <div data-cmp-hook-accordion="panel" id="general-questions-item-6c3d83fd3e-panel" class="cmp-accordion__panel cmp-accordion__panel--hidden" role="region" aria-labelledby="general-questions-item-6c3d83fd3e-button"><div class="responsivegrid">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="esri-text aem-GridColumn aem-GridColumn--default--12">
+<div id="text-c7153d4f5f" class="cmp-text">
+    <p>Yes, each app must be installed separately, which allows for a more tailored and efficient deployment. Each app has its own installation process to ensure that the necessary capabilities can be integrated directly into the Microsoft apps already in use.</p>
+
+</div>
+
+    
+
+</div>
+
+    
+</div>
+</div>
+</div>
+    </div>
+
+    
+</div>
+</section>
+
+        
+    </div>
+
+
+  </div>
+</div>
+
+
+</div>
+<div class="experiencefragment aem-GridColumn aem-GridColumn--default--12">
+
+    
+    
+
+    
+
+
+
+<div class="xf-content-height">
+    <div class="root responsivegrid">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="one-form-sites-form-component aem-GridColumn aem-GridColumn--default--12">
+	
+
+	<div id='one-form-37f68560d93937a6832c71e146f4b234' class="one-form-v2"></div>
+
+	<script></script>
+
+	<script>
+		document.body.addEventListener("one-form-loaded", function (e) {
+			globalThis.__formsLoaded = globalThis.__formsLoaded || {};
+
+			if (!globalThis.__formsLoaded['one-form-37f68560d93937a6832c71e146f4b234']) {
+				globalThis.initOneForm('one-form-37f68560d93937a6832c71e146f4b234', {
+					// Environment Props
+					divId: 'one-form-37f68560d93937a6832c71e146f4b234',
+					aemFieldServiceBasePath: "",
+					aemEditMode: 'false' === "true",
+					mode: 'basic\u002Dprogressive\u002Dform',
+
+					// Basic Info
+					formName: ' 5354567_MI ArcGIS for Microsoft 365: Product Microsite: LPG\u002Dov \u002D Contact Sales',
+					customFormConfig: '',
+					workFrontID: '',
+					pardotHandler: 'https:\/\/go.esri.com\/l\/82202\/2025\u002D02\u002D21\/qcg627',
+					organicSfId: '701UU00000HzA79YAF',
+
+					// Form Type
+					thankYouFormType: 'mql\u002Dautomatic\u002Dcontact\u002Dsales',
+
+					// Live Event Form Type Settings
+					eventStartTime: '',
+					eventEndTime: '',
+					thankyouHeadingBeforeEvent: '',
+					thankyouMessageBeforeEvent: '',
+					pardotFormHandlerToCallBeforeEvent: '',
+					urlToRedirectToDuringEvent: '',
+					pardotFormHandlerToCallDuringEvent: '',
+					thankyouHeadingAfterEvent: '',
+					thankyouMessageAfterEvent: '',
+					pardotFormHandlerToCallAfterEvent: '',
+					includeGatedContentAfterEvent: '' === "true",
+					assetTitleAfterEvent: '',
+					assetTypeAfterEvent: '',
+					assetPathAfterEvent: '',
+
+					// Gated Content Form Type Fields
+					thankYouAssetTitle: '',
+					thankYouAssetType: 'Brochure',
+					thankYouAssetPath: '',
+					thankYouEmbedVideoInline: '' === "true",
+
+					// Notify Me Form Type Fields
+					thankYouListName: '',
+
+					// Notification List Signup
+					notificationListSignUp: '',
+
+					// MQL Behavior
+					mqlBehavior: 'default',
+					mqlComment: 'Please review the \x27What Prompted Your Interest?\x27 field for follow up.',
+					mqlFormHandler: '',
+					enableZoomInfo: 'true' === "true",
+					isolation: '' === "true",
+
+					// Display Options
+					heading: '',
+					subHeading: '',
+					formOpensInAModal: 'true' === "true",
+					modalTitle: 'Contact sales',
+					formModalLookup: ' 5354567_MI ArcGIS for Microsoft 365: Product Microsite: LPG\u002Dov \u002D Contact Sales',
+					formOpensInASideDrawer: '' === "true",
+					sideDrawerButtonLabel: '',
+					sideDrawerTitle: '',
+					sideDrawerWidth: '430',
+					leftAligned: '' === "true",
+					darkMode: 'true' === "true",
+					backgroundColor: '',
+					disablePersonalization: '' === "true",
+
+					// Email Settings
+					sendEmail: '' === "true",
+					emailTo: '',
+					emailCc: '',
+					emailBcc: '',
+					emailSubject: '',
+					emailBody: '',
+					includeFilesAsAttachments: '' === "true",
+					sendConfirmationEmail: '' === "true",
+					confirmationEmailFrom: '',
+					confirmationEmailSubject: '',
+					confirmationEmailBody: '',
+
+					// GDPR Settings
+					gdprMode: 'standard',
+					customContactConsentLabel: '',
+					customMarketingConsentRequiredMessage: '',
+					customMarketingConsentLabel: '',
+					customContactConsentRequiredMessage: '',
+					marketingConsentRequired: '',
+					marketingConsentRequiredMessage: '',
+					showEventConsentCheckBoxes: '' === "true",
+
+					// Thankyou Page Settings
+					inlineThankYouPage: '' === "true",
+					thankYouHeader: '',
+					thankYouMessage: '',
+					thankyouPageUrl: '',
+					thankyouPageParams: '',
+					thankyouCss: '',
+					thankyouJs: '',
+				});
+
+				window.__formsLoaded['one-form-37f68560d93937a6832c71e146f4b234'] = true;
+			}
+		});
+	</script>
+
+	
+		<link rel="stylesheet" href="https://webapps-cdn.esri.com/CDN/one-form/one-form.css"/>
+		<script async src="https://webapps-cdn.esri.com/CDN/one-form/one-form.js"></script>
+	
+
+	
+
+</div>
+<div class="cta-container aem-GridColumn aem-GridColumn--default--12">
+	<script defer src="/etc.clientlibs/esri-sites/components/layouts/cta-container/clientlibs.js"></script>
+
+
+
+
+
+
+	<div class="cta-questions calcite-mode-dark">
+		
+		
+			<div class="grid-container ctaprimary">
+				
+
+	<link rel="stylesheet" href="/etc.clientlibs/esri-sites/components/content/calltoaction-primary/clientlibs.css" type="text/css">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://webapps-cdn.esri.com/CDN/components/contact-us/css/contact-us-esri-product-pages.css"/>
+<script src="https://webapps-cdn.esri.com/CDN/components/contact-us/js/contact-us-esri-product-pages.js"></script>
+
+
+<div class="svg-icon leader-2 phone-leader-1 tablet-leader-1">
+	<svg id="icon-ui-svg" class="icon-ui-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M36.986 20.1a5.728 5.728 0 0 1 5.638 4.849c-.246.181-.483.372-.716.57a4.94 4.94 0 0 0-4.922-4.619h-8.638c-.111 0-.221.003-.33.011-.195.013-.387.052-.58.082q.263-.424.484-.875c.015 0 .029-.005.043-.006a6.2 6.2 0 0 1 .383-.012zM26.772 7.865a6.267 6.267 0 1 1 2.754 7.559c-.19-.11-.369-.236-.548-.361.006.146.022.29.022.437 0 .175-.01.348-.02.52.05.03.095.067.145.095a7.067 7.067 0 1 0-3.104-8.522c-.054.148-.09.303-.135.454.22.219.43.449.63.686a7.88 7.88 0 0 1 .256-.868zM10.1 15.5a8.4 8.4 0 1 1 8.4 8.4 8.41 8.41 0 0 1-8.4-8.4zm.8 0a7.6 7.6 0 1 0 7.6-7.6 7.609 7.609 0 0 0-7.6 7.6zM24 58.1H10.136A2.239 2.239 0 0 1 7.9 55.864v-3.156h-.4a2.195 2.195 0 0 1-1.619-.72 2.305 2.305 0 0 1-.588-1.71l1.14-15.87a6.918 6.918 0 0 1 6.822-6.508h9.49a6.918 6.918 0 0 1 6.821 6.51l.95 13.216.748-.755-.9-12.516a7.72 7.72 0 0 0-7.619-7.255h-9.49a7.719 7.719 0 0 0-7.62 7.253L4.496 50.22a3.108 3.108 0 0 0 .795 2.306 3.009 3.009 0 0 0 1.81.954v2.383a3.04 3.04 0 0 0 3.036 3.036H24zm17.293-13.375L29.307 56.71l.566.566 11.985-11.986zm20.515-6.375a11.592 11.592 0 0 1-9.632 9.435 11.31 11.31 0 0 1-5.918-.737L41.195 51.9H39.9v1.445L37.407 55.9H35.9v1.44l-3.365 3.592-6.435-.035v-5.829l.116-.116L40.09 40.946a12.083 12.083 0 0 1-.878-6.444 11.611 11.611 0 0 1 9.088-9.84c.188-5.047 2.727-9.062 5.829-9.062 3.225 0 5.848 4.335 5.848 9.662a15.312 15.312 0 0 1-.374 3.384l-.352-.08a11.864 11.864 0 0 1 2.557 9.784zM49.102 24.544a11.23 11.23 0 0 1 9.47 3.25c.11.11.2.234.306.348a14.501 14.501 0 0 0 .3-2.88c0-4.804-2.313-8.862-5.05-8.862-2.598 0-4.81 3.662-5.026 8.144zm8.902 3.813a10.428 10.428 0 0 0-8.92-3.008 13.508 13.508 0 0 0 .99 5.1 3.874 3.874 0 0 1 6.756 3.24l.08.091c-.037.034-.077.057-.116.089A3.896 3.896 0 0 1 49.1 33a3.85 3.85 0 0 1 .442-1.765 13.924 13.924 0 0 1-1.254-5.752 10.813 10.813 0 0 0-8.283 9.126 11.263 11.263 0 0 0 .925 6.255l.117.252L26.9 55.398v4.705l5.29.026 2.91-3.106V55.1h1.97l2.03-2.081v-1.92h1.773l5.217-4.997.245.109a10.48 10.48 0 0 0 5.729.781 10.782 10.782 0 0 0 8.955-8.781 11.064 11.064 0 0 0-3.015-9.854zM56.1 33a3.097 3.097 0 0 0-5.65-1.755c.929 1.755 2.243 2.878 3.679 2.878a3.212 3.212 0 0 0 1.928-.694A3.054 3.054 0 0 0 56.1 33zm-6.066-.852A3.057 3.057 0 0 0 49.9 33a3.092 3.092 0 0 0 5.74 1.602 3.778 3.778 0 0 1-1.511.322c-1.594 0-3.04-1.062-4.095-2.776z" id="icon-ui-svg--base"/></svg>
+</div>
+
+  
+
+<div class="leader-2 phone-leader-1 tablet-leader-1 text-center">
+	<div class="text-center">
+		<h2 class="esri-text__title">Contact sales</h2>
+	</div>
+	<div class="text-center">
+		<h3 class="esri-text__subtitle">Connecting You with Sales Experts</h3>
+	</div>
+</div>
+
+
+<div id="getstarted" class="grid-container cta-questions_primary-contact-questions block-group block-group-3-up tablet-block-group-1-up phone-block-group-1-up">
+	<div class="block sales-contact">
+		<h3 class="sales-contact-title">Talk to someone on our sales team
+		</h3>
+
+    <a href="tel:800-447-9778" class="sales-contact-phone-number calcite-link">800-447-9778</a>
+
+		<p class="sales-contact-body">7:00 a.m.–5:00 p.m., Monday through Friday (PT)</p>
+
+		
+			<div class="calcite-button-wrapper sales-contact-link" data-event="track-component" data-component-name="CTA Container" data-component-link="Outside the US - /content/esri-sites/en-us/contact#t=1" data-component-link-type="text" data-modal-title="Select your location" data-modal-subtitle="Please select your country to find your local Esri distributor&#39;s contact information." data-modal-placeholder="Search locations" data-modal-button="Change location" data-modal-serve="{company} serves {region}." data-modal-matches="Sorry, there are no matches for &amp;ldquo;{variable}&amp;rdquo;. Please try another location." data-modal-provider="Sorry, there currently isn&#39;t a provider for {variable}.">
+				<calcite-link href="/en-us/contact#t=1" color="blue">Outside the US
+				</calcite-link>
+			</div>
+		
+	</div>
+	<a href="https://www.esri.com/en-us/chat" class="block sales-contact" data-event="track-component" data-component-name="CTA Container" data-component-link="Chat online - Start a chat" data-component-link-placement="0" data-component-link-type="button">
+		
+		<div class="svg-icon">
+			<svg id="icon-ui-svg" class="icon-ui-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M18.495 23.09a3.22 3.22 0 0 1 3.502 3.123 3.526 3.526 0 0 1-1.593 3.034 3.413 3.413 0 0 0-1.524 3.096V33h-.8v-.657a4.165 4.165 0 0 1 1.812-3.71 2.727 2.727 0 0 0 1.305-2.42 2.425 2.425 0 0 0-2.702-2.322c-1.716 0-2.498.99-2.498 1.912h-.8c0-1.348 1.133-2.712 3.298-2.712zm22.849-2.748l.843 4.81-3.579-1.014.218-.77 2.354.668-.721-4.111.246-.139c3.427-1.927 5.393-4.774 5.393-7.81 0-5.554-6.55-10.072-14.6-10.072s-14.6 4.518-14.6 10.072a8.111 8.111 0 0 0 2.73 5.856l.313.3C29.924 18.47 37.9 24.104 37.9 31c0 7.113-8.479 12.9-18.9 12.9-1.417 0-3.901-.295-4.433-.36l-9.71 3.627 2.062-6.238C2.58 38.47.1 34.867.1 31c0-7.064 8.364-12.813 18.686-12.893a8.769 8.769 0 0 1-2.688-6.131c0-5.995 6.908-10.872 15.4-10.872s15.4 4.877 15.4 10.872c0 3.258-2.02 6.295-5.554 8.366zM19 18.9C9.02 18.9.9 24.328.9 31c0 3.65 2.44 7.073 6.694 9.389l.293.16-1.746 5.285 8.33-3.112.097.012c.03.004 2.923.366 4.432.366 9.98 0 18.1-5.428 18.1-12.1S28.98 18.9 19 18.9zm.4 16.6a.9.9 0 1 1-.9-.9.901.901 0 0 1 .9.9zm-.8 0a.1.1 0 0 0-.2 0c0 .11.2.11.2 0zm12.9-25.025a1.025 1.025 0 1 1-1.025 1.025 1.026 1.026 0 0 1 1.025-1.025zm0 .8a.225.225 0 0 0-.225.225c0 .248.45.248.45 0a.225.225 0 0 0-.225-.225zm6.975.225a1.025 1.025 0 1 1 1.025 1.025 1.026 1.026 0 0 1-1.025-1.025zm.8 0c0 .248.45.248.45 0a.225.225 0 0 0-.45 0zM23.5 10.475a1.025 1.025 0 1 1-1.025 1.025 1.026 1.026 0 0 1 1.025-1.025zm0 .8a.225.225 0 0 0-.225.225c0 .248.45.248.45 0a.225.225 0 0 0-.225-.225z" id="icon-ui-svg--base"/></svg>
+		</div>
+		<h3 class="question-title">Chat online
+		</h3>
+		<p class="question-sub-title">Start a chat</p>
+	</a>
+	<a href="https://oneform-modal.esri.com?formName=%205354567_MI%20ArcGIS%20for%20Microsoft%20365%3A%20Product%20Microsite%3A%20LPG-ov%20-%20Contact%20Sales" class="block sales-contact large" data-event="track-component" data-component-name="CTA Container" data-component-link="Contact the sales team - Fill out the contact form" data-component-link-placement="0" data-component-link-type="button">
+		
+		<div class="svg-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" id="icon-ui-svg" class="icon-ui-svg" viewBox="0 0 48 48"><path id="icon-ui-svg--base" d="m17.531 21.66 5.477 4.926 5.473-4.927 5.229 4.991q.42-.15.87-.27l-5.503-5.257L42.1 9.398V26.96c.28.12.54.24.8.39V8.1H3.1v26.8h23.21c.06-.27.13-.54.21-.8H4.484zM3.9 33.552V9.398l13.035 11.725zM4.543 8.9h36.915l-18.45 16.61zM37.5 29.1c-4.71 0-8.4 3.69-8.4 8.4s3.69 8.4 8.4 8.4v-.8c-4.262 0-7.6-3.338-7.6-7.6s3.338-7.6 7.6-7.6 7.6 3.338 7.6 7.6v2c0 .897-.703 1.6-1.6 1.6s-1.6-.703-1.6-1.6v-1.918c0-.028.008-.054.008-.082s-.008-.054-.008-.082V33h-.8v1.974a4.39 4.39 0 0 0-3.592-1.874c-2.426 0-4.4 1.974-4.4 4.4s1.974 4.4 4.4 4.4a4.4 4.4 0 0 0 3.638-1.93A2.37 2.37 0 0 0 43.5 41.9c1.346 0 2.4-1.054 2.4-2.4v-2c0-4.71-3.69-8.4-8.4-8.4m.008 12c-1.985 0-3.6-1.615-3.6-3.6s1.615-3.6 3.6-3.6a3.6 3.6 0 0 1 3.592 3.518v.164a3.6 3.6 0 0 1-3.592 3.518"/></svg>
+		</div>
+		<h3 class="question-title">Contact the sales team
+		</h3>
+		<p class="question-sub-title">Fill out the contact form</p>
+	</a>
+</div>
+
+
+
+
+			</div>
+			
+			
+		
+		
+		
+	</div>
+
+
+</div>
+
+    
+</div>
+</div>
+
+</div>
+
+</div>
+<div class="experiencefragment aem-GridColumn aem-GridColumn--default--12">
+
+    
+    
+
+    
+
+
+
+<div class="xf-content-height">
+    <div class="root responsivegrid">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="cta-container aem-GridColumn aem-GridColumn--default--12">
+	
+
+
+
+
+
+	<div class="cta-questions calcite-mode-dark" id="help">
+		
+		
+			<div class="grid-container ctaprimary">
+				
+
+	
+
+
+<div class="unauthored-primary"></div>
+
+
+			</div>
+			
+				<div class="grid-container ctasecondary">
+					<div class="cta-questions_social">
+							<div class="cta-questions_block size-4">
+								
+	<link rel="stylesheet" href="/etc.clientlibs/esri-sites/components/content/calltoaction-secondary/clientlibs.css" type="text/css">
+
+
+
+
+
+
+<h2 class="esri_text-title ">Get help and technical support</h2>
+<div class="block-group block-group-3-up phone-block-group-1-up questions-contact">
+
+	
+		<a href="/en-us/contact#t=3" class="block question-container" data-event="track-component" data-component-name="CTA Container" data-component-link="Get help and technical support - Customer service" data-component-link-placement="0" data-component-link-type="button">
+			<div class="question">
+				
+				<div class="esri-text__iconContainer text-center">
+					<svg id="icon-ui-svg" class="icon-ui-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M7.9 34.956a16.874 16.874 0 0 1 16.6-17.1 16.874 16.874 0 0 1 16.6 17.1A1.123 1.123 0 0 1 40 36.1H9a1.123 1.123 0 0 1-1.1-1.144zM39.312 40.9c1.7 0 2.631.74 2.77 2.2H6.939c.222-1.123 1.388-2.2 3.66-2.2zM23.939 21.068l.035.8a12.76 12.76 0 0 0-11.772 10.226l-.781-.168a13.557 13.557 0 0 1 12.517-10.858zM39.312 40.1H24.9v-3.2H40a1.925 1.925 0 0 0 1.9-1.944 17.68 17.68 0 0 0-17-17.88V14.9H29v-.8h-9v.8h4.1v2.177a17.68 17.68 0 0 0-17 17.88A1.925 1.925 0 0 0 9 36.9h15.1v3.2H10.6c-3.092 0-4.5 1.762-4.5 3.4v.4h36.8v-.4c0-2.161-1.308-3.4-3.588-3.4zM40.45 8.116l-2.12 2.121-.567-.566 2.12-2.121zM11.237 9.671l-.566.566-2.121-2.12.566-.567zM42 19.1h3v.8h-3zm-35 .8H4v-.8h3zM24.9 2v3h-.8V2z" id="icon-ui-svg--base"/></svg>
+				</div>
+				<p class="esri_text-description">Customer service</p>
+				<p class="question-sub-title"></p>
+			</div>
+		</a>
+	
+
+	
+		<a href="/en-us/contact#t=5" class="block question-container" data-event="track-component" data-component-name="CTA Container" data-component-link="Get help and technical support - Technical support" data-component-link-placement="0" data-component-link-type="button">
+			<div class="question">
+				
+				<div class="esri-text__iconContainer text-center">
+					<svg id="icon-ui-svg" class="icon-ui-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M39.973 19.342l.069-.016a67.604 67.604 0 0 0-.898-3.54A16.04 16.04 0 0 0 23.514 4.1 16.006 16.006 0 0 0 7.797 16.11c-.175.663-.324 1.326-.477 1.99H6.5a1.402 1.402 0 0 0-1.4 1.4v2a1.402 1.402 0 0 0 1.4 1.4h1.4v-3.792q.304-1.398.67-2.796A15.216 15.216 0 0 1 23.514 4.9a15.248 15.248 0 0 1 14.86 11.104 66.99 66.99 0 0 1 .805 3.156c-.375.029-1.054.27-1.054 1.659v8.47c0 1.376.666 1.625 1.043 1.658-2.449 5.636-4.985 9.933-11.21 10.536a1.979 1.979 0 0 0-1.904-1.464h-2.108a1.981 1.981 0 1 0 0 3.962h2.108a1.978 1.978 0 0 0 1.953-1.699c6.887-.656 9.598-5.636 12.153-11.61 1.29-.717 2.766-2.661 2.766-3.924V23.36c0-1.324-1.624-3.396-2.953-4.018zM7.1 22.1h-.6a.6.6 0 0 1-.6-.6v-2a.6.6 0 0 1 .6-.6h.6zm18.954 21.081h-2.108a1.181 1.181 0 0 1 0-2.362h2.108a1.181 1.181 0 0 1 0 2.362zm16.071-16.433c0 1.207-2.003 3.406-2.856 3.406-.284 0-.343-.47-.343-.865v-8.47c0-.395.06-.865.343-.865.853 0 2.856 2.2 2.856 3.406z" id="icon-ui-svg--base"/></svg>
+				</div>
+				<p class="esri_text-description">Technical support</p>
+				<p class="question-sub-title"></p>
+			</div>
+		</a>
+	
+
+	
+		<a href="/en-us/contact#t=4" class="block question-container" data-event="track-component" data-component-name="CTA Container" data-component-link="Get help and technical support - Training" data-component-link-placement="0" data-component-link-type="button">
+			<div class="question">
+				
+				<div class="esri-text__iconContainer text-center">
+					<svg id="icon-ui-svg" class="icon-ui-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M3.1 3.1v29.8h18.022v-.8h-6.834l-.022-.085a2.155 2.155 0 0 0-.065-.222 2.158 2.158 0 0 1 .637-1.212 3.437 3.437 0 0 0 .619-.969 1.832 1.832 0 0 0-.075-1.147 2.476 2.476 0 0 1-.135-.694c0-1.29-1.323-1.598-2.386-1.847-.55-.128-1.236-.288-1.363-.543-.564-1.126-.044-1.73.851-2.623a3.397 3.397 0 0 0 1.32-2.323c0-.71-.376-1.875-1.384-1.977a2.859 2.859 0 0 0-1.465.243 2.548 2.548 0 0 1-1.021.228c-.452 0-.94-.268-.94-.702a2.549 2.549 0 0 1 .424-1.271 3.296 3.296 0 0 0 .52-1.65 4.085 4.085 0 0 0-.17-1.089 3.3 3.3 0 0 1-.144-.882 1.502 1.502 0 0 1 1.414-1.574c.699 0 1.032.533 1.543 1.45a2.353 2.353 0 0 0 2.243 1.153c1.738 0 2.846-2.012 2.846-3.398a1.047 1.047 0 0 1 .942-1.098 1.692 1.692 0 0 1 1.02.47 2.397 2.397 0 0 0 1.504.635c1.218 0 1.733-.915 2.188-1.723a3.494 3.494 0 0 1 1.236-1.482A3.41 3.41 0 0 0 25.918 3.9H44.1v7.411l-.02.002a3.967 3.967 0 0 1-2.516-1.1 2.894 2.894 0 0 1-.59-.865c-.289-.556-.65-1.248-1.569-1.248a2.346 2.346 0 0 0-1.865 1.304c-.42.598-.705.965-1.21.965a2.178 2.178 0 0 1-.778-.198 2.895 2.895 0 0 0-1.06-.25c-.835 0-1.765.573-1.765 1.396v1.54a1.36 1.36 0 0 1-.497.98l.576.556a2.134 2.134 0 0 0 .72-1.537v-1.54c0-.306.544-.595.965-.595a2.174 2.174 0 0 1 .775.197 2.894 2.894 0 0 0 1.063.25 2.346 2.346 0 0 0 1.865-1.304c.421-.598.705-.965 1.211-.965.397 0 .551.225.86.819a3.552 3.552 0 0 0 .771 1.096 4.743 4.743 0 0 0 3.044 1.3l.02-.003v19.99H39.88v.799h5.02V3.1zm20.944 3.964a4.15 4.15 0 0 0-1.551 1.793c-.474.84-.777 1.316-1.492 1.316a1.69 1.69 0 0 1-1.021-.472 2.395 2.395 0 0 0-1.503-.633 1.85 1.85 0 0 0-1.742 1.898c0 .892-.796 2.598-2.046 2.598a1.588 1.588 0 0 1-1.57-.789c-.474-.85-1.012-1.814-2.216-1.814a2.3 2.3 0 0 0-2.214 2.374 3.99 3.99 0 0 0 .17 1.085 3.32 3.32 0 0 1 .145.886 2.54 2.54 0 0 1-.424 1.267 3.307 3.307 0 0 0-.521 1.654 1.644 1.644 0 0 0 1.74 1.502 3.289 3.289 0 0 0 1.311-.283 2.066 2.066 0 0 1 1.094-.192c.464.047.666.805.666 1.18 0 .675-.528 1.201-1.086 1.758-.825.823-1.852 1.848-1.002 3.547.296.59 1.073.772 1.897.965 1.068.25 1.768.458 1.768 1.067a3.178 3.178 0 0 0 .167.92 1.197 1.197 0 0 1 .087.66 2.869 2.869 0 0 1-.486.729 2.797 2.797 0 0 0-.814 1.713 1.277 1.277 0 0 0 .06.307H3.9V3.9h21.202c.201 1.225.173 2.499-1.058 3.164zm15.288 16.939a2.691 2.691 0 0 1-1.529-3.69 1.589 1.589 0 0 0-2.117-2.117 2.725 2.725 0 0 1-2.185.056 2.695 2.695 0 0 1-1.503-1.584 1.59 1.59 0 0 0-2.996 0 2.69 2.69 0 0 1-3.688 1.528 1.609 1.609 0 0 0-1.807.31 1.593 1.593 0 0 0-.312 1.808 2.69 2.69 0 0 1-1.527 3.688 1.59 1.59 0 0 0 0 2.996 2.69 2.69 0 0 1 1.527 3.688 1.574 1.574 0 0 0 1.905 2.182v14.564l5.4-4.57 5.4 4.57V32.867a1.571 1.571 0 0 0 1.903-2.18 2.692 2.692 0 0 1 1.529-3.69 1.589 1.589 0 0 0 0-2.994zM30.5 41.814l-4.6 3.893V32.612a2.72 2.72 0 0 1 1.599.138 2.692 2.692 0 0 1 1.503 1.584 1.59 1.59 0 0 0 2.996-.001 2.698 2.698 0 0 1 1.504-1.585 2.725 2.725 0 0 1 1.598-.136v13.095zm8.564-15.57a3.492 3.492 0 0 0-1.983 4.786.79.79 0 0 1-.153.897.8.8 0 0 1-.899.155 3.49 3.49 0 0 0-4.785 1.983.79.79 0 0 1-1.488.001 3.489 3.489 0 0 0-4.788-1.983.781.781 0 0 1-.894-.156.792.792 0 0 1-.156-.897 3.49 3.49 0 0 0-1.982-4.786.79.79 0 0 1 0-1.488 3.49 3.49 0 0 0 1.982-4.786.79.79 0 0 1 .154-.897.801.801 0 0 1 .898-.155 3.488 3.488 0 0 0 4.786-1.982.79.79 0 0 1 1.489 0 3.487 3.487 0 0 0 4.784 1.982.789.789 0 0 1 1.052 1.053 3.49 3.49 0 0 0 1.982 4.785.789.789 0 0 1 .001 1.488zM30.5 22.2a3.3 3.3 0 1 0 3.3 3.3 3.304 3.304 0 0 0-3.3-3.3zm0 5.8a2.5 2.5 0 1 1 2.5-2.5 2.503 2.503 0 0 1-2.5 2.5z" id="icon-ui-svg--base"/></svg>
+				</div>
+				<p class="esri_text-description">Training</p>
+				<p class="question-sub-title trailer-0"></p>
+			</div>
+		</a>
+	
+
+</div>
+
+
+
+
+							</div>
+					</div>
+				</div>
+			
+			
+		
+		
+		
+	</div>
+
+
+</div>
+
+    
+</div>
+</div>
+
+</div>
+
+</div>
+
+    
+</div>
+</main>
+
+	
+	
+    
+     <script defer src="/etc.clientlibs/core/wcm/components/commons/site/clientlibs/container.js"></script>
+ 
+
+<div hidden><span id="new-window">opens in new window</span></div>
+
+<calcite-modal id="page-modal" scale="m" width="m" aria-modal="true" role="dialog">
+  <div slot="header"></div>
+  <div slot="content"></div>
+</calcite-modal>
+
+<div id="live-region" class="assistText" aria-live="polite"></div>
+
+
+<script src="https://webapps-cdn.esri.com/CDN/packages/instant.page/instantpage.min.js"></script>
+
+<script src="https://rum.hlx.page/.rum/@adobe/helix-rum-js@^2/dist/rum-standalone.js"></script>
+
+    
+
+    
+
+    
+
+
+        <script type="text/javascript">_satellite.pageBottom();</script>
+
+
+    
+    
+
+	
+    
+<script src="/etc.clientlibs/esri-sites/clientlibs/clientlib-dependencies.js"></script>
+
+
+
+
+</body>
+
+</html>
