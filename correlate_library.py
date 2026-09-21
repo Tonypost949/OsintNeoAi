@@ -1,0 +1,41 @@
+import os
+import json
+
+def generate_library_correlation():
+    oclc_databases = [
+        {"name": "EBSCOhost Research Databases", "domain": "search.ebscohost.com", "category": "General Academic Search"},
+        {"name": "ProQuest Research Platform", "domain": "proquest.com", "category": "Dissertations & Periodicals"},
+        {"name": "ScienceDirect (Elsevier)", "domain": "sciencedirect.com", "category": "Scientific & Technical Journals"},
+        {"name": "Scopus Citation Index", "domain": "scopus.com", "category": "Bibliometric & Citation Index"},
+        {"name": "McGraw-Hill Medical", "domain": "mhmedical.com", "category": "Clinical & Medical Texts"},
+        {"name": "Ovid HTTPS Medical", "domain": "ovidsp.ovid.com", "category": "Health & Pharmacology"},
+        {"name": "Cochrane Library", "domain": "cochranelibrary.com", "category": "Evidence-Based Medicine"},
+        {"name": "PsychiatryOnline", "domain": "psychiatryonline.org", "category": "Psychiatric Research"},
+        {"name": "IBISWorld", "domain": "ibisworld.com", "category": "Industry & Market Research"},
+        {"name": "SpringerLink & Nature", "domain": "link.springer.com", "category": "Multidisciplinary Science"},
+        {"name": "Sage Journals", "domain": "journals.sagepub.com", "category": "Social & Health Sciences"},
+        {"name": "OCLC WorldCat & ArchiveGrid", "domain": "worldcat.org", "category": "Global Archival Inventory"}
+    ]
+
+    correlation_matrix = {
+        "institution": "Post University / American Sentinel College",
+        "ezproxy_prefix": "http://americansentinel.idm.oclc.org/login?url=",
+        "student_account": "SyStudent190698@students.post.edu",
+        "total_proxied_databases": len(oclc_databases),
+        "databases": oclc_databases,
+        "osint_relevance_mapping": {
+            "forensic_medical_claims": ["McGraw-Hill Medical", "Ovid HTTPS Medical", "Cochrane Library", "PsychiatryOnline"],
+            "corporate_shell_research": ["IBISWorld", "ProQuest Research Platform"],
+            "academic_literature": ["EBSCOhost Research Databases", "ScienceDirect (Elsevier)", "Scopus Citation Index", "SpringerLink & Nature"],
+            "archival_chain_of_custody": ["OCLC WorldCat & ArchiveGrid"]
+        }
+    }
+
+    out_file = r"C:\OsintNeoAi\library_correlation_matrix.json"
+    with open(out_file, "w", encoding="utf-8") as f:
+        json.dump(correlation_matrix, f, indent=2)
+
+    print(f"[+] Library correlation matrix successfully generated at: {out_file}")
+
+if __name__ == "__main__":
+    generate_library_correlation()
