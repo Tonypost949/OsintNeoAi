@@ -1,0 +1,98 @@
+{
+  "script_name": "Direct JSON API Mapper (No-Browser High Speed)",
+  "execution_time": "2026-09-20 21:49:56",
+  "target_portal": "County of Orange Procurement Portal (OpenGov)",
+  "mapped_endpoints_count": 15,
+  "mapped_results": [
+    {
+      "endpoint": "https://procurement.opengov.com/api/v2/projects?limit=50&page=1",
+      "page": 1,
+      "status": "Fallback / Blocked",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "endpoint": "https://procurement.opengov.com/api/v2/projects?limit=50&page=2",
+      "page": 2,
+      "status": "Fallback / Blocked",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "endpoint": "https://procurement.opengov.com/api/v2/projects?limit=50&page=3",
+      "page": 3,
+      "status": "Fallback / Blocked",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "endpoint": "https://procurement.opengov.com/api/v2/projects?limit=50&page=4",
+      "page": 4,
+      "status": "Fallback / Blocked",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "endpoint": "https://procurement.opengov.com/api/v2/projects?limit=50&page=5",
+      "page": 5,
+      "status": "Fallback / Blocked",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "endpoint": "https://procurement.opengov.com/api/v1/portals/211273c0-1753-47bb-a90d-025e86f9aec2/projects?limit=50&page=1",
+      "page": 1,
+      "status": "Fallback / Blocked",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "endpoint": "https://procurement.opengov.com/api/v1/portals/211273c0-1753-47bb-a90d-025e86f9aec2/projects?limit=50&page=2",
+      "page": 2,
+      "status": "Fallback / Blocked",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "endpoint": "https://procurement.opengov.com/api/v1/portals/211273c0-1753-47bb-a90d-025e86f9aec2/projects?limit=50&page=3",
+      "page": 3,
+      "status": "Fallback / Blocked",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "endpoint": "https://procurement.opengov.com/api/v1/portals/211273c0-1753-47bb-a90d-025e86f9aec2/projects?limit=50&page=4",
+      "page": 4,
+      "status": "Fallback / Blocked",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "endpoint": "https://procurement.opengov.com/api/v1/portals/211273c0-1753-47bb-a90d-025e86f9aec2/projects?limit=50&page=5",
+      "page": 5,
+      "status": "Fallback / Blocked",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "endpoint": "https://procurement.opengov.com/api/atlas/v1/county-of-orange-ca/projects?limit=50&page=1",
+      "page": 1,
+      "status": "Fallback / Blocked",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "endpoint": "https://procurement.opengov.com/api/atlas/v1/county-of-orange-ca/projects?limit=50&page=2",
+      "page": 2,
+      "status": "Fallback / Blocked",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "endpoint": "https://procurement.opengov.com/api/atlas/v1/county-of-orange-ca/projects?limit=50&page=3",
+      "page": 3,
+      "status": "Fallback / Blocked",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "endpoint": "https://procurement.opengov.com/api/atlas/v1/county-of-orange-ca/projects?limit=50&page=4",
+      "page": 4,
+      "status": "Fallback / Blocked",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "endpoint": "https://procurement.opengov.com/api/atlas/v1/county-of-orange-ca/projects?limit=50&page=5",
+      "page": 5,
+      "status": "Fallback / Blocked",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    }
+  ]
+}
