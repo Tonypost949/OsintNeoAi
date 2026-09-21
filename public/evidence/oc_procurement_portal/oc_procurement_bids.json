@@ -1,277 +1,466 @@
 {
-  "total_bids": 30,
-  "portal_name": "County of Orange Procurement Portal \u00b7 RFP \u00b7 RFQ \u00b7 RFI",
-  "ingestion_date": "2026-09-20",
+  "document_title": "County of Orange Procurement Portal \u00b7 RFP \u00b7 RFQ \u00b7 RFI (29 Pages Complete Dump)",
+  "total_pages": 29,
+  "total_unique_bids_extracted": 51,
   "bids": [
     {
-      "project_id": "County of Orange Procurement Portal \u00b7 RFP \u00b7 RFQ \u00b7 RFI",
-      "title": "Unknown Title",
-      "status": "Open/Active",
-      "release_date": "N/A",
-      "due_date": "N/A",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
-    },
-    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-299-2470802-NA",
       "title": "Absorbent Surface Cleaning of Truck Scales",
       "status": "Awarded",
       "release_date": "7/17/2023",
-      "due_date": "7/27/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "7/26/2023",
+      "raw_context": "Addenda | Release Date | Due Date | Absorbent Surface Cleaning of Truck Scales | IFB-299-2470802-NA | Closed | Awarded | 0 | 7/17/2023 | 7/27/2023 | Workwear, Customized and Non-Customized | IFB-299-2420903-NA-01 | Closed | Awarded | 0 | 7/26/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-299-2420903-NA-01",
       "title": "Workwear, Customized and Non-Customized",
       "status": "Closed",
       "release_date": "7/17/2023",
-      "due_date": "8/16/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "8/2/2023",
+      "raw_context": "0 | 7/17/2023 | 7/27/2023 | Workwear, Customized and Non-Customized | IFB-299-2420903-NA-01 | Closed | Awarded | 0 | 7/26/2023 | 8/16/2023 | Composting Education Outreach Services | IFB-299-2482503-JDW | Closed | No responses | 0 | 8/2/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-299-2482503-JDW",
       "title": "Composting Education Outreach Services",
       "status": "Closed",
       "release_date": "7/26/2023",
-      "due_date": "8/16/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "8/21/2023",
+      "raw_context": "0 | 7/26/2023 | 8/16/2023 | Composting Education Outreach Services | IFB-299-2482503-JDW | Closed | No responses | 0 | 8/2/2023 | 8/16/2023 | IntelliJet 20HD Consumables | IFB 031-2502304-CM | Closed | No responses | 1 | 8/21/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB 031-2502304-CM",
       "title": "IntelliJet 20HD Consumables",
       "status": "Awarded",
       "release_date": "8/2/2023",
-      "due_date": "9/8/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "8/23/2023",
+      "raw_context": "0 | 8/2/2023 | 8/16/2023 | IntelliJet 20HD Consumables | IFB 031-2502304-CM | Closed | No responses | 1 | 8/21/2023 | 9/8/2023 | Traffic Management Supplies | IFB-012-2442101-DC | Closed | Awarded | 2 | 8/23/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-012-2442101-DC",
       "title": "Traffic Management Supplies",
       "status": "Awarded",
       "release_date": "8/21/2023",
-      "due_date": "9/15/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "8/25/2023",
+      "raw_context": "1 | 8/21/2023 | 9/8/2023 | Traffic Management Supplies | IFB-012-2442101-DC | Closed | Awarded | 2 | 8/23/2023 | 9/15/2023 | Repair of Microwave Radio Equipment | 060-2504502-VV | Closed | Awarded | 0 | 8/25/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "060-2504502-VV",
+      "title": "Repair of Microwave Radio Equipment",
+      "status": "Awarded",
+      "release_date": "8/23/2023",
+      "due_date": "8/31/2023",
+      "raw_context": "2 | 8/23/2023 | 9/15/2023 | Repair of Microwave Radio Equipment | 060-2504502-VV | Closed | Awarded | 0 | 8/25/2023 | 9/15/2023 | Composting Education Outreach Services | IFB-299-2482503-JDW-1 | Closed | Awarded | 0 | 8/31/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-299-2482503-JDW-1",
       "title": "Composting Education Outreach Services",
       "status": "Evaluation processed and complete",
       "release_date": "8/25/2023",
-      "due_date": "9/15/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "9/1/2023",
+      "raw_context": "0 | 8/25/2023 | 9/15/2023 | Composting Education Outreach Services | IFB-299-2482503-JDW-1 | Closed | Awarded | 0 | 8/31/2023 | 9/15/2023 | Lake Management and Lake Water Maintenance Services | RFP 012-2496102-CW | Closed | Evaluation processed and complete | 0 | 9/1/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "RFP 012-2496102-CW",
       "title": "Lake Management and Lake Water Maintenance Services",
       "status": "Evaluation",
       "release_date": "8/31/2023",
-      "due_date": "10/2/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "10/19/2023",
+      "raw_context": "0 | 8/31/2023 | 9/15/2023 | Lake Management and Lake Water Maintenance Services | RFP 012-2496102-CW | Closed | Evaluation processed and complete | 0 | 9/1/2023 | 10/2/2023 | Behavioral Health Training Services | 042-1615073-RM | Evaluation | 1 | 9/6/2023 | 10/19/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "042-1615073-RM",
+      "title": "Behavioral Health Training Services",
+      "status": "Awarded",
+      "release_date": "9/1/2023",
+      "due_date": "10/10/2023",
+      "raw_context": "0 | 9/1/2023 | 10/2/2023 | Behavioral Health Training Services | 042-1615073-RM | Evaluation | 1 | 9/6/2023 | 10/19/2023 | Home Visiting Services RFP | 063-2439802-LY | Closed | Awarded | 1 | 9/7/2023 | 10/10/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "063-2439802-LY",
+      "title": "Home Visiting Services RFP",
+      "status": "Awarded",
+      "release_date": "9/6/2023",
+      "due_date": "9/12/2023",
+      "raw_context": "1 | 9/6/2023 | 10/19/2023 | Home Visiting Services RFP | 063-2439802-LY | Closed | Awarded | 1 | 9/7/2023 | 10/10/2023 | FURNITURE CLEANING SERVICES | IFB-017-2509340-SC | Closed | Awarded | 1 | 9/12/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-017-2509340-SC",
       "title": "FURNITURE CLEANING SERVICES",
       "status": "Awarded",
       "release_date": "9/7/2023",
-      "due_date": "10/17/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "9/13/2023",
+      "raw_context": "1 | 9/7/2023 | 10/10/2023 | FURNITURE CLEANING SERVICES | IFB-017-2509340-SC | Closed | Awarded | 1 | 9/12/2023 | 10/17/2023 | Ovenable Two-Compartment Compostable Fiber Food Trays | 060-2509704-CCC | Closed | Awarded | 0 | 9/13/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "060-2509704-CCC",
+      "title": "Ovenable Two-Compartment Compostable Fiber Food Trays",
+      "status": "Awarded",
+      "release_date": "9/12/2023",
+      "due_date": "9/13/2023",
+      "raw_context": "1 | 9/12/2023 | 10/17/2023 | Ovenable Two-Compartment Compostable Fiber Food Trays | 060-2509704-CCC | Closed | Awarded | 0 | 9/13/2023 | 10/2/2023 | Mobile Thermal Oxidizer Rental with Services | IFB-299-2498903-NA | Closed | Awarded | 0 | 9/13/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-299-2498903-NA",
       "title": "Mobile Thermal Oxidizer Rental with Services",
       "status": "Awarded",
       "release_date": "9/13/2023",
-      "due_date": "9/26/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "10/20/2023",
+      "raw_context": "0 | 9/13/2023 | 10/2/2023 | Mobile Thermal Oxidizer Rental with Services | IFB-299-2498903-NA | Closed | Awarded | 0 | 9/13/2023 | 9/26/2023 | HIV/STD Testing Services for Priority Populations | RFA-042-1623426-DMA | Pending | 0 | 9/13/2023 | 10/20/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "RFA-042-1623426-DMA",
+      "title": "HIV/STD Testing Services for Priority Populations",
+      "status": "Awarded",
+      "release_date": "9/13/2023",
+      "due_date": "9/28/2023",
+      "raw_context": "0 | 9/13/2023 | 9/26/2023 | HIV/STD Testing Services for Priority Populations | RFA-042-1623426-DMA | Pending | 0 | 9/13/2023 | 10/20/2023 | IntelliJet 20HD Consumables | IFB 031-2518901-CM | Closed | Awarded | 0 | 9/13/2023 | 9/28/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB 031-2518901-CM",
       "title": "IntelliJet 20HD Consumables",
       "status": "Awarded",
       "release_date": "9/13/2023",
-      "due_date": "9/28/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "9/14/2023",
+      "raw_context": "0 | 9/13/2023 | 10/20/2023 | IntelliJet 20HD Consumables | IFB 031-2518901-CM | Closed | Awarded | 0 | 9/13/2023 | 9/28/2023 | Youth Clothing | IFB-063-2517001-JA | Closed | Awarded | 0 | 9/14/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-063-2517001-JA",
       "title": "Youth Clothing",
       "status": "Awarded",
       "release_date": "9/13/2023",
-      "due_date": "9/28/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "9/15/2023",
+      "raw_context": "0 | 9/13/2023 | 9/28/2023 | Youth Clothing | IFB-063-2517001-JA | Closed | Awarded | 0 | 9/14/2023 | 9/28/2023 | Purchase and Delivery of Correctional Grade Breakaway Earbuds with Microphone | 060-2509801-CCC | Closed | Awarded | 0 | 9/15/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "060-2509801-CCC",
+      "title": "Purchase and Delivery of Correctional Grade Breakaway Earbuds with Microphone",
+      "status": "Awarded",
+      "release_date": "9/14/2023",
+      "due_date": "9/19/2023",
+      "raw_context": "0 | 9/14/2023 | 9/28/2023 | Purchase and Delivery of Correctional Grade Breakaway Earbuds with Microphone | 060-2509801-CCC | Closed | Awarded | 0 | 9/15/2023 | 10/10/2023 | Barbecue Grills and Park Accessories | IFB-2492801-DC | Closed | Awarded | 0 | 9/19/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-2492801-DC",
       "title": "Barbecue Grills and Park Accessories",
       "status": "Evaluation",
       "release_date": "9/15/2023",
-      "due_date": "10/3/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "10/23/2023",
+      "raw_context": "0 | 9/15/2023 | 10/10/2023 | Barbecue Grills and Park Accessories | IFB-2492801-DC | Closed | Awarded | 0 | 9/19/2023 | 10/3/2023 | Peer Mentoring Services | 042-1613494-RM | Evaluation | 1 | 9/19/2023 | 10/23/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "042-1613494-RM",
+      "title": "Peer Mentoring Services",
+      "status": "Closed",
+      "release_date": "9/19/2023",
+      "due_date": "10/10/2023",
+      "raw_context": "0 | 9/19/2023 | 10/3/2023 | Peer Mentoring Services | 042-1613494-RM | Evaluation | 1 | 9/19/2023 | 10/23/2023 | Veterinary and Boarding Services for Law Enforcement Canines (k-9) | IFB-060-2447501-02-CLM | Closed | No responses | 0 | 9/21/2023 | 10/10/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-060-2447501-02-CLM",
       "title": "Veterinary and Boarding Services for Law Enforcement Canines (k-9)",
       "status": "Awarded",
       "release_date": "9/19/2023",
-      "due_date": "10/10/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "9/21/2023",
+      "raw_context": "1 | 9/19/2023 | 10/23/2023 | Veterinary and Boarding Services for Law Enforcement Canines (k-9) | IFB-060-2447501-02-CLM | Closed | No responses | 0 | 9/21/2023 | 10/10/2023 | Communication Headset Safety Helmets | IFB-060-2447101-02-CLM | Closed | Awarded | 0 | 9/21/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-060-2447101-02-CLM",
       "title": "Communication Headset Safety Helmets",
       "status": "Closed",
       "release_date": "9/21/2023",
-      "due_date": "10/4/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "9/26/2023",
+      "raw_context": "0 | 9/21/2023 | 10/10/2023 | Communication Headset Safety Helmets | IFB-060-2447101-02-CLM | Closed | Awarded | 0 | 9/21/2023 | 10/4/2023 | Boarding/Lodging Services | RFP-2464807-JL1 | Closed | Canceled | 0 | 9/26/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "RFP-2464807-JL1",
       "title": "Boarding/Lodging Services",
       "status": "Awarded",
       "release_date": "9/21/2023",
-      "due_date": "10/24/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "9/26/2023",
+      "raw_context": "0 | 9/21/2023 | 10/4/2023 | Boarding/Lodging Services | RFP-2464807-JL1 | Closed | Canceled | 0 | 9/26/2023 | 10/24/2023 | Purchase and Delivery of Pre-Packaged Luncheon Meat | IFB-060-2521003-CCC | Closed | Awarded | 1 | 9/26/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-060-2521003-CCC",
       "title": "Purchase and Delivery of Pre-Packaged Luncheon Meat",
       "status": "Closed",
       "release_date": "9/26/2023",
-      "due_date": "10/27/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "9/26/2023",
+      "raw_context": "0 | 9/26/2023 | 10/24/2023 | Purchase and Delivery of Pre-Packaged Luncheon Meat | IFB-060-2521003-CCC | Closed | Awarded | 1 | 9/26/2023 | 10/27/2023 | RedSky My E911 Client License & Support | 017-2521802-OCIT-AP | Closed | No vendor selected | 1 | 9/26/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "017-2521802-OCIT-AP",
+      "title": "RedSky My E911 Client License & Support",
+      "status": "Awarded",
+      "release_date": "9/26/2023",
+      "due_date": "9/28/2023",
+      "raw_context": "1 | 9/26/2023 | 10/27/2023 | RedSky My E911 Client License & Support | 017-2521802-OCIT-AP | Closed | No vendor selected | 1 | 9/26/2023 | 10/6/2023 | Welfare-To-Work Assessment Services RFP | 063-2496202-DM | Closed | Awarded | 0 | 9/28/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "063-2496202-DM",
+      "title": "Welfare-To-Work Assessment Services RFP",
+      "status": "Awarded",
+      "release_date": "9/26/2023",
+      "due_date": "9/29/2023",
+      "raw_context": "1 | 9/26/2023 | 10/6/2023 | Welfare-To-Work Assessment Services RFP | 063-2496202-DM | Closed | Awarded | 0 | 9/28/2023 | 10/30/2023 | Executive-Level Program Management | RFP 280-2506305-DT | Closed | Awarded | 1 | 9/29/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "RFP 280-2506305-DT",
       "title": "Executive-Level Program Management",
       "status": "Awarded",
       "release_date": "9/28/2023",
-      "due_date": "11/3/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "10/2/2023",
+      "raw_context": "0 | 9/28/2023 | 10/30/2023 | Executive-Level Program Management | RFP 280-2506305-DT | Closed | Awarded | 1 | 9/29/2023 | 11/3/2023 | Installation of Cell Site Simulator Equipment | 060-2511303-TW | Closed | Awarded | 0 | 10/2/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "060-2511303-TW",
+      "title": "Installation of Cell Site Simulator Equipment",
+      "status": "Awarded",
+      "release_date": "9/29/2023",
+      "due_date": "10/3/2023",
+      "raw_context": "1 | 9/29/2023 | 11/3/2023 | Installation of Cell Site Simulator Equipment | 060-2511303-TW | Closed | Awarded | 0 | 10/2/2023 | 10/23/2023 | IFB-299-2510701-JDW - Coyote Management Services | IFB-299-25010701-JDW | Closed | Awarded | 0 | 10/3/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-299-2510701-JDW - Coyote Management Services",
       "title": "10/23/2023",
       "status": "Closed",
       "release_date": "10/2/2023",
       "due_date": "10/17/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "raw_context": "Awarded | 0 | 10/2/2023 | 10/23/2023 | IFB-299-2510701-JDW - Coyote Management Services | IFB-299-25010701-JDW | Closed | Awarded | 0 | 10/3/2023 | 10/17/2023 | Early Intervention Services for Older Adults | 042-1615075-RM | Closed | Canceled | 1"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-299-25010701-JDW",
       "title": "IFB-299-2510701-JDW - Coyote Management Services",
       "status": "Closed",
       "release_date": "10/2/2023",
-      "due_date": "10/17/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "10/3/2023",
+      "raw_context": "0 | 10/2/2023 | 10/23/2023 | IFB-299-2510701-JDW - Coyote Management Services | IFB-299-25010701-JDW | Closed | Awarded | 0 | 10/3/2023 | 10/17/2023 | Early Intervention Services for Older Adults | 042-1615075-RM | Closed | Canceled | 1 | 10/3/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "042-1615075-RM",
+      "title": "Early Intervention Services for Older Adults",
+      "status": "Awarded",
+      "release_date": "10/3/2023",
+      "due_date": "10/3/2023",
+      "raw_context": "0 | 10/3/2023 | 10/17/2023 | Early Intervention Services for Older Adults | 042-1615075-RM | Closed | Canceled | 1 | 10/3/2023 | 10/31/2023 | On-Demand Healthcare Learning Management Solution | 042-2517402-SB | Closed | Awarded | 2 | 10/3/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "042-2517402-SB",
+      "title": "On-Demand Healthcare Learning Management Solution",
+      "status": "Closed",
+      "release_date": "10/3/2023",
+      "due_date": "10/4/2023",
+      "raw_context": "1 | 10/3/2023 | 10/31/2023 | On-Demand Healthcare Learning Management Solution | 042-2517402-SB | Closed | Awarded | 2 | 10/3/2023 | 11/3/2023 | Power Hawk P-16X N.E.R.A.T. | 060-2527601-CLM | Closed | No vendor selected | 0 | 10/4/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "060-2527601-CLM",
+      "title": "Power Hawk P-16X N.E.R.A.T.",
+      "status": "Awarded",
+      "release_date": "10/3/2023",
+      "due_date": "10/4/2023",
+      "raw_context": "2 | 10/3/2023 | 11/3/2023 | Power Hawk P-16X N.E.R.A.T. | 060-2527601-CLM | Closed | No vendor selected | 0 | 10/4/2023 | 10/26/2023 | Purchase and Delivery of Greeting Cards for Re-sale | IFB-060-2521005-CCC | Closed | Awarded | 0 | 10/4/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-060-2521005-CCC",
       "title": "Purchase and Delivery of Greeting Cards for Re-sale",
       "status": "Closed",
       "release_date": "10/4/2023",
-      "due_date": "10/31/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "10/5/2023",
+      "raw_context": "0 | 10/4/2023 | 10/26/2023 | Purchase and Delivery of Greeting Cards for Re-sale | IFB-060-2521005-CCC | Closed | Awarded | 0 | 10/4/2023 | 10/31/2023 | Consulting Services for Inmate Communication System | RFP-060-2382202-EL | Closed | County has elected not to move forward with this project at this time. | 1 | 10/5/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "RFP-060-2382202-EL",
       "title": "Consulting Services for Inmate Communication System",
       "status": "Awarded",
       "release_date": "10/4/2023",
-      "due_date": "11/29/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "10/5/2023",
+      "raw_context": "0 | 10/4/2023 | 10/31/2023 | Consulting Services for Inmate Communication System | RFP-060-2382202-EL | Closed | County has elected not to move forward with this project at this time. | 1 | 10/5/2023 | 11/29/2023 | Automotive Paint and Related Supplies | IFB-080-2471501-EL | Closed | Awarded | 1 | 10/5/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-080-2471501-EL",
       "title": "Automotive Paint and Related Supplies",
       "status": "Awarded",
       "release_date": "10/5/2023",
-      "due_date": "11/16/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "10/5/2023",
+      "raw_context": "1 | 10/5/2023 | 11/29/2023 | Automotive Paint and Related Supplies | IFB-080-2471501-EL | Closed | Awarded | 1 | 10/5/2023 | 11/16/2023 | VEHICLE WASH AND RELATED SERVICES | 080-2478202-TV | Closed | Awarded | 2 | 10/5/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "080-2478202-TV",
+      "title": "VEHICLE WASH AND RELATED SERVICES",
+      "status": "Awarded",
+      "release_date": "10/5/2023",
+      "due_date": "10/5/2023",
+      "raw_context": "1 | 10/5/2023 | 11/16/2023 | VEHICLE WASH AND RELATED SERVICES | 080-2478202-TV | Closed | Awarded | 2 | 10/5/2023 | 10/27/2023 | PORTLAND READY MIX CONCRETE | 080-2489102-RN | Closed | Awarded | 0 | 10/5/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "080-2489102-RN",
+      "title": "PORTLAND READY MIX CONCRETE",
+      "status": "Closed",
+      "release_date": "10/5/2023",
+      "due_date": "10/5/2023",
+      "raw_context": "2 | 10/5/2023 | 10/27/2023 | PORTLAND READY MIX CONCRETE | 080-2489102-RN | Closed | Awarded | 0 | 10/5/2023 | 11/13/2023 | VEHICLE SEAT UPHOLSTERY SERVICES | 080-2446001-IC | Closed | In the County's best interest, this bid will be resolicited. | 0 | 10/5/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "080-2446001-IC",
+      "title": "VEHICLE SEAT UPHOLSTERY SERVICES",
+      "status": "Awarded",
+      "release_date": "10/5/2023",
+      "due_date": "10/5/2023",
+      "raw_context": "0 | 10/5/2023 | 11/13/2023 | VEHICLE SEAT UPHOLSTERY SERVICES | 080-2446001-IC | Closed | In the County's best interest, this bid will be resolicited. | 0 | 10/5/2023 | 10/27/2023 | THIRD PARTY COMPRESSED NATURAL GAS (CNG) OPERATOR | IFB-080-2518904-HW | Closed | Awarded | 0 | 10/5/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-080-2518904-HW",
       "title": "THIRD PARTY COMPRESSED NATURAL GAS (CNG) OPERATOR",
       "status": "Closed",
       "release_date": "10/5/2023",
-      "due_date": "10/27/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "10/5/2023",
+      "raw_context": "0 | 10/5/2023 | 10/27/2023 | THIRD PARTY COMPRESSED NATURAL GAS (CNG) OPERATOR | IFB-080-2518904-HW | Closed | Awarded | 0 | 10/5/2023 | 10/27/2023 | International Heavy Duty Truck Repair Parts | IFB-080-2469103-EL | Closed | Canceled | 0 | 10/5/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-080-2469103-EL",
       "title": "International Heavy Duty Truck Repair Parts",
       "status": "Awarded",
       "release_date": "10/5/2023",
-      "due_date": "10/30/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "10/5/2023",
+      "raw_context": "0 | 10/5/2023 | 10/27/2023 | International Heavy Duty Truck Repair Parts | IFB-080-2469103-EL | Closed | Canceled | 0 | 10/5/2023 | 10/30/2023 | Vertiv Switched PDU | 017-2528501-OCIT-AP | Closed | Awarded | 0 | 10/5/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "017-2528501-OCIT-AP",
+      "title": "Vertiv Switched PDU",
+      "status": "Awarded",
+      "release_date": "10/5/2023",
+      "due_date": "10/6/2023",
+      "raw_context": "0 | 10/5/2023 | 10/30/2023 | Vertiv Switched PDU | 017-2528501-OCIT-AP | Closed | Awarded | 0 | 10/5/2023 | 10/18/2023 | Janitorial Services | IFB-080-2467603-EL | Closed | Awarded | 1 | 10/6/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-080-2467603-EL",
       "title": "Janitorial Services",
       "status": "Evaluation",
       "release_date": "10/5/2023",
-      "due_date": "11/8/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "10/23/2023",
+      "raw_context": "0 | 10/5/2023 | 10/18/2023 | Janitorial Services | IFB-080-2467603-EL | Closed | Awarded | 1 | 10/6/2023 | 11/8/2023 | Library Materials Lending Machine(s) | RFP 012-2421201-DV | Evaluation | 1 | 10/9/2023 | 10/23/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "RFP 012-2421201-DV",
       "title": "Library Materials Lending Machine(s)",
       "status": "Awarded",
       "release_date": "10/6/2023",
-      "due_date": "10/23/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "11/30/2023",
+      "raw_context": "1 | 10/6/2023 | 11/8/2023 | Library Materials Lending Machine(s) | RFP 012-2421201-DV | Evaluation | 1 | 10/9/2023 | 10/23/2023 | CHRYSLER AND DODGE AUTO PARTS | 080-2392801-RN | Closed | Awarded | 2 | 10/9/2023 | 11/30/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "080-2392801-RN",
+      "title": "CHRYSLER AND DODGE AUTO PARTS",
+      "status": "Awarded",
+      "release_date": "10/9/2023",
+      "due_date": "10/10/2023",
+      "raw_context": "1 | 10/9/2023 | 10/23/2023 | CHRYSLER AND DODGE AUTO PARTS | 080-2392801-RN | Closed | Awarded | 2 | 10/9/2023 | 11/30/2023 | Hearing Officer Services | IFB 080-2213205-WH-2 | Closed | Awarded | 0 | 10/10/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB 080-2213205-WH-2",
       "title": "Hearing Officer Services",
       "status": "Awarded",
       "release_date": "10/9/2023",
-      "due_date": "11/10/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "10/10/2023",
+      "raw_context": "2 | 10/9/2023 | 11/30/2023 | Hearing Officer Services | IFB 080-2213205-WH-2 | Closed | Awarded | 0 | 10/10/2023 | 11/10/2023 | On-Call Air Quality and Emissions Regulatory and Environmental Services | RFP 080-2501801-WH | Closed | Awarded | 1 | 10/10/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "RFP 080-2501801-WH",
       "title": "On-Call Air Quality and Emissions Regulatory and Environmental Services",
       "status": "Closed",
       "release_date": "10/10/2023",
-      "due_date": "11/10/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "10/10/2023",
+      "raw_context": "0 | 10/10/2023 | 11/10/2023 | On-Call Air Quality and Emissions Regulatory and Environmental Services | RFP 080-2501801-WH | Closed | Awarded | 1 | 10/10/2023 | 11/10/2023 | PUMPING SERVICES, PUMP CLEANING, PUMP SYSTEM MAINTENANCE AND REPAIRS | 080-2455105-RN | Closed | No responses | 1 | 10/10/2023"
     },
     {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "080-2455105-RN",
+      "title": "PUMPING SERVICES, PUMP CLEANING, PUMP SYSTEM MAINTENANCE AND REPAIRS",
+      "status": "Awarded",
+      "release_date": "10/10/2023",
+      "due_date": "10/11/2023",
+      "raw_context": "1 | 10/10/2023 | 11/10/2023 | PUMPING SERVICES, PUMP CLEANING, PUMP SYSTEM MAINTENANCE AND REPAIRS | 080-2455105-RN | Closed | No responses | 1 | 10/10/2023 | 12/4/2023 | Repair Services of Forward Looking Infrared (FLIR) Camera Systems | 060-2520905-EG | Closed | Awarded | 0 | 10/11/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "060-2520905-EG",
+      "title": "Repair Services of Forward Looking Infrared (FLIR) Camera Systems",
+      "status": "Awarded",
+      "release_date": "10/10/2023",
+      "due_date": "10/11/2023",
+      "raw_context": "1 | 10/10/2023 | 12/4/2023 | Repair Services of Forward Looking Infrared (FLIR) Camera Systems | 060-2520905-EG | Closed | Awarded | 0 | 10/11/2023 | 11/8/2023 | Hygiene Products | IFB-063-2513701-SV | Closed | Awarded | 0 | 10/11/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
       "project_id": "IFB-063-2513701-SV",
       "title": "Hygiene Products",
       "status": "Closed",
       "release_date": "10/11/2023",
-      "due_date": "11/8/2023",
-      "source": "County of Orange Procurement Portal",
-      "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/County_of_Orange_Procurement_Portal.html"
+      "due_date": "10/11/2023",
+      "raw_context": "0 | 10/11/2023 | 11/8/2023 | Hygiene Products | IFB-063-2513701-SV | Closed | Awarded | 0 | 10/11/2023 | 11/8/2023 | Family Urgent Response System Services RFP | 063-2479306-JL | Closed | Canceled | 0 | 10/11/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "063-2479306-JL",
+      "title": "Family Urgent Response System Services RFP",
+      "status": "Evaluation",
+      "release_date": "10/11/2023",
+      "due_date": "11/9/2023",
+      "raw_context": "0 | 10/11/2023 | 11/8/2023 | Family Urgent Response System Services RFP | 063-2479306-JL | Closed | Canceled | 0 | 10/11/2023 | 11/13/2023 | Early Identification of Youth at Clinical High Risk for Psychosis | 042-1614064-RM | Evaluation | 0 | 10/12/2023 | 11/9/2023"
+    },
+    {
+      "page_source": "Pages 1-29 (Full 29-Page Procurement Dump)",
+      "project_id": "042-1614064-RM",
+      "title": "Early Identification of Youth at Clinical High Risk for Psychosis",
+      "status": "Evaluation",
+      "release_date": "10/11/2023",
+      "due_date": "11/9/2023",
+      "raw_context": "0 | 10/11/2023 | 11/13/2023 | Early Identification of Youth at Clinical High Risk for Psychosis | 042-1614064-RM | Evaluation | 0 | 10/12/2023 | 11/9/2023 | Previous | Page | of | 29 | 5 rows | 10 rows | 20 rows"
     }
   ]
 }
