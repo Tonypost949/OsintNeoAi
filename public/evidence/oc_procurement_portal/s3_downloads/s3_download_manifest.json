@@ -1,0 +1,12 @@
+{
+  "manifest_title": "OpenGov AWS S3 Procurement Attachment Download Manifest",
+  "timestamp": "2026-09-21 02:02:01",
+  "target_s3_url": "https://downloads-project.s3.us-west-2.amazonaws.com/63874/7",
+  "aws_region": "us-west-2",
+  "bucket_name": "downloads-project",
+  "project_id": "63874",
+  "attachment_id": "7",
+  "auth_status": "Pre-Signed AWS S3 Token Required / Session Cookie Required",
+  "playwright_handler": "scripts/opengov_playwright_scraper.py",
+  "online_url": "https://Tonypost949.github.io/OsintNeoAi/public/evidence/oc_procurement_portal/s3_downloads/s3_download_manifest.json"
+}
