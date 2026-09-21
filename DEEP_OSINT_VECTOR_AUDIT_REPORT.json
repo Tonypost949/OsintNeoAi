@@ -1,0 +1,313 @@
+{
+  "summary": {
+    "mercy_house_records": 58,
+    "chase_bank_shutdown": 0,
+    "identity_theft_records": 1,
+    "tmobile_account_breach": 0,
+    "identity_theft_insurance": 0
+  },
+  "details": {
+    "mercy_house_records": [
+      {
+        "path": "C:/OsintNeoAi/evidence\\dns\\mercyhouse.org.txt",
+        "size": 2941,
+        "sha256": "f9d2666ca70eec9f406063409b1d8ea2e8aea06c5d2b7b799f22a7726428715e"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\endpoint_captures\\headers_mercyhouse.org_.txt",
+        "size": 109,
+        "sha256": "06d5bb640481468055e645dfccdead8c854dac153c54b803d0eb163b74737ad8"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\endpoint_captures\\headers_mercyhouse.org_wp-admin.txt",
+        "size": 117,
+        "sha256": "e133b0c1deaf97ad4f24c2f0796fa6b5a123b1c3606563574df7bfbb1f24ad79"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\gdrive_import_2026\\previous enviro\\5125 data\\santa mercy\\4eced04a-5eae-49bd-9f33-6d2a5e56a72e.pdf",
+        "size": 12459738,
+        "sha256": "ec80dc8f1283cc8418aab53ae8fc43ae5709a63b955727892f8394b206c72662"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\gdrive_import_2026\\previous enviro\\5125 data\\santa mercy\\Preliminary Sanborn\u00ae Map Report.pdf",
+        "size": 201606,
+        "sha256": "d13b2d1a1decef3becdef20f7b845f68e963f8cd24f7ddea893c63e2b49c8b2c"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\gdrive_import_2026\\previous enviro\\EZR_OSINT\\mercy neighbor civil\\Pages\\pages_2025-03-06_080558.mhtml",
+        "size": 692932,
+        "sha256": "3c1eccb073156403df84a5b1e337a29acb5450276c0e1d310e2d73eccc236cf0"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\gdrive_import_2026\\previous enviro\\EZR_OSINT\\mercy neighbor civil\\Pages\\pages_2025-03-06_092240.mhtml",
+        "size": 678476,
+        "sha256": "2558fd1344c7cea07c07376fbf26130b42d5db6de2b0cf8b7e11eb590be318ac"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\gdrive_import_2026\\previous enviro\\EZR_OSINT\\mercy neighbor civil\\Screenshots\\screenshots_2025-03-06_092326.pdf",
+        "size": 1517770,
+        "sha256": "8e5e53bc109396bffa3a175d819e7a12d0f6254d59b8fa420b44a2b0f8bdcc1d"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\gdrive_import_2026\\previous enviro\\EZR_OSINT\\mercy neighbor civil\\Uploads\\uploads_2025-03-06_092202\\chatgpt civil mercyhouse hb homeless.pdf",
+        "size": 1644264,
+        "sha256": "fd029e4d0fac5fa8ef61db224b33ff044874ff0034509d5340c47c3fa3e0ce4e"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\gdrive_import_2026\\previous enviro\\EZR_OSINT\\mercy neighbor civil\\Uploads\\uploads_2025-03-06_092202\\chatgpt civil mercyhouse hb homeless2.pdf",
+        "size": 1338414,
+        "sha256": "f7f399fbb05b265d0d7852afe4d2ab1cfbeffa86e551368e74c4769f7c84adca"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\OCHCA_MERCY_HOUSE_V1.pdf",
+        "size": 432206,
+        "sha256": "c5916c809f2b0054e84718c292be3f6508b3fea549c8298f816eb257851bb138"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\Export hb list mercy house prop.xls",
+        "size": 8276,
+        "sha256": "cc5f0b7458ececd0fae38a2ff58c56c8bab56f8beca55f610bf143d1d11e77a3"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\beachcameronedrtest\\OCHCA_MERCY_HOUSE_V1.pdf",
+        "size": 432206,
+        "sha256": "c5916c809f2b0054e84718c292be3f6508b3fea549c8298f816eb257851bb138"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\desktop.ini",
+        "size": 5712,
+        "sha256": "880298e565a7aa3938058c7e19d7a6b5c4071482b003395ec41f4f988afe6489"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\hb local info\\book1\\book1parts\\Approved-Dust-Control-Plan-dated-8.14.20.pdf",
+        "size": 998013,
+        "sha256": "40d5c7b4821c558472f8e4bce0cc20482cffd0e255a5eef20401a983f5329ee3"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\hb local info\\book1\\book1parts\\AR123IdentificationBadgesatCityFacilities080916.pdf",
+        "size": 1038647,
+        "sha256": "b8d406f48afb2a37ed02856e99e3d9e553b63c2f4618f922e1f4bad1c2a13066"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\hb local info\\book1\\book1parts\\Barrel program Phase II (2).pdf",
+        "size": 92795,
+        "sha256": "4cacc88d0f96659176d8bc2db7e3e3c8126c22cae65dfe8b545de1c3c9d45463"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\hb local info\\book1\\book1parts\\Barrel program Phase II.pdf",
+        "size": 92795,
+        "sha256": "4cacc88d0f96659176d8bc2db7e3e3c8126c22cae65dfe8b545de1c3c9d45463"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\hb local info\\book1\\book1parts\\Barrel program Phase II_2.pdf",
+        "size": 92795,
+        "sha256": "4cacc88d0f96659176d8bc2db7e3e3c8126c22cae65dfe8b545de1c3c9d45463"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\hb local info\\book1\\book1parts\\general plan Tables_of_Contentslists.pdf",
+        "size": 196368,
+        "sha256": "7dae8b45635d54c4bf93d665e168b06cf584c4b00d19028fdd19df8ee5ea3588"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\hb local info\\book1\\book1parts\\HWM-TP_Phase-I-Env-Assessment-Chcklist_Instructions_ADA.pdf",
+        "size": 296070,
+        "sha256": "dfa6afa6758d3837d4f80d0016e10a457bf23eca786c53ab437455a71564264b"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\hb local info\\book1\\book1parts\\Master-Site-Plan---Huntington-Gateway-Business-Park-Project-Phase-II.pdf",
+        "size": 1010385,
+        "sha256": "ec12c5306f401345b77b60b894aa3f4375696992fee6b2be57e2a71c0a924141"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\hb local info\\book2\\parts\\04-17 Supp Comm-Cameron Lane PPT.pdf",
+        "size": 947233,
+        "sha256": "9a32a3f2e9126a9d63fefd9c603beabbe5665f9fdeb3e3e79a567a49e0023e74"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\hb local info\\book2\\parts\\4495459 mailing labels beach cameron.pdf",
+        "size": 869165,
+        "sha256": "9450ff054874e0c6163f72671dd664eb866b7b7d3386188660a6177b0f56bc8a"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\hb local info\\book2\\parts\\Administrative Permit DRB2006039 - Mailing Labels full.pdf",
+        "size": 872324,
+        "sha256": "ad5549ecdca167e6d1f7ee18999ede303a19441de880bbc36ef74680dae05b16"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\hb local info\\book2\\parts\\Administrative Permit DRB2006039 - Mailing Labels txtx only.pdf",
+        "size": 872324,
+        "sha256": "6c96158413c357052ad58d24a4bdf23f0869232752ffe0f9d2e1b09f70ac35e4"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\hb local info\\book2\\parts\\Att1 Emergency Facility Use Agreement mercy and yamada and county.pdf",
+        "size": 374488,
+        "sha256": "3ce516666020a716f69236d0d8b11cc8d2b86f7deba480acbdc7e0a0b9dfd9b1"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\hb local info\\book2\\parts\\huntington20-21 water rules.pdf",
+        "size": 329098,
+        "sha256": "fc76094c25f9bd0f08f19a0280191981678793f2d4a7e8111007bacd62c3a663"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\hb local info\\book2\\parts\\Mitigation-Monitoring-Checklist.pdf",
+        "size": 396311,
+        "sha256": "7058ea28725b90be5d5e2bc3816361c661855c3f00949633b62b5630277b923e"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\2025 Agency CoC General Membership - public doc 1-16-25.pdf",
+        "size": 190009,
+        "sha256": "ea35508078eda667d622fb121810d7d324b5a3ed67ea088510a74cf84f5fe892"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\C2EH & COC Joint Special Meeting Agenda Packet.pdf",
+        "size": 625907,
+        "sha256": "29a30e5683c982faba7e2a74200c05682dd67ce6231de6302116b4fa0f492b08"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\captions BOARD OF SUPERVISORS FOR 9-29-2020 hb deal.pdf",
+        "size": 307231,
+        "sha256": "04ed2c4bc8e6f81e9a09463f1146ced5e0bc0f856d0f4e9565ed8508e3601a20"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\captions good neighbor policy.pdf",
+        "size": 277744,
+        "sha256": "ca1fb3a740823f3f23ba3d03e082495af0bfbe3b0ebae37a1673da71ef99b159"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\captions mercy house video.pdf",
+        "size": 346394,
+        "sha256": "508a01b4ab103df3e41c15b396940188be14bdeb0b9a2ef76b24d9991321be95"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\coc 2025 Survey Feedback Presentation.pdf",
+        "size": 336160,
+        "sha256": "76e203ced02fcbf0466bff41901a3f3c24059bbe01859bdd8116f2e026db373e"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\coc rules PPS Committee Charter_Approved 12.18.24.pdf",
+        "size": 159441,
+        "sha256": "6bcca10e6b17cdb1e2587a73f7ec29971e8478782ad659fac51c021e65bad04e"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\County of Orange JULY 2024 v2 org chart.pdf",
+        "size": 472986,
+        "sha256": "c35cbc964266f3863126bb01951511796a00ae2892f166d3fa697634119b7bc2"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\County-of-Orange-PIO-List-04.12.2024.pdf",
+        "size": 211896,
+        "sha256": "fc8856e7dba30ff2fb1c0519f16ffc898b127c3cc8bbd8c77fd050f7714634a6"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\Department Contacts orange county.pdf",
+        "size": 160651,
+        "sha256": "bdd7a9273447c874734fc92f89454309fbd37f0e39d780099afc04ff5a8a806e"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\Disabling Condition Form.pdf",
+        "size": 264325,
+        "sha256": "491c13f460ead36f4701303de27b7bf0bd07f258e75d3cdcabef9a4f5f6a7f4d"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\DocumentViewer Tuesday, September 29, 2020  hb deal.pdf",
+        "size": 237956,
+        "sha256": "6ab15a48460b2e85975d270dea4c81f296ab158d13599648284b84d1dd701d9d"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\DocumentViewerTuesday, December 5, 2023.pdf",
+        "size": 158646,
+        "sha256": "cfecb3f9ec909eb5b6c263d7a5bc1ce1e967cb6121da0a4e3af48f2afd3a1e40"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\FY2024 hud CoC Renewal Project Application Detailed Description_Final.pdf",
+        "size": 315039,
+        "sha256": "2a2daa51356a61e3a06a0690028afcf55f2a41436d56b1db3640ffa6277f687c"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\homeless 23J1 - 01-09-24_9860839.pdf",
+        "size": 872633,
+        "sha256": "8f3fe26d12fc96c295b0dc8f677c251b8a41856f97fbeb99b66e94813cdf2fe5"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\huntington-beach-he-0421 housing data state vs.pdf",
+        "size": 511944,
+        "sha256": "66c7f39034b86f04483712a108aebde6ee10afe25f4d77223b286f026853c4fe"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\index Tuesday, September 29, 2020 hb deal agenda.pdf",
+        "size": 216655,
+        "sha256": "0325dbc637eebb6b6b09a1a47c97b30e1bc58ad30203612f31629847a8ff1c72"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\neighbor policy search Board Meeting Media Archive _ Orange County Board of Supervisors.pdf",
+        "size": 83856,
+        "sha256": "1011d5fce460dd583ca2fb72d9890e2fa7aecec11cd8ceff7b57ba508dedcb79"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\oc cares 2025 vision 120148.pdf",
+        "size": 837050,
+        "sha256": "1c2d6d01b352d52fbc77d3535fb786d595e2fec45377c01e5a62b0bc7db75f53"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\Pocket Guide Resource Directory - Central Updated 1.2.2024.pdf",
+        "size": 187342,
+        "sha256": "dc09ba9940ed8a7eec0fdf9fd89741932b93decc8e68af73a8cf919c185d892a"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\Presentation_Final 25.01.22 - CoC Board.pdf",
+        "size": 633951,
+        "sha256": "5b27d2ce7daea828d6967439068df30f6f145a12811d12e2933884e669279cac"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\RequestforFireMedicalorMarineSafetyRecords.pdf",
+        "size": 983650,
+        "sha256": "fb5322a3497be39b040de1f118540e1b113cf5844cbfacce7935a3e0088c7b3e"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\state vs hb huntingtonbeach030421.pdf",
+        "size": 172698,
+        "sha256": "750856617b104a6ed6121dd82f23256bb2a3ff8bbadddc867f2fc663673acfd2"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\subrecipient search Board Meeting Media Archive _ Orange County Board of Supervisors.pdf",
+        "size": 96252,
+        "sha256": "0c5f744656b8e93e2c5c791d08849d3152d52e8e14ddf70fe565b216dee7e10c"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\Tuesday, August 22, 2023 agenda.pdf",
+        "size": 158646,
+        "sha256": "cfecb3f9ec909eb5b6c263d7a5bc1ce1e967cb6121da0a4e3af48f2afd3a1e40"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\Universal PHA Application FAQ.pdf",
+        "size": 164856,
+        "sha256": "d260f7c26716c5d30ca4590e91fee6b5f23995328cf4f60c0ba21325972af275"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\walk in search 2 Board Meeting Media Archive _ Orange County Board of Supervisors.pdf",
+        "size": 192008,
+        "sha256": "613e82d49ba5d96cb2e91b039367ee4671d5c11a2152da85c0419d4560bc825c"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\hb_project_binder_16eX_20260906\\Downloads\\mercy\\mercy books\\book1mercy\\book1mercyparst\\walk in search Board Meeting Media Archive _ Orange County Board of Supervisors.pdf",
+        "size": 216324,
+        "sha256": "25e3cf058446696f971387604ff04f2e6273a76dd701ff03575a5430f0a69827"
+      },
+      {
+        "path": "C:/OsintNeoAi/evidence\\whois\\mercyhouse.org.txt",
+        "size": 1363,
+        "sha256": "f93c292ef4b5a15574fdd3e21f6ba09a23e6f37cb8e9edf86141c5f30306cdfb"
+      }
+    ],
+    "chase_bank_shutdown": [],
+    "identity_theft_records": [
+      {
+        "path": "C:/OsintNeoAi/evidence\\IDENTITY_THEFT_DEEP_RESEARCH.md",
+        "size": 24726,
+        "sha256": "586af8928f5f4bd464637fd479f1712033ad030374f0a0d8d728e5da1f97b6eb"
+      }
+    ],
+    "tmobile_account_breach": [],
+    "identity_theft_insurance": []
+  }
+}
