@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Database Menu - Unified Forensic & OSINT Database Hub</title>
+    <title>Database Menu - American Sentinel OCLC & Post University Academic E-Resources</title>
     <style>
         :root {
             --bg-primary: #0a0e17;
@@ -162,67 +162,103 @@
 <body>
 
     <header>
-        <h1>🗄️ Database Menu - Unified Intelligence & Data Store Hub</h1>
-        <div class="user-badge">👤 anthony.dimarcello@students.post.edu</div>
+        <h1>📚 Database Menu - Academic E-Resources & OCLC Proxy Hub</h1>
+        <div class="user-badge">👤 SyStudent190698@students.post.edu</div>
     </header>
 
-    <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search Vector DB, Dataverse, BigQuery, SQLite, Evidence Manifests..." onkeyup="filterDBs()">
+    <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search EBSCOhost, ProQuest, ScienceDirect, Ovid, McGraw-Hill, OCLC WorldCat, Scopus..." onkeyup="filterDBs()">
 
     <div class="grid-container">
 
-        <!-- Local Vector & Graph Databases -->
+        <!-- Primary Academic Databases & Search Engines -->
         <div class="card">
-            <h2>🧠 Local Vector & Graph Databases</h2>
+            <h2>🔬 Primary Academic & Research Databases</h2>
             <ul class="db-list">
                 <li class="db-item">
-                    <span class="title">OSINT SQLite Vector Node Index</span>
-                    <span class="url-text">C:\OsintNeoAi\osint_vector_index.db</span>
-                    <div class="meta"><span class="badge badge-cyan">Vector Search</span> <code>9,976</code> Ingested OSINT Nodes</div>
-                    <a class="btn" href="http://localhost:8080/api/nodes" target="_blank">Query /api/nodes</a>
+                    <span class="title">EBSCOhost Research Databases</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://search.ebscohost.com/login.aspx</span>
+                    <div class="meta"><span class="badge badge-green">Academic Search</span> Updated 2026-06-08</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://search.ebscohost.com/login.aspx" target="_blank">Open EBSCOhost</a>
                 </li>
                 <li class="db-item">
-                    <span class="title">Master User Nodes CSV Database</span>
-                    <span class="url-text">C:\Amd949609_Antigravity_v1\user_nodes.csv</span>
-                    <div class="meta"><span class="badge badge-green">Primary Data Store</span> CSV Inventory Database</div>
-                    <a class="btn" href="file:///C:/Amd949609_Antigravity_v1/user_nodes.csv" target="_blank">Open user_nodes.csv</a>
+                    <span class="title">ProQuest Research Platform</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://www.proquest.com/ip</span>
+                    <div class="meta"><span class="badge badge-purple">ProQuest</span> Updated 2025-02-18</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://www.proquest.com/ip" target="_blank">Open ProQuest</a>
+                </li>
+                <li class="db-item">
+                    <span class="title">ScienceDirect (Elsevier)</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://www.sciencedirect.com</span>
+                    <div class="meta"><span class="badge badge-green">Scientific Journals</span> Updated 2025-11-04</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://www.sciencedirect.com" target="_blank">Open ScienceDirect</a>
+                </li>
+                <li class="db-item">
+                    <span class="title">Scopus Abstract & Citation Database</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://www.scopus.com/home.url</span>
+                    <div class="meta"><span class="badge badge-gold">Citation Index</span> Updated 2025-11-04</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://www.scopus.com/home.url" target="_blank">Open Scopus</a>
                 </li>
             </ul>
         </div>
 
-        <!-- Enterprise Cloud & Dataverse Stores -->
+        <!-- Medical, Health & Clinical Resources -->
         <div class="card">
-            <h2>☁️ Enterprise Cloud & Dataverse Stores</h2>
+            <h2>🏥 Medical, Health & Nursing Libraries</h2>
             <ul class="db-list">
                 <li class="db-item">
-                    <span class="title">Dataverse Custom Connector API (`a4b2292d...`)</span>
-                    <span class="url-text">https://org7bce3bad.crm.dynamics.com</span>
-                    <div class="meta"><span class="badge badge-purple">Dataverse</span> Environment: <code>OsintNeoAi-TaxFunded-Producer</code></div>
-                    <a class="btn" href="https://admin.powerplatform.microsoft.com/manage/applications/environment/26f43f32-3fa8-f111-8add-000d3a5cb423" target="_blank">Open Dataverse Admin</a>
+                    <span class="title">McGraw-Hill Medical</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://www.mhmedical.com/</span>
+                    <div class="meta"><span class="badge badge-green">Medical Texts</span> Updated 2026-02-26</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://www.mhmedical.com/" target="_blank">Open McGraw-Hill Medical</a>
                 </li>
                 <li class="db-item">
-                    <span class="title">ArcGIS Teams Spatial Layer Engine</span>
-                    <span class="url-text">http://localhost:8080/api/arcgis/spatial_flow</span>
-                    <div class="meta"><span class="badge badge-gold">Spatial DB</span> CCTV, Contaminants, Parcel Bounds</div>
-                    <a class="btn" href="http://localhost:8080/api/arcgis/spatial_flow" target="_blank">Query Spatial API</a>
+                    <span class="title">Ovid HTTPS Medical Database</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=http://ovidsp.ovid.com/autologin.html</span>
+                    <div class="meta"><span class="badge badge-purple">Ovid Clinical</span> Updated 2025-08-21</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=http://ovidsp.ovid.com/autologin.html" target="_blank">Open Ovid</a>
+                </li>
+                <li class="db-item">
+                    <span class="title">Cochrane Library</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://www.cochranelibrary.com/</span>
+                    <div class="meta"><span class="badge badge-gold">Clinical Evidence</span> Updated 2026-02-13</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://www.cochranelibrary.com/" target="_blank">Open Cochrane Library</a>
+                </li>
+                <li class="db-item">
+                    <span class="title">PsychiatryOnline (American Journal of Psychiatry)</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://psychiatryonline.org</span>
+                    <div class="meta"><span class="badge badge-purple">Psychiatry</span> Updated 2026-06-09</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://psychiatryonline.org" target="_blank">Open PsychiatryOnline</a>
                 </li>
             </ul>
         </div>
 
-        <!-- Verified Evidence Manifests -->
+        <!-- Publishers, E-Books & Institutional LibGuides -->
         <div class="card">
-            <h2>📁 Verified Evidence Locker Manifests</h2>
+            <h2>📖 E-Books, Publishers & LibGuides</h2>
             <ul class="db-list">
                 <li class="db-item">
-                    <span class="title">SHA-256 Physical Evidence Integrity Database</span>
-                    <span class="url-text">C:\OsintNeoAi\EVIDENCE_LOCKER_SHA256_MANIFEST.json</span>
-                    <div class="meta"><span class="badge badge-green">SHA-256 Verified</span> <code>3,519</code> Verified Files (0 Deletions)</div>
-                    <a class="btn" href="file:///C:/OsintNeoAi/EVIDENCE_LOCKER_SHA256_MANIFEST.json" target="_blank">Open Integrity DB</a>
+                    <span class="title">ProQuest Ebook Central Patron Login</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://ebookcentral.proquest.com/lib/asuinv-ebooks</span>
+                    <div class="meta"><span class="badge badge-green">E-Book Central</span> Academic Books</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://ebookcentral.proquest.com/lib/asuinv-ebooks" target="_blank">Open Ebook Central</a>
                 </li>
                 <li class="db-item">
-                    <span class="title">Google Drive Evidence Locker Cloud Mirror</span>
-                    <span class="url-text">https://drive.google.com/drive/my-drive</span>
-                    <div class="meta"><span class="badge badge-gold">rclone Sync</span> Path: <code>gdrive:Sharedall/OsintNeoAi/evidence/</code></div>
-                    <a class="btn" href="https://drive.google.com/drive/my-drive" target="_blank">Open Cloud Mirror</a>
+                    <span class="title">American Sentinel University LibGuides</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://libguides.americansentinel.edu</span>
+                    <div class="meta"><span class="badge badge-gold">Library Guides</span> Institutional LibGuides</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://libguides.americansentinel.edu" target="_blank">Open LibGuides</a>
+                </li>
+                <li class="db-item">
+                    <span class="title">SpringerLink & Nature Publishing</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://link.springer.com</span>
+                    <div class="meta"><span class="badge badge-purple">Springer Nature</span> Updated 2024-05-10</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://link.springer.com" target="_blank">Open SpringerLink</a>
+                </li>
+                <li class="db-item">
+                    <span class="title">Sage Journals</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://journals.sagepub.com</span>
+                    <div class="meta"><span class="badge badge-green">Sage Pub</span> Updated 2026-05-15</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://journals.sagepub.com" target="_blank">Open Sage Journals</a>
                 </li>
             </ul>
         </div>
