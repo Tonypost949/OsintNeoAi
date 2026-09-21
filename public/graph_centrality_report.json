@@ -1,0 +1,148 @@
+{
+  "report_name": "Master OSINT Entity Graph Centrality & Hub Identification Report",
+  "timestamp": "2026-09-20 23:11:31",
+  "total_nodes": 19312,
+  "total_edges": 18691,
+  "top_degree_hubs": [
+    {
+      "node_id": "GOV-OC-PROCUREMENT",
+      "label": "County of Orange Procurement Office",
+      "type": "GOVERNMENT_AGENCY",
+      "degree_centrality": 0.077676,
+      "degree_count": 1500
+    },
+    {
+      "node_id": "BELAVITA LLC",
+      "label": "ORGANIZATION",
+      "type": "UNKNOWN",
+      "degree_centrality": 0.005127,
+      "degree_count": 99
+    },
+    {
+      "node_id": "PENINSULA VILLAGE LLC",
+      "label": "ORGANIZATION",
+      "type": "UNKNOWN",
+      "degree_centrality": 0.003107,
+      "degree_count": 60
+    },
+    {
+      "node_id": "OSF NB LLC",
+      "label": "ORGANIZATION",
+      "type": "UNKNOWN",
+      "degree_centrality": 0.003003,
+      "degree_count": 58
+    },
+    {
+      "node_id": "VUE INVESTOR OWNER LLC",
+      "label": "ORGANIZATION",
+      "type": "UNKNOWN",
+      "degree_centrality": 0.0029,
+      "degree_count": 56
+    },
+    {
+      "node_id": "D J T COMPANY LLC",
+      "label": "ORGANIZATION",
+      "type": "UNKNOWN",
+      "degree_centrality": 0.0029,
+      "degree_count": 56
+    },
+    {
+      "node_id": "CA",
+      "label": "STATE",
+      "type": "UNKNOWN",
+      "degree_centrality": 0.002278,
+      "degree_count": 44
+    },
+    {
+      "node_id": "JASMINE PLACE ASSOCIATES LLC",
+      "label": "ORGANIZATION",
+      "type": "UNKNOWN",
+      "degree_centrality": 0.001864,
+      "degree_count": 36
+    },
+    {
+      "node_id": "HS HOMES LLC",
+      "label": "ORGANIZATION",
+      "type": "UNKNOWN",
+      "degree_centrality": 0.001605,
+      "degree_count": 31
+    },
+    {
+      "node_id": "FL",
+      "label": "STATE",
+      "type": "UNKNOWN",
+      "degree_centrality": 0.001502,
+      "degree_count": 29
+    },
+    {
+      "node_id": "SUPERIOR BEACH HOMES LLC",
+      "label": "ORGANIZATION",
+      "type": "UNKNOWN",
+      "degree_centrality": 0.001346,
+      "degree_count": 26
+    },
+    {
+      "node_id": "MORAN PROPERTY LIMITED PARTNERSHIP",
+      "label": "ORGANIZATION",
+      "type": "UNKNOWN",
+      "degree_centrality": 0.001346,
+      "degree_count": 26
+    },
+    {
+      "node_id": "JAO, HAI N",
+      "label": "PERSON",
+      "type": "UNKNOWN",
+      "degree_centrality": 0.001346,
+      "degree_count": 26
+    },
+    {
+      "node_id": "G",
+      "label": "PERSON",
+      "type": "UNKNOWN",
+      "degree_centrality": 0.001191,
+      "degree_count": 23
+    },
+    {
+      "node_id": "SLATER I LLC",
+      "label": "ORGANIZATION",
+      "type": "UNKNOWN",
+      "degree_centrality": 0.001139,
+      "degree_count": 22
+    },
+    {
+      "node_id": "FLORIDA STREET APARTMENTSLLC",
+      "label": "PERSON",
+      "type": "UNKNOWN",
+      "degree_centrality": 0.001087,
+      "degree_count": 21
+    },
+    {
+      "node_id": "M WESTLAND LLC",
+      "label": "ORGANIZATION",
+      "type": "UNKNOWN",
+      "degree_centrality": 0.001036,
+      "degree_count": 20
+    },
+    {
+      "node_id": "FLORIDA STREET APARTMENTS LLC",
+      "label": "ORGANIZATION",
+      "type": "UNKNOWN",
+      "degree_centrality": 0.001036,
+      "degree_count": 20
+    },
+    {
+      "node_id": "NJ",
+      "label": "STATE",
+      "type": "UNKNOWN",
+      "degree_centrality": 0.000932,
+      "degree_count": 18
+    },
+    {
+      "node_id": "NY",
+      "label": "STATE",
+      "type": "UNKNOWN",
+      "degree_centrality": 0.000932,
+      "degree_count": 18
+    }
+  ]
+}
