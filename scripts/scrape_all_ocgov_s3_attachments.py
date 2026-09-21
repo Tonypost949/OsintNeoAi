@@ -8,39 +8,28 @@ from playwright.sync_api import sync_playwright
 EVIDENCE_DIR = r"C:\OsintNeoAi\public\evidence\oc_procurement_portal"
 S3_DOWNLOAD_DIR = os.path.join(EVIDENCE_DIR, "s3_downloads")
 MANIFEST_PATH = os.path.join(EVIDENCE_DIR, "ocgov_s3_all_attachments_manifest.json")
-DETAILS_DIR = os.path.join(EVIDENCE_DIR, "details")
+EXTRACTED_IDS_PATH = r"C:\OsintNeoAi\evidence\oc_procurement_portal\extracted_project_ids.json"
 
 os.makedirs(S3_DOWNLOAD_DIR, exist_ok=True)
 
 def collect_project_ids():
     project_ids = set()
-    # Check details page files
-    page_files = glob.glob(os.path.join(DETAILS_DIR, "oc_bids_page_*.json"))
-    for pf in page_files:
+    if os.path.exists(EXTRACTED_IDS_PATH):
         try:
-            with open(pf, "r", encoding="utf-8") as f:
+            with open(EXTRACTED_IDS_PATH, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                if isinstance(data, list):
-                    for item in data:
-                        pid = item.get("id") or item.get("project_id") or item.get("id_str")
-                        if pid:
-                            project_ids.add(str(pid))
-                        # Also check url
-                        url = item.get("url") or ""
-                        if "/projects/" in url:
-                            project_ids.add(url.split("/projects/")[-1].split("/")[0])
+                for pid in data:
+                    project_ids.add(str(pid))
         except Exception as e:
-            print(f"Error reading {pf}: {e}")
+            print(f"Error reading {EXTRACTED_IDS_PATH}: {e}")
 
-    # Fallback to known list if empty
-    if not project_ids:
-        project_ids.add("63874")
-
+    # Ensure reference project 63874 is present
+    project_ids.add("63874")
     return sorted(list(project_ids))
 
 def batch_download_s3():
     project_ids = collect_project_ids()
-    print(f"Found {len(project_ids)} target projects for S3 attachment extraction.")
+    print(f"Loaded {len(project_ids)} target project IDs for S3 extraction.")
 
     manifest = []
     
@@ -65,7 +54,7 @@ def batch_download_s3():
 
             try:
                 page.goto(project_url, wait_until="domcontentloaded", timeout=45000)
-                time.sleep(2)
+                time.sleep(3)
 
                 download_buttons = page.query_selector_all("a[href*='downloads-project'], button:has-text('Download'), a:has-text('Download'), a[href*='s3.us-west-2.amazonaws.com']")
                 print(f"  Found {len(download_buttons)} candidate attachment elements.")
@@ -91,7 +80,6 @@ def batch_download_s3():
                         project_record["attachments"].append(att_info)
                         print(f"    [+] Saved: {pid}_{filename} ({file_size:,} bytes)")
                     except Exception as e:
-                        # Direct S3 href metadata recording if direct click download didn't trigger
                         if href:
                             project_record["attachments"].append({
                                 "filename": f"{pid}_att_{b_idx}",
@@ -110,7 +98,7 @@ def batch_download_s3():
 
     with open(MANIFEST_PATH, "w", encoding="utf-8") as mf:
         json.dump(manifest, mf, indent=2)
-    print(f"\nMaster manifest saved to {MANIFEST_PATH}")
+    print(f"\nMaster S3 attachment manifest saved to {MANIFEST_PATH}")
 
 if __name__ == "__main__":
     batch_download_s3()
