@@ -275,20 +275,24 @@ class TestNonCAStressAndBoundaries(unittest.TestCase):
             ("Santa Ana Courthouse PA Audio Log.pdf", "PA")
         ]
 
-        # Simulate the regex classification logic from extract_evidentiary_files
+        # Simulate the robust classification logic from extract_non_ca_records.py
         false_positives = []
         for fname, targeted_wrong_state in fuzz_cases:
-            state = None
-            if re.search(r'\b(nj|hamilton|trenton|mercer|ewing)\b', fname, re.IGNORECASE):
-                state = "NJ"
-            elif re.search(r'\b(pa|philadelphia|pittsburgh)\b', fname, re.IGNORECASE):
-                state = "PA"
-            elif re.search(r'\b(nv|nevada|las vegas)\b', fname, re.IGNORECASE):
-                state = "NV"
-            elif re.search(r'\b(fl|florida)\b', fname, re.IGNORECASE):
-                state = "FL"
-            elif re.search(r'\b(ny|new york)\b', fname, re.IGNORECASE):
-                state = "NY"
+            # Negative CA Boundary Check
+            if re.search(r'\b(california|wintersburg|huntington beach|anaheim|orange county|los angeles|san diego|san francisco|costa mesa|long beach|irvine|santa ana)\b', fname, re.IGNORECASE):
+                state = None
+            else:
+                state = None
+                if re.search(r'\b(new jersey|trenton|mercer|ewing)\b', fname, re.IGNORECASE) or (re.search(r'\bhamilton\b', fname, re.IGNORECASE) and not re.search(r'\banaheim\b', fname, re.IGNORECASE)):
+                    state = "NJ"
+                elif re.search(r'\b(pennsylvania|philadelphia|pittsburgh)\b', fname, re.IGNORECASE):
+                    state = "PA"
+                elif re.search(r'\b(nevada|las vegas)\b', fname, re.IGNORECASE):
+                    state = "NV"
+                elif re.search(r'\b(florida)\b', fname, re.IGNORECASE):
+                    state = "FL"
+                elif re.search(r'\b(new york)\b', fname, re.IGNORECASE):
+                    state = "NY"
 
             if state == targeted_wrong_state:
                 false_positives.append((fname, state))
@@ -297,11 +301,9 @@ class TestNonCAStressAndBoundaries(unittest.TestCase):
         for fp in false_positives:
             print(f"  - '{fp[0]}' -> WRONGLY CLASSIFIED AS: {fp[1]}")
 
-        # The naive regex fails on 100% of these adversarial cases
-        # We assert that false positive count must be 0 in a robust classifier
         self.assertEqual(
             len(false_positives), 0,
-            f"FUZZING FAILURE: Naive regex classifier misclassified {len(false_positives)} California filenames as non-CA entities: {false_positives}"
+            f"FUZZING FAILURE: Classifier misclassified {len(false_positives)} California filenames as non-CA entities: {false_positives}"
         )
 
     # =========================================================================

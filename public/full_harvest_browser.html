@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Downloads Harvest Evidence Explorer</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 20px; }
+        h1 { color: #38bdf8; border-bottom: 2px solid #334155; padding-bottom: 10px; }
+        .search-box { width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #334155; background: #1e293b; color: #f8fafc; margin-bottom: 20px; font-size: 14px; box-sizing: border-box; }
+        table { width: 100%; border-collapse: collapse; background: #1e293b; border-radius: 8px; overflow: hidden; font-size: 13px; }
+        th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #334155; word-break: break-all; }
+        th { background: #0f172a; color: #38bdf8; text-transform: uppercase; font-size: 11px; }
+        tr:hover { background: #334155; }
+        a { color: #38bdf8; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Full Harvest Evidence Explorer (3,850 Files)</h1>
+    <input type="text" id="search" class="search-box" placeholder="Search by filename or relative path..." onkeyup="filterFiles()">
+    <table>
+        <thead>
+            <tr>
+                <th>File Name</th>
+                <th>Relative Path</th>
+                <th>Size (Bytes)</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+    </table>
+
+    <script>
+        let files = [];
+        fetch('evidence/full_harvest_files_manifest.json')
+            .then(res => res.json())
+            .then(data => {
+                files = data;
+                renderTable(files.slice(0, 500));
+            });
+
+        function renderTable(data) {
+            const body = document.getElementById('table-body');
+            body.innerHTML = data.map(f => `
+                <tr>
+                    <td><strong>${f.name}</strong></td>
+                    <td>${f.rel}</td>
+                    <td>${f.size.toLocaleString()}</td>
+                    <td><a href="evidence/full_downloads_harvest/${f.rel}" target="_blank">Open File</a></td>
+                </tr>
+            `).join('');
+        }
+
+        function filterFiles() {
+            const query = document.getElementById('search').value.toLowerCase();
+            const filtered = files.filter(f => f.name.toLowerCase().includes(query) || f.rel.toLowerCase().includes(query));
+            renderTable(filtered.slice(0, 500));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StormTech Pipe Corrosion Permits Visualizer</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 20px; }
+        h1 { color: #38bdf8; border-bottom: 2px solid #334155; padding-bottom: 10px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px; }
+        .stat-card { background: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; text-align: center; }
+        .stat-card .value { font-size: 24px; font-weight: bold; color: #38bdf8; }
+        .stat-card .label { font-size: 12px; color: #94a3b8; text-transform: uppercase; }
+        .search-box { width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #334155; background: #1e293b; color: #f8fafc; margin-bottom: 20px; font-size: 14px; box-sizing: border-box; }
+        table { width: 100%; border-collapse: collapse; background: #1e293b; border-radius: 8px; overflow: hidden; font-size: 13px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #334155; }
+        th { background: #0f172a; color: #38bdf8; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
+        tr:hover { background: #334155; }
+        .badge { background: #0284c7; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 11px; }
+    </style>
+</head>
+<body>
+    <h1>StormTech Pipe Corrosion & Wrap Permits Dashboard</h1>
+    <div class="stats-grid">
+        <div class="stat-card"><div class="value" id="total-permits">226</div><div class="label">Total Permits</div></div>
+        <div class="stat-card"><div class="value">OCHCA / Well W-4150</div><div class="label">Contamination Nexus</div></div>
+        <div class="stat-card"><div class="value">49x MCL</div><div class="label">Hexavalent Chromium Plume</div></div>
+    </div>
+    <input type="text" id="search" class="search-box" placeholder="Search permits by agency, permit number, or description..." onkeyup="filterTable()">
+    <table id="permits-table">
+        <thead>
+            <tr>
+                <th>Permit No</th>
+                <th>Agency</th>
+                <th>Title / Project</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Start Date</th>
+            </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+    </table>
+
+    <script>
+        let permits = [];
+        fetch('evidence/stormtech_legal_permit_index.json')
+            .then(res => res.json())
+            .then(data => {
+                permits = data;
+                renderTable(permits);
+            })
+            .catch(() => {
+                document.getElementById('table-body').innerHTML = '<tr><td colspan="6">Failed to load permit data index. Ensure file exists at evidence/stormtech_legal_permit_index.json</td></tr>';
+            });
+
+        function renderTable(data) {
+            const body = document.getElementById('table-body');
+            body.innerHTML = data.map(p => `
+                <tr>
+                    <td><strong>${p.permit_no || 'N/A'}</strong></td>
+                    <td><span class="badge">${p.agency || 'Unknown'}</span></td>
+                    <td>${p.title || 'N/A'}</td>
+                    <td>${p.desc || 'N/A'}</td>
+                    <td>${p.status || 'N/A'}</td>
+                    <td>${p.start_date || 'N/A'}</td>
+                </tr>
+            `).join('');
+        }
+
+        function filterTable() {
+            const query = document.getElementById('search').value.toLowerCase();
+            const filtered = permits.filter(p => 
+                (p.permit_no && p.permit_no.toLowerCase().includes(query)) ||
+                (p.agency && p.agency.toLowerCase().includes(query)) ||
+                (p.title && p.title.toLowerCase().includes(query)) ||
+                (p.desc && p.desc.toLowerCase().includes(query))
+            );
+            renderTable(filtered);
+        }
+    </script>
+</body>
+</html>

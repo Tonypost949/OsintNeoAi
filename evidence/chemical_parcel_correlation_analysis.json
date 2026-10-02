@@ -1,0 +1,39 @@
+{
+  "phase": "Property Parcel & Chemical Correlation Analysis",
+  "total_permits_analyzed": 226,
+  "high_risk_parcel_clusters": [
+    {
+      "apn": "541-012-14",
+      "agency": "OC Public Works",
+      "chemical_risk": "High (Coal Tar Wrap / Polyurea Coating / Anaerobic Soil Corrosion)",
+      "permit_count": 14
+    },
+    {
+      "apn": "541-012-15",
+      "agency": "City of Irvine Public Works",
+      "chemical_risk": "High (Cathodic Protection Failure / Stray Current Electrolysis)",
+      "permit_count": 11
+    },
+    {
+      "apn": "541-018-02",
+      "agency": "Orange County Water District",
+      "chemical_risk": "Moderate (High Salinity Chloride Pit Corrosion)",
+      "permit_count": 9
+    }
+  ],
+  "chemical_exposure_matrix": {
+    "coal_tar_pitch_volatiles": {
+      "permits": 48,
+      "regulatory_status": "EPA Class A Carcinogen"
+    },
+    "polyurethane_hdpe_disbonding": {
+      "permits": 72,
+      "regulatory_status": "Structural Delamination Risk"
+    },
+    "microbiologically_influenced_corrosion_mic": {
+      "permits": 106,
+      "regulatory_status": "Sulfate-Reducing Bacteria (SRB) Soil Hazard"
+    }
+  },
+  "status": "Analysis Complete"
+}

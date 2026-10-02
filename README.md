@@ -223,6 +223,14 @@ python simple_map_server.py
 
 Open browser at `http://localhost:10000/map/osinteye`.
 
+### 5. Launch OSINTNeoAiCLI Discovery Hub
+
+```bash
+python C:\OsintNeoAi\OSINTNeoAiCLI.py
+```
+
+Open browser at `http://127.0.0.1:5052` — scans and lists all installed CLIs (Python, Node, gcloud, bq, Docker, etc.).
+
 ---
 
 ## 📊 Live Endpoints & Routes
@@ -236,6 +244,7 @@ Open browser at `http://localhost:10000/map/osinteye`.
 | `/telemetry` | HTTP / GeoJSON | Live GeoJSON telemetry stream for tactical mapping layers |
 | `/api/inspect` | REST / JSON | Real-time entity search querying 3,510 evidence documents with SHA-256 hashes |
 | `/health` | REST / JSON | Microservice health check and WebGL engine diagnostic |
+| `http://127.0.0.1:5052` | HTTP / HTML | **OSINTNeoAiCLI Discovery Hub** — scans installed CLIs & Google Cloud SDKs (`python C:\OsintNeoAi\OSINTNeoAiCLI.py`) |
 
 ---
 
