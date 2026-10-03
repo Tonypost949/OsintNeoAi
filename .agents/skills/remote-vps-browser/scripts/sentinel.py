@@ -45,7 +45,7 @@ SSH_TARGETS = [
 HTTP_PROBES = [
     {"name": "Azure backend :10000 /health", "url": "http://57.152.82.43:10000/health", "critical": True},
     {"name": "Firebase Live Hub", "url": "https://blah-905ad.web.app", "critical": False},
-    {"name": "GitHub Pages GIS", "url": "https://tonypost949.github.io/OsintNeoAi/", "critical": False},
+    {"name": "GitHub Pages GIS (osintneoai.me)", "url": "http://osintneoai.me/OsintNeoAi/", "critical": False},
 ]
 
 LOCAL_SERVICES = [
