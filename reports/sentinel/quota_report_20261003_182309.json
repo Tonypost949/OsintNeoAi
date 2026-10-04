@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-10-03T18:24:03",
-  "overall": "WARN",
+  "timestamp": "2026-10-03T18:23:09",
+  "overall": "CRITICAL",
   "results": {
     "quota": [
       {
@@ -14,10 +14,10 @@
       {
         "check": "Gemini API",
         "kind": "quota",
-        "status": "ok",
-        "detail": "API alive via gemini-3.8-flash (HTTP 200, no ratelimit headers exposed)",
-        "pct_remaining": null,
-        "critical": true
+        "status": "not_auth",
+        "detail": "GEMINI_API_KEY missing from .env",
+        "critical": true,
+        "pct_remaining": null
       },
       {
         "check": "GCP IN_USE_ADDRESSES",
