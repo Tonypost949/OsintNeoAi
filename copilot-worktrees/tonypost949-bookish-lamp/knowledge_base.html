@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINTNeoAi — Knowledge Base Hub</title>
+    <!-- Custom styling, fonts, and icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --panel-bg: rgba(22, 26, 37, 0.7);
+            --border-color: rgba(0, 255, 170, 0.15);
+            --accent-color: #00ffaa;
+            --accent-glow: rgba(0, 255, 170, 0.4);
+            --text-color: #c9d1d9;
+            --text-heading: #ffffff;
+            --glass-blur: blur(12px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 255, 170, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(138, 43, 226, 0.08) 0px, transparent 50%);
+            color: var(--text-color);
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+            background: rgba(11, 12, 16, 0.85);
+            backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent-color), #8a2be2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #000;
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        h1 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-heading);
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, #fff, #99ffd6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 14px;
+            margin-left: 20px;
+            transition: color 0.3s;
+            border: 1px solid transparent;
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-color);
+            border-color: var(--border-color);
+            background: rgba(0, 255, 170, 0.05);
+        }
+
+        /* CONTAINER & GRID */
+        .container {
+            flex: 1;
+            padding: 30px 40px;
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* SECTION LAYOUTS */
+        .section-view {
+            display: none;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .section-view.active {
+            display: block;
+        }
+
+        /* BRIEFINGS EXPLORER */
+        .explorer-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+        .sidebar {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            backdrop-filter: var(--glass-blur);
+            max-height: calc(100vh - 160px);
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .briefing-item {
+            padding: 12px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+            margin-bottom: 8px;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.02);
+            color: #8b949e;
+        }
+
+        .briefing-item:hover {
+            background: rgba(0, 255, 170, 0.05);
+            color: #fff;
+            transform: translateX(4px);
+        }
+
+        .briefing-item.active {
+            background: rgba(0, 255, 170, 0.1);
+            border-left-color: var(--accent-color);
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .content-panel {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            backdrop-filter: var(--glass-blur);
+            min-height: 500px;
+            overflow-y: auto;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* MARKDOWN STYLING */
+        .markdown-body {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .markdown-body h1, .markdown-body h2, .markdown-body h3 {
+            color: var(--text-heading);
+            margin-top: 24px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 8px;
+        }
+
+        .markdown-body p, .markdown-body ul, .markdown-body ol {
+            margin-bottom: 16px;
+            color: var(--text-color);
+        }
+
+        .markdown-body ul, .markdown-body ol {
+            padding-left: 20px;
+        }
+
+        .markdown-body li {
+            margin-bottom: 4px;
+        }
+
+        .markdown-body code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            background: rgba(110, 118, 129, 0.2);
+            padding: 3px 6px;
+            border-radius: 6px;
+            color: #ff7b72;
+        }
+
+        .markdown-body pre {
+            background: #161b22;
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .markdown-body pre code {
+            background: none;
+            padding: 0;
+            color: #e6edf3;
+        }
+
+        .markdown-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .markdown-body th, .markdown-body td {
+            padding: 10px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: left;
+        }
+
+        .markdown-body th {
+            background-color: rgba(255, 255, 255, 0.04);
+            color: #fff;
+        }
+
+        /* SEARCH & FILTER FOR CASES */
+        .controls-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            background: var(--panel-bg);
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .controls-bar input, .controls-bar select {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(0, 255, 170, 0.2);
+            border-radius: 6px;
+            color: #fff;
+            padding: 10px 15px;
+            font-size: 14px;
+            outline: none;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .controls-bar input:focus, .controls-bar select:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 10px rgba(0, 255, 170, 0.2);
+        }
+
+        .controls-bar input {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        /* CASES DATABASE TABLE */
+        .table-wrapper {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow-x: auto;
+            backdrop-filter: var(--glass-blur);
+        }
+
+        table.cases-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        table.cases-table th {
+            background: rgba(0, 0, 0, 0.3);
+            color: var(--accent-color);
+            font-weight: 600;
+            padding: 15px 18px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        table.cases-table td {
+            padding: 14px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            vertical-align: top;
+        }
+
+        table.cases-table tr:hover td {
+            background: rgba(0, 255, 170, 0.02);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-conflict { background: rgba(255, 171, 0, 0.15); color: #ffab00; border: 1px solid rgba(255, 171, 0, 0.3); }
+        .badge-healthcare { background: rgba(0, 184, 217, 0.15); color: #00b8d9; border: 1px solid rgba(0, 184, 217, 0.3); }
+        .badge-breach { background: rgba(255, 86, 48, 0.15); color: #ff5630; border: 1px solid rgba(255, 86, 48, 0.3); }
+        .badge-env { background: rgba(54, 179, 126, 0.15); color: #36b37e; border: 1px solid rgba(54, 179, 126, 0.3); }
+        .badge-generic { background: rgba(255, 255, 255, 0.1); color: #ccc; border: 1px solid rgba(255, 255, 255, 0.2); }
+
+        /* RELATIONSHIPS COMPONENT */
+        .network-panel {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            backdrop-filter: var(--glass-blur);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .network-tabs {
+            display: flex;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 10px;
+        }
+
+        .network-tabs button {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #8b949e;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .network-tabs button:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .network-tabs button.active {
+            background: rgba(0, 255, 170, 0.1);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .relationship-map {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            min-height: 480px;
+        }
+
+        .map-view {
+            display: none;
+            width: 100%;
+        }
+
+        .map-view.active {
+            display: block;
+        }
+
+        /* ANIMATION */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 255, 170, 0.2);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 255, 170, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo-icon">Neo</div>
+            <h1>OSINTNeoAi Command Hub</h1>
+        </div>
+        <nav class="nav-links">
+            <a href="#" id="nav-briefings" class="active" onclick="switchView('briefings')">Dossiers & Briefings</a>
+            <a href="#" id="nav-cases" onclick="switchView('cases')">69-Case Master Index</a>
+            <a href="#" id="nav-network" onclick="switchView('network')">RICO Network Map</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- BRIEFINGS EXPLORER SECTION -->
+        <section id="view-briefings" class="section-view active">
+            <div class="explorer-layout">
+                <div class="sidebar">
+                    <h2>Intelligence Index</h2>
+                    <div id="briefings-list">
+                        <!-- Briefing items populated dynamically -->
+                    </div>
+                </div>
+                <div class="content-panel">
+                    <div id="markdown-container" class="markdown-body">
+                        <!-- Markdown rendered content -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CASES MASTER INDEX SECTION -->
+        <section id="view-cases" class="section-view">
+            <div class="controls-bar">
+                <input type="text" id="search-cases" placeholder="Search case ID, description, name, or statute..." oninput="filterCases()">
+                <select id="filter-category" onchange="filterCases()">
+                    <option value="">All Categories</option>
+                    <option value="Bureaucratic Blockade">Bureaucratic Blockade</option>
+                    <option value="Financial Conflict">Financial Conflict</option>
+                    <option value="Network Connection">Network Connection</option>
+                    <option value="Data Breach">Data Breach</option>
+                    <option value="Healthcare Violation">Healthcare Violation</option>
+                    <option value="Environmental">Environmental</option>
+                    <option value="RICO / Money Laund.">RICO / Money Laund.</option>
+                    <option value="Silent War">Silent War</option>
+                </select>
+                <select id="filter-status" onchange="filterCases()">
+                    <option value="">All Statuses</option>
+                    <option value="Confirmed">Confirmed</option>
+                    <option value="Active">Active</option>
+                    <option value="Documented">Documented</option>
+                    <option value="Under Investigation">Under Investigation</option>
+                    <option value="Unconfirmed">Unconfirmed</option>
+                </select>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="cases-table">
+                    <thead>
+                        <tr>
+                            <th>Case ID</th>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Entity / Target</th>
+                            <th>Individual</th>
+                            <th>Incident & Legal Basis</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cases-tbody">
+                        <!-- Case rows populated dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- RICO NETWORK MAP SECTION -->
+        <section id="view-network" class="section-view">
+            <div class="network-panel">
+                <h2>RICO Corporate & Family Network Map</h2>
+                <p>Visual representation of key entities, officers, and flow of public grants across mapped OSINT clusters.</p>
+                
+                <div class="network-tabs">
+                    <button id="tab-conway" class="active" onclick="switchNetworkTab('conway')">Conway-Mercy House Capital Loop</button>
+                    <button id="tab-fountain" onclick="switchNetworkTab('fountain')">Fountain Valley LLC Cluster (CA SOS)</button>
+                </div>
+
+                <div class="relationship-map">
+                    <!-- Tab 1: Conway Loop -->
+                    <div id="map-conway" class="map-view active">
+                        <svg width="100%" height="450" viewBox="0 0 850 450" style="background:#0b0c10; border-radius: 8px;">
+                            <defs>
+                                <marker id="arrow" viewBox="0 0 10 10" refX="25" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#00ffaa" />
+                                </marker>
+                            </defs>
+
+                            <g stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow)">
+                                <line x1="120" y1="120" x2="280" y2="120" stroke-dasharray="4" />
+                                <line x1="380" y1="120" x2="520" y2="120" />
+                                <line x1="570" y1="170" x2="570" y2="280" />
+                                <line x1="520" y1="330" x2="380" y2="330" />
+                                <line x1="280" y1="330" x2="120" y2="330" />
+                                <line x1="120" y1="310" x2="520" y2="290" stroke="#f43f5e" />
+                            </g>
+
+                            <g fill="#8b949e" font-size="10" font-family="monospace">
+                                <text x="140" y="110">Funnels Referrals</text>
+                                <text x="410" y="110">Direct Siting</text>
+                                <text x="580" y="220">HUD Grant Operator</text>
+                                <text x="410" y="320">24-Yr Board Governance</text>
+                                <text x="140" y="320">0.9% Kickback Loop</text>
+                                <text x="260" y="270" fill="#f43f5e">Retirement Pension Asset Route</text>
+                            </g>
+
+                            <!-- Nodes -->
+                            <circle cx="120" cy="120" r="40" fill="rgba(30, 41, 59, 0.9)" stroke="#3b82f6" stroke-width="2" />
+                            <text x="120" y="123" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">HBPD Task Force</text>
+
+                            <circle cx="330" cy="120" r="40" fill="rgba(30, 41, 59, 0.9)" stroke="#10b981" stroke-width="2" />
+                            <text x="330" y="118" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">Kristy Conway</text>
+                            <text x="330" y="132" fill="#8b949e" font-size="9" text-anchor="middle">Case Manager</text>
+
+                            <circle cx="570" cy="120" r="40" fill="rgba(30, 41, 59, 0.9)" stroke="#f59e0b" stroke-width="2" />
+                            <text x="570" y="118" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">HB Nav Center</text>
+                            <text x="570" y="132" fill="#8b949e" font-size="9" text-anchor="middle">Contaminated Site</text>
+
+                            <circle cx="570" cy="330" r="40" fill="rgba(30, 41, 59, 0.9)" stroke="#ef4444" stroke-width="2" />
+                            <text x="570" y="328" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">Mercy House</text>
+                            <text x="570" y="342" fill="#8b949e" font-size="9" text-anchor="middle">501(c)(3) Entity</text>
+
+                            <circle cx="330" cy="330" r="40" fill="rgba(30, 41, 59, 0.9)" stroke="#10b981" stroke-width="2" />
+                            <text x="330" y="328" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">Tom Conway</text>
+                            <text x="330" y="342" fill="#8b949e" font-size="9" text-anchor="middle">Board Node</text>
+
+                            <circle cx="120" cy="330" r="40" fill="rgba(30, 41, 59, 0.9)" stroke="#a855f7" stroke-width="2" />
+                            <text x="120" y="328" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">DIS Advisory</text>
+                            <text x="120" y="342" fill="#8b949e" font-size="9" text-anchor="middle">Wealth Mgmt</text>
+                        </svg>
+                    </div>
+
+                    <!-- Tab 2: Fountain Valley LLC Cluster -->
+                    <div id="map-fountain" class="map-view">
+                        <svg width="100%" height="450" viewBox="0 0 850 450" style="background:#0b0c10; border-radius: 8px;">
+                            <defs>
+                                <marker id="arrow2" viewBox="0 0 10 10" refX="25" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#00ffaa" />
+                                </marker>
+                            </defs>
+
+                            <!-- Links -->
+                            <g stroke="#00ffaa" stroke-width="1.5" marker-end="url(#arrow2)">
+                                <!-- Central Address to Orgs -->
+                                <line x1="425" y1="225" x2="230" y2="120" />
+                                <line x1="425" y1="225" x2="425" y2="90" />
+                                <line x1="425" y1="225" x2="620" y2="120" />
+
+                                <!-- People to Orgs -->
+                                <line x1="230" y1="360" x2="230" y2="150" /> <!-- Diana to Belavita -->
+                                <line x1="425" y1="360" x2="230" y2="140" stroke="#f59e0b" /> <!-- Yinchang to Belavita -->
+                                <line x1="425" y1="360" x2="620" y2="140" stroke="#f59e0b" /> <!-- Yinchang to Mesaville -->
+                                <line x1="620" y1="360" x2="425" y2="110" stroke="#a855f7" /> <!-- Shu Chin to Belinger -->
+                                <line x1="620" y1="360" x2="620" y2="150" stroke="#a855f7" /> <!-- Shu Chin to Mesaville -->
+                            </g>
+
+                            <g fill="#8b949e" font-size="10" font-family="monospace">
+                                <text x="280" y="190" transform="rotate(-28, 425, 225)">REGISTERED_AT</text>
+                                <text x="435" y="150">REGISTERED_AT</text>
+                                <text x="510" y="190" transform="rotate(28, 425, 225)">REGISTERED_AT</text>
+                                
+                                <text x="140" y="260">MEMBER & AGENT</text>
+                                <text x="270" y="290" fill="#f59e0b">MEMBER</text>
+                                <text x="490" y="290" fill="#f59e0b">MANAGER</text>
+                                <text x="510" y="260" fill="#a855f7">REGISTERED_AGENT</text>
+                                <text x="630" y="260" fill="#a855f7">REGISTERED_AGENT</text>
+                            </g>
+
+                            <!-- Nodes -->
+                            <!-- Central Address -->
+                            <circle cx="425" cy="225" r="45" fill="rgba(30, 41, 59, 0.95)" stroke="#3b82f6" stroke-width="2.5" />
+                            <text x="425" y="215" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">11770 Warner</text>
+                            <text x="425" y="228" fill="#8b949e" font-size="9" text-anchor="middle">Suite 215</text>
+                            <text x="425" y="240" fill="#8b949e" font-size="9" text-anchor="middle">Fountain Valley</text>
+
+                            <!-- BELAVITA LLC -->
+                            <circle cx="230" cy="120" r="35" fill="rgba(22, 26, 37, 0.9)" stroke="#00ffaa" stroke-width="2" />
+                            <text x="230" y="123" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">BELAVITA LLC</text>
+
+                            <!-- BELINGER LLC -->
+                            <circle cx="425" cy="80" r="35" fill="rgba(22, 26, 37, 0.9)" stroke="#00ffaa" stroke-width="2" />
+                            <text x="425" y="83" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">BELINGER LLC</text>
+
+                            <!-- MESAVILLE HOLDINGS LLC -->
+                            <circle cx="620" cy="120" r="35" fill="rgba(22, 26, 37, 0.9)" stroke="#00ffaa" stroke-width="2" />
+                            <text x="620" y="123" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">MESAVILLE</text>
+
+                            <!-- Diana Lin -->
+                            <circle cx="230" cy="360" r="35" fill="rgba(30, 41, 59, 0.9)" stroke="#10b981" stroke-width="2" />
+                            <text x="230" y="358" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">Diana Lin</text>
+                            <text x="230" y="370" fill="#8b949e" font-size="8" text-anchor="middle">Member/Agent</text>
+
+                            <!-- Yinchang Lin -->
+                            <circle cx="425" cy="360" r="35" fill="rgba(30, 41, 59, 0.9)" stroke="#10b981" stroke-width="2" />
+                            <text x="425" y="358" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">Yinchang Lin</text>
+                            <text x="425" y="370" fill="#8b949e" font-size="8" text-anchor="middle">Member/Manager</text>
+
+                            <!-- Shu Chin Tseng -->
+                            <circle cx="620" cy="360" r="35" fill="rgba(30, 41, 59, 0.9)" stroke="#10b981" stroke-width="2" />
+                            <text x="620" y="358" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">Shu Chin Tseng</text>
+                            <text x="620" y="370" fill="#8b949e" font-size="8" text-anchor="middle">Agent</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Load compiled data -->
+    <script src="briefings_data.js"></script>
+    <script>
+        // Switch between dashboard views
+        function switchView(viewId) {
+            document.querySelectorAll('.section-view').forEach(view => {
+                view.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            document.getElementById('view-' + viewId).classList.add('active');
+            document.getElementById('nav-' + viewId).classList.add('active');
+        }
+
+        // Switch between relationship map tabs
+        function switchNetworkTab(tabId) {
+            document.querySelectorAll('.map-view').forEach(map => {
+                map.classList.remove('active');
+            });
+            document.querySelectorAll('.network-tabs button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            document.getElementById('map-' + tabId).classList.add('active');
+            document.getElementById('tab-' + tabId).classList.add('active');
+        }
+
+        // Render selected briefing
+        function selectBriefing(filename) {
+            document.querySelectorAll('.briefing-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            const selectedItem = document.querySelector(`[data-filename="${filename}"]`);
+            if (selectedItem) selectedItem.classList.add('active');
+
+            const doc = BRIEFINGS_DATA[filename];
+            if (doc) {
+                document.getElementById('markdown-container').innerHTML = marked.parse(doc.content);
+            }
+        }
+
+        // Initialize Briefings List
+        function initBriefings() {
+            const container = document.getElementById('briefings-list');
+            let isFirst = true;
+            for (const filename in BRIEFINGS_DATA) {
+                const item = document.createElement('div');
+                item.className = 'briefing-item';
+                item.setAttribute('data-filename', filename);
+                item.innerText = BRIEFINGS_DATA[filename].title;
+                item.onclick = () => selectBriefing(filename);
+                container.appendChild(item);
+
+                if (isFirst) {
+                    selectBriefing(filename);
+                    isFirst = false;
+                }
+            }
+        }
+
+        // Populate Cases Table
+        function renderCasesTable(cases) {
+            const tbody = document.getElementById('cases-tbody');
+            tbody.innerHTML = '';
+
+            if (cases.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; color: #8b949e; padding: 30px;">No cases match the selected filters.</td></tr>';
+                return;
+            }
+
+            cases.forEach(c => {
+                const tr = document.createElement('tr');
+                
+                // Get appropriate badge style for Category
+                let badgeClass = 'badge-generic';
+                const cat = c.Category || '';
+                if (cat.includes('Conflict')) badgeClass = 'badge-conflict';
+                else if (cat.includes('Healthcare') || cat.includes('Whistleblower')) badgeClass = 'badge-healthcare';
+                else if (cat.includes('Breach') || cat.includes('Cyber')) badgeClass = 'badge-breach';
+                else if (cat.includes('Environmental')) badgeClass = 'badge-env';
+
+                tr.innerHTML = `
+                    <td style="font-family: 'JetBrains Mono', monospace; font-weight: 600; color: var(--accent-color);">${c.Case_ID || ''}</td>
+                    <td style="color: #8b949e; font-size: 13px;">${c.Date || ''}</td>
+                    <td><span class="badge ${badgeClass}">${c.Category || ''}</span></td>
+                    <td style="font-weight: 600; color: #fff;">${c.Entity_Name || ''}</td>
+                    <td>${c.Individual_Name || '<span style="color: #555;">N/A</span>'}</td>
+                    <td>
+                        <div style="font-weight: 500; color: #e6edf3; margin-bottom: 4px;">${c.Incident_Description || ''}</div>
+                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8b949e;">${c.Legal_Basis_Statute || ''}</div>
+                    </td>
+                    <td><span class="badge" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1);">${c.Status || ''}</span></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Filter Cases
+        function filterCases() {
+            const query = document.getElementById('search-cases').value.toLowerCase();
+            const category = document.getElementById('filter-category').value;
+            const status = document.getElementById('filter-status').value;
+
+            const filtered = CASES_DATA.filter(c => {
+                const matchesSearch = 
+                    (c.Case_ID && c.Case_ID.toLowerCase().includes(query)) ||
+                    (c.Entity_Name && c.Entity_Name.toLowerCase().includes(query)) ||
+                    (c.Individual_Name && c.Individual_Name.toLowerCase().includes(query)) ||
+                    (c.Incident_Description && c.Incident_Description.toLowerCase().includes(query)) ||
+                    (c.Legal_Basis_Statute && c.Legal_Basis_Statute.toLowerCase().includes(query));
+                
+                const matchesCategory = !category || c.Category === category;
+                const matchesStatus = !status || c.Status === status;
+
+                return matchesSearch && matchesCategory && matchesStatus;
+            });
+
+            renderCasesTable(filtered);
+        }
+
+        // Init on load
+        window.addEventListener('DOMContentLoaded', () => {
+            initBriefings();
+            renderCasesTable(CASES_DATA);
+        });
+    </script>
+</body>
+</html>

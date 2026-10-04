@@ -1,0 +1,2858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINT Evidence & Location Timeline Dashboard</title>
+
+    <!-- Outfit & JetBrains Mono Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Leaflet.js Mapping Library -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent-cyan: #06b6d4;
+            --accent-violet: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --sidebar-width: 280px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            /* Firefox Support */
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.15) rgba(11, 15, 25, 0.5);
+        }
+
+        /* Custom Scrollbar Styles */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(11, 15, 25, 0.5);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+            border: 1px solid var(--card-border);
+            transition: background 0.3s ease;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-cyan);
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: rgba(17, 24, 39, 0.95);
+            border-right: 1px solid var(--card-border);
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            z-index: 10;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 16px;
+        }
+
+        .brand span {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item i {
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid var(--accent-cyan);
+        }
+
+        .nav-item:hover i,
+        .nav-item.active i {
+            color: var(--accent-cyan);
+        }
+
+        /* Drag & Drop Upload Zone */
+        .upload-zone {
+            border: 2px dashed var(--card-border);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: border-color 0.3s;
+            font-size: 13px;
+        }
+
+        .upload-zone:hover {
+            border-color: var(--accent-cyan);
+            color: var(--text-primary);
+        }
+
+        .upload-zone p {
+            margin-top: 8px;
+            font-size: 11px;
+        }
+
+        /* Auth Panel styling */
+        .auth-status-panel {
+            margin-top: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 12px;
+        }
+
+        .auth-header {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--danger);
+            box-shadow: 0 0 8px var(--danger);
+            display: inline-block;
+        }
+
+        .status-dot.active {
+            background-color: var(--success);
+            box-shadow: 0 0 8px var(--success);
+        }
+
+        .auth-details {
+            color: var(--text-primary);
+            word-break: break-all;
+        }
+
+        .auth-btn {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .auth-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+        }
+
+        /* Main Workspace */
+        .workspace {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.05), transparent 60%);
+        }
+
+        /* Top Bar control */
+        .topbar {
+            height: 70px;
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            background: rgba(17, 24, 39, 0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .date-navigator {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-nav {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            color: var(--text-primary);
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .btn-nav:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .current-date {
+            font-size: 18px;
+            font-weight: 600;
+            min-width: 140px;
+            text-align: center;
+        }
+
+        /* View Panels Container */
+        .panel-container {
+            flex-grow: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .panel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            padding: 24px;
+        }
+
+        .panel.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        /* View 1: Daily Canvas Map Split */
+        .canvas-view {
+            display: flex;
+            gap: 24px;
+            height: 100%;
+            width: 100%;
+        }
+
+        .timeline-column {
+            flex: 1;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            backdrop-filter: blur(16px);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .timeline-header {
+            padding: 16px;
+            border-bottom: 1px solid var(--card-border);
+            font-weight: 600;
+        }
+
+        .timeline-scroll {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 16px;
+            position: relative;
+        }
+
+        .hour-row {
+            display: flex;
+            height: 60px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+
+        .hour-label {
+            width: 60px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-align: right;
+            padding-right: 12px;
+            line-height: 1;
+            margin-top: -6px;
+        }
+
+        .event-card {
+            position: absolute;
+            left: 80px;
+            right: 16px;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(139, 92, 246, 0.15));
+            border-left: 4px solid var(--accent-cyan);
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 13px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px rgba(6, 182, 212, 0.25);
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.25), rgba(139, 92, 246, 0.25));
+        }
+
+        .event-card .title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .event-card .time {
+            font-size: 11px;
+            color: var(--accent-cyan);
+        }
+
+        .map-column {
+            flex: 1.2;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+            position: relative;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        #map .leaflet-tile-container {
+            filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+        }
+
+        /* View 2: Device Mockup Dual View */
+        .device-view {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            height: 100%;
+            width: 100%;
+            overflow-y: auto;
+        }
+
+        .phone-mockup {
+            width: 320px;
+            height: 640px;
+            background: #111827;
+            border: 12px solid #374151;
+            border-radius: 36px;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 130px;
+            height: 18px;
+            background: #374151;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            z-index: 5;
+        }
+
+        .phone-screen {
+            flex-grow: 1;
+            background: #090d16;
+            padding: 24px 16px 16px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            font-size: 12px;
+            position: relative;
+        }
+
+        .phone-status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 10px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            padding: 0 4px;
+        }
+
+        .phone-header {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 16px;
+            color: var(--accent-cyan);
+        }
+
+        .phone-timeline-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 2px solid var(--accent-cyan);
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .phone-timeline-item.walk {
+            border-left-color: var(--accent-violet);
+        }
+
+        .phone-timeline-item.photo {
+            border-left-color: var(--success);
+        }
+
+        .phone-timeline-item .time {
+            font-size: 9px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .phone-timeline-item .title {
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .phone-evidence-link {
+            display: inline-block;
+            margin-top: 8px;
+            color: var(--accent-cyan);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .source-evidence-panel {
+            width: 400px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 24px;
+            backdrop-filter: blur(16px);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .source-evidence-header {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 8px;
+        }
+
+        .evidence-preview-box {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed var(--card-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        /* View 3: Spreadsheet View */
+        .spreadsheet-view {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            height: 100%;
+            width: 100%;
+        }
+
+        .table-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .search-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            padding: 10px 16px;
+            outline: none;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-cyan);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .spreadsheet-container {
+            flex-grow: 1;
+            overflow: auto;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            background: var(--card-bg);
+        }
+
+        table.sheet-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            text-align: left;
+        }
+
+        table.sheet-table th {
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid var(--card-border);
+            border-right: 1px solid var(--card-border);
+            padding: 10px 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
+        table.sheet-table td {
+            border-bottom: 1px solid var(--card-border);
+            border-right: 1px solid var(--card-border);
+            padding: 10px 14px;
+            vertical-align: top;
+        }
+
+        table.sheet-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        table.sheet-table .type-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        table.sheet-table .type-visit {
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--accent-cyan);
+        }
+
+        table.sheet-table .type-walk {
+            background: rgba(139, 92, 246, 0.15);
+            color: var(--accent-violet);
+        }
+
+        table.sheet-table .type-log {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--warning);
+        }
+
+        table.sheet-table .source-url {
+            color: var(--accent-cyan);
+            text-decoration: underline;
+            cursor: pointer;
+            word-break: break-all;
+        }
+
+        /* View 4: Docs Report View */
+        .docs-view {
+            display: flex;
+            justify-content: center;
+            overflow-y: auto;
+            height: 100%;
+            width: 100%;
+        }
+
+        .document-page {
+            width: 800px;
+            background: white;
+            color: #111827;
+            padding: 60px 80px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            min-height: 1120px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .doc-header {
+            text-align: center;
+            border-bottom: 2px solid #111827;
+            padding-bottom: 20px;
+            margin-bottom: 10px;
+        }
+
+        .doc-title {
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .doc-subtitle {
+            font-size: 12px;
+            color: #4b5563;
+        }
+
+        .doc-section-title {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 1px solid #d1d5db;
+            padding-bottom: 4px;
+            margin-top: 20px;
+            color: #1f2937;
+        }
+
+        .doc-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .doc-table th,
+        .doc-table td {
+            border: 1px solid #d1d5db;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        .doc-table th {
+            background-color: #f3f4f6;
+            font-weight: 700;
+        }
+
+        .doc-metadata-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            font-size: 12px;
+            background: #f9fafb;
+            padding: 16px;
+            border-radius: 4px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .doc-footer {
+            margin-top: auto;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #6b7280;
+        }
+
+        /* Search Layout for View 5 and 6 */
+        .search-container {
+            display: flex;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .search-input-wrapper {
+            position: relative;
+            flex: 1;
+        }
+
+        .preset-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            margin-top: 4px;
+        }
+
+        .preset-title {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .preset-tag {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            color: var(--text-secondary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .preset-tag:hover {
+            background: rgba(6, 182, 212, 0.15);
+            border-color: var(--accent-cyan);
+            color: var(--text-primary);
+        }
+
+        /* Dorking Grid */
+        .dork-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .dork-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .dork-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(6, 182, 212, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .dork-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .dork-card-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .dork-card-badge {
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+        .dork-query-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+            padding: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: #38bdf8;
+            overflow-x: auto;
+            white-space: nowrap;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .dork-action-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dork-btn {
+            flex: 1;
+            padding: 6px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            text-decoration: none;
+            border: none;
+        }
+
+        .dork-btn-primary {
+            background: rgba(6, 182, 212, 0.15);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            color: var(--accent-cyan);
+        }
+
+        .dork-btn-primary:hover {
+            background: var(--accent-cyan);
+            color: #000;
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+        }
+
+        .dork-btn-secondary {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            color: var(--text-secondary);
+            max-width: 40px;
+        }
+
+        .dork-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-primary);
+        }
+
+        .guide-box {
+            background: rgba(6, 182, 212, 0.03);
+            border: 1px dashed rgba(6, 182, 212, 0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .guide-box strong {
+            color: var(--text-primary);
+        }
+
+        .guide-box code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-cyan);
+        }
+
+        /* Loading Spinner */
+        .spinner-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            gap: 12px;
+            color: var(--text-secondary);
+        }
+
+        .spinner {
+            width: 32px;
+            height: 32px;
+            border: 3px solid rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            border-top-color: var(--accent-cyan);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .state-view {
+            text-align: center;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            border: 1px dashed var(--card-border);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .state-view i {
+            font-size: 32px;
+            color: var(--text-secondary);
+            opacity: 0.5;
+        }
+
+        .state-view h3 {
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+
+        .state-view p {
+            color: var(--text-secondary);
+            max-width: 360px;
+            font-size: 12px;
+        }
+
+        /* Toast Container */
+        #toast-container {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 9999;
+        }
+
+        .toast {
+            background: rgba(17, 24, 39, 0.95);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--card-border);
+            border-left: 4px solid var(--accent-cyan);
+            padding: 12px 16px;
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            transform: translateX(120%);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            min-width: 280px;
+            max-width: 400px;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.success {
+            border-left-color: var(--success);
+        }
+
+        .toast.error {
+            border-left-color: var(--danger);
+        }
+
+        .toast.warning {
+            border-left-color: var(--warning);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="brand">
+            <span>🛡️ OSINT Timeline</span>
+        </div>
+
+        <ul class="nav-menu">
+            <li>
+                <div class="nav-item active" onclick="switchView(1, this)">
+                    <i class="fa-solid fa-calendar-day"></i>
+                    <span>Daily Canvas</span>
+                </div>
+            </li>
+            <li>
+                <div class="nav-item" onclick="switchView(2, this)">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <span>Device Mockup</span>
+                </div>
+            </li>
+            <li>
+                <div class="nav-item" onclick="switchView(3, this)">
+                    <i class="fa-solid fa-table-cells"></i>
+                    <span>Grid Spreadsheet</span>
+                </div>
+            </li>
+            <li>
+                <div class="nav-item" onclick="switchView(4, this)">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <span>Docs Report</span>
+                </div>
+            </li>
+            <li>
+                <div class="nav-item" onclick="switchView(5, this)">
+                    <i class="fa-brands fa-google-drive"></i>
+                    <span>Drive API Search</span>
+                </div>
+            </li>
+            <li>
+                <div class="nav-item" onclick="switchView(6, this)">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <span>Dorking Generator</span>
+                </div>
+            </li>
+        </ul>
+
+        <!-- File Upload Section -->
+        <div class="upload-zone" id="drop-zone" style="margin-top: auto; margin-bottom: 8px;">
+            📤 Drag & Drop
+            <p>Takeout Location history JSON or timeline CSV</p>
+        </div>
+
+        <!-- Authentication Status Panel -->
+        <div class="auth-status-panel">
+            <div class="auth-header">
+                <span>API Auth Status</span>
+                <span class="status-dot" id="auth-dot"></span>
+            </div>
+            <div class="auth-details" id="auth-details">
+                Checking connection...
+            </div>
+            <button class="auth-btn" id="auth-action-btn" onclick="triggerAuth()" style="display: none;">
+                <i class="fa-solid fa-key"></i>
+                <span>Authenticate</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Workspace -->
+    <div class="workspace">
+        <!-- Top Navigation Bar -->
+        <div class="topbar">
+            <div class="date-navigator">
+                <button class="btn-nav" onclick="changeDay(-1)">◀ Previous</button>
+                <input type="date" id="date-picker" class="search-input"
+                    style="width: 160px; font-weight:600; text-align:center; padding: 6px;"
+                    onchange="setDate(this.value)">
+                <div class="current-date" id="date-display" style="display:none;">May 24, 2026</div>
+                <button class="btn-nav" onclick="changeDay(1)">Next ▶</button>
+            </div>
+
+            <div style="font-size: 13px; color: var(--text-secondary);">
+                Active User: <span style="color: var(--accent-cyan); font-weight:600;">amd949609@gmail.com</span>
+            </div>
+        </div>
+
+        <!-- Panels Container -->
+        <div class="panel-container">
+
+            <!-- View 1: Daily Canvas -->
+            <div class="panel active" id="panel-1">
+                <div class="canvas-view">
+                    <!-- Timeline Day Schedule -->
+                    <div class="timeline-column">
+                        <div class="timeline-header">Schedule Canvas</div>
+                        <div class="timeline-scroll" id="canvas-timeline-container">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Daily Digital Footprint -->
+                    <div class="timeline-column">
+                        <div class="timeline-header"
+                            style="display:flex; justify-content:space-between; align-items:center;">
+                            <span>Digital Footprint</span>
+                            <span style="font-size:11px; font-weight:normal; color:var(--text-secondary);">Drives,
+                                Gmail, Device</span>
+                        </div>
+                        <div class="timeline-scroll" id="digital-assets-container" style="padding:16px;">
+                            <!-- Populated dynamically via API search -->
+                        </div>
+                    </div>
+
+                    <!-- Leaflet Route Mapping -->
+                    <div class="map-column">
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View 2: Device Mockup -->
+            <div class="panel" id="panel-2">
+                <div class="device-view">
+                    <!-- Phone Frame -->
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="phone-status-bar">
+                                <div>08:42</div>
+                                <div>LTE 🔋 94%</div>
+                            </div>
+
+                            <div class="phone-header">Location Timeline</div>
+                            <div id="phone-timeline-list" style="flex-grow: 1; overflow-y: auto;">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evidence Viewer -->
+                    <div class="source-evidence-panel">
+                        <div class="source-evidence-header" id="evidence-title">Select Phone Event</div>
+                        <p style="font-size: 13px; color: var(--text-secondary);" id="evidence-description">
+                            Tap on any phone segment or notification to view the original source coordinate data, logs,
+                            or map route details.
+                        </p>
+                        <div class="evidence-preview-box" id="evidence-box">
+                            No active reference selected
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View 3: Spreadsheet Grid -->
+            <div class="panel" id="panel-3">
+                <div class="spreadsheet-view">
+                    <div class="table-controls">
+                        <input type="text" class="search-input" id="table-search" placeholder="Search evidence logs..."
+                            oninput="filterSpreadsheet()">
+                        <button class="btn-nav" style="border-color: var(--accent-cyan); color: var(--accent-cyan);"
+                            onclick="exportCSV()">Export CSV</button>
+                    </div>
+
+                    <div class="spreadsheet-container">
+                        <table class="sheet-table">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Start Timestamp</th>
+                                    <th>End Timestamp</th>
+                                    <th>Event Type</th>
+                                    <th>Event Summary</th>
+                                    <th>Location Coordinates / Details</th>
+                                    <th>Source Document Reference</th>
+                                </tr>
+                            </thead>
+                            <tbody id="spreadsheet-tbody">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View 4: Docs Report -->
+            <div class="panel" id="panel-4">
+                <div class="docs-view">
+                    <div class="document-page">
+                        <div class="doc-header">
+                            <div class="doc-title">OSINT Timeline Audit Report</div>
+                            <div class="doc-subtitle">Generated Case File: timeline-evidence-master.audit</div>
+                        </div>
+
+                        <div class="doc-metadata-grid">
+                            <div>
+                                <strong>Case Custodian:</strong> amd949609@gmail.com<br>
+                                <strong>Analysis Date:</strong> 2026-05-24
+                            </div>
+                            <div>
+                                <strong>Date Under Investigation:</strong> <span id="doc-report-date">May 24,
+                                    2026</span><br>
+                                <strong>Source Data format:</strong> Google Takeout (Semantic Location History)
+                            </div>
+                        </div>
+
+                        <div class="doc-section-title">Case Executive Summary</div>
+                        <p id="doc-summary-text">
+                            Chronological logs of spatial coordinates and incident audit records parsed for this
+                            specific date range. This report validates coordinate paths and reference points to paint a
+                            clear picture of physical locations and related digital activity.
+                        </p>
+
+                        <div class="doc-section-title">Chronological Log of Evidence</div>
+                        <table class="doc-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 25%;">Timestamp Range</th>
+                                    <th style="width: 20%;">Incident/Action</th>
+                                    <th style="width: 35%;">Incident Details / Coordinates</th>
+                                    <th style="width: 20%;">Official Source</th>
+                                </tr>
+                            </thead>
+                            <tbody id="doc-table-tbody">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+
+                        <div class="doc-footer">
+                            <div>OSINT Case ID: amd949609-timeline</div>
+                            <div>Page 1 of 1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View 5: Google Drive API Search -->
+            <div class="panel" id="panel-5">
+                <div class="spreadsheet-view" style="width: 100%; height: 100%;">
+                    <div style="border-bottom: 1px solid var(--card-border); padding-bottom: 12px; margin-bottom: 4px;">
+                        <h2
+                            style="font-size: 20px; font-weight: 700; background: linear-gradient(to right, #ffffff, var(--text-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            Google Drive API Search</h2>
+                        <p style="color: var(--text-secondary); font-size: 13px; margin-top: 4px;">Query files and
+                            indexing descriptions inside your authenticated Google Drive storage.</p>
+                    </div>
+
+                    <div class="search-container">
+                        <div class="search-input-wrapper">
+                            <input type="text" class="search-input" style="width:100%;" id="api-search-input"
+                                placeholder="Search file names or document contents..."
+                                onkeydown="if(event.key === 'Enter') executeSearch('api')">
+                        </div>
+                        <button class="btn-nav"
+                            style="border-color: var(--accent-cyan); color: var(--accent-cyan); padding: 8px 24px; font-weight: 600;"
+                            onclick="executeSearch('api')">
+                            Search
+                        </button>
+                    </div>
+
+                    <div class="preset-container">
+                        <span class="preset-title">Quick Search:</span>
+                        <button class="preset-tag" onclick="usePreset('api', 'Huntington Beach')">Huntington
+                            Beach</button>
+                        <button class="preset-tag" onclick="usePreset('api', 'RICO')">RICO</button>
+                        <button class="preset-tag" onclick="usePreset('api', 'DTSC Dermal Risk')">DTSC Dermal
+                            Risk</button>
+                        <button class="preset-tag" onclick="usePreset('api', 'Pham Trust')">Pham Trust</button>
+                        <button class="preset-tag" onclick="usePreset('api', 'Hexavalent Chromium')">Hexavalent
+                            Chromium</button>
+                    </div>
+
+                    <div class="guide-box" id="api-guide">
+                        <strong><i class="fa-solid fa-circle-info"></i> Authenticated API Search Config</strong>
+                        <p>Requires <code>credentials.json</code> or <code>service_account.json</code> inside the server
+                            directory for API access.</p>
+                    </div>
+
+                    <!-- API Results Output -->
+                    <div class="results-container" id="api-results-container" style="display: none; margin-top: 8px;">
+                        <div class="results-header">
+                            <h3 class="results-title">Drive API File Results</h3>
+                            <span class="results-count" id="api-results-count">0 files found</span>
+                        </div>
+                        <div class="spreadsheet-container" style="max-height: 420px; overflow-y: auto;">
+                            <table class="sheet-table">
+                                <thead>
+                                    <tr>
+                                        <th>File Name</th>
+                                        <th>Mime Type</th>
+                                        <th>Owner</th>
+                                        <th>Last Modified</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="api-results-body">
+                                    <!-- Results appended dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Welcome State -->
+                    <div class="state-view" id="api-welcome-state">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <h3>Google Drive Indexer</h3>
+                        <p>Search terms are matched against file metadata as well as full-text documents.</p>
+                    </div>
+
+                    <!-- Loading State -->
+                    <div class="spinner-wrapper" id="api-loading-state" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Querying Google Drive API...</p>
+                    </div>
+
+                    <!-- Error State -->
+                    <div class="state-view" id="api-error-state" style="display: none;">
+                        <i class="fa-solid fa-triangle-exclamation" style="color: var(--danger);"></i>
+                        <h3 id="api-error-title">Search Failed</h3>
+                        <p id="api-error-desc">An error occurred while connecting to the Drive API.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View 6: OSINT Google Dorks -->
+            <div class="panel" id="panel-6">
+                <div class="spreadsheet-view" style="width: 100%; height: 100%;">
+                    <div style="border-bottom: 1px solid var(--card-border); padding-bottom: 12px; margin-bottom: 4px;">
+                        <h2
+                            style="font-size: 20px; font-weight: 700; background: linear-gradient(to right, #ffffff, var(--text-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            Google Dorking Generator</h2>
+                        <p style="color: var(--text-secondary); font-size: 13px; margin-top: 4px;">Generate advanced
+                            operators to identify publicly indexed files on Google Drive.</p>
+                    </div>
+
+                    <div class="search-container">
+                        <div class="search-input-wrapper">
+                            <input type="text" class="search-input" style="width:100%;" id="dork-search-input"
+                                placeholder="Enter keyword or entity name (e.g. 'Pham Trust')..."
+                                onkeydown="if(event.key === 'Enter') executeSearch('dork')">
+                        </div>
+                        <button class="btn-nav"
+                            style="border-color: var(--accent-cyan); color: var(--accent-cyan); padding: 8px 24px; font-weight: 600;"
+                            onclick="executeSearch('dork')">
+                            Generate
+                        </button>
+                    </div>
+
+                    <div class="preset-container">
+                        <span class="preset-title">Presets:</span>
+                        <button class="preset-tag"
+                            onclick="usePreset('dork', 'Huntington Beach Navigation Center')">HBNC</button>
+                        <button class="preset-tag" onclick="usePreset('dork', 'California State Controller')">State
+                            Controller</button>
+                        <button class="preset-tag" onclick="usePreset('dork', 'RICO investigation')">RICO</button>
+                        <button class="preset-tag" onclick="usePreset('dork', 'Unknown HB Development LLC')">HB Dev
+                            LLC</button>
+                        <button class="preset-tag" onclick="usePreset('dork', 'DTSC Dermal Risk Assessment')">DTSC
+                            Assessment</button>
+                    </div>
+
+                    <!-- Dork Results Output -->
+                    <div class="results-container" id="dork-results-container" style="display: none; margin-top: 8px;">
+                        <div class="results-header">
+                            <h3 class="results-title">Exposed Drive Search Operators</h3>
+                            <span class="results-count" id="dork-results-count">0 operators</span>
+                        </div>
+
+                        <div class="dork-grid" id="dork-grid">
+                            <!-- Dork cards generated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Welcome State -->
+                    <div class="state-view" id="dork-welcome-state">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                        <h3>Google Dorking Engine</h3>
+                        <p>Assemble advanced search dorks to identify corporate and public PDF files exposed on the open
+                            web.</p>
+                    </div>
+
+                    <!-- Loading State -->
+                    <div class="spinner-wrapper" id="dork-loading-state" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Generating dork patterns...</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div id="toast-container"></div>
+
+    <script>
+        const API_BASE = 'http://localhost:8080/api';
+
+        // Utility function to sanitize inputs and prevent XSS
+        function escapeHTML(str) {
+            if (str === null || str === undefined) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        // Default timeline dataset representing Dr. Verma & User vs nworico case study
+        let rawDataset = [
+            // 2021 Events
+            {
+                start: "2021-01-01 09:00:00",
+                end: "2021-01-01 11:30:00",
+                summary: "Case Opened: Met Dr. Verma",
+                detail: "Anthony DiMarcello meets Dr. Verma (1st Whistleblower going against nworico). Consulted on threats, document suppression, and RICO patterns.",
+                source: "doc: case-file-init-001",
+                type: "VISIT",
+                lat: 37.774929, lng: -122.419416
+            },
+            {
+                start: "2021-01-15 22:30:00",
+                end: "2021-01-15 23:45:00",
+                summary: "Dr. Verma Target of Cyber Attacks",
+                detail: "Dr. Verma targeted with hostile unauthorized login attempts and server port scanning. Identified threat group 'nworico' staging vectors.",
+                source: "http://sec-logs.local/ssh/audit-2021-01-15",
+                type: "LOG",
+                lat: 0, lng: 0
+            },
+            {
+                start: "2021-02-01 14:00:00",
+                end: "2021-02-01 17:30:00",
+                summary: "Active Defense Shields Deployed",
+                detail: "Active endpoint defense shielding deployed by Anthony DiMarcello (2nd Whistleblower) to secure Dr. Verma's communications and files from ongoing attacks.",
+                source: "doc: defense-deployment-plan-v1",
+                type: "VISIT",
+                lat: 37.788648, lng: -122.399874
+            },
+            {
+                start: "2021-02-15 11:00:00",
+                end: "2021-02-15 12:30:00",
+                summary: "Hostile Network Intrusion Blocked",
+                detail: "Defended and blocked persistent threat attempts to inject trojans into Dr. Verma's workstation. Port logs linked back to nworico nodes.",
+                source: "http://sec-logs.local/intrusion/block-2021-02-15",
+                type: "LOG",
+                lat: 0, lng: 0
+            },
+            {
+                start: "2021-04-10 08:30:00",
+                end: "2021-04-10 10:00:00",
+                summary: "Extortion Attempt Recorded",
+                detail: "Hostile extortion email received demanding immediate cessation of whistleblower activities and deletion of secured evidence logs.",
+                source: "gmail: message-id-extortion-2021-04-10",
+                type: "LOG",
+                lat: 0, lng: 0
+            },
+            {
+                start: "2021-06-20 10:00:00",
+                end: "2021-06-20 12:30:00",
+                summary: "Whistleblower Declaration Compiled",
+                detail: "Formal declaration compiled documenting city contractor conflicts, grant fraud, and illegal toxic site concealment. Signed by both whistleblowers.",
+                source: "gdrive: whistleblower-dossier-final.pdf",
+                type: "LOG",
+                lat: 0, lng: 0
+            },
+            // 2022 Events
+            {
+                start: "2022-01-15 08:30:00",
+                end: "2022-01-15 11:00:00",
+                summary: "Unclaimed Property RICO Audit",
+                detail: "CA State Controller unclaimed property logs audited, showing asset shelter patterns linked to nworico shell entities.",
+                source: "doc: unclaimed-property-rico-audit",
+                type: "LOG",
+                lat: 0, lng: 0
+            },
+            {
+                start: "2022-09-08 14:00:00",
+                end: "2022-09-08 16:45:00",
+                summary: "Ongoing Harassment Campaign Logged",
+                detail: "Spike in threats and digital surveillance targets logged by security nodes. Threat communications secured and added to master audit file.",
+                source: "gmail: threat-log-2022-09",
+                type: "LOG",
+                lat: 0, lng: 0
+            },
+            // 2023 Events
+            {
+                start: "2023-04-19 16:20:00",
+                end: "2023-04-19 17:30:00",
+                summary: "Co-Mingled Grant Fraud Audited",
+                detail: "HUD grant funding co-mingled with city operational accounts investigated. Tracked $2.2M diversion pattern.",
+                source: "doc: hud-grant-fraud-audit",
+                type: "LOG",
+                lat: 0, lng: 0
+            },
+            {
+                start: "2023-11-30 09:00:00",
+                end: "2023-11-30 11:30:00",
+                summary: "Eviction Retaliation Filed",
+                detail: "Hostile, retaliatory civil eviction action filed against Anthony DiMarcello as witness intimidation. Court filings logged.",
+                source: "doc: eviction-civil-access-CJ-399",
+                type: "LOG",
+                lat: 0, lng: 0
+            },
+            // 2024 Events
+            {
+                start: "2024-05-14 11:05:00",
+                end: "2024-05-14 12:00:00",
+                summary: "RCRA Citizen Suit Drafted",
+                detail: "Drafted Citizen Suit Complaint under RCRA Section 7002, detailing illegal dumping and hazardous waste concealment at HBNC.",
+                source: "doc: rcra-citizen-suit-draft",
+                type: "LOG",
+                lat: 0, lng: 0
+            },
+            {
+                start: "2024-10-22 15:45:00",
+                end: "2024-10-22 16:30:00",
+                summary: "Court Complaint Exhibit Finalized",
+                detail: "Evidence exhibits finalized for federal court filing, linking nworico nodes to city officials and illegal property transfers.",
+                source: "doc: court-complaint-exhibit-B",
+                type: "LOG",
+                lat: 0, lng: 0
+            },
+            // 2025 Events
+            {
+                start: "2025-08-05 13:10:00",
+                end: "2025-08-05 13:45:00",
+                summary: "Eviction Hearing Audited",
+                detail: "Court hearing before Judicial Officer Carmen Luege regarding the retaliatory eviction action. Transcripts archived.",
+                source: "doc: court-transcript-2025-08-05",
+                type: "LOG",
+                lat: 0, lng: 0
+            },
+            // 2026 Events (Present / Ongoing)
+            {
+                start: "2026-05-20 09:30:00",
+                end: "2026-05-20 12:00:00",
+                summary: "Recent System Breach Audited",
+                detail: "Audited suspicious network intrusions attempting to compromise evidence drives. Chains of custody validated.",
+                source: "https://company.status/incidents/audit-2026-05-20",
+                type: "LOG",
+                lat: 0, lng: 0
+            },
+            {
+                start: "2026-05-24 08:00:00",
+                end: "2026-05-24 09:00:00",
+                summary: "Secure Evidence Transfer Walk",
+                detail: "Walking route covering secure physical custody transfer of master evidence files to offsite storage location.",
+                source: "https://www.google.com/maps/dir/?api=1&origin=37.774929,-122.419416&destination=37.78,-122.41&travelmode=walking",
+                type: "WALK",
+                startLat: 37.774929, startLng: -122.419416,
+                endLat: 37.78, endLng: -122.41
+            }
+        ];
+
+        // Active Date State
+        let currentDateString = "2026-05-24";
+        let mapInstance = null;
+        let mapMarkers = [];
+        let mapRoutes = [];
+
+        // Navigation
+        function switchView(viewIndex, element) {
+            // Update sidebar buttons
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
+
+            // Switch Panels
+            document.querySelectorAll('.panel').forEach(panel => panel.classList.remove('active'));
+            const activePanel = document.getElementById(`panel-${viewIndex}`);
+            activePanel.classList.add('active');
+
+            // Show/hide date navigator based on view
+            const dateNav = document.querySelector('.date-navigator');
+            if (viewIndex === 5 || viewIndex === 6) {
+                if (dateNav) dateNav.style.visibility = 'hidden';
+            } else {
+                if (dateNav) dateNav.style.visibility = 'visible';
+            }
+
+            // Force Map Resize if switching to View 1
+            if (viewIndex === 1) {
+                setTimeout(() => {
+                    if (mapInstance) {
+                        mapInstance.invalidateSize();
+                        centerMapOnCurrentDay();
+                    }
+                }, 200);
+            }
+        }
+
+        // Initialize Map
+        function initMap() {
+            if (mapInstance) return;
+            
+            // Fix Leaflet's default icon paths when loaded via CDN
+            delete L.Icon.Default.prototype._getIconUrl;
+            L.Icon.Default.mergeOptions({
+                iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+                iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+                shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+            });
+
+            mapInstance = L.map('map').setView([37.7749, -122.4194], 14);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(mapInstance);
+        }
+
+        // Filter and get data for the active date
+        function getFilteredDataForDate(dateStr) {
+            return rawDataset.filter(d => d.start.startsWith(dateStr));
+        }
+
+        // Render functions
+        function renderDailyCanvas() {
+            const container = document.getElementById('canvas-timeline-container');
+            container.innerHTML = '';
+
+            // Render 24 hour scheduler layout
+            for (let i = 0; i < 24; i++) {
+                const hourLabel = i === 0 ? "12 AM" : i < 12 ? `${i} AM` : i === 12 ? "12 PM" : `${i - 12} PM`;
+
+                const row = document.createElement('div');
+                row.className = 'hour-row';
+
+                const label = document.createElement('div');
+                label.className = 'hour-label';
+                label.innerText = hourLabel;
+
+                row.appendChild(label);
+                container.appendChild(row);
+            }
+
+            // Place events inside the scheduler container based on absolute time offset
+            const activeEvents = getFilteredDataForDate(currentDateString);
+
+            activeEvents.forEach(ev => {
+                const startDt = new Date(ev.start);
+                const endDt = new Date(ev.end);
+
+                const startHour = startDt.getHours() + (startDt.getMinutes() / 60);
+                const endHour = endDt.getHours() + (endDt.getMinutes() / 60);
+                const duration = Math.max(0.5, endHour - startHour);
+
+                const card = document.createElement('div');
+                card.className = 'event-card';
+                card.style.top = `${startHour * 60 + 16}px`;
+                card.style.height = `${duration * 60}px`;
+                if (ev.type === 'PHOTO') {
+                    card.style.borderLeftColor = 'var(--success)';
+                    card.style.background = 'linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.15))';
+                }
+                card.onclick = () => focusOnMapObject(ev);
+
+                const title = document.createElement('div');
+                title.className = 'title';
+                title.innerText = ev.summary;
+
+                const timeLabel = document.createElement('div');
+                timeLabel.className = 'time';
+                timeLabel.innerText = `${startDt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} - ${endDt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+
+                card.appendChild(title);
+                card.appendChild(timeLabel);
+                container.appendChild(card);
+            });
+        }
+
+        // Plot routes and place pins on Leaflet
+        function updateMapObjects() {
+            if (!mapInstance) return;
+
+            // Clear existing map items
+            mapMarkers.forEach(m => mapInstance.removeLayer(m));
+            mapRoutes.forEach(r => mapInstance.removeLayer(r));
+            mapMarkers = [];
+            mapRoutes = [];
+
+            const activeEvents = getFilteredDataForDate(currentDateString);
+
+            activeEvents.forEach(ev => {
+                if ((ev.type === 'VISIT' || ev.type === 'PHOTO') && ev.lat !== undefined && ev.lng !== undefined) {
+                    const marker = L.marker([ev.lat, ev.lng])
+                        .addTo(mapInstance)
+                        .bindPopup(`<b>${ev.summary}</b><br>${ev.detail.replace(/\n/g, '<br>')}`);
+                    mapMarkers.push(marker);
+                } else if (ev.type === 'WALK' && ev.startLat !== undefined && ev.endLat !== undefined) {
+                    const pathPoints = ev.rawPath || [
+                        [ev.startLat, ev.startLng],
+                        [ev.endLat, ev.endLng]
+                    ];
+                    const route = L.polyline(pathPoints, { color: '#8b5cf6', weight: 4, opacity: 0.8, dashArray: ev.rawPath ? null : '8, 8' })
+                        .addTo(mapInstance)
+                        .bindPopup(`<b>${ev.summary}</b><br>${ev.detail.replace(/\n/g, '<br>')}`);
+
+                    const startPin = L.circleMarker([ev.startLat, ev.startLng], { radius: 5, color: '#06b6d4' }).addTo(mapInstance);
+                    const endPin = L.circleMarker([ev.endLat, ev.endLng], { radius: 5, color: '#ef4444' }).addTo(mapInstance);
+
+                    mapMarkers.push(startPin);
+                    mapMarkers.push(endPin);
+                    mapRoutes.push(route);
+                }
+            });
+
+            centerMapOnCurrentDay();
+        }
+
+        function centerMapOnCurrentDay() {
+            if (mapMarkers.length > 0) {
+                const group = new L.featureGroup([...mapMarkers, ...mapRoutes]);
+                mapInstance.fitBounds(group.getBounds().pad(0.2));
+            }
+        }
+
+        function focusOnMapObject(ev) {
+            if (!mapInstance) return;
+            if ((ev.type === 'VISIT' || ev.type === 'PHOTO') && ev.lat) {
+                mapInstance.setView([ev.lat, ev.lng], 16);
+            } else if (ev.type === 'WALK' && ev.startLat) {
+                mapInstance.setView([ev.startLat, ev.startLng], 15);
+            }
+        }
+
+        // View 2: Render Phone Mockup
+        function renderPhoneMockup() {
+            const listContainer = document.getElementById('phone-timeline-list');
+            listContainer.innerHTML = '';
+
+            const activeEvents = getFilteredDataForDate(currentDateString);
+
+            if (activeEvents.length === 0) {
+                listContainer.innerHTML = '<div style="color:var(--text-secondary); text-align:center; margin-top:40px;">No mobile data alerts for this date.</div>';
+                return;
+            }
+
+            activeEvents.forEach(ev => {
+                const startDt = new Date(ev.start);
+                const endDt = new Date(ev.end);
+
+                const item = document.createElement('div');
+                let typeClass = '';
+                if (ev.type === 'WALK') typeClass = 'walk';
+                else if (ev.type === 'PHOTO') typeClass = 'photo';
+                item.className = `phone-timeline-item ${typeClass}`;
+                item.onclick = () => showEvidenceDetail(ev);
+
+                const time = document.createElement('div');
+                time.className = 'time';
+                time.innerText = `${startDt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} - ${endDt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+
+                const title = document.createElement('div');
+                title.className = 'title';
+                title.innerText = ev.summary;
+
+                const desc = document.createElement('div');
+                desc.style.color = 'var(--text-secondary)';
+                desc.innerText = ev.detail.length > 60 ? ev.detail.substring(0, 57) + "..." : ev.detail;
+
+                item.appendChild(time);
+                item.appendChild(title);
+                item.appendChild(desc);
+
+                if (ev.source) {
+                    const link = document.createElement('div');
+                    link.className = 'phone-evidence-link';
+                    link.innerText = '📁 View Source Reference';
+                    item.appendChild(link);
+                }
+
+                listContainer.appendChild(item);
+            });
+        }
+
+        function showEvidenceDetail(ev) {
+            document.getElementById('evidence-title').innerText = ev.summary;
+            document.getElementById('evidence-description').innerText = ev.detail;
+
+            const previewBox = document.getElementById('evidence-box');
+            if (ev.source) {
+                previewBox.innerHTML = `
+                    <div style="width:100%; text-align:center; padding:16px;">
+                        <div style="font-size:32px; margin-bottom:12px;">📄</div>
+                        <div style="font-weight:600; color:var(--accent-cyan); margin-bottom:8px; word-break:break-all;">
+                        ${escapeHTML(ev.source)}
+                        </div>
+                    <a href="${escapeHTML(ev.source)}" target="_blank" class="btn-nav" style="display:inline-block; text-decoration:none; margin-top:8px; border-color:var(--accent-cyan); color:var(--accent-cyan);">
+                            Open Reference
+                        </a>
+                    </div>
+                `;
+            } else {
+                previewBox.innerHTML = 'No source file attachments linked.';
+            }
+        }
+
+        // View 3: Render Grid Spreadsheet
+        function renderSpreadsheet() {
+            const tbody = document.getElementById('spreadsheet-tbody');
+            tbody.innerHTML = '';
+
+            const sortedData = [...rawDataset].sort((a, b) => new Date(a.start) - new Date(b.start));
+
+            sortedData.forEach((ev, idx) => {
+                const tr = document.createElement('tr');
+                tr.setAttribute('data-index', idx);
+
+                let typeBadge = '';
+                if (ev.type === 'VISIT') typeBadge = '<span class="type-badge type-visit">Visit</span>';
+                else if (ev.type === 'WALK') typeBadge = '<span class="type-badge type-walk">Walk</span>';
+                else if (ev.type === 'PHOTO') typeBadge = '<span class="type-badge type-photo" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">Photo</span>';
+                else typeBadge = '<span class="type-badge type-log">Log</span>';
+
+                const locText = ev.type === 'WALK' ?
+                    `Route: ${ev.startLat?.toFixed(5) || ''}, ${ev.startLng?.toFixed(5) || ''} to ${ev.endLat?.toFixed(5) || ''}, ${ev.endLng?.toFixed(5) || ''}` :
+                    (ev.lat ? `Place: ${ev.lat?.toFixed(5)}, ${ev.lng?.toFixed(5)}` : 'Digital Asset');
+
+                const sourceHtml = ev.source ? `<a href="${escapeHTML(ev.source)}" target="_blank" class="source-url">${escapeHTML(ev.source)}</a>` : 'N/A';
+
+                tr.innerHTML = `
+                    <td>${idx + 1}</td>
+                <td style="white-space:nowrap;">${escapeHTML(ev.start)}</td>
+                <td style="white-space:nowrap;">${escapeHTML(ev.end)}</td>
+                    <td>${typeBadge}</td>
+                <td><b>${escapeHTML(ev.summary)}</b></td>
+                <td>${escapeHTML(ev.detail).replace(/\n/g, '<br>')}<br><span style="color:var(--text-secondary); font-size:11px;">${escapeHTML(locText)}</span></td>
+                    <td>${sourceHtml}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function filterSpreadsheet() {
+            const q = document.getElementById('table-search').value.toLowerCase().trim();
+            const rows = document.querySelectorAll('#spreadsheet-tbody tr');
+
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                if (text.includes(q)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        function exportCSV() {
+            let csv = 'No.,Start Timestamp,End Timestamp,Type,Summary,Details,Source\n';
+            rawDataset.forEach((ev, idx) => {
+                const summary = `"${ev.summary.replace(/"/g, '""')}"`;
+                const detail = `"${ev.detail.replace(/"/g, '""').replace(/\n/g, ' ')}"`;
+                const source = `"${ev.source.replace(/"/g, '""')}"`;
+                csv += `${idx + 1},${ev.start},${ev.end},${ev.type},${summary},${detail},${source}\n`;
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", "osint-timeline-evidence.csv");
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast('Timeline CSV exported successfully.', 'success');
+        }
+
+        // View 4: Render Docs Report
+        function renderDocsReport() {
+            const tbody = document.getElementById('doc-table-tbody');
+            tbody.innerHTML = '';
+
+            document.getElementById('doc-report-date').innerText = new Date(currentDateString).toLocaleDateString('en-US', {
+                year: 'numeric', month: 'long', day: 'numeric'
+            });
+
+            const activeEvents = getFilteredDataForDate(currentDateString);
+
+            if (activeEvents.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; color:#9ca3af;">No coordinates or digital logs registered for this date.</td></tr>';
+                document.getElementById('doc-summary-text').innerText = "No events registered for this date canvas.";
+                return;
+            }
+
+            document.getElementById('doc-summary-text').innerText = `During this day (${currentDateString}), we verified ${activeEvents.filter(e => e.type === 'WALK').length} walking segment routes and ${activeEvents.filter(e => e.type === 'VISIT').length} place visits, providing a baseline of physical locations alongside related incident alerts.`;
+
+            activeEvents.forEach(ev => {
+                const tr = document.createElement('tr');
+                const start = new Date(ev.start).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                const end = new Date(ev.end).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+                tr.innerHTML = `
+                <td>${escapeHTML(start)} - ${escapeHTML(end)}</td>
+                <td><b>${escapeHTML(ev.summary)}</b></td>
+                <td>${escapeHTML(ev.detail).replace(/\n/g, '<br>')}</td>
+                <td><span style="font-size:10px; color:#4b5563; word-break:break-all;">${escapeHTML(ev.source)}</span></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Update both Date Picker state and run panel renders
+        function setDate(dateVal) {
+            currentDateString = dateVal;
+
+            // Sync UI inputs
+            const picker = document.getElementById('date-picker');
+            if (picker) picker.value = dateVal;
+
+            const current = new Date(dateVal);
+            document.getElementById('date-display').innerText = current.toLocaleDateString('en-US', {
+                year: 'numeric', month: 'long', day: 'numeric'
+            });
+
+            // Update Panel Renders
+            renderDailyCanvas();
+            updateMapObjects();
+            renderPhoneMockup();
+            renderDocsReport();
+            fetchDailyAssets(dateVal); // Fetch daily files!
+        }
+
+        // Change Current date state switcher by offset
+        function changeDay(offset) {
+            const current = new Date(currentDateString);
+            current.setDate(current.getDate() + offset);
+
+            const yyyy = current.getFullYear();
+            const mm = String(current.getMonth() + 1).padStart(2, '0');
+            const dd = String(current.getDate()).padStart(2, '0');
+            const newDateStr = `${yyyy}-${mm}-${dd}`;
+
+            setDate(newDateStr);
+        }
+
+        // File Uploader Drag & Drop Logic
+        const dropZone = document.getElementById('drop-zone');
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = 'var(--accent-cyan)';
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.style.borderColor = 'var(--card-border)';
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = 'var(--card-border)';
+
+            const file = e.dataTransfer.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (evt) {
+                    try {
+                        const fileContent = evt.target.result;
+                        let newEvents = [];
+                        if (file.name.endsWith('.json')) {
+                            const parsedJSON = typeof fileContent === 'string' ? JSON.parse(fileContent) : fileContent;
+                            newEvents = parseTakeoutJSON(parsedJSON);
+                        } else if (file.name.endsWith('.ics')) {
+                            newEvents = parseIcsContent(fileContent);
+                        } else if (file.name.endsWith('.csv')) {
+                            newEvents = parseCSV(fileContent);
+                        } else {
+                            showToast("Unsupported file format. Please upload Google Takeout Location JSON, ICS, or CSV.", 'error');
+                            return;
+                        }
+
+                        if (newEvents.length > 0) {
+                            rawDataset = newEvents; // Overwrite rawDataset completely so it shows only the uploaded timeline.
+                            showToast(`Successfully uploaded and parsed ${newEvents.length} events from ${file.name}!`, 'success');
+
+                            // Find the most recent event date in the uploaded dataset to show first
+                            const sorted = [...newEvents].sort((a, b) => new Date(a.start) - new Date(b.start));
+                            const lastEv = sorted[sorted.length - 1];
+                            currentDateString = (lastEv.start.includes(' ') ? lastEv.start.split(' ')[0] : lastEv.start.split('T')[0]);
+                            setDate(currentDateString);
+                            renderSpreadsheet();
+                        } else {
+                            showToast(`No valid activity segments or locations found in ${file.name}.`, 'warning');
+                        }
+                    } catch (err) {
+                        showToast(`Parsing Error: ${err.message}`, 'error');
+                    }
+                };
+                reader.readAsText(file);
+            }
+        });
+
+        // Unescape iCalendar text values (RFC 5545)
+        function unescapeIcsText(val) {
+            if (!val) return '';
+            return val
+                .replace(/\\,/g, ',')
+                .replace(/\\;/g, ';')
+                .replace(/\\\\/g, '\\')
+                .replace(/\\n/g, '\n')
+                .replace(/\\r/g, '\r');
+        }
+
+        // Parse datetime in ICS format (e.g., 20210101T090000 or 20210101T090000Z) to standard YYYY-MM-DD HH:MM:SS
+        function parseIcsDateTime(val) {
+            const match = val.match(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})(Z)?/);
+            if (match) {
+                const [_, yyyy, mm, dd, hh, min, ss, z] = match;
+                return `${yyyy}-${mm}-${dd} ${hh}:${min}:${ss}`;
+            }
+            return val;
+        }
+
+        // Extract coordinates and determine event types from URL or details
+        function postProcessIcsEvent(ev) {
+            const textToSearch = (ev.source + ' ' + ev.detail);
+
+            // Check for walking directions: origin=lat,lng&destination=lat,lng
+            const dirMatch = textToSearch.match(/origin=(-?\d+\.?\d*),(-?\d+\.?\d*)&destination=(-?\d+\.?\d*),(-?\d+\.?\d*)/);
+            if (dirMatch) {
+                ev.type = 'WALK';
+                ev.startLat = parseFloat(dirMatch[1]);
+                ev.startLng = parseFloat(dirMatch[2]);
+                ev.endLat = parseFloat(dirMatch[3]);
+                ev.endLng = parseFloat(dirMatch[4]);
+                return;
+            }
+
+            // Check for single location search: query=lat,lng
+            const searchMatch = textToSearch.match(/query=(-?\d+\.?\d*),(-?\d+\.?\d*)/);
+            if (searchMatch) {
+                ev.type = 'VISIT';
+                ev.lat = parseFloat(searchMatch[1]);
+                ev.lng = parseFloat(searchMatch[2]);
+                return;
+            }
+
+            // Check for coordinates line in text
+            const coordMatch = textToSearch.match(/(?:Coordinates|lat,?\s*lng|Location):\s*(-?\d+\.?\d*),\s*(-?\d+\.?\d*)/i);
+            if (coordMatch) {
+                ev.type = 'VISIT';
+                ev.lat = parseFloat(coordMatch[1]);
+                ev.lng = parseFloat(coordMatch[2]);
+                return;
+            }
+
+            // Default fallback type detection
+            if (ev.summary.toLowerCase().includes('walk')) {
+                ev.type = 'WALK';
+            } else if (ev.summary.toLowerCase().includes('visit')) {
+                ev.type = 'VISIT';
+            } else if (ev.summary.toLowerCase().includes('photo')) {
+                ev.type = 'PHOTO';
+            } else {
+                ev.type = 'LOG';
+            }
+        }
+
+        // Client side iCalendar (.ics) parser
+        function parseIcsContent(icsText) {
+            const lines = icsText.split(/\r?\n/);
+            const unfoldedLines = [];
+
+            // Unfold lines (RFC 5545: lines starting with space or tab are continuation of previous line)
+            for (let line of lines) {
+                if (line.startsWith(' ') || line.startsWith('\t')) {
+                    if (unfoldedLines.length > 0) {
+                        unfoldedLines[unfoldedLines.length - 1] += line.slice(1);
+                    }
+                } else {
+                    unfoldedLines.push(line);
+                }
+            }
+
+            const events = [];
+            let currentEvent = null;
+
+            for (let line of unfoldedLines) {
+                if (line.startsWith('BEGIN:VEVENT')) {
+                    currentEvent = { summary: '', start: '', end: '', detail: '', source: '', type: 'LOG', lat: 0, lng: 0 };
+                } else if (line.startsWith('END:VEVENT')) {
+                    if (currentEvent) {
+                        postProcessIcsEvent(currentEvent);
+                        events.push(currentEvent);
+                        currentEvent = null;
+                    }
+                } else if (currentEvent) {
+                    const colonIdx = line.indexOf(':');
+                    if (colonIdx !== -1) {
+                        const keyPart = line.slice(0, colonIdx);
+                        const value = line.slice(colonIdx + 1);
+                        const key = keyPart.split(';')[0].trim().toUpperCase();
+
+                        if (key === 'SUMMARY') {
+                            currentEvent.summary = unescapeIcsText(value);
+                        } else if (key === 'DESCRIPTION') {
+                            currentEvent.detail = unescapeIcsText(value);
+                        } else if (key === 'URL') {
+                            currentEvent.source = unescapeIcsText(value);
+                        } else if (key === 'DTSTART') {
+                            currentEvent.start = parseIcsDateTime(value);
+                        } else if (key === 'DTEND') {
+                            currentEvent.end = parseIcsDateTime(value);
+                        }
+                    }
+                }
+            }
+            return events;
+        }
+
+        // Client side CSV parser (RFC 4180 compliant)
+        function parseCSV(csvText) {
+            const lines = [];
+            let currentLine = [];
+            let currentCell = '';
+            let inQuotes = false;
+
+            for (let i = 0; i < csvText.length; i++) {
+                const char = csvText[i];
+                const nextChar = csvText[i + 1];
+
+                if (inQuotes) {
+                    if (char === '"') {
+                        if (nextChar === '"') {
+                            currentCell += '"';
+                            i++; // skip next quote
+                        } else {
+                            inQuotes = false;
+                        }
+                    } else {
+                        currentCell += char;
+                    }
+                } else {
+                    if (char === '"') {
+                        inQuotes = true;
+                    } else if (char === ',') {
+                        currentLine.push(currentCell.trim());
+                        currentCell = '';
+                    } else if (char === '\r' || char === '\n') {
+                        currentLine.push(currentCell.trim());
+                        if (currentLine.length > 1 || currentLine[0] !== '') {
+                            lines.push(currentLine);
+                        }
+                        currentLine = [];
+                        currentCell = '';
+                        if (char === '\r' && nextChar === '\n') {
+                            i++; // skip LF
+                        }
+                    } else {
+                        currentCell += char;
+                    }
+                }
+            }
+            if (currentCell || currentLine.length > 0) {
+                currentLine.push(currentCell.trim());
+                lines.push(currentLine);
+            }
+
+            if (lines.length < 2) return [];
+
+            const headers = lines[0].map(h => h.toLowerCase().trim());
+            const startIdx = headers.indexOf('start timestamp') !== -1 ? headers.indexOf('start timestamp') : headers.indexOf('start');
+            const endIdx = headers.indexOf('end timestamp') !== -1 ? headers.indexOf('end timestamp') : headers.indexOf('end');
+            const typeIdx = headers.indexOf('type');
+            const summaryIdx = headers.indexOf('summary');
+            const detailIdx = headers.indexOf('details') !== -1 ? headers.indexOf('details') : headers.indexOf('detail');
+            const sourceIdx = headers.indexOf('source');
+
+            const events = [];
+            for (let j = 1; j < lines.length; j++) {
+                const row = lines[j];
+                if (row.length < headers.length) continue;
+
+                const ev = {
+                    start: row[startIdx] || '',
+                    end: row[endIdx] || '',
+                    summary: row[summaryIdx] || '',
+                    detail: row[detailIdx] || '',
+                    source: row[sourceIdx] || '',
+                    type: typeIdx !== -1 ? row[typeIdx] : 'LOG',
+                    lat: 0, lng: 0
+                };
+                postProcessIcsEvent(ev);
+                events.push(ev);
+            }
+            return events;
+        }
+
+        // Takeout JSON parser (supports Semantic Location History and raw Locations JSON)
+        function parseTakeoutJSON(jsonData) {
+            const events = [];
+
+            // Case A: Semantic Location History (timelineObjects)
+            if (jsonData.timelineObjects && Array.isArray(jsonData.timelineObjects)) {
+                jsonData.timelineObjects.forEach(obj => {
+                    if (obj.placeVisit) {
+                        const visit = obj.placeVisit;
+                        const loc = visit.location || {};
+                        const duration = visit.duration || {};
+                        const lat = (loc.latitudeE7 || 0) / 10000000.0;
+                        const lng = (loc.longitudeE7 || 0) / 10000000.0;
+
+                        let start = duration.startTimestamp;
+                        let end = duration.endTimestamp;
+
+                        if (start) {
+                            start = start.replace('T', ' ').substring(0, 19);
+                            end = end ? end.replace('T', ' ').substring(0, 19) : start;
+
+                            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}&query_place_id=${loc.placeId || ''}`;
+
+                            events.push({
+                                start: start,
+                                end: end,
+                                summary: `Visited: ${loc.name || 'Unknown Place'}`,
+                                detail: `Address: ${loc.address || 'N/A'}\nPlace ID: ${loc.placeId || 'N/A'}\nCoordinates: ${lat}, ${lng}`,
+                                source: mapsUrl,
+                                type: 'VISIT',
+                                lat: lat,
+                                lng: lng
+                            });
+                        }
+                    } else if (obj.activitySegment) {
+                        const segment = obj.activitySegment;
+                        const duration = segment.duration || {};
+                        const actType = segment.activityType || 'UNKNOWN';
+
+                        if (actType === 'WALKING' && duration.startTimestamp) {
+                            let start = duration.startTimestamp;
+                            let end = duration.endTimestamp;
+                            start = start.replace('T', ' ').substring(0, 19);
+                            end = end ? end.replace('T', ' ').substring(0, 19) : start;
+
+                            const startLoc = segment.startLocation || {};
+                            const endLoc = segment.endLocation || {};
+                            const startLat = (startLoc.latitudeE7 || 0) / 10000000.0;
+                            const startLng = (startLoc.longitudeE7 || 0) / 10000000.0;
+                            const endLat = (endLoc.latitudeE7 || 0) / 10000000.0;
+                            const endLng = (endLoc.longitudeE7 || 0) / 10000000.0;
+
+                            const distance = segment.distance || 0;
+                            const mapsUrl = `https://www.google.com/maps/dir/?api=1&origin={startLat},{startLng}&destination={endLat},{endLng}&travelmode=walking`;
+
+                            events.push({
+                                start: start,
+                                end: end,
+                                summary: `Walked: ${distance}m`,
+                                detail: `Activity Segment: Walking\nDistance covered: ${distance} meters.\nStart: ${startLat}, ${startLng}\nEnd: ${endLat}, ${endLng}`,
+                                source: mapsUrl,
+                                type: 'WALK',
+                                startLat: startLat,
+                                startLng: startLng,
+                                endLat: endLat,
+                                endLng: endLng
+                            });
+                        }
+                    }
+                });
+            }
+            // Case B: Raw Coordinates Location History (locations)
+            else if (jsonData.locations && Array.isArray(jsonData.locations)) {
+                const dateGroups = {};
+                jsonData.locations.forEach(loc => {
+                    const lat = (loc.latitudeE7 || 0) / 10000000.0;
+                    const lng = (loc.longitudeE7 || 0) / 10000000.0;
+                    if (lat === 0 && lng === 0) return;
+
+                    let timestampStr = loc.timestamp || loc.timestampMs;
+                    if (!timestampStr) return;
+                    if (typeof timestampStr === 'number' || !isNaN(timestampStr)) {
+                        timestampStr = new Date(parseInt(timestampStr)).toISOString();
+                    }
+
+                    const dateStr = timestampStr.split('T')[0];
+                    if (!dateGroups[dateStr]) {
+                        dateGroups[dateStr] = [];
+                    }
+                    dateGroups[dateStr].push({ lat, lng, time: timestampStr });
+                });
+
+                for (const [dateStr, points] of Object.entries(dateGroups)) {
+                    points.sort((a, b) => new Date(a.time) - new Date(b.time));
+                    if (points.length === 0) continue;
+
+                    const startPt = points[0];
+                    const endPt = points[points.length - 1];
+                    const startLocal = startPt.time.replace('T', ' ').substring(0, 19);
+                    const endLocal = endPt.time.replace('T', ' ').substring(0, 19);
+
+                    // Add Walk summary showing full trail path
+                    events.push({
+                        start: startLocal,
+                        end: endLocal,
+                        summary: `Raw Location Activity Trail`,
+                        detail: `Captured raw location history trail.\nPoints count: ${points.length}.\nStart: ${startPt.lat}, ${startPt.lng}\nEnd: ${endPt.lat}, ${endPt.lng}`,
+                        source: `Google Takeout Raw Locations`,
+                        type: 'WALK',
+                        startLat: startPt.lat,
+                        startLng: startPt.lng,
+                        endLat: endPt.lat,
+                        endLng: endPt.lng,
+                        rawPath: points.map(p => [p.lat, p.lng])
+                    });
+
+                    // Add up to 5 distinct visit coordinates for key locations
+                    let lastLat = null;
+                    let lastLng = null;
+                    const step = Math.max(1, Math.floor(points.length / 5));
+                    for (let i = 0; i < points.length; i += step) {
+                        const pt = points[i];
+                        if (lastLat !== null) {
+                            const dist = Math.abs(pt.lat - lastLat) + Math.abs(pt.lng - lastLng);
+                            if (dist < 0.001) continue;
+                        }
+
+                        const ptTimeLocal = pt.time.replace('T', ' ').substring(0, 19);
+                        events.push({
+                            start: ptTimeLocal,
+                            end: ptTimeLocal,
+                            summary: `Recorded Location Pin`,
+                            detail: `Coordinates: ${pt.lat}, ${pt.lng}\nRecorded at: ${ptTimeLocal}`,
+                            source: `Google Takeout Raw Locations`,
+                            type: 'VISIT',
+                            lat: pt.lat,
+                            lng: pt.lng
+                        });
+                        lastLat = pt.lat;
+                        lastLng = pt.lng;
+                    }
+                }
+            }
+            // Case C: Google Photos Takeout Metadata (photoTakenTime & geoData)
+            else if (jsonData.photoTakenTime && jsonData.geoData) {
+                const lat = jsonData.geoData.latitude || 0;
+                const lng = jsonData.geoData.longitude || 0;
+                let start = '';
+
+                if (jsonData.photoTakenTime.timestamp) {
+                    const sec = parseInt(jsonData.photoTakenTime.timestamp);
+                    const dt = new Date(sec * 1000);
+                    const yyyy = dt.getFullYear();
+                    const mm = String(dt.getMonth() + 1).padStart(2, '0');
+                    const dd = String(dt.getDate()).padStart(2, '0');
+                    const hh = String(dt.getHours()).padStart(2, '0');
+                    const min = String(dt.getMinutes()).padStart(2, '0');
+                    const ss = String(dt.getSeconds()).padStart(2, '0');
+                    start = `${yyyy}-${mm}-${dd} ${hh}:${min}:${ss}`;
+                } else if (jsonData.photoTakenTime.formatted) {
+                    const dt = new Date(jsonData.photoTakenTime.formatted);
+                    if (!isNaN(dt.getTime())) {
+                        const yyyy = dt.getFullYear();
+                        const mm = String(dt.getMonth() + 1).padStart(2, '0');
+                        const dd = String(dt.getDate()).padStart(2, '0');
+                        const hh = String(dt.getHours()).padStart(2, '0');
+                        const min = String(dt.getMinutes()).padStart(2, '0');
+                        const ss = String(dt.getSeconds()).padStart(2, '0');
+                        start = `${yyyy}-${mm}-${dd} ${hh}:${min}:${ss}`;
+                    }
+                }
+
+                if (start) {
+                    const title = jsonData.title || 'Untitled Photo';
+                    const desc = jsonData.description || '';
+                    const mapsUrl = lat && lng ? `https://www.google.com/maps/search/?api=1&query=${lat},${lng}` : '';
+
+                    events.push({
+                        start: start,
+                        end: start,
+                        summary: `📸 Photo: ${title}`,
+                        detail: `Google Photos Metadata\nFile: ${title}\nDescription: ${desc}\nCoordinates: ${lat}, ${lng}`,
+                        source: mapsUrl || 'Google Photos',
+                        type: 'PHOTO',
+                        lat: lat,
+                        lng: lng
+                    });
+                }
+            }
+            // Case D: GeoJSON (Google My Maps / Saved Places)
+            else if (jsonData.type === 'FeatureCollection' && Array.isArray(jsonData.features)) {
+                jsonData.features.forEach(feature => {
+                    if (feature.geometry && feature.geometry.type === 'Point' && Array.isArray(feature.geometry.coordinates)) {
+                        // GeoJSON coordinates are [longitude, latitude]
+                        const lng = feature.geometry.coordinates[0];
+                        const lat = feature.geometry.coordinates[1];
+                        
+                        const props = feature.properties || {};
+                        const title = props.Title || props.name || 'Saved Place';
+                        
+                        // Default to current timeline date so it shows up
+                        let start = currentDateString + " 12:00:00"; 
+                        if (props.Updated || props.published) {
+                            const dt = new Date(props.Updated || props.published);
+                            if (!isNaN(dt.getTime())) {
+                                const yyyy = dt.getFullYear();
+                                const mm = String(dt.getMonth() + 1).padStart(2, '0');
+                                const dd = String(dt.getDate()).padStart(2, '0');
+                                const hh = String(dt.getHours()).padStart(2, '0');
+                                const min = String(dt.getMinutes()).padStart(2, '0');
+                                const ss = String(dt.getSeconds()).padStart(2, '0');
+                                start = `${yyyy}-${mm}-${dd} ${hh}:${min}:${ss}`;
+                            }
+                        }
+
+                        let detail = '';
+                        if (props.Location) {
+                            detail += `Business Name: ${props.Location['Business Name'] || 'N/A'}\n`;
+                            detail += `Address: ${props.Location['Address'] || 'N/A'}\n`;
+                        } else if (props.description) {
+                            detail += `Description: ${props.description}\n`;
+                        }
+                        
+                        detail += `Coordinates: ${lat}, ${lng}`;
+
+                        events.push({
+                            start: start,
+                            end: start,
+                            summary: `Saved Place/Map: ${title}`,
+                            detail: detail,
+                            source: `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`,
+                            type: 'VISIT',
+                            lat: lat,
+                            lng: lng
+                        });
+                    } else if (feature.geometry && feature.geometry.type === 'LineString' && Array.isArray(feature.geometry.coordinates)) {
+                        const coords = feature.geometry.coordinates;
+                        if (coords.length >= 2) {
+                            const startPt = coords[0]; // [lng, lat]
+                            const endPt = coords[coords.length - 1]; // [lng, lat]
+                            const props = feature.properties || {};
+                            const title = props.name || 'Saved Route';
+                            
+                            let start = currentDateString + " 12:00:00";
+                            
+                            events.push({
+                                start: start,
+                                end: start,
+                                summary: `Saved Route: ${title}`,
+                                detail: `Path recorded from My Maps/GeoJSON.\nPoints count: ${coords.length}.`,
+                                source: `Google My Maps`,
+                                type: 'WALK',
+                                startLat: startPt[1],
+                                startLng: startPt[0],
+                                endLat: endPt[1],
+                                endLng: endPt[0],
+                                rawPath: coords.map(p => [p[1], p[0]]) // leaflet takes [lat, lng]
+                            });
+                        }
+                    }
+                });
+            }
+            return events;
+        }
+
+        // ==========================================
+        // GOOGLE DRIVE API & DORKING SCRIPTS
+        // ==========================================
+
+        // Check active login/status on backend
+        async function checkAuthStatus() {
+            try {
+                const response = await fetch(`${API_BASE}/status`);
+                if (!response.ok) throw new Error('Backend unavailable');
+
+                const data = await response.json();
+                const dot = document.getElementById('auth-dot');
+                const details = document.getElementById('auth-details');
+                const btn = document.getElementById('auth-action-btn');
+                const guide = document.getElementById('api-guide');
+
+                if (data.authenticated) {
+                    dot.classList.add('active');
+                    details.textContent = `Connected: ${data.auth_type}`;
+                    btn.style.display = 'none';
+                    if (guide) guide.style.display = 'none';
+                } else {
+                    dot.classList.remove('active');
+                    details.textContent = 'Unauthenticated';
+
+                    if (data.has_credentials_file) {
+                        btn.style.display = 'flex';
+                        details.textContent = 'credentials.json detected.';
+                    } else {
+                        btn.style.display = 'none';
+                        details.textContent = 'Need credentials.json';
+                    }
+                }
+            } catch (err) {
+                console.error(err);
+                document.getElementById('auth-dot').classList.remove('active');
+                document.getElementById('auth-details').innerHTML = '<span style="color: var(--danger)">Backend Offline</span>';
+            }
+        }
+
+        // Trigger local login flow
+        async function triggerAuth() {
+            showToast('Opening web browser for authentication...', 'warning');
+            try {
+                const response = await fetch(`${API_BASE}/auth`);
+                const data = await response.json();
+                if (data.success) {
+                    showToast('Authentication successful!', 'success');
+                    checkAuthStatus();
+                } else {
+                    showToast(data.message || 'Authentication failed', 'error');
+                }
+            } catch (err) {
+                showToast('Failed to trigger authentication: ' + err.message, 'error');
+            }
+        }
+
+        // Preset query helper
+        function usePreset(type, value) {
+            const inputId = type === 'api' ? 'api-search-input' : 'dork-search-input';
+            document.getElementById(inputId).value = value;
+            executeSearch(type);
+        }
+
+        // Search Executor
+        async function executeSearch(type) {
+            if (type === 'api') {
+                const query = document.getElementById('api-search-input').value.trim();
+                if (!query) {
+                    showToast('Please enter a search query.', 'warning');
+                    return;
+                }
+
+                document.getElementById('api-welcome-state').style.display = 'none';
+                document.getElementById('api-error-state').style.display = 'none';
+                document.getElementById('api-results-container').style.display = 'none';
+                document.getElementById('api-loading-state').style.display = 'flex';
+
+                try {
+                    const response = await fetch(`${API_BASE}/search?q=${encodeURIComponent(query)}`);
+
+                    if (response.status === 401) {
+                        const data = await response.json();
+                        throw new Error(data.message || 'Authentication required.');
+                    }
+
+                    if (!response.ok) {
+                        const errData = await response.json();
+                        throw new Error(errData.message || 'Search API error.');
+                    }
+
+                    const data = await response.json();
+                    displayApiResults(data.files || []);
+                } catch (err) {
+                    console.error(err);
+                    document.getElementById('api-loading-state').style.display = 'none';
+                    document.getElementById('api-error-state').style.display = 'flex';
+                    document.getElementById('api-error-desc').textContent = err.message;
+                }
+            } else {
+                const query = document.getElementById('dork-search-input').value.trim();
+                if (!query) {
+                    showToast('Please enter a dorking keyword.', 'warning');
+                    return;
+                }
+
+                document.getElementById('dork-welcome-state').style.display = 'none';
+                document.getElementById('dork-results-container').style.display = 'none';
+                document.getElementById('dork-loading-state').style.display = 'flex';
+
+                try {
+                    const response = await fetch(`${API_BASE}/dork?q=${encodeURIComponent(query)}`);
+                    if (!response.ok) throw new Error('Failed to generate dorks');
+
+                    const data = await response.json();
+                    displayDorkResults(data.dorks || []);
+                } catch (err) {
+                    console.error(err);
+                    document.getElementById('dork-loading-state').style.display = 'none';
+                    showToast('Failed to fetch dork search links.', 'error');
+                }
+            }
+        }
+
+        // Display results of Drive API
+        function displayApiResults(files) {
+            document.getElementById('api-loading-state').style.display = 'none';
+
+            if (files.length === 0) {
+                document.getElementById('api-error-state').style.display = 'flex';
+                document.getElementById('api-error-title').textContent = 'No Files Found';
+                document.getElementById('api-error-desc').textContent = 'No items matched your query inside the Google Drive folders.';
+                return;
+            }
+
+            const tbody = document.getElementById('api-results-body');
+            tbody.innerHTML = '';
+
+            files.forEach(file => {
+                const tr = document.createElement('tr');
+
+                let icon = '📄';
+                if (file.mimeType.includes('folder')) icon = '📁';
+                else if (file.mimeType.includes('document')) icon = '📝';
+                else if (file.mimeType.includes('spreadsheet') || file.mimeType.includes('csv')) icon = '📊';
+                else if (file.mimeType.includes('pdf')) icon = '📕';
+
+                const ownerName = file.owners && file.owners.length > 0 ? file.owners[0].displayName : 'Unknown';
+                const modifiedTime = file.modifiedTime ? new Date(file.modifiedTime).toLocaleDateString() : 'N/A';
+
+                tr.innerHTML = `
+                    <td>
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <span style="font-size:16px;">${icon}</span>
+                        <a href="${escapeHTML(file.webViewLink || '#')}" target="_blank" style="color:var(--accent-cyan); text-decoration:none; font-weight:500;">${escapeHTML(file.name)}</a>
+                        </div>
+                    </td>
+                <td><span style="color:var(--text-secondary); font-size:11px;">${escapeHTML(file.mimeType.split('.').pop())}</span></td>
+                    <td>
+                    <span style="color:var(--text-primary);">${escapeHTML(ownerName)}</span>
+                    </td>
+                <td>${escapeHTML(modifiedTime)}</td>
+                    <td>
+                    <a href="${escapeHTML(file.webViewLink || '#')}" target="_blank" class="btn-nav" style="padding:4px 8px; font-size:11px; text-decoration:none; border-color:var(--accent-cyan); color:var(--accent-cyan);" title="Open Document">
+                            Open <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:10px; margin-left:2px;"></i>
+                        </a>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById('api-results-count').textContent = `${files.length} file(s) found`;
+            document.getElementById('api-results-container').style.display = 'flex';
+        }
+
+        // Display results of OSINT Dorking Generator
+        function displayDorkResults(dorks) {
+            document.getElementById('dork-loading-state').style.display = 'none';
+
+            const grid = document.getElementById('dork-grid');
+            grid.innerHTML = '';
+
+            dorks.forEach(dork => {
+                const card = document.createElement('div');
+                card.className = 'dork-card';
+                card.innerHTML = `
+                    <div class="dork-card-header">
+                        <span class="dork-card-title">${dork.title}</span>
+                        <span class="dork-card-badge">Google Search</span>
+                    </div>
+                    <div class="dork-query-box" id="query-${btoa(dork.title).replace(/=/g, '')}">${dork.query}</div>
+                    <div class="dork-action-row">
+                        <a href="${dork.url}" target="_blank" class="dork-btn dork-btn-primary">
+                            <i class="fa-solid fa-square-arrow-up-right"></i>
+                            <span>Launch Dork</span>
+                        </a>
+                        <button class="dork-btn dork-btn-secondary" onclick="copyText('query-${btoa(dork.title).replace(/=/g, '')}')" title="Copy Query">
+                            <i class="fa-solid fa-copy"></i>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            document.getElementById('dork-results-count').textContent = `${dorks.length} queries generated`;
+            document.getElementById('dork-results-container').style.display = 'flex';
+        }
+
+        // Copy Dork Query to Clipboard
+        function copyText(elementId) {
+            const text = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('Query copied to clipboard!', 'success');
+            }).catch(err => {
+                showToast('Failed to copy query.', 'error');
+            });
+        }
+
+        // Toast Notification System
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+
+            let icon = 'fa-info-circle';
+            if (type === 'success') icon = 'fa-circle-check';
+            if (type === 'error') icon = 'fa-triangle-exclamation';
+            if (type === 'warning') icon = 'fa-circle-exclamation';
+
+            toast.innerHTML = `
+                <i class="fa-solid ${icon}"></i>
+                <span>${message}</span>
+            `;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 4000);
+        }
+
+        async function fetchDailyAssets(dateStr) {
+            const container = document.getElementById('digital-assets-container');
+            if (!container) return;
+
+            container.innerHTML = `
+                <div class="spinner-wrapper" style="padding: 20px 0;">
+                    <div class="spinner"></div>
+                    <p style="font-size:11px;">Scanning Drive, Gmail & local files...</p>
+                </div>
+            `;
+
+            try {
+                const response = await fetch(`${API_BASE}/daily_assets?date=${dateStr}`);
+                if (!response.ok) throw new Error('API error');
+
+                const data = await response.json();
+                const assets = data.assets || [];
+
+                if (assets.length === 0) {
+                    container.innerHTML = `
+                        <div style="color:var(--text-secondary); text-align:center; padding: 20px; font-size: 12px;">
+                            <i class="fa-solid fa-folder-open" style="font-size:24px; opacity:0.3; margin-bottom:8px; display:block;"></i>
+                            No digital files, emails, or local activity found for this date.
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = '';
+                assets.forEach(asset => {
+                    const item = document.createElement('a');
+                    item.href = asset.link;
+                    item.target = '_blank';
+                    item.className = 'asset-item';
+                    item.style.display = 'flex';
+                    item.style.alignItems = 'center';
+                    item.style.gap = '12px';
+                    item.style.padding = '10px 14px';
+                    item.style.marginBottom = '8px';
+                    item.style.borderRadius = '8px';
+                    item.style.background = 'rgba(255, 255, 255, 0.02)';
+                    item.style.border = '1px solid var(--card-border)';
+                    item.style.textDecoration = 'none';
+                    item.style.color = 'var(--text-primary)';
+                    item.style.transition = 'all 0.2s';
+
+                    item.onmouseover = () => {
+                        item.style.background = 'rgba(6, 182, 212, 0.08)';
+                        item.style.borderColor = 'var(--accent-cyan)';
+                    };
+                    item.onmouseout = () => {
+                        item.style.background = 'rgba(255, 255, 255, 0.02)';
+                        item.style.borderColor = 'var(--card-border)';
+                    };
+
+                    let icon = '📄';
+                    let typeColor = 'var(--text-secondary)';
+                    if (asset.type === 'Google Drive File') {
+                        icon = '🤖';
+                        if (asset.mimeType.includes('document')) {
+                            icon = '📝';
+                            typeColor = '#3b82f6';
+                        } else if (asset.mimeType.includes('spreadsheet') || asset.mimeType.includes('csv')) {
+                            icon = '📊';
+                            typeColor = '#10b981';
+                        } else if (asset.mimeType.includes('pdf')) {
+                            icon = '📕';
+                            typeColor = '#ef4444';
+                        } else if (asset.mimeType.includes('folder')) {
+                            icon = '📁';
+                            typeColor = '#eab308';
+                        }
+                    } else if (asset.type === 'Gmail Email') {
+                        icon = '✉️';
+                        typeColor = '#ec4899';
+                    } else if (asset.type === 'Local File') {
+                        icon = '💻';
+                        typeColor = 'var(--accent-cyan)';
+                        if (asset.name.endsWith('.jpg') || asset.name.endsWith('.png') || asset.name.endsWith('.json')) {
+                            icon = '📸';
+                            typeColor = '#10b981';
+                        }
+                    }
+
+                    const timeLabel = `<span style="font-family:'JetBrains Mono', monospace; font-size:10px; color:var(--text-secondary);">${asset.time}</span>`;
+
+                    item.innerHTML = `
+                        <div style="font-size: 20px; width: 24px; text-align: center;">${icon}</div>
+                        <div style="flex-grow: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                            <div style="font-weight: 500; font-size: 13px; display: flex; justify-content: space-between; align-items: center; gap: 8px;">
+                                <span>${asset.name}</span>
+                                ${timeLabel}
+                            </div>
+                            <div style="font-size: 11px; color: ${typeColor};">${asset.type}</div>
+                        </div>
+                    `;
+                    container.appendChild(item);
+                });
+            } catch (err) {
+                console.error(err);
+                container.innerHTML = `
+                    <div style="color:var(--danger); text-align:center; padding: 20px; font-size: 12px;">
+                        <i class="fa-solid fa-triangle-exclamation" style="font-size:24px; margin-bottom:8px; display:block;"></i>
+                        Failed to connect to search server API.
+                    </div>
+                `;
+            }
+        }
+
+        async function loadLocalTimelineFile() {
+            try {
+                const res = await fetch('master_incident_timeline.ics');
+                if (res.ok) {
+                    const text = await res.text();
+                    const events = parseIcsContent(text);
+                    if (events.length > 0) {
+                        rawDataset = events;
+                        showToast(`Loaded ${events.length} events from master_incident_timeline.ics`, 'success');
+
+                        // Set the active date to the most recent date in the timeline
+                        const sorted = [...events].sort((a, b) => new Date(a.start) - new Date(b.start));
+                        const lastEv = sorted[sorted.length - 1];
+                        currentDateString = (lastEv.start.includes(' ') ? lastEv.start.split(' ')[0] : lastEv.start.split('T')[0]);
+                    }
+                }
+            } catch (err) {
+                console.log("Could not load local timeline file automatically (likely CORS in local file:// mode):", err);
+            }
+
+            setDate(currentDateString);
+            renderSpreadsheet();
+        }
+
+        // Window onload initialization
+        window.onload = () => {
+            initMap();
+            loadLocalTimelineFile();
+            checkAuthStatus();
+        };
+    </script>
+</body>
+
+</html>

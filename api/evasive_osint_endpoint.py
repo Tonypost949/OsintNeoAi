@@ -47,7 +47,7 @@ _bq_client = None
 def _bq():
     global _bq_client
     if _bq_client is None:
-        from google.cloud import bigquery
+        from adx_bigquery import bigquery
         _bq_client = bigquery.Client(project=GCP_PROJECT)
     return _bq_client
 
@@ -319,7 +319,7 @@ def get_receipt(submission_id: str):
     Returns only non-identifying information.
     """
     try:
-        from google.cloud import bigquery
+        from adx_bigquery import bigquery
         rows = list(_bq().query(
             "SELECT submission_id, target_type, attribution_token, submitted_at, reward_queued "
             "FROM `{}` WHERE submission_id = '{}' LIMIT 1".format(
@@ -389,7 +389,7 @@ def mint_reward():
 def list_rewards():
     """Public reward ledger — shows anonymized reward events."""
     try:
-        from google.cloud import bigquery
+        from adx_bigquery import bigquery
         rows = list(_bq().query(
             "SELECT reward_id, token_symbol, amount, reason, rewarded_at, status "
             "FROM `{}` ORDER BY rewarded_at DESC LIMIT 50".format(REWARDS_TABLE)

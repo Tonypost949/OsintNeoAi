@@ -1,0 +1,46 @@
+{
+  "title": "Chemical Contaminant to Pipeline Corrosion Pipeline Mapping",
+  "total_permits_mapped": 226,
+  "chemical_vectors": [
+    {
+      "contaminant": "Benzene (VOC)",
+      "source_report": "Google Drive File 1AmQL...Qw9E",
+      "associated_permits": 45,
+      "corrosion_mechanism": "Accelerated anaerobic soil corrosion / Polyurethane tape degradation",
+      "high_risk_apns": [
+        "541-012-14",
+        "167-472-09"
+      ]
+    },
+    {
+      "contaminant": "Methane (Sub-Slab)",
+      "source_report": "Google Drive File 1H9a7...XWX",
+      "associated_permits": 38,
+      "corrosion_mechanism": "Sulfate-reducing bacteria (SRB) proliferation / Microbiologically Influenced Corrosion (MIC)",
+      "high_risk_apns": [
+        "167-472-08",
+        "541-012-15"
+      ]
+    },
+    {
+      "contaminant": "MTBE (Groundwater)",
+      "source_report": "Google Drive File 1H9a7...XWX",
+      "associated_permits": 62,
+      "corrosion_mechanism": "Cathodic protection failure / Stray current acceleration",
+      "high_risk_apns": [
+        "541-018-02"
+      ]
+    },
+    {
+      "contaminant": "Lead (Pb)",
+      "source_report": "Google Drive File 1H9a7...XWX",
+      "associated_permits": 81,
+      "corrosion_mechanism": "Galvanic corrosion / Dissimilar metal electrolysis",
+      "high_risk_apns": [
+        "167-472-08",
+        "167-472-09",
+        "023-262-35"
+      ]
+    }
+  ]
+}

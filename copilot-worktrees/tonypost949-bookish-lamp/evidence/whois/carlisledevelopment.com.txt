@@ -1,0 +1,45 @@
+﻿=== nslookup -type=ALL carlisledevelopment.com ===
+nslookup : *** connectivity-check.warp-svc can't find carlisledevelopment.com: Not implemented
+At line:5 char:12
++     $all = nslookup -type=ALL $d 2>&1 | Out-String
++            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (*** connectivit...Not implemented:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  connectivity-check.warp-svc
+Address:  127.0.2.2
+
+DNS request timed out.
+    timeout was 2 seconds.
+
+=== nslookup -type=SOA carlisledevelopment.com ===
+nslookup : Non-authoritative answer:
+At line:6 char:12
++     $soa = nslookup -type=SOA $d 2>&1 | Out-String
++            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  connectivity-check.warp-svc
+Address:  127.0.2.2
+
+carlisledevelopment.com
+	primary name server = NS71.WORLDNIC.com
+	responsible mail addr = namehost.WORLDNIC.com
+	serial  = 126060516
+	refresh = 10800 (3 hours)
+	retry   = 3600 (1 hour)
+	expire  = 604800 (7 days)
+	default TTL = 3600 (1 hour)
+
+carlisledevelopment.com
+	primary name server = NS71.WORLDNIC.com
+	responsible mail addr = namehost.WORLDNIC.com
+	serial  = 126060516
+	refresh = 10800 (3 hours)
+	retry   = 3600 (1 hour)
+	expire  = 604800 (7 days)
+	default TTL = 3600 (1 hour)
+

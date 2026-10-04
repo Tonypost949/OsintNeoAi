@@ -1,0 +1,39 @@
+name: Run OSINT Script
+
+on:
+  workflow_dispatch:
+    inputs:
+      script_name:
+        description: 'Script to run (e.g., agent/bulk_city_ip_scanner.py)'
+        required: true
+        default: 'agent/bulk_city_ip_scanner.py'
+      args:
+        description: 'Arguments for the script'
+        required: false
+        default: '--help'
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install google-cloud-bigquery requests maxminddb geoip2 pandas
+
+      - name: Run Script
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GCP_SA_KEY }}
+        run: |
+          if [ -n "$GOOGLE_APPLICATION_CREDENTIALS_JSON" ]; then
+            echo "$GOOGLE_APPLICATION_CREDENTIALS_JSON" > gcp-key.json
+            export GOOGLE_APPLICATION_CREDENTIALS=gcp-key.json
+          fi
+          python ${{ github.event.inputs.script_name }} ${{ github.event.inputs.args }}

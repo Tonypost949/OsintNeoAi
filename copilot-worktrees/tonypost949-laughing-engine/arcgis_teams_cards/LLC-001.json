@@ -1,0 +1,74 @@
+{
+  "type": "message",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "contentUrl": null,
+      "content": {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.4",
+        "fallbackText": "ArcGIS Spatial Alert: Triumvirate LLC",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "ArcGIS Spatial Alert",
+            "weight": "Bolder",
+            "size": "Medium",
+            "color": "Attention"
+          },
+          {
+            "type": "TextBlock",
+            "text": "Triumvirate LLC",
+            "weight": "Bolder",
+            "wrap": true
+          },
+          {
+            "type": "FactSet",
+            "facts": [
+              {
+                "title": "Target ID:",
+                "value": "LLC-001"
+              },
+              {
+                "title": "Layer:",
+                "value": "LLC"
+              },
+              {
+                "title": "Severity:",
+                "value": "HIGH"
+              },
+              {
+                "title": "Coordinates:",
+                "value": "33.707, -117.958"
+              },
+              {
+                "title": "Source:",
+                "value": "PPP/SBA"
+              }
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "text": "21951 Brookhurst St  |  PPP $1,471,840  |  Anchorage AK mailbox",
+            "wrap": true,
+            "size": "Small",
+            "isSubtle": true
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.OpenUrl",
+            "title": "Open in ArcGIS",
+            "url": "https://www.arcgis.com/home/webmap/viewer.html"
+          }
+        ],
+        "context": {
+          "generator": "arcgis_teams_card_generator.py",
+          "generated_utc": "2026-08-09T06:05:44Z",
+          "target_id": "LLC-001"
+        }
+      }
+    }
+  ]
+}

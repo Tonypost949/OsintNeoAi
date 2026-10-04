@@ -1,0 +1,20 @@
+=== HTTP HEADERS: https://pimasheriff.org/ ===
+Status: 200
+Headers:
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Content-Type: text/html; charset=UTF-8
+  Date: Sat, 25 Jul 2026 04:40:19 GMT
+  Server: cloudflare
+  X-Powered-By: PHP/7.4.33,PleskLin
+  Cache-Control: max-age=21600, s-maxage=21600
+  pragma: public
+  expires: Sat, 25 Jul 2026 09:25:52 GMT
+  Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=qTJY6%2FI4s3HTcUfVNFDZpu6%2FxWJRZbrxqg1Js7BMVWvQgLfp%2FkTGS0cfPyz5s8STAwC4r%2FG1OLJYynJS%2BfAgeGGIL0chBzNTuj29%2BhjByNPlBZTjXH%2FjqknWqJKnH18E8tE%3D"}]}
+  cf-cache-status: DYNAMIC
+  vary: accept-encoding
+  Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+  Server-Timing: cfCacheStatus;desc="DYNAMIC",cfEdge;dur=13,cfOrigin;dur=231
+  CF-RAY: a2087c621bd80b0a-DFW
+  alt-svc: h3=":443"; ma=86400
+ContentLength: 25666

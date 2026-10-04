@@ -1,0 +1,74 @@
+{
+  "type": "message",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "contentUrl": null,
+      "content": {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.4",
+        "fallbackText": "ArcGIS Spatial Alert: Triumvirate PPP",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "ArcGIS Spatial Alert",
+            "weight": "Bolder",
+            "size": "Medium",
+            "color": "Warning"
+          },
+          {
+            "type": "TextBlock",
+            "text": "Triumvirate PPP",
+            "weight": "Bolder",
+            "wrap": true
+          },
+          {
+            "type": "FactSet",
+            "facts": [
+              {
+                "title": "Target ID:",
+                "value": "LLC-009"
+              },
+              {
+                "title": "Layer:",
+                "value": "LLC"
+              },
+              {
+                "title": "Severity:",
+                "value": "MEDIUM"
+              },
+              {
+                "title": "Coordinates:",
+                "value": "33.725, -117.97"
+              },
+              {
+                "title": "Source:",
+                "value": "PPP/SBA"
+              }
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "text": "PPP $1,471,840  |  Brookhurst  |  3705 Arctic Blvd AK",
+            "wrap": true,
+            "size": "Small",
+            "isSubtle": true
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.OpenUrl",
+            "title": "Open in ArcGIS",
+            "url": "https://www.arcgis.com/home/webmap/viewer.html"
+          }
+        ],
+        "context": {
+          "generator": "arcgis_teams_card_generator.py",
+          "generated_utc": "2026-08-09T06:05:44Z",
+          "target_id": "LLC-009"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+name: Deploy to Hhhhh
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: google-github-actions/auth@v2
+        with:
+          credentials_json: "${{ secrets.GCP_SA_KEY }}"
+      - uses: google-github-actions/setup-gcloud@v1
+      - run: gcloud components update --quiet
+      - run: gcloud components install beta --quiet
+      - uses: astral-sh/setup-uv@v7
+      - run: gcloud beta orchestration-pipelines deploy --environment=hhhhh --quiet

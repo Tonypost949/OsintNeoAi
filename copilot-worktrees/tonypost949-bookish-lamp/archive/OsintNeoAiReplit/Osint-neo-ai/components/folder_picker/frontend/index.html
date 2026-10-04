@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Courier New', monospace; overflow: hidden; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #141d35;
+      border: 1px solid #00d4ff;
+      color: #00d4ff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+      letter-spacing: 0.05em;
+    }
+    .btn:hover {
+      background: rgba(0,212,255,0.1);
+      box-shadow: 0 0 12px rgba(0,212,255,0.4);
+    }
+    .btn:active { transform: translateY(1px); }
+    input { display: none; }
+  </style>
+</head>
+<body>
+  <label class="btn" id="folder-label">
+    <span>📁</span>
+    <span>Select Folder</span>
+    <input type="file" id="folder-input" webkitdirectory directory multiple>
+  </label>
+  <script>
+    const input = document.getElementById('folder-input');
+    const label = document.getElementById('folder-label');
+
+    // Set frame height
+    window.parent.postMessage({ type: 'streamlit:setFrameHeight', height: 50 }, '*');
+
+    label.addEventListener('click', (e) => {
+      if (e.target !== input) { input.click(); }
+    });
+
+    input.addEventListener('change', async function(e) {
+      const files = e.target.files;
+      if (!files || files.length === 0) return;
+
+      const result = [];
+      for (let file of files) {
+        const data = await readFile(file);
+        result.push({
+          name: file.name,
+          data: data,
+          size: file.size,
+          path: file.webkitRelativePath || file.name
+        });
+      }
+
+      window.parent.postMessage({
+        type: 'streamlit:setComponentValue',
+        value: result
+      }, '*');
+    });
+
+    function readFile(file) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.readAsDataURL(file);
+      });
+    }
+  </script>
+</body>
+</html>

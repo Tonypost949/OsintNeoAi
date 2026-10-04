@@ -1,0 +1,11 @@
+Metric,Value,Timeframe,Primary Funding Source,Technical Status / Condition,Report Citation
+Information Systems Deficit,"$21,000,000",15-Year Plan (2024-2039),City General Fund / CIP Grants,Grade C (Mediocre / Lacks Redundancy),2024 IRC Report (Page 5 & 64)
+Annual Available CIP Capacity,"~$8,000,000 / Year",Annual (Recurring),Local Taxpayers (Measure FF CIP Fund),Unallocated infrastructure capacity competed for across funds,2024 IRC Report & Budget Analysis
+Annual Routine IT Spending,"~$4,000,000 / Year",Annual (Recurring),City General Fund (Operating Budget),Consumed by software licenses and legacy maintenance,2024 IRC Report (Information Services)
+Total Historical CIP Investment,"$697,000,000",20 Years (2005-2024),HB Local Taxpayers (Measure FF 15% Lock),Deployed across roads facilities and utilities under Measure FF,2024 IRC Report (Page 3 & 6)
+Initial 2000 Baseline Need,"$1,370,000,000",20 Years (2000-2020),HB Taxpayers / Measure FF (2002),Identified 1960s boom maintenance deficit; led to Measure FF,2000 IAC Report & City Charter § 617(b)
+Total 2024 Citywide Deficit,"$1,800,000,000",15 Years (2024-2039),Local/State/Federal Taxpayers,Comprehensive 13-category infrastructure funding shortfall,2024 IRC Report (Page 3 & 5)
+Server Architecture,Legacy Windows Server / IIS,Current Operating State,City On-Premise Datacenter,Direct public routing on IP 192.5.222.0/24 with zero WAF,2026 Data Infrastructure Audit
+Disaster Recovery Status,Multi-Day Backup Latency,Current Operating State,City On-Premise IT Storage,Slow disk/tape backups; lacks real-time cloud replication,2024 IRC Report (Pages 64-66)
+Cybersecurity Defense Status,Basic Host Antivirus,Current Operating State,City IT Operations,Basic endpoint protection blind to web database scraping,2026 Data Infrastructure Audit
+Measure FF General Fund Lock,15% of Revenues Annually,Permanent (Since 2002),HB Taxpayers (Property/Sales/TOT Tax),Legally mandated infrastructure capital reserve,HB City Charter Section 617(b)

@@ -59,34 +59,29 @@ def get_ai():
     return genai.GenerativeModel("gemini-flash-latest")
 
 def get_bq():
-    from google.cloud import bigquery
-    from google.oauth2 import service_account
-    from google.auth.exceptions import DefaultCredentialsError
-    import json
     import os
-    
-    creds_json = os.environ.get("GOOGLE_CREDENTIALS_JSON")
+
+    from adx_bigquery import bigquery
+
+    class _MockClient:
+        def query(self, *args, **kwargs):
+            class _MockJob:
+                def result(self):
+                    return [{
+                        "_error": "Azure Data Explorer not configured. "
+                                  "Set ADX_CLUSTER_URI and ADX_DATABASE in the environment."
+                    }]
+            return _MockJob()
+
+        def list_datasets(self):
+            return []
+
+    if not os.environ.get("ADX_CLUSTER_URI"):
+        return _MockClient()
     try:
-        if creds_json:
-            info = json.loads(creds_json)
-            if info.get("type") == "authorized_user":
-                from google.oauth2.credentials import Credentials as OAuthCredentials
-                creds = OAuthCredentials.from_authorized_user_info(info)
-            else:
-                creds = service_account.Credentials.from_service_account_info(info)
-            return bigquery.Client(project=GCP_PROJECT, credentials=creds)
-        else:
-            return bigquery.Client(project=GCP_PROJECT)
-    except Exception as e:
-        class MockClient:
-            def query(self, *args, **kwargs):
-                class MockJob:
-                    def result(self):
-                        return [{"_error": "BigQuery credentials not configured. Please set GOOGLE_CREDENTIALS_JSON in Railway variables."}]
-                return MockJob()
-            def list_datasets(self):
-                return []
-        return MockClient()
+        return bigquery.Client(project=GCP_PROJECT)
+    except Exception:
+        return _MockClient()
 
 # ── BQ Catalog ─────────────────────────────────────────────────
 BQ_CATALOG_CACHE = None

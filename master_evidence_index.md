@@ -1,0 +1,1488 @@
+# Master Evidence Index: EVIDENCE_LOCKER_MASTER
+
+## 00_INDEX
+
+*68 files indexed.*
+
+- 01_ESA_FILE_LIST.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- 01_ESA_FULL_FILE_LIST.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- 01_ESA_HASHES.csv
+  - **Columns:** Algorithm, Hash, Path
+- 02_EDR_FILE_LIST.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- 02_EDR_FULL_FILE_LIST.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- 02_EDR_HASHES.csv
+  - **Columns:** Algorithm, Hash, Path
+- 03_GEOTRACKER_FILE_LIST.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- 03_GEOTRACKER_FULL_FILE_LIST.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- 03_GEOTRACKER_HASHES.csv
+  - **Columns:** Algorithm, Hash, Path
+- 04_EUROFINS_FILE_LIST.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- 04_EUROFINS_FULL_FILE_LIST.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- 04_EUROFINS_HASHES.csv
+  - **Columns:** Algorithm, Hash, Path
+- 05_WELLS_FILE_LIST.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- 05_WELLS_HASHES.csv
+  - **Columns:** Algorithm, Hash, Path
+- 06_ENGINEERING_FILE_LIST.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- 07_STORMTECH_FILE_LIST.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- 07_STORMTECH_HASHES.csv
+  - **Columns:** Algorithm, Hash, Path
+- 08_GIS_FILE_LIST.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- 08_GIS_FULL_FILE_LIST.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- 09_PERMITS_FILE_LIST.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- 10_PROCUREMENT_FILE_LIST.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- 11_EMAILS_FILE_LIST.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- 11_EMAILS_FULL_FILE_LIST.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- ACTUAL_LOCAL_INVENTORY.csv
+  - **Columns:** FullName, Name, Length, LastWriteTime
+- ALL_PDF_SHA256_HASHES.csv
+  - **Columns:** Algorithm, Hash, Path
+- ALL_PDFS_ONLY.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- CLAIM_REGISTER.csv
+  - **Columns:** ﻿ClaimID, Claim, SourceDocument, Page, Status...
+- CONSOLIDATED_LAB_CONTAMINANT_HITS.csv
+  - **Columns:** Document, Page, Matched_Keywords, Line_Number, Extracted_Snippet
+- DEEPMIND_OSINT_FORENSIC_MATRIX.json
+- DUPLICATE_FILENAMES.csv
+- DUPLICATE_FILES_BY_HASH.csv
+  - **Columns:** Hash, Count, Files
+- EVIDENCE_LOCKER_SHA256_MANIFEST.json
+- EVIDENCE_LOCKER_VISUALIZER.html
+- EXECUTIVE_CONTAMINANT_FORENSIC_SUMMARY.md
+- EXECUTIVE_LEAD_GROUNDWATER_CONTAMINANT_DOSSIER.md
+- EXECUTIVE_SMOKING_GUN_DOSSIER.md
+- EXHAUSTIVE_KALI_OSINT_EXECUTION_LOG.md
+- FILE_TYPE_COUNTS.csv
+  - **Columns:** Name, Count
+- FILES_CREATED_LAST_24_HOURS_FULL.csv
+  - **Columns:** filepath, filename, size_bytes, last_modified
+- FILES_MODIFIED_LAST_30_DAYS.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- FILES_OVER_10MB.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- FOLDER_COUNTS.csv
+  - **Columns:** Category, FileCount, SizeMB
+- FULL_EVIDENCE_INVENTORY.csv
+  - **Columns:** Name, Length, LastWriteTime, Category, FullName
+- IMAGE_INVENTORY.csv
+- INVENTORY.csv
+  - **Columns:** FullName, Name, Length, LastWriteTime
+- KALI_FORENSIC_EXECUTION_SUMMARY.md
+- MASTER_DEEPMIND_FORENSIC_EVIDENCE_DOSSIER.md
+- MASTER_EVIDENCE_REGISTER.csv
+  - **Columns:** ﻿EvidenceID, Category, Title, Source, ReceivedDate...
+- MISSING_EVIDENCE_TRACKER.csv
+  - **Columns:** Category, Present, Verified, Notes
+- PDF_INVENTORY.csv
+- PUBLIC_IPS_FORENSIC_SWEEP_DOSSIER.md
+- RCLONE_DRIVE_ROOT.txt
+- RCLONE_FILE_LIST.txt
+- RCLONE_REMOTES.txt
+- RCLONE_SIZE_REPORT.txt
+- REMOTE_FILE_LIST.txt
+- SHA256_MANIFEST.csv
+  - **Columns:** Algorithm, Hash, Path
+- SHAREDALL_FOLDERS.txt
+- SMOKING_GUN_EVIDENCE_DOSSIER.json
+- SOURCE_DOCUMENT_CANDIDATES.csv
+  - **Columns:** FullName, Length
+- SOURCE_REGISTER.csv
+  - **Columns:** ﻿DocumentID, DocumentType, RequestSent, Received, Verified...
+- TOP_100_LARGEST_FILES.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- TOP_200_LARGEST_FILES.csv
+  - **Columns:** FullName, Length, LastWriteTime
+- TREE.txt
+- UNIFIED_MASTER_FORENSIC_MATRIX.json
+- UNIFIED_MASTER_INVESTIGATIVE_DOSSIER.md
+- VERIFICATION_REPORT.txt
+- WORKBOOK_EXTRACTED_IPS.json
+
+
+## 01_ESA
+
+*21 files indexed.*
+
+- (AMELIA)liability letter for AVIH, ESAN, PETC, SVAN.pdf
+- AR123IdentificationBadgesatCityFacilities080916.pdf
+- Barrel program Phase II (2).pdf
+- Barrel program Phase II.pdf
+- Barrel program Phase II_2.pdf
+- googleSatellite.png
+- googleSatelliteLabels.png
+- HISTORIC FILES - PHASE I ENVIRONMENTAL SITE ASSESSMENT - T10000018579.20200318.Phase I Environmental Site Assessment.pdf
+- HISTORIC FILES - SITE ASSESSMENT REPORT - T10000018579.20200625.Site Assessment Report.pdf
+- Marquesas
+- Pages from T10000018579.20200318.Phase I Environmental Site Assessment-1 (1)(1).pdf
+- Pages from T10000018579.20200318.Phase I Environmental Site Assessment-1 (1).pdf
+- Phase I 17642 2  Compressed.pdf
+- phase1_esa.txt
+- RequestforFireMedicalorMarineSafetyRecords.pdf
+- SITE ASSESSMENT REPORT  - SITE ASSESSMENT REPORT - Additonal Assessment Report 17642 Beach Boulevard (003).pdf
+- SITE ASSESSMENT REPORT  - SITE ASSESSMENT REPORT - Site Assessment Report - 17631 Cameron Ln..pdf
+- T10000018579.20200318.Phase I Environmental Site Assessment-1 (1).pdf
+- T10000018579.20200318.Phase I Environmental Site Assessment-1 (2).pdf
+- T10000018579.20200318.Phase I Environmental Site Assessment-1 (3).pdf
+- T10000018579.20200318.Phase I Environmental Site Assessment-1.pdf
+
+
+## 02_EDR
+
+*41 files indexed.*
+
+- 053-0225-002_Radius_Map_7885521.2S (1).pdf
+- 053-0225-002_Radius_Map_7885521.2S.pdf
+- 074-0125-014_Radius_Map_7867953.2S (1).pdf
+- 074-0125-014_Radius_Map_7867953.2S.pdf
+- 08_2026-08-28_bedroom-fixture-hanging-from-wiring (2).jpg
+- 08_2026-08-28_bedroom-fixture-hanging-from-wiring (3).jpg
+- 08_2026-08-28_bedroom-fixture-hanging-from-wiring (4).jpg
+- 08_2026-08-28_bedroom-fixture-hanging-from-wiring (5).jpg
+- 08_2026-08-28_bedroom-fixture-hanging-from-wiring(1).jpg
+- 08_2026-08-28_bedroom-fixture-hanging-from-wiring.jpg
+- 2 deep dive script edr.pdf
+- advancedrealestate.com.txt
+- deep dive script edr.pdf
+- edr.darwin-arm64.node
+- edr.darwin-x64.node
+- edr.linux-arm64-gnu.node
+- edr.linux-arm64-musl.node
+- edr.linux-x64-gnu.node
+- edr.linux-x64-musl.node
+- edr.win32-x64-msvc.node
+- EDR_Order_Status_Session_4.html
+- EDRNET_MASTER_ORDER_LEDGER.md
+- EDRnet_Session_1.html
+- EDRnet_Session_2.html
+- EDRnet_Session_3_Wayback.html
+- evidence 2 hbnc stormtech EDR Open Site Setup - Google Gemini.pdf
+- headers_advancedrealestate.com_.txt
+- headers_advancedrealestate.com_wp-admin.txt
+- ModifiedReinhardTonemapping.glsl
+- nestedResourcesValidationReport.txt
+- onedrive_documents_full.csv
+  - **Columns:** file_path, file_name, ingestion_timestamp, file_type, content_preview...
+- photo_a74G5sEDR54YwTiF7.jpg
+- real_edr_1938.png
+- real_edr_1947.png
+- real_edr_1953.png
+- real_edr_1963.png
+- real_edr_1972_page6.png
+- satellitesTrackedRefresh.test.mjs
+- srf_edr_logo_v2.gif
+- srf_edr_logo_v2_2.gif
+- trackedReadout.test.mjs
+
+
+## 03_GEOTRACKER
+
+*71 files indexed.*
+
+- 03-austin-cctv.gif
+- 2015-08-04 - Easement Yamada Family Trust.pdf
+- 2015-08-04 - Easement Yamada Family Trust.pdf.txt
+- 2_CUSTOM_INSTRUCTIONS.txt(1).docx
+- 2_CUSTOM_INSTRUCTIONS.txt(2).docx
+- 2_CUSTOM_INSTRUCTIONS.txt(3).docx
+- 2_CUSTOM_INSTRUCTIONS.txt(4).docx
+- 2_CUSTOM_INSTRUCTIONS.txt(5).docx
+- 2_CUSTOM_INSTRUCTIONS.txt(6).docx
+- 2_CUSTOM_INSTRUCTIONS.txt(7).docx
+- 2_CUSTOM_INSTRUCTIONS.txt(8).docx
+- 2_CUSTOM_INSTRUCTIONS.txt.docx
+- AdjustTranslucentFS.glsl
+- Approved-Dust-Control-Plan-dated-8.14.20.pdf
+- azure-identity-rust.md
+- azure-keyvault-certificates-rust.md
+- azure-keyvault-keys-rust.md
+- azure-keyvault-secrets-rust.md
+- azure-storage-blob-rust.md
+- class.mustache
+- cluster_11770_warner.md
+- cluster_map.html
+- CPUStylingStageFS.glsl
+- CPUStylingStageVS.glsl
+- custom-domains.md
+- custom-format-edit-dark.png
+- custom-format-edit-light.png
+- custom-formats.mdx
+- custom-template-adaptation.md
+- custom.css
+- Custom.module.css
+- custom_tool.md
+- customize-guides.md
+- customize-workflow.md
+- customizing_retries.md
+- CustomShaderStageFS.glsl
+- CustomShaderStageVS.glsl
+- dialog.custom.css
+- Famagusta
+- forensic_views_ust_proximity.csv
+  - **Columns:** owner_name, property_address, APN, LastSaleDate, LastSaleValue...
+- format-selected-custom-format-dark.png
+- format-selected-custom-format-light.png
+- GamepadOverlayKt$ActionClusterButton$1$1$1.class
+- GamepadOverlayKt$ActionClusterButton$1$1$1.dex
+- GamepadOverlayKt$ActionClusterButton$1$1.class
+- GamepadOverlayKt$ActionClusterButton$1$1.dex
+- gods_eye_view_custom_v1.html
+- headers_stewartindustries.com_.txt
+- headers_stewartindustries.com_wp-admin.txt
+- industrial.png
+- method.mustache
+- mitsuru_yamada_trust_v1.mtgx
+- permitted_ust.txt
+- permitted_ust_clean.txt
+- permitted_ust_tanks.txt
+- PermittedUSTReadMe.txt
+- ppp_rico_beach_blvd_cluster.csv
+  - **Columns:** Owner1, Owner2, SiteAddress, MailAddress, MailCity...
+- ppp_rico_v_7561_center_ave_cluster.csv
+  - **Columns:** llc_owner, property_address, mailing_address, MailCity, APN...
+- ppp_rico_v_mailbox_cluster_hubs.csv
+  - **Columns:** MailAddress, llc_count, avg_sale_value, first_sale, last_sale...
+- property.mustache
+- rust.Dockerfile
+- rust.dockerignore
+- SOCAL_TRIBAL_TRUSTEES_MATRIX.csv
+  - **Columns:** case_id, estate_number, decedent_or_heir_name, role, date_field_1...
+- stewartindustries.com.txt
+- tests_exhaustive.c
+- tomtom-flow-austin-12-935-1686.pbf
+- tool-mcp-custom-oauth-azure-starter.md
+- tool-mcp-custom-oauth.md
+- tribal_trustees_socal.csv
+  - **Columns:** case_id, estate_number, decedent_or_heir_name, role, date_field_1...
+- Tuesday, August 22, 2023 agenda.pdf
+- Ust-Nera
+
+
+## 04_EUROFINS
+
+*41 files indexed.*
+
+- 2025 Agency CoC General Membership - public doc 1-16-25.pdf
+- Accessors70r8mlcbmraitcw4ok51hlcoc.kt
+- Accessors70r8mlcbmraitcw4ok51hlcocKt.class
+- analyze_sheriff_coc_overlap.py
+- C2EH & COC Joint Special Meeting Agenda Packet.pdf
+- ca_44_coc_matrix.csv
+  - **Columns:** CoC Number, CoC Name, Homeless Counted (PIT), Estimated CPS Kids (IV-E), Missing Kids (Gap)...
+- ca_coc_data_gaps.csv
+  - **Columns:** coc_name, cps_kids_in_care, homeless_kids_counted_pit, missing_kids_not_counted_gap
+- check_ca_cocs.py
+- check_cocs.py
+- coc 2025 Survey Feedback Presentation.pdf
+- coc rules PPS Committee Charter_Approved 12.18.24.pdf
+- compile_nationwide_coc_directory.py
+- experimental-and-analytical-pitfalls.md
+- FY2024 hud CoC Renewal Project Application Detailed Description_Final.pdf
+- generate_ca_coc_spreadsheet.py
+- HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200408.Analytical Report.pdf
+- HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200410.Analytical Report.pdf
+- HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200414.Analytical Report.pdf
+- HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200415.Analytical Report.pdf
+- HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200417.Analytical Report.pdf
+- hud_pit_by_coc.csv
+  - **Columns:** ERROR: Sheet returned 400 - Invalid sheet identifier or cell reference provided
+- LAB REPORT 2026-03-25 - Nation Laboratories mold air sampling - address redacted.pdf.png
+- national_audits_evidence_chain_of_custody.csv
+  - **Columns:** evidence_id, disclosure_date, agency_submitted, target_state, associated_billing_code...
+- nationwide_coc_map.html
+- nationwide_coc_vulnerability_matrix.json
+- nationwide_coc_vulnerability_matrix.md
+- orange_county_coc_rico_pattern_map.md
+- postiats-CocnycG-.js
+- pr_coc_data.csv
+  - **Columns:** Organization, Category, Target_Population, Key_Shelter_Details, Children_Served_2025...
+- Presentation_Final 25.01.22 - CoC Board.pdf
+- read_coc_table.py
+- sample-report-peacock.html
+- sample-report-peacock.md
+- search_all_cocs_bq.py
+- search_all_cocs_bq_fast.py
+- search_coc.py
+- sheriff_coc_risk_matrix.csv
+  - **Columns:** state, coc_number, coc_name, pit_count, coc_funding...
+- tool_0b781790e001tFcOCwrqgd9ga7
+- tx_coc_matrix.csv
+  - **Columns:** CoC Number, CoC Name, Homeless Counted (PIT), Estimated MV Kids, Missing Kids (Gap)...
+- us_coc_forensic_pattern_master.md
+- visualization-PcOCwtt6.js
+
+
+## 05_WELLS
+
+*4 files indexed.*
+
+- Cameron_Tract_Wells__1940s_&_Undated_(1)_1771475692334.pdf
+- Copy_of_full_info_well_17642_beach_1771475692432.pdf
+- well_cameron_CSTB+143+72_1771475692406.pdf
+- well_map_color_subsurface_geo_beach_cameron_mercypdf_1771475692453.pdf
+
+
+## 06_ENGINEERING
+
+*10 files indexed.*
+
+- 03_265 Evening Canyon_Civil Plans_1-31-2019R.pdf.c25cf7f3.partial
+- chatgpt civil mercyhouse hb homeless.pdf
+- chatgpt civil mercyhouse hb homeless2.pdf
+- CIVIL_FORFEITURE_PHAM_WELLS_FARGO_DRAFT.md
+- CIVIL_RICO_AND_WHISTLEBLOWER_COMPLAINT_DRAFT.md
+- ELECTRICAL_PLANS_20383_17631_Cameron.pdf
+- OCSD_Annual_Reports_and_Civil_Operations_Archive_2019_2026.md
+- OCSD_Court_Operations_Civil_Process_Forensic_Mapping.md
+- OSINT_Civil_Rights_Integration_Guide.md
+- PRECISE_GRADING_PLAN_20-020_Copy.pdf
+
+
+## 07_STORMTECH
+
+*4 files indexed.*
+
+- HYDRO_FORENSIC_STORMTECH_PVC15_REPORT.md
+- info hbnc fraud toxic stormtech gem full.pdf
+- info hbnc fraud toxic stormtech.pdf
+- Orange_County_Chambers_of_Commerce_Entity_Matrix.md
+
+
+## 08_GIS
+
+*41 files indexed.*
+
+- 15-global-radio-layer.gif
+- arcgis_for_teams_geojson.geojson
+- arcgis_for_teams_geojson_agent2.geojson
+- BaseLayerPicker.css
+- caltrans_d12_cctv.geojson
+- CHILD_TRAFFICKING_CPS_LAYER.md
+- dams-B2lCjFgp.geojsonl
+- dams-IHT_OYvV.geojsonl
+- dams.geojson
+- dams.geojsonl
+- datacenters-BMV8tSUc.geojsonl
+- datacenters-CtzejECr.geojsonl
+- datacenters.geojsonl
+- forensic_layers_chdo_real_estate_transactions.csv
+  - **Columns:** chdo_llc, project_name, ownership_structure, lp_entity_counterparty, transaction_type...
+- forensic_layers_cps_trafficking_layer.csv
+  - **Columns:** layer, entity, role, amount, children_affected...
+- forensic_layers_entity_resolution.csv
+  - **Columns:** canonical_id, raw_name_variant, resolved_group, associated_ein
+- forensic_layers_fca_timeline.csv
+  - **Columns:** event_id, event_date, sender, recipient, subject...
+- forensic_layers_hbnc_convergence_points.csv
+  - **Columns:** unit, owner, acquired_date, price, mail_address...
+- forensic_layers_high_risk_proximity_nodes.csv
+  - **Columns:** llc_name, property_address, mailing_address, mail_city, LastSaleDate...
+- forensic_layers_lender_fraud_pattern.csv
+  - **Columns:** ServicingLenderName, total_loans, over_forgiven_count, over_forgiveness_rate, total_approved...
+- forensic_layers_national_pipeline_map.csv
+  - **Columns:** state, pit_count, sheltered, unsheltered, cps_est...
+- forensic_layers_ppp_loans.csv
+  - **Columns:** entity_name, hb_property, apn, mail_address, last_sale_date...
+- forensic_layers_ppp_property_bridge.csv
+  - **Columns:** entity_name, property_address, property_city, property_apn, property_mail_address...
+- forensic_layers_ppp_property_timing.csv
+  - **Columns:** entity_identity, property_wrapper, property_address, transfer_date, transfer_amount...
+- forensic_layers_rico_network_map.csv
+  - **Columns:** node_id, node_type, node_name, layer, connected_to...
+- gps_trajectory_stream.geojson
+- I3SBuildingSceneLayerExplorer.css
+- layerState.test.mjs
+- LayerTree.pdl
+- live_telemetry.geojson
+- osintneoai_investigation-Dh3lgeAb.geojson
+- osintneoai_investigation.geojson
+- OsintNeoAi_Master_Investigation.geojson
+- RICO_DOSSIER_APN_PARCELS_20260820_084436.md
+- RICO_DOSSIER_APN_PARCELS_20260915_210432.md
+- RICO_DOSSIER_APN_PARCELS_20260915_211055.md
+- RICO_DOSSIER_APN_PARCELS_20260915_211129.md
+- RICO_DOSSIER_APN_PARCELS_20260915_211411.md
+- RICO_DOSSIER_APN_PARCELS_20260915_211530.md
+- shigeru_yamada_parcel_v1.mtgx
+- www-player.css
+
+
+## 09_PERMITS
+
+*29 files indexed.*
+
+- 17612 beach permits.Zip
+- 17612 beach permits.Zip.txt
+- 7942 speer plans Use Permit UPX1978058 - Plans.pdf
+- 7942 speer plans Use Permit UPX1978058 - Plans.pdf.txt
+- Administrative Permit DRB2006039 - Mailing Labels full.pdf
+- Administrative Permit DRB2006039 - Mailing Labels txtx only.pdf
+- Building-an-Immutable-Eviction-Wiki.md
+- building.png
+- buildingpermit.png
+- CITY PERMIT BRES26-0287 + Tenant Habitability Plan - addresses redacted.pdf
+- CITY PERMIT BRES26-0287 + Tenant Habitability Plan - addresses redacted.pdf.png
+- Dennis Durham Orange County Permits WK#6 (2).pdf.txt
+- Dennis_Durham_Orange_County_Permits_WK#6.pdf.txt
+- Dennis_Durham_Orange_County_Permits_WK#6_(2).pdf.txt
+- environment-inspection.md
+- hbnc_permit_urls.txt
+- permit_backups_manifest.txt
+- permit_search_hits.txt
+- RICO_UNPERMITTED_EXCAVATION_DOSSIER.md
+- schema_direct_inspection.md
+- Use Permit UPX1977008 - Mailing Labels.pdf
+- Use Permit UPX1977055 - District Map.pdf
+- Use Permit UPX1977055 - Mailing Labels.pdf
+- VERMA-PROD-005 Permit BRES26-0287 (2).pdf
+- VERMA-PROD-005 Permit BRES26-0287.pdf
+- VERMA-PROD-006 Permit ENCR26-0519 (2).pdf
+- VERMA-PROD-006 Permit ENCR26-0519.pdf
+- VERMA-PROD-024 Structural Pest Inspection 03-05-2026 (2).pdf
+- VERMA-PROD-024 Structural Pest Inspection 03-05-2026.pdf
+
+
+## 10_PROCUREMENT
+
+*7 files indexed.*
+
+- agent-metadata-contract.md
+- contract_decoder.rs
+- Contractors.csv
+  - **Columns:** CON_ID, COMPANY_NAME, TYPE, CONTRACT_VALUE, CONTRACT_PURPOSE...
+- gsheet_1O_19UfutQMD2rq18rFPnw7hsUf2tIvXn39hcQvWL5dY.csv
+  - **Columns:** GC Name, Number, job name, job address, job cost...
+- MUNICIPAL_IT_VENDORS_AND_BUDGET_CONTRACTS.md
+- pinokioLauncherContract.test.mjs
+- Preliminary Tenant Data and Property Age Data for LBPCF NOFA_01302019_FINAL.xlsx
+
+
+## 11_EMAILS
+
+*23 files indexed.*
+
+- 02 - OUTREACH KIT - emails, posts, recipients v1_20260916 (2).docx
+- 02 - OUTREACH KIT - emails, posts, recipients v1_20260916.docx
+- 02 - OUTREACH KIT v2 - EVICTION CASE - emails, posts, recipients_20260916 (2).docx
+- 02 - OUTREACH KIT v2 - EVICTION CASE - emails, posts, recipients_20260916 (3).docx
+- 02 - OUTREACH KIT v2 - EVICTION CASE - emails, posts, recipients_20260916.docx
+- ACADEMIC_EMAIL_HIERARCHY_AND_SECURITY_MAP.md
+- email_validator.exe
+- emailkit.html
+- Emails.csv
+  - **Columns:** EMAIL_ID, EMAIL_ADDRESS, TYPE, ENTITY_IDS, VERIFIED...
+- EVIDENCE_ADDENDUM_HBNC_EMAIL_2026.md
+- Here is my pitch (1).eml
+- Here is my pitch (2).eml
+- Here is my pitch.eml
+- livecenter_emailvalidator.html
+- Master Osint Sheet.xlsx
+- my fiverr account (1).eml
+- my fiverr account (2).eml
+- my fiverr account (3).eml
+- my fiverr account.eml
+- qui_tam_email_inventory.md
+- sendemail-validate.sample
+- THP - City copy (Rollins email 8-12-26) - Unit 5 start 7-27-26 (2).pdf
+- THP - City copy (Rollins email 8-12-26) - Unit 5 start 7-27-26.pdf
+
+
+## 12_METADATA
+
+*0 files indexed.*
+
+
+
+## 13_PHOTOS
+
+*0 files indexed.*
+
+
+
+## 14_AUDIO
+
+*0 files indexed.*
+
+
+
+## 15_VIDEO
+
+*0 files indexed.*
+
+
+
+## 16_COURT
+
+*0 files indexed.*
+
+
+
+## 17_TIMELINE
+
+*0 files indexed.*
+
+
+
+## 18_EXHIBITS
+
+*0 files indexed.*
+
+
+
+## 20_ANALYSIS
+
+*535 files indexed.*
+
+- 2_deploy_contracts.js
+- _baseSample.js
+- _baseSampleSize.js
+- _custom_tls_signer.cpython-314.pyc
+- _custom_tls_signer.py
+- _customDefaultsAssignIn.js
+- _customDefaultsMerge.js
+- _customOmitClone.js
+- _decimal-adjust.js
+- _openai_bedrock.cpython-312.pyc
+- _redrecurse.cpython-313.pyc
+- _redrecurse.py
+- _rust.pyd
+- _search_emails.py
+- _search_emails_v2.py
+- _shell_customizations.py
+- accela_scraper_exhaustive.py
+- address_cluster_monitor.sql
+- AdjustTranslucentFS.js
+- aesaracode.cpython-312.pyc
+- album_a74G5sEDR54YwTiF7_full_ocr_index.md
+- ALL_SYSTEM_IP_SCANS.json
+- analyze_accela_permits.py
+- analyze_rico_edr_vault.cpython-312.pyc
+- analyze_rico_edr_vault.py
+- async_custom_middleware.cpython-312.pyc
+- AutonomousTaxFundedBridge.sol
+- azure_ocr_permits.py
+- BaseLayerPicker.js
+- BaseLayerPickerViewModel.js
+- BEACH_BLVD_CAMERON_LANE_PARCEL_ENVIRONMENTAL_AUDIT_2026.md
+- bedrock.cpython-312.pyc
+- bigquery_edr_graph_manifest.json
+- bookmarks_environmental_and_geotracker.json
+- bookmarks_gis_parcels_and_maps.json
+- bq_geotracker_mailbox.py
+- CachedResponse.d.ts
+- CachedResponse.js
+- CachedResponse.js.flow
+- cctv_sources.austin.json
+- check_parcel_schema.py
+- chromedriver.d.ts
+- chromedriver.d.ts.map
+- chromedriver.js
+- chromedriver.js.map
+- chromedriver.ts
+- cluster.cpython-313.pyc
+- cluster.d.ts
+- cluster.py
+- contract-address.d.ts
+- contract-address.d.ts.map
+- contract-address.js
+- contract-address.js.map
+- contract-address.ts
+- contract-names.d.ts
+- contract-names.d.ts.map
+- contract-names.js
+- contract-names.js.map
+- contract-names.ts
+- contract.d.ts
+- contract.d.ts.map
+- contract.js
+- contract.js.map
+- contract.ts
+- contracts.d.ts
+- contracts.d.ts.map
+- contracts.js
+- contracts.js.map
+- contracts.spec.ts
+- contracts.ts
+- control_cluster.sql
+- control_clusters.json
+- convertToEdr.d.ts
+- convertToEdr.d.ts.map
+- convertToEdr.js
+- convertToEdr.js.map
+- convertToEdr.ts
+- CPUStylingPipelineStage.js
+- CPUStylingStageFS.js
+- CPUStylingStageVS.js
+- create_cluster.js
+- create_cluster.json
+- createFrustumGeometry.js
+- createFrustumOutlineGeometry.js
+- createOsmBuildingsAsync.js
+- cryptography-rust.cyclonedx.json
+- css-cascade-layers.js
+- css-color-adjust.js
+- css-print-color-adjust.js
+- css-text-justify.js
+- cstb14372_geotracker_mapping_analysis.json
+- custom-elements.d.ts
+- custom-elements.js
+- custom-elements.js.map
+- custom-elements.min.js
+- custom-elements.min.js.map
+- custom-elementsv1.js
+- custom-fetch.ts
+- custom-logger.test.d.ts
+- custom.js
+- custom.test.d.ts
+- custom.test.ts
+- Custom.tsx
+- custom_keyword_leads.json
+- custom_listener.cpython-312.pyc
+- custom_listener_matcher.cpython-312.pyc
+- custom_middleware.cpython-312.pyc
+- custom_search.js.download
+- custom_token.d.ts
+- CustomDataSource.js
+- CustomElementInternals.d.ts
+- CustomElementInternals.js
+- CustomElementInternals.js.map
+- CustomElementRegistry.d.ts
+- CustomElementRegistry.js
+- CustomElementRegistry.js.map
+- CustomElementState.d.ts
+- CustomElementState.js
+- CustomElementState.js.map
+- customEvent.d.ts
+- customevent.js
+- CustomHeightmapTerrainProvider.js
+- customprint.cpython-312.pyc
+- customprint.py
+- CustomQueryHandler.d.ts
+- CustomQueryHandler.d.ts.map
+- CustomQueryHandler.js
+- CustomQueryHandler.js.map
+- CustomQueryHandler.ts
+- CustomQuerySelector.d.ts
+- CustomQuerySelector.d.ts.map
+- CustomQuerySelector.js
+- CustomQuerySelector.js.map
+- CustomQuerySelector.ts
+- CustomShader.js
+- CustomShaderMode.js
+- CustomShaderPipelineStage.js
+- CustomShaderStageFS.js
+- CustomShaderStageVS.js
+- CustomShaderTranslucencyMode.js
+- db66e1e0-b949-11f1-8e00-dbd4e67e7847.pdf
+- db66e1e0-b949-11f1-8e00-dbd4e67e7847.pdf.txt
+- decimal-adjust.js
+- decodeDraco.js
+- Deep_Entity_Contractor_Cross_Reference_Audit.md
+- DEEPMIND_FORENSIC_VISUALIZER.html
+- DEEPMIND_GODS_EYE_FORENSIC_ANIMATION.mp4
+- DEEPMIND_GODS_EYE_FORENSIC_ARCHITECTURE.svg
+- DEHASHED_DEEPSEEK_HITS.json
+- devsite_app_custom_elements_module.js.download
+- download_album_a74G5sEDR54YwTiF7.py
+- dump_cps_layer.py
+- EDR_2025_REAL_MASTER_INDEX.json
+- EDR_2025_REAL_MASTER_INDEX.md
+- edr_all_gps_coordinates.json
+- edr_apn_historical_data.json
+- edr_environmental_risk_analysis.html
+- edr_gps_mapping_clean.json
+- edr_gps_multiline_mapped.json
+- edr_historical_scraper.py
+- EDR_LIGHTBOX_MASTER_ASSET_INDEX.md
+- edr_links.py
+- edr_masked_address_log.json
+- edrcommon_1.3.js
+- edrcommon_1.3_2.js
+- edrlibrary.js
+- edrlibrary_2.js
+- edrlibraryV2.js
+- edrlibraryV2_2.js
+- edrmapv2.js
+- edrmapv2_2.js
+- edrmapv2google.js
+- edrmapv2google_2.js
+- edrmapv2googlev3.js
+- edrmapv2googlev3_2.js
+- EDRNET_MASTER_ORDER_LEDGER.json
+- email-match.d.ts
+- email-match.js
+- email-match.js.map
+- email-utils.d.ts
+- email-utils.js
+- email-utils.js.map
+- email.cpython-312.pyc
+- email.d.ts
+- email.py
+- email.test.d.ts
+- email_and_password.d.ts
+- email_apk.py
+- email_docs.py
+- EMAIL_EVIDENTIARY_CHRONOLOGY_INDEX.md
+- email_gem.py
+- email_link.d.ts
+- email_picture.py
+- email_url.py
+- EntityCluster.js
+- EPA_PCS_CORRELATION_SUMMARY.json
+- EPA_TRI_CORRELATION_SUMMARY.json
+- ERC20Permit.json
+- ERC20Permit.sol
+- exhaust.d.ts
+- exhaust.d.ts.map
+- exhaust.js
+- exhaust.js.map
+- exhaust.ts
+- exhaustAll.d.ts
+- exhaustAll.d.ts.map
+- exhaustAll.js
+- exhaustAll.js.map
+- exhaustAll.ts
+- exhaustive_audit_Anaheim.json
+- exhaustive_audit_https___developers_facebook_co.json
+- exhaustive_audit_https___www_facebook_com_saved.json
+- exhaustive_block_urls.py
+- exhaustive_osint_engine.py
+- exhaustMap.d.ts
+- exhaustMap.d.ts.map
+- exhaustMap.js
+- exhaustMap.js.map
+- exhaustMap.ts
+- expand_cps_layer.py
+- extract_exact_permits.py
+- extract_fca_emails.py
+- extract_hbnc_permits.py
+- EXTRACTED_ALL_IP_PATTERNS.json
+- EXTRACTED_IP_ADDRESSES.json
+- EXTRACTED_IPS_SWEEP_FULL.json
+- fast_tesseract_album_a74G5sEDR54YwTiF7.py
+- fca_email_bodies_extracted.jsonl
+- find_chambers.py
+- find_edr.py
+- find_edr_2025.py
+- find_real_edr.py
+- find_zero_dollar_clusters.py
+- fix_geotracker_quotes.py
+- font-size-adjust.js
+- forensic_layers_fca_timeline.json
+- forensic_layers_geotracker_ust.csv
+  - **Columns:** CERSID, FACILITY_ID, BUSINESS_NAME, ADDRESS, CITY...
+- forensic_layers_geotracker_ust.json
+- forensic_layers_lender_fraud_pattern.json
+- forensic_layers_ppp_property_bridge.json
+- forensic_layers_rico_network_map.json
+- forensic_layers_v_expanded_structural_audit.csv
+  - **Columns:** state, organization_name, cms_billing_code, fund_delta, category...
+- FrustumCommands.js
+- FrustumGeometry.js
+- FrustumOutlineGeometry.js
+- FULL_LOCKER_NEURAL_OCR\01_ESA_(AMELIA)liability letter for AVIH, ESAN, PETC, SVAN.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\01_ESA_AR123IdentificationBadgesatCityFacilities080916.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\01_ESA_Barrel program Phase II (2).pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\01_ESA_Barrel program Phase II.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\01_ESA_Barrel program Phase II_2.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\01_ESA_HISTORIC FILES - PHASE I ENVIRONMENTAL SITE ASSESSMENT - T10000018579.20200318.Phase I Environmental Site Assessment.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\01_ESA_HISTORIC FILES - SITE ASSESSMENT REPORT - T10000018579.20200625.Site Assessment Report.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\01_ESA_Pages from T10000018579.20200318.Phase I Environmental Site Assessment-1 (1)(1).pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\01_ESA_Pages from T10000018579.20200318.Phase I Environmental Site Assessment-1 (1).pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\01_ESA_RequestforFireMedicalorMarineSafetyRecords.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\01_ESA_SITE ASSESSMENT REPORT  - SITE ASSESSMENT REPORT - Additonal Assessment Report 17642 Beach Boulevard (003).pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\01_ESA_SITE ASSESSMENT REPORT  - SITE ASSESSMENT REPORT - Site Assessment Report - 17631 Cameron Ln..pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\01_ESA_T10000018579.20200318.Phase I Environmental Site Assessment-1 (1).pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\01_ESA_T10000018579.20200318.Phase I Environmental Site Assessment-1 (2).pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\01_ESA_T10000018579.20200318.Phase I Environmental Site Assessment-1 (3).pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\01_ESA_T10000018579.20200318.Phase I Environmental Site Assessment-1.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\02_EDR_053-0225-002_Radius_Map_7885521.2S (1).pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\02_EDR_053-0225-002_Radius_Map_7885521.2S.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\02_EDR_074-0125-014_Radius_Map_7867953.2S (1).pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\02_EDR_074-0125-014_Radius_Map_7867953.2S.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\02_EDR_2 deep dive script edr.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\02_EDR_deep dive script edr.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\02_EDR_evidence 2 hbnc stormtech EDR Open Site Setup - Google Gemini.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\03_GEOTRACKER_2015-08-04 - Easement Yamada Family Trust.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\03_GEOTRACKER_Approved-Dust-Control-Plan-dated-8.14.20.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\03_GEOTRACKER_Tuesday, August 22, 2023 agenda.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\04_EUROFINS_2025 Agency CoC General Membership - public doc 1-16-25.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\04_EUROFINS_C2EH & COC Joint Special Meeting Agenda Packet.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\04_EUROFINS_coc 2025 Survey Feedback Presentation.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\04_EUROFINS_coc rules PPS Committee Charter_Approved 12.18.24.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\04_EUROFINS_FY2024 hud CoC Renewal Project Application Detailed Description_Final.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\04_EUROFINS_HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200408.Analytical Report.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\04_EUROFINS_HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200410.Analytical Report.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\04_EUROFINS_HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200414.Analytical Report.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\04_EUROFINS_HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200415.Analytical Report.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\04_EUROFINS_HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200417.Analytical Report.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\04_EUROFINS_Presentation_Final 25.01.22 - CoC Board.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\05_WELLS_Cameron_Tract_Wells__1940s_&_Undated_(1)_1771475692334.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\05_WELLS_Copy_of_full_info_well_17642_beach_1771475692432.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\05_WELLS_well_cameron_CSTB+143+72_1771475692406.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\05_WELLS_well_map_color_subsurface_geo_beach_cameron_mercypdf_1771475692453.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\06_ENGINEERING_chatgpt civil mercyhouse hb homeless.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\06_ENGINEERING_chatgpt civil mercyhouse hb homeless2.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\07_STORMTECH_info hbnc fraud toxic stormtech gem full.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\07_STORMTECH_info hbnc fraud toxic stormtech.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\09_PERMITS_7942 speer plans Use Permit UPX1978058 - Plans.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\09_PERMITS_Administrative Permit DRB2006039 - Mailing Labels full.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\09_PERMITS_Administrative Permit DRB2006039 - Mailing Labels txtx only.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\09_PERMITS_CITY PERMIT BRES26-0287 + Tenant Habitability Plan - addresses redacted.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\09_PERMITS_Use Permit UPX1977008 - Mailing Labels.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\09_PERMITS_Use Permit UPX1977055 - District Map.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\09_PERMITS_Use Permit UPX1977055 - Mailing Labels.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\09_PERMITS_VERMA-PROD-005 Permit BRES26-0287 (2).pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\09_PERMITS_VERMA-PROD-005 Permit BRES26-0287.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\09_PERMITS_VERMA-PROD-006 Permit ENCR26-0519 (2).pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\09_PERMITS_VERMA-PROD-006 Permit ENCR26-0519.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\09_PERMITS_VERMA-PROD-024 Structural Pest Inspection 03-05-2026 (2).pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\09_PERMITS_VERMA-PROD-024 Structural Pest Inspection 03-05-2026.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\11_EMAILS_THP - City copy (Rollins email 8-12-26) - Unit 5 start 7-27-26 (2).pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\11_EMAILS_THP - City copy (Rollins email 8-12-26) - Unit 5 start 7-27-26.pdf.ocr.txt
+- FULL_LOCKER_NEURAL_OCR\FULL_LOCKER_OCR_SUMMARY.json
+- full_ppp_parcel_crossref.py
+- FULL_SYSTEM_NETWORK_LOGS.json
+- func_inspection.cpython-313.pyc
+- func_inspection.py
+- GeoTracker.pdf.txt
+- GeoTracker.png
+- geotracker.waterboards.ca.gov_csm_report_global_id=T10000018579.pdf.txt
+- geotracker_17631_cameron_contamination_analysis.json
+- geotracker_17631_cameron_full_text.txt
+- geotracker_17631_cameron_scientific_summary.md
+- GEOTRACKER_ESA_AERIAL_FALSIFICATION_AUDIT.md
+- geotracker_overlay.py
+- geotracker_well_CA3000618_chemical_list.md
+- geotracker_well_CA3000618_exceedances_summary.md
+- geotracker_well_CA3000618_parsed_records.md
+- geotracker_well_CA3000618_quality_data.txt
+- GeoTrackerStatusDefinitions.pdf.txt
+- get_august_2021_writ_email.py
+- get_cluster.js
+- get_cluster.json
+- globalcustomscriptbefore.js
+- googleDrive.ts
+- GoogleDriveConnect.tsx
+- googleMail.ts
+- HB_Parcels.json
+- hbnc_parcels_167_472_08_09.json
+- HDPE_STORMTECH_CHAMBERS.json
+- HUNTINGTON_BEACH_ARCGIS_EDR_FORENSIC_AUDIT.md
+- I3SBuildingSceneLayerExplorer.js
+- I3SBuildingSceneLayerExplorerViewModel.js
+- I3SLayer.js
+- I3SSublayer.js
+- IERC20Permit.json
+- IERC20Permit.sol
+- ImageryLayer.js
+- ImageryLayerCollection.js
+- ImageryLayerFeatureInfo.js
+- index_edr_2025_real.py
+- input-email-tel-url.js
+- inspect_extra_layers.py
+- investigate_drt_cluster.py
+- is-contract-address-in-bloom.ts
+- justify-content-space-evenly.js
+- kusto.cpython-312.pyc
+- kusto.py
+- layerState.js
+- LexerCustomAction.d.ts
+- LexerCustomAction.js
+- LexerCustomAction.js.map
+- LexerIndexedCustomAction.d.ts
+- LexerIndexedCustomAction.js
+- LexerIndexedCustomAction.js.map
+- lightbox_edr_engine.cpython-312.pyc
+- lightbox_edr_engine.cpython-314.pyc
+- lightbox_edr_engine.py
+- lightbox_edr_engine_v2.py
+- LIGHTBOX_PARCEL_AUDIT_REPORT.md
+- list_clusters.js
+- list_clusters.json
+- list_gmail_emails.py
+- live_accela_permits.json
+- live_accela_permits_exhaustive.json
+- live_permit_search.py
+- load_forensic_layers.py
+- load_hb_parcels_to_bigquery.py
+- localLayers.js
+- mailbox_cluster.py
+- manusTypes.ts
+- map_cstb_geotracker.py
+- Map_Layers.json
+- master_google_suite_august20_evidence.json
+- MASTER_OSINT_SHEET_INTELLIGENCE.json
+- master_photos_emails_court_sheriff_index.json
+- meshopt_clusterizer.d.ts
+- meshopt_clusterizer.js
+- meshopt_clusterizer.test.js
+- ModifiedReinhardTonemapping.js
+- multicontract.js
+- MultiContractFile.sol
+- national_audits_evidence_chain_of_custody.csv
+  - **Columns:** evidence_id, disclosure_date, agency_submitted, target_state, associated_billing_code...
+- neo_environmental_justice_forensic_ledger.json
+- neo_environmental_justice_gis_engine.json
+- NETWORK_SCAN_HITS.json
+- NEURAL_OCR_PHOTOS\08_2026-08-28_bedroom-fixture-hanging-from-wiring (2).jpg.txt
+- NEURAL_OCR_PHOTOS\08_2026-08-28_bedroom-fixture-hanging-from-wiring (3).jpg.txt
+- NEURAL_OCR_PHOTOS\08_2026-08-28_bedroom-fixture-hanging-from-wiring (4).jpg.txt
+- NEURAL_OCR_PHOTOS\08_2026-08-28_bedroom-fixture-hanging-from-wiring (5).jpg.txt
+- NEURAL_OCR_PHOTOS\08_2026-08-28_bedroom-fixture-hanging-from-wiring(1).jpg.txt
+- NEURAL_OCR_PHOTOS\08_2026-08-28_bedroom-fixture-hanging-from-wiring.jpg.txt
+- NEURAL_OCR_PHOTOS\photo_a74G5sEDR54YwTiF7.jpg.txt
+- NEURAL_OCR_PHOTOS\real_edr_1938.png.txt
+- NEURAL_OCR_PHOTOS\real_edr_1947.png.txt
+- NEURAL_OCR_PHOTOS\real_edr_1953.png.txt
+- NEURAL_OCR_PHOTOS\real_edr_1963.png.txt
+- NEURAL_OCR_PHOTOS\real_edr_1972_page6.png.txt
+- NEURAL_OCR_RESULTS\053-0225-002_Radius_Map_7885521.2S (1).pdf.ocr.txt
+- NEURAL_OCR_RESULTS\053-0225-002_Radius_Map_7885521.2S.pdf.ocr.txt
+- NEURAL_OCR_RESULTS\074-0125-014_Radius_Map_7867953.2S (1).pdf.ocr.txt
+- NEURAL_OCR_RESULTS\074-0125-014_Radius_Map_7867953.2S.pdf.ocr.txt
+- NEURAL_OCR_RESULTS\2 deep dive script edr.pdf.ocr.txt
+- NEURAL_OCR_RESULTS\2025 Agency CoC General Membership - public doc 1-16-25.pdf.ocr.txt
+- NEURAL_OCR_RESULTS\C2EH & COC Joint Special Meeting Agenda Packet.pdf.ocr.txt
+- NEURAL_OCR_RESULTS\coc 2025 Survey Feedback Presentation.pdf.ocr.txt
+- NEURAL_OCR_RESULTS\coc rules PPS Committee Charter_Approved 12.18.24.pdf.ocr.txt
+- NEURAL_OCR_RESULTS\deep dive script edr.pdf.ocr.txt
+- NEURAL_OCR_RESULTS\evidence 2 hbnc stormtech EDR Open Site Setup - Google Gemini.pdf.ocr.txt
+- NEURAL_OCR_RESULTS\FY2024 hud CoC Renewal Project Application Detailed Description_Final.pdf.ocr.txt
+- NEURAL_OCR_RESULTS\HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200408.Analytical Report.pdf.ocr.txt
+- NEURAL_OCR_RESULTS\HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200410.Analytical Report.pdf.ocr.txt
+- NEURAL_OCR_RESULTS\HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200414.Analytical Report.pdf.ocr.txt
+- NEURAL_OCR_RESULTS\HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200415.Analytical Report.pdf.ocr.txt
+- NEURAL_OCR_RESULTS\HISTORIC FILES - ANALYTICAL REPORT - T10000018579.20200417.Analytical Report.pdf.ocr.txt
+- NEURAL_OCR_RESULTS\OCR_PROCESSING_SUMMARY.json
+- NEURAL_OCR_RESULTS\Presentation_Final 25.01.22 - CoC Board.pdf.ocr.txt
+- OFFICIAL_EPA_TRI_FACILITIES.json
+- OFFICIAL_GOV_APIS\EPA_PCS_PERMITS.json
+- OFFICIAL_GOV_APIS\EPA_TRI_FACILITIES.json
+- onedrive_connector.py
+- onedrive_documents.sqlx
+- onedrive_ingestion_engine.py
+- onedrive_ingestion_index.json
+- onedrive_search.sql
+- onunhandledrejection.d.ts
+- onunhandledrejection.d.ts.map
+- onunhandledrejection.js
+- onunhandledrejection.js.map
+- OrthographicFrustum.js
+- OrthographicOffCenterFrustum.js
+- OSINT_RECON_RESULTS\bulk_city_ip_scanner.py
+- OSINT_RECON_RESULTS\dns_lookup_hbpd.org.txt
+- OSINT_RECON_RESULTS\HBPD_PORT_SCAN_REPORT.md
+- OSINT_RECON_RESULTS\holehe_CoordinatedEntry.txt
+- OSINT_RECON_RESULTS\holehe_CoordinatedEntry@ocgov.com.txt
+- OSINT_RECON_RESULTS\holehe_MARC.txt
+- OSINT_RECON_RESULTS\holehe_MARC@MAGIDENTERPRISES.COM.txt
+- OSINT_RECON_RESULTS\holehe_miguel.oviedo.txt
+- OSINT_RECON_RESULTS\holehe_miguel.oviedo@waterboards.ca.gov.txt
+- OSINT_RECON_RESULTS\holehe_mikenaby.txt
+- OSINT_RECON_RESULTS\holehe_mikenaby@gmail.com.txt
+- OSINT_RECON_RESULTS\holehe_SARAH.txt
+- OSINT_RECON_RESULTS\holehe_SARAH@PWSEI.COM.txt
+- OSINT_RECON_RESULTS\holehe_stephennowak.txt
+- OSINT_RECON_RESULTS\holehe_stephennowak@eurofinsus.com.txt
+- OSINT_RECON_RESULTS\OSINT_SWEEP_SUMMARY.json
+- parse_chambers.py
+- parse_geotracker_well_quality.py
+- PerspectiveFrustum.js
+- PerspectiveOffCenterFrustum.js
+- polyhedron.cpython-312.pyc
+- PostProcessStageSampleMode.js
+- powerapps_custom_connector.json
+- PUBLIC_IPS_ENRICHED_SWEEP.json
+- PUBLIC_IPS_ORGANIZATION_SUMMARY.json
+- pull_arcgis_layers.py
+- query_contracts.py
+- RelatedRecordsTree.js
+- RepeatedRules.d.ts
+- RepeatedRules.js
+- RepeatedRules.js.map
+- resample.cpython-314.pyc
+- resample.py
+- restore_cluster.json
+- revertedWithCustomError.d.ts
+- revertedWithCustomError.d.ts.map
+- revertedWithCustomError.js
+- revertedWithCustomError.js.map
+- revertedWithCustomError.ts
+- run_environmental_justice_gis_pipeline.py
+- rust.cpython-312.pyc
+- rust.py
+- scan_exhaustive_permits.py
+- scan_exhaustive_urls.py
+- scan_hb_permit_records.py
+- scan_hb_permits.py
+- scan_shea_contractors.py
+- scan_specific_permits.py
+- scan_stormtech.py
+- search_email_counts.py
+- search_emails.py
+- search_stormtech.py
+- send_email.py
+- SOUTHERN_CALIFORNIA_EDISON_MAGNOLIA_PARCEL_AUDIT.md
+- sweep_permits.py
+- sweep_permits_v2.py
+- target_parcels_corridor.json
+- test_aesaracode.cpython-312.pyc
+- test_case_justify.cpython-314.pyc
+- test_case_justify.py
+- test_codegen_rust.cpython-312.pyc
+- test_create_custom_url.cpython-314.pyc
+- test_create_custom_url.py
+- test_custom_business_day.cpython-314.pyc
+- test_custom_business_day.py
+- test_custom_business_hour.cpython-314.pyc
+- test_custom_business_hour.py
+- test_custom_business_month.cpython-314.pyc
+- test_custom_business_month.py
+- test_custom_client.cpython-314.pyc
+- test_custom_client.py
+- test_custom_dtypes.cpython-314.pyc
+- test_custom_dtypes.py
+- test_custom_latex.cpython-312.pyc
+- test_delete_custom_url.cpython-314.pyc
+- test_delete_custom_url.py
+- test_get_custom_url.cpython-314.pyc
+- test_get_custom_url.py
+- test_polyhedron.cpython-312.pyc
+- test_resample_api.cpython-314.pyc
+- test_resample_api.py
+- test_resampler_grouper.cpython-314.pyc
+- test_resampler_grouper.py
+- test_rust.cpython-312.pyc
+- test_ssh_wire_contract.py
+- test_update_custom_url.cpython-314.pyc
+- test_update_custom_url.py
+- text-size-adjust.js
+- top_100_control_clusters.json
+- trace_tribal_trustees.py
+- trackedReadout.js
+- trusted-types.js
+- trustedhost.cpython-312.pyc
+- trustedhost.py
+- TrustedServers.js
+- unhandledrejection.js
+- UNIQUE_PUBLIC_IPS.txt
+- validate_email.py
+- VERIFIED_IP_TARGETS.json
+- verify_contracts.js
+- warner_cluster.py
+
+
+## 99_ARCHIVE
+
+*0 files indexed.*
+
+
+
+- new_name_index.md
+## OSINT-Framework
+
+*47 files indexed.*
+
+- .git\config
+- .git\description
+- .git\HEAD
+- .git\hooks\applypatch-msg.sample
+- .git\hooks\commit-msg.sample
+- .git\hooks\fsmonitor-watchman.sample
+- .git\hooks\post-update.sample
+- .git\hooks\pre-applypatch.sample
+- .git\hooks\pre-commit.sample
+- .git\hooks\pre-merge-commit.sample
+- .git\hooks\pre-push.sample
+- .git\hooks\pre-rebase.sample
+- .git\hooks\pre-receive.sample
+- .git\hooks\prepare-commit-msg.sample
+- .git\hooks\push-to-checkout.sample
+- .git\hooks\sendemail-validate.sample
+- .git\hooks\update.sample
+- .git\index
+- .git\info\exclude
+- .git\logs\HEAD
+- .git\logs\refs\heads\master
+- .git\logs\refs\remotes\origin\HEAD
+- .git\objects\pack\pack-101ab19e2af97972eff5b6bd5677268b3262868e.idx
+- .git\objects\pack\pack-101ab19e2af97972eff5b6bd5677268b3262868e.pack
+- .git\objects\pack\pack-101ab19e2af97972eff5b6bd5677268b3262868e.rev
+- .git\packed-refs
+- .git\refs\heads\master
+- .git\refs\remotes\origin\HEAD
+- .github\workflows\ci.yml
+- .gitignore
+- enrichment-batch4-domains.json
+- LICENSE
+- merge_enrichments.py
+- package-lock.json
+- package.json
+- public\arf.json
+- public\css\arf.css
+- public\css\panel.css
+- public\index.html
+- public\js\arf.js
+- public\js\d3.min.js
+- README.md
+- src\worker.js
+- THE-127-domain-enrichment-batch1.md
+- tools\link_checker.py
+- tools\remove_dead_links.py
+- wrangler.jsonc
+
+
+## web-check
+
+*328 files indexed.*
+
+- .config\eslint.config.js
+- .dockerignore
+- .env.sample
+- .git\config
+- .git\description
+- .git\HEAD
+- .git\hooks\applypatch-msg.sample
+- .git\hooks\commit-msg.sample
+- .git\hooks\fsmonitor-watchman.sample
+- .git\hooks\post-update.sample
+- .git\hooks\pre-applypatch.sample
+- .git\hooks\pre-commit.sample
+- .git\hooks\pre-merge-commit.sample
+- .git\hooks\pre-push.sample
+- .git\hooks\pre-rebase.sample
+- .git\hooks\pre-receive.sample
+- .git\hooks\prepare-commit-msg.sample
+- .git\hooks\push-to-checkout.sample
+- .git\hooks\sendemail-validate.sample
+- .git\hooks\update.sample
+- .git\index
+- .git\info\exclude
+- .git\logs\HEAD
+- .git\logs\refs\heads\master
+- .git\logs\refs\remotes\origin\HEAD
+- .git\objects\pack\pack-c4685760947d6e57acd3779fcca8fcefab5f99b1.idx
+- .git\objects\pack\pack-c4685760947d6e57acd3779fcca8fcefab5f99b1.pack
+- .git\objects\pack\pack-c4685760947d6e57acd3779fcca8fcefab5f99b1.rev
+- .git\packed-refs
+- .git\refs\heads\master
+- .git\refs\remotes\origin\HEAD
+- .github\FUNDING.yml
+- .github\README.md
+- .github\screenshots\README.md
+- .github\screenshots\tiles\archives.png
+- .github\screenshots\tiles\block-lists.png
+- .github\screenshots\tiles\carbon.png
+- .github\screenshots\tiles\cookies.png
+- .github\screenshots\tiles\dns-server.png
+- .github\screenshots\tiles\dns.png
+- .github\screenshots\tiles\dnssec.png
+- .github\screenshots\tiles\domain.png
+- .github\screenshots\tiles\email-config.png
+- .github\screenshots\tiles\features.png
+- .github\screenshots\tiles\firewall.png
+- .github\screenshots\tiles\headers.png
+- .github\screenshots\tiles\hosts.png
+- .github\screenshots\tiles\hsts.png
+- .github\screenshots\tiles\http-security.png
+- .github\screenshots\tiles\linked-pages.png
+- .github\screenshots\tiles\location.png
+- .github\screenshots\tiles\ports.png
+- .github\screenshots\tiles\quality.png
+- .github\screenshots\tiles\ranking.png
+- .github\screenshots\tiles\redirects.png
+- .github\screenshots\tiles\robots.png
+- .github\screenshots\tiles\screenshot.png
+- .github\screenshots\tiles\security-txt.png
+- .github\screenshots\tiles\server.png
+- .github\screenshots\tiles\sitemap.png
+- .github\screenshots\tiles\social-tags.png
+- .github\screenshots\tiles\ssl.png
+- .github\screenshots\tiles\status.png
+- .github\screenshots\tiles\tech-stack.png
+- .github\screenshots\tiles\threats.png
+- .github\screenshots\tiles\tls-cipher-suites.png
+- .github\screenshots\tiles\tls-handshake-simulation.png
+- .github\screenshots\tiles\tls-security-config.png
+- .github\screenshots\tiles\trace-route.png
+- .github\screenshots\tiles\txt-records.png
+- .github\screenshots\web-check-screenshot1.png
+- .github\screenshots\web-check-screenshot10.png
+- .github\screenshots\web-check-screenshot2.png
+- .github\screenshots\web-check-screenshot3.png
+- .github\screenshots\web-check-screenshot4.png
+- .github\screenshots\web-check-screenshot5.png
+- .github\screenshots\web-check-screenshot6.png
+- .github\screenshots\web-check-screenshot7.png
+- .github\screenshots\web-check-screenshot8.png
+- .github\screenshots\web-check-screenshot9.png
+- .github\web-check-logo.png
+- .github\workflows\ci.yml
+- .github\workflows\docker.yml
+- .github\workflows\mirror.yml
+- .github\workflows\release.yml
+- .github\workflows\tag.yml
+- .gitignore
+- .yarnrc
+- api\_common\aws-webpack.config.js
+- api\_common\check-skipper.js
+- api\_common\http.js
+- api\_common\logger.js
+- api\_common\middleware.js
+- api\_common\parse-target.js
+- api\_common\social.js
+- api\_common\upstream.js
+- api\archives.js
+- api\block-lists.js
+- api\carbon.js
+- api\cookies.js
+- api\dns-server.js
+- api\dns.js
+- api\dnssec.js
+- api\firewall.js
+- api\get-ip.js
+- api\headers.js
+- api\hsts.js
+- api\http-security.js
+- api\linked-pages.js
+- api\location.js
+- api\mail-config.js
+- api\ports.js
+- api\quality.js
+- api\rank.js
+- api\redirects.js
+- api\robots-txt.js
+- api\screenshot.js
+- api\security-txt.js
+- api\shodan.js
+- api\sitemap.js
+- api\social-presence.js
+- api\social-tags.js
+- api\ssl.js
+- api\status.js
+- api\subdomains.js
+- api\tech-stack.js
+- api\threats.js
+- api\tls-connection.js
+- api\tls-labs.js
+- api\trace-route.js
+- api\txt-records.js
+- api\whois.js
+- astro.config.mjs
+- docker-compose.yml
+- Dockerfile
+- fly.toml
+- healthcheck.js
+- LICENSE
+- netlify.toml
+- package.json
+- public\android-chrome-192x192.png
+- public\android-chrome-512x512.png
+- public\apple-touch-icon.png
+- public\assets\badges\dockerhub.svg
+- public\assets\badges\github.svg
+- public\assets\badges\sponsor.svg
+- public\assets\badges\webcheck.svg
+- public\assets\images\background-dots.svg
+- public\assets\images\docker.svg
+- public\assets\images\fly.svg
+- public\assets\images\github.svg
+- public\assets\images\netlify.svg
+- public\assets\images\render.svg
+- public\assets\images\swagger.svg
+- public\assets\images\vercel.svg
+- public\assets\images\webauthn.svg
+- public\banner.png
+- public\error.html
+- public\favicon-16x16.png
+- public\favicon-32x32.png
+- public\favicon.ico
+- public\favicon.svg
+- public\fonts\Hubot-Sans\LICENSE
+- public\fonts\Hubot-Sans\TTF\HubotSans-Bold.ttf
+- public\fonts\Hubot-Sans\TTF\HubotSans-BoldItalic.ttf
+- public\fonts\Hubot-Sans\TTF\HubotSans-Italic.ttf
+- public\fonts\Hubot-Sans\TTF\HubotSans-Regular.ttf
+- public\fonts\Hubot-Sans\TTF\HubotSans-SemiBold.ttf
+- public\fonts\Hubot-Sans\WOFF2\HubotSans-Bold.woff2
+- public\fonts\Hubot-Sans\WOFF2\HubotSans-BoldItalic.woff2
+- public\fonts\Hubot-Sans\WOFF2\HubotSans-Italic.woff2
+- public\fonts\Hubot-Sans\WOFF2\HubotSans-Regular.woff2
+- public\fonts\Hubot-Sans\WOFF2\HubotSans-SemiBold.woff2
+- public\fonts\PTMono-Regular.ttf
+- public\fonts\PTMono-Regular.woff2
+- public\manifest.json
+- public\placeholder.html
+- public\resources\openapi-spec.yml
+- public\robots.txt
+- public\security.txt
+- public\web-check.png
+- render.yaml
+- server.js
+- src\client\analysis\helpers.ts
+- src\client\analysis\registry.ts
+- src\client\analysis\rules\block-lists.ts
+- src\client\analysis\rules\cookies.ts
+- src\client\analysis\rules\dnssec.ts
+- src\client\analysis\rules\firewall.ts
+- src\client\analysis\rules\headers.ts
+- src\client\analysis\rules\hsts.ts
+- src\client\analysis\rules\http-security.ts
+- src\client\analysis\rules\mail-config.ts
+- src\client\analysis\rules\ports.ts
+- src\client\analysis\rules\quality.ts
+- src\client\analysis\rules\redirects.ts
+- src\client\analysis\rules\robots-txt.ts
+- src\client\analysis\rules\security-txt.ts
+- src\client\analysis\rules\server-info.ts
+- src\client\analysis\rules\social-presence.ts
+- src\client\analysis\rules\social-tags.ts
+- src\client\analysis\rules\ssl.ts
+- src\client\analysis\rules\status.ts
+- src\client\analysis\rules\threats.ts
+- src\client\analysis\rules\tls-client-compat.ts
+- src\client\analysis\rules\tls-connection.ts
+- src\client\analysis\rules\tls-security-audit.ts
+- src\client\analysis\rules\txt-records.ts
+- src\client\analysis\rules\whois.ts
+- src\client\analysis\types.ts
+- src\client\App.tsx
+- src\client\assets\data\map-features.json
+- src\client\components\boundaries\PageError.tsx
+- src\client\components\Form\Button.tsx
+- src\client\components\Form\Card.tsx
+- src\client\components\Form\Heading.tsx
+- src\client\components\Form\Input.tsx
+- src\client\components\Form\Modal.tsx
+- src\client\components\Form\Nav.tsx
+- src\client\components\Form\Row.tsx
+- src\client\components\misc\ActionButtons.tsx
+- src\client\components\misc\AdditionalResources.tsx
+- src\client\components\misc\AdvisoryPanel.tsx
+- src\client\components\misc\DocContent.tsx
+- src\client\components\misc\ErrorBoundary.tsx
+- src\client\components\misc\FancyBackground.tsx
+- src\client\components\misc\Flag.tsx
+- src\client\components\misc\Footer.tsx
+- src\client\components\misc\Loader.tsx
+- src\client\components\misc\LocationMap.tsx
+- src\client\components\misc\NoResults.tsx
+- src\client\components\misc\ProgressBar.tsx
+- src\client\components\misc\ResultsMasonryGrid.tsx
+- src\client\components\misc\SelfScanMsg.tsx
+- src\client\components\misc\ViewRaw.tsx
+- src\client\components\Results\Archives.tsx
+- src\client\components\Results\BlockLists.tsx
+- src\client\components\Results\BuiltWith.tsx
+- src\client\components\Results\CarbonFootprint.tsx
+- src\client\components\Results\ContentLinks.tsx
+- src\client\components\Results\Cookies.tsx
+- src\client\components\Results\DnsRecords.tsx
+- src\client\components\Results\DnsSec.tsx
+- src\client\components\Results\DnsServer.tsx
+- src\client\components\Results\DomainLookup.tsx
+- src\client\components\Results\Firewall.tsx
+- src\client\components\Results\Headers.tsx
+- src\client\components\Results\HostNames.tsx
+- src\client\components\Results\Hsts.tsx
+- src\client\components\Results\HttpSecurity.tsx
+- src\client\components\Results\Lighthouse.tsx
+- src\client\components\Results\MailConfig.tsx
+- src\client\components\Results\OpenPorts.tsx
+- src\client\components\Results\Rank.tsx
+- src\client\components\Results\Redirects.tsx
+- src\client\components\Results\RobotsTxt.tsx
+- src\client\components\Results\Screenshot.tsx
+- src\client\components\Results\SecurityTxt.tsx
+- src\client\components\Results\ServerInfo.tsx
+- src\client\components\Results\ServerLocation.tsx
+- src\client\components\Results\ServerStatus.tsx
+- src\client\components\Results\Sitemap.tsx
+- src\client\components\Results\SocialPresence.tsx
+- src\client\components\Results\SocialTags.tsx
+- src\client\components\Results\SslCert.tsx
+- src\client\components\Results\Subdomains.tsx
+- src\client\components\Results\TechStack.tsx
+- src\client\components\Results\Threats.tsx
+- src\client\components\Results\TlsClientCompat.tsx
+- src\client\components\Results\TlsConnection.tsx
+- src\client\components\Results\TlsSecurityAudit.tsx
+- src\client\components\Results\TraceRoute.tsx
+- src\client\components\Results\TxtRecords.tsx
+- src\client\components\Results\Vulnerabilities.tsx
+- src\client\components\Results\WhoIs.tsx
+- src\client\hooks\useJobs.ts
+- src\client\jobs\registry.ts
+- src\client\jobs\types.ts
+- src\client\main.tsx
+- src\client\styles\colors.ts
+- src\client\styles\dimensions.ts
+- src\client\styles\globals.tsx
+- src\client\styles\index.css
+- src\client\styles\typography.ts
+- src\client\typings\file-types.d.ts
+- src\client\typings\jsx.d.ts
+- src\client\typings\react-simple-maps.d.ts
+- src\client\utils\address-type-checker.ts
+- src\client\utils\docs.ts
+- src\client\utils\get-keys.ts
+- src\client\utils\logger.ts
+- src\client\utils\parse-json.ts
+- src\client\utils\result-processor.ts
+- src\client\views\About.tsx
+- src\client\views\Home.tsx
+- src\client\views\NotFound.tsx
+- src\client\views\Results.tsx
+- src\components\homepage\AboutSection.astro
+- src\components\homepage\AnimatedButton.astro
+- src\components\homepage\AnimatedInput.astro
+- src\components\homepage\ButtonGroup.astro
+- src\components\homepage\Features.astro
+- src\components\homepage\HeroForm.astro
+- src\components\homepage\HomeBackground.tsx
+- src\components\homepage\Screenshots.astro
+- src\components\homepage\SponsorSegment.astro
+- src\components\homepage\TempDisabled.astro
+- src\components\molecules\Icon.svelte
+- src\components\scafold\Footer.astro
+- src\components\scafold\Nav.astro
+- src\env.d.ts
+- src\layouts\Base.astro
+- src\layouts\MetaTags.astro
+- src\pages\account\index.astro
+- src\pages\check\[...target].astro
+- src\pages\index.astro
+- src\pages\self-hosted-setup.astro
+- src\pages\web-check-api\index.astro
+- src\pages\web-check-api\spec.astro
+- src\styles\colors.scss
+- src\styles\global.scss
+- src\styles\media-queries.scss
+- src\styles\typography.scss
+- svelte.config.js
+- tsconfig.json
+- vercel.json
+- vite.config.js
+- yarn.lock
+
+
+---
+**Total Evidence Files Indexed:** 1271

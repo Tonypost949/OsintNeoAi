@@ -82,7 +82,7 @@ def get_ai():
     return genai.GenerativeModel("gemini-flash-latest")
 
 def get_bq():
-    from google.cloud import bigquery
+    from adx_bigquery import bigquery
     return bigquery.Client(project=GCP_PROJECT)
 
 # ── BQ Catalog ─────────────────────────────────────────────────
@@ -638,8 +638,10 @@ def ledger_get(asset_id):
     try:
         client = get_bq()
         q = f"SELECT * FROM `{FULL_TABLE}` WHERE asset_id=@id LIMIT 1"
-        from google.cloud.bigquery import QueryJobConfig, ScalarQueryParameter
-        cfg = QueryJobConfig(query_parameters=[ScalarQueryParameter("id","STRING",asset_id)])
+        from adx_bigquery import bigquery
+        cfg = bigquery.QueryJobConfig(
+            query_parameters=[bigquery.ScalarQueryParameter("id", "STRING", asset_id)]
+        )
         rows = [dict(r) for r in client.query(q, job_config=cfg).result()]
         if not rows:
             return jsonify({"error": "not found"}), 404

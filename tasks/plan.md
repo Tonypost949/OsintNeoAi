@@ -87,3 +87,69 @@ Full implementation of the **Single Engine / One Brain** architecture for OSINTN
 | **User Identity Exposure** | High | Metadata stripping middleware removes IPs, EXIF, and User-Agents before writing to ledger. |
 | **BigQuery API Rate/Quota Limits** | Medium | Batched asynchronous worker loops (60s cycles) avoid continuous high-frequency query bursts. |
 | **Data Loss / State Corruption** | High | Strict 2-Location backup policy: Git `main` commit checkpoints + Google Drive live `rclone` replica. Local 3GB zip backup disabled. |
+
+## Next Agent Fleet Workstream Plan
+
+### Starting Point
+- The repository overview describes a multi-surface OSINT platform, including a web UI, API, BigQuery-backed workflows, and the existing crossword page.
+- `TEST_READY.md` records 71/71 offline E2E tests passing on 2026-09-01. Treat this as a prior readiness result, not a current run; rerun the focused baseline before merging new work.
+- The remaining roadmap items are Task 10 (dynamic crossword generation) and Task 11 (complaint PDF and e-fax dispatch). They can proceed as separate feature lanes.
+
+### Phase 0: Coordinator Preflight
+**Task F0: Establish the agent contract and baseline**
+- Confirm the active branch/worktree and preserve unrelated working-tree changes.
+- Run the existing offline baseline in `TEST_READY.md`; record any pre-existing failures.
+- Agree that crossword data is limited to approved, publishable clues and that outbound faxing is disabled by default; use mocked/test delivery until an explicit authorization flow and provider configuration exist.
+- **Acceptance:** baseline result is recorded; shared data contracts and non-goals are written into the task descriptions before implementation starts.
+- **Verification:** `python -m pytest tests/test_autonomous_correlation_e2e.py -q`
+- **Dependencies:** None. Must complete before agents modify files.
+
+### Phase 1: Parallel Feature Lanes
+**Lane A — Task F1: Dynamic daily crossword**
+- Add a deterministic generator that consumes a defined, sanitized evidence/clue input and produces a validated puzzle in the format used by `public/crypto_crossword.html`.
+- Preserve a fixture/offline path so generation tests do not require BigQuery credentials or live data.
+- **Acceptance:** generated puzzles pass schema and clue/answer consistency checks; the page can load generated output without breaking its existing static puzzle behavior.
+- **Verification:** add focused generator tests for empty, malformed, duplicate, and normal inputs; run the existing UI checks if available.
+- **Dependencies:** F0. Independent of Lane B.
+
+**Lane B — Task F2: Dispatch contract and approval boundary**
+- Define a provider-neutral dispatch request/status contract, PDF input fields, audit metadata, and explicit approval state before splitting implementation.
+- Do not auto-send complaints or enable a live fax provider by default.
+- **Acceptance:** contract identifies required recipient/document metadata, validation failures, idempotency behavior, and the approval gate.
+- **Verification:** unit tests cover invalid requests, duplicate requests, and unapproved dispatch rejection.
+- **Dependencies:** F0. This contract is the prerequisite for F3 and F4.
+
+### Phase 2: Parallel Dispatch Components
+**Task F3: Complaint PDF generation**
+- Generate a deterministic PDF from validated, user-approved content; keep generation separate from transmission.
+- **Acceptance:** required fields are validated, generated PDF is readable and reproducible, and sensitive values are not written to logs.
+- **Verification:** tests cover valid output, missing fields, malformed content, and temporary-file cleanup.
+- **Dependencies:** F2.
+
+**Task F4: E-fax provider adapter**
+- Implement the provider-neutral adapter against the shared contract, with mocked transport by default and explicit approval required for dispatch.
+- **Acceptance:** mocked success/failure responses map to stable statuses; retries cannot create duplicate sends; no credentials are required by offline tests.
+- **Verification:** mocked tests cover timeout, provider rejection, retry/idempotency, and approval denial.
+- **Dependencies:** F2. Can run in parallel with F3.
+
+### Phase 3: Integration and Release Gate
+**Task F5: End-to-end integration**
+- Connect approved PDF creation to the dispatch adapter and document configuration/operations, keeping the live-send path opt-in.
+- **Acceptance:** one offline end-to-end test covers request validation through mocked delivery; existing crossword/static behavior remains intact.
+- **Verification:** run focused F1/F3/F4 tests and the `TEST_READY.md` baseline; review changed paths and confirm no live outbound calls occurred.
+- **Dependencies:** F1, F3, and F4.
+
+### Execution Order
+```text
+F0
+├── F1 (crossword, independent)
+└── F2 (dispatch contract)
+    ├── F3 (PDF generation) ─┐
+    └── F4 (fax adapter) ────┴── F5 (integration/release gate)
+```
+
+### Fleet Coordination and Risks
+- Assign one agent per independent lane; avoid concurrent edits to shared files. The dispatch contract agent should publish the contract before F3/F4 start.
+- Keep changes scoped to the crossword surface and new dispatch/PDF modules plus focused tests; do not refactor unrelated legacy directories.
+- The recorded readiness result is dated and covers correlation features, not these two roadmap features. Re-run it for a current baseline, then add feature-specific tests rather than treating 71/71 as proof of new-feature readiness.
+- Live evidence access, provider credentials, and permission to transmit are not prerequisites for offline implementation; if live dispatch is later requested, require explicit authorization and separate provider setup.

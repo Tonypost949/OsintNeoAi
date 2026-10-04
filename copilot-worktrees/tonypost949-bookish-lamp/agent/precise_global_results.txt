@@ -1,0 +1,171 @@
+﻿.\venv\Scripts\python.exe : 
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+At line:1 char:1
++ .\venv\Scripts\python.exe investigate_17011_precise_global.py 2>&1 |  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\HP\.ge...dpoint instead.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  warnings.warn(
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+  warnings.warn(
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+  warnings.warn(
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+  warnings.warn(
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+  warnings.warn(
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+  warnings.warn(
+======================================================================
+PRECISE FIT LLC + GLOBAL IT RESOURCES - DOUBLE DIP FORENSICS
+======================================================================
+
+--- PRECISE FIT LIMITED ONE LLC - All loans ---
+               BorrowerName            BorrowerAddress     BorrowerCity BorrowerState BorrowerZip  CurrentApprovalAmount  ForgivenessAmount NAICSCode                    BusinessType   LoanStatus DateApproved    ServicingLenderName  JobsReported
+PRECISE FIT LIMITED ONE LLC   17011 Beach Blvd Ste 900 Huntington Beach            CA  92647-5998              1437376.0         1446918.58    561320 Limited  Liability Company(LLC) Paid in Full   01/14/2021 Clearinghouse CDFI PPP         146.0
+PRECISE FIT LIMITED ONE LLC 17011 Beach Blvd.  Ste 900 HUNTINGTON BEACH            CA  92647-5998              1437300.0         1447640.58    561330 Limited  Liability Company(LLC) Paid in Full   04/28/2020              FirstBank          96.0
+        PRECISE FITNESS LLC           5552 Saratoga Dr         Columbus            GA  31907-7405                 7000.0            7075.95    611620 Limited  Liability Company(LLC) Paid in Full   06/30/2020 BayFirst National Bank           1.0
+
+--- GLOBAL INFORMATION TECHNOLOGY RESOURCES INC - All loans ---
+                                                BorrowerName                 BorrowerAddress     BorrowerCity BorrowerState BorrowerZip  CurrentApprovalAmount  ForgivenessAmount NAICSCode                    BusinessType   LoanStatus DateApproved                 ServicingLenderName  JobsReported
+                 GLOBAL INFORMATION TECHNOLOGY RESOURCES INC       17011 Beach Blvd Ste 1260 Huntington Beach            CA  92647-7414              1085212.0         1000388.55    561320                     Corporation  Exemption 4   01/19/2021 Harvest Small Business Finance, LLC          67.0
+GLOBAL INFORMATION TECHNOLOGY LLC GLOBAL INFORMATION TECHNOL             28600 Southfield Rd  Lathrup Village            MI  48076-2745                86900.0           87383.31    611420 Limited  Liability Company(LLC) Paid in Full   01/21/2021 Citizens Bank, National Association          10.0
+                           GLOBAL INFORMATION TECHNOLOGY LLC 28600 Southfield Road Suite 103  Lathrup Village            MI       48076                86900.0           87826.14    611420 Limited  Liability Company(LLC) Paid in Full   04/15/2020 Citizens Bank, National Association          10.0
+                         GLOBAL INFORMATION TECHNOLOGY, INC.  8911 REGENTS PARK DR SUITE 510            TAMPA            FL       33647               915000.0          925403.42    541512                     Corporation Paid in Full   04/15/2020              Seacoast National Bank          47.0
+                 GLOBAL INFORMATION TECHNOLOGY RESOURCES INC                17011 BEACH BLVD HUNTINGTON BEACH            CA       92647              1085212.5         1093507.69    561312                     Corporation Paid in Full   05/01/2020     U.S. Bank, National Association          46.0
+
+--- ALL ENTITIES at 17011 Beach Blvd ---
+                                      BorrowerName                      BorrowerAddress     BorrowerCity  CurrentApprovalAmount  ForgivenessAmount NAICSCode                    BusinessType   LoanStatus DateApproved                       ServicingLenderName  JobsReported
+                                   OCEAN MEDIA LLC          17011 BEACH BLVD 15TH FLOOR HUNTINGTON BEACH             2351800.00         2378649.72    541840 Limited  Liability Company(LLC) Paid in Full   04/15/2020                            Citibank, N.A.         122.0
+                  TRILOGY FINANCIAL SERVICES, INC.             17011 BEACH BLVD STE 800 HUNTINGTON BEACH             1729900.00                NaN    523930                     Corporation Paid in Full   04/27/2020                              Sunwest Bank         140.0
+                       PRECISE FIT LIMITED ONE LLC             17011 Beach Blvd Ste 900 Huntington Beach             1437376.00         1446918.58    561320 Limited  Liability Company(LLC) Paid in Full   01/14/2021                    Clearinghouse CDFI PPP         146.0
+                       PRECISE FIT LIMITED ONE LLC           17011 Beach Blvd.  Ste 900 HUNTINGTON BEACH             1437300.00         1447640.58    561330 Limited  Liability Company(LLC) Paid in Full   04/28/2020                                 FirstBank          96.0
+       GLOBAL INFORMATION TECHNOLOGY RESOURCES INC                     17011 BEACH BLVD HUNTINGTON BEACH             1085212.50         1093507.69    561312                     Corporation Paid in Full   05/01/2020           U.S. Bank, National Association          46.0
+       GLOBAL INFORMATION TECHNOLOGY RESOURCES INC            17011 Beach Blvd Ste 1260 Huntington Beach             1085212.00         1000388.55    561320                     Corporation  Exemption 4   01/19/2021       Harvest Small Business Finance, LLC          67.0
+                          CONVERZE MEDIA GROUP LLC             17011 BEACH BLVD STE 600 HUNTINGTON BEACH              433385.00          429985.66    541618 Limited  Liability Company(LLC) Paid in Full   04/15/2020     Bank of America, National Association          32.0
+                  DECLUES, BURKETT & THOMPSON, APC     17011 Beach Boulevard, Suite 400 Huntington Beach              344000.00          348347.78    541110        Subchapter S Corporation Paid in Full   04/29/2020                             Comerica Bank          14.0
+                    DECLUES BURKETT & THOMPSON APC             17011 Beach Blvd Ste 400 Huntington Beach              280100.00          282434.17    541110        Subchapter S Corporation Paid in Full   03/16/2021                             Comerica Bank          14.0
+                                        SEEVID INC             17011 Beach Blvd Ste 900 HUNTINGTON BEACH              201772.50          203801.43    423990                     Corporation Paid in Full   04/30/2020                                First Bank          11.0
+                  W.G. ZIMMERMAN ENGINEERING, INC.                     17011 BEACH BLVD HUNTINGTON BEACH              139600.00          141340.22    541330                     Corporation Paid in Full   04/10/2020                        City National Bank           7.0
+     LAW OFFICES OF MARK E. LEWIS & ASSOCIATES, PC             17011 BEACH BLVD Ste 101 HUNTINGTON BEACH               95200.00           96427.02    541110        Subchapter S Corporation Paid in Full   04/29/2020                             Comerica Bank          11.0
+                              ELDER & SPENCER, LLP             17011 BEACH BLVD STE 900 HUNTINGTON BEACH               90187.00           90925.79       NaN   Limited Liability Partnership Paid in Full   05/01/2020     Bank of America, National Association           9.0
+            CARL J FERRARO JR INSURANCE AGENCY INC         17011 Beach Blvd., Suite 826 HUNTINGTON BEACH               81250.00           81818.75    524210                     Corporation Paid in Full   04/28/2020             BMO Bank National Association           7.0
+                            TANG & ASSOCIATES APLC           17011 Beach Blvd Suite 900 Huntington Beach               70700.00           71391.50    453998                     Corporation Paid in Full   04/14/2020                            Customers Bank           8.0
+                                     HORDERS ALLEY             17011 Beach Blvd st. 900 huntington beach               62500.00           62856.16    454110                     Corporation Paid in Full   05/07/2021                            Customers Bank           3.0
+                               TANG AND ASSOCIATES             17011 Beach Blvd Ste 900 Huntington Beach               58900.00           59285.67    541199                     Corporation Paid in Full   04/02/2021                     Readycap Lending, LLC           8.0
+                                  USIS GROUP, INC.          17011 Beach Blvd, Suite 900 Huntington Beach               51585.00           52507.80    561990        Subchapter S Corporation Paid in Full   05/11/2020                                   WebBank           4.0
+                        RENAL MANAGEMENT GROUP LLC             17011 BEACH BLVD STE 900 HUNTINGTON BEACH               50147.00           50872.41    561110 Limited  Liability Company(LLC) Paid in Full   05/01/2020     Bank of America, National Association          15.0
+          PROFESSIONAL HEALTH CARE CONSULTANTS INC                     17011 BEACH BLVD    HUNTINGTN BCH               50095.00           50611.26    541618                     Corporation Paid in Full   05/01/2020           U.S. Bank, National Association           4.0
+                              INNOVATION PET, INC.             17011 BEACH BLVD STE 900 HUNTINGTON BEACH               49117.00           49512.63    453910        Subchapter S Corporation Paid in Full   04/11/2020                  Loan Source Incorporated           5.0
+      PARKER LAW CENTER A PROFESSIONAL CORPORATION             17011 Beach Blvd Ste 900 Huntington Beach               43002.00           43287.11    541110                     Corporation Paid in Full   01/30/2021                               Ameris Bank           2.0
+                         THE CASTORENA GROUP, INC.            17011 BEACH BLVD STE 1110 HUNTINGTON BEACH               41250.00           41587.91    541213                     Corporation Paid in Full   05/01/2020     Bank of America, National Association           6.0
+                                    TO & SCOTT LLC              17011 Beach Blvd # 225C Huntington Beach               39213.33           39510.70    541213 Limited  Liability Company(LLC) Paid in Full   04/10/2021                               Kinecta FCU           3.0
+               A BOTTOMLINE BUSINESS SERVICES INC.                     17011 BEACH BLVD HUNTINGTON BEACH               31100.00           31403.33    541611                     Corporation Paid in Full   05/01/2020                      United Business Bank           4.0
+     PARKER LAW CENTER, A PROFESSIONAL CORPORATION           17011 Beach Blvd Suite 900 HUNTINGTON BEACH               30400.00           30592.29    541110                     Corporation Paid in Full   04/11/2020                               Ameris Bank           2.0
+                    HENNIG ACCOUNTANCY CORPORATION                     17011 BEACH BLVD HUNTINGTON BEACH               29972.50           30297.68    541219                     Corporation Paid in Full   04/15/2020           U.S. Bank, National Association           2.0
+                                    SAM NELSON INC             17011 Beach Blvd Ste 900 Huntington Beach               29347.00           29541.13    541519        Subchapter S Corporation Paid in Full   02/02/2021 JPMorgan Chase Bank, National Association           3.0
+                                    TPC GROUP CORP             17011 Beach Blvd Ste 540 HUNTINGTON BEACH               26725.00           26928.70    541611                     Corporation Paid in Full   07/24/2020 JPMorgan Chase Bank, National Association           4.0
+   ZACHARY BULTHUIS DBA HUNTINGTON LEGAL SOLUTIONS             17011 BEACH BLVD STE 900 HUNTINGTON BEACH               20834.00           21011.98       NaN             Sole Proprietorship Paid in Full   05/01/2020     Bank of America, National Association           1.0
+                                          TIM TRAN            17011 Beach Blvd. Ste 225 Huntington Beach               20833.00                NaN    524298             Sole Proprietorship  Charged Off   07/07/2020                            Customers Bank           1.0
+           JUSTIAN JUSUF A PROFESSIONAL CORPORATIO             17011 Beach Blvd Ste 900 Huntington Beach               20832.00           20939.87    541110                     Corporation Paid in Full   02/17/2021     Bank of America, National Association           1.0
+           JUSTIAN JUSUF A PROFESSIONAL CORPORATIO             17011 BEACH BLVD STE 900    HUNTINGTN BCH               20832.00           20982.10    541110                     Corporation Paid in Full   05/02/2020     Bank of America, National Association           1.0
+                                  ZACHARY BULTHUIS             17011 Beach Blvd Ste 900 Huntington Beach               20832.00           20933.02    541110             Sole Proprietorship Paid in Full   03/13/2021     Bank of America, National Association           1.0
+                                    KRISTINA BRYAN             17011 Beach Blvd Ste 900 Huntington Beach               20832.00           20942.15    541110         Independent Contractors Paid in Full   03/18/2021                 Zions Bank, A Division of           1.0
+                                     ANTHONY DUFFY             17011 Beach Blvd Ste 900 Huntington Beach               20832.00           20950.71    541110             Sole Proprietorship Paid in Full   03/03/2021                 Zions Bank, A Division of           1.0
+                                   ANTHONY C DUFFY         17011 Beach Blvd.  9th Floor Huntington Beach               20800.00           21084.36    541110             Sole Proprietorship Paid in Full   05/14/2020                 Zions Bank, A Division of           1.0
+                                    KRISTINA BRYAN          17011 Beach Blvd. 9th Floor Huntington Beach               20800.00           21084.36    541110         Independent Contractors Paid in Full   05/15/2020                 Zions Bank, A Division of           1.0
+                               UNICORN ALLEY, CORP             17011 Beach Blvd Ste 540 HUNTINGTON BEACH               20710.00           20862.78    561110                     Corporation Paid in Full   08/04/2020 JPMorgan Chase Bank, National Association           4.0
+                   ACADEMIC FINANCIAL ADVISORS LLC            17011 BEACH BLVD STE 1100 HUNTINGTON BEACH               19922.00                NaN    611710 Limited  Liability Company(LLC) Paid in Full   04/30/2020     Bank of America, National Association           6.0
+ SAFE AND SECURE RETIREMENT AND INSURANCE SERVICES           17011 Beach Blvd Suite 900 Huntington Beach               18750.00           18975.00    524210        Subchapter S Corporation Paid in Full   06/26/2020                              Quontic Bank           2.0
+                                          GOTOHOME 17011 BEACH BLVD SUITE 900 SUITE 900 HUNTINGTON BEACH               18750.00           18956.51    522291                     Corporation Paid in Full   05/01/2020    Wells Fargo Bank, National Association           2.0
+          PROFESSIONAL HEALTH CARE CONSULTANTS INC             17011 Beach Blvd Ste 900    Huntingtn Bch               18065.00           18169.38    621610                     Corporation Paid in Full   02/17/2021           U.S. Bank, National Association           5.0
+                                    TRISTAR REALTY           17011 Beach Blvd. Ste. 900 Huntington Beach               18043.00                NaN    531210       Self-Employed Individuals  Exemption 4   06/28/2020                          Cross River Bank           2.0
+                                LEGALLY BARB, INC.             17011 BEACH BLVD STE 900 HUNTINGTON BEACH               17500.00           17709.13    541110        Subchapter S Corporation Paid in Full   05/01/2020 JPMorgan Chase Bank, National Association           1.0
+                               BOROFF & NYBERG LLP            17011 Beach Blvd Ste 1110 HUNTINGTON BEACH               17115.00           17270.15    541211   Limited Liability Partnership Paid in Full   04/30/2020 JPMorgan Chase Bank, National Association           2.0
+                               BOROFF & NYBERG LLP            17011 Beach Blvd Ste 1110 Huntington Beach               15762.00           15862.40    541211   Limited Liability Partnership Paid in Full   03/13/2021 JPMorgan Chase Bank, National Association           2.0
+                                    TIMOTHY STUART             17011 Beach Blvd Ste 900    Huntingtn Bch               15662.00           15721.17    541110             Sole Proprietorship Paid in Full   03/06/2021           U.S. Bank, National Association           1.0
+                                      MARONDA INC.                17011 Beach Blvd Fl 9 Huntington Beach               15607.00           15677.12    541213                     Corporation Paid in Full   02/06/2021  Mortgage Capital Development Corporation           2.0
+                                     MARONDA, INC.          17011 Beach Blvd, 9th Floor Huntington Beach               15400.00           15486.07    541213                     Corporation Paid in Full   04/30/2020  Mortgage Capital Development Corporation           2.0
+                                   DIANNE THOMPSON                17011 Beach Blvd #826 Huntington Beach               14700.00                NaN    524210             Sole Proprietorship  Charged Off   04/29/2020                             Comerica Bank           4.0
+                    PROFESSIONALS REALTY GROUP INC             STE 230 17011 BEACH BLVD    HUNTINGTN BCH               14000.00            6538.69    531210        Subchapter S Corporation Paid in Full   04/30/2020                          Cross River Bank           2.0
+                                 TRAVIS ALLEN INC.            17011 Beach Blvd, Ste 150 Huntington Beach               13100.00           13279.03    523930                     Corporation Paid in Full   04/30/2020                             Comerica Bank           2.0
+                             NRSB ACCOUNTANCY CORP            17011 Beach Blvd Ste 1110 Huntington Beach               13050.00           13133.13    541211        Subchapter S Corporation Paid in Full   03/13/2021 JPMorgan Chase Bank, National Association           1.0
+                                    TIMOTHY STUART                     17011 BEACH BLVD    HUNTINGTN BCH               12500.00           12615.97    541110             Sole Proprietorship Paid in Full   05/11/2020           U.S. Bank, National Association           1.0
+                                     JOHNNY NGUYEN            17011 Beach Blvd Ste 225A Huntington Beach               11390.00           11434.00    524210             Sole Proprietorship Paid in Full   03/26/2021                 Zions Bank, A Division of           1.0
+             SZMANDA LAW GROUP, A PROFESSIONAL LAW     17011 BEACH BLVD STE 900 STE 900 HUNTINGTON BEACH               10367.00           10437.84    541110        Subchapter S Corporation Paid in Full   05/01/2020 JPMorgan Chase Bank, National Association           1.0
+                  PATRICK XUAN LE CHIROPRACTIC INC             17011 Beach Blvd Ste 900 Huntington Beach               10000.00           10080.28    621310        Subchapter S Corporation Paid in Full   02/27/2021             BMO Bank National Association           1.0
+                  PATRICK XUAN LE CHIROPRACTIC INC                17011 Beach Blvd #900 Huntington Beach                9995.00           10086.90    999990        Subchapter S Corporation Paid in Full   04/30/2020             BMO Bank National Association           1.0
+                             NRSB ACCOUNTANCY CORP            17011 Beach Blvd Ste 1110 Huntington Beach                8717.50            8771.72       NaN        Subchapter S Corporation Paid in Full   05/01/2020 JPMorgan Chase Bank, National Association           1.0
+  SZMANDA LAW GROUP A PROFESSIONAL LAW CORPORATION     17011 Beach Blvd Ste 900 Ste 900 Huntington Beach                8422.00            8460.29    541110        Subchapter S Corporation Paid in Full   04/13/2021 JPMorgan Chase Bank, National Association           1.0
+THORSTEINSON LAW GROUP, A PROFESSIONAL CORPORATION             17011 Beach Blvd Ste 900 Huntington Beach                8250.00            8329.11    541110                     Corporation Paid in Full   04/28/2020    Farmers & Merchants Bank of Long Beach           1.0
+                                  RHB CAPITAL INC.             17011 Beach Blvd Ste 900    Huntingtn Bch                6977.00            7001.61    523930        Subchapter S Corporation Paid in Full   03/03/2021           U.S. Bank, National Association           1.0
+                                        THANH PHAN            17011 BEACH BLVD, STE 225 HUNTINGTON BEACH                6700.00            6752.32    524298         Independent Contractors Paid in Full   07/14/2020           California Bank of Commerce, NA           1.0
+                                   TAX ADVICE GUYS             17011 Beach Blvd Ste 900 Huntington Beach                6307.00            6338.10    541213       Self-Employed Individuals Paid in Full   06/20/2020                          Cross River Bank           1.0
+                            GARRETT NYBERG CPA INC            17011 Beach Blvd Ste 1110 Huntington Beach                6250.00            6315.92    541211                     Corporation Paid in Full   05/12/2021    Wells Fargo Bank, National Association           1.0
+                  MILESTONES BEHAVIORAL CARE, LLC.             17011 Beach Blvd Ste 900 Huntington Beach                6250.00            6338.98       NaN Limited  Liability Company(LLC) Paid in Full   05/01/2020 JPMorgan Chase Bank, National Association           3.0
+                         NORTH STAR HOME LOANS LLC           17011 BEACH BLVD SUITE 900 HUNTINGTON BEACH                6250.00            6305.14    531210 Limited  Liability Company(LLC) Paid in Full   05/05/2020    Wells Fargo Bank, National Association           2.0
+                   BN FINANCIAL & TAX SERVICES INC                17011 Beach Blvd #900 HUNTINGTON BEACH                2400.00            2422.49    522292                     Corporation Paid in Full   04/28/2020                Southwestern National Bank           2.0
+
+--- JOB COUNT COMPARISON (fraud signal: inflated in round 2) ---
+                                   BorrowerName DateApproved  CurrentApprovalAmount  JobsReported NAICSCode                    ServicingLenderName   LoanStatus
+                               AMP HOLDING INC.   03/24/2021              739200.00          50.0    441110          BMO Bank National Association Paid in Full
+                              AMP HOLDING, INC.   04/10/2020              702700.00          53.0    441110          BMO Bank National Association Paid in Full
+                               AMP HOLDINGS INC   01/29/2021               24477.00           2.0    541219           KeyBank National Association Paid in Full
+                               AMP HOLDINGS INC   04/11/2020               16833.00           2.0    541213           KeyBank National Association Paid in Full
+                              AMP HOLDINGS INC.   03/04/2021             2000000.00         181.0    484220                First Commonwealth Bank Paid in Full
+                             AMP HOLDINGS, INC.   04/09/2020             3979000.00         200.0    484220                First Commonwealth Bank  Charged Off
+                         BEAUCHAMP HOLDINGS LLC   02/18/2021               78710.57           8.0    238110                            Legacy Bank Paid in Full
+                         BEAUCHAMP HOLDINGS LLC   08/03/2020               94270.25          10.0    236118                            Legacy Bank Paid in Full
+                       BLACK SWAMP HOLDINGS LLC   03/31/2021               45005.00           6.0    111110                          AG CREDIT ACA Paid in Full
+                             CHAMP HOLDINGS LLC   04/27/2020               36600.00           3.0    531120         Commercial Bank of Texas, N.A. Paid in Full
+                                  ELMORE MOTORS   03/26/2021             1658408.00          96.0    441110 Farmers & Merchants Bank of Long Beach Paid in Full
+                                  ELMORE MOTORS   04/09/2020             1571194.00          81.0    441110 Farmers & Merchants Bank of Long Beach Paid in Full
+    GLOBAL INFORMATION TECHNOLOGY RESOURCES INC   01/19/2021             1085212.00          67.0    561320    Harvest Small Business Finance, LLC  Exemption 4
+    GLOBAL INFORMATION TECHNOLOGY RESOURCES INC   05/01/2020             1085212.50          46.0    561312        U.S. Bank, National Association Paid in Full
+                        HAPPY CAMP HOLDINGS LLC   04/27/2020              154492.00          24.0    551112                     Banc of California Paid in Full
+J.H. CHAMP HOLDINGS LLC DBA J.H. CHAMP HOLDINGS   02/12/2021               33587.00           2.0    423450  Bank of America, National Association Paid in Full
+        J.H. CHAMP HOLDINGS, LLC DBA J.H. CHAMP   05/01/2020               33587.00           2.0    551112  Bank of America, National Association Paid in Full
+                              LAMP HOLDINGS LLC   03/20/2021               76675.00          16.0    339999  Bank of America, National Association Paid in Full
+                              LAMP HOLDINGS LLC   05/01/2020               75822.00          15.0    541611  Bank of America, National Association Paid in Full
+                    PRECISE FIT LIMITED ONE LLC   01/14/2021             1437376.00         146.0    561320                 Clearinghouse CDFI PPP Paid in Full
+                    PRECISE FIT LIMITED ONE LLC   04/28/2020             1437300.00          96.0    561330                              FirstBank Paid in Full
+                            PRECISE FITNESS LLC   06/30/2020                7000.00           1.0    611620                 BayFirst National Bank Paid in Full
+                              RAMP HOLDINGS INC   02/26/2021              276041.00          14.0    517311    First-Citizens Bank & Trust Company Paid in Full
+                              RAMP HOLDINGS INC   04/14/2020              357007.00          15.0    517311    First-Citizens Bank & Trust Company Paid in Full
+              RUSSELL FISCHER CONTRACTING, INC.   07/30/2020                5000.00           1.0    441228                       Cross River Bank Paid in Full
+            THE RUSSELL FISCHER PARTNERSHIP, LP   04/24/2021              827504.00         132.0    447110              Zions Bank, A Division of Paid in Full
+            THE RUSSELL FISCHER PARTNERSHIP, LP   05/01/2020              960200.00         120.0    811192              Zions Bank, A Division of Paid in Full
+
+--- HB_LLCS: Who owns 17011 Beach Blvd? ---
+                   Owner1 Owner2      SiteAddress            MailAddress MailCity        APN              LastSeller LastSaleDate  LastSaleValue
+ONNI HUNTINGTON BEACH LLC    NaN 17011 BEACH BLVD 5055 N 32ND ST STE 200  PHOENIX 165-364-16 NF HUNTINGTON PLAZA LP,   07/11/2019     97250000.0
+
+--- CLEARINGHOUSE CDFI PPP: Other large loans ---
+                               BorrowerName          BorrowerAddress     BorrowerCity BorrowerState  CurrentApprovalAmount  ForgivenessAmount NAICSCode   LoanStatus DateApproved  JobsReported
+                PRECISE FIT LIMITED ONE LLC 17011 Beach Blvd Ste 900 Huntington Beach            CA              1437376.0         1446918.58    561320 Paid in Full   01/14/2021         146.0
+                               LATHER, INC.       76 N Fair Oaks Ave         Pasadena            CA               647763.0          654762.44    446199 Paid in Full   01/16/2021          58.0
+                WEST POINT CONTRACTORS INC.        2915 E Wieding Rd           Tucson            AZ               572409.0          575382.35    236220 Paid in Full   03/23/2021          30.0
+               REEVES IMMIGRATION LAW GROUP     2 N Lake Ave Ste 950         Pasadena            CA               572190.0          577752.96    541110 Paid in Full   01/19/2021          40.0
+SECOND START LEARNING DISABILITIES PROGRAMS           1325 Bouret Dr         San Jose            CA               564343.0          566725.78    611110 Paid in Full   01/20/2021          52.0
+                             VORTALA US LLC    1375 W. Fox Farm Road         Larkspur            CO               509399.0          513148.74    339114 Paid in Full   06/29/2020          37.0
+              FERN GARDENS MEMORY CARE, LLC     2636 Table Rock Road          MEDFORD            OR               473071.0          476934.41    623312 Paid in Full   06/29/2020          44.0
+            OUTDOOR SYSTEMS MANAGEMENT, LLC          16624 N 32nd St          Phoenix            AZ               468727.0          472828.36    561730 Paid in Full   01/27/2021          46.0
+                          YES HOUSING, INC.      901 Pennsylvania NE      Albuquerque            NM               454092.0          456564.28    624229 Paid in Full   04/30/2020          25.0
+                           BECS PACIFIC LTD     2825 Pellissier Road         Whittier            CA               445350.0          448455.08    336390 Paid in Full   07/13/2020          44.0
+              WILMINGTON HEATING & AIR, INC           1306 N 23rd St       Wilmington            NC               444658.0          447288.89    238220 Paid in Full   01/21/2021          53.0
+         LIBERTAS COLLEGE PREPARATORY, INC.          3875 Dublin Ave      Los Angeles            CA               428300.0          433451.50    611110 Paid in Full   05/07/2020          34.0
+                                  ASIAN INC     1167 Mission St Fl 4    San Francisco            CA               424629.0          437827.88    541990 Paid in Full   01/20/2021          36.0
+                   RICHARD PHOTO LAB., INC. 21515 Centre Pointe Pkwy    Santa Clarita            CA               360367.0          322084.64    323120  Exemption 4   01/22/2021          26.0
+                  ROSE LANE FUNDING VII LLC           412 N Main St.          Buffalo            WY               346312.0                NaN    541611  Exemption 4   05/18/2020          18.0
+                         LAGUNA HILLS LODGE  23932 Paseo de Valencia     Laguna Hills            CA               327337.0          302992.21    721110  Exemption 4   01/16/2021          24.0
+                                    C&J LLC            18 Harnett St       Wilmington            NC               319442.0          322396.84    722511 Paid in Full   02/12/2021          62.0
+                 THE APACHE RAILWAY COMPANY          4764 AZ HWY 277        Snowflake            AZ               290197.0          291865.63    482112 Paid in Full   02/12/2021          28.0
+                      MERINO LANDSCAPE INC.           612 Arizona St      Chula Vista            CA               282052.5          283650.80    561730 Paid in Full   01/16/2021          20.0
+           TITAN RESTORATION OF TUSCON INC. 3544 N Romero Rd Ste 102           Tucson            AZ               276022.0          277563.12    236118 Paid in Full   01/21/2021          27.0

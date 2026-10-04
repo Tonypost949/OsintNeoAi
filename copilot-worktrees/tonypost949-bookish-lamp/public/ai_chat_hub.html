@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINT NeoAI — Universal AI Forensic Chat Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background: #070a13; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        .glass-panel { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .glow-accent { box-shadow: 0 0 25px rgba(59, 130, 246, 0.2); }
+        .chat-scroll::-webkit-scrollbar { width: 6px; }
+        .chat-scroll::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+        .chat-scroll::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        .markdown-body pre { background: #0f172a; padding: 12px; border-radius: 8px; border: 1px solid #1e293b; overflow-x: auto; margin: 8px 0; }
+        .markdown-body code { background: rgba(255,255,255,0.08); padding: 2px 5px; border-radius: 4px; font-family: monospace; font-size: 0.85em; }
+        .markdown-body ul { list-style-type: disc; margin-left: 20px; margin-top: 6px; margin-bottom: 6px; }
+        .markdown-body p { margin-bottom: 8px; }
+        .markdown-body strong { color: #93c5fd; }
+    </style>
+</head>
+<body class="h-screen flex overflow-hidden">
+
+    <!-- Left Sidebar: System Diagnostics & Tools -->
+    <div class="w-80 glass-panel border-r border-slate-800 flex flex-col justify-between p-5 hidden md:flex">
+        <div class="space-y-6">
+            <!-- Brand -->
+            <div>
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                        <i class="fa-solid fa-bolt text-white text-sm"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-sm font-black tracking-wider text-white">OSINT NeoAI</h1>
+                        <span class="text-[10px] text-blue-400 font-mono">UNIVERSAL AI CHAT HUB</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Engines Matrix -->
+            <div class="space-y-2.5">
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Connected Engines</span>
+                
+                <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3 flex items-center justify-between">
+                    <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-shield-halved text-red-400 text-xs"></i>
+                        <span class="text-xs font-semibold text-slate-200">AiRiCOSwarm</span>
+                    </div>
+                    <span class="text-[10px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded-full font-mono font-bold">5 AGENTS</span>
+                </div>
+
+                <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3 flex items-center justify-between">
+                    <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-database text-blue-400 text-xs"></i>
+                        <span class="text-xs font-semibold text-slate-200">BigQuery Vault</span>
+                    </div>
+                    <span class="text-[10px] bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded-full font-mono font-bold">ACTIVE</span>
+                </div>
+
+                <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3 flex items-center justify-between">
+                    <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-terminal text-green-400 text-xs"></i>
+                        <span class="text-xs font-semibold text-slate-200">CLI Discovery Hub</span>
+                    </div>
+                    <span class="text-[10px] bg-green-500/20 text-green-400 px-2 py-0.5 rounded-full font-mono font-bold">ONLINE</span>
+                </div>
+
+                <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3 flex items-center justify-between">
+                    <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-server text-amber-400 text-xs"></i>
+                        <span class="text-xs font-semibold text-slate-200">PSA Health Server</span>
+                    </div>
+                    <span class="text-[10px] bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded-full font-mono font-bold">:8080</span>
+                </div>
+            </div>
+
+            <!-- Quick Action Directives -->
+            <div class="space-y-2">
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Quick Commands</span>
+                <button onclick="sendQuick('Investigate Andrew Do')" class="w-full text-left bg-slate-900/60 hover:bg-slate-800 border border-slate-800 hover:border-blue-500/40 px-3 py-2 rounded-xl text-xs text-slate-300 transition flex items-center gap-2">
+                    <i class="fa-solid fa-crosshairs text-blue-400 text-[10px]"></i> Investigate Andrew Do
+                </button>
+                <button onclick="sendQuick('Run full batch sweep')" class="w-full text-left bg-slate-900/60 hover:bg-slate-800 border border-slate-800 hover:border-indigo-500/40 px-3 py-2 rounded-xl text-xs text-slate-300 transition flex items-center gap-2">
+                    <i class="fa-solid fa-bolt text-indigo-400 text-[10px]"></i> Batch Sweep 6 Targets
+                </button>
+                <button onclick="sendQuick('Search BigQuery emails for philippines')" class="w-full text-left bg-slate-900/60 hover:bg-slate-800 border border-slate-800 hover:border-amber-500/40 px-3 py-2 rounded-xl text-xs text-slate-300 transition flex items-center gap-2">
+                    <i class="fa-solid fa-magnifying-glass text-amber-400 text-[10px]"></i> Search Emails: Philippines
+                </button>
+                <button onclick="sendQuick('Check CLI and system status')" class="w-full text-left bg-slate-900/60 hover:bg-slate-800 border border-slate-800 hover:border-green-500/40 px-3 py-2 rounded-xl text-xs text-slate-300 transition flex items-center gap-2">
+                    <i class="fa-solid fa-stethoscope text-green-400 text-[10px]"></i> Check Tool Health
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer Stats -->
+        <div class="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-500 flex justify-between">
+            <span>PORT: 9000</span>
+            <span class="text-green-400">● LIVE</span>
+        </div>
+    </div>
+
+    <!-- Main Chat Workspace -->
+    <div class="flex-1 flex flex-col h-full bg-[#0b0f19] relative">
+        
+        <!-- Top Navbar -->
+        <div class="h-14 glass-panel border-b border-slate-800 px-6 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <span class="inline-block w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></span>
+                <span class="text-xs font-bold text-white tracking-wide">Autonomous Forensic Intelligence Interface</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs">
+                <a href="http://127.0.0.1:8050" target="_blank" class="bg-slate-800/80 hover:bg-slate-700 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700 font-mono transition">
+                    <i class="fa-solid fa-gauge text-blue-400 mr-1.5"></i> Swarm Cockpit
+                </a>
+            </div>
+        </div>
+
+        <!-- Messages Stream -->
+        <div id="chatStream" class="flex-1 overflow-y-auto chat-scroll p-6 space-y-6">
+            <!-- Assistant Welcome Greeting -->
+            <div class="flex items-start gap-3.5 max-w-3xl">
+                <div class="w-8 h-8 rounded-xl bg-blue-600/30 border border-blue-500/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <i class="fa-solid fa-robot text-blue-400 text-xs"></i>
+                </div>
+                <div class="glass-panel p-4 rounded-2xl rounded-tl-none border border-slate-800 space-y-2 text-xs leading-relaxed text-slate-200">
+                    <p class="font-semibold text-white">⚡ OSINT NeoAI Chief Assistant Online</p>
+                    <p class="text-slate-300">I am connected directly to your entire toolkit: <strong>AiRiCOSwarm</strong>, <strong>BigQuery Forensic Vault</strong>, <strong>CLI Discovery Hub</strong>, and <strong>PSA Systems</strong>.</p>
+                    <p class="text-slate-400">Ask me to investigate entities, sweep RICO targets, search email archives, or inspect tool statuses.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tool Execution Live Indicator -->
+        <div id="toolIndicator" class="hidden px-6 py-2 bg-blue-950/40 border-t border-blue-800/30 flex items-center gap-2.5 text-xs text-blue-300 font-mono">
+            <i class="fa-solid fa-cog fa-spin text-blue-400"></i>
+            <span id="toolStatusText">Dispatching autonomous swarm tools...</span>
+        </div>
+
+        <!-- Input Control Deck -->
+        <div class="p-4 border-t border-slate-800/80 glass-panel">
+            <div class="max-w-4xl mx-auto flex items-center gap-3">
+                <input type="text" id="promptInput" placeholder="Ask anything... e.g. 'Investigate Mercy House' or 'Search emails for Casa Aliento'" 
+                    class="flex-1 bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 font-sans"
+                    onkeydown="if(event.key === 'Enter') sendMessage();">
+                <button onclick="sendMessage()" id="sendBtn" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-5 py-3 rounded-xl font-bold text-xs transition duration-200 shadow-lg shadow-blue-600/30 flex items-center gap-2">
+                    <span>SEND</span>
+                    <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const chatStream = document.getElementById('chatStream');
+        const promptInput = document.getElementById('promptInput');
+        const toolIndicator = document.getElementById('toolIndicator');
+        const toolStatusText = document.getElementById('toolStatusText');
+
+        function appendMessage(sender, text, tools=[]) {
+            const wrapper = document.createElement('div');
+            wrapper.className = sender === 'user' ? 'flex justify-end' : 'flex items-start gap-3.5 max-w-3xl';
+
+            let toolBadges = '';
+            if (tools && tools.length > 0) {
+                toolBadges = '<div class="flex flex-wrap gap-1.5 my-2">' + tools.map(t => `
+                    <span class="bg-blue-900/40 border border-blue-500/40 text-blue-300 text-[10px] font-mono px-2 py-0.5 rounded-lg flex items-center gap-1.5">
+                        <i class="fa-solid fa-wrench text-[9px] text-blue-400"></i> ${t.tool}
+                    </span>
+                `).join('') + '</div>';
+            }
+
+            if (sender === 'user') {
+                wrapper.innerHTML = `
+                    <div class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-3.5 px-4 rounded-2xl rounded-tr-none text-xs leading-relaxed max-w-xl shadow-lg">
+                        ${text}
+                    </div>
+                `;
+            } else {
+                const parsedHtml = marked.parse(text);
+                wrapper.innerHTML = `
+                    <div class="w-8 h-8 rounded-xl bg-blue-600/30 border border-blue-500/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <i class="fa-solid fa-robot text-blue-400 text-xs"></i>
+                    </div>
+                    <div class="glass-panel p-4 rounded-2xl rounded-tl-none border border-slate-800 space-y-2 text-xs leading-relaxed text-slate-200 markdown-body">
+                        ${toolBadges}
+                        ${parsedHtml}
+                    </div>
+                `;
+            }
+
+            chatStream.appendChild(wrapper);
+            chatStream.scrollTop = chatStream.scrollHeight;
+        }
+
+        async function sendMessage() {
+            const text = promptInput.value.trim();
+            if (!text) return;
+            promptInput.value = '';
+
+            appendMessage('user', text);
+            toolIndicator.classList.remove('hidden');
+            toolStatusText.innerText = "Querying live toolchains & engines...";
+
+            try {
+                const res = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: text })
+                });
+                const data = await res.json();
+                appendMessage('assistant', data.reply, data.tools_executed);
+            } catch(e) {
+                appendMessage('assistant', `⚠️ **Error connecting to Hub API**: ${e}`);
+            } finally {
+                toolIndicator.classList.add('hidden');
+            }
+        }
+
+        function sendQuick(promptText) {
+            promptInput.value = promptText;
+            sendMessage();
+        }
+    </script>
+</body>
+</html>

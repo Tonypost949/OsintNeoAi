@@ -1,0 +1,99 @@
+=== DNS RECORDS: starpointproperties.com ===
+=== Generated: 2026-07-24 21:37:56 ===
+
+--- A RECORDS ---
+nslookup : Non-authoritative answer:
+At line:20 char:16
++     try { $a = nslookup -type=A $domain 8.8.8.8 2>&1 | Out-String; $o ...
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    starpointproperties.com
+Addresses:  141.193.213.10
+	  141.193.213.11
+
+
+--- MX RECORDS ---
+nslookup : Non-authoritative answer:
+At line:24 char:17
++     try { $mx = nslookup -type=MX $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+starpointproperties.com	MX preference = 10, mail exchanger = starpointproperties-com.inbound.emailservice.io
+starpointproperties.com	MX preference = 30, mail exchanger = starpointproperties-com.inbound.emailservice.co
+starpointproperties.com	MX preference = 20, mail exchanger = starpointproperties-com.inbound.emailservice.cc
+
+--- NS RECORDS ---
+nslookup : Non-authoritative answer:
+At line:28 char:17
++     try { $ns = nslookup -type=NS $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+starpointproperties.com	nameserver = ns43.domaincontrol.com
+starpointproperties.com	nameserver = ns44.domaincontrol.com
+
+--- TXT RECORDS ---
+nslookup : Non-authoritative answer:
+At line:32 char:18
++     try { $txt = nslookup -type=TXT $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+starpointproperties.com	text =
+
+	"glcu4vs2s9ks33pt0g4m1rsnus"
+starpointproperties.com	text =
+
+	"v=spf1 include:spf.protection.outlook.com include:spf.us.emailservice.io -all"
+starpointproperties.com	text =
+
+	"pardot1002841=508e24c067167eb49859bec28c7c1ab8fe512e5d464866025660f1dc2b19ee48"
+starpointproperties.com	text =
+
+	"google-site-verification=f4H9sSjROR7qB4HMmO6wkwHPb1Yg663x--HoHzCQ7k8"
+starpointproperties.com	text =
+
+	"lgj8u00umb90l8afttf6o7bn9e"
+
+--- SOA RECORD ---
+nslookup : Non-authoritative answer:
+At line:36 char:18
++     try { $soa = nslookup -type=SOA $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+starpointproperties.com
+	primary name server = ns43.domaincontrol.com
+	responsible mail addr = dns.jomax.net
+	serial  = 2026070600
+	refresh = 28800 (8 hours)
+	retry   = 7200 (2 hours)
+	expire  = 604800 (7 days)
+	default TTL = 3600 (1 hour)

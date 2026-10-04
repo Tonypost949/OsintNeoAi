@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cyber">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OsintNeoAi | Skills Intelligence Browser</title>
+  <meta name="description" content="Explore, search, and inspect the complete catalog of AI skills, forensic OSINT tools, BigQuery pipelines, and intelligence workflows in OsintNeoAi.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Feather Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  
+  <!-- Marked.js for high-fidelity markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Background Glow & Grid Canvas -->
+  <div class="bg-grid-overlay"></div>
+  <div class="bg-glow-orb orb-1"></div>
+  <div class="bg-glow-orb orb-2"></div>
+  <div class="bg-glow-orb orb-3"></div>
+
+  <div class="app-container">
+    <!-- Top Navigation Header -->
+    <header class="top-nav">
+      <div class="nav-brand">
+        <div class="brand-badge">
+          <i data-feather="cpu" class="brand-icon"></i>
+        </div>
+        <div class="brand-info">
+          <div class="brand-title-row">
+            <h1 class="brand-name">OsintNeoAi</h1>
+            <span class="version-tag">v2.0 PRO</span>
+            <span class="status-indicator">
+              <span class="status-pulse"></span>
+              <span class="status-text">LIVE CATALOG</span>
+            </span>
+          </div>
+          <p class="brand-subtitle">Skills Intelligence Engine & Workflow Automation Repository</p>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <!-- Live Telemetry Pill Stats -->
+        <div class="telemetry-bar">
+          <div class="stat-pill" title="Total Loaded Skills">
+            <i data-feather="box"></i>
+            <span class="stat-value" id="stat-skills-count">33</span>
+            <span class="stat-label">Skills</span>
+          </div>
+          <div class="stat-pill" title="Total Automation Scripts">
+            <i data-feather="terminal"></i>
+            <span class="stat-value" id="stat-scripts-count">18</span>
+            <span class="stat-label">Scripts</span>
+          </div>
+          <div class="stat-pill" title="Total Reference Assets">
+            <i data-feather="file-text"></i>
+            <span class="stat-value" id="stat-refs-count">68</span>
+            <span class="stat-label">References</span>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-btn-group">
+          <button id="btn-theme-toggle" class="btn-icon" title="Toggle Theme (Cyber / Midnight / Emerald)">
+            <i data-feather="sun"></i>
+          </button>
+          <button id="btn-view-changes" class="btn-icon btn-has-badge" title="View Recent Changes Log">
+            <i data-feather="activity"></i>
+            <span class="badge-dot" id="changes-badge"></span>
+          </button>
+          <button id="btn-export-json" class="btn-secondary" title="Export skills.json metadata">
+            <i data-feather="download"></i>
+            <span>Export JSON</span>
+          </button>
+          <button id="btn-refresh" class="btn-secondary" title="Reload Skills Catalog">
+            <i data-feather="refresh-cw"></i>
+            <span>Sync</span>
+          </button>
+        </div>
+      </div>
+    <!-- Top View Mode Switcher -->
+    <nav class="view-mode-nav">
+      <button class="view-tab-btn active" data-view="skills">
+        <i data-feather="cpu"></i>
+        <span>AI Skills Intelligence</span>
+        <span class="tab-pill-badge" id="tab-skills-badge">33</span>
+      </button>
+      <button class="view-tab-btn" data-view="municipal">
+        <i data-feather="server"></i>
+        <span>Municipal & IP Infrastructure</span>
+        <span class="tab-pill-badge badge-accent" id="tab-cities-badge">10 Cities &bull; 17 IPs</span>
+      </button>
+      <button class="view-tab-btn" data-view="dossiers">
+        <i data-feather="file-text"></i>
+        <span>Forensic Audit Dossiers</span>
+        <span class="tab-pill-badge">4 Reports</span>
+      </button>
+      <button class="view-tab-btn" data-view="ai-assistant">
+        <i data-feather="terminal"></i>
+        <span>AI Forensic Assistant</span>
+        <span class="tab-pill-badge badge-accent">Firebase AI Logic</span>
+      </button>
+    </nav>
+
+
+
+    <!-- Search, Filter & Control Hero Section -->
+    <section class="control-section">
+      <div class="search-bar-wrapper">
+        <div class="search-input-box">
+          <i data-feather="search" class="search-icon"></i>
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Search skills by name, description, tools (e.g. bigquery, maltego, ocr), commands..." 
+            autocomplete="off"
+            spellcheck="false"
+          >
+          <kbd class="search-shortcut" title="Press / to focus search">/</kbd>
+          <button id="btn-clear-search" class="btn-clear hidden" title="Clear search">
+            <i data-feather="x"></i>
+          </button>
+        </div>
+        <div class="quick-filters-row">
+          <div class="filter-dropdown-group">
+            <select id="sort-select" class="custom-select" title="Sort Skills">
+              <option value="name-asc">Sort: Name (A &rarr; Z)</option>
+              <option value="name-desc">Sort: Name (Z &rarr; A)</option>
+              <option value="scripts-desc">Sort: Most Scripts</option>
+              <option value="refs-desc">Sort: Most References</option>
+              <option value="lines-desc">Sort: Largest Documentation</option>
+            </select>
+
+            <select id="has-filter-select" class="custom-select" title="Filter by Assets">
+              <option value="all">All Content Types</option>
+              <option value="scripts">Has Scripts Only</option>
+              <option value="refs">Has References Only</option>
+              <option value="commands">Has Quick Commands</option>
+            </select>
+          </div>
+          <div class="results-counter" id="results-counter">
+            Showing <strong id="visible-count">33</strong> of <strong id="total-count">33</strong> skills
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="categories-wrapper">
+        <div class="category-pills" id="category-pills">
+          <button class="cat-pill active" data-category="all">
+            <span class="cat-icon"><i data-feather="grid"></i></span>
+            <span class="cat-text">All Skills</span>
+            <span class="cat-count" id="cat-count-all">33</span>
+          </button>
+          <!-- Dynamic category pills will be injected here -->
+        </div>
+      </div>
+
+      <!-- Popular Tags Bar -->
+      <div class="tags-bar-wrapper">
+        <span class="tags-label"><i data-feather="tag"></i> Quick Tags:</span>
+        <div class="tag-chips" id="tag-chips">
+          <!-- Dynamic tag chips -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content: Skills Matrix Grid -->
+    <main class="main-content">
+      <div id="skills-grid" class="skills-grid">
+        <!-- Dynamic skill cards will render here -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="empty-state hidden">
+        <div class="empty-icon-wrap">
+          <i data-feather="search" class="empty-icon"></i>
+        </div>
+        <h3 class="empty-title">No matching skills found</h3>
+        <p class="empty-desc">Try adjusting your search keywords, clearing selected filters, or resetting categories.</p>
+        <button id="btn-reset-filters" class="btn-primary">
+          <i data-feather="rotate-ccw"></i>
+          <span>Reset All Filters</span>
+        </button>
+      </div>
+    </main>
+
+    <!-- Municipal & IP Infrastructure Matrix View (New) -->
+    <main id="municipal-view" class="municipal-view hidden">
+      <div class="municipal-header-card">
+        <div class="muni-header-left">
+          <div class="muni-badge"><i data-feather="database"></i> SOUTHERN CALIFORNIA MUNICIPAL IT AUDIT</div>
+          <h2 class="muni-title">Municipal Data Systems & IP Infrastructure Matrix</h2>
+          <p class="muni-subtitle">Cross-jurisdictional forensic audit of municipal data architecture, on-premise IP exposure, Windows NT legacy status, budgets, and Infrastructure Report Card (IRC) grades.</p>
+        </div>
+        <div class="muni-stats-grid">
+          <div class="muni-stat-card">
+            <span class="muni-stat-val text-accent">10</span>
+            <span class="muni-stat-lbl">Jurisdictions Tracked</span>
+          </div>
+          <div class="muni-stat-card">
+            <span class="muni-stat-val text-amber">17</span>
+            <span class="muni-stat-lbl">Public IP Endpoints</span>
+          </div>
+          <div class="muni-stat-card">
+            <span class="muni-stat-val text-rose">$52.7M</span>
+            <span class="muni-stat-lbl">Total IT Deficit Identified</span>
+          </div>
+          <div class="muni-stat-card">
+            <span class="muni-stat-val text-cyan">40%</span>
+            <span class="muni-stat-lbl">Legacy Windows On-Prem</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls & Toggle Bar -->
+      <div class="muni-controls-bar">
+        <div class="muni-search-box">
+          <i data-feather="search"></i>
+          <input type="text" id="muni-search-input" placeholder="Filter by City, IP (e.g. 192.5.222.153), ASN, Grade, or Platform..." autocomplete="off">
+        </div>
+        <div class="muni-filter-group">
+          <button class="muni-filter-btn active" data-muni-filter="all">All Cities (10)</button>
+          <button class="muni-filter-btn" data-muni-filter="legacy">Legacy Windows Only (4)</button>
+          <button class="muni-filter-btn" data-muni-filter="cloud">Cloud Modernized (4)</button>
+          <button class="muni-filter-btn" data-muni-filter="hybrid">Hybrid (2)</button>
+        </div>
+        <div class="muni-actions">
+          <button id="btn-toggle-ip-view" class="btn-secondary">
+            <i data-feather="network"></i>
+            <span id="ip-view-toggle-text">Show Raw IP Mapping</span>
+          </button>
+          <a href="data/municipal_matrix.json" download="municipal_matrix.json" class="btn-secondary">
+            <i data-feather="download"></i>
+            <span>Export Matrix</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- High-Level Municipal Systems Table View -->
+      <div id="muni-systems-container" class="muni-table-wrapper">
+        <table class="muni-table">
+          <thead>
+            <tr>
+              <th>City / Agency</th>
+              <th>IRC Years</th>
+              <th>Legacy Server Lineage</th>
+              <th>Data Grade</th>
+              <th>15-Yr IT Deficit</th>
+              <th>Annual IT Budget</th>
+              <th>Available Capacity</th>
+              <th>Backup Window</th>
+              <th>Security / Antivirus</th>
+              <th>IP Exposure & WAF</th>
+              <th>Funding Source</th>
+            </tr>
+          </thead>
+          <tbody id="muni-table-body">
+            <!-- Dynamic rows will be injected here -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Raw IP & Endpoint Grid View (Toggled) -->
+      <div id="muni-ips-container" class="muni-ips-grid hidden">
+        <!-- Dynamic IP cards will be injected here -->
+      </div>
+    </main>
+
+    <!-- Forensic Audit Dossiers View (New) -->
+    <main id="dossiers-view" class="dossiers-view hidden">
+      <div class="dossiers-sidebar">
+        <h3 class="dossiers-nav-title"><i data-feather="book-open"></i> Intelligence Dossiers</h3>
+        <div class="dossiers-nav-list" id="dossiers-nav-list">
+          <button class="dossier-nav-btn active" data-doc="executive">
+            <i data-feather="shield"></i>
+            <div>
+              <strong>Executive Forensic Briefing</strong>
+              <small>Capital Audit & Findings</small>
+            </div>
+          </button>
+          <button class="dossier-nav-btn" data-doc="2024irc">
+            <i data-feather="file-text"></i>
+            <div>
+              <strong>2024 Infrastructure Report Card</strong>
+              <small>City of HB (78 Pages)</small>
+            </div>
+          </button>
+          <button class="dossier-nav-btn" data-doc="2000iac">
+            <i data-feather="archive"></i>
+            <div>
+              <strong>2000 IAC Baseline & Measure FF</strong>
+              <small>Historical $1.37B Baseline</small>
+            </div>
+          </button>
+          <button class="dossier-nav-btn" data-doc="vendors">
+            <i data-feather="dollar-sign"></i>
+            <div>
+              <strong>Vendor Contracts & Budgets</strong>
+              <small>ESRI, Laserfiche, Tyler</small>
+            </div>
+          </button>
+        </div>
+      </div>
+      <div class="dossiers-content-pane">
+        <div class="dossier-content-header">
+          <h2 id="dossier-active-title">Executive Forensic Briefing</h2>
+          <div class="dossier-header-actions">
+            <button id="btn-copy-dossier" class="btn-secondary">
+              <i data-feather="copy"></i>
+              <span>Copy Markdown</span>
+            </button>
+          </div>
+        </div>
+        <div id="dossier-markdown-pane" class="markdown-body dossier-pane-body">
+          <!-- Loaded markdown content -->
+        </div>
+      </div>
+    </main>
+
+    <!-- AI Forensic Assistant View (Powered by Firebase AI Logic / Gemini) -->
+    <main id="ai-assistant-view" class="ai-assistant-view hidden">
+      <div class="ai-assistant-container">
+        <!-- AI Assistant Sidebar -->
+        <div class="ai-sidebar">
+          <div class="ai-model-card">
+            <div class="ai-model-header">
+              <i data-feather="cpu" class="ai-engine-icon"></i>
+              <div>
+                <strong class="ai-model-name">Gemini 2.5 Flash</strong>
+                <span class="ai-provider-badge">Firebase AI Logic</span>
+              </div>
+            </div>
+            <p class="ai-model-desc">Real-time multimodal forensic intelligence engine with search grounding and direct knowledgebase ingestion.</p>
+            <div class="ai-status-pill">
+              <span class="status-pulse pulse-green"></span>
+              <span>Dataset Loaded (10 Cities &bull; 17 IPs &bull; 4 Dossiers)</span>
+            </div>
+          </div>
+
+          <!-- Quick Query Prompts -->
+          <div class="ai-quick-prompts">
+            <h4 class="ai-prompts-title"><i data-feather="zap"></i> Quick Inquiries</h4>
+            <button class="ai-prompt-chip" data-prompt="Compare Huntington Beach vs Newport Beach data systems and explain why HB is in a $21M deficit.">
+              <span>🏛️ HB vs Newport Beach Audit</span>
+            </button>
+            <button class="ai-prompt-chip" data-prompt="Analyze the security risks of on-premise subnet 192.5.222.0/24 with unshielded ArcGIS and Laserfiche servers.">
+              <span>🛡️ Audit Subnet 192.5.222.0/24</span>
+            </button>
+            <button class="ai-prompt-chip" data-prompt="Explain how Measure FF collected $697M from taxpayers but still left Information Systems at Grade C.">
+              <span>💰 Measure FF $697M Taxpayer Flow</span>
+            </button>
+            <button class="ai-prompt-chip" data-prompt="Which cities in the dataset are still running legacy on-premise Windows server architectures?">
+              <span>🖥️ List All Legacy Server Cities</span>
+            </button>
+            <button class="ai-prompt-chip" data-prompt="Generate a 3-step executive modernization proposal for a city council to approve a cloud migration CIP.">
+              <span>📑 Draft Council CIP Pitch</span>
+            </button>
+          </div>
+
+          <!-- Firebase Config Drawer Trigger -->
+          <div class="ai-config-box">
+            <button id="btn-open-ai-settings" class="btn-secondary btn-full">
+              <i data-feather="settings"></i>
+              <span>Firebase API Settings</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Chat Main Area -->
+        <div class="ai-chat-pane">
+          <!-- Chat Message Thread -->
+          <div class="ai-messages-thread" id="ai-messages-thread">
+            <div class="ai-msg ai-msg-bot">
+              <div class="ai-avatar"><i data-feather="cpu"></i></div>
+              <div class="ai-msg-body">
+                <div class="ai-msg-header">
+                  <strong>OsintNeo Forensic AI</strong>
+                  <span class="ai-timestamp">Just now</span>
+                </div>
+                <div class="ai-msg-content markdown-body">
+                  <p>Welcome to the <strong>OsintNeoAi Forensic Intelligence Assistant</strong>.</p>
+                  <p>I have ingested all <strong>10 municipal jurisdictions, 17 public IP mappings, the 2000 IAC Baseline, the 2024 Huntington Beach Infrastructure Report Card (IRC), and enterprise vendor contracts</strong>.</p>
+                  <p>Select a quick inquiry from the left or type any question below to begin your audit.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chat Input Area -->
+          <div class="ai-input-wrapper">
+            <div class="ai-input-box">
+              <textarea id="ai-chat-input" placeholder="Ask a question about municipal data systems, IP exposure, budgets, Measure FF, or comparative city grades..." rows="2"></textarea>
+              <div class="ai-input-actions">
+                <button id="btn-clear-chat" class="btn-icon" title="Clear Conversation">
+                  <i data-feather="trash-2"></i>
+                </button>
+                <button id="btn-send-ai" class="btn-primary" title="Send Query">
+                  <i data-feather="send"></i>
+                  <span>Execute Query</span>
+                </button>
+              </div>
+            </div>
+            <div class="ai-input-footer">
+              <span>Powered by <strong>Firebase AI Logic</strong> &bull; Client-Side Gemini SDK &bull; Markdown & Code Formatted</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-left">
+        <span class="repo-badge">
+          <i data-feather="git-branch"></i>
+          <span>Repository: <strong>Tonypost949/OsintNeoAi</strong></span>
+        </span>
+        <span class="footer-separator">&bull;</span>
+        <span class="footer-text">Self-contained Intelligence Ecosystem</span>
+      </div>
+      <div class="footer-right">
+        <span class="footer-hint">Press <kbd>Esc</kbd> to close inspect modals &bull; Click code snippets to quick-copy</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Skill Detail Modal / Inspector Drawer -->
+  <div id="skill-modal" class="modal-backdrop hidden">
+    <div class="modal-dialog">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="modal-header-main">
+          <div class="modal-category-badge" id="modal-category-badge">
+            <i data-feather="folder" class="modal-cat-icon"></i>
+            <span id="modal-category-text">Category</span>
+          </div>
+          <h2 class="modal-title" id="modal-skill-name">Skill Title</h2>
+          <p class="modal-subtitle" id="modal-skill-description">Skill description</p>
+          <div class="modal-tags" id="modal-skill-tags"></div>
+        </div>
+        <button id="btn-close-modal" class="btn-icon modal-close-btn" title="Close (Esc)">
+          <i data-feather="x"></i>
+        </button>
+      </div>
+
+      <!-- Modal Tabs Navigation -->
+      <div class="modal-nav-tabs">
+        <button class="modal-tab active" data-tab="doc">
+          <i data-feather="book-open"></i>
+          <span>SKILL.md Documentation</span>
+        </button>
+        <button class="modal-tab" data-tab="scripts" id="tab-btn-scripts">
+          <i data-feather="code"></i>
+          <span>Scripts (<span id="modal-tab-scripts-count">0</span>)</span>
+        </button>
+        <button class="modal-tab" data-tab="references" id="tab-btn-references">
+          <i data-feather="layers"></i>
+          <span>References (<span id="modal-tab-refs-count">0</span>)</span>
+        </button>
+        <button class="modal-tab" data-tab="quick-run" id="tab-btn-quickrun">
+          <i data-feather="terminal"></i>
+          <span>Quick Commands</span>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <!-- Tab 1: Markdown Documentation -->
+        <div class="tab-pane active" id="pane-doc">
+          <div class="doc-actions-bar">
+            <div class="doc-meta-info">
+              <span id="modal-line-count"><i data-feather="align-left"></i> 120 lines</span>
+              <span id="modal-file-path"><i data-feather="folder"></i> skills/deep-osint/SKILL.md</span>
+            </div>
+            <button id="btn-copy-markdown" class="btn-secondary btn-sm" title="Copy raw markdown content">
+              <i data-feather="copy"></i>
+              <span>Copy Markdown</span>
+            </button>
+          </div>
+          <div class="markdown-rendered-content" id="modal-markdown-body">
+            <!-- Rendered Markdown goes here -->
+          </div>
+        </div>
+
+        <!-- Tab 2: Scripts View -->
+        <div class="tab-pane" id="pane-scripts">
+          <div class="asset-list-container" id="modal-scripts-list">
+            <!-- Dynamic scripts list -->
+          </div>
+        </div>
+
+        <!-- Tab 3: References View -->
+        <div class="tab-pane" id="pane-references">
+          <div class="asset-list-container" id="modal-references-list">
+            <!-- Dynamic references list -->
+          </div>
+        </div>
+
+        <!-- Tab 4: Quick Run Commands -->
+        <div class="tab-pane" id="pane-quick-run">
+          <div class="quick-commands-container" id="modal-commands-list">
+            <!-- Dynamic quick commands -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <div class="modal-footer-left">
+          <span class="skill-id-badge">ID: <code id="modal-skill-id">skill-id</code></span>
+        </div>
+        <div class="modal-footer-right">
+          <button id="btn-copy-import-snippet" class="btn-primary">
+            <i data-feather="clipboard"></i>
+            <span>Copy Skill Invocation</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Changes Log Drawer -->
+  <div id="changes-drawer" class="drawer-backdrop hidden">
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <div class="drawer-title-box">
+          <i data-feather="activity" class="drawer-icon"></i>
+          <h3>Watcher Activity Log</h3>
+        </div>
+        <button id="btn-close-changes" class="btn-icon" title="Close drawer">
+          <i data-feather="x"></i>
+        </button>
+      </div>
+      <div class="drawer-info-note">
+        <i data-feather="info"></i>
+        <span>Monitored by <code>scripts/watcher.js</code> &bull; Auto-syncs to <code>.changes.json</code></span>
+      </div>
+      <div class="changes-list" id="changes-list">
+        <!-- Changes list items -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Main Application Script -->
+  <script src="app.js"></script>
+</body>
+</html>

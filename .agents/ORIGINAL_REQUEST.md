@@ -314,3 +314,103 @@ All new code, data models, and configurations must be committed to GitHub `main`
 - [ ] All targeted tasks in `data/tasks.json` and `TASKS.md` transition to `DONE` with corresponding executable implementation files.
 - [ ] `api/main.py` and backend test suites pass without runtime errors.
 - [ ] Sync confirmation logged to both GitHub and Google Drive.
+
+## 2026-09-28T22:11:46Z
+
+Historical and official document deep investigation for 17631 Cameron Ln, Huntington Beach, CA (Orange County), restricted strictly to official records, historical maps, land grants, tract records, parcel deeds, aerial archives, and municipal/county documents dating prior to 1960.
+
+Working directory: C:\Amd949609_Antigravity_v1\tasks\17631_cameron_pre1960
+Integrity mode: development
+
+## Requirements
+
+### R1. Official Pre-1960 Historical Records Retrieval
+Locate and extract official public and archival records specifically dating before 1960 for 17631 Cameron Ln, Huntington Beach, CA (Orange County, CA), including tract maps, subdivision plats, historical parcel maps, aerial imagery archives (pre-1960), BLM General Land Office (GLO) patents/grants, Rancho Las Bolsas historical context, and Orange County Recorder / Assessor historical documentation.
+
+### R2. Strict Chronological Filtering & Authenticity Verification
+Filter out any modern documents or records post-dating 1959. Provide explicit citations, archival repository origins, and document identifiers/links for every record found.
+
+### R3. Comprehensive Archival Synthesis Report
+Generate a detailed historical dossier synthesizing ownership lineage, zoning/land use progression, and physical development timeline before 1960.
+
+## Acceptance Criteria
+
+### Archival Compliance
+- [ ] 100% of compiled primary records and deeds bear verifiable dates prior to January 1, 1960.
+- [ ] Every document entry includes the source repository (e.g. Orange County Archives, USGS Historical Topographic maps, Huntington Beach Historical Society / City Clerk archives, Bureau of Land Management GLO, HistoricAerials).
+- [ ] A consolidated report is written to C:\Amd949609_Antigravity_v1\tasks\17631_cameron_pre1960\HISTORICAL_DOSSIER_PRE1960.md.
+
+## 2026-09-28T22:13:36Z
+
+MANDATORY EXTENDED AUDIT DIRECTIVE:
+You must expand your search coverage to ingest and audit all local directories on this PC (including OneDrive, Google Drive sync directories, Google Photos archives, C:\OsintNeoAi, C:\EVIDENCE_LOCKER_MASTER, C:\Users\Amd949609\HB_GIS_*, and GitHub repos) for any historical maps, deeds, aerial imagery, parcel surveys, Rancho Las Bolsas partition documents, or county records related to 17631 Cameron Ln, Huntington Beach prior to 1960. Ensure all discovered local records are integrated into the final historical dossier at C:\Amd949609_Antigravity_v1\tasks\17631_cameron_pre1960\HISTORICAL_DOSSIER_PRE1960.md.
+
+## 2026-09-28T22:13:45Z
+
+CRITICAL RESEARCH VECTOR EXPANSION DIRECTIVE:
+In addition to property/tract records, the pre-1960 dossier for 17631 Cameron Ln / Huntington Beach (Rancho Las Bolsas / Bolsa Chica area) MUST explicitly research and incorporate pre-1960 records from:
+1. Native American / Tongva-Acjachemen historical land use, settlement archives, archaeological survey reports, and sacred site designations.
+2. Historical California and Orange County Newspapers pre-1960 (e.g. California Digital Newspaper Collection, Huntington Beach News, LA Times pre-1960 archive).
+3. Military archives (Bolsa Chica Military Reservation, Coast Artillery / Anti-Aircraft installations, WWII coastal defense plats, Naval Air Station Los Alamitos / Santa Ana records pre-1960).
+4. US Post Office historical postal route maps, Postmaster appointments, and rural free delivery (RFD) carrier registers for Huntington Beach / Ocean View / Wintersburg pre-1960.
+5. Academic & University Library Special Collections (Post University / Post.edu library catalog, UC Irvine Special Collections, Cal State Fullerton Center for Oral and Public History).
+
+Incorporate all findings into C:\Amd949609_Antigravity_v1\tasks\17631_cameron_pre1960\HISTORICAL_DOSSIER_PRE1960.md.
+
+## 2026-09-28T22:14:34Z
+
+CRITICAL GIS & GEODETIC SURVEY DIRECTIVE:
+You must ensure 100% precision on the GPS coordinates, Public Land Survey System (PLSS) Township/Range/Section, Rancho partition coordinates, and historic GIS cadastral overlay data for 17631 Cameron Ln:
+- Exact WGS84 Geodetic Coordinates (~33.7027° N, 117.9892° W)
+- State Plane Coordinate System (NAD27 / NAD83 CA Zone VI)
+- PLSS Legal Description: Section, Township 5S, Range 11W, San Bernardino Baseline & Meridian (SBBM)
+- Historical Cadastral Plat: Rancho Las Bolsas Mexican Land Grant partition boundary / Stearns Rancho subdivision plat / Orange County Assessor Book/Page.
+- Cross-reference with all local GIS data in C:\Users\Amd949609\HB_GIS_CATALOG, HB_GIS_DATA, and HB_GIS_OFFLINE.
+Incorporate this verified geodetic section into C:\Amd949609_Antigravity_v1\tasks\17631_cameron_pre1960\HISTORICAL_DOSSIER_PRE1960.md.
+
+## 2026-09-28T22:14:57Z
+
+CRITICAL RESEARCH VECTOR INCLUSION DIRECTIVE:
+You must query and incorporate pre-1960 and academic/scholarly sources from Google Scholar, Google Books, HathiTrust, and JSTOR relating to:
+1. Academic publications on the archaeology and indigenous Cogged Stone sites of Bolsa Chica / Rancho Las Bolsas (e.g. Eberhart 1961 retrospective, Winterbourne 1938-1940 WPA archaeological reports).
+2. Historical treatises and books on Orange County history, Stearns Rancho litigation, Gospel Swamp drainage, and Japanese agricultural settlements in Wintersburg / Ocean View (e.g. Samuel Armor's 1911/1921 "History of Orange County, California", Terry Stephenson historical writings).
+3. Pre-1960 geological, hydrological, and oil survey bulletins published by the California Division of Mines and Geology and USGS (e.g. Santa Ana River basin ground-water investigations, Huntington Beach oil field structural reports).
+
+Incorporate these scholarly citations and historical book excerpts directly into C:\Amd949609_Antigravity_v1\tasks\17631_cameron_pre1960\HISTORICAL_DOSSIER_PRE1960.md.
+
+## 2026-09-28T22:20:05Z
+
+CRITICAL RESEARCH DIRECTIVE ADDITION:
+The pre-1960 investigation for 17631 Cameron Ln / Huntington Beach (Rancho Las Bolsas / Wintersburg / Bolsa Chica) MUST explicitly investigate and document:
+1. Historical Tract Names, Tract Numbers, Block/Lot designations, and predecessor Assessor Parcel Numbers (Old APNs/Book-Page numbers under Los Angeles County & early Orange County).
+2. Historical Land Scandals, Controversies & Litigation pre-1960:
+   - Abel Stearns / Rancho Las Bolsas partition disputes & "Squatter Wars" of the 1870s/1880s (Stearns vs. Settlers / Gospel Swamp land contests).
+   - Bolsa Chica Gun Club wetland title controversies & duck club land lockouts (1899–1940s).
+   - Huntington Beach 1920s Oil Boom scandals, wildcatting disputes, and municipal zoning/drilling graft.
+   - California Alien Land Law impacts on Japanese-American farmers in Wintersburg/Ocean View (evasions, escheat trials, and property trustee structures).
+
+Integrate all historical APNs, tract designations, and pre-1960 legal controversies into C:\Amd949609_Antigravity_v1\tasks\17631_cameron_pre1960\HISTORICAL_DOSSIER_PRE1960.md.
+
+## 2026-09-28T22:25:45Z
+
+CORRECTION DIRECTIVE:
+Auditors noted that the Yamada Living Trust is the MODERN 2020 seller of 17631 Cameron Ln and 17642 Beach Blvd to the City of Huntington Beach. Do NOT attribute pre-1960 title ownership to the Yamada family unless supported by a specific pre-1960 Orange County Grant Deed. Focus the pre-1960 ownership chain strictly on the original recorded subdividers, grantees, and patent holders of Tract No. 405 (Book 16, Page 31 of Miscellaneous Maps), the Stearns Ranchos trust, and the 1874/1877 GLO patent holders.
+
+## 2026-09-28T22:26:57Z
+
+CRITICAL EXPANSION DIRECTIVE:
+You must perform an exhaustive historical archival survey of ALL adjacent and surrounding properties within a 0.25-mile radius of 17631 Cameron Lane strictly prior to 1950 (Pre-1950 only).
+Explicit Mandates:
+1. Identify all pre-1950 official documents, recorded subdivision tracts, farm lot partition deeds, water district permits, and historical homestead records across the 0.25-mile radius (encompassing the Beach Blvd, Slater Ave, Speer Ave, and Cameron Ln farm buffer).
+2. Explicitly investigate and document the historic building / museum site on Speer Ave / Beach Blvd corridor (e.g., historic farmsteads, cultural assets, or heritage properties) and their pre-1950 official records.
+3. Exclude modern Yamada trust transactions; focus purely on the original pre-1950 pioneer grantors, farming families, water drainage districts (Talbert Drainage), and Stearns Rancho Section 35 subdivisions.
+4. Compile a dedicated "0.25-Mile Pre-1950 Cadastral & Deed Inventory" into C:\Amd949609_Antigravity_v1\tasks\17631_cameron_pre1960\HISTORICAL_DOSSIER_PRE1960.md.
+
+## 2026-09-28T22:31:16Z
+
+STRICT OPERATIONAL SECURITY & DIRECT EXTRACTION DIRECTIVE:
+1. NO outward requests, inquiries, public records requests, or tipping off of any agencies, city offices, or recorders. 
+2. All research MUST be purely passive, forensic, and direct extraction from existing open-access historical repositories, public archives, digitized deed books, BLM GLO digital vaults, USGS topo archives, and local cached databases.
+3. Every single document referenced MUST have its exact digitized copy/URL, local path, or raw transcript extract presented directly in the dossier so the user can see direct copies of everything cited.
+
+Incorporate all direct digitized document links and source text extracts into C:\Amd949609_Antigravity_v1\tasks\17631_cameron_pre1960\HISTORICAL_DOSSIER_PRE1960.md.

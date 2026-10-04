@@ -1,0 +1,25 @@
+=== PORT SCAN: tucsonaz.gov ===
+Date: 2026-07-24
+Scanner: Python socket (top 19 common ports)
+
+PORT STATE SERVICE
+80/tcp OPEN http
+443/tcp OPEN https
+
+Total open: 2
+
+=== SSL CERTIFICATE ===
+Host: tucsonaz.gov
+Issuer: Let's Encrypt R1
+SHA256: 04bb8b792c3bfbdbece491f9e48fb69624a8058b3a79c93db5af1e0a0249e6ef
+
+=== HTTP HEADERS ===
+Status: 301 (redirects to https://www.tucsonaz.gov/)
+Server: Microsoft-IIS/10.0
+X-Powered-By: ASP.NET
+HSTS: max-age=31536000
+
+=== COMPARISON ===
+Tucson AZ gov: Microsoft IIS/ASP.NET stack
+NOT the same infrastructure as HBPD (Apache/Cloudflare)
+NOT the same infrastructure as Pima County (Cloudflare/Plesk)

@@ -1,0 +1,124 @@
+name: Enrich Pipeline
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"  # Every 6 hours
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Entity to expand"
+        required: false
+        default: "Kimberly Tavares"
+      batch_size:
+        description: "Batch size"
+        required: false
+        default: "100"
+
+jobs:
+  expand-tavares:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+          service_account: github-actions@${{ secrets.GCP_PROJECT }}.iam.gserviceaccount.com
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: |
+          pip install requests beautifulsoup4
+          pip install -r requirements.txt
+
+      - name: Expand Tavares Portfolio (CA SOS)
+        run: |
+          python -c "
+import requests, csv, re, time, json
+from datetime import datetime, timezone
+from pathlib import Path
+
+AGENT_NAME = '${{ github.event.inputs.target || 'Kimberly Tavares' }}'
+SEARCH_URL = 'https://businesssearch.sos.ca.gov/DocumentSearch/Search'
+DETAIL_URL = 'https://businesssearch.sos.ca.gov/DocumentSearch/Detail'
+HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.0',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'en-US,en;q=0.5',
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'Origin': 'https://businesssearch.sos.ca.gov',
+    'Referer': 'https://businesssearch.sos.ca.gov/',
+}
+
+s = requests.Session()
+all_ents = []
+page = 1
+
+while True:
+    data = {'SearchType': 'CORP', 'SearchCriteria': AGENT_NAME, 'SearchSubType': 'Agent', 'page': page}
+    r = s.post(SEARCH_URL, data=data, headers=HEADERS, timeout=30)
+    rows = re.findall(r'<tr[^>]*>.*?<td[^>]*>(.*?)</td>.*?<td[^>]*>(.*?)</td>.*?</tr>', r.text, re.DOTALL)
+    ents = []
+    for name_raw, num_raw in rows:
+        name = re.sub(r'<[^>]+>', '', name_raw).strip()
+        num = re.sub(r'<[^>]+>', '', num_raw).strip()
+        if name and num:
+            ents.append({'name': name, 'number': num})
+    if not ents:
+        break
+    all_ents.extend(ents)
+    if 'Next' not in r.text and 'next' not in r.text.lower():
+        break
+    page += 1
+    time.sleep(2)
+
+print(f'Found {len(all_ents)} entities')
+
+results = []
+for i, ent in enumerate(all_ents, 1):
+    print(f'  [{i}/{len(all_ents)}] {ent[\"name\"]}')
+    r = s.get(f'{DETAIL_URL}?id={ent[\"number\"]}', headers=HEADERS, timeout=30)
+    def extract(p): return re.sub(r'<[^>]+>', '', (re.search(p, r.text, re.DOTALL|re.IGNORECASE) or re.match('','')).group(1)).strip() if re.search(p, r.text, re.DOTALL|re.IGNORECASE) else ''
+    results.append({
+        'entity_name': ent['name'],
+        'entity_number': ent['number'],
+        'registered_agent': extract(r'Agent for Service of Process.*?<td[^>]*>(.*?)</td>'),
+        'agent_address': extract(r'Address.*?<td[^>]*>(.*?)</td>'),
+        'status': extract(r'Status.*?<td[^>]*>(.*?)</td>') or 'Unknown',
+    })
+    time.sleep(1.5)
+
+out = Path('results/tavares_portfolio.csv')
+out.parent.mkdir(exist_ok=True)
+with open(out, 'w', newline='', encoding='utf-8') as f:
+    w = csv.DictWriter(f, fieldnames=['entity_name','entity_number','registered_agent','agent_address','status','scraped_at'])
+    w.writeheader()
+    for r_ in results:
+        r_['scraped_at'] = datetime.now(timezone.utc).isoformat()
+        w.writerow(r_)
+
+print(f'Written: {out} ({len(results)} records)')
+
+# Summary
+same = [r for r in results if AGENT_NAME.lower() in r['registered_agent'].lower()]
+print(f'Still controlled by {AGENT_NAME}: {len(same)}/{len(results)}')
+" 2>&1
+
+      - name: Commit & Push Results
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "OsintNeoAi Enricher"
+          git config user.email "enricher@osintneoai.com"
+          git add results/
+          git diff --staged --quiet || git commit -m "Enrich results - $(date -u)"
+          git push

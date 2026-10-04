@@ -1,0 +1,326 @@
+# Comprehensive Engineering Cross-Reference Report
+## 17631 Cameron Lane & Beach/Cameron Corridor
+
+### 1. Electrical Panel Schedules & Load Calculations (Ardebili / Sheet E3.1)
+- NOTE
+- NEMA
+- 3R
+- NOTE
+- CKTI CKT
+- KVA_LOAD
+- ICKTI CKT
+- KVA LOAD
+- CKT
+- CKT
+- KVA_LOAD
+- CKTI CKT
+- KVA_LOAD
+- oplull
+- BKR
+- CIRCUIT_DESCRIPTION
+- BKR
+- CIRCUIT_DESCRIPTION
+- BKR
+- CIRCUIT_DESCRIPTION
+- BKR
+- CIRCUIT_DESCRIPTION
+- 20/1
+- INTERIOR _ ^
+- LICHTING
+- 0.773
+- 30/1
+- (E)EF-3
+- 88
+- 60/2
+- EXISTING A/c
+- 5.72
+- EXISTING RECEPTACLE
+- 1.08
+- 20/1
+- INTERIOR-2 LIGHTING
+- 0.776
+- 30 /1
+- (E)EF
+- 2.88
+- 5.72
+- EXISTING RECEPTACLE /CLOCK
+- 08
+- 20 ,
+- EXTERIOR
+- LIGHTING
+- 0.13
+- 30 /
+- (E)EF
+- 2.88
+- 60/2
+- SPARE
+- EXISTING COMP_
+- RECEPTACLE
+- 08
+- innovation] versatility
+- r
+- 20 /
+- EXTERIOR-
+- LIGHTING
+- 0.191
+- 20/2
+- EF
+- 25
+- EXISTING COMP_
+- RECEPTACLE
+- 08
+- 0.191
+- 10
+- 25
+- 20/1
+- EXISTING LIGHTING
+- EXISTING COMP_
+- RECEPTACLE
+- 08
+- 20_
+- RECEPTACLE
+- 0.72
+- 12
+- 20/2
+- EF_2
+- 1.25
+- 20/1
+- EXISTING LIGH TING
+- 1.2
+- 20_
+- EXISTING COMP
+- RECEPTACLE
+- 08
+- TOLL FREE:
+- -800-528-9
+- 20
+- RECEPTACLE
+- 0.72
+- 25
+- 13
+- EXISTING   ALARM
+- SPACE
+- or (403) 601-2292
+- WWW.sp
+- 20_
+- RECEPTACLE
+- 0.36
+- 90/3
+- RTU-1
+- 7.01
+- 15
+- SPACE
+- SPACE
+- 20,
+- CONTROLLED RECEPTACLE
+- 0.18
+- 7.01
+- 20 ,
+- RECEPTACLE
+- 36
+- 20
+- 7.01
+- TOTAL CONNECTED KVA BY PHASE
+- 10.4
+- 10.2
+- RDL
+- 20,
+- CONTROLLED RECEPTACLE
+- 0.18
+- 20/1
+- MAINTENANCE RECEPTACLE
+- 36
+- TOTAL CONNECTED AMPS BY PHASE
+- 90.6
+- 89
+- 23
+- 20,
+- EXTERIOR -_
+- LIGHTING
+- 504
+- 24
+- 20/1
+- DUCT DETECTOR
+- 0.1
+- 25
+- 0.504
+- 26
+- 90 /
+- RTU-
+- 7.01
+- CONN
+- CONN
+- T EA M
+- CALC KVA
+- CALC KVA
+- SPACE
+- 28
+- 7.01
+- KVA
+- KVA
+- 29
+- SPACE
+- 30
+- 7.01
+- 31
+- SPACE
+- 32
+- SPACE
+- LIGHTING
+- 2.4
+- (125%)
+- MOTORS
+- (100%,
+- 33
+- SPACE
+- 34
+- SPACE
+- LARGEST MOTOR
+- 11.4
+- 2.86
+- (25%)
+- RECEPTACLES
+- 48
+- 48
+- 507>10)
+- 35
+- ;
+- SPACE
+- 36
+- SPACE
+- NONCONTINUOUS
+- (1007)
+- SPACE
+- 38
+- SPACE
+- 39
+- SPACE
+- 40
+- SPACE
+- TOTAL
+- LOAD
+- 24
+- SPACE
+- SPACE
+- BALANCED LOAD
+- 115
+- TOTAL CONNECTED
+- KVA BY PHASE
+- 21.9
+- 20
+- 19
+- TYPICAL FOR PANELS
+- T1 ,
+- T2,
+- T3, T4
+- TOTAL CONNECTED AMPS BY PHASE
+- 183
+- 167
+- 165
+- CONN KVA
+- CALC
+- KVA
+- CONN KVA
+- CALC KVA
+- LIGHTING
+- 3.07
+- 3.84
+- 257)
+- MOTORS
+- 55.
+- 55.7
+- (1007)
+- LARGEST
+- MOTOR
+- 21
+- 5.26
+- (257)
+- RECEPTACLES
+- 88
+- 2.88
+- (507210)
+- NONCONTINUOUS
+- 0.1
+- 0.1
+- (100%)
+- TOTAL LOAD
+- 67.8
+- BALANCED 3-PHASE LOAD
+- 188
+- NEW PANEL
+- DESIGN LOADS
+- STRUCTURE LOCATION: HUNTINGTOI
+- BUILDING  CODE:
+- BC 2018/C
+- WIND SPEED=
+- 106  mph
+- RISK   CATEGORY:
+- EXPOSURE
+- GROUND SNOW LOAD:
+- (SEE SNOW SHED REPORT)
+- canyor
+- STRUCTURAL
+- CONSU
+- 940
+- Elm Avenue
+- Salt
+- Lake City, Utah 84106
+- Phone: (801) 486-6848
+- PROFESS ION
+- 20186
+- EXP. 03/31 /2021
+- {CTR 
+- OF CAL
+- 9/05/20
+- SIGNATURE SERI
+- MM /DDAYY
+- DESCRIPTION
+- This
+- protected
+- copyright
+- America:
+- Canado
+- ond
+- other
+- countries
+- the  desians
+- Stechnical
+- data
+- and
+- endineerin
+- represei
+- ana
+- oriainated
+- rendered
+- INSTANT
+- STRUCTURES INC.
+- exclusive
+- prope
+- OSPRUNG  INSTANT  STRUCTURES INC
+- must
+- Imanufacturina
+- disclosed
+- reprodu
+- excedt
+- with
+- Aorior
+- written   conser
+- OSPRUNC
+- STRUCTURES INC.
+- copying
+- this
+- drawina
+- and anv use
+- construcE
+- the
+- matte
+- Autacut
+- prior   written
+- permission
+- ' sobjosPRutc
+- STRUCTURES INC.
+- prohibited
+- "RDEBIL ,
+- drawing
+
+

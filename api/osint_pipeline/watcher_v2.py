@@ -3,9 +3,15 @@ watcher_v2.py — Phase 2 main loop.
 Extracts people, builds control clusters, exports to BigQuery + Neo4j.
 """
 import json
+import sys
 from datetime import datetime, timezone
+from pathlib import Path
 
-from google.cloud import bigquery
+try:
+    from adx_bigquery import bigquery
+except ImportError:  # standalone run: adx_bigquery lives one level up, in api/
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+    from adx_bigquery import bigquery
 
 import config
 from entity_match import clear_cache

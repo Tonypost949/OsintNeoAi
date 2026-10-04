@@ -1,0 +1,34 @@
+{
+  "reports_analyzed": [
+    "EDR 17631 Cameron Report (Project 167-472)",
+    "Phase I Environmental Site Assessment (HBNC Tract 405)"
+  ],
+  "addresses_identified": [
+    "17642 Beach Blvd, Huntington Beach, CA 92647 (HB Navigation Center / Tract 405, Lot 7)",
+    "17631 Cameron Ln, Huntington Beach, CA 92647 (HB Navigation Center / Tract 405, Lot 6)"
+  ],
+  "chemical_exposures": [
+    {
+      "source": "Tract 405 Historic Agricultural/Oil Baseline",
+      "contaminant": "Total Petroleum Hydrocarbons (TPH)",
+      "risk_level": "High",
+      "notes": "Associated with historic drilling operations and Well No. 5403 (W-4150)"
+    },
+    {
+      "source": "Phase I ESA / GeoTracker T10000018579",
+      "contaminant": "Volatile Organic Compounds (VOCs)",
+      "risk_level": "Moderate-High",
+      "notes": "Potential vapor intrusion risk from subsurface plumes"
+    },
+    {
+      "source": "Agricultural Baseline (1947 era)",
+      "contaminant": "Organochlorine Pesticides (OCPs) / Arsenic",
+      "risk_level": "Moderate",
+      "notes": "Residual soil contamination from historic farming operations"
+    }
+  ],
+  "google_drive_links_provided": [
+    "https://drive.google.com/file/d/1AmQLbItaSDPL9qxUqK9LYddOLBX8Qw9E/view?usp=drive_link",
+    "https://drive.google.com/file/d/1H9a7_cIOpsTz5wtDQusx90Qf9TGlKXWX/view?usp=drive_link"
+  ]
+}

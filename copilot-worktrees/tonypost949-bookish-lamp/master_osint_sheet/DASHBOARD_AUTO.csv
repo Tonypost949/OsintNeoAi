@@ -1,0 +1,31 @@
+LIVE INTELLIGENCE DASHBOARD
+
+SECTION 1: ENTITY COUNTS
+Entity Type,Count
+People,56
+Gov Agencies,22
+Contractors,13
+Shell Companies,8
+Evidence Items,92
+RICO Nodes,21
+TOTAL,212
+
+SECTION 2: STATUS BREAKDOWN
+Status,Count
+Active,10
+Inactive,0
+Unknown,64
+Other,0
+
+SECTION 3: DATA QUALITY METRICS
+Metric,Count
+Missing Names (People),0
+Missing Status (People),3
+Incomplete Entity Links,68
+Unknown Entries,64
+
+SECTION 4: TIMELINE METRICS
+Metric,Value
+Total Timeline Events,20
+Earliest Event,1994-06-01
+Latest Event,2026-05-21

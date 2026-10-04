@@ -1,0 +1,11 @@
+osint911-ai/
+├── app.py                          ✅ Main dashboard
+├── config.py                       ✅ Ethical config
+├── requirements.txt                ✅ Dependencies
+├── .streamlit/config.toml          ✅ Dark theme
+└── modules/
+    ├── ip_geo.py                   ✅ IP geolocation
+    ├── breach_checker.py           ✅ HIBP integration
+    ├── nlp_entity.py               ✅ spaCy NER engine
+    ├── geo_heatmap.py              ✅ Folium heatmap
+    └── emergency_report.py         ✅ PDF generator

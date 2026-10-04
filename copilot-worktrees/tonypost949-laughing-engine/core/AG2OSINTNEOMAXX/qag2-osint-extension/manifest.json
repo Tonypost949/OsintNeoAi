@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "QAG2 OSINT & Gmail Companion",
+  "version": "1.0.0",
+  "description": "Premium investigator sidepanel to extract OSINT indicators, run custom Google Dorks, and search profiles.",
+  "permissions": [
+    "sidePanel",
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs",
+    "contextMenus"
+  ],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "action": {
+    "default_title": "Open QAG2 OSINT"
+  },
+  "side_panel": {
+    "default_path": "sidepanel/panel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "content-scripts/gmail-scraper.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}

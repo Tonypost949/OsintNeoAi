@@ -1,0 +1,12 @@
+ADDR_ID,ADDRESS,CITY,STATE,ZIP,ENTITY_IDS,SIGNIFICANCE,SOURCE_DOC,SOURCE_PAGE,NOTES
+"ADDRESSES: One row per physical address of significance. ADDR_ID links to MASTER. ENTITY_IDS: semicolon-separated IDs of all entities at this address. SIGNIFICANCE: why this address matters to the investigation. To refresh: add row, assign next ADDR-### ID, update MASTER tab."
+ADDR-001,2000 Main St,Huntington Beach,CA,92648,GOV-001;GOV-002;PER-003;PER-004;PER-008,City Hall; primary defendant address,Knabb v. HB RCRA Complaint,p.1
+ADDR-002,17631 Cameron Ln,Huntington Beach,CA,92647,NP-002;EV-001,HBNC Navigator Center; toxic site location; Cr-VI at 49x MCL,HBNC Toxic Site HTML,§Site,Former Navy base; contamination concealed
+ADDR-003,300 N Flower St,Santa Ana,CA,92703,GOV-003;PER-014,Orange County DA office,Whistleblower Dossier,§7,Referred; no action taken
+ADDR-004,11200 Nimitz Rd,Los Alamitos,CA,90720,GOV-007,NAS Los Alamitos; Navy CERCLA responsible party,HBNC Toxic Site HTML,§Cleanup,Origin of Cr-VI contamination
+ADDR-005,411 W 4th St,Santa Ana,CA,92701,GOV-016,US District Court CD California; RCRA/RICO venue,Knabb v. HB RCRA Complaint,p.1,Active federal litigation
+ADDR-006,75 Hawthorne St,San Francisco,CA,94105,GOV-011,US EPA Region 9; RCRA/CERCLA enforcement,Knabb v. HB RCRA Complaint,p.3
+ADDR-007,600 Harrison St,San Francisco,CA,94107,GOV-009,HUD Region IX; grant fraud nexus,Whistleblower Dossier,§6
+ADDR-008,1001 I St,Sacramento,CA,95814,GOV-008;GOV-017,CalEPA / DTSC / State Water Resources Board,HBNC Toxic Site HTML,§Regulatory
+ADDR-009,300 Capitol Mall,Sacramento,CA,95814,GOV-012,CA State Controller; unclaimed property custodian,Unclaimed Property PDFs,p.1
+ADDR-010,11000 Wilshire Blvd,Los Angeles,CA,90024,GOV-013,FBI Los Angeles Field Office; RICO referral target,RICO Matrix,§7

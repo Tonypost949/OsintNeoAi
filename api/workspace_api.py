@@ -40,16 +40,16 @@ _bq_client = None
 def _bq():
     global _bq_client
     if _bq_client is None:
-        from google.cloud import bigquery
+        from adx_bigquery import bigquery
         _bq_client = bigquery.Client(project=GCP_PROJECT)
     return _bq_client
 
 def _bq_param(name, value):
-    from google.cloud import bigquery
+    from adx_bigquery import bigquery
     return bigquery.ScalarQueryParameter(name, "STRING", value)
 
 def _run_query(sql, params=None):
-    from google.cloud import bigquery
+    from adx_bigquery import bigquery
     job_config = bigquery.QueryJobConfig(query_parameters=params or [])
     try:
         rows = _bq().query(sql, job_config=job_config).result()
@@ -69,7 +69,7 @@ _tables_initialized = False
 
 def _ensure_dataset():
     try:
-        from google.cloud import bigquery
+        from adx_bigquery import bigquery
         client = _bq()
         dataset_ref = client.dataset(BQ_DATASET)
         try:
@@ -678,7 +678,7 @@ def get_suggested_tasks():
     tasks_table = f"{project_id}.osint_engine.suggestive_tasks"
     
     try:
-        from google.cloud import bigquery
+        from adx_bigquery import bigquery
         query = f'''
             SELECT task_id, task_type, priority_score, target_asset_hash,
                    title, prompt_message, suggested_action, entity_payload, created_at

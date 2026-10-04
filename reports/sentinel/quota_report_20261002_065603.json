@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-10-02T06:56:03",
+  "overall": "CRITICAL",
+  "results": {
+    "quota": [
+      {
+        "check": "GitHub API (core)",
+        "kind": "quota",
+        "status": "ok",
+        "detail": "4998/5000 remaining (100.0%), resets 07:55",
+        "pct_remaining": 100.0,
+        "critical": true
+      },
+      {
+        "check": "Gemini API",
+        "kind": "quota",
+        "status": "critical",
+        "detail": "402 PAYMENT REQUIRED \u2014 project has no Gemini quota/billing enabled",
+        "pct_remaining": 0.0,
+        "critical": true
+      },
+      {
+        "check": "GCP IN_USE_ADDRESSES",
+        "kind": "quota",
+        "status": "ok",
+        "detail": "usage 0 / limit 4 (100.0% free)",
+        "pct_remaining": 100.0,
+        "critical": false
+      },
+      {
+        "check": "Azure",
+        "kind": "quota",
+        "status": "not_auth",
+        "detail": "az not logged in (run: az login)",
+        "pct_remaining": null,
+        "critical": false
+      }
+    ]
+  },
+  "thresholds": {
+    "warn_pct": 20.0,
+    "critical_pct": 5.0
+  }
+}

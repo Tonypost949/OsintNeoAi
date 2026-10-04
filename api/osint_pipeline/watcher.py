@@ -11,7 +11,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import requests
-from google.cloud import bigquery
+
+try:
+    from adx_bigquery import bigquery
+except ImportError:  # standalone run: adx_bigquery lives one level up, in api/
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+    from adx_bigquery import bigquery
 
 import config
 from attorney_nodes import (

@@ -1,0 +1,102 @@
+=== DNS RECORDS: advancedrealestate.com ===
+=== Generated: 2026-07-24 21:36:38 ===
+
+--- A RECORDS ---
+nslookup : Non-authoritative answer:
+At line:20 char:16
++     try { $a = nslookup -type=A $domain 8.8.8.8 2>&1 | Out-String; $o ...
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    advancedrealestate.com
+Addresses:  35.172.94.1
+	  100.24.208.97
+
+
+--- MX RECORDS ---
+nslookup : Non-authoritative answer:
+At line:24 char:17
++     try { $mx = nslookup -type=MX $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+advancedrealestate.com	MX preference = 0, mail exchanger = advancedrealestate-com.mail.protection.outlook.com
+
+--- NS RECORDS ---
+nslookup : Non-authoritative answer:
+At line:28 char:17
++     try { $ns = nslookup -type=NS $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+advancedrealestate.com	nameserver = ns2.apmdns.com
+advancedrealestate.com	nameserver = ns1.apmdns.com
+advancedrealestate.com	nameserver = ns4.apmdns.com
+advancedrealestate.com	nameserver = ns3.apmdns.com
+
+--- TXT RECORDS ---
+nslookup : Non-authoritative answer:
+At line:32 char:18
++     try { $txt = nslookup -type=TXT $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+advancedrealestate.com	text =
+
+	"i17qo0b76pb9big8572dnt2ni"
+advancedrealestate.com	text =
+
+	"hq8csn17uiegvt40gg3seone21"
+advancedrealestate.com	text =
+
+	"j1s4cskgb499b4isveoaphabt2"
+advancedrealestate.com	text =
+
+	"v=spf1 include:spf.protection.outlook.com -all"
+advancedrealestate.com	text =
+
+	"7i17qo0b76pb9big8572dnt2ni"
+advancedrealestate.com	text =
+
+	"MS=ms24637854"
+
+--- SOA RECORD ---
+nslookup : Non-authoritative answer:
+At line:36 char:18
++     try { $soa = nslookup -type=SOA $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+advancedrealestate.com
+	primary name server = ns1.apmdns.com
+	responsible mail addr = awsdns-hostmaster.amazon.com
+	serial  = 1
+	refresh = 7200 (2 hours)
+	retry   = 900 (15 mins)
+	expire  = 1209600 (14 days)
+	default TTL = 86400 (1 day)

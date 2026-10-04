@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "OC COVID Fraud Tracker"
+version = "1.0.0"
+id = "artifacts/oc-fraud-tracker"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20751
+
+[services.development]
+run = "pnpm --filter @workspace/oc-fraud-tracker run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/oc-fraud-tracker", "run", "build" ]
+publicDir = "artifacts/oc-fraud-tracker/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20751"
+BASE_PATH = "/"

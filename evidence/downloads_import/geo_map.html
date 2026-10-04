@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RICO Enterprise Geographic Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #090d16;
+      color: #f1f5f9;
+    }
+    #header {
+      padding: 12px 20px;
+      background: #0f172a;
+      border-bottom: 1px solid #1e293b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 18px;
+    }
+    #legend {
+      display: flex;
+      gap: 14px;
+      font-size: 12px;
+      flex-wrap: wrap;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    #map {
+      height: calc(100vh - 65px);
+      width: 100vw;
+      background: #090d16;
+    }
+    .leaflet-popup-content-wrapper {
+      background: #0f172a !important;
+      color: #e2e8f0 !important;
+      border: 1px solid #334155;
+      border-radius: 8px !important;
+    }
+    .leaflet-popup-tip {
+      background: #0f172a !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <div>
+      <h1>Geographic Map of Targets & Clustered Entities</h1>
+      <div style="font-size: 11px; color: #94a3b8; font-family: monospace;">Source: C:\migrate opencode\OSINTNEOAI\reports\RICO_NATIONWIDE_INFRASTRUCTURE_MATRIX.md</div>
+    </div>
+    <div id="legend">
+      <div class="legend-item"><span class="dot" style="background:#ef4444"></span> Red: RICO Orange County, CA</div>
+      <div class="legend-item"><span class="dot" style="background:#f97316"></span> Orange: Liberty-Branded Hubs</div>
+      <div class="legend-item"><span class="dot" style="background:#3b82f6"></span> Blue: Sheriff Depts Under Investigation</div>
+      <div class="legend-item"><span class="dot" style="background:#eab308"></span> Yellow: PPP Fraud Clusters (39 States)</div>
+    </div>
+  </div>
+
+  <div id="map"></div>
+
+  <script>
+    const map = L.map('map').setView([36.5, -96.0], 5);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      maxZoom: 18,
+      attribution: '&copy; CartoDB &copy; OpenStreetMap'
+    }).addTo(map);
+
+    function addPin(lat, lng, color, title, category, details) {
+      const marker = L.circleMarker([lat, lng], {
+        radius: 8,
+        fillColor: color,
+        color: "#ffffff",
+        weight: 1.5,
+        opacity: 1,
+        fillOpacity: 0.85
+      }).addTo(map);
+
+      marker.bindPopup(`
+        <div style="font-family: inherit;">
+          <div style="font-weight: 700; color: ${color}; font-size: 14px; margin-bottom: 2px;">${title}</div>
+          <div style="font-size: 11px; text-transform: uppercase; color: #94a3b8; margin-bottom: 6px;">${category}</div>
+          <div style="font-size: 12px; line-height: 1.4; color: #cbd5e1;">${details}</div>
+        </div>
+      `);
+    }
+
+    // RED PINS: RICO-connected cities in Orange County, CA
+    addPin(33.6595, -117.9988, "#ef4444", "Huntington Beach, CA", "RICO Orange County Hub", "Huntington Beach Police Dept (prior 142 exposed ports, 400 breach records); Liberty Care executive domicile.");
+    addPin(33.8366, -117.9143, "#ef4444", "Anaheim, CA", "RICO Orange County Hub", "City of Anaheim web server shares foreign IP 89.106.200.153 directly with Shelby County TN.");
+    addPin(33.8704, -117.9242, "#ef4444", "Fullerton, CA", "RICO Orange County Hub", "Fullerton municipal gateway on shared government cluster 135.84.124.41.");
+    addPin(33.6411, -117.9187, "#ef4444", "Costa Mesa, CA", "RICO Orange County Hub", "Registered headquarters of RBA Builders shell entity; portal hosted on 135.84.124.41.");
+    addPin(33.7455, -117.8677, "#ef4444", "Santa Ana, CA", "RICO Orange County Hub", "Orange County Seat; HUD CoC grant distribution center; Liberty Housing Services Inc operational address.");
+    addPin(33.7420, -117.8236, "#ef4444", "Tustin, CA", "RICO Orange County Hub", "Corporate filing domicile for Liberty Senior Living and secondary management holding entities.");
+    addPin(33.7878, -117.8531, "#ef4444", "Orange, CA", "RICO Orange County Hub", "City of Orange municipal gateway on 135.84.124.41; regional grant coordination center.");
+
+    // ORANGE PINS: Liberty-branded entities
+    addPin(33.6595, -117.9988, "#f97316", "Liberty Care - Huntington Beach", "Liberty Branded", "Liberty Care Org operations base and executive contacts.");
+    addPin(33.7455, -117.8677, "#f97316", "Liberty Housing - Santa Ana", "Liberty Branded", "Liberty Housing Services Inc (Santa Ana) - Title IV-E billing.");
+    addPin(33.7420, -117.8236, "#f97316", "Liberty Senior Living - Tustin", "Liberty Branded", "Senior care management co-located on IP 141.193.213.10.");
+    addPin(33.7701, -118.1937, "#f97316", "Liberty Care - Long Beach", "Liberty Branded", "Foster placement intake facility billing Medicaid.");
+    addPin(34.2011, -118.5711, "#f97316", "Liberty Care - Winnetka", "Liberty Branded", "Licensed care site and residential group home operating on 76.223.54.146.");
+
+    // BLUE PINS: Sheriff departments under investigation
+    addPin(41.8781, -87.6298, "#3b82f6", "Cook County Sheriff (Chicago, IL)", "Sheriff Under Investigation", "Pop: 5.2M. Shares exact IP 141.193.213.21 with fraudulent shell company l2tmedia.com. Active federal investigation.");
+    addPin(32.2226, -110.9747, "#3b82f6", "Pima County Sheriff (Tucson, AZ)", "Sheriff Under Investigation", "Pop: 1.0M. Ongoing FBI civil asset forfeiture inquiry & perjury allegations.");
+    addPin(35.1495, -90.0490, "#3b82f6", "Shelby County Sheriff (Memphis, TN)", "Sheriff Under Investigation", "Pop: 930K. NO WAF protection. Hosted on European IP 89.106.200.153 alongside City of Anaheim CA.");
+    addPin(34.0522, -118.2437, "#3b82f6", "Los Angeles County Sheriff (Los Angeles, CA)", "Sheriff Under Investigation", "Pop: 10.0M. CRITICAL RISK: 13 exposed ports without WAF including MySQL, MSSQL, RDP, VNC, Elasticsearch.");
+
+    // YELLOW PINS: PPP fraud clusters across 39 states
+    addPin(25.7617, -80.1918, "#eab308", "Miami-Dade County, FL", "PPP Fraud Cluster", "Center of Carlisle Development Group $26M fraud & Liberty City Miami HUD scandal ($35M).");
+    addPin(29.7604, -95.3698, "#eab308", "Houston / Harris County, TX", "PPP Fraud Cluster", "High-density fake construction PPP loans channeled into California shell holding firms.");
+    addPin(33.7490, -84.3880, "#eab308", "Atlanta / Fulton County, GA", "PPP Fraud Cluster", "Regional SBA pass-through cluster coordinating with healthcare provider shells.");
+    addPin(40.7128, -74.0060, "#eab308", "New York, NY", "PPP Fraud Cluster", "Commercial real estate shells and asset conversion holding accounts.");
+    addPin(42.3314, -83.0458, "#eab308", "Detroit, MI", "PPP Fraud Cluster", "Midwest phantom payroll cluster linked to multi-state shell applications.");
+    addPin(33.4484, -112.0740, "#eab308", "Phoenix, AZ", "PPP Fraud Cluster", "Southwest care billing pass-through entities coordinating with Pima County.");
+  </script>
+</body>
+</html>

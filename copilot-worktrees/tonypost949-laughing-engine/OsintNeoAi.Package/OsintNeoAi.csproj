@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <PackageId>OsintNeoAi</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Tonypost949</Authors>
+    <Company>Tonypost949</Company>
+    <PackageDescription>OsintNeoAi - Production-Grade OSINT Platform with Gemini AI Integration packaged for .NET projects.</PackageDescription>
+    <RepositoryUrl>https://github.com/Tonypost949/OsintNeoAi</RepositoryUrl>
+    <PackageTags>osint;gemini;ai;forensics;investigation</PackageTags>
+    <IncludeBuildOutput>true</IncludeBuildOutput>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <!-- Include key files and folders as content in the NuGet package -->
+  <ItemGroup>
+    <Content Include="../main.py" PackagePath="contentFiles/any/any/OsintNeoAi/main.py" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="../requirements.txt" PackagePath="contentFiles/any/any/OsintNeoAi/requirements.txt" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="../api/**/*" Exclude="../api/**/bin/**/*;../api/**/obj/**/*;../api/**/*.pyc;../api/**/__pycache__/**/*" PackagePath="contentFiles/any/any/OsintNeoAi/api" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="../cli/**/*" Exclude="../cli/**/bin/**/*;../cli/**/obj/**/*;../cli/**/*.pyc;../cli/**/__pycache__/**/*" PackagePath="contentFiles/any/any/OsintNeoAi/cli" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="../agent/**/*" Exclude="../agent/**/bin/**/*;../agent/**/obj/**/*;../agent/**/*.pyc;../agent/**/__pycache__/**/*" PackagePath="contentFiles/any/any/OsintNeoAi/agent" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="../core/**/*" Exclude="../core/**/bin/**/*;../core/**/obj/**/*;../core/**/*.pyc;../core/**/__pycache__/**/*" PackagePath="contentFiles/any/any/OsintNeoAi/core" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="../dashboard/**/*" Exclude="../dashboard/**/bin/**/*;../dashboard/**/obj/**/*;../dashboard/**/*.pyc;../dashboard/**/__pycache__/**/*" PackagePath="contentFiles/any/any/OsintNeoAi/dashboard" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="../scripts/**/*" Exclude="../scripts/**/bin/**/*;../scripts/**/obj/**/*;../scripts/**/*.pyc;../scripts/**/__pycache__/**/*" PackagePath="contentFiles/any/any/OsintNeoAi/scripts" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="../README.md" PackagePath="contentFiles/any/any/OsintNeoAi/README.md" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sheriff Risk Matrix</title>
+    <style>
+        body { background: #0b0e14; color: #c8d0dc; font-family: sans-serif; padding: 20px; }
+        h1 { color: #7ab7ff; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; background: #141a24; }
+        th, td { border: 1px solid #1f2a3a; padding: 12px; text-align: left; }
+        th { background: #1a6bff; color: white; cursor: pointer; }
+        tr:hover { background: #1c2533; }
+        .critical { color: #ff4444; font-weight: bold; }
+        .high { color: #ffa500; font-weight: bold; }
+        .medium { color: #ffff44; }
+        .low { color: #44ff44; }
+    </style>
+</head>
+<body>
+    <h1>Sheriff Department Infrastructure Risk Matrix</h1>
+    <table id="riskTable">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">Department Name</th>
+                <th onclick="sortTable(1)">State</th>
+                <th onclick="sortTable(2)">Served Pop.</th>
+                <th onclick="sortTable(3)">Open Ports</th>
+                <th onclick="sortTable(4)">WAF Status</th>
+                <th onclick="sortTable(5)">Risk Level</th>
+                <th onclick="sortTable(6)">Investigation Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Cook County Sheriff</td><td>IL</td><td>5.2M</td><td>4</td><td>Cloudflare</td><td class="high">HIGH</td><td>Active Federal Investigation</td>
+            </tr>
+            <tr>
+                <td>Pima County Sheriff</td><td>AZ</td><td>1.0M</td><td>4</td><td>Cloudflare</td><td class="medium">MEDIUM</td><td>FBI Forfeiture Probe</td>
+            </tr>
+            <tr>
+                <td>Los Angeles County Sheriff</td><td>CA</td><td>10.0M</td><td>13</td><td>NONE</td><td class="critical">CRITICAL</td><td>MySQL/RDP Exposed</td>
+            </tr>
+            <tr>
+                <td>Shelby County Sheriff</td><td>TN</td><td>930K</td><td>2</td><td>NONE</td><td class="high">HIGH</td><td>Same IP as RICO City</td>
+            </tr>
+            <tr>
+                <td>HB Police Department</td><td>CA</td><td>200K</td><td>142</td><td>Cloudflare</td><td class="medium">MEDIUM</td><td>400 Dehashed Breach Hits</td>
+            </tr>
+            <tr>
+                <td>Las Vegas Metro Police</td><td>NV</td><td>2.3M</td><td>1</td><td>Cloudflare</td><td class="low">LOW</td><td>Unknown</td>
+            </tr>
+            <tr>
+                <td>Anaheim Police</td><td>CA</td><td>350K</td><td>2</td><td>Cloudflare</td><td class="high">HIGH</td><td>Same IP as Shelby County</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("riskTable");
+            switching = true;
+            dir = "asc";
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+                    if (dir == "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) { shouldSwitch = true; break; }
+                    } else if (dir == "desc") {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) { shouldSwitch = true; break; }
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount ++;
+                } else {
+                    if (switchcount == 0 && dir == "asc") { dir = "desc"; switching = true; }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

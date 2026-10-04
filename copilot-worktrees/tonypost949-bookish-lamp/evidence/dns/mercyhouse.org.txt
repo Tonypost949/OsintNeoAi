@@ -1,0 +1,92 @@
+=== DNS RECORDS: mercyhouse.org ===
+=== Generated: 2026-07-24 21:37:47 ===
+
+--- A RECORDS ---
+nslookup : Non-authoritative answer:
+At line:20 char:16
++     try { $a = nslookup -type=A $domain 8.8.8.8 2>&1 | Out-String; $o ...
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    mercyhouse.org
+Address:  34.174.238.198
+
+
+--- MX RECORDS ---
+nslookup : Non-authoritative answer:
+At line:24 char:17
++     try { $mx = nslookup -type=MX $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+mercyhouse.org	MX preference = 30, mail exchanger = mx30.antispam.mailspamprotection.com
+mercyhouse.org	MX preference = 20, mail exchanger = mx20.antispam.mailspamprotection.com
+mercyhouse.org	MX preference = 10, mail exchanger = mx10.antispam.mailspamprotection.com
+
+--- NS RECORDS ---
+nslookup : Non-authoritative answer:
+At line:28 char:17
++     try { $ns = nslookup -type=NS $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+mercyhouse.org	nameserver = ns2.siteground.net
+mercyhouse.org	nameserver = ns1.siteground.net
+
+--- TXT RECORDS ---
+nslookup : Non-authoritative answer:
+At line:32 char:18
++     try { $txt = nslookup -type=TXT $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+mercyhouse.org	text =
+
+	"v=spf1 34.174.120.147  include:sendgrid.net include:mercyhouse.org.spf.auto.dnssmarthost.net ~all"
+mercyhouse.org	text =
+
+	"v=DMARC1; p=none"
+mercyhouse.org	text =
+
+	"MS=ms12937972"
+
+--- SOA RECORD ---
+nslookup : Non-authoritative answer:
+At line:36 char:18
++     try { $soa = nslookup -type=SOA $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+mercyhouse.org
+	primary name server = ns1.siteground.net
+	responsible mail addr = dnsadmin.us162.siteground.us
+	serial  = 2020052873
+	refresh = 86400 (1 day)
+	retry   = 7200 (2 hours)
+	expire  = 3600000 (41 days 16 hours)
+	default TTL = 86400 (1 day)

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RICO IP Cluster Map</title>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style type="text/css">
+        #mynetwork { width: 100%; height: 800px; background-color: #0b0e14; border: 1px solid #1f2a3a; }
+        body { background-color: #0b0e14; color: #c8d0dc; font-family: sans-serif; }
+        h1 { color: #7ab7ff; padding-left: 20px; }
+        .legend { padding: 20px; display: flex; gap: 15px; flex-wrap: wrap; }
+        .legend-item { display: flex; align-items: center; gap: 5px; }
+        .box { width: 15px; height: 15px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>RICO Infrastructure IP Cluster Map</h1>
+    <div class="legend">
+        <div class="legend-item"><div class="box" style="background-color: #ff4444;"></div> RICO Shell</div>
+        <div class="legend-item"><div class="box" style="background-color: #ffa500;"></div> Liberty Entity</div>
+        <div class="legend-item"><div class="box" style="background-color: #44ff44;"></div> Carlisle/AP</div>
+        <div class="legend-item"><div class="box" style="background-color: #ffff44;"></div> Nonprofit Front</div>
+        <div class="legend-item"><div class="box" style="background-color: #4444ff;"></div> Govt/Sheriff</div>
+        <div class="legend-item"><div class="box" style="background-color: #888888;"></div> Other</div>
+        <div class="legend-item"><div class="box" style="background-color: #ffffff; border: 1px dashed #000;"></div> IP Address</div>
+    </div>
+    <div id="mynetwork"></div>
+    <script type="text/javascript">
+        const nodes = new vis.DataSet([
+            // IP Nodes
+            {id: 'ip1', label: '141.193.213.10', shape: 'diamond', color: '#ffffff'},
+            {id: 'ip2', label: '141.193.213.21', shape: 'diamond', color: '#ffffff'},
+            {id: 'ip3', label: '3.33.130.190', shape: 'diamond', color: '#ffffff'},
+            {id: 'ip4', label: '76.223.54.146', shape: 'diamond', color: '#ffffff'},
+            {id: 'ip5', label: '89.106.200.153', shape: 'diamond', color: '#ffffff'},
+            {id: 'ip6', label: '206.188.193.48', shape: 'diamond', color: '#ffffff'},
+            {id: 'ip7', label: '206.188.193.178', shape: 'diamond', color: '#ffffff'},
+            {id: 'ip8', label: '135.84.124.41', shape: 'diamond', color: '#ffffff'},
+            
+            // Domain Nodes
+            {id: 1, label: 'libertyseniorliving.com', color: '#ffa500'},
+            {id: 2, label: 'l2tmedia.com', color: '#ff4444'},
+            {id: 3, label: 'cookcountysheriff.org', color: '#4444ff'},
+            {id: 4, label: 'carlisledev.com', color: '#44ff44'},
+            {id: 5, label: 'atlanticpacificcommunities.com', color: '#44ff44'},
+            {id: 6, label: 'illuminationfoundation.org', color: '#ffff44'},
+            {id: 7, label: 'libertyhomes.org', color: '#ffa500'},
+            {id: 8, label: 'libertycare.com', color: '#ffa500'},
+            {id: 9, label: 'libertycare.org', color: '#ffa500'},
+            {id: 10, label: 'rbabuilders.com', color: '#ff4444'},
+            {id: 11, label: 'shelbycountytn.gov', color: '#4444ff'},
+            {id: 12, label: 'anaheim.net', color: '#4444ff'},
+            {id: 13, label: 'stewartindustries.com', color: '#ff4444'},
+            {id: 14, label: 'carlisledevelopment.com', color: '#44ff44'},
+            {id: 15, label: 'costamesa.gov', color: '#4444ff'},
+            {id: 16, label: 'fullerton.ca.us', color: '#4444ff'},
+            {id: 17, label: 'orangeca.gov', color: '#4444ff'},
+            {id: 18, label: 'lvmpd.com', color: '#4444ff'},
+            {id: 19, label: 'pimasheriff.org', color: '#4444ff'},
+            {id: 20, label: 'hbpd.org', color: '#4444ff'},
+            {id: 21, label: 'lacounty.gov', color: '#4444ff'}
+        ]);
+
+        const edges = new vis.DataSet([
+            {from: 'ip1', to: 1},
+            {from: 'ip2', to: 2},
+            {from: 'ip2', to: 3},
+            {from: 'ip1', to: 'ip2', label: 'same /24', dashes: true},
+            {from: 'ip3', to: 4},
+            {from: 'ip3', to: 5},
+            {from: 'ip3', to: 6},
+            {from: 'ip4', to: 7},
+            {from: 'ip4', to: 8},
+            {from: 'ip4', to: 9},
+            {from: 'ip4', to: 10},
+            {from: 'ip5', to: 11},
+            {from: 'ip5', to: 12},
+            {from: 'ip6', to: 13},
+            {from: 'ip7', to: 14},
+            {from: 'ip8', to: 15},
+            {from: 'ip8', to: 16},
+            {from: 'ip8', to: 17},
+            {from: 'ip8', to: 18}
+        ]);
+
+        const container = document.getElementById('mynetwork');
+        const data = { nodes: nodes, edges: edges };
+        const options = {
+            nodes: { font: { color: '#ffffff' }, borderWidth: 2 },
+            edges: { color: '#4a5a6e', font: { size: 10, color: '#8895aa' } },
+            physics: { enabled: true, stabilization: true }
+        };
+        const network = new vis.Network(container, data, options);
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+NP_ID,ORG_NAME,EIN,501C_STATUS,ROLE_IN_MATTER,ADDRESS,KEY_PERSONNEL,FUNDING_SOURCES,RED_FLAGS,SOURCE_DOC,SOURCE_PAGE,QUOTE_SNIPPET,NOTES
+"NONPROFITS: One row per nonprofit/PAC entity. NP_ID links to MASTER and all other tabs. RED_FLAGS: document anomalies for investigative follow-up. EIN: verify via IRS Form 990 database. To refresh: add row, assign next NP-### ID, update MASTER tab."
+NP-001,Huntington Beach Community Foundation,Unknown,501(c)(3),Grant conduit; potential money laundering vehicle,Huntington Beach CA,Unknown,City of HB; HUD,Co-mingled funds; no audit trail,Whistleblower Dossier,§6,Foundation received city grant funds and disbursed to vendors without competitive bid...
+NP-002,Surf City Navigation Center Inc,Unknown,501(c)(3),Operates toxic-site Navigator Center; grant recipient,"17631 Cameron Ln, Huntington Beach CA 92647",Unknown,HUD; City of HB; DHS,Located on Cr-VI contaminated site; concealed from residents,HBNC Toxic Site HTML,§Site,Navigation Center built atop former Navy contamination zone...
+NP-003,OC United,Unknown,501(c)(3),Subgrantee; RICO conduit,Orange County CA,Unknown,HUD,No public 990 located,Whistleblower Dossier,§6
+NP-004,Families Forward,Unknown,501(c)(3),Subgrantee,Irvine CA,Unknown,HUD,,Whistleblower Dossier,§6
+NP-005,American Family Housing,Unknown,501(c)(3),Subgrantee,Midway City CA,Unknown,HUD,,Whistleblower Dossier,§6
+NP-006,Orange County Community Housing Corp,Unknown,501(c)(3),Subgrantee,Santa Ana CA,Unknown,HUD,,Whistleblower Dossier,§6
+NP-007,Unknown PAC / 527 Entity,Unknown,527,Campaign finance vehicle; RICO node,Orange County CA,PER-026,Private donors,Unreported contributions,RICO Matrix,§5
+NP-008,Mercy House Living Centers,33-0315864,501(c)(3),Front organization operations,,Larry Haynes; Patti Long; Timothy Huynh; Mary Ellen Gross; Robyn Willis,Government Grants,"False federal filing (Part VI, Line 2); Vendor self-dealing; Real estate conflicts",meli-document-mercy-house-board-conflicts-of-interest (2).docx,,,Primary front organization for the political core of the RICO matrix

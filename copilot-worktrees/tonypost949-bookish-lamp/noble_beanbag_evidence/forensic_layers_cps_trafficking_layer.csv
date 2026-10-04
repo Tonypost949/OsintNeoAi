@@ -1,0 +1,13 @@
+layer,entity,role,amount,children_affected,status,source,lat,lng
+CPS_REMOVAL,OC SSA Dependency Court,Removal authority 30K/yr visits,0.0,30000,ACTIVE,CA DSS,33.748,-117.87
+CPS_REMOVAL,Title IV-E Federal Billing,Foster care reimbursement per removal,300000000.0,30000,ACTIVE,HHS/ACF,38.892,-77.025
+CPS_REMOVAL,David Yamasaki,LA dependency court engineered throughput,0.0,30000,CONFIRMED,Court dockets,34.053,-118.25
+CPS_REMOVAL,Carmen Luege,Court processing placement orders,0.0,30000,CONFIRMED,Court dockets,33.748,-117.87
+CHILD_DEATH,HBNC Toxic Site,Cr-VI 49x EPA limit Disputed Closure,0.0,4,CONFIRMED 4 deaths,GeoTracker T10000018579,33.6775,-118.0012
+CHILD_DEATH,Mercy House Living Centers,HBNC operator CMS-992 billing,51000000.0,279,CONFIRMED 279 emergencies,Audit FY2024,33.677,-118.0015
+SHELTER_PLACEMENT,211 OC / OC United Way,HMIS referral pipeline into HBNC,0.0,700,GATEKEEPER,HUD COC CA-600,33.685,-117.89
+SHELTER_PLACEMENT,Surf City Navigation Center,Shelter placement endpoint,155000000.0,700,TOXIC SITE,COC CA-600,33.6775,-118.0012
+TRAFFICKING,CARES Act COVID Emergency,No-audit emergency funding window,512000000.0,29300,EXPLOITED,HHS/CMS COVID waivers,38.894,-77.04
+TRAFFICKING,CPS-PIT Gap OC,35K visits 700 counted 29300 invisible,0.0,29300,UNCOUNTED,CA DSS vs HUD PIT,33.685,-118.0
+ICWA_FRAUD,ICWA-IIM Trust Fraud,Native child welfare trust diversion,0.0,0,INVESTIGATING,DOI/BIA,38.895,-77.042
+COVID_FRAUD,Peter Pham VAS,15-count federal indictment fugitive,0.0,0,FUGITIVE,USDC CD CA,33.748,-117.87

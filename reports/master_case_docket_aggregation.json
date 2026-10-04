@@ -1,0 +1,27 @@
+{
+  "title": "Master Case Docket & Compliance Aggregation",
+  "case_docket": "8:2026cv00348 (Jesse Knabb v. City of Huntington Beach et al.)",
+  "defendants": [
+    "City of Huntington Beach",
+    "EEC Environmental",
+    "Mercy House Living Centers, Inc",
+    "Mitsuru Yamada",
+    "County of Orange",
+    "Orange County Health Care Agency (OCHCA)",
+    "Eric Lindberg",
+    "Macro-Z-Technology Co"
+  ],
+  "cause_of_action": "42 U.S.C. \u00a7 6901 Environmental Cleanup Expenses",
+  "core_findings": [
+    {
+      "source": "Compliance and Legal-Readiness Review.md",
+      "finding": "PW# 20-020 / L# 20-128 plan for 17631 Cameron Lane has an engineer expiration date of 6/30/2022 and leaves BLDG. PMT # and PW# fields marked TBD.",
+      "implication": "High verification risk. Construction proceeded without finalized grading/building permits or modernized CASQA Stormwater compliance."
+    },
+    {
+      "source": "dockets.justia.com...md",
+      "finding": "Second Amended Complaint filed (#111); F.R.C.P. 15(a)(2) deficiencies noted regarding opposing party consent.",
+      "implication": "Active litigation targeting environmental cleanup expenses linked to the 17631 Cameron Ln property (Tract 405)."
+    }
+  ]
+}

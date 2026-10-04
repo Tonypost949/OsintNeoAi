@@ -1,0 +1,80 @@
+=== DNS RECORDS: anaheimpd.org ===
+=== Generated: 2026-07-24 21:36:42 ===
+
+--- A RECORDS ---
+nslookup : Non-authoritative answer:
+At line:20 char:16
++     try { $a = nslookup -type=A $domain 8.8.8.8 2>&1 | Out-String; $o ...
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    anaheimpd.org
+Address:  89.106.200.153
+
+
+--- MX RECORDS ---
+Server:  dns.google
+Address:  8.8.8.8
+
+anaheimpd.org
+	primary name server = NS41.WORLDNIC.COM
+	responsible mail addr = namehost.WORLDNIC.COM
+	serial  = 125101416
+	refresh = 10800 (3 hours)
+	retry   = 3600 (1 hour)
+	expire  = 604800 (7 days)
+	default TTL = 3600 (1 hour)
+
+--- NS RECORDS ---
+nslookup : Non-authoritative answer:
+At line:28 char:17
++     try { $ns = nslookup -type=NS $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+anaheimpd.org	nameserver = ns41.worldnic.com
+anaheimpd.org	nameserver = ns42.worldnic.com
+
+--- TXT RECORDS ---
+Server:  dns.google
+Address:  8.8.8.8
+
+anaheimpd.org
+	primary name server = NS41.WORLDNIC.COM
+	responsible mail addr = namehost.WORLDNIC.COM
+	serial  = 125101416
+	refresh = 10800 (3 hours)
+	retry   = 3600 (1 hour)
+	expire  = 604800 (7 days)
+	default TTL = 3600 (1 hour)
+
+--- SOA RECORD ---
+nslookup : Non-authoritative answer:
+At line:36 char:18
++     try { $soa = nslookup -type=SOA $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+anaheimpd.org
+	primary name server = NS41.WORLDNIC.COM
+	responsible mail addr = namehost.WORLDNIC.COM
+	serial  = 125101416
+	refresh = 10800 (3 hours)
+	retry   = 3600 (1 hour)
+	expire  = 604800 (7 days)
+	default TTL = 3600 (1 hour)

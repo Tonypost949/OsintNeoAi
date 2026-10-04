@@ -1,0 +1,83 @@
+=== DNS RECORDS: atlanticpacificcommunities.com ===
+=== Generated: 2026-07-24 21:36:49 ===
+
+--- A RECORDS ---
+nslookup : Non-authoritative answer:
+At line:20 char:16
++     try { $a = nslookup -type=A $domain 8.8.8.8 2>&1 | Out-String; $o ...
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    atlanticpacificcommunities.com
+Addresses:  15.197.148.33
+	  3.33.130.190
+
+
+--- MX RECORDS ---
+nslookup : Non-authoritative answer:
+At line:24 char:17
++     try { $mx = nslookup -type=MX $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+atlanticpacificcommunities.com	MX preference = 10, mail exchanger = mailstore1.secureserver.net
+atlanticpacificcommunities.com	MX preference = 0, mail exchanger = smtp.secureserver.net
+
+--- NS RECORDS ---
+nslookup : Non-authoritative answer:
+At line:28 char:17
++     try { $ns = nslookup -type=NS $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+atlanticpacificcommunities.com	nameserver = ns11.domaincontrol.com
+atlanticpacificcommunities.com	nameserver = ns12.domaincontrol.com
+
+--- TXT RECORDS ---
+Server:  dns.google
+Address:  8.8.8.8
+
+atlanticpacificcommunities.com
+	primary name server = ns11.domaincontrol.com
+	responsible mail addr = dns.jomax.net
+	serial  = 2023091800
+	refresh = 28800 (8 hours)
+	retry   = 7200 (2 hours)
+	expire  = 604800 (7 days)
+	default TTL = 600 (10 mins)
+
+--- SOA RECORD ---
+nslookup : Non-authoritative answer:
+At line:36 char:18
++     try { $soa = nslookup -type=SOA $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+atlanticpacificcommunities.com
+	primary name server = ns11.domaincontrol.com
+	responsible mail addr = dns.jomax.net
+	serial  = 2023091800
+	refresh = 28800 (8 hours)
+	retry   = 7200 (2 hours)
+	expire  = 604800 (7 days)
+	default TTL = 600 (10 mins)

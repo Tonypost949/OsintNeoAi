@@ -1,0 +1,103 @@
+=== DNS RECORDS: shelbycountytn.gov ===
+=== Generated: 2026-07-24 21:37:55 ===
+
+--- A RECORDS ---
+nslookup : Non-authoritative answer:
+At line:20 char:16
++     try { $a = nslookup -type=A $domain 8.8.8.8 2>&1 | Out-String; $o ...
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    shelbycountytn.gov
+Address:  89.106.200.153
+
+
+--- MX RECORDS ---
+nslookup : Non-authoritative answer:
+At line:24 char:17
++     try { $mx = nslookup -type=MX $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+shelbycountytn.gov	MX preference = 10, mail exchanger = usb-smtp-inbound-2.mimecast.com
+shelbycountytn.gov	MX preference = 10, mail exchanger = usb-smtp-inbound-1.mimecast.com
+
+--- NS RECORDS ---
+nslookup : Non-authoritative answer:
+At line:28 char:17
++     try { $ns = nslookup -type=NS $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+shelbycountytn.gov	nameserver = raina.ns.cloudflare.com
+shelbycountytn.gov	nameserver = kellen.ns.cloudflare.com
+
+--- TXT RECORDS ---
+nslookup : Non-authoritative answer:
+At line:32 char:18
++     try { $txt = nslookup -type=TXT $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+shelbycountytn.gov	text =
+
+	"bw=vHYQ5uj6kuikgZ1QacAETJ8Rn7CQMU97AL0A8eMtkxit"
+shelbycountytn.gov	text =
+
+	"KkFlgesDu8othl2sJSq4B7UlKZjPVJpM6oU5emWlKZQerE4wLgwZEwK3Q5+eoxhm9zcvXl/3dnZ7SGe7nCSlXA=="
+shelbycountytn.gov	text =
+
+	"v=spf1 include:spf.shelbycountytn.gov -all"
+shelbycountytn.gov	text =
+
+	"MS=ms77889889"
+shelbycountytn.gov	text =
+
+	"nintex.636ac6d7404e266770a13a75"
+shelbycountytn.gov	text =
+
+	"logmein-verification-code=477f6370-de35-4e4d-bd5e-26067487e95f"
+shelbycountytn.gov	text =
+
+	"google-site-verification=uycMs6bg2kF-iIekJzDNqD27G9Dc_PPYunfLZFalOSw"
+
+--- SOA RECORD ---
+nslookup : Non-authoritative answer:
+At line:36 char:18
++     try { $soa = nslookup -type=SOA $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+shelbycountytn.gov
+	primary name server = kellen.ns.cloudflare.com
+	responsible mail addr = dns.cloudflare.com
+	serial  = 2409031934
+	refresh = 10000 (2 hours 46 mins 40 secs)
+	retry   = 2400 (40 mins)
+	expire  = 604800 (7 days)
+	default TTL = 1800 (30 mins)

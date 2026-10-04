@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sheriff Department Risk Matrix</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #090d16;
+      color: #f1f5f9;
+      padding: 24px;
+      margin: 0;
+    }
+    h1 {
+      font-size: 22px;
+      margin: 0 0 6px 0;
+    }
+    .subtitle {
+      color: #94a3b8;
+      font-size: 13px;
+      margin-bottom: 20px;
+      font-family: monospace;
+    }
+    .search-bar {
+      margin-bottom: 16px;
+      display: flex;
+      gap: 12px;
+    }
+    input {
+      padding: 9px 14px;
+      border-radius: 6px;
+      border: 1px solid #334155;
+      background: #0f172a;
+      color: #fff;
+      font-size: 13px;
+      width: 100%;
+      max-width: 400px;
+    }
+    input:focus {
+      outline: none;
+      border-color: #38bdf8;
+    }
+    .table-container {
+      overflow-x: auto;
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 13px;
+      min-width: 950px;
+    }
+    th, td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid #1e293b;
+    }
+    th {
+      background: #1e293b;
+      color: #38bdf8;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+    }
+    th:hover {
+      background: #273549;
+    }
+    tr:hover td {
+      background: #151e32;
+    }
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 11px;
+    }
+    .badge-critical { background: #7f1d1d; color: #fca5a5; }
+    .badge-high { background: #991b1b; color: #fecaca; }
+    .badge-med { background: #9a3412; color: #fdba74; }
+    .badge-low { background: #14532d; color: #86efac; }
+  </style>
+</head>
+<body>
+  <h1>Sheriff & Law Enforcement Risk Matrix</h1>
+  <div class="subtitle">Source: C:\migrate opencode\OSINTNEOAI\reports\RICO_NATIONWIDE_INFRASTRUCTURE_MATRIX.md</div>
+
+  <div class="search-bar">
+    <input type="text" id="filterInput" placeholder="Filter departments, states, risks..." onkeyup="filterTable()">
+  </div>
+
+  <div class="table-container">
+    <table id="riskTable">
+      <thead>
+        <tr>
+          <th onclick="sortTable(0)">Department Name ⇅</th>
+          <th onclick="sortTable(1)">State ⇅</th>
+          <th onclick="sortTable(2)">Population Served ⇅</th>
+          <th onclick="sortTable(3)">Open Ports ⇅</th>
+          <th onclick="sortTable(4)">WAF Status ⇅</th>
+          <th onclick="sortTable(5)">Infrastructure Risk ⇅</th>
+          <th onclick="sortTable(6)">Investigation Status ⇅</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight: 600;">Cook County Sheriff</td>
+          <td>Illinois</td>
+          <td>5.2M</td>
+          <td>4</td>
+          <td>Cloudflare WAF</td>
+          <td><span class="badge badge-high">HIGH</span> (Same /24 as RICO shell)</td>
+          <td>Active federal investigation</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 600;">Pima County Sheriff</td>
+          <td>Arizona</td>
+          <td>1.0M</td>
+          <td>4</td>
+          <td>Cloudflare WAF</td>
+          <td><span class="badge badge-med">MEDIUM</span> (FBI forfeiture probe)</td>
+          <td>FBI investigation, perjury allegations</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 600;">Los Angeles County Sheriff</td>
+          <td>California</td>
+          <td>10.0M</td>
+          <td>13</td>
+          <td>NO WAF</td>
+          <td><span class="badge badge-critical">CRITICAL</span> (MySQL, RDP, VNC, Elastic exposed)</td>
+          <td>Unknown</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 600;">Shelby County Sheriff</td>
+          <td>Tennessee</td>
+          <td>930K</td>
+          <td>2</td>
+          <td>NO WAF</td>
+          <td><span class="badge badge-high">HIGH</span> (Same IP as RICO city)</td>
+          <td>Unknown</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 600;">HB Police Department</td>
+          <td>California</td>
+          <td>200K</td>
+          <td>1</td>
+          <td>Cloudflare WAF</td>
+          <td><span class="badge badge-med">MEDIUM</span> (142 ports historical scan)</td>
+          <td>400 Dehashed breach listings</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 600;">Las Vegas Metro Police</td>
+          <td>Nevada</td>
+          <td>2.3M</td>
+          <td>1</td>
+          <td>Cloudflare WAF</td>
+          <td><span class="badge badge-low">LOW</span></td>
+          <td>Unknown</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 600;">Anaheim Police</td>
+          <td>California</td>
+          <td>350K</td>
+          <td>2</td>
+          <td>Cloudflare WAF</td>
+          <td><span class="badge badge-high">HIGH</span> (Same IP as shelbycountytn.gov)</td>
+          <td>Unknown</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function filterTable() {
+      const q = document.getElementById("filterInput").value.toLowerCase();
+      const rows = document.querySelectorAll("#riskTable tbody tr");
+      rows.forEach(r => {
+        r.style.display = r.innerText.toLowerCase().includes(q) ? "" : "none";
+      });
+    }
+
+    function sortTable(n) {
+      const table = document.getElementById("riskTable");
+      let switching = true, dir = "asc", switchcount = 0;
+      while (switching) {
+        switching = false;
+        let rows = table.rows;
+        for (let i = 1; i < (rows.length - 1); i++) {
+          let shouldSwitch = false;
+          let x = rows[i].getElementsByTagName("TD")[n];
+          let y = rows[i + 1].getElementsByTagName("TD")[n];
+          let cmpX = x.innerText.toLowerCase();
+          let cmpY = y.innerText.toLowerCase();
+          if (dir === "asc" ? cmpX > cmpY : cmpX < cmpY) {
+            shouldSwitch = true;
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount++;
+            break;
+          }
+        }
+        if (!switching && dir === "asc" && switchcount === 0) {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+  </script>
+</body>
+</html>

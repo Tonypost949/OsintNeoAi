@@ -1,0 +1,102 @@
+{
+  "timestamp": "2026-10-02T06:50:46",
+  "overall": "CRITICAL",
+  "results": {
+    "vm": [
+      {
+        "check": "osintneoai-vm (Azure)",
+        "kind": "ssh",
+        "status": "down",
+        "detail": "ssh: connect to host 20.246.121.30 port 22: Connection timed out",
+        "critical": true
+      },
+      {
+        "check": "osint-cloud (GCP)",
+        "kind": "ssh",
+        "status": "down",
+        "detail": "amd949609_gmail_com@34.170.10.222: Permission denied (publickey).",
+        "critical": false
+      },
+      {
+        "check": "Azure backend :10000 /health",
+        "kind": "http",
+        "status": "down",
+        "detail": "HTTP None in 10218ms \u2014 <urlopen error timed out>",
+        "url": "http://57.152.82.43:10000/health",
+        "critical": true
+      },
+      {
+        "check": "Firebase Live Hub",
+        "kind": "http",
+        "status": "up",
+        "detail": "HTTP 200 in 170ms",
+        "url": "https://blah-905ad.web.app",
+        "critical": false
+      },
+      {
+        "check": "GitHub Pages GIS",
+        "kind": "http",
+        "status": "warn",
+        "detail": "HTTP 404 in 276ms \u2014 Not Found",
+        "url": "https://tonypost949.github.io/OsintNeoAi/",
+        "critical": false
+      }
+    ],
+    "quota": [
+      {
+        "check": "GitHub API (core)",
+        "kind": "quota",
+        "status": "ok",
+        "detail": "5000/5000 remaining (100.0%), resets 07:50",
+        "pct_remaining": 100.0,
+        "critical": true
+      },
+      {
+        "check": "Gemini API",
+        "kind": "quota",
+        "status": "unknown",
+        "detail": "HTTP 404",
+        "pct_remaining": null,
+        "critical": true
+      },
+      {
+        "check": "GCP IN_USE_ADDRESSES",
+        "kind": "quota",
+        "status": "ok",
+        "detail": "usage 0 / limit 4 (100.0% free)",
+        "pct_remaining": 100.0,
+        "critical": false
+      },
+      {
+        "check": "Azure",
+        "kind": "quota",
+        "status": "not_auth",
+        "detail": "az not logged in (run: az login)",
+        "pct_remaining": null,
+        "critical": false
+      }
+    ],
+    "local": [
+      {
+        "check": "OSINTNeoAiCLI hub",
+        "kind": "local",
+        "status": "up",
+        "detail": "127.0.0.1:5052 listening",
+        "port": 5052,
+        "critical": false
+      },
+      {
+        "check": "Map server",
+        "kind": "local",
+        "status": "down",
+        "detail": "127.0.0.1:10000 not listening",
+        "port": 10000,
+        "critical": false
+      }
+    ]
+  },
+  "thresholds": {
+    "warn_pct": 20.0,
+    "critical_pct": 5.0
+  }
+}

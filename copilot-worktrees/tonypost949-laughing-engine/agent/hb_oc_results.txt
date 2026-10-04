@@ -1,0 +1,87 @@
+﻿.\venv\Scripts\python.exe : 
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+At line:1 char:1
++ .\venv\Scripts\python.exe investigate_hb_oc_targets.py 2>&1 | Out-Fil ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\HP\.ge...dpoint instead.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  warnings.warn(
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+  warnings.warn(
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+  warnings.warn(
+C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent\venv\Lib\site-packages\google\cloud\bigquery\table.py:2082: 
+UserWarning: BigQuery Storage module not found, fetch data with the REST endpoint instead.
+  warnings.warn(
+======================================================================
+TARGETED: What IS 88 Fair Dr in HB_LLCS?
+======================================================================
+
+--- HB_LLCS: Who uses 88 Fair Dr? ---
+Rows found: 7
+                             Owner1 Owner2 SiteAddress               MailAddress     MailCity        APN LastSeller LastSaleDate  LastSaleValue
+                      INCUPLACE LLC    NaN  88 FAIR DR               PO BOX 3772     ALHAMBRA 988-007-23          ,          NaN            NaN
+          ADT SECURITY SERVICES LLC    NaN  88 FAIR DR           475 N MULLER ST      ANAHEIM 988-006-96          ,          NaN            NaN
+                 RM ART DESIGNS LLC    NaN  88 FAIR DR   12531 HARBOR BLVD STE I GARDEN GROVE 988-073-44          ,          NaN            NaN
+CELLULAR SALES MANAGEMENT GROUP LLC    NaN  88 FAIR DR    9040 EXECUTIVE PARK DR    KNOXVILLE 988-073-21          ,          NaN            NaN
+                  TLG ADHESIVES LLC    NaN  88 FAIR DR 848 N RAINBOW BLVD # 3765    LAS VEGAS 988-073-52          ,          NaN            NaN
+           CREATIVE BABE MARKET LLC    NaN  88 FAIR DR         15015 FLALLON AVE      NORWALK 988-073-26          ,          NaN            NaN
+                 HSE HOLDINGS 6 LLC    NaN  88 FAIR DR 6901 JERICHO TPKE STE 250      SYOSSET 988-073-32          ,          NaN            NaN
+
+--- BRIDGE TABLE: All rows with 88 Fair Dr ---
+                        entity_name property_address property_mail_city  ppp_total_amount  ppp_loan_count ppp_borrower_city ppp_borrower_state
+CELLULAR SALES MANAGEMENT GROUP LLC       88 FAIR DR          KNOXVILLE          588619.0               2    MARINA DEL REY                 CA
+                      INCUPLACE LLC       88 FAIR DR           ALHAMBRA          588619.0               2    MARINA DEL REY                 CA
+          ADT SECURITY SERVICES LLC       88 FAIR DR            ANAHEIM          588619.0               2    MARINA DEL REY                 CA
+           CREATIVE BABE MARKET LLC       88 FAIR DR            NORWALK          588619.0               2    MARINA DEL REY                 CA
+                 RM ART DESIGNS LLC       88 FAIR DR       GARDEN GROVE          588619.0               2    MARINA DEL REY                 CA
+                 HSE HOLDINGS 6 LLC       88 FAIR DR            SYOSSET          588619.0               2    MARINA DEL REY                 CA
+                  TLG ADHESIVES LLC       88 FAIR DR          LAS VEGAS          588619.0               2    MARINA DEL REY                 CA
+
+--- REAL RED FLAGS: HB entities with out-of-state mail + PPP ---
+                entity_name        property_address property_mail_city ppp_state_array ppp_borrower_state  ppp_total  forgiven  ppp_loan_count  sale_value  is_zero_dollar_transfer  is_post_ppp_property_acquisition  is_multi_state_ppp
+     STEWART INDUSTRIES LLC         3311 BOUNTY CIR         SEAL BEACH              MI                 MI  1128328.0 1137911.0               2         0.0                     True                              True               False
+            TRIUMVIRATE LLC     21951 BROOKHURST ST    FOUNTAIN VALLEY              AK                 AK   852740.0  859751.0               1   2800000.0                    False                              True               False
+                  LAZER LLC          7782 RONALD DR              INDIO              NJ                 NJ   600000.0       NaN               1         0.0                     True                             False               False
+                     HB LLC         9472 RAMBLER DR            EDMONDS          RI, CA                 RI   444400.0  448372.0               3   1127000.0                    False                             False                True
+          THE LE FAMILY LLC       16752 JEFFREY CIR             CORONA              TX                 TX   366700.0  371326.0               2         0.0                     True                             False               False
+                    DRT LLC      16862 CORAL CAY LN      NEWPORT BEACH              OR                 OR   357716.0  362048.0               1         0.0                     True                             False               False
+        DBS-ENTERPRISES LLC    2881 COAST CIR APT A          LAS VEGAS          AK, CA                 AK   237189.0  106246.0               3   1780000.0                    False                              True                True
+         FIRST HIGHLAND LLC 8171 COBBLESTONE LN # 4        WESTMINSTER              FL                 FL   205800.0  207040.0               1         0.0                     True                             False               False
+     DEVPRI HOSPITALITY LLC 16561 PACIFIC COAST HWY       SUNSET BEACH              CA                 CA   115000.0  116052.0               2         0.0                     True                              <NA>               False
+     DEVPRI HOSPITALITY LLC 16561 PACIFIC COAST HWY       SUNSET BEACH              CA                 CA   115000.0  116052.0               2         0.0                     True                              <NA>               False
+                  A & D LLC           5821 VIEW CIR    FOUNTAIN VALLEY              AZ                 AZ    55324.0   55607.0               1         0.0                     True                              True               False
+         WFS PROPERTIES LLC             212 15TH ST               BREA              CA                 CA    54417.0   54912.0               1   3850000.0                    False                              True               False
+       RANCHO LA SIESTA LLC        18194 BUSHARD ST    FOUNTAIN VALLEY              CA                 CA    45000.0   45366.0               1         0.0                     True                             False               False
+CROWN WEALTH PROPERTIES LLC     2900 BRISTOL ST # 1         COSTA MESA              CA                 CA    43190.0   43676.0               1         0.0                     True                             False               False
+       SAMPSON VENTURES LLC        17682 SAMPSON LN           HESPERIA              AZ                 AZ    32690.0   32934.0               2         0.0                     True                              True               False
+        JEK INVESTMENTS LLC        1325 DELAWARE ST         COSTA MESA              AZ                 AZ    26907.0   27222.0               1         0.0                     True                              <NA>               False
+                    DRT LLC      16862 CORAL CAY LN      NEWPORT BEACH              AZ                 AZ    24094.0   24247.0               1         0.0                     True                             False               False
+        DRT INVESTMENTS LLC        19900 BEACH BLVD      NEWPORT BEACH              AZ                 AZ    24094.0   24247.0               1         0.0                     True                             False               False
+        DRT INVESTMENTS LLC        19900 BEACH BLVD      NEWPORT BEACH              AZ                 AZ    24094.0   24247.0               1         0.0                     True                             False               False
+        SMD INVESTMENTS LLC     1654 IOWA ST UNIT C       GARDEN GROVE              AL                 AL    21700.0   21909.0               1    510000.0                    False                              True               False
+                    JBH LLC      711 W 17TH ST # 19       NORTH TUSTIN              AZ                 AZ    20607.0   20816.0               1         0.0                     True                             False               False
+      SUMMIT PROPERTIES LLC         2501 FLORIDA ST             ORANGE              AL                 AL    16340.0   16419.0               1   3100000.0                    False                              True               False
+
+--- RICO MATCHES in OC/HB area ---
+                      llc_name         property_address       mail_city  sale_value  ppp_loan_count  ppp_total  forgiven                     loan_locations
+        STEWART INDUSTRIES LLC          3311 BOUNTY CIR      SEAL BEACH         0.0               2  1128328.0 1137911.0 Battle Creek, MI; BATTLE CREEK, MI
+               TRIUMVIRATE LLC      21951 BROOKHURST ST FOUNTAIN VALLEY   2800000.0               1   852740.0  859751.0                      Anchorage, AK
+      PACE RECOVERY CENTER LLC              528 16TH ST      COSTA MESA   1400000.0               1   510549.0  515613.0                  NEWPORT BEACH, CA
+                       DRT LLC       16862 CORAL CAY LN   NEWPORT BEACH         0.0               1   357716.0  362048.0                        ONTARIO, OR
+COMPASSIONATE CARE HOSPICE LLC 17220 NEWHOPE ST STE 124 FOUNTAIN VALLEY    419000.0               1   279820.0  281637.0                FOUNTAIN VALLEY, CA
+COMPASSIONATE CARE HOSPICE LLC 17220 NEWHOPE ST STE 123 FOUNTAIN VALLEY    419000.0               1   279820.0  281637.0                FOUNTAIN VALLEY, CA
+            RMI MANAGEMENT LLC          17191 KAMPEN LN   NEWPORT BEACH    620000.0               1   217702.0  220601.0                       LONGVIEW, TX
+            FIRST HIGHLAND LLC  8171 COBBLESTONE LN # 4     WESTMINSTER         0.0               1   205800.0  207040.0                     Windermere, FL
+ NEWPORT BEACH GOLF COURSE LLC      119-200 IRVINE BLVD   NEWPORT BEACH         NaN               1   115400.0  116402.0                  NEWPORT BEACH, CA
+                     A & D LLC            5821 VIEW CIR FOUNTAIN VALLEY         0.0               1    55324.0   55607.0                        Phoenix, AZ
+          RANCHO LA SIESTA LLC         18194 BUSHARD ST FOUNTAIN VALLEY         0.0               1    45000.0   45366.0                Fountain Valley, CA
+   CROWN WEALTH PROPERTIES LLC      2900 BRISTOL ST # 1      COSTA MESA         0.0               1    43190.0   43676.0                     COSTA MESA, CA
+           JEK INVESTMENTS LLC         1325 DELAWARE ST      COSTA MESA         0.0               1    26907.0   27222.0                        Phoenix, AZ
+           DRT INVESTMENTS LLC       16862 CORAL CAY LN   NEWPORT BEACH         NaN               1    24094.0   24247.0                        Phoenix, AZ
+           DRT INVESTMENTS LLC         19900 BEACH BLVD   NEWPORT BEACH         0.0               1    24094.0   24247.0                        Phoenix, AZ
+           SMD INVESTMENTS LLC      1654 IOWA ST UNIT C    GARDEN GROVE    510000.0               1    21700.0   21909.0                     Cottondale, AL

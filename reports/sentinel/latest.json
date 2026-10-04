@@ -1,0 +1,110 @@
+{
+  "timestamp": "2026-10-03T14:19:14",
+  "overall": "CRITICAL",
+  "results": {
+    "vm": [
+      {
+        "check": "osintneoai-vm (Azure)",
+        "kind": "ssh",
+        "status": "down",
+        "detail": "ssh: connect to host 20.246.121.30 port 22: Connection timed out",
+        "critical": true
+      },
+      {
+        "check": "osint-cloud (GCP)",
+        "kind": "ssh",
+        "status": "up",
+        "detail": "21:18:51 up 21 min,  0 user,  load average: 0.01, 0.03, 0.05",
+        "critical": false
+      },
+      {
+        "check": "Azure backend :10000 /health",
+        "kind": "http",
+        "status": "down",
+        "detail": "HTTP None in 10114ms \u2014 <urlopen error timed out>",
+        "url": "http://57.152.82.43:10000/health",
+        "critical": true
+      },
+      {
+        "check": "Firebase Live Hub",
+        "kind": "http",
+        "status": "up",
+        "detail": "HTTP 200 in 269ms",
+        "url": "https://blah-905ad.web.app",
+        "critical": false
+      },
+      {
+        "check": "GitHub Pages GIS (osintneoai.me)",
+        "kind": "http",
+        "status": "up",
+        "detail": "HTTP 200 in 197ms",
+        "url": "http://osintneoai.me/OsintNeoAi/",
+        "critical": false
+      }
+    ],
+    "quota": [
+      {
+        "check": "GitHub API (core)",
+        "kind": "quota",
+        "status": "ok",
+        "detail": "4998/5000 remaining (100.0%), resets 15:13",
+        "pct_remaining": 100.0,
+        "critical": true
+      },
+      {
+        "check": "Gemini API",
+        "kind": "quota",
+        "status": "critical",
+        "detail": "402 PAYMENT REQUIRED \u2014 project has no Gemini quota/billing enabled",
+        "pct_remaining": 0.0,
+        "critical": true
+      },
+      {
+        "check": "GCP IN_USE_ADDRESSES",
+        "kind": "quota",
+        "status": "ok",
+        "detail": "usage 0 / limit 4 (100.0% free)",
+        "pct_remaining": 100.0,
+        "critical": false
+      },
+      {
+        "check": "Azure account",
+        "kind": "quota",
+        "status": "ok",
+        "detail": "logged in: Azure for Students",
+        "pct_remaining": null,
+        "critical": false
+      },
+      {
+        "check": "Azure VMs",
+        "kind": "quota",
+        "status": "warn",
+        "detail": "2 VM(s): no public IPs",
+        "pct_remaining": null,
+        "critical": false
+      }
+    ],
+    "local": [
+      {
+        "check": "OSINTNeoAiCLI hub",
+        "kind": "local",
+        "status": "up",
+        "detail": "127.0.0.1:5052 listening",
+        "port": 5052,
+        "critical": false
+      },
+      {
+        "check": "Map server",
+        "kind": "local",
+        "status": "up",
+        "detail": "127.0.0.1:10000 listening",
+        "port": 10000,
+        "critical": false
+      }
+    ]
+  },
+  "thresholds": {
+    "warn_pct": 20.0,
+    "critical_pct": 5.0
+  }
+}

@@ -1,0 +1,9 @@
+PHONE_ID,PHONE_NUMBER,TYPE,ENTITY_IDS,VERIFIED,SOURCE_DOC,SOURCE_PAGE,NOTES
+"PHONES: One row per phone number of significance. PHONE_ID links to MASTER. ENTITY_IDS: semicolon-separated IDs of entities associated with this number. VERIFIED: Yes/No/Unverified. To refresh: add row, assign next PHONE-### ID, update MASTER tab."
+PHONE-001,(714) 536-5511,Office,GOV-001,Yes,Knabb v. HB RCRA Complaint,p.1,City of Huntington Beach main line
+PHONE-002,(714) 960-8825,Office,GOV-002,Yes,Whistleblower Dossier,§4,HBPD non-emergency line
+PHONE-003,(714) 834-3600,Office,GOV-003,Yes,Whistleblower Dossier,§7,Orange County DA
+PHONE-004,(213) 269-6000,Office,GOV-004,Yes,Whistleblower Dossier,§7,California AG office
+PHONE-005,(415) 947-8700,Office,GOV-011,Yes,Knabb v. HB RCRA Complaint,p.3,US EPA Region 9
+PHONE-006,(916) 445-2636,Office,GOV-012,Yes,Unclaimed Property PDFs,p.1,CA State Controller unclaimed property line
+PHONE-007,(310) 477-6565,Office,GOV-013,Yes,RICO Matrix,§7,FBI Los Angeles Field Office

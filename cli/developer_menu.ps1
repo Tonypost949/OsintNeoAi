@@ -4,63 +4,110 @@ function Show-DeveloperMenu {
     Write-Host "=========================================" -ForegroundColor Cyan
     Write-Host "     OSINTNEOAI DEVELOPER CLI LAUNCHER   " -ForegroundColor Yellow
     Write-Host "=========================================" -ForegroundColor Cyan
-    Write-Host "  MODERN TERMINAL (ZERO-LAG CLIPBOARD):" -ForegroundColor Green
-    Write-Host "   [0]  Launch Windows Terminal (ConPTY / Bracketed Paste)" -ForegroundColor Green
-    Write-Host ""
-    Write-Host "  PRIMARY AI & AGENT CLIs:" -ForegroundColor Yellow
-    Write-Host "   [1]  Antigravity (agy)"
-    Write-Host "   [2]  OpenCode Pentest (Kali WSL)"
-    Write-Host "   [3]  Gemini CLI (gemini)"
-    Write-Host "   [4]  OSINTNEOAI Master Intelligence (cli.py)"
-    Write-Host "   [5]  Standard OpenCode (opencode)"
-    Write-Host "   [6]  GitHub Copilot (gh copilot)"
-    Write-Host "   [7]  Ollama (ollama run qwen2.5-coder:7b)"
-    Write-Host ""
-    Write-Host "  DEVELOPMENT & RUNTIMES:" -ForegroundColor Yellow
-    Write-Host "   [8]  Python 3 Shell (python)"
-    Write-Host "   [9]  Git Status / CLI (git)"
-    Write-Host "   [10] Open in VS Code (code C:\OsintNeoAi)"
-    Write-Host "   [Q]  Quit / Drop to Developer Shell"
-    Write-Host "=========================================" -ForegroundColor Cyan
-    Write-Host "💡 Tip: Use Ctrl+V in Windows Terminal for instant zero-lag multi-line paste." -ForegroundColor DarkGray
-    Write-Host ""
 
-    $choice = Read-Host "Select a CLI tool to launch [0-10, Q]"
+    # Smart verification: Check if tool is actually installed before offering it
+    function Get-Status ($Cmd) { return [bool](Get-Command $Cmd -ErrorAction SilentlyContinue) }
+
+    $hasWT = Test-Path "$env:LOCALAPPDATA\Microsoft\WindowsApps\wt.exe"
+    $hasAgy = Get-Status "agy"
+    $hasGemini = Get-Status "gemini"
+    $hasOllama = Get-Status "ollama"
+    $hasGh = Get-Status "gh"
+    $hasPython = Get-Status "python"
+    $hasGit = Get-Status "git"
+    $hasCode = Get-Status "code"
+    $hasOpencode = Get-Status "opencode"
+    $hasCliPy = Test-Path "C:\OsintNeoAi\cli\cli.py"
+
+    function Print-Opt($Num, $Text, $IsActive) {
+        if ($IsActive) { Write-Host "   [$Num]`t$Text" -ForegroundColor Green }
+        else { Write-Host "   [$Num]`t$Text (Not Installed/Missing)" -ForegroundColor DarkGray }
+    }
+
+    Write-Host "`n  TERMINAL & WORKSPACE:" -ForegroundColor DarkYellow
+    Print-Opt "0" "Launch Windows Terminal (Bracketed Paste)" $hasWT
+    
+    Write-Host "`n  PRIMARY AI CLIs:" -ForegroundColor DarkYellow
+    Print-Opt "1" "Antigravity (agy)" $hasAgy
+    Print-Opt "2" "Gemini CLI" $hasGemini
+    Print-Opt "3" "Ollama (qwen2.5-coder:14b)" $hasOllama
+    Print-Opt "4" "GitHub Copilot CLI" $hasGh
+    
+    Write-Host "`n  OSINT & PENTEST:" -ForegroundColor DarkYellow
+    Print-Opt "5" "OpenCode Pentest (Kali WSL)" (Get-Status "wsl")
+    Print-Opt "6" "OSINT Master Intelligence (cli.py)" $hasCliPy
+    Print-Opt "7" "Standard OpenCode" $hasOpencode
+    
+    Write-Host "`n  DEVELOPMENT:" -ForegroundColor DarkYellow
+    Print-Opt "8" "Python 3 Shell" $hasPython
+    Print-Opt "9" "Git Status" $hasGit
+    Print-Opt "10" "Open in VS Code" $hasCode
+
+    Write-Host "`n  GOVERNANCE & RULES:" -ForegroundColor DarkMagenta
+    Write-Host "   [L]`tRead & Enforce Universal AI Laws + Tools" -ForegroundColor Magenta
+
+    Write-Host "`n   [Q]  Quit / Drop to shell" -ForegroundColor White
+    Write-Host "=========================================" -ForegroundColor Cyan
+
+    $choice = Read-Host "Select an option [0-10, L, Q]"
     Set-Location "C:\OsintNeoAi"
 
     switch ($choice.ToString().Trim()) {
-        "0" {
-            $wtExe = "$env:LOCALAPPDATA\Microsoft\WindowsApps\wt.exe"
-            if (Test-Path $wtExe) {
-                Start-Process $wtExe -ArgumentList "-p `"OsintNeoAi VS2022 + AGY`" -d `"C:\OsintNeoAi`""
-            } else {
-                Write-Host "Windows Terminal (wt.exe) not found." -ForegroundColor Red
+        "0" { if ($hasWT) { Start-Process "$env:LOCALAPPDATA\Microsoft\WindowsApps\wt.exe" -ArgumentList "-p `"OsintNeoAi VS2022 + AGY`" -d `"C:\OsintNeoAi`"" } }
+        "1" { if ($hasAgy) { agy $ScriptArgs } }
+        "2" { if ($hasGemini) { gemini $ScriptArgs } }
+        "3" { if ($hasOllama) { ollama run qwen2.5-coder:14b } }
+        "4" { if ($hasGh) { gh copilot suggest } }
+        "5" { 
+            if (Get-Status "wsl") {
+                $tool_prompt = Read-Host "Paste target prompt"
+                wsl -d kali-linux --cd /mnt/c/OsintNeoAi -- opencode-pentest "$tool_prompt" 
             }
         }
-        "1" { agy $ScriptArgs }
-        "2" {
-            $tool_prompt = Read-Host "Paste target prompt, code snippet, or tool request"
-            wsl -d kali-linux --cd /mnt/c/OsintNeoAi -- opencode-pentest "$tool_prompt"
+        "6" { if ($hasCliPy) { python C:\OsintNeoAi\cli\cli.py report; python C:\OsintNeoAi\cli\cli.py chat } }
+        "7" { if ($hasOpencode) { opencode $ScriptArgs } }
+        "8" { if ($hasPython) { python } }
+        "9" { if ($hasGit) { git status } }
+        "10" { if ($hasCode) { code "C:\OsintNeoAi" } }
+        "L" { 
+            Write-Host "`n--- UNIVERSAL AI LAWS ---" -ForegroundColor Cyan
+            Get-Content "C:\Users\Amd949609\Desktop\00_ailaws.md" | Out-Host
+            Write-Host "`n--- AGENTS RULES ---" -ForegroundColor Cyan
+            if (Test-Path "C:\OsintNeoAi\AGENTS.md") { Get-Content "C:\OsintNeoAi\AGENTS.md" | Out-Host }
+            Write-Host "`nPress any key to return..." -ForegroundColor Yellow
+            $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+            Show-DeveloperMenu
         }
-        "3" { gemini $ScriptArgs }
-        "4" {
-            python C:\OsintNeoAi\cli\cli.py report
-            python C:\OsintNeoAi\cli\cli.py chat
+        "l" { 
+            Write-Host "`n--- UNIVERSAL AI LAWS ---" -ForegroundColor Cyan
+            Get-Content "C:\Users\Amd949609\Desktop\00_ailaws.md" | Out-Host
+            Write-Host "`n--- AGENTS RULES ---" -ForegroundColor Cyan
+            if (Test-Path "C:\OsintNeoAi\AGENTS.md") { Get-Content "C:\OsintNeoAi\AGENTS.md" | Out-Host }
+            Write-Host "`nPress any key to return..." -ForegroundColor Yellow
+            $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+            Show-DeveloperMenu
         }
-        "5" { opencode $ScriptArgs }
-        "6" { gh copilot suggest }
-        "7" { ollama run qwen2.5-coder:7b }
-        "8" { python }
-        "9" { git status }
-        "10" { code "C:\OsintNeoAi" }
         "Q" { return }
         "q" { return }
-        Default { Write-Host "Invalid selection." -ForegroundColor Red }
+        Default { Write-Host "Invalid or missing tool selected." -ForegroundColor Red; Start-Sleep 1 }
+    }
+}
+
+# Fix for wt-dev to launch Windows Terminal with VS2022 DevShell AND the menu
+function Launch-WtDev {
+    $wtExe = "$env:LOCALAPPDATA\Microsoft\WindowsApps\wt.exe"
+    $devShell = "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1"
+    
+    if (Test-Path $wtExe) {
+        $cmd = "powershell.exe -NoProfile -NoExit -Command `"& '$devShell' -Arch amd64 -HostArch amd64; Set-Location 'C:\OsintNeoAi'; . 'C:\OsintNeoAi\cli\developer_menu.ps1'; Show-DeveloperMenu`""
+        Start-Process $wtExe -ArgumentList "-d `"C:\OsintNeoAi`" $cmd"
+    } else {
+        Write-Host "Windows Terminal not found!" -ForegroundColor Red
     }
 }
 
 Set-Alias -Name cli -Value Show-DeveloperMenu -Option AllScope -Force -ErrorAction SilentlyContinue
 Set-Alias -Name launch -Value Show-DeveloperMenu -Option AllScope -Force -ErrorAction SilentlyContinue
 Set-Alias -Name aicli -Value Show-DeveloperMenu -Option AllScope -Force -ErrorAction SilentlyContinue
-Set-Alias -Name wt-dev -Value "$env:LOCALAPPDATA\Microsoft\WindowsApps\wt.exe" -Option AllScope -Force -ErrorAction SilentlyContinue
+Set-Alias -Name wt-dev -Value Launch-WtDev -Option AllScope -Force -ErrorAction SilentlyContinue
 

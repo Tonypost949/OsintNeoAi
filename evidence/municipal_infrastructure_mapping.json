@@ -1,0 +1,44 @@
+{
+  "title": "Municipal Infrastructure & Exposure Mapping: Orange County Coastal Zone",
+  "date": "2026-09-28",
+  "correlations": [
+    {
+      "municipality": "Huntington Beach",
+      "endpoints": [
+        "gis.huntingtonbeachca.gov",
+        "cms3.revize.com/revize/huntingtonbeachca/"
+      ],
+      "infrastructure_baseline": "ArcGIS Enterprise 12.1 / Revize CMS",
+      "exposure_finding": "Unredacted Tract 405 acquisition records and Phase I ESA PDFs (17642 Beach Blvd) successfully harvested due to directory exposure.",
+      "associated_ips": [
+        "Huntington Beach Municipal Block"
+      ]
+    },
+    {
+      "municipality": "Newport Beach",
+      "endpoints": [
+        "newportbeachca.gov (104.18.10.121)",
+        "nbpd.org (70.167.157.164)"
+      ],
+      "infrastructure_baseline": "Cloudflare WAF (City) / Microsoft-IIS 10.0 (Police)",
+      "exposure_finding": "NBPD runs bare IIS 10.0 with NO WAF; ASP.NET_SessionId cookies exposed. Vulnerability mirrors Huntington Beach unredacted CMS exposure.",
+      "associated_ips": [
+        "104.18.10.121",
+        "104.18.11.121",
+        "70.167.157.164"
+      ]
+    },
+    {
+      "municipality": "Costa Mesa",
+      "endpoints": [
+        "costamesaca.gov (135.84.124.41)"
+      ],
+      "infrastructure_baseline": "Microsoft-IIS 10.0",
+      "exposure_finding": "Direct IIS 10.0 exposure; NO WAF layer. Matches South County municipal hosting vulnerability cluster.",
+      "associated_ips": [
+        "135.84.124.41"
+      ]
+    }
+  ],
+  "strategic_insight": "The South County coastal corridor exhibits a systematic failure to deploy Web Application Firewalls (WAF) across critical law enforcement and municipal data repositories, relying on raw Microsoft-IIS 10.0 and vulnerable CMS platforms (Revize). This structural weakness directly enabled the extraction of the Huntington Beach Tract 405 (HBNC) environmental concealment records."
+}

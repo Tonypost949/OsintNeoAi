@@ -1,0 +1,609 @@
+{
+    "summary": {
+        "total_urls_processed": 402253,
+        "unique_domains": 4645,
+        "total_flagged_admin_urls": 16585
+    },
+    "top_domains": [
+        {
+            "domain": "newportbeachca.gov",
+            "total_urls": 96587,
+            "flagged_admins": 8729,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "www.michigan.gov",
+            "total_urls": 23744,
+            "flagged_admins": 108,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "transparencia.pr.gov",
+            "total_urls": 22377,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.oregon.gov",
+            "total_urls": 19797,
+            "flagged_admins": 59,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "www.nbpd.org",
+            "total_urls": 14098,
+            "flagged_admins": 1752,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "www.edison.com",
+            "total_urls": 12502,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.newportbeachca.gov",
+            "total_urls": 11668,
+            "flagged_admins": 754,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "turkiye.gov.tr",
+            "total_urls": 9365,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.nd.gov",
+            "total_urls": 8687,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "ggchamber.com",
+            "total_urls": 8639,
+            "flagged_admins": 161,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "wa.gov",
+            "total_urls": 8335,
+            "flagged_admins": 2,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.huntingtonbeachcu.org",
+            "total_urls": 8188,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.nbchamber.com",
+            "total_urls": 7028,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.iowa.gov",
+            "total_urls": 4737,
+            "flagged_admins": 10,
+            "security_status": "FLAG"
+        },
+        {
+            "domain": "www.googletagmanager.com",
+            "total_urls": 4273,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "istanbul.pol.tr",
+            "total_urls": 3964,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.facebook.com",
+            "total_urls": 3668,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "portal.ct.gov",
+            "total_urls": 3630,
+            "flagged_admins": 8,
+            "security_status": "FLAG"
+        },
+        {
+            "domain": "www.ri.gov",
+            "total_urls": 3080,
+            "flagged_admins": 4,
+            "security_status": "FLAG"
+        },
+        {
+            "domain": "www.illinois.gov",
+            "total_urls": 2783,
+            "flagged_admins": 105,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "www.wisconsin.gov",
+            "total_urls": 2733,
+            "flagged_admins": 8,
+            "security_status": "FLAG"
+        },
+        {
+            "domain": "www.courts.oregon.gov",
+            "total_urls": 2606,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "twitter.com",
+            "total_urls": 2569,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "fonts.googleapis.com",
+            "total_urls": 2532,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "energized.edison.com",
+            "total_urls": 2327,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.youtube.com",
+            "total_urls": 2258,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "portal.ehawaii.gov",
+            "total_urls": 2048,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.linkedin.com",
+            "total_urls": 1879,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "newsroom.edison.com",
+            "total_urls": 1786,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "sos.oregon.gov",
+            "total_urls": 1654,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.wv.gov",
+            "total_urls": 1601,
+            "flagged_admins": 135,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "www.newportbeachlibrary.org",
+            "total_urls": 1585,
+            "flagged_admins": 322,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "www.instagram.com",
+            "total_urls": 1581,
+            "flagged_admins": 2,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.ca.gov",
+            "total_urls": 1461,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "cdn.e-devlet.gov.tr",
+            "total_urls": 1224,
+            "flagged_admins": 2,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.google.com",
+            "total_urls": 1198,
+            "flagged_admins": 5,
+            "security_status": "FLAG"
+        },
+        {
+            "domain": "www.gov.ca.gov",
+            "total_urls": 1162,
+            "flagged_admins": 25,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "www.w3.org",
+            "total_urls": 1039,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "orcdn.govstatus.site",
+            "total_urls": 1032,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.sce.com",
+            "total_urls": 999,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "dnr.wa.gov",
+            "total_urls": 981,
+            "flagged_admins": 100,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "static.cloudflareinsights.com",
+            "total_urls": 931,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.dcfs.louisiana.gov",
+            "total_urls": 931,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "house.louisiana.gov",
+            "total_urls": 925,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.wlf.louisiana.gov",
+            "total_urls": 892,
+            "flagged_admins": 4,
+            "security_status": "FLAG"
+        },
+        {
+            "domain": "cdnjs.cloudflare.com",
+            "total_urls": 884,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "data.michigan.gov",
+            "total_urls": 803,
+            "flagged_admins": 620,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "www.commerce.nd.gov",
+            "total_urls": 801,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "data.ct.gov",
+            "total_urls": 801,
+            "flagged_admins": 620,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "www.sos.wa.gov",
+            "total_urls": 782,
+            "flagged_admins": 47,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "engage.iowa.gov",
+            "total_urls": 781,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.louisiana.gov:443",
+            "total_urls": 764,
+            "flagged_admins": 16,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "directory.iowa.gov",
+            "total_urls": 706,
+            "flagged_admins": 2,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "newbraunfelschamber.growthzoneapp.com",
+            "total_urls": 701,
+            "flagged_admins": 133,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "docaccess.com",
+            "total_urls": 689,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "traveloregon.com",
+            "total_urls": 687,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "revenue.iowa.gov",
+            "total_urls": 670,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "cdn.jsdelivr.net",
+            "total_urls": 666,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.omb.nd.gov",
+            "total_urls": 649,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.deq.louisiana.gov",
+            "total_urls": 646,
+            "flagged_admins": 2,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.lsbme.la.gov",
+            "total_urls": 617,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "serviciosenlinea.adsef.pr.gov",
+            "total_urls": 593,
+            "flagged_admins": 12,
+            "security_status": "FLAG"
+        },
+        {
+            "domain": "doh.wa.gov",
+            "total_urls": 590,
+            "flagged_admins": 104,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "blogs.msdn.com",
+            "total_urls": 588,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "veterans.nv.gov",
+            "total_urls": 582,
+            "flagged_admins": 11,
+            "security_status": "FLAG"
+        },
+        {
+            "domain": "apps.newportbeachca.gov",
+            "total_urls": 573,
+            "flagged_admins": 524,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "instagram.com",
+            "total_urls": 571,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "dlt.ri.gov",
+            "total_urls": 551,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "apps.oregon.gov",
+            "total_urls": 545,
+            "flagged_admins": 29,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "pr.gov",
+            "total_urls": 533,
+            "flagged_admins": 36,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "onlineislemler.egm.gov.tr",
+            "total_urls": 528,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "hidot.hawaii.gov",
+            "total_urls": 498,
+            "flagged_admins": 70,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "digg.com",
+            "total_urls": 492,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "secure.delicious.com",
+            "total_urls": 490,
+            "flagged_admins": 490,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "www.myspace.com",
+            "total_urls": 490,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.stumbleupon.com",
+            "total_urls": 490,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.tumblr.com",
+            "total_urls": 490,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.reddit.com",
+            "total_urls": 490,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.nv.gov",
+            "total_urls": 470,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.turkiye.gov.tr",
+            "total_urls": 453,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "stateparks.oregon.gov",
+            "total_urls": 453,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "oregonstateparks.reserveamerica.com",
+            "total_urls": 449,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "products.office.com",
+            "total_urls": 448,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "accessibilityserver.org",
+            "total_urls": 443,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.courts.ri.gov",
+            "total_urls": 432,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "expresslane.dps.louisiana.gov",
+            "total_urls": 432,
+            "flagged_admins": 4,
+            "security_status": "FLAG"
+        },
+        {
+            "domain": "www.sos.ri.gov",
+            "total_urls": 409,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.parks.ca.gov",
+            "total_urls": 408,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.la.egov.com",
+            "total_urls": 393,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.egm.gov.tr",
+            "total_urls": 392,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "www.medialibrary.nd.gov",
+            "total_urls": 390,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "parks.wa.gov",
+            "total_urls": 381,
+            "flagged_admins": 104,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "governor.hawaii.gov",
+            "total_urls": 374,
+            "flagged_admins": 18,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "doit.illinois.gov",
+            "total_urls": 366,
+            "flagged_admins": 2,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "siteimproveanalytics.com",
+            "total_urls": 350,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "fonts.gstatic.com",
+            "total_urls": 332,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "dlnr.hawaii.gov",
+            "total_urls": 326,
+            "flagged_admins": 10,
+            "security_status": "FLAG"
+        },
+        {
+            "domain": "sos.wv.gov",
+            "total_urls": 314,
+            "flagged_admins": 37,
+            "security_status": "EXPOSED"
+        },
+        {
+            "domain": "code.jquery.com",
+            "total_urls": 304,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        },
+        {
+            "domain": "cdn.prod.website-files.com",
+            "total_urls": 304,
+            "flagged_admins": 0,
+            "security_status": "CLEAN"
+        }
+    ]
+}

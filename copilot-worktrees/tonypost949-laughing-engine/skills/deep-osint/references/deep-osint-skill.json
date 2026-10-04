@@ -1,0 +1,45 @@
+{
+  "skill": {
+    "name": "deep-osint",
+    "version": "1.0.0",
+    "phases": [
+      "Target Classification",
+      "Individual Investigation",
+      "Corporate Entity",
+      "Real Property",
+      "Crypto/Asset",
+      "Online Infrastructure",
+      "Counter-Recon",
+      "Nonprofit/Tax Fraud",
+      "Environmental Fraud"
+    ],
+    "source_tiers": {
+      "A": "Primary govt record",
+      "B": "Verified secondary",
+      "C": "Commercial aggregator",
+      "D": "Investigative lead only"
+    },
+    "output_formats": [
+      "Intelligence Dossier",
+      "Legal-Grade Evidence Package",
+      "RICO Matrix",
+      "Risk Rating",
+      "Jurisdiction Filing Map"
+    ],
+    "legal_anchors": [
+      "CFAA",
+      "CA Penal Code \u00a7502",
+      "ECPA",
+      "FCRA"
+    ],
+    "tool_reference": [
+      "PACER",
+      "DeHashed",
+      "Shodan",
+      "crt.sh",
+      "FINRA BrokerCheck",
+      "CIWQS",
+      "ProPublica 990s"
+    ]
+  }
+}

@@ -1,0 +1,178 @@
+=== DNS RECORDS: lacounty.gov ===
+=== Generated: 2026-07-24 21:37:13 ===
+
+--- A RECORDS ---
+nslookup : Non-authoritative answer:
+At line:20 char:16
++     try { $a = nslookup -type=A $domain 8.8.8.8 2>&1 | Out-String; $o ...
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    lacounty.gov
+Addresses:  45.60.151.78
+	  45.60.171.78
+
+
+--- MX RECORDS ---
+nslookup : Non-authoritative answer:
+At line:24 char:17
++     try { $mx = nslookup -type=MX $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+lacounty.gov	MX preference = 10, mail exchanger = mxb-002da105.gslb.pphosted.com
+lacounty.gov	MX preference = 10, mail exchanger = mxa-002da105.gslb.pphosted.com
+
+--- NS RECORDS ---
+nslookup : Non-authoritative answer:
+At line:28 char:17
++     try { $ns = nslookup -type=NS $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+lacounty.gov	nameserver = dci-ib-e01.isd.lacounty.gov
+lacounty.gov	nameserver = lrci-ib-e04.isd.lacounty.gov
+lacounty.gov	nameserver = lrci-ib-e03.isd.lacounty.gov
+lacounty.gov	nameserver = dci-ib-e02.isd.lacounty.gov
+
+--- TXT RECORDS ---
+nslookup : Non-authoritative answer:
+At line:32 char:18
++     try { $txt = nslookup -type=TXT $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+lacounty.gov	text =
+
+	"7c5e7npjg7hnhbveulf62v7mlq"
+lacounty.gov	text =
+
+	"v=spf1 include:spf1.lacounty.gov include:spf2.lacounty.gov include:spf3.lacounty.gov include:public.govdelivery.com -all"
+lacounty.gov	text =
+
+	"ca1k5lb7uvsu53kgqnmdij1irn"
+lacounty.gov	text =
+
+	"globalsign-domain-verification=3BF47C6BEE012B669CDA7F94B35A0F0B"
+lacounty.gov	text =
+
+	"globalsign-domain-verification=F89755881A99C6E89F3BFA710089ABDC"
+lacounty.gov	text =
+
+	"a2l3v2m98762g8oehjmp4qgi8r"
+lacounty.gov	text =
+
+	"l6c6fi1it9c83mfgqu57n34hte"
+lacounty.gov	text =
+
+	"globalsign-domain-verification=DE36FF66FE3CBAF41D4D4630B1E813C2"
+lacounty.gov	text =
+
+	"google-site-verification=9kN9Zk8w373BEUyZIU3L13w9CdFSa9tjbCRDJ8BE-K0"
+lacounty.gov	text =
+
+	"cq51vtki48g3gg89a8m3iqtahb"
+lacounty.gov	text =
+
+	"3kkt9dl1lm9dpqg0anohpkhd1p"
+lacounty.gov	text =
+
+	"globalsign-domain-verification=61610AE053F5E6DD54AFE43690953B3F"
+lacounty.gov	text =
+
+	"_globalsign-domain-verification=z_J4aZzeMftlFWu9iuiaJhUs_a6nQ5h4Fhn81D-aIa"
+lacounty.gov	text =
+
+	"globalsign-domain-verification=9643E80AE21E8133955704677CD4EF1B"
+lacounty.gov	text =
+
+	"MS=ms34739264"
+lacounty.gov	text =
+
+	"ZOOM_verify_UYvq32Qz4RZJreNeBIWWe2"
+lacounty.gov	text =
+
+	"5orcfkb0l1rhiq2te3foaipofd"
+lacounty.gov	text =
+
+	"dtm-domain-verification=EZK9JlcSDZpAcENe0c2PMTpXy5jPWFQS2aWcquRDIx0"
+lacounty.gov	text =
+
+	"safebreach-domain-verification=b37ac52f-ead0-423c-9290-49c2ed5c9950"
+lacounty.gov	text =
+
+	"gTtEyCVZDyP70oqPvofaFS9d6iu1J61TZvEQGVErfMZ9ral+f1t0+wIjwMfAv1X7DgRisqaTt9CsWtGl9XoQ5g=="
+lacounty.gov	text =
+
+	"globalsign-domain-verification=4e6d98b3e3ec0bf844d114976e50bec8"
+lacounty.gov	text =
+
+	"u91d4bv33oe357rd3dd2tfmlg7"
+lacounty.gov	text =
+
+	"smartsheet-site-validation=zNN3XlhKB6fuWuawWrjjsJUjOd-eL2IA"
+lacounty.gov	text =
+
+	"globalsign-domain-verification=F6AF70082288C457C8718D51E646E139"
+lacounty.gov	text =
+
+	"58cbp9k96fr4jgm59v28ksute6"
+lacounty.gov	text =
+
+	"vqqdr8qdqisnfe3r15m7n8menr"
+lacounty.gov	text =
+
+	"apple-domain-verification=glgsRV4NAcXO2Kpb"
+lacounty.gov	text =
+
+	"s93una03tlnvlp9nagpmae3md6"
+lacounty.gov	text =
+
+	"y68hJCZte7k9KiGVINQZlGXUVfsfEbrEwyu+RUVuI+lUzzuOd2bDA4py8I/fg2F1SPewbKE51ihkDInJh5yTVg=="
+lacounty.gov	text =
+
+	"globalsign-domain-verification=e397dfdea71940bfcc168554ba58c56b"
+lacounty.gov	text =
+
+	"google-site-verification=tuVDuiauWz_dg9qSfA2uJYR7-cmtn0N-TqqRYiGVeXo"
+
+--- SOA RECORD ---
+nslookup : Non-authoritative answer:
+At line:36 char:18
++     try { $soa = nslookup -type=SOA $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+lacounty.gov
+	primary name server = dc-ib-a01.isd.lacounty.gov
+	responsible mail addr = please_set_email.absolutely.nowhere
+	serial  = 2007048104
+	refresh = 10800 (3 hours)
+	retry   = 3600 (1 hour)
+	expire  = 2419200 (28 days)
+	default TTL = 60 (1 min)

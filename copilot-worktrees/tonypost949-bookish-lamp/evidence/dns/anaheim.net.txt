@@ -1,0 +1,124 @@
+=== DNS RECORDS: anaheim.net ===
+=== Generated: 2026-07-24 21:36:40 ===
+
+--- A RECORDS ---
+nslookup : Non-authoritative answer:
+At line:20 char:16
++     try { $a = nslookup -type=A $domain 8.8.8.8 2>&1 | Out-String; $o ...
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    anaheim.net
+Address:  89.106.200.153
+
+
+--- MX RECORDS ---
+nslookup : Non-authoritative answer:
+At line:24 char:17
++     try { $mx = nslookup -type=MX $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+anaheim.net	MX preference = 0, mail exchanger = anaheim-net.mail.protection.outlook.com
+
+--- NS RECORDS ---
+nslookup : Non-authoritative answer:
+At line:28 char:17
++     try { $ns = nslookup -type=NS $domain 8.8.8.8 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+anaheim.net	nameserver = ns14.worldnic.com
+anaheim.net	nameserver = ns13.worldnic.com
+
+--- TXT RECORDS ---
+nslookup : Non-authoritative answer:
+At line:32 char:18
++     try { $txt = nslookup -type=TXT $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+anaheim.net	text =
+
+	"apple-domain-verification=E4WwQwUb1v6NOxS6"
+anaheim.net	text =
+
+	"hibp-verify=dweb_k8ai8ehak962p8vvvm78861v"
+anaheim.net	text =
+
+	"cisco-ci-domain-verification=7f521761723aa1c104118fade2e5192f8aefbe14372a1376d8e9e763bf9396a0"
+anaheim.net	text =
+
+	"_6ghkl4f91up8nznd9c63s5uqvhca01d"
+anaheim.net	text =
+
+	"atlassian-domain-verification=O9IyMIEv4zDlGjvOj7Xm888CPg/CCfSaSg37sdOakBkC6cUGROcRVHjk5SdKpeig"
+anaheim.net	text =
+
+	"2hTFBzHkOovZkX53K63DHrRErXb3vPThyR3WXARcp4ZMOio6BgEGOOMNFOdyjv/n8ZlvMJNmJNCTHgVBNMspWg=="
+anaheim.net	text =
+
+	"v=spf1 ip4:74.118.32.5 ip4:74.118.32.214 ip4:74.118.32.215 ip4:74.118.32.223 ip4:74.118.32.224 ip4:206.187.10.239 ip4:54.236.128.150 ip4:54.236.109.30 ip4:38.103.3.36 ip4:216.128.251.155 ip4:12.26.111.251 include:spf.protection.outlook.com include:spf.mai"
+	"ljet.com include:spf.constantcontact.com include:_spf.kubra.com include:_spf-sg.accela.com include:servers.mcsv.net -all"
+anaheim.net	text =
+
+	"_xq5mmr1xqed98phf0dv9z9ohiriz8bh"
+anaheim.net	text =
+
+	"_i3iiy9l29nzd44lpxbp1oltbe03uc89"
+anaheim.net	text =
+
+	"google-site-verification=2BtkoqbAHcQ39cbohsT7QIEuHIVFWactDuII1wQ14Io"
+anaheim.net	text =
+
+	"_sjrdy3ffemckm6x5lw0f8mwpdot47br"
+anaheim.net	text =
+
+	"Aa7lGGfFVjiLV5xJkS25TaTXUV28HP+ol+KINRuiCh21Rux2cYfQirUv1C4aFtXUB4dnt3JOu66GzxZkzjKxbw=="
+anaheim.net	text =
+
+	"openai-domain-verification=dv-4ILwqu4WD7Kzg9BVBq1lEUAE"
+anaheim.net	text =
+
+	"hibp-verify=dweb_2jlo7b21ucyriyem69dfjnz7"
+
+--- SOA RECORD ---
+nslookup : Non-authoritative answer:
+At line:36 char:18
++     try { $soa = nslookup -type=SOA $domain 8.8.8.8 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  8.8.8.8
+
+anaheim.net
+	primary name server = NS13.WORLDNIC.COM
+	responsible mail addr = namehost.WORLDNIC.COM
+	serial  = 126060418
+	refresh = 10800 (3 hours)
+	retry   = 3600 (1 hour)
+	expire  = 604800 (7 days)
+	default TTL = 3600 (1 hour)
