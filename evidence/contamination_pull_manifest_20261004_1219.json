@@ -1,0 +1,48 @@
+{
+ "pulled_at": "2026-10-04T12:16:30.709921",
+ "entries": [
+  {
+   "name": "gis:host",
+   "url": "https://gis.huntingtonbeachca.gov/arcgis/rest/services/",
+   "status": "HOST_UNREACHABLE",
+   "detail": "TCP 443 connect failed; skipping GIS pulls"
+  },
+  {
+   "name": "geotracker:phase1-pdf",
+   "url": "https://documents.geotracker.waterboards.ca.gov/regulators/deliverable_documents/8203290641/T10000018579.20200318.Phase%20I%20Environmental%20Site%20Assessment.pdf",
+   "status": "OK",
+   "saved": "C:\\OsintNeoAi\\evidence\\geotracker_edr\\PhaseI_T10000018579_retry.pdf",
+   "detail": "38356491 bytes"
+  },
+  {
+   "name": "geotracker:profile",
+   "url": "profile_report?global_id=T10000018579",
+   "status": "ERROR",
+   "detail": "HTTP Error 403 while fetching https://geotracker.waterboards.ca.gov/profile_report?global_id=T10000018579 (Hint: this may be caused by the User-Agent 'OsintNeoAi-research/1.0 (rate-limited public-records research)'. Override it by setting the environment variable SCIENCE_SKILLS_USER_AGENT, e.g.: SCI"
+  },
+  {
+   "name": "geotracker:esi-upload",
+   "url": "esi/uploads/geo_report/8599347770/T10000018579.PDF",
+   "status": "ERROR",
+   "detail": "HTTP Error 403 while fetching https://geotracker.waterboards.ca.gov/esi/uploads/geo_report/8599347770/T10000018579.PDF (Hint: this may be caused by the User-Agent 'OsintNeoAi-research/1.0 (rate-limited public-records research)'. Override it by setting the environment variable SCIENCE_SKILLS_USER_AGE"
+  },
+  {
+   "name": "hwts:search",
+   "url": "search",
+   "status": "ERROR",
+   "detail": "HTTP Error 403 while fetching https://hwts.dtsc.ca.gov/search (Hint: this may be caused by the User-Agent 'OsintNeoAi-research/1.0 (rate-limited public-records research)'. Override it by setting the environment variable SCIENCE_SKILLS_USER_AGENT, e.g.: SCIENCE_SKILLS_USER_AGENT=\"<enter_your_custom_u"
+  },
+  {
+   "name": "rcra:facility-search",
+   "url": "rcrainfoprod/action/public/public-site/facility-search",
+   "status": "ERROR",
+   "detail": "Network error fetching https://rcrainfo.epa.gov/rcrainfoprod/action/public/public-site/facility-search: <urlopen error [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has"
+  },
+  {
+   "name": "hb:accela-home",
+   "url": "CitizenAccess/Cap/CapHome.aspx?TabName=Home&module=Building",
+   "status": "ERROR",
+   "detail": "Expecting value: line 3 column 1 (char 4)"
+  }
+ ]
+}
