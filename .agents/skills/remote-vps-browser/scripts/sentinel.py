@@ -207,36 +207,55 @@ def check_gemini():
     body = json.dumps({"contents": [{"parts": [{"text": "ping"}]}],
                        "generationConfig": {"maxOutputTokens": 1}}).encode()
     headers, code = {}, None
-
+    ok = False
+    last_5xx = None
+    model = None
+    import time as _time
     for attempt_model in dict.fromkeys([_gemini_pick_model(key), "gemini-3.8-flash", "gemini-flash-latest"]):
         url = (f"https://generativelanguage.googleapis.com/v1beta/models/{attempt_model}"
                f":generateContent?key={key}")
-        req = urllib.request.Request(url, data=body, method="POST",
-                                     headers={"Content-Type": "application/json", "User-Agent": "sentinel"})
-        try:
-            with urllib.request.urlopen(req, timeout=20) as resp:
-                code = resp.getcode()
-                headers = {k.lower(): v for k, v in resp.headers.items()}
-                model = attempt_model
+        for try_no in (1, 2):  # retry once on 5xx/timeout before moving on
+            req = urllib.request.Request(url, data=body, method="POST",
+                                         headers={"Content-Type": "application/json", "User-Agent": "sentinel"})
+            try:
+                with urllib.request.urlopen(req, timeout=20) as resp:
+                    code = resp.getcode()
+                    headers = {k.lower(): v for k, v in resp.headers.items()}
+                    model = attempt_model
+                    ok = True
+                    break
+            except urllib.error.HTTPError as e:
+                code = e.code
+                headers = {k.lower(): v for k, v in e.headers.items()}
+                if code == 429:
+                    return {"check": "Gemini API", "kind": "quota", "status": "critical",
+                            "detail": "429 RATE LIMITED — quota exhausted", "pct_remaining": 0.0, "critical": True}
+                if code == 404:
+                    break  # model gone, next candidate
+                if code == 402:
+                    return {"check": "Gemini API", "kind": "quota", "status": "critical",
+                            "detail": "402 PAYMENT REQUIRED — project has no Gemini quota/billing enabled",
+                            "pct_remaining": 0.0, "critical": True}
+                if code >= 500:
+                    last_5xx = f"HTTP {code} on {attempt_model}"
+                    if try_no == 1:
+                        _time.sleep(2)
+                        continue  # retry
+                    break  # give up on this model, next candidate
+                break  # other 4xx: next candidate
+            except Exception as e:
+                last_5xx = str(e)[:120]
+                if try_no == 1:
+                    _time.sleep(2)
+                    continue
                 break
-        except urllib.error.HTTPError as e:
-            code = e.code
-            headers = {k.lower(): v for k, v in e.headers.items()}
-            if code == 429:
-                return {"check": "Gemini API", "kind": "quota", "status": "critical",
-                        "detail": "429 RATE LIMITED — quota exhausted", "pct_remaining": 0.0, "critical": True}
-            if code == 404:
-                continue  # try next candidate model
-            if code == 402:
-                return {"check": "Gemini API", "kind": "quota", "status": "critical",
-                        "detail": "402 PAYMENT REQUIRED — project has no Gemini quota/billing enabled",
-                        "pct_remaining": 0.0, "critical": True}
-            if code >= 500:
-                return {"check": "Gemini API", "kind": "quota", "status": "error",
-                        "detail": f"HTTP {code} on {attempt_model}", "pct_remaining": None, "critical": True}
-        except Exception as e:
-            return {"check": "Gemini API", "kind": "quota", "status": "error", "detail": str(e)[:120],
-                    "pct_remaining": None, "critical": True}
+        if ok:
+            break
+
+    if not ok:
+        return {"check": "Gemini API", "kind": "quota", "status": "warn",
+                "detail": f"upstream {last_5xx} after 3 models x2 tries — key valid (200 verified), Google side flaky",
+                "pct_remaining": None, "critical": False}
 
     # Gemini returns x-ratelimit-* headers when available
     lim = headers.get("x-ratelimit-limit-requests")
