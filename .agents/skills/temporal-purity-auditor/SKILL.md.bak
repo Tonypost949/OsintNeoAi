@@ -1,0 +1,14 @@
+---
+name: temporal-purity-auditor
+description: Automatically segregates modern survey records, filters post-1949 structures, and corrects State Plane Zone VI mathematical projection offsets for all historical archival dossiers.
+---
+
+# Temporal & Title Purity Auditor
+
+This repeating tool executes automatically during any pre-1960 historical archival compilation to ensure data purity without requiring user input.
+
+## Automated Execution Directives:
+1. **Modern Survey Segregation:** Automatically detect and separate any modern (post-1960) survey records, placing them in an isolated "Modern Addendum" section.
+2. **Post-1949 Structure Filtering:** Strip or flag any structures built after 1949 to ensure pure historical baselines.
+3. **State Plane Zone VI Correction:** Automatically apply mathematical projection offset corrections for all California State Plane Zone VI cadastral data extracted from Orange County plats.
+4. **Zero Human Prompting:** Execute these checks silently and automatically on all dossier data prior to final output.
