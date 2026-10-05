@@ -38,12 +38,11 @@ REPORT_DIR = REPO_ROOT / "reports" / "sentinel"
 # ---------------------------------------------------------------------------
 
 SSH_TARGETS = [
-    {"name": "osintneoai-vm (Azure)", "alias": "osintneoai-vm", "critical": True},
-    {"name": "osint-cloud (GCP)", "alias": "osint-cloud", "critical": False},
+    {"name": "osint-free (GCP, always-free e2-micro)", "alias": "osint-cloud", "critical": True},
 ]
 
 HTTP_PROBES = [
-    {"name": "Azure backend :10000 /health", "url": "http://57.152.82.43:10000/health", "critical": True},
+    {"name": "GCP map server :10000 /health", "url": "http://34.133.245.250:10000/health", "critical": True},
     {"name": "Firebase Live Hub", "url": "https://blah-905ad.web.app", "critical": False},
     {"name": "GitHub Pages GIS (osintneoai.me)", "url": "http://osintneoai.me/OsintNeoAi/", "critical": False},
 ]
@@ -307,7 +306,7 @@ def check_azure():
 
 
 def check_quota():
-    return [check_github(), check_gemini()] + check_gcp_quotas() + check_azure()
+    return [check_github(), check_gemini()] + check_gcp_quotas()
 
 
 # ---------------------------------------------------------------------------
