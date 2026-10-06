@@ -1,9 +1,0 @@
-SHL_ID,ENTITY_NAME,STATE_OF_FORMATION,REG_AGENT,PRINCIPALS,PURPOSE,BANK_ACCOUNTS,RED_FLAGS,SOURCE_DOC,SOURCE_PAGE,QUOTE_SNIPPET,NOTES,LAST_UPDATED
-"SHELL COMPANIES: One row per shell/suspect entity. SHL_ID links to MASTER and all other tabs. RED_FLAGS: document formation timing, undisclosed principals, dormant status. Cross-reference with Unclaimed Property and RICO Nodes tabs. To refresh: add row, assign next SHL-### ID, update MASTER tab."
-SHL-001,Unknown HB Development LLC,CA or DE,Unknown,Unknown; potentially PER-025,Real estate / grant laundering vehicle,Unknown,No public filings; linked to city contracts,RICO Matrix,§3,Shell entity received city payments without disclosed principals...
-SHL-002,Unknown Navigator Program LLC,CA,Unknown,Unknown,Navigator Center operator,Unknown,Incorporated 90 days before grant award,Whistleblower Dossier,§6
-SHL-003,Unknown Lobbying LLC,CA,Unknown,PER-026,Political conduit,Unknown,Filed as general business; acting as lobbyist,RICO Matrix,§5
-SHL-004,Unknown Land Trust,CA,Unknown,Unknown,Property holding / unclaimed property nexus,Unknown,Assets match unclaimed property records,Unclaimed Property PDFs,p.2
-SHL-005,"Aloha Financial Investment, Inc.",,,Andrew Do,Real estate shell company,,Used to route meal funds into familial bribes,"OSINT Investigation: RICO, Corruption, Cover-Up",Asset Shielding and Political Corruption
-SHL-006,Greenfield Realty Inc.,,,Do O Hoang,Real estate laundering,,,"OSINT Investigation: RICO, Corruption, Cover-Up",The Multi-State Real Estate Laundering Apparatus
-Next ID: SHL-007
