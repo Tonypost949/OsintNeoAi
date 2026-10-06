@@ -1,0 +1,16 @@
+{
+  "short_name": "GhostMap",
+  "name": "GhostMap Signal & Frequency Finder",
+  "icons": [
+    {
+      "src": "https://img.icons8.com/color/512/radar.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/ghostmap.html",
+  "background_color": "#0b0f19",
+  "theme_color": "#00f0ff",
+  "display": "standalone",
+  "orientation": "portrait"
+}

@@ -1,0 +1,11 @@
+name: osintneoai
+metadata:
+  template: app-service-python-template
+infra:
+  provider: bicep
+  path: infra
+services:
+  app:
+    project: .
+    language: python
+    host: containerapp

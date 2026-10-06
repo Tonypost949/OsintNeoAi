@@ -37,13 +37,13 @@ COPY . .
 # Create reports processing directory
 RUN mkdir -p /app/reports_output
 
-# Expose port for Flask app (default, but Railway will override)
-ENV PORT=10000
+# Expose port for Flask app (Cloud Run injects $PORT, default 8080)
+ENV PORT=8080
 EXPOSE $PORT
 
 # Healthcheck
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-  CMD curl -f http://localhost:${PORT}/health || exit 1
+  CMD curl -f http://localhost:${PORT}/api/status || exit 1
 
-# Run with gunicorn, pointing to the app in main.py using dynamic PORT
-CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT:-10000} main_v2:app --timeout 300 --workers 4"]
+# Run gunicorn against the Flask app factory in app.py using dynamic PORT
+CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT:-8080} 'app:create_app()' --timeout 120 --workers 2"]

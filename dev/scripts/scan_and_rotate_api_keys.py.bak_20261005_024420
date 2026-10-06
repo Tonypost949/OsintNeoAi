@@ -1,0 +1,112 @@
+﻿"""Real key rotator for OsintNeoAi. Uses C:/OsintNeoAi/.env + vault."""
+import os
+import sys
+import json
+import shutil
+from pathlib import Path
+from datetime import datetime
+
+REAL_ENV = Path("C:/OsintNeoAi/.env")
+VAULT = Path("C:/Amd949609_Antigravity_v1/Amd949609_keys/api_vault.json")
+BACKUP_DIR = Path("C:/OsintNeoAi/.env_backups")
+BACKUP_DIR.mkdir(exist_ok=True)
+
+def mask(k: str) -> str:
+    if not k or len(k) < 10:
+        return "(empty/invalid)"
+    return f"{k[:6]}...{k[-4:]} len={len(k)}"
+
+def load_vault_keys():
+    try:
+        data = json.loads(VAULT.read_text(encoding="utf-8"))
+        keys = data.get("google_pro_keys", [])
+        # keep only plausible AIza keys len 35-45
+        valid = [k.strip() for k in keys if isinstance(k, str) and k.strip().startswith("AIza") and 35 <= len(k.strip()) <= 45]
+        return keys, valid
+    except Exception as e:
+        print(f"[X] Vault read failed {VAULT}: {e}")
+        return [], []
+
+def parse_env():
+    lines = REAL_ENV.read_text(encoding="utf-8").splitlines() if REAL_ENV.exists() else []
+    vals = {}
+    for line in lines:
+        s = line.strip()
+        if not s or s.startswith("#") or "=" not in s:
+            continue
+        k, v = s.split("=", 1)
+        vals[k.strip()] = v.strip()
+    return lines, vals
+
+def check_keys():
+    print(f"[+] ENV: {REAL_ENV} exists={REAL_ENV.exists()}")
+    print(f"[+] VAULT: {VAULT} exists={VAULT.exists()}")
+    _, vals = parse_env()
+    for name in ("GEMINI_API_KEY", "GOOGLE_API_KEY", "GOOGLE_MAPS_API_KEY", "GITHUB_PAT"):
+        v = vals.get(name, "") or os.environ.get(name, "")
+        print(f"    {name} = {mask(v)}")
+    _, valid = load_vault_keys()
+    print(f"[+] Vault total entries incl invalid: check file directly; valid AIza-format: {len(valid)}")
+    cur = vals.get("GOOGLE_API_KEY", "")
+    if cur in valid:
+        print(f"[+] Current GOOGLE_API_KEY is vault index {valid.index(cur)}")
+    else:
+        print("[!] Current GOOGLE_API_KEY/GEMINI key NOT in vault valid list (custom key in use)")
+    mem = os.environ.get("GEMINI_API_KEY", "")
+    print(f"[+] Process memory GEMINI_API_KEY = {mask(mem)}")
+
+def rotate(index: int | None = None):
+    lines, vals = parse_env()
+    _, valid = load_vault_keys()
+    if not valid:
+        print("[X] No valid vault keys, abort")
+        return 1
+    cur = vals.get("GOOGLE_API_KEY", "")
+    if index is None:
+        try:
+            cur_i = valid.index(cur)
+            index = (cur_i + 1) % len(valid)
+        except ValueError:
+            index = 0
+    index = index % len(valid)
+    new_key = valid[index]
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    bak = BACKUP_DIR / f".env.bak_{ts}_idx{index}"
+    shutil.copy2(REAL_ENV, bak)
+    print(f"[+] Backup: {bak}")
+    out = []
+    seen = set()
+    for line in lines:
+        s = line.strip()
+        if s.startswith("#") or "=" not in s:
+            out.append(line)
+            continue
+        k, _ = s.split("=", 1)
+        k = k.strip()
+        if k in ("GOOGLE_API_KEY", "GOOGLE_MAPS_API_KEY"):
+            if k not in seen:
+                out.append(f"{k}={new_key}")
+                seen.add(k)
+            else:
+                out.append(f"{k}={new_key}")
+        else:
+            out.append(line)
+    REAL_ENV.write_text("\n".join(out) + "\n", encoding="utf-8")
+    print(f"[OK] Rotated to vault index {index}: {mask(new_key)}")
+    print(f"[OK] Updated GOOGLE_API_KEY + GOOGLE_MAPS_API_KEY in {REAL_ENV}")
+    print("[i] GEMINI_API_KEY left untouched (separate Gemini key). Use --also-gemini to sync it.")
+    return 0
+
+if __name__ == "__main__":
+    if "--rotate" in sys.argv:
+        idx = None
+        for a in sys.argv[1:]:
+            if a.startswith("--index="):
+                try:
+                    idx = int(a.split("=", 1)[1])
+                except ValueError:
+                    pass
+        sys.exit(rotate(idx))
+    else:
+        check_keys()
+        print('\n[i] Usage: python scan_and_rotate_api_keys.py --check | --rotate [--index=N]')

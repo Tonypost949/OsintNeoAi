@@ -1,6 +1,7 @@
 ---
 always_on: true
 ---
+
 # Universal AI Laws & Direct Autonomous Execution Rules
 until further notice "C:\Amd949609_Antigravity_v1" is the user folder to use.
 
@@ -74,4 +75,76 @@ until further notice "C:\Amd949609_Antigravity_v1" is the user folder to use.
     - All automated commands must run in non-interactive batch mode to prevent background execution stalls.
 
 14. **Mandatory Pre-Action Reversible Backup & State Preservation:**
-    - No file modifications, overwrites, deletions, or process terminations may be executed unless a prior backup snapshot is created to ensure the operation is fully reversible and can be undone.vbgggg
+    - No file modifications, overwrites, deletions, or process terminations may be executed unless a prior backup snapshot is created to ensure the operation is fully reversible and can be undone.
+
+---
+
+# OsintNeoAi Repository-Specific Instructions
+
+## Project Overview
+Flask-based OSINT (Open Source Intelligence) platform with HTML/JS frontends served by the same Flask app. Multi-workspace architecture with blueprints.
+
+## Key Commands
+
+### Run Locally
+```bash
+# Install deps
+pip install -r requirements.txt
+
+# Run Flask app (port 8080 default)
+python app.py
+
+# Or with gunicorn (production)
+gunicorn -b 0.0.0.0:8080 app:create_app()
+```
+
+### Environment Setup
+Copy `.env.example` to `.env` and fill required keys:
+- `GEMINI_API_KEY` (required)
+- `GOOGLE_MAPS_API_KEY` / `GOOGLE_API_KEY`
+- `SMTP_USER`, `SMTP_PASSWORD`, `GMAIL_APP_PASSWORD` (for alerts)
+- `GITHUB_PAT`
+- `GCP_PROJECT_ID` (for BigQuery)
+- `LIGHTBOX_API_KEY`
+
+## Architecture
+
+### Entry Points
+- `app.py` — Flask app factory, registers 4 blueprints, serves static files from multiple directories
+- `osintneoai/blueprints/__init__.py` — exports: `main_bp`, `admin_bp`, `workspace_bp`, `api_bp`
+
+### Blueprints
+| Blueprint | Prefix | Purpose |
+|-----------|--------|---------|
+| `main_bp` | `/`, `/signup`, `/landing` | Public landing page |
+| `api_bp` | `/api/*` | REST endpoints (status, auth) |
+| `workspace_bp` | `/workspace`, `/chat`, `/dev`, `/legal*`, `/status` | User-facing HTML workspaces |
+| `admin_bp` | `/admin` | Admin dashboard |
+
+### Static File Resolution
+`app.py` searches these dirs in order for static files:
+```
+ROOT_DIR, public/, workspace/, admin/, dev/, docs/, opencode_work/, data_apps/
+```
+
+### Key Dependencies
+`requirements.txt`: flask, gunicorn, pydantic, google-genai, google-generativeai, requests, beautifulsoup4, maltego-trx, shodan, cryptography, aiohttp, anyio, colorama, azure-kusto-data
+
+## Azure Deployment (Planned)
+- Target: Azure Container Apps (Consumption tier) via AZD
+- Config: `.azure/deployment-plan.md` (status: Planning)
+- Infrastructure: `infra/main.bicep` (to be generated)
+- Requires: subscription + location confirmation, quota validation
+
+## Testing
+No unified test runner. Tests scattered across:
+- `dev/tests/` — live endpoint tests
+- `api/osint_pipeline/tests/` — pipeline tests
+- `workspaces/osintneoai_indexer/tests/` — indexer tests
+- Various `test_*.py` files in agent/, cli/, archive/
+
+## Common Gotchas
+- Hardcoded Windows paths (`C:\OsintNeoAi\...`) in blueprints — will fail on Linux/Container Apps
+- Multiple duplicate/legacy folders (copilot-worktrees, archive, AG2OSINTNEOMAXX) — only root `app.py` and `osintneoai/` are active
+- `.env` not committed — must create from `.env.example`
+- No lint/typecheck/formatter configured

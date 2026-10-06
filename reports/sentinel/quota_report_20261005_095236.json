@@ -1,0 +1,87 @@
+{
+  "timestamp": "2026-10-05T09:52:36",
+  "overall": "CRITICAL",
+  "results": {
+    "vm": [
+      {
+        "check": "osint-free (GCP, always-free e2-micro)",
+        "kind": "ssh",
+        "status": "up",
+        "detail": "16:52:29 up 1 day, 19:54,  0 user,  load average: 0.00, 0.02, 0.00",
+        "critical": true
+      },
+      {
+        "check": "GCP map server :10000 /health",
+        "kind": "http",
+        "status": "up",
+        "detail": "HTTP 200 in 206ms",
+        "url": "http://34.133.245.250:10000/health",
+        "critical": true
+      },
+      {
+        "check": "Firebase Live Hub",
+        "kind": "http",
+        "status": "up",
+        "detail": "HTTP 200 in 63ms",
+        "url": "https://blah-905ad.web.app",
+        "critical": false
+      },
+      {
+        "check": "GitHub Pages GIS (osintneoai.me)",
+        "kind": "http",
+        "status": "up",
+        "detail": "HTTP 200 in 23ms",
+        "url": "http://osintneoai.me/OsintNeoAi/",
+        "critical": false
+      }
+    ],
+    "quota": [
+      {
+        "check": "GitHub API (core)",
+        "kind": "quota",
+        "status": "ok",
+        "detail": "4991/5000 remaining (99.8%), resets 10:25",
+        "pct_remaining": 99.8,
+        "critical": true
+      },
+      {
+        "check": "Gemini API",
+        "kind": "quota",
+        "status": "error",
+        "detail": "HTTP 503 on gemini-3.8-flash",
+        "pct_remaining": null,
+        "critical": true
+      },
+      {
+        "check": "GCP IN_USE_ADDRESSES",
+        "kind": "quota",
+        "status": "ok",
+        "detail": "usage 0 / limit 4 (100.0% free)",
+        "pct_remaining": 100.0,
+        "critical": false
+      }
+    ],
+    "local": [
+      {
+        "check": "OSINTNeoAiCLI hub",
+        "kind": "local",
+        "status": "up",
+        "detail": "127.0.0.1:5052 listening",
+        "port": 5052,
+        "critical": false
+      },
+      {
+        "check": "Map server",
+        "kind": "local",
+        "status": "up",
+        "detail": "127.0.0.1:10000 listening",
+        "port": 10000,
+        "critical": false
+      }
+    ]
+  },
+  "thresholds": {
+    "warn_pct": 20.0,
+    "critical_pct": 5.0
+  }
+}
