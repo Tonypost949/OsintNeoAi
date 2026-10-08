@@ -43,12 +43,18 @@
 
 ## Checkpoint 3: Complete
 - [x] Dual-location backups verified (GitHub `main` + Google Drive `Sharedall/OsintNeoAi/`)
-- [ ] Next feature sprint ready for user command
-
-## Next Agent Fleet Plan (F0-F5 Completed)
-- [x] **F0: Establish baseline and shared contracts** — confirmed clean task scope and established shared contracts (`scripts/fleet_f0_baseline.py` & `data/fleet_shared_contracts.json`).
-- [x] **F1: Build dynamic crossword generator** — deterministic sanitized clue input, validated puzzle format, and offline fixtures (`scripts/fleet_f1_crossword.py` & `data/crossword_fixtures.json`).
-- [x] **F2: Define dispatch request and approval contract** — provider-neutral request/status schema, validation, audit, and explicit approval boundary (`scripts/fleet_f2_dispatch_contract.py` & `data/dispatch_approval_contract.json`).
-- [x] **F3: Generate complaint PDFs** — validated deterministic PDF creation with no transmission or sensitive logging (`scripts/fleet_f3_pdf_generator.py`).
-- [x] **F4: Add mocked e-fax adapter** — provider abstraction, mocked transport by default, approval gate, and retry policy (`scripts/fleet_f4_efax_adapter.py`).
-- [x] **F5: Integrate and run release checks** — offline end-to-end integration checks executed with 100% pass status (`scripts/fleet_f5_release_checks.py`).
+## Phase 4: Sprint 4 — Production Deployment & osintneoai.me Architecture
+- [ ] **Task 12: Production Cloud Run Deployment & Custom Domain Binding (`osintneoai.me`)**
+  - Containerize backend APIs and configure DNS mapping for `https://osintneoai.me`, `https://taxfunded.osintneoai.me`, and `https://api.osintneoai.me`.
+- [ ] **Task 13: Real-Time WebSockets & SSE Event Stream**
+  - Implement real-time ledger event streaming on `https://api.osintneoai.me/events`.
+- [ ] **Task 14: Manifest V3 Browser Extension Node Release**
+  - Package `C:\OsintNeoAi\chrome_extension\` for Webstore deployment targeting `https://api.osintneoai.me`.
+- [ ] **Task 15: Municipal GIS Polygon Layer Overlay**
+  - Integrate GeoJSON toxic plume contours for Ascon Landfill (30490016) and $Cr\text{-VI}$ (Case 20IC002) into Cytoscape/Leaflet maps.
+- [ ] **Task 16: Automated Cal. CCP § 473(d) Legal Document Assembler**
+  - Generate court-ready PDF/Word Notice of Motion and Motion to Vacate Void Judgment packages.
+- [ ] **Task 17: Tokenomics & Franchise Newspaper 50 TFT Reward Pool**
+  - Wire TFT token reward distribution on `https://chronicle.osintneoai.me`.
+- [ ] **Task 18: System Reliability & Uptime Sentinel**
+  - Deploy automated sentinel monitoring Cloud Run endpoints, BigQuery latency, and rate limits.
