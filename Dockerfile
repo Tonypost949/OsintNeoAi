@@ -1,49 +1,36 @@
-# Dockerfile for OSINT Neo AI Backend with Security Tools
-FROM debian:bookworm
+# OSINTNeoAI Production Dockerfile
+FROM python:3.11-slim
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PORT=10001 \
+    STAGING_DIR=/app/data/staging
 
 WORKDIR /app
 
-# Install Python 3.11 and base dependencies
-RUN apt-get update && apt-get install -y \
-    python3.11 \
-    python3-pip \
-    python3-dev \
-    build-essential \
-    libgl1-mesa-glx \
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
-    wget \
-    git \
+    ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
-# Install security/OSINT tools from Debian repos
-RUN apt-get update && apt-get install -y \
-    nmap \
-    hydra \
-    netcat-openbsd \
-    dnsrecon \
-    curl \
-    whois \
-    dnsutils \
-    traceroute \
-    && rm -rf /var/lib/apt/lists/*
+# Copy dependencies
+COPY requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy requirements and install Python packages
-COPY requirements.txt .
-RUN pip install --no-cache-dir --break-system-packages -r requirements.txt
+# Copy application source code
+COPY . /app/
 
-# Copy the entire project
-COPY . .
+# Create staging directory
+RUN mkdir -p /app/data/staging
 
-# Create reports processing directory
-RUN mkdir -p /app/reports_output
+# Expose port 10001
+EXPOSE 10001
 
-# Expose port for Flask app (Cloud Run injects $PORT, default 8080)
-ENV PORT=8080
-EXPOSE $PORT
+# Health check endpoint
+HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:10001/ || exit 1
 
-# Healthcheck
-HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-  CMD curl -f http://localhost:${PORT}/api/status || exit 1
-
-# Run gunicorn against the Flask app factory in app.py using dynamic PORT
-CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT:-8080} 'app:create_app()' --timeout 120 --workers 2"]
+# Start Dynamic Genesis Webhook via uvicorn
+CMD ["uvicorn", "scripts.dynamic_genesis_webhook:app", "--host", "0.0.0.0", "--port", "10001"]

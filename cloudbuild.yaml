@@ -1,48 +1,26 @@
+# Cloud Run Cloud Build Manifest
 steps:
-  - id: "build"
-    name: "gcr.io/cloud-builders/docker"
-    args:
-      - "build"
-      - "-t"
-      - "${_REGION}-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/osint-neo-ai:$COMMIT_SHA"
-      - "."
-    waitFor: ["-"]
+  # 1. Build Docker container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/noble-beanbag-497411-m4/osintneoai-api:$COMMIT_SHA', '.']
 
-  - id: "push"
-    name: "gcr.io/cloud-builders/docker"
-    args:
-      - "push"
-      - "${_REGION}-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/osint-neo-ai:$COMMIT_SHA"
-    waitFor: ["build"]
+  # 2. Push image to Container Registry / Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/noble-beanbag-497411-m4/osintneoai-api:$COMMIT_SHA']
 
-  - id: "deploy"
-    name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+  # 3. Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
-      - "run"
-      - "deploy"
-      - "osint-neo-ai"
-      - "--image"
-      - "${_REGION}-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/osint-neo-ai:$COMMIT_SHA"
-      - "--region"
-      - "${_REGION}"
-      - "--platform"
-      - "managed"
-      - "--memory"
-      - "2Gi"
-      - "--cpu"
-      - "2"
-      - "--timeout"
-      - "3600"
-      - "--set-env-vars"
-      - "GCP_PROJECT=$PROJECT_ID,OSINT_WORKSPACE=/app"
-      - "--allow-unauthenticated"
-      - "--min-instances=1"
-      - "--concurrency"
-      - "80"
-    waitFor: ["push"]
+      - 'run'
+      - 'deploy'
+      - 'osintneoai-api'
+      - '--image=gcr.io/noble-beanbag-497411-m4/osintneoai-api:$COMMIT_SHA'
+      - '--region=us-west2'
+      - '--platform=managed'
+      - '--allow-unauthenticated'
+      - '--port=10001'
+      - '--set-env-vars=BQ_PROJECT_ID=noble-beanbag-497411-m4,BQ_DATASET_ID=forensic_layers,BQ_TABLE_ID=genesis_ledger'
 
-substitutions:
-  _REGION: us-central1
-
-timeout: 1800s
+images:
+  - 'gcr.io/noble-beanbag-497411-m4/osintneoai-api:$COMMIT_SHA'

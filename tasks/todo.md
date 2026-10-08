@@ -44,8 +44,8 @@
 ## Checkpoint 3: Complete
 - [x] Dual-location backups verified (GitHub `main` + Google Drive `Sharedall/OsintNeoAi/`)
 ## Phase 4: Sprint 4 — Production Deployment & osintneoai.me Architecture
-- [ ] **Task 12: Production Cloud Run Deployment & Custom Domain Binding (`osintneoai.me`)**
-  - Containerize backend APIs and configure DNS mapping for `https://osintneoai.me`, `https://taxfunded.osintneoai.me`, and `https://api.osintneoai.me`.
+- [x] **Task 12: Production Cloud Run Deployment & Custom Domain Binding (`osintneoai.me`)**
+  - Containerized backend APIs with `Dockerfile`, created `cloudbuild.yaml`, and configured DNS domain mappings for `osintneoai.me`, `taxfunded.osintneoai.me`, and `api.osintneoai.me` (`scripts/configure_cloud_run_domains.py`).
 - [ ] **Task 13: Real-Time WebSockets & SSE Event Stream**
   - Implement real-time ledger event streaming on `https://api.osintneoai.me/events`.
 - [ ] **Task 14: Manifest V3 Browser Extension Node Release**
