@@ -1,0 +1,53 @@
+{
+  "type": "FeatureCollection",
+  "name": "Cameron_Lane_Contamination_Polygons",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ASCON_SUPERFUND_30490016",
+        "name": "Ascon Landfill Superfund Site",
+        "dtsc_id": "30490016",
+        "hazard_type": "Styrene / VOCs / PCBs / Sludge Pits",
+        "stigma_discount": "-85% FMV",
+        "status": "Active State Superfund"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-117.9920, 33.7210],
+            [-117.9880, 33.7210],
+            [-117.9880, 33.7240],
+            [-117.9920, 33.7240],
+            [-117.9920, 33.7210]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CR_VI_PLUME_20IC002",
+        "name": "Hexavalent Chromium (Cr-VI) Plume",
+        "geotracker_id": "T10000018579",
+        "ochca_case": "20IC002",
+        "max_concentration": "980 µg/kg at Boring B9A",
+        "stigma_discount": "-85% FMV",
+        "status": "Conditional Capping Exemption"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-117.9910, 33.7218],
+            [-117.9875, 33.7218],
+            [-117.9875, 33.7235],
+            [-117.9910, 33.7235],
+            [-117.9910, 33.7218]
+          ]
+        ]
+      }
+    }
+  ]
+}
