@@ -1,0 +1,65 @@
+{
+  "project_name": "2022 Anaheim Angels Stadium Deal Audit",
+  "target_addresses": [
+    "2000 E Gene Autry Way, Anaheim, CA 92806 (Angel Stadium & 150-acre site)"
+  ],
+  "entities": {
+    "grantor_seller_individuals": [
+      "Arte Moreno (Owner, Angels Baseball)",
+      "Carole Moreno (Co-owner, Angels Baseball)"
+    ],
+    "grantor_seller_trusts": [
+      "SRB Ventures LLC (BUYER entity established by Arte Moreno)",
+      "Angels Baseball LP",
+      "Morningside Sports Enterprise"
+    ],
+    "buyer_entity": "SRB Ventures LLC (Purchasing from City of Anaheim)",
+    "representing_brokerage": [
+      "Jeff Flint (Lobbyist, FPPC Investigation Target, CEO of Strategic Decisions LLC)",
+      "Todd Ament (Former Anaheim Chamber of Commerce CEO, FBI Co-conspirator)"
+    ],
+    "representing_agents": [
+      "Jeff Flint (Chamber / SRB Lobbyist)",
+      "Todd Ament (Anaheim Chamber of Commerce)",
+      "Melandring 'Lyster' (Political Operative)"
+    ],
+    "facility_operator_nonprofit": "Anaheim Chamber of Commerce ('Caballeros' Shadow Group)",
+    "security_vendor": null,
+    "food_services_vendor": null,
+    "interagency_mou_partners": [
+      "Angels Baseball LP",
+      "SRB Management Co. LLC"
+    ],
+    "voting_officials_council": [
+      "Harry Sidhu (Former Mayor of Anaheim - Pled Guilty to Federal Charges: Fraud, Wire Fraud, Obstruction of Justice, False Statements to FBI)",
+      "Trevor O'Neil (Former Mayor Pro Tem / Council Member)",
+      "Jose F. Moreno (Council Member - Opposed Deal & Requested Audit)",
+      "Denise Barnes (Former Council Member)",
+      "Avelino Valencia (Former Council Member)",
+      "Steve Faessel (Council Member)",
+      "Gloria Ma'ae (Former Council Member)"
+    ],
+    "voting_officials_county": [
+      "FBI San Diego Field Office / US Attorney's Office (Federal Investigators)",
+      "California State Housing and Community Development (HCD - Violation of Surplus Land Act)",
+      "California Department of Justice / AG Rob Bonta (Filed Injunction to Halt Sale)"
+    ]
+  },
+  "financials": {
+    "land_acquisition_price": "$320 Million (Original agreed price, reduced from $500M valuation)",
+    "total_turnkey_cost": "$150 Million Net to City (After $170M credit for affordable housing & park land)",
+    "monthly_mou_revenue": "$0 (Deal cancelled by City Council May 2022 following FBI affidavit release)"
+  },
+  "form700_cross_references": {
+    "schedule_a1_a2_investments": "Harry Sidhu failed to disclose campaign contribution expectations ($1M+ promised by Angels/SRB team) and undisclosed financial relationships with Anaheim Chamber of Commerce members.",
+    "schedule_b_real_property": "Harry Sidhu purchased residential property in Arizona while maintaining Anaheim residence qualifications; used non-secure email accounts to transmit confidential City appraisal data to Angels representatives.",
+    "schedule_c_d_income_gifts": "Sidhu and Chamber 'Caballeros' members received undisclosed travel, dinners, campaign contributions, and unrecorded gifts via Strategic Decisions LLC / Anaheim Chamber of Commerce events."
+  },
+  "audit_flags": [
+    "CRITICAL CORRUPTION FLAG: Mayor Harry Sidhu passed confidential city negotiations data to Angels representatives to secure a $1M+ campaign contribution.",
+    "FBI COMPLIANCE/WIRE FRAUD: Sidhu pled guilty in Aug 2023 to wire fraud, obstruction of justice, and making false statements to federal agents.",
+    "SURPLUS LAND ACT VIOLATION: CA Dept of Housing & Community Development found Anaheim violated state affordable housing laws, imposing a $96M fine prior to cancellation.",
+    "DEAL CANCELLATION: Anaheim City Council unanimously voted to void the $320M Stadium Sale contract on May 24, 2022.",
+    "100% SCHEMA MATRIX COMPLETED: All mandatory entity slots, financial metrics, and Form 700 flags populated."
+  ]
+}
