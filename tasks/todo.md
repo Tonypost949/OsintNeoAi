@@ -36,10 +36,10 @@
 ## Phase 3: Background Intelligence & Dispatch Automation
 - [x] **Task 9: Autonomous Continuous Valuation Daemon**
   - Configured `scripts/autonomous_enrichment_worker.py` (`task-1288`) to continuously sweep `data/staging/`, cross-reference the 199 master entities, and elevate verified submissions to `CORROBORATED` status.
-- [ ] **Task 10: Dynamic Daily Crossword Generator**
-  - Build automated rotational puzzle generator pulling clues from new BigQuery evidence hits.
-- [ ] **Task 11: E-Fax & Regulatory Hardmail Dispatch Connector**
-  - Implement automated PDF complaint generator and eFax webhook hook for formal whistleblower submissions.
+- [x] **Task 10: Dynamic Daily Crossword Generator**
+  - Built automated rotational puzzle generator pulling clues from new BigQuery evidence hits (`scripts/dynamic_crossword_generator.py`).
+- [x] **Task 11: E-Fax & Regulatory Hardmail Dispatch Connector**
+  - Implemented automated complaint payload generator and eFax webhook dispatch adapter (`scripts/efax_dispatch_connector.py`).
 
 ## Checkpoint 3: Complete
 - [x] Dual-location backups verified (GitHub `main` + Google Drive `Sharedall/OsintNeoAi/`)

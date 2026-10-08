@@ -1,0 +1,39 @@
+{
+  "puzzle_id": "0xb2fef3480411bb32d208b53c2500ab7436686a2602c14fa39ee8b3d905e62058",
+  "date": "2026-10-08",
+  "title": "The Chronicle Daily OSINT & Environmental Forensic Puzzle",
+  "reward_tokens": "50 TFT",
+  "clues": [
+    {
+      "id": "CLUE_01",
+      "clue": "Vadose-zone heavy metal peaking at 980 \u00b5g/kg at Boring B9A (Case 20IC002)",
+      "answer": "HEXAVALENT CHROMIUM",
+      "statutory_anchor": "Cal. Health & Safety Code \u00a7 25300 (HSAA)"
+    },
+    {
+      "id": "CLUE_02",
+      "clue": "Agricultural irrigation well requiring OCHCA destruction permitting (State Well 05S/11W-25M09)",
+      "answer": "OCWD W-4150",
+      "statutory_anchor": "OCHCA Water Quality Section"
+    },
+    {
+      "id": "CLUE_03",
+      "clue": "State oversight agreement required to transition temporary shelter to permanent housing",
+      "answer": "VOLUNTARY OVERSIGHT AGREEMENT",
+      "statutory_anchor": "DTSC HERO Note 3"
+    },
+    {
+      "id": "CLUE_04",
+      "clue": "Mandatory California motion to set aside void judgment due to suppressed toxic records",
+      "answer": "CCP 473D",
+      "statutory_anchor": "Cal. Civ. Proc. Code \u00a7 473(d)"
+    },
+    {
+      "id": "CLUE_05",
+      "clue": "Statutory funding penalty incurred if residential NFA is not secured before Jan 5 2026",
+      "answer": "6.09 MILLION LMIHAF",
+      "statutory_anchor": "Cal. Gov. Code \u00a7 65962.5"
+    }
+  ],
+  "verification_hash": "0xb2fef3480411bb32d208b53c2500ab7436686a2602c14fa39ee8b3d905e62058"
+}
