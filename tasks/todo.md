@@ -46,8 +46,8 @@
 ## Phase 4: Sprint 4 — Production Deployment & osintneoai.me Architecture
 - [x] **Task 12: Production Cloud Run Deployment & Custom Domain Binding (`osintneoai.me`)**
   - Containerized backend APIs with `Dockerfile`, created `cloudbuild.yaml`, and configured DNS domain mappings for `osintneoai.me`, `taxfunded.osintneoai.me`, and `api.osintneoai.me` (`scripts/configure_cloud_run_domains.py`).
-- [ ] **Task 13: Real-Time WebSockets & SSE Event Stream**
-  - Implement real-time ledger event streaming on `https://api.osintneoai.me/events`.
+- [x] **Task 13: Real-Time WebSockets & SSE Event Stream**
+  - Implemented SSE real-time event streaming endpoint on `http://localhost:10001/events` (`https://api.osintneoai.me/events`) in `scripts/dynamic_genesis_webhook.py`.
 - [ ] **Task 14: Manifest V3 Browser Extension Node Release**
   - Package `C:\OsintNeoAi\chrome_extension\` for Webstore deployment targeting `https://api.osintneoai.me`.
 - [ ] **Task 15: Municipal GIS Polygon Layer Overlay**

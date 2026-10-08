@@ -3,11 +3,13 @@ import json
 import time
 import hashlib
 import re
-from typing import Optional, Dict, Any
+import asyncio
+from typing import Optional, Dict, Any, AsyncGenerator
 from datetime import datetime, timezone
 
 from fastapi import FastAPI, HTTPException, Request, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
 app = FastAPI(
@@ -25,7 +27,9 @@ app.add_middleware(
 )
 
 STAGING_DIR = os.getenv("STAGING_DIR", "C:/OsintNeoAi/data/staging")
+ARCHIVE_DIR = os.getenv("ARCHIVE_DIR", "C:/OsintNeoAi/data/staging/archived_synced")
 os.makedirs(STAGING_DIR, exist_ok=True)
+os.makedirs(ARCHIVE_DIR, exist_ok=True)
 
 class GenesisPayload(BaseModel):
     raw_text: str = Field(..., description="Raw text, claim, evidence dump, or intelligence string")
@@ -101,9 +105,12 @@ async def genesis_ingest(payload: GenesisPayload, background_tasks: BackgroundTa
 async def get_receipt_status(receipt_hash: str):
     clean_hash = receipt_hash.replace("0x", "")
     staging_file = os.path.join(STAGING_DIR, f"0x{clean_hash}.json")
+    archived_file = os.path.join(ARCHIVE_DIR, f"0x{clean_hash}.json")
 
-    if os.path.exists(staging_file):
-        with open(staging_file, "r", encoding="utf-8") as f:
+    target_file = staging_file if os.path.exists(staging_file) else (archived_file if os.path.exists(archived_file) else None)
+
+    if target_file and os.path.exists(target_file):
+        with open(target_file, "r", encoding="utf-8") as f:
             data = json.load(f)
         return {
             "receipt_hash": f"0x{clean_hash}",
@@ -114,6 +121,44 @@ async def get_receipt_status(receipt_hash: str):
         }
 
     raise HTTPException(status_code=404, detail="Receipt hash not found on staging queue.")
+
+async def ledger_event_generator() -> AsyncGenerator[str, None]:
+    """Task 13: SSE Real-Time Event Stream for https://api.osintneoai.me/events."""
+    print("[*] Client connected to Task 13 Real-Time SSE Event Stream.")
+    seen_hashes = set()
+    
+    while True:
+        try:
+            # Check staging and archived directories for recent events
+            files = [os.path.join(STAGING_DIR, f) for f in os.listdir(STAGING_DIR) if f.endswith(".json")] + \
+                    [os.path.join(ARCHIVE_DIR, f) for f in os.listdir(ARCHIVE_DIR) if f.endswith(".json")]
+            
+            for file_path in files:
+                if file_path not in seen_hashes:
+                    try:
+                        with open(file_path, "r", encoding="utf-8") as f:
+                            data = json.load(f)
+                        event_payload = {
+                            "event": "LEDGER_BLOCK_COMMITTED",
+                            "receipt_hash": data.get("receipt_hash"),
+                            "target_entity": data.get("target_entity"),
+                            "ledger_value": data.get("ledger_value", "$0.00"),
+                            "verification_status": data.get("verification_status"),
+                            "timestamp": data.get("timestamp_iso") or data.get("timestamp")
+                        }
+                        yield f"data: {json.dumps(event_payload)}\n\n"
+                        seen_hashes.add(file_path)
+                    except Exception as err:
+                        pass
+            await asyncio.sleep(2)
+        except Exception as loop_err:
+            await asyncio.sleep(2)
+
+@app.get("/events")
+@app.get("/api/events")
+async def sse_ledger_events():
+    """Task 13 SSE Endpoint for Real-Time UI Graph & Receipt Updates."""
+    return StreamingResponse(ledger_event_generator(), media_type="text/event-stream")
 
 if __name__ == "__main__":
     import uvicorn
