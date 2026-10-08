@@ -1,0 +1,47 @@
+{
+    "receipt_hash": "0x34b3b7810b7e366e0c292223c1d5fcbe4af3c0e8f1c576a8a612f5d028bbcd84",
+    "timestamp": "2026-10-08T18:26:49.735022+00:00",
+    "target_entity": "Shea Homes",
+    "anchor_address": "17631 Cameron Lane, Huntington Beach, CA",
+    "radius": "0.5 miles",
+    "ledger_value": "$0.00",
+    "verification_status": "VERIFIED_EDR_OVERLAP",
+    "newspaper_draft": "\nINVESTIGATIVE REPORT: 2026-10-08\nTARGET PARCEL: 17631 Cameron Lane (0.5-Mile Radius)\n\nRecent forensic analysis of the 2025 EDR Radius Maps and CalEPA GeoTracker data has exposed critical environmental liabilities actively concealed beneath high-density residential developments.\n\nCORPORATE ENTITIES IMPLICATED: Shea Homes, Shea Properties, Woodbridge Meadows LLC, Irvine Company\nCONCEALED HAZARDS: Hexavalent Chromium (Cr-VI), Ascon Landfill Aerosol/Groundwater Migration, Pre-1970 Unlined Oil Sumps, LUST/SLIC Benzene Plumes\n\nDespite possessing documented evidence of Hexavalent Chromium (Cr-VI) overlap (Case 20IC002 / T10000018579), the primary developers proceeded with construction. Based on historical CERCLA and DTSC enforcement actions, properties within this exact blast radius carry an algorithmic toxic stigma discount of -85% FMV. \n\nImmediate public disclosure and Cal. Civ. Proc. Code \u00a7 473(d) voidance protocols are recommended for any transactions executed under the premise of a \"clean\" environmental report.\n",
+    "evidence_paths": [
+        "C:\\EVIDENCE_LOCKER_MASTER\\2025_EDR_Radius_Map_Cameron_Lane.txt",
+        "C:\\EVIDENCE_LOCKER_MASTER\\Eurofins_Contaminant_Hits_Master.csv",
+        "C:\\OsintNeoAi\\data\\hb_urls_master.txt"
+    ],
+    "maltego_nodes": [
+        {
+            "id": "Shea_Homes",
+            "label": "Shea Homes (Developer)"
+        },
+        {
+            "id": "Cameron_Lane",
+            "label": "17631 Cameron Lane"
+        },
+        {
+            "id": "Cr_VI_Plume",
+            "label": "Cr-VI Plume (Case 20IC002)"
+        },
+        {
+            "id": "Ascon_Landfill",
+            "label": "Ascon Landfill (30490016)"
+        }
+    ],
+    "maltego_edges": [
+        {
+            "source": "Shea_Homes",
+            "target": "Cameron_Lane"
+        },
+        {
+            "source": "Cameron_Lane",
+            "target": "Cr_VI_Plume"
+        },
+        {
+            "source": "Cameron_Lane",
+            "target": "Ascon_Landfill"
+        }
+    ]
+}

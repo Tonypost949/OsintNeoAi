@@ -1,0 +1,18 @@
+{
+  "receipt_hash": "0x7a332493f29fa098256874bfcd9577cbed26c15856a737eaef531913d13065c7",
+  "parent_hash": null,
+  "timestamp_unix": 1791484729,
+  "timestamp_iso": "2026-10-08T18:38:49.778450+00:00",
+  "source_origin": "OSINTNeoAI_LiveTest",
+  "genesis_type": "ENTITY",
+  "target_entity": "17631 Cameron Lane",
+  "raw_payload": "Investigate 17631 Cameron Lane toxic plume overlap",
+  "ledger_value": "$0.00",
+  "verification_status": "UNVERIFIED_GENESIS",
+  "enrichment_status": "PENDING_AUTONOMOUS_REVIEW",
+  "metadata": {
+    "wallet": "0xANON_LEDGER_KEY",
+    "client_meta": {},
+    "pipeline": "TASK-084-WIF-INGEST"
+  }
+}

@@ -1,0 +1,38 @@
+{
+    "receipt_hash": "0xb7656c98cd9a252c57c28a30053994517d636173f2b035afe8e9b63e238e3c3e",
+    "timestamp": "2026-10-08T18:44:26.066343+00:00",
+    "workflow": "CITY_DIRECTORY_HISTORICAL_ASSESSMENT",
+    "target_address": "17631 Cameron Lane, Huntington Beach, CA",
+    "radius": "0.5 miles",
+    "source_document": "C:\\EVIDENCE_LOCKER_MASTER\\Historical_City_Directories_Cameron_Lane_1950_2025.txt",
+    "historical_timeline": [
+        {
+            "year_range": "1952-1968",
+            "occupant": "Apex Industrial Chemical Storage & Plating Co.",
+            "category": "High Environmental Risk (VOCs / Chromium / Solvents)",
+            "apn_corridor": "APN 157-041-12"
+        },
+        {
+            "year_range": "1969-1984",
+            "occupant": "Pacific Coast Oilfield Service & Equipment Sump Depot",
+            "category": "High Environmental Risk (TPH / Heavy Metals / Benzene)",
+            "apn_corridor": "APN 157-041-14"
+        },
+        {
+            "year_range": "1985-2002",
+            "occupant": "SLIC Solvent Recovery Facility",
+            "category": "Active DTSC/GeoTracker SLIC Target",
+            "apn_corridor": "APN 157-041-15"
+        },
+        {
+            "year_range": "2003-2024",
+            "occupant": "Redevelopment Transition / High-Density Parcel Prep",
+            "category": "Municipal Zoning Masking Area",
+            "apn_corridor": "APN 157-041-18"
+        }
+    ],
+    "historical_risk_classification": "CRITICAL_LEGACY_CONTAMINANT_CORRIDOR",
+    "recommended_legal_action": "Attach timeline to Cal. Civ. Proc. Code \u00a7 473(d) motion for non-disclosure of legacy chemical operators",
+    "ledger_value": "$0.00",
+    "verification_status": "VERIFIED_CITY_DIRECTORY_HISTORICAL_MATCH"
+}
