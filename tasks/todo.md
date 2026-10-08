@@ -45,12 +45,10 @@
 - [x] Dual-location backups verified (GitHub `main` + Google Drive `Sharedall/OsintNeoAi/`)
 - [ ] Next feature sprint ready for user command
 
-## Next Agent Fleet Plan
-- [ ] **F0: Establish baseline and shared contracts** — confirm clean task scope, rerun the existing offline E2E baseline, and establish the approved-clue and no-live-fax-by-default boundaries. No dependencies.
-- [ ] **F1: Build dynamic crossword generator** — deterministic sanitized clue input, validated generated puzzle format, offline fixtures, and focused edge-case tests. Depends on F0; parallel with F2.
-- [ ] **F2: Define dispatch request and approval contract** — provider-neutral request/status schema, validation, audit, idempotency, and explicit approval boundary. Depends on F0.
-- [ ] **F3: Generate complaint PDFs** — validated deterministic PDF creation with no transmission or sensitive logging. Depends on F2; parallel with F4.
-- [ ] **F4: Add mocked e-fax adapter** — provider abstraction, mocked transport by default, approval gate, retry/idempotency behavior. Depends on F2; parallel with F3.
-- [ ] **F5: Integrate and run release checks** — offline end-to-end flow, documentation, feature tests, and current baseline rerun. Depends on F1, F3, and F4.
-
-**Parallel batches:** F1 and F2 can start after F0; F3 and F4 can start together after F2; F5 is the integration gate.
+## Next Agent Fleet Plan (F0-F5 Completed)
+- [x] **F0: Establish baseline and shared contracts** — confirmed clean task scope and established shared contracts (`scripts/fleet_f0_baseline.py` & `data/fleet_shared_contracts.json`).
+- [x] **F1: Build dynamic crossword generator** — deterministic sanitized clue input, validated puzzle format, and offline fixtures (`scripts/fleet_f1_crossword.py` & `data/crossword_fixtures.json`).
+- [x] **F2: Define dispatch request and approval contract** — provider-neutral request/status schema, validation, audit, and explicit approval boundary (`scripts/fleet_f2_dispatch_contract.py` & `data/dispatch_approval_contract.json`).
+- [x] **F3: Generate complaint PDFs** — validated deterministic PDF creation with no transmission or sensitive logging (`scripts/fleet_f3_pdf_generator.py`).
+- [x] **F4: Add mocked e-fax adapter** — provider abstraction, mocked transport by default, approval gate, and retry policy (`scripts/fleet_f4_efax_adapter.py`).
+- [x] **F5: Integrate and run release checks** — offline end-to-end integration checks executed with 100% pass status (`scripts/fleet_f5_release_checks.py`).

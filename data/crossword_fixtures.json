@@ -1,0 +1,38 @@
+{
+  "puzzle_id": "0x4f6ab68b494eb40b9cfc3e5558e4efdce08cc9544d9dbdb1419178830de411b3",
+  "schema_valid": true,
+  "clue_count": 5,
+  "clues": [
+    {
+      "id": "F1_01",
+      "clue": "Vadose-zone Cr-VI max concentration at Boring B9A",
+      "answer": "980 UG/KG",
+      "statutory_tag": "HSAA 25300"
+    },
+    {
+      "id": "F1_02",
+      "clue": "Subsurface lead concentration peak",
+      "answer": "145 MG/KG",
+      "statutory_tag": "Title 22 Class I"
+    },
+    {
+      "id": "F1_03",
+      "clue": "Agricultural irrigation well requiring OCHCA destruction permit",
+      "answer": "OCWD W-4150",
+      "statutory_tag": "State Well 05S/11W-25M09"
+    },
+    {
+      "id": "F1_04",
+      "clue": "State oversight agreement for residential cleanup",
+      "answer": "DTSC VOA",
+      "statutory_tag": "HERO Note 3"
+    },
+    {
+      "id": "F1_05",
+      "clue": "Statutory housing fund penalty amount",
+      "answer": "6.09 MILLION",
+      "statutory_tag": "LMIHAF Covenant"
+    }
+  ],
+  "verification_hash": "0x4f6ab68b494eb40b9cfc3e5558e4efdce08cc9544d9dbdb1419178830de411b3"
+}

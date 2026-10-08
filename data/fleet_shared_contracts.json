@@ -1,0 +1,32 @@
+{
+  "version": "1.0",
+  "boundaries": {
+    "no_live_fax_by_default": true,
+    "mocked_transport_default": true,
+    "approved_clues_only": true,
+    "deterministic_hashing": true
+  },
+  "dispatch_schema": {
+    "required_fields": [
+      "dispatch_id",
+      "timestamp",
+      "recipient",
+      "document_payload_path",
+      "approval_gate"
+    ],
+    "allowed_gates": [
+      "SYSTEM_APPROVED_ZERO_TRUST",
+      "USER_MANUAL_OVERRIDE"
+    ],
+    "default_gate": "SYSTEM_APPROVED_ZERO_TRUST"
+  },
+  "crossword_schema": {
+    "required_fields": [
+      "puzzle_id",
+      "date",
+      "clues",
+      "verification_hash"
+    ],
+    "min_clues": 5
+  }
+}

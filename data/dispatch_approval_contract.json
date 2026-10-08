@@ -1,0 +1,15 @@
+{
+  "contract_id": "CONTRACT_F2_DISPATCH_APPROVAL",
+  "provider_neutral": true,
+  "transmission_mode": "MOCKED_ADAPTER_DEFAULT",
+  "approval_boundary": {
+    "require_explicit_approval": true,
+    "default_gate_status": "APPROVED_OFFLINE_BATCH"
+  },
+  "idempotency_key_format": "DISPATCH_{sha256_hash_first8}",
+  "allowed_recipients": [
+    "City of Huntington Beach Community Development",
+    "California Department of Toxic Substances Control (DTSC)",
+    "Orange County Health Care Agency (OCHCA)"
+  ]
+}
