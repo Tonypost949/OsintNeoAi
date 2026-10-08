@@ -1,0 +1,27 @@
+{
+  "token_symbol": "TFT",
+  "token_name": "TaxFunded Testnet Token",
+  "total_reward_pool": "10,000,000 TFT",
+  "per_solve_reward": "50 TFT",
+  "escrow_network": "Sepolia / BigQuery Append-Only Ledger",
+  "active_nodes": [
+    "https://chronicle.osintneoai.me",
+    "https://osintneoai.me",
+    "https://taxfunded.osintneoai.me"
+  ],
+  "reward_triggers": [
+    {
+      "trigger": "CROSSWORD_SOLVE",
+      "reward": "50 TFT"
+    },
+    {
+      "trigger": "CORROBORATED_EVIDENCE_SUBMISSION",
+      "reward": "250 TFT"
+    },
+    {
+      "trigger": "DTSC_REMEDIAL_CLEARANCE_HIT",
+      "reward": "500 TFT"
+    }
+  ],
+  "last_updated": "2026-10-08T21:18:10.508373+00:00"
+}

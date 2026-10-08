@@ -54,7 +54,7 @@
   - Generated `cameron_lane_gis_polygons.geojson` and updated `workspace_v2.html` Cytoscape graph to render GeoJSON plume polygon nodes for Ascon Landfill (ID 30490016) and Hexavalent Chromium plume (Case 20IC002 @ 980 µg/kg).
 - [x] **Task 16: Automated Cal. CCP § 473(d) Legal Document Assembler**
   - Generated court-ready Notice of Motion and Motion to Vacate Void Judgment package (`docs/Motion_To_Vacate_Void_Judgment_CCP_473d.md` & `scripts/assemble_473d_motion_package.py`).
-- [ ] **Task 17: Tokenomics & Franchise Newspaper 50 TFT Reward Pool**
-  - Wire TFT token reward distribution on `https://chronicle.osintneoai.me`.
+- [x] **Task 17: Tokenomics & Franchise Newspaper 50 TFT Reward Pool**
+  - Configured TFT tokenomics reward pool engine (`data/tft_tokenomics_pool.json` & `scripts/tft_tokenomics_engine.py`) and integrated 50 TFT minting logic on `https://chronicle.osintneoai.me` (`public/crypto_crossword.html`).
 - [ ] **Task 18: System Reliability & Uptime Sentinel**
   - Deploy automated sentinel monitoring Cloud Run endpoints, BigQuery latency, and rate limits.
