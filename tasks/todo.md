@@ -52,8 +52,8 @@
   - Built Chrome Webstore Manifest V3 capture node in `chrome_extension/` targeting `https://api.osintneoai.me` and `http://localhost:10001` (`manifest.json`, `popup.html`, `popup.js`).
 - [x] **Task 15: Municipal GIS Polygon Layer Overlay**
   - Generated `cameron_lane_gis_polygons.geojson` and updated `workspace_v2.html` Cytoscape graph to render GeoJSON plume polygon nodes for Ascon Landfill (ID 30490016) and Hexavalent Chromium plume (Case 20IC002 @ 980 µg/kg).
-- [ ] **Task 16: Automated Cal. CCP § 473(d) Legal Document Assembler**
-  - Generate court-ready PDF/Word Notice of Motion and Motion to Vacate Void Judgment packages.
+- [x] **Task 16: Automated Cal. CCP § 473(d) Legal Document Assembler**
+  - Generated court-ready Notice of Motion and Motion to Vacate Void Judgment package (`docs/Motion_To_Vacate_Void_Judgment_CCP_473d.md` & `scripts/assemble_473d_motion_package.py`).
 - [ ] **Task 17: Tokenomics & Franchise Newspaper 50 TFT Reward Pool**
   - Wire TFT token reward distribution on `https://chronicle.osintneoai.me`.
 - [ ] **Task 18: System Reliability & Uptime Sentinel**
