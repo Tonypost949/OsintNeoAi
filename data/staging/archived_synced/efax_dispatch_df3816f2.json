@@ -1,0 +1,17 @@
+{
+    "dispatch_id": "0xdf3816f221613a1180402fd578197ec38883391de8b40e275e7dd618b5fa9ccc",
+    "timestamp": "2026-10-08T20:28:59.378799+00:00",
+    "recipient": "City of Huntington Beach Community Development / Housing Authority",
+    "regulatory_agency": "California Department of Toxic Substances Control (DTSC)",
+    "destination_fax": "+1-714-536-5271 (Mock Regulatory Gateway)",
+    "transmission_status": "QUEUED_MOCKED_EFAX_ADAPTER",
+    "approval_gate": "SYSTEM_APPROVED_ZERO_TRUST",
+    "statutory_references": [
+        "Cal. Gov. Code \u00a7 7920.000 (CPRA)",
+        "Cal. Health & Safety Code \u00a7 25300 (HSAA)",
+        "CEQA Guidelines \u00a7\u00a7 15192/15194"
+    ],
+    "document_payload_path": "C:\\OsintNeoAi\\docs\\Legal_Demand_Letter_Cameron_Lane_Jamboree_DTSC.md",
+    "ledger_value": "$0.00",
+    "verification_status": "COMMITTED_EFAX_DISPATCH_QUEUE"
+}

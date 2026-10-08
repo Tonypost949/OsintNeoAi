@@ -1,0 +1,13 @@
+{
+  "adapter_id": "MOCKED_EFAX_ADAPTER_V1",
+  "timestamp": "2026-10-08T20:31:09.021300+00:00",
+  "mocked_transport_active": true,
+  "approval_gate": "SYSTEM_APPROVED_ZERO_TRUST",
+  "retry_policy": {
+    "max_retries": 3,
+    "backoff_seconds": 10
+  },
+  "idempotency_key": "IDEM_EFAX_2F22EF01",
+  "recipient": "City of HB Community Development / DTSC",
+  "fax_number_masked": "+1-714-XXX-5271"
+}

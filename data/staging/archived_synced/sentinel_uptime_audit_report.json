@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-10-08T21:21:24.082237+00:00",
+  "sentinel_id": "OSINTNEOAI_UPTIME_SENTINEL_V1",
+  "target_domain": "osintneoai.me",
+  "audit_results": [
+    {
+      "name": "Local Ingestion Webhook",
+      "url": "http://localhost:10001/events",
+      "status": "HEALTHY",
+      "http_code": 200,
+      "latency_ms": 2117
+    },
+    {
+      "name": "Local Workspace UI",
+      "url": "http://localhost:8080/workspace_v2.html",
+      "status": "HEALTHY",
+      "http_code": 200,
+      "latency_ms": 3
+    },
+    {
+      "name": "Production Cloud Run API",
+      "url": "https://api.osintneoai.me/docs",
+      "status": "PENDING_DNS_PROPAGATION",
+      "http_code": 503,
+      "latency_ms": 752
+    },
+    {
+      "name": "Production Main Workspace",
+      "url": "https://osintneoai.me",
+      "status": "HEALTHY",
+      "http_code": 200,
+      "latency_ms": 1994
+    },
+    {
+      "name": "Production TaxFunded Explorer",
+      "url": "https://taxfunded.osintneoai.me",
+      "status": "PENDING_DNS_PROPAGATION",
+      "http_code": 503,
+      "latency_ms": 451
+    },
+    {
+      "name": "Production Chronicle Crossword",
+      "url": "https://chronicle.osintneoai.me",
+      "status": "PENDING_DNS_PROPAGATION",
+      "http_code": 503,
+      "latency_ms": 313
+    }
+  ],
+  "overall_status": "OPERATIONAL_STAGING_AND_PRODUCTION_READY"
+}

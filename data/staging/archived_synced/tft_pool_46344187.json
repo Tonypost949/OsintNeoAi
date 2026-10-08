@@ -1,0 +1,9 @@
+{
+    "receipt_hash": "0x4634418761ee56212c4100c37bb5632a390987fe8f8fdd304f534825105d3d98",
+    "timestamp": "2026-10-08T21:18:10.509087+00:00",
+    "genesis_type": "TOKENOMICS_POOL",
+    "target_entity": "50 TFT Crossword Reward Pool",
+    "raw_payload": "{\"token_symbol\": \"TFT\", \"token_name\": \"TaxFunded Testnet Token\", \"total_reward_pool\": \"10,000,000 TFT\", \"per_solve_reward\": \"50 TFT\", \"escrow_network\": \"Sepolia / BigQuery Append-Only Ledger\", \"active_nodes\": [\"https://chronicle.osintneoai.me\", \"https://osintneoai.me\", \"https://taxfunded.osintneoai.me\"], \"reward_triggers\": [{\"trigger\": \"CROSSWORD_SOLVE\", \"reward\": \"50 TFT\"}, {\"trigger\": \"CORROBORATED_EVIDENCE_SUBMISSION\", \"reward\": \"250 TFT\"}, {\"trigger\": \"DTSC_REMEDIAL_CLEARANCE_HIT\", \"reward\": \"500 TFT\"}], \"last_updated\": \"2026-10-08T21:18:10.508373+00:00\"}",
+    "ledger_value": "10000000 TFT",
+    "verification_status": "ACTIVE_REWARD_ESCROW"
+}
