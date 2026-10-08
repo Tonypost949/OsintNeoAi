@@ -1,55 +1,63 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-  </head>
-  <body>
-    <header>
-      <div id="header-text"></div>
-    </header>
-    <div
-      id="copy-buttons"
-      style="display: none"
-    ></div>
-    <div
-      id="format-section"
-      style="display: none"
-    >
-      <div class="format-header">
-        <span id="copy-as-label"></span>
-        <button
-          id="default-format-btn"
-          class="button-secondary"
-        >
-          <span
-            id="default-format-label"
-            class="button-label"
-          ></span>
-          <span class="icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="4"
-              width="8"
-              fill="currentColor"
-            >
-              <path
-                fill="transparent"
-                stroke="currentColor"
-                d="M0 0 L 4 4 L 8 0"
-              />
-            </svg>
-          </span>
-        </button>
-      </div>
-      <div id="format-selector"></div>
-    </div>
-    <script
-      src="/src/popup/popup.ts"
-      type="module"
-    ></script>
-  </body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            width: 320px;
+            padding: 16px;
+            background: #090d16;
+            color: #38bdf8;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+        h3 {
+            margin-top: 0;
+            color: #fff;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            padding-bottom: 6px;
+            font-size: 14px;
+        }
+        p {
+            font-size: 11px;
+            color: #94a3b8;
+            line-height: 1.4;
+        }
+        button {
+            width: 100%;
+            background: #38bdf8;
+            color: #0f172a;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-family: inherit;
+        }
+        button:hover { background: #0284c7; color: #fff; }
+        #status {
+            margin-top: 12px;
+            font-size: 11px;
+            word-break: break-all;
+            padding: 8px;
+            border-radius: 4px;
+            background: rgba(0,0,0,0.5);
+            display: none;
+        }
+        .footer {
+            font-size: 9px;
+            color: #64748b;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h3>OSINTNeoAI Capture Node</h3>
+    <p>Scrape active municipal/DTSC webpage content, hash instantly, and commit to the zero-trust ledger.</p>
+    <button id="captureBtn">🔒 HASH & INJECT PAGE</button>
+    <div id="status"></div>
+    <div class="footer">Target: api.osintneoai.me | Ledger: Append-Only</div>
+    <script src="popup.js"></script>
+</body>
 </html>

@@ -48,8 +48,8 @@
   - Containerized backend APIs with `Dockerfile`, created `cloudbuild.yaml`, and configured DNS domain mappings for `osintneoai.me`, `taxfunded.osintneoai.me`, and `api.osintneoai.me` (`scripts/configure_cloud_run_domains.py`).
 - [x] **Task 13: Real-Time WebSockets & SSE Event Stream**
   - Implemented SSE real-time event streaming endpoint on `http://localhost:10001/events` (`https://api.osintneoai.me/events`) in `scripts/dynamic_genesis_webhook.py`.
-- [ ] **Task 14: Manifest V3 Browser Extension Node Release**
-  - Package `C:\OsintNeoAi\chrome_extension\` for Webstore deployment targeting `https://api.osintneoai.me`.
+- [x] **Task 14: Manifest V3 Browser Extension Node Release**
+  - Built Chrome Webstore Manifest V3 capture node in `chrome_extension/` targeting `https://api.osintneoai.me` and `http://localhost:10001` (`manifest.json`, `popup.html`, `popup.js`).
 - [ ] **Task 15: Municipal GIS Polygon Layer Overlay**
   - Integrate GeoJSON toxic plume contours for Ascon Landfill (30490016) and $Cr\text{-VI}$ (Case 20IC002) into Cytoscape/Leaflet maps.
 - [ ] **Task 16: Automated Cal. CCP § 473(d) Legal Document Assembler**
