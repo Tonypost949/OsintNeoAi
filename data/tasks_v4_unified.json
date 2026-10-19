@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-19T18:20:19.255785+00:00",
-  "total": 67,
-  "open": 24,
-  "done": 43,
+  "updated_at": "2026-10-19T19:17:28.250299+00:00",
+  "total": 75,
+  "open": 31,
+  "done": 44,
   "tasks": [
     {
       "id": "TASK-VSDE-001",
@@ -970,7 +970,7 @@
       "category": "Forensic GIS / RICO",
       "priority": "CRITICAL",
       "status": "DONE",
-      "description": "Enumerated all 43 Huntington Beach ArcGIS services (584 layers) and Orange County/state/federal GIS layers. Verified public-write AddressEdits service, 100% NUWEYT re-save of 52,081 parcels and 8,542 sewer pipes/49,482 laterals, 66/66 NUWEYT 2024 OCTA grant assets, 83,641-address single-timestamp rewrite, and HBNC address-to-parcel crosswalk mismatch (17642 Beach Blvd -> APN 167-472-08 vs assessor 167-472-09). Produced GOVERNMENT_GIS_FORENSIC_CORRELATION_DOSSIER_20261019.md; committed to RICONWO main (ce84ece).",
+      "description": "Enumerated all 43 Huntington Beach ArcGIS services (584 layers) and Orange County/state/federal GIS layers. Verified public-write AddressEdits service; 100% NUWEYT re-save of 52,081 parcels and 8,542 sewer pipes/49,482 laterals; 66/66 NUWEYT 2024 OCTA grant assets; 506/508 OCTA grant assets linked to hydraulic model nodes; 83,641-address single-timestamp rewrite; citywide address-parcel crosswalk audit (11,180/81,267 mismatches, 606 APNs with no matching address point); GeoTracker 20IC002 conditional closure for temporary tents; DTSC/CalGEM corridor checks; 17 RICO GIS roots probed. Produced GOVERNMENT_GIS_FORENSIC_CORRELATION_DOSSIER_20261019.md; RICONWO main commit 482e4ff.",
       "created_at": "2026-10-19T18:20:19.255751+00:00",
       "tags": [
         "GIS",
@@ -984,6 +984,129 @@
         "parcels"
       ],
       "action_url": "https://github.com/Tonypost949/RICONWO/blob/main/GOVERNMENT_GIS_FORENSIC_CORRELATION_DOSSIER_20261019.md"
+    },
+    {
+      "id": "TASK-GIS-20261019-02",
+      "title": "Cross-city editor-provenance probe and citywide address-parcel crosswalk audit",
+      "category": "Forensic GIS / RICO",
+      "priority": "HIGH",
+      "status": "DONE",
+      "description": "Live-probed 17 government GIS roots (HB, OC, Newport Beach, Costa Mesa, Irvine, Anaheim, Santa Ana, Tustin, Westminster, Fullerton, Orange, Seal Beach, Long Beach, LA City, LA County, OCTA, Caltrans D12). Built cross-entity editor-attribution matrix; quantified HB crosswalk defect (11,180/81,267 non-matches; 606 APNs unaligned). Evidence: RICONWO evidence/gis_audit_20261019/*; dossier sections 2.4a and 4.",
+      "created_at": "2026-10-19T19:17:28.250299+00:00",
+      "tags": [
+        "GIS",
+        "editor-tracking",
+        "crosswalk",
+        "RICO",
+        "ArcGIS"
+      ],
+      "action_url": "https://github.com/Tonypost949/RICONWO/blob/main/GOVERNMENT_GIS_FORENSIC_CORRELATION_DOSSIER_20261019.md"
+    },
+    {
+      "id": "TASK-CRED-20261019-01",
+      "title": "Rotate exposed GitHub PAT and restore credential hygiene",
+      "category": "Security / Credentials",
+      "priority": "CRITICAL",
+      "status": "TODO",
+      "description": "A GitHub PAT is embedded in the OsintNeoAi remote URL and was printed in session logs; the previously scrubbed token in ~/.config/gh/hosts.yml is invalid. Rotate the PAT, replace remote URL credentials with a credential helper or SSH deploy key, and re-scrub logs/snapshots. Do not block case work; pushes currently work via the embedded token.",
+      "created_at": "2026-10-19T19:17:28.250299+00:00",
+      "tags": [
+        "credentials",
+        "GitHub",
+        "security",
+        "rotation"
+      ]
+    },
+    {
+      "id": "TASK-GIS-20261019-03",
+      "title": "Obtain GeoTracker 20IC002 full case file and county land-use reevaluation",
+      "category": "Forensic GIS / Environmental",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "GeoTracker/SWRCB live document endpoints return Cloudflare 403. File CPRA request for the complete case file for global IDs T10000018579 and T10000020555 (local case 20IC002), including the 2020-08-21 closure approval, site history, and any county reevaluation triggered by permanent navigation-center use.",
+      "created_at": "2026-10-19T19:17:28.250299+00:00",
+      "tags": [
+        "GeoTracker",
+        "CPRA",
+        "20IC002",
+        "HBNC"
+      ]
+    },
+    {
+      "id": "TASK-GIS-20261019-04",
+      "title": "Obtain CalGEM Hoff 1 abandonment record and inHPZ definition",
+      "category": "Forensic GIS / Oil & Gas",
+      "priority": "MEDIUM",
+      "status": "TODO",
+      "description": "API 0405900882 (Hoff 1, Cadillac Oil Co.) publishes status Plugged/Dry Hole and inHPZ=Verified HPZ, with no digital notice/incident record in WellSTAR. Request the paper abandonment file from CalGEM District 1 and confirm the official Health Protection Zone definition.",
+      "created_at": "2026-10-19T19:17:28.250299+00:00",
+      "tags": [
+        "CalGEM",
+        "WellSTAR",
+        "Hoff1",
+        "HPZ"
+      ]
+    },
+    {
+      "id": "TASK-GIS-20261019-05",
+      "title": "Resolve remaining RICO GIS roots and secured layers",
+      "category": "Forensic GIS / RICO",
+      "priority": "MEDIUM",
+      "status": "TODO",
+      "description": "No public ArcGIS REST root located for Garden Grove or Fountain Valley. LA City Master_sewer_external/Master_stormwater and OCTA Environment folder are secured. Attempt Hub/DCAT discovery, then CPRA requests for layer inventories and editor-tracking schemas.",
+      "created_at": "2026-10-19T19:17:28.250299+00:00",
+      "tags": [
+        "GIS",
+        "GardenGrove",
+        "FountainValley",
+        "LACity",
+        "OCTA"
+      ]
+    },
+    {
+      "id": "TASK-GIS-20261019-06",
+      "title": "Verify StormTech as-built and OCTA reimbursement claims",
+      "category": "Forensic GIS / Grants",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "StormTech chambers are absent from all city GIS layers; only permit plans document 10 MC-3500 chambers. Obtain as-built/inspection records and the 66 2024 OCTA grant reimbursement claims.",
+      "created_at": "2026-10-19T19:17:28.250299+00:00",
+      "tags": [
+        "StormTech",
+        "OCTA",
+        "grants",
+        "as-built"
+      ]
+    },
+    {
+      "id": "TASK-GIS-20261019-07",
+      "title": "Obtain HB AddressEdits server logs and SPRADLIA/NUWEYT identity mapping",
+      "category": "Forensic GIS / RICO",
+      "priority": "CRITICAL",
+      "status": "TODO",
+      "description": "Request ArcGIS Server logs for applyEdits on AddressEdits, identity mapping for SPRADLIA and NUWEYT, and geodatabase backups predating the 2026 loads.",
+      "created_at": "2026-10-19T19:17:28.250299+00:00",
+      "tags": [
+        "AddressEdits",
+        "server-logs",
+        "SPRADLIA",
+        "NUWEYT"
+      ]
+    },
+    {
+      "id": "TASK-GIS-20261019-08",
+      "title": "Obtain groundwater-flow and vapor-intrusion data for nearby open plumes",
+      "category": "Forensic GIS / Environmental",
+      "priority": "HIGH",
+      "status": "TODO",
+      "description": "G & M Oil #35 (T0605901705, 272 m, open verification monitoring, gasoline, drinking-water aquifer) and Golden West Laundry (T10000005577, 664 m, open-inactive, PCE/TCE). Request monitoring-well data, groundwater flow direction, and vapor-intrusion assessment for the shelter parcels.",
+      "created_at": "2026-10-19T19:17:28.250299+00:00",
+      "tags": [
+        "GeoTracker",
+        "vapor-intrusion",
+        "G&M Oil",
+        "Golden West Laundry"
+      ]
     }
   ]
 }
