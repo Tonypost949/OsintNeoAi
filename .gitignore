@@ -39,3 +39,8 @@ tasklet_export/
 opencode_work/
 evidence/google_photos*/
 public/evidence/full_downloads_harvest/
+
+# --- secrets: never commit ---
+agent/deepseek_cookies.txt
+agent/drive_resume_token.txt
+.playwright_session/
