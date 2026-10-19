@@ -37,8 +37,18 @@ contains:
 3. a retrieved date.
 
 The scanner still masks SSNs, financial account numbers, credentials, private
-keys, and private/residential IPs in public records. Do not republish a
-fullz-style record just because one field appeared in a public index.
+keys, and private/residential IPs in public records. Personal email addresses
+and phone numbers are also masked: only official government/military
+mailboxes, and phone numbers printed on a line that itself carries an
+official `.gov`/`.us` URL, pass through. Do not republish a fullz-style record
+just because one field appeared in a public index.
+
+## Citation coverage
+
+The export ships `CITATION_COVERAGE.json` and `CITATION_GAPS.csv` so missing
+source URLs, authority lines, and legal-section links are visible instead of
+silently implied. Records that lack required structured citations stay in
+`review_queue/`.
 
 ## Citation requirements
 
