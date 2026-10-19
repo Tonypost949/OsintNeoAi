@@ -1,6 +1,6 @@
 {
   "files_total": 92,
-  "generated_at": "2026-10-19T16:36:26.963149+00:00",
+  "generated_at": "2026-10-19T16:42:37.140224+00:00",
   "published_records": [
     {
       "bytes": 8008,
@@ -356,8 +356,9 @@
       },
       "path": "ALL_LINKS.html",
       "rules": {
-        "account": 8,
-        "address": 1
+        "account": 9,
+        "address": 1,
+        "phone": 1
       },
       "sha256": "07a6fd1bc265a32230d9ebe5d94277d8b9167f41c50035107675c0af5d278b8c"
     },
@@ -470,7 +471,9 @@
         "source_url": true
       },
       "path": "GENAI_BLUEPRINTS_39_41_v1.md",
-      "rules": {},
+      "rules": {
+        "account": 1
+      },
       "sha256": "9b42293b065e00eb0460276d76325aabd78e0d8155828a0c99443a363d4872e9"
     },
     {
@@ -532,7 +535,9 @@
         "source_url": true
       },
       "path": "SCORE_SBDC_ONBOARDING_v1.md",
-      "rules": {},
+      "rules": {
+        "email": 1
+      },
       "sha256": "e87e75a42dd30dceb39378f24a5fb18c86e529e2016c45705497dcf2a29ffd1a"
     },
     {
@@ -692,6 +697,7 @@
       "rules": {
         "account": 2,
         "address": 2,
+        "phone": 1,
         "zip": 5
       },
       "sha256": "8e8cdfe5f6ae251e576155ecf34c5f16da33b3e312381bf039ffaf65d7795c9c"
@@ -811,6 +817,7 @@
       },
       "path": "SBIR_PHASE_I_DRAFT_v1.md",
       "rules": {
+        "email": 1,
         "zip": 1
       },
       "sha256": "f893ba05d4d5babd6bad5791921a9457e830998773ed9da56866720f2a5de3ad"

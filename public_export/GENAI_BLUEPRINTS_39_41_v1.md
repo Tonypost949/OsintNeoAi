@@ -1,6 +1,6 @@
 # GenAI Blueprints 39 & 41 — TASK-016
 
-Source: https://cloud.google.com/blog/products/ai-machine-learning/real-world-gen-ai-use-cases-with-technical-blueprints
+Source: https://cloud.google.com/blog/products/ai-machine-learning/real-world-gen-ai-use-case ****ints
 
 ## Blueprint 39 — Legal Document Extraction → OsintNeoAi
 - **Use:** OC dockets `evidence/official_court_records/04_USA_v_Christopher_Ryan_...md` + `OC_Superior_Court_Case_30_2021_01201327_Full_ROA.md`

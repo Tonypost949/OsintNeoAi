@@ -16,7 +16,7 @@
 - **Pipeline:** SCORE `https://www.score.org` (TASK-001) + SBDC Orange County review.
 
 ## 3. Team & Facilities
-- PI: Anthony DiMarcello (Post University Entra `anthony.dimarcello@students.post.edu`), Azure `opencode-ai-8609` `gpt-5-mini/gpt-4.1-mini` `https://opencode-ai-8609-a7f40.openai.azure.com/`
+- PI: Anthony DiMarcello (Post University Entra `a***@students.post.edu`), Azure `opencode-ai-8609` `gpt-5-mini/gpt-4.1-mini` `https://opencode-ai-8609-a7f40.openai.azure.com/`
 - Infra: `https://osintneoai-app-949.azurewebsites.net` B1 East US (free $100/mo students), `https://dev.azure.com/anthonydimarcello` `mcp.dev.azure.com/anthonydimarcello`
 
 ## 4. Budget (6 mo)
