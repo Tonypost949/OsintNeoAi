@@ -99,6 +99,8 @@ COMBINED_RE = re.compile(
     r"|(?P<zip>(?<![\d-])(?P<zip3>\d{3})\d{2}(?:-\d{4})?(?![\d-]))"
     r"|(?P<labeled>(?i:\b(?P<label>account|acct|loan|policy|claim|case|driver'?s?[- ]?license|dl|passport|member|medicaid|medicare)\s*(?:no\.?|number|#)?\s*[:#]?\s*(?P<label_value>[A-Z0-9-]{5,})))"
 )
+OFFICIAL_URL_RE = re.compile(r"https?://[^\s]*(?:\.gov|\.us)(?=[/\s?#]|$)", re.I)
+OFFICIAL_EMAIL_DOMAIN = re.compile(r"\.(?:gov|mil|us)$", re.I)
 IPV4_RE = re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}\b")
 SECRET_ASSIGN_RE = re.compile(
     r"(?i)\b(password|passwd|pwd|secret|api[_-]?key|access[_-]?token|"
@@ -151,12 +153,16 @@ def redact_line(line: str, counts: Counter, public_line: bool) -> str:
             counts["ssn"] += 1
             return "***-**-" + gd["ssn_last"]
         if gd.get("phone") is not None:
-            if public_line:
+            # A phone number is only passed through when the same line also
+            # carries an official government URL. Otherwise it is masked.
+            if public_line and OFFICIAL_URL_RE.search(line):
                 return m.group(0)
             counts["phone"] += 1
             return "(***) ***-" + gd["phone_last"]
         if gd.get("email") is not None:
-            if public_line:
+            # Personal mailbox providers are masked even on public-record
+            # lines. Only official government/military mailboxes pass through.
+            if public_line and OFFICIAL_EMAIL_DOMAIN.search(gd["email_domain"]):
                 return m.group(0)
             counts["email"] += 1
             return gd["email_first"] + "***@" + gd["email_domain"]
