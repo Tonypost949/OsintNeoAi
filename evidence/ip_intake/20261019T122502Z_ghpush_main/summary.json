@@ -1,0 +1,181 @@
+{
+  "tool": "ip_ingest 1.0.1",
+  "label": "osintneoai_ghpush_20261019T122502Z_main",
+  "root": "/home/osintneoai/repos/OsintNeoAi",
+  "generated_at": "2026-10-19T12:30:02Z",
+  "duration_sec": 331.0,
+  "files_scanned": 6401,
+  "files_text": 5997,
+  "files_pdf": 404,
+  "files_skipped": {
+    "ext_filtered": 1745,
+    "oversize": 51,
+    "empty": 29,
+    "binary": 15,
+    "stat_error": 1,
+    "pdf_error": 12
+  },
+  "ip_occurrences_total": 4347,
+  "unique_ips": 1041,
+  "classes": {
+    "public": 1010,
+    "loopback": 2,
+    "unspecified": 2,
+    "private": 22,
+    "link_local": 3,
+    "shared_cgnat": 2
+  },
+  "public_ips": 1010,
+  "top_public": [
+    {
+      "ip": "20.119.16.58",
+      "occurrences": 255,
+      "files": 255,
+      "first": "azure_unzipped_logs/LogFiles/kudu/trace/2026-08-13T04-30-24_2a8f5b_002_POST_api-settings_204_2s.xml:1"
+    },
+    {
+      "ip": "109.0.7.36",
+      "occurrences": 121,
+      "files": 121,
+      "first": "azure_unzipped_logs/LogFiles/kudu/trace/2026-08-13T04-30-24_2a8f5b_002_POST_api-settings_204_2s.xml:1"
+    },
+    {
+      "ip": "201.142.151.43",
+      "occurrences": 69,
+      "files": 69,
+      "first": "azure_unzipped_logs/LogFiles/kudu/trace/2026-08-22T07-25-11_a5653c_003_POST_api-publish_202_1s.xml:1"
+    },
+    {
+      "ip": "192.5.222.153",
+      "occurrences": 35,
+      "files": 35,
+      "first": "COMPREHENSIVE_MASTER_DOSSIER.md:188"
+    },
+    {
+      "ip": "192.5.222.218",
+      "occurrences": 31,
+      "files": 31,
+      "first": "EVIDENCE_INDEX.md:29"
+    },
+    {
+      "ip": "1.23.82.72",
+      "occurrences": 22,
+      "files": 22,
+      "first": "data/osintcabal_mirror/OSINTChan.html:59"
+    },
+    {
+      "ip": "2.2.82.64",
+      "occurrences": 22,
+      "files": 22,
+      "first": "data/osintcabal_mirror/OSINTChan.html:59"
+    },
+    {
+      "ip": "199.59.243.228",
+      "occurrences": 21,
+      "files": 21,
+      "first": "Universal_Account_Bookmarks_Vault.html:1508"
+    },
+    {
+      "ip": "135.84.124.41",
+      "occurrences": 20,
+      "files": 20,
+      "first": "AUDIT_NUMBERS.csv:13"
+    },
+    {
+      "ip": "192.5.222.0",
+      "occurrences": 20,
+      "files": 20,
+      "first": "FACEBOOK_POST_CONTENT.md:19"
+    },
+    {
+      "ip": "188.214.128.77",
+      "occurrences": 17,
+      "files": 17,
+      "first": "AUDIT_NUMBERS_v2_scan_july24.csv:19"
+    },
+    {
+      "ip": "104.26.15.40",
+      "occurrences": 16,
+      "files": 16,
+      "first": "AUDIT_NUMBERS_v2_scan_july24.csv:37"
+    },
+    {
+      "ip": "141.193.213.10",
+      "occurrences": 14,
+      "files": 14,
+      "first": "EVIDENCE_INDEX.md:55"
+    },
+    {
+      "ip": "8.3.0.0",
+      "occurrences": 14,
+      "files": 14,
+      "first": "Universal_Account_Bookmarks_Vault.html:4637"
+    },
+    {
+      "ip": "89.106.200.153",
+      "occurrences": 14,
+      "files": 14,
+      "first": "AUDIT_NUMBERS_v2_scan_july24.csv:40"
+    },
+    {
+      "ip": "52.247.170.120",
+      "occurrences": 13,
+      "files": 13,
+      "first": "AUDIT_NUMBERS_v2_scan_july24.csv:53"
+    },
+    {
+      "ip": "54.165.146.83",
+      "occurrences": 13,
+      "files": 13,
+      "first": "AUDIT_NUMBERS_v2_scan_july24.csv:56"
+    },
+    {
+      "ip": "3.33.130.190",
+      "occurrences": 12,
+      "files": 12,
+      "first": "EVIDENCE_INDEX.md:9"
+    },
+    {
+      "ip": "76.223.54.146",
+      "occurrences": 12,
+      "files": 12,
+      "first": "EVIDENCE_INDEX.md:11"
+    },
+    {
+      "ip": "204.108.16.117",
+      "occurrences": 11,
+      "files": 11,
+      "first": "AUDIT_NUMBERS_v2_scan_july24.csv:22"
+    },
+    {
+      "ip": "208.109.36.19",
+      "occurrences": 11,
+      "files": 11,
+      "first": "AUDIT_NUMBERS.csv:14"
+    },
+    {
+      "ip": "45.223.97.122",
+      "occurrences": 11,
+      "files": 11,
+      "first": "AUDIT_NUMBERS_v2_scan_july24.csv:8"
+    },
+    {
+      "ip": "66.97.145.114",
+      "occurrences": 11,
+      "files": 11,
+      "first": "AUDIT_NUMBERS_v2_scan_july24.csv:15"
+    },
+    {
+      "ip": "120.0.0.0",
+      "occurrences": 10,
+      "files": 10,
+      "first": ".agents/explorer_m1_3/analysis.md:430"
+    },
+    {
+      "ip": "141.193.213.21",
+      "occurrences": 10,
+      "files": 10,
+      "first": "EVIDENCE_INDEX.md:7"
+    }
+  ]
+}
