@@ -35,7 +35,7 @@ SKIP_DIRS = {
     "backups", "backup", "cloud_storage", "Amd949609_keys", "repos",
     "evidence", "data", "agent", "extracted_documents", "sessions",
     "scratch", "opencode_work", "extracted_home_data", "exports",
-    "large_data", "backup-scripts",
+    "large_data", "backup-scripts", "chat_logs",
 }
 SENSITIVE_NAME = re.compile(
     r"(fullz|pii|personal|identity|ssn|social[-_]?security|credit[-_]?card|"
@@ -88,6 +88,17 @@ LABELED_ID_RE = re.compile(
     r"dl|passport|member|medicaid|medicare)\s*(?:no\.?|number|#)?\s*[:#]?\s*"
     r"([A-Z0-9-]{5,})"
 )
+# One combined pass for the high-volume identifier patterns. Public-record
+# line logic is applied per match so already-public records stay untouched.
+COMBINED_RE = re.compile(
+    r"(?P<ssn>(?<!\d)(?P<ssn_area>\d{3})[-\s](?P<ssn_mid>\d{2})[-\s](?P<ssn_last>\d{4})(?!\d))"
+    r"|(?P<phone>(?<!\d)(?:\+?1[\s.-]?)?\(?(?P<phone_ac>[2-9]\d{2})\)?[\s.-]?(?P<phone_mid>\d{3})[\s.-]?(?P<phone_last>\d{4})(?!\d))"
+    r"|(?P<email>(?P<email_first>[A-Za-z0-9._%+-])[A-Za-z0-9._%+-]*@(?P<email_domain>[A-Za-z0-9.-]+\.[A-Za-z]{2,}))"
+    r"|(?P<dob>(?<!\d)(?P<dob_m>0?[1-9]|1[0-2])[/-](?P<dob_d>0?[1-9]|[12]\d|3[01])[/-](?P<dob_y>(?:19|20)\d{2})(?!\d))"
+    r"|(?P<address>(?P<addr_num>\d{1,6})\s+(?P<addr_name>[A-Z][A-Za-z0-9.'-]+(?:\s+[A-Z][A-Za-z0-9.'-]+){0,3})\s+(?P<addr_suffix>Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Boulevard|Blvd|Court|Ct|Way|Place|Pl|Terrace|Ter|Circle|Cir|Parkway|Pkwy|Highway|Hwy)\b)"
+    r"|(?P<zip>(?<![\d-])(?P<zip3>\d{3})\d{2}(?:-\d{4})?(?![\d-]))"
+    r"|(?P<labeled>(?i:\b(?P<label>account|acct|loan|policy|claim|case|driver'?s?[- ]?license|dl|passport|member|medicaid|medicare)\s*(?:no\.?|number|#)?\s*[:#]?\s*(?P<label_value>[A-Z0-9-]{5,})))"
+)
 IPV4_RE = re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}\b")
 SECRET_ASSIGN_RE = re.compile(
     r"(?i)\b(password|passwd|pwd|secret|api[_-]?key|access[_-]?token|"
@@ -128,62 +139,52 @@ def is_public_line(line: str) -> bool:
 
 
 def redact_line(line: str, counts: Counter, public_line: bool) -> str:
-    # Hard/soft secrets first.
-    for name, rx in HARD_SECRETS:
-        if rx.search(line):
-            counts[name] += 1
-    for name, rx in SOFT_SECRETS:
-        def soft_sub(m):
-            counts[name] += 1
-            return m.group(1) + "=[REDACTED]"
-        line = rx.sub(soft_sub, line)
-    line = SECRET_ASSIGN_RE.sub(lambda m: (counts.update(["secret_assignment"]) or
-                                           m.group(1) + "=[REDACTED]"), line)
-
-    # High-risk identifiers are always masked, even on public-record lines.
-    def ssn_sub(m):
-        counts["ssn"] += 1
-        return "***-**-" + m.group(3)
-    line = SSN_RE.sub(ssn_sub, line)
-
-    def account_sub(m):
-        label, value = m.group(1), re.sub(r"[^A-Za-z0-9]", "", m.group(2))
-        # Public case/docket numbers are citations, not financial identifiers.
-        if public_line and label.lower().startswith(("case", "docket", "claim")):
-            return m.group(0)
-        counts["account"] += 1
-        return label + " ****" + value[-4:]
-    line = LABELED_ID_RE.sub(account_sub, line)
-
-    if not public_line:
-        def phone_sub(m):
+    def combined_sub(m: re.Match) -> str:
+        gd = m.groupdict()
+        if gd.get("ssn") is not None:
+            counts["ssn"] += 1
+            return "***-**-" + gd["ssn_last"]
+        if gd.get("phone") is not None:
+            if public_line:
+                return m.group(0)
             counts["phone"] += 1
-            return "(***) ***-" + m.group(3)
-        line = PHONE_RE.sub(phone_sub, line)
-
-        def email_sub(m):
+            return "(***) ***-" + gd["phone_last"]
+        if gd.get("email") is not None:
+            if public_line:
+                return m.group(0)
             counts["email"] += 1
-            return m.group(1) + "***@" + m.group(2)
-        line = EMAIL_RE.sub(email_sub, line)
-
-        def dob_sub(m):
+            return gd["email_first"] + "***@" + gd["email_domain"]
+        if gd.get("dob") is not None:
+            if public_line:
+                return m.group(0)
             counts["dob"] += 1
-            return "**/**/" + m.group(3)
-        line = DOB_RE.sub(dob_sub, line)
-
-        def addr_sub(m):
+            return "**/**/" + gd["dob_y"]
+        if gd.get("address") is not None:
+            if public_line:
+                return m.group(0)
             counts["address"] += 1
-            name = m.group(2)
-            return f"{m.group(1)} {name[0]}*** {m.group(3)}"
-        line = ADDRESS_RE.sub(addr_sub, line)
-
-        def zip_sub(m):
+            name = gd["addr_name"]
+            return f"{gd['addr_num']} {name[0]}*** {gd['addr_suffix']}"
+        if gd.get("zip") is not None:
+            if public_line:
+                return m.group(0)
             counts["zip"] += 1
-            return m.group(1) + "**"
-        line = ZIP_RE.sub(zip_sub, line)
+            return gd["zip3"] + "**"
+        if gd.get("labeled") is not None:
+            label = gd["label"]
+            value = re.sub(r"[^A-Za-z0-9]", "", gd["label_value"])
+            if public_line and label.lower().startswith(("case", "docket", "claim")):
+                return m.group(0)
+            counts["account"] += 1
+            return label + " ****" + value[-4:]
+        return m.group(0)
 
-    # IP policy: private/reserved always masked; public only when cited.
-    def ip_sub(m):
+    line = COMBINED_RE.sub(combined_sub, line)
+    line = SECRET_ASSIGN_RE.sub(
+        lambda m: (counts.update(["secret_assignment"]) or
+                   m.group(1) + "=[REDACTED]"), line)
+
+    def ip_sub(m: re.Match) -> str:
         raw = m.group(0)
         try:
             ip = ipaddress.ip_address(raw)
@@ -196,8 +197,7 @@ def redact_line(line: str, counts: Counter, public_line: bool) -> str:
             return raw
         counts["public_ip_masked"] += 1
         return "[IP_REDACTED]"
-    line = IPV4_RE.sub(ip_sub, line)
-    return line
+    return IPV4_RE.sub(ip_sub, line)
 
 
 def process_file(src: Path, rel: Path, out_root: Path, review_root: Path,
@@ -210,10 +210,12 @@ def process_file(src: Path, rel: Path, out_root: Path, review_root: Path,
         "rules": {},
         "citation": {},
     }
-    if src.stat().st_size > 8 * 1024 * 1024:
+    size = src.stat().st_size
+    if size > 8 * 1024 * 1024:
         rec["status"] = "skipped_large"
         return rec
-    head = src.read_bytes()[:4096]
+    with src.open("rb") as f:
+        head = f.read(4096)
     if b"\x00" in head:
         rec["status"] = "skipped_binary"
         return rec
@@ -234,12 +236,15 @@ def process_file(src: Path, rel: Path, out_root: Path, review_root: Path,
     lines = text.splitlines(keepends=True)
     redacted_lines = []
     public_context = 0
+    file_has_hint = bool(URL_RE.search(text) or AUTHORITY_RE.search(text))
+    public_hint = re.compile(r"(?i)\b(source|official|public record|retrieved)\b")
     for line in lines:
-        line_public = is_public_line(line)
-        if line_public or (URL_RE.search(line) and
-                           (AUTHORITY_RE.search(line) or
-                            re.search(r"(?i)\b(source|official|public record|retrieved)\b", line))):
-            public_context = 12
+        line_public = False
+        if file_has_hint:
+            line_public = is_public_line(line)
+            if line_public or (URL_RE.search(line) and
+                               (AUTHORITY_RE.search(line) or public_hint.search(line))):
+                public_context = 12
         effective_public = line_public or public_context > 0
         redacted_lines.append(redact_line(line, counts, effective_public))
         if public_context > 0:
@@ -299,6 +304,8 @@ def main() -> int:
         for name in files:
             src = Path(root) / name
             rel = src.relative_to(source)
+            if name.startswith("chat_export") or name == "chat.html":
+                continue
             if SENSITIVE_NAME.search(rel.as_posix()):
                 records.append({"path": rel.as_posix(), "status": "quarantined_sensitive_name",
                                 "sha256": sha256(src), "bytes": src.stat().st_size,
