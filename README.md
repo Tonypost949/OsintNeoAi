@@ -28,13 +28,22 @@ published here.
 ## Layout
 
 - `scanner/redact.py` — fail-closed redaction and citation auditor.
+- `scanner/verify_public.py` — post-scan verifier; blocks secrets, SSNs, and
+  private IPs from being published.
+- `scanner/sanitize_manifest.py` — publish-safe manifest generator.
 - `scanner/run_scan.sh` — VM runner.
 - `POLICY.md` — masking and public-record policy with examples.
-- `public_export/` — generated public output (populated by the scan).
-- `review_queue/` — items held for missing citations or review.
+- `index.html` — public landing page.
+- `public_export/` — generated public output (redacted docs and records).
+- `review_queue/` — items held for missing citations or review; not committed.
 - `quarantine/` — never-publish items; contents are not committed.
 
 ## Current status
 
-The scanner is being armed on the free always-on VM. The public mirror is
-populated only from scan output, never from the private working tree.
+- Free always-on worker: GCP `osint-free` e2-micro in `us-central1-a`.
+- Public docs export: published and verified (`public_export/`).
+- Full-tree redacted export: scanned on the VM; updates are published only
+  after the verifier passes.
+- Schedule: systemd timer `osint-public-scan.timer` runs every 6 hours.
+- Private source and its git history: not published.
+
