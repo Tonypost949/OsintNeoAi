@@ -97,7 +97,7 @@ COMBINED_RE = re.compile(
     r"|(?P<dob>(?<!\d)(?P<dob_m>0?[1-9]|1[0-2])[/-](?P<dob_d>0?[1-9]|[12]\d|3[01])[/-](?P<dob_y>(?:19|20)\d{2})(?!\d))"
     r"|(?P<address>(?P<addr_num>\d{1,6})\s+(?P<addr_name>[A-Z][A-Za-z0-9.'-]+(?:\s+[A-Z][A-Za-z0-9.'-]+){0,3})\s+(?P<addr_suffix>Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Boulevard|Blvd|Court|Ct|Way|Place|Pl|Terrace|Ter|Circle|Cir|Parkway|Pkwy|Highway|Hwy)\b)"
     r"|(?P<zip>(?<![\d-])(?P<zip3>\d{3})\d{2}(?:-\d{4})?(?![\d-]))"
-    r"|(?P<labeled>(?i:\b(?P<label>account|acct|loan|policy|claim|case|driver'?s?[- ]?license|dl|passport|member|medicaid|medicare)\s*(?:no\.?|number|#)?\s*[:#]?\s*(?P<label_value>[A-Z0-9-]{5,})(?!@)))"
+    r"|(?P<labeled>(?i:\b(?P<label>account|acct|loan|policy|claim|case|driver'?s?[- ]?license|dl|passport|member|medicaid|medicare)\s*(?:no\.?|number|#)?\s*[:#]?\s*(?P<label_value>[A-Z0-9-]{5,})(?![A-Za-z0-9@._%+-])))"
 )
 OFFICIAL_URL_RE = re.compile(r"https?://[^\s]*(?:\.gov|\.us)(?=[/\s?#]|$)", re.I)
 OFFICIAL_EMAIL_DOMAIN = re.compile(r"\.(?:gov|mil|us)$", re.I)
