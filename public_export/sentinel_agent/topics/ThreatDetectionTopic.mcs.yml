@@ -1,0 +1,24 @@
+mcs.metadata:
+  componentName: ThreatDetection
+  description: Triggered when the user requests real-time threat detection, incident auditing, or forensic surveillance monitoring.
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: Autonomous Threat Detection & Forensic Monitoring
+    includeInOnSelectIntent: true
+    triggerQueries:
+      - Monitor threats
+      - Threat detection
+      - Start incident audit
+      - Real-time forensic monitoring
+      - Audit security logs
+  actions:
+    - kind: SendActivity
+      id: sendMsg_ThreatDetection
+      activity:
+        text:
+          - "OsintNeoAi Sentinel Autonomous Threat Engine active. Monitoring security logs, 17,000+ entity graph nodes, and real-time forensic threat indicators."
+        speak:
+          - "Running threat detection and forensic surveillance audit."

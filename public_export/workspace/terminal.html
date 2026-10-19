@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PowerShell 7.4.0 — OSINT Neo AI Dev Terminal</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#012456">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <style>
+        :root { --pwsh-bg: #012456; --text: #eeedf0; --cyan: #00f2ff; --yellow: #ffcc00; --green: #00ff88; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Consolas', 'Cascadia Code', 'Courier New', monospace; }
+        body { background: var(--pwsh-bg); color: var(--text); height: 100vh; display: flex; flex-direction: column; }
+        header { background: #001**e; padding: 10px 14px; border-bottom: 2px solid #005b96; color: #fff; font-weight: bold; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center; }
+        header span { color: var(--cyan); }
+        .chips { padding: 8px 12px; background: #001**d; display: flex; gap: 8px; overflow-x: auto; border-bottom: 1px solid #003366; }
+        .chip { background: #003366; color: #fff; padding: 5px 12px; border-radius: 4px; font-size: 0.85rem; cursor: pointer; white-space: nowrap; border: 1px solid #005b96; font-weight: bold; }
+        .chip:hover, .chip:active { background: var(--cyan); color: #000; }
+        .term { flex: 1; background: var(--pwsh-bg); padding: 16px; overflow-y: auto; white-space: pre-wrap; font-size: 0.92rem; line-height: 1.4; color: #eeedf0; }
+        .prompt-line { display: flex; align-items: center; padding: 8px 12px; background: #001**d; border-top: 1px solid #003366; }
+        .prompt-label { color: var(--yellow); font-weight: bold; margin-right: 8px; white-space: nowrap; }
+        input { flex: 1; background: transparent; border: none; color: #fff; font-size: 1rem; font-family: monospace; outline: none; }
+        button { background: var(--cyan); color: #000; border: none; padding: 8px 16px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-left: 8px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div>Windows PowerShell / Linux Terminal <span>[OSINTNeoAi Dev Server]</span></div>
+        <div style="font-size:0.8rem; color:#88b04b;">● ONLINE</div>
+    </header>
+    <div class="chips">
+        <span class="chip" onclick="runQuick('agy')">agy (Antigravity)</span>
+        <span class="chip" onclick="runQuick('gemini')">gemini</span>
+        <span class="chip" onclick="runQuick('opencode')">opencode</span>
+        <span class="chip" onclick="runQuick('pwsh')">pwsh</span>
+        <span class="chip" onclick="runQuick('dir')">dir</span>
+        <span class="chip" onclick="runQuick('python3 cli/cli.py')">OSINT CLI</span>
+    </div>
+    <div class="term" id="term">PowerShell 7.4.0 OSINT Neo AI Dev Shell
+Copyright (c) Microsoft Corporation / Google Deepmind OSINT Neo AI. All rights reserved.
+
+Repository Location: /home/site/wwwroot
+Type "agy" for Antigravity CLI, "gemini" for Gemini AI, or "opencode" for OpenCode.
+
+PS /home/site/wwwroot> </div>
+    <div class="prompt-line">
+        <span class="prompt-label">PS /home/site/wwwroot></span>
+        <input type="text" id="cmdInput" placeholder="Type agy, gemini, opencode, pwsh..." onkeydown="if(event.key==='Enter') executeCmd()" autofocus>
+        <button onclick="executeCmd()">Execute</button>
+    </div>
+    <script>
+        let history = [];
+        let histIdx = -1;
+
+        async function executeCmd() {
+            const input = document.getElementById('cmdInput');
+            let cmd = input.value.trim();
+            if (!cmd) return;
+
+            const term = document.getElementById('term');
+            term.innerText += cmd + '\n';
+            history.push(cmd);
+            histIdx = history.length;
+            input.value = '';
+
+            // Alias resolutions
+            let execCmd = cmd;
+            if (cmd === 'agy' || cmd === 'antigravity') {
+                execCmd = 'bin/agy --help';
+            } else if (cmd === 'gemini') {
+                execCmd = 'bin/gemini --help';
+            } else if (cmd === 'opencode') {
+                execCmd = 'bin/opencode --help';
+            } else if (cmd === 'pwsh') {
+                execCmd = 'bin/pwsh -c Get-Date';
+            } else if (cmd === 'dir' || cmd === 'ls') {
+                execCmd = 'ls -la';
+            }
+
+            try {
+                const res = await fetch('/api/cli_exec', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ command: execCmd })
+                });
+                const data = await res.json();
+                if (data.output) {
+                    term.innerText += data.output + '\n';
+                } else if (data.message) {
+                    term.innerText += '[Result] ' + data.message + '\n';
+                }
+            } catch(e) {
+                term.innerText += 'ERROR: ' + e + '\n';
+            }
+            term.innerText += '\nPS /home/site/wwwroot> ';
+            term.scrollTop = term.scrollHeight;
+        }
+
+        function runQuick(c) {
+            document.getElementById('cmdInput').value = c;
+            executeCmd();
+        }
+
+        document.getElementById('cmdInput').addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowUp') {
+                if (histIdx > 0) { histIdx--; this.value = history[histIdx]; }
+            } else if (e.key === 'ArrowDown') {
+                if (histIdx < history.length - 1) { histIdx++; this.value = history[histIdx]; } else { histIdx = history.length; this.value = ''; }
+            }
+        });
+    </script>
+</body>
+</html>

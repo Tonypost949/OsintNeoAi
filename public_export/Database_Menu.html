@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Menu - American Sentinel OCLC & Post University Academic E-Resources</title>
+    <style>
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #131b2e;
+            --card-bg: #1a233a;
+            --accent-cyan: #00d2ff;
+            --accent-blue: #0078d4;
+            --accent-purple: #8764b8;
+            --accent-green: #107c41;
+            --accent-gold: #f59e0b;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #2d3748;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            margin: 0;
+            padding: 24px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .user-badge {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--accent-cyan);
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-secondary);
+            color: var(--text-main);
+            font-size: 1rem;
+            margin-bottom: 24px;
+            box-sizing: border-box;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            margin-top: 0;
+            color: var(--accent-cyan);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .db-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .db-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .db-item:last-child {
+            border-bottom: none;
+        }
+
+        .title {
+            font-weight: 600;
+            color: #ffffff;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+
+        .url-text {
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            word-break: break-all;
+            display: block;
+            margin-bottom: 6px;
+            font-family: Consolas, monospace;
+        }
+
+        .meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .badge {
+            background-color: #2b3859;
+            color: var(--accent-cyan);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-green { background-color: #1b472c; color: #4ade80; }
+        .badge-gold { background-color: #451a03; color: #fbbf24; }
+        .badge-purple { background-color: #3b2a54; color: #c084fc; }
+
+        a.btn {
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        a.btn:hover { background-color: #005a9e; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>📚 Database Menu - Academic E-Resources & OCLC Proxy Hub</h1>
+        <div class="user-badge">👤 S***@students.post.edu</div>
+    </header>
+
+    <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search EBSCOhost, ProQuest, ScienceDirect, Ovid, McGraw-Hill, OCLC WorldCat, Scopus..." onkeyup="filterDBs()">
+
+    <div class="grid-container">
+
+        <!-- Primary Academic Databases & Search Engines -->
+        <div class="card">
+            <h2>🔬 Primary Academic & Research Databases</h2>
+            <ul class="db-list">
+                <li class="db-item">
+                    <span class="title">EBSCOhost Research Databases</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://search.ebscohost.com/login.aspx</span>
+                    <div class="meta"><span class="badge badge-green">Academic Search</span> Updated 2026-06-08</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://search.ebscohost.com/login.aspx" target="_blank">Open EBSCOhost</a>
+                </li>
+                <li class="db-item">
+                    <span class="title">ProQuest Research Platform</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://www.proquest.com/ip</span>
+                    <div class="meta"><span class="badge badge-purple">ProQuest</span> Updated 2025-02-18</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://www.proquest.com/ip" target="_blank">Open ProQuest</a>
+                </li>
+                <li class="db-item">
+                    <span class="title">ScienceDirect (Elsevier)</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://www.sciencedirect.com</span>
+                    <div class="meta"><span class="badge badge-green">Scientific Journals</span> Updated 2025-11-04</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://www.sciencedirect.com" target="_blank">Open ScienceDirect</a>
+                </li>
+                <li class="db-item">
+                    <span class="title">Scopus Abstract & Citation Database</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://www.scopus.com/home.url</span>
+                    <div class="meta"><span class="badge badge-gold">Citation Index</span> Updated 2025-11-04</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://www.scopus.com/home.url" target="_blank">Open Scopus</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Medical, Health & Clinical Resources -->
+        <div class="card">
+            <h2>🏥 Medical, Health & Nursing Libraries</h2>
+            <ul class="db-list">
+                <li class="db-item">
+                    <span class="title">McGraw-Hill Medical</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://www.mhmedical.com/</span>
+                    <div class="meta"><span class="badge badge-green">Medical Texts</span> Updated 2026-02-26</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://www.mhmedical.com/" target="_blank">Open McGraw-Hill Medical</a>
+                </li>
+                <li class="db-item">
+                    <span class="title">Ovid HTTPS Medical Database</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=http://ovidsp.ovid.com/autologin.html</span>
+                    <div class="meta"><span class="badge badge-purple">Ovid Clinical</span> Updated 2025-08-21</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=http://ovidsp.ovid.com/autologin.html" target="_blank">Open Ovid</a>
+                </li>
+                <li class="db-item">
+                    <span class="title">Cochrane Library</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://www.cochranelibrary.com/</span>
+                    <div class="meta"><span class="badge badge-gold">Clinical Evidence</span> Updated 2026-02-13</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://www.cochranelibrary.com/" target="_blank">Open Cochrane Library</a>
+                </li>
+                <li class="db-item">
+                    <span class="title">PsychiatryOnline (American Journal of Psychiatry)</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://psychiatryonline.org</span>
+                    <div class="meta"><span class="badge badge-purple">Psychiatry</span> Updated 2026-06-09</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://psychiatryonline.org" target="_blank">Open PsychiatryOnline</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Publishers, E-Books & Institutional LibGuides -->
+        <div class="card">
+            <h2>📖 E-Books, Publishers & LibGuides</h2>
+            <ul class="db-list">
+                <li class="db-item">
+                    <span class="title">ProQuest Ebook Central Patron Login</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://ebookcentral.proquest.com/lib/asuinv-ebooks</span>
+                    <div class="meta"><span class="badge badge-green">E-Book Central</span> Academic Books</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://ebookcentral.proquest.com/lib/asuinv-ebooks" target="_blank">Open Ebook Central</a>
+                </li>
+                <li class="db-item">
+                    <span class="title">American Sentinel University LibGuides</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://libguides.americansentinel.edu</span>
+                    <div class="meta"><span class="badge badge-gold">Library Guides</span> Institutional LibGuides</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://libguides.americansentinel.edu" target="_blank">Open LibGuides</a>
+                </li>
+                <li class="db-item">
+                    <span class="title">SpringerLink & Nature Publishing</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://link.springer.com</span>
+                    <div class="meta"><span class="badge badge-purple">Springer Nature</span> Updated 2024-05-10</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://link.springer.com" target="_blank">Open SpringerLink</a>
+                </li>
+                <li class="db-item">
+                    <span class="title">Sage Journals</span>
+                    <span class="url-text">http://americansentinel.idm.oclc.org/login?url=https://journals.sagepub.com</span>
+                    <div class="meta"><span class="badge badge-green">Sage Pub</span> Updated 2026-05-15</div>
+                    <a class="btn" href="http://americansentinel.idm.oclc.org/login?url=https://journals.sagepub.com" target="_blank">Open Sage Journals</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        function filterDBs() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const items = document.getElementsByClassName('db-item');
+
+            for (let i = 0; i < items.length; i++) {
+                const text = items[i].innerText.toLowerCase();
+                if (text.includes(input)) {
+                    items[i].style.display = "";
+                } else {
+                    items[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
