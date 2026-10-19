@@ -12,3 +12,10 @@ python3 "$ROOT/scanner/redact.py" \
 python3 "$ROOT/scanner/verify_public.py" \
   --root "$OUT/public_export" \
   --out "$OUT/VERIFY_REPORT.json"
+python3 "$ROOT/scanner/sanitize_manifest.py" \
+  --in "$OUT/PUBLIC_MANIFEST.json" \
+  --out "$OUT/PUBLIC_MANIFEST_PUBLIC.json"
+python3 "$ROOT/scanner/citation_report.py" \
+  --manifest "$OUT/PUBLIC_MANIFEST_PUBLIC.json" \
+  --csv "$OUT/CITATION_GAPS.csv" \
+  --json "$OUT/CITATION_COVERAGE.json"
