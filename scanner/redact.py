@@ -236,15 +236,14 @@ def process_file(src: Path, rel: Path, out_root: Path, review_root: Path,
     lines = text.splitlines(keepends=True)
     redacted_lines = []
     public_context = 0
-    file_has_hint = bool(URL_RE.search(text) or AUTHORITY_RE.search(text))
-    public_hint = re.compile(r"(?i)\b(source|official|public record|retrieved)\b")
+    auth_context_hint = re.compile(
+        r"(?i)\b(source|authority|official record|public record|retrieved)\b")
     for line in lines:
-        line_public = False
-        if file_has_hint:
-            line_public = is_public_line(line)
-            if line_public or (URL_RE.search(line) and
-                               (AUTHORITY_RE.search(line) or public_hint.search(line))):
-                public_context = 12
+        line_public = is_public_line(line)
+        # Only an authoritative URL that is explicitly presented as a source or
+        # authority opens a short pass-through window. A bare URL is not enough.
+        if line_public or (AUTH_URL_RE.search(line) and auth_context_hint.search(line)):
+            public_context = 6
         effective_public = line_public or public_context > 0
         redacted_lines.append(redact_line(line, counts, effective_public))
         if public_context > 0:
