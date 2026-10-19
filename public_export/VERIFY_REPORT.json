@@ -1,5 +1,5 @@
 {
-  "root": "/home/osintneoai/scan/last-run/public_export",
+  "root": "public_export",
   "counts": {
     "files": 3325,
     "hard_secret": 0,
@@ -7,6 +7,12 @@
     "private_ip": 0,
     "emails": 0,
     "phones": 0,
+    "emails_total": 55,
+    "emails_allowed": 55,
+    "emails_disallowed": 0,
+    "phones_total": 2,
+    "phones_allowed": 2,
+    "phones_disallowed": 0,
     "oversize": 0
   },
   "findings": [],
