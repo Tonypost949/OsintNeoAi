@@ -70,34 +70,58 @@ SOFT_SECRETS = [
 ]
 
 SSN_RE = re.compile(r"(?<!\d)(\d{3})[-\s](\d{2})[-\s](\d{4})(?!\d)")
+# A phone number must carry at least one separator or parenthesis. A bare
+# ten-digit run is ambiguous: in the source corpus it is overwhelmingly a
+# court case number, file number, or timestamp, and matching it destroyed
+# official identifiers such as "26SMUD01464".
 PHONE_RE = re.compile(
-    r"(?<!\d)(?:\+?1[\s.-]?)?\(?([2-9]\d{2})\)?[\s.-]?(\d{3})[\s.-]?(\d{4})(?!\d)"
+    r"(?<!\d)(?:\+?1[\s.-]?)?(?:\(\d{3}\)\s?|\d{3}[\s.-])\d{3}[\s.-]\d{4}(?!\d)"
 )
 EMAIL_RE = re.compile(r"\b([A-Za-z0-9._%+-])[A-Za-z0-9._%+-]*@([A-Za-z0-9.-]+\.[A-Za-z]{2,})\b")
 DOB_RE = re.compile(
     r"\b(0?[1-9]|1[0-2])[/-](0?[1-9]|[12]\d|3[01])[/-]((?:19|20)\d{2})\b"
 )
+# Street addresses in California records almost always carry a directional
+# prefix ("1133 N Formosa Ave", "29757 W*** Rd"). Without the
+# optional directional token the address pattern cannot match them at all,
+# which let unmasked residential addresses through the gate.
 ADDRESS_RE = re.compile(
-    r"\b(\d{1,6})\s+([A-Z][A-Za-z0-9.'-]+(?:\s+[A-Z][A-Za-z0-9.'-]+){0,3})\s+"
+    r"\b(\d{1,6})\s+(?:([NSEW]{1,2})\.?\s+)?"
+    r"([A-Z][A-Za-z0-9.'’-]+(?:\s+[A-Z][A-Za-z0-9.'’-]+){0,3})\s+"
     r"(Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Boulevard|Blvd|Court|Ct|"
-    r"Way|Place|Pl|Terrace|Ter|Circle|Cir|Parkway|Pkwy|Highway|Hwy)\b"
+    r"Way|Place|Pl|Terrace|Ter|Circle|Cir|Parkway|Pkwy|Highway|Hwy|Plaza)\b"
 )
 ZIP_RE = re.compile(r"\b(\d{3})\d{2}(?:-\d{4})?\b")
+# Labeled identifiers ("Case No. 26SMUD01464", "Account #12345"). The value
+# must be identifier-shaped: uppercase letters, digits and hyphens, and it
+# must contain at least one digit. Without that constraint the pattern
+# matched ordinary prose that merely follows a trigger word, which silently
+# corrupted published text ("case strength" -> "case ****ngth",
+# "Case References" -> "Case ****nces").
 LABELED_ID_RE = re.compile(
-    r"(?i)\b(account|acct|loan|policy|claim|case|driver'?s?[- ]?license|"
-    r"dl|passport|member|medicaid|medicare)\s*(?:no\.?|number|#)?\s*[:#]?\s*"
-    r"([A-Z0-9-]{5,})"
+    r"(?i:\b(account|acct|loan|policy|claim|case|driver'?s?[- ]?license|"
+    r"dl|passport|member|medicaid|medicare)\s*(?:no\.?|number|#)?\s*[:#]?\s*)"
+    r"(?=[A-Z0-9-]*\d)([A-Z0-9][A-Z0-9-]{4,})"
+)
+# Dates of birth are frequently written in prose form, for example a
+# month-name form or a spelled-out date. The numeric-only pattern misses
+# those. A year-only value is already the minimum the policy permits, so it
+# is deliberately not matched here.
+DOB_TEXT_RE = re.compile(
+    r"(?i)\b(?:DOB|Date of Birth)\b(?P<sep>\s*[:\-]?\s*)"
+    r"(?P<month>[A-Z][a-z]{2,9}\.?\s+(?:\d{1,2},?\s*)?|\d{1,2}[/-]\d{1,2}[/-])"
+    r"(?P<year>(?:19|20)\d{2})"
 )
 # One combined pass for the high-volume identifier patterns. Public-record
 # line logic is applied per match so already-public records stay untouched.
 COMBINED_RE = re.compile(
     r"(?P<ssn>(?<!\d)(?P<ssn_area>\d{3})[-\s](?P<ssn_mid>\d{2})[-\s](?P<ssn_last>\d{4})(?!\d))"
-    r"|(?P<phone>(?<!\d)(?:\+?1[\s.-]?)?\(?(?P<phone_ac>[2-9]\d{2})\)?[\s.-]?(?P<phone_mid>\d{3})[\s.-]?(?P<phone_last>\d{4})(?!\d))"
+    r"|(?P<phone>(?<!\d)(?:\+?1[\s.-]?)?(?:\(\d{3}\)\s?|\d{3}[\s.-])(?P<phone_mid>\d{3})[\s.-](?P<phone_last>\d{4})(?!\d))"
     r"|(?P<email>(?P<email_first>[A-Za-z0-9._%+-])[A-Za-z0-9._%+-]*@(?P<email_domain>[A-Za-z0-9.-]+\.[A-Za-z]{2,}))"
     r"|(?P<dob>(?<!\d)(?P<dob_m>0?[1-9]|1[0-2])[/-](?P<dob_d>0?[1-9]|[12]\d|3[01])[/-](?P<dob_y>(?:19|20)\d{2})(?!\d))"
-    r"|(?P<address>(?P<addr_num>\d{1,6})\s+(?P<addr_name>[A-Z][A-Za-z0-9.'-]+(?:\s+[A-Z][A-Za-z0-9.'-]+){0,3})\s+(?P<addr_suffix>Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Boulevard|Blvd|Court|Ct|Way|Place|Pl|Terrace|Ter|Circle|Cir|Parkway|Pkwy|Highway|Hwy)\b)"
-    r"|(?P<zip>(?<![\d-])(?P<zip3>\d{3})\d{2}(?:-\d{4})?(?![\d-]))"
-    r"|(?P<labeled>(?i:\b(?P<label>account|acct|loan|policy|claim|case|driver'?s?[- ]?license|dl|passport|member|medicaid|medicare)\s*(?:no\.?|number|#)?\s*[:#]?\s*(?P<label_value>[A-Z0-9-]{5,})(?![A-Za-z0-9@._%+-])))"
+    r"|(?P<address>(?P<addr_num>\d{1,6})\s+(?:(?P<addr_dir>[NSEW]{1,2})\.?\s+)?(?P<addr_name>[A-Z][A-Za-z0-9.'’-]+(?:\s+[A-Z][A-Za-z0-9.'’-]+){0,3})\s+(?P<addr_suffix>Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Boulevard|Blvd|Court|Ct|Way|Place|Pl|Terrace|Ter|Circle|Cir|Parkway|Pkwy|Highway|Hwy|Plaza)\b)"
+    r"|(?P<zip>(?<![A-Za-z0-9-])(?P<zip3>\d{3})\d{2}(?:-\d{4})?(?![A-Za-z0-9-]))"
+    r"|(?P<labeled>(?i:\b(?P<label>account|acct|loan|policy|claim|case|driver'?s?[- ]?license|dl|passport|member|medicaid|medicare)\s*(?:no\.?|number|#)?\s*[:#]?\s*)(?=[A-Z0-9-]*\d)(?P<label_value>[A-Z0-9][A-Z0-9-]{4,})(?![A-Za-z0-9@._%+-]))"
 )
 OFFICIAL_URL_RE = re.compile(r"https?://[^\s]*(?:\.gov|\.us)(?=[/\s?#]|$)", re.I)
 OFFICIAL_EMAIL_DOMAIN = re.compile(r"\.(?:gov|mil|us)$", re.I)
@@ -176,7 +200,10 @@ def redact_line(line: str, counts: Counter, public_line: bool) -> str:
                 return m.group(0)
             counts["address"] += 1
             name = gd["addr_name"]
-            return f"{gd['addr_num']} {name[0]}*** {gd['addr_suffix']}"
+            # The directional prefix ("N", "SW") is part of the masked form so
+            # the record stays locatable within its own jurisdiction.
+            direction = (gd["addr_dir"] + ". ") if gd.get("addr_dir") else ""
+            return f"{gd['addr_num']} {direction}{name[0]}*** {gd['addr_suffix']}"
         if gd.get("zip") is not None:
             if public_line:
                 return m.group(0)
@@ -185,7 +212,10 @@ def redact_line(line: str, counts: Counter, public_line: bool) -> str:
         if gd.get("labeled") is not None:
             label = gd["label"]
             value = re.sub(r"[^A-Za-z0-9]", "", gd["label_value"])
-            if public_line and label.lower().startswith(("case", "docket", "claim")):
+            if label.lower().startswith(("case", "docket", "claim")):
+                # A case, docket, or claim number is an official public
+                # identifier. It is never a personal account identifier, and
+                # masking it destroys the citation value of the record.
                 return m.group(0)
             counts["account"] += 1
             return label + " ****" + value[-4:]
@@ -195,6 +225,14 @@ def redact_line(line: str, counts: Counter, public_line: bool) -> str:
     line = SECRET_ASSIGN_RE.sub(
         lambda m: (counts.update(["secret_assignment"]) or
                    m.group(1) + "=[REDACTED]"), line)
+
+    def dob_text_sub(m: re.Match) -> str:
+        if public_line:
+            return m.group(0)
+        counts["dob"] += 1
+        label = m.group(0)[:m.start("sep") - m.start(0)]
+        return f"{label}{m.group('sep')}**/**/{m.group('year')}"
+    line = DOB_TEXT_RE.sub(dob_text_sub, line)
 
     def ip_sub(m: re.Match) -> str:
         raw = m.group(0)

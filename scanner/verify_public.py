@@ -27,14 +27,39 @@ SSN = re.compile(r"(?<!\d)\d{3}-\d{2}-\d{4}(?!\d)")
 IPV4 = re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}\b")
 EMAIL = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
 PHONE = re.compile(r"(?<!\d)(?:\+?1[\s.-]?)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}(?!\d)")
+# A residential street address attached to a personal-contact label. The
+# directional prefix is optional because California addresses usually carry
+# one ("1133 N Formosa Ave"), and without it the pattern cannot match.
+ADDRESS = re.compile(
+    r"\b\d{1,6}\s+(?:[NSEW]{1,2}\.?\s+)?"
+    r"[A-Z][A-Za-z0-9.'’-]+(?:\s+[A-Z][A-Za-z0-9.'’-]+){0,3}\s+"
+    r"(?:Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Boulevard|Blvd|Court|Ct|"
+    r"Way|Place|Pl|Terrace|Ter|Circle|Cir|Parkway|Pkwy|Highway|Hwy|Plaza)\b")
+PERSONAL_ADDRESS_LABEL = re.compile(
+    r"(?i)\b(contact coordinates|contact & service coordinates|"
+    r"personal coordinates|personal residence|primary personal residence|"
+    r"personal address|home address|mailing address|residential address|"
+    r"personal profile|personal identifiers)\b")
+# Dates of birth written in prose form. The numeric pattern above does not
+# cover a month-name form such as "DOB Dec <YEAR>" or a spelled-out date.
+# A year-only value carries no month or day and is already the minimum the
+# policy permits, so it is not matched.
+DOB_TEXT = re.compile(
+    r"(?i)\b(?:DOB|Date of Birth)\b\s*[:\-]?\s*"
+    r"(?:[A-Z][a-z]{2,9}\.?\s+(?:\d{1,2},?\s*)?|\d{1,2}[/-]\d{1,2}[/-])"
+    r"(?:19|20)\d{2}")
 OFFICIAL_URL = re.compile(r"https?://[^\s]*(?:\.gov|\.us)(?=[/\s?#]|$)", re.I)
 OFFICIAL_EMAIL_DOMAIN = re.compile(r"\.(?:gov|mil|us)$", re.I)
 CARRIER_GATEWAY = re.compile(
     r"(?i)@(?:vms\.t-mobile\.com|vtext\.com|txt\.att\.net|"
     r"messaging\.sprintpcs\.com|tmomail\.net)$")
 MASKED_PHONE = re.compile(r"\(\*{3}\)\s*\*{3}-\d{3,4}")
+# A trailing \b after "e.g." cannot match, because the period is a
+# non-word character and so is the space that follows it. Use an explicit
+# negative lookahead for the abbreviation and keep \b for the plain words.
 PLACEHOLDER = re.compile(
-    r"(?i)\b(?:e\.g\.|example|sample|placeholder|format|canonical|normalizer)\b")
+    r"(?i)(?:\be\.g\.(?![A-Za-z])|\bexample\b|\bsample\b|\bplaceholder\b"
+    r"|\bformat\b|\bcanonical\b|\bnormalizer\b)")
 
 
 def email_allowed(email: str, line: str) -> bool:
@@ -71,6 +96,8 @@ def main() -> int:
         "emails": 0, "phones": 0,
         "emails_total": 0, "emails_allowed": 0, "emails_disallowed": 0,
         "phones_total": 0, "phones_allowed": 0, "phones_disallowed": 0,
+        "addresses_public_record": 0, "addresses_disallowed": 0,
+        "dob_public_record": 0, "dob_disallowed": 0,
         "oversize": 0,
     }
     for p in root.rglob("*"):
@@ -118,6 +145,30 @@ def main() -> int:
                     counts["phones_disallowed"] += 1
                     counts["phones"] += 1
                     findings.append({"path": rel.as_posix(), "rule": "unapproved_phone"})
+            # A street address on a personal-contact line is a residential
+            # location. It is only acceptable when the line itself carries an
+            # official source, in which case it is an already-public record.
+            if PERSONAL_ADDRESS_LABEL.search(line):
+                for m in ADDRESS.finditer(line):
+                    if OFFICIAL_URL.search(line):
+                        counts["addresses_public_record"] += 1
+                        continue
+                    counts["addresses_disallowed"] += 1
+                    findings.append({
+                        "path": rel.as_posix(),
+                        "rule": "unapproved_personal_address",
+                        "match": m.group(0),
+                    })
+            for m in DOB_TEXT.finditer(line):
+                if OFFICIAL_URL.search(line):
+                    counts["dob_public_record"] += 1
+                    continue
+                counts["dob_disallowed"] += 1
+                findings.append({
+                    "path": rel.as_posix(),
+                    "rule": "unapproved_dob",
+                    "match": m.group(0),
+                })
     report = {
         # Never publish an absolute VM/local path in this report.
         "root": "public_export",

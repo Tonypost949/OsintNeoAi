@@ -3,7 +3,7 @@
 **Case References:** Superior Court of California, County of Los Angeles (Santa Monica Courthouse)  
 - Unlawful Detainer Action: LASC Case No. `26SMUD01464` (*Andrew Falk v. Dr. Ann Verma*, Dept. S, Hon. Ericka J. Wiley)  
 - Unlimited Civil Action: LASC Case No. `26SMCV03161` (*Dr. Ann Verma v. Andrew Falk, Ricardo Alvarado, Nest Seekers International, et al.*, Dept. P, Hon. David W. Swift)  
-**Subject Property Locus:** 1133 North Formosa Avenue, Unit 5, West Hollywood, CA 90046 (APN: 5531-016-039)  
+**Subject Property Locus:** 1133 N*** Avenue, Unit 5, West Hollywood, CA 900** (APN: 5531-016-039)  
 **Compilation Authority:** Antigravity Universal Forensic Protocol (/allparties)  
 **Audit & Verification Date:** October 13, 2026  
 **Governance:** Universal AI Laws 1–14; AI Law 11 (Explicit Full Paths & URLs); AI Law 14 (State Preservation Verified)
@@ -19,11 +19,11 @@
   * **Contact & Service Coordinates:** `a***@gmail.com` | Tel: (***) ***-9908 / (***) ***-6377.
 * **Andrew "Andy" Falk (Andrew Saul Falk) (Optionor / Landlord / Adverse Principal):**
   * **Litigation Status:** Plaintiff in Unlawful Detainer (`26SMUD01464`); Defendant in Unlimited Civil Action (`26SMCV03161`).
-  * **Personal Profile & Identifiers:** Age 56, DOB **/**/1969; SSN origin Iowa (TruthFinder 69-page comprehensive dossier). Self-proclaimed President of 1133 North Formosa Avenue HOA.
+  * **Personal Profile & Identifiers:** Age 56, DOB **/**/1969; SSN origin Iowa (TruthFinder 69-page comprehensive dossier). Self-proclaimed President of 1133 N*** Avenue HOA.
   * **Discovered Property Holdings & Residences:**
-    1. Primary Personal Residence: `1369 N*** Dr NE, Atlanta, GA 30306` (4,105 sq/ft residential property co-owned with Magdelina B. Falk).
-    2. Investment / Rental Locus: `1131 N. F*** Ave #5, West Hollywood, CA 90046`.
-    3. Purported LA Alternate Address: `1133 N. N*** Ave, Los Angeles, CA 90029`.
+    1. Primary Personal Residence: `1369 N*** Dr NE, Atlanta, GA 303**` (4,105 sq/ft residential property co-owned with Magdelina B. Falk).
+    2. Investment / Rental Locus: `1131 N. F*** Ave #5, West Hollywood, CA 900**`.
+    3. Purported LA Alternate Address: `1133 N. N*** Ave, Los Angeles, CA 900**`.
   * **Contact Coordinates:** `d***@me.com` | Tel: (***) ***-4139.
 
 ---
@@ -31,9 +31,9 @@
 ## 2. THE FIDUCIARY & BROKERAGE CHAIN (THE APEX OF STATUTORY LIABILITY)
 
 * **Nest Seekers International LLC (Global Parent Firm):**
-  * **Corporate Registration:** New York Department of State DOS ID #`3860661`; Service Address: P.O. Box 515, Hawthorne, NJ 07507.
+  * **Corporate Registration:** New York Department of State DOS ID #`3860661`; Service Address: P.O. Box 515, Hawthorne, NJ 075**.
 * **Nest Seekers International Fifth LLC (Allied Shell):**
-  * **Corporate Registration:** New York DOS ID #`4498970`; P.O. Box 515, Hawthorne, NJ 07507.
+  * **Corporate Registration:** New York DOS ID #`4498970`; P.O. Box 515, Hawthorne, NJ 075**.
 * **Eddie Shapiro (Amir A. Shapiro / Eddie Amir Shapiro):**
   * **Role:** Founder, President, and Global CEO of Nest Seekers International.
   * **TruthFinder Dossier:** `TruthFinder_Report_Eddie_Shapiro_CEO_NestSeekers.html` (Manhattan, Sag Harbor, Miami).
@@ -41,14 +41,14 @@
 * **Nest Seekers CA Corp (California Corporate Brokerage):**
   * **Licensure:** California Department of Real Estate (DRE) Corporate Broker License #`01934785`.
   * **Dual Agency Role:** Contracted as Dual Agent representing both Landlord (Falk) and Tenant (Dr. Verma) under C.A.R. Form RLMM § 42 and Form OA § 11; named Defendant in `26SMCV03161`.
-  * **Flagship Office:** 271 N. Canon Dr., Beverly Hills, CA 90210.
+  * **Flagship Office:** 271 N. C*** Dr., Beverly Hills, CA 902**.
 * **Shawn R. Elliott (Designated Broker-Officer):**
   * **Licensure:** California DRE Broker License #`02018471`.
-  * **Statutory Role:** Designated Broker-Officer legally mandated to exercise active, reasonable supervision over all Nest Seekers CA Corp agents under 10 CCR § 2725 and Cal. Bus. & Prof. Code § 10177(h).
+  * **Statutory Role:** Designated Broker-Officer legally mandated to exercise active, reasonable supervision over all Nest Seekers CA Corp agents under 10 CCR § 2725 and Cal. Bus. & Prof. Code § 101**(h).
   * **Disciplinary Record:** **RESTRICTED LICENSE STATUS** pursuant to DRE Disciplinary Hearing Case No. H-41869 LA / OAH No. 2021030802 (following New York State license revocation for borrowing and defaulting on client funds).
 * **Ricardo Antonio Alvarado ("Ricky" Alvarado) (Designated Dual Salesperson):**
   * **Licensure:** California DRE Salesperson License #`01948339` (issued August 23, 2022).
-  * **Personal Coordinates:** 29757 W*** Rd, Canyon Country, CA 91387; `r***@nestseekers.com` | Tel: (***) ***-5084.
+  * **Personal Coordinates:** 29757 W*** Rd, Canyon Country, CA 913**; `r***@nestseekers.com` | Tel: (***) ***-5084.
   * **TruthFinder Dossier:** `TruthFinder_Report_Ricardo_Alvarado_BeverlyHills.html`.
   * **Fiduciary Breach:** Carved out $3,060.00 directly from Dr. Verma's move-in funds on January 27, 2026; concealed severe toxic mold and active termite damage; failed to deliver the mandatory statutory Transfer Disclosure Statement under Cal. Civ. Code § 1102.
 
@@ -58,7 +58,7 @@
 
 * **Whitbeck, Kooshki & Zreik LLP (WKZ Law):**
   * **Role:** Joint defense law firm simultaneously representing Andrew Falk, Ricardo Alvarado, and Nest Seekers International under a unified defense appearance.
-  * **Office Coordinates:** 21515 Hawthorne Blvd. #1130, Torrance, CA 90503 | Tel: (***) ***-9477 / (***) ***-5084.
+  * **Office Coordinates:** 21515 H*** Blvd. #1130, Torrance, CA 905** | Tel: (***) ***-9477 / (***) ***-5084.
 * **Kam Kooshki, Esq. (Lead Counsel of Record):**
   * **Licensure:** State Bar of California SBN #`232315`.
   * **Role:** Drafted the retaliatory 3-Day Notice to Pay Rent or Quit template and prosecuted the Unlawful Detainer summons and complaint (`26SMUD01464`).
@@ -110,7 +110,7 @@
   * Appointed February 14, 2025; former LASC Court Counsel.
 * **Hon. David Perkiss (Judge, LASC West / Central):**
   * Appointed June 2026; former LASC Supervising Research Attorney and 2nd DCA Appellate Court Attorney.
-* **Joanne Mio, CSR #10871:**
+* **Joanne Mio, CSR #108**:**
   * Official Certified Shorthand Reporter pro tempore (Dept. P).
 * **J. Garcia:**
   * Judicial Assistant (Dept. P).
@@ -148,9 +148,9 @@
 ## 9. FEDERAL POSTAL OFFICIALS & TOUHY DEMAND RECIPIENTS
 
 * **General Counsel of the United States Postal Service:**
-  * `475 L’Enfant Plaza SW, Washington, D.C. 20260`. Recipient of formal statutory demand under 39 C.F.R. § 265.12 served September 9, 2026, demanding production of internal mail redirection and hold records.
+  * `475 L*** Plaza SW, Washington, D.C. 202**`. Recipient of formal statutory demand under 39 C.F.R. § 265.12 served September 9, 2026, demanding production of internal mail redirection and hold records.
 * **Postmaster & Custodian of Records, Sunset Station Post Office:**
-  * `1425 N. Cherokee Ave, Los Angeles, CA 90028`. Recipient of Judicial Subpoena Duces Tecum (SUBP-002); custodian of records regarding the July 9 mailbox lock failure and held mail (PS Form 3849).
+  * `1425 N. C*** Ave, Los Angeles, CA 900**`. Recipient of Judicial Subpoena Duces Tecum (SUBP-002); custodian of records regarding the July 9 mailbox lock failure and held mail (PS Form 3849).
 * **Postal Inspector in Charge, U.S. Postal Inspection Service (USPIS) — Los Angeles Field Division:**
   * Federal criminal investigative authority over obstruction of correspondence and mail interception (18 U.S.C. §§ 1700, 1701, 1702, 1708).
 
@@ -175,12 +175,12 @@
 
 * **"Suresh Verma":**
   * Fabricated persona deployed during January 2026 negotiations falsely claiming to be Dr. Verma’s physician father and Westminster Seminary alumnus (tied to 5044 A*** St, Lakewood; debunked in OSINT dossier).
-* **1133 North Formosa Avenue Homeowners Association (CA Corp #1478134):**
-  * Nonprofit Mutual Benefit Corporation. Andrew Falk falsely claims presidential authority, while official California Secretary of State filings establish **Kim Ellen Thomson** (`1033 N Formosa Ave Apt 1, West Hollywood, CA 90046`) as the statutory registered agent. Entity status is currently non-compliant/suspended.
+* **1133 N*** Avenue Homeowners Association (CA Corp #1478134):**
+  * Nonprofit Mutual Benefit Corporation. Andrew Falk falsely claims presidential authority, while official California Secretary of State filings establish **Kim Ellen Thomson** (`1033 N. F*** Ave Apt 1, West Hollywood, CA 900**`) as the statutory registered agent. Entity status is currently non-compliant/suspended.
 * **Kim Ellen Thomson:**
-  * Registered Agent of Record for 1133 North Formosa Avenue HOA under California Secretary of State filings.
+  * Registered Agent of Record for 1133 N*** Avenue HOA under California Secretary of State filings.
 * **Magdelina B. Falk:**
-  * Co-owner with Andrew Falk of the primary personal residence at `1369 N*** Dr NE, Atlanta, GA 30306`.
+  * Co-owner with Andrew Falk of the primary personal residence at `1369 N*** Dr NE, Atlanta, GA 303**`.
 * **Brain Regenerative Medicine Inc.:**
   * Clinical entity founded and operated by Dr. Ann Prema Verma, M.D.
 
@@ -199,20 +199,20 @@
 
 # SECTION II: CROSS-INVESTIGATION MASTER ROSTER & MULTI-AGENCY ENTITY EXPANSION (/allparties)
 
-## 12. HUNTINGTON BEACH NAVIGATION CENTER (HBNC) & 17631 CAMERON LANE LOCUS
+## 12. HUNTINGTON BEACH NAVIGATION CENTER (HBNC) & 176** CAMERON LANE LOCUS
 
 * **Ted T. Scott (President / Principal / RMO):**
   * **Entity:** TTS Engineering, Inc. (California CSLB License #`733190`, Class A/C10/C34).
-  * **Contract Scope:** Sole-source emergency public works contractor for HBNC facility conversion at 17631 Cameron Lane (17642 Beach Blvd).
+  * **Contract Scope:** Sole-source emergency public works contractor for HBNC facility conversion at 17631 C*** Lane (17642 B*** Blvd).
   * **Violations & Liabilities:** Executed unpermitted site grading, concrete pours, and installation of StormTech underground retention systems without certified environmental hazardous soil delineation; potential Cal. Gov. Code § 1090 self-dealing.
 * **TTS Engineering, Inc. (Corporate Contractor):**
-  * **Registration:** California Secretary of State Entity #`C1853610`; Principal Address: 1601 Dove St Ste 145, Newport Beach, CA 92660.
+  * **Registration:** California Secretary of State Entity #`C1853610`; Principal Address: 1601 D*** St Ste 145, Newport Beach, CA 926**.
 * **Larry Haynes (Executive Director / Operator):**
   * **Entity:** Mercy House Living Centers (California SOS Corporate #`C1626242`).
   * **Role:** Primary non-profit operator of the Huntington Beach Navigation Center homeless shelter under City of Huntington Beach Contract Agreement #`2020-0988`.
   * **Operational Failures:** Failure to maintain mandatory medical and intake telemetry, failure to report toxic vapor intrusions into the dormitory, and suppression of resident wrongful death reports (*Vital Records DEATH SHELTER HBNC*).
 * **Mercy House Living Centers (Operating Shell):**
-  * **Corporate Status:** California 501(c)(3) Nonprofit Public Benefit Corporation; Address: 1600 E 4th St Ste 200, Santa Ana, CA 92701.
+  * **Corporate Status:** California 501(c)(3) Nonprofit Public Benefit Corporation; Address: 1600 E 4th St Ste 200, Santa Ana, CA 927**.
 * **City of Huntington Beach Public Works Department & City Council:**
   * **Entities Involved:** Former City Manager Oliver Chi; Director of Public Works Sean Crumby; City Council members approving Sole-Source Resolution #`2020-56`.
   * **Evidentiary Manifest:** [HBNC_EVIDENCE_MANIFEST.md](file:///C:/Amd949609_Antigravity_v1/backups/hbnc_ingest_backup_20261014_095500/evidence_hbnc_records/HBNC_EVIDENCE_MANIFEST.md) (32 Primary Forensic Files, 18.8 MB EDR Toxic Report).
@@ -262,8 +262,8 @@
 
 | Nexus Axis | Participating Entities & Figures | Operational Scheme / Fraud Vector | Statutory Authorities Broken / Invoked | Controlling Precedent & Evidentiary Files |
 | :--- | :--- | :--- | :--- | :--- |
-| **I. Municipal Corruption & Sole-Source Steering** | City of Huntington Beach $\leftrightarrow$ TTS Engineering $\leftrightarrow$ Harry Sidhu $\leftrightarrow$ Todd Ament | Steering emergency contracts, suppressing environmental remediation, hiding financial interests on Form 700 filings. | Cal. Gov. Code §§ 1090, 87100; 18 U.S.C. §§ 1341, 1343, 1346 (Honest Services Wire Fraud). | *Thomson v. Call* (1985) 38 Cal.3d 633 (100% Disgorgement); [OsintNeoAiFORM700HBNC FINAL AGY.txt](file:///C:/Amd949609_Antigravity_v1/backups/hbnc_ingest_backup_20261014_095500/cloud_evidence_locker_hbnc_records/OsintNeoAiFORM700HBNC%20FINAL%20AGY.txt). |
-| **II. Fiduciary Breach & Dual Agency Concealment** | Andrew Saul Falk $\leftrightarrow$ Nest Seekers CA Corp $\leftrightarrow$ Ricardo Alvarado $\leftrightarrow$ Shawn R. Elliott | Extracting unauthorized move-in commissions ($3,060), concealing toxic mold/termite damage, failing to deliver statutory TDS disclosures. | Cal. Civ. Code §§ 1102, 2079.16; Cal. Bus. & Prof. Code §§ 10176, 10177; 10 CCR § 2725. | Restatement (Third) of Agency § 8.01; [DRE_01934785_Nest_Seekers_CA_Corp.json](file:///C:/Amd949609_Antigravity_v1/evidence/investigation_dossiers/DRE_01934785_Nest_Seekers_CA_Corp.json); [TruthFinder_ENRICHED_Shawn_Robert_Elliott_Designated_Broker_Officer_CDP_Full.pdf](file:///C:/Amd949609_Antigravity_v1/evidence/truthfinder_records/TruthFinder_ENRICHED_Shawn_Robert_Elliott_Designated_Broker_Officer_CDP_Full.pdf). |
+| **I. Municipal Corruption & Sole-Source Steering** | City of Huntington Beach $\leftrightarrow$ TTS Engineering $\leftrightarrow$ Harry Sidhu $\leftrightarrow$ Todd Ament | Steering emergency contracts, suppressing environmental remediation, hiding financial interests on Form 700 filings. | Cal. Gov. Code §§ 1090, 871**; 18 U.S.C. §§ 1341, 1343, 1346 (Honest Services Wire Fraud). | *Thomson v. Call* (1985) 38 Cal.3d 633 (100% Disgorgement); [OsintNeoAiFORM700HBNC FINAL AGY.txt](file:///C:/Amd949609_Antigravity_v1/backups/hbnc_ingest_backup_20261014_095500/cloud_evidence_locker_hbnc_records/OsintNeoAiFORM700HBNC%20FINAL%20AGY.txt). |
+| **II. Fiduciary Breach & Dual Agency Concealment** | Andrew Saul Falk $\leftrightarrow$ Nest Seekers CA Corp $\leftrightarrow$ Ricardo Alvarado $\leftrightarrow$ Shawn R. Elliott | Extracting unauthorized move-in commissions ($3,060), concealing toxic mold/termite damage, failing to deliver statutory TDS disclosures. | Cal. Civ. Code §§ 1102, 2079.16; Cal. Bus. & Prof. Code §§ 101**, 101**; 10 CCR § 2725. | Restatement (Third) of Agency § 8.01; [DRE_01934785_Nest_Seekers_CA_Corp.json](file:///C:/Amd949609_Antigravity_v1/evidence/investigation_dossiers/DRE_01934785_Nest_Seekers_CA_Corp.json); [TruthFinder_ENRICHED_Shawn_Robert_Elliott_Designated_Broker_Officer_CDP_Full.pdf](file:///C:/Amd949609_Antigravity_v1/evidence/truthfinder_records/TruthFinder_ENRICHED_Shawn_Robert_Elliott_Designated_Broker_Officer_CDP_Full.pdf). |
 | **III. Sewer Service & Fabricated Court Filings** | Brian Essah $\leftrightarrow$ South Bay Attorney Service $\leftrightarrow$ WKZ Law (Kam Kooshki, Sammy Zreik) | Swearing false affidavits of service alleging personal posting on July 8, 2026; refuted by continuous 24/7 Camtro security video. | Cal. Penal Code § 118 (Perjury); Cal. Civ. Proc. Code §§ 415.45, 1162; Cal. Bus. & Prof. Code § 6068(d). | *Peralta v. Heights Medical Center* (1988) 485 U.S. 80 (Void Judgments); Video Telemetry Vault `C:\Amd949609_Antigravity_v1\evidence\Camtro_Video_Logs\`. |
 | **IV. Out-of-State Straw Entity & Ultra Vires Deceit** | Andrew Saul Falk $\leftrightarrow$ Bailey Gale Living Trust $\leftrightarrow$ Kim Ellen Thomson $\leftrightarrow$ 1133 N Formosa HOA | Falk claiming unilateral "ownership" of a California Nonprofit Mutual Benefit Corporation to harass tenants while residing in Atlanta, GA. | Cal. Corp. Code §§ 7110, 7310; Cal. Civ. Code § 4000 (Davis-Stirling Act). | [TruthFinder_ENRICHED_Kim_Ellen_Thomson_HOA_Statutory_Agent_CDP_Full.pdf](file:///C:/Amd949609_Antigravity_v1/evidence/truthfinder_records/TruthFinder_ENRICHED_Kim_Ellen_Thomson_HOA_Statutory_Agent_CDP_Full.pdf); [TruthFinder_ENRICHED_Andrew_Saul_Falk_Landlord_Optionor_CDP_Full.pdf](file:///C:/Amd949609_Antigravity_v1/evidence/truthfinder_records/TruthFinder_ENRICHED_Andrew_Saul_Falk_Landlord_Optionor_CDP_Full.pdf). |
-| **V. Environmental Hazard & Health Concealment** | 17631 Cameron Lane (HBNC) $\leftrightarrow$ 1133 N Formosa Ave Unit 5 (Falk) | Concealing certified 18,000+ fungal spore infestations and uncharacterized underground toxic VOC/methane plumes across homeless and residential occupants. | Cal. Health & Safety Code §§ 17920.3, 25249.5 (Prop 65); Los Angeles County Public Health Code. | Certified Lab Reports: Nation Laboratories Report #`2026-0325`; GeoTracker Site Cleanup Case #`SL0605902264`. |
+| **V. Environmental Hazard & Health Concealment** | 17631 C*** Lane (HBNC) $\leftrightarrow$ 1133 N. F*** Ave Unit 5 (Falk) | Concealing certified 18,000+ fungal spore infestations and uncharacterized underground toxic VOC/methane plumes across homeless and residential occupants. | Cal. Health & Safety Code §§ 179**.3, 252**.5 (Prop 65); Los Angeles County Public Health Code. | Certified Lab Reports: Nation Laboratories Report #`2026-0325`; GeoTracker Site Cleanup Case #`SL0605902264`. |
