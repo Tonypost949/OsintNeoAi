@@ -1,0 +1,26 @@
+mcs.metadata:
+  componentName: EntitySearch
+  description: Triggered when the user searches for entity IDs, APN parcels, or corporate nodes in OsintNeoAi.
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: Entity Search & Normalization
+    includeInOnSelectIntent: true
+    triggerQueries:
+      - Search entity
+      - Find APN
+      - Query PER number
+      - Entity lookup
+      - Search corporate shell
+      - Look up GOV record
+      - Search RICO entity
+  actions:
+    - kind: SendActivity
+      id: sendMsg_EntitySearch
+      activity:
+        text:
+          - "OsintNeoAi Entity Vault Search active. Querying 17,000+ normalized nodes across PER-, GOV-, SHL-, RICO-, TOX-, and APN parcel registries."
+        speak:
+          - "Searching OsintNeoAi entity vault."

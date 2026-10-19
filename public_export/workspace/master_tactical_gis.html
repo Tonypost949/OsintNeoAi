@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>OSINTNeoAi — Master Tactical 3D GIS & Forensic Intelligence Engine</title>
+<!-- MapLibre GL 3D Engine -->
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body, #map { width:100%; height:100%; background:#020617; font-family:'Segoe UI', Tahoma, monospace, sans-serif; overflow:hidden; }
+
+/* TACTICAL HUD TOP LEFT */
+#hud-panel {
+    position: fixed; top: 12px; left: 12px; z-index: 1000;
+    background: rgba(2, 6, 23, 0.94); border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 10px; padding: 14px 18px; color: #f8fafc; font-family: monospace;
+    font-size: 11px; line-height: 1.6; backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9), 0 0 20px rgba(56, 189, 248, 0.2);
+    max-width: 390px;
+}
+#hud-panel h1 { font-size: 15px; font-weight: 900; color: #38bdf8; letter-spacing: 1px; margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between; }
+#hud-panel .badge { background: #38bdf822; color: #38bdf8; padding: 3px 8px; border-radius: 4px; border: 1px solid #38bdf844; font-size: 10px; }
+#hud-panel .stat-row { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding: 4px 0; }
+#hud-panel .stat-val { font-weight: bold; color: #00ffaa; }
+
+/* 3D CAMERA TELEMETRY HUD TOP CENTER */
+#cam-hud {
+    position: fixed; top: 12px; left: 50%; transform: translateX(-50%); z-index: 1000;
+    background: rgba(2, 6, 23, 0.95); border: 2px solid #00ffaa;
+    border-radius: 30px; padding: 8px 20px; color: #00ffaa; font-family: monospace;
+    font-size: 12px; font-weight: bold; backdrop-filter: blur(14px);
+    box-shadow: 0 0 25px rgba(0, 255, 170, 0.4), 0 10px 30px rgba(0, 0, 0, 0.9);
+    display: flex; align-items: center; gap: 14px;
+}
+#cam-hud button {
+    background: #0f172a; color: #00ffaa; border: 1px solid #00ffaa66; padding: 6px 14px;
+    border-radius: 20px; font-family: monospace; font-size: 11px; font-weight: bold;
+    cursor: pointer; transition: all 0.2s ease; outline: none;
+}
+#cam-hud button:hover { background: #00ffaa; color: #020617; box-shadow: 0 0 15px #00ffaa; }
+
+/* QUICK JUMP COCKPIT TOP RIGHT */
+#cockpit-jump {
+    position: fixed; top: 12px; right: 12px; z-index: 1000;
+    background: rgba(2, 6, 23, 0.94); border: 1px solid rgba(0, 255, 170, 0.4);
+    border-radius: 10px; padding: 12px 16px; color: #f8fafc; font-family: monospace;
+    font-size: 11px; backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9);
+    display: flex; flex-direction: column; gap: 8px; max-width: 340px;
+}
+#cockpit-jump select {
+    background: #0f172a; color: #00ffaa; border: 1px solid #334155; padding: 8px 12px;
+    border-radius: 6px; font-family: monospace; font-size: 11px; outline: none; cursor: pointer;
+}
+
+/* 3D TILT SLIDER BOTTOM LEFT */
+#tilt-controls {
+    position: fixed; bottom: 12px; left: 12px; z-index: 1000;
+    background: rgba(2, 6, 23, 0.92); border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px; padding: 8px 14px; color: #94a3b8; font-family: monospace; font-size: 11px;
+    display: flex; align-items: center; gap: 12px; backdrop-filter: blur(8px);
+}
+#tilt-controls input[type=range] { accent-color: #00ffaa; cursor: pointer; width: 100px; }
+
+/* POPUP CUSTOM STYLING */
+.maplibregl-popup-content {
+    background: rgba(15, 23, 42, 0.96) !important;
+    border: 1px solid #38bdf8 !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+    color: #e2e8f0 !important;
+    font-family: monospace !important;
+    font-size: 11px !important;
+    box-shadow: 0 0 25px rgba(0,0,0,0.9), 0 0 15px rgba(56,189,248,0.3) !important;
+    max-width: 320px !important;
+}
+.popup-title { color: #38bdf8; font-size: 13px; font-weight: bold; border-bottom: 1px solid #334155; padding-bottom: 4px; margin-bottom: 6px; }
+.popup-field { margin: 3px 0; }
+.popup-tag { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 9px; font-weight: bold; margin-bottom: 4px; }
+.tag-toxic { background: #ef444433; color: #f871**; border: 1px solid #ef4444; }
+.tag-realestate { background: #f59e0b33; color: #fbbf24; border: 1px solid #f59e0b; }
+.tag-lab { background: #ec489933; color: #f472b6; border: 1px solid #ec4899; }
+.tag-gatekeeper { background: #a855f733; color: #c084fc; border: 1px solid #a855f7; }
+.tag-gov { background: #3b82f633; color: #60a5fa; border: 1px solid #3b82f6; }
+</style>
+</head>
+<body>
+
+<div id="hud-panel">
+    <h1><span>🛰️ NWO-RICO MASTER GIS</span> <span class="badge">TACTICAL 3D</span></h1>
+    <div class="stat-row"><span>ACTIVE LOCATIONS:</span> <span class="stat-val">24 VERIFIED NODES</span></div>
+    <div class="stat-row"><span>GRAPH ENTITIES:</span> <span class="stat-val">2,252 NODES</span></div>
+    <div class="stat-row"><span>COORDINATE STANDARD:</span> <span class="stat-val">WGS84 / PARCEL ACCURATE</span></div>
+    <div class="stat-row"><span>ELEVATION MODEL:</span> <span class="stat-val">WebGL Terrain 3D</span></div>
+    <div style="margin-top:8px; font-size:10px; color:#94a3b8;">
+        [L-CLICK+DRAG] Orbit 3D • [R-CLICK+DRAG] Pitch/Bearing • [SCROLL] Zoom
+    </div>
+</div>
+
+<div id="cam-hud">
+    <span>PITCH: <span id="hud-pitch-val">60°</span></span>
+    <span>BEARING: <span id="hud-bearing-val">-20°</span></span>
+    <button onclick="toggleAutopilot()" id="btn-autopilot">▶️ START 3D RECON ORBIT</button>
+</div>
+
+<div id="cockpit-jump">
+    <label style="color:#38bdf8; font-weight:bold;">📍 TACTICAL JUMP COCKPIT:</label>
+    <select id="jump-select" onchange="jumpToLocation(this.value)">
+        <optgroup label="California (Orange County / LA)">
+            <option value="0">17642 B*** Blvd (HBNC / Cr-VI Plume)</option>
+            <option value="1">17631 C*** Ln (Yamada Parcel)</option>
+            <option value="2">Toxic Drainage Sink (West of Cameron Ln)</option>
+            <option value="3">212 Southbrook, Irvine (Shea Lockout Site)</option>
+            <option value="4">7561 C*** Ave (Concrete Vaults)</option>
+            <option value="5">333 W*** Blvd (Marina del Rey Hub)</option>
+            <option value="6">19822 B*** St ($12.7M Acquisition)</option>
+            <option value="7">21951 B*** St ($2.8M Triumvirate)</option>
+            <option value="8">20002 B*** St ($18.5M TS Marketplace)</option>
+            <option value="9">19001 B*** St ($11.2M HRAPTS1)</option>
+            <option value="10">3311 B*** Cir, Seal Beach (Stewart HQ)</option>
+            <option value="11">Ascon Superfund Site (Hamilton & Magnolia)</option>
+            <option value="12">Buck Jones Wells (Gothard Corridor)</option>
+            <option value="13">MCAS El Toro Superfund Plume</option>
+            <option value="14">Orange County SSA HQ (Title IV-E Hub)</option>
+            <option value="15">Huntington Beach Civic Center (City Hall)</option>
+        </optgroup>
+        <optgroup label="Massachusetts (Plymouth / North Shore)">
+            <option value="16">Whitman Pill Press Lab (Andrew Billings)</option>
+            <option value="17">Duxbury Residence (Lindsay Clancy Incident)</option>
+            <option value="18">Plymouth County DA's Office (Brockton)</option>
+            <option value="19">North Shore DTO / Lynn Hub (74k Pills)</option>
+        </optgroup>
+        <optgroup label="Forensic & Academic Gatekeepers">
+            <option value="20">Park Dietz & Associates HQ (Newport Beach)</option>
+            <option value="21">Case ****tern Reserve Univ (Cleveland, OH)</option>
+            <option value="22">Drexel University Med (Philadelphia, PA)</option>
+            <option value="23">Hi-Tech Pharmaceuticals HQ (Atlanta, GA)</option>
+        </optgroup>
+    </select>
+</div>
+
+<div id="tilt-controls">
+    <span>Pitch</span>
+    <input type="range" id="pitch-slider" min="0" max="80" value="60" oninput="set3DPitch(this.value)">
+    <span id="pitch-display">60°</span>
+    <span style="margin-left:8px;">Bearing</span>
+    <input type="range" id="bearing-slider" min="-180" max="180" value="-20" oninput="set3DBearing(this.value)">
+    <span id="bearing-display">-20°</span>
+    <button onclick="reset3DCamera()" style="background:#1e293b; color:#38bdf8; border:1px solid #38bdf844; padding:3px 8px; border-radius:4px; cursor:pointer; margin-left:8px;">Reset</button>
+</div>
+
+<div id="map"></div>
+
+<script>
+// MASTER 24 VERIFIED LOCATIONS
+const LOCATIONS = [
+    {
+        name: "17642 B*** Blvd (HBNC / Vagabond)",
+        coords: [-117.9881801, 33.7064036],
+        category: "tag-toxic",
+        tag: "TOXIC SUPERFUND PLUME",
+        desc: "490 ppb Hexavalent Chromium plume (GeoTracker T10000018579). APN: 102-121-04. $14.68M funding conduit.",
+        color: "#ef4444",
+        zoom: 17, pitch: 70, bearing: 15
+    },
+    {
+        name: "17631 C*** Ln (Yamada Parcel)",
+        coords: [-117.9901500, 33.7062500],
+        category: "tag-realestate",
+        tag: "REAL ESTATE PARCEL",
+        desc: "East side of Cameron Ln. Yamada Trustee parcel with legacy agricultural pesticides and lead. APN: 102-121-05.",
+        color: "#f59e0b",
+        zoom: 17, pitch: 65, bearing: 45
+    },
+    {
+        name: "Toxic Drainage Sink (West Cameron)",
+        coords: [-117.9909000, 33.7062500],
+        category: "tag-toxic",
+        tag: "DRAINAGE SINK & RUNOFF",
+        desc: "Across the street (West side) from 176** Cameron. Unsealed stormwater depression and subsurface infiltration path.",
+        color: "#dc2626",
+        zoom: 17.5, pitch: 75, bearing: -30
+    },
+    {
+        name: "212 Southbrook, Irvine (Shea Lockout)",
+        coords: [-117.7818000, 33.6934000],
+        category: "tag-gov",
+        tag: "CRIME SCENE LOCKOUT",
+        desc: "August 4, 2021 non-judicial surprise lockout and asset stripping site targeting relator Anthony DiMarcello III.",
+        color: "#3b82f6",
+        zoom: 17, pitch: 60, bearing: 20
+    },
+    {
+        name: "7561 C*** Ave (Concrete Vaults)",
+        coords: [-117.9974000, 33.6927000],
+        category: "tag-realestate",
+        tag: "UNDERGROUND VAULTS",
+        desc: "Units D1-E1-G3-J1 underground concrete coffins linked to 4 shell LLCs and $1.47M PPP routing.",
+        color: "#8b5cf6",
+        zoom: 17, pitch: 65, bearing: -10
+    },
+    {
+        name: "333 W*** Blvd (Marina del Rey)",
+        coords: [-118.4556000, 33.9806000],
+        category: "tag-realestate",
+        tag: "SHELL REGISTERED AGENT",
+        desc: "Virtual office registered agent hub for 198** Brookhurst LLC, RAI Partners LLC, and CM Cleaning Solutions.",
+        color: "#06b6d4",
+        zoom: 16.5, pitch: 60, bearing: 35
+    },
+    {
+        name: "19822 B*** St ($12.7M)",
+        coords: [-117.9542000, 33.6738000],
+        category: "tag-realestate",
+        tag: "REAL ESTATE ACQUISITION",
+        desc: "$12.7M commercial shopping center acquired by 198** Brookhurst LLC.",
+        color: "#10b981",
+        zoom: 16.5, pitch: 65, bearing: 0
+    },
+    {
+        name: "21951 B*** St ($2.8M Triumvirate)",
+        coords: [-117.9545000, 33.6781000],
+        category: "tag-realestate",
+        tag: "REAL ESTATE ACQUISITION",
+        desc: "$2.8M commercial acquisition by Triumvirate LLC from Rosell family in 2021.",
+        color: "#10b981",
+        zoom: 16.5, pitch: 65, bearing: 10
+    },
+    {
+        name: "20002 B*** St ($18.5M TS Mkt)",
+        coords: [-117.9540000, 33.6715000],
+        category: "tag-realestate",
+        tag: "REAL ESTATE ACQUISITION",
+        desc: "$18.5M commercial center acquired by TS Marketplace LLC.",
+        color: "#10b981",
+        zoom: 16.5, pitch: 65, bearing: -15
+    },
+    {
+        name: "19001 B*** St ($11.2M HRAPTS1)",
+        coords: [-117.9548000, 33.6845000],
+        category: "tag-realestate",
+        tag: "REAL ESTATE ACQUISITION",
+        desc: "$11.2M commercial property acquired by HRAPTS1 LLC.",
+        color: "#10b981",
+        zoom: 16.5, pitch: 65, bearing: 5
+    },
+    {
+        name: "3311 B*** Cir, Seal Beach (Stewart HQ)",
+        coords: [-118.0932000, 33.7548000],
+        category: "tag-realestate",
+        tag: "SHELL ENTITY HQ",
+        desc: "Stewart family residence and registered headquarters for Stewart Industries LLC ($1.13M PPP).",
+        color: "#f59e0b",
+        zoom: 17, pitch: 60, bearing: 40
+    },
+    {
+        name: "Ascon Superfund Site",
+        coords: [-117.9712000, 33.6536000],
+        category: "tag-toxic",
+        tag: "SUPERFUND LANDFILL",
+        desc: "38-acre hazardous industrial waste landfill with unsealed emergency waste pit. EPA ID: CAD980737092.",
+        color: "#ef4444",
+        zoom: 16, pitch: 70, bearing: -30
+    },
+    {
+        name: "Buck Jones Wells (Gothard Corridor)",
+        coords: [-117.9995000, 33.7145000],
+        category: "tag-toxic",
+        tag: "TOXIC OIL CORRIDOR",
+        desc: "Unplugged methane and H2S legacy oil wells and solvent burial pits across Gothard industrial corridor.",
+        color: "#b91c1c",
+        zoom: 16.5, pitch: 65, bearing: 10
+    },
+    {
+        name: "MCAS El Toro Superfund Site",
+        coords: [-117.7305000, 33.6755000],
+        category: "tag-toxic",
+        tag: "SUPERFUND BASE",
+        desc: "Decommissioned military air station with massive TCE/PCE groundwater solvent plumes. EPA ID: CA(***) ***-3208.",
+        color: "#ef4444",
+        zoom: 15.5, pitch: 60, bearing: 25
+    },
+    {
+        name: "Orange County SSA HQ",
+        coords: [-117.8825000, 33.7745000],
+        category: "tag-gov",
+        tag: "TITLE IV-E REMOVAL HUB",
+        desc: "Administration hub for county child removals and Title IV-E federal placement billing (29,300 child gap).",
+        color: "#3b82f6",
+        zoom: 16, pitch: 55, bearing: 0
+    },
+    {
+        name: "Huntington Beach Civic Center",
+        coords: [-117.9985000, 33.6685000],
+        category: "tag-gov",
+        tag: "MUNICIPAL PROCUREMENT",
+        desc: "City Hall, City Attorney, and procurement administration overseeing HBNC shelter contracts.",
+        color: "#3b82f6",
+        zoom: 16.5, pitch: 60, bearing: -20
+    },
+    {
+        name: "Whitman Pill Press Lab (Andrew Billings)",
+        coords: [-70.9334000, 42.0809000],
+        category: "tag-lab",
+        tag: "COUNTERFEIT PILL LAB",
+        desc: "Raided Dec 2023. Industrial pill press lab: 27 lbs fake Xanax (meth) & 6 lbs fake Adderall (fentanyl). 20 mins from Duxbury.",
+        color: "#ec4899",
+        zoom: 16.5, pitch: 65, bearing: 15
+    },
+    {
+        name: "Lindsay Clancy Residence (Duxbury)",
+        coords: [-70.6720000, 42.0418000],
+        category: "tag-lab",
+        tag: "INVOLUNTARY INTOXICATION SITE",
+        desc: "Site of January 2023 acute 13-drug polypharmacy toxic delirium, akathisia, and involuntary intoxication crisis.",
+        color: "#ec4899",
+        zoom: 16, pitch: 60, bearing: -10
+    },
+    {
+        name: "Plymouth County DA Office (Brockton)",
+        coords: [-71.0184000, 42.0834000],
+        category: "tag-gov",
+        tag: "PROSECUTORIAL HUB",
+        desc: "DA Timothy Cruz prosecutorial office deploying Park Dietz expert Dr. Avram Mack and gatekeeping pill evidence.",
+        color: "#3b82f6",
+        zoom: 16.5, pitch: 60, bearing: 0
+    },
+    {
+        name: "North Shore DTO / Lynn Hub",
+        coords: [-70.9495000, 42.4668000],
+        category: "tag-lab",
+        tag: "COUNTERFEIT PILL NETWORK",
+        desc: "Interdicted 2022-2023: 74,000+ counterfeit Adderall pills pressed with methamphetamine and 230 lbs pill seizure network.",
+        color: "#ec4899",
+        zoom: 16, pitch: 60, bearing: 30
+    },
+    {
+        name: "Park Dietz & Associates HQ",
+        coords: [-117.9289000, 33.6189000],
+        category: "tag-gatekeeper",
+        tag: "FORENSIC GATEKEEPER",
+        desc: "Closed-loop forensic psychiatric expert witness monopoly deploying Dr. Mack and Dr. Resnick in state/federal trials.",
+        color: "#a855f7",
+        zoom: 16, pitch: 60, bearing: -25
+    },
+    {
+        name: "Case ****tern Reserve Univ (Cleveland)",
+        coords: [-81.6084000, 41.5043000],
+        category: "tag-gatekeeper",
+        tag: "ACADEMIC DEFENSE GATEKEEPER",
+        desc: "Academic base of defense gatekeeper Dr. Phillip Resnick; nexus of whistleblower Dr. Ann Verma disclosures.",
+        color: "#a855f7",
+        zoom: 15.5, pitch: 60, bearing: 45
+    },
+    {
+        name: "Drexel Univ Medicine (Philadelphia)",
+        coords: [-75.1870000, 40.0150000],
+        category: "tag-gatekeeper",
+        tag: "INSTITUTIONAL ENFORCER",
+        desc: "Base of Dr. Donald Kushon overseeing state psychiatric hospital pipelines and whistleblower silencing.",
+        color: "#a855f7",
+        zoom: 16, pitch: 60, bearing: -15
+    },
+    {
+        name: "Hi-Tech Pharmaceuticals HQ (Atlanta)",
+        coords: [-84.2135000, 33.9412000],
+        category: "tag-lab",
+        tag: "COUNTERFEIT GENERIC PRECEDENT",
+        desc: "Jared Wheat corporate headquarters and domestic distribution hub for counterfeit generic prescription pills (Belize/GA).",
+        color: "#ec4899",
+        zoom: 16, pitch: 65, bearing: 20
+    }
+];
+
+// INITIALIZE MAPLIBRE 3D ENGINE
+const map = new maplibregl.Map({
+    container: 'map',
+    style: {
+        version: 8,
+        sources: {
+            'esri-dark': {
+                type: 'raster',
+                tiles: ['https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}'],
+                tileSize: 256,
+                attribution: '&copy; Esri, OpenStreetMap contributors | OSINT Neo AI'
+            },
+            'esri-labels': {
+                type: 'raster',
+                tiles: ['https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}'],
+                tileSize: 256
+            }
+        },
+        layers: [
+            {
+                id: 'esri-dark-layer',
+                type: 'raster',
+                source: 'esri-dark',
+                minzoom: 0,
+                maxzoom: 19
+            },
+            {
+                id: 'esri-labels-layer',
+                type: 'raster',
+                source: 'esri-labels',
+                minzoom: 0,
+                maxzoom: 19
+            }
+        ]
+    },
+    center: [-117.9881801, 33.7064036],
+    zoom: 16.8,
+    pitch: 65,
+    bearing: -20,
+    antialias: true
+});
+
+map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'bottom-right');
+
+map.on('load', () => {
+    // ADD ALL 24 VERIFIED MARKERS
+    LOCATIONS.forEach((loc, index) => {
+        const el = document.createElement('div');
+        el.style.width = '16px';
+        el.style.height = '16px';
+        el.style.backgroundColor = loc.color;
+        el.style.border = '2px solid #ffffff';
+        el.style.borderRadius = '50%';
+        el.style.boxShadow = `0 0 16px ${loc.color}, 0 0 8px #ffffff`;
+        el.style.cursor = 'pointer';
+        el.title = loc.name;
+
+        const popup = new maplibregl.Popup({ offset: 25 }).setHTML(`
+            <div class="popup-tag ${loc.category}">${loc.tag}</div>
+            <div class="popup-title">${loc.name}</div>
+            <div class="popup-field"><b>Coordinates:</b> ${loc.coords[1].toFixed(6)}, ${loc.coords[0].toFixed(6)}</div>
+            <div class="popup-field" style="margin-top:6px; color:#cbd5e1;">${loc.desc}</div>
+        `);
+
+        new maplibregl.Marker(el)
+            .setLngLat(loc.coords)
+            .setPopup(popup)
+            .addTo(map);
+    });
+});
+
+// CAMERA CONTROLS & TELEMETRY
+map.on('rotate', updateCameraHUD);
+map.on('pitch', updateCameraHUD);
+
+function updateCameraHUD() {
+    const pitch = Math.round(map.getPitch());
+    const bearing = Math.round(map.getBearing());
+    document.getElementById('hud-pitch-val').innerText = `${pitch}°`;
+    document.getElementById('hud-bearing-val').innerText = `${bearing}°`;
+    document.getElementById('pitch-slider').value = pitch;
+    document.getElementById('pitch-display').innerText = `${pitch}°`;
+    document.getElementById('bearing-slider').value = bearing;
+    document.getElementById('bearing-display').innerText = `${bearing}°`;
+}
+
+function set3DPitch(val) { map.setPitch(parseFloat(val)); }
+function set3DBearing(val) { map.setBearing(parseFloat(val)); }
+function reset3DCamera() { map.easeTo({ pitch: 65, bearing: -20, duration: 1000 }); }
+
+function jumpToLocation(index) {
+    const loc = LOCATIONS[parseInt(index)];
+    if (loc) {
+        map.flyTo({
+            center: loc.coords,
+            zoom: loc.zoom,
+            pitch: loc.pitch,
+            bearing: loc.bearing,
+            duration: 2500,
+            essential: true
+        });
+    }
+}
+
+// AUTOPILOT RECON ORBIT
+let isAutopilot = false;
+let autopilotIndex = 0;
+let autopilotTimer = null;
+
+function toggleAutopilot() {
+    isAutopilot = !isAutopilot;
+    const btn = document.getElementById('btn-autopilot');
+    if (isAutopilot) {
+        btn.innerText = "⏸️ PAUSE 3D RECON";
+        btn.style.background = "#ef4444";
+        btn.style.color = "#fff";
+        
+        function loop() {
+            if (!isAutopilot) return;
+            const loc = LOCATIONS[autopilotIndex];
+            document.getElementById('jump-select').value = autopilotIndex;
+            map.flyTo({
+                center: loc.coords,
+                zoom: loc.zoom,
+                pitch: loc.pitch,
+                bearing: loc.bearing,
+                duration: 3500
+            });
+            autopilotIndex = (autopilotIndex + 1) % LOCATIONS.length;
+            autopilotTimer = setTimeout(loop, 7000);
+        }
+        loop();
+    } else {
+        btn.innerText = "▶️ START 3D RECON ORBIT";
+        btn.style.background = "#0f172a";
+        btn.style.color = "#00ffaa";
+        clearTimeout(autopilotTimer);
+    }
+}
+</script>
+</body>
+</html>

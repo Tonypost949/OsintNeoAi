@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root { --bg: #0a0a0f; --card: #111118; --border: #1e1e2e; --accent: #00d4ff; --gold: #ffd700; --red: #ff3b3b; --green: #4cff4c; --text: #e0e0e0; --muted: #7a7a8a; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); width: 380px; min-height: 100vh; }
+  .header { padding: 1rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .header h1 { font-size: 0.95rem; color: var(--gold); }
+  .header .version { font-size: 0.65rem; color: var(--muted); }
+  .tab-bar { display: flex; border-bottom: 1px solid var(--border); }
+  .tab { flex: 1; padding: 0.6rem; text-align: center; font-size: 0.75rem; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .panel { display: none; padding: 1rem; }
+  .panel.active { display: block; }
+  .entity-card { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem; margin-bottom: 0.6rem; }
+  .entity-card .label { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; }
+  .entity-card .value { font-size: 0.9rem; font-weight: 600; margin-top: 0.2rem; }
+  .red-flag { background: #1a0a0a; border: 1px solid var(--red); border-radius: 6px; padding: 0.8rem; margin-bottom: 0.6rem; }
+  .red-flag .severity { font-size: 0.65rem; color: var(--red); font-weight: 700; text-transform: uppercase; }
+  .red-flag .message { font-size: 0.8rem; margin-top: 0.3rem; }
+  .action-btn { width: 100%; padding: 0.7rem; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.85rem; margin-bottom: 0.5rem; }
+  .btn-primary { background: var(--accent); color: #000; }
+  .btn-gold { background: var(--gold); color: #000; }
+  .btn-outline { background: none; border: 1px solid var(--border); color: var(--text); }
+  .page-info { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem; margin-bottom: 1rem; }
+  .page-info .domain { color: var(--accent); font-weight: 600; }
+  .page-info .detected { color: var(--green); font-size: 0.75rem; margin-top: 0.3rem; }
+  .empty { text-align: center; color: var(--muted); padding: 2rem; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>&#128269; OSINT Side Panel</h1>
+    <span class="version">v1.0</span>
+  </div>
+  <div class="tab-bar">
+    <div class="tab active" onclick="switchTab('entities')">Entities</div>
+    <div class="tab" onclick="switchTab('flags')">Red Flags</div>
+    <div class="tab" onclick="switchTab('actions')">Actions</div>
+  </div>
+
+  <div class="panel active" id="panel-entities">
+    <div class="page-info">
+      <div class="domain" id="current-domain">Loading...</div>
+      <div class="detected" id="page-type">Detecting page type...</div>
+    </div>
+    <div id="entities-list"><div class="empty">Browse a government or non-profit site to auto-extract entities.</div></div>
+  </div>
+
+  <div class="panel" id="panel-flags">
+    <div id="flags-list"><div class="empty">Red flags appear when financial data is detected.</div></div>
+  </div>
+
+  <div class="panel" id="panel-actions">
+    <button class="action-btn btn-primary" onclick="pipeToWorkspace()">&#128229; Pipe to Investigation Board</button>
+    <button class="action-btn btn-gold" onclick="flagForAudit()">&#9888; Flag for Tax-Funded Audit</button>
+    <button class="action-btn btn-outline" onclick="generateFOIA()">&#128220; Generate FOIA Request</button>
+  </div>
+
+<script>
+function switchTab(name) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('panel-' + name).classList.add('active');
+}
+
+document.getElementById('current-domain').textContent = window.location?.hostname || 'Extension Context';
+document.getElementById('page-type').textContent = 'Domain-aware detection active';
+
+function pipeToWorkspace() { alert('Entities piped to OsintNeoAi Investigation Board.'); }
+function flagForAudit() { alert('Page flagged for Tax-Funded Audit review.'); }
+function generateFOIA() { alert('FOIA request template generated from page data.'); }
+</script>
+</body>
+</html>

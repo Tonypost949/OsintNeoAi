@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OsintNeoAi - Workspace Tool & Repo Hub</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #090d16; color: #f1f5f9; padding: 20px; margin: 0; }
+    h1 { color: #38bdf8; font-size: 22px; }
+    .section { margin-bottom: 24px; background: #1e293b; border-radius: 8px; padding: 16px; border: 1px solid #334155; }
+    .toggle-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #334155; }
+    .toggle-row:last-child { border-bottom: none; }
+    .switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #475569; transition: .3s; border-radius: 24px; }
+    .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%; }
+    input:checked + .slider { background-color: #0284c7; }
+    input:checked + .slider:before { transform: translateX(20px); }
+    .terminal-box { background: #020617; font-family: 'Consolas', monospace; padding: 12px; border-radius: 6px; color: #4ade80; font-size: 13px; border: 1px solid #1e293b; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <h1>🎛️ OsintNeoAi Workspace Toggles</h1>
+
+  <!-- Modular OSINT & AI Tools Section -->
+  <div class="section">
+    <h3 style="color: #38bdf8; margin-top: 0;">🔧 OSINT & AI Tools (User Toggles)</h3>
+
+    <div class="toggle-row">
+      <div>
+        <strong>IRS Form 990 Non-Profit Auditor</strong>
+        <div style="font-size: 12px; color: #94a3b8;">Auto-detects tax-wasting non-profits & executive salaries</div>
+      </div>
+      <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+    </div>
+
+    <div class="toggle-row">
+      <div>
+        <strong>USASpending & FOIA Tracker</strong>
+        <div style="font-size: 12px; color: #94a3b8;">Pipes federal grant sub-recipient chains into workspace</div>
+      </div>
+      <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+    </div>
+
+    <div class="toggle-row">
+      <div>
+        <strong>Wayback & Google Cache AI Archive</strong>
+        <div style="font-size: 12px; color: #94a3b8;">Queries deleted web pages & historical social posts</div>
+      </div>
+      <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+    </div>
+  </div>
+
+  <!-- Connected GitHub Repositories Toggle Section -->
+  <div class="section">
+    <h3 style="color: #a855f7; margin-top: 0;">📦 GitHub Repository Workspaces (Toggle Active Repos)</h3>
+
+    <div class="toggle-row">
+      <div>
+        <strong>OsintNeoAi (Primary Core Engine)</strong>
+        <div style="font-size: 12px; color: #94a3b8;">Repository: <code>Tonypost949/OsintNeoAi</code></div>
+      </div>
+      <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+    </div>
+
+    <div class="toggle-row">
+      <div>
+        <strong>TaxFunded (Tax Waste Audit Repo)</strong>
+        <div style="font-size: 12px; color: #94a3b8;">Repository: <code>Tonypost949/TaxFunded</code></div>
+      </div>
+      <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+    </div>
+
+    <div class="toggle-row">
+      <div>
+        <strong>NPI - Non-Profiteers Index</strong>
+        <div style="font-size: 12px; color: #94a3b8;">Repository: <code>Tonypost949/Non-Profiteers-Index</code></div>
+      </div>
+      <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+    </div>
+  </div>
+
+  <!-- Built-In Terminal Execution Box -->
+  <div class="section">
+    <h3 style="color: #22c55e; margin-top: 0;">⚡ Built-in Auto Terminal Executor</h3>
+    <p style="font-size: 12px; color: #94a3b8;">When a tool or user action requires a command, the workspace AI writes, reviews, and runs it automatically inside the integrated terminal window.</p>
+    <div class="terminal-box">
+      $ osint-ai execute --tool irs990_auditor --repo TaxFunded --auto-run<br>
+      [+] Target Repo Linked: Tonypost949/TaxFunded<br>
+      [+] Running automated check on public records... Done! (0 errors)
+    </div>
+  </div>
+</body>
+</html>

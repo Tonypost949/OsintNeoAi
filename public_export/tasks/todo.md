@@ -1,0 +1,71 @@
+# Master Task Checklist: OSINTNeoAI & TaxFunded Architecture
+
+## Phase 1: Foundation & Ingestion Pipeline
+- [x] **Task 1: Master OSINT Evidence Registry Harmonization**
+  - Compiled 199 verified records into `data/MASTER_OSINT_EVIDENCE_REGISTRY.csv` and `data/MASTER_OSINT_EVIDENCE_REGISTRY.json`.
+- [x] **Task 2: BigQuery Master DDL & Replication Setup**
+  - Generated `data/create_master_osint_evidence_registry_table.sql` for `noble-beanbag-497411-m4.national_audits.master_osint_evidence_registry`.
+- [x] **Task 3: Zero-Value Append-Only Ingestion Endpoints**
+  - Deployed `POST /api/ingest` and `GET /api/lookup_hash` on Port 100** with `data/staging/` queue.
+
+## Checkpoint 1: Foundation
+- [x] Verified 199 master records harmonized
+- [x] BigQuery DDL validated
+- [x] Local map server responding on Port 100**
+
+---
+
+## Phase 2: User Interfaces & Experience Layer
+- [x] **Task 4: 3-Investigation Limiter & Session Manager**
+  - Implemented `public/investigation_limiter.js` enforcing 3 active dossiers and daily 50k token allowance.
+- [x] **Task 5: Investigator Chat HUD with Client-Side SHA-256**
+  - Upgraded `public/workspace_chat.html` with in-browser SHA-256 hashing, instant receipt badges, and `/taxfunded` lookup links.
+- [x] **Task 6: TaxFunded Read-Only Explorer & Fallback Ingestion**
+  - Deployed `public/taxfunded_tracker.html` on `http://localhost:100**/taxfunded` with receipt hash valuation lookup.
+- [x] **Task 7: The Chronicle Forensic Crypto Crossword**
+  - Built `public/crypto_crossword.html` on `http://localhost:100**/crossword` with automated 50 TFT prize dispensing.
+- [x] **Task 8: Live Interactive Master Sheet Viewer**
+  - Deployed `public/master_osint_sheet_viewer.html` on `http://localhost:100**/sheet` with search, category filtering, and CSV export.
+
+## Checkpoint 2: Core Features
+- [x] All 4 web interfaces live on Port 100**
+- [x] Client SHA-256 generation and `/api/ingest` pipeline operational end-to-end
+
+---
+
+## Phase 3: Background Intelligence & Dispatch Automation
+- [x] **Task 9: Autonomous Continuous Valuation Daemon**
+  - Configured `scripts/autonomous_enrichment_worker.py` (`task-1288`) to continuously sweep `data/staging/`, cross-reference the 199 master entities, and elevate verified submissions to `CORROBORATED` status.
+- [x] **Task 10: Dynamic Daily Crossword Generator**
+  - Built automated rotational puzzle generator pulling clues from new BigQuery evidence hits (`scripts/dynamic_crossword_generator.py`).
+- [x] **Task 11: E-Fax & Regulatory Hardmail Dispatch Connector**
+  - Implemented automated complaint payload generator and eFax webhook dispatch adapter (`scripts/efax_dispatch_connector.py`).
+
+## Checkpoint 3: Complete
+- [x] Dual-location backups verified (GitHub `main` + Google Drive `Sharedall/OsintNeoAi/`)
+## Phase 4: Sprint 4 — Production Deployment & osintneoai.me Architecture
+- [x] **Task 12: Production Cloud Run Deployment & Custom Domain Binding (`osintneoai.me`)**
+  - Containerized backend APIs with `Dockerfile`, created `cloudbuild.yaml`, and configured DNS domain mappings for `osintneoai.me`, `taxfunded.osintneoai.me`, and `api.osintneoai.me` (`scripts/configure_cloud_run_domains.py`).
+- [x] **Task 13: Real-Time WebSockets & SSE Event Stream**
+  - Implemented SSE real-time event streaming endpoint on `http://localhost:100**/events` (`https://api.osintneoai.me/events`) in `scripts/dynamic_genesis_webhook.py`.
+- [x] **Task 14: Manifest V3 Browser Extension Node Release**
+  - Built Chrome Webstore Manifest V3 capture node in `chrome_extension/` targeting `https://api.osintneoai.me` and `http://localhost:100**` (`manifest.json`, `popup.html`, `popup.js`).
+- [x] **Task 15: Municipal GIS Polygon Layer Overlay**
+  - Generated `cameron_lane_gis_polygons.geojson` and updated `workspace_v2.html` Cytoscape graph to render GeoJSON plume polygon nodes for Ascon Landfill (ID 30490016) and Hexavalent Chromium plume (Case ****C002 @ 980 µg/kg).
+- [x] **Task 16: Automated Cal. CCP § 473(d) Legal Document Assembler**
+  - Generated court-ready Notice of Motion and Motion to Vacate Void Judgment package (`docs/Motion_To_Vacate_Void_Judgment_CCP_473d.md` & `scripts/assemble_473d_motion_package.py`).
+- [x] **Task 17: Tokenomics & Franchise Newspaper 50 TFT Reward Pool**
+  - Configured TFT tokenomics reward pool engine (`data/tft_tokenomics_pool.json` & `scripts/tft_tokenomics_engine.py`) and integrated 50 TFT minting logic on `https://chronicle.osintneoai.me` (`public/crypto_crossword.html`).
+- [x] **Task 18: System Reliability & Uptime Sentinel**
+  - Deployed `scripts/remote_vps_browser.py` daemon monitoring Cloud Run endpoints, local servers, and latency report generation (`data/staging/sentinel_uptime_audit_report.json`).
+
+## Checkpoint 4: Sprint 4 & osintneoai.me Production Blueprint Complete
+- [x] Cloud Run containerization setup (`Dockerfile`, `cloudbuild.yaml`)
+- [x] DNS and domain mappings configured for `osintneoai.me` and subdomains
+- [x] Real-time SSE event stream live on `/events`
+- [x] Manifest V3 Chrome Extension capture node built
+- [x] GeoJSON contamination polygons integrated into Cytoscape UI
+- [x] Cal. CCP § 473(d) legal document assembler deployed
+- [x] 50 TFT crypto crossword tokenomics engine active
+- [x] System reliability & uptime sentinel daemon deployed
+- [x] Dual-location backups verified (GitHub `main` + Google Drive `Sharedall/OsintNeoAi/`)

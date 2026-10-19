@@ -1,0 +1,24 @@
+mcs.metadata:
+  componentName: SourceVerification
+  description: Triggered when the user requests primary source verification, URL validation, document hashing, or cross-referencing against trusted evidence vaults.
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: Primary Source & Evidentiary Provenance Audit
+    includeInOnSelectIntent: true
+    triggerQueries:
+      - Verify primary source
+      - Cross reference claims
+      - Validate web URL source
+      - Check document SHA256 hash
+      - Audit source provenance
+  actions:
+    - kind: SendActivity
+      id: sendMsg_SourceVerification
+      activity:
+        text:
+          - "Source Provenance & Verification Engine active. Live crawling web URLs, cross-referencing SHA-256 Merkle proofs, and validating primary document evidence."
+        speak:
+          - "Cross referencing claims against primary source evidence."

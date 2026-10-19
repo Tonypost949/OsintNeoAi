@@ -1,0 +1,24 @@
+mcs.metadata:
+  componentName: CCTVProximity
+  description: Triggered when the user requests 288 Caltrans CCTV video feeds, spatial proximity alerts, or camera visualizers.
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: 288 Caltrans CCTV Proximity Alerts
+    includeInOnSelectIntent: true
+    triggerQueries:
+      - CCTV proximity alert
+      - Caltrans camera alert
+      - Check CCTV feeds
+      - Proximity threat alert
+      - Haversine camera solver
+  actions:
+    - kind: SendActivity
+      id: sendMsg_CCTVProximity
+      activity:
+        text:
+          - "288 Caltrans D12 CCTV Proximity Engine active. Solving geodesic Haversine distance between anchor clusters and 288 live traffic camera feeds."
+        speak:
+          - "Calculating CCTV proximity alerts across 288 Caltrans video feeds."

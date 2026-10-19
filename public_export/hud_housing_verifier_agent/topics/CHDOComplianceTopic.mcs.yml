@@ -1,0 +1,24 @@
+mcs.metadata:
+  componentName: CHDOCompliance
+  description: Triggered when the user asks to audit CHDO compliance, FHA property standards, or straw buyer nexus.
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: CHDO & FHA Property Compliance
+    includeInOnSelectIntent: true
+    triggerQueries:
+      - Audit CHDO compliance
+      - Check FHA property standards
+      - Verify CHDO organization
+      - Housing audit compliance
+      - Check affordable housing compliance
+  actions:
+    - kind: SendActivity
+      id: sendMsg_CHDOCompliance
+      activity:
+        text:
+          - "CHDO & FHA Compliance Engine active. Auditing Community Housing Development Organization governance, FHA property standards, and HUD grant compliance records."
+        speak:
+          - "Auditing CHDO and FHA housing compliance."

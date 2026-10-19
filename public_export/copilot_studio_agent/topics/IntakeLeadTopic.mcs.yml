@@ -1,0 +1,24 @@
+mcs.metadata:
+  componentName: IntakeLead
+  description: Triggered when the user wants to submit a case lead or whistleblower intake report.
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: Submit Case Lead / Intake Report
+    includeInOnSelectIntent: true
+    triggerQueries:
+      - Submit lead
+      - Report incident
+      - File whistleblower report
+      - Submit victim intake
+      - Send evidence report
+  actions:
+    - kind: SendActivity
+      id: sendMsg_IntakeLead
+      activity:
+        text:
+          - "OsintNeoAi Mutual Aid Lead Intake active. Securely routing report payload into persistent forensic vault."
+        speak:
+          - "Routing lead intake report."

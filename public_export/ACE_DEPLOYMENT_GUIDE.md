@@ -1,405 +1,343 @@
-# Auto-Correlation Engine (ACE) Deployment Guide
+# AUTO-CORRELATION & ENRICHMENT ENGINE (ACE)
+## Fully Autonomous Data Correlation, Deduplication & Enrichment
 
-**Last Updated**: 2026-09-01  
-**Status**: ✅ Deployed to Azure Functions (osintneoai-ace)
+**Status:** ✅ Ready to Deploy  
+**Runtime:** Azure Functions (serverless) or Local Python  
+**Cost:** ~$5-15/month on Azure Free Tier  
+**Data Throughput:** 1,000+ records/cycle, 5-minute intervals = 288+ cycles/day
 
 ---
 
-## Executive Summary
+## What ACE Does (Autonomous)
 
-The **Auto-Correlation Engine (ACE)** is a autonomous forensic correlation system that runs 24/7 on Azure Functions, processing evidence datasets every 5 minutes (288 cycles/day). It correlates 196,000+ data points and identifies 104,000+ unique entities across all evidence sources.
+### 1. **Real-Time Entity Cross-Reference**
+- Extracts entities (emails, phones, addresses, SSNs, URLs, ZIP codes) from ALL sources
+- Photos metadata → Google Drive docs → OneDrive files → BigQuery tables
+- Deduplicates entities (normalizes phone numbers, addresses, etc.)
+- Finds correlations across sources automatically
 
-### Key Metrics
-- **Execution Frequency**: Every 5 minutes (timer-triggered)
-- **Cycles per Day**: 288
-- **Processing Capacity**: Up to 1,000 records per cycle = 288,000 records/day
-- **Infrastructure**: Azure Functions (Consumption Plan ~$10-20/month)
-- **Status**: ✅ Live and running
+### 2. **Relationship Detection & Graph Building**
+- Creates correlation graph: entity → [sources] relationships
+- Identifies co-occurrence patterns (entities appearing together)
+- Builds knowledge graph automatically updated on every cycle
+- Outputs to `data/correlation_graph.json` (used by `/maps` endpoint)
+
+### 3. **Metadata Enrichment**
+- Adds geolocation lookups for addresses
+- Risk scoring based on entity type & source diversity
+- Timeline construction (entity appearance history)
+- Context lookup (reputation, flags, associations)
+
+### 4. **Anomaly Detection & Flagging**
+- Detects high-risk entities (SSNs, multiple phone numbers, etc.)
+- Scores confidence & assigns risk levels
+- Flags unusual patterns (same email across disparate sources)
+- Feeds insights to `/tasks` dashboard
+
+### 5. **Zero-Supervision Operation**
+- Runs every 5 minutes (configurable)
+- No manual intervention needed
+- Self-healing (logs errors, retries gracefully)
+- Results available immediately at `/api/correlation/status`
 
 ---
 
 ## Architecture
 
+### Data Flow
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                  EVIDENCE DATA SOURCES                       │
-│  (Google Drive, OneDrive, forensic/deliverables/)           │
-└────────────────┬────────────────────────────────────────────┘
-                 │
-                 ▼
-┌─────────────────────────────────────────────────────────────┐
-│           AUTO-CORRELATION ENGINE (ACE)                     │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  1. ENTITY EXTRACTION (Regex-based)                          │
-│     ├─ Email addresses                                       │
-│     ├─ Phone numbers (normalized)                            │
-│     ├─ Physical addresses                                    │
-│     ├─ Social Security numbers                               │
-│     ├─ URLs & domains                                        │
-│     └─ ZIP codes & geolocation                               │
-│                                                              │
-│  2. CORRELATION ENGINE (Cross-source deduplication)          │
-│     ├─ SHA256 entity hashing                                 │
-│     ├─ Fuzzy matching (Levenshtein distance)                │
-│     ├─ Phone normalization (10-digit NANP)                   │
-│     ├─ Address parsing & standardization                     │
-│     └─ Multi-field correlation (name + DOB + address)       │
-│                                                              │
-│  3. ENRICHMENT ENGINE (Risk scoring & linking)               │
-│     ├─ Risk scoring algorithm (0-100)                        │
-│     ├─ Geolocation & proximity analysis                      │
-│     ├─ Timeline construction                                 │
-│     ├─ Relationship mapping (co-occurrence)                  │
-│     └─ Anomaly detection (outliers, patterns)                │
-│                                                              │
-│  4. ORCHESTRATION & PERSISTENCE                              │
-│     ├─ Correlation matrix generation                         │
-│     ├─ Dashboard update                                      │
-│     ├─ BigQuery loading                                      │
-│     ├─ GeoJSON export (God's Eye View)                       │
-│     └─ Forensic report generation                            │
-│                                                              │
-└────────┬──────────────────────────────────────────────────┬─┘
-         │                                                  │
-         ▼                                                  ▼
-┌──────────────────────────────┐      ┌─────────────────────────┐
-│  BigQuery Warehouse           │      │  Local Evidence Files   │
-│  - forensic_layers.fca_*     │      │  - correlation_matrix   │
-│  - national_audits.*         │      │  - forensic_audit.md    │
-│  - correlations              │      │  - timeline.json        │
-└──────────────────────────────┘      └─────────────────────────┘
-         │
-         ▼
-┌──────────────────────────────┐
-│  Visualization & Reporting   │
-│  - God's Eye View 3D globe   │
-│  - Syncfusion grid dashboard │
-│  - Whistleblower briefings   │
-└──────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────┐
+│ DATA SOURCES (Auto-loaded every 5 min)                         │
+├─────────────────────────────────────────────────────────────────┤
+│ • Google Photos metadata        (data/google_photos_*.json)    │
+│ • OneDrive file indices         (data/onedrive_forensics_*.json)│
+│ • Google Drive documents        (data/drive_documents.json)     │
+│ • BigQuery (Evidence/Forensic)  (noble-beanbag-497411-m4)      │
+│ • Task registry                 (data/tasks.json)               │
+└────────────────────────────────┬────────────────────────────────┘
+                                 ↓
+┌─────────────────────────────────────────────────────────────────┐
+│ ACE PROCESSING ENGINE                                           │
+├─────────────────────────────────────────────────────────────────┤
+│ 1. EntityExtractor: Finds emails, phones, addresses, etc.      │
+│ 2. CorrelationEngine: Cross-refs across sources, builds graph  │
+│ 3. EnrichmentEngine: Adds metadata, risk scores, timelines     │
+│ 4. AutomationOrchestrator: Orchestrates cycle, persists results│
+└────────────────────────────────┬────────────────────────────────┘
+                                 ↓
+┌─────────────────────────────────────────────────────────────────┐
+│ OUTPUT & DASHBOARDS                                             │
+├─────────────────────────────────────────────────────────────────┤
+│ • /api/correlation/status      (JSON correlations)             │
+│ • data/correlation_results.json (Full cycle output)            │
+│ • data/correlation_graph.json  (Graph for /maps endpoint)      │
+│ • data/tasks.json (updated)    (Dashboard summaries)           │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
 ## Deployment Options
 
-### Option 1: Azure Functions (RECOMMENDED)
-**Best for**: Fully serverless, 24/7 autonomous operation  
-**Cost**: ~$10-20/month (Consumption Plan)  
-**Setup Time**: 10 minutes
+### **Option 1: Azure Functions (Recommended - Fully Managed)**
 
-```bash
-# 1. Deploy ACE to Azure Functions
-az functionapp create \
-  --resource-group neoai-rg \
-  --consumption-plan-location eastus \
-  --runtime python \
-  --runtime-version 3.11 \
-  --functions-version 4 \
-  --name osintneoai-ace
+**Setup (3 minutes):**
 
-# 2. Deploy timer-triggered function
-cd scripts/azure_functions_correlation
-func azure functionapp publish osintneoai-ace
+```powershell
+# 1. Create Function App
+az functionapp create `
+  --resource-group neoai-rg `
+  --consumption-plan-location eastus `
+  --runtime python `
+  --runtime-version 3.11 `
+  --functions-version 4 `
+  --name osintneoai-ace `
+  --storage-account ****iace
 
-# 3. Verify deployment
-az functionapp show --name osintneoai-ace --resource-group neoai-rg
-az functionapp function list --name osintneoai-ace --resource-group neoai-rg
+# 2. Configure settings
+az functionapp config appsettings set `
+  --name osintneoai-ace `
+  --resource-group neoai-rg `
+  --settings `
+    ACE_GCP_PROJECT="noble-beanbag-497411-m4" `
+    ACE_CORRELATION_INTERVAL="300" `
+    GOOGLE_APPLICATION_CREDENTIALS="/home/site/wwwroot/gcp_adc.json"
+
+# 3. Deploy code
+func azure functionapp publish osintneoai-ace --build remote
+
+# 4. Check it's working
+curl https://osintneoai-ace.azurewebsites.net/api/correlation/status
+
+# 5. View logs
+az functionapp logs tail --name osintneoai-ace --resource-group neoai-rg
 ```
 
-### Option 2: Local Python Runner
-**Best for**: Testing & development  
-**Setup Time**: 2 minutes
+**Cost:** ~$5-15/month (1M free executions included)  
+**Uptime:** 99.95% SLA  
+**Scalability:** Auto-scales with demand
 
-```bash
+---
+
+### **Option 2: Local Python (Development)**
+
+```powershell
 # 1. Install dependencies
-pip install -r requirements.txt
+pip install google-cloud-bigquery google-cloud-storage
 
-# 2. Run ACE directly
-python auto_correlation_enrichment_engine.py --mode daily
+# 2. Set credentials
+$env:GOOGLE_APPLICATION_CREDENTIALS = "C:\OsintNeoAi\gcp_adc.json"
 
-# 3. Run once & exit
-python auto_correlation_enrichment_engine.py --mode once
+# 3. Run continuously
+python auto_correlation_enrichment_engine.py --mode continuous --interval 300
+
+# 4. Or run single cycle
+python auto_correlation_enrichment_engine.py --mode cycle
 ```
 
-### Option 3: Docker Container
-**Best for**: Portable deployment, air-gapped environments  
-**Setup Time**: 15 minutes
+**Cost:** Free (runs on your machine)  
+**Uptime:** Depends on machine  
+**Scalability:** Limited to local resources
+
+---
+
+### **Option 3: Docker Container (On-Prem)**
 
 ```bash
 # 1. Build image
-docker build -t ace:latest .
+docker build -f Dockerfile.ace -t osintneoai/ace:latest .
 
-# 2. Run container (timer will fire internally)
-docker run -d \
-  -e AZURE_STORAGE_ACCOUNT=neoai \
-  -e BIGQUERY_PROJECT=noble-beanbag-497411-m4 \
-  ace:latest
+# 2. Run container
+docker run -e GOOGLE_APPLICATION_CREDENTIALS=/secrets/gcp_adc.json \
+           -v $PWD/data:/app/data \
+           -v $PWD/gcp_adc.json:/secrets/gcp_adc.json \
+           osintneoai/ace:latest
 
-# 3. Check logs
-docker logs -f <container_id>
+# 3. Or deploy to Kubernetes (see `K8S_CRONJOB_ACE` in ace_deployment_config.py)
+kubectl apply -f ace_cronjob.yaml
+```
+
+---
+
+## Usage
+
+### **Check Status (HTTP)**
+
+```bash
+# Get latest correlation results
+curl https://osintneoai-app-949.azurewebsites.net/api/correlation/status
+
+# Response (example):
+{
+  "timestamp": "2026-09-01T12:05:00Z",
+  "total_correlations": 247,
+  "high_risk_count": 12,
+  "correlations": [
+    {
+      "entity_type": "email",
+      "entity_value": "j***@company.com",
+      "locations": [
+        {"source": "google_photos", "record_id": "photo_123"},
+        {"source": "drive", "record_id": "doc_456"},
+        {"source": "tasks", "record_id": "task_789"}
+      ],
+      "confidence": 0.95,
+      "risk_score": 0.72,
+      "timeline": [...]
+    },
+    ...
+  ]
+}
+```
+
+### **Manual Trigger (HTTP)**
+
+```bash
+# Trigger a cycle immediately (requires function-level auth)
+curl -X POST https://osintneoai-app-949.azurewebsites.net/api/correlation/trigger \
+  -H "x-functions-key: YOUR_FUNCTION_KEY"
+```
+
+### **View Output Files**
+
+```powershell
+# View correlation results
+cat data/correlation_results.json
+
+# View correlation graph (for /maps endpoint)
+cat data/correlation_graph.json
+
+# View dashboard summary
+cat data/tasks.json | grep -A 20 "_correlation_summary"
 ```
 
 ---
 
 ## Configuration
 
-### Environment Variables (Required)
+### **Cycle Interval**
+Currently: **300 seconds (5 minutes)**
 
-```bash
-# Azure Storage
-export AZURE_STORAGE_ACCOUNT="neoai"
-export AZURE_STORAGE_KEY="[from Portal]"
+To change:
+- Azure: Update app setting `ACE_CORRELATION_INTERVAL` 
+- Local: Pass `--interval 600` (10 minutes)
+- Function trigger: Edit `@app.timer_trigger(schedule="0 */5 * * * *")` in `azure_functions_correlation.py`
 
-# BigQuery
-export BIGQUERY_PROJECT="noble-beanbag-497411-m4"
-export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service-account.json"
+### **Enrichment Batch Size**
+Currently: **1,000 records per cycle**
 
-# Optional: Custom Evidence Paths
-export EVIDENCE_PATH="C:/OsintNeoAi/evidence"
-export FORENSIC_PATH="C:/OsintNeoAi/forensic/deliverables"
-```
+To change:
+- Edit `CONFIG['ENRICHMENT_BATCH_SIZE']` in `auto_correlation_enrichment_engine.py`
 
-### Performance Tuning
+### **Entity Confidence Threshold**
+Currently: **0.85 (85%)**
 
-```python
-# In auto_correlation_enrichment_engine.py, adjust these for your dataset:
+To change:
+- Edit `CONFIG['ENTITY_THRESHOLD']` to lower (more results) or higher (fewer, higher-confidence results)
 
-MAX_RECORDS_PER_CYCLE = 1000          # Increase for larger datasets
-BATCH_SIZE_BIGQUERY = 500             # Optimize for API quotas
-CORRELATION_THRESHOLD = 0.85          # Fuzzy matching sensitivity (0-1)
-ENABLE_ANOMALY_DETECTION = True       # CPU-intensive, disable if needed
-```
+### **Risk Scoring**
+Risk scores are calculated as:
+- **SSN/Phone**: +0.3 (high-risk entity types)
+- **Source Diversity**: +0.1 per source (up to 0.5)
+- **Confidence**: +0.2 × confidence
+- **Max Score**: 1.0 (100% risk)
 
 ---
 
-## Operation & Monitoring
+## Monitoring & Debugging
 
-### Azure Functions Monitoring
+### **Azure Function Logs**
 
 ```bash
-# Tail real-time logs
+# Stream logs in real-time
 az functionapp logs tail --name osintneoai-ace --resource-group neoai-rg
 
-# Check timer trigger execution
-az monitor metrics list \
-  --resource /subscriptions/{sub}/resourceGroups/neoai-rg/providers/Microsoft.Web/sites/osintneoai-ace \
-  --metric FunctionExecutionUnits
-
-# Manual trigger (test)
-curl -X POST https://osintneoai-ace.azurewebsites.net/api/correlation/trigger
+# Or view in Azure Portal
+# Azure Portal → Functions → osintneoai-ace → Monitor
 ```
 
-### Health Checks
+### **Local Logs**
 
 ```bash
-# Status endpoint (returns JSON)
-curl https://osintneoai-ace.azurewebsites.net/api/correlation/status
+# Logs written to:
+# auto_correlation_enrichment_engine.log
 
-# Expected response:
-{
-  "status": "healthy",
-  "last_run": "2026-09-01T12:30:00Z",
-  "next_run": "2026-09-01T12:35:00Z",
-  "cycles_today": 180,
-  "entities_correlated": 104227,
-  "data_points": 196683
-}
+tail -f auto_correlation_enrichment_engine.log
 ```
 
-### Local Debugging
+### **Common Issues**
 
-```bash
-# Run single cycle with verbose logging
-python auto_correlation_enrichment_engine.py \
-  --mode once \
-  --log-level DEBUG \
-  --output-dir /tmp/ace_debug
-
-# Check output files
-ls -la /tmp/ace_debug/
-  → correlation_matrix.json
-  → forensic_audit.json
-  → timeline.json
-```
+| Issue | Solution |
+|-------|----------|
+| BigQuery auth fails | Ensure `GOOGLE_APPLICATION_CREDENTIALS` points to valid `gcp_adc.json` |
+| No correlations found | Check data files exist & have records; lower `ENTITY_THRESHOLD` |
+| Cycle times out | Reduce `ENRICHMENT_BATCH_SIZE` or increase timeout in host.json |
+| Memory errors | Deploy to higher-tier function app (not Consumption plan) |
 
 ---
 
-## Output Artifacts
+## Integration with Live Dashboard
 
-### 1. Correlation Matrix (`FORENSIC_CORRELATION_MATRIX.json`)
-```json
-{
-  "metadata": {
-    "generated": "2026-09-01T12:30:00Z",
-    "total_entities": 104227,
-    "total_correlations": 196683
-  },
-  "correlations": [
-    {
-      "id": "corr_001",
-      "entity_a": "j***@example.com",
-      "entity_b": "555-0123",
-      "confidence": 0.95,
-      "evidence_count": 47,
-      "first_seen": "2026-01-15",
-      "last_seen": "2026-08-30"
-    }
-  ]
-}
-```
+ACE automatically updates:
 
-### 2. Forensic Audit (`FORENSIC_AUDIT_SUMMARY.md`)
-```markdown
-# Forensic Correlation Audit
-- Scope: 71 datasets audited
-- Entities resolved: 104,227
-- Data points correlated: 196,683
-- Anomalies detected: 847
-- Risk entities (score > 80): 1,204
-```
+1. **`/api/tasks` endpoint** — Adds `_correlation_summary` metadata
+2. **`/maps` endpoint** — Uses `data/correlation_graph.json` for visualization
+3. **Syncfusion grid** — Can display correlation results in forensic grid
 
-### 3. Timeline Export (`timeline.json`)
-```json
-{
-  "entities": [
-    {
-      "id": "entity_001",
-      "name": "John Doe",
-      "timeline": [
-        {"date": "2026-01-15", "event": "Email signup", "location": "Newport Beach, CA"},
-        {"date": "2026-02-20", "event": "Phone call", "location": "Huntington Beach, CA"}
-      ]
-    }
-  ]
-}
-```
+To customize dashboard display:
 
-### 4. BigQuery Tables (Auto-Loaded)
-- `forensic_layers.fca_correlation_matrix` — Master correlations
-- `forensic_layers.fca_entity_index` — Unique entities
-- `forensic_layers.fca_timeline` — Chronological events
-- `forensic_layers.fca_anomalies` — Statistical outliers
-
----
-
-## Troubleshooting
-
-### Problem: Timer Trigger Not Firing
-**Symptom**: No logs in `az functionapp logs tail`  
-**Solutions**:
-```bash
-# 1. Check function code deployment
-az functionapp show --name osintneoai-ace --resource-group neoai-rg
-→ Look for "functionAppConfig" section
-
-# 2. Restart function app
-az functionapp restart --name osintneoai-ace --resource-group neoai-rg
-
-# 3. Manually trigger to test
-curl -X POST https://osintneoai-ace.azurewebsites.net/api/correlation/trigger
-```
-
-### Problem: BigQuery Quota Exceeded
-**Symptom**: "Quota exceeded" errors in logs  
-**Solutions**:
-```python
-# Reduce batch size in config
-BATCH_SIZE_BIGQUERY = 100  # Lower from 500
-
-# Implement rate limiting
-import time
-time.sleep(5)  # Between batch inserts
-
-# Use BigQuery insertAll API (batched, cheaper)
-# Already implemented in correlation_engine.py:_load_to_bigquery()
-```
-
-### Problem: Memory Limit Exceeded (Azure Functions)
-**Symptom**: Function timeout after 600s  
-**Solutions**:
-```python
-# Split processing into smaller batches
-MAX_RECORDS_PER_CYCLE = 500  # Lower from 1000
-
-# Use streaming inserts instead of batch
-# Disable expensive features
-ENABLE_ANOMALY_DETECTION = False
-ENABLE_TIMELINE_GENERATION = False  # Generate on-demand instead
-```
-
-### Problem: Storage Connection Failed
-**Symptom**: "Unable to connect to storage account"  
-**Solutions**:
-```bash
-# 1. Verify credentials
-az storage account show --name neoai --resource-group neoai-rg
-
-# 2. Check firewall rules
-az storage account ****rule list --account ****name neoai --resource-group neoai-rg
-
-# 3. Use connection string instead of account key
-export AZURE_STORAGE_CONNECTION_STRING="DefaultEndpointsProtocol=https;..."
+Edit `public/syncfusion_grid_v3_steroids.html`:
+```javascript
+// Add correlation data to grid
+fetch('/api/correlation/status')
+  .then(r => r.json())
+  .then(data => {
+    // Render correlations in grid
+    grid.dataSource = data.correlations;
+  });
 ```
 
 ---
 
 ## Performance Metrics
 
-### Typical Execution Profile (1 Cycle)
-
-| Phase | Duration | Notes |
-|-------|----------|-------|
-| Entity Extraction | 2-3s | Regex patterns over 1,000 records |
-| Correlation | 8-12s | Fuzzy matching + deduplication |
-| Enrichment | 5-8s | Risk scoring + timeline building |
-| BigQuery Load | 3-5s | Batch insert 500 rows |
-| GeoJSON Export | 1-2s | Filtering + formatting |
-| **Total** | **20-30s** | Per 1,000 record cycle |
-
-### Scaling to Higher Volumes
-
-| Records/Cycle | Cycles/Day | Daily Volume | Est. Cost/Month |
-|---------------|-----------|--------------|-----------------|
-| 100 | 288 | 28,800 | $2-5 |
-| 1,000 | 288 | 288,000 | $10-20 |
-| 5,000 | 288 | 1,440,000 | $40-80 |
-| 10,000 | 288 | 2,880,000 | $80-150 |
-
-*Costs based on Azure Functions Consumption Plan + BigQuery analysis*
+| Metric | Value |
+|--------|-------|
+| Records processed per cycle | 1,000 |
+| Cycles per day | 288 (5-min intervals) |
+| Total records/day | 288,000 |
+| Avg cycle time | 15-30s |
+| Correlations detected/cycle | 50-300 (depends on data) |
+| Cost/month (Azure) | ~$10 |
+| Data throughput | ~500 MB/month |
 
 ---
 
-## Compliance & Audit
+## Next Steps
 
-### Data Retention
-- ACE runs daily, retaining last 90 days of correlations
-- BigQuery: Indefinite (standard DW retention)
-- Local JSON exports: 30-day rolling window
-- Compliance flag: `enable_audit_logging=True` logs all transformations
+1. **Deploy to Azure Functions:**
+   ```bash
+   func azure functionapp publish osintneoai-ace --build remote
+   ```
 
-### GDPR Compliance
-- SHA256 hashing prevents PII reversal
-- Anonymization option: `anonymize_output=True` strips entity names
-- Data deletion: Correlations deleted after 90 days unless flagged
-- Audit trail: All transformations logged with timestamps
+2. **Verify it's running:**
+   ```bash
+   curl https://osintneoai-ace.azurewebsites.net/api/correlation/status
+   ```
 
-### Evidence Integrity
-- MD5 checksums generated for all input files
-- Transformation log maintained (all correlation decisions recorded)
-- Chain of custody: Timestamp + operator logs in BigQuery
-- Export certified: Signed JSON Web Tokens (JWT) available
+3. **Check live dashboard:**
+   - Open `/api/tasks` endpoint
+   - Open `/maps` (correlation graph visualization)
 
----
-
-## Support & Resources
-
-- **Logs**: `az functionapp logs tail --name osintneoai-ace`
-- **Code**: `auto_correlation_enrichment_engine.py` (1,300+ lines)
-- **Config**: `ace_deployment_config.py`
-- **Docs**: This file + `PLUGIN_SKILLS_REFERENCE.md`
-- **Status Dashboard**: `/tasks` endpoint (Azure App Service)
+4. **Monitor logs:**
+   ```bash
+   az functionapp logs tail --name osintneoai-ace --resource-group neoai-rg
+   ```
 
 ---
 
-**Next Step**: Integrate ACE output with God's Eye View 3D globe & Syncfusion dashboards. See `OSINT_INTEGRATION_GUIDE.md`.
+## Questions?
+
+- Engine logs: `auto_correlation_enrichment_engine.log`
+- Config: `auto_correlation_enrichment_engine.py` (top of file)
+- Deployment details: `ace_deployment_config.py`
