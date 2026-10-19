@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-19T19:33:19.009040+00:00",
-  "total": 76,
-  "open": 31,
+  "updated_at": "2026-10-19T19:54:43.887801+00:00",
+  "total": 77,
+  "open": 32,
   "done": 45,
   "tasks": [
     {
@@ -1008,7 +1008,7 @@
       "category": "Security / Credentials",
       "priority": "CRITICAL",
       "status": "TODO",
-      "description": "A GitHub PAT is embedded in the OsintNeoAi remote URL and was printed in session logs; the previously scrubbed token in ~/.config/gh/hosts.yml is invalid. Rotate the PAT, replace remote URL credentials with a credential helper or SSH deploy key, and re-scrub logs/snapshots. Do not block case work; pushes currently work via the embedded token.",
+      "description": "A GitHub PAT is embedded in the OsintNeoAi remote URL and was printed in session logs; the previously scrubbed token in ~/.config/gh/hosts.yml is invalid. Rotate the PAT, replace remote URL credentials with a credential helper or SSH deploy key, and re-scrub logs/snapshots. Pushes to RICONWO work via the embedded token. OsintNeoAi branch pushes are blocked separately: the working repo is a SHALLOW clone (~1.9 GB pack; 2.8 GB free disk) and unshallow fetches die mid-transfer. Ledger backup is preserved as evidence/gis_audit_20261019/osintneoai_tasks_snapshot_20261019.json + local-commits patch in RICONWO (pushed).",
       "created_at": "2026-10-19T19:17:28.250299+00:00",
       "tags": [
         "credentials",
@@ -1122,6 +1122,21 @@
         "Temecula",
         "Atlanta",
         "public-write"
+      ]
+    },
+    {
+      "id": "TASK-INFRA-20261019-01",
+      "title": "Restore OsintNeoAi git push capability (shallow clone)",
+      "category": "Infrastructure / Git",
+      "priority": "MEDIUM",
+      "status": "TODO",
+      "description": "The OsintNeoAi working repository is a shallow clone. Pushing local branches fails with \"remote: fatal: did not receive expected object\" even with --no-thin; two unshallow attempts (full and blobless) died mid-transfer. Options: (1) full clone on a host with >10 GB free, then cherry-pick/format-patch local commits; (2) push local commits via GitHub API (create blobs/trees/commit) or upload the ledger snapshot; (3) continue mirroring the snapshot + patch into RICONWO evidence each cycle.",
+      "created_at": "2026-10-19T19:54:43.887801+00:00",
+      "tags": [
+        "git",
+        "shallow-clone",
+        "OsintNeoAi",
+        "backup"
       ]
     }
   ]
