@@ -1,0 +1,27 @@
+# PII / credential hygiene — OsintNeoAi public repository
+# Added 2026-10-19 after the PII exposure audit (TASK-20261019-PII-EXPOSURE-REVIEW).
+# Rule: official/public artifacts only. Personal data, credentials and raw
+# machine state never enter this repository's history.
+# See evidence/pii_exposure_review_20261019/ and the quarantine vault at
+# Amd949609_keys/quarantine/pii_20261019/ for the preserved originals.
+
+# --- quarantined PII-bearing directories (verified copies live in the vault) ---
+agent/
+data/
+extracted_documents/
+.playwright_session/
+
+# --- quarantined PII-bearing files (belt and braces) ---
+**/local_scan_extracted_text.csv
+**/full_pc_index_clean.csv
+**/angels_shea_chase_idtheft_evidence.json
+**/master_photos_emails_court_sheriff_index.json
+**/master_personal_evidence_part*.json
+
+# --- credential material ---
+**/drive_resume_token*.txt
+**/*resume_token*.txt
+**/.env
+**/.env.*
+**/*credentials*.json
+**/*cookie*.txt
