@@ -139,6 +139,12 @@ def is_public_line(line: str) -> bool:
 
 
 def redact_line(line: str, counts: Counter, public_line: bool) -> str:
+    # Very long fused/minified lines can trigger pathological regex behavior.
+    # Do not publish them unscanned; the file is moved to review instead.
+    if len(line) > 50_000:
+        counts["long_line_unscanned"] += 1
+        return line
+
     def combined_sub(m: re.Match) -> str:
         gd = m.groupdict()
         if gd.get("ssn") is not None:
@@ -211,8 +217,8 @@ def process_file(src: Path, rel: Path, out_root: Path, review_root: Path,
         "citation": {},
     }
     size = src.stat().st_size
-    if size > 8 * 1024 * 1024:
-        rec["status"] = "skipped_large"
+    if size > 1_000_000:
+        rec["status"] = "review_large_file"
         return rec
     with src.open("rb") as f:
         head = f.read(4096)
@@ -262,9 +268,10 @@ def process_file(src: Path, rel: Path, out_root: Path, review_root: Path,
 
     # Structured records with no source/authority are held, not published.
     structured = rel.suffix.lower() in {".json", ".jsonl", ".ndjson", ".csv"}
-    needs_review = strict and structured and (not has_url or not has_auth)
+    needs_review = (counts.get("long_line_unscanned", 0) > 0 or
+                    (strict and structured and (not has_url or not has_auth)))
     if needs_review:
-        rec["status"] = "review_missing_citation"
+        rec["status"] = "review_long_line" if counts.get("long_line_unscanned") else "review_missing_citation"
         dest = review_root / rel
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(redacted, encoding="utf-8")
