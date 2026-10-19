@@ -1,5 +1,7 @@
 # OsintNeoAi Public Mirror
 
+Public URL: https://github.com/Tonypost949/OsintNeoAi
+
 This repository is the **public, redacted, source-cited** mirror of the private
 investigation workspace. Raw evidence and unredacted local files are never
 published here.
