@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-07T00:51:14.879438+00:00",
-  "total": 66,
+  "updated_at": "2026-10-19T18:20:19.255785+00:00",
+  "total": 67,
   "open": 24,
-  "done": 42,
+  "done": 43,
   "tasks": [
     {
       "id": "TASK-VSDE-001",
@@ -963,6 +963,27 @@
         "CrossReference"
       ],
       "action_url": "agent/target_accounts_master.json"
+    },
+    {
+      "id": "TASK-GIS-20261019-01",
+      "title": "RICO-wide government GIS ghost-maintenance forensic audit",
+      "category": "Forensic GIS / RICO",
+      "priority": "CRITICAL",
+      "status": "DONE",
+      "description": "Enumerated all 43 Huntington Beach ArcGIS services (584 layers) and Orange County/state/federal GIS layers. Verified public-write AddressEdits service, 100% NUWEYT re-save of 52,081 parcels and 8,542 sewer pipes/49,482 laterals, 66/66 NUWEYT 2024 OCTA grant assets, 83,641-address single-timestamp rewrite, and HBNC address-to-parcel crosswalk mismatch (17642 Beach Blvd -> APN 167-472-08 vs assessor 167-472-09). Produced GOVERNMENT_GIS_FORENSIC_CORRELATION_DOSSIER_20261019.md; committed to RICONWO main (ce84ece).",
+      "created_at": "2026-10-19T18:20:19.255751+00:00",
+      "tags": [
+        "GIS",
+        "ArcGIS",
+        "NUWEYT",
+        "SPRADLIA",
+        "HBNC",
+        "RICO",
+        "OCTA",
+        "stormwater",
+        "parcels"
+      ],
+      "action_url": "https://github.com/Tonypost949/RICONWO/blob/main/GOVERNMENT_GIS_FORENSIC_CORRELATION_DOSSIER_20261019.md"
     }
   ]
 }

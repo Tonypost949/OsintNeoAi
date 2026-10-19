@@ -1,0 +1,6294 @@
+[
+ {
+  "url": "https://ocgis.com/arcpub/rest/services/Flood/Stormwater_Network/FeatureServer",
+  "meta": {
+   "currentVersion": 11.5,
+   "cimVersion": "3.5.0",
+   "serviceDescription": "Stormwater Newtork",
+   "hasVersionedData": true,
+   "hasArchivedData": false,
+   "hasBranchVersionedData": false,
+   "supportsDisconnectedEditing": true,
+   "supportsDatumTransformation": true,
+   "supportsReturnServiceEditsOption": true,
+   "returnServiceEditsHaveSR": true,
+   "supportsQueryDataElements": true,
+   "datesInUnknownTimezone": false,
+   "supportsRelationshipsResource": true,
+   "syncEnabled": true,
+   "syncCapabilities": {
+    "supportsRegisteringExistingData": true,
+    "supportsRegisterReplicaForServer": true,
+    "supportsSyncDirectionControl": true,
+    "supportsPerLayerSync": false,
+    "supportsPerReplicaSync": true,
+    "supportsRollbackOnFailure": false,
+    "supportsAsync": true,
+    "supportsAttachmentsSyncDirection": true,
+    "supportsSyncModelNone": true,
+    "versionCreationRule": "versionPerDownloadedMap",
+    "supportedSyncDataOptions": 8480,
+    "supportsBiDirectionalSyncForServer": false,
+    "advancedReplicasResourceCapabilities": {
+     "supportsVersion": true,
+     "supportsReturnVersion": true,
+     "supportsReturnLastSyncDate": true
+    },
+    "supportsDurableUrlForSyncModelNone": false
+   },
+   "supportedExportFormats": "sqlite,filegdb,shapefile,csv,geojson",
+   "extractChangesCapabilities": {
+    "supportsReturnIdsOnly": false,
+    "supportsReturnExtentOnly": false,
+    "supportsReturnAttachments": false,
+    "supportsLayerQueries": false,
+    "supportsGeometry": false,
+    "supportsFeatureReturn": false,
+    "supportsReturnHasGeometryUpdates": false,
+    "supportsFieldsToCompare": false,
+    "supportsServerGens": false
+   },
+   "supportedQueryFormats": "JSON",
+   "maxRecordCount": 1000,
+   "maxRecordCountFactor": 1,
+   "capabilities": "Query,Sync,Extract",
+   "description": "",
+   "copyrightText": "",
+   "advancedEditingCapabilities": {
+    "supportsSplit": false,
+    "supportsReturnServiceEditsInSourceSR": true,
+    "supportsAsyncApplyEdits": true,
+    "supportsApplyEditsbyUploadID": true,
+    "supportedApplyEditsUploadIDFormats": "JSON,PBF",
+    "supportsMultipatchOptionForServiceEdits": true,
+    "supportedApplyEditsOptions": {
+     "supportedEditingOptions": 0
+    }
+   },
+   "spatialReference": {
+    "wkid": 102646,
+    "latestWkid": 2230,
+    "xyTolerance": 0.003280833333333333,
+    "zTolerance": 2,
+    "mTolerance": 0.001,
+    "falseX": -118608900,
+    "falseY": -91259500,
+    "xyUnits": 35979706.30767777,
+    "falseZ": 0,
+    "zUnits": 1,
+    "falseM": -100000,
+    "mUnits": 10000
+   },
+   "initialExtent": {
+    "xmin": 6112786.776623843,
+    "ymin": 2142235.888879144,
+    "xmax": 6122903.964123843,
+    "ymax": 2149527.555545811,
+    "spatialReference": {
+     "wkid": 102646,
+     "latestWkid": 2230,
+     "xyTolerance": 0.003280833333333333,
+     "zTolerance": 2,
+     "mTolerance": 0.001,
+     "falseX": -118608900,
+     "falseY": -91259500,
+     "xyUnits": 35979706.30767777,
+     "falseZ": 0,
+     "zUnits": 1,
+     "falseM": -100000,
+     "mUnits": 10000
+    }
+   },
+   "fullExtent": {
+    "xmin": 5994261.563519642,
+    "ymin": 2088024.8117948174,
+    "xmax": 6179157.116628051,
+    "ymax": 2292525.038948387,
+    "mmin": null,
+    "mmax": null,
+    "spatialReference": {
+     "wkid": 102646,
+     "latestWkid": 2230,
+     "xyTolerance": 0.003280833333333333,
+     "zTolerance": 2,
+     "mTolerance": 0.001,
+     "falseX": -118608900,
+     "falseY": -91259500,
+     "xyUnits": 35979706.30767777,
+     "falseZ": 0,
+     "zUnits": 1,
+     "falseM": -100000,
+     "mUnits": 10000
+    }
+   },
+   "allowGeometryUpdates": true,
+   "allowTrueCurvesUpdates": false,
+   "onlyAllowTrueCurveUpdatesByTrueCurveClients": false,
+   "supportsApplyEditsWithGlobalIds": false,
+   "supportsTrueCurve": true,
+   "supportedCurveTypes": [
+    "esriGeometryCircularArc",
+    "esriGeometryEllipticArc",
+    "esriGeometryBezier3Curve"
+   ],
+   "units": "esriFeet",
+   "documentInfo": {
+    "Title": "",
+    "Author": "",
+    "Comments": "Stormwater Newtork",
+    "Subject": "Stormwater Newtork",
+    "Category": "",
+    "Keywords": "Stormwater Newtork"
+   },
+   "supportsQueryDomains": true,
+   "supportsQueryContingentValues": true,
+   "layers": [
+    {
+     "id": 0,
+     "name": "swInlet",
+     "parentLayerId": -1,
+     "defaultVisibility": true,
+     "subLayerIds": null,
+     "minScale": 10000,
+     "maxScale": 0,
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPoint"
+    },
+    {
+     "id": 1,
+     "name": "swCleanout",
+     "parentLayerId": -1,
+     "defaultVisibility": true,
+     "subLayerIds": null,
+     "minScale": 10000,
+     "maxScale": 0,
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPoint"
+    },
+    {
+     "id": 2,
+     "name": "swDischargePoint",
+     "parentLayerId": -1,
+     "defaultVisibility": true,
+     "subLayerIds": null,
+     "minScale": 10000,
+     "maxScale": 0,
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPoint"
+    },
+    {
+     "id": 3,
+     "name": "swManhole",
+     "parentLayerId": -1,
+     "defaultVisibility": true,
+     "subLayerIds": null,
+     "minScale": 10000,
+     "maxScale": 0,
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPoint"
+    },
+    {
+     "id": 4,
+     "name": "swFitting",
+     "parentLayerId": -1,
+     "defaultVisibility": true,
+     "subLayerIds": null,
+     "minScale": 10000,
+     "maxScale": 0,
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPoint"
+    },
+    {
+     "id": 5,
+     "name": "swNetworkStructure",
+     "parentLayerId": -1,
+     "defaultVisibility": true,
+     "subLayerIds": null,
+     "minScale": 10000,
+     "maxScale": 0,
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPoint"
+    },
+    {
+     "id": 6,
+     "name": "swControlValve",
+     "parentLayerId": -1,
+     "defaultVisibility": true,
+     "subLayerIds": null,
+     "minScale": 10000,
+     "maxScale": 0,
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPoint"
+    },
+    {
+     "id": 7,
+     "name": "swGravityMain",
+     "parentLayerId": -1,
+     "defaultVisibility": true,
+     "subLayerIds": null,
+     "minScale": 24000,
+     "maxScale": 0,
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPolyline"
+    },
+    {
+     "id": 8,
+     "name": "swChannels",
+     "parentLayerId": -1,
+     "defaultVisibility": true,
+     "subLayerIds": null,
+     "minScale": 0,
+     "maxScale": 0,
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPolyline"
+    }
+   ],
+   "tables": [],
+   "relationships": [],
+   "enableZDefaults": false,
+   "allowUpdateWithoutMValues": true,
+   "supportsVCSProjection": true,
+   "referenceScale": 0,
+   "infoInEstimates": [
+    "extent"
+   ],
+   "supportsAppend": true,
+   "supportedAppendFormats": "FILEGDB,PBF"
+  }
+ },
+ {
+  "url": "https://ocgis.com/arcpub/rest/services/LegalLotsAttributeOpenData/FeatureServer/0",
+  "meta": {
+   "currentVersion": 11.5,
+   "cimVersion": "3.5.0",
+   "id": 0,
+   "name": "Landbase.GIS.LEGAL_LOTS_ATTRIBUTES_UPDATE",
+   "type": "Feature Layer",
+   "parentLayer": null,
+   "defaultVisibility": true,
+   "minScale": 0,
+   "maxScale": 0,
+   "canScaleSymbols": false,
+   "geometryType": "esriGeometryPolygon",
+   "description": "",
+   "copyrightText": "",
+   "editFieldsInfo": null,
+   "ownershipBasedAccessControlForFeatures": null,
+   "syncCanReturnChanges": false,
+   "relationships": [],
+   "isDataVersioned": false,
+   "isDataArchived": false,
+   "infoInEstimates": [
+    "extent",
+    "count"
+   ],
+   "isDataBranchVersioned": false,
+   "isDataReplicaTracked": false,
+   "isCoGoEnabled": false,
+   "supportsRollbackOnFailureParameter": true,
+   "archivingInfo": {
+    "supportsQueryWithHistoricMoment": false,
+    "startArchivingMoment": -1
+   },
+   "supportsStatistics": true,
+   "supportsExceedsLimitStatistics": true,
+   "supportsAdvancedQueries": true,
+   "supportsValidateSQL": true,
+   "supportsCoordinatesQuantization": true,
+   "supportsQuantizationEditMode": true,
+   "supportsCalculate": true,
+   "supportsASyncCalculate": true,
+   "supportsDurableUrlForSyncModelNone": false,
+   "supportsDatumTransformation": true,
+   "advancedQueryCapabilities": {
+    "supportsPagination": true,
+    "supportsQueryWithDistance": true,
+    "supportsReturningQueryExtent": true,
+    "supportsStatistics": true,
+    "supportsPercentileStatistics": true,
+    "supportsHavingClause": true,
+    "supportsOrderBy": true,
+    "supportsDistinct": true,
+    "supportsCountDistinct": true,
+    "supportsAdvancedQueryRelated": true,
+    "supportsQueryRelatedPagination": true,
+    "supportsCurrentUserQueries": true,
+    "supportsFullTextSearch": true,
+    "fullTextSearchCapabilities": {
+     "supportsSearchOperator": true,
+     "supportsOperator": false,
+     "supportsSqlExpressionInFullText": true
+    },
+    "fullTextSearchableFields": [],
+    "supportsQueryWithResultType": true,
+    "supportsReturningGeometryCentroid": true,
+    "supportsReturningGeometryEnvelope": true,
+    "supportsSqlExpression": true,
+    "supportsQueryWithDatumTransformation": true,
+    "supportsLod": false,
+    "supportsQueryWithLodSR": false,
+    "supportsQueryAnalytic": true,
+    "supportsTrueCurve": true,
+    "supportedCurveTypes": [
+     "esriGeometryCircularArc",
+     "esriGeometryEllipticArc",
+     "esriGeometryBezier3Curve"
+    ],
+    "supportsQueryWithCacheHint": false
+   },
+   "advancedQueryAnalyticCapabilities": {
+    "supportsLinearRegression": true,
+    "supportsAsync": true,
+    "supportsPercentileAnalytic": true
+   },
+   "advancedEditingCapabilities": {
+    "supportedSqlFormatsInCalculate": [
+     "standard"
+    ],
+    "supportsAsyncApplyEdits": true,
+    "supportsApplyEditsbyUploadID": true,
+    "supportedApplyEditsUploadIDFormats": "JSON,PBF"
+   },
+   "hasGeometryProperties": true,
+   "geometryProperties": {
+    "shapeAreaFieldName": "Shape__Area",
+    "shapeLengthFieldName": "Shape__Length",
+    "units": "esriFeet"
+   },
+   "hasMetadata": true,
+   "extent": {
+    "xmin": 6082904.172979474,
+    "ymin": 2251424.339981973,
+    "xmax": 6084033.923016548,
+    "ymax": 2252113.972789064,
+    "zmin": 0,
+    "zmax": 0,
+    "spatialReference": {
+     "wkid": 102646,
+     "latestWkid": 2230,
+     "xyTolerance": 0.003280833333333333,
+     "zTolerance": 0.001,
+     "mTolerance": 0.001,
+     "falseX": -118608900,
+     "falseY": -91259500,
+     "xyUnits": 3048.0060960121928,
+     "falseZ": -100000,
+     "zUnits": 10000,
+     "falseM": -100000,
+     "mUnits": 10000
+    }
+   },
+   "spatialReference": {
+    "wkid": 102646,
+    "latestWkid": 2230,
+    "xyTolerance": 0.003280833333333333,
+    "zTolerance": 0.001,
+    "mTolerance": 0.001,
+    "falseX": -118608900,
+    "falseY": -91259500,
+    "xyUnits": 3048.0060960121928,
+    "falseZ": -100000,
+    "zUnits": 10000,
+    "falseM": -100000,
+    "mUnits": 10000
+   },
+   "sourceSpatialReference": {
+    "wkid": 102646,
+    "latestWkid": 2230,
+    "xyTolerance": 0.003280833333333333,
+    "zTolerance": 0.001,
+    "mTolerance": 0.001,
+    "falseX": -118608900,
+    "falseY": -91259500,
+    "xyUnits": 3048.0060960121928,
+    "falseZ": -100000,
+    "zUnits": 10000,
+    "falseM": 0,
+    "mUnits": 1
+   },
+   "drawingInfo": {
+    "renderer": {
+     "type": "simple",
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       225,
+       225,
+       225,
+       255
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        255
+       ],
+       "width": 2
+      }
+     }
+    },
+    "scaleSymbols": true,
+    "transparency": 0,
+    "labelingInfo": null
+   },
+   "hasM": false,
+   "hasZ": true,
+   "enableZDefaults": false,
+   "supportsVCSProjection": true,
+   "allowGeometryUpdates": true,
+   "allowTrueCurvesUpdates": true,
+   "onlyAllowTrueCurveUpdatesByTrueCurveClients": true,
+   "hasAttachments": false,
+   "supportsApplyEditsWithGlobalIds": false,
+   "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+   "objectIdField": "OBJECTID",
+   "globalIdField": "",
+   "displayField": "Name",
+   "typeIdField": "",
+   "subtypeField": "",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID",
+     "alias": "OBJECTID",
+     "domain": null,
+     "editable": false,
+     "nullable": false,
+     "defaultValue": null,
+     "modelName": "OBJECTID"
+    },
+    {
+     "name": "LegalLotID",
+     "type": "esriFieldTypeInteger",
+     "alias": "LegalLotID",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "LegalLotID"
+    },
+    {
+     "name": "Name",
+     "type": "esriFieldTypeString",
+     "alias": "Name",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 255,
+     "defaultValue": null,
+     "modelName": "Name"
+    },
+    {
+     "name": "LegalStartDate",
+     "type": "esriFieldTypeDate",
+     "alias": "LegalStartDate",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 8,
+     "defaultValue": null,
+     "modelName": "LegalStartDate"
+    },
+    {
+     "name": "LotType",
+     "type": "esriFieldTypeString",
+     "alias": "LotType",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 50,
+     "defaultValue": null,
+     "modelName": "LotType"
+    },
+    {
+     "name": "DocNum",
+     "type": "esriFieldTypeString",
+     "alias": "DocNum",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 50,
+     "defaultValue": null,
+     "modelName": "DocNum"
+    },
+    {
+     "name": "MapNum",
+     "type": "esriFieldTypeString",
+     "alias": "MapNum",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 50,
+     "defaultValue": null,
+     "modelName": "MapNum"
+    },
+    {
+     "name": "Notes",
+     "type": "esriFieldTypeString",
+     "alias": "Notes",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 250,
+     "defaultValue": null,
+     "modelName": "Notes"
+    },
+    {
+     "name": "AssessmentNo",
+     "type": "esriFieldTypeString",
+     "alias": "AssessmentNo",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 22,
+     "defaultValue": null,
+     "modelName": "AssessmentNo"
+    },
+    {
+     "name": "DocRefNo",
+     "type": "esriFieldTypeString",
+     "alias": "DocRefNo",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 15,
+     "defaultValue": null,
+     "modelName": "DocRefNo"
+    },
+    {
+     "name": "DocRefDate",
+     "type": "esriFieldTypeString",
+     "alias": "DocRefDate",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 8,
+     "defaultValue": null,
+     "modelName": "DocRefDate"
+    },
+    {
+     "name": "LegalDescr",
+     "type": "esriFieldTypeString",
+     "alias": "LegalDescr",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 256,
+     "defaultValue": null,
+     "modelName": "LegalDescr"
+    },
+    {
+     "name": "SiteAddress",
+     "type": "esriFieldTypeString",
+     "alias": "SiteAddress",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 102,
+     "defaultValue": null,
+     "modelName": "SiteAddress"
+    },
+    {
+     "name": "MailAddress",
+     "type": "esriFieldTypeString",
+     "alias": "MailAddress",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 102,
+     "defaultValue": null,
+     "modelName": "MailAddress"
+    },
+    {
+     "name": "AssdAmt",
+     "type": "esriFieldTypeString",
+     "alias": "AssdAmt",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 14,
+     "defaultValue": null,
+     "modelName": "AssdAmt"
+    },
+    {
+     "name": "LandVal",
+     "type": "esriFieldTypeString",
+     "alias": "LandVal",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 14,
+     "defaultValue": null,
+     "modelName": "LandVal"
+    },
+    {
+     "name": "ImprovedVal",
+     "type": "esriFieldTypeString",
+     "alias": "ImprovedVal",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 14,
+     "defaultValue": null,
+     "modelName": "ImprovedVal"
+    },
+    {
+     "name": "SiteCityState",
+     "type": "esriFieldTypeString",
+     "alias": "City/State",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 56,
+     "defaultValue": null,
+     "modelName": "SiteCityState"
+    },
+    {
+     "name": "SiteZip5",
+     "type": "esriFieldTypeString",
+     "alias": "Zipcode",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 5,
+     "defaultValue": null,
+     "modelName": "SiteZip5"
+    },
+    {
+     "name": "Shape__Area",
+     "type": "esriFieldTypeDouble",
+     "alias": "Shape.STArea()",
+     "domain": null,
+     "editable": false,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "Shape.STArea()",
+     "required": true
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble",
+     "alias": "Shape.STLength()",
+     "domain": null,
+     "editable": false,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "Shape.STLength()",
+     "required": true
+    },
+    {
+     "name": "GPLU_CODE",
+     "type": "esriFieldTypeString",
+     "alias": "GPLU_CODE",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 255,
+     "defaultValue": null,
+     "modelName": "GPLU_CODE"
+    },
+    {
+     "name": "GPLU_DESC",
+     "type": "esriFieldTypeString",
+     "alias": "GPLU_DESC",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 255,
+     "defaultValue": null,
+     "modelName": "GPLU_DESC"
+    },
+    {
+     "name": "ZC_DETAIL",
+     "type": "esriFieldTypeString",
+     "alias": "ZC_DETAIL",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 33,
+     "defaultValue": null,
+     "modelName": "ZC_DETAIL"
+    },
+    {
+     "name": "ZC_DESCR",
+     "type": "esriFieldTypeString",
+     "alias": "ZC_DESCR",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 40,
+     "defaultValue": null,
+     "modelName": "ZC_DESCR"
+    },
+    {
+     "name": "CAT_DIST",
+     "type": "esriFieldTypeString",
+     "alias": "CAT_DIST",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 50,
+     "defaultValue": null,
+     "modelName": "CAT_DIST"
+    },
+    {
+     "name": "ZCLASS",
+     "type": "esriFieldTypeString",
+     "alias": "ZCLASS",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 20,
+     "defaultValue": null,
+     "modelName": "ZCLASS"
+    }
+   ],
+   "geometryField": {
+    "name": "Shape",
+    "type": "esriFieldTypeGeometry",
+    "alias": "SHAPE",
+    "domain": null,
+    "editable": true,
+    "nullable": true,
+    "defaultValue": null,
+    "modelName": "Shape"
+   },
+   "indexes": [
+    {
+     "name": "R234_pk",
+     "isAscending": true,
+     "isUnique": true,
+     "description": "",
+     "fields": "OBJECTID"
+    },
+    {
+     "name": "S187_idx",
+     "isAscending": true,
+     "isUnique": true,
+     "description": "",
+     "fields": "Shape"
+    }
+   ],
+   "datesInUnknownTimezone": false,
+   "dateFieldsTimeReference": {
+    "timeZone": "UTC",
+    "timeZoneIANA": "Etc/UTC",
+    "respectsDaylightSaving": false
+   },
+   "preferredTimeReference": null,
+   "types": [],
+   "templates": [
+    {
+     "name": "Landbase.GIS.LEGAL_LOTS_ATTRIBUTES_UPDATE",
+     "description": "",
+     "prototype": {
+      "attributes": {
+       "CAT_DIST": null,
+       "ZCLASS": null,
+       "LegalLotID": null,
+       "Name": null,
+       "LegalStartDate": null,
+       "LotType": null,
+       "DocNum": null,
+       "MapNum": null,
+       "Notes": null,
+       "AssessmentNo": null,
+       "DocRefNo": null,
+       "DocRefDate": null,
+       "LegalDescr": null,
+       "SiteAddress": null,
+       "MailAddress": null,
+       "AssdAmt": null,
+       "LandVal": null,
+       "ImprovedVal": null,
+       "SiteCityState": null,
+       "SiteZip5": null,
+       "ZC_DESCR": null,
+       "ZC_DETAIL": null,
+       "GPLU_CODE": null,
+       "GPLU_DESC": null
+      }
+     },
+     "drawingTool": "esriFeatureEditToolPolygon"
+    }
+   ],
+   "maxRecordCount": 2000,
+   "supportedQueryFormats": "JSON, geoJSON, PBF",
+   "supportedExportFormats": "sqlite,filegdb,shapefile,csv,geojson",
+   "capabilities": "Query,Extract",
+   "useStandardizedQueries": true,
+   "bigIntegerRestrictedTo53Bits": true,
+   "supportedSpatialRelationships": [
+    "esriSpatialRelIntersects",
+    "esriSpatialRelContains",
+    "esriSpatialRelCrosses",
+    "esriSpatialRelEnvelopeIntersects",
+    "esriSpatialRelIndexIntersects",
+    "esriSpatialRelOverlaps",
+    "esriSpatialRelTouches",
+    "esriSpatialRelWithin",
+    "esriSpatialRelRelation"
+   ],
+   "supportsAppend": true,
+   "supportedAppendFormats": "FILEGDB,PBF",
+   "standardMaxRecordCount": 4000,
+   "tileMaxRecordCount": 4000,
+   "standardMaxRecordCountNoGeometry": 32000,
+   "maxRecordCountFactor": 1
+  }
+ },
+ {
+  "url": "https://services.arcgis.com/UXmFoWC7yDHcDN5Q/arcgis/rest/services/OCZoning_P/FeatureServer/0",
+  "meta": {
+   "currentVersion": 12,
+   "id": 0,
+   "name": "OCZoning_P",
+   "type": "Feature Layer",
+   "serviceItemId": "b4df34ad1ea749919b9101e4e0f6186e",
+   "cacheMaxAge": 30,
+   "displayField": "",
+   "description": "",
+   "copyrightText": "",
+   "defaultVisibility": true,
+   "editingInfo": {
+    "lastEditDate": 1772561460321,
+    "schemaLastEditDate": 1772561460321,
+    "dataLastEditDate": 1635344021070
+   },
+   "relationships": [],
+   "isDataVersioned": false,
+   "hasContingentValuesDefinition": false,
+   "supportsAppend": true,
+   "supportsCalculate": true,
+   "supportsASyncCalculate": true,
+   "supportsTruncate": true,
+   "supportsAttachmentsByUploadId": true,
+   "supportsAttachmentsResizing": true,
+   "supportsRollbackOnFailureParameter": true,
+   "supportsStatistics": true,
+   "supportsExceedsLimitStatistics": true,
+   "supportsAdvancedQueries": true,
+   "supportsValidateSql": true,
+   "supportsCoordinatesQuantization": true,
+   "supportsLayerOverrides": true,
+   "supportsTilesAndBasicQueriesMode": true,
+   "supportsFieldDescriptionProperty": true,
+   "supportsQuantizationEditMode": true,
+   "supportsColumnStoreIndex": true,
+   "supportsApplyEditsWithGlobalIds": false,
+   "supportsMultiScaleGeometry": true,
+   "supportsReturningQueryGeometry": true,
+   "enableNullGeometry": false,
+   "hasGeometryProperties": true,
+   "geometryProperties": {
+    "shapeAreaFieldName": "Shape__Area",
+    "shapeLengthFieldName": "Shape__Length",
+    "units": "esriMeters"
+   },
+   "advancedQueryCapabilities": {
+    "supportsPagination": true,
+    "supportsPaginationOnAggregatedQueries": true,
+    "supportsQueryRelatedPagination": true,
+    "supportsQueryWithDistance": true,
+    "supportsOutDistance": true,
+    "supportsReturningQueryExtent": true,
+    "supportsStatistics": true,
+    "supportsOrderBy": true,
+    "supportsDistinct": true,
+    "supportsQueryWithResultType": true,
+    "supportsSqlExpression": true,
+    "supportsTimeRelation": true,
+    "supportsAdvancedQueryRelated": true,
+    "supportsCountDistinct": true,
+    "supportsPercentileStatistics": true,
+    "supportsApproxPercentileStatistics": true,
+    "supportsSpatialAggregationStatistics": true,
+    "supportsTrueCurve": true,
+    "supportedSpatialAggregationStatistics": [
+     "EnvelopeAggregate",
+     "CentroidAggregate",
+     "ConvexHullAggregate"
+    ],
+    "supportsLod": true,
+    "supportsQueryWithLodSR": false,
+    "supportedLodTypes": [
+     "geohash"
+    ],
+    "supportsReturningGeometryCentroid": true,
+    "supportsReturningGeometryEnvelope": true,
+    "supportsReturningGeometryProperties": true,
+    "supportsQueryWithDatumTransformation": true,
+    "supportsCurrentUserQueries": true,
+    "supportsHavingClause": true,
+    "supportsOutFieldSQLExpression": true,
+    "supportsMaxRecordCountFactor": true,
+    "supportsTopFeaturesQuery": true,
+    "supportsDisjointSpatialRel": true,
+    "supportsQueryWithCacheHint": true,
+    "supportedOperationsWithCacheHint": [
+     "query",
+     "queryTopFilter",
+     "queryAnalytics",
+     "queryAttachments",
+     "queryRelated",
+     "queryBins",
+     "queryPivot"
+    ],
+    "supportsQueryAnalytic": true,
+    "supportsQueryPivot": true,
+    "supportsQueryBins": true,
+    "supportsDefaultSR": true,
+    "supportsTranslations": false,
+    "supportsAggIds": true,
+    "supportsQueryWithCollation": true,
+    "supportsISODOW": true,
+    "supportsISOWeek": true,
+    "supportsFullTextSearch": true,
+    "fullTextSearchCapabilities": {
+     "supportsAccentSensitivity": true,
+     "supportsStopWords": true,
+     "supportsSearchOperator": true,
+     "supportsOperator": true
+    }
+   },
+   "advancedQueryAnalyticCapabilities": {
+    "supportsLinearRegression": true,
+    "supportsTrendlineRegression": true,
+    "supportsAsync": true,
+    "supportsPercentileAnalytic": true
+   },
+   "queryBinsCapabilities": {
+    "supportsAsync": true,
+    "supportsAutoIntervalBin": true,
+    "supportsFixedIntervalBin": true,
+    "supportsFixedBoundariesBin": true,
+    "supportsDateBin": true,
+    "supportsClassificationBin": true,
+    "supportsStackBy": true,
+    "supportsSplitBy": true,
+    "supportsFirstDayOfWeek": true,
+    "supportsSnapToData": true,
+    "supportsReturnFullIntervalBin": true,
+    "supportsReturnStackValueRange": true,
+    "supportsNormalization": true,
+    "supportedStatisticTypes": [
+     "COUNT",
+     "SUM",
+     "AVG",
+     "VAR",
+     "STDDEV",
+     "MIN",
+     "MAX",
+     "PERCENTILE_CONT",
+     "PERCENTILE_DISC",
+     "APPROX_PERCENTILE_CONT",
+     "APPROX_PERCENTILE_DISC",
+     "CentroidAggregate",
+     "EnvelopeAggregate",
+     "ConvexHullAggregate"
+    ],
+    "supportedNormalizationTypes": [
+     "boxCox",
+     "field",
+     "inverse",
+     "log",
+     "naturalLog",
+     "percentOfTotal",
+     "squareRoot"
+    ]
+   },
+   "supportedOperationsWithCollation": "query,addField,updateField",
+   "advancedEditingCapabilities": {
+    "supportedSqlFormatsInCalculate": [
+     "standard"
+    ],
+    "supportsAsyncApplyEdits": true,
+    "supportsReturnEditResults": true,
+    "supportsApplyEditsbyUploadID": true,
+    "supportedApplyEditsUploadIDFormats": "JSON,PBF",
+    "supportsTranslation": false,
+    "supportsMaxTranslations": 10
+   },
+   "infoInEstimates": [
+    "extent",
+    "count"
+   ],
+   "useStandardizedQueries": true,
+   "geometryType": "esriGeometryPolygon",
+   "minScale": 1155582,
+   "maxScale": 1128,
+   "extent": {
+    "xmin": -13146041.672960212,
+    "ymin": 3954444.9458482848,
+    "xmax": -13070030.986810258,
+    "ymax": 4022317.5868047606,
+    "spatialReference": {
+     "wkid": 102100,
+     "latestWkid": 3857
+    }
+   },
+   "spatialReference": {
+    "wkid": 102100,
+    "latestWkid": 3857
+   },
+   "drawingInfo": {
+    "renderer": {
+     "type": "simple",
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       76,
+       129,
+       205,
+       191
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        255
+       ],
+       "width": 0.75
+      }
+     }
+    },
+    "transparency": 0,
+    "labelingInfo": null
+   },
+   "allowGeometryUpdates": true,
+   "trueCurveSupportMode": "OGC",
+   "supportedCurveTypes": [
+    "esriGeometryCircularArc"
+   ],
+   "supportedTrueCurvePbfFeatureEncodings": [
+    "esriCompressedShapeBuffer",
+    "esriDefault"
+   ],
+   "allowTrueCurvesUpdates": true,
+   "onlyAllowTrueCurveUpdatesByTrueCurveClients": false,
+   "hasAttachments": false,
+   "htmlPopupType": "esriServerHTMLPopupTypeNone",
+   "hasMetadata": true,
+   "hasM": false,
+   "hasZ": false,
+   "objectIdField": "FID",
+   "uniqueIdField": {
+    "name": "FID",
+    "isSystemMaintained": true
+   },
+   "globalIdField": "",
+   "typeIdField": "",
+   "collation": {
+    "locale": "neutral",
+    "caseSensitive": false,
+    "accentSensitive": true
+   },
+   "fields": [
+    {
+     "name": "FID",
+     "type": "esriFieldTypeOID",
+     "actualType": "int",
+     "alias": "FID",
+     "sqlType": "sqlTypeInteger",
+     "nullable": false,
+     "editable": false,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "ZONECLASS",
+     "type": "esriFieldTypeString",
+     "actualType": "nvarchar",
+     "alias": "ZONECLASS",
+     "sqlType": "sqlTypeNVarchar",
+     "length": 10,
+     "nullable": true,
+     "editable": true,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "DESCRIPTIO",
+     "type": "esriFieldTypeString",
+     "actualType": "nvarchar",
+     "alias": "DESCRIPTIO",
+     "sqlType": "sqlTypeNVarchar",
+     "length": 50,
+     "nullable": true,
+     "editable": true,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "CATEGORY",
+     "type": "esriFieldTypeString",
+     "actualType": "nvarchar",
+     "alias": "CATEGORY",
+     "sqlType": "sqlTypeNVarchar",
+     "length": 50,
+     "nullable": true,
+     "editable": true,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "Z_DETAIL",
+     "type": "esriFieldTypeString",
+     "actualType": "nvarchar",
+     "alias": "Z_DETAIL",
+     "sqlType": "sqlTypeNVarchar",
+     "length": 20,
+     "nullable": true,
+     "editable": true,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "Shape__Area",
+     "type": "esriFieldTypeDouble",
+     "actualType": "float",
+     "alias": "Shape__Area",
+     "sqlType": "sqlTypeFloat",
+     "nullable": true,
+     "editable": false,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble",
+     "actualType": "float",
+     "alias": "Shape__Length",
+     "sqlType": "sqlTypeFloat",
+     "nullable": true,
+     "editable": false,
+     "domain": null,
+     "defaultValue": null
+    }
+   ],
+   "indexes": [
+    {
+     "name": "Shape__Area_Index",
+     "fields": "Shape__Area",
+     "isAscending": true,
+     "isUnique": false,
+     "description": "",
+     "indexType": "Attribute"
+    },
+    {
+     "name": "Shape__Length_Index",
+     "fields": "Shape__Length",
+     "isAscending": true,
+     "isUnique": false,
+     "description": "",
+     "indexType": "Attribute"
+    },
+    {
+     "name": "PK__OCZONING__C1BEA5A2834E9126",
+     "fields": "FID",
+     "isAscending": true,
+     "isUnique": true,
+     "description": "clustered, unique, primary key",
+     "indexType": "Attribute"
+    },
+    {
+     "name": "user_12796.OCZONING_P_OCZONING_P_Shape_sidx",
+     "fields": "Shape",
+     "isAscending": false,
+     "isUnique": false,
+     "description": "Shape Index",
+     "indexType": "Spatial"
+    },
+    {
+     "name": "undefined_Index",
+     "fields": "",
+     "isAscending": false,
+     "isUnique": false,
+     "description": "",
+     "indexType": "Attribute"
+    }
+   ],
+   "dateFieldsTimeReference": {
+    "timeZone": "UTC",
+    "timeZoneIANA": "Etc/UTC",
+    "respectsDaylightSaving": false
+   },
+   "preferredTimeReference": null,
+   "types": [],
+   "templates": [
+    {
+     "name": "New Feature",
+     "description": "",
+     "drawingTool": "esriFeatureEditToolPolygon",
+     "prototype": {
+      "attributes": {
+       "ZONECLASS": null,
+       "DESCRIPTIO": null,
+       "CATEGORY": null,
+       "Z_DETAIL": null
+      }
+     }
+    }
+   ],
+   "supportedQueryFormats": "JSON, geoJSON, PBF",
+   "supportedAppendFormats": "sqlite,geoPackage,shapefile,filegdb,featureCollection,geojson,csv,excel,jsonl,featureService,pbf",
+   "supportedAppendSourceFilterFormats": "sqlite,geoPackage,shapefile,filegdb,featureService",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel,parquet",
+   "supportedConvertFileFormats": "JSON,PBF,Parquet",
+   "supportedConvertContentFormats": "LayerEditCollection,FeatureCollection",
+   "supportedSpatialRelationships": [
+    "esriSpatialRelIntersects",
+    "esriSpatialRelContains",
+    "esriSpatialRelCrosses",
+    "esriSpatialRelEnvelopeIntersects",
+    "esriSpatialRelIndexIntersects",
+    "esriSpatialRelOverlaps",
+    "esriSpatialRelTouches",
+    "esriSpatialRelWithin",
+    "esriSpatialRelDisjoint",
+    "esriSpatialRelRelation"
+   ],
+   "guidFormat": "",
+   "supportsContingentValues": true,
+   "supportsEditingContingentValues": true,
+   "supportedContingentValuesFormats": "JSON, PBF",
+   "supportsFieldGroups": true,
+   "supportedSyncDataOptions": 260,
+   "hasStaticData": true,
+   "maxRecordCount": 2000,
+   "standardMaxRecordCount": 2000,
+   "maxIdsCount": 1000000,
+   "standardMaxRecordCountNoGeometry": 32000,
+   "tileMaxRecordCount": 4000,
+   "maxRecordCountFactor": 1,
+   "capabilities": "Query,Extract"
+  }
+ },
+ {
+  "url": "https://ocgis.com/survey/rest/services/WebApps/TransportationFeatures/FeatureServer/999002",
+  "meta": {
+   "currentVersion": 11.5,
+   "cimVersion": "3.5.0",
+   "id": 999002,
+   "name": "Centerlines",
+   "type": "Feature Layer",
+   "parentLayer": null,
+   "defaultVisibility": true,
+   "minScale": 10000,
+   "maxScale": 0,
+   "canScaleSymbols": false,
+   "geometryType": "esriGeometryPolyline",
+   "description": "",
+   "copyrightText": "",
+   "editFieldsInfo": {
+    "creationDateField": "created_date",
+    "creatorField": "created_user",
+    "editDateField": "last_edited_date",
+    "editorField": "last_edited_user"
+   },
+   "ownershipBasedAccessControlForFeatures": null,
+   "syncCanReturnChanges": true,
+   "relationships": [],
+   "isDataVersioned": true,
+   "isDataArchived": true,
+   "infoInEstimates": [
+    "extent",
+    "count"
+   ],
+   "isDataBranchVersioned": true,
+   "isDataReplicaTracked": false,
+   "isCoGoEnabled": true,
+   "supportsRollbackOnFailureParameter": false,
+   "archivingInfo": {
+    "supportsQueryWithHistoricMoment": true,
+    "startArchivingMoment": 1621681628000
+   },
+   "supportsStatistics": true,
+   "supportsExceedsLimitStatistics": true,
+   "supportsAdvancedQueries": true,
+   "supportsValidateSQL": true,
+   "supportsCoordinatesQuantization": true,
+   "supportsQuantizationEditMode": true,
+   "supportsCalculate": true,
+   "supportsASyncCalculate": true,
+   "supportsDurableUrlForSyncModelNone": false,
+   "supportsDatumTransformation": true,
+   "advancedQueryCapabilities": {
+    "supportsPagination": true,
+    "supportsQueryWithDistance": true,
+    "supportsReturningQueryExtent": true,
+    "supportsStatistics": true,
+    "supportsPercentileStatistics": true,
+    "supportsHavingClause": true,
+    "supportsOrderBy": true,
+    "supportsDistinct": true,
+    "supportsCountDistinct": true,
+    "supportsAdvancedQueryRelated": true,
+    "supportsQueryRelatedPagination": true,
+    "supportsCurrentUserQueries": true,
+    "supportsFullTextSearch": true,
+    "fullTextSearchCapabilities": {
+     "supportsSearchOperator": true,
+     "supportsOperator": false,
+     "supportsSqlExpressionInFullText": true
+    },
+    "fullTextSearchableFields": [],
+    "supportsQueryWithResultType": true,
+    "supportsReturningGeometryCentroid": false,
+    "supportsReturningGeometryEnvelope": true,
+    "supportsSqlExpression": true,
+    "supportsQueryWithDatumTransformation": true,
+    "supportsLod": false,
+    "supportsQueryWithLodSR": false,
+    "supportsQueryAnalytic": false,
+    "supportsTrueCurve": true,
+    "supportedCurveTypes": [
+     "esriGeometryCircularArc",
+     "esriGeometryEllipticArc",
+     "esriGeometryBezier3Curve"
+    ],
+    "supportsQueryWithCacheHint": false
+   },
+   "advancedEditingCapabilities": {
+    "supportedSqlFormatsInCalculate": [
+     "standard"
+    ],
+    "supportsAsyncApplyEdits": true,
+    "supportsApplyEditsbyUploadID": true,
+    "supportedApplyEditsUploadIDFormats": "JSON,PBF"
+   },
+   "hasGeometryProperties": true,
+   "geometryProperties": {
+    "shapeLengthFieldName": "Shape__Length",
+    "units": "esriFeet"
+   },
+   "hasMetadata": true,
+   "extent": {
+    "xmin": 5977358.869962886,
+    "ymin": 2082715.7098802328,
+    "xmax": 6208132.800146386,
+    "ymax": 2308543.533158064,
+    "zmin": -3525.4380999999994,
+    "zmax": 20173072.4822,
+    "spatialReference": {
+     "wkid": 102646,
+     "latestWkid": 2230,
+     "xyTolerance": 0.003280833333333333,
+     "zTolerance": 0.001,
+     "mTolerance": 0.001,
+     "falseX": -118608900,
+     "falseY": -91259500,
+     "xyUnits": 3048.0060960121928,
+     "falseZ": -100000,
+     "zUnits": 10000,
+     "falseM": -100000,
+     "mUnits": 10000
+    }
+   },
+   "spatialReference": {
+    "wkid": 102646,
+    "latestWkid": 2230,
+    "xyTolerance": 0.003280833333333333,
+    "zTolerance": 0.001,
+    "mTolerance": 0.001,
+    "falseX": -118608900,
+    "falseY": -91259500,
+    "xyUnits": 3048.0060960121928,
+    "falseZ": -100000,
+    "zUnits": 10000,
+    "falseM": -100000,
+    "mUnits": 10000
+   },
+   "sourceSpatialReference": {
+    "wkid": 102646,
+    "latestWkid": 2230,
+    "xyTolerance": 0.003280833333333333,
+    "zTolerance": 0.001,
+    "mTolerance": 0.001,
+    "falseX": -118608900,
+    "falseY": -91259500,
+    "xyUnits": 3048.0060960121928,
+    "falseZ": -100000,
+    "zUnits": 10000,
+    "falseM": 0,
+    "mUnits": 1
+   },
+   "drawingInfo": {
+    "renderer": {
+     "type": "uniqueValue",
+     "field1": "StreetCode",
+     "uniqueValueGroups": [
+      {
+       "heading": "Street Types",
+       "classes": [
+        {
+         "label": "Arterial A",
+         "description": "Arterial A",
+         "symbol": {
+          "type": "esriSLS",
+          "style": "esriSLSDashDot",
+          "color": [
+           197,
+           0,
+           255,
+           255
+          ],
+          "width": 2
+         },
+         "values": [
+          [
+           "1"
+          ]
+         ]
+        },
+        {
+         "label": "Arterial B",
+         "description": "Arterial B",
+         "symbol": {
+          "type": "esriSLS",
+          "style": "esriSLSDashDot",
+          "color": [
+           0,
+           112,
+           255,
+           255
+          ],
+          "width": 1.5
+         },
+         "values": [
+          [
+           "2"
+          ]
+         ]
+        },
+        {
+         "label": "Arterial C",
+         "description": "Arterial C",
+         "symbol": {
+          "type": "esriSLS",
+          "style": "esriSLSDashDot",
+          "color": [
+           56,
+           168,
+           0,
+           255
+          ],
+          "width": 1.2
+         },
+         "values": [
+          [
+           "3"
+          ]
+         ]
+        },
+        {
+         "label": "Local",
+         "description": "Local",
+         "symbol": {
+          "type": "esriSLS",
+          "style": "esriSLSDashDot",
+          "color": [
+           0,
+           0,
+           0,
+           255
+          ],
+          "width": 0.6
+         },
+         "values": [
+          [
+           "4"
+          ]
+         ]
+        },
+        {
+         "label": "Private",
+         "description": "Private",
+         "symbol": {
+          "type": "esriSLS",
+          "style": "esriSLSDash",
+          "color": [
+           112,
+           168,
+           0,
+           255
+          ],
+          "width": 1
+         },
+         "values": [
+          [
+           "5"
+          ]
+         ]
+        },
+        {
+         "label": "Psuedo",
+         "description": "Psuedo",
+         "symbol": {
+          "type": "esriSLS",
+          "style": "esriSLSDash",
+          "color": [
+           0,
+           169,
+           230,
+           255
+          ],
+          "width": 1
+         },
+         "values": [
+          [
+           "6"
+          ]
+         ]
+        },
+        {
+         "label": "Alley",
+         "description": "Alley",
+         "symbol": {
+          "type": "esriSLS",
+          "style": "esriSLSDash",
+          "color": [
+           255,
+           85,
+           0,
+           255
+          ],
+          "width": 1
+         },
+         "values": [
+          [
+           "7"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "uniqueValueInfos": [
+      {
+       "symbol": {
+        "type": "esriSLS",
+        "style": "esriSLSDashDot",
+        "color": [
+         197,
+         0,
+         255,
+         255
+        ],
+        "width": 2
+       },
+       "value": "1",
+       "label": "Arterial A"
+      },
+      {
+       "symbol": {
+        "type": "esriSLS",
+        "style": "esriSLSDashDot",
+        "color": [
+         0,
+         112,
+         255,
+         255
+        ],
+        "width": 1.5
+       },
+       "value": "2",
+       "label": "Arterial B"
+      },
+      {
+       "symbol": {
+        "type": "esriSLS",
+        "style": "esriSLSDashDot",
+        "color": [
+         56,
+         168,
+         0,
+         255
+        ],
+        "width": 1.2
+       },
+       "value": "3",
+       "label": "Arterial C"
+      },
+      {
+       "symbol": {
+        "type": "esriSLS",
+        "style": "esriSLSDashDot",
+        "color": [
+         0,
+         0,
+         0,
+         255
+        ],
+        "width": 0.6
+       },
+       "value": "4",
+       "label": "Local"
+      },
+      {
+       "symbol": {
+        "type": "esriSLS",
+        "style": "esriSLSDash",
+        "color": [
+         112,
+         168,
+         0,
+         255
+        ],
+        "width": 1
+       },
+       "value": "5",
+       "label": "Private"
+      },
+      {
+       "symbol": {
+        "type": "esriSLS",
+        "style": "esriSLSDash",
+        "color": [
+         0,
+         169,
+         230,
+         255
+        ],
+        "width": 1
+       },
+       "value": "6",
+       "label": "Psuedo"
+      },
+      {
+       "symbol": {
+        "type": "esriSLS",
+        "style": "esriSLSDash",
+        "color": [
+         255,
+         85,
+         0,
+         255
+        ],
+        "width": 1
+       },
+       "value": "7",
+       "label": "Alley"
+      }
+     ],
+     "fieldDelimiter": ",",
+     "authoringInfo": {
+      "colorRamp": {
+       "type": "multipart",
+       "colorRamps": [
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          187,
+          252,
+          191,
+          255
+         ],
+         "toColor": [
+          187,
+          252,
+          191,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          252,
+          182,
+          249,
+          255
+         ],
+         "toColor": [
+          252,
+          182,
+          249,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          252,
+          202,
+          179,
+          255
+         ],
+         "toColor": [
+          252,
+          202,
+          179,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          182,
+          224,
+          252,
+          255
+         ],
+         "toColor": [
+          182,
+          224,
+          252,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          252,
+          247,
+          187,
+          255
+         ],
+         "toColor": [
+          252,
+          247,
+          187,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          252,
+          210,
+          233,
+          255
+         ],
+         "toColor": [
+          252,
+          210,
+          233,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          199,
+          252,
+          237,
+          255
+         ],
+         "toColor": [
+          199,
+          252,
+          237,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          190,
+          187,
+          252,
+          255
+         ],
+         "toColor": [
+          190,
+          187,
+          252,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          252,
+          236,
+          212,
+          255
+         ],
+         "toColor": [
+          252,
+          236,
+          212,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          252,
+          184,
+          189,
+          255
+         ],
+         "toColor": [
+          252,
+          184,
+          189,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          222,
+          252,
+          179,
+          255
+         ],
+         "toColor": [
+          222,
+          252,
+          179,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          229,
+          204,
+          252,
+          255
+         ],
+         "toColor": [
+          229,
+          204,
+          252,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          241,
+          252,
+          215,
+          255
+         ],
+         "toColor": [
+          241,
+          252,
+          215,
+          255
+         ]
+        }
+       ]
+      }
+     }
+    },
+    "scaleSymbols": true,
+    "transparency": 0,
+    "labelingInfo": [
+     {
+      "labelExpressionInfo": {
+       "expression": "$feature.StreetName +\" \"+$feature.Suffix;\n",
+       "title": "Custom"
+      },
+      "labelPlacement": "esriServerLinePlacementCenterAlong",
+      "textLayout": "straight",
+      "deconflictionStrategy": "dynamic",
+      "allowOverrun": true,
+      "repeatLabel": true,
+      "repeatLabelDistance": 216,
+      "lineConnection": "minimizeLabels",
+      "useClippedGeometry": true,
+      "stackLabel": true,
+      "stackAlignment": "dynamic",
+      "removeDuplicates": "all",
+      "removeDuplicatesDistance": 0,
+      "stackRowLength": 24,
+      "useCodedValues": false,
+      "maxScale": 0,
+      "minScale": 8000,
+      "name": "Centerlines",
+      "priority": -1,
+      "symbol": {
+       "type": "esriTS",
+       "color": [
+        0,
+        0,
+        0,
+        255
+       ],
+       "backgroundColor": null,
+       "borderLineColor": null,
+       "borderLineSize": null,
+       "verticalAlignment": "bottom",
+       "horizontalAlignment": "left",
+       "rightToLeft": false,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "kerning": true,
+       "haloColor": [
+        255,
+        255,
+        255,
+        255
+       ],
+       "haloSize": 0.75,
+       "font": {
+        "family": "Arial",
+        "size": 9,
+        "style": "normal",
+        "weight": "normal",
+        "decoration": "none"
+       }
+      }
+     }
+    ]
+   },
+   "hasM": false,
+   "hasZ": true,
+   "enableZDefaults": true,
+   "zDefault": 0,
+   "supportsVCSProjection": true,
+   "allowGeometryUpdates": true,
+   "allowTrueCurvesUpdates": true,
+   "onlyAllowTrueCurveUpdatesByTrueCurveClients": true,
+   "hasAttachments": false,
+   "supportsApplyEditsWithGlobalIds": true,
+   "supportsOidReservation": true,
+   "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+   "objectIdField": "OBJECTID",
+   "globalIdField": "GlobalID",
+   "displayField": "Suffix",
+   "typeIdField": "StreetCode",
+   "subtypeField": "",
+   "fields": [
+    {
+     "name": "CombinationFactor",
+     "type": "esriFieldTypeDouble",
+     "alias": "99!Combination Factor",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "CombinationFactor"
+    },
+    {
+     "name": "DistanceRecordGrid",
+     "type": "esriFieldTypeDouble",
+     "alias": "99!Distance (Record-Grid)",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "DistanceRecordGrid"
+    },
+    {
+     "name": "DirectionInverse",
+     "type": "esriFieldTypeDouble",
+     "alias": "99!Direction (Inverse)",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "DirectionInverse"
+    },
+    {
+     "name": "DistanceCorrection",
+     "type": "esriFieldTypeDouble",
+     "alias": "99!Distance (Correction)",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "DistanceCorrection"
+    },
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID",
+     "alias": "99!OBJECTID",
+     "domain": null,
+     "editable": false,
+     "nullable": false,
+     "defaultValue": null,
+     "modelName": "OBJECTID"
+    },
+    {
+     "name": "CreatedByRecord",
+     "type": "esriFieldTypeGUID",
+     "alias": "99!Created By Record",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 38,
+     "defaultValue": null,
+     "modelName": "CreatedByRecord",
+     "required": true
+    },
+    {
+     "name": "RetiredByRecord",
+     "type": "esriFieldTypeGUID",
+     "alias": "99!Retired By Record",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 38,
+     "defaultValue": null,
+     "modelName": "RetiredByRecord",
+     "required": true
+    },
+    {
+     "name": "Direction",
+     "type": "esriFieldTypeDouble",
+     "alias": "99!Direction",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "Direction",
+     "required": true
+    },
+    {
+     "name": "Distance",
+     "type": "esriFieldTypeDouble",
+     "alias": "99!Distance",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "Distance",
+     "required": true
+    },
+    {
+     "name": "Radius",
+     "type": "esriFieldTypeDouble",
+     "alias": "99!Radius",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "Radius",
+     "required": true
+    },
+    {
+     "name": "ArcLength",
+     "type": "esriFieldTypeDouble",
+     "alias": "99!Arc Length",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "ArcLength",
+     "required": true
+    },
+    {
+     "name": "Radius2",
+     "type": "esriFieldTypeDouble",
+     "alias": "99!Radius2",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "Radius2",
+     "required": true
+    },
+    {
+     "name": "COGOType",
+     "type": "esriFieldTypeInteger",
+     "alias": "99!COGO Type",
+     "domain": {
+      "type": "codedValue",
+      "name": "PF_COGOType",
+      "description": "Parcel Fabric COGO Type",
+      "codedValues": [
+       {
+        "name": "Entered",
+        "code": 1
+       },
+       {
+        "name": "From Geometry",
+        "code": 2
+       },
+       {
+        "name": "Computed",
+        "code": 3
+       }
+      ],
+      "mergePolicy": "esriMPTDefaultValue",
+      "splitPolicy": "esriSPTDefaultValue"
+     },
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "COGOType",
+     "required": true
+    },
+    {
+     "name": "IsCOGOGround",
+     "type": "esriFieldTypeInteger",
+     "alias": "99!Is COGO Ground",
+     "domain": {
+      "type": "codedValue",
+      "name": "PF_YesNo",
+      "description": "Parcel Fabric Yes No",
+      "codedValues": [
+       {
+        "name": "No",
+        "code": 0
+       },
+       {
+        "name": "Yes",
+        "code": 1
+       }
+      ],
+      "mergePolicy": "esriMPTDefaultValue",
+      "splitPolicy": "esriSPTDefaultValue"
+     },
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "IsCOGOGround",
+     "required": true
+    },
+    {
+     "name": "Rotation",
+     "type": "esriFieldTypeDouble",
+     "alias": "99!Rotation",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "Rotation",
+     "required": true
+    },
+    {
+     "name": "Scale",
+     "type": "esriFieldTypeDouble",
+     "alias": "99!Scale",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "Scale",
+     "required": true
+    },
+    {
+     "name": "DirectionAccuracy",
+     "type": "esriFieldTypeDouble",
+     "alias": "99!Direction Accuracy",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": 30,
+     "modelName": "DirectionAccuracy",
+     "required": true
+    },
+    {
+     "name": "DistanceAccuracy",
+     "type": "esriFieldTypeDouble",
+     "alias": "99!Distance Accuracy",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": 0.4921249999999999,
+     "modelName": "DistanceAccuracy",
+     "required": true
+    },
+    {
+     "name": "created_user",
+     "type": "esriFieldTypeString",
+     "alias": "99!Created By",
+     "domain": null,
+     "editable": false,
+     "nullable": true,
+     "length": 255,
+     "defaultValue": null,
+     "modelName": "created_user",
+     "required": true
+    },
+    {
+     "name": "created_date",
+     "type": "esriFieldTypeDate",
+     "alias": "99!Created Date",
+     "domain": null,
+     "editable": false,
+     "nullable": true,
+     "length": 8,
+     "defaultValue": null,
+     "modelName": "created_date",
+     "required": true
+    },
+    {
+     "name": "last_edited_user",
+     "type": "esriFieldTypeString",
+     "alias": "99!Modified By",
+     "domain": null,
+     "editable": false,
+     "nullable": true,
+     "length": 255,
+     "defaultValue": null,
+     "modelName": "last_edited_user",
+     "required": true
+    },
+    {
+     "name": "last_edited_date",
+     "type": "esriFieldTypeDate",
+     "alias": "99!Modified Date",
+     "domain": null,
+     "editable": false,
+     "nullable": true,
+     "length": 8,
+     "defaultValue": null,
+     "modelName": "last_edited_date",
+     "required": true
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID",
+     "alias": "99!GlobalID",
+     "domain": null,
+     "editable": false,
+     "nullable": false,
+     "length": 38,
+     "defaultValue": null,
+     "modelName": "GlobalID"
+    },
+    {
+     "name": "VALIDATIONSTATUS",
+     "type": "esriFieldTypeSmallInteger",
+     "alias": "99!Validation status",
+     "domain": {
+      "type": "codedValue",
+      "name": "Validation Status",
+      "description": "The current record's validation status.",
+      "codedValues": [
+       {
+        "name": "No calculation required, no validation required, no error",
+        "code": 0
+       },
+       {
+        "name": "No calculation required, no validation required, has error(s)",
+        "code": 1
+       },
+       {
+        "name": "No calculation required, validation required, no error",
+        "code": 2
+       },
+       {
+        "name": "No calculation required, validation required, has error(s)",
+        "code": 3
+       },
+       {
+        "name": "Calculation required, no validation required, no error",
+        "code": 4
+       },
+       {
+        "name": "Calculation required, no validation required, has error(s)",
+        "code": 5
+       },
+       {
+        "name": "Calculation required, validation required, no error",
+        "code": 6
+       },
+       {
+        "name": "Calculation required, validation required, has error(s)",
+        "code": 7
+       }
+      ],
+      "mergePolicy": "esriMPTDefaultValue",
+      "splitPolicy": "esriSPTDefaultValue"
+     },
+     "editable": false,
+     "nullable": true,
+     "defaultValue": 6,
+     "modelName": "VALIDATIONSTATUS",
+     "required": true
+    },
+    {
+     "name": "Type",
+     "type": "esriFieldTypeInteger",
+     "alias": "99!Type",
+     "domain": {
+      "type": "codedValue",
+      "name": "PF_ConnLineType",
+      "description": "Connection Line types",
+      "codedValues": [
+       {
+        "name": "Connection Line",
+        "code": 0
+       },
+       {
+        "name": "Centerline",
+        "code": 1
+       },
+       {
+        "name": "Prado Basin Centerline",
+        "code": 2
+       },
+       {
+        "name": "County Boundary",
+        "code": 3
+       },
+       {
+        "name": "Rancho Boundary",
+        "code": 4
+       },
+       {
+        "name": "Flood Channel Centerline",
+        "code": 5
+       },
+       {
+        "name": "Record of Survey",
+        "code": 6
+       },
+       {
+        "name": "Tangent",
+        "code": 7
+       },
+       {
+        "name": "Chord",
+        "code": 8
+       },
+       {
+        "name": "Radial",
+        "code": 9
+       },
+       {
+        "name": "Monument Tie",
+        "code": 10
+       },
+       {
+        "name": "GPS Tie",
+        "code": 11
+       }
+      ],
+      "mergePolicy": "esriMPTDefaultValue",
+      "splitPolicy": "esriSPTDuplicate"
+     },
+     "editable": true,
+     "nullable": true,
+     "defaultValue": 0,
+     "modelName": "Type"
+    },
+    {
+     "name": "FloorDesignator",
+     "type": "esriFieldTypeSmallInteger",
+     "alias": "99!Floor Number",
+     "domain": {
+      "type": "codedValue",
+      "name": "lrFloorDesignator",
+      "description": "descField",
+      "codedValues": [
+       {
+        "name": "Min value",
+        "code": -10
+       },
+       {
+        "name": "Max value",
+        "code": 100
+       }
+      ],
+      "mergePolicy": "esriMPTDefaultValue",
+      "splitPolicy": "esriSPTDefaultValue"
+     },
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "FloorDesignator"
+    },
+    {
+     "name": "StreetName",
+     "type": "esriFieldTypeString",
+     "alias": "StreetName",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 50,
+     "defaultValue": null,
+     "modelName": "StreetName"
+    },
+    {
+     "name": "OldStreetName",
+     "type": "esriFieldTypeString",
+     "alias": "OldStreetName",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 50,
+     "defaultValue": null,
+     "modelName": "OldStreetName"
+    },
+    {
+     "name": "Prefix",
+     "type": "esriFieldTypeString",
+     "alias": "Prefix",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 2,
+     "defaultValue": null,
+     "modelName": "Prefix"
+    },
+    {
+     "name": "Suffix",
+     "type": "esriFieldTypeString",
+     "alias": "Suffix",
+     "domain": {
+      "type": "codedValue",
+      "name": "StreetSuffix",
+      "description": "Suffix for street names",
+      "codedValues": [
+       {
+        "name": "AVENUE",
+        "code": "AVE"
+       },
+       {
+        "name": "BOULEVARD",
+        "code": "BLVD"
+       },
+       {
+        "name": "CIRCLE",
+        "code": "CIR"
+       },
+       {
+        "name": "COURT",
+        "code": "CT"
+       },
+       {
+        "name": "COVE",
+        "code": "CV"
+       },
+       {
+        "name": "DRIVE",
+        "code": "DR"
+       },
+       {
+        "name": "EXTENSION",
+        "code": "EXT"
+       },
+       {
+        "name": "HIGHWAY",
+        "code": "HWY"
+       },
+       {
+        "name": "ISLAND",
+        "code": "IS"
+       },
+       {
+        "name": "LANE",
+        "code": "LN"
+       },
+       {
+        "name": "LOOP",
+        "code": "LOOP"
+       },
+       {
+        "name": "MALL",
+        "code": "MALL"
+       },
+       {
+        "name": "MANOR",
+        "code": "MNR"
+       },
+       {
+        "name": "PATH",
+        "code": "PATH"
+       },
+       {
+        "name": "PARKWAY",
+        "code": "PKWY"
+       },
+       {
+        "name": "PLACE",
+        "code": "PL"
+       },
+       {
+        "name": "PLAZA",
+        "code": "PLZ"
+       },
+       {
+        "name": "POINT",
+        "code": "PT"
+       },
+       {
+        "name": "ROAD",
+        "code": "RD"
+       },
+       {
+        "name": "SQUARE",
+        "code": "SQ"
+       },
+       {
+        "name": "STREET",
+        "code": "ST"
+       },
+       {
+        "name": "TERRACE",
+        "code": "TER"
+       },
+       {
+        "name": "TRAIL",
+        "code": "TRL"
+       },
+       {
+        "name": "VIEW",
+        "code": "VW"
+       },
+       {
+        "name": "WALK",
+        "code": "WALK"
+       },
+       {
+        "name": "WAY",
+        "code": "WAY"
+       }
+      ],
+      "mergePolicy": "esriMPTDefaultValue",
+      "splitPolicy": "esriSPTDefaultValue"
+     },
+     "editable": true,
+     "nullable": true,
+     "length": 4,
+     "defaultValue": null,
+     "modelName": "Suffix"
+    },
+    {
+     "name": "StreetCode",
+     "type": "esriFieldTypeInteger",
+     "alias": "99!StreetCode",
+     "domain": {
+      "type": "codedValue",
+      "name": "lrStreetTypes",
+      "description": "descField",
+      "codedValues": [
+       {
+        "name": "Arterial A",
+        "code": 1
+       },
+       {
+        "name": "Arterial B",
+        "code": 2
+       },
+       {
+        "name": "Arterial C",
+        "code": 3
+       },
+       {
+        "name": "Local",
+        "code": 4
+       },
+       {
+        "name": "Private",
+        "code": 5
+       },
+       {
+        "name": "Psuedo",
+        "code": 6
+       },
+       {
+        "name": "Alley",
+        "code": 7
+       }
+      ],
+      "mergePolicy": "esriMPTDefaultValue",
+      "splitPolicy": "esriSPTDefaultValue"
+     },
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "StreetCode"
+    },
+    {
+     "name": "Notes",
+     "type": "esriFieldTypeString",
+     "alias": "99!Notes",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 250,
+     "defaultValue": null,
+     "modelName": "Notes"
+    },
+    {
+     "name": "OriginalFeatureOID",
+     "type": "esriFieldTypeInteger",
+     "alias": "99!OriginalFeatureOID",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "OriginalFeatureOID"
+    },
+    {
+     "name": "BPNum",
+     "type": "esriFieldTypeString",
+     "alias": "99!BP Num",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 16,
+     "defaultValue": null,
+     "modelName": "BPNum"
+    },
+    {
+     "name": "MapNum",
+     "type": "esriFieldTypeString",
+     "alias": "99!Map Num",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 16,
+     "defaultValue": null,
+     "modelName": "MapNum"
+    },
+    {
+     "name": "RecordDate",
+     "type": "esriFieldTypeDate",
+     "alias": "Record Date",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 8,
+     "defaultValue": null,
+     "modelName": "RecordDate"
+    },
+    {
+     "name": "EngCo",
+     "type": "esriFieldTypeString",
+     "alias": "99!Eng/Svy Co",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 50,
+     "defaultValue": null,
+     "modelName": "EngCo"
+    },
+    {
+     "name": "EngSvyName",
+     "type": "esriFieldTypeString",
+     "alias": "99!Eng/Svy Name",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 50,
+     "defaultValue": null,
+     "modelName": "EngSvyName"
+    },
+    {
+     "name": "EngSvyNum",
+     "type": "esriFieldTypeString",
+     "alias": "99!Eng/Svy Num",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 20,
+     "defaultValue": null,
+     "modelName": "EngSvyNum"
+    },
+    {
+     "name": "Cities",
+     "type": "esriFieldTypeString",
+     "alias": "Cities",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 150,
+     "defaultValue": null,
+     "modelName": "Cities"
+    },
+    {
+     "name": "GeoPages",
+     "type": "esriFieldTypeString",
+     "alias": "99!GeoPages",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 150,
+     "defaultValue": null,
+     "modelName": "GeoPages"
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble",
+     "alias": "99!Shape.STLength()",
+     "domain": null,
+     "editable": false,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "Shape.STLength()",
+     "required": true
+    }
+   ],
+   "geometryField": {
+    "name": "Shape",
+    "type": "esriFieldTypeGeometry",
+    "alias": "Shape",
+    "domain": null,
+    "editable": true,
+    "nullable": true,
+    "defaultValue": null,
+    "modelName": "Shape"
+   },
+   "indexes": [
+    {
+     "name": "UUID_27",
+     "isAscending": true,
+     "isUnique": false,
+     "description": "",
+     "fields": "GlobalID,OBJECTID"
+    },
+    {
+     "name": "G56CreatedByReco",
+     "isAscending": true,
+     "isUnique": false,
+     "description": "",
+     "fields": "CreatedByRecord"
+    },
+    {
+     "name": "G56VALIDATIONSTA",
+     "isAscending": true,
+     "isUnique": false,
+     "description": "",
+     "fields": "VALIDATIONSTATUS"
+    },
+    {
+     "name": "I56RetiredByReco",
+     "isAscending": true,
+     "isUnique": false,
+     "description": "",
+     "fields": "RetiredByRecord"
+    },
+    {
+     "name": "S16_idx",
+     "isAscending": true,
+     "isUnique": true,
+     "description": "",
+     "fields": "Shape"
+    }
+   ],
+   "datesInUnknownTimezone": false,
+   "dateFieldsTimeReference": {
+    "timeZone": "UTC",
+    "timeZoneIANA": "Etc/UTC",
+    "respectsDaylightSaving": false
+   },
+   "preferredTimeReference": null,
+   "types": [
+    {
+     "id": 1,
+     "name": "Arterial A",
+     "domains": {
+      "COGOType": {
+       "type": "inherited"
+      },
+      "IsCOGOGround": {
+       "type": "inherited"
+      },
+      "VALIDATIONSTATUS": {
+       "type": "inherited"
+      },
+      "Type": {
+       "type": "inherited"
+      },
+      "FloorDesignator": {
+       "type": "inherited"
+      },
+      "Suffix": {
+       "type": "inherited"
+      },
+      "StreetCode": {
+       "type": "inherited"
+      }
+     },
+     "templates": [
+      {
+       "name": "1",
+       "description": "",
+       "prototype": {
+        "attributes": {
+         "GeoPages": null,
+         "CombinationFactor": null,
+         "DistanceRecordGrid": null,
+         "DirectionInverse": null,
+         "DistanceCorrection": null,
+         "Cities": null,
+         "CreatedByRecord": null,
+         "RetiredByRecord": null,
+         "Direction": null,
+         "Distance": null,
+         "Radius": null,
+         "ArcLength": null,
+         "Radius2": null,
+         "COGOType": null,
+         "IsCOGOGround": null,
+         "Rotation": null,
+         "Scale": null,
+         "DirectionAccuracy": 30,
+         "DistanceAccuracy": 0.4921249999999999,
+         "EngSvyName": null,
+         "EngCo": null,
+         "RecordDate": null,
+         "MapNum": null,
+         "EngSvyNum": null,
+         "BPNum": null,
+         "Type": 0,
+         "FloorDesignator": null,
+         "StreetName": null,
+         "OldStreetName": null,
+         "Prefix": null,
+         "Suffix": null,
+         "StreetCode": 1,
+         "Notes": null,
+         "OriginalFeatureOID": null
+        }
+       },
+       "drawingTool": "esriFeatureEditToolLine"
+      }
+     ]
+    },
+    {
+     "id": 2,
+     "name": "Arterial B",
+     "domains": {
+      "COGOType": {
+       "type": "inherited"
+      },
+      "IsCOGOGround": {
+       "type": "inherited"
+      },
+      "VALIDATIONSTATUS": {
+       "type": "inherited"
+      },
+      "Type": {
+       "type": "inherited"
+      },
+      "FloorDesignator": {
+       "type": "inherited"
+      },
+      "Suffix": {
+       "type": "inherited"
+      },
+      "StreetCode": {
+       "type": "inherited"
+      }
+     },
+     "templates": [
+      {
+       "name": "2",
+       "description": "",
+       "prototype": {
+        "attributes": {
+         "GeoPages": null,
+         "CombinationFactor": null,
+         "DistanceRecordGrid": null,
+         "DirectionInverse": null,
+         "DistanceCorrection": null,
+         "Cities": null,
+         "CreatedByRecord": null,
+         "RetiredByRecord": null,
+         "Direction": null,
+         "Distance": null,
+         "Radius": null,
+         "ArcLength": null,
+         "Radius2": null,
+         "COGOType": null,
+         "IsCOGOGround": null,
+         "Rotation": null,
+         "Scale": null,
+         "DirectionAccuracy": 30,
+         "DistanceAccuracy": 0.4921249999999999,
+         "EngSvyName": null,
+         "EngCo": null,
+         "RecordDate": null,
+         "MapNum": null,
+         "EngSvyNum": null,
+         "BPNum": null,
+         "Type": 0,
+         "FloorDesignator": null,
+         "StreetName": null,
+         "OldStreetName": null,
+         "Prefix": null,
+         "Suffix": null,
+         "StreetCode": 2,
+         "Notes": null,
+         "OriginalFeatureOID": null
+        }
+       },
+       "drawingTool": "esriFeatureEditToolLine"
+      }
+     ]
+    },
+    {
+     "id": 3,
+     "name": "Arterial C",
+     "domains": {
+      "COGOType": {
+       "type": "inherited"
+      },
+      "IsCOGOGround": {
+       "type": "inherited"
+      },
+      "VALIDATIONSTATUS": {
+       "type": "inherited"
+      },
+      "Type": {
+       "type": "inherited"
+      },
+      "FloorDesignator": {
+       "type": "inherited"
+      },
+      "Suffix": {
+       "type": "inherited"
+      },
+      "StreetCode": {
+       "type": "inherited"
+      }
+     },
+     "templates": [
+      {
+       "name": "3",
+       "description": "",
+       "prototype": {
+        "attributes": {
+         "GeoPages": null,
+         "CombinationFactor": null,
+         "DistanceRecordGrid": null,
+         "DirectionInverse": null,
+         "DistanceCorrection": null,
+         "Cities": null,
+         "CreatedByRecord": null,
+         "RetiredByRecord": null,
+         "Direction": null,
+         "Distance": null,
+         "Radius": null,
+         "ArcLength": null,
+         "Radius2": null,
+         "COGOType": null,
+         "IsCOGOGround": null,
+         "Rotation": null,
+         "Scale": null,
+         "DirectionAccuracy": 30,
+         "DistanceAccuracy": 0.4921249999999999,
+         "EngSvyName": null,
+         "EngCo": null,
+         "RecordDate": null,
+         "MapNum": null,
+         "EngSvyNum": null,
+         "BPNum": null,
+         "Type": 0,
+         "FloorDesignator": null,
+         "StreetName": null,
+         "OldStreetName": null,
+         "Prefix": null,
+         "Suffix": null,
+         "StreetCode": 3,
+         "Notes": null,
+         "OriginalFeatureOID": null
+        }
+       },
+       "drawingTool": "esriFeatureEditToolLine"
+      }
+     ]
+    },
+    {
+     "id": 4,
+     "name": "Local",
+     "domains": {
+      "COGOType": {
+       "type": "inherited"
+      },
+      "IsCOGOGround": {
+       "type": "inherited"
+      },
+      "VALIDATIONSTATUS": {
+       "type": "inherited"
+      },
+      "Type": {
+       "type": "inherited"
+      },
+      "FloorDesignator": {
+       "type": "inherited"
+      },
+      "Suffix": {
+       "type": "inherited"
+      },
+      "StreetCode": {
+       "type": "inherited"
+      }
+     },
+     "templates": [
+      {
+       "name": "4",
+       "description": "",
+       "prototype": {
+        "attributes": {
+         "GeoPages": null,
+         "CombinationFactor": null,
+         "DistanceRecordGrid": null,
+         "DirectionInverse": null,
+         "DistanceCorrection": null,
+         "Cities": null,
+         "CreatedByRecord": null,
+         "RetiredByRecord": null,
+         "Direction": null,
+         "Distance": null,
+         "Radius": null,
+         "ArcLength": null,
+         "Radius2": null,
+         "COGOType": null,
+         "IsCOGOGround": null,
+         "Rotation": null,
+         "Scale": null,
+         "DirectionAccuracy": 30,
+         "DistanceAccuracy": 0.4921249999999999,
+         "EngSvyName": null,
+         "EngCo": null,
+         "RecordDate": null,
+         "MapNum": null,
+         "EngSvyNum": null,
+         "BPNum": null,
+         "Type": 0,
+         "FloorDesignator": null,
+         "StreetName": null,
+         "OldStreetName": null,
+         "Prefix": null,
+         "Suffix": null,
+         "StreetCode": 4,
+         "Notes": null,
+         "OriginalFeatureOID": null
+        }
+       },
+       "drawingTool": "esriFeatureEditToolLine"
+      }
+     ]
+    },
+    {
+     "id": 5,
+     "name": "Private",
+     "domains": {
+      "COGOType": {
+       "type": "inherited"
+      },
+      "IsCOGOGround": {
+       "type": "inherited"
+      },
+      "VALIDATIONSTATUS": {
+       "type": "inherited"
+      },
+      "Type": {
+       "type": "inherited"
+      },
+      "FloorDesignator": {
+       "type": "inherited"
+      },
+      "Suffix": {
+       "type": "inherited"
+      },
+      "StreetCode": {
+       "type": "inherited"
+      }
+     },
+     "templates": [
+      {
+       "name": "5",
+       "description": "",
+       "prototype": {
+        "attributes": {
+         "GeoPages": null,
+         "CombinationFactor": null,
+         "DistanceRecordGrid": null,
+         "DirectionInverse": null,
+         "DistanceCorrection": null,
+         "Cities": null,
+         "CreatedByRecord": null,
+         "RetiredByRecord": null,
+         "Direction": null,
+         "Distance": null,
+         "Radius": null,
+         "ArcLength": null,
+         "Radius2": null,
+         "COGOType": null,
+         "IsCOGOGround": null,
+         "Rotation": null,
+         "Scale": null,
+         "DirectionAccuracy": 30,
+         "DistanceAccuracy": 0.4921249999999999,
+         "EngSvyName": null,
+         "EngCo": null,
+         "RecordDate": null,
+         "MapNum": null,
+         "EngSvyNum": null,
+         "BPNum": null,
+         "Type": 0,
+         "FloorDesignator": null,
+         "StreetName": null,
+         "OldStreetName": null,
+         "Prefix": null,
+         "Suffix": null,
+         "StreetCode": 5,
+         "Notes": null,
+         "OriginalFeatureOID": null
+        }
+       },
+       "drawingTool": "esriFeatureEditToolLine"
+      }
+     ]
+    },
+    {
+     "id": 6,
+     "name": "Psuedo",
+     "domains": {
+      "COGOType": {
+       "type": "inherited"
+      },
+      "IsCOGOGround": {
+       "type": "inherited"
+      },
+      "VALIDATIONSTATUS": {
+       "type": "inherited"
+      },
+      "Type": {
+       "type": "inherited"
+      },
+      "FloorDesignator": {
+       "type": "inherited"
+      },
+      "Suffix": {
+       "type": "inherited"
+      },
+      "StreetCode": {
+       "type": "inherited"
+      }
+     },
+     "templates": [
+      {
+       "name": "6",
+       "description": "",
+       "prototype": {
+        "attributes": {
+         "GeoPages": null,
+         "CombinationFactor": null,
+         "DistanceRecordGrid": null,
+         "DirectionInverse": null,
+         "DistanceCorrection": null,
+         "Cities": null,
+         "CreatedByRecord": null,
+         "RetiredByRecord": null,
+         "Direction": null,
+         "Distance": null,
+         "Radius": null,
+         "ArcLength": null,
+         "Radius2": null,
+         "COGOType": null,
+         "IsCOGOGround": null,
+         "Rotation": null,
+         "Scale": null,
+         "DirectionAccuracy": 30,
+         "DistanceAccuracy": 0.4921249999999999,
+         "EngSvyName": null,
+         "EngCo": null,
+         "RecordDate": null,
+         "MapNum": null,
+         "EngSvyNum": null,
+         "BPNum": null,
+         "Type": 0,
+         "FloorDesignator": null,
+         "StreetName": null,
+         "OldStreetName": null,
+         "Prefix": null,
+         "Suffix": null,
+         "StreetCode": 6,
+         "Notes": null,
+         "OriginalFeatureOID": null
+        }
+       },
+       "drawingTool": "esriFeatureEditToolLine"
+      }
+     ]
+    },
+    {
+     "id": 7,
+     "name": "Alley",
+     "domains": {
+      "COGOType": {
+       "type": "inherited"
+      },
+      "IsCOGOGround": {
+       "type": "inherited"
+      },
+      "VALIDATIONSTATUS": {
+       "type": "inherited"
+      },
+      "Type": {
+       "type": "inherited"
+      },
+      "FloorDesignator": {
+       "type": "inherited"
+      },
+      "Suffix": {
+       "type": "inherited"
+      },
+      "StreetCode": {
+       "type": "inherited"
+      }
+     },
+     "templates": [
+      {
+       "name": "7",
+       "description": "",
+       "prototype": {
+        "attributes": {
+         "GeoPages": null,
+         "CombinationFactor": null,
+         "DistanceRecordGrid": null,
+         "DirectionInverse": null,
+         "DistanceCorrection": null,
+         "Cities": null,
+         "CreatedByRecord": null,
+         "RetiredByRecord": null,
+         "Direction": null,
+         "Distance": null,
+         "Radius": null,
+         "ArcLength": null,
+         "Radius2": null,
+         "COGOType": null,
+         "IsCOGOGround": null,
+         "Rotation": null,
+         "Scale": null,
+         "DirectionAccuracy": 30,
+         "DistanceAccuracy": 0.4921249999999999,
+         "EngSvyName": null,
+         "EngCo": null,
+         "RecordDate": null,
+         "MapNum": null,
+         "EngSvyNum": null,
+         "BPNum": null,
+         "Type": 0,
+         "FloorDesignator": null,
+         "StreetName": null,
+         "OldStreetName": null,
+         "Prefix": null,
+         "Suffix": null,
+         "StreetCode": 7,
+         "Notes": null,
+         "OriginalFeatureOID": null
+        }
+       },
+       "drawingTool": "esriFeatureEditToolLine"
+      }
+     ]
+    }
+   ],
+   "templates": [],
+   "maxRecordCount": 2000,
+   "supportedQueryFormats": "JSON, geoJSON, PBF",
+   "supportedExportFormats": "sqlite,filegdb,shapefile,csv,geojson",
+   "capabilities": "Query,Extract,ChangeTracking",
+   "useStandardizedQueries": true,
+   "bigIntegerRestrictedTo53Bits": true,
+   "userTypeExtensions": [
+    "advancedEditing"
+   ],
+   "supportedSpatialRelationships": [
+    "esriSpatialRelIntersects",
+    "esriSpatialRelContains",
+    "esriSpatialRelCrosses",
+    "esriSpatialRelEnvelopeIntersects",
+    "esriSpatialRelIndexIntersects",
+    "esriSpatialRelOverlaps",
+    "esriSpatialRelTouches",
+    "esriSpatialRelWithin",
+    "esriSpatialRelRelation"
+   ],
+   "supportsAppend": true,
+   "supportedAppendFormats": "FILEGDB,PBF",
+   "standardMaxRecordCount": 8000,
+   "tileMaxRecordCount": 4000,
+   "standardMaxRecordCountNoGeometry": 32000,
+   "maxRecordCountFactor": 1
+  }
+ },
+ {
+  "url": "https://services.arcgis.com/UXmFoWC7yDHcDN5Q/arcgis/rest/services/OC_Flood_Hazard_Areas_Polygons/FeatureServer/7",
+  "meta": {
+   "currentVersion": 12,
+   "id": 7,
+   "name": "OC Flood Hazard Areas Polygons",
+   "type": "Feature Layer",
+   "serviceItemId": "38df2c546ab745ac88cdbc6b8f327e40",
+   "cacheMaxAge": 30,
+   "displayField": "Id",
+   "description": "The Federal Emergency Management Agency (FEMA) produces Flood Insurance Rate maps and identifies Special Flood Hazard Areas as part of the National Flood Insurance Program's floodplain management. Special Flood Hazard Areas have regulations that include the mandatory purchase of flood insurance for holders of federally regulated mortgages. In addition, this layer can help planners and firms avoid areas of flood risk and also avoid additional cost to carry insurance for certain planned activities.This layer is derived from the May 7, 2025 version Flood Insurance Rate Map feature class S_FLD_HAZ_AR. The vector data were then flagged with an index of 94 classes, representing a unique combination of values displayed by three renderers. (In three resolutions the three renderers make nine processing templates.) Repair Geometry was run on the set of features, then the features were rasterized using the 94 class index at a resolutions of 10, 30, and 90 meters, using the Polygon to Raster tool and the \"MAXIMUM_COMBINED_AREA\" option. Projection: Web Mercator Auxiliary SphereData Coordinate System: USA Contiguous Albers Equal Area Conic USGS version (contiguous US, Puerto Rico, US Virgin Islands), WGS 1984 Albers (Alaska), Hawaii Albers Equal Area Conic (Hawaii), Western Pacific Albers Equal Area Conic (Guam, Northern Mariana Islands, and American Samoa)Cell Sizes: 10 meters (default), 30 meters, and 90 metersData Date: May 7, 2025; Version: 2026.1, Updated: March 2026",
+   "copyrightText": "Dr. Kostas Alexandridis, GISP, Data Scientist, OC Public Works, OC Survey Geospatial Services for the Orange County data and project extent processing. Original data from FEMA Flood Insurance Rate Maps, and ESRI Living Atlas.",
+   "defaultVisibility": true,
+   "editingInfo": {
+    "lastEditDate": 1773180675946,
+    "schemaLastEditDate": 1773180673346,
+    "dataLastEditDate": 1773179106812
+   },
+   "relationships": [],
+   "isDataVersioned": false,
+   "hasContingentValuesDefinition": false,
+   "supportsAppend": true,
+   "supportsCalculate": true,
+   "supportsASyncCalculate": true,
+   "supportsTruncate": true,
+   "supportsAttachmentsByUploadId": true,
+   "supportsAttachmentsResizing": true,
+   "supportsRollbackOnFailureParameter": true,
+   "supportsStatistics": true,
+   "supportsExceedsLimitStatistics": true,
+   "supportsAdvancedQueries": true,
+   "supportsValidateSql": true,
+   "supportsCoordinatesQuantization": true,
+   "supportsLayerOverrides": true,
+   "supportsTilesAndBasicQueriesMode": true,
+   "supportsFieldDescriptionProperty": true,
+   "supportsQuantizationEditMode": true,
+   "supportsColumnStoreIndex": true,
+   "supportsApplyEditsWithGlobalIds": false,
+   "supportsMultiScaleGeometry": true,
+   "supportsReturningQueryGeometry": true,
+   "enableNullGeometry": false,
+   "hasGeometryProperties": true,
+   "geometryProperties": {
+    "shapeAreaFieldName": "Shape__Area",
+    "shapeLengthFieldName": "Shape__Length",
+    "units": "esriMeters"
+   },
+   "advancedQueryCapabilities": {
+    "supportsPagination": true,
+    "supportsPaginationOnAggregatedQueries": true,
+    "supportsQueryRelatedPagination": true,
+    "supportsQueryWithDistance": true,
+    "supportsOutDistance": true,
+    "supportsReturningQueryExtent": true,
+    "supportsStatistics": true,
+    "supportsOrderBy": true,
+    "supportsDistinct": true,
+    "supportsQueryWithResultType": true,
+    "supportsSqlExpression": true,
+    "supportsTimeRelation": true,
+    "supportsAdvancedQueryRelated": true,
+    "supportsCountDistinct": true,
+    "supportsPercentileStatistics": true,
+    "supportsApproxPercentileStatistics": true,
+    "supportsSpatialAggregationStatistics": true,
+    "supportsTrueCurve": true,
+    "supportedSpatialAggregationStatistics": [
+     "EnvelopeAggregate",
+     "CentroidAggregate",
+     "ConvexHullAggregate"
+    ],
+    "supportsLod": true,
+    "supportsQueryWithLodSR": false,
+    "supportedLodTypes": [
+     "geohash"
+    ],
+    "supportsReturningGeometryCentroid": true,
+    "supportsReturningGeometryEnvelope": true,
+    "supportsReturningGeometryProperties": true,
+    "supportsQueryWithDatumTransformation": true,
+    "supportsCurrentUserQueries": true,
+    "supportsHavingClause": true,
+    "supportsOutFieldSQLExpression": true,
+    "supportsMaxRecordCountFactor": true,
+    "supportsTopFeaturesQuery": true,
+    "supportsDisjointSpatialRel": true,
+    "supportsQueryWithCacheHint": true,
+    "supportedOperationsWithCacheHint": [
+     "query",
+     "queryTopFilter",
+     "queryAnalytics",
+     "queryAttachments",
+     "queryRelated",
+     "queryBins",
+     "queryPivot"
+    ],
+    "supportsQueryAnalytic": true,
+    "supportsQueryPivot": true,
+    "supportsQueryBins": true,
+    "supportsDefaultSR": true,
+    "supportsTranslations": false,
+    "supportsAggIds": true,
+    "supportsQueryWithCollation": true,
+    "supportsISODOW": true,
+    "supportsISOWeek": true,
+    "supportsFullTextSearch": true,
+    "fullTextSearchCapabilities": {
+     "supportsAccentSensitivity": true,
+     "supportsStopWords": true,
+     "supportsSearchOperator": true,
+     "supportsOperator": true
+    }
+   },
+   "advancedQueryAnalyticCapabilities": {
+    "supportsLinearRegression": true,
+    "supportsTrendlineRegression": true,
+    "supportsAsync": true,
+    "supportsPercentileAnalytic": true
+   },
+   "queryBinsCapabilities": {
+    "supportsAsync": true,
+    "supportsAutoIntervalBin": true,
+    "supportsFixedIntervalBin": true,
+    "supportsFixedBoundariesBin": true,
+    "supportsDateBin": true,
+    "supportsClassificationBin": true,
+    "supportsStackBy": true,
+    "supportsSplitBy": true,
+    "supportsFirstDayOfWeek": true,
+    "supportsSnapToData": true,
+    "supportsReturnFullIntervalBin": true,
+    "supportsReturnStackValueRange": true,
+    "supportsNormalization": true,
+    "supportedStatisticTypes": [
+     "COUNT",
+     "SUM",
+     "AVG",
+     "VAR",
+     "STDDEV",
+     "MIN",
+     "MAX",
+     "PERCENTILE_CONT",
+     "PERCENTILE_DISC",
+     "APPROX_PERCENTILE_CONT",
+     "APPROX_PERCENTILE_DISC",
+     "CentroidAggregate",
+     "EnvelopeAggregate",
+     "ConvexHullAggregate"
+    ],
+    "supportedNormalizationTypes": [
+     "boxCox",
+     "field",
+     "inverse",
+     "log",
+     "naturalLog",
+     "percentOfTotal",
+     "squareRoot"
+    ]
+   },
+   "supportedOperationsWithCollation": "query,addField,updateField",
+   "advancedEditingCapabilities": {
+    "supportedSqlFormatsInCalculate": [
+     "standard"
+    ],
+    "supportsAsyncApplyEdits": true,
+    "supportsReturnEditResults": true,
+    "supportsApplyEditsbyUploadID": true,
+    "supportedApplyEditsUploadIDFormats": "JSON,PBF",
+    "supportsTranslation": false,
+    "supportsMaxTranslations": 10
+   },
+   "infoInEstimates": [
+    "extent",
+    "count"
+   ],
+   "useStandardizedQueries": true,
+   "geometryType": "esriGeometryPolygon",
+   "minScale": 0,
+   "maxScale": 0,
+   "extent": {
+    "xmin": -13149032.842119567,
+    "ymin": 3946794.971335128,
+    "xmax": -13070337.527476307,
+    "ymax": 4021772.3818130046,
+    "spatialReference": {
+     "wkid": 102100,
+     "latestWkid": 3857
+    }
+   },
+   "spatialReference": {
+    "wkid": 102100,
+    "latestWkid": 3857
+   },
+   "drawingInfo": {
+    "renderer": {
+     "type": "uniqueValue",
+     "field1": "class_name",
+     "uniqueValueGroups": [
+      {
+       "heading": "Class Name",
+       "classes": [
+        {
+         "label": "1% Annual Chance Flood Hazard",
+         "description": "1% Annual Chance Flood Hazard",
+         "symbol": {
+          "type": "esriSFS",
+          "style": "esriSFSSolid",
+          "color": [
+           142,
+           52,
+           148,
+           255
+          ],
+          "outline": {
+           "type": "esriSLS",
+           "style": "esriSLSNull",
+           "color": [
+            252,
+            179,
+            252,
+            255
+           ],
+           "width": 0
+          }
+         },
+         "values": [
+          [
+           "1% Annual Chance Flood Hazard"
+          ]
+         ]
+        },
+        {
+         "label": "Regulatory Floodway",
+         "description": "Regulatory Floodway",
+         "symbol": {
+          "type": "esriSFS",
+          "style": "esriSFSSolid",
+          "color": [
+           118,
+           156,
+           205,
+           255
+          ],
+          "outline": {
+           "type": "esriSLS",
+           "style": "esriSLSNull",
+           "color": [
+            197,
+            252,
+            239,
+            255
+           ],
+           "width": 0
+          }
+         },
+         "values": [
+          [
+           "Regulatory Floodway"
+          ]
+         ]
+        },
+        {
+         "label": "0.2% Annual Chance Flood Hazard",
+         "description": "0.2% Annual Chance Flood Hazard",
+         "symbol": {
+          "type": "esriSFS",
+          "style": "esriSFSSolid",
+          "color": [
+           157,
+           125,
+           192,
+           255
+          ],
+          "outline": {
+           "type": "esriSLS",
+           "style": "esriSLSNull",
+           "color": [
+            217,
+            252,
+            194,
+            255
+           ],
+           "width": 0
+          }
+         },
+         "values": [
+          [
+           "0.2% Annual Chance Flood Hazard"
+          ]
+         ]
+        },
+        {
+         "label": "Area of Minimal Flood Hazard",
+         "description": "Area of Minimal Flood Hazard",
+         "symbol": {
+          "type": "esriSFS",
+          "style": "esriSFSSolid",
+          "color": [
+           237,
+           241,
+           206,
+           255
+          ],
+          "outline": {
+           "type": "esriSLS",
+           "style": "esriSLSNull",
+           "color": [
+            252,
+            189,
+            182,
+            255
+           ],
+           "width": 0
+          }
+         },
+         "values": [
+          [
+           "Area of Minimal Flood Hazard"
+          ]
+         ]
+        },
+        {
+         "label": "Area of Undetermined Flood Hazard",
+         "description": "Area of Undetermined Flood Hazard",
+         "symbol": {
+          "type": "esriSFS",
+          "style": "esriSFSSolid",
+          "color": [
+           210,
+           212,
+           207,
+           255
+          ],
+          "outline": {
+           "type": "esriSLS",
+           "style": "esriSLSNull",
+           "color": [
+            182,
+            225,
+            252,
+            255
+           ],
+           "width": 0
+          }
+         },
+         "values": [
+          [
+           "Area of Undetermined Flood Hazard"
+          ]
+         ]
+        },
+        {
+         "label": "Area with Reduced Risk Due to Levee",
+         "description": "Area with Reduced Risk Due to Levee",
+         "symbol": {
+          "type": "esriSFS",
+          "style": "esriSFSSolid",
+          "color": [
+           229,
+           208,
+           153,
+           255
+          ],
+          "outline": {
+           "type": "esriSLS",
+           "style": "esriSLSNull",
+           "color": [
+            184,
+            189,
+            252,
+            255
+           ],
+           "width": 0
+          }
+         },
+         "values": [
+          [
+           "Area with Reduced Risk Due to Levee"
+          ]
+         ]
+        },
+        {
+         "label": "Not Mapped",
+         "description": "Not Mapped",
+         "symbol": {
+          "type": "esriSFS",
+          "style": "esriSFSSolid",
+          "color": [
+           189,
+           189,
+           191,
+           255
+          ],
+          "outline": {
+           "type": "esriSLS",
+           "style": "esriSLSNull",
+           "color": [
+            252,
+            215,
+            246,
+            255
+           ],
+           "width": 0
+          }
+         },
+         "values": [
+          [
+           "Not Mapped"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "uniqueValueInfos": [
+      {
+       "symbol": {
+        "type": "esriSFS",
+        "style": "esriSFSSolid",
+        "color": [
+         142,
+         52,
+         148,
+         255
+        ],
+        "outline": {
+         "type": "esriSLS",
+         "style": "esriSLSNull",
+         "color": [
+          252,
+          179,
+          252,
+          255
+         ],
+         "width": 0
+        }
+       },
+       "value": "1% Annual Chance Flood Hazard",
+       "label": "1% Annual Chance Flood Hazard"
+      },
+      {
+       "symbol": {
+        "type": "esriSFS",
+        "style": "esriSFSSolid",
+        "color": [
+         118,
+         156,
+         205,
+         255
+        ],
+        "outline": {
+         "type": "esriSLS",
+         "style": "esriSLSNull",
+         "color": [
+          197,
+          252,
+          239,
+          255
+         ],
+         "width": 0
+        }
+       },
+       "value": "Regulatory Floodway",
+       "label": "Regulatory Floodway"
+      },
+      {
+       "symbol": {
+        "type": "esriSFS",
+        "style": "esriSFSSolid",
+        "color": [
+         157,
+         125,
+         192,
+         255
+        ],
+        "outline": {
+         "type": "esriSLS",
+         "style": "esriSLSNull",
+         "color": [
+          217,
+          252,
+          194,
+          255
+         ],
+         "width": 0
+        }
+       },
+       "value": "0.2% Annual Chance Flood Hazard",
+       "label": "0.2% Annual Chance Flood Hazard"
+      },
+      {
+       "symbol": {
+        "type": "esriSFS",
+        "style": "esriSFSSolid",
+        "color": [
+         237,
+         241,
+         206,
+         255
+        ],
+        "outline": {
+         "type": "esriSLS",
+         "style": "esriSLSNull",
+         "color": [
+          252,
+          189,
+          182,
+          255
+         ],
+         "width": 0
+        }
+       },
+       "value": "Area of Minimal Flood Hazard",
+       "label": "Area of Minimal Flood Hazard"
+      },
+      {
+       "symbol": {
+        "type": "esriSFS",
+        "style": "esriSFSSolid",
+        "color": [
+         210,
+         212,
+         207,
+         255
+        ],
+        "outline": {
+         "type": "esriSLS",
+         "style": "esriSLSNull",
+         "color": [
+          182,
+          225,
+          252,
+          255
+         ],
+         "width": 0
+        }
+       },
+       "value": "Area of Undetermined Flood Hazard",
+       "label": "Area of Undetermined Flood Hazard"
+      },
+      {
+       "symbol": {
+        "type": "esriSFS",
+        "style": "esriSFSSolid",
+        "color": [
+         229,
+         208,
+         153,
+         255
+        ],
+        "outline": {
+         "type": "esriSLS",
+         "style": "esriSLSNull",
+         "color": [
+          184,
+          189,
+          252,
+          255
+         ],
+         "width": 0
+        }
+       },
+       "value": "Area with Reduced Risk Due to Levee",
+       "label": "Area with Reduced Risk Due to Levee"
+      },
+      {
+       "symbol": {
+        "type": "esriSFS",
+        "style": "esriSFSSolid",
+        "color": [
+         189,
+         189,
+         191,
+         255
+        ],
+        "outline": {
+         "type": "esriSLS",
+         "style": "esriSLSNull",
+         "color": [
+          252,
+          215,
+          246,
+          255
+         ],
+         "width": 0
+        }
+       },
+       "value": "Not Mapped",
+       "label": "Not Mapped"
+      }
+     ],
+     "fieldDelimiter": ",",
+     "authoringInfo": {
+      "colorRamp": {
+       "type": "multipart",
+       "colorRamps": [
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          227,
+          252,
+          215,
+          255
+         ],
+         "toColor": [
+          227,
+          252,
+          215,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          238,
+          179,
+          252,
+          255
+         ],
+         "toColor": [
+          238,
+          179,
+          252,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          252,
+          193,
+          184,
+          255
+         ],
+         "toColor": [
+          252,
+          193,
+          184,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          207,
+          224,
+          252,
+          255
+         ],
+         "toColor": [
+          207,
+          224,
+          252,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          179,
+          252,
+          250,
+          255
+         ],
+         "toColor": [
+          179,
+          252,
+          250,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          252,
+          207,
+          238,
+          255
+         ],
+         "toColor": [
+          252,
+          207,
+          238,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          252,
+          226,
+          184,
+          255
+         ],
+         "toColor": [
+          252,
+          226,
+          184,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          188,
+          252,
+          182,
+          255
+         ],
+         "toColor": [
+          188,
+          252,
+          182,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          182,
+          184,
+          252,
+          255
+         ],
+         "toColor": [
+          182,
+          184,
+          252,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          182,
+          252,
+          217,
+          255
+         ],
+         "toColor": [
+          182,
+          252,
+          217,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          235,
+          252,
+          184,
+          255
+         ],
+         "toColor": [
+          235,
+          252,
+          184,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          215,
+          247,
+          252,
+          255
+         ],
+         "toColor": [
+          215,
+          247,
+          252,
+          255
+         ]
+        },
+        {
+         "type": "algorithmic",
+         "algorithm": "esriCIELabAlgorithm",
+         "fromColor": [
+          252,
+          187,
+          203,
+          255
+         ],
+         "toColor": [
+          252,
+          187,
+          203,
+          255
+         ]
+        }
+       ]
+      }
+     }
+    },
+    "scaleSymbols": true,
+    "transparency": 0,
+    "labelingInfo": null
+   },
+   "allowGeometryUpdates": true,
+   "trueCurveSupportMode": "OGC",
+   "supportedCurveTypes": [
+    "esriGeometryCircularArc"
+   ],
+   "supportedTrueCurvePbfFeatureEncodings": [
+    "esriCompressedShapeBuffer",
+    "esriDefault"
+   ],
+   "allowTrueCurvesUpdates": true,
+   "onlyAllowTrueCurveUpdatesByTrueCurveClients": false,
+   "hasAttachments": false,
+   "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+   "hasMetadata": true,
+   "hasM": false,
+   "hasZ": false,
+   "objectIdField": "OBJECTID",
+   "uniqueIdField": {
+    "name": "OBJECTID",
+    "isSystemMaintained": true
+   },
+   "globalIdField": "",
+   "typeIdField": "class_name",
+   "collation": {
+    "locale": "neutral",
+    "caseSensitive": false,
+    "accentSensitive": true
+   },
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID",
+     "alias": "OBJECTID",
+     "sqlType": "sqlTypeOther",
+     "nullable": false,
+     "editable": false,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "Id",
+     "type": "esriFieldTypeInteger",
+     "alias": "ID",
+     "sqlType": "sqlTypeOther",
+     "nullable": true,
+     "editable": true,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "value",
+     "type": "esriFieldTypeInteger",
+     "alias": "Value",
+     "sqlType": "sqlTypeOther",
+     "nullable": true,
+     "editable": true,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "class_name",
+     "type": "esriFieldTypeString",
+     "alias": "Class Name",
+     "sqlType": "sqlTypeOther",
+     "length": 255,
+     "nullable": true,
+     "editable": true,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "red",
+     "type": "esriFieldTypeSmallInteger",
+     "alias": "Red",
+     "sqlType": "sqlTypeOther",
+     "nullable": true,
+     "editable": true,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "green",
+     "type": "esriFieldTypeSmallInteger",
+     "alias": "Green",
+     "sqlType": "sqlTypeOther",
+     "nullable": true,
+     "editable": true,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "blue",
+     "type": "esriFieldTypeSmallInteger",
+     "alias": "Blue",
+     "sqlType": "sqlTypeOther",
+     "nullable": true,
+     "editable": true,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "esri_index",
+     "type": "esriFieldTypeSmallInteger",
+     "alias": "Esri Index Number",
+     "sqlType": "sqlTypeOther",
+     "nullable": true,
+     "editable": true,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "esri_oldindex",
+     "type": "esriFieldTypeSmallInteger",
+     "alias": "Esri Symbology Number",
+     "sqlType": "sqlTypeOther",
+     "nullable": true,
+     "editable": true,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "esri_symbology",
+     "type": "esriFieldTypeString",
+     "alias": "Esri Symbology",
+     "sqlType": "sqlTypeOther",
+     "length": 255,
+     "nullable": true,
+     "editable": true,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "popup_text",
+     "type": "esriFieldTypeString",
+     "alias": "Popup Text",
+     "sqlType": "sqlTypeOther",
+     "length": 255,
+     "nullable": true,
+     "editable": true,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "fld_zone",
+     "type": "esriFieldTypeString",
+     "alias": "Flood Zone",
+     "sqlType": "sqlTypeOther",
+     "length": 255,
+     "nullable": true,
+     "editable": true,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "zone_subty",
+     "type": "esriFieldTypeString",
+     "alias": "Flood Zone Subtype",
+     "sqlType": "sqlTypeOther",
+     "length": 255,
+     "nullable": true,
+     "editable": true,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "sfha_tf",
+     "type": "esriFieldTypeString",
+     "alias": "Special Flood Hazard Area",
+     "sqlType": "sqlTypeOther",
+     "length": 255,
+     "nullable": true,
+     "editable": true,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "orig_fid",
+     "type": "esriFieldTypeInteger",
+     "alias": "Original FID",
+     "sqlType": "sqlTypeOther",
+     "nullable": true,
+     "editable": true,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "Shape__Area",
+     "type": "esriFieldTypeDouble",
+     "alias": "Shape__Area",
+     "sqlType": "sqlTypeDouble",
+     "nullable": true,
+     "editable": false,
+     "domain": null,
+     "defaultValue": null
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble",
+     "alias": "Shape__Length",
+     "sqlType": "sqlTypeDouble",
+     "nullable": true,
+     "editable": false,
+     "domain": null,
+     "defaultValue": null
+    }
+   ],
+   "indexes": [
+    {
+     "name": "PK__OC_FLOOD__F4B70D856936684E",
+     "fields": "OBJECTID",
+     "isAscending": true,
+     "isUnique": true,
+     "description": "",
+     "indexType": "Attribute"
+    },
+    {
+     "name": "user_12796.OC_FLOOD_HAZARD_AREAS_POLYGONS_OC_FLOOD_HAZARD_AREAS_POLYGONS_Shape_sidx",
+     "fields": "Shape",
+     "isAscending": true,
+     "isUnique": false,
+     "description": "",
+     "indexType": "Spatial"
+    },
+    {
+     "name": "Shape__Area_Index",
+     "fields": "Shape__Area",
+     "isAscending": true,
+     "isUnique": false,
+     "description": "",
+     "indexType": "Attribute"
+    },
+    {
+     "name": "Shape__Length_Index",
+     "fields": "Shape__Length",
+     "isAscending": true,
+     "isUnique": false,
+     "description": "",
+     "indexType": "Attribute"
+    }
+   ],
+   "dateFieldsTimeReference": {
+    "timeZone": "UTC",
+    "timeZoneIANA": "Etc/UTC",
+    "respectsDaylightSaving": false
+   },
+   "preferredTimeReference": null,
+   "types": [
+    {
+     "id": "1% Annual Chance Flood Hazard",
+     "name": "1% Annual Chance Flood Hazard",
+     "domains": {},
+     "templates": [
+      {
+       "name": "1% Annual Chance Flood Hazard",
+       "description": "",
+       "drawingTool": "esriFeatureEditToolPolygon",
+       "prototype": {
+        "attributes": {
+         "sfha_tf": null,
+         "orig_fid": null,
+         "Id": null,
+         "value": null,
+         "class_name": "1% Annual Chance Flood Hazard",
+         "fld_zone": null,
+         "zone_subty": null,
+         "red": null,
+         "green": null,
+         "blue": null,
+         "esri_index": null,
+         "esri_oldindex": null,
+         "esri_symbology": null,
+         "popup_text": null
+        }
+       }
+      }
+     ]
+    },
+    {
+     "id": "Regulatory Floodway",
+     "name": "Regulatory Floodway",
+     "domains": {},
+     "templates": [
+      {
+       "name": "Regulatory Floodway",
+       "description": "",
+       "drawingTool": "esriFeatureEditToolPolygon",
+       "prototype": {
+        "attributes": {
+         "sfha_tf": null,
+         "orig_fid": null,
+         "Id": null,
+         "value": null,
+         "class_name": "Regulatory Floodway",
+         "fld_zone": null,
+         "zone_subty": null,
+         "red": null,
+         "green": null,
+         "blue": null,
+         "esri_index": null,
+         "esri_oldindex": null,
+         "esri_symbology": null,
+         "popup_text": null
+        }
+       }
+      }
+     ]
+    },
+    {
+     "id": "0.2% Annual Chance Flood Hazard",
+     "name": "0.2% Annual Chance Flood Hazard",
+     "domains": {},
+     "templates": [
+      {
+       "name": "0.2% Annual Chance Flood Hazard",
+       "description": "",
+       "drawingTool": "esriFeatureEditToolPolygon",
+       "prototype": {
+        "attributes": {
+         "sfha_tf": null,
+         "orig_fid": null,
+         "Id": null,
+         "value": null,
+         "class_name": "0.2% Annual Chance Flood Hazard",
+         "fld_zone": null,
+         "zone_subty": null,
+         "red": null,
+         "green": null,
+         "blue": null,
+         "esri_index": null,
+         "esri_oldindex": null,
+         "esri_symbology": null,
+         "popup_text": null
+        }
+       }
+      }
+     ]
+    },
+    {
+     "id": "Area of Minimal Flood Hazard",
+     "name": "Area of Minimal Flood Hazard",
+     "domains": {},
+     "templates": [
+      {
+       "name": "Area of Minimal Flood Hazard",
+       "description": "",
+       "drawingTool": "esriFeatureEditToolPolygon",
+       "prototype": {
+        "attributes": {
+         "sfha_tf": null,
+         "orig_fid": null,
+         "Id": null,
+         "value": null,
+         "class_name": "Area of Minimal Flood Hazard",
+         "fld_zone": null,
+         "zone_subty": null,
+         "red": null,
+         "green": null,
+         "blue": null,
+         "esri_index": null,
+         "esri_oldindex": null,
+         "esri_symbology": null,
+         "popup_text": null
+        }
+       }
+      }
+     ]
+    },
+    {
+     "id": "Area of Undetermined Flood Hazard",
+     "name": "Area of Undetermined Flood Hazard",
+     "domains": {},
+     "templates": [
+      {
+       "name": "Area of Undetermined Flood Hazard",
+       "description": "",
+       "drawingTool": "esriFeatureEditToolPolygon",
+       "prototype": {
+        "attributes": {
+         "sfha_tf": null,
+         "orig_fid": null,
+         "Id": null,
+         "value": null,
+         "class_name": "Area of Undetermined Flood Hazard",
+         "fld_zone": null,
+         "zone_subty": null,
+         "red": null,
+         "green": null,
+         "blue": null,
+         "esri_index": null,
+         "esri_oldindex": null,
+         "esri_symbology": null,
+         "popup_text": null
+        }
+       }
+      }
+     ]
+    },
+    {
+     "id": "Area with Reduced Risk Due to Levee",
+     "name": "Area with Reduced Risk Due to Levee",
+     "domains": {},
+     "templates": [
+      {
+       "name": "Area with Reduced Risk Due to Levee",
+       "description": "",
+       "drawingTool": "esriFeatureEditToolPolygon",
+       "prototype": {
+        "attributes": {
+         "sfha_tf": null,
+         "orig_fid": null,
+         "Id": null,
+         "value": null,
+         "class_name": "Area with Reduced Risk Due to Levee",
+         "fld_zone": null,
+         "zone_subty": null,
+         "red": null,
+         "green": null,
+         "blue": null,
+         "esri_index": null,
+         "esri_oldindex": null,
+         "esri_symbology": null,
+         "popup_text": null
+        }
+       }
+      }
+     ]
+    },
+    {
+     "id": "Not Mapped",
+     "name": "Not Mapped",
+     "domains": {},
+     "templates": [
+      {
+       "name": "Not Mapped",
+       "description": "",
+       "drawingTool": "esriFeatureEditToolPolygon",
+       "prototype": {
+        "attributes": {
+         "sfha_tf": null,
+         "orig_fid": null,
+         "Id": null,
+         "value": null,
+         "class_name": "Not Mapped",
+         "fld_zone": null,
+         "zone_subty": null,
+         "red": null,
+         "green": null,
+         "blue": null,
+         "esri_index": null,
+         "esri_oldindex": null,
+         "esri_symbology": null,
+         "popup_text": null
+        }
+       }
+      }
+     ]
+    }
+   ],
+   "templates": [],
+   "supportedQueryFormats": "JSON, geoJSON, PBF",
+   "supportedAppendFormats": "sqlite,geoPackage,shapefile,filegdb,featureCollection,geojson,csv,excel,jsonl,featureService,pbf",
+   "supportedAppendSourceFilterFormats": "sqlite,geoPackage,shapefile,filegdb,featureService",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel,parquet",
+   "supportedConvertFileFormats": "JSON,PBF,Parquet",
+   "supportedConvertContentFormats": "LayerEditCollection,FeatureCollection",
+   "supportedSpatialRelationships": [
+    "esriSpatialRelIntersects",
+    "esriSpatialRelContains",
+    "esriSpatialRelCrosses",
+    "esriSpatialRelEnvelopeIntersects",
+    "esriSpatialRelIndexIntersects",
+    "esriSpatialRelOverlaps",
+    "esriSpatialRelTouches",
+    "esriSpatialRelWithin",
+    "esriSpatialRelDisjoint",
+    "esriSpatialRelRelation"
+   ],
+   "guidFormat": "",
+   "supportsContingentValues": true,
+   "supportsEditingContingentValues": true,
+   "supportedContingentValuesFormats": "JSON, PBF",
+   "supportsFieldGroups": true,
+   "supportedSyncDataOptions": 260,
+   "hasStaticData": true,
+   "maxRecordCount": 2000,
+   "standardMaxRecordCount": 2000,
+   "maxIdsCount": 1000000,
+   "standardMaxRecordCountNoGeometry": 32000,
+   "tileMaxRecordCount": 4000,
+   "maxRecordCountFactor": 1,
+   "capabilities": "Query,Extract"
+  }
+ },
+ {
+  "url": "https://www.ocgis.com/arcpub/rest/services/Environmental_Resources/Outfall_Inspections/FeatureServer/0",
+  "meta": {
+   "currentVersion": 11.5,
+   "cimVersion": "3.5.0",
+   "id": 0,
+   "name": "Outfall Locations",
+   "type": "Feature Layer",
+   "parentLayer": null,
+   "defaultVisibility": true,
+   "minScale": 0,
+   "maxScale": 0,
+   "canScaleSymbols": false,
+   "geometryType": "esriGeometryPoint",
+   "description": "This feature class includes data collected by OC Environmental Resources pursuant to the monitoring and reporting requirements of the National Pollutant Discharge Elimination System (NPDES) Fifth Term Permit (Order R9-2013-001, as amended by Orders No. 2015-001 and R9-2015-0100, NPDES CAS0109266) issued by the San Diego Regional Board (RWQCB). The data contains the locations of municipal separate storm sewer system (MS4) outfalls features. The dataset was expanded in August 2017 to include North and Central Orange County outfalls.Initial outfalls were added using aerial imagery, OCFCD drainage facility maps, and information from other NPDES monitoring programs.Important Fields:INSPECTED - Identifies whether the outfall has verified by field visit, could not be found, or removed from the inventory.GlobalID - Relates the outfall with field observations.",
+   "copyrightText": "OC Environmental Resources, OC Public Works",
+   "editFieldsInfo": {
+    "editDateField": "LASTUPDATE",
+    "editorField": "LASTEDITOR"
+   },
+   "ownershipBasedAccessControlForFeatures": null,
+   "syncCanReturnChanges": false,
+   "relationships": [
+    {
+     "id": 0,
+     "name": "OCENVRESUSER.swDischargePoint_Obs",
+     "relatedTableId": 1,
+     "cardinality": "esriRelCardinalityOneToMany",
+     "role": "esriRelRoleOrigin",
+     "keyField": "GlobalID",
+     "composite": false,
+     "catalogID": "{01E76707-39D6-4476-91FB-AD13015DEEFE}"
+    }
+   ],
+   "isDataVersioned": false,
+   "isDataArchived": false,
+   "infoInEstimates": [
+    "extent",
+    "count"
+   ],
+   "isDataBranchVersioned": false,
+   "isDataReplicaTracked": false,
+   "isCoGoEnabled": false,
+   "modelName": "GP_803538338",
+   "supportsRollbackOnFailureParameter": true,
+   "archivingInfo": {
+    "supportsQueryWithHistoricMoment": false,
+    "startArchivingMoment": -1
+   },
+   "supportsStatistics": true,
+   "supportsExceedsLimitStatistics": true,
+   "supportsAdvancedQueries": true,
+   "supportsValidateSQL": true,
+   "supportsCoordinatesQuantization": true,
+   "supportsQuantizationEditMode": true,
+   "supportsCalculate": true,
+   "supportsASyncCalculate": true,
+   "supportsDurableUrlForSyncModelNone": false,
+   "supportsDatumTransformation": true,
+   "advancedQueryCapabilities": {
+    "supportsPagination": true,
+    "supportsQueryWithDistance": true,
+    "supportsReturningQueryExtent": true,
+    "supportsStatistics": true,
+    "supportsPercentileStatistics": true,
+    "supportsHavingClause": true,
+    "supportsOrderBy": true,
+    "supportsDistinct": true,
+    "supportsCountDistinct": true,
+    "supportsAdvancedQueryRelated": true,
+    "supportsQueryRelatedPagination": true,
+    "supportsCurrentUserQueries": true,
+    "supportsFullTextSearch": true,
+    "fullTextSearchCapabilities": {
+     "supportsSearchOperator": true,
+     "supportsOperator": false,
+     "supportsSqlExpressionInFullText": true
+    },
+    "fullTextSearchableFields": [],
+    "supportsQueryWithResultType": true,
+    "supportsReturningGeometryCentroid": false,
+    "supportsReturningGeometryEnvelope": false,
+    "supportsSqlExpression": true,
+    "supportsQueryWithDatumTransformation": true,
+    "supportsLod": false,
+    "supportsQueryWithLodSR": false,
+    "supportsQueryAnalytic": true,
+    "supportsQueryWithCacheHint": false
+   },
+   "advancedQueryAnalyticCapabilities": {
+    "supportsLinearRegression": true,
+    "supportsAsync": true,
+    "supportsPercentileAnalytic": true
+   },
+   "advancedEditingCapabilities": {
+    "supportedSqlFormatsInCalculate": [
+     "standard"
+    ],
+    "supportsAsyncApplyEdits": true,
+    "supportsApplyEditsbyUploadID": true,
+    "supportedApplyEditsUploadIDFormats": "JSON,PBF"
+   },
+   "hasMetadata": true,
+   "extent": {
+    "xmin": -23153313.236686602,
+    "ymin": 2088727.05153206,
+    "xmax": 6166720.777327552,
+    "ymax": 22706577.25374131,
+    "spatialReference": {
+     "wkid": 102646,
+     "latestWkid": 2230,
+     "xyTolerance": 0.003280833333333333,
+     "zTolerance": 2,
+     "mTolerance": 2,
+     "falseX": -118608900,
+     "falseY": -91259500,
+     "xyUnits": 35979706.30767777,
+     "falseZ": 0,
+     "zUnits": 10000,
+     "falseM": -100000,
+     "mUnits": 10000
+    }
+   },
+   "spatialReference": {
+    "wkid": 102646,
+    "latestWkid": 2230,
+    "xyTolerance": 0.003280833333333333,
+    "zTolerance": 2,
+    "mTolerance": 2,
+    "falseX": -118608900,
+    "falseY": -91259500,
+    "xyUnits": 35979706.30767777,
+    "falseZ": 0,
+    "zUnits": 10000,
+    "falseM": -100000,
+    "mUnits": 10000
+   },
+   "sourceSpatialReference": {
+    "wkid": 102646,
+    "latestWkid": 2230,
+    "xyTolerance": 0.003280833333333333,
+    "zTolerance": 0.001,
+    "mTolerance": 0.001,
+    "falseX": -118608900,
+    "falseY": -91259500,
+    "xyUnits": 3048.0060960121928,
+    "falseZ": 0,
+    "zUnits": 1,
+    "falseM": 0,
+    "mUnits": 1
+   },
+   "drawingInfo": {
+    "renderer": {
+     "type": "simple",
+     "symbol": {
+      "type": "esriSMS",
+      "style": "esriSMSCircle",
+      "color": [
+       135,
+       20,
+       0,
+       255
+      ],
+      "size": 4,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+       "color": [
+        0,
+        0,
+        0,
+        255
+       ],
+       "width": 1
+      }
+     }
+    },
+    "scaleSymbols": true,
+    "transparency": 0,
+    "labelingInfo": null
+   },
+   "hasM": false,
+   "hasZ": false,
+   "allowGeometryUpdates": true,
+   "allowTrueCurvesUpdates": false,
+   "onlyAllowTrueCurveUpdatesByTrueCurveClients": false,
+   "hasAttachments": false,
+   "supportsApplyEditsWithGlobalIds": false,
+   "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+   "objectIdField": "OBJECTID",
+   "globalIdField": "GlobalID",
+   "displayField": "FACILITYID",
+   "typeIdField": "",
+   "subtypeField": "",
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID",
+     "alias": "OBJECTID",
+     "domain": null,
+     "editable": false,
+     "nullable": false,
+     "defaultValue": null,
+     "modelName": "OBJECTID"
+    },
+    {
+     "name": "LOCDESC",
+     "type": "esriFieldTypeString",
+     "alias": "Location Description",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 200,
+     "defaultValue": null,
+     "modelName": "LOCDESC"
+    },
+    {
+     "name": "SIZE1",
+     "type": "esriFieldTypeDouble",
+     "alias": "Size 1",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "SIZE1"
+    },
+    {
+     "name": "SIZE2",
+     "type": "esriFieldTypeDouble",
+     "alias": "Size 2",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "SIZE2"
+    },
+    {
+     "name": "SIZE3",
+     "type": "esriFieldTypeDouble",
+     "alias": "Size 3",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "SIZE3"
+    },
+    {
+     "name": "CatchID",
+     "type": "esriFieldTypeString",
+     "alias": "CatchID",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 20,
+     "defaultValue": null,
+     "modelName": "CatchID"
+    },
+    {
+     "name": "DrainID",
+     "type": "esriFieldTypeString",
+     "alias": "DrainID",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 10,
+     "defaultValue": null,
+     "modelName": "DrainID"
+    },
+    {
+     "name": "INSPECTED",
+     "type": "esriFieldTypeSmallInteger",
+     "alias": "Inspection Status",
+     "domain": {
+      "type": "codedValue",
+      "name": "Inspected",
+      "description": "",
+      "codedValues": [
+       {
+        "name": "Un-Verified",
+        "code": 0
+       },
+       {
+        "name": "Verified",
+        "code": 1
+       },
+       {
+        "name": "Not-Found",
+        "code": 2
+       },
+       {
+        "name": "Removed From Inventory",
+        "code": 3
+       }
+      ],
+      "mergePolicy": "esriMPTDefaultValue",
+      "splitPolicy": "esriSPTDefaultValue"
+     },
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "INSPECTED"
+    },
+    {
+     "name": "FACTYPE",
+     "type": "esriFieldTypeSmallInteger",
+     "alias": "Facility Type",
+     "domain": {
+      "type": "codedValue",
+      "name": "FacType",
+      "description": "",
+      "codedValues": [
+       {
+        "name": "Outfall",
+        "code": 0
+       },
+       {
+        "name": "Box",
+        "code": 1
+       },
+       {
+        "name": "Culvert",
+        "code": 2
+       },
+       {
+        "name": "Manhole",
+        "code": 3
+       }
+      ],
+      "mergePolicy": "esriMPTDefaultValue",
+      "splitPolicy": "esriSPTDefaultValue"
+     },
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "FACTYPE"
+    },
+    {
+     "name": "JURISDICTI",
+     "type": "esriFieldTypeString",
+     "alias": "Jurisdiction",
+     "domain": {
+      "type": "codedValue",
+      "name": "JURISDICTION",
+      "description": "Jurisdictions",
+      "codedValues": [
+       {
+        "name": "Anaheim",
+        "code": "ANAHEIM"
+       },
+       {
+        "name": "Brea",
+        "code": "BREA"
+       },
+       {
+        "name": "Buena Park",
+        "code": "BUENA PARK"
+       },
+       {
+        "name": "Costa Mesa",
+        "code": "COSTA MESA"
+       },
+       {
+        "name": "Cypress",
+        "code": "CYPRESS"
+       },
+       {
+        "name": "Dana Point",
+        "code": "DANA POINT"
+       },
+       {
+        "name": "Fullerton",
+        "code": "FULLERTON"
+       },
+       {
+        "name": "Garden Grove",
+        "code": "GARDEN GROVE"
+       },
+       {
+        "name": "Huntington Beach",
+        "code": "HUNTINGTON BEACH"
+       },
+       {
+        "name": "Irvine",
+        "code": "IRVINE"
+       },
+       {
+        "name": "La Habra",
+        "code": "LA HABRA"
+       },
+       {
+        "name": "La Palma",
+        "code": "LA PALMA"
+       },
+       {
+        "name": "Laguna Beach",
+        "code": "LAGUNA BEACH"
+       },
+       {
+        "name": "Laguna Hills",
+        "code": "LAGUNA HILLS"
+       },
+       {
+        "name": "Laguna Niguel",
+        "code": "LAGUNA NIGUEL"
+       },
+       {
+        "name": "Laguna Woods",
+        "code": "LAGUNA WOODS"
+       },
+       {
+        "name": "Lake Forest",
+        "code": "LAKE FOREST"
+       },
+       {
+        "name": "Los Alamitos",
+        "code": "LOS ALAMITOS"
+       },
+       {
+        "name": "Mission Viejo",
+        "code": "MISSION VIEJO"
+       },
+       {
+        "name": "Newport Beach",
+        "code": "NEWPORT BEACH"
+       },
+       {
+        "name": "Orange",
+        "code": "ORANGE"
+       },
+       {
+        "name": "Orange Co",
+        "code": "ORANGE CO"
+       },
+       {
+        "name": "Placentia",
+        "code": "PLACENTIA"
+       },
+       {
+        "name": "Rancho Santa Margarita",
+        "code": "RANCHO SANTA MARGARITA"
+       },
+       {
+        "name": "San Clemente",
+        "code": "SAN CLEMENTE"
+       },
+       {
+        "name": "San Juan Capistrano",
+        "code": "SAN JUAN CAPISTRANO"
+       },
+       {
+        "name": "Santa Ana",
+        "code": "SANTA ANA"
+       },
+       {
+        "name": "Seal Beach",
+        "code": "SEAL BEACH"
+       },
+       {
+        "name": "Stanton",
+        "code": "STANTON"
+       },
+       {
+        "name": "Tustin",
+        "code": "TUSTIN"
+       },
+       {
+        "name": "Villa Park",
+        "code": "VILLA PARK"
+       },
+       {
+        "name": "Westminster",
+        "code": "WESTMINSTER"
+       },
+       {
+        "name": "Yorba Linda",
+        "code": "YORBA LINDA"
+       },
+       {
+        "name": "Aliso Viejo",
+        "code": "ALISO VIEJO"
+       },
+       {
+        "name": "Fountain Valley",
+        "code": "FOUNTAIN VALLEY"
+       }
+      ],
+      "mergePolicy": "esriMPTDefaultValue",
+      "splitPolicy": "esriSPTDefaultValue"
+     },
+     "editable": true,
+     "nullable": true,
+     "length": 60,
+     "defaultValue": null,
+     "modelName": "JURISDICTI"
+    },
+    {
+     "name": "MANAGEMENT",
+     "type": "esriFieldTypeString",
+     "alias": "Watershed Management Area",
+     "domain": {
+      "type": "codedValue",
+      "name": "WM_WMA",
+      "description": "Watershed Management - Watershed management areas",
+      "codedValues": [
+       {
+        "name": "North",
+        "code": "NORTH"
+       },
+       {
+        "name": "Central",
+        "code": "CENTRAL"
+       },
+       {
+        "name": "South",
+        "code": "SOUTH"
+       }
+      ],
+      "mergePolicy": "esriMPTDefaultValue",
+      "splitPolicy": "esriSPTDefaultValue"
+     },
+     "editable": true,
+     "nullable": true,
+     "length": 30,
+     "defaultValue": null,
+     "modelName": "MANAGEMENT"
+    },
+    {
+     "name": "GlobalID",
+     "type": "esriFieldTypeGlobalID",
+     "alias": "GlobalID",
+     "domain": null,
+     "editable": false,
+     "nullable": false,
+     "length": 38,
+     "defaultValue": null,
+     "modelName": "GlobalID"
+    },
+    {
+     "name": "POINT_X",
+     "type": "esriFieldTypeDouble",
+     "alias": "POINT_X",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "POINT_X"
+    },
+    {
+     "name": "POINT_Y",
+     "type": "esriFieldTypeDouble",
+     "alias": "POINT_Y",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "POINT_Y"
+    },
+    {
+     "name": "PERSISTENTFLOW",
+     "type": "esriFieldTypeString",
+     "alias": "Persistent Flow",
+     "domain": {
+      "type": "codedValue",
+      "name": "EM_PersistenFlow",
+      "description": "Environmental Monitoring - Outfall Inventory - Flow status",
+      "codedValues": [
+       {
+        "name": "Unknown",
+        "code": "Unknown"
+       },
+       {
+        "name": "Yes",
+        "code": "Yes"
+       },
+       {
+        "name": "No",
+        "code": "No"
+       },
+       {
+        "name": "Yes, but permitted or natural",
+        "code": "Yes, but permitted or natural"
+       }
+      ],
+      "mergePolicy": "esriMPTDefaultValue",
+      "splitPolicy": "esriSPTDefaultValue"
+     },
+     "editable": true,
+     "nullable": true,
+     "length": 50,
+     "defaultValue": "Unknown",
+     "modelName": "PERSISTENTFLOW"
+    },
+    {
+     "name": "FACILITYID",
+     "type": "esriFieldTypeString",
+     "alias": "Facility Identifier",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 50,
+     "defaultValue": null,
+     "modelName": "FACILITYID"
+    },
+    {
+     "name": "SURVEYLINK",
+     "type": "esriFieldTypeString",
+     "alias": "Survey Link",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 255,
+     "defaultValue": null,
+     "modelName": "SURVEYLINK"
+    },
+    {
+     "name": "ACCESSIBILITY",
+     "type": "esriFieldTypeSmallInteger",
+     "alias": "Accessibility",
+     "domain": {
+      "type": "codedValue",
+      "name": "Acessibility",
+      "description": "",
+      "codedValues": [
+       {
+        "name": "Easily accessible",
+        "code": 1
+       },
+       {
+        "name": "Difficult accessibility",
+        "code": 2
+       },
+       {
+        "name": "Unsafe accessibility",
+        "code": 3
+       },
+       {
+        "name": "Private Property",
+        "code": 4
+       },
+       {
+        "name": "Nesting",
+        "code": 5
+       },
+       {
+        "name": "Buried",
+        "code": 6
+       }
+      ],
+      "mergePolicy": "esriMPTDefaultValue",
+      "splitPolicy": "esriSPTDefaultValue"
+     },
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "ACCESSIBILITY"
+    },
+    {
+     "name": "AVGFLOWWIDTH",
+     "type": "esriFieldTypeDouble",
+     "alias": "Average Flow Width",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "AVGFLOWWIDTH"
+    },
+    {
+     "name": "AVGFLOWDEPTH",
+     "type": "esriFieldTypeDouble",
+     "alias": "Average Flow Depth",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "AVGFLOWDEPTH"
+    },
+    {
+     "name": "AVGFLOWVEL",
+     "type": "esriFieldTypeDouble",
+     "alias": "Average Flow Velocity",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "AVGFLOWVEL"
+    },
+    {
+     "name": "AVGDISCHARGE",
+     "type": "esriFieldTypeDouble",
+     "alias": "Average Discharge",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "AVGDISCHARGE"
+    },
+    {
+     "name": "MAXDISCHARGE",
+     "type": "esriFieldTypeDouble",
+     "alias": "Max Discharge",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "MAXDISCHARGE"
+    },
+    {
+     "name": "MINDISCHARGE",
+     "type": "esriFieldTypeDouble",
+     "alias": "Min Discharge",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "MINDISCHARGE"
+    },
+    {
+     "name": "FLOWMEASCOUNT",
+     "type": "esriFieldTypeInteger",
+     "alias": "Flow Measurement Count",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "FLOWMEASCOUNT"
+    },
+    {
+     "name": "LASTDISCHARGE",
+     "type": "esriFieldTypeDouble",
+     "alias": "Last Discharge Observation",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "LASTDISCHARGE"
+    },
+    {
+     "name": "LASTDISCHARGETREND",
+     "type": "esriFieldTypeString",
+     "alias": "Last Discharge Measurement Trend",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 50,
+     "defaultValue": null,
+     "modelName": "LASTDISCHARGETREND"
+    },
+    {
+     "name": "PRIORITIZATIONSCORE2022",
+     "type": "esriFieldTypeDouble",
+     "alias": "2022 Prioritization Score",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "PRIORITIZATIONSCORE2022"
+    },
+    {
+     "name": "SAMPLECHWSRSDRY",
+     "type": "esriFieldTypeSmallInteger",
+     "alias": "CHWSRS Dry Weather Sampling",
+     "domain": {
+      "type": "codedValue",
+      "name": "EM_YesNo_Int",
+      "description": "Unknown, Yes, No",
+      "codedValues": [
+       {
+        "name": "Yes",
+        "code": 1
+       },
+       {
+        "name": "No",
+        "code": 2
+       },
+       {
+        "name": "Unknown",
+        "code": 0
+       }
+      ],
+      "mergePolicy": "esriMPTDefaultValue",
+      "splitPolicy": "esriSPTDefaultValue"
+     },
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "SAMPLECHWSRSDRY"
+    },
+    {
+     "name": "SAMPLECHWSRSWET",
+     "type": "esriFieldTypeSmallInteger",
+     "alias": "CHWSRS Wet Weather Sampling",
+     "domain": {
+      "type": "codedValue",
+      "name": "EM_YesNo_Int",
+      "description": "Unknown, Yes, No",
+      "codedValues": [
+       {
+        "name": "Yes",
+        "code": 1
+       },
+       {
+        "name": "No",
+        "code": 2
+       },
+       {
+        "name": "Unknown",
+        "code": 0
+       }
+      ],
+      "mergePolicy": "esriMPTDefaultValue",
+      "splitPolicy": "esriSPTDefaultValue"
+     },
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "SAMPLECHWSRSWET"
+    },
+    {
+     "name": "SAMPLEDRY",
+     "type": "esriFieldTypeSmallInteger",
+     "alias": "Dry Weather Persistent Flow Sampling",
+     "domain": {
+      "type": "codedValue",
+      "name": "EM_YesNo_Int",
+      "description": "Unknown, Yes, No",
+      "codedValues": [
+       {
+        "name": "Yes",
+        "code": 1
+       },
+       {
+        "name": "No",
+        "code": 2
+       },
+       {
+        "name": "Unknown",
+        "code": 0
+       }
+      ],
+      "mergePolicy": "esriMPTDefaultValue",
+      "splitPolicy": "esriSPTDefaultValue"
+     },
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "SAMPLEDRY"
+    },
+    {
+     "name": "SAMPLEWET",
+     "type": "esriFieldTypeSmallInteger",
+     "alias": "Wet Weather Sampling",
+     "domain": {
+      "type": "codedValue",
+      "name": "EM_YesNo_Int",
+      "description": "Unknown, Yes, No",
+      "codedValues": [
+       {
+        "name": "Yes",
+        "code": 1
+       },
+       {
+        "name": "No",
+        "code": 2
+       },
+       {
+        "name": "Unknown",
+        "code": 0
+       }
+      ],
+      "mergePolicy": "esriMPTDefaultValue",
+      "splitPolicy": "esriSPTDefaultValue"
+     },
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "SAMPLEWET"
+    },
+    {
+     "name": "OCFSLOCATION",
+     "type": "esriFieldTypeSmallInteger",
+     "alias": "Outfall capture Feasibility Study",
+     "domain": {
+      "type": "codedValue",
+      "name": "EM_YesNo_Int",
+      "description": "Unknown, Yes, No",
+      "codedValues": [
+       {
+        "name": "Yes",
+        "code": 1
+       },
+       {
+        "name": "No",
+        "code": 2
+       },
+       {
+        "name": "Unknown",
+        "code": 0
+       }
+      ],
+      "mergePolicy": "esriMPTDefaultValue",
+      "splitPolicy": "esriSPTDefaultValue"
+     },
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "OCFSLOCATION"
+    },
+    {
+     "name": "Major_Oufall_MS4",
+     "type": "esriFieldTypeString",
+     "alias": "Major Oufall MS4",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 255,
+     "defaultValue": null,
+     "modelName": "Major_Oufall_MS4"
+    },
+    {
+     "name": "Ownership_1",
+     "type": "esriFieldTypeString",
+     "alias": "Ownership",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 255,
+     "defaultValue": null,
+     "modelName": "Ownership_1"
+    },
+    {
+     "name": "AVGDischarge_BagBeaker",
+     "type": "esriFieldTypeSingle",
+     "alias": "AVGDischarge_BagBeaker",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "AVGDischarge_BagBeaker"
+    },
+    {
+     "name": "AVGFLOWVELFTSEC",
+     "type": "esriFieldTypeSingle",
+     "alias": "AVGFLOWVELFTSEC",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "AVGFLOWVELFTSEC"
+    }
+   ],
+   "geometryField": {
+    "name": "SHAPE",
+    "type": "esriFieldTypeGeometry",
+    "alias": "SHAPE",
+    "domain": null,
+    "editable": true,
+    "nullable": true,
+    "defaultValue": null,
+    "modelName": "SHAPE"
+   },
+   "indexes": [
+    {
+     "name": "R54_pk",
+     "isAscending": true,
+     "isUnique": true,
+     "description": "",
+     "fields": "OBJECTID"
+    },
+    {
+     "name": "GlobalID",
+     "isAscending": true,
+     "isUnique": false,
+     "description": "",
+     "fields": "GlobalID"
+    },
+    {
+     "name": "S18_idx",
+     "isAscending": true,
+     "isUnique": true,
+     "description": "",
+     "fields": "SHAPE"
+    }
+   ],
+   "datesInUnknownTimezone": false,
+   "dateFieldsTimeReference": {
+    "timeZone": "UTC",
+    "timeZoneIANA": "Etc/UTC",
+    "respectsDaylightSaving": false
+   },
+   "preferredTimeReference": null,
+   "types": [],
+   "templates": [
+    {
+     "name": "Outfall Locations",
+     "description": "",
+     "prototype": {
+      "attributes": {
+       "AVGDischarge_BagBeaker": null,
+       "LOCDESC": null,
+       "SIZE1": null,
+       "SIZE2": null,
+       "SIZE3": null,
+       "CatchID": null,
+       "DrainID": null,
+       "INSPECTED": null,
+       "FACTYPE": null,
+       "JURISDICTI": null,
+       "MANAGEMENT": null,
+       "AVGFLOWVELFTSEC": null,
+       "POINT_X": null,
+       "POINT_Y": null,
+       "PERSISTENTFLOW": "Unknown",
+       "FACILITYID": null,
+       "SURVEYLINK": null,
+       "ACCESSIBILITY": null,
+       "AVGFLOWWIDTH": null,
+       "AVGFLOWDEPTH": null,
+       "AVGFLOWVEL": null,
+       "AVGDISCHARGE": null,
+       "MAXDISCHARGE": null,
+       "MINDISCHARGE": null,
+       "FLOWMEASCOUNT": null,
+       "LASTDISCHARGE": null,
+       "LASTDISCHARGETREND": null,
+       "PRIORITIZATIONSCORE2022": null,
+       "SAMPLECHWSRSDRY": null,
+       "SAMPLECHWSRSWET": null,
+       "SAMPLEDRY": null,
+       "SAMPLEWET": null,
+       "OCFSLOCATION": null,
+       "Major_Oufall_MS4": null,
+       "Ownership_1": null
+      }
+     },
+     "drawingTool": "esriFeatureEditToolPoint"
+    }
+   ],
+   "maxRecordCount": 1000,
+   "supportedQueryFormats": "JSON, geoJSON, PBF",
+   "supportedExportFormats": "sqlite,filegdb,shapefile,csv,geojson",
+   "capabilities": "Query,Extract",
+   "useStandardizedQueries": true,
+   "bigIntegerRestrictedTo53Bits": true,
+   "supportedSpatialRelationships": [
+    "esriSpatialRelIntersects",
+    "esriSpatialRelContains",
+    "esriSpatialRelCrosses",
+    "esriSpatialRelEnvelopeIntersects",
+    "esriSpatialRelIndexIntersects",
+    "esriSpatialRelOverlaps",
+    "esriSpatialRelTouches",
+    "esriSpatialRelWithin",
+    "esriSpatialRelRelation"
+   ],
+   "supportsAppend": true,
+   "supportedAppendFormats": "FILEGDB,PBF",
+   "standardMaxRecordCount": 32000,
+   "tileMaxRecordCount": 8000,
+   "standardMaxRecordCountNoGeometry": 32000,
+   "maxRecordCountFactor": 1
+  }
+ },
+ {
+  "url": "https://ocgis.com/arcpub/rest/services/Map_Layers/Road_Index_ROW/MapServer/0",
+  "meta": {
+   "currentVersion": 11.5,
+   "cimVersion": "3.5.0",
+   "id": 0,
+   "name": "Road Index - Right of Way",
+   "type": "Feature Layer",
+   "description": "",
+   "geometryType": "esriGeometryPolygon",
+   "sourceSpatialReference": {
+    "wkid": 102646,
+    "latestWkid": 2230,
+    "xyTolerance": 0.003280833333333333,
+    "zTolerance": 0.001,
+    "mTolerance": 0.001,
+    "falseX": -118608900,
+    "falseY": -91259500,
+    "xyUnits": 3048.0060960121928,
+    "falseZ": -100000,
+    "zUnits": 10000,
+    "falseM": 0,
+    "mUnits": 1
+   },
+   "spatialReference": {
+    "wkid": 102646,
+    "latestWkid": 2230,
+    "xyTolerance": 0.003280833333333333,
+    "zTolerance": 0.001,
+    "mTolerance": 0.001,
+    "falseX": -118608900,
+    "falseY": -91259500,
+    "xyUnits": 35979706.30767777,
+    "falseZ": -100000,
+    "zUnits": 10000,
+    "falseM": -100000,
+    "mUnits": 10000
+   },
+   "copyrightText": "",
+   "parentLayer": null,
+   "subLayers": [],
+   "minScale": 0,
+   "maxScale": 0,
+   "referenceScale": 0.0,
+   "drawingInfo": {
+    "renderer": {
+     "type": "simple",
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       226,
+       250,
+       200,
+       255
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        110,
+        110,
+        110,
+        255
+       ],
+       "width": 0.4
+      }
+     }
+    },
+    "scaleSymbols": true,
+    "transparency": 50,
+    "labelingInfo": null
+   },
+   "defaultVisibility": true,
+   "extent": {
+    "xmin": 6002849.102774963,
+    "ymin": 2112019.700484723,
+    "xmax": 6167051.330144137,
+    "ymax": 2292279.810436234,
+    "zmin": -100000,
+    "zmax": 0,
+    "spatialReference": {
+     "wkid": 102646,
+     "latestWkid": 2230,
+     "xyTolerance": 0.003280833333333333,
+     "zTolerance": 0.001,
+     "mTolerance": 0.001,
+     "falseX": -118608900,
+     "falseY": -91259500,
+     "xyUnits": 35979706.30767777,
+     "falseZ": -100000,
+     "zUnits": 10000,
+     "falseM": -100000,
+     "mUnits": 10000
+    }
+   },
+   "hasAttachments": false,
+   "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+   "displayField": "SERVICE_AREA",
+   "typeIdField": null,
+   "subtypeFieldName": null,
+   "subtypeField": null,
+   "defaultSubtypeCode": null,
+   "fields": [
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID",
+     "alias": "OBJECTID",
+     "domain": null
+    },
+    {
+     "name": "Shape",
+     "type": "esriFieldTypeGeometry",
+     "alias": "Shape",
+     "domain": null
+    },
+    {
+     "name": "Shape.STArea()",
+     "type": "esriFieldTypeDouble",
+     "alias": "Shape.STArea()",
+     "domain": null
+    },
+    {
+     "name": "Shape.STLength()",
+     "type": "esriFieldTypeDouble",
+     "alias": "Shape.STLength()",
+     "domain": null
+    },
+    {
+     "name": "SERVICE_AREA",
+     "type": "esriFieldTypeString",
+     "alias": "SERVICE_AREA",
+     "length": 255,
+     "domain": null
+    },
+    {
+     "name": "SFID",
+     "type": "esriFieldTypeString",
+     "alias": "SFID",
+     "length": 50,
+     "domain": null
+    },
+    {
+     "name": "id",
+     "type": "esriFieldTypeSmallInteger",
+     "alias": "id",
+     "domain": null
+    }
+   ],
+   "geometryField": {
+    "name": "Shape",
+    "type": "esriFieldTypeGeometry",
+    "alias": "Shape"
+   },
+   "indexes": [
+    {
+     "name": "R825_pk",
+     "fields": "OBJECTID",
+     "isAscending": true,
+     "isUnique": true,
+     "description": ""
+    },
+    {
+     "name": "S780_idx",
+     "fields": "Shape",
+     "isAscending": true,
+     "isUnique": true,
+     "description": ""
+    }
+   ],
+   "subtypes": [],
+   "relationships": [],
+   "canModifyLayer": true,
+   "canScaleSymbols": false,
+   "hasLabels": false,
+   "capabilities": "Map,Query,Data",
+   "maxRecordCount": 1000,
+   "maxSelectionCount": 2000,
+   "supportsStatistics": true,
+   "supportsExceedsLimitStatistics": true,
+   "supportsAdvancedQueries": true,
+   "hasZ": true,
+   "supportedQueryFormats": "JSON, geoJSON, PBF",
+   "isDataVersioned": false,
+   "ownershipBasedAccessControlForFeatures": {
+    "allowOthersToQuery": true
+   },
+   "useStandardizedQueries": true,
+   "supportedSpatialRelationships": [
+    "esriSpatialRelIntersects",
+    "esriSpatialRelContains",
+    "esriSpatialRelCrosses",
+    "esriSpatialRelEnvelopeIntersects",
+    "esriSpatialRelIndexIntersects",
+    "esriSpatialRelOverlaps",
+    "esriSpatialRelTouches",
+    "esriSpatialRelWithin",
+    "esriSpatialRelRelation"
+   ],
+   "advancedQueryCapabilities": {
+    "useStandardizedQueries": true,
+    "supportsStatistics": true,
+    "supportsPercentileStatistics": true,
+    "supportsHavingClause": true,
+    "supportsOrderBy": true,
+    "supportsDistinct": true,
+    "supportsCountDistinct": true,
+    "supportsAdvancedQueryRelated": true,
+    "supportsQueryRelatedPagination": true,
+    "supportsPagination": true,
+    "supportsLod": false,
+    "supportsQueryWithLodSR": false,
+    "supportsTrueCurve": true,
+    "supportsQueryWithDatumTransformation": true,
+    "supportsReturningQueryExtent": true,
+    "supportsQueryWithDistance": true,
+    "supportsSqlExpression": true,
+    "supportsTimeRelation": true,
+    "supportsSqlFormat": false,
+    "supportsQueryAnalytic": true,
+    "supportsCurrentUserQueries": true
+   },
+   "supportsDatumTransformation": true,
+   "advancedQueryAnalyticCapabilities": {
+    "supportsLinearRegression": true,
+    "supportsAsync": false,
+    "supportsPercentileAnalytic": true
+   },
+   "dateFieldsTimeReference": null,
+   "preferredTimeReference": null,
+   "datesInUnknownTimezone": false,
+   "hasGeometryProperties": true,
+   "geometryProperties": {
+    "shapeAreaFieldName": "Shape.STArea()",
+    "shapeLengthFieldName": "Shape.STLength()",
+    "units": "esriFeet",
+    "mapUnits": {
+     "uwkid": 9003
+    }
+   },
+   "hasMetadata": false,
+   "isDataArchived": false,
+   "archivingInfo": {
+    "supportsQueryWithHistoricMoment": false,
+    "startArchivingMoment": -1
+   },
+   "supportsCoordinatesQuantization": true,
+   "supportsDynamicLegends": true
+  }
+ },
+ {
+  "url": "https://ocgis.com/arcpub/rest/services/Map_Layers/Building_Footprints/FeatureServer/0",
+  "meta": {
+   "currentVersion": 11.5,
+   "cimVersion": "3.5.0",
+   "id": 0,
+   "name": "Building Footprints",
+   "type": "Feature Layer",
+   "parentLayer": null,
+   "defaultVisibility": true,
+   "minScale": 0,
+   "maxScale": 0,
+   "canScaleSymbols": false,
+   "geometryType": "esriGeometryPolygon",
+   "description": "",
+   "copyrightText": "",
+   "editFieldsInfo": null,
+   "ownershipBasedAccessControlForFeatures": null,
+   "syncCanReturnChanges": false,
+   "relationships": [],
+   "isDataVersioned": false,
+   "isDataArchived": false,
+   "infoInEstimates": [
+    "extent",
+    "count"
+   ],
+   "isDataBranchVersioned": false,
+   "isDataReplicaTracked": false,
+   "isCoGoEnabled": false,
+   "supportsRollbackOnFailureParameter": true,
+   "archivingInfo": {
+    "supportsQueryWithHistoricMoment": false,
+    "startArchivingMoment": -1
+   },
+   "supportsStatistics": true,
+   "supportsExceedsLimitStatistics": true,
+   "supportsAdvancedQueries": true,
+   "supportsValidateSQL": true,
+   "supportsCoordinatesQuantization": true,
+   "supportsQuantizationEditMode": true,
+   "supportsCalculate": true,
+   "supportsASyncCalculate": true,
+   "supportsDatumTransformation": true,
+   "advancedQueryCapabilities": {
+    "supportsPagination": true,
+    "supportsQueryWithDistance": true,
+    "supportsReturningQueryExtent": true,
+    "supportsStatistics": true,
+    "supportsPercentileStatistics": true,
+    "supportsHavingClause": true,
+    "supportsOrderBy": true,
+    "supportsDistinct": true,
+    "supportsCountDistinct": true,
+    "supportsAdvancedQueryRelated": true,
+    "supportsQueryRelatedPagination": true,
+    "supportsCurrentUserQueries": true,
+    "supportsFullTextSearch": true,
+    "fullTextSearchCapabilities": {
+     "supportsSearchOperator": true,
+     "supportsOperator": false,
+     "supportsSqlExpressionInFullText": true
+    },
+    "fullTextSearchableFields": [],
+    "supportsQueryWithResultType": true,
+    "supportsReturningGeometryCentroid": true,
+    "supportsReturningGeometryEnvelope": true,
+    "supportsSqlExpression": true,
+    "supportsQueryWithDatumTransformation": true,
+    "supportsLod": false,
+    "supportsQueryWithLodSR": false,
+    "supportsQueryAnalytic": true,
+    "supportsTrueCurve": true,
+    "supportedCurveTypes": [
+     "esriGeometryCircularArc",
+     "esriGeometryEllipticArc",
+     "esriGeometryBezier3Curve"
+    ],
+    "supportsQueryWithCacheHint": false
+   },
+   "advancedQueryAnalyticCapabilities": {
+    "supportsLinearRegression": true,
+    "supportsAsync": true,
+    "supportsPercentileAnalytic": true
+   },
+   "advancedEditingCapabilities": {
+    "supportedSqlFormatsInCalculate": [
+     "standard"
+    ],
+    "supportsAsyncApplyEdits": true,
+    "supportsApplyEditsbyUploadID": true,
+    "supportedApplyEditsUploadIDFormats": "JSON,PBF"
+   },
+   "hasGeometryProperties": true,
+   "geometryProperties": {
+    "shapeAreaFieldName": "Shape__Area",
+    "shapeLengthFieldName": "Shape__Length",
+    "units": "esriFeet"
+   },
+   "hasMetadata": false,
+   "extent": {
+    "xmin": 5990453.142330721,
+    "ymin": 2085186.4096632302,
+    "xmax": 6212927.941474721,
+    "ymax": 2297754.871336475,
+    "spatialReference": {
+     "wkid": 102646,
+     "latestWkid": 2230,
+     "xyTolerance": 0.003280833333333333,
+     "zTolerance": 2,
+     "mTolerance": 0.001,
+     "falseX": -118608900,
+     "falseY": -91259500,
+     "xyUnits": 35979706.30767777,
+     "falseZ": 0,
+     "zUnits": 1,
+     "falseM": -100000,
+     "mUnits": 10000
+    }
+   },
+   "spatialReference": {
+    "wkid": 102646,
+    "latestWkid": 2230,
+    "xyTolerance": 0.003280833333333333,
+    "zTolerance": 2,
+    "mTolerance": 0.001,
+    "falseX": -118608900,
+    "falseY": -91259500,
+    "xyUnits": 35979706.30767777,
+    "falseZ": 0,
+    "zUnits": 1,
+    "falseM": -100000,
+    "mUnits": 10000
+   },
+   "sourceSpatialReference": {
+    "wkid": 102646,
+    "latestWkid": 2230,
+    "xyTolerance": 0.003280833333333333,
+    "zTolerance": 0.001,
+    "mTolerance": 0.001,
+    "falseX": -118608900,
+    "falseY": -91259500,
+    "xyUnits": 3048.0060960121928,
+    "falseZ": 0,
+    "zUnits": 1,
+    "falseM": 0,
+    "mUnits": 1
+   },
+   "drawingInfo": {
+    "renderer": {
+     "type": "simple",
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       202,
+       252,
+       243,
+       255
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        110,
+        110,
+        110,
+        255
+       ],
+       "width": 0.4
+      }
+     }
+    },
+    "scaleSymbols": true,
+    "transparency": 0,
+    "labelingInfo": null
+   },
+   "hasM": false,
+   "hasZ": false,
+   "allowGeometryUpdates": true,
+   "allowTrueCurvesUpdates": false,
+   "onlyAllowTrueCurveUpdatesByTrueCurveClients": false,
+   "hasAttachments": false,
+   "supportsApplyEditsWithGlobalIds": false,
+   "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+   "objectIdField": "OBJECTID",
+   "globalIdField": "",
+   "displayField": "Address",
+   "typeIdField": "",
+   "subtypeField": "",
+   "fields": [
+    {
+     "name": "Height",
+     "type": "esriFieldTypeDouble",
+     "alias": "Height",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "Height"
+    },
+    {
+     "name": "ABS_HT",
+     "type": "esriFieldTypeDouble",
+     "alias": "ABS_HT",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "ABS_HT"
+    },
+    {
+     "name": "Shape__Area",
+     "type": "esriFieldTypeDouble",
+     "alias": "Shape.STArea()",
+     "domain": null,
+     "editable": false,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "Shape.STArea()",
+     "required": true
+    },
+    {
+     "name": "Shape__Length",
+     "type": "esriFieldTypeDouble",
+     "alias": "Shape.STLength()",
+     "domain": null,
+     "editable": false,
+     "nullable": true,
+     "defaultValue": null,
+     "modelName": "Shape.STLength()",
+     "required": true
+    },
+    {
+     "name": "OBJECTID",
+     "type": "esriFieldTypeOID",
+     "alias": "OBJECTID",
+     "domain": null,
+     "editable": false,
+     "nullable": false,
+     "defaultValue": null,
+     "modelName": "OBJECTID"
+    },
+    {
+     "name": "Address",
+     "type": "esriFieldTypeString",
+     "alias": "Address",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 255,
+     "defaultValue": null,
+     "modelName": "Address"
+    },
+    {
+     "name": "City",
+     "type": "esriFieldTypeString",
+     "alias": "City",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 50,
+     "defaultValue": null,
+     "modelName": "City"
+    },
+    {
+     "name": "Zipcode",
+     "type": "esriFieldTypeString",
+     "alias": "Zipcode",
+     "domain": null,
+     "editable": true,
+     "nullable": true,
+     "length": 10,
+     "defaultValue": null,
+     "modelName": "Zipcode"
+    }
+   ],
+   "geometryField": {
+    "name": "Shape",
+    "type": "esriFieldTypeGeometry",
+    "alias": "Shape",
+    "domain": null,
+    "editable": true,
+    "nullable": true,
+    "defaultValue": null,
+    "modelName": "Shape"
+   },
+   "indexes": [
+    {
+     "name": "R894_pk",
+     "isAscending": true,
+     "isUnique": true,
+     "description": "",
+     "fields": "OBJECTID"
+    },
+    {
+     "name": "S845_idx",
+     "isAscending": true,
+     "isUnique": true,
+     "description": "",
+     "fields": "Shape"
+    }
+   ],
+   "datesInUnknownTimezone": false,
+   "dateFieldsTimeReference": {
+    "timeZone": "UTC",
+    "timeZoneIANA": "Etc/UTC",
+    "respectsDaylightSaving": false
+   },
+   "preferredTimeReference": null,
+   "types": [],
+   "templates": [
+    {
+     "name": "Building Footprints",
+     "description": "",
+     "prototype": {
+      "attributes": {
+       "City": null,
+       "Height": null,
+       "ABS_HT": null,
+       "Address": null,
+       "Zipcode": null
+      }
+     },
+     "drawingTool": "esriFeatureEditToolPolygon"
+    }
+   ],
+   "maxRecordCount": 1000,
+   "supportedQueryFormats": "JSON, geoJSON, PBF",
+   "supportedExportFormats": "sqlite,filegdb,shapefile,csv,geojson",
+   "capabilities": "Query",
+   "useStandardizedQueries": true,
+   "bigIntegerRestrictedTo53Bits": true,
+   "supportedSpatialRelationships": [
+    "esriSpatialRelIntersects",
+    "esriSpatialRelContains",
+    "esriSpatialRelCrosses",
+    "esriSpatialRelEnvelopeIntersects",
+    "esriSpatialRelIndexIntersects",
+    "esriSpatialRelOverlaps",
+    "esriSpatialRelTouches",
+    "esriSpatialRelWithin",
+    "esriSpatialRelRelation"
+   ],
+   "supportsAppend": true,
+   "supportedAppendFormats": "FILEGDB,PBF",
+   "standardMaxRecordCount": 4000,
+   "tileMaxRecordCount": 4000,
+   "standardMaxRecordCountNoGeometry": 32000,
+   "maxRecordCountFactor": 1
+  }
+ }
+]

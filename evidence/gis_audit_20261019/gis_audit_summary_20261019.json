@@ -1,0 +1,93 @@
+{
+  "dossier": "GOVERNMENT_GIS_FORENSIC_CORRELATION_DOSSIER_20261019.md",
+  "generated_at_utc": "2026-10-19",
+  "scope": "RICO-wide government GIS ghost-maintenance audit; HBNC primary case",
+  "hb_gis": {
+    "host": "gis.huntingtonbeachca.gov",
+    "ip": "192.5.222.153",
+    "services": 43,
+    "layers": 584,
+    "versioned_services": 27,
+    "layers_with_editor_tracking": 159,
+    "write_enabled_services": ["AddressEdits"],
+    "address_layer": {
+      "total": 99804,
+      "last_edited_SPRADLIA": 99791,
+      "last_edited_SA_SQL57": 12,
+      "last_edited_NUWEYT": 1,
+      "created_user_null": 89691,
+      "dominant_edit_timestamp_ms": 1769724842000,
+      "dominant_timestamp_records": 83641,
+      "dominant_timestamp_utc": "2026-01-29 22:14:02",
+      "second_mass_timestamp_records": 9704,
+      "second_mass_timestamp_utc": "2025-03-25 15:14:37",
+      "distinct_SPRADLIA_timestamps": 406,
+      "capabilities": "Query,Create,Update,Uploads,Editing"
+    },
+    "parcels": {
+      "total": 52081,
+      "last_edited_NUWEYT": 52081,
+      "distinct_apns": 51830,
+      "edit_windows_utc": ["2026-03-03 15:30-15:35", "2026-04-09 21:11-23:50", "2026-04-10 15:20-15:38", "2026-07-23/24"]
+    },
+    "sewer": {
+      "manholes_total": 8349, "manholes_nuweyt": 8333,
+      "pipes_total": 8542, "pipes_nuweyt": 8542,
+      "features_total": 12219, "features_nuweyt": 12049,
+      "lines_total": 12478, "lines_nuweyt": 12478,
+      "laterals_total": 49482, "laterals_nuweyt": 49482,
+      "lift_stations_total": 69, "lift_stations_nuweyt": 1,
+      "pipe_bulk_timestamp_utc": "2026-08-13 05:06-05:17",
+      "secondary_timestamp_utc": "2026-10-10 04:36"
+    },
+    "storm": {
+      "features_total": 12631, "features_nuweyt": 477,
+      "pipes_total": 12896, "pipes_nuweyt": 286,
+      "channels_total": 54, "channels_nuweyt": 0,
+      "recent_edits": ["2026-05-19", "2026-05-20", "2026-08-25", "2026-10-16"]
+    },
+    "bmp_2024_octa_grant": {"total": 66, "nuweyt": 66, "edit_date_utc": "2026-05-15"},
+    "hbnc": {
+      "apn_cameron": "167-472-08",
+      "apn_beach": "167-472-09",
+      "owner": "HUNTINGTON BEACH HOUSING AUTHORITY",
+      "mail": "2000 MAIN ST, HUNTINGTON BEACH 92648",
+      "lots": {"167-472-08": "Lot 6 Tract 405", "167-472-09": "Lot 7 Tract 405"},
+      "zoning": "SP14",
+      "general_plan": "M-sp",
+      "address_record_label": "17642 Beach Blvd",
+      "address_record_apn": "167-472-08",
+      "address_type": "Residential",
+      "address_start_date": "12-14-2020",
+      "address_source": "Appl 2020-0268",
+      "crosswalk_mismatch": true,
+      "drainage_area": {"name": "Wintersburg Channel", "area_no": 5, "fee_usd": 5500.0},
+      "fema_zone": "X - Area with Reduced Risk Due to Levee"
+    },
+    "legacy_well": {"api": "0405900882", "lease": "Hoff", "well": "1", "status": "Plugged", "operator": "Cadillac Oil Co."}
+  },
+  "oc_gis": {
+    "stormwater_corridor": {
+      "inlets": 124, "inlets_editor": "ARCGISADMIN", "inlets_timestamp": "2018-09-28",
+      "gravity_mains": 174, "mains_editor": "ARCGISADMIN", "mains_timestamp": "2020-05-15",
+      "null_inverts": 174,
+      "material_mix": {"RC": 165, "Earth": 3, "Corrugated Metal": 2, "Concrete": 2, "UNK": 2}
+    },
+    "legal_lots": {
+      "167-472-08": {"site": "17631 CAMERON LN", "lot": 6, "tract": 405, "land_val": 3216999, "improved_val": 2785224, "doc": "202000420412"},
+      "167-472-09": {"site": "17642 BEACH BLVD", "lot": 7, "tract": 405, "land_val": 3235659, "improved_val": null, "doc": "202100002954"}
+    },
+    "outfall_inspections_corridor": 0
+  },
+  "software": {
+    "cracked_installers_documented": ["ArcGIS 10.2 License Manager + Crack", "ArcGIS Desktop 10.8.2", "Esri ArcGIS 10.7.1", "ArcGIS Pro 3.1.5"],
+    "execution_artifacts_found": false,
+    "mxd_aprx_shp_gdb_found": false,
+    "attribution_status": "possession documented; use unverified"
+  },
+  "verification_status": {
+    "verified": ["HB service inventory", "AddressEdits write capability", "HB parcel/address/sewer/storm/BMP editor counts", "HBNC parcel and address records", "SP14/M-sp zoning", "OC stormwater corridor", "OC legal lots", "FEMA zone", "HB oil well", "2024 OCTA grant layer"],
+    "unverified": ["GeoTracker case re-query", "DTSC re-query", "StormTech as-built", "OCTA reimbursement claims", "ArcGIS execution on any specific machine", "pre-2026 GIS baseline"],
+    "open_hypotheses": 12
+  }
+}
