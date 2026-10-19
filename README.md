@@ -41,9 +41,12 @@ published here.
 ## Current status
 
 - Free always-on worker: GCP `osint-free` e2-micro in `us-central1-a`.
-- Public docs export: published and verified (`public_export/`).
-- Full-tree redacted export: scanned on the VM; updates are published only
-  after the verifier passes.
-- Schedule: systemd timer `osint-public-scan.timer` runs every 6 hours.
+- Public full-tree export: **3,325 published files** (76 MB), verified with
+  zero hard secrets, zero unredacted SSNs, and zero private IPs.
+- Citation coverage: 1,163 source URLs, 1,126 authority lines, 1,057
+  legal-section links; 364 files carry all three. Gaps are published in
+  `public_export/CITATION_GAPS.csv`.
+- Schedule: systemd timer `osint-public-scan.timer` runs every 6 hours; a
+  source-remote guard refuses to scan anything that is not the private archive.
 - Private source and its git history: not published.
 
