@@ -1,0 +1,24 @@
+mcs.metadata:
+  componentName: HallucinationAudit
+  description: Triggered when the user submits text, reports, or claims to detect AI hallucinations, unsupported assertions, or phantom citations.
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: AI Hallucination & Assertion Detection
+    includeInOnSelectIntent: true
+    triggerQueries:
+      - Check for hallucinations
+      - Audit AI output
+      - Detect fake citations
+      - Verify unsupported claims
+      - Scan for hallucinated data
+  actions:
+    - kind: SendActivity
+      id: sendMsg_HallucinationAudit
+      activity:
+        text:
+          - "AI Hallucination & Assertion Auditor active. Scanning text payload for ungrounded claims, fabricated citations, logical inconsistencies, and phantom entities."
+        speak:
+          - "Scanning text for AI hallucinations and unsupported assertions."

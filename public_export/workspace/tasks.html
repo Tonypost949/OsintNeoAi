@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINT Neo AI — Autonomous Task & Roadmap Engine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1f2937;
+            --border-color: #374151;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent-cyan: #06b6d4;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-red: #ef4444;
+            --accent-purple: #8b5cf6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Header */
+        header {
+            background-color: rgba(17, 24, 39, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .brand-logo {
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+        }
+
+        .brand-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-btn {
+            background: rgba(31, 41, 55, 0.6);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover {
+            border-color: var(--accent-cyan);
+            background: rgba(6, 182, 212, 0.1);
+        }
+
+        /* Main Container */
+        main {
+            flex: 1;
+            padding: 2rem;
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Controls Bar */
+        .controls-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .pill-btn {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .pill-btn.active, .pill-btn:hover {
+            background: var(--accent-blue);
+            color: #fff;
+            border-color: var(--accent-blue);
+        }
+
+        .search-add-group {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .search-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            color: var(--text-primary);
+            outline: none;
+            font-size: 0.9rem;
+            min-width: 250px;
+        }
+
+        .search-box:focus {
+            border-color: var(--accent-cyan);
+        }
+
+        .add-task-btn {
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            color: #fff;
+            border: none;
+            padding: 0.55rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: opacity 0.2s;
+        }
+
+        .add-task-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Kanban Layout */
+        .kanban-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .kanban-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .kanban-column {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .column-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .column-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .column-badge {
+            background: var(--bg-card);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .task-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            min-height: 400px;
+        }
+
+        /* Task Card */
+        .task-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .task-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-cyan);
+        }
+
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .task-id {
+            font-size: 0.75rem;
+            font-family: monospace;
+            color: var(--accent-cyan);
+            font-weight: bold;
+        }
+
+        .priority-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.15rem 0.5rem;
+            border-radius: 6px;
+            text-transform: uppercase;
+        }
+
+        .priority-CRITICAL { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); border: 1px solid rgba(239, 68, 68, 0.4); }
+        .priority-HIGH { background: rgba(245, 158, 11, 0.2); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.4); }
+        .priority-MEDIUM { background: rgba(59, 130, 246, 0.2); color: var(--accent-blue); border: 1px solid rgba(59, 130, 246, 0.4); }
+        .priority-LOW { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); border: 1px solid rgba(16, 185, 129, 0.4); }
+
+        .task-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .task-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .task-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .category-tag {
+            background: rgba(139, 92, 246, 0.15);
+            color: #c4b5fd;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .task-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.5rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .action-btn-group {
+            display: flex;
+            gap: 0.4rem;
+        }
+
+        .action-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--accent-cyan);
+        }
+
+        .action-btn.done-btn:hover {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent-green);
+            border-color: var(--accent-green);
+        }
+
+        /* Add Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .modal-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 550px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .form-input, .form-select, .form-textarea {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 0.65rem 1rem;
+            border-radius: 8px;
+            color: var(--text-primary);
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            border-color: var(--accent-cyan);
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/" class="brand">
+            <i class="fa-solid fa-list-check brand-logo"></i>
+            <span class="brand-title">OSINT Neo AI Task & Action Engine</span>
+        </a>
+        <nav class="header-nav">
+            <a href="/gemini" class="nav-btn"><i class="fa-solid fa-robot"></i> Multi-AI Studio</a>
+            <a href="/maps" class="nav-btn"><i class="fa-solid fa-map-location-dot"></i> GIS Maps</a>
+            <a href="/chat" class="nav-btn"><i class="fa-solid fa-clock-rotate-left"></i> Transcript Log</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="controls-bar">
+            <div class="filter-group">
+                <button class="pill-btn active" onclick="filterCategory('ALL')">All Tasks</button>
+                <button class="pill-btn" onclick="filterCategory('Venture & Grants')">💰 Grants & Venture</button>
+                <button class="pill-btn" onclick="filterCategory('Security & Supply Chain')">🛡️ Security & Supply Chain</button>
+                <button class="pill-btn" onclick="filterCategory('Core Infrastructure')">⚡ Core Infrastructure</button>
+                <button class="pill-btn" onclick="filterCategory('Legal & Investigations')">📜 Legal & Investigations</button>
+                <button class="pill-btn" onclick="filterCategory('Enterprise & Commercial')">🏢 Enterprise & B2B</button>
+            </div>
+            <div class="search-add-group">
+                <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search tasks, tags, keywords..." oninput="renderTasks()">
+                <button class="add-task-btn" onclick="openAddModal()"><i class="fa-solid fa-plus"></i> New Task</button>
+            </div>
+        </div>
+
+        <div class="kanban-grid">
+            <!-- TODO Column -->
+            <div class="kanban-column">
+                <div class="column-header">
+                    <div class="column-title"><i class="fa-regular fa-circle" style="color: var(--accent-amber);"></i> To Do</div>
+                    <span class="column-badge" id="count-todo">0</span>
+                </div>
+                <div class="task-list" id="list-todo"></div>
+            </div>
+
+            <!-- IN PROGRESS Column -->
+            <div class="kanban-column">
+                <div class="column-header">
+                    <div class="column-title"><i class="fa-solid fa-spinner fa-spin" style="color: var(--accent-blue);"></i> In Progress</div>
+                    <span class="column-badge" id="count-in_progress">0</span>
+                </div>
+                <div class="task-list" id="list-in_progress"></div>
+            </div>
+
+            <!-- DONE Column -->
+            <div class="kanban-column">
+                <div class="column-header">
+                    <div class="column-title"><i class="fa-solid fa-circle-check" style="color: var(--accent-green);"></i> Completed</div>
+                    <span class="column-badge" id="count-done">0</span>
+                </div>
+                <div class="task-list" id="list-done"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for Adding Tasks -->
+    <div class="modal-overlay" id="addModal">
+        <div class="modal-card">
+            <h3 style="font-size: 1.25rem; font-weight: 700;">Add New Autonomous Task</h3>
+            <div class="form-group">
+                <label>Task Title</label>
+                <input type="text" id="taskTitle" class="form-input" placeholder="e.g. Schedule SCORE Mentoring Call">
+            </div>
+            <div class="form-group">
+                <label>Category</label>
+                <select id="taskCategory" class="form-select">
+                    <option value="Venture & Grants">Venture & Grants</option>
+                    <option value="Security & Supply Chain">Security & Supply Chain</option>
+                    <option value="Core Infrastructure">Core Infrastructure</option>
+                    <option value="Legal & Investigations">Legal & Investigations</option>
+                    <option value="Enterprise & Commercial">Enterprise & Commercial</option>
+                    <option value="DevOps & Cloud">DevOps & Cloud</option>
+                    <option value="Tactical & Geospatial">Tactical & Geospatial</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Priority</label>
+                <select id="taskPriority" class="form-select">
+                    <option value="CRITICAL">Critical</option>
+                    <option value="HIGH" selected>High</option>
+                    <option value="MEDIUM">Medium</option>
+                    <option value="LOW">Low</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Description & Action Steps</label>
+                <textarea id="taskDesc" class="form-textarea" rows="3" placeholder="Action details, rationale, and deliverables..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Action URL / Link (Optional)</label>
+                <input type="text" id="taskUrl" class="form-input" placeholder="https://...">
+            </div>
+            <div class="modal-actions">
+                <button class="nav-btn" onclick="closeAddModal()">Cancel</button>
+                <button class="add-task-btn" onclick="submitNewTask()">Save Task</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let allTasks = [];
+        let currentFilter = 'ALL';
+
+        async function fetchTasks() {
+            try {
+                const res = await fetch('/api/tasks');
+                if (res.ok) {
+                    const data = await res.json();
+                    allTasks = data.tasks || [];
+                } else {
+                    // Fallback to local array if running statically
+                    allTasks = JSON.parse(localStorage.getItem('osint_tasks')) || [];
+                }
+            } catch (err) {
+                console.warn('API error, using cache:', err);
+                allTasks = JSON.parse(localStorage.getItem('osint_tasks')) || [];
+            }
+            renderTasks();
+        }
+
+        function filterCategory(cat) {
+            currentFilter = cat;
+            document.querySelectorAll('.pill-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.innerText.includes(cat) || (cat === 'ALL' && btn.innerText.includes('All Tasks'))) {
+                    btn.classList.add('active');
+                }
+            });
+            renderTasks();
+        }
+
+        function renderTasks() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const listTodo = document.getElementById('list-todo');
+            const listInProgress = document.getElementById('list-in_progress');
+            const listDone = document.getElementById('list-done');
+
+            listTodo.innerHTML = '';
+            listInProgress.innerHTML = '';
+            listDone.innerHTML = '';
+
+            let cTodo = 0, cProg = 0, cDone = 0;
+
+            allTasks.forEach(task => {
+                // Filter checks
+                if (currentFilter !== 'ALL' && task.category !== currentFilter) return;
+                if (query && !task.title.toLowerCase().includes(query) && !task.description.toLowerCase().includes(query)) return;
+
+                const card = document.createElement('div');
+                card.className = 'task-card';
+                card.innerHTML = `
+                    <div class="task-header">
+                        <span class="task-id">${task.id}</span>
+                        <span class="priority-badge priority-${task.priority}">${task.priority}</span>
+                    </div>
+                    <div class="task-title">${escapeHtml(task.title)}</div>
+                    <div class="task-desc">${escapeHtml(task.description)}</div>
+                    <div class="task-meta">
+                        <span class="category-tag">${escapeHtml(task.category)}</span>
+                        ${task.action_url && task.action_url !== '#' ? `<a href="${task.action_url}" target="_blank" style="color: var(--accent-cyan); text-decoration: none;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open Link</a>` : ''}
+                    </div>
+                    <div class="task-actions">
+                        <div class="action-btn-group">
+                            ${task.status !== 'TODO' ? `<button class="action-btn" onclick="updateStatus('${task.id}', 'TODO')"><i class="fa-regular fa-circle"></i> To Do</button>` : ''}
+                            ${task.status !== 'IN_PROGRESS' ? `<button class="action-btn" onclick="updateStatus('${task.id}', 'IN_PROGRESS')"><i class="fa-solid fa-spinner"></i> In Progress</button>` : ''}
+                        </div>
+                        ${task.status !== 'DONE' ? `<button class="action-btn done-btn" onclick="updateStatus('${task.id}', 'DONE')"><i class="fa-solid fa-check"></i> Done</button>` : `<span style="font-size:0.75rem; color:var(--accent-green); font-weight:600;"><i class="fa-solid fa-check-double"></i> Completed</span>`}
+                    </div>
+                `;
+
+                if (task.status === 'TODO') {
+                    listTodo.appendChild(card);
+                    cTodo++;
+                } else if (task.status === 'IN_PROGRESS') {
+                    listInProgress.appendChild(card);
+                    cProg++;
+                } else if (task.status === 'DONE') {
+                    listDone.appendChild(card);
+                    cDone++;
+                }
+            });
+
+            document.getElementById('count-todo').innerText = cTodo;
+            document.getElementById('count-in_progress').innerText = cProg;
+            document.getElementById('count-done').innerText = cDone;
+        }
+
+        async function updateStatus(id, newStatus) {
+            const task = allTasks.find(t => t.id === id);
+            if (task) {
+                task.status = newStatus;
+                renderTasks();
+                // Send to backend
+                try {
+                    await fetch(`/api/tasks/${id}`, {
+                        method: 'PATCH',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ status: newStatus })
+                    });
+                } catch (e) {
+                    console.error('Failed to sync task status', e);
+                }
+                localStorage.setItem('osint_tasks', JSON.stringify(allTasks));
+            }
+        }
+
+        function openAddModal() {
+            document.getElementById('addModal').style.display = 'flex';
+        }
+
+        function closeAddModal() {
+            document.getElementById('addModal').style.display = 'none';
+        }
+
+        async function submitNewTask() {
+            const title = document.getElementById('taskTitle').value.trim();
+            if (!title) return alert('Please enter a task title');
+
+            const category = document.getElementById('taskCategory').value;
+            const priority = document.getElementById('taskPriority').value;
+            const description = document.getElementById('taskDesc').value.trim();
+            const action_url = document.getElementById('taskUrl').value.trim();
+
+            const newTask = {
+                title,
+                category,
+                priority,
+                description,
+                action_url: action_url || '#'
+            };
+
+            try {
+                const res = await fetch('/api/tasks', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(newTask)
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.task) allTasks.push(data.task);
+                }
+            } catch (err) {
+                console.error(err);
+            }
+
+            closeAddModal();
+            fetchTasks();
+        }
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+
+        // Initialize
+        fetchTasks();
+    </script>
+</body>
+</html>

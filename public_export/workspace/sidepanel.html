@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OsintNeoAi Smart Side Panel</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #0f172a; color: #f8fafc; padding: 12px; margin: 0; }
+    h2 { font-size: 16px; color: #38bdf8; margin-top: 0; }
+    .badge { background: #0284c7; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 11px; }
+    .card { background: #1e293b; padding: 10px; border-radius: 6px; margin-bottom: 10px; border: 1px solid #334155; }
+    button { background: #2563eb; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold; }
+    button:hover { background: #1d4ed8; }
+  </style>
+</head>
+<body>
+  <h2>🔍 OsintNeoAi Side Co-Pilot</h2>
+  <div class="card">
+    <div><strong>Detected Portal:</strong> <span id="portalType" class="badge">Analyzing...</span></div>
+    <div style="margin-top: 6px; font-size: 12px; color: #94a3b8;" id="pageTitle"></div>
+  </div>
+
+  <div class="card">
+    <div style="font-weight: bold; margin-bottom: 6px;">Extracted Audit Entities</div>
+    <ul id="entityList" style="font-size: 12px; padding-left: 18px; margin: 0;">
+      <li>Scanning DOM schema...</li>
+    </ul>
+  </div>
+
+  <button id="pipeBtn">🚀 Pipe to Investigation Board</button>
+
+  <script>
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      chrome.tabs.sendMessage(tabs[0].id, { action: "ANALYZE_PAGE" }, (response) => {
+        if (response && response.data) {
+          document.getElementById('portalType').innerText = response.data.portalType;
+          document.getElementById('pageTitle').innerText = response.data.title;
+          const list = document.getElementById('entityList');
+          list.innerHTML = response.data.entities.map(e => `<li><strong>${e.type}:</strong> ${e.value}</li>`).join('') || '<li>No immediate red flags.</li>';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

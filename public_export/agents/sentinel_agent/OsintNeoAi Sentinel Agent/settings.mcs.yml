@@ -1,0 +1,25 @@
+displayName: OsintNeoAi Sentinel Agent
+schemaName: sentinel_OsintNeoAiSentinelAgent
+accessControlPolicy: GroupMembership
+authenticationMode: Integrated
+authenticationTrigger: Always
+configuration:
+  settings:
+    GenerativeActionsEnabled: true
+
+  isAgentConnectable: true
+  gPTSettings:
+    defaultSchemaName: sentinel_OsintNeoAiSentinelAgent.gpt.default
+
+  aISettings:
+    useModelKnowledge: true
+    isFileAnalysisEnabled: true
+    isSemanticSearchEnabled: true
+    optInUseLatestModels: false
+
+  recognizer:
+    kind: GenerativeAIRecognizer
+
+publishedOn: 2026-09-20T11:31:00.0000000Z
+template: default-2.1.0
+language: 1033

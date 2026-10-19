@@ -1,143 +1,262 @@
-# ⚖️ OSINTNeoAi — Master Investigation, Evidence Clearinghouse & Mobile Command Center
+<div align="center">
 
-Welcome to the **OSINTNeoAi** official investigation repository, live forensic showcase, and cloud intelligence clearinghouse.
+# ⚡ OSINT Neo AI — Master Architecture
+### Tokenized Data Mining, Web3 Intelligence Exchange & Forensic Knowledge Graph Platform
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-3776AB.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![GCP BigQuery](https://img.shields.io/badge/Google_Cloud-BigQuery-4285F4.svg?style=for-the-badge&logo=googlecloud&logoColor=white)](https://cloud.google.com/bigquery)
+[![Ethereum Sepolia](https://img.shields.io/badge/Ethereum-Sepolia_Verified-3C3C3D.svg?style=for-the-badge&logo=ethereum&logoColor=white)](https://sepolia.etherscan.io/)
+[![MCP Server](https://img.shields.io/badge/MCP-19_Native_Tools-00DC82.svg?style=for-the-badge)](https://modelcontextprotocol.io/)
+[![Zero-Lag ConPTY](https://img.shields.io/badge/Windows_Terminal-wt--dev-4E1A3D.svg?style=for-the-badge&logo=windows-terminal&logoColor=white)](https://github.com/Tonypost949/OsintNeoAi)
+
+<p align="center">
+  <b>Decentralized Data Mining • Tokenized Bounty Settlement • Multi-Pool Escrow • BigQuery Forensic Graph • 3D Tactical Geospatial Cockpit</b>
+</p>
+
+[🌐 Live Demo Cockpit](http://localhost:100**/map/osinteye) • [🔗 Sepolia Contracts](#-live-sepolia-testnet-architecture) • [⚙️ E2E Pipeline](#️-the-e2e-data-mining--intelligence-pipeline) • [🛠️ MCP Tool Catalog](tools/openosint_mcp_server.py) • [🚀 Quickstart](#-quickstart)
 
 ---
 
-## ⚡ Instant AI Chat & System Setup Across All 5 Platforms
+</div>
 
-Get into **this exact interactive AI chat session** and launch the full intelligence suite on any device:
+## 🌟 Executive Overview
 
-### 💻 1. Windows (PowerShell):
-```powershell
-git clone https://github.com/Tonypost949/OsintNeoAi.git; cd OsintNeoAi; pip install -r requirements.txt; python OSINTNeoAiCLI.py; agy
+**OSINT Neo AI** is a decentralized, hybrid-cloud open-source intelligence platform and data mining crypto exchange. It bridges **high-throughput Web2 data pipelines** (Google Cloud BigQuery, Azure Cognitive Services) with **Web3 smart contracts** (Ethereum Sepolia) to create a **zero-trust, append-only ecosystem for digital forensics and verifiable investigative bounties**.
+
+The platform turns intelligence gathering and forensic auditing into an incentivized, trustless cryptographic data mining network. Contributors earn automated deterministic payouts in fiat-backed USDC and domain-specific utility tokens (`OSINT`, `TFT`) through verified UTXO-style evidence lineage trees and automated multi-pool escrow contracts.
+
+---
+
+## 🔗 Live Sepolia Testnet Architecture
+
+The core financial, staking, and escrow logic is fully deployed and verified on the **Ethereum Sepolia Testnet**:
+
+| Contract / Asset | Contract Address | Explorer Verification | Purpose |
+| :--- | :--- | :--- | :--- |
+| **USDC (Settlement)** | [`0x7236F4982a315**d07f3182A1CdAD3f3E4452A53`](https://sepolia.etherscan.io/address/0x7236F4982a315**d07f3182A1CdAD3f3E4452A53#code) | [View on Etherscan](https://sepolia.etherscan.io/address/0x7236F4982a315**d07f3182A1CdAD3f3E4452A53#code) | Primary fiat-pegged settlement asset for whistleblower & investigative bounties |
+| **OSINT (Utility Token)** | [`0xA74B3fAfd838fC273f7c6e201B6210AC2b3A0296`](https://sepolia.etherscan.io/address/0xA74B3fAfd838fC273f7c6e201B6210AC2b3A0296#code) | [View on Etherscan](https://sepolia.etherscan.io/address/0xA74B3fAfd838fC273f7c6e201B6210AC2b3A0296#code) | Platform staking collateral, miner reputation weight & access token |
+| **TFT (Tax-Funded Token)** | [`0x0977909b254EC33C4D1039135F351B1d3Fb27F14`](https://sepolia.etherscan.io/address/0x0977909b254EC33C4D1039135F351B1d3Fb27F14#code) | [View on Etherscan](https://sepolia.etherscan.io/address/0x0977909b254EC33C4D1039135F351B1d3Fb27F14#code) | Domain-specific mining reward minted for municipal & government audit bounties |
+| **StakingGate** | [`0xdA7655b7007a1C7F8191066Bb9A69E4D8987E725`](https://sepolia.etherscan.io/address/0xdA7655b7007a1C7F8191066Bb9A69E4D8987E725#code) | [View on Etherscan ✅](https://sepolia.etherscan.io/address/0xdA7655b7007a1C7F8191066Bb9A69E4D8987E725#code) | Sybil defense gateway collateralizing data submissions (100 OSINT stake required) |
+| **MultiPoolEscrow** | [`0x155**C9A8a5903336CC67F2cBa00dBdAd944dC5B`](https://sepolia.etherscan.io/address/0x155**C9A8a5903336CC67F2cBa00dBdAd944dC5B#code) | [View on Etherscan ✅](https://sepolia.etherscan.io/address/0x155**C9A8a5903336CC67F2cBa00dBdAd944dC5B#code) | UTXO provenance graph tracking evidence lineage with automated 40/30/30 deterministic payouts |
+
+---
+
+## 🏛️ Platform Architecture Diagram
+
 ```
-* **AI Catch-Up Prompt:** Paste *"Read `exports/chat_export_latest.md` and `legal_library/` to resume our session."*
-* **Local Web Hub:** [**`http://[PRIVATE_IP]:5052`**](http://[PRIVATE_IP]:5052)
+┌────────────────────────────────────────────────────────┐
+│  1. Multimodal Workspace UI & Staking Gate             │
+│  • WebRTC Camera / Audio Recorder / Document Ingest    │
+│  • Client-side SHA-256 Hashing                         │
+│  • MetaMask: stakeAndSubmit(hash) [100 OSINT]         │
+└───────────────────────────┬────────────────────────────┘
+                            │
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│  2. Evasive Azure Proxy & BigQuery V1 Append           │
+│  • FastAPI workspace_api.py router                     │
+│  • BigQuery V1 Raw Ledger (Workload Identity Fed)      │
+└───────────────────────────┬────────────────────────────┘
+                            │
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│  3. Background AI Consumer (Gemini Extraction)         │
+│  • Async Entity Extraction (FOIA, Citations, Names)    │
+│  • Domain Tagging ([OSINT], [Tax-Funded])             │
+│  • BigQuery V2 Enriched Ledger Append                  │
+└───────────────────────────┬────────────────────────────┘
+                            │
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│  4. Web3 Oracle Bridge (Python web3.py)                │
+│  • StakingGate.reviewSubmission(hash, true) -> Refund  │
+│  • MultiPoolEscrow.registerDataBlock(UTXO Lineage)     │
+└───────────────────────────┬────────────────────────────┘
+                            │
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│  5. MultiPoolEscrow Payout Engine & 3D HUD             │
+│  • 40/30/30 USDC Split (Catalyst / Corroborator / Close)│
+│  • OSINT & TFT Domain Mining Token Minting             │
+│  • OSINT Eye View & MapLibre 3D Tactical Cockpits      │
+└────────────────────────────────────────────────────────┘
+```
 
-### 🍏 2. macOS (Terminal):
+---
+
+## ⚙️ The E2E Data Mining & Intelligence Pipeline
+
+```mermaid
+flowchart TD
+    A["1. Workspace UI<br/>Multimodal Ingestion"] -->|"Local SHA-256 +<br/>Stake 100 OSINT"| B["StakingGate Contract<br/>0xdA76...E725"]
+    A -->|"Encrypted FormData"| C["2. Evasive Azure Proxy<br/>FastAPI Router"]
+    C -->|"Raw Payload Append<br/>(WIF Auth)"| D["BigQuery Ledger<br/>Version ID = 1"]
+    C -->|"Enqueue Job"| E["3. Background AI Consumer<br/>Gemini Pro Worker"]
+    E -->|"Extract FOIA, Entities<br/>& Domain Tags"| F["BigQuery Ledger<br/>Version ID = 2"]
+    E -->|"Signed Validation"| G["4. Web3 Oracle Bridge<br/>web3.py Signer"]
+    G -->|"reviewSubmission(hash, true)<br/>Refund Stake + 10 Rep"| B
+    G -->|"registerDataBlock(UTXO)<br/>Map Evidence Lineage"| H["5. MultiPoolEscrow<br/>0x1556...dC5B"]
+    H -->|"Deterministic USDC Settlement"| I["40% Catalyst<br/>30% Corroborator<br/>30% Closer"]
+    H -->|"Dynamic Mining Mint"| J["OSINT / TFT Utility<br/>Reward Distribution"]
+```
+
+### 1. The Workspace UI (Frontend)
+The user interface (`workspace_chat.html`) acts as a frictionless chat environment resembling standard LLM interfaces:
+- **Multimodal Capture**: Users can upload documents, take physical pictures via WebRTC HTML5 canvas, or record audio memos via `MediaRecorder`.
+- **Sybil Defense (Staking Gate)**: Before payload submission, the client computes a local SHA-256 hash and prompts MetaMask to execute `stakeAndSubmit(hash)` on the `StakingGate` contract. Users must stake 100 `OSINT` to deter bot spam.
+
+### 2. Evasive Azure Proxy (API Router)
+The frontend sends raw FormData to the FastAPI backend (`workspace_api.py`):
+- **File Decoding**: Standard text/PDF files are decoded. Binary media is flagged for downstream Vision processing.
+- **BigQuery V1 (Raw Append)**: The payload is immediately logged to the BigQuery Master Ledger (`noble-beanbag-497411-m4`) as `version_id = 1` using Workload Identity Federation (WIF) credentials—eliminating static key vulnerabilities.
+
+### 3. Background AI Consumer
+Heavy computational workloads are pushed to the background queue (`background_consumer.py`) to prevent API timeouts:
+- **Gemini Extraction**: A Gemini-1.5-Pro micro-worker deeply parses the text, extracts specific entities (e.g., FOIA headers, legal citations, names), and tags the domain (e.g., `[OSINT]`, `[Tax-Funded]`).
+- **BigQuery V2 (Enriched Append)**: The structured metadata is appended to BigQuery as `version_id = 2`. The original file remains untouched.
+
+### 4. The Web3 Oracle Bridge
+Once the AI validates the data is authentic and not spam, the Python backend signs an Oracle transaction natively using `web3.py`:
+- **Lifting Quarantine**: The Oracle calls `reviewSubmission(hash, true)` on the `StakingGate`, refunding the user's `OSINT` stake and granting **+10 Reputation points**.
+- **Registering Lineage**: The Oracle maps the data's ancestry onto the blockchain via `registerDataBlock(assetHash, parentHash, minerAddress, domainTags)` on the `MultiPoolEscrow`.
+
+### 5. Automated Multi-Pool Payouts
+When a case is solved and an organization deposits fiat-backed `USDC` into the `MultiPoolEscrow`:
+- **The UTXO Provenance Graph**: The contract traverses `parentHash` pointers to determine exactly who contributed to the case.
+- **The 40/30/30 Split**: Funds are deterministically distributed across the lineage tree:
+  - **40%** to the **Catalyst** (First Discoverer).
+  - **30%** to the **Corroborator** (Evidence Enricher).
+  - **30%** to the **Closer** (Final Verification / Lead Investigator).
+- **Domain Minting**: Based on the `domainTags` array, the system dynamically mints secondary utility rewards (`OSINT` or `TFT`) directly to the contributors' Web3 wallets.
+
+---
+
+## 🔒 Security Design (The 5 Vulnerabilities Sealed)
+
+1. **Pointer Corruption**: Eliminated by strict `parentHash` cryptographic linking (UTXO style).
+2. **File Forgery**: Prevented by SHA-256 hashing at the point of upload and append-only BigQuery database schemas.
+3. **Sybil Attacks**: Mitigated by the Web3 Staking Gate requiring collateralized submissions (100 `OSINT` stake).
+4. **Compute Bottlenecks**: Solved by offloading heavy extraction to the asynchronous `background_consumer.py`.
+5. **Rate-Limit Guillotine**: Bypassed using off-peak cron caching (`bulk_caching_queue.py`) instead of live API queries.
+
+---
+
+## 🛰️ OSINT Eye View & 3D Geospatial Engine
+
+In addition to the Web3 data mining layer, OSINT Neo AI includes a tactical command cockpit:
+- **OSINT Eye View Cockpit** (`/map/osinteye`): Real-time interactive spatial map integrating municipal zoning, utility infrastructure, and environmental monitoring nodes.
+- **Animated GPS Scrubber**: Trajectory playback with time-series controls tracking physical entity waypoints.
+- **Slide-out Entity Dossier Drawer**: Dynamic HUD slide-out panel querying the 3,510-document evidence ledger in real-time.
+- **MapLibre 3D WebGL Extrusions** (`/map/3d`): Hardware-accelerated 3D vector building heights with pitch, bearing, and sun angle simulation.
+- **Syncfusion Enterprise Grid** (`/grid`): Multi-column filtering, Excel/CSV export, and deep search across all forensic entities.
+
+---
+
+## 🛠️ OpenOSINT Model Context Protocol (MCP)
+
+OSINT Neo AI provides **19 native MCP tools** registered in `mcp.json` for AI assistants (Antigravity CLI, Claude Code, Gemini CLI):
+
+```json
+{
+  "mcpServers": {
+    "openosint": {
+      "command": "python",
+      "args": ["C:\\OsintNeoAi\\tools\\openosint_mcp_server.py"]
+    }
+  }
+}
+```
+
+### 19 Native MCP Tools:
+`osint_lookup_person`, `osint_lookup_email`, `osint_lookup_phone`, `osint_lookup_domain`, `osint_lookup_ip`, `osint_search_entity`, `osint_court_records`, `osint_property_records`, `osint_social_footprint`, `osint_crypto_wallet`, `osint_foia_tracker`, `osint_fca_timeline`, `osint_sec_edgar`, `osint_wayback_history`, `osint_geo_telemetry`, `osint_breach_scanner`, `osint_license_lookup`, `osint_charity_990`, `osint_system_health`.
+
+---
+
+## ⚡ Quickstart
+
+### 1. Clone & Setup
+
 ```bash
-git clone https://github.com/Tonypost949/OsintNeoAi.git && cd OsintNeoAi && pip3 install -r requirements.txt && python3 OSINTNeoAiCLI.py && agy
-```
-* **AI Catch-Up Prompt:** Paste *"Read `exports/chat_export_latest.md` and `legal_library/` to resume our session."*
+# Clone repository
+git clone https://github.com/brainmedus-arch/OsintNeoAi.git
+cd OsintNeoAi
 
-### 🐧 3. Linux / Kali / WSL (Bash):
+# Create virtual environment
+python -m venv .venv
+.\.venv\Scripts\activate  # Windows
+# source .venv/bin/activate  # Linux/Mac
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### 2. Configure Environment
+
+Copy `.env.example` to `.env` and fill in your API keys:
+
 ```bash
-git clone https://github.com/Tonypost949/OsintNeoAi.git && cd OsintNeoAi && pip install -r requirements.txt && python3 OSINTNeoAiCLI.py && agy
-```
-* **AI Catch-Up Prompt:** Paste *"Read `exports/chat_export_latest.md` and `legal_library/` to resume our session."*
-
-### 📱 4. iOS (iPhone / iPad) & Android (Zero App Install — 100% Browser):
-1. Open this repository on GitHub: [**`github.com/Tonypost949/OsintNeoAi`**](https://github.com/Tonypost949/OsintNeoAi)
-2. Tap **`Code`** ➡️ **`Codespaces`** ➡️ **`Create codespace on main`**.
-3. It launches a full interactive AI terminal and coding chat directly inside Safari/Chrome on your phone.
-4. Paste: *"Read `exports/chat_export_latest.md` to resume our session."*
-
----
-
-## ⚡ Alternative One-Line Terminal Installers
-
-Install and launch the complete intelligence suite, web discovery hub, and interactive AI CLI with a single command on any device:
-
-### 🪟 Windows (PowerShell):
-```powershell
-irm https://raw.githubusercontent.com/Tonypost949/OsintNeoAi/main/install.ps1 | iex
+cp .env.example .env
 ```
 
-### 🐧 Linux / macOS / Kali WSL (Bash/Zsh):
+Required environment variables:
+| Variable | Description | Source |
+|----------|-------------|--------|
+| `GEMINI_API_KEY` | Google Gemini API key | [Google AI Studio](https://aistudio.google.com/apikey) |
+| `GOOGLE_MAPS_API_KEY` | Google Maps/Geocoding API key | [GCP Console](https://console.cloud.google.com/apis/credentials) |
+| `SMTP_USER` | Gmail address for alerts | Your Gmail |
+| `SMTP_PASSWORD` | Gmail app password | [Google Account](https://myaccount.google.com/apppasswords) |
+| `ALERT_RECIPIENT_EMAIL` | Email for digest delivery | Your email |
+| `GITHUB_PAT` | GitHub personal access token | [GitHub Settings](https://github.com/settings/tokens) |
+
+### 3. Run Spark Intelligence Engine
+
 ```bash
-curl -sSL https://raw.githubusercontent.com/Tonypost949/OsintNeoAi/main/install.sh | bash
+python spark_intelligence_engine.py
 ```
 
-### 📱 Android (Termux):
+### 4. Launch Map Server
+
 ```bash
-pkg update -y && pkg install -y git python curl && curl -sSL https://raw.githubusercontent.com/Tonypost949/OsintNeoAi/main/install_termux.sh | bash
+python simple_map_server.py
 ```
 
----
+Open browser at `http://localhost:100**/map/osinteye`.
 
-## 📱 Mobile Quick Access & Live Cloud Command Endpoints
+### 5. Launch OSINTNeoAiCLI Discovery Hub
 
-* 📢 **Public Emergency Victims Board (Zero Login):** http://[PRIVATE_IP]:5052/victims-board / [`victims_board.html`](victims_board.html)
-* 💻 **OSINTNeoAiCLI Discovery Hub:** http://[PRIVATE_IP]:5052
-* 🔥 **Firebase Live Cloud Hub (`blah-905ad`):** https://blah-905ad.web.app
-* 🛰️ **Firebase 3D Tactical GIS Engine:** https://blah-905ad.web.app/master_tactical_gis.html
-* 🗺️ **Firebase Spatial Evidence Dashboard:** https://blah-905ad.web.app/arcgis_teams_dashboard.html
-* 🏢 **Firebase HBNC RICO GIS Map:** https://blah-905ad.web.app/hbnc_rico_gis.html
-* 🚀 **Hercules App Instance:** https://osintneoai.onhercules.app/
-* ⚡ **Azure Live Backend (Port 100**):** http://[IP_REDACTED]:100**
-* 📊 **Streamlit Public Showcase:** https://github.com/Tonypost949/OsintNeoAi
-* 🗺️ **GitHub Pages GIS Recon Map:** https://Tonypost949.github.io/OsintNeoAi/
-* 🛡️ **Public Recon Audit Landing:** https://Tonypost949.github.io/OsintNeoAi/PUBLIC_RECON_AUDIT.html
+```bash
+python C:\OsintNeoAi\OSINTNeoAiCLI.py
+```
+
+Open browser at `http://[PRIVATE_IP]:5052` — scans and lists all installed CLIs (Python, Node, gcloud, bq, Docker, etc.).
 
 ---
 
-## 🗺️ Badass Interactive GIS Maps & Spatial Layers
+## 📊 Live Endpoints & Routes
 
-* 🛰️ **3D WebGL Vector & Satellite Tactical Engine:** [master_tactical_gis.html](https://blah-905ad.web.app/master_tactical_gis.html) / [Local](file:///C:/OsintNeoAi/master_tactical_gis.html)
-* 📊 **ArcGIS Teams Forensic Dashboard:** [arcgis_teams_dashboard.html](https://blah-905ad.web.app/arcgis_teams_dashboard.html) / [Local](file:///C:/OsintNeoAi/arcgis_teams_dashboard.html)
-* 🏢 **HBNC RICO GIS Spatial Parcel Map:** [hbnc_rico_gis.html](https://blah-905ad.web.app/hbnc_rico_gis.html) / [Local](file:///C:/OsintNeoAi/hbnc_rico_gis.html)
-* 🛰️ **Badass OSINT Master Tactical Map:** https://github.com/Tonypost949/OsintNeoAi/blob/main/badass_osint_map.html
-* ⛓️ **Nationwide Chain of Custody Flow Map:** https://github.com/Tonypost949/OsintNeoAi/blob/main/nationwide_coc_map.html
-* 💸 **Nationwide Money Pipeline Vector Map:** https://github.com/Tonypost949/OsintNeoAi/blob/main/nationwide_pipeline_map.html
-
----
-
-## 📂 Full Direct URLs to Google Drive Primary Evidence Documents
-
-* 🌾 **Buck Ranch / Callens Ranch GIS Analysis:** https://drive.google.com/file/d/1AcgqV5AOt2nl6njJLFn3HAcE-Z_5kPb7/view?usp=drivesdk
-* 🪦 **Indian Burial Search Report 1:** https://drive.google.com/file/d/1i0MDI9bHPIV2WSwFLtnRsuYXMzJUognX/view?usp=drivesdk
-* 🧪 **Soil & Burial Verification Report:** https://drive.google.com/file/d/1X11aun23RkIOrMSfXQhlPUUjGx0Do4X-/view?usp=drivesdk
-* 📜 **SoCal Tribal Trustees Matrix (CSV):** https://drive.google.com/file/d/1W1dXpsnGdO_slXj_JipvosEqYUgT0U1q/view?usp=drivesdk
-* 💻 **Tribal Trust Extraction Script 1:** https://drive.google.com/file/d/1ZHi6lkNAVHUQ3jf9axsgL_FPWR_eeXwe/view?usp=drivesdk
-* 💻 **Tribal Trust Extraction Script 2:** https://drive.google.com/file/d/1ZrHNJ1x-ZyA6cbWKBNCQMY35dBlXLI0J/view?usp=drivesdk
+| Route | Protocol | Description |
+| :--- | :--- | :--- |
+| `/map/osinteye` | HTTP / HTML | **OSINT Eye View** Reconnaissance Cockpit with animated timeline scrubber |
+| `/map/3d` | HTTP / WebGL | **MapLibre 3D** hardware-accelerated vector building extrusions |
+| `/grid` | HTTP / HTML | **Syncfusion Enterprise Grid** with multi-column filtering and CSV/Excel export |
+| `/dashboard` | HTTP / HTML | **Executive Forensic Dashboard** with ECharts and FCA statutory timeline |
+| `/telemetry` | HTTP / GeoJSON | Live GeoJSON telemetry stream for tactical mapping layers |
+| `/api/inspect` | REST / JSON | Real-time entity search querying 3,510 evidence documents with SHA-256 hashes |
+| `/health` | REST / JSON | Microservice health check and WebGL engine diagnostic |
+| `http://[PRIVATE_IP]:5052` | HTTP / HTML | **OSINTNeoAiCLI Discovery Hub** — scans installed CLIs & Google Cloud SDKs (`python C:\OsintNeoAi\OSINTNeoAiCLI.py`) |
 
 ---
 
-## 💧 Full Direct URLs to State GeoTracker Deliverables & Groundwater Testing
+## 🤝 Contributing & Community
 
-* 📄 **17642 Beach Blvd Site Summary & Recommendations:** https://documents.geotracker.waterboards.ca.gov/regulators/deliverable_documents/8173352897/17642%20Beach%20Blvd-%20Site%20Summary%20and%20Recommendations%20Final.pdf
-* 📄 **17642 Beach Blvd Additional Assessment Report:** https://documents.geotracker.waterboards.ca.gov/regulators/deliverable_documents/9565320670/Additonal%20Assessment%20Report%2017642%20Beach%20Boulevard%20(003).pdf
-* 📄 **17631 Cameron Ln Site Assessment Report:** https://documents.geotracker.waterboards.ca.gov/regulators/deliverable_documents/1147596061/Site%20Assessment%20Report%20-%2017631%20Cameron%20Ln..pdf
-* 📄 **17631 Cameron Ln Property Summary & Recommendations:** https://documents.geotracker.waterboards.ca.gov/regulators/deliverable_documents/8599347770/Cameron%20Ln%20Property%20Site%20Summary%20and%20Recommendation.pdf
-* 📄 **Phase I ESA Deliverable (T10000018579):** https://documents.geotracker.waterboards.ca.gov/regulators/deliverable_documents/8203290641/T10000018579.20200318.Phase%20I%20Environmental%20Site%20Assessment.pdf
-* 🧪 **Hexavalent Chromium (CR6) GAMA Water Quality Line Chart:** https://gamagroundwater.waterboards.ca.gov/gama/gamamap/public/linechart.asp?dataset=DHS&global_id=W0603000618&locid=CA3000618%5F001%5F001&parlabel=CR6
+Contributions are welcome! Please follow our established [AGENTS.md](AGENTS.md) multi-agent guidelines and ensure all code submissions include automated test validation.
+
+- **Issues & Buggs**: [GitHub Issues](https://github.com/brainmedus-arch/OsintNeoAi/issues)
+- **Repository**: [https://github.com/brainmedus-arch/OsintNeoAi](https://github.com/brainmedus-arch/OsintNeoAi)
 
 ---
 
-## 🏢 LightBox RE Developer Portals & Order Systems
-
-* 🌐 **LightBox Developer Portal:** https://developer.lightboxre.com
-* 🔑 **Personal App Management:** https://developer.lightboxre.com/apps/personal/lightbox/details
-* 📚 **Official LightBox API Docs:** https://lightbox.document360.io/docs/apis
-* 📦 **EDRnet Order Status (Session 1):** https://www.web.edrnet.com/Ordering/OrderStatus/status.aspx?O=1&lsessguid=7ce4ba6b-006c-4314-9e5f-81fcaa9f8aed
-* 📦 **EDRnet Order Status (Session 2):** https://www.web.edrnet.com/Ordering/OrderStatus/status.aspx?lsessguid=8772a597-d32d-4ef8-96fc-2c2f472809aa
-* 🔍 **ParcelQuest Statewide Property Lookup:** https://assr.parcelquest.com/Statewide/Estimate/0
-
----
-
-## 🏛️ Official Government Corporate & Property Portals
-
-* 🏛️ **California Secretary of State:** https://bizfileonline.sos.ca.gov/search/business
-* 🏛️ **Nevada Secretary of State (SilverFlume):** https://www.nvsilverflume.gov
-* 🏛️ **Orange County Clerk-Recorder:** https://www.ocrecorder.com
-* 🏛️ **USASpending.gov Award Search:** https://www.usaspending.gov/search
-
----
-
-## 🗺️ Live Map Platforms & Satellite Intelligence
-
-* 🌐 **ArcGIS Online:** https://www.arcgis.com
-* 🛰️ **ArcGIS Satellite:** https://arcg.is/1kD9xP
-* 🔥 **ArcGIS Heatmap:** https://www.arcgis.com/apps/instant/sidebar/index.html?fs=true
-* 📍 **Google Maps:** https://maps.google.com
-* 🗺️ **OpenStreetMap:** https://www.openstreetmap.org
-* 🛰️ **Sentinel Hub EO Browser:** https://apps.sentinel-hub.com/eo-browser/
-
----
-
-## 🔗 Master GitHub Repositories
-
-* 📂 **Master Investigation Repository:** https://github.com/Tonypost949/OsintNeoAi
-* 🤖 **Autonomous Multi-Agent Engine:** https://github.com/Tonypost949/osint-agent
-* ⚖️ **RICO Evidence Matrix & Filings:** https://github.com/Tonypost949/riconow
+<div align="center">
+  <sub>Built with ❤️ by the OSINT Neo AI Forensic Engineering Team. Licensed under the MIT License.</sub>
+</div>

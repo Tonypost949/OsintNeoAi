@@ -1,560 +1,367 @@
-# OSINT Integration Guide: ACE + OpenOSINT + Caltrans CCTV + God's Eye View
+# 🎯 OSINT Intelligence Integration Stack
+## ACE + OpenOSINT + Caltrans CCTV + God's Eye View
 
-**Last Updated**: 2026-09-01  
-**Status**: ✅ Fully integrated and deployed to Azure
-
----
-
-## Executive Summary
-
-This guide integrates four autonomous systems into a unified OSINT intelligence platform:
-
-1. **ACE** (Auto-Correlation Engine) — 288 cycles/day, 196K+ data points, 104K+ entities
-2. **OpenOSINT** — 19 integrated investigation tools (WHOIS, DNS, IP enum, breach DB)
-3. **Caltrans CCTV** — 288 real-time traffic cameras (Orange County) with ArcGIS API
-4. **God's Eye View** — 3D Earth visualization with 40+ overlay types
-
-**Result**: Real-time forensic investigation dashboard with spatial intelligence, entity correlation, and tactical mapping.
+**Status:** ✅ LIVE & OPERATIONAL  
+**Last Updated:** September 1, 2026  
+**Deployment:** Azure Functions (ACE) + Local Pipelines + God's Eye View 3D
 
 ---
 
-## Architecture Overview
+## 🏗️ Architecture Overview
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    DATA INGESTION LAYER                      │
-│  Google Drive / OneDrive / BigQuery / OSINT Cabal Sources   │
-└────────────────┬────────────────────────────────────────────┘
-                 │
-         ┌───────▼──────────┐
-         │ auto_correlation │
-         │ enrichment_      │
-         │ engine.py (ACE)  │  ◄── Runs every 5 min (Azure Functions)
-         │                  │      288 cycles/day
-         └───────┬──────────┘
-                 │
-    ┌────────────┼────────────┐
-    │            │            │
-    ▼            ▼            ▼
-  BigQuery   JSON Exports  GeoJSON
-  warehouse  (timeline,   (correlation
-             matrices)     clusters)
-    │            │            │
-    └────────────┼────────────┘
-                 │
-    ┌────────────▼────────────┐
-    │ OpenOSINT Framework     │
-    │ (openosint_runner.py)   │  ◄── 19 investigation tools
-    │                         │      Batch mode support
-    └────────────┬────────────┘
-                 │
-    ┌────────────▼────────────┐
-    │ Caltrans CCTV Pipeline  │
-    │ (caltrans_d12_pull.py)  │  ◄── 288 cameras via ArcGIS API
-    │                         │      Real-time, 5-min refresh
-    └────────────┬────────────┘
-                 │
-    ┌────────────▼────────────────────────┐
-    │ Unified Evidence Layer (GeoJSON)    │
-    │ • Correlation nodes (ACE output)    │
-    │ • Investigation targets (OpenOSINT) │
-    │ • CCTV cameras (Caltrans)           │
-    │ • Risk zones & heat maps            │
-    └────────────┬────────────────────────┘
-                 │
-    ┌────────────▼────────────────────┐
-    │   God's Eye View 3D Globe       │
-    │   (gods_eye_view.html + Three.js)
-    │   • Interactive 3D Earth        │
-    │   • Tactical overlays           │
-    │   • Geospatial correlation      │
-    │   • CCTV coverage analysis      │
-    │   • Voice control & search      │
-    └────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────┐
+│                        OSINT INTELLIGENCE STACK                         │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                          │
+│  ACE (Auto-Correlation Engine) ────────→ Correlation Results            │
+│  └─ Entity extraction & deduplication        data/correlation_*.json    │
+│  └─ Cross-source matching (288+ cycles/day)                            │
+│                                                                          │
+│  OpenOSINT Framework ──────────────────→ Investigation Reports          │
+│  └─ Target profiling (WHOIS, DNS, etc)     evidence/OPENOSINT_*.md     │
+│  └─ Batch mode for multiple targets        evidence/openosint_nodes.json │
+│                                                                          │
+│  Caltrans CCTV Pipeline ───────────────→ Traffic Camera Network         │
+│  └─ 288 live cameras (Orange County)       evidence/caltrans_d12_*.json │
+│  └─ Real-time ArcGIS REST API ingestion                                │
+│                                                                          │
+│  God's Eye View 3D Globe ───────────────→ Spatial Intelligence HUD      │
+│  └─ Renders all data layers on 3D Earth    [PRIVATE_IP]:5052/maps         │
+│  └─ Voice control + AI-powered Q&A                                     │
+│  └─ CCTV feed integration                                              │
+│                                                                          │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Component Details
+## 🔧 Components
 
-### 1. Auto-Correlation Engine (ACE)
+### 1. **ACE (Auto-Correlation Engine)**
+**Location:** `auto_correlation_enrichment_engine.py`  
+**Deployment:** Azure Functions (Timer Trigger)  
+**Interval:** Every 5 minutes (configurable)
 
-**Location**: `auto_correlation_enrichment_engine.py`  
-**Frequency**: Every 5 minutes (Azure Functions timer trigger)  
-**Output**: JSON + BigQuery tables + GeoJSON
+**Features:**
+- Entity extraction: emails, phones, addresses, SSNs, URLs
+- Cross-source correlation (Google Photos, OneDrive, Drive, BigQuery)
+- Automatic graph building (node-edge relationships)
+- Risk scoring & anomaly detection
+- Metadata enrichment with geolocation & timelines
 
-#### What It Does
-- Extracts 6 entity types: emails, phones, addresses, SSNs, URLs, ZIP codes
-- Correlates entities across all evidence sources (fuzzy matching + hashing)
-- Enriches with risk scores, geolocation, timelines
-- Detects anomalies (statistical outliers, unusual patterns)
-- Generates correlation matrix (node-edge graph)
+**Output Files:**
+- `data/correlation_results.json` — Enriched correlations with risk scores
+- `data/correlation_graph.json` — Graph structure for visualization
+- `data/tasks.json` — Dashboard updates
 
-#### Key Files Generated
-```
-📊 FORENSIC_CORRELATION_MATRIX.json
-├─ Master list of all entity correlations
-├─ Confidence scores (0-1)
-├─ Evidence counts per link
-└─ Timeline (first_seen → last_seen)
-
-📋 FORENSIC_AUDIT_SUMMARY.md
-├─ High-level statistics (104K entities, 196K points)
-├─ Risk entities (score > 80)
-└─ Anomalies detected
-
-🗺️ correlation_graph.geojson
-├─ GeoJSON FeatureCollection
-├─ Point features for each entity cluster
-├─ Properties: risk_level, entity_count, location
-└─ Compatible with God's Eye View
-```
-
-#### Configuration
-```python
-# In auto_correlation_enrichment_engine.py, line ~50:
-MAX_RECORDS_PER_CYCLE = 1000
-BATCH_SIZE_BIGQUERY = 500
-CORRELATION_THRESHOLD = 0.85  # Fuzzy match sensitivity
-ENABLE_ANOMALY_DETECTION = True
-```
+**Access:**
+- Status: `https://osintneoai-app-949.azurewebsites.net/api/correlation/status`
+- Logs: `az functionapp logs tail --name osintneoai-ace --resource-group neoai-rg`
 
 ---
 
-### 2. OpenOSINT Framework
+### 2. **OpenOSINT Framework**
+**Location:** `scripts/openosint_runner.py`  
+**CLI:** `pip install openosint` (optional, fallback mode included)
 
-**Location**: `scripts/openosint_runner.py`  
-**Mode**: Batch investigation (multiple targets)  
-**Output**: Markdown reports + JSON manifests
+**Features:**
+- Unified OSINT investigation CLI
+- 19 built-in tools (WHOIS, DNS, IP enumeration, etc.)
+- Markdown report generation
+- Batch investigation mode
+- JSON export for data pipelines
 
-#### What It Does
-- Wraps 19 built-in OSINT tools:
-  - **WHOIS**: Domain registration, ownership
-  - **DNS**: A, MX, NS record enumeration
-  - **IP Intel**: Geolocation, ASN, reverse DNS
-  - **Breach DB**: Credential breach lookups
-  - **Social Graph**: Twitter, LinkedIn, GitHub scanning
-  - **Dark Web**: Tor hidden service search (optional)
-  - And 13 more...
-
-- Runs in **batch mode** for multiple targets simultaneously
-- Generates **Markdown reports** suitable for legal filings
-- Fallback mode if CLI not installed (generates investigation checklist)
-
-#### Key Files Generated
-```
-📝 investigation_reports/
-├─ target_1_WHOIS_analysis.md
-├─ target_1_DNS_enumeration.md
-├─ target_1_IP_intel.md
-├─ target_1_breach_search.md
-└─ target_1_summary.json (all findings merged)
-
-🎯 openosint_nodes.json (Master target manifest)
-├─ 3 investigation targets (coordinates + metadata)
-├─ Risk levels assigned
-└─ Investigation status tracked
-```
-
-#### Usage
+**Usage:**
 ```bash
-# Run batch investigation on all targets
-python scripts/openosint_runner.py \
-  --targets evidence/openosint_nodes.json \
-  --mode batch \
-  --output investigation_reports/
+# Single target
+python scripts/openosint_runner.py --target "1601 D*** Street"
 
-# Run single target
-python scripts/openosint_runner.py \
-  --target "Newport Beach" \
-  --latitude 33.6189 \
-  --longitude -117.7264 \
-  --mode interactive
+# Batch investigation
+python scripts/openosint_runner.py --batch "Target1" "Target2" "Target3"
+
+# Default targets (Huntington Beach / Newport Beach cluster)
+python scripts/openosint_runner.py
 ```
 
-#### Configuration (in `openosint_nodes.json`)
-```json
-{
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {
-        "entity_name": "Dove Street Location",
-        "investigation_type": "address",
-        "risk_level": "high",
-        "status": "active"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-117.7264, 33.6189]
-      }
-    }
-  ]
-}
-```
+**Output Files:**
+- `evidence/OPENOSINT_<target>.md` — Investigation report
+- `evidence/openosint_nodes.json` — Target manifest for mapping
+- `evidence/openosint_batch_manifest.json` — Batch results index
 
 ---
 
-### 3. Caltrans CCTV Pipeline
+### 3. **Caltrans District 12 CCTV Pipeline**
+**Location:** `scripts/caltrans_d12_pull.py`  
+**Data Source:** Caltrans ArcGIS REST API (Real-time)  
+**Coverage:** Orange County highways, arterials, surface streets
 
-**Location**: `scripts/caltrans_d12_pull.py`  
-**Data Source**: Caltrans ArcGIS Feature Service (District 12 = Orange County)  
-**Frequency**: Every 5 minutes (auto-synced by ACE)  
-**Output**: GeoJSON with 288 cameras
+**Features:**
+- Live ingestion of 288 traffic cameras
+- WGS84 coordinate extraction (compatible with God's Eye View)
+- Tactical metadata: camera ID, route, direction, image URLs
+- Automatic sync to visualization layers
 
-#### What It Does
-- Queries Caltrans ArcGIS REST API for real-time CCTV camera data
-- Filters to District 12 (Orange County): 1601 D*** St, 7561 C*** Ave, Cameron Lane, Beach Blvd
-- Extracts: Camera ID, coordinates, image URL, status, last updated
-- Exports as **WGS84 GeoJSON** (compatible with God's Eye View)
+**Usage:**
+```bash
+# Fetch latest CCTV positions
+python scripts/caltrans_d12_pull.py
 
-#### Key Features
-- **288 live cameras** indexed and georeferenced
-- **Real-time image URLs** (live traffic feeds)
-- **Status tracking** (in-service vs. maintenance)
-- **Proximity analysis** (nearest camera to target: 0.22 miles)
-
-#### Configuration
-```python
-# In caltrans_d12_pull.py:
-CALTRANS_API_URL = "https://caltrans-gis.dot.ca.gov/arcgis/rest/services/CHhighway/CCTV/FeatureServer/0/query"
-DISTRICT_FILTER = "12"  # Orange County
-REFRESH_INTERVAL = 300  # 5 minutes
-OUTPUT_FORMAT = "geojson"
+# Merge with OpenOSINT targets
+python scripts/caltrans_d12_pull.py --merge
 ```
 
-#### Generated File Structure
-```json
-{
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "id": "CCTV_001",
-      "properties": {
-        "camera_id": "12_001",
-        "status": "in_service",
-        "image_url": "https://caltrans-gis.dot.ca.gov/...jpg",
-        "last_updated": "2026-09-01T12:30:00Z",
-        "district": "12",
-        "coverage_radius_miles": 0.5
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-117.7264, 33.6189]
-      }
-    }
-  ]
-}
-```
+**Output Files:**
+- `evidence/caltrans_d12_cctv.geojson` — 288 camera positions
+- `evidence/tactical_intelligence_layer.geojson` — Merged CCTV + OpenOSINT
 
-#### Proximity Analysis (Auto-Generated)
-```json
-// target_cctv_proximity.json
-{
-  "target_1": {
-    "address": "1601 D*** Street, Newport Beach, CA",
-    "nearest_cctv": "CCTV_042",
-    "distance_miles": 0.22,
-    "camera_url": "https://..."
-  },
-  "target_2": {
-    "address": "7561 C*** Ave, Huntington Beach, CA",
-    "nearest_cctv": "CCTV_157",
-    "distance_miles": 0.47
-  }
-}
-```
+**Camera Coverage:**
+| Route | Coverage | Cameras | Status |
+|-------|----------|---------|--------|
+| I-405 | Freeway | 60+ | ✅ Live |
+| SR-55 | Freeway | 45+ | ✅ Live |
+| Beach Blvd | Arterial | 38+ | ✅ Live |
+| PCH | Coastal | 32+ | ✅ Live |
+| Other routes | Surface streets | 113+ | ✅ Live |
 
 ---
 
-### 4. God's Eye View (3D Tactical Globe)
+### 4. **God's Eye View 3D Globe**
+**Location:** `C:\OsintNeoAi\viewers\gods-eye-view/`  
+**Access:** `http://[PRIVATE_IP]:5052/maps`  
+**Tech Stack:** Three.js + Mapbox GL JS + Custom GLSL shaders
 
-**Location**: `gods_eye_view.html`  
-**Tech Stack**: Three.js + Mapbox GL + OpenAI integration  
-**Layers**: 40+ overlay types
+**Features:**
+- Photorealistic 3D Earth rendering (Google Maps tiles)
+- Real-time CCTV camera markers with live feeds
+- OpenOSINT target investigation nodes
+- ACE correlation graph visualization
+- Night Vision / Thermal overlay shaders
+- Voice control (OpenAI integration)
+- AI-powered entity Q&A
 
-#### What It Does
-- Renders real-time 3D Earth with tactical intelligence
-- Loads **3 GeoJSON layers automatically**:
-  1. **Correlation clusters** (`correlation_graph.geojson` from ACE)
-  2. **Investigation targets** (`openosint_nodes.json` from OpenOSINT)
-  3. **CCTV cameras** (`caltrans_d12_cctv.geojson` from Caltrans)
-
-- Interactive features:
-  - Click any marker for details panel
-  - Heat maps (risk level → color intensity)
-  - Proximity search (radius around target)
-  - Timeline slider (replay events chronologically)
-  - Voice control ("Show me high-risk areas")
-
-#### Display Layers
-
-| Layer | Source | Color | Marker |
-|-------|--------|-------|--------|
-| **Risk Entities** | ACE Correlation Matrix | Red → Yellow (risk 0-100) | 📍 |
-| **Investigation Targets** | OpenOSINT manifest | Blue | 🎯 |
-| **CCTV Cameras** | Caltrans D12 | Green | 📹 |
-| **Correlation Edges** | ACE node links | White lines | — |
-| **Heat Map** | Density of entities | Orange gradient | — |
-| **Search Radius** | User-defined proximity | Blue circle | ⭕ |
-
-#### Configuration (in `gods_eye_view.html`)
-```html
-<!-- Line ~200: Load GeoJSON layers -->
-<script>
-  const layers = [
-    {
-      name: "Correlation Clusters",
-      url: "/evidence/correlation_graph.geojson",
-      color: (feature) => riskToColor(feature.properties.risk_level)
-    },
-    {
-      name: "Investigation Nodes",
-      url: "/evidence/openosint_nodes.json",
-      color: "#0066FF"
-    },
-    {
-      name: "CCTV Cameras",
-      url: "/evidence/caltrans_d12_cctv.geojson",
-      color: "#00AA00"
-    }
-  ];
-</script>
-```
-
-#### Interactive Features
+**Data Integration:**
 ```javascript
-// Click any marker for details
-marker.on('click', () => {
-  panel.show({
-    name: feature.properties.entity_name,
-    risk_level: feature.properties.risk_level,
-    first_seen: feature.properties.first_seen,
-    locations: feature.properties.locations,
-    related_entities: feature.properties.related_count
-  });
-});
+// Automatically loads:
+// - caltrans_d12_cctv.geojson (camera network)
+// - openosint_nodes.json (investigation targets)
+// - correlation_graph.json (ACE results)
 
-// Voice control (Requires OpenAI API key)
-microphone.on('speech', async (text) => {
-  if (text.includes("high risk")) {
-    filterLayer("risk_level", (r) => r > 80);
-  }
-  if (text.includes("show cameras")) {
-    toggleLayer("CCTV Cameras");
-  }
-});
+// Click camera markers to view live feeds
+// Select targets for investigation details
 ```
 
 ---
 
-## Integration Workflow
+## 🚀 Quick Start
 
-### Scenario: Investigating a Target Location
-
-**Step 1: ACE Discovers Correlation**
-```
-[12:05] ACE cycle runs → Finds email+phone+address correlation
-       Outputs: FORENSIC_CORRELATION_MATRIX.json
-       Updates: BigQuery + correlation_graph.geojson
-```
-
-**Step 2: OpenOSINT Enriches Investigation**
-```
-[12:10] Runner queries WHOIS/DNS/IP for discovered entities
-       Outputs: investigation_reports/target_1_summary.json
-       Updates: openosint_nodes.json with new findings
-```
-
-**Step 3: Caltrans Provides Coverage**
-```
-[12:15] CCTV pipeline fetches 288 cameras
-       Calculates proximity (nearest camera: 0.22 miles)
-       Outputs: caltrans_d12_cctv.geojson + target_cctv_proximity.json
-```
-
-**Step 4: God's Eye View Visualizes**
-```
-[12:20] Loads all 3 GeoJSON layers
-       User clicks target → See all correlations + cameras
-       Heat map shows concentration of entities
-       Timeline slider shows temporal progression
-```
-
-**Result**: Complete 360° tactical picture in <20 seconds
-
----
-
-## Data Flow Diagram
-
-```
-Evidence Sources (Google Drive, OneDrive, BigQuery)
-         │
-         ▼
-    ┌─────────────┐
-    │    ACE      │  (Every 5 min)
-    │  1K entities│
-    │  analyzed   │
-    └─────┬───────┘
-          │
-     ┌────┴─────┐
-     │           │
-     ▼           ▼
-  BigQuery   GeoJSON
-  Warehouse  (nodes+edges)
-     │           │
-     └────┬──────┘
-          │
-          ▼
-    ┌─────────────────┐
-    │  OpenOSINT      │  (Hourly)
-    │  19 tools,      │
-    │  cross-ref      │
-    └─────┬───────────┘
-          │
-          ▼
-    ┌─────────────────────┐
-    │  Caltrans CCTV      │  (Every 5 min)
-    │  288 cameras,       │
-    │  proximity calc     │
-    └─────┬───────────────┘
-          │
-          ▼
-    ┌─────────────────────┐
-    │  Unified GeoJSON    │
-    │  3 layers, 40+ opts │
-    └─────┬───────────────┘
-          │
-          ▼
-    ┌─────────────────────┐
-    │ God's Eye View 3D   │
-    │ Live & interactive  │
-    └─────────────────────┘
-          │
-          ▼
-    User sees complete tactical picture
-    in 3D real-time
-```
-
----
-
-## API Endpoints
-
-All components accessible via Azure App Service:
-
-| Endpoint | Method | Returns | Purpose |
-|----------|--------|---------|---------|
-| `/` | GET | HTML | Master hub & Makaveli Engine |
-| `/gods_eye_view.html` | GET | HTML | 3D tactical globe |
-| `/maps` | GET | HTML | 2D maps hub |
-| `/syncfusion` | GET | HTML | Enterprise grid dashboard |
-| `/tasks` | GET | HTML | Kanban board (VSDE tasks) |
-| `/api/tasks` | GET | JSON | Task registry (API) |
-| `/api/correlation/status` | GET | JSON | ACE status & metrics |
-| `/api/correlation/trigger` | POST | JSON | Manual ACE trigger (admin) |
-| `/evidence/correlation_graph.geojson` | GET | GeoJSON | ACE output (raw) |
-| `/evidence/openosint_nodes.json` | GET | JSON | OpenOSINT targets |
-| `/evidence/caltrans_d12_cctv.geojson` | GET | GeoJSON | CCTV cameras (raw) |
-
----
-
-## Performance Metrics
-
-### Daily Processing Volume
-- **ACE Cycles**: 288/day = 1 every 5 minutes
-- **Records Processed**: 288K/day = 1K per cycle
-- **Correlations Generated**: 196,683 unique
-- **Entities Indexed**: 104,227 unique
-- **Time to Visualization**: <20 seconds from discovery
-
-### Caltrans CCTV Coverage
-- **Total Cameras**: 288 (Orange County)
-- **Nearest to Target**: 0.22 miles (Dove Street)
-- **Coverage Radius**: 1.57 miles (Beach Blvd)
-- **Real-time Updates**: Every 5 minutes
-
-### BigQuery Storage
-- **Daily Ingest**: ~200MB (correlation data)
-- **Monthly Storage**: ~6GB (~$0.12/month)
-- **Query Cost**: ~$2-5/month typical usage
-
----
-
-## Troubleshooting
-
-### Problem: God's Eye View Layers Not Loading
-**Symptom**: Blank 3D globe, no markers  
-**Solution**:
+### Deploy ACE to Azure
 ```bash
-# 1. Check GeoJSON files exist
-ls -la evidence/correlation_graph.geojson
-ls -la evidence/openosint_nodes.json
-ls -la evidence/caltrans_d12_cctv.geojson
-
-# 2. Validate GeoJSON syntax
-python -m json.tool evidence/correlation_graph.geojson > /dev/null
-
-# 3. Check browser console (F12) for CORS errors
-# If CORS error: Enable in gods_eye_view.html line ~350:
-//   headers: { 'Access-Control-Allow-Origin': '*' }
+func azure functionapp publish osintneoai-ace --build remote
 ```
 
-### Problem: OpenOSINT Returns Empty Reports
-**Symptom**: Investigation reports have no findings  
-**Solution**:
+### Test Caltrans CCTV Pipeline
 ```bash
-# 1. Test CLI directly
-openosint whois google.com  # Should return registration info
-
-# 2. Run in fallback mode (generates checklist)
-python scripts/openosint_runner.py --mode fallback
-
-# 3. Check credentials/API keys
-echo $OPENOSINT_API_KEY
+python scripts/caltrans_d12_pull.py
+# Output: evidence/caltrans_d12_cctv.geojson (288 cameras)
 ```
 
-### Problem: Caltrans API Returns 0 Cameras
-**Symptom**: Empty feature list in caltrans_d12_cctv.geojson  
-**Solution**:
+### Run OpenOSINT Investigation
 ```bash
-# 1. Test API directly
-curl "https://caltrans-gis.dot.ca.gov/arcgis/rest/services/CHhighway/CCTV/FeatureServer/0/query?where=district='12'&returnGeometry=true&f=json&resultRecordCount=1"
+python scripts/openosint_runner.py --target "1601 D*** Street"
+# Output: evidence/OPENOSINT_1601_Dove_Street.md
+```
 
-# 2. Verify district parameter
-# District 12 = Orange County, includes:
-#   - I-405, I-605, I-710, I-5, CA-22, CA-73, CA-55
-#   - Newport Beach, Huntington Beach, Garden Grove
+### View Live Maps
+```bash
+# Open in browser:
+http://[PRIVATE_IP]:5052/maps
 
-# 3. Check timestamps (API may rate-limit)
-# Implement backoff: https://gist.github.com/...
+# Or access live at:
+https://osintneoai-app-949.azurewebsites.net/maps
 ```
 
 ---
 
-## Future Enhancements
+## 📊 Live Data Feeds
 
-- **Machine Learning**: Anomaly detection model (unsupervised learning)
-- **Predictive Analytics**: Timeline forecasting
-- **Multi-source Fusion**: FBI-NCIC, DHS, state databases (if authorized)
-- **Blockchain Audit Trail**: Immutable evidence chain
-- **Mobile App**: iOS/Android companion (God's Eye View on phone)
-- **Integration**: Power BI dashboards, Salesforce CRM sync
+### Real-Time Correlations (Updated every 5 minutes)
+```
+GET https://osintneoai-app-949.azurewebsites.net/api/correlation/status
+
+Returns: {
+  "timestamp": "2026-09-01T12:05:00Z",
+  "total_correlations": 247,
+  "high_risk_count": 12,
+  "correlations": [
+    {
+      "entity_type": "email",
+      "entity_value": "j***@example.com",
+      "locations": [
+        {"source": "google_photos", "record_id": "photo_123"},
+        {"source": "drive", "record_id": "doc_456"},
+        {"source": "tasks", "record_id": "task_789"}
+      ],
+      "confidence": 0.95,
+      "risk_score": 0.72
+    },
+    ...
+  ]
+}
+```
+
+### Caltrans CCTV Network (Updated continuously)
+```
+File: evidence/caltrans_d12_cctv.geojson
+
+Features: 288 camera positions
+├─ Latitude/Longitude (WGS84)
+├─ Live image URLs
+├─ Route & direction
+├─ In-service status
+└─ Camera IDs
+
+Rendered on: http://[PRIVATE_IP]:5052/maps
+```
+
+### Investigation Targets (Updated per investigation)
+```
+File: evidence/openosint_nodes.json
+
+Targets:
+├─ 1601 D*** Street (Newport Beach) - high risk
+├─ 17631 C*** Lane (Huntington Beach) - high risk
+└─ 7561 C*** Ave (Huntington Beach) - medium risk
+
+Reports:
+├─ evidence/OPENOSINT_1601_Dove_Street.md
+├─ evidence/OPENOSINT_176**_Cameron_Lane.md
+└─ evidence/OPENOSINT_7561_Center_Ave.md
+```
 
 ---
 
-## References
+## 🔒 Security & Compliance
 
-- **ACE**: `docs/ACE_DEPLOYMENT_GUIDE.md`
-- **Skills**: `docs/PLUGIN_SKILLS_REFERENCE.md`
-- **Caltrans API**: https://caltrans-gis.dot.ca.gov/
-- **OpenOSINT Docs**: https://github.com/Tonypost949/OpenOSINT
-- **Three.js**: https://threejs.org/docs/
-- **Mapbox GL**: https://docs.mapbox.com/mapbox-gl-js/
+| Component | Auth | Rate Limit | Data Retention | Backup |
+|-----------|------|-----------|-----------------|--------|
+| ACE | Service Principal (MSI) | N/A | Rolling 7-day window | 3-location |
+| OpenOSINT | API keys (optional) | Source-dependent | Permanent (MD files) | 3-location |
+| Caltrans CCTV | Public API | 1000 req/min | Real-time only | 3-location |
+| God's Eye View | Public access | None | Session-based | N/A |
+
+**3-Location Backup Protocol:**
+1. **GitHub:** Primary versionable backup
+2. **Local C:\:** Offline fallback archive
+3. **Google Drive:** Cloud resurrection source
 
 ---
 
-**Questions?** Check `/logs/extensions/*.log` for debug output.
+## 🛠️ Troubleshooting
 
-**Want to run this locally?** See `QUICK_START.md` for development setup.
+### ACE Not Correlating Data
+```bash
+# Check logs
+az functionapp logs tail --name osintneoai-ace --resource-group neoai-rg
+
+# Verify data files exist
+ls -la data/google_photos_*.json data/tasks.json
+
+# Test locally
+python auto_correlation_enrichment_engine.py --mode cycle
+```
+
+### Caltrans CCTV Not Loading
+```bash
+# Test API endpoint directly
+curl "https://caltrans-gis.dot.ca.gov/arcgis/rest/services/CHhighway/CCTV/FeatureServer/0/query?where=district%3D%2712%27&f=geojson"
+
+# Verify output file
+cat evidence/caltrans_d12_cctv.geojson | jq '.metadata.total_cameras'
+```
+
+### God's Eye View Not Rendering
+```bash
+# Check map server is running
+curl http://[PRIVATE_IP]:5052/maps
+
+# Verify GeoJSON files are valid
+python -m json.tool evidence/caltrans_d12_cctv.geojson > /dev/null
+
+# Check browser console for JS errors
+# (F12 → Console tab)
+```
+
+---
+
+## 📈 Performance Metrics
+
+| Metric | Value |
+|--------|-------|
+| **ACE Cycles/Day** | 288 (every 5 min) |
+| **Records Processed/Cycle** | 1,000 |
+| **Total Records/Day** | 288,000 |
+| **CCTV Cameras Tracked** | 288 |
+| **Avg Correlation Cycle** | 15-30s |
+| **Correlations Found/Cycle** | 50-300 |
+| **Azure Cost/Month** | ~$10-20 |
+| **Data Throughput/Month** | ~500 MB |
+| **Uptime SLA** | 99.95% (Azure) |
+
+---
+
+## 🔗 Integration Points
+
+### With Syncfusion Grid (`/syncfusion` endpoint)
+- Display ACE correlations in interactive grid
+- Filter by risk score, entity type, source
+- Export to CSV/PDF for forensic reports
+
+### With Tasks Dashboard (`/tasks` endpoint)
+- Live summary of correlation statistics
+- High-risk entity alerts
+- Investigation completion status
+
+### With Maps Hub (`/maps` endpoint)
+- 3D visualization of CCTV network
+- OpenOSINT target node markers
+- ACE correlation clusters
+- Voice-controlled navigation
+
+---
+
+## 📚 Documentation Files
+
+| Document | Purpose | Location |
+|----------|---------|----------|
+| **ACE_DEPLOYMENT_GUIDE.md** | ACE setup & configuration | Root |
+| **QUICK_START.md** | Live endpoint quick links | Root |
+| **ACCESS_INDEX.md** | All credentials & URLs | Root |
+| **openosint_runner.py** | OpenOSINT CLI wrapper | scripts/ |
+| **caltrans_d12_pull.py** | CCTV pipeline | scripts/ |
+| **caltrans_d12_cctv.geojson** | Camera coordinates | evidence/ |
+| **openosint_nodes.json** | Target manifest | evidence/ |
+
+---
+
+## 🎯 Next Steps
+
+1. **Deploy ACE to Azure** ✅
+   - `func azure functionapp publish osintneoai-ace --build remote`
+
+2. **Run Initial Investigations** 
+   - `python scripts/openosint_runner.py`
+
+3. **View Live CCTV Network**
+   - Navigate to `http://[PRIVATE_IP]:5052/maps`
+
+4. **Monitor Correlations**
+   - Check `https://osintneoai-app-949.azurewebsites.net/api/correlation/status`
+
+5. **Customize Targets**
+   - Edit `evidence/openosint_nodes.json`
+   - Add/remove investigation targets
+
+---
+
+**System Ready for 24/7 Operation** ✅

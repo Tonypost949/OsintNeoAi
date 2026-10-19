@@ -1,341 +1,501 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>OSINTNeoAi — True 3D WebGL Vector & Satellite Tactical Engine</title>
-<!-- MapLibre GL 3D Engine (Hardware Accelerated WebGL) -->
-<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
-<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- ========================================================================= -->
+  <!-- PRIMARY SEO META TAGS                                                     -->
+  <!-- ========================================================================= -->
+  <title>OSINT Neo AI — Master Architecture | Tokenized Data Mining & Web3 Intelligence Exchange</title>
+  <meta name="title" content="OSINT Neo AI — Master Architecture | Tokenized Data Mining & Web3 Intelligence Exchange">
+  <meta name="description" content="Decentralized open-source intelligence platform and crypto exchange bridging Web2 BigQuery ingestion pipelines with Web3 Ethereum Sepolia smart contracts for verifiable investigative bounties.">
+  <meta name="keywords" content="OSINT, Crypto Exchange, Data Mining, Web3, Smart Contracts, Ethereum Sepolia, BigQuery, Digital Forensics, Staking Gate, MultiPoolEscrow, Zero-Trust, AI Agents">
+  <meta name="author" content="OSINT Neo AI Engineering Team">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://osintneoai.me/">
+  <meta name="theme-color" content="#060**e">
 
-<style>
-* { margin:0; padding:0; box-sizing:border-box; }
-html, body, #map { width:100%; height:100%; background:#020617; font-family:'Segoe UI', Tahoma, monospace, sans-serif; overflow:hidden; }
+  <!-- ========================================================================= -->
+  <!-- OPEN GRAPH / SOCIAL META TAGS                                             -->
+  <!-- ========================================================================= -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://osintneoai.me/">
+  <meta property="og:title" content="OSINT Neo AI — Tokenized Data Mining & Forensic Knowledge Graph">
+  <meta property="og:description" content="Verifiable evidence data mining, Sepolia smart contracts, UTXO lineage tracking, and 40/30/30 automated bounty settlement.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/Tonypost949/OsintNeoAi/main/osint_neo_ai_banner.png">
+  <meta property="og:site_name" content="OSINT Neo AI">
 
-/* TACTICAL HUD TOP LEFT */
-#hud-panel {
-    position: fixed; top: 12px; left: 12px; z-index: 1000;
-    background: rgba(2, 6, 23, 0.94); border: 1px solid rgba(56, 189, 248, 0.4);
-    border-radius: 10px; padding: 14px 18px; color: #f8fafc; font-family: monospace;
-    font-size: 11px; line-height: 1.6; backdrop-filter: blur(12px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9), 0 0 20px rgba(56, 189, 248, 0.2);
-    max-width: 390px;
-}
-#hud-panel h1 { font-size: 15px; font-weight: 900; color: #38bdf8; letter-spacing: 1px; margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between; }
-#hud-panel .badge { background: #38bdf822; color: #38bdf8; padding: 3px 8px; border-radius: 4px; border: 1px solid #38bdf844; font-size: 10px; }
-#hud-panel .stat-row { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding: 4px 0; }
-#hud-panel .stat-val { font-weight: bold; color: #00ffaa; }
+  <!-- TWITTER CARDS -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://osintneoai.me/">
+  <meta name="twitter:title" content="OSINT Neo AI — Master Architecture">
+  <meta name="twitter:description" content="Decentralized data mining crypto exchange & forensic intelligence ecosystem verified on Sepolia Testnet.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/Tonypost949/OsintNeoAi/main/osint_neo_ai_banner.png">
 
-/* 3D CAMERA TELEMETRY HUD TOP CENTER */
-#cam-hud {
-    position: fixed; top: 12px; left: 50%; transform: translateX(-50%); z-index: 1000;
-    background: rgba(2, 6, 23, 0.95); border: 2px solid #00ffaa;
-    border-radius: 30px; padding: 8px 20px; color: #00ffaa; font-family: monospace;
-    font-size: 12px; font-weight: bold; backdrop-filter: blur(14px);
-    box-shadow: 0 0 25px rgba(0, 255, 170, 0.4), 0 10px 30px rgba(0, 0, 0, 0.9);
-    display: flex; align-items: center; gap: 14px;
-}
-#cam-hud button {
-    background: #0f172a; color: #00ffaa; border: 1px solid #00ffaa66; padding: 6px 14px;
-    border-radius: 20px; font-family: monospace; font-size: 11px; font-weight: bold;
-    cursor: pointer; transition: all 0.2s ease; outline: none;
-}
-#cam-hud button:hover { background: #00ffaa; color: #020617; box-shadow: 0 0 15px #00ffaa; }
+  <!-- SCHEMA.ORG JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "OSINT Neo AI",
+    "operatingSystem": "Linux, Windows, macOS, Android",
+    "applicationCategory": "SecurityApplication, FinancialApplication, DeveloperApplication",
+    "description": "Decentralized open-source intelligence platform and data mining crypto exchange with Sepolia smart contracts and BigQuery forensic graphs.",
+    "url": "https://osintneoai.me/",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 
-/* QUICK JUMP COCKPIT TOP RIGHT */
-#cockpit-jump {
-    position: fixed; top: 12px; right: 12px; z-index: 1000;
-    background: rgba(2, 6, 23, 0.94); border: 1px solid rgba(0, 255, 170, 0.4);
-    border-radius: 10px; padding: 12px 16px; color: #f8fafc; font-family: monospace;
-    font-size: 11px; backdrop-filter: blur(12px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9);
-    display: flex; flex-direction: column; gap: 8px; max-width: 320px;
-}
-#cockpit-jump select {
-    background: #0f172a; color: #00ffaa; border: 1px solid #334155; padding: 8px 12px;
-    border-radius: 6px; font-family: monospace; font-size: 11px; outline: none; cursor: pointer;
-}
+  <!-- Tailwind CSS & Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-/* 3D TILT SLIDER BOTTOM LEFT */
-#tilt-controls {
-    position: fixed; bottom: 12px; left: 12px; z-index: 1000;
-    background: rgba(2, 6, 23, 0.92); border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 8px; padding: 8px 14px; color: #94a3b8; font-family: monospace; font-size: 11px;
-    display: flex; align-items: center; gap: 12px; backdrop-filter: blur(8px);
-}
-#tilt-controls input[type=range] { accent-color: #00ffaa; cursor: pointer; width: 100px; }
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#060**e',
+              surface: '#0b111e',
+              border: '#1b263b',
+              cyan: '#06b6d4',
+              neon: '#38bdf8',
+              emerald: '#10b981',
+              purple: '#a855f7',
+              amber: '#f59e0b'
+            }
+          },
+          fontFamily: {
+            orbitron: ['Orbitron', 'sans-serif'],
+            rajdhani: ['Rajdhani', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+            sans: ['"DM Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
 
-/* POPUP CUSTOM STYLING */
-.maplibregl-popup-content {
-    background: rgba(15, 23, 42, 0.96) !important;
-    color: #e2e8f0 !important;
-    border: 1px solid rgba(56, 189, 248, 0.5) !important;
-    border-radius: 8px !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9) !important;
-    font-family: monospace; font-size: 11px; line-height: 1.5; padding: 12px 14px;
-}
-.maplibregl-popup-tip { border-top-color: rgba(15, 23, 42, 0.96) !important; }
-.popup-title { color: #38bdf8; font-weight: bold; font-size: 13px; margin-bottom: 6px; border-bottom: 1px solid #334155; padding-bottom: 4px; }
-.popup-tag { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 9px; font-weight: bold; margin-bottom: 6px; }
-.tag-superfund { background: #ef444433; color: #f871**; border: 1px solid #ef444466; }
-.tag-nevada { background: #a855f733; color: #c084fc; border: 1px solid #a855f766; }
-.popup-field { color: #94a3b8; }
-.popup-field b { color: #f1f5f9; }
-</style>
+  <style>
+    body {
+      background-color: #060**e;
+      color: #e2e8f0;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .glass-card {
+      background: rgba(11, 17, 30, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+    }
+    .glass-card:hover {
+      border-color: rgba(56, 189, 248, 0.45);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #06b6d4 50%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
 </head>
-<body>
+<body class="selection:bg-cyan-500 selection:text-black">
 
-<div id="map"></div>
+  <!-- TOP STICKY NAVIGATION -->
+  <header class="sticky top-0 z-50 border-b border-brand-border/80 bg-brand-dark/95 backdrop-blur-md px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-3.5 h-3.5 rounded-full bg-cyan-400 animate-ping"></div>
+        <span class="font-orbitron font-extrabold text-xl tracking-wider text-white">OSINT <span class="text-cyan-400">NEO AI</span></span>
+      </a>
 
-<!-- HUD PANEL -->
-<div id="hud-panel">
-    <h1>🛰️ MAPLIBRE 3D TACTICAL GIS <span class="badge">HARDWARE ACCELERATED</span></h1>
-    <div style="color:#94a3b8; font-size:10px; margin-bottom:8px;">WebGL 3D Engine • True Camera Pitch & 3D Volumetric Extrusions</div>
-    <div class="stat-row"><span>Engine:</span><span class="stat-val">MapLibre GL v4.7 (WebGL)</span></div>
-    <div class="stat-row"><span>3D Tilt (Pitch):</span><span class="stat-val" id="hud-pitch-val">60°</span></div>
-    <div class="stat-row"><span>Bearing (Rotation):</span><span class="stat-val" id="hud-bearing-val">-20°</span></div>
-    <div class="stat-row"><span>Surveillance Records:</span><span class="stat-val">10,499,686 Audited</span></div>
-    <div class="stat-row"><span>Superfund / Plumes:</span><span class="stat-val" style="color:#f43f5e">Ascon / CR6 Plume</span></div>
-    <div style="margin-top:8px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.1); display:flex; gap:6px;">
-        <a href="victims_board.html" style="background:#ef4444; color:#ffffff; padding:4px 8px; border-radius:4px; text-decoration:none; font-size:10px; font-weight:bold; display:inline-block;">📢 VICTIMS BOARD</a>
-        <a href="maps_hub.html" style="background:#0284c7; color:#ffffff; padding:4px 8px; border-radius:4px; text-decoration:none; font-size:10px; font-weight:bold; display:inline-block;">🗺️ MAPS HUB</a>
+      <nav class="hidden md:flex items-center gap-5 text-sm font-medium text-slate-300">
+        <a href="/" class="text-cyan-400 font-bold hover:text-white transition"><i class="fa-solid fa-house text-xs mr-1"></i> Home Page</a>
+        <a href="/chat" class="hover:text-cyan-400 transition"><i class="fa-solid fa-comments text-xs mr-1 text-purple-400"></i> User Workspace</a>
+        <a href="/admin" class="hover:text-rose-400 transition"><i class="fa-solid fa-user-shield text-xs mr-1 text-rose-500"></i> Admin Page</a>
+        <a href="/capabilities" class="hover:text-amber-400 transition"><i class="fa-solid fa-code text-xs mr-1 text-amber-400"></i> Dev Environment</a>
+        <a href="#contracts" class="hover:text-cyan-400 transition">Contracts</a>
+        <a href="#mcp" class="hover:text-cyan-400 transition">19 MCP Tools</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="https://github.com/Tonypost949/OsintNeoAi" target="_blank" class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-mono border border-slate-700 transition">
+          <i class="fa-brands fa-github text-sm"></i> Star
+        </a>
+        <a href="/chat" class="px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs font-mono transition shadow-lg shadow-cyan-500/25">
+          Launch Workspace
+        </a>
+      </div>
     </div>
-</div>
+  </header>
 
-<!-- 3D CAMERA TELEMETRY -->
-<div id="cam-hud">
-    <span>🎮 3D FLIGHT:</span>
-    <button id="btn-autopilot" onclick="toggleAutopilot()">▶️ START 3D CINEMATIC ORBIT</button>
-    <button onclick="reset3DCamera()">🔄 RESET 3D VIEW</button>
-</div>
+  <!-- HERO SECTION -->
+  <section class="relative pt-20 pb-16 px-6 overflow-hidden">
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-cyan-500/10 blur-[140px] rounded-full pointer-events-none"></div>
+    <div class="absolute top-1/3 right-10 w-[350px] h-[350px] bg-purple-500/10 blur-[130px] rounded-full pointer-events-none"></div>
 
-<!-- QUICK JUMP COCKPIT -->
-<div id="cockpit-jump">
-    <label style="color:#94a3b8; font-size:10px; font-weight:bold;">📍 DIRECT 3D FLY-TO:</label>
-    <select id="jump-select" onchange="jumpTo3D(this.value)">
-        <option value="ascon">☣️ Ascon Superfund 3D Pit (Huntington Beach)</option>
-        <option value="vagabond">📍 17642 B*** Blvd (Vagabond Inn / Casa Aliento)</option>
-        <option value="cameron">📍 17631 C*** Ln Property Hub</option>
-        <option value="buck">🌾 Buck Ranch / Callens Historical Sector</option>
-        <option value="mgm">🎰 MGM Grand Las Vegas 3D Hub (NV)</option>
-        <option value="apex">🏜️ Apex Desert Industrial Mesh (NV)</option>
-        <option value="nye">⛏️ Nye County Mining Corridor (NV)</option>
-        <option value="tahoe">🏭 Tahoe-Reno Mega-Campus (NV)</option>
-    </select>
-</div>
+    <div class="max-w-5xl mx-auto text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 font-mono text-xs mb-6">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Sepolia Testnet Deployed • Tokenized Intelligence Mining & Bounties
+      </div>
 
-<!-- 3D TILT SLIDER -->
-<div id="tilt-controls">
-    <span>📐 3D PITCH:</span>
-    <input type="range" id="pitch-slider" min="0" max="85" value="60" oninput="set3DPitch(this.value)">
-    <span id="pitch-display">60°</span>
-    <span style="margin-left:8px;">🧭 BEARING:</span>
-    <input type="range" id="bearing-slider" min="-180" max="180" value="-20" oninput="set3DBearing(this.value)">
-    <span id="bearing-display">-20°</span>
-</div>
+      <h1 class="font-orbitron font-extrabold text-4xl sm:text-6xl md:text-7xl leading-tight tracking-tight text-white mb-6">
+        Tokenized OSINT & <br/>
+        <span class="gradient-text">Crypto Mining Exchange</span>
+      </h1>
 
-<script>
-// INITIALIZE 3D MAPLIBRE ENGINE
-const map = new maplibregl.Map({
-    container: 'map',
-    style: {
-        version: 8,
-        sources: {
-            'esri-satellite': {
-                type: 'raster',
-                tiles: ['https://clarity.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],
-                tileSize: 256,
-                attribution: 'ESRI Clarity Ultra-HD'
-            }
-        },
-        layers: [
-            {
-                id: 'esri-satellite-layer',
-                type: 'raster',
-                source: 'esri-satellite',
-                paint: { 'raster-opacity': 1.0 }
-            }
-        ]
-    },
-    center: [-117.9855, 33.6522],
-    zoom: 15.5,
-    pitch: 60,
-    bearing: -20,
-    antialias: true
-});
+      <p class="text-slate-300 text-lg sm:text-xl max-w-3xl mx-auto mb-8 leading-relaxed">
+        OSINT Neo AI bridges <b>Web2 ingestion pipelines</b> (Azure, Google Cloud, BigQuery) with <b>Web3 smart contracts</b> (Ethereum Sepolia) to create a zero-trust, append-only ecosystem for digital forensics and verifiable investigative bounties.
+      </p>
 
-// EXPOSE TO WINDOW FOR DEVTOOLS FAST VERIFICATION
-window.map = map;
-window.maplibregl = maplibregl;
+      <div class="flex flex-wrap items-center justify-center gap-4 mb-14">
+        <a href="#contracts" class="px-6 py-3.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-orbitron font-bold text-sm transition shadow-xl shadow-cyan-500/25 flex items-center gap-2">
+          <i class="fa-brands fa-ethereum"></i> View Sepolia Contracts
+        </a>
+        <a href="http://localhost:100**/map/osinteye" class="px-6 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-white font-orbitron font-bold text-sm border border-slate-700 transition flex items-center gap-2">
+          <i class="fa-solid fa-satellite-dish text-cyan-400"></i> OSINT Eye View Map
+        </a>
+      </div>
 
-// ADD NAVIGATION & 3D CONTROLS
-map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'top-right');
-map.addControl(new maplibregl.FullscreenControl(), 'top-right');
+      <!-- LIVE METRIC TELEMETRY RIBBON -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
+        <div class="glass-card p-4 rounded-xl">
+          <div class="text-xs font-mono text-slate-400 uppercase">Evidence Indexed</div>
+          <div class="font-orbitron font-bold text-2xl text-cyan-400 mt-1">3,510 Docs</div>
+          <div class="text-[11px] font-mono text-emerald-400 mt-0.5">SHA-256 Checksums</div>
+        </div>
+        <div class="glass-card p-4 rounded-xl">
+          <div class="text-xs font-mono text-slate-400 uppercase">Target Accounts</div>
+          <div class="font-orbitron font-bold text-2xl text-purple-400 mt-1">32 Registry</div>
+          <div class="text-[11px] font-mono text-emerald-400 mt-0.5">16 BigQuery Matches</div>
+        </div>
+        <div class="glass-card p-4 rounded-xl">
+          <div class="text-xs font-mono text-slate-400 uppercase">Bounty Split</div>
+          <div class="font-orbitron font-bold text-2xl text-amber-400 mt-1">40 / 30 / 30</div>
+          <div class="text-[11px] font-mono text-slate-400 mt-0.5">UTXO Provenance</div>
+        </div>
+        <div class="glass-card p-4 rounded-xl">
+          <div class="text-xs font-mono text-slate-400 uppercase">Smart Contracts</div>
+          <div class="font-orbitron font-bold text-2xl text-emerald-400 mt-1">Sepolia</div>
+          <div class="text-[11px] font-mono text-emerald-400 mt-0.5">Verified on Etherscan</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-map.on('load', () => {
-    // 1. ASCON SUPERFUND 3D EXTRUDED LAYER
-    map.addSource('ascon-superfund', {
-        type: 'geojson',
-        data: {
-            type: 'Feature',
-            geometry: {
-                type: 'Polygon',
-                coordinates: [[
-                    [-117.9890, 33.6495],
-                    [-117.9890, 33.6550],
-                    [-117.9820, 33.6550],
-                    [-117.9820, 33.6495],
-                    [-117.9890, 33.6495]
-                ]]
-            },
-            properties: { height: 35, base_height: 0, name: 'Ascon Superfund Site (38 Acres)' }
-        }
-    });
+  <!-- LIVE SEPOLIA TESTNET SMART CONTRACTS -->
+  <section id="contracts" class="py-20 px-6 bg-brand-surface/80 border-t border-b border-brand-border">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="text-xs font-mono text-cyan-400 uppercase tracking-wider mb-2">Web3 Protocol Layer</div>
+        <h2 class="font-orbitron font-extrabold text-3xl sm:text-4xl text-white">🔗 Live Sepolia Testnet Architecture</h2>
+        <p class="text-slate-400 text-sm mt-2">The core financial, staking, and escrow logic is fully deployed and verified on the Ethereum Sepolia Testnet.</p>
+      </div>
 
-    map.addLayer({
-        id: 'ascon-3d-fill',
-        type: 'fill-extrusion',
-        source: 'ascon-superfund',
-        paint: {
-            'fill-extrusion-color': '#ef4444',
-            'fill-extrusion-height': 35,
-            'fill-extrusion-base': 0,
-            'fill-extrusion-opacity': 0.65
-        }
-    });
+      <div class="overflow-x-auto">
+        <table class="w-full text-left font-mono text-xs border border-slate-800 rounded-xl overflow-hidden bg-slate-950/80">
+          <thead class="bg-slate-900/90 text-cyan-400 uppercase text-[11px] border-b border-slate-800">
+            <tr>
+              <th class="p-4">Contract / Asset</th>
+              <th class="p-4">Sepolia Contract Address</th>
+              <th class="p-4">Function & Role</th>
+              <th class="p-4 text-right">Etherscan</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/60">
+            <tr class="hover:bg-slate-900/40 transition">
+              <td class="p-4 font-bold text-white flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span> USDC (Settlement)
+              </td>
+              <td class="p-4 text-cyan-300">0x7236F4982a315**d07f3182A1CdAD3f3E4452A53</td>
+              <td class="p-4 text-slate-300 font-sans">Primary fiat-pegged settlement asset for whistleblower & investigative bounties</td>
+              <td class="p-4 text-right">
+                <a href="https://sepolia.etherscan.io/address/0x7236F4982a315**d07f3182A1CdAD3f3E4452A53#code" target="_blank" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-cyan-300 rounded border border-slate-700">View on Etherscan</a>
+              </td>
+            </tr>
+            <tr class="hover:bg-slate-900/40 transition">
+              <td class="p-4 font-bold text-white flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span> OSINT (Utility)
+              </td>
+              <td class="p-4 text-cyan-300">0xA74B3fAfd838fC273f7c6e201B6210AC2b3A0296</td>
+              <td class="p-4 text-slate-300 font-sans">Platform staking collateral, miner reputation weight & access token</td>
+              <td class="p-4 text-right">
+                <a href="https://sepolia.etherscan.io/address/0xA74B3fAfd838fC273f7c6e201B6210AC2b3A0296#code" target="_blank" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-cyan-300 rounded border border-slate-700">View on Etherscan</a>
+              </td>
+            </tr>
+            <tr class="hover:bg-slate-900/40 transition">
+              <td class="p-4 font-bold text-white flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span> TFT (Tax-Funded)
+              </td>
+              <td class="p-4 text-cyan-300">0x0977909b254EC33C4D1039135F351B1d3Fb27F14</td>
+              <td class="p-4 text-slate-300 font-sans">Domain-specific mining reward minted for municipal & government audit bounties</td>
+              <td class="p-4 text-right">
+                <a href="https://sepolia.etherscan.io/address/0x0977909b254EC33C4D1039135F351B1d3Fb27F14#code" target="_blank" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-cyan-300 rounded border border-slate-700">View on Etherscan</a>
+              </td>
+            </tr>
+            <tr class="hover:bg-slate-900/40 transition">
+              <td class="p-4 font-bold text-white flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span> StakingGate
+              </td>
+              <td class="p-4 text-cyan-300">0xdA7655b7007a1C7F8191066Bb9A69E4D8987E725</td>
+              <td class="p-4 text-slate-300 font-sans">Sybil defense gateway collateralizing data submissions (100 OSINT stake required)</td>
+              <td class="p-4 text-right">
+                <a href="https://sepolia.etherscan.io/address/0xdA7655b7007a1C7F8191066Bb9A69E4D8987E725#code" target="_blank" class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded border border-emerald-500/40 font-bold">View on Etherscan ✅</a>
+              </td>
+            </tr>
+            <tr class="hover:bg-slate-900/40 transition">
+              <td class="p-4 font-bold text-white flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span> MultiPoolEscrow
+              </td>
+              <td class="p-4 text-cyan-300">0x155**C9A8a5903336CC67F2cBa00dBdAd944dC5B</td>
+              <td class="p-4 text-slate-300 font-sans">UTXO provenance graph tracking evidence lineage with automated 40/30/30 payouts</td>
+              <td class="p-4 text-right">
+                <a href="https://sepolia.etherscan.io/address/0x155**C9A8a5903336CC67F2cBa00dBdAd944dC5B#code" target="_blank" class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded border border-emerald-500/40 font-bold">View on Etherscan ✅</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
 
-    // 2. BEACH BLVD TOXIC PLUME VECTOR (3D Line)
-    map.addSource('plume-vector', {
-        type: 'geojson',
-        data: {
-            type: 'Feature',
-            geometry: {
-                type: 'LineString',
-                coordinates: [
-                    [-117.9855, 33.6522],
-                    [-117.9895, 33.6845],
-                    [-117.9881801, 33.7064036]
-                ]
-            }
-        }
-    });
+  <!-- E2E DATA MINING PIPELINE -->
+  <section id="pipeline" class="py-24 px-6 max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="text-xs font-mono text-cyan-400 uppercase tracking-wider mb-2">Ingestion & Settlement</div>
+      <h2 class="font-orbitron font-extrabold text-3xl sm:text-4xl text-white">⚙️ The E2E Data Ingestion Pipeline</h2>
+      <p class="text-slate-400 text-sm mt-2">How raw forensic files are ingested, AI-enriched, cryptographically verified, and paid out.</p>
+    </div>
 
-    map.addLayer({
-        id: 'plume-vector-line',
-        type: 'line',
-        source: 'plume-vector',
-        paint: {
-            'line-color': '#f59e0b',
-            'line-width': 5,
-            'line-opacity': 0.9,
-            'line-dasharray': [2, 1]
-        }
-    });
+    <div class="space-y-6 max-w-4xl mx-auto">
+      <!-- Step 1 -->
+      <div class="glass-card p-6 rounded-2xl flex flex-col md:flex-row gap-6 items-start">
+        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-400/30 flex items-center justify-center text-cyan-400 font-orbitron font-bold text-xl shrink-0">1</div>
+        <div>
+          <h3 class="font-orbitron font-bold text-lg text-white mb-2">The Workspace UI (Frontend)</h3>
+          <p class="text-slate-300 text-sm mb-3">Frictionless chat environment (<code class="text-cyan-300">workspace_chat.html</code>) with multimodal capture:</p>
+          <ul class="text-xs font-sans text-slate-400 space-y-1.5 list-disc pl-5">
+            <li><b>Multimodal Capture:</b> Upload documents, capture pictures via WebRTC HTML5 canvas, or record voice memos with MediaRecorder.</li>
+            <li><b>Sybil Defense (Staking Gate):</b> Client computes SHA-256 locally and prompts MetaMask to execute <code class="text-cyan-300">stakeAndSubmit(hash)</code> on StakingGate (100 OSINT stake required to eliminate bots).</li>
+          </ul>
+        </div>
+      </div>
 
-    // 3. TARGET MARKERS
-    add3DMarker([-117.9881801, 33.7064036], '📍 17642 B*** Blvd (Vagabond Inn)', 'APN: 102-121-04 • $14.68M Funding Conduit');
-    add3DMarker([-117.9901500, 33.7062500], '📍 17631 C*** Ln', 'GeoTracker Deliverable (***) ***-7770 Filed');
-    add3DMarker([-117.9685, 33.6760], '🌾 Buck Ranch / Callens Historical Sector', 'Historical Survey GIS Only');
-    add3DMarker([-115.1703, 36.1026], '🎰 MGM Grand Las Vegas 3D Hub', '36.1026° N, 115.1703° W • Nevada Spatial Node');
-    add3DMarker([-114.9200, 36.3150], '🏜️ Apex Desert Industrial Mesh', '36.3150° N, 114.9200° W • Clark County');
-});
+      <!-- Step 2 -->
+      <div class="glass-card p-6 rounded-2xl flex flex-col md:flex-row gap-6 items-start">
+        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-400/30 flex items-center justify-center text-purple-400 font-orbitron font-bold text-xl shrink-0">2</div>
+        <div>
+          <h3 class="font-orbitron font-bold text-lg text-white mb-2">Evasive Azure Proxy (API Router)</h3>
+          <p class="text-slate-300 text-sm mb-3">FastAPI backend (<code class="text-cyan-300">workspace_api.py</code>) processes raw multipart FormData:</p>
+          <ul class="text-xs font-sans text-slate-400 space-y-1.5 list-disc pl-5">
+            <li><b>File Decoding:</b> Text and PDF documents decoded; media tagged for vision processing.</li>
+            <li><b>BigQuery V1 (Raw Append):</b> Payload immediately written to BigQuery as <code class="text-emerald-400">version_id = 1</code> using Workload Identity Federation (WIF) credentials (zero static keys).</li>
+          </ul>
+        </div>
+      </div>
 
-function add3DMarker(coords, title, desc) {
-    const el = document.createElement('div');
-    el.style.width = '14px';
-    el.style.height = '14px';
-    el.style.backgroundColor = '#00ffaa';
-    el.style.border = '2px solid #fff';
-    el.style.borderRadius = '50%';
-    el.style.boxShadow = '0 0 15px #00ffaa';
-    el.style.cursor = 'pointer';
+      <!-- Step 3 -->
+      <div class="glass-card p-6 rounded-2xl flex flex-col md:flex-row gap-6 items-start">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-400/30 flex items-center justify-center text-emerald-400 font-orbitron font-bold text-xl shrink-0">3</div>
+        <div>
+          <h3 class="font-orbitron font-bold text-lg text-white mb-2">Background AI Consumer</h3>
+          <p class="text-slate-300 text-sm mb-3">Heavy extraction pushed to asynchronous queue (<code class="text-cyan-300">background_consumer.py</code>):</p>
+          <ul class="text-xs font-sans text-slate-400 space-y-1.5 list-disc pl-5">
+            <li><b>Gemini Extraction:</b> Gemini-1.5-Pro micro-worker extracts entities (FOIA headers, legal citations, persons) and assigns domain tags (e.g. <code class="text-cyan-300">[OSINT]</code>, <code class="text-purple-300">[Tax-Funded]</code>).</li>
+            <li><b>BigQuery V2 (Enriched Append):</b> Structured metadata is appended as <code class="text-emerald-400">version_id = 2</code>. Original raw file remains completely immutable.</li>
+          </ul>
+        </div>
+      </div>
 
-    const popup = new maplibregl.Popup({ offset: 25 }).setHTML(`
-        <div class="popup-title">${title}</div>
-        <div class="popup-field">${desc}</div>
-    `);
+      <!-- Step 4 -->
+      <div class="glass-card p-6 rounded-2xl flex flex-col md:flex-row gap-6 items-start">
+        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-400/30 flex items-center justify-center text-amber-400 font-orbitron font-bold text-xl shrink-0">4</div>
+        <div>
+          <h3 class="font-orbitron font-bold text-lg text-white mb-2">The Web3 Oracle Bridge</h3>
+          <p class="text-slate-300 text-sm mb-3">Upon AI validation, Python backend signs on-chain Oracle transactions via <code class="text-cyan-300">web3.py</code>:</p>
+          <ul class="text-xs font-sans text-slate-400 space-y-1.5 list-disc pl-5">
+            <li><b>Lifting Quarantine:</b> Oracle calls <code class="text-amber-300">reviewSubmission(hash, true)</code> on StakingGate, refunding the 100 OSINT stake + granting <b>+10 Reputation points</b>.</li>
+            <li><b>Registering Lineage:</b> Oracle maps ancestry via <code class="text-amber-300">registerDataBlock(assetHash, parentHash, minerAddress, domainTags)</code> on MultiPoolEscrow.</li>
+          </ul>
+        </div>
+      </div>
 
-    new maplibregl.Marker(el)
-        .setLngLat(coords)
-        .setPopup(popup)
-        .addTo(map);
-}
+      <!-- Step 5 -->
+      <div class="glass-card p-6 rounded-2xl flex flex-col md:flex-row gap-6 items-start">
+        <div class="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-400/30 flex items-center justify-center text-rose-400 font-orbitron font-bold text-xl shrink-0">5</div>
+        <div>
+          <h3 class="font-orbitron font-bold text-lg text-white mb-2">Automated Multi-Pool Payouts</h3>
+          <p class="text-slate-300 text-sm mb-3">When a case is solved and organizations deposit fiat-backed USDC into the escrow:</p>
+          <ul class="text-xs font-sans text-slate-400 space-y-1.5 list-disc pl-5">
+            <li><b>UTXO Provenance Graph:</b> Contract traverses <code class="text-cyan-300">parentHash</code> pointers to map exactly who contributed evidence.</li>
+            <li><b>The 40/30/30 Split:</b> Deterministically distributes USDC: <b>40% Catalyst</b> (Discoverer), <b>30% Corroborator</b> (Enricher), <b>30% Closer</b> (Lead Auditor).</li>
+            <li><b>Domain Minting:</b> Dynamically mints secondary utility rewards (OSINT / TFT) to contributors' Web3 wallets based on domain tags.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-// 3D CAMERA TELEMETRY SYNC
-map.on('rotate', updateCameraHUD);
-map.on('pitch', updateCameraHUD);
+  <!-- 5 VULNERABILITIES SEALED -->
+  <section id="security" class="py-20 px-6 bg-brand-surface/60 border-t border-b border-brand-border">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="text-xs font-mono text-emerald-400 uppercase tracking-wider mb-2">Zero-Trust Security Model</div>
+        <h2 class="font-orbitron font-extrabold text-3xl sm:text-4xl text-white">🔒 The 5 Vulnerabilities Sealed</h2>
+        <p class="text-slate-400 text-sm mt-2">Engineered from day one to withstand state-level tampering, Sybil spam, and API throttling.</p>
+      </div>
 
-function updateCameraHUD() {
-    const pitch = Math.round(map.getPitch());
-    const bearing = Math.round(map.getBearing());
-    document.getElementById('hud-pitch-val').innerText = `${pitch}°`;
-    document.getElementById('hud-bearing-val').innerText = `${bearing}°`;
-    document.getElementById('pitch-slider').value = pitch;
-    document.getElementById('pitch-display').innerText = `${pitch}°`;
-    document.getElementById('bearing-slider').value = bearing;
-    document.getElementById('bearing-display').innerText = `${bearing}°`;
-}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="glass-card p-6 rounded-xl border-l-4 border-l-emerald-400">
+          <div class="font-orbitron font-bold text-base text-white mb-2">1. Pointer Corruption</div>
+          <p class="text-slate-400 text-xs leading-relaxed font-sans">
+            Eliminated by strict cryptographic <code class="text-cyan-300">parentHash</code> linking (UTXO style), preventing history rewrites or hijacked credit.
+          </p>
+        </div>
+        <div class="glass-card p-6 rounded-xl border-l-4 border-l-emerald-400">
+          <div class="font-orbitron font-bold text-base text-white mb-2">2. File Forgery</div>
+          <p class="text-slate-400 text-xs leading-relaxed font-sans">
+            Prevented by SHA-256 client-side hashing at the instant of capture and append-only BigQuery database schemas.
+          </p>
+        </div>
+        <div class="glass-card p-6 rounded-xl border-l-4 border-l-emerald-400">
+          <div class="font-orbitron font-bold text-base text-white mb-2">3. Sybil Attacks</div>
+          <p class="text-slate-400 text-xs leading-relaxed font-sans">
+            Mitigated by the Web3 Staking Gate requiring 100 OSINT token collateral on every submission, destroying spam incentives.
+          </p>
+        </div>
+        <div class="glass-card p-6 rounded-xl border-l-4 border-l-emerald-400">
+          <div class="font-orbitron font-bold text-base text-white mb-2">4. Compute Bottlenecks</div>
+          <p class="text-slate-400 text-xs leading-relaxed font-sans">
+            Solved by offloading heavy extraction to the asynchronous <code class="text-cyan-300">background_consumer.py</code> queue.
+          </p>
+        </div>
+        <div class="glass-card p-6 rounded-xl border-l-4 border-l-emerald-400">
+          <div class="font-orbitron font-bold text-base text-white mb-2">5. Rate-Limit Guillotine</div>
+          <p class="text-slate-400 text-xs leading-relaxed font-sans">
+            Bypassed using off-peak cron caching (<code class="text-cyan-300">bulk_caching_queue.py</code>) instead of live API queries.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-function set3DPitch(val) {
-    map.setPitch(parseFloat(val));
-}
-function set3DBearing(val) {
-    map.setBearing(parseFloat(val));
-}
-function reset3DCamera() {
-    map.easeTo({ pitch: 60, bearing: -20, duration: 1000 });
-}
+  <!-- QUICKSTART SECTION -->
+  <section id="quickstart" class="py-16 px-6 bg-brand-dark">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-8">
+        <h2 class="font-orbitron font-bold text-2xl text-white">Deploy In Seconds</h2>
+        <p class="text-slate-400 text-sm mt-1 font-mono">1-command bootstrap across Windows, Linux, Azure, and Oracle Cloud</p>
+      </div>
 
-// 3D WAYPOINTS FOR DEVTOOLS
-window.flightWaypoints = [
-    { name: "Ascon Superfund 3D Pit", center: [-117.9855, 33.6522], zoom: 16.5, pitch: 65, bearing: -30 },
-    { name: "17642 B*** Blvd", center: [-117.9881801, 33.7064036], zoom: 17, pitch: 70, bearing: 15 },
-    { name: "17631 C*** Ln", center: [-117.9901500, 33.7062500], zoom: 17, pitch: 65, bearing: 45 },
-    { name: "Buck Ranch Historical Sector", center: [-117.9685, 33.6760], zoom: 15, pitch: 55, bearing: -10 },
-    { name: "MGM Grand Las Vegas", center: [-115.1703, 36.1026], zoom: 16, pitch: 70, bearing: 60 },
-    { name: "Apex Desert Corridor", center: [-114.9200, 36.3150], zoom: 14, pitch: 60, bearing: 0 },
-    { name: "Nye County Mining Hub", center: [-116.7547, 36.9092], zoom: 13, pitch: 55, bearing: 30 },
-    { name: "Tahoe-Reno Mega-Campus", center: [-119.8138, 39.5296], zoom: 14, pitch: 60, bearing: -45 }
-];
+      <div class="rounded-xl overflow-hidden border border-brand-border bg-black/90 shadow-2xl">
+        <div class="bg-slate-900/90 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+            <span class="text-xs font-mono text-slate-400 ml-2">bash — Quick Setup</span>
+          </div>
+          <button onclick="copyInstallCmd()" class="text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5">
+            <i class="fa-regular fa-copy" id="copy-icon"></i> <span id="copy-text">Copy Command</span>
+          </button>
+        </div>
+        <div class="p-5 font-mono text-sm leading-relaxed overflow-x-auto">
+          <span class="text-emerald-400"># Clone & Run</span><br/>
+          <span class="text-cyan-300">git clone</span> https://github.com/Tonypost949/OsintNeoAi.git && <span class="text-cyan-300">cd</span> OsintNeoAi && <span class="text-cyan-300">pip install</span> -r requirements.txt && <span class="text-cyan-300">python</span> simple_map_server.py
+        </div>
+      </div>
+    </div>
+  </section>
 
-let wpIndex = 0;
-let is3DAutopilot = false;
-let autopilotInterval = null;
+  <!-- MCP SECTION -->
+  <section id="mcp" class="py-20 px-6 bg-brand-surface/40 border-t border-brand-border">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="text-xs font-mono text-cyan-400 uppercase tracking-wider mb-2">Model Context Protocol</div>
+        <h2 class="font-orbitron font-bold text-3xl text-white">19 Native Reconnaissance Modules</h2>
+        <p class="text-slate-400 text-sm mt-2 font-mono">Available via tools/openosint_mcp_server.py</p>
+      </div>
 
-function jumpTo3D(target) {
-    const targets = {
-        "ascon": 0, "vagabond": 1, "cameron": 2, "buck": 3,
-        "mgm": 4, "apex": 5, "nye": 6, "tahoe": 7
-    };
-    if (targets[target] !== undefined) {
-        const wp = window.flightWaypoints[targets[target]];
-        map.flyTo({ center: wp.center, zoom: wp.zoom, pitch: wp.pitch, bearing: wp.bearing, duration: 2500 });
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 font-mono text-xs">
+        <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i class="fa-solid fa-user-tag text-cyan-400"></i>
+          <div><div class="text-white font-bold">osint_lookup_person</div><div class="text-slate-400 text-[11px]">Public records & voter registers</div></div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i class="fa-solid fa-envelope text-cyan-400"></i>
+          <div><div class="text-white font-bold">osint_lookup_email</div><div class="text-slate-400 text-[11px]">MX check & breach exposure</div></div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i class="fa-solid fa-phone text-cyan-400"></i>
+          <div><div class="text-white font-bold">osint_lookup_phone</div><div class="text-slate-400 text-[11px]">Carrier & reverse phone lookup</div></div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i class="fa-solid fa-globe text-cyan-400"></i>
+          <div><div class="text-white font-bold">osint_lookup_domain</div><div class="text-slate-400 text-[11px]">WHOIS, DNS & SSL hierarchy</div></div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i class="fa-solid fa-server text-cyan-400"></i>
+          <div><div class="text-white font-bold">osint_lookup_ip</div><div class="text-slate-400 text-[11px]">ASN, GeoIP & threat intelligence</div></div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i class="fa-solid fa-building text-cyan-400"></i>
+          <div><div class="text-white font-bold">osint_search_entity</div><div class="text-slate-400 text-[11px]">Corporate filings, LLCs & officers</div></div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i class="fa-solid fa-gavel text-cyan-400"></i>
+          <div><div class="text-white font-bold">osint_court_records</div><div class="text-slate-400 text-[11px]">Docket, complaints & judgements</div></div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i class="fa-solid fa-house text-cyan-400"></i>
+          <div><div class="text-white font-bold">osint_property_records</div><div class="text-slate-400 text-[11px]">Assessor, parcels & deeds</div></div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center gap-3">
+          <i class="fa-brands fa-bitcoin text-cyan-400"></i>
+          <div><div class="text-white font-bold">osint_crypto_wallet</div><div class="text-slate-400 text-[11px]">BTC/ETH/SOL transaction tracing</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-12 px-6 border-t border-brand-border bg-brand-dark text-slate-400 text-xs font-mono">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <span class="font-orbitron font-bold text-white">OSINT NEO AI</span>
+        <span>•</span>
+        <span>MIT Open-Source License</span>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a href="https://github.com/Tonypost949/OsintNeoAi" target="_blank" class="hover:text-cyan-400 transition">GitHub Repository</a>
+        <a href="https://sepolia.etherscan.io/address/0x155**C9A8a5903336CC67F2cBa00dBdAd944dC5B" target="_blank" class="hover:text-cyan-400 transition">Etherscan Contracts</a>
+        <a href="http://localhost:100**/map/osinteye" class="hover:text-cyan-400 transition">Local Cockpit</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function copyInstallCmd() {
+      const cmd = "git clone https://github.com/Tonypost949/OsintNeoAi.git && cd OsintNeoAi && pip install -r requirements.txt && python simple_map_server.py";
+      navigator.clipboard.writeText(cmd).then(() => {
+        document.getElementById('copy-text').innerText = "Copied!";
+        document.getElementById('copy-icon').className = "fa-solid fa-check text-emerald-400";
+        setTimeout(() => {
+          document.getElementById('copy-text').innerText = "Copy Command";
+          document.getElementById('copy-icon').className = "fa-regular fa-copy";
+        }, 2000);
+      });
     }
-}
-
-function toggleAutopilot() {
-    is3DAutopilot = !is3DAutopilot;
-    const btn = document.getElementById('btn-autopilot');
-    if (is3DAutopilot) {
-        btn.innerText = "⏸️ PAUSE 3D ORBIT";
-        btn.style.background = "#f43f5e";
-        btn.style.color = "#fff";
-        
-        function loop() {
-            if (!is3DAutopilot) return;
-            const wp = window.flightWaypoints[wpIndex];
-            map.flyTo({ center: wp.center, zoom: wp.zoom, pitch: wp.pitch, bearing: wp.bearing, duration: 4000 });
-            wpIndex = (wpIndex + 1) % window.flightWaypoints.length;
-            autopilotInterval = setTimeout(loop, 7000);
-        }
-        loop();
-    } else {
-        btn.innerText = "▶️ START 3D CINEMATIC ORBIT";
-        btn.style.background = "#0f172a";
-        btn.style.color = "#00ffaa";
-        clearTimeout(autopilotInterval);
-    }
-}
-</script>
+  </script>
 </body>
 </html>
