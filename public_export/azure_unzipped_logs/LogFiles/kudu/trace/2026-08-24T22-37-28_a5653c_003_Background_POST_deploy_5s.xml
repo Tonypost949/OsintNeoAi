@@ -1,0 +1,39 @@
+<step title="BackgroundTrace" date="2026-08-24T22:37:28.077" instance="a5653c" url="/deploy" method="POST" >
+  <step title="Creating temporary deployment - FetchDeploymentManager" date="2026-08-24T22:37:28.317" /><!-- duration: 5ms -->
+  <step title="Creating temporary deployment" date="2026-08-24T22:37:28.334" /><!-- duration: 141ms -->
+  <step title="Performing fetch based deployment" date="2026-08-24T22:37:28.706" >
+    <step title="Marking deployment as failed and cleaning up the temp deployment" date="2026-08-24T22:37:32.423" /><!-- duration: 11ms -->
+  </step><!-- duration: 3931ms -->
+  <step title="Error occurred" date="2026-08-24T22:37:32.678" type="error" text="One or more errors occurred. (fatal: Unable to create &apos;/home/site/repository/.git/index.lock&apos;: File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by &apos;git commit&apos;. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+/usr/bin/git checkout main --force)" stackTrace="   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at System.Threading.Tasks.Task.Wait()
+   at Kudu.Core.Deployment.FetchDeploymentManager.&lt;&gt;c__DisplayClass22_1.&lt;PerformBackgroundDeployment&gt;b__3() in /tmp/KuduLite/Kudu.Core/Deployment/FetchDeploymentManager.cs:line 414
+   at Kudu.Contracts.Infrastructure.LockExtensions.TryLockOperation(IOperationLock lockObj, Action operation, String operationName, TimeSpan timeout) in /tmp/KuduLite/Kudu.Contracts/Infrastructure/LockExtensions.cs:line 34
+   at Kudu.Contracts.Infrastructure.LockExtensions.LockOperation(IOperationLock lockObj, Action operation, String operationName, TimeSpan timeout) in /tmp/KuduLite/Kudu.Contracts/Infrastructure/LockExtensions.cs:line 46
+   at Kudu.Core.Deployment.FetchDeploymentManager.&lt;&gt;c__DisplayClass22_0.&lt;PerformBackgroundDeployment&gt;b__1() in /tmp/KuduLite/Kudu.Core/Deployment/FetchDeploymentManager.cs:line 393" innerText="fatal: Unable to create &apos;/home/site/repository/.git/index.lock&apos;: File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by &apos;git commit&apos;. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+/usr/bin/git checkout main --force" innerStackTrace="   at Kudu.Core.Infrastructure.Executable.Execute(ITracer tracer, String arguments, Object[] args) in /tmp/KuduLite/Kudu.Core/Infrastructure/Executable.cs:line 79
+   at Kudu.Core.SourceControl.Git.GitExeRepository.Update(String id) in /tmp/KuduLite/Kudu.Core/SourceControl/Git/GitExeRepository.cs:line 338
+   at Kudu.Services.ServiceHookHandlers.ServiceHookHandlerBase.Fetch(IRepository repository, DeploymentInfoBase deploymentInfo, String targetBranch, ILogger logger, ITracer tracer) in /tmp/KuduLite/Kudu.Services/ServiceHookHandlers/ServiceHookHandlerBase.cs:line 32
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task&amp; currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Kudu.Core.Deployment.FetchDeploymentManager.PerformDeployment(DeploymentInfoBase deploymentInfo, IDisposable tempDeployment, ChangeSet tempChangeSet, DeployStatusApiResult updateStatusObj) in /tmp/KuduLite/Kudu.Core/Deployment/FetchDeploymentManager.cs:line 200" /><!-- duration: 24ms -->
+</step><!-- duration: 4633ms -->

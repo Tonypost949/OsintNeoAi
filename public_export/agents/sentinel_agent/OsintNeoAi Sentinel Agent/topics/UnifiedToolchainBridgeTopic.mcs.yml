@@ -1,0 +1,25 @@
+mcs.metadata:
+  componentName: UnifiedToolchainBridge
+  description: Triggered when the user invokes local OSINT tools, Kali Linux penetration tools, Docker containers, Maltego, BigQuery graph engines, or 3-location rclone backups.
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: Unified Local Toolchain Bridge (Kali, Docker, Cabal, BigQuery, Backup)
+    includeInOnSelectIntent: true
+    triggerQueries:
+      - Run Kali Linux tool
+      - Execute Docker container
+      - Run Cabal OSINT suite
+      - Invoke Maltego entity resolution
+      - Query BigQuery graph engine
+      - Trigger 3-location rclone backup
+  actions:
+    - kind: SendActivity
+      id: sendMsg_ToolchainBridge
+      activity:
+        text:
+          - "Unified Local API Bridge active. Routing command payload to local PC toolchain (30+ Cabal tools, Kali Linux, Docker runtime, PyMuPDF, RapidOCR, BigQuery graph engine, and 3-location rclone backup)."
+        speak:
+          - "Executing command through Unified Local Toolchain Bridge."

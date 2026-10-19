@@ -1,0 +1,79 @@
+.backdrop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  min-height: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: #00000073;
+  animation: 200ms background-fade-in;
+  overflow-y: auto;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #000000c6;
+  }
+}
+
+.FormatOptsEditor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 24rem;
+  padding: 1.2rem 1.4rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  animation: 200ms pop-in;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #363636;
+  }
+
+  :is(h1) {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin: 28px 0;
+}
+
+.contentMessage {
+  padding: 16px 0;
+  white-space: pre-wrap;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+
+  :is(button) {
+    min-width: 56px;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    scale: 0.9;
+    opacity: 0;
+  }
+}
+
+@keyframes background-fade-in {
+  from {
+    background-color: #00000000;
+  }
+}

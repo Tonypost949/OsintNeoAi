@@ -1,0 +1,24 @@
+mcs.metadata:
+  componentName: ZipArchiveIngestion
+  description: Triggered when the user uploads ZIP archives, document folders, PDFs, or evidence files.
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: ZIP & Document Archive Extraction
+    includeInOnSelectIntent: true
+    triggerQueries:
+      - Upload zip file
+      - Read zip archive
+      - Extract document folder
+      - Parse uploaded PDF evidence
+      - Process zip evidence
+  actions:
+    - kind: SendActivity
+      id: sendMsg_ZipArchive
+      activity:
+        text:
+          - "Sentinel Archive Ingestion active. Streaming crawler ready to extract ZIP archives, PDFs, image evidence, Google Drive, Google Photos, Gmail, and OneDrive documents."
+        speak:
+          - "Unpacking and parsing uploaded archive evidence."

@@ -1,0 +1,86 @@
+=== DNS RECORDS: covenanthouseca.org ===
+=== Generated: 2026-07-24 21:37:01 ===
+
+--- A RECORDS ---
+nslookup : Non-authoritative answer:
+At line:20 char:16
++     try { $a = nslookup -type=A $domain [IP_REDACTED] 2>&1 | Out-String; $o ...
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  [IP_REDACTED]
+
+DNS request timed out.
+    timeout was 2 seconds.
+Name:    covenanthouseca.org
+Address:  [IP_REDACTED]
+
+
+--- MX RECORDS ---
+nslookup : Non-authoritative answer:
+At line:24 char:17
++     try { $mx = nslookup -type=MX $domain [IP_REDACTED] 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  [IP_REDACTED]
+
+covenanthouseca.org	MX preference = 0, mail exchanger = covenanthouseca.org
+
+--- NS RECORDS ---
+nslookup : Non-authoritative answer:
+At line:28 char:17
++     try { $ns = nslookup -type=NS $domain [IP_REDACTED] 2>&1 | Out-String;  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  [IP_REDACTED]
+
+covenanthouseca.org	nameserver = ns2.inmotionhosting.com
+covenanthouseca.org	nameserver = ns1.inmotionhosting.com
+
+--- TXT RECORDS ---
+nslookup : Non-authoritative answer:
+At line:32 char:18
++     try { $txt = nslookup -type=TXT $domain [IP_REDACTED] 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  [IP_REDACTED]
+
+covenanthouseca.org	text =
+
+	"v=spf1 +a +mx include:relay.mailchannels.net +ip4:[IP_REDACTED] +ip4:[IP_REDACTED] +ip4:[IP_REDACTED] +a:convio.net +mx:convio.net include:convio.net ~all"
+
+--- SOA RECORD ---
+nslookup : Non-authoritative answer:
+At line:36 char:18
++     try { $soa = nslookup -type=SOA $domain [IP_REDACTED] 2>&1 | Out-String ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Server:  dns.google
+Address:  [IP_REDACTED]
+
+covenanthouseca.org
+	primary name server = ns1.inmotionhosting.com
+	responsible mail addr = machinemessages.forum.inmotionhosting.com
+	serial  = (***) ***-1801
+	refresh = 3600 (1 hour)
+	retry   = 7200 (2 hours)
+	expire  = 1209600 (14 days)
+	default TTL = 864** (1 day)

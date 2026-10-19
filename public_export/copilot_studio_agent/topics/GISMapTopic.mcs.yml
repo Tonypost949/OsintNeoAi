@@ -1,0 +1,24 @@
+mcs.metadata:
+  componentName: GISMap
+  description: Triggered when the user asks for 3D surveillance maps, GIS visualizer, or CCTV proximity analysis.
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: GIS Maps & CCTV Proximity
+    includeInOnSelectIntent: true
+    triggerQueries:
+      - Show tactical map
+      - Open 3D surveillance
+      - List CCTV feeds
+      - Caltrans camera feeds
+      - Tactical GIS map
+  actions:
+    - kind: SendActivity
+      id: sendMsg_GISMap
+      activity:
+        text:
+          - "OsintNeoAi Tactical GIS Engine active. Connecting to 288 Caltrans D12 CCTV feeds and 3D KML spatial layers."
+        speak:
+          - "Opening GIS tactical maps and CCTV feeds."

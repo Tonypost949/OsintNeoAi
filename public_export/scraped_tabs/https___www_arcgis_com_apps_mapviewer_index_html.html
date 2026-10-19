@@ -1,0 +1,95 @@
+﻿<!doctype html>
+<html lang="en" data-config="viewer">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Map Viewer</title>
+    <style>
+      :root {
+        --loader-color: #0079c1;
+        --loader-bg: #f8f8f8;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .map-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--loader-bg);
+        z-index: 9999;
+        transition: opacity 0.1s ease-out;
+      }
+
+      .map-loader-spinner {
+        width: 64px;
+        height: 64px;
+        border: 4px solid rgba(0, 121, 193, 0.2);
+        border-top-color: var(--loader-color);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .map-loader.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .calcite-shell-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        transition: opacity 0.1s ease-in;
+      }
+
+      .calcite-shell-container.ready {
+        opacity: 1;
+      }
+    </style>
+    <script>
+      var esriDeprecation = "false" === "true";
+      window.esriConfig = {
+        has: {
+          "esri-deprecation-warnings": esriDeprecation,
+        },
+      };
+    </script>
+    <script type="module" crossorigin src="./assets/arcgis-core-DZt1iQKl.js"></script>
+    <script type="module" crossorigin src="./assets/common-BeB7tp_i.js"></script>
+    <script type="module" crossorigin src="./assets/symbologyeditor-DXlkqOy3.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/arcgis-core-BmGV8jqL.css">
+    <link rel="stylesheet" crossorigin href="./assets/common-CsCo1Du4.css">
+    <link rel="stylesheet" crossorigin href="./assets/symbologyeditor-BEK1l4HU.css">
+  </head>
+  <body>
+    <div class="map-loader" id="map-loader">
+      <div class="map-loader-spinner"></div>
+    </div>
+    <div class="calcite-shell-container"></div>
+  </body>
+</html>
+

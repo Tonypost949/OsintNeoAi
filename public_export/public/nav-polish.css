@@ -1,0 +1,213 @@
+/* Nav Polish — compact, centered, space-saving HUD */
+#command-dock {
+  position: fixed !important;
+  bottom: 14px !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  width: min(680px, 92vw) !important;
+  max-width: 92vw !important;
+  background: rgba(15, 23, 42, 0.86) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 16px !important;
+  padding: 6px 8px !important;
+  backdrop-filter: blur(16px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.4) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.55), 0 0 20px rgba(56,189,248,0.12) !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+  z-index: 30 !important;
+}
+#command-dock #control-panel,
+#command-dock #location-bar {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+#command-dock .panel-inner,
+#command-dock .location-inner {
+  background: rgba(8,12,28,0.92) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: 12px !important;
+  padding: 6px 10px !important;
+}
+#command-dock .dock-popover-content {
+  position: absolute !important;
+  bottom: calc(100% + 10px) !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: min(520px, 92vw) !important;
+  max-height: 62vh !important;
+  overflow-y: auto !important;
+  background: rgba(8,12,28,0.96) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6) !important;
+  backdrop-filter: blur(18px) !important;
+}
+
+/* Top-right compact telemetry card — moves context away from globe center */
+#right-context-rail {
+  position: fixed !important;
+  top: 68px !important;
+  right: 12px !important;
+  left: auto !important;
+  width: 300px !important;
+  max-width: 86vw !important;
+  max-height: calc(100dvh - 88px) !important;
+  overflow-y: auto !important;
+  z-index: 28 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+#global-context-panel {
+  background: rgba(8,12,28,0.88) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(14px) !important;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.5) !important;
+}
+#global-context-panel .panel-header {
+  padding: 6px 10px !important;
+}
+#military-awareness-panel,
+#world-overlay-root {
+  font-size: 12px !important;
+}
+
+/* Left stack compact */
+#left-panel-stack {
+  position: fixed !important;
+  top: 68px !important;
+  left: 12px !important;
+  right: auto !important;
+  width: 300px !important;
+  max-width: 86vw !important;
+  max-height: calc(100dvh - 88px) !important;
+  overflow-y: auto !important;
+  z-index: 28 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+#left-panel-stack .panel-collapsible {
+  background: rgba(8,12,28,0.88) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(14px) !important;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.5) !important;
+}
+#left-panel-stack .panel-header {
+  padding: 6px 10px !important;
+}
+#data-toggles .data-toggle-row {
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+}
+
+/* World overlay & intel HUD — top-right instead of center-blocking */
+#world-overlay-root {
+  position: fixed !important;
+  top: 68px !important;
+  right: 324px !important;
+  left: auto !important;
+  width: 320px !important;
+  max-width: 86vw !important;
+  max-height: 60vh !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  z-index: 27 !important;
+}
+#world-overlay-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+#intel-hud {
+  position: fixed !important;
+  top: 68px !important;
+  right: 12px !important;
+  left: auto !important;
+  width: 300px !important;
+  max-height: 42vh !important;
+  overflow-y: auto !important;
+  background: rgba(8,12,28,0.88) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 12px !important;
+  padding: 10px !important;
+  backdrop-filter: blur(14px) !important;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.5) !important;
+  z-index: 27 !important;
+}
+#intel-hud:empty { display: none !important; }
+
+/* Top-right DISPLAY pp-toggles compact */
+#pp-toggles {
+  position: fixed !important;
+  top: 68px !important;
+  right: 12px !important;
+  left: auto !important;
+  width: 220px !important;
+  max-height: 60vh !important;
+  overflow-y: auto !important;
+  background: rgba(8,12,28,0.88) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(14px) !important;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.5) !important;
+  z-index: 27 !important;
+}
+#pp-toggles .pp-header-row {
+  padding: 6px 8px !important;
+}
+
+/* Auto-collapse helper: only one panel open at a time (JS will add .auto-collapsed) */
+.panel-collapsible.auto-collapsed {
+  opacity: 0.92;
+}
+.panel-collapsible:not(.collapsed) {
+  box-shadow: 0 12px 36px rgba(0,0,0,0.6), 0 0 18px rgba(56,189,248,0.14) !important;
+}
+
+/* Reduce wasted space: smaller paddings, tighter gaps */
+.panel-glow, .title-glow { display: none !important; }
+#title-bar {
+  padding: 8px 12px !important;
+}
+#title-bar h1 { font-size: 1.05rem !important; }
+#title-bar .subtitle { font-size: 0.62rem !important; letter-spacing: 0.36em !important; }
+
+/* Mobile: stack bottom dock vertically, make side rails full-width sheets */
+@media (max-width: 768px) {
+  #command-dock {
+    flex-direction: column !important;
+    bottom: 70px !important;
+    gap: 6px !important;
+    padding: 8px !important;
+  }
+  #left-panel-stack, #right-context-rail {
+    top: 56px !important;
+    width: 92vw !important;
+    max-width: 92vw !important;
+    left: 4vw !important;
+    right: 4vw !important;
+  }
+  #world-overlay-root, #intel-hud, #pp-toggles {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 148px !important;
+    right: 4vw !important;
+    left: 4vw !important;
+    width: 92vw !important;
+    max-width: 92vw !important;
+    max-height: 32vh !important;
+  }
+  #native-voice-control #native-mic-wrap { bottom: 10px !important; }
+}

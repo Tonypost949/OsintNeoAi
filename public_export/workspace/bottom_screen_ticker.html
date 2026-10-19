@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSINT NeoAi — Live Bottom Ticker Overlay</title>
+<style>
+  :root {
+    --ticker-bg: rgba(15, 23, 42, 0.95);
+    --border-color: #334155;
+    --text-primary: #f8fafc;
+    --green-up: #10b981;
+    --red-down: #ef4444;
+    --gold-alert: #f59e0b;
+    --blue-info: #3b82f6;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', monospace;
+    background-color: #0b0f19;
+    color: var(--text-primary);
+  }
+
+  /* PERSISTENT BOTTOM TICKER CONTAINER */
+  .bottom-ticker-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 44px;
+    background: var(--ticker-bg);
+    backdrop-filter: blur(10px);
+    border-top: 2px solid #3b82f6;
+    display: flex;
+    align-items: center;
+    z-index: 999999;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6);
+  }
+
+  .ticker-badge {
+    background: #1e293b;
+    color: #38bdf8;
+    padding: 0 16px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    border-right: 1px solid var(--border-color);
+    white-space: nowrap;
+    gap: 8px;
+  }
+
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10b981;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  .ticker-move-container {
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  .ticker-move {
+    display: flex;
+    white-space: nowrap;
+    animation: scrollTicker 35s linear infinite;
+  }
+
+  .bottom-ticker-bar:hover .ticker-move {
+    animation-play-state: paused;
+  }
+
+  @keyframes scrollTicker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .ticker-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 0.88rem;
+    border-right: 1px solid #1e293b;
+    gap: 8px;
+  }
+
+  .ticker-symbol {
+    font-weight: 700;
+    color: #cbd5e1;
+  }
+
+  .ticker-val {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .ticker-chip {
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  .bg-up { background: rgba(16, 185, 129, 0.2); color: var(--green-up); border: 1px solid rgba(16, 185, 129, 0.4); }
+  .bg-down { background: rgba(239, 68, 68, 0.2); color: var(--red-down); border: 1px solid rgba(239, 68, 68, 0.4); }
+  .bg-alert { background: rgba(245, 158, 11, 0.2); color: var(--gold-alert); border: 1px solid rgba(245, 158, 11, 0.4); }
+  .bg-info { background: rgba(59, 130, 246, 0.2); color: var(--blue-info); border: 1px solid rgba(59, 130, 246, 0.4); }
+
+  /* DEMO PAGE STYLING */
+  .page-content {
+    padding: 40px;
+    margin-bottom: 60px;
+  }
+  .page-content h2 {
+    color: #38bdf8;
+    margin-top: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-content">
+  <h2>OSINT NeoAi — Live System Workspace</h2>
+  <p>The ticker tape below stays fixed at the <strong>bottom of your screen</strong> across your apps and web viewers, streaming real-time news alerts, entity hit prices, and dataset counts.</p>
+</div>
+
+<!-- FIXED BOTTOM TICKER TAPE BAR -->
+<div class="bottom-ticker-bar">
+  <div class="ticker-badge">
+    <span class="live-dot"></span> LIVE NEWS & PRICE TICKER
+  </div>
+  <div class="ticker-move-container">
+    <div class="ticker-move" id="tickerItems"></div>
+  </div>
+</div>
+
+<script>
+  const liveTickerData = [
+    { symbol: "DRIVE_FILES", val: "753,238", change: "+1,240", type: "up" },
+    { symbol: "NEWS_ALERT", val: "BEACH BLVD TOXIC SITE", change: "SOIL CONTAMINATION WARNING", type: "down" },
+    { symbol: "ONEDRIVE_DOCS", val: "198,031", change: "+450 Synced", type: "up" },
+    { symbol: "AZURE_WEBAPP", val: "PYTHON 3.9", change: "STATUS 200 OK", type: "up" },
+    { symbol: "TARGET_ACCTS", val: "31 ACTIVE", change: "33 BQ Matches", type: "alert" },
+    { symbol: "EXIF_GPS", val: "11,300 METADATA", change: "Mapped", type: "info" },
+    { symbol: "FCA_TIMELINE", val: "5 ENTITY MATCHES", change: "amd949609", type: "alert" },
+    { symbol: "GMAIL_INDEX", val: "30,000 RECORDS", change: "VERIFIED", type: "info" },
+    { symbol: "3-WAY_BACKUP", val: "GITHUB + DRIVE + LOCAL", change: "100% PERSISTED", type: "up" }
+  ];
+
+  function renderBottomTicker() {
+    const el = document.getElementById('tickerItems');
+    let html = '';
+    
+    // Duplicate items for infinite continuous scrolling
+    const list = [...liveTickerData, ...liveTickerData];
+    
+    list.forEach(item => {
+      let badge = item.type === 'up' ? 'bg-up' : item.type === 'down' ? 'bg-down' : item.type === 'alert' ? 'bg-alert' : 'bg-info';
+      let icon = item.type === 'up' ? '▲' : item.type === 'down' ? '▼' : '●';
+      
+      html += `
+        <div class="ticker-item">
+          <span class="ticker-symbol">${item.symbol}</span>
+          <span class="ticker-val">${item.val}</span>
+          <span class="ticker-chip ${badge}">${icon} ${item.change}</span>
+        </div>
+      `;
+    });
+    
+    el.innerHTML = html;
+  }
+
+  renderBottomTicker();
+</script>
+
+</body>
+</html>
