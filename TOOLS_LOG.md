@@ -15,14 +15,17 @@ Entries are only marked **installed** after the tool has actually been run and v
 
 Dependencies: none beyond Python 3 standard library. No requirements.txt needed.
 
+| Agent-Reach v1.5.0 — multi-platform reader CLI for AI agents (web, YouTube, RSS, GitHub, Twitter/X, Reddit, Facebook, Instagram, LinkedIn, Bilibili, Xiaohongshu, V2EX and more) | https://github.com/Panniantong/Agent-Reach — installed at ~/workspace/tools/Agent-Reach/ (venv) | Python 3.12 venv; deps requests, feedparser, python-dotenv, loguru, pyyaml, rich, yt-dlp | Installed (base package only — optional browser-cookie extraction NOT installed or used) | 2026-10-20 — `agent-reach --help` OK; `agent-reach doctor`: 4/16 channels live out of the box (web via Jina Reader, RSS/Atom, V2EX, Bilibili search). yt-dlp 2026.08.19 present in venv (doctor checks system PATH, so it flags YouTube). GitHub channel needs gh auth; Twitter/Reddit/Facebook/Instagram need login-state setup not yet configured. Run: ~/workspace/tools/Agent-Reach/.venv/bin/agent-reach <command> |
+
 ## Logged — not installed
 
 | Tool | Source | Notes |
 |---|---|---|
-| Agent-Reach (Panniantong/Agent-Reach) | https://github.com/Panniantong/Agent-Reach — surfaced via Facebook Reel, 2026-10-19 | Claims to give an agent read access to Twitter/Reddit/YouTube/GitHub with zero paid APIs. NOT installed — third-party code, unverified; install only on explicit owner approval. |
+| Qwen3.8-27B-Uncensored (abliterated builds of Qwen/Qwen3.8-27B) | Hugging Face — junafinity/Qwen-3.8-27B-Uncensored (bf16, ~52 GB, Apache 2.0); FP8 build ~30.9 GB; huihui-ai GGUF quants ~12–19 GB — surfaced via Facebook Reel, 2026-10-20 | Real artifact, verified to exist. NOT installed: cannot run on the Muse VM (2 cores, 7 GB RAM, no GPU). Smallest usable quants need ~12 GB+ RAM; FP8 needs a GPU box. Revisit on hardware with 16 GB+ RAM (GGUF) or a CUDA GPU (FP8/vLLM). |
 | OX Alpha / "OpenFinisher" | Facebook Reel claim, 2026-10-19 | Unverified hype claim; no installable artifact identified. Logged for awareness only. |
 | OSINTNeoAiCLI (Tonypost949/OSINTNeoAiCLI) | User's own repo (Python) | Sibling project; not yet installed or audited here. |
 
 ## Verification runs
 
 - 2026-10-19: run_scan.sh against a Facebook post export (Anthony Greb, Nancy Guthrie case). Result: published, no redactions, verify PASS, citation gap = missing legal_section. Outputs in local output/ (PUBLIC_MANIFEST.json, VERIFY_REPORT.json, CITATION_GAPS.csv).
+- 2026-10-20: Agent-Reach v1.5.0 installed per install_gh_repo skill (hype rule) — vetted (MIT, standard deps, cookie extraction left out), cloned to ~/workspace/tools/Agent-Reach, pip-installed into venv, verified via --help and doctor (4/16 channels live).
