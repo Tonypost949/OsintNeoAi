@@ -87,9 +87,9 @@ Runs Streamlit terminal that securely queries BigQuery state-wide audit tables f
 
 ---
 
-## Case ****tudy References
+## Case Study References
 
-Refer to case ****tudy folders under the `references/` directory for legal-grade evidence compilation models and investigation techniques:
+Refer to case study folders under the `references/` directory for legal-grade evidence compilation models and investigation techniques:
 - `chi_gates_dossier.md` — Complete 8-phase dossier reporting format.
 - `craig_steele_analysis.txt` — Analysis of two-track investigations (legal vs cyber-surveillance).
 - `navigation_center_financial_thread.txt` — Tracking discrepancies in public contracts (e.g., Mercy House contract gap).

@@ -279,7 +279,7 @@ html,body,#map{width:100%;height:100%;background:#0b0f0b;font-family:Segoe UI,sy
 #list h1{padding:14px;font-size:13px;color:#7ef07e;border-bottom:1px solid #223a22;letter-spacing:1px}
 #list h1 small{display:block;color:#556;font-weight:400;font-size:10px;margin-top:4px;letter-spacing:0}
 .entry{padding:10px 14px;border-bottom:1px solid #162216;cursor:pointer}
-.entry:hover{background:#122**a}
+.entry:hover{background:#12221a}
 .entry .sev{display:inline-block;padding:1px 8px;border-radius:10px;color:#000;font-size:9px;font-weight:800;margin-right:8px}
 .entry .nm{color:#dfe;font-size:12px}
 .entry .dst{color:#778;font-size:10px;margin-top:3px}

@@ -26,7 +26,7 @@ Scope of Milestone 3:
 3. SQLite Relational Vault (`storage/vault_db.py` -> `timeline_vault.db`):
    - 3NF relational schema (documents, entities, entity_mentions, timeline_events, financial_transactions, relationships)
    - WAL mode (`PRAGMA journal_mode=WAL;`), Foreign Keys enabled (`PRAGMA foreign_keys=ON;`), synchronous=NORMAL
-   - B-tree and composite indexing on dates, sha256 hashes, entity types, case ****bers
+   - B-tree and composite indexing on dates, sha256 hashes, entity types, case numbers
 4. Master JSON Catalog Exporter (`storage/catalog_exporter.py` -> `master_timeline_catalog.json`):
    - RFC 8785 compliant canonical JSON serialization
    - Merkle tree cryptographic root computation over all document hashes and record manifests

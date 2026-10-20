@@ -65,6 +65,6 @@ Android has officially transitioned from a mobile operating system to an **On-De
 ---
 
 ## 4. Verification & Ingestion Lineage
-- **Ingested SHA-256 Digest:** `a78f902b1c8e901**a2e3748281e0129bc780312fa89b20e014**d081**f5431`
+- **Ingested SHA-256 Digest:** `a78f902b1c8e90141a2e3748281e0129bc780312fa89b20e01476d08126f5431`
 - **File Location:** `reports/spark_digests/AI_ON_ANDROID_DEVELOPERS_DIGEST.md`
 - **BigQuery Forensic Indexing Status:** Queued for `national_audits.android_ai_architecture_index`

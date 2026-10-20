@@ -1,5 +1,5 @@
 # 🪶 INDIGENOUS TRIBAL SOVEREIGNTY, ANCESTRAL LAND RIGHTS & CULTURAL RESOURCES AUDIT
-## California CEQA Tribal Consultation (AB 52), NAHC Sacred Lands, NAGPRA & Federal Trust Account ****lity
+## California CEQA Tribal Consultation (AB 52), NAHC Sacred Lands, NAGPRA & Federal Trust Accountability
 
 ---
 
@@ -25,7 +25,7 @@ Within Southern California (specifically the Orange County coastal corridor, Bol
 |       remains, funerary objects, sacred objects, and objects of cultural patrimony.                     |
 |     • Executive Order 131**: Mandatory federal agency consultation with sovereign tribal nations.       |
 |     • ISDEAA (25 U.S.C. § 5301 et seq.): Title I & Title IV Self-Determination compacts.                |
-|     • Indian Health Service (IHS) & BIA Trust Account ****lity: 25 U.S.C. Chapter 18.                     |
+|     • Indian Health Service (IHS) & BIA Trust Accountability: 25 U.S.C. Chapter 18.                     |
 +---------------------------------------------------------------------------------------------------------+
 ```
 

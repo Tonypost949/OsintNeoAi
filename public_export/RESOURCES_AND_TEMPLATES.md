@@ -4,7 +4,7 @@
 
 ---
 
-## 1. Property Ownership Verification (1133 N Formosa Ave)
+## 1. Property Ownership Verification (1133 N. F*** Ave)
 *Key Fact: Los Angeles County restricts online owner-name searches for privacy reasons. To obtain ownership information, you must contact the offices directly.*
 
 ### Option 1: Contact the Assessor's Office
@@ -30,7 +30,7 @@ Dear Sir/Madam,
 
 Pursuant to the California Public Records Act (Government Code § 6250 et seq.), I respectfully request the current owner information for the property located at:
 
-**1133 N Formosa Ave, West Hollywood, CA 900****  
+**1133 N. F*** Ave, West Hollywood, CA 900****  
 **APN: 5531-007-059**  
 
 Please provide the name(s) of the current recorded owner(s), the date of acquisition, and any recorded deeds or title documents associated with this parcel.
@@ -45,14 +45,14 @@ Sincerely,
 ---
 
 ## 3. LA County Superior Court Cases
-Search by party name or case ****mber at [lacourt.org](https://www.lacourt.org) under "Online Services" → "Case Information."
+Search by party name or case number at [lacourt.org](https://www.lacourt.org) under "Online Services" → "Case Information."
 
-### Known Case ****bers to Search:
+### Known Case Numbers to Search:
 - **BC376391** – Citibank v. Andrew C Falk (filed 2007)
 - **BC392301** – Andrew Falk v. Rozita Sameyah (filed 2008)
 
 ### In-Person Requests
-Some records require visiting the courthouse where the case was filed. The **Stanley Mosk Courthouse** (111 N Hill St, Los Angeles) handles many civil cases.
+Some records require visiting the courthouse where the case was filed. The **Stanley Mosk Courthouse** (111 N. H*** St, Los Angeles) handles many civil cases.
 
 ---
 
@@ -89,7 +89,7 @@ Pursuant to the California Public Records Act (Government Code § 7920.000 et se
 **Requested Records:**
 - [Be specific: e.g., "All deeds, title documents, and ownership records for APN 5531-007-059"]
 - [e.g., "All business license applications and certificates for 15 SWIFT LLC"]
-- [e.g., "All code enforcement, inspection, or complaint records for 1133 N Formosa Ave from 2020 to present"]
+- [e.g., "All code enforcement, inspection, or complaint records for 1133 N. F*** Ave from 2020 to present"]
 
 **Timeframe:** [Specify date range, if applicable]
 

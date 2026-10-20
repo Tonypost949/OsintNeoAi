@@ -22,7 +22,7 @@
 ## 2. Granular Verification of the 4 Evidentiary Chains
 
 ### Chain 1: Ewing PD Item 044.01 -> FBI SA Bradley H. Zartman -> USDC D.N.J. Case 3:20-mj-05007-TJB
-* **Chain of Custody Hand-off (Ewing PD Case ****1222):**
+* **Chain of Custody Hand-off (Ewing PD Case I-2019-001222):**
   * *Item 044.01 (Methamphetamine in glass jar / clear bag):* Collected **/**/2019 at 01:45 by Officer Ranker (#154) -> Chute T3 on **/**/2019 at 15:58 -> Received into property room **/**/2019 at 07:42 by Officer C. Giovacchini (#108) -> Transferred to FBI at 07:44 with verbatim notation: `"TOT FBI AGENT BRADLEY ZARTMAN"`.
   * *Item 046 (Samsung phone):* Collected **/**/2019 at 10:40 by Officer Condrat (#171) at Ewing HQ Sally Port -> Transferred **/**/2019 at 07:44 to FBI SA Bradley Zartman.
 * **Federal Narcotics Proceeding (USDC D.N.J. Case 3:20-mj-05007-TJB):**
@@ -103,7 +103,7 @@
 | **Invariants, Arithmetic & Temporal Deltas** | `TestAdversarialIntegrityAndInvariants` | 22 | **PASS** |
 | **Markdown Syntax & Code Fences** | `TestAdversarialMarkdownStructure` | 11 | **PASS** |
 | **Master Index Link Resolution** | `TestAdversarialLinkResolution` | 45 | **PASS** |
-| **Corpus Case ****ency** | `TestAdversarialCrossDocumentDiscrepancies` | 30 | **PASS** |
+| **Corpus Case Number Consistency** | `TestAdversarialCrossDocumentDiscrepancies` | 30 | **PASS** |
 | **Feature Coverage F1 to F15** | `TestTier1FeatureCoverage` | 85 | **PASS** |
 | **Boundary, Corner Cases & Arithmetic** | `TestTier2BoundaryAndCornerCases` | 40 | **PASS** |
 | **Multi-Way Combinations** | `TestTier3CrossFeatureCombinations` | 25 | **PASS** |

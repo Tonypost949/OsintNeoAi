@@ -112,7 +112,7 @@ tests\test_m2_extraction.py::TestMemoryInvariance::test_multipage_pdf_memory_bou
 4. **Cryptographic & Normalization Correctness**:
    - Date normalizer correctly handles historical filing stamps (`2021 JUN 29 PM 4:29` -> `2021-06-29T16:29:00Z`).
    - Financial normalizer uses `Decimal` arithmetic with `ROUND_HALF_UP` quantization, preventing floating-point truncation errors (`$320M` -> `32000000000` cents, `$19.99` -> `1999` cents).
-   - Case ****izer matches both federal (`8:23-cr-00108-CJC`) and California Superior Court (`30-2021-01201327-CL-UD-CJC`) dockets.
+   - Case normalizer matches both federal (`8:23-cr-00108-CJC`) and California Superior Court (`30-2021-01201327-CL-UD-CJC`) dockets.
    - Entity normalizer strips corporate suffixes, cleans honorifics, and computes Russell Soundex and Double Metaphone phonetic blocking keys.
 
 ---

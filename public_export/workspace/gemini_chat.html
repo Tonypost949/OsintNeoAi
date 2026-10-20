@@ -18,7 +18,7 @@
     }
     .theme-gemini {
       --accent-color: #8ab4f8;
-      --accent-gradient: linear-gradient(74deg, #4285f4 0%, #9b72cb 25%, #d965** 50%, #4285f4 100%);
+      --accent-gradient: linear-gradient(74deg, #4285f4 0%, #9b72cb 25%, #d96570 50%, #4285f4 100%);
       --bubble-bg: #1e1f20;
       --sidebar-bg: #1e1f20;
     }
@@ -29,8 +29,8 @@
       --sidebar-bg: #171717;
     }
     .theme-claude {
-      --accent-color: #d977**;
-      --accent-gradient: linear-gradient(90deg, #d977** 0%, #b453** 100%);
+      --accent-color: #d97706;
+      --accent-gradient: linear-gradient(90deg, #d97706 0%, #b45309 100%);
       --bubble-bg: #262320;
       --sidebar-bg: #1c1a17;
     }
@@ -38,11 +38,11 @@
       --accent-color: #4f46e5;
       --accent-gradient: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
       --bubble-bg: #1a1b26;
-      --sidebar-bg: #131**f;
+      --sidebar-bg: #13141f;
     }
     .theme-tribal {
       --accent-color: #f59e0b;
-      --accent-gradient: linear-gradient(90deg, #d977** 0%, #f59e0b 50%, #b453** 100%);
+      --accent-gradient: linear-gradient(90deg, #d97706 0%, #f59e0b 50%, #b45309 100%);
       --bubble-bg: #241c14;
       --sidebar-bg: #1a140e;
     }
@@ -84,7 +84,7 @@
     <div class="p-4 space-y-5">
       <!-- Top New Chat Action -->
       <div class="flex items-center justify-between gap-2">
-        <button onclick="newChat()" class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#282a2c] hover:bg-[#373**b] text-sm text-white border border-[#3c4043] transition-all shadow-md font-medium">
+        <button onclick="newChat()" class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#282a2c] hover:bg-[#37393b] text-sm text-white border border-[#3c4043] transition-all shadow-md font-medium">
           <i class="fa-solid fa-plus text-xs text-[#8ab4f8]"></i>
           <span>New Chat</span>
         </button>
@@ -158,16 +158,16 @@
       <div class="space-y-1.5 pt-1">
         <div class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Quick Presets</div>
         <div class="grid grid-cols-2 gap-1.5 text-xs">
-          <button onclick="fillPrompt('Audit Indigenous tribal land rights, Tongva/Acjachemen sacred sites, and CEQA AB 52 tribal consultation requirements in Orange County.')" class="text-left px-2.5 py-2 rounded-lg bg-[#282a2c] hover:bg-[#373**b] text-amber-300 truncate">
+          <button onclick="fillPrompt('Audit Indigenous tribal land rights, Tongva/Acjachemen sacred sites, and CEQA AB 52 tribal consultation requirements in Orange County.')" class="text-left px-2.5 py-2 rounded-lg bg-[#282a2c] hover:bg-[#37393b] text-amber-300 truncate">
             🪶 Tribal Land & AB 52
           </button>
-          <button onclick="fillPrompt('Explain NAGPRA 25 U.S.C. 3001 protections for Native American burial remains and cultural patrimony.')" class="text-left px-2.5 py-2 rounded-lg bg-[#282a2c] hover:bg-[#373**b] text-amber-300 truncate">
+          <button onclick="fillPrompt('Explain NAGPRA 25 U.S.C. 3001 protections for Native American burial remains and cultural patrimony.')" class="text-left px-2.5 py-2 rounded-lg bg-[#282a2c] hover:bg-[#37393b] text-amber-300 truncate">
             🏺 NAGPRA Repatriation
           </button>
-          <button onclick="fillPrompt('Write a complete modern Python script to parse and visualize CSV graph nodes.')" class="text-left px-2.5 py-2 rounded-lg bg-[#282a2c] hover:bg-[#373**b] text-gray-300 truncate">
+          <button onclick="fillPrompt('Write a complete modern Python script to parse and visualize CSV graph nodes.')" class="text-left px-2.5 py-2 rounded-lg bg-[#282a2c] hover:bg-[#37393b] text-gray-300 truncate">
             💻 Python Code
           </button>
-          <button onclick="fillPrompt('Analyze the 11770 W*** Ave hospice cluster and SBA loan structuring.')" class="text-left px-2.5 py-2 rounded-lg bg-[#282a2c] hover:bg-[#373**b] text-gray-300 truncate">
+          <button onclick="fillPrompt('Analyze the 11770 W*** Ave hospice cluster and SBA loan structuring.')" class="text-left px-2.5 py-2 rounded-lg bg-[#282a2c] hover:bg-[#37393b] text-gray-300 truncate">
             🏥 117** Warner
           </button>
         </div>
@@ -216,11 +216,11 @@
           <i class="fa-solid fa-bullhorn"></i>
           <span>PSA Dispatch</span>
         </a>
-        <a href="/tasks" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#282a2c] hover:bg-[#373**b] text-cyan-400 border border-[#3c4043]">
+        <a href="/tasks" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#282a2c] hover:bg-[#37393b] text-cyan-400 border border-[#3c4043]">
           <i class="fa-solid fa-list-check"></i>
           <span>Tasks</span>
         </a>
-        <a href="/syncfusion" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#282a2c] hover:bg-[#373**b] text-sky-400 border border-[#3c4043]">
+        <a href="/syncfusion" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#282a2c] hover:bg-[#37393b] text-sky-400 border border-[#3c4043]">
           <i class="fa-solid fa-layer-group"></i>
           <span>Syncfusion</span>
         </a>
@@ -228,7 +228,7 @@
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
           <span>17,488 Nodes Live</span>
         </div>
-        <button onclick="exportCurrentChat()" class="px-3 py-1.5 rounded-lg bg-[#282a2c] hover:bg-[#373**b] text-gray-200 border border-[#3c4043] flex items-center gap-1.5">
+        <button onclick="exportCurrentChat()" class="px-3 py-1.5 rounded-lg bg-[#282a2c] hover:bg-[#37393b] text-gray-200 border border-[#3c4043] flex items-center gap-1.5">
           <i class="fa-solid fa-download text-[10px]"></i>
           <span class="hidden sm:inline">Export</span>
         </button>
@@ -322,7 +322,7 @@
       claude_35: {
         name: "Claude 3.5 Sonnet",
         theme: "theme-claude",
-        color: "#d977**",
+        color: "#d97706",
         badge: "Anthropic Artifacts",
         icon: "fa-feather"
       },
@@ -481,7 +481,7 @@
       div.id = id;
       div.className = 'flex gap-4 items-start';
       div.innerHTML = `
-        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#4285f4] via-[#9b72cb] to-[#d965**] flex items-center justify-center text-white text-xs shadow-lg flex-shrink-0">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#4285f4] via-[#9b72cb] to-[#d96570] flex items-center justify-center text-white text-xs shadow-lg flex-shrink-0">
           <i class="fa-solid fa-sparkles"></i>
         </div>
         <div class="bg-[#1e1f20] px-5 py-3.5 rounded-3xl text-gray-300 text-sm border border-[#3c4043] flex items-center gap-2">
@@ -523,7 +523,7 @@
             <div class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-2">Verified Sources & Knowledge Correlates:</div>
             <div class="flex flex-wrap gap-1.5">
               ${citations.map(c => `
-                <a href="${c.url || '#'}" target="_blank" class="px-2.5 py-1 rounded-md bg-[#282a2c] hover:bg-[#373**b] text-[#8ab4f8] border border-[#3c4043] flex items-center gap-1.5 transition-all">
+                <a href="${c.url || '#'}" target="_blank" class="px-2.5 py-1 rounded-md bg-[#282a2c] hover:bg-[#37393b] text-[#8ab4f8] border border-[#3c4043] flex items-center gap-1.5 transition-all">
                   <i class="fa-solid fa-file-lines text-[10px]"></i>
                   <span>${c.title}</span>
                 </a>

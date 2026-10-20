@@ -12,7 +12,7 @@
 
 Milestone 2 (M2) of the **OsintNeoAi Indexer** is responsible for transforming raw `IngestedArtifact` stream objects into structured, normalized `ExtractedRecord` entities suitable for entity resolution, timeline reconstruction, and relational vault storage (Milestone 3).
 
-While Explorer M2_1 focuses on the core PDF 5-Tier Fallback Ladder and OpenCV image enhancement, and Explorer M2_3 designs the normalization engines (dates, currency cents, case ****kets, phonetic encoding), **Explorer M2_2** establishes the technical blueprints and exact production specifications for all **Format-Specific Document Extractors**:
+While Explorer M2_1 focuses on the core PDF 5-Tier Fallback Ladder and OpenCV image enhancement, and Explorer M2_3 designs the normalization engines (dates, currency cents, case dockets, phonetic encoding), **Explorer M2_2** establishes the technical blueprints and exact production specifications for all **Format-Specific Document Extractors**:
 
 1. **Multi-Page / Multi-Frame TIFF Extractor (`tiff_extractor.py`)**: Frame-by-frame memory-bounded streaming of complex legal and medical TIFF scans (e.g., 2540x3288 1-bit bilevel hospital charts, faxes, deeds) using `Pillow` and `RapidOCR ONNX` with automatic color-mode conversion and strict per-frame memory reclamation.
 2. **Structured HTML Document Parser (`html_parser.py`)**: High-performance HTML parsing via `lxml.html` with graceful fallback to standard library `html.parser`. Performs rigorous script/style/media stripping (resilient to `lxml.html.clean` removal in modern lxml 6.x), converts headings to Markdown `#`, formats HTML `<table>` structures into clean Markdown tables, extracts metadata (`<title>`, `<meta>` tags), and isolates communication links.
@@ -1302,7 +1302,7 @@ IngestedArtifact ──> MIME / Extension Classifier
                              [Multi-Tier Normalizer Suite]
                        - DateNormalizer (ISO 8601 UTC)
                        - FinancialNormalizer (Float + Integer Cents)
-                       - Case ****izer (Federal/State Dockets)
+                       - CaseNormalizer (Federal/State Dockets)
                        - Entity/Metadata Senders & Recipients
                                             │
                                             ▼
@@ -1337,7 +1337,7 @@ from extractors.ocr_engine import RapidOCREngine
 from extractors.pdf_extractor import PdfExtractor
 from extractors.text_extractor import TextExtractor
 from extractors.tiff_extractor import TiffExtractor
-from normalizers.case_normalizer import Case ****izer
+from normalizers.case_normalizer import CaseNormalizer
 from normalizers.date_normalizer import DateNormalizer
 from normalizers.financial_normalizer import FinancialNormalizer
 
@@ -1390,7 +1390,7 @@ class DocumentExtractor:
         # Normalizers
         self.date_normalizer = DateNormalizer()
         self.financial_normalizer = FinancialNormalizer()
-        self.case_normalizer = Case ****izer()
+        self.case_normalizer = CaseNormalizer()
 
     def extract(self, artifact: IngestedArtifact) -> ExtractedRecord:
         """
@@ -1519,7 +1519,7 @@ class DocumentExtractor:
 
 ---
 
-## 9. Error Handling, Memory Invariance & Edge Case ****ions
+## 9. Error Handling, Memory Invariance & Edge Case Mitigations
 
 | Edge Case | Root Cause & Failure Mode | Mitigation & Recovery Strategy |
 |---|---|---|

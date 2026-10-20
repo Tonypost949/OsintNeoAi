@@ -50,7 +50,7 @@ Status:              RUNNING ✅
 Name:                osintneoai-app-949
 Region:              East US
 Tier:                B1 (Azure for Students $100/month)
-Subscription:        f055033f-83fb-4ae9-9c36-be48f0c861**
+Subscription:        f055033f-83fb-4ae9-9c36-be48f0c86158
 Account:             a***@students.post.edu
 URL:                 https://osintneoai-app-949.azurewebsites.net
 ```
@@ -91,7 +91,7 @@ GET  /api/tasks             → JSON Task Registry (data/tasks.json)
 
 #### 2. Azure for Students — $100/month ($1,200/year)
 - **Status:** ✅ ACTIVE
-- **Subscription:** f055033f-83fb-4ae9-9c36-be48f0c861**
+- **Subscription:** f055033f-83fb-4ae9-9c36-be48f0c86158
 - **Hosting:** osintneoai-app-949 (this deployment)
 - **Tier:** B1
 - **Credit Usage:** Currently live, consuming allowance
@@ -141,7 +141,7 @@ GET  /api/tasks             → JSON Task Registry (data/tasks.json)
 Repository:   https://github.com/Tonypost949/OsintNeoAi
 Branch:       main
 Latest:       203db475 (VSDE Steroids deployment complete)
-Previous:     19c572** → 203db475
+Previous:     19c57230 → 203db475
 Push Status:  SUCCESS
 Files:        All deployment files committed
 ```
@@ -334,7 +334,7 @@ gh azure-devops create-work-item
 ### Contact Information
 - **Azure Account:** a***@students.post.edu
 - **GitHub Org:** Tonypost949
-- **Azure Subscription:** Azure for Students (f055033f-83fb-4ae9-9c36-be48f0c861**)
+- **Azure Subscription:** Azure for Students (f055033f-83fb-4ae9-9c36-be48f0c86158)
 
 ---
 

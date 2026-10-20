@@ -8,7 +8,7 @@ City of Huntington Beach — Community Development Department / Housing Authorit
 **RE:**  
 **Mandatory Regulatory Clearance, DTSC Voluntary Oversight Transfer, and Remedial Action Plan Status for the Permanent Pathways Project (Concept 2)**  
 **Target Parcels:** 17642 B*** Boulevard & 17631 C*** Lane, Huntington Beach, CA  
-**Regulatory Cross-References:** OCHCA Case ****C002 | GeoTracker ID: T10000018579 | Agricultural Irrigation Well OCWD W-4150 (State Well No. 05S/11W-25M09)  
+**Regulatory Cross-References:** OCHCA Case No. 20IC002 | GeoTracker ID: T10000018579 | Agricultural Irrigation Well OCWD W-4150 (State Well No. 05S/11W-25M09)  
 
 ---
 
@@ -17,7 +17,7 @@ City of Huntington Beach — Community Development Department / Housing Authorit
 Notice is hereby provided regarding the statutory environmental clearance prerequisites required for transitioning the Huntington Beach Navigation Center site (17642 B*** Blvd / 17631 C*** Ln) from an interim, asphalt-capped shelter into the permanent residential Pathways Project (Concept 2) prior to the January 5, 2026 Low and Moderate Income Housing Asset Fund (LMIHAF) statutory deadline.
 
 1. **Voidance of Conditional OCHCA Exemption:**  
-   The August 2020 closure under OCHCA Case ****C002 was strictly conditional, approving an asphalt cap solely for a temporary, non-residential tent structure. Transitioning this parcel to permanent, high-density multi-family residential housing legally voids the temporary capping exemption and triggers mandatory state-level cleanup protocols pursuant to Cal. Health & Safety Code § 253** (HSAA) and DTSC HERO Note 3 residential standards.
+   The August 2020 closure under OCHCA Case No. 20IC002 was strictly conditional, approving an asphalt cap solely for a temporary, non-residential tent structure. Transitioning this parcel to permanent, high-density multi-family residential housing legally voids the temporary capping exemption and triggers mandatory state-level cleanup protocols pursuant to Cal. Health & Safety Code § 253** (HSAA) and DTSC HERO Note 3 residential standards.
 
 2. **Unmitigated Subsurface Contaminant Hazards:**  
    Documented environmental site characterization confirms the presence of vadose-zone Hexavalent Chromium ($Cr\text{-VI}$) peaking at $980\,\mu\text{g/kg}$ at Boring B9A, lead concentrations up to $145\,\text{mg/kg}$, legacy organochlorine pesticides (DDT/DDE/toxaphene), and potential petroleum hydrocarbon migration pathways from historical oilfield sumps and LUST/SLIC corridors within the 0.5-mile radius.

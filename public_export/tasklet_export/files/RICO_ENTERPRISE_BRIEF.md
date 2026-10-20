@@ -38,9 +38,9 @@
 |---|---|---|---|---|
 | **198** BROOKHURST LLC** | N/A (real estate only) | N/A | CA | $12.7M OC property |
 | **RAI PARTNERS LLC** | N/A (real estate only) | N/A | CA | $2.8M OC property |
-| **CM CLEANING SOLUTIONS INC** | $253,282 | Wells Fargo | CA | PPP #(***) ***-8010 |
-| **CM CLEANING SOLUTIONS INC** | $200,662 | Mortgage Capital Dev | CA | PPP #(***) ***-9002 |
-| **CM CLEANING CO, IC** | $462,747 | Rockland Trust | MA | PPP #(***) ***-7203 |
+| **CM CLEANING SOLUTIONS INC** | $253,282 | Wells Fargo | CA | PPP #6821648010 |
+| **CM CLEANING SOLUTIONS INC** | $200,662 | Mortgage Capital Dev | CA | PPP #8529389002 |
+| **CM CLEANING CO, IC** | $462,747 | Rockland Trust | MA | PPP #8883607203 |
 
 **CM CLEANING SOLUTIONS: Total PPP = $916,691 across CA + MA**
 
@@ -88,7 +88,7 @@ The "enterprise" is an associated-in-fact group of LLCs and corporations operati
 |---|---|---|
 | 13+ | Wire fraud (false PPP applications) | 18 U.S.C. § 1343 |
 | 13+ | Bank fraud (false representations) | 18 U.S.C. § 1344 |
-| 13+ | False statements on loan ****ions | 18 U.S.C. § 1014 |
+| 13+ | False statements on loan applications | 18 U.S.C. § 1014 |
 | 4+ | Money laundering (PPP → real estate) | 18 U.S.C. § 1956 |
 
 ---

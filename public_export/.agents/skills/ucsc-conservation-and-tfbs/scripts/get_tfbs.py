@@ -90,7 +90,7 @@ def main():
       "--tf-filter",
       default=None,
       help=(
-          "Optional case ****tive filter on the TFName field. Only items"
+          "Optional case-insensitive filter on the TFName field. Only items"
           " whose TFName contains this substring are kept (e.g., 'TP53')."
       ),
   )

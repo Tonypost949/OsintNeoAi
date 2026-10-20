@@ -144,5 +144,5 @@ This investigation targets a complex network of public corruption, environmental
 
 ### 5. Recommended Action
 1. **Delaware Corporate Queries:** Deploy registered agent searches to identify the true managers of `Unknown HB Development LLC` (SHL-001).
-2. **Subpoena State Controller Logs:** Formally petition the California State Controller for the claim ****iles and original deposits of the $3,880,000 `Pham Trust` (UP-006) to identify the funding origin.
+2. **Subpoena State Controller Logs:** Formally petition the California State Controller for the claim files and original deposits of the $3,880,000 `Pham Trust` (UP-006) to identify the funding origin.
 3. **CalEPA/DTSC Referral:** Submit the gathered environmental metrics to the California Environmental Protection Agency (CalEPA) enforcement division to bypass local municipal jurisdiction.

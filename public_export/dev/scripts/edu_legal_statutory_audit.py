@@ -12,7 +12,7 @@ def generate_report():
 **Platform / Standard:** University (.edu) & Continuing Education of the Bar (CEB) Legal Analysis System  
 **Jurisdiction:** California Superior Court (County of Orange - Central Justice Center) & Federal Judicial Precedent  
 **Date of Assessment:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}  
-**Subject Case ****cket:** `30-2021-01201327-CL-UD-CJC` (`Woodbridge Meadows Apartments LLC v. Anthony Dimarcello`)  
+**Subject Case Docket:** `30-2021-01201327-CL-UD-CJC` (`Woodbridge Meadows Apartments LLC v. Anthony Dimarcello`)  
 **Target Entities:** Woodbridge Meadows Apartments LLC, Ruzicka, Wallace & Coughlin LLP (now Wallace, Richardson, Sontag & Le LLP), MHI Real Co / Helping Of Mentally Ill Experienc (HOMI), Mercy House Living Centers  
 
 ---
@@ -49,7 +49,7 @@ An exhaustive analysis of the 61-entry court docket (`oping.occourts.org`) and a
 * **Governing Rule & Scholarly Precedent:**
   * *Greene v. Lindsey* (1982) 456 U.S. 444: Posting notice on an apartment door fails Fourteenth Amendment Due Process requirements when not accompanied by robust verified mailing and genuine attempts at personal service.
   * *Cal. Code Civ. Proc. § 473.5*: A defendant who did not receive actual notice in time to defend is entitled to have default set aside as a matter of right.
-  * *COVID-19 Tenant Relief Act (AB 3088 / SB 91; Cal. CCP § 1179.03)*: Required mandatory 15-day notice with specific statutory declarations; bypassing personal service to rush default violates the express public policy ****ions of the Act.
+  * *COVID-19 Tenant Relief Act (AB 3088 / SB 91; Cal. CCP § 1179.03)*: Required mandatory 15-day notice with specific statutory declarations; bypassing personal service to rush default violates the express public policy provisions of the Act.
 
 ---
 
@@ -64,7 +64,7 @@ An exhaustive analysis of the 61-entry court docket (`oping.occourts.org`) and a
 ### D. Corporate Entity Structuring: The `1601 D*** Street` / HOMI Shell Nexus
 * **Factual Finding:** Property deeds confirm *"Helping Of Mentally Ill Experienc"* (HOMI) purchased `8 Lakeview, Irvine` for $915,000 (with $954,275 mortgage) and sold it for **$1,215,000**, co-located with `MHI REAL COMPANY` (Larry T. Smith) and `GREENGLASS ASSOCIATES LLC` at **`1601 D*** St Suite 145, Newport Beach, CA 926**`**.
 * **Statutory Implications:**
-  * **26 U.S.C. § 501(c)(3) & Cal. Rev. & Tax Code § 237**d:** Private inurement and improper real estate speculation by entities holding tax-exempt health/mental illness charters.
+  * **26 U.S.C. § 501(c)(3) & Cal. Rev. & Tax Code § 23701d:** Private inurement and improper real estate speculation by entities holding tax-exempt health/mental illness charters.
   * **18 U.S.C. § 1956 / § 1957 (Money Laundering):** Cycling funds derived from public healthcare programs into private real estate conveyances and mortgages exceeding fair market equity.
   * **Cal. Corp. Code § 5233 (Self-Dealing Transactions by Non-Profit Directors):** Subject to restitution and civil penalties by the California Attorney General Charitable Trusts Section.
 

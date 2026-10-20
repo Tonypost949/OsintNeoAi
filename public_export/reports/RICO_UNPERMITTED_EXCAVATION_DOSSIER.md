@@ -20,7 +20,7 @@ To circumvent the municipal grading permit process—which would have mandatoril
 * **The Fraud:** Erosivity Waivers are strictly intended for short-term, low-impact surface projects. By falsely classifying the permanent 2,247 cubic foot subterranean StormTech installation as a "temporary 90-day emergency shelter," the developers abused this waiver to illegally excavate the trench.
 
 ## III. EDR LIGHTBOX & GEOTRACKER CONCEALMENT (THE MOTIVE)
-The motive for bypassing the grading permit was the severe, pre-existing toxic contamination beneath the parcel, verified across multiple EDR Lightbox and GeoTracker datasets (OCHCA Case ****C002).
+The motive for bypassing the grading permit was the severe, pre-existing toxic contamination beneath the parcel, verified across multiple EDR Lightbox and GeoTracker datasets (OCHCA Case #20IC002).
 * **The Contaminant:** Hexavalent Chromium (Cr-VI) detected at **980 µg/kg** (49x the legal EPA/DTSC limit).
 * **The Danger:** Unpermitted excavation directly disturbed this plume, mobilizing hazardous waste without a required Cradle-to-Grave Waste Manifest (RCRA violation).
 * **The Waiver:** OCHCA Program Manager Anthony Martinez further abetted this by issuing a waiver on August 21, 2020, declaring a formal well-destruction permit was "not necessary."

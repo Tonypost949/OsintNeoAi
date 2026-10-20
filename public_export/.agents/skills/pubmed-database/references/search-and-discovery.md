@@ -12,7 +12,7 @@ query syntax: Boolean operators (`AND`, `OR`, `NOT`), MeSH terms and tags.
 2.  Most common tags:
     -   [tiab]: Title & Abstract (Best for keyword precision).
     -   [mesh]: Medical Subject Headings (Best for conceptual accuracy).
-    -   [pt]: Publication Type (Filter by Review, Clinical Trial, Case ****orts).
+    -   [pt]: Publication Type (Filter by Review, Clinical Trial, Case Reports).
     -   [dp]: Publication Date (Interchangeable with [pdat]).
 3.  Modern Power Moves:
     -   Relative Dates: Use `"last X months"[dp]` or `"last X years"[dp]` (e.g.,

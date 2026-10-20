@@ -135,7 +135,7 @@ for cat in priority_cats:
             add_edge(cat_node, domain_node, "Contains_Domain")
             
         # Add high-value URLs (GeoTracker IDs, EDR reports, LightBox records)
-        if any(k in item["url"].lower() for k in ["t100**", "w0603", "lightbox", "edrnet", "republic"]):
+        if any(k in item["url"].lower() for k in ["t10000", "w0603", "lightbox", "edrnet", "republic"]):
             label = item["name"] or item["url"]
             url_node = add_node("osint.PrimaryEvidenceURL", item["url"])
             add_edge(domain_node, url_node, "Evidence_Link")

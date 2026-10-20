@@ -521,7 +521,7 @@ class TestMailboxReaderAdversarial:
             b"Subject: Windows 1252 Content\r\n"
             b"Content-Type: text/plain; charset=windows-1252\r\n"
             b"Content-Transfer-Encoding: 8bit\r\n\r\n"
-            b"Smart \x93quotes\x94 and \x801** value with \x96 dash"
+            b"Smart \x93quotes\x94 and \x80100 value with \x96 dash"
         )
         art_win = list(mail_reader.read_mail_source(io.BytesIO(raw_win1252)))[0]
         with art_win.raw_stream_factory() as s:
@@ -543,7 +543,7 @@ class TestMailboxReaderAdversarial:
             assert "Procès-verbal de la séance et café" in text
 
     # ------------------------------------------------------------------------
-    # Corrupted / Edge Case ****ails
+    # Corrupted / Edge Case Emails
     # ------------------------------------------------------------------------
 
     def test_corrupted_and_missing_headers_email(self, mail_reader):

@@ -56,7 +56,7 @@ def main():
             reader = csv.DictReader(f)
             for row in reader:
                 loan_locations = row.get('loan_locations', '')
-                # Find state abbreviation from loan ****ions (e.g. "Battle Creek, MI" -> "MI")
+                # Find state abbreviation from loan locations (e.g. "Battle Creek, MI" -> "MI")
                 state_match = re.search(r'\b([A-Z]{2})\b', loan_locations)
                 if state_match:
                     st = state_match.group(1)
@@ -150,7 +150,7 @@ def main():
                 if ppp:
                     recip_name = f"**{ppp['owner_name']}** (PPP Shell)"
                     award_str = f"${float(ppp['ppp_total_amount']):,.2f}"
-                    prog_type = "PPP Capital Loan ****ffle"
+                    prog_type = "PPP Capital Loan Shuffle"
                     npi_code = f"APN: {ppp['apn']}"
                 else:
                     recip_name = "*State Department of Housing / Direct County Admin*" if not award_val else "*Direct Municipal Recipient*"
@@ -159,7 +159,7 @@ def main():
             combined_hazards = f"**{vulnerabilities}**<br>_Metrics:_ {pit_summary}"
             
             if ppp:
-                combined_hazards += f"<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `{ppp['property_address']}`. Loan ****tion: `{ppp['loan_locations']}` (Status: {ppp['loan_statuses']})"
+                combined_hazards += f"<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `{ppp['property_address']}`. Loan location: `{ppp['loan_locations']}` (Status: {ppp['loan_statuses']})"
             
             if recip.get('unaccounted_fund_delta'):
                 combined_hazards += f"<br>_Audit Warning:_ Unaccounted Delta: ${recip.get('unaccounted_fund_delta'):,.2f}"
@@ -176,11 +176,11 @@ def main():
             sect.append(f"- **Vulnerability Population Data**: {pit_summary}")
 
         if state_ppp:
-            sect.append("#### Mapped Out-of-State PPP Property & Shell Loan ****orks:")
+            sect.append("#### Mapped Out-of-State PPP Property & Shell Loan Networks:")
             for p in state_ppp:
                 sect.append(f"  - **Shell Owner Name**: **{p['owner_name']}**")
                 sect.append(f"    - **Target California Property**: `{p['property_address']}` (APN: `{p['apn']}`)")
-                sect.append(f"    - **PPP Loan ****ails**: ${float(p['ppp_total_amount']):,.2f} drawn at `{p['loan_locations']}` (Status: `{p['loan_statuses']}`)")
+                sect.append(f"    - **PPP Loan Details**: ${float(p['ppp_total_amount']):,.2f} drawn at `{p['loan_locations']}` (Status: `{p['loan_statuses']}`)")
                 sect.append(f"    - **Mailing Registry**: `{p['property_mail_address']}`, {p['property_mail_city']}")
 
         if coc_continuum:

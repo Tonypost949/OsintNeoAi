@@ -23,10 +23,10 @@ This dossier investigates the closed network of forensic psychiatric experts and
   * Retained through **Park Dietz & Associates** — the same forensic consulting firm whose founder gave testimony that led to the reversal of Andrea Yates' first murder conviction (*Yates v. State*, 171 S.W.3d 215).
 
 ### 2. Dr. Phillip Resnick — Defense Gatekeeper ("Controlled Opposition")
-* **Background:** Director of Forensic Psychiatry at Case ****tern Reserve University School of Medicine (Cleveland, Ohio); world-renowned forensic psychiatrist.
+* **Background:** Director of Forensic Psychiatry at Case Western Reserve University School of Medicine (Cleveland, Ohio); world-renowned forensic psychiatrist.
 * **Role in Lindsay Clancy Case:** Retained by defense counsel. Testified Clancy was psychotic, but confined the defense strictly within traditional insanity parameters without investigating local counterfeit pill circulation or broader off-label polypharmacy billing schemes.
 * **Institutional Ties:** Also affiliated with **Park Dietz & Associates** (same firm as the prosecution's expert Mack).
-* **Whistleblower Nexus:** Documented institutional friction and retaliatory pressure directed against fellow Case ****tern medical graduate and protected whistleblower **Dr. Ann Verma**.
+* **Whistleblower Nexus:** Documented institutional friction and retaliatory pressure directed against fellow Case Western medical graduate and protected whistleblower **Dr. Ann Verma**.
 
 ### 3. Dr. Donald Kushon — Institutional Enforcer
 * **Background:** Clinical Associate Professor of Psychiatry at Drexel University College of Medicine (Philadelphia, PA); Board-certified in general, addiction, and geriatric psychiatry.
@@ -34,7 +34,7 @@ This dossier investigates the closed network of forensic psychiatric experts and
 * **Operational Role:** Identified in whistleblower disclosures as an institutional enforcer tasked with containing medical school disclosures and managing state-funded psychiatric and child welfare treatment pipelines.
 
 ### 4. Dr. Ann Verma — Protected Medical Whistleblower
-* **Background:** Case ****tern Reserve University School of Medicine graduate; clinical physician.
+* **Background:** Case Western Reserve University School of Medicine graduate; clinical physician.
 * **Whistleblower Actions:** Disclosed municipal kickbacks, medical malpractice, patient rights deprivations, and illicit polypharmacy protocols; subjected to coordinated institutional retaliation, character assassination, and administrative suppression.
 
 ---
@@ -45,7 +45,7 @@ This dossier investigates the closed network of forensic psychiatric experts and
 graph TD
     subgraph "Park Dietz & Associates Network"
         MACK["Dr. Avram Mack<br>(Prosecution Rebuttal)"]
-        RESNICK["Dr. Phillip Resnick<br>(Defense Gatekeeper / Case ****tern)"]
+        RESNICK["Dr. Phillip Resnick<br>(Defense Gatekeeper / Case Western)"]
     end
 
     DA["Plymouth County DA<br>(Timothy Cruz)"] -->|"Retains"| MACK
@@ -53,7 +53,7 @@ graph TD
     
     MACK & RESNICK -->|"Common Institutional Umbrella"| NARRATIVE["Controlled Courtroom Narrative:<br>Exclude Counterfeit Pills & Off-Label Pharma Fraud"]
     
-    KUSHON["Dr. Donald Kushon<br>(Drexel / Institutional Enforcer)"] -->|"Suppression Pressure"| VERMA["Dr. Ann Verma<br>(Case ****tern Medical Whistleblower)"]
+    KUSHON["Dr. Donald Kushon<br>(Drexel / Institutional Enforcer)"] -->|"Suppression Pressure"| VERMA["Dr. Ann Verma<br>(Case Western Medical Whistleblower)"]
     
     NARRATIVE & VERMA --> RICO["18 U.S.C. § 1962(c)<br>Institutional RICO Pattern"]
 ```
@@ -62,5 +62,5 @@ graph TD
 
 ## 4. Statutory & Federal Causes of Action
 * **18 U.S.C. § 1512 / § 1513:** Witness Tampering and Retaliation against Federal Relators / Whistleblowers.
-* **31 U.S.C. § 3730(h):** Whistleblower Anti-Retaliation Relief for Disclosing Medicare/Medicaid ****abel Prescribing Fraud.
+* **31 U.S.C. § 3730(h):** Whistleblower Anti-Retaliation Relief for Disclosing Medicare/Medicaid Off-Label Prescribing Fraud.
 * **42 U.S.C. § 1983:** Conspiracy Under Color of State Law to Deprive Due Process and Fair Trial Rights.

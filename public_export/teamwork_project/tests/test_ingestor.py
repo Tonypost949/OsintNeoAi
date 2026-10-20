@@ -90,7 +90,7 @@ def sample_edges_json(tmp_path):
 def sample_ppp_csv(tmp_path):
     file_path = tmp_path / "ppp_loans.csv"
     content = (
-        "BorrowerName,BorrowerAddress,City,State,Zip,Loan ****mber,CurrentApprovalAmount,ForgivenessAmount\n"
+        "BorrowerName,BorrowerAddress,City,State,Zip,LoanNumber,CurrentApprovalAmount,ForgivenessAmount\n"
         "STEWART INDUSTRIES LLC,1077 PACIFIC COAST HWY #247,SEAL BEACH,CA,907**,PPP-001,1128327.50,1137910.56\n"
         "APEX HOLDINGS INC,3311 BOUNTY CIR,HUNTINGTON BEACH,CA,926**,PPP-002,$50,000.00,$50,000.00\n"
     )
@@ -103,7 +103,7 @@ def latin1_ppp_csv(tmp_path):
     """Fix 6 Verification: Non-UTF8 CSV files (Latin-1) parse cleanly without UnicodeDecodeError."""
     file_path = tmp_path / "latin1_ppp.csv"
     content = (
-        "BorrowerName,BorrowerAddress,City,State,Zip,Loan ****mber,CurrentApprovalAmount\n"
+        "BorrowerName,BorrowerAddress,City,State,Zip,LoanNumber,CurrentApprovalAmount\n"
         "CAFÉ ENTERPRISES LLC,100 MAIN ST,RENO,NV,895**,PPP-LATIN1,500**\n"
     )
     file_path.write_bytes(content.encode("iso-8859-1"))

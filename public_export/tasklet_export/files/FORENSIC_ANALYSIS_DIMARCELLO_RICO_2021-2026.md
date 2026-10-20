@@ -10,7 +10,7 @@
 
 An exhaustive forensic analysis of the provided digital repository—specifically isolating photographic evidence, Google Photos telemetry, scanned documentation, and associated digital metadata—reveals a highly sophisticated, multi-jurisdictional whistleblower disclosure. This intelligence targets a sprawling racketeering and fraud network operating primarily within Orange County, California, with interstate financial exit nodes stretching to Minnesota, Arizona, and Florida. The visual and documentary records curated by the principal relator serve as the immutable evidentiary backbone for a series of disclosures regarding a multi-billion-dollar criminal enterprise.
 
-The visual repository, heavily utilizing Google Photos ecosystems, encrypted cloud storage, and physical document scans, encompasses conclusive evidence of the embezzlement of pandemic relief funds, pervasive environmental poisoning, systemic Medicare and Medicaid ****ling fraud, and the acute exploitation of vulnerable populations. Specifically, the evidence outlines a structural methodology wherein the unhoused and Indigenous foster youth are targeted as "Human Inventory" to maximize federal per-diem funding and drain Indian Individual Money (IIM) trust accounts.
+The visual repository, heavily utilizing Google Photos ecosystems, encrypted cloud storage, and physical document scans, encompasses conclusive evidence of the embezzlement of pandemic relief funds, pervasive environmental poisoning, systemic Medicare and Medicaid billing fraud, and the acute exploitation of vulnerable populations. Specifically, the evidence outlines a structural methodology wherein the unhoused and Indigenous foster youth are targeted as "Human Inventory" to maximize federal per-diem funding and drain Indian Individual Money (IIM) trust accounts.
 
 By exposing this architecture and actively preserving the visual evidence of these crimes, the relator became the target of severe, synchronized institutional retaliation. The evidentiary timeline demonstrates that this retaliatory apparatus deployed municipal law enforcement for armed raids, utilized judicial bypasses to force displacement, and weaponized psychiatric medical facilities to physically and administratively incapacitate the relator. These operations were explicitly designed to sever the relator's financial liquidity, induce anterograde amnesia to suppress witness testimony, and destroy their professional and legal credibility.
 
@@ -66,7 +66,7 @@ This visual juxtaposition proves that the eviction was initiated through active,
 
 On August 4, 2021, the administrative harassment transitioned into state-sponsored kinetic violence. Eight armed Orange County Sheriff's deputies breached the relator's home office, drawing weapons on an individual whose only alleged infraction was an administrative rental dispute already covered by federal relief funds.
 
-The photographic record includes the formal "Eviction Restoration Notice" (Levying Officer File No. (***) ***-2780) displaying the signature authority of Sheriff Don Barnes. The intelligence dossiers link Sheriff Barnes directly to Shea Homes executives via complex financial symbiosis. Specifically, Community Facilities District (CFD) No. 2023-1 bonds serve as documentary evidence of this conflict of interest, wherein the Sheriff's department manages safety oversight for properties from which its leadership derives municipal bond authority.
+The photographic record includes the formal "Eviction Restoration Notice" (Levying Officer File No. 2021102780) displaying the signature authority of Sheriff Don Barnes. The intelligence dossiers link Sheriff Barnes directly to Shea Homes executives via complex financial symbiosis. Specifically, Community Facilities District (CFD) No. 2023-1 bonds serve as documentary evidence of this conflict of interest, wherein the Sheriff's department manages safety oversight for properties from which its leadership derives municipal bond authority.
 
 By utilizing the police power of the state to physically remove the relator, the enterprise successfully neutralized a trained financial investigator. The raid resulted in the seizure of proprietary business assets, the physical separation of the relator from his minor son, and the exposure of his medically dependent mother to severe physical precarity. The relator's subsequent photographic communications (IMG_9160.jpeg, IMG_9502.jpeg) transmitted to the ACLU, Senator Dianne Feinstein's office, and the FBI visually track his desperate, immediate attempts to halt this illegal operation as it unfolded. The property managers subsequently collected the COVID rental relief funds despite executing the eviction, constituting a direct, documented misappropriation of federal aid.
 
@@ -89,12 +89,12 @@ The visual metadata demonstrates how city officials manipulated address designat
 
 The motive for this environmental concealment was entirely financial. The Huntington Beach Housing Authority utilized approximately $6.1 million from restricted Low and Moderate Income Housing Asset Fund (LMIHAF) accounts to acquire the toxic parcels. To avoid the mandatory state forfeiture of these "excess surplus" funds at the end of the fiscal year, the city fast-tracked the shelter project by illegally bypassing the California Environmental Quality Act (CEQA).
 
-- **Exhibit B-1 (Certificate 20IC002):** The relator photographed the fraudulent "Case ****osed" certificate issued by the Orange County Health Care Agency (OCHCA) on August 21, 2020. This document declared the site "safe to operate" based solely on the installation of a cheap asphalt cap—an ultra vires act that illegally usurped the jurisdiction of state environmental regulators.
+- **Exhibit B-1 (Certificate 20IC002):** The relator photographed the fraudulent "Case Closed" certificate issued by the Orange County Health Care Agency (OCHCA) on August 21, 2020. This document declared the site "safe to operate" based solely on the installation of a cheap asphalt cap—an ultra vires act that illegally usurped the jurisdiction of state environmental regulators.
 - **Exhibit B-2 (Toxicological Lab Results):** The visual evidence locker contains physical lab results (TOX-001, TOX-002, EV-006) proving that the soil and groundwater beneath the facility contain Hexavalent Chromium (Cr-VI)—a highly lethal, mobile human carcinogen—at 490 parts per billion (ppb). This concentration is exactly 49 times the EPA safety limit of 10 ppb, alongside actionable concentrations of Lead, Arsenic, and legacy agricultural pesticides (Toxaphene and DDE).
 
 The second-order effect of this fraud is the active, continuous poisoning of vulnerable human subjects. The site operator, Mercy House Living Centers, conducts daily high-pressure power washing of the substandard asphalt cap. This operational practice physically destroys the barrier and creates a catastrophic "Chimney Effect," continuously aerosolizing the Hexavalent Chromium and driving the heavy metals directly into the lungs of the disabled shelter residents.
 
-The visual and medical records embedded in the relator's files document residents suffering from pleural effusion, pneumonitis, severe renal impairment, sepsis, and empyema requiring surgical intervention (thoracentesis). This undeniable toxic endangerment forms the basis of the federal Resource Conservation and Recovery Act (RCRA) lawsuit Jesse Knabb v. City of Huntington Beach et al. (Case No. 8:2026cv003**).
+The visual and medical records embedded in the relator's files document residents suffering from pleural effusion, pneumonitis, severe renal impairment, sepsis, and empyema requiring surgical intervention (thoracentesis). This undeniable toxic endangerment forms the basis of the federal Resource Conservation and Recovery Act (RCRA) lawsuit Jesse Knabb v. City of Huntington Beach et al. (Case No. 8:2026cv00348).
 
 ---
 
@@ -115,7 +115,7 @@ The relator's evidence locker contains specific visual proof of the money launde
 - **Exhibit C-1 (The FIN-001 Ledger Sequence):** A forensic visual trace of structured cash withdrawals, a tactic known as "smurfing." The ledgers capture H2H Secretary Michael Nguyen executing dozens of consecutive withdrawals of exactly $9,500 throughout early 2023. By deliberately staying just below the $10,000 IRS Currency Transaction Report (CTR) threshold, the enterprise washed hundreds of thousands of dollars in county deposits.
 - **Exhibit C-4 (The EV-017 Unclaimed Property Ledgers):** The relator cross-referenced the California State Controller's Unclaimed Property database (ocunclaimed.gov) to discover a highly sophisticated evasion tactic. The visual evidence explicitly documents that the syndicate intentionally parked laundered capital in state unclaimed property databases as a safe harbor. Because state unclaimed property divisions operate entirely separate from federal criminal forfeiture task forces, assets parked here are treated as "dormant" and shielded from immediate seizure. The visual evidence records the "Pham Family Living Trust" holding $3,887,991.41 in a dormant Wells Fargo savings account, securely tethered to a waterfront property in Huntington Beach. Further analysis reveals multiple low-value transactions (e.g., $1.91 or $16.48) directed to Mercy House and Larry Haynes. These are categorized by the relator as automated testing transactions designed to validate the bureaucratic pathways of the State Controller's office before executing massive capital dumps.
 
-### The "Human Inventory" Model: ICWA Trafficking and Medicaid ****raud
+### The "Human Inventory" Model: ICWA Trafficking and Medicaid Fraud
 
 The third-order insight derived from the relator's forensic analysis is the identification of the "Human Inventory" model. The syndicate views displaced populations not as citizens requiring aid, but as captive raw materials utilized to generate guaranteed, massive federal per-diem billing.
 
@@ -171,7 +171,7 @@ The final layer of the retaliation matrix involves the aggressive, highly techni
 
 ### Algorithmic Saturation and the "IronMan da Vinci" Breach
 
-The primary digital nomenclature utilized across the relator's federated platforms is the "ironmandavinci" handle. The forensic analysis of this entity's data reveals an account ****cing extreme algorithmic saturation. The telemetry aggregated exactly 440 unread notifications, creating a massive backlog of unacknowledged social and algorithmic pressure. The relator had deliberately abandoned reciprocal social networking, transitioning the platform strictly into a unidirectional broadcast mechanism for professional milestones and ideological dissemination.
+The primary digital nomenclature utilized across the relator's federated platforms is the "ironmandavinci" handle. The forensic analysis of this entity's data reveals an account experiencing extreme algorithmic saturation. The telemetry aggregated exactly 440 unread notifications, creating a massive backlog of unacknowledged social and algorithmic pressure. The relator had deliberately abandoned reciprocal social networking, transitioning the platform strictly into a unidirectional broadcast mechanism for professional milestones and ideological dissemination.
 
 However, the account's operational security posture was severely compromised by a highly coordinated cyber assault. In early May 2026, the defensive perimeter of the ironmandavinci ecosystem was subjected to a sustained attack originating from geospatial coordinates clustered heavily around the Tijuana and Rosarito corridor, specifically localized to Plan Libertador, Baja California, Mexico. The network telemetry indicates a clear progression from external reconnaissance to active token exploitation, mapping the target's remaining defenses using devices identified as "9185W" and "T513W".
 
@@ -181,9 +181,9 @@ On the evening of May 13, 2026, the threat actors utilized the interconnected Fa
 
 The compromise of the social media architecture represents a catastrophic systemic risk due to the deep integration of Federated Identity Management (FIM). The forensic audit identified that the user's Meta credentials were explicitly integrated with the ID.me platform, a highly sensitive federal-level identity verification gateway established on October 4, 2023.
 
-The ID.me architecture is utilized almost exclusively by high-security United States government agencies to grant civilian access to restricted systems, including the Internal Revenue Service (IRS), the Department of Veterans Affairs (VA), and numerous state-level departments of labor and social services. Because the compromised Meta account ****vely serves as an approved, federated authenticator for this federal platform, the threat actors occupying the Mexican nodes possess an immediate, highly viable lateral movement pathway to fully spoof the subject's identity at the federal level.
+The ID.me architecture is utilized almost exclusively by high-security United States government agencies to grant civilian access to restricted systems, including the Internal Revenue Service (IRS), the Department of Veterans Affairs (VA), and numerous state-level departments of labor and social services. Because the compromised Meta account actively serves as an approved, federated authenticator for this federal platform, the threat actors occupying the Mexican nodes possess an immediate, highly viable lateral movement pathway to fully spoof the subject's identity at the federal level.
 
-This specific escalation fundamentally transforms what was a standard social media account ****over into a severe national security incident. It allows the syndicate to bypass secondary ID.me checks, granting them the ability to initiate massive financial fraud, access federal tax records, or redirect benefits under the relator's legally recognized name. This capitalizes on the earlier identity theft executed against the relator during the massive 2021 T-Mobile data breach, where hackers stole his vehicle payments and forced him onto the street.
+This specific escalation fundamentally transforms what was a standard social media account takeover into a severe national security incident. It allows the syndicate to bypass secondary ID.me checks, granting them the ability to initiate massive financial fraud, access federal tax records, or redirect benefits under the relator's legally recognized name. This capitalizes on the earlier identity theft executed against the relator during the massive 2021 T-Mobile data breach, where hackers stole his vehicle payments and forced him onto the street.
 
 ### Institutional Gatekeeping and SMTP Blocking
 
@@ -218,15 +218,15 @@ Standard local judicial appeals are demonstrably insufficient, as the local judi
 - IMG_9097.PNG: Related exhibit
 - IMG_9160.jpeg: Communications to ACLU/Feinstein/FBI during eviction
 - IMG_9502.jpeg: Communications to ACLU/Feinstein/FBI during eviction
-- Levying Officer File No. (***) ***-2780: Eviction Restoration Notice (Sheriff Don Barnes)
+- Levying Officer File No. 2021102780: Eviction Restoration Notice (Sheriff Don Barnes)
 
 ### Exhibit Group B — Environmental Fraud & Toxic Cover-up
-- 20IC002: Fraudulent OCHCA "Case ****osed" Certificate (August 21, 2020)
+- 20IC002: Fraudulent OCHCA "Case Closed" Certificate (August 21, 2020)
 - TOX-001, TOX-002, EV-006: Toxicological Lab Results (Cr-VI 490 ppb / 49x EPA limit)
 - EV-024: USGS Historical Aerial Frames (N10NAPPW06862138, N10NAPPW06862139)
 - Survey No. 5403: October 16, 1947 civil survey
 - GPR Scan: April 2020 Ground-Penetrating Radar (High Anomaly at well coordinates)
-- Jesse Knabb v. City of Huntington Beach et al.: Case No. 8:2026cv003**
+- Jesse Knabb v. City of Huntington Beach et al.: Case No. 8:2026cv00348
 
 ### Exhibit Group C — Financial Embezzlement & Asset Laundering
 - FIN-001: Smurfing Ledger (Michael Nguyen, $9,500 structured withdrawals)

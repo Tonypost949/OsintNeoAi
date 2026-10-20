@@ -26,12 +26,12 @@ parameters can be passed into the `query_params` dictionary in
 *   `type`: (`str`) Filter by entry type (e.g., `family`, `domain`,
     `active_site`, `binding_site`, `conserved_site`, `ptms`, `repeat`,
     `homologous_superfamily`).
-*   `integrated`: (`str`) Comma-separated list of Member ****ases (e.g.,
+*   `integrated`: (`str`) Comma-separated list of Member Databases (e.g.,
     `pfam`, `smart`) to filter integrated status. *(Fails if
     source_db=interpro)*
 *   `go_term`: (`str`) Filter by exact Gene Ontology term (e.g., `GO:0016301`).
 *   `annotation`: (`str`) Filter by annotation type (`logo`, `alignment`,
-    `hmm`). *(Works only when `source_db` is a member ****base).*
+    `hmm`). *(Works only when `source_db` is a member database).*
 *   `group_by`: (`str`) Aggregation method. *Note: Valid values depend on the
     context!*
     -   `/entry` (and `/entry/integrated`, `/entry/unintegrated`, `/entry/all`):

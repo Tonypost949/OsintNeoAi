@@ -42,7 +42,7 @@
 * **Case No.:** `8:26-cv-00348-DOC-ADS`
 * **Statutory Basis:** Resource Conservation and Recovery Act (RCRA, 42 U.S.C. § 6972) & Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA, 42 U.S.C. § 9607)
 * **Key Discovery Exhibits Submitted:**
-  1. **Exhibit B-1 (OCHCA Case ****osed Certificate 20IC002):**
+  1. **Exhibit B-1 (OCHCA Case Closed Certificate 20IC002):**
      * August 21, 2020 administrative closure of the contaminated Cameron Lane / Beach Blvd parcel without State DTSC concurrence.
   2. **Exhibit B-2 (Toxicological Soil & Groundwater Lab Results TOX-001 / TOX-002):**
      * Laboratory assay results proving **Hexavalent Chromium (Cr-VI) at 490 ppb** (49 times the EPA/State maximum contaminant level of 10 ppb), alongside toxic Lead, Arsenic, and Toxaphene pesticides directly beneath the shelter.
@@ -78,7 +78,7 @@
      * March 18, 2021 notice explicitly acknowledging receipt of COVID-19 financial distress declaration, yet demanding rent under eviction threat.
   2. **Exhibit A-2 (Perjured UD-101 Verification - IMG_20260408_141546248_AE):**
      * Signed under penalty of perjury May 15, 2021 by Assistant Community Manager falsely checking box 7d(2) ("Did not receive declaration"), constituting subornation of perjury to bypass judicial stay.
-  3. **Exhibit A-3 (Sheriff Levying Officer Notice - File No. (***) ***-2780):**
+  3. **Exhibit A-3 (Sheriff Levying Officer Notice - File No. 2021102780):**
      * Armed raid executed August 4, 2021 by 8 Orange County Sheriff deputies under authority of Sheriff Don Barnes, executing armed lockout in direct violation of state and federal emergency rent relief safe harbors.
 
 ---
@@ -96,10 +96,10 @@
   * Exposed the common playbook: illegal retaliatory evictions, artificial blighting of low-income tenants, and backdoor political land acquisitions.
   * **Result:** Tuesday, May 24, 2022 — Anaheim City Council held an emergency meeting and voted **7-0 to TERMINATE the $320M stadium land sale**.
 
-### 7. Active Federal Case ****trol Numbers & Intake Dockets
+### 7. Active Federal Case Control Numbers & Intake Dockets
 | Agency / Body | Control / Docket Number | Status / Description |
 | :--- | :--- | :--- |
-| **U.S. Government Account ****lity Office (GAO)** | `COMP-26-004512` | GAO FraudNet Systemic Fiduciary & Municipal Fraud Investigation |
+| **U.S. Government Accountability Office (GAO)** | `COMP-26-004512` | GAO FraudNet Systemic Fiduciary & Municipal Fraud Investigation |
 | **Federal Bureau of Investigation (FBI)** | `IC3 20IC002` | Internet Crime / Public Corruption Intake Record |
 | **Commodity Futures Trading Commission (CFTC)** | Whistleblower Intake (Jan 1, 2023 / Mar 18, 2026) | Commodity Broker Whistleblower Disclosure & Fiduciary Asset Protection |
 | **State Water Resources Control Board** | Petition `A-2926` | Formal Administrative Appeal re: HBNC Environmental Siting Fraud |

@@ -16,7 +16,7 @@ Worker M2 executed exclusive write ownership and created/updated the following t
    * Verbatim title: `"# OFFICIAL REGULATORY ENFORCEMENT RECORD: STATE OF CALIFORNIA HCD NOTICE OF VIOLATION (SURPLUS LAND ACT)"`
    * Complete statutory citations: Cal. Gov. Code §§ 542**–542** (Surplus Land Act / AB 1486 / SB 79), § 542** (mandatory declaration of surplus), § 542** (written Notice of Availability), § 542** (60-day notice and 90-day good faith negotiation period), § 542** (rejection of grandfathering exemption), § 542**.5(a)(1) (mandatory 30% statutory penalty), and § 655**.1 (HCD enforcement authority).
    * Exact penalty calculation: $\$320,000,000.00 \times 0.30 = \$96,000,000.00$.
-   * Key personnel: Megan Kirkeby (Deputy Director, Division of Housing Policy ****ment), Gustavo Velasquez (Director, California HCD).
+   * Key personnel: Megan Kirkeby (Deputy Director, Division of Housing Policy Development), Gustavo Velasquez (Director, California HCD).
    * 60-day cure requirement, litigation history in Orange County Superior Court Case No. `30-2020-01131102-CU-MC-CJC`, Attorney General Rob Bonta's stipulated settlement, and subsequent stay/mootness.
 
 2. **`C:\OsintNeoAi\evidence\official_court_records\07_Anaheim_City_Council_Stadium_Voidance_Resolution_2022_064.md` (162 lines, 15,058 bytes):**

@@ -117,9 +117,9 @@ Address: 17631 C*** Lane, Huntington Beach, CA 926** (APN 167-472-08)
 ```
 
 ### **In-Person / Counter Retrieval:**
-- **OC Recorder:** 12 Civic Center Plaza, Room 101, Santa Ana, CA 927**
-- **OC Survey:** 300 N*** St., Santa Ana, CA 927**
-- **OC Public Works:** 300 N*** St., Santa Ana, CA 927**
+- **OC Recorder:** 12 C*** Plaza, Room 101, Santa Ana, CA 927**
+- **OC Survey:** 300 N. F*** St., Santa Ana, CA 927**
+- **OC Public Works:** 300 N. F*** St., Santa Ana, CA 927**
 
 ---
 
@@ -132,7 +132,7 @@ Address: 17631 C*** Lane, Huntington Beach, CA 926** (APN 167-472-08)
 | Earthwork Summary | Sheet 1 | Cut 1,560 CY / Fill 475 CY / Export 1,085 CY |
 | Abandoned Well Notice | Sheet 3 | 400 ft N of Newman, 25 ft W of Cameron |
 | Tract 405 Plat | Map Book 16, Page 31 | 1912 Gospel Swamp / Wintersburg |
-| Standard Oil Permit | C812** | 1955-10-25, Tract 405 |
+| Standard Oil Permit | C81252 | 1955-10-25, Tract 405 |
 | OCHCA Case | 20IC002 | 2020-08-21 Well W-4150 waiver |
 | SWRCB Waiver | WDID 8 30W004769 | 90-day erosivity waiver |
 

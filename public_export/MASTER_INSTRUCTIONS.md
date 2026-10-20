@@ -6,7 +6,7 @@
   - `toolstestrepo\` — Staging buffer for pure tools
   - `showtestrepo\` — Staging buffer for case data & exhibits
 - **C:\OSINTNeoAi** — Official Tool Version 1
-- **C:\RICONWO** — Flagship Case ****ence Showcase & Newsroom
+- **C:\RICONWO** — Flagship Case Evidence Showcase & Newsroom
 
 ## Daily Workflow Rules
 1. Work in `C:\OSINTRnDi` for testing and new features.

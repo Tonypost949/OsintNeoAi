@@ -20,6 +20,6 @@
 - **September 2025:** Fugitive Peter Pham sues Andrew Do for $50 million, claiming he was set up.
 
 ### Phase 4: The Cyber Infrastructure Discovery
-- **June 29, 2026 (10:15 AM):** Intelligence scan of `Dehashed.com` identifies 400 compromised account ****ings for the Huntington Beach Police Department (`hbpd.org`).
+- **June 29, 2026 (10:15 AM):** Intelligence scan of `Dehashed.com` identifies 400 compromised account listings for the Huntington Beach Police Department (`hbpd.org`).
 - **July 2026:** Ultra-scan of municipal infrastructure reveals `hbpd.org` operating with **142 open ports**, including direct internet exposure for RDP, VNC, SQL databases, and exposed `/.aws/credentials`. The cyber infrastructure mapping matches the physical corruption matrix, indicating total systemic vulnerability.
 - **August 10, 2026:** Complete set of federal litigation matrices, subpoenas, and DOJ regulatory referrals are finalized.

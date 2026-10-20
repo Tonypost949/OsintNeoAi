@@ -171,7 +171,7 @@ for svc, layers in service_layers.items():
                   save_name="gis_%s_L%s.json" % (svc.split("/")[0], lid))
 
 # ------------------------------------------------------- 2. GeoTracker PDF
-PDF_PATH = ("regulators/deliverable_documents/(***) ***-0641/"
+PDF_PATH = ("regulators/deliverable_documents/8203290641/"
             "T10000018579.20200318.Phase%20I%20Environmental%20Site%20Assessment.pdf")
 try:
     pdf = docs.fetch_bytes(PDF_PATH)
@@ -188,7 +188,7 @@ except Exception as e:
 safe_json(web, "geotracker:profile",
           "profile_report?global_id=T10000018579")
 safe_json(web, "geotracker:esi-upload",
-          "esi/uploads/geo_report/(***) ***-7770/T10000018579.PDF")
+          "esi/uploads/geo_report/8599347770/T10000018579.PDF")
 hwts = http_client.HttpClient("https://hwts.dtsc.ca.gov/", qps=1,
                               max_retries=2, timeout=25, user_agent=UA)
 safe_json(hwts, "hwts:search", "search")

@@ -1,7 +1,7 @@
 import unittest
-from processing.claim_verification import Claim, Claim ****atus, Evidence
+from processing.claim_verification import Claim, ClaimStatus, Evidence
 
-class Claim ****ests(unittest.TestCase):
+class ClaimVerificationTests(unittest.TestCase):
     def test_no_evidence_cannot_be_verified(self):
         claim = Claim("c1", "A statement with no source.")
         self.assertEqual(claim.adjudicate(), ClaimStatus.UNSUPPORTED)

@@ -16,7 +16,7 @@ description: >-
 End-to-end workflow that takes raw evidence (photos, documents, court records)
 and produces court-ready indexed, cross-referenced, and verified forensic
 intelligence products. Every run follows the Makaveli Protocol: zero noise,
-absolute account ****lity, 3-location backup before and after.
+absolute accountability, 3-location backup before and after.
 
 ## Dependencies
 
@@ -124,7 +124,7 @@ Cross-reference extracted entities against the BigQuery knowledge graph.
    - Output: Updated `nodes.json`, `edges.json`
 
 2. Cross-reference against BigQuery datasets:
-   - `ppp_rico` — PPP loan ****raud correlations
+   - `ppp_rico` — PPP loan fraud correlations
    - `forensic_layers.fca_timeline` — FCA whistleblower timeline
    - `national_audits.all_state_records` — Corporate/municipal records
    - `drive_forensics.drive_documents` — Drive content

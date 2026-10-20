@@ -97,12 +97,12 @@ graph TD
 
 ---
 
-## 3. US Hacking Targets & Black-Market Account ****ions
+## 3. US Hacking Targets & Black-Market Account Valuations
 
 A database-wide deep forensics audit of the Sichuan Anxun dataset has revealed specific, high-priority operational targeting of United States infrastructure, black-market sales of government mailboxes, and strategic zero-day weaponization:
 
 ### A. Commercialization of Stolen Federal Credentials
-WeChat chat records explicitly document the thriving black-market pricing for compromised US government mailboxes. Operators negotiate the purchase and sale of stolen federal account ****ials, indicating that active persistence in US government networks has been highly commoditized:
+WeChat chat records explicitly document the thriving black-market pricing for compromised US government mailboxes. Operators negotiate the purchase and sale of stolen federal account credentials, indicating that active persistence in US government networks has been highly commoditized:
 * **Forensic Evidence (File: `4.md`)**:
   * `wxid_7p054rmzkhqf21` -> `adpw90` (2022-04-14): *"对的，就是要看做的点位，像fbi ，目前市场价一个箱子账号密码是10到15万成交的"*
   * **Translation**: *"Correct, it depends on the target point. For example, for the FBI, the current market price for one mailbox's username and password is 100,000 to 150,000 RMB closed."*

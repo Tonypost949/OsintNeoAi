@@ -107,9 +107,9 @@ gcloud alpha biglake iceberg catalogs create <CATALOG_NAME> \
 
 #### 3. Grant Catalog Access to the Secret
 
-Grant the service account ****ated for the catalog access to read the secret.
+Grant the service account created for the catalog access to read the secret.
 
-1.  Get the service account ****mail by describing the catalog:
+1.  Get the service account email by describing the catalog:
 
 ```bash
 gcloud alpha biglake iceberg catalogs describe <CATALOG_NAME> \
@@ -121,7 +121,7 @@ gcloud alpha biglake iceberg catalogs describe <CATALOG_NAME> \
 1.  Grant access:
 
 ```bash
-gcloud secrets add-iam-policy ****ding <SECRET_NAME> \
+gcloud secrets add-iam-policy-binding <SECRET_NAME> \
   --project="<PROJECT_ID>" \
   --location="<REGION>" \
   --member="serviceAccount:<SERVICE_ACCOUNT_EMAIL>" \
@@ -163,7 +163,7 @@ the AWS IAM role with a placeholder trust policy first.
 ```bash
 aws iam create-role \
   --role-name <AWS_ROLE_NAME> \
-  --assume-role-policy ****ment file://trust_policy.json \
+  --assume-role-policy-document file://trust_policy.json \
   --max-session-duration 432**
 ```
 
@@ -297,7 +297,7 @@ working and propose next steps to the user.
         timeout), the agent should consult the Cross-Cloud Lakehouse
         Troubleshooting documentation:
         https://docs.cloud.google.com/lakehouse/docs/troubleshooting.
-    -   For AWS Glue, verify that the trust policy ****ctly references the
+    -   For AWS Glue, verify that the trust policy correctly references the
         `biglake-service-account-id` and that the GCP and AWS regions match your
         configuration.
     -   For Databricks, verify that the secret exists in the correct region and

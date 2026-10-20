@@ -443,7 +443,7 @@ def test_merkle_root_pairwise_tree_calculation():
     """Validates binary Merkle tree root reduction."""
     # Empty list
     empty_root = compute_merkle_root([])
-    assert empty_root == "e3b0c442**fc1c149afbf4c8996fb924**ae41e4649b934ca495991b7852b855"
+    assert empty_root == "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 
     # Single leaf
     h1 = hashlib.sha256(b"leaf1").hexdigest().lower()
@@ -558,7 +558,7 @@ def test_pipeline_process_records(tmp_path: Path):
             raw_date_string="December 8, 2021",
             extracted_text="California HCD issued a Notice of Violation to City of Anaheim regarding Angel Stadium 150-Acre Parcel with $96M penalty.",
             ocr_engine_used="pymupdf_native",
-            financial_amounts=[{"raw": "$96M", "amount_float": 96000000.0, "amount_cents": (***) ***-0000, "currency": "USD"}],
+            financial_amounts=[{"raw": "$96M", "amount_float": 96000000.0, "amount_cents": 9600000000, "currency": "USD"}],
             case_numbers=[],
             sender="California HCD",
             recipients=["City of Anaheim"],
@@ -608,7 +608,7 @@ def test_pipeline_local_crawler_file_ingestion(tmp_path: Path):
 
     file2 = source_dir / "eviction_docket.txt"
     file2.write_text(
-        "California Superior Court CJC Case ****DCJC Woodbridge Meadows Apartments LLC v. Anthony DiMarcello. Attorney Richard S. Sontag filed default on 2021-06-29.",
+        "California Superior Court CJC Case No. 30-2021-01201327-CL-UD-CJC Woodbridge Meadows Apartments LLC v. Anthony DiMarcello. Attorney Richard S. Sontag filed default on 2021-06-29.",
         encoding="utf-8"
     )
 

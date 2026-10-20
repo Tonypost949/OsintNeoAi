@@ -95,9 +95,9 @@ def run_auditor_verification():
 
     # 8. Police & Commercial Logs (Exhibit 08)
     doc8 = load("08_Multi_State_Police_and_Commercial_Incident_Logs.md")
-    check("Hamilton Case ****3723 & Summons", "2019-00053723" in doc8 and "1103-S-2019-002671" in doc8)
-    check("Hamilton Case ****8897 & Summons #2020-613", "2020-00008897" in doc8 and "2020-613" in doc8)
-    check("Ewing Property Ledger Case ****1222", "I-2019-001222" in doc8 and "Item 044.01" in doc8 and "Item 046" in doc8)
+    check("Hamilton Case 2019-00053723 & Summons", "2019-00053723" in doc8 and "1103-S-2019-002671" in doc8)
+    check("Hamilton Case 2020-00008897 & Summons #2020-613", "2020-00008897" in doc8 and "2020-613" in doc8)
+    check("Ewing Property Ledger Case I-2019-001222", "I-2019-001222" in doc8 and "Item 044.01" in doc8 and "Item 046" in doc8)
     check("Ewing Transfer to FBI SA Zartman", "TOT FBI AGENT BRADLEY ZARTMAN" in doc8)
     check("Quantum Auto Dismantler Invoice #140**", "140**" in doc8 and "3125 W. 5th St" in doc8 and "546.25" in doc8)
     check("Dog's Day Productions IRS EIN", "***-**-7252" in doc8)

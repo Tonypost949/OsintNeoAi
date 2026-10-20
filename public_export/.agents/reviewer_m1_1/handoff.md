@@ -90,7 +90,7 @@
 
 3. **Adversarial Stress-Testing**:
    - **Zip Slip / Path Traversal Attack**: Injected `../evil_traversal.txt` into ZIP and TAR test streams; verified that crawler ignores directory-traversal members and does not escape root.
-   - **Windows File Lock Safety**: Verified that `ManagedZipStream` and `ManagedTarStream` close underlying file handles upon member ****ream termination, permitting unlinking on NTFS.
+   - **Windows File Lock Safety**: Verified that `ManagedZipStream` and `ManagedTarStream` close underlying file handles upon member stream termination, permitting unlinking on NTFS.
    - **Wrapped Stream Hashing**: Wrapped `HashingReader` inside standard `io.BufferedReader`; verified stream reads and running hash calculations remain 100% synchronized.
    - **Non-Standard Email Date Formats**: Tested RFC 2822 timestamps with custom offset strings (`+0530`, `-0400 (EDT)`, `+0000`); verified correct normalization to canonical ISO 8601 UTC (`YYYY-MM-DDTHH:MM:SSZ`).
 

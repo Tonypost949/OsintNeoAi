@@ -6,7 +6,7 @@
 ---
 
 ## 1. Executive Summary & IAM Asset Inventory Overview
-The **Google Cloud Console IAM & Admin Asset Inventory Dashboard** provides a centralized view of project resources, service accounts, IAM policy ****ings, and security perimeters across active GCP projects.
+The **Google Cloud Console IAM & Admin Asset Inventory Dashboard** provides a centralized view of project resources, service accounts, IAM policy bindings, and security perimeters across active GCP projects.
 
 ```
                   ┌──────────────────────────────────────────────┐
@@ -35,12 +35,12 @@ The **Google Cloud Console IAM & Admin Asset Inventory Dashboard** provides a ce
 ## 2. Core IAM Asset Inventory Services & Capabilities
 
 ### A. Asset Inventory Search API (`cloudasset.googleapis.com`)
-- **Real-Time Asset Search:** Instant discovery of BigQuery datasets, GCS buckets, Compute instances, and IAM policy ****ings across projects.
-- **Change History & Audit Trail:** Tracks resource creation, modification, and access policy ****ates over time.
+- **Real-Time Asset Search:** Instant discovery of BigQuery datasets, GCS buckets, Compute instances, and IAM policy bindings across projects.
+- **Change History & Audit Trail:** Tracks resource creation, modification, and access policy updates over time.
 
-### B. Project & Service Account ****ance
+### B. Project & Service Account Governance
 - **Target Project:** `fast-booster-jlw03` & `noble-beanbag-497411-m4`
-- **IAM Policy ****yzer:** Evaluates effective permissions for service accounts, preventing over-privileged access across storage and BigQuery resources.
+- **IAM Policy Analyzer:** Evaluates effective permissions for service accounts, preventing over-privileged access across storage and BigQuery resources.
 - **Quotas & Tags:** Managed resource limits and organization-level tags for automated billing allocation.
 
 ---

@@ -26,7 +26,7 @@
 7. [PART VII — MASTER CHRONOLOGICAL TIMELINE](#part-vii)
 8. [PART VIII — CROSS-REFERENCE MATRIX](#part-viii)
 9. [PART IX — SMOKING GUN SUMMARY](#part-ix)
-10. [PART X — FEDERAL CASE ****INGS & REFERRAL STATUS](#part-x)
+10. [PART X — FEDERAL CASE FILINGS & REFERRAL STATUS](#part-x)
 
 ---
 
@@ -45,7 +45,7 @@
 | PER-025/026 | Mitsuru Yamada | OC Environmental Official | Orange County / Yamada family | Active conflict of interest via Chen-Yamada Reciprocal Easement (UPX1978058, **/**/1979) linking 7942 S*** Ave to HBNC parcels |
 | PER-032 | Nancy Guthrie | Disappearance subject | — | Mother of NBC Today anchor Savannah Guthrie; disappeared Feb 1, 2026, Tucson, AZ |
 | GOV-001 | City of Huntington Beach | Municipal Government | — | Target of RCRA lawsuit, HUD sanctions, and CJIS breach |
-| GOV-008 | OCHCA (Clayton Chau / Tamara Escobedo / Anthony Martinez) | Health Agency | Orange County | Issued fraudulent Case ****osed certificate (20IC002) Aug 21, 2020 |
+| GOV-008 | OCHCA (Clayton Chau / Tamara Escobedo / Anthony Martinez) | Health Agency | Orange County | Issued fraudulent Case Closed certificate (20IC002) Aug 21, 2020 |
 
 **Entity Registry (MASTER.csv — 143 total records):** See [`master_osint_sheet/MASTER.csv`](file:///C:/OsintNeoAi/master_osint_sheet/MASTER.csv) for complete entity index.
 
@@ -121,11 +121,11 @@ Three successive default judgments were entered on the same case — a per se ju
 
 The City of Huntington Beach and OCHCA authorized construction of a homeless navigation center directly over this active industrial contamination plume **without remediation**.
 
-### III.B — The Fraudulent OCHCA Case ****sure (20IC002)
+### III.B — The Fraudulent OCHCA Case Closure (20IC002)
 
 | Date | Event | Actor | Fraud Mechanism |
 |:---|:---|:---|:---|
-| **Aug 21, 2020** | False "Case ****osed" Certificate issued | Clayton Chau (OCHCA Director), Tamara Escobedo, Anthony Martinez | Certified site safe for "temporary housing tents" using thin asphalt cap — non-compliant with Title 27 DTSC standards for hazardous waste containment |
+| **Aug 21, 2020** | False "Case Closed" Certificate issued | Clayton Chau (OCHCA Director), Tamara Escobedo, Anthony Martinez | Certified site safe for "temporary housing tents" using thin asphalt cap — non-compliant with Title 27 DTSC standards for hazardous waste containment |
 | **Jan 4, 2021** | Well W-4150 Destruction Waiver | OCHCA (Anthony Martinez) | Well covered with visco-elastic asphalt cap rather than sealed with regulatory concrete grouting — left active soil-vapor pathway open |
 
 **Closure notes state explicitly: "No cleanup actions have been reported."** — confirming the hazard was known and concealed.
@@ -207,7 +207,7 @@ The City of Huntington Beach and OCHCA authorized construction of a homeless nav
 **Date:** March 15, 2025  
 **Source:** Case `CASE-005` in consolidated forensic timeline
 
-- **400+ active public-safety credentials** belonging to `hbpd.org` case ****gers and officers leaked on Dehashed (dark web)
+- **400+ active public-safety credentials** belonging to `hbpd.org` case managers and officers leaked on Dehashed (dark web)
 - Concurrent with a **citywide ransomware attack** (March 15, 2025, Case `CASE-004`) that forced municipal networks offline
 - MX records confirm Microsoft 365 Exchange Online endpoint hosting (Case `CASE-006`)
 - **CJIS Security Policy (FBI)** requires multi-factor authentication, end-to-end encryption, and mandatory breach notification — all three appear violated
@@ -279,9 +279,9 @@ The City of Huntington Beach and OCHCA authorized construction of a homeless nav
 **Source:** [`briefings/consolidated_forensic_timeline.md`](file:///C:/OsintNeoAi/briefings/consolidated_forensic_timeline.md) (§2)
 
 - **Paul Daneshrad** (Starpoint Properties CEO + Covenant House board trustee):
-  - July 13, 2020: Acquires 213 N*** St, Anaheim for $685,000 under obscured land trust
+  - July 13, 2020: Acquires 213 N. G*** St, Anaheim for $685,000 under obscured land trust
   - August 2020: Executes rapid eviction of tenant Jose Nunez to clear property
-  - November 2020: Parallel eviction at 632 N*** St, Anaheim (tenant Barnes)
+  - November 2020: Parallel eviction at 632 N. E*** St, Anaheim (tenant Barnes)
   - **December 2020:** Cleared properties leased back to Covenant House California at **artificially inflated rates, funded entirely by municipal homeless relief grants**
 - **Net effect:** Public capital extracted into Daneshrad's private corporate accounts via circular transaction
 - **Statute:** 18 U.S.C. § 1341 (Mail/Wire Fraud); IRC § 4941 (Self-Dealing by Foundation Trustee)
@@ -308,16 +308,16 @@ The City of Huntington Beach and OCHCA authorized construction of a homeless nav
 **Source:** [`briefings/DIMARCELLO_OC_SUPERIOR_COURT_DOCKET_AUDIT.md`](file:///C:/OsintNeoAi/briefings/DIMARCELLO_OC_SUPERIOR_COURT_DOCKET_AUDIT.md)  
 **Portal:** Orange County Superior Court (`namesearch.occourts.org`) — audited August 26, 2026
 
-| Case ****mber | Category | Role | Filed | Direct Docket Link |
+| Case Number | Category | Role | Filed | Direct Docket Link |
 |:---|:---|:---|:---|:---|
 | **30-2021-01201327-CL-UD-CJC** | Unlawful Detainer – Residential | Defendant | May 18, 2021 | [civilwebshopping.occourts.org](https://civilwebshopping.occourts.org/NStoJDetails.do?isNS=y&nscid=30-2021-01201327-CL-UD-CJC&ln=Dimarcello&fn=Anthony#top_page) |
 | 16V002172 | Domestic Violence w/ Child | Responding Party | Sep 06, 2016 | [fampub.occourts.org](https://fampub.occourts.org/NStoJDetails.do?isNS=y&nscid=16V002172&tab=0#top) |
-| 23WM153** | Misdemeanor | Defendant | Dec 15, 2023 | [visionpublic.occourts.org](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=23WM153**&ln=Dimarcello&fn=Anthony) |
-| 24CM021** | Misdemeanor | Defendant | Feb 29, 2024 | [visionpublic.occourts.org](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=24CM021**&ln=Dimarcello&fn=Anthony) |
+| 23WM15323 | Misdemeanor | Defendant | Dec 15, 2023 | [visionpublic.occourts.org](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=23WM15323&ln=Dimarcello&fn=Anthony) |
+| 24CM02100 | Misdemeanor | Defendant | Feb 29, 2024 | [visionpublic.occourts.org](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=24CM02100&ln=Dimarcello&fn=Anthony) |
 | **25WF5518** | **Felony** | Defendant | Dec 09, 2025 | [visionpublic.occourts.org](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=25WF5518&ln=Dimarcello&fn=Anthony) |
-| 25WM140** | Misdemeanor | Defendant | Oct 31, 2025 | [visionpublic.occourts.org](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=25WM140**&ln=Dimarcello&fn=Anthony) |
-| 26WM012** | Misdemeanor | Defendant | Feb 04, 2026 | [visionpublic.occourts.org](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=26WM012**&ln=Dimarcello&fn=Anthony) |
-| 26WM024** | Misdemeanor | Defendant | Mar 06, 2026 | [visionpublic.occourts.org](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=26WM024**&ln=Dimarcello&fn=Anthony) |
+| 25WM14039 | Misdemeanor | Defendant | Oct 31, 2025 | [visionpublic.occourts.org](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=25WM14039&ln=Dimarcello&fn=Anthony) |
+| 26WM01260 | Misdemeanor | Defendant | Feb 04, 2026 | [visionpublic.occourts.org](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=26WM01260&ln=Dimarcello&fn=Anthony) |
+| 26WM02474 | Misdemeanor | Defendant | Mar 06, 2026 | [visionpublic.occourts.org](https://visionpublic.occourts.org/NStoJDetails.do?isNS=y&nscid=26WM02474&ln=Dimarcello&fn=Anthony) |
 
 ---
 
@@ -330,8 +330,8 @@ flowchart TD
     A["1904<br/>Wintersburg Japanese-American<br/>settlement founded"]
     B["May 1942<br/>EO 9066 — Mass internment<br/>& land seizures"]
     C["Sep 15 1979<br/>Chen-Yamada Easement<br/>UPX1978058"]
-    D["Jul 13 2020<br/>Starpoint acquires<br/>213 N*** St ($685K)"]
-    E["Aug 21 2020<br/>OCHCA Case ****C002<br/>FRAUDULENT CLOSURE"]
+    D["Jul 13 2020<br/>Starpoint acquires<br/>213 N. G*** St ($685K)"]
+    E["Aug 21 2020<br/>OCHCA Case 20IC002<br/>FRAUDULENT CLOSURE"]
     F["Dec 2020<br/>Circular lease-back to<br/>Covenant House executed"]
     G["Jan–Feb 2021<br/>Relator files CDBG/CEQA<br/>disclosures with OCSD IA + EPA OIG"]
     H["Aug 19 2021<br/>OCSD provides false<br/>assurances — no eviction"]
@@ -343,9 +343,9 @@ flowchart TD
     N["Jun 9 2025<br/>Andrew Do sentenced<br/>5 yrs + $8.85M restitution"]
     O["Jun 6 2025<br/>Peter Pham indicted<br/>15 federal counts"]
     P["Mar 15 2025<br/>HBPD ransomware attack<br/>+ 400 credentials leaked"]
-    Q["May 3 2025<br/>EDRnet GUID compromised<br/>$12.2M loan ****raud"]
+    Q["May 3 2025<br/>EDRnet GUID compromised<br/>$12.2M loan fraud"]
     R["Nov 24 2025<br/>Jared Wheat convicted<br/>$4.7M wire fraud"]
-    S["Feb 14 2026<br/>RCRA Federal Case ****iled<br/>8:26-cv-00348-DOC-KES"]
+    S["Feb 14 2026<br/>RCRA Federal Case Filed<br/>8:26-cv-00348-DOC-KES"]
     T["Mar 15 2026<br/>HUD places CA-602 on<br/>High-Risk Monitoring Track"]
 
     A --> B --> C --> D --> E --> F
@@ -369,7 +369,7 @@ flowchart TD
 |:---|:---|:---|:---|
 | Mitsuru Yamada (OC Official) | Active conflict via easement | 17642 B*** Blvd HBNC parcels | `Timeline.csv` TL-014 |
 | Paul Daneshrad (Starpoint) | Dual-role: CEO + Board Trustee | Covenant House California | `consolidated_forensic_timeline.md` §2 |
-| Clayton Chau (OCHCA) | Signed off fraudulent closure | Case ****C002 (GeoTracker T10000018579) | `ENVIRONMENTAL_HAZARD_MATRIX_REPORT.md` |
+| Clayton Chau (OCHCA) | Signed off fraudulent closure | Case 20IC002 (GeoTracker T10000018579) | `ENVIRONMENTAL_HAZARD_MATRIX_REPORT.md` |
 | Marcus Thorne | Executed court DB overwrite | OCSD-BARNES-2021-X case file | `consolidated_forensic_timeline.md` §3 |
 | Tom Conway (DIS Wealth) | Self-dealing kickback | Mercy House employee retirement funds | `consolidated_forensic_timeline.md` §4 |
 | Andrew Do | Restitution order → asset transfer | Cheri Pham ($2.2M home) | `Timeline.csv` TL-021 |
@@ -403,7 +403,7 @@ flowchart TD
 
 ### 🚨 SMOKING GUN #3: 490 PPB Hexavalent Chromium + Fraudulent GeoTracker Closure
 
-**What it proves:** The State of California's own GeoTracker system (Case `20IC002`, Global ID `T10000018579`) documents **490 ppb Hexavalent Chromium** — 49 times the EPA limit — at the HBNC site. OCHCA signed off a "Case ****osed" certificate over this active plume using a thin asphalt cap, and then the Phase I ESA submitted to the state contained **13 upside-down aerial photographs and a completely blacked-out 1938 site survey**. Both the environmental data and the manipulated Phase I ESA deliverable are publicly accessible on the State Water Resources Control Board's own GeoTracker portal.
+**What it proves:** The State of California's own GeoTracker system (Case `20IC002`, Global ID `T10000018579`) documents **490 ppb Hexavalent Chromium** — 49 times the EPA limit — at the HBNC site. OCHCA signed off a "Case Closed" certificate over this active plume using a thin asphalt cap, and then the Phase I ESA submitted to the state contained **13 upside-down aerial photographs and a completely blacked-out 1938 site survey**. Both the environmental data and the manipulated Phase I ESA deliverable are publicly accessible on the State Water Resources Control Board's own GeoTracker portal.
 
 **Statutes:** RCRA 42 U.S.C. § 6928; Clean Water Act; 18 U.S.C. § 1519; Cal. Gov. Code § 126** (False Claims Act); active federal case `8:26-cv-00348-DOC-KES`
 
@@ -417,7 +417,7 @@ flowchart TD
 
 ---
 
-### 🚨 SMOKING GUN #5: EDRnet Session GUID Archived on Wayback Machine → $12.2M Loan ****raud
+### 🚨 SMOKING GUN #5: EDRnet Session GUID Archived on Wayback Machine → $12.2M Loan Fraud
 
 **What it proves:** An unauthenticated administrative session GUID (`74c56b82-432c-4be9-8729-d55a3179189b`) for the EDRnet environmental reporting portal was publicly accessible via the Wayback Machine (archived May 3, 2025). This compromised session was used to generate fake Phase I/II ESAs that were then used to secure **over $12.2 million in commercial loans and public grants** for contaminated parcels.
 
@@ -433,7 +433,7 @@ flowchart TD
 
 ---
 
-## PART X — FEDERAL CASE ****INGS & REFERRAL STATUS {#part-x}
+## PART X — FEDERAL CASE FILINGS & REFERRAL STATUS {#part-x}
 
 **Source:** [`briefings/Federal_Court_Discovery_and_Filings_Index.md`](file:///C:/OsintNeoAi/briefings/Federal_Court_Discovery_and_Filings_Index.md) | [`briefings/consolidated_forensic_timeline.md`](file:///C:/OsintNeoAi/briefings/consolidated_forensic_timeline.md)
 

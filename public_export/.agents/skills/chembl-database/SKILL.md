@@ -169,7 +169,7 @@ ChEMBL integrates with UniProt, Ensembl, PubChem, and other databases. Common
 cross-referencing patterns:
 
 **Find a ChEMBL target from a UniProt accession:** `bash uv run
-scripts/chembl_api.py target --filter target_components__accession=P005**
+scripts/chembl_api.py target --filter target_components__accession=P00533
 --limit 5 --output /tmp/uniprot_target.json`
 
 **Resolve any ChEMBL ID to its entity type:** `bash uv run scripts/chembl_api.py

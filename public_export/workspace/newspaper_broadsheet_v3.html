@@ -37,7 +37,7 @@
     }
     [data-theme="cyber"] {
       --bg:#0b0f17; --card:#111827; --text:#f0f6fc; --text2:#8b949e;
-      --border:#303**d; --border-l:#212**d; --red:#f851**;
+      --border:#30363d; --border-l:#21262d; --red:#f85149;
       --font-mast:'JetBrains Mono',monospace; --font-body:'JetBrains Mono',monospace;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -49,14 +49,14 @@
       background: #0d1117; color: #c9d1d9;
       display: flex; align-items: center; gap: 24px;
       padding: 8px 16px; font-family: var(--font-mono); font-size: 12px;
-      border-bottom: 2px solid #303**d; flex-wrap: wrap;
+      border-bottom: 2px solid #30363d; flex-wrap: wrap;
     }
     .crypto-bar .c-label { color: #8b949e; text-transform: uppercase; font-size: 10px; }
     .crypto-bar .c-val  { color: #f0f6fc; font-weight: bold; }
     .crypto-bar .c-grow { color: #3fb950; font-size: 10px; }
     .crypto-bar .c-badge { background: #1e3a8a; color: #93c5fd; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: bold; }
     .crypto-bar .c-badge.osint { background: #064e3b; color: #6ee7b7; }
-    .crypto-bar .c-sep { color: #303**d; }
+    .crypto-bar .c-sep { color: #30363d; }
     .crypto-bar a.signup-btn {
       margin-left: auto; background: #238636; color: #fff;
       padding: 4px 14px; border-radius: 4px; text-decoration: none;
@@ -171,18 +171,18 @@
     /* ── Crypto Dashboard Panel ── */
     .crypto-panel {
       background: #0d1117; color: #c9d1d9; padding: 16px;
-      border: 1px solid #303**d; margin-bottom: 24px; border-radius: 4px;
+      border: 1px solid #30363d; margin-bottom: 24px; border-radius: 4px;
     }
     .crypto-panel h3 { color: #58a6ff; font-family: var(--font-mono); font-size: 14px; margin-bottom: 12px; }
     .crypto-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 14px; }
     @media(max-width:800px){ .crypto-stats{grid-template-columns:repeat(2,1fr);} }
-    .c-stat { background: #161b22; border: 1px solid #303**d; border-radius: 6px; padding: 12px; }
+    .c-stat { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 12px; }
     .c-stat .c-title { font-size: 10px; text-transform: uppercase; color: #8b949e; letter-spacing: .5px; }
     .c-stat .c-num { font-size: 20px; font-weight: bold; color: #f0f6fc; margin-top: 4px; }
     .c-stat .c-sub { font-size: 11px; color: #3fb950; margin-top: 3px; font-weight: bold; }
     .ledger-table { width: 100%; border-collapse: collapse; font-size: 11px; }
-    .ledger-table th, .ledger-table td { border: 1px solid #303**d; padding: 8px; text-align: left; }
-    .ledger-table th { background: #212**d; color: #8b949e; text-transform: uppercase; font-size: 10px; }
+    .ledger-table th, .ledger-table td { border: 1px solid #30363d; padding: 8px; text-align: left; }
+    .ledger-table th { background: #21262d; color: #8b949e; text-transform: uppercase; font-size: 10px; }
     .t-tft { background:#1e3a8a; color:#93c5fd; padding:1px 6px; border-radius:10px; font-size:10px; font-weight:bold; }
     .t-osint { background:#064e3b; color:#6ee7b7; padding:1px 6px; border-radius:10px; font-size:10px; font-weight:bold; }
     .hash { font-family:monospace; color:#58a6ff; }
@@ -205,11 +205,11 @@
 
     /* ── Token Reward Display ── */
     .reward-panel {
-      border: 1px solid #303**d; background: #0d1117; color: #c9d1d9;
+      border: 1px solid #30363d; background: #0d1117; color: #c9d1d9;
       padding: 14px; margin-bottom: 24px; font-family: var(--font-mono); font-size: 12px;
     }
     .reward-panel h4 { color: #58a6ff; font-size: 13px; margin-bottom: 10px; }
-    .reward-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #212**d; }
+    .reward-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #21262d; }
     .reward-row:last-child { border-bottom: none; }
     .reward-label { color: #8b949e; }
     .reward-val { color: #6ee7b7; font-weight: bold; }
@@ -743,7 +743,7 @@
       const email = document.getElementById('signupEmail').value.trim();
       const isPublic = document.getElementById('signupPublic').checked;
       const result = document.getElementById('signupResult');
-      if (!name || !email) { result.style.display='block'; result.style.color='#f851**'; result.textContent='Display name and email are required.'; return; }
+      if (!name || !email) { result.style.display='block'; result.style.color='#f85149'; result.textContent='Display name and email are required.'; return; }
       try {
         const r = await fetch(API_BASE + '/api/workspaces/create', {
           method: 'POST',
@@ -755,11 +755,11 @@
           result.style.display = 'block'; result.style.color = '#3fb950';
           result.innerHTML = '✅ Workspace created!<br>Wallet: ' + d.wallet_address + '<br>Workspace ID: ' + d.workspace_id.substring(0,20) + '...<br>' + d.message;
         } else {
-          result.style.display = 'block'; result.style.color = '#f851**';
+          result.style.display = 'block'; result.style.color = '#f85149';
           result.textContent = 'Error: ' + (d.description || d.error || 'Unknown error');
         }
       } catch(e) {
-        result.style.display = 'block'; result.style.color = '#f851**';
+        result.style.display = 'block'; result.style.color = '#f85149';
         result.textContent = 'API connection error. Server may be starting.';
       }
     }

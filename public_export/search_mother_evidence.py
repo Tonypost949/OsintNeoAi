@@ -21,7 +21,7 @@ def search_mother_evidence():
                 json.dump(mother_evidence, out, indent=2)
             print(f"[+] Index written to: {output_file}")
 
-            # Generate Human Readable Case ****rief
+            # Generate Human Readable Case Brief
             md_file = r"C:\OsintNeoAi\DISABLED_MOTHER_INJURY_AND_EVICTION_CASE_BRIEF.md"
             with open(md_file, "w", encoding="utf-8") as md:
                 md.write("# ⚖️ SPECIAL COMPLAINT DOSSIER: INJURY TO DISABLED MOTHER & RETALIATORY EVICTION\n\n")

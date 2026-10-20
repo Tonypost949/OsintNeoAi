@@ -1,5 +1,5 @@
 # 🩺 WHISTLEBLOWER EXPANSION DOSSIER: DR. ANN VERMA & THE FORENSIC GATEKEEPING NETWORK
-## Case ****exus: Case ****tern Reserve • Drexel University • West Hollywood Receivership • Orange County Asset Stripping
+## Case Nexus: Case Western Reserve • Drexel University • West Hollywood Receivership • Orange County Asset Stripping
 **Whistleblower:** Dr. Ann Verma, M.D. (Psychiatry)  
 **Formal Statement:** Rescission Notice & Protected Disclosure ([`DR_ANN_VERMA_RESCISSION_NOTICE.docx`](file:///C:/Users/Amd949609/OsintNeoAi-1/evidence/google_drive/DR_ANN_VERMA_RESCISSION_NOTICE.docx))  
 **Key Institutional Actors:** Dr. Phillip Resnick (CWRU) • Dr. Donald Kushon (Drexel) • Dr. Avram Mack (Harvard/MGH)  
@@ -17,7 +17,7 @@ graph TD
     B --> C["Pretextual Diagnostic Labeling<br/>('Paranoid Delusions', 'Psychosis', 'Incompetence')"]
     C --> D["Judicial Gatekeeping & Evidentiary Exclusion<br/>(Sealing Toxic Plumes, Thefts & Counterfeit Pills)"]
     C --> E["Asset Stripping & Receivership<br/>(Yamada Trustee, Shea Lockout, Conservatorships)"]
-    C --> F["Tax Extraction & Billing Funnel<br/>(Medicaid/Medicare ****ding & Title IV-E Removal)"]
+    C --> F["Tax Extraction & Billing Funnel<br/>(Medicaid/Medicare Upcoding & Title IV-E Removal)"]
 ```
 
 Dr. Verma’s formal rescission statement confirms that psychiatric evaluations are systematically manufactured to:
@@ -31,7 +31,7 @@ Dr. Verma’s formal rescission statement confirms that psychiatric evaluations 
 
 ```
 +-----------------------------------------------------------------------------------------+
-| DR. PHILLIP RESNICK (Case ****tern Reserve University — Cleveland, OH)                  |
+| DR. PHILLIP RESNICK (Case Western Reserve University — Cleveland, OH)                  |
 | Role: National Forensic Gatekeeper                                                      |
 | Modus Operandi: Frames high-profile cases (Clancy, Ohio, California) strictly around    |
 | individual psychosis, systematically excluding counterfeit pill contamination,         |
@@ -57,7 +57,7 @@ Dr. Verma’s formal rescission statement confirms that psychiatric evaluations 
 
 ---
 
-### III. THE FOUR-STAGE EXTRACTION CYCLE (CASE ****PLES)
+### III. THE FOUR-STAGE EXTRACTION CYCLE (CASE EXAMPLES)
 
 #### 1. West Hollywood Receivership & Asset Lockout
 * **Target:** Real estate property owner / whistleblower exposing municipal code corruption and hazardous mold/chemical contamination.
@@ -78,7 +78,7 @@ Dr. Verma’s formal rescission statement confirms that psychiatric evaluations 
 
 | Extraction Channel | Governing Federal Statute | Mechanism of Fraud |
 |---|---|---|
-| **Medicaid / Medicare ****ient Upcoding** | **31 U.S.C. § 3729 (False Claims Act)** | Billing federal healthcare programs for maximum-rate psychiatric confinement, involuntary observation, and multi-drug polypharmacy cocktails. |
+| **Medicaid / Medicare Inpatient Upcoding** | **31 U.S.C. § 3729 (False Claims Act)** | Billing federal healthcare programs for maximum-rate psychiatric confinement, involuntary observation, and multi-drug polypharmacy cocktails. |
 | **Title IV-E Foster Care Removal Grants** | **Social Security Act Title IV-E** | Using weaponized psychiatric evaluations against parents to justify child removal, unlocking federal matching funds ($200M–$300M/yr in CA and MA). |
 | **Conservatorship Property Liquidation** | **18 U.S.C. § 1962(c) (RICO)** | Stripping real property equity and liquid accounts under court-ordered conservatorships/receiverships to pay institutional legal and fiduciary fees. |
 

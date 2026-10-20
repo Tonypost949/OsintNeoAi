@@ -26,7 +26,7 @@
     --border: rgba(0, 0, 0, 0.12);
     --accent: #0284c7;
     --text: #0f172a;
-    --text-muted: #647**b;
+    --text-muted: #64748b;
   }
 
   body.theme-man {
@@ -86,11 +86,11 @@
       repeating-linear-gradient(45deg, rgba(239, 68, 68, 0.22) 0, rgba(239, 68, 68, 0.22) 18px, transparent 18px, transparent 36px),
       repeating-linear-gradient(-45deg, rgba(59, 130, 246, 0.22) 0, rgba(59, 130, 246, 0.22) 18px, transparent 18px, transparent 36px),
       repeating-linear-gradient(90deg, rgba(245, 158, 11, 0.15) 0, rgba(245, 158, 11, 0.15) 25px, transparent 25px, transparent 50px),
-      linear-gradient(135deg, #090**c 0%, #1a0818 50%, #080d1a 100%);
+      linear-gradient(135deg, #09030c 0%, #1a0818 50%, #080d1a 100%);
     --card-bg: rgba(22, 14, 32, 0.94);
     --border: #fbbf24;
     --accent: #fbbf24;
-    --accent-red: #f871**;
+    --accent-red: #f87171;
     --accent-green: #34d399;
     --text: #fef08a;
     --text-muted: #e7e5e4;
@@ -757,7 +757,7 @@
         { data: { id: 'landlord', label: entityName || 'Shea Homes / Developer' } },
         { data: { id: 'cameron_lane', label: '17631 C*** Lane (0.5mi Radius)' } },
         { data: { id: 'ascon_poly', label: 'Ascon Landfill GeoJSON Polygon (ID 30490016)' } },
-        { data: { id: 'cr6_poly', label: 'Cr-VI Vadose Plume Polygon (Case ****C002 @ 980 µg/kg)' } },
+        { data: { id: 'cr6_poly', label: 'Cr-VI Vadose Plume Polygon (Case 20IC002 @ 980 µg/kg)' } },
         { data: { source: 'victim', target: 'landlord', label: 'Unlawful Eviction' } },
         { data: { source: 'landlord', target: 'cameron_lane', label: 'Redevelopment Site' } },
         { data: { source: 'cameron_lane', target: 'ascon_poly', label: 'CERCLA Proximity' } },
@@ -784,7 +784,7 @@
         },
         {
           selector: '#ascon_poly',
-          style: { 'background-color': '#f59e0b', 'border-color': '#d977**', 'shape': 'polygon' }
+          style: { 'background-color': '#f59e0b', 'border-color': '#d97706', 'shape': 'polygon' }
         },
         {
           selector: '#cr6_poly',
@@ -794,8 +794,8 @@
           selector: 'edge',
           style: {
             'width': 2,
-            'line-color': '#647**b',
-            'target-arrow-color': '#647**b',
+            'line-color': '#64748b',
+            'target-arrow-color': '#64748b',
             'target-arrow-shape': 'triangle',
             'curve-style': 'bezier',
             'label': 'data(label)',
@@ -945,10 +945,10 @@
     const hash = document.getElementById('hash-display').innerText.replace('SHA-256: ', '');
     box.innerText = `[NOTICE OF MOTION AND MOTION TO VACATE VOID JUDGMENT PURSUANT TO CAL. CIV. PROC. CODE § 473(d) & FED. R. CIV. P. 60(d)(3)]
 COURT: Superior Court of California, County of Orange (Central Justice Center)
-CASE ****DCJC
+CASE NO: 30-2021-01201327-CL-UD-CJC
 
 GROUNDS FOR MANDATORY VACATUR:
-1. VOID ON THE FACE OF THE RECORD: Prior default judgments entered without subject-matter jurisdiction due to fraudulent concealment of active DTSC / GeoTracker hazardous substance release (Case ****C002 / T10000018579, B-6 Hexavalent Chromium Cr-VI at 980 µg/kg).
+1. VOID ON THE FACE OF THE RECORD: Prior default judgments entered without subject-matter jurisdiction due to fraudulent concealment of active DTSC / GeoTracker hazardous substance release (Case 20IC002 / T10000018579, B-6 Hexavalent Chromium Cr-VI at 980 µg/kg).
 2. FRAUD ON THE COURT (Rule 60(d)(3)): Material suppression of subsurface toxic plumes and regulatory notices under Cal. Health & Safety Code § 253** causing unconstitutional deprivation of tenant protections under AB 1482 & Cal. Civ. Code § 1946.2.
 3. CONSTITUTIONAL DEFECT: Striking of judicial officer pursuant to Cal. CCP § 170.6 rendered subsequent unreviewed rulings void ab initio.
 
@@ -963,7 +963,7 @@ SHA-256 Point-of-Upload Hash: ${hash || 'PENDING_INGESTION'}`;
     box.innerText = `[FORMAL DEMAND FOR PUBLIC RECORDS & REGULATORY CLEARANCE INQUIRY]
 TO: City of Huntington Beach — Community Development Department / Housing Authority & Jamboree Housing Corp.
 RE: Mandatory DTSC Regulatory Transfer & 7-Step Remedial Clearance Status for Pathways Project (Concept 2)
-PARCELS: 17642 B*** Blvd & 17631 C*** Ln, Huntington Beach, CA | OCHCA Case ****C002 | GeoTracker T10000018579
+PARCELS: 17642 B*** Blvd & 17631 C*** Ln, Huntington Beach, CA | OCHCA Case 20IC002 | GeoTracker T10000018579
 
 NOTICE OF CONDITIONAL CLOSURE VOIDANCE:
 Transitioning from temporary shelter to permanent multi-family residential housing legally voids August 2020 OCHCA conditional cap exemptions and triggers mandatory DTSC HERO Note 3 residential standards under Cal. Health & Safety Code § 253**.
@@ -978,7 +978,7 @@ Transitioning from temporary shelter to permanent multi-family residential housi
 7. Residential No Further Action (NFA) Designation: DTSC Residential NFA certification & recorded Land Use Covenant (LUC) required to avoid $6.09M LMIHAF General Fund penalty.
 
 CHAIN OF CUSTODY VERIFICATION:
-SHA-256 Point-of-Upload Hash: ${hash || '0x2f22ef012**d428960e55fe3d1d939**e2f87b673**e0b3d514bcff3a6ac3e64'}
+SHA-256 Point-of-Upload Hash: ${hash || '0x2f22ef01211d428960e55fe3d1d93972e2f87b67372e0b3d514bcff3a6ac3e64'}
 Document Path: C:\\OsintNeoAi\\docs\\Legal_Demand_Letter_Cameron_Lane_Jamboree_DTSC.md`;
   }
 

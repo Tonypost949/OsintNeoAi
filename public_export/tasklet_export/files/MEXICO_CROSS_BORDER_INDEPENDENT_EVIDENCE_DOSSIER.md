@@ -34,12 +34,12 @@ This evidence is self-authenticating under **Fed. R. Evid. 902** and requires ze
 ### 🏝️ Pillar 3: Mexican Article 27 Constitutional Fideicomiso Bank Trusts
 - **Registry:** *Registro Público de la Propiedad y del Comercio (RPPyC)* — Tijuana, Rosarito, Ensenada, Baja California.
 - **Constitutional Framework:** Article 27 of the Mexican Constitution restricts direct foreign ownership within 50 km of coastlines, requiring a 50-year bank trust (*Fideicomiso* issued by BBVA México, Banorte, or Santander).
-- **Government-to-Government Cross-Match:** Algorithmic matching of SBA PPP Public Loan ****ures (`ppp_150k_plus`) against Baja California *Fideicomiso* public trust beneficiary listings reveals domestic PPP funds converted into Mexican coastal real estate.
+- **Government-to-Government Cross-Match:** Algorithmic matching of SBA PPP Public Loan Disclosures (`ppp_150k_plus`) against Baja California *Fideicomiso* public trust beneficiary listings reveals domestic PPP funds converted into Mexican coastal real estate.
 
 ---
 
 ### ⚖️ Pillar 4: State Judicial Border Transit Dockets
-- **Court Case:** *San Diego County Superior Court, Case ****DCJC*.
+- **Court Case:** *San Diego County Superior Court, Case No. 30-2021-01201327-CL-UD-CJC*.
 - **Public Record:** Official judicial timeline detailing process server affidavits and spatial trajectory along the I-5 corridor through San Diego County toward the Chula Vista / San Ysidro border crossing zone.
 
 ---

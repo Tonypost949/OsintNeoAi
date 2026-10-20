@@ -18,8 +18,8 @@ Every data application built with this skill MUST adhere to these visual and fun
 6. **Spacing**: Use generous padding (at least `1.25rem` inside cards) and consistent gaps between elements.
 
 ## Color Palette (Zinc/shadcn style)
-- **Background**: White (Light) / `#090**b` (Dark)
+- **Background**: White (Light) / `#09090b` (Dark)
 - **Card**: White (Light) / `#0c0c0f` (Dark)
 - **Border**: `#e4e4e7` (Light) / `#1e1e24` (Dark)
-- **Text**: `#090**b` (Light) / `#fafafa` (Dark)
-- **Muted Text**: `#717**a` (Standard) / `#525**b` (Dark)
+- **Text**: `#09090b` (Light) / `#fafafa` (Dark)
+- **Muted Text**: `#71717a` (Standard) / `#52525b` (Dark)

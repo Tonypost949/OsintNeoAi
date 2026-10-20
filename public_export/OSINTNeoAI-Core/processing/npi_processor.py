@@ -78,7 +78,7 @@ class NPIProcessor:
         df['risk_flags'] = ""
         
         # Target specific corrupt clusters if billing_df isn't provided (e.g., ChildNet pattern)
-        # In a production environment, this merges with Medicaid ****ling datasets.
+        # In a production environment, this merges with Medicaid billing datasets.
         mask_childnet = df['clean_org_name'].astype(str).str.contains('CHILDNET', na=False)
         
         df.loc[mask_childnet, 'behavioral_billing_minutes'] = 8000000

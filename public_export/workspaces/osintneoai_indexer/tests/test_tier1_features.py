@@ -12,7 +12,7 @@ Provides exhaustive, non-trivial unit tests across ALL 17 system features:
 - Feature 7: Image Preprocessing & Enhancement (5 tests)
 - Feature 8: Timestamp Normalizer (5 tests)
 - Feature 9: Financial Transaction Normalizer (5 tests)
-- Feature 10: Legal Case ****fier Normalizer (5 tests)
+- Feature 10: Legal Case Identifier Normalizer (5 tests)
 - Feature 11: Communication Metadata Normalizer (5 tests)
 - Feature 12: 6-Category Entity Extractor (5 tests)
 - Feature 13: Phonetic & Contextual Entity Resolver (5 tests)
@@ -144,7 +144,7 @@ class TestFeature1StreamIngestion:
     def test_f1_local_crawler_zip_archive_streaming(self, tmp_path: Path, make_synthetic_archive):
         """Verify streaming zip archive members without unzipping entire archive to disk."""
         files = {
-            "docket_30_2021.txt": b"Case ****DCJC Register of Actions",
+            "docket_30_2021.txt": b"Case No. 30-2021-01201327-CL-UD-CJC Register of Actions",
             "plea_sidhu.txt": b"United States v. Harry Sidhu Case No. 8:23-cr-00108-CJC",
         }
         zip_path = make_synthetic_archive("evidence_bundle.zip", files)
@@ -512,7 +512,7 @@ class TestFeature5DigitalTextExtractor:
         <html>
             <head><title>Unlawful Detainer Register of Actions</title></head>
             <body>
-                <h1>Case ****DCJC</h1>
+                <h1>Case No. 30-2021-01201327-CL-UD-CJC</h1>
                 <p>Woodbridge Meadows Apartments LLC v. DiMarcello</p>
                 <table>
                     <tr><th>ROA #</th><th>Date</th><th>Action</th></tr>
@@ -735,7 +735,7 @@ class TestFeature9FinancialNormalizer:
         """Verify magnitude multiplier expansion ($M, $k, $B)."""
         f_m = normalize_financial("$96M")
         assert f_m.amount_float == 96000000.0
-        assert f_m.amount_cents == (***) ***-0000
+        assert f_m.amount_cents == 9600000000
 
         f_k = normalize_financial("$500k")
         assert f_k.amount_float == 500000.0
@@ -765,16 +765,16 @@ class TestFeature9FinancialNormalizer:
     def test_f9_format_currency_reconstruction(self):
         """Verify format_currency reconstructs canonical currency strings."""
         assert format_currency(32000000000) == "$320,000,000.00"
-        assert format_currency(***) ***-0000) == "$96,000,000.00"
+        assert format_currency(9600000000) == "$96,000,000.00"
         assert format_currency(-50000) == "-$500.00"
 
 
 # ==============================================================================
-# FEATURE 10: LEGAL CASE ****FIER NORMALIZER (5 UNIT TESTS)
+# FEATURE 10: LEGAL CASE IDENTIFIER NORMALIZER (5 UNIT TESTS)
 # ==============================================================================
 
 class TestFeature10CaseNormalizer:
-    """Unit tests for Feature 10: Legal Case ****fier Normalizer."""
+    """Unit tests for Feature 10: Legal Case Identifier Normalizer."""
 
     def test_f10_federal_criminal_docket_cdca(self):
         """Verify parsing federal criminal dockets in CDCA."""
@@ -798,7 +798,7 @@ class TestFeature10CaseNormalizer:
 
     def test_f10_ca_superior_court_unlawful_detainer_docket(self):
         """Verify parsing California Superior Court Orange County CJC eviction docket."""
-        citations = extract_case_citations("Case ****DCJC")
+        citations = extract_case_citations("Case No. 30-2021-01201327-CL-UD-CJC")
         assert len(citations) == 1
         cit = citations[0]
         assert cit.canonical_id == "30-2021-01201327-CL-UD-CJC"
@@ -808,9 +808,9 @@ class TestFeature10CaseNormalizer:
 
     def test_f10_police_incident_and_summons_case(self):
         """Verify parsing police incident cases and municipal summons."""
-        c1 = extract_case_citations("Ewing PD Case ****1222")
+        c1 = extract_case_citations("Ewing PD Case I-2019-001222")
         assert len(c1) == 1
-        assert "POLICE-CASE ****1222" in c1[0].canonical_id
+        assert "POLICE-CASE-I-2019-001222" in c1[0].canonical_id
 
         c2 = extract_case_citations("Summons #2020-613")
         assert len(c2) == 1

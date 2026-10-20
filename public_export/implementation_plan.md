@@ -4,7 +4,7 @@ This plan proposes the structural consolidation of your various local and GitHub
 
 ## Goal
 
-To combine the best parts of the distinct OSINT repositories on your PC (`OSINTNeoAI-Core`, `OSINTNeoAiCLI`, `OSINTNeoAiXL`, `OsintNeoAi520**`, `OsintNeoAiXXXL`, `osint-agent`, `osint_analyzer`, `riconow`, etc.) into a cohesive, organized, and production-ready workspace structure without losing critical scripts or data.
+To combine the best parts of the distinct OSINT repositories on your PC (`OSINTNeoAI-Core`, `OSINTNeoAiCLI`, `OSINTNeoAiXL`, `OsintNeoAi52026`, `OsintNeoAiXXXL`, `osint-agent`, `osint_analyzer`, `riconow`, etc.) into a cohesive, organized, and production-ready workspace structure without losing critical scripts or data.
 
 ---
 

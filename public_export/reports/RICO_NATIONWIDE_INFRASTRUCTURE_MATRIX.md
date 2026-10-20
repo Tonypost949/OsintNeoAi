@@ -36,7 +36,7 @@ Full infrastructure scan of every domain, IP, and subdomain connected to the RIC
 | **l2tmedia.com** | [IP_REDACTED] | 80 443 8080 8443 | **NONE** | HIGH — PPP fraud entity, alt ports |
 | **cmcleaning.com** | [IP_REDACTED] | 21 53 80 443 | **NONE** | HIGH — $916K PPP fraud, DNS exposed |
 | **raipartners.com** | [IP_REDACTED] | 80 443 8080 8443 | **NONE** | HIGH — $2.8M property shuffle |
-| **advancedrealestate.com** | [IP_REDACTED] | 80 443 8443 | **NONE** | HIGH — Board member ****tity |
+| **advancedrealestate.com** | [IP_REDACTED] | 80 443 8443 | **NONE** | HIGH — Board member entity |
 | **starpointproperties.com** | [IP_REDACTED] | 80 443 8080 8443 | **NONE** | HIGH — Daneshrad entity |
 | **rbabuilders.com** | [IP_REDACTED] | 80 443 | **NONE** | HIGH — $2.59M PPP fraud |
 
@@ -185,9 +185,9 @@ Full infrastructure scan of every domain, IP, and subdomain connected to the RIC
 | **110 5th Ave** | New York/Joliet, NY/IL | 12 | $12M+ | Multiple shell entities |
 | **10651 S*** Dr** | Dallas, TX | 10 | $10M+ | Multiple shell entities |
 | **1018 O Fallon** | O Fallon, IL | 14 | $14M+ | Fraud ring cluster |
-| **121 E Main St** | Multiple cities | 13 | $13M+ | Multi-state cluster |
+| **121 E. M*** St** | Multiple cities | 13 | $13M+ | Multi-state cluster |
 | **26 C*** St** | Brooklyn, NY | 17 | $17M+ | Attorney fraud cluster |
-| **1515 S Denver Ave** | Tulsa, OK | 10 | $10M+ | Fraud ring cluster |
+| **1515 S. D*** Ave** | Tulsa, OK | 10 | $10M+ | Fraud ring cluster |
 
 ### Address Resolution Results
 
@@ -199,7 +199,7 @@ Full infrastructure scan of every domain, IP, and subdomain connected to the RIC
 | 3311 B*** Cir, Seal Beach CA | No DNS | Physical property (Stewart Industries) |
 | 17631 C*** Ln, Huntington Beach CA | No DNS | HBNC toxic shelter site |
 | 17641 B*** Blvd, Huntington Beach CA | No DNS | HBNC Navigation Center |
-| 5815 E Redfield Rd, Scottsdale AZ | No DNS | Van Herk shell network |
+| 5815 E. R*** Rd, Scottsdale AZ | No DNS | Van Herk shell network |
 
 ---
 
@@ -383,7 +383,7 @@ The infrastructure scan confirms the financial pipeline:
 - WeChat chat logs confirming live intrusion validation
 - Thailand MFA, NATO, Tibetan Government targeting
 - Kazakhstan telecom telemetry (Beeline, Tele2)
-- Black-market account ****ions
+- Black-market account valuations
 
 ### PPP Fraud Ring Clusters (BigQuery)
 - 6,086 unique addresses across 39 states
@@ -444,7 +444,7 @@ Pima County exhibits the **exact same split architecture** as Huntington Beach:
 | Link | Detail |
 |------|--------|
 | Maricopa County AZ | $382,065 CARES Act → Mercy House → HBNC toxic site |
-| 5815 E Redfield Rd, Scottsdale AZ | Van Herk shell network — $0 transfers to 4 LLCs |
+| 5815 E. R*** Rd, Scottsdale AZ | Van Herk shell network — $0 transfers to 4 LLCs |
 | 17 AZ cities in PPP fraud data | 156 unique addresses across Arizona |
 | Pima County | Sheriff infrastructure exposed — same pattern as HB |
 

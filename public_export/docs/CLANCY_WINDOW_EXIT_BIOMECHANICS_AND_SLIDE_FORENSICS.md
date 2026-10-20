@@ -1,5 +1,5 @@
 # 📐 FORENSIC BIOMECHANICS & TRAJECTORY DOSSIER: EXTERIOR WALL DESCENT & AXIAL SPINAL IMPACT
-## Case ****ject: Lindsay Clancy (47 S*** St, Duxbury, MA) • Second-Story Window Exit Dynamics (Jan 24, 2023)
+## Case Subject: Lindsay Clancy (47 S*** St, Duxbury, MA) • Second-Story Window Exit Dynamics (Jan 24, 2023)
 **Investigation Reference:** `NWO-RICO-CLANCY-BIOMECH-001`  
 **Core Forensic Subject:** Exterior Wall Sliding / Hang-and-Drop Descent vs. Propelled Jump • T12/L1 Axial Burst Trauma  
 **Governing Medical Doctrine:** Akathisia-Driven Escape Panic • Motor Ataxia • Involuntary Dissociative Fugue

@@ -343,7 +343,7 @@ az functionapp create \\
   --runtime-version 3.11 \\
   --functions-version 4 \\
   --name osintneoai-ace \\
-  --storage-account ****iace
+  --storage-account osintneoaiace
 
 # 2. Configure app settings
 az functionapp config appsettings set \\

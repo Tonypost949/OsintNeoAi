@@ -80,10 +80,10 @@ electronic predictions.
 ```bash
 # Step 1: Find the UniProtKB ID for human (9606) gene PROC
 uv run scripts/quickgo_tool.py geneproduct search --query "PROC" --taxonId 9606 --limit 5 --output proc_id.json
-# (Look at proc_id.json, observe the ID is e.g., UniProtKB:P040**)
+# (Look at proc_id.json, observe the ID is e.g., UniProtKB:P04070)
 
 # Step 2: Find experimental GO annotations for that ID
-uv run scripts/quickgo_tool.py annotation search --geneProductId "UniProtKB:P040**" --taxonId 9606 --evidenceCode "ECO:0000269" --limit 50 --output proc_annotations.json
+uv run scripts/quickgo_tool.py annotation search --geneProductId "UniProtKB:P04070" --taxonId 9606 --evidenceCode "ECO:0000269" --limit 50 --output proc_annotations.json
 ```
 
 ### 2. Find all genes in a pathway

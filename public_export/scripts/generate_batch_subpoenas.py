@@ -28,7 +28,7 @@ def generate_subpoenas():
 YOU ARE HEREBY COMMANDED to produce and preserve all records, engineering schematics, cathodic protection tests, and inspection logs relating to underground pipe wrapping and storm drain installation for Permit No. **{permit_no}** ({agency}).
 
 ### CORRELATED ENVIRONMENTAL INVESTIGATION
-This legal notice is served in conjunction with **OCHCA Case ****C002** regarding Hexavalent Chromium (Cr-VI) contamination measured at 49x legal MCL limits near Monitoring Well **W-4150**.
+This legal notice is served in conjunction with **OCHCA Case No. 20IC002** regarding Hexavalent Chromium (Cr-VI) contamination measured at 49x legal MCL limits near Monitoring Well **W-4150**.
 
 ### DESCRIPTION OF WORK UNDER PERMIT:
 {desc}

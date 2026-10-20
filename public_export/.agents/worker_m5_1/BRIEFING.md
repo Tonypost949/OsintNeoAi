@@ -14,7 +14,7 @@ Author the authoritative Master Catalog (`OFFICIAL_DOCUMENTS_INDEX.md`) indexing
 - DO NOT CHEAT. All implementations must be genuine.
 - Exclusive write ownership: `C:\OsintNeoAi\evidence\official_court_records\OFFICIAL_DOCUMENTS_INDEX.md`.
 - Never delete files. Only copy/duplicate if modifying old versions.
-- All files under `evidence/official_court_records/` must be cataloged with full statutory citations, judicial officers, case ****bers, and cross-references.
+- All files under `evidence/official_court_records/` must be cataloged with full statutory citations, judicial officers, case numbers, and cross-references.
 
 ## Current Parent
 - Conversation ID: 0fbbdca0-8259-49a6-8940-8bf40c97c0ac

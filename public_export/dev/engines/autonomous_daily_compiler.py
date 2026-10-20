@@ -58,9 +58,9 @@ def send_email_alert(report_date, report_time, records_count, total_exposure, an
                 <h2 style="color: #63b3ed; margin-top: 0;">🛰️ OSINT Autonomous Daily Intelligence Dispatch</h2>
                 <p style="color: #a0aec0; font-size: 14px;"><strong>Dispatch Date:</strong> {report_date} | <strong>Time:</strong> {report_time} | <strong>Target:</strong> noble-beanbag-497411-m4</p>
                 
-                <!-- Spotlight Case ****esse Knabb v. City of HB -->
+                <!-- Spotlight Case: Jesse Knabb v. City of HB -->
                 <div style="background-color: #1a202c; border-left: 4px solid #ecc94b; padding: 15px; border-radius: 6px; margin: 15px 0;">
-                    <h3 style="color: #ecc94b; margin-top: 0; margin-bottom: 8px;">⚖️ Case ****ight: Jesse Knabb v. City of Huntington Beach</h3>
+                    <h3 style="color: #ecc94b; margin-top: 0; margin-bottom: 8px;">⚖️ Case Spotlight: Jesse Knabb v. City of Huntington Beach</h3>
                     <p style="margin: 4px 0; font-size: 13px;"><strong>Federal Docket:</strong> <span style="color: #63b3ed;">{KNABB_CASE_INFO['federal_docket']}</span></p>
                     <p style="margin: 4px 0; font-size: 13px;"><strong>State Petition:</strong> <span style="color: #e2e8f0;">{KNABB_CASE_INFO['waterboards_petition']}</span></p>
                     <p style="margin: 4px 0; font-size: 13px;"><strong>Situs Monitored:</strong> <span style="color: #68d391;">{KNABB_CASE_INFO['subject_situs']}</span></p>
@@ -87,7 +87,7 @@ def send_email_alert(report_date, report_time, records_count, total_exposure, an
                             <th style="padding: 10px;">Entity Name</th>
                             <th style="padding: 10px;">Assessor Situs</th>
                             <th style="padding: 10px;">Origin</th>
-                            <th style="padding: 10px;">Loan ****ount</th>
+                            <th style="padding: 10px;">Loan Amount</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -162,8 +162,8 @@ def run_daily_compilation():
 
 ---
 
-## ⚖️ Case ****ight: Jesse Knabb v. City of Huntington Beach
-* **Federal Case ****cket:** `{KNABB_CASE_INFO['federal_docket']}`
+## ⚖️ Case Spotlight: Jesse Knabb v. City of Huntington Beach
+* **Federal Case Docket:** `{KNABB_CASE_INFO['federal_docket']}`
 * **State Administrative Action:** `{KNABB_CASE_INFO['waterboards_petition']}`
 * **Monitored Physical Situs:** `{KNABB_CASE_INFO['subject_situs']}`
 * **Jurisdiction:** `{KNABB_CASE_INFO['jurisdiction']}`

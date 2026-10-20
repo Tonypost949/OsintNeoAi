@@ -76,7 +76,7 @@ Before submitting a job, verify:
 
 ## IAM Requirements
 
-The Dataproc service account ****eeds:
+The Dataproc service account needs:
 
 *   `roles/dataproc.worker`: Job execution
 *   `roles/biglake.admin`: Iceberg table management

@@ -35,7 +35,7 @@ No "Epstein" or "Maxwell" hits in our DB, Gmail, or G: drive. But the structural
 | Craig Higdon | Money laundering co-conspirator | Named in IForce case |
 
 **Federal Cases:**
-- Hi-Tech Pharmaceuticals: 8:2025cv033**
+- Hi-Tech Pharmaceuticals: 8:2025cv03342
 - IForce Nutrition: Jared Wheat money laundering indictment
 - Cross-connection: Lowenberg family bridges GA drug manufacturing to CA child services
 

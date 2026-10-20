@@ -1,7 +1,7 @@
 # FEDERAL WHISTLEBLOWER DISCLOSURE EXHIBIT (UNREDACTED)
 
 **TO:** 
-- House Committee on Oversight and Account ****lity
+- House Committee on Oversight and Accountability
 - Senate Committee on Homeland Security and Governmental Affairs
 - Department of Justice - Public Integrity Section
 

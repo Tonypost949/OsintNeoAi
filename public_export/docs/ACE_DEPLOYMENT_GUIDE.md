@@ -336,7 +336,7 @@ ENABLE_TIMELINE_GENERATION = False  # Generate on-demand instead
 az storage account show --name neoai --resource-group neoai-rg
 
 # 2. Check firewall rules
-az storage account ****rule list --account ****name neoai --resource-group neoai-rg
+az storage account network-rule list --account-name neoai --resource-group neoai-rg
 
 # 3. Use connection string instead of account key
 export AZURE_STORAGE_CONNECTION_STRING="DefaultEndpointsProtocol=https;..."

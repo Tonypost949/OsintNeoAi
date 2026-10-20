@@ -30,7 +30,7 @@ These categories generally provide a better foundation because the records origi
 The largest evidentiary gap appears here.
 Current exhibits may suggest suspicious patterns, but courts generally require:
 - Certified bank records
-- Account ****ship records
+- Account ownership records
 - Beneficial ownership documentation
 - FinCEN records
 - Wire records
@@ -120,7 +120,7 @@ Based solely on the information presented:
 ### Tier 3 (Requires Subpoena-Based Corroboration)
 - Banking allegations
 - SWIFT transfer allegations
-- Meta account ****mise attribution
+- Meta account compromise attribution
 - SIM-swap attribution
 - Federal identity-system access allegations
 
@@ -142,7 +142,7 @@ Nothing in the matrix alone establishes the truth of the underlying accusations;
 ---
 
 **Concluding Takeaway:**
-The assessment is structured exactly as a prosecutor, civil litigator, or investigative analyst would require—separating evidence, inferences, and theories of liability. The most critical takeaway is that the overall case ****ngth will not be determined by the most serious allegations, but rather by the specific allegations that can be authenticated and independently corroborated.
+The assessment is structured exactly as a prosecutor, civil litigator, or investigative analyst would require—separating evidence, inferences, and theories of liability. The most critical takeaway is that the overall case strength will not be determined by the most serious allegations, but rather by the specific allegations that can be authenticated and independently corroborated.
 
 ---
 

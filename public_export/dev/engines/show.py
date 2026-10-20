@@ -197,7 +197,7 @@ with tab_audio:
     audio_file = next((f for f in audio_candidates if f.exists()), None)
     if audio_file:
         st.audio(str(audio_file), format="audio/m4a")
-        st.caption("2-Voice Deep Dive Discussion & Case ****view")
+        st.caption("2-Voice Deep Dive Discussion & Case Overview")
     else:
         st.info("Audio commentary streaming asset linked to local evidence drive.")
 

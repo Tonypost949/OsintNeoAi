@@ -1,7 +1,7 @@
 """
 Synthetic OSINT Dataset Generator for Benchmarking Graph Correlation Engine.
 
-Generates realistic mock Nevada SOS business entities, SBA PPP loan ****ords,
+Generates realistic mock Nevada SOS business entities, SBA PPP loan records,
 municipal property records, IRS 990 non-profit filings, and baseline graph JSON
 files (nodes.json, edges.json) featuring controlled high-degree address hubs.
 """
@@ -133,7 +133,7 @@ def generate_synthetic_osint_dataset(
         date_approved = f"2020-{rng.randint(4,6):02d}-{rng.randint(1,28):02d}"
 
         sba_rows.append({
-            "Loan ****mber": loan_num,
+            "LoanNumber": loan_num,
             "BorrowerName": borrower_name,
             "BorrowerAddress": street,
             "City": city,

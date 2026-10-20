@@ -17,7 +17,7 @@ def spawn_case(case_name=None, source_showcase="C:/RICONWO"):
     target_dir = Path(f"C:/{case_name}")
     target_dir.mkdir(parents=True, exist_ok=True)
 
-    print(f"[*] Spawning new case ****tion repo: {case_name}")
+    print(f"[*] Spawning new case presentation repo: {case_name}")
     print(f"[*] Target Directory: {target_dir}")
 
     source_path = Path(source_showcase)

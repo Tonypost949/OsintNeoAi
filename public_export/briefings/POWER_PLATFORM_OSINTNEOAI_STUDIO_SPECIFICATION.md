@@ -5,7 +5,7 @@
 **System of Record:** Microsoft Dataverse (18 Governed Entities)  
 **Connected Ecosystems:** GitHub (`Tonypost949/OsintNeoAi`) & Azure DevOps (`anthonydimarcello/osintneoai`)  
 **Target Version:** `[IP_REDACTED]`  
-**Classification:** Enterprise Forensic Intelligence, Legal Case ****ions & Governed Multi-Tenant Workspaces  
+**Classification:** Enterprise Forensic Intelligence, Legal Case Operations & Governed Multi-Tenant Workspaces  
 
 ---
 
@@ -48,7 +48,7 @@ graph TD
         T_RUNS[(Sync Run Logs)]
         T_REP[(Report Definitions)]
         T_INVENT[(Investigation Entities)]
-        T_CASEEV[(Case ****ence)]
+        T_CASEEV[(Case Evidence)]
     end
 
     subgraph External_Connectors [Authenticated Native Connectors]
@@ -150,11 +150,11 @@ If(
 | **Solution Name** | `OsintNeoAiStudio` (Version `[IP_REDACTED]`) |
 | **Application ID** | `aea4876c-1dbb-4e7c-8024-79443ffb7e40` |
 | **Project Model ID** | `170d7b5d-aff1-4ad5-8b92-f8b3d46a1707` |
-| **Live Player URL** | [Launch OsintNeoAi Studio App](https://apps.powerapps.com/play/e/584c706d-38a2-e52e-b6e3-24a809f105**/app/aea4876c-1dbb-4e7c-8024-79443ffb7e40?tenantId=dc2273e5-b77e-4b19-ae61-f4b69fb7609c) |
-| **Vibe Studio Editor URL** | [Edit in Power Apps Vibe Studio](https://vibe.powerapps.com/e/584c706d-38a2-e52e-b6e3-24a809f105**/s/00000001-0000-0000-0001-00000000009b/w/modelType/project/modelId/170d7b5d-aff1-4ad5-8b92-f8b3d46a1707/app) |
+| **Live Player URL** | [Launch OsintNeoAi Studio App](https://apps.powerapps.com/play/e/584c706d-38a2-e52e-b6e3-24a809f10508/app/aea4876c-1dbb-4e7c-8024-79443ffb7e40?tenantId=dc2273e5-b77e-4b19-ae61-f4b69fb7609c) |
+| **Vibe Studio Editor URL** | [Edit in Power Apps Vibe Studio](https://vibe.powerapps.com/e/584c706d-38a2-e52e-b6e3-24a809f10508/s/00000001-0000-0000-0001-00000000009b/w/modelType/project/modelId/170d7b5d-aff1-4ad5-8b92-f8b3d46a1707/app) |
 | **Dataverse Publisher** | `OsintNeoAi` (`osintneoai`) |
 | **Environment Name** | `Anthony DiMarcello's Environment` |
-| **Environment ID** | `584c706d-38a2-e52e-b6e3-24a809f105**` |
+| **Environment ID** | `584c706d-38a2-e52e-b6e3-24a809f10508` |
 | **Tenant ID** | `dc2273e5-b77e-4b19-ae61-f4b69fb7609c` (`Post University,inc.`) |
 | **User Principal Object ID** | `c5674a1f-1717-40d6-93c1-85db367b64d5` |
 | **User Email** | `a***@students.post.edu` |

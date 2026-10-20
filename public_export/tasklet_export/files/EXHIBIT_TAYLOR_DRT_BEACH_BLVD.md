@@ -8,7 +8,7 @@
 ## EXHIBIT A — THE TAYLOR / DRT SHELL NETWORK
 
 ### Principal: DANIEL R. TAYLOR (Taylor Family Trust)
-**Mail Drop / Registered Office:** 20101 S*** St, Ste 151, Newport Beach, CA
+**Mail Drop / Registered Office:** 20101 SW. B*** St, Ste 151, Newport Beach, CA
 
 ### Entity Structure:
 | Entity | Role | Property | Transfer Value | Date |
@@ -18,7 +18,7 @@
 | DRI LLC | Original holder | 16862 C*** Ln, NB | — | — |
 | DRT LLC | Circular receiver | 16862 C*** Ln, NB | **$0** | **/**/1997 |
 | DRT INVESTMENTS LLC | Duplicate holder | 16862 C*** Ln, NB | Unknown | — |
-| TAYLOR PROPERTIES, INC. | PPP applicant | 20101 S*** St | — | — |
+| TAYLOR PROPERTIES, INC. | PPP applicant | 20101 SW. B*** St | — | — |
 
 ### PPP Fraud:
 | Entity | Amount | Lender | NAICS | Date |

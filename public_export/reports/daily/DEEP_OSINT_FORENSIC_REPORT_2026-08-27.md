@@ -137,7 +137,7 @@ google_photos_evidence_batch8  ✅ Final batch (BATCH8_OCR_INDEX.md)
 
 5. ✅ `05_Federal_and_Police_Exhibits_Dossier.md`
    - Hamilton Police Division (NJ) incident reports
-   - Ewing Police Department (NJ) case ****iles
+   - Ewing Police Department (NJ) case files
    - USDC D.N.J. Case 3:20-mj-05007-TJB
    - Quantum Auto Dismantler Santa Ana ↔ Hamilton NJ invoice chain
 
@@ -270,7 +270,7 @@ This report is the comprehensive status update covering:
 - Cascading municipal governance failure
 
 **3. Unlawful Detainer Retaliation & Shadow Posting**
-- OC Superior Court Case ****1327 (Woodbridge Meadows v. Dimarcello)
+- OC Superior Court Case 30-2021-01201327 (Woodbridge Meadows v. Dimarcello)
 - Triple default judgments issued under fraudulent service procedures
 - Judge Carmen Luege struck via emergency CCP § 170.6 motion (4:29 PM dispatch)
 - Eviction execution targeting whistleblower tenant

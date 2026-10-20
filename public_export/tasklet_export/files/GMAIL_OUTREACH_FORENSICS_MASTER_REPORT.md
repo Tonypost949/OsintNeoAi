@@ -84,7 +84,7 @@ A forensic audit across your Google Drive reports and local repository commits r
 ## Chronological Narrative & Substantive Payload (2021–2026)
 
 ### Jan – Aug 2021: Pandemic Infection & Sudden Displacement
-Contracted COVID-19 while working in essential sanitation/design services. Experiencing sudden Chase account ****ures and vehicle repossessions, followed by an armed eviction at Woodbridge Meadows Apartments (Case ****DCJC) executed by Orange County Sheriffs while enrolled in state rent relief.
+Contracted COVID-19 while working in essential sanitation/design services. Experiencing sudden Chase account closures and vehicle repossessions, followed by an armed eviction at Woodbridge Meadows Apartments (Case: 30-2021-01201327-CL-UD-CJC) executed by Orange County Sheriffs while enrolled in state rent relief.
 
 ### Sep 2021 – May 2022: Bureaucratic Paralysis & Identity Theft
 Faced an 8-month hold on DMV ID renewal, an EDD benefits freeze, and the theft/cashing of a government "Hero Pay" check by an impersonator. Initiated correspondence with HBPD Outreach (Kristy Conway), requesting employment/interview space but receiving referrals strictly to shelter beds.
@@ -96,11 +96,11 @@ Documented Resource Conservation and Recovery Act (RCRA) environmental hazards a
 Executed 1,239 SMTP escalations and 1,453 structured portal entries across 24 outreach phases. Documented 100+ bounces, custom mail flow blocks, and authentication walls across SEC, HUD OIG, FinCEN, DOJ, and SSA OIG mail servers.
 
 ### Mid 2026: Active Docketing & Forensic Synthesis
-Secured active case ****trol IDs from GAO FraudNet (`COMP-26-004512`), FBI IC3 (`20IC002`), and CFTC Whistleblower Intake. Compiled native MBOX exports (`GMAIL_OUTREACH_TIMELINE.md` commit `7bbb818`) into Google Drive forensic dossiers for legal representation.
+Secured active case control IDs from GAO FraudNet (`COMP-26-004512`), FBI IC3 (`20IC002`), and CFTC Whistleblower Intake. Compiled native MBOX exports (`GMAIL_OUTREACH_TIMELINE.md` commit `7bbb818`) into Google Drive forensic dossiers for legal representation.
 
 ---
 
-## Active Federal Case ****king Matrix
+## Active Federal Case Tracking Matrix
 
 | Agency / Oversight Body | Docket / Control ID | Intake Status & Disposition | Recommended Action |
 |---|---|---|---|

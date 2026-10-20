@@ -17,7 +17,7 @@
             <step title="Building" date="2026-08-22T07:26:56.178" >
               <step title="Executing external process" date="2026-08-22T07:26:59.178" type="process" path="starter.sh" arguments="/opt/Kudu/Scripts/parallel_rsync.sh /tmp/zipdeploy/extracted /home/site/wwwroot 8 /tmp/ False False  " >
                 <step title="Process dump" date="2026-08-22T07:27:42.834" exitCode="123" type="processOutput" /><!-- duration: 11ms -->
-              </step><!-- duration: 436**ms -->
+              </step><!-- duration: 43674ms -->
               <step title="Error occurred" date="2026-08-22T07:27:42.901" type="error" text="rsync: [generator] recv_generator: failed to stat &quot;/home/site/wwwroot/AiRiCOSwarm\main.py&quot;: Invalid argument (22)
 rsync: [generator] recv_generator: failed to stat &quot;/home/site/wwwroot/AiRiCOSwarm\swarm\__pycache__\gis_agent.cpython-314.pyc&quot;: Invalid argument (22)
 rsync: [generator] recv_generator: failed to stat &quot;/home/site/wwwroot/AiRiCOSwarm\swarm\__pycache__\reporting_agent.cpython-314.pyc&quot;: Invalid argument (22)

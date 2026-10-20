@@ -364,7 +364,7 @@ key if this skill looks relevant to the user's request.
 -   **For synonymous or non-coding variants** — HGVS nomenclature (e.g., CAPN3
     AND "c.551C>T") is more reliable than coordinate searches ([chrpos]), as
     many ClinVar records for these types lack precise genomic mappings.
--   **Case ****vity in molecular consequences** — ClinVar returns mixed-case
-    strings. Always use case ****tive matching (`.lower()`) when filtering.
+-   **Case sensitivity in molecular consequences** — ClinVar returns mixed-case
+    strings. Always use case-insensitive matching (`.lower()`) when filtering.
 -   **Parsing `search` output as a bare list** — `search` returns a JSON object
     with `total_count`, `fetched_count`, and `variant_ids` — not a bare list.

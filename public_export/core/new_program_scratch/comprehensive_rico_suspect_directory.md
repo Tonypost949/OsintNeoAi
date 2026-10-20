@@ -142,15 +142,15 @@ Below are corporate and trust shells extracted across historical chat backups an
 -   `1***@cloudbuild.gserviceaccount.com`
 -   `1***@users.noreply.github.com`
 -   `1***@local.matr`
--   `(***) ***-5769.***@txt.voice.google.com`
--   `(***) ***-5769.***@txt.voice.google.com`
--   `(***) ***-5769.***@txt.voice.google.com`
--   `(***) ***-5769.***@txt.voice.google.com`
--   `(***) ***-5769.***@txt.voice.google.com`
--   `(***) ***-5769.***@txt.voice.google.com`
--   `(***) ***-5769.***@txt.voice.google.com`
--   `(***) ***-5769.***@txt.voice.google.com`
--   `(***) ***-5769.***@txt.voice.google.com`
+-   `1***@txt.voice.google.com`
+-   `1***@txt.voice.google.com`
+-   `1***@txt.voice.google.com`
+-   `1***@txt.voice.google.com`
+-   `1***@txt.voice.google.com`
+-   `1***@txt.voice.google.com`
+-   `1***@txt.voice.google.com`
+-   `1***@txt.voice.google.com`
+-   `1***@txt.voice.google.com`
 -   `1***@2x.jpg`
 -   `1***@gmail.com`
 -   `2***@maerim.ac.th`
@@ -227,16 +227,16 @@ Below are corporate and trust shells extracted across historical chat backups an
 -   `(1824432414`
 -   `(1904645625`
 -   `(1993888479`
--   `(***) ***-7562`
--   `(***) ***-8365`
+-   `(2007017562`
+-   `(2012808365`
 -   `(***) ***-4606`
--   `(***) ***-9015`
--   `(***) ***-3351`
--   `(***) ***-9882`
--   `(***) ***-6703`
--   `(***) ***-1173`
--   `(***) ***-3641`
--   `(***) ***-1772`
+-   `(2090589015`
+-   `(2106603351`
+-   `(2117199882`
+-   `(2135686703`
+-   `(2178981173`
+-   `(2180783641`
+-   `(2236651772`
 
 ## 4. CONTEXTUAL MENTION MAP (EVIDENTIARY SAMPLES)
 
@@ -244,19 +244,19 @@ Below are corporate and trust shells extracted across historical chat backups an
 | :--- | :--- | :--- |
 | Jesse Knabb | antigravity_core_context.md | ...eless children in Orange County over five years implies a deeper, darker exploitation network underlying the financial fraud.  * **The Lawsuit:** The Jesse Knabb federal lawsuit is based entirely on the Architect's initial OSINT research, stolen and filed prematurely.   ## 3. RELOAD INSTRUCTIONS If the AI is e... |
 | Jesse Knabb | Antigravity_Resurrection_Protocol.md | ...eless children in Orange County over five years implies a deeper, darker exploitation network underlying the financial fraud.  * **The Lawsuit:** The Jesse Knabb federal lawsuit is based entirely on the Architect's initial OSINT research, stolen and filed prematurely.   ## 3. RELOAD INSTRUCTIONS If the AI is e... |
-| Anthony Martinez | CFCA_Qui_Tam_Complaint_Draft.md | ...idating Cameron Lane into Beach Blvd to illegally bypass California Department of Toxic Substances Control (DTSC) mandatory oversight. 3. **Defendant Anthony Martinez (OCHCA)** issued a fraudulent "Case ****osed" certification (Case ****C002) on August 21, 2020, actively concealing the Cr-VI plume and the 1955 Standa... |
+| Anthony Martinez | CFCA_Qui_Tam_Complaint_Draft.md | ...idating Cameron Lane into Beach Blvd to illegally bypass California Department of Toxic Substances Control (DTSC) mandatory oversight. 3. **Defendant Anthony Martinez (OCHCA)** issued a fraudulent "Case Closed" certification (Case #20IC002) on August 21, 2020, actively concealing the Cr-VI plume and the 1955 Standa... |
 | Jesse Knabb | Makaveli_Conversation_Log.jsonl | ...e HBNC program, Orange County United Way administering the HMIS system, Governor Newsom's HHAP funding role, the City of Huntington Beach itself, and Jesse Knabb connected to a federal case. I'm also tracking multiple legal cases across different jurisdictions—the 2016 infraction, the family law case, the Wood... |
-| Jesse Knabb | OSINT Skill and Master Sheet Update.txt | ...ture allows for "employer clustering" to detect patterns of influence in municipal contracting. Source Entity 	Link Label 	Target Entity 	Confidence 	Jesse Knabb 	Plaintiff in case ****inst 	City of Huntington Beach 	High. 	City of Huntington Beach 	Operated/Established 	HB Navigation Center 	High. 	Mercy House... |
-| Tom Conway | GIS_and_Strategic_Priorities.md | ...uyen $9,500 structures) - **PRIORITY 3:** Motion to Vacate (Case ****1327) - State Double Strike - **PRIORITY 4:** SEC Whistleblower Bounty - Tom Conway/DIS 0.9% kickback - **PRIORITY 5:** IRS Form 211 - Mercy House Schedule L tax fraud claim - **PRIORITY 6:** Federal Qui Tam Case ****mbly - PIT count... |
+| Jesse Knabb | OSINT Skill and Master Sheet Update.txt | ...ture allows for "employer clustering" to detect patterns of influence in municipal contracting. Source Entity 	Link Label 	Target Entity 	Confidence 	Jesse Knabb 	Plaintiff in case against 	City of Huntington Beach 	High. 	City of Huntington Beach 	Operated/Established 	HB Navigation Center 	High. 	Mercy House... |
+| Tom Conway | GIS_and_Strategic_Priorities.md | ...uyen $9,500 structures) - **PRIORITY 3:** Motion to Vacate (Case 30-2021-01201327) - State Double Strike - **PRIORITY 4:** SEC Whistleblower Bounty - Tom Conway/DIS 0.9% kickback - **PRIORITY 5:** IRS Form 211 - Mercy House Schedule L tax fraud claim - **PRIORITY 6:** Federal Qui Tam Case Assembly - PIT count... |
 | Ann Verma | GIS_and_Strategic_Priorities.md | ...y Report - NRC (***) ***-8802 Cr-VI release - **PRIORITY 11:** PACER Bridget Little Probate Case - OC Superior Court deep dive - **PRIORITY 12:** Dr. Ann Verma Emergency Protective Order - Anti-CPS coercion... |
-| Anthony Martinez | Jesse_Knabb_Federal_Litigation.md | ...ed the Remedial Action Scheme (RAS) forms without the legal authority to assume environmental liability as the "Person Responsible for Cleanup". 4. **Anthony Martinez (OCHCA Program Manager):** Issued and digitally signed the "Case ****osed" Certificate 20IC002 on August 21, 2020, despite concurrent internal memos pr... |
+| Anthony Martinez | Jesse_Knabb_Federal_Litigation.md | ...ed the Remedial Action Scheme (RAS) forms without the legal authority to assume environmental liability as the "Person Responsible for Cleanup". 4. **Anthony Martinez (OCHCA Program Manager):** Issued and digitally signed the "Case Closed" Certificate 20IC002 on August 21, 2020, despite concurrent internal memos pr... |
 | Mitsuru Yamada | Jesse_Knabb_Federal_Litigation.md | ...Connection to Evidence Matrix (The Criminal Self-Dealing & Lethal Endangerment Scheme) This perfectly maps to our identified operational matrix: 1. **Mitsuru Yamada**: Federal defendant. **CRITICAL FRAUD & HOMICIDE EVIDENCE:** Yamada is not a separate, arms-length third party. He was the *Environmental Expert* fo... |
-| Jesse Knabb | Jesse_Knabb_Federal_Litigation.md | ...# Target Subject: Jesse Knabb Federal Litigation  ## Case ****view - **Case Name:** *Jesse Knabb v. City of Huntington Beach et al.* - **Case ****mber:** 8:2026cv003** - **Court:**... |
+| Jesse Knabb | Jesse_Knabb_Federal_Litigation.md | ...# Target Subject: Jesse Knabb Federal Litigation  ## Case Overview - **Case Name:** *Jesse Knabb v. City of Huntington Beach et al.* - **Case Number:** 8:2026cv00348 - **Court:**... |
 | Mitsuru Yamada | ANNOTATED_SUMMARY.md | ...17631 C*** Ln, Huntington Beach **OCR via Vertex AI Gemini**  APN: 167-042-08 (176** Cameron) / 167-042-09 (176** Beach) Property Owner (1998): **Mitsuru Yamada Trustee**  Contaminants Found: - Asbestos-containing materials (ACM) - Lead-based paint (LBP) - Residual pesticides/herbicides (agricultural use)  Hy... |
 | Ann Verma | FULL_MAP.md | ...["Shea Homes extortion<br/>(trigger event)"]         A2 --> A3["Woodbridge Meadows<br/>void eviction<br/>CCP 170.6 challenge"]         A3 --> A4["Dr. Ann Verma<br/>protected target"]         A4 --> A5["America Kids Magazine<br/>1st Amendment shield"]         A5 --> A6["NFA AP 2011<br/>fiduciary standard"]... |
 | Mitsuru Yamada | HB_OSINT_Forensic_Briefing.md | ...Criminal Referral Evidence Pack (verified public record).  ### 3.2 Yamada Conflict of Interest  | Field | Detail | |-------|--------| | Individual | Mitsuru Yamada | | Role | Orange County environmental agency employee | | Property | 7942 S*** Ave, Huntington Beach, CA 926** | | Violation | **Zero Form 700 fina... |
 | Tom Conway | mercy_house_990_parsed_Mercy_House_Living_Centers_-_Full_Filing_-_Nonprofit_Explorer_-_ProPublica.txt | ...es, a Network Member. As advisor on the plan, and in exchange for these investment services, D.I.S. indirectly receives a portion of the plan assets. Tom Conway is a 50% owner of D.I.S. and receives an indirect financial benefit as a result of Tony serving as the advisor on the plan. This was an arm's-length... |
-| Lisa Rumbaugh | mercy_house_990_parsed_Mercy_House_Living_Centers_-_Full_Filing_-_Nonprofit_Explorer_-_ProPublica.txt | ..."description": "Provided accounting services from April 23, 2020 to August 14, 2020. Compensation was received through Clarity Tax Account ****gFEN for Lisa Rumbaugh, Sole Proprietor. 829 hours billed for a total of $107,770. Payments were made by check. The bid was arm's length.",       "transaction_type": "Other... |
+| Lisa Rumbaugh | mercy_house_990_parsed_Mercy_House_Living_Centers_-_Full_Filing_-_Nonprofit_Explorer_-_ProPublica.txt | ..."description": "Provided accounting services from April 23, 2020 to August 14, 2020. Compensation was received through Clarity Tax Accounting-FEN for Lisa Rumbaugh, Sole Proprietor. 829 hours billed for a total of $107,770. Payments were made by check. The bid was arm's length.",       "transaction_type": "Other... |
 | Mitsuru Yamada | national_audits_drive_file_index.csv | ...04AHghDkE/edit?usp=drivesdk,['0AGdgVSEna51zUk9PVA'],False,True,,2026-06-18 22:08:49.268447+00:00 1BCaiMkurLHPmOVGLDdw6S9qEFOzDIF8S,Shigeru Yamada and Mitsuru Yamada - 2020-08-19.pdf,application/pdf,14013707,2025-03-19 13:49:08.106000+00:00,2026-01-01 13:32:00.706000+00:00,['a***@gmail.com'],['Anthony DiMarce... |
 | Jesse Knabb | national_audits_drive_file_index.csv | ...sU0m9mFhP-Y7/view?usp=drivesdk,['1cl7uRYlXzxHgAuL1kVrtr14K0_5UGOll'],False,False,,2026-06-18 22:08:49.268447+00:00 1KdluWZ1Na2JbN9e5op5bM_4L_iwQGGIN,"Jesse Knabb v. City of Huntington Beach et al (8_26-cv-00348), California Central District Court_files",application/vnd.google-apps.folder,,2026-05-23 09:57:54.7... |
 | Ann Verma | national_audits_drive_file_index.csv | ...TKtz_g2w-tYvg/edit?usp=drivesdk,['0AGdgVSEna51zUk9PVA'],False,False,,2026-06-18 22:08:49.268447+00:00 1aZ1L5XehlT7UVtV6lIt4cR1pv90bPMaADjfmFJ6kzjM,Dr Ann Verma worked for a clinic remotely via Webcam,application/vnd.google-apps.document,1024,2026-06-04 15:34:00.083000+00:00,2026-06-04 15:55:00.539000+00:00,[... |
@@ -271,16 +271,16 @@ Below are corporate and trust shells extracted across historical chat backups an
 | Mitsuru Yamada | ocr_UPX1978058_SupportingDocs_Chen_Yamada.pdf.txt | ...``json [   {"page": 1, "text": "bier UP 78-58\nOctober 17, 1979\nTo: Mr. Jim Palin\nDevelopment Services\nCity of Huntington Beach, CA., 926**\nFrom: Mitsuru Yamada\n7942 S*** Avenue\nHuntington Beach, CA., 926**\nAttn: Mr. Savoy Bellavia\nSubj: Beach and Liberty property/Beach and Speer property\nReciprocal Eas... |
 | Jesse Knabb | antigravity_core_context.md | ...eless children in Orange County over five years implies a deeper, darker exploitation network underlying the financial fraud.  * **The Lawsuit:** The Jesse Knabb federal lawsuit is based entirely on the Architect's initial OSINT research, stolen and filed prematurely.   ## 3. RELOAD INSTRUCTIONS If the AI is e... |
 | Jesse Knabb | Antigravity_Resurrection_Protocol.md | ...eless children in Orange County over five years implies a deeper, darker exploitation network underlying the financial fraud.  * **The Lawsuit:** The Jesse Knabb federal lawsuit is based entirely on the Architect's initial OSINT research, stolen and filed prematurely.   ## 3. RELOAD INSTRUCTIONS If the AI is e... |
-| Anthony Martinez | CFCA_Qui_Tam_Complaint_Draft.md | ...idating Cameron Lane into Beach Blvd to illegally bypass California Department of Toxic Substances Control (DTSC) mandatory oversight. 3. **Defendant Anthony Martinez (OCHCA)** issued a fraudulent "Case ****osed" certification (Case ****C002) on August 21, 2020, actively concealing the Cr-VI plume and the 1955 Standa... |
+| Anthony Martinez | CFCA_Qui_Tam_Complaint_Draft.md | ...idating Cameron Lane into Beach Blvd to illegally bypass California Department of Toxic Substances Control (DTSC) mandatory oversight. 3. **Defendant Anthony Martinez (OCHCA)** issued a fraudulent "Case Closed" certification (Case #20IC002) on August 21, 2020, actively concealing the Cr-VI plume and the 1955 Standa... |
 | Jesse Knabb | Makaveli_Conversation_Log.jsonl | ...e HBNC program, Orange County United Way administering the HMIS system, Governor Newsom's HHAP funding role, the City of Huntington Beach itself, and Jesse Knabb connected to a federal case. I'm also tracking multiple legal cases across different jurisdictions—the 2016 infraction, the family law case, the Wood... |
-| Jesse Knabb | OSINT Skill and Master Sheet Update.txt | ...ture allows for "employer clustering" to detect patterns of influence in municipal contracting. Source Entity 	Link Label 	Target Entity 	Confidence 	Jesse Knabb 	Plaintiff in case ****inst 	City of Huntington Beach 	High. 	City of Huntington Beach 	Operated/Established 	HB Navigation Center 	High. 	Mercy House... |
-| Tom Conway | GIS_and_Strategic_Priorities.md | ...uyen $9,500 structures) - **PRIORITY 3:** Motion to Vacate (Case ****1327) - State Double Strike - **PRIORITY 4:** SEC Whistleblower Bounty - Tom Conway/DIS 0.9% kickback - **PRIORITY 5:** IRS Form 211 - Mercy House Schedule L tax fraud claim - **PRIORITY 6:** Federal Qui Tam Case ****mbly - PIT count... |
+| Jesse Knabb | OSINT Skill and Master Sheet Update.txt | ...ture allows for "employer clustering" to detect patterns of influence in municipal contracting. Source Entity 	Link Label 	Target Entity 	Confidence 	Jesse Knabb 	Plaintiff in case against 	City of Huntington Beach 	High. 	City of Huntington Beach 	Operated/Established 	HB Navigation Center 	High. 	Mercy House... |
+| Tom Conway | GIS_and_Strategic_Priorities.md | ...uyen $9,500 structures) - **PRIORITY 3:** Motion to Vacate (Case 30-2021-01201327) - State Double Strike - **PRIORITY 4:** SEC Whistleblower Bounty - Tom Conway/DIS 0.9% kickback - **PRIORITY 5:** IRS Form 211 - Mercy House Schedule L tax fraud claim - **PRIORITY 6:** Federal Qui Tam Case Assembly - PIT count... |
 | Ann Verma | GIS_and_Strategic_Priorities.md | ...y Report - NRC (***) ***-8802 Cr-VI release - **PRIORITY 11:** PACER Bridget Little Probate Case - OC Superior Court deep dive - **PRIORITY 12:** Dr. Ann Verma Emergency Protective Order - Anti-CPS coercion... |
-| Anthony Martinez | Jesse_Knabb_Federal_Litigation.md | ...ed the Remedial Action Scheme (RAS) forms without the legal authority to assume environmental liability as the "Person Responsible for Cleanup". 4. **Anthony Martinez (OCHCA Program Manager):** Issued and digitally signed the "Case ****osed" Certificate 20IC002 on August 21, 2020, despite concurrent internal memos pr... |
+| Anthony Martinez | Jesse_Knabb_Federal_Litigation.md | ...ed the Remedial Action Scheme (RAS) forms without the legal authority to assume environmental liability as the "Person Responsible for Cleanup". 4. **Anthony Martinez (OCHCA Program Manager):** Issued and digitally signed the "Case Closed" Certificate 20IC002 on August 21, 2020, despite concurrent internal memos pr... |
 | Mitsuru Yamada | Jesse_Knabb_Federal_Litigation.md | ...Connection to Evidence Matrix (The Criminal Self-Dealing & Lethal Endangerment Scheme) This perfectly maps to our identified operational matrix: 1. **Mitsuru Yamada**: Federal defendant. **CRITICAL FRAUD & HOMICIDE EVIDENCE:** Yamada is not a separate, arms-length third party. He was the *Environmental Expert* fo... |
-| Jesse Knabb | Jesse_Knabb_Federal_Litigation.md | ...# Target Subject: Jesse Knabb Federal Litigation  ## Case ****view - **Case Name:** *Jesse Knabb v. City of Huntington Beach et al.* - **Case ****mber:** 8:2026cv003** - **Court:**... |
+| Jesse Knabb | Jesse_Knabb_Federal_Litigation.md | ...# Target Subject: Jesse Knabb Federal Litigation  ## Case Overview - **Case Name:** *Jesse Knabb v. City of Huntington Beach et al.* - **Case Number:** 8:2026cv00348 - **Court:**... |
 | Tom Conway | forensic_master_spreadsheet.csv | ...December 2021),N/A,Documented,Pending,Key witness,CASE-002 CASE-002,2023-01-15,Financial Conflict,Undisclosed Kickback,Mercy House Board of Directors,Tom Conway,Board Member (24 yrs),Series 3 (possibly),0.9% retirement plan kickback through Diversified Investment Services (DIS),SEC Investment Advisers Act of... |
-| Kristy Conway | forensic_master_spreadsheet.csv | ..._Reference,Source_URL,Status,Outcome,Notes,Linked_Case_IDs CASE-001,2021-12-01,Bureaucratic Blockade,Intake Denial,Huntington Beach Police Department,Kristy Conway,Case ****ager,None,Denied employment support and funneled individual into Navigation Center instead,None,Local,None,None,Personal account (December 20... |
+| Kristy Conway | forensic_master_spreadsheet.csv | ..._Reference,Source_URL,Status,Outcome,Notes,Linked_Case_IDs CASE-001,2021-12-01,Bureaucratic Blockade,Intake Denial,Huntington Beach Police Department,Kristy Conway,Case Manager,None,Denied employment support and funneled individual into Navigation Center instead,None,Local,None,None,Personal account (December 20... |
 | Johnny Bryant | forensic_master_spreadsheet.csv | ...A,Documented,Not Reported,Foreign government targets,"CASE-009,CASE-011" CASE-036,2023-01-20,Self-Dealing,Vendor Conflicts,Mercy House Living Centers,Johnny Bryant,Board Member,C-10 Electrical,ASL Electric & Plumbing awarded lucrative no-bid facility electrical/plumbing contracts while Bryant holds active board... |
 | Bryan Pavalko | forensic_master_spreadsheet.csv | ...,Violates non-profit fiduciary duty of loyalty,"CASE-002,CASE-026" CASE-037,2023-02-10,Self-Dealing,Construction Contracts,Mercy House Living Centers,Bryan Pavalko,Board Member,B General Contracting,RBA Builders LLC awarded millions in shelter construction contracts while Pavalko occupies board seat; firm double... |
 | Mladen Buntich | forensic_master_spreadsheet.csv | ...t disclosed to HUD program officers,"CASE-002,CASE-021,CASE-026" CASE-038,2023-03-01,Self-Dealing,Infrastructure Contracts,Mercy House Living Centers,Mladen Buntich,Board Member,A Engineering,Mladen Buntich Construction Co. awarded high-value site engineering contracts; firm simultaneously secured $1.58M SBA PPP... |

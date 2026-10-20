@@ -19,13 +19,13 @@
         extend: {
           colors: {
             zinc: {
-              950: '#090**b',
+              950: '#09090b',
               900: '#0c0c0f',
               850: '#141419',
               800: '#1e1e24',
-              700: '#272**a',
+              700: '#27272a',
               400: '#a1a1aa',
-              500: '#717**a',
+              500: '#71717a',
               300: '#d4d4d8'
             },
             accent: {
@@ -53,7 +53,7 @@
 
   <style>
     body {
-      background-color: #090**b;
+      background-color: #09090b;
       color: #fafafa;
       font-family: 'DM Sans', sans-serif;
     }
@@ -65,14 +65,14 @@
       height: 6px;
     }
     .custom-scrollbar::-webkit-scrollbar-track {
-      background: #090**b;
+      background: #09090b;
     }
     .custom-scrollbar::-webkit-scrollbar-thumb {
       background: #1e1e24;
       border-radius: 4px;
     }
     .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-      background: #272**a;
+      background: #27272a;
     }
     .glass-card {
       background: #0c0c0f;
@@ -80,7 +80,7 @@
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .glass-card:hover {
-      border-color: #272**a;
+      border-color: #27272a;
     }
   </style>
 </head>
@@ -172,7 +172,7 @@
       <!-- Card 3 -->
       <div class="glass-card rounded-xl p-5 relative overflow-hidden">
         <div class="flex items-center justify-between">
-          <span class="text-xs font-medium text-zinc-400 uppercase tracking-wider">FCA Claim ****ling</span>
+          <span class="text-xs font-medium text-zinc-400 uppercase tracking-wider">FCA Claim Ceiling</span>
           <div class="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400">
             <i data-lucide="scale" class="w-4 h-4"></i>
           </div>
@@ -406,15 +406,15 @@
           xAxis: {
             type: 'category',
             data: dates,
-            axisLine: { lineStyle: { color: '#272**a' } },
-            axisLabel: { color: '#717**a', fontSize: 10, fontFamily: 'JetBrains Mono' }
+            axisLine: { lineStyle: { color: '#27272a' } },
+            axisLabel: { color: '#71717a', fontSize: 10, fontFamily: 'JetBrains Mono' }
           },
           yAxis: {
             type: 'value',
             name: '$M',
-            axisLine: { lineStyle: { color: '#272**a' } },
-            splitLine: { lineStyle: { color: '#181**b' } },
-            axisLabel: { color: '#717**a', fontSize: 10, fontFamily: 'JetBrains Mono' }
+            axisLine: { lineStyle: { color: '#27272a' } },
+            splitLine: { lineStyle: { color: '#18181b' } },
+            axisLabel: { color: '#71717a', fontSize: 10, fontFamily: 'JetBrains Mono' }
           },
           series: [{
             data: amounts,
@@ -449,14 +449,14 @@
           xAxis: {
             type: 'category',
             data: stateData.map(s => s.state),
-            axisLine: { lineStyle: { color: '#272**a' } },
-            axisLabel: { color: '#717**a', fontSize: 10, fontFamily: 'JetBrains Mono' }
+            axisLine: { lineStyle: { color: '#27272a' } },
+            axisLabel: { color: '#71717a', fontSize: 10, fontFamily: 'JetBrains Mono' }
           },
           yAxis: {
             type: 'value',
-            axisLine: { lineStyle: { color: '#272**a' } },
-            splitLine: { lineStyle: { color: '#181**b' } },
-            axisLabel: { color: '#717**a', fontSize: 10, fontFamily: 'JetBrains Mono' }
+            axisLine: { lineStyle: { color: '#27272a' } },
+            splitLine: { lineStyle: { color: '#18181b' } },
+            axisLabel: { color: '#71717a', fontSize: 10, fontFamily: 'JetBrains Mono' }
           },
           series: [
             { name: 'Reported PIT Count', type: 'bar', data: stateData.map(s => s.pit), itemStyle: { color: '#10b981' } },

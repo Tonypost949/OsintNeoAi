@@ -1,5 +1,5 @@
 # 🏥 FORENSIC CLINICAL DOSSIER: MCLEAN HOSPITAL DISCHARGE FAILURE & INFANTILIZING CARE
-## Case ****ject: Lindsay Clancy (Duxbury, MA) • McLean Hospital Women's Treatment Program (January 1–5, 2023)
+## Case Subject: Lindsay Clancy (Duxbury, MA) • McLean Hospital Women's Treatment Program (January 1–5, 2023)
 **Investigation Reference:** `NWO-RICO-CLANCY-MCLEAN-001`  
 **Subject:** The 5-Day Voluntary Admission • "Playing with Crayons" Disconnect • Fatal Discharge Assessment  
 **Governing Authorities:** 31 U.S.C. § 3729 (False Claims Act) • Mass. Gen. Laws ch. 231, § 60B (Medical Malpractice) • Involuntary Intoxication

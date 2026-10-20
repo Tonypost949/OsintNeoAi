@@ -35,8 +35,8 @@
   - RAM consumption is strictly bounded $O(1)$, far below the 250.0 MB threshold.
 
 - **Direct Empirical SHA-256 Fidelity Measurements**:
-  - 100% byte-for-byte fidelity with standard library `hashlib.sha256()` across boundary sizes: `0B`, `1B`, `2B`, `63B`, `64B`, `65B`, `1023B`, `1024B`, `1025B`, `655**B`, `655**B`, `655**B`, `131071B`, `131072B`, `131073B`, `1MB`, `5MB`, `50MB`, `200MB`.
-  - Invariance under non-standard chunk sizes (`1B`, `7B`, `13B`, `1024B`, `655**B`, `655**B`, `655**B`, `1000000B`) and generators yielding intermittent empty bytes `b""`.
+  - 100% byte-for-byte fidelity with standard library `hashlib.sha256()` across boundary sizes: `0B`, `1B`, `2B`, `63B`, `64B`, `65B`, `1023B`, `1024B`, `1025B`, `65535B`, `65536B`, `65537B`, `131071B`, `131072B`, `131073B`, `1MB`, `5MB`, `50MB`, `200MB`.
+  - Invariance under non-standard chunk sizes (`1B`, `7B`, `13B`, `1024B`, `65535B`, `65536B`, `65537B`, `1000000B`) and generators yielding intermittent empty bytes `b""`.
 
 - **Corrupted and Malformed Input Resilience**:
   - Truncated ZIP files: handled gracefully without unhandled exception; recorded in `stats.errors_encountered`.
@@ -55,7 +55,7 @@
    - **Inference**: The continuous SHA-256 implementation in `StreamHasher` and `HashingReader` is mathematically sound, deterministic, and free of off-by-one or chunk-boundary corruption bugs.
 3. **Observation**: Corrupted ZIP, TAR, GZIP, and zero-byte archives yielded no uncaught exceptions; errors were logged and tracked in `CrawlStats`.
    - **Inference**: `LocalCrawler` implements defensive exception barriers (`zipfile.BadZipFile`, `tarfile.TarError`, `gzip.BadGzipFile`, `OSError`) ensuring uninterrupted crawler execution across hostile filesystem environments.
-4. **Observation**: `ManagedZipStream` and `ManagedTarStream` wrap inner member ****eams with dual-closure protocols (`self._stream.close()` and `self._zf.close()`), and unlinking files immediately after stream read succeeded without Windows `PermissionError`.
+4. **Observation**: `ManagedZipStream` and `ManagedTarStream` wrap inner member streams with dual-closure protocols (`self._stream.close()` and `self._zf.close()`), and unlinking files immediately after stream read succeeded without Windows `PermissionError`.
    - **Inference**: Windows file locking hazards are properly prevented.
 
 ## 3. Caveats

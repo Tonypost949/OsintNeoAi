@@ -209,7 +209,7 @@ print(f"  ✅ Saved: {json_path}")
 csv_path = "reports/NATIONWIDE_SMOKING_GUNS_MATRIX.csv"
 with open(csv_path, "w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
-    writer.writerow(["Category", "Entity / Borrower", "Registered Property / City", "Loan / Claim ****igin State", "Amount ($)", "Forgiven ($)", "Anomaly Details"])
+    writer.writerow(["Category", "Entity / Borrower", "Registered Property / City", "Loan / Claim Origin State", "Amount ($)", "Forgiven ($)", "Anomaly Details"])
     
     for r in findings["modules"].get("out_of_state_ppp_matches", []):
         writer.writerow([
@@ -219,7 +219,7 @@ with open(csv_path, "w", newline="", encoding="utf-8") as f:
             r.get("BorrowerState", ""),
             r.get("ppp_amount", 0),
             r.get("forgiven_amount", 0),
-            f"Geographic mismatch: Registered in SoCal but PPP loan ****sued in {r.get('BorrowerState', '')}"
+            f"Geographic mismatch: Registered in SoCal but PPP loan issued in {r.get('BorrowerState', '')}"
         ])
     
     for r in findings["modules"].get("multistate_shell_entities", []):
@@ -255,7 +255,7 @@ with open(dossier_path, "w", encoding="utf-8") as f:
     f.write("---\n\n")
     f.write("## 📌 EXECUTIVE SUMMARY & INVESTIGATIVE FINDINGS\n\n")
     f.write("An automated deep cross-dataset sweep was executed across multi-terabyte state and federal databases.\n")
-    f.write("The scan uncovered widespread **cross-state nexus points**, **high-velocity PPP loan ****ness anomalies**, and **clustered maildrop proxies** linking California real estate to operations across over 20 US States.\n\n")
+    f.write("The scan uncovered widespread **cross-state nexus points**, **high-velocity PPP loan forgiveness anomalies**, and **clustered maildrop proxies** linking California real estate to operations across over 20 US States.\n\n")
     
     f.write("### Key Metrics Discovered:\n")
     f.write(f"- **Out-of-State PPP Dispersions:** {len(findings['modules'].get('out_of_state_ppp_matches', []))} high-risk instances\n")
@@ -267,7 +267,7 @@ with open(dossier_path, "w", encoding="utf-8") as f:
     
     f.write("---\n\n")
     f.write("## 🚨 SECTION 1: TOP OUT-OF-STATE PPP GEOGRAPHIC MISMATCHES\n\n")
-    f.write("| Entity Name | Property Location | Loan ****igin | PPP Amount | Forgiven Amount | Jobs Reported |\n")
+    f.write("| Entity Name | Property Location | Loan Origin | PPP Amount | Forgiven Amount | Jobs Reported |\n")
     f.write("| :--- | :--- | :--- | :--- | :--- | :--- |\n")
     for r in findings["modules"].get("out_of_state_ppp_matches", [])[:25]:
         amt = f"${float(r.get('ppp_amount') or 0):,.2f}"

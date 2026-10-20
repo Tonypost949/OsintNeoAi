@@ -51,7 +51,7 @@ The **OsintNeoAi Deep OSINT Forensic Evidence Pipeline** has been fully initiali
 - `evidence/google_photos_evidence*` — Photo batches (8 directories)
 - `evidence/ocr_transcripts_photos/` — AI-generated transcripts
 - `evidence/official_court_records/` — Federal + state court filings
-- `evidence/lawsuit_info_full_dimarcello/` — Civil rights case ****ence
+- `evidence/lawsuit_info_full_dimarcello/` — Civil rights case evidence
 
 ---
 
@@ -76,7 +76,7 @@ The **OsintNeoAi Deep OSINT Forensic Evidence Pipeline** has been fully initiali
 - **Flagging System:** `alerts_flagged.json` (output buffer prepared)
 
 **Cross-Reference Targets:**
-- `ppp_rico` — PPP loan ****raud correlations
+- `ppp_rico` — PPP loan fraud correlations
 - `forensic_layers.fca_timeline` — FCA whistleblower timeline
 - `national_audits.all_state_records` — Corporate/municipal records
 - `drive_forensics.drive_documents` — Drive content indexing
@@ -207,7 +207,7 @@ Sync:    Current with remote
 
 ### **TARGET 3: NATIONWIDE FINANCIAL CRIMES NETWORK**
 - **Hub:** 11770 W*** Ave, Huntington Beach (55.6% medical shells)
-- **Schemes:** Medicaid ****ling, SBA fraud, $0 deed transfers, escrow manipulation
+- **Schemes:** Medicaid overbilling, SBA fraud, $0 deed transfers, escrow manipulation
 - **Escrow Vault:** Pham Living Trust ($3.88M) — CSC ID 1024456136
 - **Cross-Border:** Mexico Fideicomiso trusts, FinCEN remittances, CBP flight logs
 - **Evidence Base:** 8 civil forfeiture motions; 11 public funds audits ready
@@ -271,7 +271,7 @@ Sync:    Current with remote
 ✅ **Pre-Execution Backup Verified** — 3-location system confirmed  
 ✅ **Evidence Cryptographic Integrity** — NIST SHA-256 checksums ready  
 ✅ **Access Control Verified** — Multi-agent workflow; no overwrites  
-✅ **Credential Separation** — Account ****ific API keys documented  
+✅ **Credential Separation** — Account-specific API keys documented  
 ✅ **Version Control** — All changes tracked; parallel versions maintained  
 
 ### **Investigation Evidence Protocols:**

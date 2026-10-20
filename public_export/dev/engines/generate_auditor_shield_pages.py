@@ -48,15 +48,15 @@ for u in user_auditors:
   <title>Protected Anonymous Auditor Page: {u['public_handle']}</title>
   <style>
     body {{ font-family: -apple-system, sans-serif; background: #0d1117; color: #c9d1d9; padding: 24px; }}
-    .card {{ background: #161b22; border: 1px solid #303**d; border-radius: 8px; padding: 24px; max-width: 1100px; margin: auto; }}
+    .card {{ background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 24px; max-width: 1100px; margin: auto; }}
     h1 {{ color: #58a6ff; margin-top: 0; display: flex; justify-content: space-between; align-items: center; font-size: 20px; }}
     .badge {{ padding: 6px 12px; border-radius: 20px; font-weight: bold; background: #064e3b; color: #6ee7b7; font-size: 12px; display: inline-block; }}
     .shield-box {{ background: #1e1b4b; border: 1px solid #6366f1; border-radius: 6px; padding: 16px; color: #c7d2fe; margin-top: 16px; font-size: 13px; line-height: 1.6; }}
-    .section-title {{ border-bottom: 1px solid #303**d; padding-bottom: 6px; color: #f0f6fc; margin-top: 24px; font-size: 16px; font-weight: bold; }}
+    .section-title {{ border-bottom: 1px solid #30363d; padding-bottom: 6px; color: #f0f6fc; margin-top: 24px; font-size: 16px; font-weight: bold; }}
     table {{ width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }}
-    th, td {{ border: 1px solid #303**d; padding: 10px; text-align: left; }}
-    th {{ background: #212**d; color: #8b949e; width: 30%; }}
-    .terminal-box {{ background: #000; border: 1px solid #303**d; border-radius: 6px; padding: 12px; font-family: monospace; color: #00ff66; font-size: 11px; white-space: pre-wrap; margin-top: 10px; }}
+    th, td {{ border: 1px solid #30363d; padding: 10px; text-align: left; }}
+    th {{ background: #21262d; color: #8b949e; width: 30%; }}
+    .terminal-box {{ background: #000; border: 1px solid #30363d; border-radius: 6px; padding: 12px; font-family: monospace; color: #00ff66; font-size: 11px; white-space: pre-wrap; margin-top: 10px; }}
     .desktop-box {{ background: #1a1e24; border: 1px solid #3b82f6; border-radius: 6px; padding: 12px; color: #93c5fd; font-size: 12px; margin-top: 10px; }}
   </style>
 </head>
@@ -93,7 +93,7 @@ for u in user_auditors:
     </div>
 
     <div class="section-title">⚙️ Mounted GitHub Repositories</div>
-    <div style="background: #212**d; border: 1px solid #303**d; padding: 12px; border-radius: 6px; margin-top: 10px;">
+    <div style="background: #21262d; border: 1px solid #30363d; padding: 12px; border-radius: 6px; margin-top: 10px;">
       <ul style="margin: 0; padding-left: 20px;">
         {repos_html}
       </ul>

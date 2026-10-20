@@ -42,7 +42,7 @@ graph LR
     end
     CF -.->|Origin (not disclosed)| Origin[City Origin Servers]
     style Public Front‑End fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
-    style On‑Premise Services fill:#ffebee,stroke:#f443**,stroke-width:2px
+    style On‑Premise Services fill:#ffebee,stroke:#f44336,stroke-width:2px
 ```
 *The diagram highlights the split between edge‑protected services and the exposed on‑premise layer.*
 
@@ -72,7 +72,7 @@ graph LR
 - PowerShell `Resolve‑DnsName` output (June 2026) for DNS → IP mapping.
 - ASN lookup confirming **393281** → “City of Huntington Beach”.
 - Public Shodan/Censys snapshots (retrieved via web search) showing the service banners for the two critical IPs.
-- City‑issued building permit C812** (Standard Oil Tract 405) providing background on the environmental context.
+- City‑issued building permit C81252 (Standard Oil Tract 405) providing background on the environmental context.
 
 ---
 

@@ -527,7 +527,7 @@ def normalize_apn(apn: Optional[str]) -> str:
     Standardize Assessor Parcel Numbers (APNs):
     - Strips non-alphanumerics and common prefixes (APN, PARCEL, etc.)
     - Canonical Orange County 8-digit format: ###-###-## (e.g. 178-431-14)
-    - Canonical 10-digit format: ###-###-#### (e.g. 178-431-1400)
+    - Canonical 10-digit format: ###-###-#### (e.g. (***) ***-1400)
     """
     if not apn:
         return ""
@@ -843,7 +843,7 @@ def validate_tab_schema(tab_name: str, rows: List[Dict[str, Any]]) -> Dict[str, 
     }
 
 
-def normalize_lead_payload(raw: Dict[str, Any], default_case_id: str = "CASE ****0001") -> Dict[str, Any]:
+def normalize_lead_payload(raw: Dict[str, Any], default_case_id: str = "CASE-0001") -> Dict[str, Any]:
     """
     Normalizes a full lead or victim intake payload.
     """

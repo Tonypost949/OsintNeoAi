@@ -20,7 +20,7 @@ FILES = [
     ("1mKulIUZyuqBXc14uxc3aSchoFTiHw7bd", "2018 state audit response homeless oc la.pdf"),
     ("1yv4Y773H3pFVVGB9GHZcHk0uNT3or265", "2021 dec phase 1 epa.pdf"),
     ("1UNtc8aqUXDSH4z8d1X8jzK3teC6cPWft", "7642 Wintersburg, California • Beyond Nevada Expeditions.html"),
-    ("12wOrwLShs8gsEK6vyHf5jKUC6z6Cdiqu", "7942 speer apn new Withdrawn City Council Member ****ardy Item for the April 6, 20.pdf"),
+    ("12wOrwLShs8gsEK6vyHf5jKUC6z6Cdiqu", "7942 speer apn new Withdrawn City Council Member Hardy Item for the April 6, 20.pdf"),
     ("13HT01PCfNcgjf5VfbpqVYSFiWFYXXYK-", "7942 speer plans Use Permit UPX1978058 - Plans.pdf"),
     ("1rRAVC5Jy8hXD306NKHXvNKYH099PZz-A", "176** beach permits.Zip"),
     ("1I-AEKy5GU2JXb2XHwD4QN7xsdODYqVaI", "176** beach 1962.png")

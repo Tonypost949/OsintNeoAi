@@ -1,7 +1,7 @@
 # Complete Archive of Orange County Sheriff's Department (OCSD) Annual Reports, Court Operations & Civil Process Disclosures (2019–2026)
 
 **EXECUTIVE LEADERSHIP:** Sheriff-Coroner Don Barnes (Tenure: January 2019 – Present)  
-**HEADQUARTERS:** 550 N*** St., Santa Ana, CA 927**  
+**HEADQUARTERS:** 550 N. F*** St., Santa Ana, CA 927**  
 **DEPARTMENT SIZE:** ~4,000 Sworn & Professional Staff | Annual Budget: $1.1B+  
 **FOCUS:** Court Operations Command, Civil Process Division (Levying Officers), Developer Bond Interlocks & Whistleblower Retaliation Chronology  
 
@@ -28,7 +28,7 @@
   * Operational shifts regarding the enforcement of Judicial Council Emergency Rules and state/federal eviction moratoriums.
   * Suspension and subsequent resumption of Writs of Possession under modified statutory guidelines.
 * **Forensic & Municipal Nexus:**
-  * **August 21, 2020:** Orange County Health Care Agency (OCHCA) issues administrative "Case ****osed" Certificate `20IC002` for 17642 B*** Blvd / 17631 C*** Lane (Huntington Beach Navigation Center), approving an asphalt cap over toxic Hexavalent Chromium (49x EPA limit) without State DTSC concurrence.
+  * **August 21, 2020:** Orange County Health Care Agency (OCHCA) issues administrative "Case Closed" Certificate `20IC002` for 17642 B*** Blvd / 17631 C*** Lane (Huntington Beach Navigation Center), approving an asphalt cap over toxic Hexavalent Chromium (49x EPA limit) without State DTSC concurrence.
   * Huntington Beach Housing Authority deploys $6.1M in restricted Low and Moderate Income Housing Asset Funds (LMIHAF) to acquire the toxic parcel.
 
 ---
@@ -37,7 +37,7 @@
 * **Annual Report Theme:** *"Protecting the Rule of Law: Enforcement in Unprecedented Times"*
 * **Executive Action:** Department executes statutory enforcement across municipal and contract cities.
 * **Court Operations & Civil Process Command (Critical Incident):**
-  * **Levying Officer File No. `(***) ***-2780`:**
+  * **Levying Officer File No. `2021102780`:**
     * **Date:** Wednesday, August 4, 2021.
     * **Action:** Eight armed OCSD deputies deployed to Woodbridge Meadows Apartments (Shea Properties), 212 Southbrook, Irvine.
     * **Statutory Breach:** Armed lockout executed via a second, unposted writ in direct violation of **SB 91 / AB 832 (COVID-19 Tenant Relief Act)** safe harbors, displacing an active IHSS caregiver and disabled mother undergoing Hoag Hospital heart treatments.
@@ -49,7 +49,7 @@
 ---
 
 ### 📅 2022: Unsealed Wiretaps, Whistleblower Strike & Deal Collapse
-* **Annual Report Theme:** *"Integrity, Account ****lity & Community Partnership"*
+* **Annual Report Theme:** *"Integrity, Accountability & Community Partnership"*
 * **Executive Action:** Sheriff Don Barnes secures reelection to a second four-year term.
 * **Court Operations & Civil Process Command:**
   * Launch of the OCSD Civil e-Filing Portal for electronic submission of process service, property levies, and wage garnishments.
@@ -107,7 +107,7 @@
 | :--- | :--- | :--- | :--- |
 | **2019** | Don Barnes sworn in; Civil Process restructure | Angel Stadium $320M land sale initiated | Anaheim Council Res. |
 | **2020** | COVID-19 emergency civil enforcement rules | HBNC site acquired via LMIHAF; OCHCA 20IC002 cap | OCHCA Certificate 20IC002 |
-| **2021** | **Armed raid executed by 8 deputies (Aug 4)** | **Woodbridge Meadows lockout under Levying File (***) ***-2780** | **Case ****CLUD** |
+| **2021** | **Armed raid executed by 8 deputies (Aug 4)** | **Woodbridge Meadows lockout under Levying File 2021102780** | **Case 30-2021-01201327-CL-UD** |
 | **2022** | Civil e-Filing portal deployed; Barnes reelected | **May 23 Whistleblower Strike -> May 24 7-0 Deal Kill Vote** | **RFC822 IMAP MID 19e928d9** |
 | **2023** | Superior Court civil backlog resolution | Mayor Harry Sidhu guilty plea & JL Investigation Report | USA v. Sidhu (8:23-cr-00115) |
 | **2024** | OCSD/OCDA fraud task force coordination | Andrew Do / Viet America Society $13M embezzlement | OC Grand Jury Report |

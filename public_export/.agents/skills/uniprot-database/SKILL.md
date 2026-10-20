@@ -184,8 +184,8 @@ SELECT (COUNT(?protein) AS ?count) WHERE {
 
 -   **No Commas in Lists**: Commas are treated as literals. Use capitalized `OR`
     to separate items.
-    *   Grouped: `accession:(P123** OR P678**)`
-    *   Repeated: `accession:P123** OR accession:P678**`
+    *   Grouped: `accession:(P12345 OR P67890)`
+    *   Repeated: `accession:P12345 OR accession:P67890`
 -   **Space = AND**: E.g., `gene:p53 human` searches for both.
 
 ## Example Commands
@@ -207,13 +207,13 @@ uv run scripts/uniprot_tools.py search "gene:p53 AND reviewed:true" --limit 5
 Retrieve a single entry by accession.
 
 ```bash
-uv run scripts/uniprot_tools.py get P046**
+uv run scripts/uniprot_tools.py get P04637
 ```
 
 Retrieve Historical/Deleted Entry (UniSave).
 
 ```bash
-uv run scripts/uniprot_tools.py get P046** --dataset unisave
+uv run scripts/uniprot_tools.py get P04637 --dataset unisave
 ```
 
 Stream large result sets for bulk retrieval (returns ALL matched entries, no
@@ -226,7 +226,7 @@ uv run scripts/uniprot_tools.py stream "taxonomy_id:9606 AND reviewed:true" --fo
 Map IDs from one database to another.
 
 ```bash
-uv run scripts/uniprot_tools.py map "P046**" --from_db UniProtKB_AC-ID --to_db Gene_Name
+uv run scripts/uniprot_tools.py map "P04637" --from_db UniProtKB_AC-ID --to_db Gene_Name
 ```
 
 Execute graph queries with SPARQL.
@@ -240,7 +240,7 @@ uv run scripts/uniprot_tools.py sparql 'PREFIX up: <http://purl.uniprot.org/core
 -   **Using `name:` instead of `protein_name:`**: `name:` is not a supported
     query term, use `protein_name:` instead.
 -   **Ignoring UniParc**: Non-model organisms might only exist in UniParc.
--   **Confusing Accession with UPI**: UniProtKB Accessions (e.g., `P046**`) are
+-   **Confusing Accession with UPI**: UniProtKB Accessions (e.g., `P04637`) are
     linked to functional metadata; UniParc IDs (`UPI...`) are for sequences
     only. You can find cross-references from UniParc IDs to UniProtKB Accessions
     using the ID Mapping tool.

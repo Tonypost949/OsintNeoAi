@@ -1,4 +1,4 @@
-# 1133 N Formosa Ave / Falk Fiduciary & Habitability Audit
+# 1133 N. F*** Ave / Falk Fiduciary & Habitability Audit
 **Jurisdiction:** City of West Hollywood / County of Los Angeles, California  
 **Target Entities/Individuals:** Andrew Falk, Inactive 1133 N Formosa HOA, Property Management Entities
 

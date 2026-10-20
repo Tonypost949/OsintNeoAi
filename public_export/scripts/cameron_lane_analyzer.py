@@ -41,7 +41,7 @@ Recent forensic analysis of the 2025 EDR Radius Maps and CalEPA GeoTracker data 
 CORPORATE ENTITIES IMPLICATED: {', '.join(entities)}
 CONCEALED HAZARDS: {', '.join(hazards)}
 
-Despite possessing documented evidence of {hazards[0]} overlap (Case ****C002 / T10000018579), the primary developers proceeded with construction. Based on historical CERCLA and DTSC enforcement actions, properties within this exact blast radius carry an algorithmic toxic stigma discount of {calculate_stigma_discount(hazards)}. 
+Despite possessing documented evidence of {hazards[0]} overlap (Case 20IC002 / T10000018579), the primary developers proceeded with construction. Based on historical CERCLA and DTSC enforcement actions, properties within this exact blast radius carry an algorithmic toxic stigma discount of {calculate_stigma_discount(hazards)}. 
 
 Immediate public disclosure and Cal. Civ. Proc. Code § 473(d) voidance protocols are recommended for any transactions executed under the premise of a "clean" environmental report.
 """
@@ -83,7 +83,7 @@ def process_cameron_lane_target():
         "maltego_nodes": [
             {"id": "Shea_Homes", "label": "Shea Homes (Developer)"},
             {"id": "Cameron_Lane", "label": "17631 C*** Lane"},
-            {"id": "Cr_VI_Plume", "label": "Cr-VI Plume (Case ****C002)"},
+            {"id": "Cr_VI_Plume", "label": "Cr-VI Plume (Case 20IC002)"},
             {"id": "Ascon_Landfill", "label": "Ascon Landfill (30490016)"}
         ],
         "maltego_edges": [

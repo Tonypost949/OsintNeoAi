@@ -4,8 +4,8 @@
 
 ---
 
-## ⚖️ Case ****ight: Jesse Knabb v. City of Huntington Beach
-* **Federal Case ****cket:** `8:2026-cv-00348 (C.D. Cal.)`
+## ⚖️ Case Spotlight: Jesse Knabb v. City of Huntington Beach
+* **Federal Case Docket:** `8:2026-cv-00348 (C.D. Cal.)`
 * **State Administrative Action:** `Petition A-2926`
 * **Monitored Physical Situs:** `8332 S*** Way, Huntington Beach, CA 926**`
 * **Jurisdiction:** `Orange County / City of Huntington Beach`

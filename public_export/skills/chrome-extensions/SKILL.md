@@ -480,7 +480,7 @@ For detailed API patterns and publishing guidance, read the relevant file BEFORE
 | Message passing | `references/extensions/message-passing.md` |
 | Icons | `references/extensions/icons.md` |
 | CHROMEWEBSTORE.md template | `references/webstore/chromewebstore-template.md` |
-| Privacy policy ****ance | `references/webstore/privacy-policy.md` |
+| Privacy policy guidance | `references/webstore/privacy-policy.md` |
 | Pre-publish review checklist | `references/webstore/review-checklist.md` |
 | Store listing tips & rejections | `references/webstore/store-listing.md` |
 

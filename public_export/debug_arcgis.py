@@ -43,8 +43,8 @@ print('\n=== Checking OC Public Works map items ===')
 map_items = [
     '5bbd1fa12e7a43fa8d27a55afa83afa8',  # OC Construction Projects
     'cec066dcef964bdd8636ec05f9408a7a',  # Map 2
-    'cc8ebdb51c364**aa421bd4ccfc0e7fd',  # Map 3
-    '323e1b6ae027**bca659ca98ebc2435a',  # Map 4
+    'cc8ebdb51c36432aa421bd4ccfc0e7fd',  # Map 3
+    '323e1b6ae02746bca659ca98ebc2435a',  # Map 4
 ]
 
 for item_id in map_items:

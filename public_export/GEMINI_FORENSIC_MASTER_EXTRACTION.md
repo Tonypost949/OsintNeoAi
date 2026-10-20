@@ -47,7 +47,7 @@ Operational Parameters:
 
 ### 3. Eviction & Administrative Retaliation:
 - **August 4, 2021:** Lockout executed by 8 armed OCSD deputies under Sheriff Don Barnes during active COVID rental relief enrollment. Post-eviction landlord collected CA COVID-19 Rental Relief funds.
-- **Administrative Lockouts:** DMV ID card withheld (8 months), EDD layoff claims frozen (11 months), DFEH Civil Rights Case ****2945 deleted without notice.
+- **Administrative Lockouts:** DMV ID card withheld (8 months), EDD layoff claims frozen (11 months), DFEH Civil Rights Case #82945 deleted without notice.
 
 ### 4. Psychiatric Weaponization ("Zombie Warrant"):
 - DA office issued stale "zombie warrant" (PC 496d(a)) mailed to abandoned commercial address (412 O*** Ave).

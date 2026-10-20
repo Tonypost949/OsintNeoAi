@@ -525,7 +525,7 @@
       starPositions[i + 2] = (Math.random() - 0.5) * 100;
     }
     starsGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
-    const starsMaterial = new THREE.PointsMaterial({ color: 0x717**a, size: 0.2, transparent: true, opacity: 0.8 });
+    const starsMaterial = new THREE.PointsMaterial({ color: 0x71717a, size: 0.2, transparent: true, opacity: 0.8 });
     const starField = new THREE.Points(starsGeometry, starsMaterial);
     scene.add(starField);
 

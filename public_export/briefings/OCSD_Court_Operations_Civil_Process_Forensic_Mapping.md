@@ -1,6 +1,6 @@
 # Orange County Sheriff's Department (OCSD): Court Operations & Civil Process Division Mapping
 
-**TARGET FILE:** Levying Officer File No. `(***) ***-2780`  
+**TARGET FILE:** Levying Officer File No. `2021102780`  
 **INCIDENT DATE:** Wednesday, August 4, 2021  
 **LOCATION:** Woodbridge Meadows (Shea Properties), 212 Southbrook, Irvine, CA 926**  
 **EXECUTIVE AUTHORITY:** Sheriff-Coroner Don Barnes  
@@ -35,7 +35,7 @@
 ┌──────────────────────────────────────┐  ┌──────────────────────────────────────┐
 │     Central Justice Center (CJC)     │  │    Harbor Justice Center (HJC)       │
 │         Santa Ana Civil Unit         │  │     Newport Beach Civil Unit         │
-│  (Jurisdiction for Case ****2021     │  │  (Jurisdiction for Coastal / Irvine  │
+│  (Jurisdiction for Case 30-2021-     │  │  (Jurisdiction for Coastal / Irvine  │
 │         01201327-CL-UD-CJC)          │  │             Properties)              │
 └──────────────────────────────────────┘  └──────────────────────────────────────┘
 ```
@@ -68,6 +68,6 @@
 
 ## 📊 4. INTEGRATION IN SYNCFUSION ENTERPRISE FACT-CHECKING HUB
 
-* **Node ID:** `FACT-011` (*Sheriff File (***) ***-2780 Armed Lockout*) & `FACT-012` (*Perjured UD-101 Verification*)
+* **Node ID:** `FACT-011` (*Sheriff File 2021102780 Armed Lockout*) & `FACT-012` (*Perjured UD-101 Verification*)
 * **Verification Status:** **100% CONFIRMED SHERIFF RECORD & DOCUMENTED PERJURY EXHIBIT**
 * **Live URL:** [**`https://osintneoai-app-949.azurewebsites.net/syncfusion`**](https://osintneoai-app-949.azurewebsites.net/syncfusion)

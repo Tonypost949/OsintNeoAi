@@ -59,7 +59,7 @@ graph TD
 
 ## IV. FORENSIC MILESTONE: JUNE 29, 2026 (`**/**/2026`)
 
-- **428 Log References Mapped:** Comprehensive audit of the **June 29, 2026** Dehashed intelligence scan (`Dehashed-HBPD-scan.json`), uncovering **400 compromised account ****ings for the Huntington Beach Police Department (`hbpd.org`)**.
+- **428 Log References Mapped:** Comprehensive audit of the **June 29, 2026** Dehashed intelligence scan (`Dehashed-HBPD-scan.json`), uncovering **400 compromised account listings for the Huntington Beach Police Department (`hbpd.org`)**.
 - **Data Suppression Link:** Correlated directly with municipal web recon showing `hbpd.org` suppressing 25 of 26 administrative web paths.
 
 ---

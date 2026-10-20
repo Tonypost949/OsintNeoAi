@@ -49,7 +49,7 @@ PLACEMARKS = [
         "lon": -117.8741,
         "alt": 42,
         "category": "State Judicial Center",
-        "description": "700 W Civic Center Dr, Santa Ana. Venue of Woodbridge Meadows v. Dimarcello (Docket 30-2021-01201327-CL-UD-CJC) featuring triple void defaults entered after 4:29 PM statutory stay under Cal. CCP § 170.6."
+        "description": "700 W. C*** Dr, Santa Ana. Venue of Woodbridge Meadows v. Dimarcello (Docket 30-2021-01201327-CL-UD-CJC) featuring triple void defaults entered after 4:29 PM statutory stay under Cal. CCP § 170.6."
     },
     {
         "name": "11770 W*** Ave Commercial Asset Hub",

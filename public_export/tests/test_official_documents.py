@@ -153,13 +153,13 @@ class TestTier1FeatureCoverage(unittest.TestCase):
         """F8: Orange County Superior Court Unlawful Detainer Docket (30-2021-01201327-CL-UD-CJC)."""
         content = read_doc(DOC_MAP["F8_ROA"])
         self.assertTrue(DOC_MAP["F8_ROA"].exists(), "F8 file must exist")
-        self.assertIn("30-2021-01201327-CL-UD-CJC", content, "F8 must contain Superior Court case ****mber")
+        self.assertIn("30-2021-01201327-CL-UD-CJC", content, "F8 must contain Superior Court case number")
         self.assertIn("WOODBRIDGE MEADOWS", content, "F8 must name Plaintiff Woodbridge Meadows")
         self.assertIn("DIMARCELLO", content, "F8 must name Defendant Dimarcello")
         self.assertIn("Carmen Luege", content, "F8 must name Assigned Judge Carmen Luege")
         self.assertIn("Arden Hoang", content, "F8 must name Plaintiff Counsel Arden Hoang")
         self.assertIn("Richard S. Sontag", content, "F8 must name Plaintiff Counsel Richard S. Sontag")
-        self.assertIn("May 18, 2021", content, "F8 must state May 18, 2021 case ****ling date")
+        self.assertIn("May 18, 2021", content, "F8 must state May 18, 2021 case filing date")
 
     def test_f9_triple_default_judgments_analysis(self):
         """F9: Triple Default Judgments Analysis (**/**/2021, **/**/2021, **/**/2022)."""
@@ -171,7 +171,7 @@ class TestTier1FeatureCoverage(unittest.TestCase):
         self.assertIn("Rochin", content, "F9 must cite Rochin v. Pat Johnson Mfg. Co. void judgment doctrine")
         self.assertIn("Heidary", content, "F9 must cite Heidary v. Yadollahi jurisdictional nullity")
         self.assertIn("Don Barnes", content, "F9 must name Sheriff Don Barnes")
-        self.assertIn("(***) ***-2780", content, "F9 must cite Sheriff Levying File #(***) ***-2780")
+        self.assertIn("2021102780", content, "F9 must cite Sheriff Levying File #2021102780")
 
     def test_f10_tactical_429pm_1706_challenge(self):
         """F10: Tactical 4:29 PM Cal. CCP § 170.6 Peremptory Strike of Judge Carmen Luege."""
@@ -189,21 +189,21 @@ class TestTier1FeatureCoverage(unittest.TestCase):
         """F11: Hamilton Township Police Division Incident Records (2019-00053723 & 2020-00008897)."""
         content = read_doc(DOC_MAP["F11_HAMILTON"])
         self.assertTrue(DOC_MAP["F11_HAMILTON"].exists(), "F11 file must exist")
-        self.assertIn("2019-00053723", content, "F11 must cite Incident Case ****3723")
+        self.assertIn("2019-00053723", content, "F11 must cite Incident Case 2019-00053723")
         self.assertIn("1456 C*** Lane", content, "F11 must state 1456 C*** Lane occurrence location")
         self.assertIn("Timothy Donovan", content, "F11 must name Officer Timothy Donovan #484")
         self.assertIn("Helene Fuld", content, "F11 must name Capital Health Regional Crisis Unit (Helene Fuld)")
         self.assertIn("1103-S-2019-002671", content, "F11 must cite Summons 1103-S-2019-002671")
         self.assertIn("2C:29-1a", content, "F11 must cite N.J.S.A. 2C:29-1a (Obstruction)")
-        self.assertIn("2020-00008897", content, "F11 must cite Case ****8897")
+        self.assertIn("2020-00008897", content, "F11 must cite Case 2020-00008897")
         self.assertIn("2020-613", content, "F11 must cite Summons #2020-613")
         self.assertIn("2C:20-11b(1)", content, "F11 must cite N.J.S.A. 2C:20-11b(1) (Shoplifting)")
 
     def test_f12_ewing_police_logs_and_fbi_nexus(self):
-        """F12: Ewing Police Department Evidence Logs & FBI Nexus (Case ****1222)."""
+        """F12: Ewing Police Department Evidence Logs & FBI Nexus (Case I-2019-001222)."""
         content = read_doc(DOC_MAP["F12_EWING"])
         self.assertTrue(DOC_MAP["F12_EWING"].exists(), "F12 file must exist")
-        self.assertIn("I-2019-001222", content, "F12 must cite Ewing Case ****1222")
+        self.assertIn("I-2019-001222", content, "F12 must cite Ewing Case I-2019-001222")
         self.assertIn("044.01", content, "F12 must cite Evidence Item 044.01 (Methamphetamine)")
         self.assertIn("046", content, "F12 must cite Evidence Item 046 (Samsung phone)")
         self.assertIn("BRADLEY ZARTMAN", content, "F12 must record TOT FBI AGENT BRADLEY ZARTMAN")
@@ -273,7 +273,7 @@ class TestTier2BoundaryAndCornerCases(unittest.TestCase):
             self.assertGreater(size, 500, f"Document {doc_key} ({doc_path.name}) must be > 500 bytes (got {size})")
 
     def test_tier2_case_number_regex_formats(self):
-        """Validate case ****bers across all jurisdictions against authoritative regex patterns."""
+        """Validate case numbers across all jurisdictions against authoritative regex patterns."""
         cdca_regex = re.compile(r"\b8:\d{2}-(cr|mj)-\d{5}-[A-Z]{3,4}\b")
         dnj_regex = re.compile(r"\b3:\d{2}-(cr|mj)-\d{5}-[A-Z]{3,4}\b")
         oc_ud_regex = re.compile(r"\b30-2021-01201327-CL-UD-CJC\b")
@@ -287,7 +287,7 @@ class TestTier2BoundaryAndCornerCases(unittest.TestCase):
         self.assertIsNotNone(dnj_regex.search(ryan_text), "Ryan document must match DNJ regex")
 
         ud_text = read_doc(DOC_MAP["F8_ROA"])
-        self.assertIsNotNone(oc_ud_regex.search(ud_text), "UD document must match Orange County case ****egex")
+        self.assertIsNotNone(oc_ud_regex.search(ud_text), "UD document must match Orange County case number regex")
 
         police_text = read_doc(DOC_MAP["F11_HAMILTON"])
         self.assertIsNotNone(hamilton_regex.search(police_text), "Police log must match Hamilton incident regex")

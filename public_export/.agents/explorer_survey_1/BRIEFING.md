@@ -7,7 +7,7 @@ Survey existing multi-format evidence ingestion and OCR processing components in
 - Archetype: Teamwork explorer
 - Roles: Exploration specialist, read-only investigation, synthesizer
 - Working directory: C:\OsintNeoAi\.agents\explorer_survey_1\
-- Original parent: 732690b7-29f9-4a6b-8380-b817**c3f7f4
+- Original parent: 732690b7-29f9-4a6b-8380-b81754c3f7f4
 - Milestone: Requirement R1 - Multi-format Evidence Ingestion & OCR Engine Survey
 
 ## 🔒 Key Constraints
@@ -17,7 +17,7 @@ Survey existing multi-format evidence ingestion and OCR processing components in
 - Must use send_message to report results back to parent
 
 ## Current Parent
-- Conversation ID: 732690b7-29f9-4a6b-8380-b817**c3f7f4
+- Conversation ID: 732690b7-29f9-4a6b-8380-b81754c3f7f4
 - Updated: 2026-09-02T16:37:06Z
 
 ## Investigation State

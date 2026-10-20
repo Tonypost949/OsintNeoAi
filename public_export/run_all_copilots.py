@@ -16,13 +16,13 @@ def run_all_copilot_agents_pipeline():
         "active_copilot_agents": [
             {
                 "name": "OsintNeoAi Sentinel Agent",
-                "id": "e6781ec6-79e6-4868-90be-60e88d514**b",
+                "id": "e6781ec6-79e6-4868-90be-60e88d51435b",
                 "action": "Continuous Forensic Threat Monitoring & Proximity Verification",
-                "findings": "Verified 11 T-Mobile cellular SIM swap vectors, 28 Chase Bank account ****sure logs, and 58 Mercy House shelter intake records."
+                "findings": "Verified 11 T-Mobile cellular SIM swap vectors, 28 Chase Bank account closure logs, and 58 Mercy House shelter intake records."
             },
             {
                 "name": "OsintNeoAi Master Agent",
-                "id": "3bda9cdd-4646-47bf-8e7a-4d025**f01bf",
+                "id": "3bda9cdd-4646-47bf-8e7a-4d02547f01bf",
                 "action": "Unified Cross-Domain Knowledge Graph Orchestration",
                 "findings": "Orchestrated 9,976 vector nodes and 3,519 physical evidence locker files across Dataverse Custom Connector (/api/nodes)."
             },

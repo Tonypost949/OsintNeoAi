@@ -11,8 +11,8 @@
 |---|---|---|
 | Legal Name | Mercy House Living Centers, Inc. | IRS Form 990 / GSA Audit |
 | EIN | 33-0912995 (per 990 filing) | IRS 990 |
-| Address (HQ) | 807 N Garfield St, Santa Ana, CA 927** | SBA PPP / NPPES |
-| NPPES Taxonomy | 251B000**X (Residential Treatment Facility) | NPPES |
+| Address (HQ) | 807 N. G*** St, Santa Ana, CA 927** | SBA PPP / NPPES |
+| NPPES Taxonomy | 251B00000X (Residential Treatment Facility) | NPPES |
 | NAICS | 624221 (Social Services — Homeless Shelters) | SBA PPP |
 | Business Type | Non-Profit Organization | SBA PPP |
 | NPI | Registered in NPPES (Orange County) | NPPES |
@@ -44,7 +44,7 @@ Per GSA Audit notes: Mercy House Living Centers received **$303,000 in FY2024** 
 ### 2.1 Mercy House Living Centers, Inc.
 | Field | Value | Source |
 |---|---|---|
-| SBA Loan ****mber | (***) ***-7109 | SBA PPP Public Data |
+| SBA Loan Number | 5552257109 | SBA PPP Public Data |
 | Date Approved | **/**/2020 | SBA PPP |
 | Initial Approval | $1,339,000 | SBA PPP |
 | Current Approval | $1,339,000 | SBA PPP |
@@ -61,7 +61,7 @@ Per GSA Audit notes: Mercy House Living Centers received **$303,000 in FY2024** 
 | SBA Guaranty | **100%** | SBA PPP |
 | HubZone Indicator | **Y (HubZone)** | SBA PPP |
 | LMI Indicator | Y | SBA PPP |
-| Loan ****atus | **Paid in Full** | SBA PPP |
+| Loan Status | **Paid in Full** | SBA PPP |
 | Business Age | Existing or more than 2 years old | SBA PPP |
 
 **SIGNAL: 100% of loan = payroll proceed. Fully forgiven at 101.7% of original principal ($1,348,905 on $1,339,000).**
@@ -158,7 +158,7 @@ Per GSA Audit notes: Mercy House Living Centers received **$303,000 in FY2024** 
 ## SECTION 5: RELATED-PARTY TRANSACTIONS — VERIFIED PUBLIC RECORD
 
 ### 5.1 Creative Design Consultants & Partners (CDCP)
-Per IRS 990: A board member ****osed a business relationship between their firm (CDCP) and Mercy House CHDO relating to the "Tiny Tim project." The relationship arose from a selection process conducted by CDCP — not Mercy House. The project is HUD-funded. The board member ****ated they were not directly involved in the solicitation or selection process, which was described as arm's-length and competitive.
+Per IRS 990: A board member disclosed a business relationship between their firm (CDCP) and Mercy House CHDO relating to the "Tiny Tim project." The relationship arose from a selection process conducted by CDCP — not Mercy House. The project is HUD-funded. The board member stated they were not directly involved in the solicitation or selection process, which was described as arm's-length and competitive.
 
 **STATUS: Disclosed in 990 filing. No independent oversight confirmation available.**
 
@@ -169,8 +169,8 @@ Per IRS 990: A board member ****osed a business relationship between their firm 
 ### 6.1 B*** Blvd / Center Ave Commercial Strip (Huntington Beach / Costa Mesa / Anaheim)
 | LLC | Address | Mail Address | Last Sale | Last Sale Value |
 |---|---|---|---|---|
-| **JARIC PROPERTIES LLC** | 172** BEACH BLVD, Anaheim | 1321 S Auto Center Dr | Apr 2023 | $3,400,000 |
-| **JARIC PROPERTIES LLC** | 173** BEACH BLVD, Anaheim | 1321 S Auto Center Dr | Apr 2023 | $2,600,000 |
+| **JARIC PROPERTIES LLC** | 172** BEACH BLVD, Anaheim | 1321 S. A*** Dr | Apr 2023 | $3,400,000 |
+| **JARIC PROPERTIES LLC** | 173** BEACH BLVD, Anaheim | 1321 S. A*** Dr | Apr 2023 | $2,600,000 |
 | KRS WERKS LLC | 7561 CENTER AVE #E1, Cerritos | 13337 S*** St #683 | Aug 2023 | $825,000 |
 | **ARES INVESTMENT GROUP LLC** | 7755 CENTER AVE, Costa Mesa | 1683 S*** Ave | Sep 2023 | $42,000,000 |
 | **ARES INVESTMENT GROUP LLC** | 7777 CENTER AVE, Costa Mesa | 1683 S*** Ave | Sep 2023 | $42,000,000 |

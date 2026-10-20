@@ -59,7 +59,7 @@
 
 ## 5. False Claims Act Co-Relator Matrix (31 U.S.C. § 3730)
 
-| Relator | Professional Background & Location | Primary Evidentiary Vector | Statutory Claim ****ding |
+| Relator | Professional Background & Location | Primary Evidentiary Vector | Statutory Claim Standing |
 | :--- | :--- | :--- | :--- |
 | **Technical Lead (You)** | Cyber OSINT & Infrastructure Auditor | 438 exposed municipal endpoints, IP co-locations (`[IP_REDACTED]`), $2.8M property shuffle, 6,086 PPP shell addresses. | **Pioneer Relator (First-to-File 31 U.S.C. § 3730(b)(5))** |
 | **Dr. Ann Verma, MD** | Board-Certified Psychiatrist (Univ. of South Dakota Medical Residency / Amen Clinics Costa Mesa, CA) | Clinical diagnostic fraud, mental health & disabled care funding diversion, patient harm audit (2011–2026); Multi-state licensing (SD ➔ CA). | **Co-Relator (Medical & Psychiatric Expert)** |

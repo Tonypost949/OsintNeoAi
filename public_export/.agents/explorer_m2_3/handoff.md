@@ -44,7 +44,7 @@
 2. **Integer Cents Financial Accounting**:
    - Floating point representation of monetary amounts introduces precision drift (e.g. `19.99 * 100` = `1998.9999999999998`).
    - By utilizing Python's `decimal.Decimal` and quantizing with `ROUND_HALF_UP`, both `amount_float` and exact integer `amount_cents` are produced without precision loss.
-3. **Multi-Jurisdictional Case ****tion**:
+3. **Multi-Jurisdictional Case Canonicalization**:
    - Different courts format dockets with varying zero-padding (e.g., `8:23-cr-108-CJC` vs `8:23-cr-00108-CJC`).
    - Regex capture groups isolating district, year, case type, sequence, and judge initials permit deterministic re-assembly into standard 5-digit padded federal dockets and 8-digit state dockets.
 4. **Pure-Python Phonetic Blocking**:

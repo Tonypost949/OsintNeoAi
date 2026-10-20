@@ -37,6 +37,6 @@ out_file.write_text(json.dumps(matches, indent=2), encoding='utf-8')
 print(f"✓ Total PPP Loan & SBA Sweep Matches Found: {len(matches)}")
 print(f"✓ Saved search results to: {out_file}\n")
 
-print("Top PPP Loan ****ches:")
+print("Top PPP Loan Matches:")
 for m in matches[:20]:
     print(f"[{m['source']}]: {m['snippet'][:120]}")

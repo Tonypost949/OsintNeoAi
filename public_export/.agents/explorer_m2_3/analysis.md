@@ -37,7 +37,7 @@ The normalizer layer sits between **Document Extraction (PyMuPDF / RapidOCR ONNX
 │  └──────────┬───────────┘        └──────────┬───────────┘  │
 │             │                               │              │
 │  ┌──────────┴───────────┐        ┌──────────┴───────────┐  │
-│  │    Case ****izer   │        │   Entity Normalizer  │  │
+│  │    Case Normalizer   │        │   Entity Normalizer  │  │
 │  │(Dockets & Citations) │        │ (Suffix, Soundex, DM)│  │
 │  └──────────────────────┘        └──────────────────────┘  │
 └──────────────────────────────┬──────────────────────────────┘
@@ -618,14 +618,14 @@ The investigation records span three distinct legal jurisdictions and statutory 
    - Central District of California (CDCA): `8:23-cr-00108-CJC` (Harry Sidhu), `8:22-cr-00078-CJC` (Todd Ament), `8:23-cr-00009-CJC` (Melahat Rafiei), `8:26-cv-00348-JWH-ADS` (Jesse Knabb)
    - District of New Jersey (DNJ): `3:20-mj-05007-TJB` (Christopher Ryan)
    - Southern District of California (SDCA): `19-CR-1787-BAS` (Jeremy Shane Marble)
-   - Short clerk citations: `Case ****5007 (TJB)`, `8:23cr108`
+   - Short clerk citations: `Case No. 20-5007 (TJB)`, `8:23cr108`
 2. **California Superior Court Dockets**:
    - Orange County Central Justice Center (CJC): `30-2021-01201327-CL-UD-CJC` (Woodbridge Meadows v. Dimarcello)
    - Structure: `[CountyPrefix]-[YYYY]-[8-digit Sequence]-[Category]-[Subcategory]-[Department/Judge]`
 3. **Multi-State Law Enforcement Incident & Summons Numbers**:
-   - Hamilton Township Police Division: `Case ****3723`, `Case ****8897`, `Summons #2020-613`
-   - Ewing Police Department: `Case ****1222` / `1-2019-001222`
-   - Orange County Sheriff's Eviction Notice: `Levying Officer File No. (***) ***-2780`
+   - Hamilton Township Police Division: `Case 2019-00053723`, `Case 2020-00008897`, `Summons #2020-613`
+   - Ewing Police Department: `Case Number: I-2019-001222` / `1-2019-001222`
+   - Orange County Sheriff's Eviction Notice: `Levying Officer File No. 2021102780`
 4. **Statutory Violations & Legislative Instruments**:
    - California Government Code: `Cal. Gov. Code § 542**` (Surplus Land Act), `Cal. Gov. Code § 549**` (Ralph M. Brown Act)
    - California Code of Civil Procedure: `Cal. CCP § 170.6` (Peremptory Challenge against Judge Carmen Luege)
@@ -1617,6 +1617,6 @@ To ensure 100% test coverage and compliance with invariant assertions, the build
 |---|---|---|
 | Date Output | ISO 8601 UTC (`YYYY-MM-DD` / `YYYY-MM-DDTHH:MM:SSZ`) | Fully compliant via `date_normalizer.py` |
 | Financial Output | `amount_float` + `amount_cents` integer | Fully compliant with Decimal quantization via `financial_normalizer.py` |
-| Case ****kets | Federal + State dockets + Statutes | Fully compliant with zero-padded dockets via `case_normalizer.py` |
+| Case Dockets | Federal + State dockets + Statutes | Fully compliant with zero-padded dockets via `case_normalizer.py` |
 | Entity Phonetics | Soundex & Double Metaphone | Pure-Python zero-dependency implementation via `entity_normalizer.py` |
 | Memory Complexity | $O(1)$ memory consumption | Linear streaming with pre-compiled regex engine |

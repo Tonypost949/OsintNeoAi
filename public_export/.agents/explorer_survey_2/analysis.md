@@ -30,7 +30,7 @@ This report provides an exhaustive, production-grade technical investigation int
    - **Timestamps**: Multi-pattern regex extractor coupled with `python-dateutil` fuzzy parser, US locale precedence (`MM/DD/YYYY`), and UTC timezone casting, producing canonical ISO 8601 strings (`YYYY-MM-DDTHH:MM:SSZ` or `YYYY-MM-DD`).
    - **Financial Amounts**: Suffix-aware financial parser resolving currency symbols (`$`, `€`, `£`, `USD`, `EUR`, `GBP`), negative parentheses `($500.00)`, and numeric multipliers (`k`, `M`, `Million`, `Billion`), outputting both floating-point values and exact integer cents (`amount_cents = int(round(amount * 100))`) to eliminate floating-point drift.
    - **Sender/Recipient Metadata**: MIME/RFC-2822 header extraction, legal correspondence prefix parsing (`FROM:`, `TO:`, `ATTN:`), honorific stripping, and entity classification (`individual`, `municipal_body`, `state_agency`, `corporate_entity`).
-   - **Legal Case ****iers**: Robust extraction and canonicalization of federal dockets (e.g., `8:23-cr-00108-CJC`, `8:26-cv-00348-JWH-ADS`), California Superior Court dockets (`30-2021-01201327-CL-UD-CJC`), police incident/summons numbers (`Case ****3723`), and statutory violations (`Cal. Gov. Code § 542**`, `18 U.S.C. § 1343`).
+   - **Legal Case Identifiers**: Robust extraction and canonicalization of federal dockets (e.g., `8:23-cr-00108-CJC`, `8:26-cv-00348-JWH-ADS`), California Superior Court dockets (`30-2021-01201327-CL-UD-CJC`), police incident/summons numbers (`Case 2019-00053723`), and statutory violations (`Cal. Gov. Code § 542**`, `18 U.S.C. § 1343`).
 
 4. **Reliability, Invariant Testing & Memory Strategies (`R4`)**:
    - Page-by-page generator processing with explicit memory disposal (`del pixmap; gc.collect()`) ensures memory usage remains under 250 MB even when processing 500+ page court documents or multi-gigabyte mail archives.
@@ -443,7 +443,7 @@ def clean_entity_name(name_str: str) -> str:
     return cleaned
 ```
 
-### 4.4 Legal Case ****iers & Court Citations
+### 4.4 Legal Case Identifiers & Court Citations
 
 ```python
 import re

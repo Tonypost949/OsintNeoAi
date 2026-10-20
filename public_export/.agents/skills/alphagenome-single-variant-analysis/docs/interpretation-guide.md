@@ -168,7 +168,7 @@ explain the statistical artifact.
 -   **Occupancy ≠ Disruption**: A variant landing in an active enhancer (e.g.,
     H3K27ac peak present) or promoter (e.g. before gene TSS) does not imply
     disruption. If REF and ALT tracks are identical and scores are near zero,
-    the variant has no predicted effect. Do not claim ****tion based on
+    the variant has no predicted effect. Do not claim disruption based on
     location alone.
 -   **Model Limitations**: AlphaGenome is a DNA-to-molecular phenotype model but
     has limited scope of modeled molecular phenotypes. For example, it does NOT

@@ -11,7 +11,7 @@ PUZZLE_FILE = os.path.join(OUTPUT_DIR, "daily_crypto_crossword.json")
 CLUE_BANK = [
     {
         "id": "CLUE_01",
-        "clue": "Vadose-zone heavy metal peaking at 980 µg/kg at Boring B9A (Case ****C002)",
+        "clue": "Vadose-zone heavy metal peaking at 980 µg/kg at Boring B9A (Case 20IC002)",
         "answer": "HEXAVALENT CHROMIUM",
         "statutory_anchor": "Cal. Health & Safety Code § 253** (HSAA)"
     },

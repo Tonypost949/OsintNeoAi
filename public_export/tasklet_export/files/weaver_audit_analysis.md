@@ -181,7 +181,7 @@ Our BigQuery cross-referencing and analysis of `hb_llcs`, `chdo_real_estate_tran
 
 ## 7. Consolidated RICO Synthesis Timeline
 
-This integrated timeline tracks the parallel flow of PPP loan ****raud, public grant steering, and real estate acquisitions across both networks:
+This integrated timeline tracks the parallel flow of PPP loan fraud, public grant steering, and real estate acquisitions across both networks:
 
 * **August 2018 – July 2024:** 2T Media receives 19 sole-source/un-bid marketing contracts from Andrew Do's District 1 office totaling **$623,000**.
 * **October 2019:** Chris Wangsaporn issues a non-negotiable directive requiring all 2T Media contracts to be paid 100% in advance.

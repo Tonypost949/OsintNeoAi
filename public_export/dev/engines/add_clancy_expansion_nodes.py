@@ -37,7 +37,7 @@ new_nodes = [
         "whistleblower": "Dr. Ann Verma, M.D.",
         "statement_file": "DR_ANN_VERMA_RESCISSION_NOTICE.docx",
         "gatekeepers_exposed": ["Dr. Phillip Resnick (CWRU)", "Dr. Donald Kushon (Drexel)", "Dr. Avram Mack (Harvard)"],
-        "pipelines_exposed": ["Pipeline 4: Diagnostic Laundering & Asset Stripping", "Medicaid ****ding", "Title IV-E Removal"]
+        "pipelines_exposed": ["Pipeline 4: Diagnostic Laundering & Asset Stripping", "Medicaid Upcoding", "Title IV-E Removal"]
     }
 ]
 

@@ -8,7 +8,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 docs = {
     "01_USA_v_Harry_Sidhu_8_23_cr_001**_CJC.md": """# OFFICIAL COURT RECORD: UNITED STATES v. HARRY SIDHU
 **Court:** United States District Court for the Central District of California (Southern Division - Santa Ana)  
-**Case ****mber:** `8:23-cr-00108-CJC`  
+**Case Number:** `8:23-cr-00108-CJC`  
 **Presiding Judge:** Hon. Cormac J. Carney, U.S. District Judge  
 **Defendant:** Harish "Harry" Sidhu (Former Mayor of the City of Anaheim)  
 **Filing Date:** August 16, 2023  
@@ -52,7 +52,7 @@ docs = {
 **Recipient:** City of Anaheim / Anaheim City Council  
 **Date of Issuance:** December 8, 2021  
 **Statutory Authority:** Cal. Gov. Code § 542** et seq. (Surplus Land Act - SLA)  
-**Subject Property:** 150-Acre Angel Stadium Property (2000 E*** Way, Anaheim, CA)  
+**Subject Property:** 150-Acre Angel Stadium Property (2000 E. G*** Way, Anaheim, CA)  
 
 ---
 
@@ -68,7 +68,7 @@ HCD determined that the City of Anaheim violated the Surplus Land Act (SLA) (Cal
    * Before negotiating the sale of public land, a local agency MUST send a formal written notice of availability to entities including local housing authorities, park districts, and school districts under Cal. Gov. Code § 542**.
    * Anaheim engaged in private direct negotiations with SRB Management Co. LLC starting in 2019 without complying with mandatory statutory notice procedures under Cal. Gov. Code § 542** and § 542**.
 2. **Invalid Exemption / Grandfathering Defense (Cal. Gov. Code § 542**):**
-   * Anaheim claimed the transaction was exempt under prior lease options. HCD rejected this claim ****nder Cal. Gov. Code § 542**, ruling that the 2019 agreement was a completely new disposition exceeding the scope of historical lease agreements.
+   * Anaheim claimed the transaction was exempt under prior lease options. HCD rejected this claim under Cal. Gov. Code § 542**, ruling that the 2019 agreement was a completely new disposition exceeding the scope of historical lease agreements.
 3. **Mandatory 30% Statutory Civil Penalty (Cal. Gov. Code § 542**.5):**
    * Under SLA enforcement rules (Cal. Gov. Code § 542**.5), disposing of public land in violation of the SLA subjects the local agency to a **mandatory fine equal to 30% of the final gross sales price**:
      $$\\text{Penalty} = 30\\% \\times \\$320,000,000.00 = \\mathbf{\\$96,000,000.00}$$
@@ -92,7 +92,7 @@ HCD determined that the City of Anaheim violated the Surplus Land Act (SLA) (Cal
   1. *Wire Fraud (18 U.S.C. § 1343)* — Defrauding the Anaheim Chamber of Commerce and routing $225,000 through consulting shell `TA Group LLC` to purchase a private residence in Big Bear, California.
   2. *False Statements to a Financial Institution (18 U.S.C. § 1014)* — Mortgage fraud on loan applications.
   3. *False Tax Returns (26 U.S.C. § 7206(1))* — Underreporting taxable income derived from diverted Chamber and client funds.
-* **Role in Stadium Deal:** Functioned as the ringleader of the private "cabal," orchestrating secret meetings, controlling municipal policy ****ndas, and coordinating with Mayor Sidhu to steer city contracts.
+* **Role in Stadium Deal:** Functioned as the ringleader of the private "cabal," orchestrating secret meetings, controlling municipal policy agendas, and coordinating with Mayor Sidhu to steer city contracts.
 
 ---
 
@@ -117,7 +117,7 @@ index_md = f"""# 🏛️ OFFICIAL COURT & INVESTIGATION RECORDS REPOSITORY
 **Location:** `C:\\OsintNeoAi\\evidence\\official_court_records\\`  
 **Updated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}  
 
-This directory contains verified official records, federal plea agreements, regulatory notices of violation, court dockets, and law enforcement case ****bits compiled across all active investigations:
+This directory contains verified official records, federal plea agreements, regulatory notices of violation, court dockets, and law enforcement case exhibits compiled across all active investigations:
 
 ---
 
@@ -141,7 +141,7 @@ This directory contains verified official records, federal plea agreements, regu
 
 5. 📑 [`05_Woodbridge_Meadows_v_Dimarcello_30_2021_01201327_CL_UD_CJC.md`](file:///C:/OsintNeoAi/evidence/official_court_records/05_Woodbridge_Meadows_v_Dimarcello_30_2021_01201327_CL_UD_CJC.md)
    * **Subject:** Complete 61-Entry Unlawful Detainer ROA Docket (*Woodbridge Meadows v. Dimarcello*, `30-2021-01201327-CL-UD-CJC`).
-   * **Key Evidence:** Triple default judgments (`**/**/2021`, `**/**/2021`, `**/**/2022`), Sheriff Don Barnes Levying File #(***) ***-2780, Judge Carmen Luege 3:11 PM Chambers Stay Order ("STAYED"), and Plaintiff's tactical 4:29 PM Cal. CCP § 170.6 Peremptory Challenge (E-Filing #1885125).
+   * **Key Evidence:** Triple default judgments (`**/**/2021`, `**/**/2021`, `**/**/2022`), Sheriff Don Barnes Levying File #2021102780, Judge Carmen Luege 3:11 PM Chambers Stay Order ("STAYED"), and Plaintiff's tactical 4:29 PM Cal. CCP § 170.6 Peremptory Challenge (E-Filing #1885125).
 
 6. 🔍 [`06_JL_Investigation_Anaheim_Forensic_Audit_Report.md`](file:///C:/OsintNeoAi/evidence/official_court_records/06_JL_Investigation_Anaheim_Forensic_Audit_Report.md)
    * **Subject:** JL Group LLC 353-Page Comprehensive Independent Forensic Investigation (July 31, 2023).
@@ -153,7 +153,7 @@ This directory contains verified official records, federal plea agreements, regu
 
 8. 🚓 [`08_Multi_State_Police_and_Commercial_Incident_Logs.md`](file:///C:/OsintNeoAi/evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md)
    * **Subject:** Multi-State Police Incident Logs, Evidence Chain of Custody, and Interstate Commercial Nexus.
-   * **Key Evidence:** Hamilton Township PD Cases 2019-00053723 (1456 C*** Lane, Officer Timothy Donovan #484, Helene Fuld Crisis Unit, Summons 1103-S-2019-002671, N.J.S.A. 2C:29-1a) & 2020-00008897 (Summons #2020-613, N.J.S.A. 2C:20-11b(1)); Ewing PD Case ****1222 (Items 044.01 & 046, Officer Ranker & Giovacchini, TOT FBI AGENT BRADLEY ZARTMAN); Quantum Auto Dismantler (3125 W. 5th St Santa Ana, Invoice #140**, Workorder #145**, VIN 302796, $546.25 cash); Dog's Day Productions IRS EIN (***-**-7252); and Alaska Airlines JAEETQ.
+   * **Key Evidence:** Hamilton Township PD Cases 2019-00053723 (1456 C*** Lane, Officer Timothy Donovan #484, Helene Fuld Crisis Unit, Summons 1103-S-2019-002671, N.J.S.A. 2C:29-1a) & 2020-00008897 (Summons #2020-613, N.J.S.A. 2C:20-11b(1)); Ewing PD Case I-2019-001222 (Items 044.01 & 046, Officer Ranker & Giovacchini, TOT FBI AGENT BRADLEY ZARTMAN); Quantum Auto Dismantler (3125 W. 5th St Santa Ana, Invoice #140**, Workorder #145**, VIN 302796, $546.25 cash); Dog's Day Productions IRS EIN (***-**-7252); and Alaska Airlines JAEETQ.
 
 ---
 """

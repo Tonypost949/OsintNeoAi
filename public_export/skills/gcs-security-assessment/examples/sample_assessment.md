@@ -81,7 +81,7 @@ Legacy ACLs are active and there is no version history if objects are overwritte
 
 --------------------------------------------------------------------------------
 
-**Policy ****ixes** (org or project-level — may require elevated permissions):
+**Policy Fixes** (org or project-level — may require elevated permissions):
 
 ```
 P1. Enable Data Access audit logs
@@ -124,8 +124,8 @@ B5. Enable object versioning
 B6. Reduce agent SA to least privilege: removes project-wide storage.admin and
     replaces it with bucket-scoped read-only, blocking the agent takeover path.
     Console: Cloud Storage > Bucket > Permissions > Edit agent SA role
-    gcloud: gcloud projects remove-iam-policy ****ding ml-platform-prod-101 --member='serviceAccount:AGENT_SA' --role='roles/storage.admin'
-            gcloud storage buckets add-iam-policy ****ding gs://model-checkpoints --member='serviceAccount:AGENT_SA' --role='roles/storage.objectViewer'
+    gcloud: gcloud projects remove-iam-policy-binding ml-platform-prod-101 --member='serviceAccount:AGENT_SA' --role='roles/storage.admin'
+            gcloud storage buckets add-iam-policy-binding gs://model-checkpoints --member='serviceAccount:AGENT_SA' --role='roles/storage.objectViewer'
 
 B7. Activate Model Armor Vertex AI integration: wires prompt screening into
     Gemini calls so injections are blocked before reaching the agent.

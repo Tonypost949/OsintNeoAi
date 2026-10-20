@@ -363,7 +363,7 @@ def _add_dataset_filters(parser: argparse.ArgumentParser) -> None:
       "--has-pvalue",
       help="Select datasets meeting a p-value threshold (true/false)",
   )
-  parser.add_argument("--identifier", help="Dataset identifier, e.g. GSE601**")
+  parser.add_argument("--identifier", help="Dataset identifier, e.g. GSE60130")
   parser.add_argument("--jaspar-id", help="JASPAR database profile matrix ID")
   parser.add_argument("--model", help="Prediction model")
   parser.add_argument("--summary", help="Obtain summary of TF and related data")

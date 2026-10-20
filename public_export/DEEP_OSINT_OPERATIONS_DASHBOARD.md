@@ -37,7 +37,7 @@
 
 ### **TERTIARY: NATIONWIDE FINANCIAL CRIMES**
 - **Hub Location:** 11770 W*** Ave, Huntington Beach CA (55.6% hospice/medical shells)
-- **Scheme:** Medicaid ****ling, SBA fraud, $0 deed transfers
+- **Scheme:** Medicaid overbilling, SBA fraud, $0 deed transfers
 - **Escrow Vault:** Pham Living Trust ($3.88M) — California State Controller ID 1024456136
 - **Cross-Border:** Mexico Fideicomiso trusts, FinCEN San Ysidro remittances
 

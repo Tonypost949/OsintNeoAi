@@ -149,8 +149,8 @@ def haversine_miles(lat1: float, lon1: float, lat2: float, lon2: float) -> float
             return 9999.0
         phi1, phi2 = math.radians(f_lat1), math.radians(f_lat2)
         dphi = math.radians(f_lat2 - f_lat1)
-        dl ****mbda = math.radians(f_lon2 - f_lon1)
-        a = math.sin(dphi / 2.0)**2 + math.cos(phi1) * math.cos(phi2) * math.sin(dl ****mbda / 2.0)**2
+        dlambda = math.radians(f_lon2 - f_lon1)
+        a = math.sin(dphi / 2.0)**2 + math.cos(phi1) * math.cos(phi2) * math.sin(dlambda / 2.0)**2
         a = min(1.0, max(0.0, a))
         return R * (2.0 * math.atan2(math.sqrt(a), math.sqrt(1.0 - a)))
     except Exception:
@@ -428,7 +428,7 @@ def run_correlation() -> Dict[str, Any]:
         summary["mutual_aid_leads_count"] = len(mutual_cases)
         for mc in mutual_cases:
             if not isinstance(mc, dict): continue
-            cid = mc.get("id") or mc.get("case_id") or "CASE ****0001"
+            cid = mc.get("id") or mc.get("case_id") or "CASE-0001"
             vname = mc.get("victim_name") or mc.get("entity_name") or "Anonymous"
             norm_vname = normalize_name(vname)
             loc = mc.get("location") or mc.get("address") or ""

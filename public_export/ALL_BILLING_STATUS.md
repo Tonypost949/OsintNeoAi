@@ -4,7 +4,7 @@
 
 ---
 
-## 1. GCP Billing Account ****atus (Live Audit)
+## 1. GCP Billing Account Status (Live Audit)
 
 | Account | Master Billing Account | Status | Verified Via | Notes |
 | :--- | :--- | :--- | :--- | :--- |

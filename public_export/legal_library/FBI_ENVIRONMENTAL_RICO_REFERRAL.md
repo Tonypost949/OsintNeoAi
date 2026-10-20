@@ -55,7 +55,7 @@ The above entities form an associated-in-fact enterprise united by:
 | Count | Act | Statute |
 |---|---|---|
 | 5+ | Wire fraud (false PPP applications) | 18 U.S.C. § 1343 |
-| 5+ | Bank fraud (false loan ****ions) | 18 U.S.C. § 1344 |
+| 5+ | Bank fraud (false loan certifications) | 18 U.S.C. § 1344 |
 | 5+ | Money laundering | 18 U.S.C. § 1956/1957 |
 
 ---

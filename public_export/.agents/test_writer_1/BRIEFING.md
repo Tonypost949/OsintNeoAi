@@ -41,7 +41,7 @@ Design, implement, and execute a comprehensive 4-Tier E2E automated test suite i
 
 ## Key Decisions Made
 - Implemented dual compatibility (`pytest` and Python standard `unittest`) in `tests/test_official_documents.py`.
-- Encoded rigorous boundary assertions (exact case ****exes, continuous 1-61 ROA table scan, statutory penalty math verification).
+- Encoded rigorous boundary assertions (exact case number regexes, continuous 1-61 ROA table scan, statutory penalty math verification).
 - Validated multi-jurisdictional evidence pipelines spanning federal, state, municipal, and commercial conduits.
 
 ## Artifact Index

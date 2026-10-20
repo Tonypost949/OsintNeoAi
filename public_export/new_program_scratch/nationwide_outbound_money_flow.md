@@ -8,38 +8,38 @@ This unified matrix lists **every US State Balance of State CoC**, mapping the p
 
 | State | CoC ID | CoC Node Name | Primary Recipient / Local Admin | Award Amount | Key Program / Service | NPI / Tax ID | Local Hazards, Policing, & PPP Loops |
 | :--- | :---: | :--- | :--- | :--- | :--- | :--- | :--- |
-| Alabama (AL) | `AL-507` | Alabama Balance of State CoC | **SMD INVESTMENTS LLC** (PPP Shell) | $21,700.00 | PPP Capital Loan ****ffle | APN: 932-071-07 | **Heavy industrial runoff, chemical plant overlays, sheriff-only county coverage.**<br>_Metrics:_ PIT Total: 1124 (Sheltered: 820, Unsheltered: 304)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `1654 IOWA ST UNIT C`. Loan ****tion: `Cottondale, AL` (Status: Paid in Full) |
-| Alabama (AL) | `AL-507` | Alabama Balance of State CoC | **SUMMIT PROPERTIES LLC** (PPP Shell) | $16,340.00 | PPP Capital Loan ****ffle | APN: 025-111-58 | **Heavy industrial runoff, chemical plant overlays, sheriff-only county coverage.**<br>_Metrics:_ PIT Total: 1124 (Sheltered: 820, Unsheltered: 304)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `2501 FLORIDA ST`. Loan ****tion: `Guntersville, AL` (Status: Paid in Full) |
-| Alaska (AK) | `AK-500` | Alaska Balance of State CoC | **TRIUMVIRATE LLC** (PPP Shell) | $852,740.00 | PPP Capital Loan ****ffle | APN: 151-234-09 | **Severe geographic isolation, oil/gas terminal regions, absence of integrated health NPI tracking.**<br>_Metrics:_ PIT Total: 1422 (Sheltered: 1200, Unsheltered: 222)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `219** BROOKHURST ST`. Loan ****tion: `Anchorage, AK` (Status: Paid in Full) |
-| Alaska (AK) | `AK-500` | Alaska Balance of State CoC | **DBS-ENTERPRISES LLC** (PPP Shell) | $237,189.00 | PPP Capital Loan ****ffle | APN: 936-770-37 | **Severe geographic isolation, oil/gas terminal regions, absence of integrated health NPI tracking.**<br>_Metrics:_ PIT Total: 1422 (Sheltered: 1200, Unsheltered: 222)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `2881 COAST CIR APT A`. Loan ****tion: `Chugiak, AK; SANTA CLARA, CA` (Status: Paid in Full) |
-| Arizona (AZ) | `AZ-500` | Arizona Balance of State CoC | **A & D LLC** (PPP Shell) | $55,324.47 | PPP Capital Loan ****ffle | APN: 146-312-13 | **13 rural counties under sheriff-only policing, mining corridor runoff, zero clinical social work billing verification.**<br>_Metrics:_ PIT Total: 9642 (Sheltered: 4612, Unsheltered: 5030)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `5821 VIEW CIR`. Loan ****tion: `Phoenix, AZ` (Status: Paid in Full) |
-| Arizona (AZ) | `AZ-500` | Arizona Balance of State CoC | **SAMPSON VENTURES LLC** (PPP Shell) | $32,690.00 | PPP Capital Loan ****ffle | APN: 165-331-17 | **13 rural counties under sheriff-only policing, mining corridor runoff, zero clinical social work billing verification.**<br>_Metrics:_ PIT Total: 9642 (Sheltered: 4612, Unsheltered: 5030)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `176** SAMPSON LN`. Loan ****tion: `Mesa, AZ` (Status: Paid in Full) |
-| Arizona (AZ) | `AZ-500` | Arizona Balance of State CoC | **JEK INVESTMENTS LLC** (PPP Shell) | $26,907.00 | PPP Capital Loan ****ffle | APN: 025-091-01 | **13 rural counties under sheriff-only policing, mining corridor runoff, zero clinical social work billing verification.**<br>_Metrics:_ PIT Total: 9642 (Sheltered: 4612, Unsheltered: 5030)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `1325 DELAWARE ST`. Loan ****tion: `Phoenix, AZ` (Status: Paid in Full) |
-| Arizona (AZ) | `AZ-500` | Arizona Balance of State CoC | **DRT INVESTMENTS LLC** (PPP Shell) | $24,094.00 | PPP Capital Loan ****ffle | APN: 153-091-27 | **13 rural counties under sheriff-only policing, mining corridor runoff, zero clinical social work billing verification.**<br>_Metrics:_ PIT Total: 9642 (Sheltered: 4612, Unsheltered: 5030)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `199** BEACH BLVD`. Loan ****tion: `Phoenix, AZ` (Status: Paid in Full) |
-| Arizona (AZ) | `AZ-500` | Arizona Balance of State CoC | **DRT INVESTMENTS LLC** (PPP Shell) | $24,094.00 | PPP Capital Loan ****ffle | APN: 153-091-27 | **13 rural counties under sheriff-only policing, mining corridor runoff, zero clinical social work billing verification.**<br>_Metrics:_ PIT Total: 9642 (Sheltered: 4612, Unsheltered: 5030)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `199** BEACH BLVD`. Loan ****tion: `Phoenix, AZ` (Status: Paid in Full) |
-| Arizona (AZ) | `AZ-500` | Arizona Balance of State CoC | **JBH LLC** (PPP Shell) | $20,607.00 | PPP Capital Loan ****ffle | APN: 939-830-19 | **13 rural counties under sheriff-only policing, mining corridor runoff, zero clinical social work billing verification.**<br>_Metrics:_ PIT Total: 9642 (Sheltered: 4612, Unsheltered: 5030)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `711 W 17TH ST # 19`. Loan ****tion: `PHOENIX, AZ` (Status: Paid in Full) |
+| Alabama (AL) | `AL-507` | Alabama Balance of State CoC | **SMD INVESTMENTS LLC** (PPP Shell) | $21,700.00 | PPP Capital Loan Shuffle | APN: 932-071-07 | **Heavy industrial runoff, chemical plant overlays, sheriff-only county coverage.**<br>_Metrics:_ PIT Total: 1124 (Sheltered: 820, Unsheltered: 304)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `1654 IOWA ST UNIT C`. Loan location: `Cottondale, AL` (Status: Paid in Full) |
+| Alabama (AL) | `AL-507` | Alabama Balance of State CoC | **SUMMIT PROPERTIES LLC** (PPP Shell) | $16,340.00 | PPP Capital Loan Shuffle | APN: 025-111-58 | **Heavy industrial runoff, chemical plant overlays, sheriff-only county coverage.**<br>_Metrics:_ PIT Total: 1124 (Sheltered: 820, Unsheltered: 304)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `2501 FLORIDA ST`. Loan location: `Guntersville, AL` (Status: Paid in Full) |
+| Alaska (AK) | `AK-500` | Alaska Balance of State CoC | **TRIUMVIRATE LLC** (PPP Shell) | $852,740.00 | PPP Capital Loan Shuffle | APN: 151-234-09 | **Severe geographic isolation, oil/gas terminal regions, absence of integrated health NPI tracking.**<br>_Metrics:_ PIT Total: 1422 (Sheltered: 1200, Unsheltered: 222)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `219** BROOKHURST ST`. Loan location: `Anchorage, AK` (Status: Paid in Full) |
+| Alaska (AK) | `AK-500` | Alaska Balance of State CoC | **DBS-ENTERPRISES LLC** (PPP Shell) | $237,189.00 | PPP Capital Loan Shuffle | APN: 936-770-37 | **Severe geographic isolation, oil/gas terminal regions, absence of integrated health NPI tracking.**<br>_Metrics:_ PIT Total: 1422 (Sheltered: 1200, Unsheltered: 222)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `2881 COAST CIR APT A`. Loan location: `Chugiak, AK; SANTA CLARA, CA` (Status: Paid in Full) |
+| Arizona (AZ) | `AZ-500` | Arizona Balance of State CoC | **A & D LLC** (PPP Shell) | $55,324.47 | PPP Capital Loan Shuffle | APN: 146-312-13 | **13 rural counties under sheriff-only policing, mining corridor runoff, zero clinical social work billing verification.**<br>_Metrics:_ PIT Total: 9642 (Sheltered: 4612, Unsheltered: 5030)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `5821 VIEW CIR`. Loan location: `Phoenix, AZ` (Status: Paid in Full) |
+| Arizona (AZ) | `AZ-500` | Arizona Balance of State CoC | **SAMPSON VENTURES LLC** (PPP Shell) | $32,690.00 | PPP Capital Loan Shuffle | APN: 165-331-17 | **13 rural counties under sheriff-only policing, mining corridor runoff, zero clinical social work billing verification.**<br>_Metrics:_ PIT Total: 9642 (Sheltered: 4612, Unsheltered: 5030)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `176** SAMPSON LN`. Loan location: `Mesa, AZ` (Status: Paid in Full) |
+| Arizona (AZ) | `AZ-500` | Arizona Balance of State CoC | **JEK INVESTMENTS LLC** (PPP Shell) | $26,907.00 | PPP Capital Loan Shuffle | APN: 025-091-01 | **13 rural counties under sheriff-only policing, mining corridor runoff, zero clinical social work billing verification.**<br>_Metrics:_ PIT Total: 9642 (Sheltered: 4612, Unsheltered: 5030)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `1325 DELAWARE ST`. Loan location: `Phoenix, AZ` (Status: Paid in Full) |
+| Arizona (AZ) | `AZ-500` | Arizona Balance of State CoC | **DRT INVESTMENTS LLC** (PPP Shell) | $24,094.00 | PPP Capital Loan Shuffle | APN: 153-091-27 | **13 rural counties under sheriff-only policing, mining corridor runoff, zero clinical social work billing verification.**<br>_Metrics:_ PIT Total: 9642 (Sheltered: 4612, Unsheltered: 5030)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `199** BEACH BLVD`. Loan location: `Phoenix, AZ` (Status: Paid in Full) |
+| Arizona (AZ) | `AZ-500` | Arizona Balance of State CoC | **DRT INVESTMENTS LLC** (PPP Shell) | $24,094.00 | PPP Capital Loan Shuffle | APN: 153-091-27 | **13 rural counties under sheriff-only policing, mining corridor runoff, zero clinical social work billing verification.**<br>_Metrics:_ PIT Total: 9642 (Sheltered: 4612, Unsheltered: 5030)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `199** BEACH BLVD`. Loan location: `Phoenix, AZ` (Status: Paid in Full) |
+| Arizona (AZ) | `AZ-500` | Arizona Balance of State CoC | **JBH LLC** (PPP Shell) | $20,607.00 | PPP Capital Loan Shuffle | APN: 939-830-19 | **13 rural counties under sheriff-only policing, mining corridor runoff, zero clinical social work billing verification.**<br>_Metrics:_ PIT Total: 9642 (Sheltered: 4612, Unsheltered: 5030)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `711 W 17TH ST # 19`. Loan location: `PHOENIX, AZ` (Status: Paid in Full) |
 | Arkansas (AR) | `AR-501` | Arkansas Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Agricultural chemical drainage overlays, rural policing gaps, administrative pass-throughs.**<br>_Metrics:_ PIT Total: 545 (Sheltered: 380, Unsheltered: 165) |
-| California (CA) | `CA-602` | Orange County CoC / Balance of State | Mercy House Operational Network | $155,000,000.00 | Permanent Supportive Housing | NPI-OC-MH01 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `88 FAIR DR`. Loan ****tion: `MARINA DEL REY, CA; Marina del Rey, CA` (Status: Paid in Full)<br>_Audit Warning:_ Unaccounted Delta: $5,500,000,000.00 |
-| California (CA) | `CA-602` | Orange County CoC / Balance of State | Mercy House Operational Network | N/A | CoC Housing Programs | NPI-OC-MH01 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `4340 VON KARMAN AVE STE 205`. Loan ****tion: `SAN FRANCISCO, CA` (Status: Paid in Full)<br>_Audit Warning:_ Unaccounted Delta: $5,500,000,000.00 |
-| California (CA) | `CA-602` | Orange County CoC / Balance of State | Viet America Society | N/A | CoC Housing Programs | TAX-FRAUD-EIN-851492798 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `528 16TH ST`. Loan ****tion: `NEWPORT BEACH, CA` (Status: Paid in Full) |
-| California (CA) | `CA-602` | Orange County CoC / Balance of State | Mercy House | N/A | CoC Housing Programs | TAX-FRAUD-EIN-874001776 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `162** PACIFIC CIR APT 306`. Loan ****tion: `Chatsworth, CA` (Status: Exemption 4) |
-| California (CA) | `CA-602` | Orange County CoC / Balance of State | Mercy House Living Centers | N/A | CoC Housing Programs | MERCY-HOUSE-TAX-FYNone | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `1600 W BALBOA BLVD`. Loan ****tion: `Newport Beach, CA` (Status: Paid in Full) |
-| California (CA) | `CA-602` | Orange County CoC / Balance of State | Mercy House Living Centers | N/A | CoC Housing Programs | MERCY-HOUSE-TAX-FY2022 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `172** NEWHOPE ST STE 124`. Loan ****tion: `FOUNTAIN VALLEY, CA` (Status: Paid in Full) |
-| California (CA) | `CA-602` | Orange County CoC / Balance of State | **COMPASSIONATE CARE HOSPICE LLC** (PPP Shell) | $279,820.00 | PPP Capital Loan ****ffle | APN: 938-780-18 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `172** NEWHOPE ST STE 124`. Loan ****tion: `FOUNTAIN VALLEY, CA` (Status: Paid in Full) |
-| California (CA) | `CA-602` | Orange County CoC / Balance of State | **NEWPORT BEACH GOLF COURSE LLC** (PPP Shell) | $115,400.00 | PPP Capital Loan ****ffle | APN: 988-012-81 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `119-200 IRVINE BLVD`. Loan ****tion: `NEWPORT BEACH, CA` (Status: Paid in Full) |
-| California (CA) | `CA-602` | Orange County CoC / Balance of State | **DEVPRI HOSPITALITY LLC** (PPP Shell) | $115,000.00 | PPP Capital Loan ****ffle | APN: 178-516-13 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `165** PACIFIC COAST HWY`. Loan ****tion: `SUNSET BEACH, CA; Sunset Beach, CA` (Status: Paid in Full) |
-| California (CA) | `CA-602` | Orange County CoC / Balance of State | **DEVPRI HOSPITALITY LLC** (PPP Shell) | $115,000.00 | PPP Capital Loan ****ffle | APN: 178-516-13 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `165** PACIFIC COAST HWY`. Loan ****tion: `SUNSET BEACH, CA; Sunset Beach, CA` (Status: Paid in Full) |
-| California (CA) | `CA-602` | Orange County CoC / Balance of State | **GOLDEN HILLS PROPERTIES LLC** (PPP Shell) | $88,324.40 | PPP Capital Loan ****ffle | APN: 988-023-26 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `3335 W COAST HWY`. Loan ****tion: `Los Angeles, CA` (Status: Paid in Full) |
-| California (CA) | `CA-602` | Orange County CoC / Balance of State | **WFS PROPERTIES LLC** (PPP Shell) | $54,417.00 | PPP Capital Loan ****ffle | APN: 024-031-15 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `212 15TH ST`. Loan ****tion: `BREA, CA` (Status: Paid in Full) |
-| California (CA) | `CA-602` | Orange County CoC / Balance of State | **RANCHO LA SIESTA LLC** (PPP Shell) | $45,000.00 | PPP Capital Loan ****ffle | APN: 157-231-04 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `181** BUSHARD ST`. Loan ****tion: `Fountain Valley, CA` (Status: Paid in Full) |
-| California (CA) | `CA-602` | Orange County CoC / Balance of State | **CROWN WEALTH PROPERTIES LLC** (PPP Shell) | $43,190.00 | PPP Capital Loan ****ffle | APN: 939-570-01 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `2900 BRISTOL ST # 1`. Loan ****tion: `COSTA MESA, CA` (Status: Paid in Full) |
-| California (CA) | `CA-602` | Orange County CoC / Balance of State | **MERRIMAC PARTNERS LLC** (PPP Shell) | $41,665.00 | PPP Capital Loan ****ffle | APN: 934-472-42 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `209** CABRILLO LN # 61`. Loan ****tion: `YORBA LINDA, CA` (Status: Paid in Full) |
-| California (CA) | `CA-602` | Orange County CoC / Balance of State | **PARKSVILLE INVESTMENT LLC** (PPP Shell) | $29,165.00 | PPP Capital Loan ****ffle | APN: 142-511-17 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `7450 EDINGER AVE`. Loan ****tion: `LOS ANGELES, CA` (Status: Paid in Full) |
-| California (CA) | `CA-602` | Orange County CoC / Balance of State | **BONGOS SPORTFISHING LLC** (PPP Shell) | $25,250.00 | PPP Capital Loan ****ffle | APN: 988-015-77 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `829 HARBOR ISLAND DR`. Loan ****tion: `NEWPORT BEACH, CA` (Status: Paid in Full) |
+| California (CA) | `CA-602` | Orange County CoC / Balance of State | Mercy House Operational Network | $155,000,000.00 | Permanent Supportive Housing | NPI-OC-MH01 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `88 FAIR DR`. Loan location: `MARINA DEL REY, CA; Marina del Rey, CA` (Status: Paid in Full)<br>_Audit Warning:_ Unaccounted Delta: $5,500,000,000.00 |
+| California (CA) | `CA-602` | Orange County CoC / Balance of State | Mercy House Operational Network | N/A | CoC Housing Programs | NPI-OC-MH01 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `4340 VON KARMAN AVE STE 205`. Loan location: `SAN FRANCISCO, CA` (Status: Paid in Full)<br>_Audit Warning:_ Unaccounted Delta: $5,500,000,000.00 |
+| California (CA) | `CA-602` | Orange County CoC / Balance of State | Viet America Society | N/A | CoC Housing Programs | TAX-FRAUD-EIN-851492798 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `528 16TH ST`. Loan location: `NEWPORT BEACH, CA` (Status: Paid in Full) |
+| California (CA) | `CA-602` | Orange County CoC / Balance of State | Mercy House | N/A | CoC Housing Programs | TAX-FRAUD-EIN-874001776 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `162** PACIFIC CIR APT 306`. Loan location: `Chatsworth, CA` (Status: Exemption 4) |
+| California (CA) | `CA-602` | Orange County CoC / Balance of State | Mercy House Living Centers | N/A | CoC Housing Programs | MERCY-HOUSE-TAX-FYNone | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `1600 W BALBOA BLVD`. Loan location: `Newport Beach, CA` (Status: Paid in Full) |
+| California (CA) | `CA-602` | Orange County CoC / Balance of State | Mercy House Living Centers | N/A | CoC Housing Programs | MERCY-HOUSE-TAX-FY2022 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `172** NEWHOPE ST STE 124`. Loan location: `FOUNTAIN VALLEY, CA` (Status: Paid in Full) |
+| California (CA) | `CA-602` | Orange County CoC / Balance of State | **COMPASSIONATE CARE HOSPICE LLC** (PPP Shell) | $279,820.00 | PPP Capital Loan Shuffle | APN: 938-780-18 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `172** NEWHOPE ST STE 124`. Loan location: `FOUNTAIN VALLEY, CA` (Status: Paid in Full) |
+| California (CA) | `CA-602` | Orange County CoC / Balance of State | **NEWPORT BEACH GOLF COURSE LLC** (PPP Shell) | $115,400.00 | PPP Capital Loan Shuffle | APN: 988-012-81 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `119-200 IRVINE BLVD`. Loan location: `NEWPORT BEACH, CA` (Status: Paid in Full) |
+| California (CA) | `CA-602` | Orange County CoC / Balance of State | **DEVPRI HOSPITALITY LLC** (PPP Shell) | $115,000.00 | PPP Capital Loan Shuffle | APN: 178-516-13 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `165** PACIFIC COAST HWY`. Loan location: `SUNSET BEACH, CA; Sunset Beach, CA` (Status: Paid in Full) |
+| California (CA) | `CA-602` | Orange County CoC / Balance of State | **DEVPRI HOSPITALITY LLC** (PPP Shell) | $115,000.00 | PPP Capital Loan Shuffle | APN: 178-516-13 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `165** PACIFIC COAST HWY`. Loan location: `SUNSET BEACH, CA; Sunset Beach, CA` (Status: Paid in Full) |
+| California (CA) | `CA-602` | Orange County CoC / Balance of State | **GOLDEN HILLS PROPERTIES LLC** (PPP Shell) | $88,324.40 | PPP Capital Loan Shuffle | APN: 988-023-26 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `3335 W COAST HWY`. Loan location: `Los Angeles, CA` (Status: Paid in Full) |
+| California (CA) | `CA-602` | Orange County CoC / Balance of State | **WFS PROPERTIES LLC** (PPP Shell) | $54,417.00 | PPP Capital Loan Shuffle | APN: 024-031-15 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `212 15TH ST`. Loan location: `BREA, CA` (Status: Paid in Full) |
+| California (CA) | `CA-602` | Orange County CoC / Balance of State | **RANCHO LA SIESTA LLC** (PPP Shell) | $45,000.00 | PPP Capital Loan Shuffle | APN: 157-231-04 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `181** BUSHARD ST`. Loan location: `Fountain Valley, CA` (Status: Paid in Full) |
+| California (CA) | `CA-602` | Orange County CoC / Balance of State | **CROWN WEALTH PROPERTIES LLC** (PPP Shell) | $43,190.00 | PPP Capital Loan Shuffle | APN: 939-570-01 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `2900 BRISTOL ST # 1`. Loan location: `COSTA MESA, CA` (Status: Paid in Full) |
+| California (CA) | `CA-602` | Orange County CoC / Balance of State | **MERRIMAC PARTNERS LLC** (PPP Shell) | $41,665.00 | PPP Capital Loan Shuffle | APN: 934-472-42 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `209** CABRILLO LN # 61`. Loan location: `YORBA LINDA, CA` (Status: Paid in Full) |
+| California (CA) | `CA-602` | Orange County CoC / Balance of State | **PARKSVILLE INVESTMENT LLC** (PPP Shell) | $29,165.00 | PPP Capital Loan Shuffle | APN: 142-511-17 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `7450 EDINGER AVE`. Loan location: `LOS ANGELES, CA` (Status: Paid in Full) |
+| California (CA) | `CA-602` | Orange County CoC / Balance of State | **BONGOS SPORTFISHING LLC** (PPP Shell) | $25,250.00 | PPP Capital Loan Shuffle | APN: 988-015-77 | **Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.**<br>_Metrics:_ PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `829 HARBOR ISLAND DR`. Loan location: `NEWPORT BEACH, CA` (Status: Paid in Full) |
 | Colorado (CO) | `CO-500` | Colorado Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **54 rural shale-drilling counties, high oil/gas environmental overlays, lack of clinical sociale work tracking.**<br>_Metrics:_ PIT Total: 9065 (Sheltered: 6290, Unsheltered: 2775) |
 | Connecticut (CT) | `CT-505` | Connecticut Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Industrial waste overlays, municipal bypass schemes, localized funding diversions.**<br>_Metrics:_ PIT Total: 1850 (Sheltered: 1500, Unsheltered: 350) |
 | Delaware (DE) | `DE-500` | Delaware Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Chemical processing zones, corporate shell registration hotspots, oversight voids.**<br>_Metrics:_ PIT Total: 1245 (Sheltered: 1100, Unsheltered: 145) |
-| Florida (FL) | `FL-511` | Florida Balance of State CoC | **FIRST HIGHLAND LLC** (PPP Shell) | $205,800.00 | PPP Capital Loan ****ffle | APN: 938-270-26 | **Agricultural pesticide runoff, tourist corridor shelter pricing inflation, sheriff-only jurisdictions.**<br>_Metrics:_ PIT Total: 2314 (Sheltered: 1510, Unsheltered: 804)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `8171 COBBLESTONE LN # 4`. Loan ****tion: `Windermere, FL` (Status: Paid in Full) |
+| Florida (FL) | `FL-511` | Florida Balance of State CoC | **FIRST HIGHLAND LLC** (PPP Shell) | $205,800.00 | PPP Capital Loan Shuffle | APN: 938-270-26 | **Agricultural pesticide runoff, tourist corridor shelter pricing inflation, sheriff-only jurisdictions.**<br>_Metrics:_ PIT Total: 2314 (Sheltered: 1510, Unsheltered: 804)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `8171 COBBLESTONE LN # 4`. Loan location: `Windermere, FL` (Status: Paid in Full) |
 | Georgia (GA) | `GA-501` | Georgia Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Over 100 rural counties, industrial wood-pulp processing zones, zero registered clinical social work NPIs.**<br>_Metrics:_ PIT Total: 2679 (Sheltered: 1840, Unsheltered: 839) |
 | Hawaii (HI) | `HI-500` | Hawaii Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Military-DoD contract overlaps, high lease-back values, isolated island security black sites.**<br>_Metrics:_ PIT Total: 4028 (Sheltered: 1720, Unsheltered: 2308) |
 | Idaho (ID) | `ID-500` | Idaho Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Pesticide runoffs, agricultural land-shuffling, absolute lack of municipal auditing.**<br>_Metrics:_ PIT Total: 687 (Sheltered: 450, Unsheltered: 237) |
@@ -52,7 +52,7 @@ This unified matrix lists **every US State Balance of State CoC**, mapping the p
 | Maine (ME) | `ME-500` | Maine Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Rural paper mill waste runoffs, geographic isolation, sheriff-only regional policing.**<br>_Metrics:_ PIT Total: 4258 (Sheltered: 3800, Unsheltered: 458) |
 | Maryland (MD) | `MD-513` | Maryland Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Industrial shipping waste overlays, municipal shell entities, non-profit lease-back loops.**<br>_Metrics:_ PIT Total: 1597 (Sheltered: 1200, Unsheltered: 397) |
 | Massachusetts (MA) | `MA-516` | Massachusetts Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Old industrial waste runoffs, high lease-back pricing inflation, corporate non-profit board overlaps.**<br>_Metrics:_ PIT Total: 5231 (Sheltered: 4800, Unsheltered: 431) |
-| Michigan (MI) | `MI-500` | Michigan Balance of State CoC | **STEWART INDUSTRIES LLC** (PPP Shell) | $1,128,327.50 | PPP Capital Loan ****ffle | APN: 178-431-14 | **Automotive industrial waste, heavy PFAS water contamination overlays, lack of billing audits.**<br>_Metrics:_ PIT Total: 1247 (Sheltered: 1050, Unsheltered: 197)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `3311 BOUNTY CIR`. Loan ****tion: `Battle Creek, MI; BATTLE CREEK, MI` (Status: Paid in Full) |
+| Michigan (MI) | `MI-500` | Michigan Balance of State CoC | **STEWART INDUSTRIES LLC** (PPP Shell) | $1,128,327.50 | PPP Capital Loan Shuffle | APN: 178-431-14 | **Automotive industrial waste, heavy PFAS water contamination overlays, lack of billing audits.**<br>_Metrics:_ PIT Total: 1247 (Sheltered: 1050, Unsheltered: 197)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `3311 BOUNTY CIR`. Loan location: `Battle Creek, MI; BATTLE CREEK, MI` (Status: Paid in Full) |
 | Minnesota (MN) | `MN-500` | Minnesota Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Heavy agricultural chemical overlays, zero NPI tracking, rural sheriff gaps.**<br>_Metrics:_ PIT Total: 3051 (Sheltered: 2400, Unsheltered: 651) |
 | Mississippi (MS) | `MS-501` | Mississippi Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Pesticide runoffs, high-risk real estate acquisitions, zero registered health billing audits.**<br>_Metrics:_ PIT Total: 523 (Sheltered: 310, Unsheltered: 213) |
 | Missouri (MO) | `MO-505` | Missouri Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **101 non-entitlement counties, lead-mining soil toxicity overlays, zero clinical NPI registration.**<br>_Metrics:_ PIT Total: 1256 (Sheltered: 980, Unsheltered: 276) |
@@ -60,21 +60,21 @@ This unified matrix lists **every US State Balance of State CoC**, mapping the p
 | Nebraska (NE) | `NE-500` | Nebraska Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Pesticide soil toxicity overlays, sheriff-only counties, absence of NPI tracking.**<br>_Metrics:_ PIT Total: 1354 (Sheltered: 1150, Unsheltered: 204) |
 | Nevada (NV) | `NV-502` | Nevada Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Mining chemical runoff overlays, high-value land shuffles, sheriff-only policing.**<br>_Metrics:_ PIT Total: 6566 (Sheltered: 2560, Unsheltered: 4006) |
 | New Hampshire (NH) | `NH-500` | New Hampshire Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Paper mill industrial runoff, municipal shell acquisitions, zero billing audits.**<br>_Metrics:_ PIT Total: 1605 (Sheltered: 1300, Unsheltered: 305) |
-| New Jersey (NJ) | `NJ-515` | New Jersey Balance of State CoC | **LAZER LLC** (PPP Shell) | $600,000.00 | PPP Capital Loan ****ffle | APN: 165-302-05 | **Superfund landfill overlays, industrial waste sites, corporate non-profit board overlaps.**<br>_Metrics:_ PIT Total: 102** (Sheltered: 8500, Unsheltered: 1767)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `7782 RONALD DR`. Loan ****tion: `SADDLE RIVER, NJ` (Status: Paid in Full) |
+| New Jersey (NJ) | `NJ-515` | New Jersey Balance of State CoC | **LAZER LLC** (PPP Shell) | $600,000.00 | PPP Capital Loan Shuffle | APN: 165-302-05 | **Superfund landfill overlays, industrial waste sites, corporate non-profit board overlaps.**<br>_Metrics:_ PIT Total: 102** (Sheltered: 8500, Unsheltered: 1767)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `7782 RONALD DR`. Loan location: `SADDLE RIVER, NJ` (Status: Paid in Full) |
 | New Mexico (NM) | `NM-500` | New Mexico Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Mining/uranium tailings runoff, sheriff-only policing, zero clinical billing NPIs.**<br>_Metrics:_ PIT Total: 2394 (Sheltered: 1500, Unsheltered: 894) |
 | New York (NY) | `NY-606` | New York Balance of State CoC | *Direct Municipal Recipient* | $142,000,000.00 | Permanent Supportive Housing | N/A | **Upstate industrial runoffs, high real estate lease-back values, non-profit board self-dealing.**<br>_Metrics:_ PIT Total: 880** (Sheltered: 840**, Unsheltered: 4025) |
 | North Carolina (NC) | `NC-503` | North Carolina Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Agricultural industrial runoff, sheriff-only county coverage, zero billing audits.**<br>_Metrics:_ PIT Total: 2145 (Sheltered: 1600, Unsheltered: 545) |
 | North Dakota (ND) | `ND-500` | North Dakota Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Fracking/oil shale environmental runoffs, sheriff-only policing, zero NPI tracking.**<br>_Metrics:_ PIT Total: 610 (Sheltered: 480, Unsheltered: 130) |
 | Ohio (OH) | `OH-506` | Ohio Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **80 non-urban counties, heavy industrial chemical runoffs, zero clinical billing social work NPIs.**<br>_Metrics:_ PIT Total: 1105 (Sheltered: 890, Unsheltered: 215) |
 | Oklahoma (OK) | `OK-506` | Oklahoma Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Oil refinery runoff overlays, sheriff-only policing, lack of billing audits.**<br>_Metrics:_ PIT Total: 1436 (Sheltered: 950, Unsheltered: 486) |
-| Oregon (OR) | `OR-504` | Oregon Balance of State CoC | **DRT LLC** (PPP Shell) | $357,716.32 | PPP Capital Loan ****ffle | APN: 178-653-37 | **Agricultural pesticide runoffs, timber industry waste overlays, zero NPI registration.**<br>_Metrics:_ PIT Total: 6279 (Sheltered: 2300, Unsheltered: 3979)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `168** CORAL CAY LN`. Loan ****tion: `ONTARIO, OR` (Status: Paid in Full) |
+| Oregon (OR) | `OR-504` | Oregon Balance of State CoC | **DRT LLC** (PPP Shell) | $357,716.32 | PPP Capital Loan Shuffle | APN: 178-653-37 | **Agricultural pesticide runoffs, timber industry waste overlays, zero NPI registration.**<br>_Metrics:_ PIT Total: 6279 (Sheltered: 2300, Unsheltered: 3979)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `168** CORAL CAY LN`. Loan location: `ONTARIO, OR` (Status: Paid in Full) |
 | Pennsylvania (PA) | `PA-601` | Pennsylvania Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Fracking runoff, coal-ash toxicity overlays, corporate shell non-profit overlaps.**<br>_Metrics:_ PIT Total: 4725 (Sheltered: 4000, Unsheltered: 725) |
-| Rhode Island (RI) | `RI-500` | Rhode Island Balance of State CoC | **HB LLC** (PPP Shell) | $444,400.00 | PPP Capital Loan ****ffle | APN: 149-053-07 | **Industrial shipping waste, municipal bypass loops, lease-back inflation.**<br>_Metrics:_ PIT Total: 1810 (Sheltered: 1500, Unsheltered: 310)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `9472 RAMBLER DR`. Loan ****tion: `PROVIDENCE, RI; LONG BEACH, CA; Long Beach, CA` (Status: Paid in Full) |
-| South Carolina (SC) | `SC-502` | South Carolina Balance of State CoC | **RAV LLC** (PPP Shell) | $392,800.00 | PPP Capital Loan ****ffle | APN: 988-150-06 | **Industrial waste overlays, agricultural runoffs, sheriff-only regional policing.**<br>_Metrics:_ PIT Total: 458 (Sheltered: 320, Unsheltered: 138)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `1 MAIN ST`. Loan ****tion: `MYRTLE BEACH, SC; Myrtle Beach, SC` (Status: Paid in Full) |
+| Rhode Island (RI) | `RI-500` | Rhode Island Balance of State CoC | **HB LLC** (PPP Shell) | $444,400.00 | PPP Capital Loan Shuffle | APN: 149-053-07 | **Industrial shipping waste, municipal bypass loops, lease-back inflation.**<br>_Metrics:_ PIT Total: 1810 (Sheltered: 1500, Unsheltered: 310)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `9472 RAMBLER DR`. Loan location: `PROVIDENCE, RI; LONG BEACH, CA; Long Beach, CA` (Status: Paid in Full) |
+| South Carolina (SC) | `SC-502` | South Carolina Balance of State CoC | **RAV LLC** (PPP Shell) | $392,800.00 | PPP Capital Loan Shuffle | APN: 988-150-06 | **Industrial waste overlays, agricultural runoffs, sheriff-only regional policing.**<br>_Metrics:_ PIT Total: 458 (Sheltered: 320, Unsheltered: 138)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `1 MAIN ST`. Loan location: `MYRTLE BEACH, SC; Myrtle Beach, SC` (Status: Paid in Full) |
 | South Dakota (SD) | `SD-500` | South Dakota Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Mining Tailings, severe geographic isolation, absence of clinical billing NPIs.**<br>_Metrics:_ PIT Total: 1245 (Sheltered: 950, Unsheltered: 295) |
 | Tennessee (TN) | `TN-504` | Tennessee Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Chemical processing runoffs, sheriff-only county policing, zero billing audits.**<br>_Metrics:_ PIT Total: 1474 (Sheltered: 1100, Unsheltered: 374) |
-| Texas (TX) | `TX-611` | Texas Balance of State CoC | **THE LE FAMILY LLC** (PPP Shell) | $366,700.00 | PPP Capital Loan ****ffle | APN: 107-662-06 | **214 counties under sheriff-only policing, massive pesticide/petrochemical runoff, zero NPI verification.**<br>_Metrics:_ PIT Total: 4244 (Sheltered: 3100, Unsheltered: 1144)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `167** JEFFREY CIR`. Loan ****tion: `Killeen, TX; KILLEEN, TX` (Status: Paid in Full) |
-| Texas (TX) | `TX-611` | Texas Balance of State CoC | **RMI MANAGEMENT LLC** (PPP Shell) | $217,702.00 | PPP Capital Loan ****ffle | APN: 167-343-14 | **214 counties under sheriff-only policing, massive pesticide/petrochemical runoff, zero NPI verification.**<br>_Metrics:_ PIT Total: 4244 (Sheltered: 3100, Unsheltered: 1144)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `171** KAMPEN LN`. Loan ****tion: `LONGVIEW, TX` (Status: Paid in Full) |
+| Texas (TX) | `TX-611` | Texas Balance of State CoC | **THE LE FAMILY LLC** (PPP Shell) | $366,700.00 | PPP Capital Loan Shuffle | APN: 107-662-06 | **214 counties under sheriff-only policing, massive pesticide/petrochemical runoff, zero NPI verification.**<br>_Metrics:_ PIT Total: 4244 (Sheltered: 3100, Unsheltered: 1144)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `167** JEFFREY CIR`. Loan location: `Killeen, TX; KILLEEN, TX` (Status: Paid in Full) |
+| Texas (TX) | `TX-611` | Texas Balance of State CoC | **RMI MANAGEMENT LLC** (PPP Shell) | $217,702.00 | PPP Capital Loan Shuffle | APN: 167-343-14 | **214 counties under sheriff-only policing, massive pesticide/petrochemical runoff, zero NPI verification.**<br>_Metrics:_ PIT Total: 4244 (Sheltered: 3100, Unsheltered: 1144)<br>_PPP Shuffle:_ Out-of-state shell owner of California asset `171** KAMPEN LN`. Loan location: `LONGVIEW, TX` (Status: Paid in Full) |
 | Utah (UT) | `UT-500` | Utah Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Mining tailings runoff overlays, sheriff-only policing, zero billing audits.**<br>_Metrics:_ PIT Total: 3687 (Sheltered: 2800, Unsheltered: 887) |
 | Vermont (VT) | `VT-500` | Vermont Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Industrial paper runoff, municipal shell operations, zero billing audits.**<br>_Metrics:_ PIT Total: 3295 (Sheltered: 2900, Unsheltered: 395) |
 | Virginia (VA) | `VA-521` | Virginia Balance of State CoC | *State Department of Housing / Direct County Admin* | N/A | CoC Housing Programs | N/A | **Coal runoff overlays, sheriff-only counties, corporate shell property transfers.**<br>_Metrics:_ PIT Total: 545 (Sheltered: 420, Unsheltered: 125) |
@@ -92,14 +92,14 @@ This unified matrix lists **every US State Balance of State CoC**, mapping the p
 - **CoC Name**: **Alabama Balance of State CoC**
 - **Administrative Risks & Gaps**: Heavy industrial runoff, chemical plant overlays, sheriff-only county coverage.
 - **Vulnerability Population Data**: PIT Total: 1124 (Sheltered: 820, Unsheltered: 304)
-#### Mapped Out-of-State PPP Property & Shell Loan ****orks:
+#### Mapped Out-of-State PPP Property & Shell Loan Networks:
   - **Shell Owner Name**: **SMD INVESTMENTS LLC**
     - **Target California Property**: `1654 IOWA ST UNIT C` (APN: `932-071-07`)
-    - **PPP Loan ****ails**: $21,700.00 drawn at `Cottondale, AL` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $21,700.00 drawn at `Cottondale, AL` (Status: `Paid in Full`)
     - **Mailing Registry**: `9851 OASIS AVE`, GARDEN GROVE
   - **Shell Owner Name**: **SUMMIT PROPERTIES LLC**
     - **Target California Property**: `2501 FLORIDA ST` (APN: `025-111-58`)
-    - **PPP Loan ****ails**: $16,340.00 drawn at `Guntersville, AL` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $16,340.00 drawn at `Guntersville, AL` (Status: `Paid in Full`)
     - **Mailing Registry**: `3334 E WOODBINE RD`, ORANGE
 #### HUD Taxpayer Awards Path:
   - **Program Type**: Permanent Supportive Housing | **HUD Award**: $12,500,000.00 (FY 2023)
@@ -109,14 +109,14 @@ This unified matrix lists **every US State Balance of State CoC**, mapping the p
 - **CoC Name**: **Alaska Balance of State CoC**
 - **Administrative Risks & Gaps**: Severe geographic isolation, oil/gas terminal regions, absence of integrated health NPI tracking.
 - **Vulnerability Population Data**: PIT Total: 1422 (Sheltered: 1200, Unsheltered: 222)
-#### Mapped Out-of-State PPP Property & Shell Loan ****orks:
+#### Mapped Out-of-State PPP Property & Shell Loan Networks:
   - **Shell Owner Name**: **TRIUMVIRATE LLC**
     - **Target California Property**: `219** BROOKHURST ST` (APN: `151-234-09`)
-    - **PPP Loan ****ails**: $852,740.00 drawn at `Anchorage, AK` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $852,740.00 drawn at `Anchorage, AK` (Status: `Paid in Full`)
     - **Mailing Registry**: `9874 RARITAN AVE`, FOUNTAIN VALLEY
   - **Shell Owner Name**: **DBS-ENTERPRISES LLC**
     - **Target California Property**: `2881 COAST CIR APT A` (APN: `936-770-37`)
-    - **PPP Loan ****ails**: $237,189.00 drawn at `Chugiak, AK; SANTA CLARA, CA` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $237,189.00 drawn at `Chugiak, AK; SANTA CLARA, CA` (Status: `Paid in Full`)
     - **Mailing Registry**: `8820 W RUSSELL RD STE 160`, LAS VEGAS
 #### HUD Taxpayer Awards Path:
   - **Program Type**: Rapid Re-Housing | **HUD Award**: $3,400,000.00 (FY 2023)
@@ -126,30 +126,30 @@ This unified matrix lists **every US State Balance of State CoC**, mapping the p
 - **CoC Name**: **Arizona Balance of State CoC**
 - **Administrative Risks & Gaps**: 13 rural counties under sheriff-only policing, mining corridor runoff, zero clinical social work billing verification.
 - **Vulnerability Population Data**: PIT Total: 9642 (Sheltered: 4612, Unsheltered: 5030)
-#### Mapped Out-of-State PPP Property & Shell Loan ****orks:
+#### Mapped Out-of-State PPP Property & Shell Loan Networks:
   - **Shell Owner Name**: **A & D LLC**
     - **Target California Property**: `5821 VIEW CIR` (APN: `146-312-13`)
-    - **PPP Loan ****ails**: $55,324.47 drawn at `Phoenix, AZ` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $55,324.47 drawn at `Phoenix, AZ` (Status: `Paid in Full`)
     - **Mailing Registry**: `180** BUSHARD ST`, FOUNTAIN VALLEY
   - **Shell Owner Name**: **SAMPSON VENTURES LLC**
     - **Target California Property**: `176** SAMPSON LN` (APN: `165-331-17`)
-    - **PPP Loan ****ails**: $32,690.00 drawn at `Mesa, AZ` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $32,690.00 drawn at `Mesa, AZ` (Status: `Paid in Full`)
     - **Mailing Registry**: `122** POPLAR ST STE 3`, HESPERIA
   - **Shell Owner Name**: **JEK INVESTMENTS LLC**
     - **Target California Property**: `1325 DELAWARE ST` (APN: `025-091-01`)
-    - **PPP Loan ****ails**: $26,907.00 drawn at `Phoenix, AZ` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $26,907.00 drawn at `Phoenix, AZ` (Status: `Paid in Full`)
     - **Mailing Registry**: `620 TERMINAL WAY`, COSTA MESA
   - **Shell Owner Name**: **DRT INVESTMENTS LLC**
     - **Target California Property**: `199** BEACH BLVD` (APN: `153-091-27`)
-    - **PPP Loan ****ails**: $24,094.00 drawn at `Phoenix, AZ` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $24,094.00 drawn at `Phoenix, AZ` (Status: `Paid in Full`)
     - **Mailing Registry**: `201** SW BIRCH ST STE 151`, NEWPORT BEACH
   - **Shell Owner Name**: **DRT INVESTMENTS LLC**
     - **Target California Property**: `199** BEACH BLVD` (APN: `153-091-27`)
-    - **PPP Loan ****ails**: $24,094.00 drawn at `Phoenix, AZ` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $24,094.00 drawn at `Phoenix, AZ` (Status: `Paid in Full`)
     - **Mailing Registry**: `201** SW BIRCH ST STE 151`, NEWPORT BEACH
   - **Shell Owner Name**: **JBH LLC**
     - **Target California Property**: `711 W 17TH ST # 19` (APN: `939-830-19`)
-    - **PPP Loan ****ails**: $20,607.00 drawn at `PHOENIX, AZ` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $20,607.00 drawn at `PHOENIX, AZ` (Status: `Paid in Full`)
     - **Mailing Registry**: `183** E SANTA CLARA AVE`, NORTH TUSTIN
 #### HUD Taxpayer Awards Path:
   - **Program Type**: Permanent Supportive Housing | **HUD Award**: $42,100,000.00 (FY 2023)
@@ -167,74 +167,74 @@ This unified matrix lists **every US State Balance of State CoC**, mapping the p
 - **CoC Name**: **Orange County CoC / Balance of State**
 - **Administrative Risks & Gaps**: Cameron Lane Well W-4150 Hexavalent Chromium leaks (490 ug/kg), non-profit board self-dealing, Daneshrad circular lease-backs.
 - **Vulnerability Population Data**: PIT Total: 713** (Sheltered: 184**, Unsheltered: 529**)
-#### Mapped Out-of-State PPP Property & Shell Loan ****orks:
+#### Mapped Out-of-State PPP Property & Shell Loan Networks:
   - **Shell Owner Name**: **INCUPLACE LLC**
     - **Target California Property**: `88 FAIR DR` (APN: `988-007-23`)
-    - **PPP Loan ****ails**: $588,619.00 drawn at `MARINA DEL REY, CA; Marina del Rey, CA` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $588,619.00 drawn at `MARINA DEL REY, CA; Marina del Rey, CA` (Status: `Paid in Full`)
     - **Mailing Registry**: `PO BOX 3772`, ALHAMBRA
   - **Shell Owner Name**: **NEWPORT LLC**
     - **Target California Property**: `4340 VON KARMAN AVE STE 205` (APN: `934-057-17`)
-    - **PPP Loan ****ails**: $536,590.00 drawn at `SAN FRANCISCO, CA` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $536,590.00 drawn at `SAN FRANCISCO, CA` (Status: `Paid in Full`)
     - **Mailing Registry**: `640 N DIAMOND BAR BLVD`, DIAMOND BAR
   - **Shell Owner Name**: **PACE RECOVERY CENTER LLC**
     - **Target California Property**: `528 16TH ST` (APN: `023-148-33`)
-    - **PPP Loan ****ails**: $510,549.00 drawn at `NEWPORT BEACH, CA` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $510,549.00 drawn at `NEWPORT BEACH, CA` (Status: `Paid in Full`)
     - **Mailing Registry**: `3197 AIRPORT LOOP DR STE B`, COSTA MESA
   - **Shell Owner Name**: **2450 COLORADO BLVD LLC**
     - **Target California Property**: `162** PACIFIC CIR APT 306` (APN: `936-770-15`)
-    - **PPP Loan ****ails**: $376,000.00 drawn at `Chatsworth, CA` (Status: `Exemption 4`)
+    - **PPP Loan Details**: $376,000.00 drawn at `Chatsworth, CA` (Status: `Exemption 4`)
     - **Mailing Registry**: `9025 S 1300 E`, SANDY
   - **Shell Owner Name**: **LIGHTHOUSE CAFE LLC**
     - **Target California Property**: `1600 W BALBOA BLVD` (APN: `988-007-96`)
-    - **PPP Loan ****ails**: $366,554.00 drawn at `Newport Beach, CA` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $366,554.00 drawn at `Newport Beach, CA` (Status: `Paid in Full`)
     - **Mailing Registry**: `325** GOLDEN LANTERN STE B`, DANA POINT
   - **Shell Owner Name**: **COMPASSIONATE CARE HOSPICE LLC**
     - **Target California Property**: `172** NEWHOPE ST STE 124` (APN: `938-780-18`)
-    - **PPP Loan ****ails**: $279,820.00 drawn at `FOUNTAIN VALLEY, CA` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $279,820.00 drawn at `FOUNTAIN VALLEY, CA` (Status: `Paid in Full`)
     - **Mailing Registry**: `172** NEWHOPE ST`, FOUNTAIN VALLEY
   - **Shell Owner Name**: **COMPASSIONATE CARE HOSPICE LLC**
     - **Target California Property**: `172** NEWHOPE ST STE 124` (APN: `938-780-18`)
-    - **PPP Loan ****ails**: $279,820.00 drawn at `FOUNTAIN VALLEY, CA` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $279,820.00 drawn at `FOUNTAIN VALLEY, CA` (Status: `Paid in Full`)
     - **Mailing Registry**: `172** NEWHOPE ST`, FOUNTAIN VALLEY
   - **Shell Owner Name**: **NEWPORT BEACH GOLF COURSE LLC**
     - **Target California Property**: `119-200 IRVINE BLVD` (APN: `988-012-81`)
-    - **PPP Loan ****ails**: $115,400.00 drawn at `NEWPORT BEACH, CA` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $115,400.00 drawn at `NEWPORT BEACH, CA` (Status: `Paid in Full`)
     - **Mailing Registry**: `3100 IRVINE AVE`, NEWPORT BEACH
   - **Shell Owner Name**: **DEVPRI HOSPITALITY LLC**
     - **Target California Property**: `165** PACIFIC COAST HWY` (APN: `178-516-13`)
-    - **PPP Loan ****ails**: $115,000.00 drawn at `SUNSET BEACH, CA; Sunset Beach, CA` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $115,000.00 drawn at `SUNSET BEACH, CA; Sunset Beach, CA` (Status: `Paid in Full`)
     - **Mailing Registry**: `165** PACIFIC COAST HWY`, SUNSET BEACH
   - **Shell Owner Name**: **DEVPRI HOSPITALITY LLC**
     - **Target California Property**: `165** PACIFIC COAST HWY` (APN: `178-516-13`)
-    - **PPP Loan ****ails**: $115,000.00 drawn at `SUNSET BEACH, CA; Sunset Beach, CA` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $115,000.00 drawn at `SUNSET BEACH, CA; Sunset Beach, CA` (Status: `Paid in Full`)
     - **Mailing Registry**: `165** PACIFIC COAST HWY`, SUNSET BEACH
   - **Shell Owner Name**: **GOLDEN HILLS PROPERTIES LLC**
     - **Target California Property**: `3335 W COAST HWY` (APN: `988-023-26`)
-    - **PPP Loan ****ails**: $88,324.40 drawn at `Los Angeles, CA` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $88,324.40 drawn at `Los Angeles, CA` (Status: `Paid in Full`)
     - **Mailing Registry**: `9701 WILSHIRE BLVD STE 1115`, BEVERLY HILLS
   - **Shell Owner Name**: **WFS PROPERTIES LLC**
     - **Target California Property**: `212 15TH ST` (APN: `024-031-15`)
-    - **PPP Loan ****ails**: $54,417.00 drawn at `BREA, CA` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $54,417.00 drawn at `BREA, CA` (Status: `Paid in Full`)
     - **Mailing Registry**: `595 W LAMBERT RD STE 108`, BREA
   - **Shell Owner Name**: **RANCHO LA SIESTA LLC**
     - **Target California Property**: `181** BUSHARD ST` (APN: `157-231-04`)
-    - **PPP Loan ****ails**: $45,000.00 drawn at `Fountain Valley, CA` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $45,000.00 drawn at `Fountain Valley, CA` (Status: `Paid in Full`)
     - **Mailing Registry**: `181** BUSHARD ST`, FOUNTAIN VALLEY
   - **Shell Owner Name**: **CROWN WEALTH PROPERTIES LLC**
     - **Target California Property**: `2900 BRISTOL ST # 1` (APN: `939-570-01`)
-    - **PPP Loan ****ails**: $43,190.00 drawn at `COSTA MESA, CA` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $43,190.00 drawn at `COSTA MESA, CA` (Status: `Paid in Full`)
     - **Mailing Registry**: `2900 BRISTOL ST STE B106`, COSTA MESA
   - **Shell Owner Name**: **MERRIMAC PARTNERS LLC**
     - **Target California Property**: `209** CABRILLO LN # 61` (APN: `934-472-42`)
-    - **PPP Loan ****ails**: $41,665.00 drawn at `YORBA LINDA, CA` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $41,665.00 drawn at `YORBA LINDA, CA` (Status: `Paid in Full`)
     - **Mailing Registry**: `198** YORBA LINDA BLVD STE 105`, YORBA LINDA
   - **Shell Owner Name**: **PARKSVILLE INVESTMENT LLC**
     - **Target California Property**: `7450 EDINGER AVE` (APN: `142-511-17`)
-    - **PPP Loan ****ails**: $29,165.00 drawn at `LOS ANGELES, CA` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $29,165.00 drawn at `LOS ANGELES, CA` (Status: `Paid in Full`)
     - **Mailing Registry**: `4848 WILSHIRE BLVD APT 302`, LOS ANGELES
   - **Shell Owner Name**: **BONGOS SPORTFISHING LLC**
     - **Target California Property**: `829 HARBOR ISLAND DR` (APN: `988-015-77`)
-    - **PPP Loan ****ails**: $25,250.00 drawn at `NEWPORT BEACH, CA` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $25,250.00 drawn at `NEWPORT BEACH, CA` (Status: `Paid in Full`)
     - **Mailing Registry**: `3181 ROWENA DR`, ROSSMOOR
 #### HUD Taxpayer Awards Path:
   - **Program Type**: Permanent Supportive Housing | **HUD Award**: $155,000,000.00 (FY 2023)
@@ -294,10 +294,10 @@ This unified matrix lists **every US State Balance of State CoC**, mapping the p
 - **CoC Name**: **Florida Balance of State CoC**
 - **Administrative Risks & Gaps**: Agricultural pesticide runoff, tourist corridor shelter pricing inflation, sheriff-only jurisdictions.
 - **Vulnerability Population Data**: PIT Total: 2314 (Sheltered: 1510, Unsheltered: 804)
-#### Mapped Out-of-State PPP Property & Shell Loan ****orks:
+#### Mapped Out-of-State PPP Property & Shell Loan Networks:
   - **Shell Owner Name**: **FIRST HIGHLAND LLC**
     - **Target California Property**: `8171 COBBLESTONE LN # 4` (APN: `938-270-26`)
-    - **PPP Loan ****ails**: $205,800.00 drawn at `Windermere, FL` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $205,800.00 drawn at `Windermere, FL` (Status: `Paid in Full`)
     - **Mailing Registry**: `9631 BOLSA AVE`, WESTMINSTER
 #### HUD Taxpayer Awards Path:
   - **Program Type**: CoC Planning Grant | **HUD Award**: $1,800,000.00 (FY 2023)
@@ -403,10 +403,10 @@ This unified matrix lists **every US State Balance of State CoC**, mapping the p
 - **CoC Name**: **Michigan Balance of State CoC**
 - **Administrative Risks & Gaps**: Automotive industrial waste, heavy PFAS water contamination overlays, lack of billing audits.
 - **Vulnerability Population Data**: PIT Total: 1247 (Sheltered: 1050, Unsheltered: 197)
-#### Mapped Out-of-State PPP Property & Shell Loan ****orks:
+#### Mapped Out-of-State PPP Property & Shell Loan Networks:
   - **Shell Owner Name**: **STEWART INDUSTRIES LLC**
     - **Target California Property**: `3311 BOUNTY CIR` (APN: `178-431-14`)
-    - **PPP Loan ****ails**: $1,128,327.50 drawn at `Battle Creek, MI; BATTLE CREEK, MI` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $1,128,327.50 drawn at `Battle Creek, MI; BATTLE CREEK, MI` (Status: `Paid in Full`)
     - **Mailing Registry**: `1077 PACIFIC COAST HWY # 247`, SEAL BEACH
 #### HUD Taxpayer Awards Path:
   - Downstream funds administered directly via state-allocated Emergency Solutions Grants (ESG) and HOME consortia.
@@ -472,10 +472,10 @@ This unified matrix lists **every US State Balance of State CoC**, mapping the p
 - **CoC Name**: **New Jersey Balance of State CoC**
 - **Administrative Risks & Gaps**: Superfund landfill overlays, industrial waste sites, corporate non-profit board overlaps.
 - **Vulnerability Population Data**: PIT Total: 102** (Sheltered: 8500, Unsheltered: 1767)
-#### Mapped Out-of-State PPP Property & Shell Loan ****orks:
+#### Mapped Out-of-State PPP Property & Shell Loan Networks:
   - **Shell Owner Name**: **LAZER LLC**
     - **Target California Property**: `7782 RONALD DR` (APN: `165-302-05`)
-    - **PPP Loan ****ails**: $600,000.00 drawn at `SADDLE RIVER, NJ` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $600,000.00 drawn at `SADDLE RIVER, NJ` (Status: `Paid in Full`)
     - **Mailing Registry**: `411** CALLE SAN LEON`, INDIO
 #### HUD Taxpayer Awards Path:
   - Downstream funds administered directly via state-allocated Emergency Solutions Grants (ESG) and HOME consortia.
@@ -533,10 +533,10 @@ This unified matrix lists **every US State Balance of State CoC**, mapping the p
 - **CoC Name**: **Oregon Balance of State CoC**
 - **Administrative Risks & Gaps**: Agricultural pesticide runoffs, timber industry waste overlays, zero NPI registration.
 - **Vulnerability Population Data**: PIT Total: 6279 (Sheltered: 2300, Unsheltered: 3979)
-#### Mapped Out-of-State PPP Property & Shell Loan ****orks:
+#### Mapped Out-of-State PPP Property & Shell Loan Networks:
   - **Shell Owner Name**: **DRT LLC**
     - **Target California Property**: `168** CORAL CAY LN` (APN: `178-653-37`)
-    - **PPP Loan ****ails**: $357,716.32 drawn at `ONTARIO, OR` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $357,716.32 drawn at `ONTARIO, OR` (Status: `Paid in Full`)
     - **Mailing Registry**: `201** SW BIRCH ST STE 151`, NEWPORT BEACH
 #### HUD Taxpayer Awards Path:
   - Downstream funds administered directly via state-allocated Emergency Solutions Grants (ESG) and HOME consortia.
@@ -554,10 +554,10 @@ This unified matrix lists **every US State Balance of State CoC**, mapping the p
 - **CoC Name**: **Rhode Island Balance of State CoC**
 - **Administrative Risks & Gaps**: Industrial shipping waste, municipal bypass loops, lease-back inflation.
 - **Vulnerability Population Data**: PIT Total: 1810 (Sheltered: 1500, Unsheltered: 310)
-#### Mapped Out-of-State PPP Property & Shell Loan ****orks:
+#### Mapped Out-of-State PPP Property & Shell Loan Networks:
   - **Shell Owner Name**: **HB LLC**
     - **Target California Property**: `9472 RAMBLER DR` (APN: `149-053-07`)
-    - **PPP Loan ****ails**: $444,400.00 drawn at `PROVIDENCE, RI; LONG BEACH, CA; Long Beach, CA` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $444,400.00 drawn at `PROVIDENCE, RI; LONG BEACH, CA; Long Beach, CA` (Status: `Paid in Full`)
     - **Mailing Registry**: `163** 75TH PL W`, EDMONDS
 #### HUD Taxpayer Awards Path:
   - Downstream funds administered directly via state-allocated Emergency Solutions Grants (ESG) and HOME consortia.
@@ -567,10 +567,10 @@ This unified matrix lists **every US State Balance of State CoC**, mapping the p
 - **CoC Name**: **South Carolina Balance of State CoC**
 - **Administrative Risks & Gaps**: Industrial waste overlays, agricultural runoffs, sheriff-only regional policing.
 - **Vulnerability Population Data**: PIT Total: 458 (Sheltered: 320, Unsheltered: 138)
-#### Mapped Out-of-State PPP Property & Shell Loan ****orks:
+#### Mapped Out-of-State PPP Property & Shell Loan Networks:
   - **Shell Owner Name**: **RAV LLC**
     - **Target California Property**: `1 MAIN ST` (APN: `988-150-06`)
-    - **PPP Loan ****ails**: $392,800.00 drawn at `MYRTLE BEACH, SC; Myrtle Beach, SC` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $392,800.00 drawn at `MYRTLE BEACH, SC; Myrtle Beach, SC` (Status: `Paid in Full`)
     - **Mailing Registry**: `175 CHESTNUT ST`, SAN FRANCISCO
 #### HUD Taxpayer Awards Path:
   - Downstream funds administered directly via state-allocated Emergency Solutions Grants (ESG) and HOME consortia.
@@ -596,14 +596,14 @@ This unified matrix lists **every US State Balance of State CoC**, mapping the p
 - **CoC Name**: **Texas Balance of State CoC**
 - **Administrative Risks & Gaps**: 214 counties under sheriff-only policing, massive pesticide/petrochemical runoff, zero NPI verification.
 - **Vulnerability Population Data**: PIT Total: 4244 (Sheltered: 3100, Unsheltered: 1144)
-#### Mapped Out-of-State PPP Property & Shell Loan ****orks:
+#### Mapped Out-of-State PPP Property & Shell Loan Networks:
   - **Shell Owner Name**: **THE LE FAMILY LLC**
     - **Target California Property**: `167** JEFFREY CIR` (APN: `107-662-06`)
-    - **PPP Loan ****ails**: $366,700.00 drawn at `Killeen, TX; KILLEEN, TX` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $366,700.00 drawn at `Killeen, TX; KILLEEN, TX` (Status: `Paid in Full`)
     - **Mailing Registry**: `2279 EAGLE GLEN PKWY # 112-461`, CORONA
   - **Shell Owner Name**: **RMI MANAGEMENT LLC**
     - **Target California Property**: `171** KAMPEN LN` (APN: `167-343-14`)
-    - **PPP Loan ****ails**: $217,702.00 drawn at `LONGVIEW, TX` (Status: `Paid in Full`)
+    - **PPP Loan Details**: $217,702.00 drawn at `LONGVIEW, TX` (Status: `Paid in Full`)
     - **Mailing Registry**: `5 RIDGELINE DR`, NEWPORT BEACH
 #### HUD Taxpayer Awards Path:
   - **Program Type**: Rapid Re-Housing | **HUD Award**: $38,000,000.00 (FY 2023)

@@ -2,7 +2,7 @@
 ## $3,887,991.41 | Wells Fargo Bank
 
 **DRAFT ONLY — Attorney review required before filing**
-**Prepared by:** Anthony DiMarcello III | CACD Case 8:2026cv003**
+**Prepared by:** Anthony DiMarcello III | CACD Case 8:2026cv00348
 
 ---
 
@@ -22,11 +22,11 @@
 
 ## Fraud Network Connection
 
-- Account ****rmed **/**/2017 — pre-positioned before COVID fraud (April 2020)
+- Account formed **/**/2017 — pre-positioned before COVID fraud (April 2020)
 - Andrew Do: Federal conviction, 5 years, COVID meal fund diversion
 - Cheri Pham: Do's spouse, fraud proceeds beneficiary
 - Peter Anh Pham: Federal indictee, FUGITIVE (2025)
-- Location: Huntington Beach = OCHCA Case ****C002 fraud epicenter
+- Location: Huntington Beach = OCHCA Case No. 20IC002 fraud epicenter
 - Pending claim = imminent risk of unauthorized payoff to co-conspirators
 
 ---
@@ -46,7 +46,7 @@
 ## MissingMoney.com Inquiry (Ready to Send)
 
 TO: s***@missingmoney.com
-SUBJECT: Account ****atus Inquiry — Property ID 1024456136
+SUBJECT: Account Status Inquiry — Property ID 1024456136
 
 Requesting current status of Property ID 1024456136 (Pham Family Living Trust, $3,887,991.41, Wells Fargo). Is property still unclaimed? Status of pending claim? Any transfers or removals since April 2026? This inquiry is in connection with a federal money laundering investigation.
 

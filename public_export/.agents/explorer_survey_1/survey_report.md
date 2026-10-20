@@ -17,7 +17,7 @@ This investigation conducted a thorough, read-only forensic survey across the en
 
 ---
 
-## 2. DETAILED CASE ****CASE RECORD & STATUTORY SURVEY
+## 2. DETAILED CASE-BY-CASE RECORD & STATUTORY SURVEY
 
 ---
 
@@ -79,7 +79,7 @@ This investigation conducted a thorough, read-only forensic survey across the en
 
 #### Operational Findings & Leadership of "The Cabal"
 * Ament operated as the primary coordinator of a self-described "cabal" composed of Chamber leadership, private political consultants (Jeff Flint), and former Mayor Harry Sidhu.
-* Ament directed secret policy ****eats (including the Monterey Chamber Conference) where municipal legislative strategies, tax subsidies, and city council voting blocs were arranged outside public Brown Act transparency requirements.
+* Ament directed secret policy retreats (including the Monterey Chamber Conference) where municipal legislative strategies, tax subsidies, and city council voting blocs were arranged outside public Brown Act transparency requirements.
 * Diverted over $1.5 million in municipal and federal economic development allocations through Chamber-controlled non-profit conduits.
 
 ---

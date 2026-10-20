@@ -14,7 +14,7 @@ Environmental Data Records (EDR) and historical municipal intelligence extractio
 - **Cortese List (Cal. Gov. Code § 659**.5):** Mandatory public listing of contaminated sites, public water wells with hazardous levels of chemicals, and land use restrictions.
 
 ### C. CERCLA Superfund Liability & Innocent Landowner Defense
-- **42 U.S.C. § 9601(35)(B):** Requires "All Appropriate Inquiries" (AAI) conducted prior to acquisition to claim ****cent Landowner, Contiguous Property Owner, or Bona Fide Prospective Purchaser (BFPP) status.
+- **42 U.S.C. § 9601(35)(B):** Requires "All Appropriate Inquiries" (AAI) conducted prior to acquisition to claim Innocent Landowner, Contiguous Property Owner, or Bona Fide Prospective Purchaser (BFPP) status.
 - **Suppression of Known EDR Hits:** Concealment of active SLIC/LUST or Hexavalent Chromium plume data during real estate transactions voids AAI protections and establishes intentional fraudulent concealment under Cal. Civ. Proc. Code § 473(d).
 
 ---

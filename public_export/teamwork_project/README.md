@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project provides an end-to-end open-source OSINT data correlation system, graph database engine, REST query API, and interactive web dashboard. It cross-references public business entity records (Nevada SOS), public SBA PPP loan ****sets, municipal property/parcel records, and IRS Form 990 non-profit filings to uncover hidden ownership networks, shared registered agent hubs, and risk clusters.
+This project provides an end-to-end open-source OSINT data correlation system, graph database engine, REST query API, and interactive web dashboard. It cross-references public business entity records (Nevada SOS), public SBA PPP loan datasets, municipal property/parcel records, and IRS Form 990 non-profit filings to uncover hidden ownership networks, shared registered agent hubs, and risk clusters.
 
 ---
 

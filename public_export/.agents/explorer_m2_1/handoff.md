@@ -61,7 +61,7 @@
 
 4. **From Observations 1 & 5 (Interface Contracts M1 ↔ M2 ↔ M3)**:
    - M1 provides `IngestedArtifact` containing `raw_stream_factory`.
-   - M3 requires `ExtractedRecord` with normalized dates, monetary amounts (float + integer cents), legal case ****kets, and correspondence parties.
+   - M3 requires `ExtractedRecord` with normalized dates, monetary amounts (float + integer cents), legal case dockets, and correspondence parties.
    - *Inference*: `DocumentExtractor.extract(artifact)` must integrate the 5-tier extraction ladder with the multi-tier normalizers (`date_normalizer.py`, `financial_normalizer.py`, `case_normalizer.py`, `entity_normalizer.py`) to output complete `ExtractedRecord` instances.
 
 ---
@@ -80,7 +80,7 @@ The architectural design, module interfaces, and implementation blueprints for M
 1. `extractors/ocr_engine.py`: RapidOCR ONNX integration with lazy loading, spatial line sorting, confidence filtering, and strict memory safety.
 2. `extractors/image_enhancer.py`: OpenCV CLAHE, adaptive thresholding, deskewing, and auto-enhancement profiling.
 3. `extractors/document_extractor.py`: 5-Tier Fallback Ladder (Digital PyMuPDF $\rightarrow$ Density Check $\rightarrow$ 300 DPI RapidOCR $\rightarrow$ OpenCV CLAHE $\rightarrow$ Non-PDF Format Parsers) outputting canonical `ExtractedRecord` objects for Milestone 3.
-4. Multi-tier normalizers: ISO 8601 UTC dates, dual float/cents financial parsing, federal/state case ****kets, and correspondence metadata.
+4. Multi-tier normalizers: ISO 8601 UTC dates, dual float/cents financial parsing, federal/state case dockets, and correspondence metadata.
 
 Complete specifications, signatures, and implementation blueprints have been written to `C:\OsintNeoAi\.agents\explorer_m2_1\analysis.md`.
 

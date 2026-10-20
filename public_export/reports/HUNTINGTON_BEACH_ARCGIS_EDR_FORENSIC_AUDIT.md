@@ -55,7 +55,7 @@ The live City of Huntington Beach Assessor cadastre (`Parcels/MapServer/0`) join
 * **Coordinates:** `33.706443° N, -117.988547° W` (`X: -13134374.96, Y: 3989475.64`)
 
 ### Combined HBNC Acquisition Summary
-The combined footprint totals **1.5868 Acres** (69,118 sq. ft.) acquired by the Huntington Beach Housing Authority directly from the **Shigeru Yamada Living Trust** across two staggered Grant Deeds (`2020000420412` on **/**/2020 and `2021000002954` on **/**/2021). Both parcels are legally platted within **Tract 405**—corroborating the historical Standard Oil 1955 permit (C812**) and confirming that the City's subsequent address unification and demolition permit eliminated the historical 17631 C*** Lane designation to obscure Well No. 5403 (W-4150) from mandatory DTSC review.
+The combined footprint totals **1.5868 Acres** (69,118 sq. ft.) acquired by the Huntington Beach Housing Authority directly from the **Shigeru Yamada Living Trust** across two staggered Grant Deeds (`2020000420412` on **/**/2020 and `2021000002954` on **/**/2021). Both parcels are legally platted within **Tract 405**—corroborating the historical Standard Oil 1955 permit (C81252) and confirming that the City's subsequent address unification and demolition permit eliminated the historical 17631 C*** Lane designation to obscure Well No. 5403 (W-4150) from mandatory DTSC review.
 
 ---
 

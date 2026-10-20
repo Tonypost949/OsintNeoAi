@@ -39,7 +39,7 @@ Google Cloud Console's **Agent Platform Settings & API Keys** dashboard governs 
 - **Active GCP Project:** `noble-beanbag-497411-m4`
 - **Enabled APIs:** `aiplatform.googleapis.com` (Vertex AI Agent Builder / Agent Platform API), `generativelanguage.googleapis.com` (Gemini API).
 
-### B. Standard vs. Service Account ****tion Keys
+### B. Standard vs. Service Account Authorization Keys
 - **Standard API Keys:** Express-generated keys for rapid prototyping. Must be restricted to specific HTTP referrers or IP ranges.
 - **Service Account Auth Keys:** Enterprise security standard. Uses Application Default Credentials (ADC via `gcloud auth application-default login`) or OAuth 2.0 bearer tokens stored in Google Cloud Secret Manager.
 

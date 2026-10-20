@@ -38,12 +38,12 @@ Toxic site (hexavalent Cr 49x EPA limit at 17631 C*** Ln)
 
 | MSG_ID | Date | Allegation |
 |--------|------|------------|
-| 19e58a727**d3470 | May 24, 2026 | Mercy House — 4 child deaths, 279 medical emergencies, hexavalent chromium poisoning |
+| 19e58a72739d3470 | May 24, 2026 | Mercy House — 4 child deaths, 279 medical emergencies, hexavalent chromium poisoning |
 | 19e58a7055a2bdc6 | May 24, 2026 | "Systematic child welfare trafficking through Mercy House Living Centers" |
 | 19e58a7319030f45 | May 24, 2026 | "$512M+ COVID/CARES fraud involving child welfare trafficking network" |
 | HIT 18,20 | Apr 14, 2026 | "OC SSA / Mercy House / SPIN / Angulo NPI / ICWA-IIM Fraud" — Supplemental Qui Tam Disclosure |
 | 19e58a70bcf680b6 | May 24, 2026 | "OC Sheriff + Mercy House COVID Fraud Pipeline" |
-| 19e6c(***) ***-8876a | May 27, 2026 | FINAL NOTICE: HUD FCA / 31 USC 3730 Automatic Qui Tam Trigger |
+| 19e6c2006868876a | May 27, 2026 | FINAL NOTICE: HUD FCA / 31 USC 3730 Automatic Qui Tam Trigger |
 
 ### Statutory Framework
 
@@ -86,7 +86,7 @@ Toxic site (hexavalent Cr 49x EPA limit at 17631 C*** Ln)
 ## NEXT INVESTIGATION STEPS
 
 1. FOIA OC SSA: CPS removal data vs. IV-E drawdown amounts by year (prove ghost billing)
-2. FOIA BIA (Bureau of Indian Affairs): IIM account ****dits for Native children under OC jurisdiction
+2. FOIA BIA (Bureau of Indian Affairs): IIM account audits for Native children under OC jurisdiction
 3. FOIA HHS/ACF: IV-E reimbursement amounts to OC by fiscal year
 4. Cross-reference OC CPS removal addresses with HBNC placement addresses
 5. Request death certificates for the 4 confirmed child deaths — cause of death, location

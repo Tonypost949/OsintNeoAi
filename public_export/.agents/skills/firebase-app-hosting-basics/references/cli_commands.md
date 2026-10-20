@@ -50,7 +50,7 @@ variables (like API keys).
 
 ### `npx -y firebase-tools@latest apphosting:secrets:grantaccess <secret-name>`
 
-- **Purpose**: Grants the App Hosting service account ****sion to access the
+- **Purpose**: Grants the App Hosting service account permission to access the
   secret.
 - **Note**: Often handled automatically by `secrets:set`, but useful for
   debugging permission issues or granting access to existing secrets.

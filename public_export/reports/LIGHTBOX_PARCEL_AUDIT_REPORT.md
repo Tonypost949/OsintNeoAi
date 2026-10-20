@@ -12,7 +12,7 @@
 | **Garden Grove Blvd Asset** | `13252 G*** Blvd, Garden Grove, CA 928**`<br>📍 `33.7745, -117.9056` | HTTP 401 | HTTP 401 | HTTP 404 | **2 records** |
 | **Huntington Beach Civic Center** | `2000 M*** St, Huntington Beach, CA 926**`<br>📍 `33.6603, -117.9992` | HTTP 401 | HTTP 401 | HTTP 404 | **1 records** |
 | **Fair Drive County Hub** | `88 F*** Dr, Costa Mesa, CA 926**`<br>📍 `33.6644, -117.8967` | HTTP 401 | HTTP 401 | HTTP 404 | **0 records** |
-| **MGM Grand Hotel & Casino (Nevada Hub)** | `3799 S Las Vegas Blvd, Las Vegas, NV 891**`<br>📍 `36.1026, -115.1703` | HTTP 401 | HTTP 401 | HTTP 404 | **0 records** |
+| **MGM Grand Hotel & Casino (Nevada Hub)** | `3799 S. L*** Blvd, Las Vegas, NV 891**`<br>📍 `36.1026, -115.1703` | HTTP 401 | HTTP 401 | HTTP 404 | **0 records** |
 | **Apex Desert Industrial Corridor (Nevada)** | `Apex Desert Parcel, Clark County, NV`<br>📍 `36.315, -114.92` | HTTP 401 | HTTP 401 | HTTP 404 | **0 records** |
 | **Nye County Desert Mining / Testing Site** | `Beatty Corridor, Nye County, NV`<br>📍 `36.9092, -116.7547` | HTTP 401 | HTTP 401 | HTTP 404 | **0 records** |
 | **Storey County / Tahoe-Reno Industrial** | `USA Pkwy, Sparks, NV 894**`<br>📍 `39.5296, -119.8138` | HTTP 401 | HTTP 401 | HTTP 404 | **0 records** |

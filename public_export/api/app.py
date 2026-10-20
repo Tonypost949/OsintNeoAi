@@ -47,7 +47,7 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 try:
     from api.osint_pipeline.normalizers import normalize_lead_payload, normalize_entity_name, normalize_address, normalize_apn, normalize_timestamp
 except Exception:
-    def normalize_lead_payload(raw, default_case_id="CASE ****0001"):
+    def normalize_lead_payload(raw, default_case_id="CASE-0001"):
         raw["case_id"] = raw.get("case_id") or raw.get("id") or default_case_id
         raw["timestamp"] = raw.get("timestamp") or datetime.now(timezone.utc).isoformat()
         return raw

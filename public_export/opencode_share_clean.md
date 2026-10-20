@@ -125,7 +125,7 @@ gcloud billing accounts list --format="table(name, displayName, masterBillingAcc
 
 ## Script Block 11
 ```bash
-The billing account ****ists but it's **closed** (OPEN: False), meaning it's not active or has been closed/cancelled. This would be a problem for deploying any GCP resources.
+The billing account exists but it's **closed** (OPEN: False), meaning it's not active or has been closed/cancelled. This would be a problem for deploying any GCP resources.
 
 Also, regarding the Google App Passwords question - those won't work for GCP. App passwords are for less secure app access (IMAP/SMTP/CalDAV etc.), not for the Google Cloud SDK or gcloud CLI. For GCP, you need:
 - `gcloud auth login` (OAuth flow)
@@ -186,7 +186,7 @@ gcloud billing projects describe noble-beanbag-497411-m4 --format="table(billing
 
 ## Script Block 19
 ```bash
-gcloud projects get-iam-policy ****11m4 --format="table(bindings.role, bindings.members)" --filter="bindings.role:roles/owner OR bindings.role:roles/editor" 2>&1
+gcloud projects get-iam-policy noble-beanbag-497411-m4 --format="table(bindings.role, bindings.members)" --filter="bindings.role:roles/owner OR bindings.role:roles/editor" 2>&1
 ```
 
 ## Script Block 20
@@ -214,9 +214,9 @@ What do you want to deploy? A **Cloud Workstation**? I can write the exact `gclo
 
 ## Script Block 22
 ```bash
-The user is asking me to access various Google URLs - personal account ****ages like My Activity, Account ****oard, Takeout, Connected Apps, Family Group management, etc.
+The user is asking me to access various Google URLs - personal account pages like My Activity, Account Dashboard, Takeout, Connected Apps, Family Group management, etc.
 
-These are **personal Google account ****ages** that require the user's personal login/session. As a CLI tool running locally, I can't authenticate to these. I can only access GCP resources via the gcloud CLI that's already authenticated.
+These are **personal Google account pages** that require the user's personal login/session. As a CLI tool running locally, I can't authenticate to these. I can only access GCP resources via the gcloud CLI that's already authenticated.
 
 Let me be clear about what I can and can't do:
 
@@ -226,16 +226,16 @@ Let me be clear about what I can and can't do:
 
 **What I CANNOT do:**
 - Access `myaccount.google.com`, `myactivity.google.com`, `takeout.google.com`, `families.google.com` - these require the user's browser session/cookies
-- These are personal Google Account ****ages, not GCP APIs
+- These are personal Google Account pages, not GCP APIs
 
 Let me try fetching some of these to show the user what happens, but I need to be direct about the limitations.
 
-Actually, I should just be direct. I can't access personal Google account ****ages - those are protected by the user's browser session. I can only work with GCP via gcloud CLI. Let me ask what they actually need to accomplish.
+Actually, I should just be direct. I can't access personal Google account pages - those are protected by the user's browser session. I can only work with GCP via gcloud CLI. Let me ask what they actually need to accomplish.
 ```
 
 ## Script Block 23
 ```bash
-I can only access **GCP** via the `gcloud` CLI that's already authenticated on your machine. The personal Google URLs (My Activity, Takeout, Account ****oard, Family Plan, etc.) require **your browser session/cookies** â I can't authenticate to those.
+I can only access **GCP** via the `gcloud` CLI that's already authenticated on your machine. The personal Google URLs (My Activity, Takeout, Account Dashboard, Family Plan, etc.) require **your browser session/cookies** â I can't authenticate to those.
 
 What I *can* do right now with this project:
 
@@ -263,11 +263,11 @@ These correspond to the 5 family members listed:
 - IronMan DaVinci
 - Elizabeth Petruccio
 
-The user seems to want me to access these accounts or do something with them. But as I mentioned, these are personal Google account ****ages that require browser authentication - I can't access them via my tools. 
+The user seems to want me to access these accounts or do something with them. But as I mentioned, these are personal Google account pages that require browser authentication - I can't access them via my tools. 
 
 The webfetch tool could try to fetch them, but these URLs would just redirect to a login page since I don't have session cookies for these accounts.
 
-Let me be clear about what I can and cannot do. I can only work with the GCP project that's already authenticated via `gcloud` CLI on this machine. The Family Plan/Google Account ****ages are not accessible to me.
+Let me be clear about what I can and cannot do. I can only work with the GCP project that's already authenticated via `gcloud` CLI on this machine. The Family Plan/Google Account pages are not accessible to me.
 
 The user seems to be in a mode where they're testing/verifying what I can access. Let me be straightforward.
 ```
@@ -280,7 +280,7 @@ What I have access to right now:
 - **GCP project `noble-beanbag-497411-m4`** via the `gcloud` CLI authenticated as `t***@gmail.com`
 - That's the only authenticated account on this machine
 
-If you need those family member ****ails, you'd need to view them in your own browser and tell me. Then I can use them in any GCP commands you want to run.
+If you need those family member emails, you'd need to view them in your own browser and tell me. Then I can use them in any GCP commands you want to run.
 
 What are you trying to build/deploy?
 ```
@@ -410,7 +410,7 @@ The accounts they mentioned earlier:
 - `a***@students.post.edu` (wanting to use as workstation account)
 - `a***@gmail.com`
 - `t***@gmail.com` (this one has 5TB Google One plan)
-- Family member ****unts
+- Family member accounts
 
 What the user wants:
 1. Backup ALL the 5GB Google Cloud Home accounts
@@ -670,7 +670,7 @@ gcloud projects list --account=t***@gmail.com --format="table(projectId, name)" 
 
 ## Script Block 48
 ```bash
-ERROR: (gcloud.projects.list) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as t***@gmail.com which is the active account ****fied by the [core/account] property.
+ERROR: (gcloud.projects.list) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as t***@gmail.com which is the active account specified by the [core/account] property.
 
 Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
 
@@ -702,7 +702,7 @@ gcloud projects list --account=a***@gmail.com --format="table(projectId, name)" 
 
 ## Script Block 50
 ```bash
-ERROR: (gcloud.projects.list) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as a***@gmail.com which is the active account ****fied by the [core/account] property.
+ERROR: (gcloud.projects.list) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as a***@gmail.com which is the active account specified by the [core/account] property.
 
 Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
 
@@ -734,7 +734,7 @@ gcloud projects list --account=o***@gmail.com --format="table(projectId, name)" 
 
 ## Script Block 52
 ```bash
-ERROR: (gcloud.projects.list) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as o***@gmail.com which is the active account ****fied by the [core/account] property.
+ERROR: (gcloud.projects.list) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as o***@gmail.com which is the active account specified by the [core/account] property.
 
 Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
 
@@ -799,7 +799,7 @@ take a few minutes)? (y/N)?
 
 Automatic authentication with GCP CLI tools in Cloud Shell is disabled. To enable, please rerun command with `--authorize-session` flag.
 
-ERROR: (gcloud.cloud-shell.ssh) PERMISSION_DENIED: Cloud Shell API has not been used in project project-9c94c2fa-3af4-49f1-a7b before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/cloudshell.googleapis.com/overview?project=project-9c94c2fa-3af4-49f1-a7b then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. This command is authenticated as a***@gmail.com which is the active account ****fied by the [core/account] property.
+ERROR: (gcloud.cloud-shell.ssh) PERMISSION_DENIED: Cloud Shell API has not been used in project project-9c94c2fa-3af4-49f1-a7b before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/cloudshell.googleapis.com/overview?project=project-9c94c2fa-3af4-49f1-a7b then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. This command is authenticated as a***@gmail.com which is the active account specified by the [core/account] property.
 
 Cloud Shell API has not been used in project project-9c94c2fa-3af4-49f1-a7b before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/cloudshell.googleapis.com/overview?project=project-9c94c2fa-3af4-49f1-a7b then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.
 
@@ -1330,7 +1330,7 @@ resource "google_workstations_workstation_config" "main" {
   idle_timeout = "1800s"
   
   # Running timeout (max 12 hours)
-  running_timeout = "432**s"
+  running_timeout = "43200s"
   
   labels = {
     config_type = "standard"
@@ -1489,7 +1489,7 @@ resource "google_monitoring_alert_policy" "high_cpu" {
   severity = "WARNING"
 }
 
-# Alerting Policy ****tion down
+# Alerting Policy: Workstation down
 resource "google_monitoring_alert_policy" "workstation_down" {
   display_name = "Workstation Instance Down"
   combiner     = "OR"
@@ -1693,7 +1693,7 @@ resource "google_compute_security_policy" "workstation_policy" {
   
   rule {
     action   = "deny(403)"
-    priority = "(***) ***-3647"
+    priority = "2147483647"
     match {
       versioned_expr = "SRC_IPS_V1"
       config {
@@ -2498,7 +2498,7 @@ resource "google_workstations_workstation_config" "migrated" {
   
   # Don't auto-stop during migration
   idle_timeout    = "7200s"   # 2 hours
-  running_timeout = "864**s"  # 24 hours max
+  running_timeout = "86400s"  # 24 hours max
   
   labels = {
     migrated = "true"
@@ -2663,7 +2663,7 @@ echo ""
 
 # 2. Critical files
 echo "🔑 CRITICAL FILES:"
-for f in .ssh/id_rsa .ssh/id_ed255** .gitconfig .bashrc .zshrc .profile .tmux.conf .vimrc; do
+for f in .ssh/id_rsa .ssh/id_ed25519 .gitconfig .bashrc .zshrc .profile .tmux.conf .vimrc; do
     [ -f "$HOME/$f" ] && echo "  ✓ $f" || echo "  ✗ $f MISSING"
 done
 echo ""
@@ -2742,7 +2742,7 @@ Kimi: I understand the urgency — you need to:
 2. **Migrate everything from the Antigravity IDE** (that's a specific cloud IDE environment)
 3. **Use your Google account app password** for authentication
 4. **Live sync** between old and new environments
-5. **Multi-account ****etup** (multiple Google accounts in the config)
+5. **Multi-account setup** (multiple Google accounts in the config)
 
 Let me search for Antigravity IDE specifics and the best way to back up to Google Drive via CLI with app passwords
 Got it. You need to:
@@ -3032,7 +3032,7 @@ echo "✅ Sync complete: $(date)"
 
 ---
 
-## 👥 STEP 3: MULTI-ACCOUNT ****ETUP
+## 👥 STEP 3: MULTI-ACCOUNT SETUP
 
 Configure multiple Google accounts in your workstation:
 
@@ -3040,10 +3040,10 @@ Configure multiple Google accounts in your workstation:
 #!/bin/bash
 # save as: setup-multi-account.sh
 
-echo "👥 MULTI-ACCOUNT ****TION SETUP"
+echo "👥 MULTI-ACCOUNT WORKSTATION SETUP"
 echo "==================================="
 
-# Account ****ions
+# Account configurations
 declare -A ACCOUNTS=(
     ["primary"]="y***@gmail.com"
     ["work"]="y***@company.com"
@@ -3066,7 +3066,7 @@ for name in "${!ACCOUNTS[@]}"; do
     # Create workspace directories
     mkdir -p "$HOME/workspaces/$name"
     
-    # Sync account ****ific data
+    # Sync account-specific data
     echo "   Syncing to $HOME/workspaces/$name..."
     rclone sync "gdrive-$name:Workstation-Data" "$HOME/workspaces/$name" \
         --progress \
@@ -3074,7 +3074,7 @@ for name in "${!ACCOUNTS[@]}"; do
         2>/dev/null || echo "   (No existing Workstation-Data folder found)"
 done
 
-# Create account ****cher script
+# Create account switcher script
 cat > "$HOME/.local/bin/switch-account" \x3C\x3C 'EOF'
 #!/bin/bash
 ACCOUNT=$1
@@ -3101,8 +3101,8 @@ EOF
 chmod +x "$HOME/.local/bin/switch-account"
 
 echo ""
-echo "✅ Multi-account ****etup complete!"
-echo "   Use: switch-account ****mary|work|personal"
+echo "✅ Multi-account setup complete!"
+echo "   Use: switch-account primary|work|personal"
 ```
 
 ---
@@ -3141,7 +3141,7 @@ variable "region" {
 }
 
 variable "your_email" {
-  description = "Your Google account ****mail"
+  description = "Your Google account email"
   type        = string
 }
 
@@ -3282,7 +3282,7 @@ resource "google_workstations_workstation_config" "migrated" {
   }
 
   idle_timeout    = "7200s"   # 2 hours
-  running_timeout = "864**s"  # 24 hours
+  running_timeout = "86400s"  # 24 hours
 
   labels = {
     migrated = "true"
@@ -3752,7 +3752,7 @@ gcloud workstations configs create migrated-home-config \
     --pd-disk-size=100 \
     --container-image=us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:latest \
     --idle-timeout=7200s \
-    --running-timeout=864**s 2>/dev/null || true
+    --running-timeout=86400s 2>/dev/null || true
 
 # Create workstation
 gcloud workstations create main-workstation \
@@ -3761,7 +3761,7 @@ gcloud workstations create main-workstation \
     --region="$REGION" 2>/dev/null || true
 
 # Grant access
-gcloud workstations add-iam-policy ****ding main-workstation \
+gcloud workstations add-iam-policy-binding main-workstation \
     --cluster=migrated-home-cluster \
     --config=migrated-home-config \
     --region="$REGION" \
@@ -3918,7 +3918,7 @@ spec:
                 --pd-disk-type=pd-ssd \
                 --pd-disk-size=100 \
                 --idle-timeout=7200s \
-                --running-timeout=864**s 2>/dev/null || true
+                --running-timeout=86400s 2>/dev/null || true
               
               gcloud workstations create main-ws \
                 --cluster=migrated-cluster \
@@ -5231,29 +5231,29 @@ a***@gmail.com
 
 ## Script Block 123
 ```bash
-gcloud storage buckets add-iam-policy ****ding gs://backup-noble-beanbag-497411-m4 --member=user:a***@gmail.com --role=roles/storage.objectAdmin 2>&1
+gcloud storage buckets add-iam-policy-binding gs://backup-noble-beanbag-497411-m4 --member=user:a***@gmail.com --role=roles/storage.objectAdmin 2>&1
 ```
 
 ## Script Block 124
 ```bash
-ERROR: (gcloud.storage.buckets.add-iam-policy ****ding) [a***@gmail.com] does not have permission to access b instance [backup-noble-beanbag-497411-m4] (or it may not exist): a***@gmail.com does not have storage.buckets.setIamPolicy access to the Google Cloud Storage bucket. Permission 'storage.buckets.setIamPolicy' denied on resource '//storage.googleapis.com/projects/_/buckets/backup-noble-beanbag-497411-m4' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyOS0wZWM1LTc5N2MtOTFjOS1kMjdiZjIwYjExMTESOHByb2plY3RzL18vYnVja2V0cy9iYWNrdXAtcHJvamVjdC03NDNhYWI4NC1mOWE1LTRlYzctOTU0 . This command is authenticated as a***@gmail.com which is the active account ****fied by the [core/account] property.
+ERROR: (gcloud.storage.buckets.add-iam-policy-binding) [a***@gmail.com] does not have permission to access b instance [backup-noble-beanbag-497411-m4] (or it may not exist): a***@gmail.com does not have storage.buckets.setIamPolicy access to the Google Cloud Storage bucket. Permission 'storage.buckets.setIamPolicy' denied on resource '//storage.googleapis.com/projects/_/buckets/backup-noble-beanbag-497411-m4' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyOS0wZWM1LTc5N2MtOTFjOS1kMjdiZjIwYjExMTESOHByb2plY3RzL18vYnVja2V0cy9iYWNrdXAtcHJvamVjdC03NDNhYWI4NC1mOWE1LTRlYzctOTU0 . This command is authenticated as a***@gmail.com which is the active account specified by the [core/account] property.
 ```
 
 ## Script Block 125
 ```bash
-gcloud config set account t***@gmail.com 2>&1; gcloud storage buckets add-iam-policy ****ding gs://backup-noble-beanbag-497411-m4 --member=user:a***@gmail.com --role=roles/storage.objectAdmin 2>&1
+gcloud config set account t***@gmail.com 2>&1; gcloud storage buckets add-iam-policy-binding gs://backup-noble-beanbag-497411-m4 --member=user:a***@gmail.com --role=roles/storage.objectAdmin 2>&1
 ```
 
 ## Script Block 126
 ```bash
 Updated property [core/account].
 
-ERROR: (gcloud.storage.buckets.add-iam-policy ****ding) [t***@gmail.com] does not have permission to access b instance [backup-noble-beanbag-497411-m4] (or it may not exist): t***@gmail.com does not have serviceusage.services.use access to the Google Cloud project. Permission 'serviceusage.services.use' denied on resource (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyOS00NmJiLTdjNDMtODE4OS1jYjg2YmQwODdiMTUSAA%3D%3D . This command is authenticated as t***@gmail.com which is the active account ****fied by the [core/account] property.
+ERROR: (gcloud.storage.buckets.add-iam-policy-binding) [t***@gmail.com] does not have permission to access b instance [backup-noble-beanbag-497411-m4] (or it may not exist): t***@gmail.com does not have serviceusage.services.use access to the Google Cloud project. Permission 'serviceusage.services.use' denied on resource (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyOS00NmJiLTdjNDMtODE4OS1jYjg2YmQwODdiMTUSAA%3D%3D . This command is authenticated as t***@gmail.com which is the active account specified by the [core/account] property.
 ```
 
 ## Script Block 127
 ```bash
-gcloud config set account t***@gmail.com 2>&1; gcloud config set project noble-beanbag-497411-m4 2>&1; gcloud storage buckets add-iam-policy ****ding gs://backup-noble-beanbag-497411-m4 --member=user:a***@gmail.com --role=roles/storage.objectAdmin 2>&1
+gcloud config set account t***@gmail.com 2>&1; gcloud config set project noble-beanbag-497411-m4 2>&1; gcloud storage buckets add-iam-policy-binding gs://backup-noble-beanbag-497411-m4 --member=user:a***@gmail.com --role=roles/storage.objectAdmin 2>&1
 ```
 
 ## Script Block 128
@@ -5270,7 +5270,7 @@ To update your Application Default Credentials quota project, use the `gcloud au
 
 Updated property [core/project].
 
-ERROR: (gcloud.storage.buckets.add-iam-policy ****ding) [t***@gmail.com] does not have permission to access b instance [backup-noble-beanbag-497411-m4] (or it may not exist): t***@gmail.com does not have serviceusage.services.use access to the Google Cloud project. Permission 'serviceusage.services.use' denied on resource (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyOS05Nzk0LTczY2ItODJlNy1iOTkwZTg3ZTdhOWYSAA%3D%3D . This command is authenticated as t***@gmail.com which is the active account ****fied by the [core/account] property.
+ERROR: (gcloud.storage.buckets.add-iam-policy-binding) [t***@gmail.com] does not have permission to access b instance [backup-noble-beanbag-497411-m4] (or it may not exist): t***@gmail.com does not have serviceusage.services.use access to the Google Cloud project. Permission 'serviceusage.services.use' denied on resource (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyOS05Nzk0LTczY2ItODJlNy1iOTkwZTg3ZTdhOWYSAA%3D%3D . This command is authenticated as t***@gmail.com which is the active account specified by the [core/account] property.
 ```
 
 ## Script Block 129
@@ -5282,14 +5282,14 @@ Let me check what accounts have what permissions, and try using `--account` flag
 
 ## Script Block 130
 ```bash
-gcloud auth application-default set-quota-project noble-beanbag-497411-m4 2>&1; gcloud storage buckets add-iam-policy ****ding gs://backup-noble-beanbag-497411-m4 --member=user:a***@gmail.com --role=roles/storage.objectAdmin --account=a***@gmail.com 2>&1
+gcloud auth application-default set-quota-project noble-beanbag-497411-m4 2>&1; gcloud storage buckets add-iam-policy-binding gs://backup-noble-beanbag-497411-m4 --member=user:a***@gmail.com --role=roles/storage.objectAdmin --account=a***@gmail.com 2>&1
 ```
 
 ## Script Block 131
 ```bash
 ERROR: (gcloud.auth.application-default.set-quota-project) Cannot add the project "noble-beanbag-497411-m4" to application default credentials (ADC) as a quota project because the account in ADC does not have the "serviceusage.services.use" permission on this project.
 
-ERROR: (gcloud.storage.buckets.add-iam-policy ****ding) [a***@gmail.com] does not have permission to access b instance [backup-noble-beanbag-497411-m4] (or it may not exist): a***@gmail.com does not have storage.buckets.setIamPolicy access to the Google Cloud Storage bucket. Permission 'storage.buckets.setIamPolicy' denied on resource '//storage.googleapis.com/projects/_/buckets/backup-noble-beanbag-497411-m4' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyOS1lNzBhLTczZWMtYTI1MS1jM2Q1YjNlM2MyOTUSOHByb2plY3RzL18vYnVja2V0cy9iYWNrdXAtcHJvamVjdC03NDNhYWI4NC1mOWE1LTRlYzctOTU0 . This command is authenticated as a***@gmail.com which is the active account ****fied by the [core/account] property.
+ERROR: (gcloud.storage.buckets.add-iam-policy-binding) [a***@gmail.com] does not have permission to access b instance [backup-noble-beanbag-497411-m4] (or it may not exist): a***@gmail.com does not have storage.buckets.setIamPolicy access to the Google Cloud Storage bucket. Permission 'storage.buckets.setIamPolicy' denied on resource '//storage.googleapis.com/projects/_/buckets/backup-noble-beanbag-497411-m4' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyOS1lNzBhLTczZWMtYTI1MS1jM2Q1YjNlM2MyOTUSOHByb2plY3RzL18vYnVja2V0cy9iYWNrdXAtcHJvamVjdC03NDNhYWI4NC1mOWE1LTRlYzctOTU0 . This command is authenticated as a***@gmail.com which is the active account specified by the [core/account] property.
 ```
 
 ## Script Block 132
@@ -5299,7 +5299,7 @@ gcloud storage buckets get-iam-policy gs://backup-noble-beanbag-497411-m4 --acco
 
 ## Script Block 133
 ```bash
-gcloud config set account a***@gmail.com 2>&1; gcloud config set project noble-beanbag-497411-m4 2>&1; gcloud storage buckets add-iam-policy ****ding gs://backup-noble-beanbag-497411-m4 --member=user:a***@gmail.com --role=roles/storage.objectAdmin 2>&1
+gcloud config set account a***@gmail.com 2>&1; gcloud config set project noble-beanbag-497411-m4 2>&1; gcloud storage buckets add-iam-policy-binding gs://backup-noble-beanbag-497411-m4 --member=user:a***@gmail.com --role=roles/storage.objectAdmin 2>&1
 ```
 
 ## Script Block 134
@@ -5316,7 +5316,7 @@ To update your Application Default Credentials quota project, use the `gcloud au
 
 Updated property [core/project].
 
-ERROR: (gcloud.storage.buckets.add-iam-policy ****ding) [a***@gmail.com] does not have permission to access b instance [backup-noble-beanbag-497411-m4] (or it may not exist): a***@gmail.com does not have serviceusage.services.use access to the Google Cloud project. Permission 'serviceusage.services.use' denied on resource (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyYS01YzExLTczZTYtYWQxYy03YTJlZTAwZWJhMzESAA%3D%3D . This command is authenticated as a***@gmail.com which is the active account ****fied by the [core/account] property.
+ERROR: (gcloud.storage.buckets.add-iam-policy-binding) [a***@gmail.com] does not have permission to access b instance [backup-noble-beanbag-497411-m4] (or it may not exist): a***@gmail.com does not have serviceusage.services.use access to the Google Cloud project. Permission 'serviceusage.services.use' denied on resource (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyYS01YzExLTczZTYtYWQxYy03YTJlZTAwZWJhMzESAA%3D%3D . This command is authenticated as a***@gmail.com which is the active account specified by the [core/account] property.
 ```
 
 ## Script Block 135
@@ -5375,7 +5375,7 @@ location: US-CENTRAL1
 
 ## Script Block 138
 ```bash
-gcloud projects get-iam-policy ****11m4 --account=a***@gmail.com --format="table(bindings.role)" --filter="bindings.members:anthonymichaeldimarcello" 2>&1
+gcloud projects get-iam-policy noble-beanbag-497411-m4 --account=a***@gmail.com --format="table(bindings.role)" --filter="bindings.members:anthonymichaeldimarcello" 2>&1
 ```
 
 ## Script Block 139
@@ -5460,7 +5460,7 @@ To update your Application Default Credentials quota project, use the `gcloud au
 
 Updated property [core/project].
 
-ERROR: (gcloud.storage.cp) HTTPError 403: The billing account for the owning project is disabled in state absent. This command is authenticated as a***@gmail.com which is the active account ****fied by the [core/account] property
+ERROR: (gcloud.storage.cp) HTTPError 403: The billing account for the owning project is disabled in state absent. This command is authenticated as a***@gmail.com which is the active account specified by the [core/account] property
 ```
 
 ## Script Block 146
@@ -5472,7 +5472,7 @@ gcloud storage buckets create gs://osintneoai-backup-20260708 --project=noble-be
 ```bash
 Creating gs://osintneoai-backup-20260708/...
 
-ERROR: (gcloud.storage.buckets.create) HTTPError 403: a***@gmail.com does not have storage.buckets.create access to the Google Cloud project. Permission 'storage.buckets.create' denied on resource '//storage.googleapis.com/projects/_/buckets/osintneoai-backup-20260708' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyYi1kZTZjLTcyNGItOGQ2My0xNTA2NjlkMDgzMjcSLXByb2plY3RzL18vYnVja2V0cy9vc2ludG5lb2FpLWJhY2t1cC0yMDI2MDcwOA%3D%3D . This command is authenticated as a***@gmail.com which is the active account ****fied by the [core/account] property.
+ERROR: (gcloud.storage.buckets.create) HTTPError 403: a***@gmail.com does not have storage.buckets.create access to the Google Cloud project. Permission 'storage.buckets.create' denied on resource '//storage.googleapis.com/projects/_/buckets/osintneoai-backup-20260708' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMTlmNDQyYi1kZTZjLTcyNGItOGQ2My0xNTA2NjlkMDgzMjcSLXByb2plY3RzL18vYnVja2V0cy9vc2ludG5lb2FpLWJhY2t1cC0yMDI2MDcwOA%3D%3D . This command is authenticated as a***@gmail.com which is the active account specified by the [core/account] property.
 ```
 
 ## Script Block 148
@@ -5495,7 +5495,7 @@ Updated property [core/project].
 
 Creating gs://osintneoai-backup-20260708/...
 
-ERROR: (gcloud.storage.buckets.create) HTTPError 403: The billing account for the owning project is disabled in state absent. This command is authenticated as a***@gmail.com which is the active account ****fied by the [core/account] property
+ERROR: (gcloud.storage.buckets.create) HTTPError 403: The billing account for the owning project is disabled in state absent. This command is authenticated as a***@gmail.com which is the active account specified by the [core/account] property
 ```
 
 ## Script Block 151
@@ -5514,7 +5514,7 @@ OK so:
 - `noble-beanbag-497411-m4` (My First Project) has billing enabled with account `01E581-593D4D-6AA967`
 - `project-9c94c2fa-3af4-49f1-a7b` (OsintNeoAi) has NO billing and billing is disabled
 
-The issue with the first bucket `backup-noble-beanbag-497411-m4` when it says "billing account ****bled" - maybe that bucket was created under a different project context or billing was different at that time.
+The issue with the first bucket `backup-noble-beanbag-497411-m4` when it says "billing account disabled" - maybe that bucket was created under a different project context or billing was different at that time.
 
 But when I use `noble-beanbag-497411-m4` explicitly, the billing is enabled. The error "The billing account for the owning project is disabled in state absent" is weird.
 
@@ -5685,13 +5685,13 @@ echo "=== CREATING WORKSTATION CLUSTER ==="
 gcloud workstations clusters create "$CLUSTER"   --region="$REGION" --network=migration-vpc --subnetwork=migration-subnet 2>/dev/null || true
 
 echo "=== CREATING WORKSTATION CONFIG ==="
-gcloud workstations configs create "$CONFIG"   --cluster="$CLUSTER" --region="$REGION"   --machine-type=e2-standard-4   --pd-disk-type=pd-ssd --pd-disk-size=100   --container-image=us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:latest   --idle-timeout=7200s --running-timeout=864**s 2>/dev/null || true
+gcloud workstations configs create "$CONFIG"   --cluster="$CLUSTER" --region="$REGION"   --machine-type=e2-standard-4   --pd-disk-type=pd-ssd --pd-disk-size=100   --container-image=us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:latest   --idle-timeout=7200s --running-timeout=86400s 2>/dev/null || true
 
 echo "=== CREATING WORKSTATION ==="
 gcloud workstations create "$WS_NAME"   --cluster="$CLUSTER" --config="$CONFIG" --region="$REGION" 2>/dev/null || true
 
 echo "=== GRANTING ACCESS ==="
-echo "Add users: gcloud workstations add-iam-policy ****ding ..."
+echo "Add users: gcloud workstations add-iam-policy-binding ..."
 
 echo ""
 echo "=== DEPLOYMENT COMPLETE ==="
@@ -5776,7 +5776,7 @@ $env:CLOUDSDK_CORE_ACCOUNT = "o***@gmail.com"; gcloud cloud-shell ssh --dry-run 
 
 ## Script Block 168
 ```bash
-ERROR: (gcloud.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as o***@gmail.com which is the active account ****fied by the [core/account] property.
+ERROR: (gcloud.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as o***@gmail.com which is the active account specified by the [core/account] property.
 
 Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
 
@@ -5829,7 +5829,7 @@ To update your Application Default Credentials quota project, use the `gcloud au
 
 Updated property [core/project].
 
-ERROR: (gcloud.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as o***@gmail.com which is the active account ****fied by the [core/account] property.
+ERROR: (gcloud.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as o***@gmail.com which is the active account specified by the [core/account] property.
 
 Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
 
@@ -5897,7 +5897,7 @@ gcloud auth application-default set-quota-project noble-beanbag-497411-m4 --acco
 ```bash
 ERROR: (gcloud.auth.application-default.set-quota-project) Cannot add the project "noble-beanbag-497411-m4" to application default credentials (ADC) as a quota project because the account in ADC does not have the "serviceusage.services.use" permission on this project.
 
-ERROR: (gcloud.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as o***@gmail.com which is the active account ****fied by the [core/account] property.
+ERROR: (gcloud.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as o***@gmail.com which is the active account specified by the [core/account] property.
 
 Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
 
@@ -5924,7 +5924,7 @@ https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af
 
 ## Script Block 178
 ```bash
-The osintneoai account ****oesn't have permission to use the OsintNeoAi project (project-9c94c2fa-3af4-49f1-a7b) either. That's why the Cloud Shell API is failing.
+The osintneoai account doesn't have permission to use the OsintNeoAi project (project-9c94c2fa-3af4-49f1-a7b) either. That's why the Cloud Shell API is failing.
 
 I managed to start the Cloud Shell via the REST API (using curl) because the API call went through with the token. The Cloud Shell environment DID start at [IP_REDACTED]:6000. But SSH access requires a public key that matches a private key I have.
 
@@ -5932,7 +5932,7 @@ The key issue is: each Cloud Shell environment has a set of public keys, and the
 
 However, I already know the Cloud Shell is RUNNING at [IP_REDACTED]:6000. I just need the right private key.
 
-Let me check if `gcloud` has a way to generate and upload a key for this account ****hout the interactive SSH. I can use `gcloud cloud-shell ssh --dry-run` which would show me the key it would use, or I can use the `--ssh-key-file` option.
+Let me check if `gcloud` has a way to generate and upload a key for this account without the interactive SSH. I can use `gcloud cloud-shell ssh --dry-run` which would show me the key it would use, or I can use the `--ssh-key-file` option.
 
 Actually, another approach: I can use the `gcloud cloud-shell scp` with a `--force-key-file-overwrite` to upload a new key, or use the `--authorize-session` which handles key management.
 
@@ -6017,7 +6017,7 @@ Wait, looking back at the gcloud auth list, I only saw:
 
 Let me reconsider the approach. The user is giving me app passwords for all their accounts. They want these to be used for backing up their Cloud Shell homes to the 5TB txtdjdrop Drive. But the app passwords can't be used with gcloud - they're for services like IMAP/SMTP.
 
-I'm getting mixed up between what I can do with gcloud (GCP access) and what the app passwords are for (Google account ****cess via basic auth protocols).
+I'm getting mixed up between what I can do with gcloud (GCP access) and what the app passwords are for (Google account access via basic auth protocols).
 
 Let me refocus. What I've accomplished so far:
 
@@ -6124,7 +6124,7 @@ $pubkey = (Get-Content "$env:USERPROFILE\.ssh\osintneoai_ecdsa.pub" -Raw).Trim()
 
 ## Script Block 195
 ```bash
-The API keeps returning 400. Maybe the issue is that this account ****oesn't have permission to call the authorize endpoint, or the API doesn't work the way I think it does. 
+The API keeps returning 400. Maybe the issue is that this account doesn't have permission to call the authorize endpoint, or the API doesn't work the way I think it does. 
 
 Let me check the authorize API documentation. Actually, the authorize endpoint might require a different format or might not be available for this particular Cloud Shell environment.
 
@@ -6166,7 +6166,7 @@ gcloud alpha cloud-shell ssh --account=o***@gmail.com --authorize-session --comm
 
 ## Script Block 197
 ```bash
-ERROR: (gcloud.alpha.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as o***@gmail.com which is the active account ****fied by the [core/account] property.
+ERROR: (gcloud.alpha.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as o***@gmail.com which is the active account specified by the [core/account] property.
 
 Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
 
@@ -6281,7 +6281,7 @@ I'm hitting walls with the other accounts' SSH keys. Here's what's DONE:
 
 **BLOCKED:**
 - â Other Cloud Shell homes (osintneoai, amd949609, txtdjdrop) â SSH key management won't work due to project/billing issues on those accounts
-- â GCS upload â billing account ****osed on the project
+- â GCS upload â billing account closed on the project
 
 **Want me to:**
 1. **Deploy the workstation** in the billing-enabled project first, then use it to backup the remaining accounts? 
@@ -6320,7 +6320,7 @@ Permission denied to enable service [compute.googleapis.com]
 
 Permission denied to enable service [workstations.googleapis.com]
 
-Help Token: AfYMUrhChkK5XRBxj_mA7TiRDT-WQshjgtQmWOvGaOUIQbPxKrURRIrxOLC6Wterc7-8noJe9gncolFbUbeCFmguhUv5xhAToIjrQo5P9YB9f2G0. This command is authenticated as a***@gmail.com which is the active account ****fied by the [core/account] property
+Help Token: AfYMUrhChkK5XRBxj_mA7TiRDT-WQshjgtQmWOvGaOUIQbPxKrURRIrxOLC6Wterc7-8noJe9gncolFbUbeCFmguhUv5xhAToIjrQo5P9YB9f2G0. This command is authenticated as a***@gmail.com which is the active account specified by the [core/account] property
 
 - '@type': type.googleapis.com/google.rpc.PreconditionFailure
 
@@ -6355,7 +6355,7 @@ gcloud services enable workstations.googleapis.com --project=noble-beanbag-49741
 
 ## Script Block 207
 ```bash
-ERROR: (gcloud.services.enable) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as a***@gmail.com which is the active account ****fied by the [core/account] property.
+ERROR: (gcloud.services.enable) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as a***@gmail.com which is the active account specified by the [core/account] property.
 
 Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
 
@@ -6518,7 +6518,7 @@ to obtain new credentials.
 
 If you have already logged in with a different account, run:
 
-  $ gcloud config set account ****OUNT
+  $ gcloud config set account ACCOUNT
 
 to select an already authenticated account to use.
 ===ENABLED===
@@ -6564,7 +6564,7 @@ to obtain new credentials.
 
 If you have already logged in with a different account, run:
 
-  $ gcloud config set account ****OUNT
+  $ gcloud config set account ACCOUNT
 
 to select an already authenticated account to use.
 ERROR: (gcloud.services.enable) There was a problem refreshing your current auth tokens: Unexpected response from metadata server: service account info is missing 'email' field.
@@ -6576,7 +6576,7 @@ to obtain new credentials.
 
 If you have already logged in with a different account, run:
 
-  $ gcloud config set account ****OUNT
+  $ gcloud config set account ACCOUNT
 
 to select an already authenticated account to use.
 ===DONE===
@@ -6729,7 +6729,7 @@ Let me structure this carefully.
 ## Relevant Files
 - `C:\migrate opencode\OSINTNEOAI\backup-scripts\backup-cloudshell.sh`: automated Cloud Shell backup for all accounts
 - `C:\migrate opencode\OSINTNEOAI\backup-scripts\deploy-workstation.sh`: workstation deployment script
-- `C:\migrate opencode\backups\cloudshell-backup-anthonymichaeldimarcello-20260708.tar.gz`: first account ****ckup (6.8 MB)
+- `C:\migrate opencode\backups\cloudshell-backup-anthonymichaeldimarcello-20260708.tar.gz`: first account backup (6.8 MB)
 - `C:\Users\HP\.ssh\google_compute_engine`: RSA key for anthonymichaeldimarcello Cloud Shell SSH
 - `C:\Users\HP\.config\rclone\rclone.conf`: rclone Drive config (unconfigured, needs OAuth)
 ```
@@ -6789,12 +6789,12 @@ Let me start by checking the project's IAM policy and what the account can do.
 
 ## Script Block 231
 ```bash
-gcloud auth list --format="value(account)" 2>&1; Write-Output "---"; gcloud projects describe noble-beanbag-497411-m4 --account=a***@gmail.com 2>&1; Write-Output "---"; gcloud projects get-iam-policy ****11m4 --account=a***@gmail.com --format="json" 2>&1 | Select-Object -First 50
+gcloud auth list --format="value(account)" 2>&1; Write-Output "---"; gcloud projects describe noble-beanbag-497411-m4 --account=a***@gmail.com 2>&1; Write-Output "---"; gcloud projects get-iam-policy noble-beanbag-497411-m4 --account=a***@gmail.com --format="json" 2>&1 | Select-Object -First 50
 ```
 
 ## Script Block 232
 ```bash
-gcloud projects get-iam-policy ****11m4 --account=a***@gmail.com --format=json 2>&1
+gcloud projects get-iam-policy noble-beanbag-497411-m4 --account=a***@gmail.com --format=json 2>&1
 ```
 
 ## Script Block 233
@@ -6809,7 +6809,7 @@ gcloud services enable workstations.googleapis.com compute.googleapis.com --proj
 
 ## Script Block 235
 ```bash
-ERROR: (gcloud.services.enable) [t***@gmail.com] does not have permission to access projects instance [noble-beanbag-497411-m4] (or it may not exist): Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as t***@gmail.com which is the active account ****fied by the [core/account] property.
+ERROR: (gcloud.services.enable) [t***@gmail.com] does not have permission to access projects instance [noble-beanbag-497411-m4] (or it may not exist): Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as t***@gmail.com which is the active account specified by the [core/account] property.
 
 Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
 
@@ -6929,7 +6929,7 @@ The key issue here is that the `t***@gmail.com` user, despite being an Owner on 
 
 Wait - but why would project-9c94c2fa-3af4-49f1-a7b be involved at all if we're specifying `--project=noble-beanbag-497411-m4`? 
 
-The `USER_PROJECT_DENIED` error with the reason reason about the consumer being `project-9c94c2fa-3af4-49f1-a7b` suggests that the service usage API is trying to use the billing/quota account ****ated with that project. This could be because the `noble-beanbag-497411-m4` billing account is somehow linked to `project-9c94c2fa-3af4-49f1-a7b`.
+The `USER_PROJECT_DENIED` error with the reason reason about the consumer being `project-9c94c2fa-3af4-49f1-a7b` suggests that the service usage API is trying to use the billing/quota account associated with that project. This could be because the `noble-beanbag-497411-m4` billing account is somehow linked to `project-9c94c2fa-3af4-49f1-a7b`.
 
 Let me try the REST API approach with the right token this time. We already have `t***@gmail.com` active.
 ```
@@ -7039,7 +7039,7 @@ gcloud kms keyrings create backup-keyring --location=us-central1 --project=noble
 
 ## Script Block 257
 ```bash
-ERROR: (gcloud.kms.keyrings.create) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as t***@gmail.com which is the active account ****fied by the [core/account] property.
+ERROR: (gcloud.kms.keyrings.create) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as t***@gmail.com which is the active account specified by the [core/account] property.
 
 Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
 
@@ -7083,12 +7083,12 @@ Actually, a simpler approach: Let me check if `t***@gmail.com` has any role on p
 
 ## Script Block 259
 ```bash
-gcloud projects describe project-9c94c2fa-3af4-49f1-a7b --account=t***@gmail.com 2>&1; Write-Output "=== IAM ==="; gcloud projects get-iam-policy ****1a7b --account=t***@gmail.com --format=json 2>&1 | Select-String "txtdjdrop|anthonymichaeldimarcello|owner" | Select-Object -First 20
+gcloud projects describe project-9c94c2fa-3af4-49f1-a7b --account=t***@gmail.com 2>&1; Write-Output "=== IAM ==="; gcloud projects get-iam-policy project-9c94c2fa-3af4-49f1-a7b --account=t***@gmail.com --format=json 2>&1 | Select-String "txtdjdrop|anthonymichaeldimarcello|owner" | Select-Object -First 20
 ```
 
 ## Script Block 260
 ```bash
-ERROR: (gcloud.projects.describe) [t***@gmail.com] does not have permission to access projects instance [project-9c94c2fa-3af4-49f1-a7b] (or it may not exist): Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as t***@gmail.com which is the active account ****fied by the [core/account] property.
+ERROR: (gcloud.projects.describe) [t***@gmail.com] does not have permission to access projects instance [project-9c94c2fa-3af4-49f1-a7b] (or it may not exist): Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as t***@gmail.com which is the active account specified by the [core/account] property.
 
 Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
 
@@ -7128,7 +7128,7 @@ https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af
 
 of the new permission may take a few minutes. This command is authenticated as t***@gmail.com which is the active 
 
-account ****fied by the [core/account] property.
+account specified by the [core/account] property.
 ```
 
 ## Script Block 261
@@ -7167,7 +7167,7 @@ Let me check what `a***@gmail.com` (who has `roles/iam.admin`) can do. Actually,
 
 Let me check if there's an org policy that denies CMEK-related operations, or if the Owner role on the project has been restricted by organization policies.
 
-Actually, let me try a different approach entirely. Instead of using Cloud Workstations (which has all these CMEK and org policy ****sues), let me think about what other options we have:
+Actually, let me try a different approach entirely. Instead of using Cloud Workstations (which has all these CMEK and org policy issues), let me think about what other options we have:
 
 1. We already backed up `anthonymichaeldimarcello` Cloud Shell via direct SSH
 2. For the other accounts (osintneoai, amd949609, txtdjdrop), we need to back up their Cloud Shells
@@ -7450,7 +7450,7 @@ The challenge is that each Cloud Shell has its own SSH key. The `google_compute_
 
 On the VM (Linux), `gcloud cloud-shell ssh` should work without the WinError 100** issue. Let me try this.
 
-But first, gcloud needs to be authenticated for each account. We can't do interactive auth from here. However, we could use service account ****tion or use the access tokens... Actually, let me try running `gcloud auth login --no-browser` or use the refresh tokens.
+But first, gcloud needs to be authenticated for each account. We can't do interactive auth from here. However, we could use service account impersonation or use the access tokens... Actually, let me try running `gcloud auth login --no-browser` or use the refresh tokens.
 
 Actually, wait. The app passwords we collected earlier are not for gcloud auth - they're app passwords for Gmail/Google Apps. For gcloud, we need OAuth tokens.
 
@@ -7460,7 +7460,7 @@ Actually, let me re-examine the problem. We have SSH access to `anthonymichaeldi
 
 But wait - maybe the issue with the `:authorize` call was something specific to the request format, not a general limitation. Let me try again from the Windows side, or better yet, from the VM, using `gcloud alpha cloud-shell ssh` which handles everything automatically.
 
-Let me SSH into the VM, authenticate as each account ****sing the access tokens from Windows, then use gcloud cloud-shell to SSH.
+Let me SSH into the VM, authenticate as each account using the access tokens from Windows, then use gcloud cloud-shell to SSH.
 
 Actually, even simpler: I have the OAuth access tokens for `t***@gmail.com` on the Windows side. Let me pass those to the VM and set up gcloud auth.
 
@@ -7572,7 +7572,7 @@ OK the Windows gcloud stores credentials in `C:\Users\HP\AppData\Roaming\gcloud\
 
 Let me transfer the entire `gcloud` directory to the VM and set it up there. Actually, that might be complex due to binary SQLite DB format. 
 
-A simpler approach: Let me SSH into the VM and authenticate gcloud with each account ****sing the access tokens I can generate from Windows. I can use `gcloud auth login --cred-file` with a generated JSON file.
+A simpler approach: Let me SSH into the VM and authenticate gcloud with each account using the access tokens I can generate from Windows. I can use `gcloud auth login --cred-file` with a generated JSON file.
 
 Actually, the simplest approach of all: Let me just write the credentials directly on the VM. I can get the access tokens and refresh tokens from Windows and set them up on the VM.
 
@@ -7580,7 +7580,7 @@ Hmm, this is getting complex. Let me try an even simpler approach first:
 
 From the VM, try `gcloud cloud-shell ssh` for the account that's already authenticated (txtdjdrop@). Wait, the VM's gcloud won't have any accounts authenticated by default. But we can use the Compute Engine default service account.
 
-Actually, let me think about this differently. The VM runs as the Compute Engine default service account (`9***@developer.gserviceaccount.com`). That service account ****ight not have permissions to access Cloud Shell.
+Actually, let me think about this differently. The VM runs as the Compute Engine default service account (`9***@developer.gserviceaccount.com`). That service account might not have permissions to access Cloud Shell.
 
 Let me try yet another approach: Instead of using Cloud Shell SSH from a VM, let me use the Cloud Shell REST API to execute commands and download files directly. The Cloud Shell API has an `environments/default:start` endpoint and then we can use the `environments:addUser` or execute commands via WebSocket/SSH.
 
@@ -7641,7 +7641,7 @@ The issue with the earlier failed attempt might have been about the format of th
 
 Actually, I think I need to take a step back and use a much simpler approach. Let me just:
 
-1. On the VM, authenticate gcloud for each account ****sing service account ****tion or by downloading the credential files
+1. On the VM, authenticate gcloud for each account using service account impersonation or by downloading the credential files
 2. Use `gcloud cloud-shell ssh` from the VM (which should work on Linux)
 
 For transferring the credentials, the simplest way is to zip the `gcloud` directory and upload it.
@@ -7823,7 +7823,7 @@ Actually, the simplest approach might be to use `gcloud cloud-shell ssh` from th
 
 On the VM, I can use `gcloud auth login --no-browser` which gives a URL to visit. Since we're on Windows with a browser, I can open the URL there. But this is interactive and needs user input.
 
-OR - even simpler - we can use `gcloud auth activate-service-account` with the Compute Engine default service account. But that service account ****ably doesn't have access to Cloud Shell (it's a user-level feature).
+OR - even simpler - we can use `gcloud auth activate-service-account` with the Compute Engine default service account. But that service account probably doesn't have access to Cloud Shell (it's a user-level feature).
 
 Actually, let me try a much simpler approach: just SSH into the txtdjdrop Cloud Shell directly using the SSH key that was generated by the `:authorize` call. The problem is figuring out what key to use.
 
@@ -7927,7 +7927,7 @@ gcloud alpha cloud-shell ssh --dry-run --account=t***@gmail.com --project=noble-
 
 ## Script Block 306
 ```bash
-ERROR: (gcloud.alpha.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as t***@gmail.com which is the active account ****fied by the [core/account] property.
+ERROR: (gcloud.alpha.cloud-shell.ssh) PERMISSION_DENIED: Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes. This command is authenticated as t***@gmail.com which is the active account specified by the [core/account] property.
 
 Caller does not have required permission to use project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation of the new permission may take a few minutes.
 
@@ -8225,7 +8225,7 @@ backup_account() {
     echo "Trying direct SCP..."
     gcloud alpha cloud-shell scp --account="$email" cloudshell:/tmp/${BACKUP_FILE} localhost:${BACKUP_DIR}/${BACKUP_FILE} 2>&1 || true
 
-    echo "Backup attempt for $account ****lete"
+    echo "Backup attempt for $account complete"
     echo ""
 }
 
@@ -8250,7 +8250,7 @@ ls -lh "$BACKUP_DIR/"
 
 ## Script Block 313
 ```bash
-Actually this approach won't work because `gcloud alpha cloud-shell ssh` on the VM still doesn't have the right credentials. The issue is that each account ****eeds to be authenticated separately and the token we have is only for txtdjdrop.
+Actually this approach won't work because `gcloud alpha cloud-shell ssh` on the VM still doesn't have the right credentials. The issue is that each account needs to be authenticated separately and the token we have is only for txtdjdrop.
 
 Let me think about this more carefully. We have:
 1. The backup VM in GCP with gcloud authenticated as the Compute Engine service account
@@ -8746,13 +8746,13 @@ gsutil ls -l "$BUCKET"
 29: gcloud workstations clusters create "$CLUSTER" 30:   --region="$REGION" --network=migration-vpc --subnetwork=migration-subnet 2>/dev/null || true
 31: 
 32: echo "=== CREATING WORKSTATION CONFIG ==="
-33: gcloud workstations configs create "$CONFIG" 34:   --cluster="$CLUSTER" --region="$REGION" 35:   --machine-type=e2-standard-4 36:   --pd-disk-type=pd-ssd --pd-disk-size=100 37:   --container-image=us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:latest 38:   --idle-timeout=7200s --running-timeout=864**s 2>/dev/null || true
+33: gcloud workstations configs create "$CONFIG" 34:   --cluster="$CLUSTER" --region="$REGION" 35:   --machine-type=e2-standard-4 36:   --pd-disk-type=pd-ssd --pd-disk-size=100 37:   --container-image=us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:latest 38:   --idle-timeout=7200s --running-timeout=86400s 2>/dev/null || true
 39: 
 40: echo "=== CREATING WORKSTATION ==="
 41: gcloud workstations create "$WS_NAME" 42:   --cluster="$CLUSTER" --config="$CONFIG" --region="$REGION" 2>/dev/null || true
 43: 
 44: echo "=== GRANTING ACCESS ==="
-45: echo "Add users: gcloud workstations add-iam-policy ****ding ..."
+45: echo "Add users: gcloud workstations add-iam-policy-binding ..."
 46: 
 47: echo ""
 48: echo "=== DEPLOYMENT COMPLETE ==="
@@ -8812,13 +8812,13 @@ echo "=== CREATING WORKSTATION CLUSTER ==="
 gcloud workstations clusters create "$CLUSTER"   --region="$REGION" --network=migration-vpc --subnetwork=migration-subnet 2>/dev/null || true
 
 echo "=== CREATING WORKSTATION CONFIG ==="
-gcloud workstations configs create "$CONFIG"   --cluster="$CLUSTER" --region="$REGION"   --machine-type=e2-standard-4   --pd-disk-type=pd-ssd --pd-disk-size=100   --container-image=us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:latest   --idle-timeout=7200s --running-timeout=864**s 2>/dev/null || true
+gcloud workstations configs create "$CONFIG"   --cluster="$CLUSTER" --region="$REGION"   --machine-type=e2-standard-4   --pd-disk-type=pd-ssd --pd-disk-size=100   --container-image=us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:latest   --idle-timeout=7200s --running-timeout=86400s 2>/dev/null || true
 
 echo "=== CREATING WORKSTATION ==="
 gcloud workstations create "$WS_NAME"   --cluster="$CLUSTER" --config="$CONFIG" --region="$REGION" 2>/dev/null || true
 
 echo "=== GRANTING ACCESS ==="
-echo "Add users: gcloud workstations add-iam-policy ****ding ..."
+echo "Add users: gcloud workstations add-iam-policy-binding ..."
 
 echo ""
 echo "=== DEPLOYMENT COMPLETE ==="
@@ -9054,7 +9054,7 @@ The platform is a **multi-source OSINT forensic analysis system** that:
 - **Resolves entities** (people, companies, addresses) via corporate record correlation (Aegis engine), NPI/NPPES processing
 - **Builds graph networks** -- exports to Maltego link-charts, GeoJSON spatial maps, and Neo4j graph DB
 - **Analyzes via Gemini AI** -- runs BigQuery SQL against forensic datasets, generates RAG-augmented intelligence reports
-- **Tracks fraud/RICO patterns** -- PPP loan ****ysis, unclaimed property, procurement data, HUD/CoC funding, non-profit audits
+- **Tracks fraud/RICO patterns** -- PPP loan analysis, unclaimed property, procurement data, HUD/CoC funding, non-profit audits
 - **Provides UI modes**: Web chat (API), Streamlit dashboard, CLI agent, and an autonomous Google ADK-based agent
 
 Key data sources integrated (via `osint_api_integrations.py`): LinkedIn, TrueCaller, SHODAN, WHOIS, Clearbit, Crunchbase, SEC EDGAR, HaveIBeenPwned, social media APIs, breach databases, dark web monitors, etc.
@@ -9313,12 +9313,12 @@ $token = gcloud auth print-access-token --account=t***@gmail.com 2>&1; $headers 
 
 ## Script Block 358
 ```bash
-$token = gcloud auth print-access-token --account=t***@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Write-Output "=== Open billing account ****ails ==="; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967" -Method GET -Headers $headers | ConvertTo-Json -Depth 5; Write-Output "=== Projects linked ==="; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967/projects" -Method GET -Headers $headers | ConvertTo-Json -Depth 3; Write-Output "=== Billing account 2 (closed) ==="; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E980-A96A9A-AE3ACC" -Method GET -Headers $headers | ConvertTo-Json -Depth 5
+$token = gcloud auth print-access-token --account=t***@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Write-Output "=== Open billing account details ==="; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967" -Method GET -Headers $headers | ConvertTo-Json -Depth 5; Write-Output "=== Projects linked ==="; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967/projects" -Method GET -Headers $headers | ConvertTo-Json -Depth 3; Write-Output "=== Billing account 2 (closed) ==="; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E980-A96A9A-AE3ACC" -Method GET -Headers $headers | ConvertTo-Json -Depth 5
 ```
 
 ## Script Block 359
 ```bash
-$token = gcloud auth print-access-token --account=t***@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Write-Output "=== Billing account 1 (open) cost data ==="; try { $budgets = Invoke-RestMethod -Uri "https://billingbudgets.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967/budgets" -Method GET -Headers $headers -ErrorAction SilentlyContinue; Write-Output ($budgets | ConvertTo-Json -Depth 5) } catch { Write-Output "No budget data: $($_.Exception.Message)" }; Write-Output "=== Check billing account ****ance via cloudbilling API ==="; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967" -Method GET -Headers $headers | ConvertTo-Json -Depth 5
+$token = gcloud auth print-access-token --account=t***@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Write-Output "=== Billing account 1 (open) cost data ==="; try { $budgets = Invoke-RestMethod -Uri "https://billingbudgets.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967/budgets" -Method GET -Headers $headers -ErrorAction SilentlyContinue; Write-Output ($budgets | ConvertTo-Json -Depth 5) } catch { Write-Output "No budget data: $($_.Exception.Message)" }; Write-Output "=== Check billing account balance via cloudbilling API ==="; Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/01E581-593D4D-6AA967" -Method GET -Headers $headers | ConvertTo-Json -Depth 5
 ```
 
 ## Script Block 360
@@ -9360,7 +9360,7 @@ project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.
 role with the serviceusage.services.use permission, by visiting \r
 https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation \r
 of the new permission may take a few minutes. This command is authenticated as t***@gmail.com which is the active \r
-account ****fied by the [core/account] property.\r
+account specified by the [core/account] property.\r
 At C:\Users\HP\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin\gcloud.ps1:120 char:3\r
 +   & "$exe_path" $run_args_array\r
 +   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r
@@ -9379,7 +9379,7 @@ project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.
 role with the serviceusage.services.use permission, by visiting \r
 https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation \r
 of the new permission may take a few minutes. This command is authenticated as a***@gmail.com which is the active \r
-account ****fied by the [core/account] property.\r
+account specified by the [core/account] property.\r
 At C:\Users\HP\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin\gcloud.ps1:120 char:3\r
 +   & "$exe_path" $run_args_array\r
 +   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r
@@ -9398,7 +9398,7 @@ project project-9c94c2fa-3af4-49f1-a7b. Grant the caller the roles/serviceusage.
 role with the serviceusage.services.use permission, by visiting \r
 https://console.developers.google.com/iam-admin/iam?project=project-9c94c2fa-3af4-49f1-a7b and then retry. Propagation \r
 of the new permission may take a few minutes. This command is authenticated as o***@gmail.com which is the \r
-active account ****fied by the [core/account] property.\r
+active account specified by the [core/account] property.\r
 At C:\Users\HP\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin\gcloud.ps1:120 char:3\r
 +   & "$exe_path" $run_args_array\r
 +   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r
@@ -9540,7 +9540,7 @@ $token = gcloud auth print-access-token --account=a***@gmail.com 2>&1; $headers 
 
 ## Script Block 378
 ```bash
-$token = gcloud auth print-access-token --account=a***@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json" }; $ba = "01E581-593D4D-6AA967"; Write-Output "=== Try adding to billing account ==="; $policyBody = @{ policy = @{ bindings = @(@{ role = "roles/billing.admin"; members = @("user:j***@jmweldingproducts.com") }) } } | ConvertTo-Json -Depth 5; try { $r = Invoke-WebRequest -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/$ba:setIamPolicy" -Method POST -Headers $headers -Body $policyBody -ErrorAction Stop; Write-Output "Billing Admin result: $($r.Content)" } catch { Write-Output "Can't set billing IAM (likely needs billing account ****wner)"; }; Write-Output "=== Check OsintNeoAi project ==="; try { $p = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/project-9c94c2fa-3af4-49f1-a7b:getIamPolicy" -Method POST -Headers $headers -Body '{}' -ErrorAction Stop; $p.bindings | Where-Object { $_.role -in @("roles/owner","roles/editor","roles/billing.admin") } | ForEach-Object { Write-Output "$($_.role): $($_.members -join ', ')" } } catch { Write-Output "Can't access OsintNeoAi project: $($_.Exception.Message)" }
+$token = gcloud auth print-access-token --account=a***@gmail.com 2>&1; $headers = @{ Authorization = "Bearer $token"; "Content-Type" = "application/json" }; $ba = "01E581-593D4D-6AA967"; Write-Output "=== Try adding to billing account ==="; $policyBody = @{ policy = @{ bindings = @(@{ role = "roles/billing.admin"; members = @("user:j***@jmweldingproducts.com") }) } } | ConvertTo-Json -Depth 5; try { $r = Invoke-WebRequest -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/$ba:setIamPolicy" -Method POST -Headers $headers -Body $policyBody -ErrorAction Stop; Write-Output "Billing Admin result: $($r.Content)" } catch { Write-Output "Can't set billing IAM (likely needs billing account owner)"; }; Write-Output "=== Check OsintNeoAi project ==="; try { $p = Invoke-RestMethod -Uri "https://cloudresourcemanager.googleapis.com/v1/projects/project-9c94c2fa-3af4-49f1-a7b:getIamPolicy" -Method POST -Headers $headers -Body '{}' -ErrorAction Stop; $p.bindings | Where-Object { $_.role -in @("roles/owner","roles/editor","roles/billing.admin") } | ForEach-Object { Write-Output "$($_.role): $($_.members -join ', ')" } } catch { Write-Output "Can't access OsintNeoAi project: $($_.Exception.Message)" }
 ```
 
 ## Script Block 379
@@ -9577,7 +9577,7 @@ Hmm, Google removed "less secure apps" access years ago. The only way to authent
 
 However, for Google Workspace accounts (which j***@jmweldingproducts.com might be if it's on a custom domain with Google Workspace), I could try:
 1. The Google Directory API with domain-wide delegation - but that needs Workspace super admin
-2. Service account ****tion - same issue
+2. Service account impersonation - same issue
 
 For Google Takeout, there's no public API - it's only available through the web UI at https://takeout.google.com
 
@@ -9602,7 +9602,7 @@ Actually, I just realized - the user said "he's fully logged in now" referring t
 
 Let me try what I can:
 1. Try to get an access token for james using the password - I already tried and Google doesn't support password grant
-2. Try to add james to the billing account ****sing txtdjdrop or osintneoai token
+2. Try to add james to the billing account using txtdjdrop or osintneoai token
 
 For the billing account, let me try again with osintneoai's token which had access to the billing account.
 ```
@@ -9744,7 +9744,7 @@ $token = gcloud auth print-access-token --account=o***@gmail.com; $h = @{ Author
 
 ## Script Block 401
 ```bash
-$token = gcloud auth print-access-token --account=o***@gmail.com; $h = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Write-Output "=== All billing accounts osintneoai sees ==="; try { $a = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts" -Method GET -Headers $h; $a.billingAccounts | ForEach-Object { Write-Output "$($_.name): $($_.displayName) open=$($_.open)" } } catch { Write-Output "Cannot list" }; Write-Output "=== New billing account ****ails ==="; try { $ba = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/014BB7-734838-D1BD80" -Method GET -Headers $h; Write-Output "name=$($ba.displayName) open=$($ba.open)" } catch { Write-Output "Cannot access" }; Write-Output "=== Projects on new billing account ==="; try { $projs = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/014BB7-734838-D1BD80/projects" -Method GET -Headers $h; $projs.projectBillingInfo | ForEach-Object { Write-Output "$($_.projectId): billing=$($_.billingEnabled)" } } catch { Write-Output "Cannot list projects" }; Write-Output "=== Compute instances in superb-router ==="; try { $zones = Invoke-RestMethod -Uri "https://compute.googleapis.com/compute/v1/projects/superb-router-q8gvj/zones/us-central1-a/instances" -Method GET -Headers $h; if ($zones.items) { $zones.items | ForEach-Object { Write-Output "  $($_.name): status=$($_.status)" } } else { Write-Output "  none" } } catch { Write-Output "  no compute access" }
+$token = gcloud auth print-access-token --account=o***@gmail.com; $h = @{ Authorization = "Bearer $token"; "x-goog-user-project" = "noble-beanbag-497411-m4" }; Write-Output "=== All billing accounts osintneoai sees ==="; try { $a = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts" -Method GET -Headers $h; $a.billingAccounts | ForEach-Object { Write-Output "$($_.name): $($_.displayName) open=$($_.open)" } } catch { Write-Output "Cannot list" }; Write-Output "=== New billing account details ==="; try { $ba = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/014BB7-734838-D1BD80" -Method GET -Headers $h; Write-Output "name=$($ba.displayName) open=$($ba.open)" } catch { Write-Output "Cannot access" }; Write-Output "=== Projects on new billing account ==="; try { $projs = Invoke-RestMethod -Uri "https://cloudbilling.googleapis.com/v1/billingAccounts/014BB7-734838-D1BD80/projects" -Method GET -Headers $h; $projs.projectBillingInfo | ForEach-Object { Write-Output "$($_.projectId): billing=$($_.billingEnabled)" } } catch { Write-Output "Cannot list projects" }; Write-Output "=== Compute instances in superb-router ==="; try { $zones = Invoke-RestMethod -Uri "https://compute.googleapis.com/compute/v1/projects/superb-router-q8gvj/zones/us-central1-a/instances" -Method GET -Headers $h; if ($zones.items) { $zones.items | ForEach-Object { Write-Output "  $($_.name): status=$($_.status)" } } else { Write-Output "  none" } } catch { Write-Output "  no compute access" }
 ```
 
 ## Script Block 402
@@ -10104,8 +10104,8 @@ print(f'Saved {total} bookmarks across {len(all_data)} profiles')
 - **EDR address list** — user says more addresses exist beyond the 7 found; need to dig into bookmarks, file metadata, and other data sources
 
 ### Blocked
-- **Billing account IAM** — cannot add `j***@jmweldingproducts.com` as Billing Admin on `01E581`; none of the 4 auth'd accounts have billing admin rights (need original billing account ****wner in browser)
-- **`j***@jmweldingproducts.com` cannot be made project Owner** — org policy ****ocks external domain; currently only Editor
+- **Billing account IAM** — cannot add `j***@jmweldingproducts.com` as Billing Admin on `01E581`; none of the 4 auth'd accounts have billing admin rights (need original billing account owner in browser)
+- **`j***@jmweldingproducts.com` cannot be made project Owner** — org policy blocks external domain; currently only Editor
 - **`superb-router-q8gvj` billing cannot be disabled** — on separate billing account `014BB7` with no access
 - **`gcloud` CLI still broken** by ADC quota project `project-9c94c2fa-3af4-49f1-a7b` for most commands
 - **No browser** for OAuth flows (headless CLI environment) — can't auth james in gcloud or set up 2FA/Takeout

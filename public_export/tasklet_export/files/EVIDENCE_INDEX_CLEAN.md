@@ -33,7 +33,7 @@ Full URL: https://libertyseniorliving.com
 
 Full filepath: C:\migrate opencode\OSINTNEOAI\evidence\http_headers\libertyseniorliving.com.txt
 Full URL: https://libertyseniorliving.com
-Content: Cloudflare WAF, CF-RAY: a205448dec989**f-DFW, redirects to https://www.libertyseniorliving.com/
+Content: Cloudflare WAF, CF-RAY: a205448dec98960f-DFW, redirects to https://www.libertyseniorliving.com/
 
 Full filepath: C:\migrate opencode\OSINTNEOAI\evidence\port_scans\libertyseniorliving.com.txt
 Full URL: https://libertyseniorliving.com

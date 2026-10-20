@@ -2,7 +2,7 @@
 
 **DATE AUDITED:** August 26, 2026  
 **INVESTIGATIVE AUTHORITY:** OSINTNeoAi Intelligence Core  
-**PROCEEDINGS:** *Commonwealth v. Lindsay Clancy* (Plymouth County Superior Court, Massachusetts, Docket No. 2383CR000**) / *Patrick Clancy v. Dr. Jennifer Tufts et al.* (Wrongful Death / Medical Malpractice)  
+**PROCEEDINGS:** *Commonwealth v. Lindsay Clancy* (Plymouth County Superior Court, Massachusetts, Docket No. 2383CR00062) / *Patrick Clancy v. Dr. Jennifer Tufts et al.* (Wrongful Death / Medical Malpractice)  
 **CORRELATION TARGET:** National Pharmaceutical Forensic Matrix vs. Clinical Polypharmacy Prescribers  
 
 ---

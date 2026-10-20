@@ -13,7 +13,7 @@ beginDialog:
       - Fact check report
       - Audit work accuracy
       - Rate truth score
-      - Verify claim ****racy
+      - Verify claim accuracy
   actions:
     - kind: SendActivity
       id: sendMsg_FactCheckingScorer

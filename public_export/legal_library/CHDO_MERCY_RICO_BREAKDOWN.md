@@ -68,7 +68,7 @@
 - In-kind benefit recorded at **$109K/year** — free public subsidy
 
 ### 🚩 Signal 6: PACEP Connection
-- Mercy House Living Centers' NPPES taxonomy: **251B000**X** (Residential Treatment Facility)
+- Mercy House Living Centers' NPPES taxonomy: **251B00000X** (Residential Treatment Facility)
 - This entity type may be registered in PACEP as a licensed care facility
 - **Cross-reference recommended against PACEP data**
 
@@ -90,16 +90,16 @@
 - **Banc of California** — Servicing lender on Mercy House PPP; headquartered LA; potential bank records
 - **Century Housing Corporation** — CDFI lender; connected to both CHDO deals and prior PPP
 - **Casa Aliento LP** — LP counterparty in Vagabond Inn deal; possible related-party structure
-- **807 N Garfield St, Santa Ana** — Mercy House HQ address
+- **807 N. G*** St, Santa Ana** — Mercy House HQ address
 - **Vagabond Inn, Oxnard** — Property address involved in $15M sale/carryback
 
 ---
 
 ## 5. NEXT INVESTIGATION STEPS
 
-1. **PACEP Cross-Reference**: Search PACEP for MERCY HOUSE LIVING CENTERS at 807 N Garfield St, Santa Ana — license status, inspection history, compliance records
+1. **PACEP Cross-Reference**: Search PACEP for MERCY HOUSE LIVING CENTERS at 807 N. G*** St, Santa Ana — license status, inspection history, compliance records
 2. **Banc of California Records**: Filed any SARs (Suspicious Activity Reports) on Mercy House accounts? What other nonprofit clients does Banc serve?
-3. **Century Housing Corporation**: Full CDFI filing history; all CHDO loans originated; board member ****rlap with Mercy House
+3. **Century Housing Corporation**: Full CDFI filing history; all CHDO loans originated; board member overlap with Mercy House
 4. **Vagabond Inn Sale Chain**: Title search on Vagabond Inn (Oxnard) — who owns Casa Aliento LP? Track the $13.5M carryback to its source
 5. **County of Orange Payments**: What other grants/leases exist between OC and Mercy House entities? Full payment history on file
 6. **PPP → CHDO Timeline**: Map the April 2020 PPP forgiveness ($1.34M) against CHDO capital activity in 2020-2024

@@ -14,7 +14,7 @@
 ```mermaid
 graph TD
     subgraph CLIENT_INTERFACE_LAYER["Client & Agent Interfaces"]
-        A1["Tasklet.ai Agent Hub<br>(ws_700**mwacncdba2sez9k)"]
+        A1["Tasklet.ai Agent Hub<br>(ws_70075mwacncdba2sez9k)"]
         A2["Google Gemini Gem<br>('Antigravity / Zeus')"]
         A3["Open WebUI / Copilot IDE<br>(FastAPI Connector)"]
         A4["OpenCode Session Engine<br>(uE1o0rJY & nofIV75K)"]

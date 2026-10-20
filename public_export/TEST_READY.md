@@ -53,7 +53,7 @@ The test suite provides comprehensive end-to-end verification across the complet
 +---------------------------------------------------------------------------------------+
 | Tier 3: 6 Pairwise Cross-Feature Integration Pipelines (Combinations 1 to 6)          |
 |   ├── P1: Webhook Ingest -> Normalization -> Graph Match -> Risk Elevation            |
-|   ├── P2: Power Apps Intake (/api/submit-victim) -> Case ****ault -> Search Index Query   |
+|   ├── P2: Power Apps Intake (/api/submit-victim) -> Case Vault -> Search Index Query   |
 |   ├── P3: Graph Traversal -> CCTV Spatial Radar -> Live Leads Feed                    |
 |   ├── P4: Async REST Trigger -> In-Memory Execution -> Report Artifacts -> Telemetry  |
 |   ├── P5: Shell Cluster -> Correlation Matrix -> Syncfusion Grid Data Source          |
@@ -85,7 +85,7 @@ The test suite provides comprehensive end-to-end verification across the complet
 - `test_f2_03_street_address_standardization`: Standardizes addresses per USPS Pub 28 / CASS (abbreviations, unit designators, directionals).
 - `test_f2_04_iso8601_timestamp_enforcement`: Enforces strict ISO 8601 UTC timestamp format (`YYYY-MM-DDTHH:MM:SS+00:00`).
 - `test_f2_05_phonetic_alias_disambiguation`: Verifies Jaro-Winkler phonetic similarity metric for entity alias linking (threshold >= 0.85).
-- `test_f3_01_ppp_property_overlap_detection`: Detects PPP loan ****ents owning real estate property (Vector 1).
+- `test_f3_01_ppp_property_overlap_detection`: Detects PPP loan recipients owning real estate property (Vector 1).
 - `test_f3_02_multi_org_person_clustering`: Identifies persons controlling 4+ corporate organizations via officer/director links (Vector 2).
 - `test_f3_03_same_address_shell_cluster_detection`: Flags 5+ corporate entities registered at identical address hubs (Vector 3).
 - `test_f3_04_high_risk_flagged_ppp_filter`: Filters high-risk PPP loans with non-empty risk scores or flagged reasons (Vector 4).
@@ -140,7 +140,7 @@ The test suite provides comprehensive end-to-end verification across the complet
 
 ### Tier 3: Pairwise Cross-Feature Integration Tests (6 Tests)
 - `test_tier3_combo1_webhook_normalization_graph_elevation`: Webhook Intake -> USPS/APN Normalization -> Knowledge Graph Match -> CRITICAL Lead Elevation.
-- `test_tier3_combo2_powerapps_intake_vault_search`: Power Apps `/api/submit-victim` -> Case ****tion -> Full-Text Search Retrieval.
+- `test_tier3_combo2_powerapps_intake_vault_search`: Power Apps `/api/submit-victim` -> Case Ingestion -> Full-Text Search Retrieval.
 - `test_tier3_combo3_graph_traversal_cctv_radar_feed`: Graph Traversal Lead -> Nearest CCTV Camera Proximity -> Live Leads Feed URL Resolution.
 - `test_tier3_combo4_async_trigger_execution_report_telemetry`: Async HTTP Trigger -> Background Engine Execution -> Report Generation -> `/api/correlation/status` Telemetry.
 - `test_tier3_combo5_shell_cluster_matrix_syncfusion_grid`: Multi-Entity Address Cluster -> Correlation Matrix Serialization -> Syncfusion Grid Ingestion Format.

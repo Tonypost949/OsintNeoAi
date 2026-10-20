@@ -38,14 +38,14 @@ def provision():
     
     # 3. Document Intelligence
     print(f"\n[3/4] Document Intelligence: {DOC_INTEL_SERVICE}")
-    run(f'az cognitiveservices account ****eate --name {DOC_INTEL_SERVICE} --resource-group {RESOURCE_GROUP} --kind FormRecognizer --sku F0 --location {LOCATION} --yes')
+    run(f'az cognitiveservices account create --name {DOC_INTEL_SERVICE} --resource-group {RESOURCE_GROUP} --kind FormRecognizer --sku F0 --location {LOCATION} --yes')
     doc_key = run(f'az cognitiveservices account keys list --name {DOC_INTEL_SERVICE} --resource-group {RESOURCE_GROUP} --query key1 -o tsv').strip()
     doc_endpoint = run(f'az cognitiveservices account show --name {DOC_INTEL_SERVICE} --resource-group {RESOURCE_GROUP} --query properties.endpoint -o tsv').strip()
     print(f"  DocIntel endpoint: {doc_endpoint}")
     
     # 4. Speech
     print(f"\n[4/4] Speech: {SPEECH_SERVICE}")
-    run(f'az cognitiveservices account ****eate --name {SPEECH_SERVICE} --resource-group {RESOURCE_GROUP} --kind SpeechServices --sku F0 --location {LOCATION} --yes')
+    run(f'az cognitiveservices account create --name {SPEECH_SERVICE} --resource-group {RESOURCE_GROUP} --kind SpeechServices --sku F0 --location {LOCATION} --yes')
     speech_key = run(f'az cognitiveservices account keys list --name {SPEECH_SERVICE} --resource-group {RESOURCE_GROUP} --query key1 -o tsv').strip()
     speech_region = LOCATION
     

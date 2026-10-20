@@ -18,16 +18,16 @@
 
 ---
 
-## 2. Orange County Health Care Agency (OCHCA) Case ****C002
+## 2. Orange County Health Care Agency (OCHCA) Case 20IC002
 - **Agency:** Orange County Health Care Agency (OCHCA) - Environmental Health Division
-- **Case ****fier:** `20IC002`
+- **Case Identifier:** `20IC002`
 - **Site Address:** 17631 C*** Lane & 17642 B*** Blvd, Huntington Beach, CA
 - **Target Contaminants of Concern:**
   - Hexavalent Chromium compounds (Cr(VI))
   - Lead compounds (Pb)
   - Arsenic (As)
   - Organochlorine / Agricultural Pesticide residues
-- **Purported Case ****sure:** August 21, 2020 ("Closure certification issued" by OCHCA)
+- **Purported Case Closure:** August 21, 2020 ("Closure certification issued" by OCHCA)
 - **Closure Mechanism:** Closed during the fast-track emergency COVID-19 conversion of the property into a homeless navigation shelter.
 
 ---
@@ -37,10 +37,10 @@
 - **Petition Identifier:** `Petition A-2926`
 - **Petitioner:** Jesse Knabb (former resident, whistleblowing advocate; Plaintiff in CACD Case 8:26-cv-00348, *Jesse Knabb v. City of Huntington Beach et al.*)
 - **Core Allegations:**
-  1. **Ultra Vires Administrative Action:** Alleges OCHCA's August 21, 2020 closure of Case ****C002 was unlawful and ultra vires, issued without required regional board review or complete site characterization.
+  1. **Ultra Vires Administrative Action:** Alleges OCHCA's August 21, 2020 closure of Case 20IC002 was unlawful and ultra vires, issued without required regional board review or complete site characterization.
   2. **Imminent and Substantial Endangerment (ISE):** Alleges an active, unmitigated subterranean toxic waste plume containing hexavalent chromium and heavy metals directly beneath the unsealed asphalt pad and Sprung tensioned-membrane shelter structure.
   3. **Vapor & Particulate Exposure:** Alleges operational activities, ground disturbance, and unmitigated well infrastructure mobilized toxic contaminants into the resident living quarters.
-  4. **Relief Demanded:** Rescission/vacatur of the 20IC002 Case ****sure Certificate, assumption of direct primary jurisdiction by Santa Ana RWQCB (Region 8), and an immediate enforcement order for forensic core drilling, excavation, and remediation.
+  4. **Relief Demanded:** Rescission/vacatur of the 20IC002 Case Closure Certificate, assumption of direct primary jurisdiction by Santa Ana RWQCB (Region 8), and an immediate enforcement order for forensic core drilling, excavation, and remediation.
 
 ---
 

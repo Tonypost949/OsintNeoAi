@@ -3,9 +3,9 @@
 
 **SUBJECT:** Anthony Michael DiMarcello III vs. Woodbridge Meadows Apartments LLC / Shea Properties / Orange County Sheriff's Department  
 **PRIMARY COURT JURISDICTION:** Superior Court of California, County of Orange — Central Justice Center (CJC)  
-**CASE ****MBER:** `30-2021-01201327-CL-UD-CJC`  
+**CASE NUMBER:** `30-2021-01201327-CL-UD-CJC`  
 **PREMISES:** 212 Southbrook, Unit #SB-212, Irvine, CA 926**  
-**ACCOUNT ****MBER:** `#30642315`  
+**ACCOUNT NUMBER:** `#30642315`  
 **DATE OF COMPILATION:** August 31, 2026  
 **AUTHENTICATION STANDARD:** California Evidence Code §§ 1271, 1550 & Federal Rules of Evidence 901, 902(13)  
 **PRIMARY SOURCE REPOSITORIES:**  
@@ -22,12 +22,12 @@ This official evidentiary dossier consolidates certified judicial records, authe
 The evidence proves that:
 1. **Zero Court Filings Existed Before May 18, 2021:** The tenancy at 212 Southbrook was lawful and active under the September 20, 2020 lease agreement ($2,072.00/mo). No lawsuit, summons, or court proceeding was initiated prior to May 18, 2021.
 2. **The $500/Month COVID Relief Agreement was Accepted in Writing:** Contemporaneous emails with leasing specialist Carissa Doyle on March 12 & 15, 2021 prove that management actively approved and accepted the monthly $500 COVID assistance money orders.
-3. **🚨 The August 4, 2021 Smoking Gun (Brian Olsen Physical Return of 3 Months of Money Orders):** On the day of the armed lockout, as Sheriff Don Barnes's deputies (Levying File No. `(***) ***-2780`) were completing the displacement, **Senior Community Manager Brian Olsen physically walked into the apartment and handed Anthony three (3) months of $500 money orders ($1,500.00 total)** that management had secretly held in their office drawer since March/April/May 2021, stating: *"We couldn't accept them."* This proves management had physical custody of timely tendered rent throughout the entire court proceeding while falsely swearing under oath to the court that the tenant had defaulted.
+3. **🚨 The August 4, 2021 Smoking Gun (Brian Olsen Physical Return of 3 Months of Money Orders):** On the day of the armed lockout, as Sheriff Don Barnes's deputies (Levying File No. `2021102780`) were completing the displacement, **Senior Community Manager Brian Olsen physically walked into the apartment and handed Anthony three (3) months of $500 money orders ($1,500.00 total)** that management had secretly held in their office drawer since March/April/May 2021, stating: *"We couldn't accept them."* This proves management had physical custody of timely tendered rent throughout the entire court proceeding while falsely swearing under oath to the court that the tenant had defaulted.
 4. **The April 23–24, 2021 Demands Constitute Criminal Extortion:** Management (Victor Nunez) delivered coercive cash demands for $5,788.00 under threats of immediate surprise eviction and escalating legal fees before any court action was ever filed.
 5. **Fiduciary Agency & Qui Tam Standing (*Stevens*, 529 U.S. 765):** DiMarcello operated not merely as a tenant, but as a FINRA/NFA Series 3 licensed commodities broker, physical gold/precious metals dealer (Monex / Main Street Trading), systems architect, and designated qui tam relator / mandatory reporter under Cal. Welf. & Inst. Code § 156**. Under *Vermont Agency of Natural Resources v. United States ex rel. Stevens*, a relator holds Article III constitutional standing via partial assignment of the sovereign's claim.
 6. **Reckless Life Endangerment of Disabled Mother:** Management and law enforcement weaponized the threat of homelessness during a global pandemic against an active IHSS caregiver and his medically fragile mother (**Elizabeth Petruccio**), who was actively receiving daily intravenous Ceftriaxone for congestive heart failure and osteomyelitis at Hoag Hospital (Cal. Penal Code § 368).
-7. **Developer–Sheriff Interlock (Don Barnes & Shea Properties):** Sheriff Don Barnes maintained deep financial ties to Shea Homes through Community Facilities District (CFD No. 2023-1) bonds, deploying 8 armed deputies on August 4, 2021 on an unposted writ (File No. `(***) ***-2780`).
-8. **Retaliation for OCSD Internal Affairs & Dr. Ann Verma Disclosures:** The strike occurred after DiMarcello submitted fraud disclosures to OCSD IA and EPA OIG (January 2021), and provided critical assistance to co-relator **Dr. Ann Prema Verma** (exposing Headway/Medicaid ****macy fraud), culminating in a coordinated court database wipe (Command SM-092) on August 20, 2021.
+7. **Developer–Sheriff Interlock (Don Barnes & Shea Properties):** Sheriff Don Barnes maintained deep financial ties to Shea Homes through Community Facilities District (CFD No. 2023-1) bonds, deploying 8 armed deputies on August 4, 2021 on an unposted writ (File No. `2021102780`).
+8. **Retaliation for OCSD Internal Affairs & Dr. Ann Verma Disclosures:** The strike occurred after DiMarcello submitted fraud disclosures to OCSD IA and EPA OIG (January 2021), and provided critical assistance to co-relator **Dr. Ann Prema Verma** (exposing Headway/Medicaid polypharmacy fraud), culminating in a coordinated court database wipe (Command SM-092) on August 20, 2021.
 
 ---
 
@@ -109,7 +109,7 @@ The evidence proves that:
 | **🚨 Physical Hand-Back of 3 Months Money Orders (**/**/2021):** Brian Olsen walks in during sheriff lockout and hands back 3 months of $500 money orders (*"We couldn't accept them"*). | Eyewitness Evidence & Unlawful Refusal of Tender (*Strom*, 88 Cal.App.2d 78). | [`OFFICIAL_WOODBRIDGE_EVICTION_EXTORTION_DOSSIER.md`](file:///C:/OsintNeoAi/evidence/OFFICIAL_WOODBRIDGE_EVICTION_EXTORTION_DOSSIER.md#L24-L35) |
 | **Series 3 Broker & BSA Fiduciary Credentials:** Licensed commodities broker running $1M+/yr business. | Fiduciary Credential Records (`Atlas Cabinets` / `ironmandavinci`). | [`FORENSIC_ANALYSIS_DIMARCELLO_RICO_2021-2026.md`](file:///C:/OsintNeoAi/evidence/FORENSIC_ANALYSIS_DIMARCELLO_RICO_2021-2026.md#L52-L54) |
 | **Life Endangerment of Mother (Elizabeth Petruccio):** CHF & IV Ceftriaxone therapy at Hoag Hospital. | Certified Medical Face Sheet (`fs.pdf`) & IHSS Records. | [`FORENSIC_ANALYSIS_DIMARCELLO_RICO_2021-2026.md`](file:///C:/OsintNeoAi/evidence/FORENSIC_ANALYSIS_DIMARCELLO_RICO_2021-2026.md#L148-L149) |
-| **Armed Sheriff Raid (**/**/2021):** 8 armed deputies deployed on unposted writ under Sheriff Don Barnes. | OCSD Levying Officer File No. (***) ***-2780 (Sheriff Don Barnes). | [`batch8_album8_photo_048.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/batch8_album8_photo_048.jpg.txt#L1-L7) |
+| **Armed Sheriff Raid (**/**/2021):** 8 armed deputies deployed on unposted writ under Sheriff Don Barnes. | OCSD Levying Officer File No. 2021102780 (Sheriff Don Barnes). | [`batch8_album8_photo_048.jpg.txt`](file:///C:/OsintNeoAi/evidence/ocr_transcripts_photos/batch8_album8_photo_048.jpg.txt#L1-L7) |
 | **Developer–Sheriff Bond Interlock:** OCSD tied to Shea Properties via Community Facilities District bonds. | Municipal Bond & Tax Records (CFD No. 2023-1). | [`OCSD_Court_Operations_Civil_Process_Forensic_Mapping.md`](file:///C:/OsintNeoAi/briefings/OCSD_Court_Operations_Civil_Process_Forensic_Mapping.md#L61-L67) |
 | **OCSD IA Disclosures & Dr. Ann Verma Nexus:** Relator assisted Dr. Verma in exposing psychiatric billing fraud. | OCSD IA Intake & Dr. Ann Verma Whistleblower Files. | [`CLANCY_TRIAL_DOCTORS_PRESCRIPTION_POLYPHARMACY_CORRELATION.md`](file:///C:/OsintNeoAi/briefings/CLANCY_TRIAL_DOCTORS_PRESCRIPTION_POLYPHARMACY_CORRELATION.md#L1-L25)<br>[`consolidated_forensic_timeline.md`](file:///C:/OsintNeoAi/briefings/consolidated_forensic_timeline.md#L86-L97) |
 | **Court Database Overwrite SM-092:** Court analyst wipes ROA entries on **/**/2021 at 08:30:14 AM. | Judicial Server Audit Reconstruction. | [`consolidated_forensic_timeline.md`](file:///C:/OsintNeoAi/briefings/consolidated_forensic_timeline.md#L99-L102) |
@@ -129,7 +129,7 @@ Hello Anthony,
 Your new address will be: 212 Southbrook, Irvine, CA 926**.
 Prior to your scheduled move-in date of September 20th, 2020, we'll need the following payments and information uploaded to your resident portal:
 1. $500 Holding Fee + $40 (1) Application Fee(s) *Completed/Manager will be pulling $500 holding soon*
-2. Account ****mber for electricity (Southern California Edison)...
+2. Account number for electricity (Southern California Edison)...
 ```
 
 ---
@@ -253,7 +253,7 @@ graph TD
     CONCEAL --> RICO
 ```
 
-1. **Unlawful Refusal & Physical Concealment of Valid Tender (*Strom v. Union Oil Co.* (1948) 88 Cal.App.2d 78; CACI No. 4327; Cal. Civ. Code § 1500):** When management accepted the three months of $500 money orders and physically retained them in their office drawer for months, only to have Senior Manager Brian Olsen hand them back on August 4, 2021 during the armed raid saying *"we couldn't accept them,"* their right to claim ****ment or possessory forfeiture was **legally extinguished as a matter of law**.
+1. **Unlawful Refusal & Physical Concealment of Valid Tender (*Strom v. Union Oil Co.* (1948) 88 Cal.App.2d 78; CACI No. 4327; Cal. Civ. Code § 1500):** When management accepted the three months of $500 money orders and physically retained them in their office drawer for months, only to have Senior Manager Brian Olsen hand them back on August 4, 2021 during the armed raid saying *"we couldn't accept them,"* their right to claim non-payment or possessory forfeiture was **legally extinguished as a matter of law**.
 2. **Hobbs Act Extortion & State Criminal Extortion (18 U.S.C. § 1951; Cal. PC §§ 518, 519, 523):** Coercing the surrender of $5,788.00 and escalating private legal fees through threats of unlawful surprise eviction before any lawsuit existed.
 3. **Perjury under Penalty of Perjury (Cal. Penal Code § 118):** Management executing sworn verification UD-101 stating tenant never tendered payment or declarations while actively possessing three $500 money orders in their office.
 4. **Qui Tam Relator Standing & Whistleblower Protections (31 U.S.C. § 3730(b), (h); *Vermont Agency of Natural Resources v. United States ex rel. Stevens*, 529 U.S. 765 (2000)):** The U.S. Supreme Court confirmed that private relators possess Article III constitutional standing through partial sovereign assignment to hold fraudsters accountable.

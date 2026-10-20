@@ -58,7 +58,7 @@ returned.
     [references/query_syntax.md](references/query_syntax.md) for advanced
     syntax.
 -   `--id_list`: Comma-separated list of arXiv IDs to fetch directly (e.g.,
-    `1706.037**v5`).
+    `1706.03762v5`).
 -   `--start`: Pagination offset (default 0).
 -   `--max_results`: Number of results to return (default 10).
 -   `--sort_by`: `relevance`, `lastUpdatedDate`, or `submittedDate`. (Use
@@ -76,7 +76,7 @@ uv run scripts/download_paper.py --id 1706.037** --format pdf --output attention
 
 *Options:*
 
--   `--id`: The arXiv ID (e.g., `1706.037**` or `1706.037**v5`).
+-   `--id`: The arXiv ID (e.g., `1706.037**` or `1706.03762v5`).
 -   `--format`: `pdf` or `html`. Note: HTML is only available for newer papers.
 -   `--output`: Filepath to save the downloaded document.
 

@@ -23,7 +23,7 @@ from storage.vault_db import VaultDB
 
 logger = logging.getLogger("osintneoai.storage.catalog_exporter")
 
-EMPTY_SHA256: str = "e3b0c442**fc1c149afbf4c8996fb924**ae41e4649b934ca495991b7852b855"
+EMPTY_SHA256: str = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 
 
 # ============================================================================

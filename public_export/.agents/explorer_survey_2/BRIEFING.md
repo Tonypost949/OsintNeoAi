@@ -7,7 +7,7 @@ Survey existing entity extraction, cross-referencing, and BigQuery graph schemas
 - Archetype: explorer
 - Roles: investigation, synthesis
 - Working directory: C:\OsintNeoAi\.agents\explorer_survey_2
-- Original parent: 732690b7-29f9-4a6b-8380-b817**c3f7f4
+- Original parent: 732690b7-29f9-4a6b-8380-b81754c3f7f4
 - Milestone: Survey & Architecture Discovery (Survey 2)
 
 ## 🔒 Key Constraints
@@ -16,7 +16,7 @@ Survey existing entity extraction, cross-referencing, and BigQuery graph schemas
 - Adhere to AGENTS.md rules (read everything, understand 3-location backup protocol, no deletions)
 
 ## Current Parent
-- Conversation ID: 732690b7-29f9-4a6b-8380-b817**c3f7f4
+- Conversation ID: 732690b7-29f9-4a6b-8380-b81754c3f7f4
 - Updated: 2026-09-02T16:39:00Z
 
 ## Investigation State

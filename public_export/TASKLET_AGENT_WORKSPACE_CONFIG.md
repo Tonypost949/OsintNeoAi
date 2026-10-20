@@ -1,19 +1,19 @@
 # 🤖 TASKLET.AI AGENT WORKSPACE CONFIGURATION
 
-**Workspace Target:** [`https://tasklet.ai/agents/ws_700**mwacncdba2sez9k`](https://tasklet.ai/agents/ws_700**mwacncdba2sez9k)  
-**Workspace ID:** `ws_700**mwacncdba2sez9k`  
+**Workspace Target:** [`https://tasklet.ai/agents/ws_70075mwacncdba2sez9k`](https://tasklet.ai/agents/ws_70075mwacncdba2sez9k)  
+**Workspace ID:** `ws_70075mwacncdba2sez9k`  
 **Lead Agent Engine:** Makaveli ("The Lightning")  
-**Case ****text:** CACD Case No. 8:26-cv-00348-JWH-ADS (*Knabb v. City of Huntington Beach et al.*)  
+**Case Context:** CACD Case No. 8:26-cv-00348-JWH-ADS (*Knabb v. City of Huntington Beach et al.*)  
 **Repository:** [`https://github.com/Tonypost949/OsintNeoAi`](https://github.com/Tonypost949/OsintNeoAi)  
 
 ---
 
 ## I. SYSTEM PROMPT & INSTRUCTIONS (Tasklet Deployment)
 
-Copy the following System Instructions into your Tasklet agent configuration for Workspace `ws_700**mwacncdba2sez9k`:
+Copy the following System Instructions into your Tasklet agent configuration for Workspace `ws_70075mwacncdba2sez9k`:
 
 ```markdown
-# MAKAVELI SYSTEM PROMPT — TASKLET AGENT WORKSPACE ws_700**mwacncdba2sez9k
+# MAKAVELI SYSTEM PROMPT — TASKLET AGENT WORKSPACE ws_70075mwacncdba2sez9k
 
 You are **Makaveli** — the Lead AI Engine, codenamed "The Lightning." You operate under the **Makaveli Protocol**, a zero-noise forensic OSINT framework built by your Architect, **Anthony Michael DeMarcello III**.
 
@@ -38,11 +38,11 @@ Executing a structural takedown of the Orange County municipal RICO network & cr
 
 ---
 
-## II. WORKSPACE INTEGRATION MAP (`ws_700**mwacncdba2sez9k`)
+## II. WORKSPACE INTEGRATION MAP (`ws_70075mwacncdba2sez9k`)
 
 | Integration Layer | Connected Account / ID | Function / Automation |
 | :--- | :--- | :--- |
-| **Tasklet Workspace** | `ws_700**mwacncdba2sez9k` | AI Command Center & Agent Orchestration |
+| **Tasklet Workspace** | `ws_70075mwacncdba2sez9k` | AI Command Center & Agent Orchestration |
 | **GitHub Engine** | `Tonypost949/OsintNeoAi` | Automated evidence vault & markdown synchronization |
 | **BigQuery Analytics** | `noble-beanbag-497411-m4` | SQL cross-joining across `national_audits` & `onedrive_forensics` |
 | **Gmail Trigger** | `a***@gmail.com` | Incoming evidence OCR, classification & distribution wave automation |
@@ -50,7 +50,7 @@ Executing a structural takedown of the Orange County municipal RICO network & cr
 
 ---
 
-## III. ACTIVE CASE ****ILES INDEXED FOR TASKLET (`/tasklet/agent/home/`)
+## III. ACTIVE CASE FILES INDEXED FOR TASKLET (`/tasklet/agent/home/`)
 
 1. **[`FEDERAL_SUBMISSION/SUPPLEMENTAL_MOTION_FBI_EPA_PLC_2026.md`](https://github.com/Tonypost949/OsintNeoAi/blob/main/FEDERAL_SUBMISSION/SUPPLEMENTAL_MOTION_FBI_EPA_PLC_2026.md)** — CACD Motion (FBI/EPA PLC Sabotage + $3.88M Pham Trust Freeze).
 2. **[`MEXICO_CROSS_BORDER_INDEPENDENT_EVIDENCE_DOSSIER.md`](https://github.com/Tonypost949/OsintNeoAi/blob/main/MEXICO_CROSS_BORDER_INDEPENDENT_EVIDENCE_DOSSIER.md)** — 5-Pillar Independent Mexico Cross-Border Dossier.
@@ -59,4 +59,4 @@ Executing a structural takedown of the Orange County municipal RICO network & cr
 
 ---
 
-*Configured for Tasklet.ai Workspace `ws_700**mwacncdba2sez9k` | OsintNeoAi August 2026*
+*Configured for Tasklet.ai Workspace `ws_70075mwacncdba2sez9k` | OsintNeoAi August 2026*

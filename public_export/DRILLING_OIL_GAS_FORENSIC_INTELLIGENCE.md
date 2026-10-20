@@ -2,7 +2,7 @@
 
 **Relator / Architect:** Anthony Michael DeMarcello III  
 **Primary Contact / Entity Email:** `d***@gmail.com`  
-**LightBox Portal Account ****mail:** `d***@gmail.com`  
+**LightBox Portal Account Email:** `d***@gmail.com`  
 **Regulatory Agencies:** CalGEM (CA Geologic Energy Management), EPA Region 9, DTSC  
 **Target Region:** Huntington Beach Oil Field / Beach Blvd Contamination Corridor / 200+ Oil Wells  
 **Date:** August 07, 2026  
@@ -44,7 +44,7 @@ graph TD
 ## II. KEY FORENSIC CORRELATIONS
 
 1. **LightBox Developer Portal Registration:**  
-   Account ****mail `d***@gmail.com` is linked to the approved LightBox RE developer app (`lightbox`) for querying EDR radius reports and assessment parcel geometries.
+   Account email `d***@gmail.com` is linked to the approved LightBox RE developer app (`lightbox`) for querying EDR radius reports and assessment parcel geometries.
 2. **CalGEM Oil & Gas Well Cross-Reference:**  
    Cross-referenced against 200+ oil well API numbers along the Beach Blvd corridor (`17642 B*** Blvd` / `17631 C*** Ln`), mapping active soil gas intrusion and historical petroleum hydrocarbon migration.
 3. **Federal Referral Integration:**  

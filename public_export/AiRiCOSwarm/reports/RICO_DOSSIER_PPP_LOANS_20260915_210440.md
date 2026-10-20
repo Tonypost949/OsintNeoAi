@@ -20,12 +20,12 @@ Deterministic Summary: Detected 9 predicate-linked evidence records for target P
 ---
 
 ## Goal
-Build a complete RICO connection case ****inst the City of Huntington Beach by cross-referencing:
+Build a complete RICO connection case against the City of Huntington Beach by cross-referencing:
 - Exposed GIS data ([IP_REDACTED], [IP_REDACTED])
 - HB property LLC matrices (3,989 suspicious LLCs)
 - BigQuery datasets (ppp_rico, hb_church_osint, national_audits, nppes_export, ai_sandbox)
 - IRS 990 indexes (2023/2024/2025)
-- PPP loan ****ords
+- PPP loan records
 - OCR-parsed PDFs from Google Drive
 - Master OSINT
 

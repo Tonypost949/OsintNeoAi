@@ -1,7 +1,7 @@
 # EVIDENTIARY ENHANCEMENT FRAMEWORK
 **Peer Review Audit & Structural Enhancements**
 
-*This document serves as an external audit of the Executive Evidentiary Assessment, providing additional frameworks to harden the case ****inst opposing counsel.*
+*This document serves as an external audit of the Executive Evidentiary Assessment, providing additional frameworks to harden the case against opposing counsel.*
 
 ---
 
@@ -118,7 +118,7 @@ The framework is strongest when presented as an **evidence-readiness and proof-g
 
 > **Each allegation must be decomposed into discrete propositions, and each proposition must be tied to a source, foundation witness, admissibility theory, opposing evidence, and next investigative action.**
 
-The principal remaining risk is the conversion of chronology into attribution, motive, conspiracy, or causation. Preserving the hierarchy of **documented fact → supported inference → expert interpretation → investigative lead** will help prevent overstatement and make the eventual case ****eory more resilient.
+The principal remaining risk is the conversion of chronology into attribution, motive, conspiracy, or causation. Preserving the hierarchy of **documented fact → supported inference → expert interpretation → investigative lead** will help prevent overstatement and make the eventual case theory more resilient.
 
 ---
 

@@ -47,9 +47,9 @@ def haversine_miles(lat1: float, lon1: float, lat2: float, lon2: float) -> float
         phi1 = math.radians(f_lat1)
         phi2 = math.radians(f_lat2)
         dphi = math.radians(f_lat2 - f_lat1)
-        dl ****mbda = math.radians(f_lon2 - f_lon1)
+        dlambda = math.radians(f_lon2 - f_lon1)
         
-        a = math.sin(dphi / 2.0)**2 + math.cos(phi1) * math.cos(phi2) * math.sin(dl ****mbda / 2.0)**2
+        a = math.sin(dphi / 2.0)**2 + math.cos(phi1) * math.cos(phi2) * math.sin(dlambda / 2.0)**2
         a = min(1.0, max(0.0, a))
         c = 2.0 * math.atan2(math.sqrt(a), math.sqrt(1.0 - a))
         return R * c

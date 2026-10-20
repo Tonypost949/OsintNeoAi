@@ -67,14 +67,14 @@ l. Cause of death classifications for children who died in placement (medical, e
 ---
 
 # FOIA REQUEST — Bureau of Indian Affairs
-## IIM Account ****udit — Native Children Under OC Jurisdiction
+## IIM Account Audit — Native Children Under OC Jurisdiction
 
 **To:** BIA FOIA Office
-**Subject:** FOIA Request — IIM Trust Account ****dits — Orange County, CA ICWA Cases
+**Subject:** FOIA Request — IIM Trust Account Audits — Orange County, CA ICWA Cases
 
 ### Records Requested:
 
 1. List of all ICWA-qualified children under Orange County SSA jurisdiction by year
-2. IIM (Individual Indian Money) account ****nces and disbursement records for any Native children placed in OC foster care
-3. Any audit findings regarding improper IIM account ****ment, unauthorized disbursements, or missing funds related to OC placements
+2. IIM (Individual Indian Money) account balances and disbursement records for any Native children placed in OC foster care
+3. Any audit findings regarding improper IIM account management, unauthorized disbursements, or missing funds related to OC placements
 4. OC's ICWA compliance rate and any non-compliance findings

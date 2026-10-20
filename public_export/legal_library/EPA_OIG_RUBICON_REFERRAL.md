@@ -30,7 +30,7 @@
 3. The company operates from **virtual office suite addresses** — consistent with the shell company pattern identified in this investigation.
 
 4. Multiple RUBICON-related entities have received environmental services contracts across the U.S., raising the possibility that:
-   - Federal environmental contracts were used as justification for PPP loan ****ions
+   - Federal environmental contracts were used as justification for PPP loan applications
    - COVID relief funds intended for waste management employees were diverted
    - Same principals may operate multiple environmental shell companies
 
@@ -53,7 +53,7 @@
 ## REQUESTED ACTION
 
 1. **Cross-reference RUBICON GLOBAL LLC** against EPA contract databases (FPDS, USASpending.gov)
-2. **Examine SBA PPP loan file** — was EPA contract history used to support loan ****tion?
+2. **Examine SBA PPP loan file** — was EPA contract history used to support loan application?
 3. **Verify employee count** certified in PPP application against EPA payroll records if applicable
 4. **SAR coordination** with FinCEN if unusual financial patterns detected
 

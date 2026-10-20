@@ -93,13 +93,13 @@ for day in timeline_days:
   <title>Strict Chronological Dossier: {day['display_date']}</title>
   <style>
     body {{ font-family: -apple-system, sans-serif; background: #0d1117; color: #c9d1d9; padding: 24px; }}
-    .card {{ background: #161b22; border: 1px solid #303**d; border-radius: 8px; padding: 24px; max-width: 1050px; margin: auto; }}
+    .card {{ background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 24px; max-width: 1050px; margin: auto; }}
     h1 {{ color: #58a6ff; margin-top: 0; }}
     .date-badge {{ background: #1e3a8a; color: #93c5fd; padding: 6px 14px; border-radius: 20px; font-weight: bold; display: inline-block; margin-bottom: 16px; }}
-    .section-title {{ border-bottom: 1px solid #303**d; padding-bottom: 6px; color: #f0f6fc; margin-top: 24px; font-size: 16px; }}
+    .section-title {{ border-bottom: 1px solid #30363d; padding-bottom: 6px; color: #f0f6fc; margin-top: 24px; font-size: 16px; }}
     table {{ width: 100%; border-collapse: collapse; margin-top: 12px; }}
-    th, td {{ border: 1px solid #303**d; padding: 10px; text-align: left; font-size: 13px; }}
-    th {{ background: #212**d; color: #8b949e; }}
+    th, td {{ border: 1px solid #30363d; padding: 10px; text-align: left; font-size: 13px; }}
+    th {{ background: #21262d; color: #8b949e; }}
     .badge-photo {{ background: #7c2d12; color: #fdba74; padding: 2px 8px; border-radius: 12px; font-weight: bold; font-size: 11px; }}
     .badge-file {{ background: #1e3a8a; color: #93c5fd; padding: 2px 8px; border-radius: 12px; font-weight: bold; font-size: 11px; }}
     .badge-event {{ background: #064e3b; color: #6ee7b7; padding: 2px 8px; border-radius: 12px; font-weight: bold; font-size: 11px; }}

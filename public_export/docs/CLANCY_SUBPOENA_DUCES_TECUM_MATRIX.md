@@ -1,5 +1,5 @@
 # ⚖️ SUBPOENA DUCES TECUM & RULE 26 EVIDENTIARY DEMAND MATRIX
-## Case ****ocus: Lindsay Clancy Investigation (Duxbury, MA) • Involuntary Intoxication & Counterfeit Pill Vector
+## Case Focus: Lindsay Clancy Investigation (Duxbury, MA) • Involuntary Intoxication & Counterfeit Pill Vector
 **Jurisdiction:** Commonwealth of Massachusetts / U.S. District Court (District of Massachusetts)  
 **Governing Authorities:** Mass. R. Crim. P. 17(c) • Fed. R. Crim. P. 17(c) • Fed. R. Civ. P. 45 • 18 U.S.C. § 1962 (RICO) • 31 U.S.C. § 3729 (FCA)
 

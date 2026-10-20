@@ -8,7 +8,7 @@ of `uniprot_tools.py` (i.e. the `--from_db` and `--to_db` arguments).
 ## Usage
 
 ```bash
-uv run uniprot_tools.py map "P123**,Q678**" --from_db UniProtKB_AC-ID --to_db PDB
+uv run uniprot_tools.py map "P12345,Q67890" --from_db UniProtKB_AC-ID --to_db PDB
 ```
 
 --------------------------------------------------------------------------------
@@ -253,7 +253,7 @@ Default target: `UniProtKB`. Taxon ID: not required.
 
 ```bash
 # Map UniProt accessions to PDB IDs
-uv run uniprot_tools.py map "P123**" --from_db UniProtKB_AC-ID --to_db PDB
+uv run uniprot_tools.py map "P12345" --from_db UniProtKB_AC-ID --to_db PDB
 
 # Map PDB IDs to UniProt accessions
 uv run uniprot_tools.py map "1AKE" --from_db PDB --to_db UniProtKB
@@ -268,7 +268,7 @@ uv run uniprot_tools.py map "NP_005219.2" --from_db RefSeq_Protein --to_db UniPr
 uv run uniprot_tools.py map "ENSG00000141510" --from_db Ensembl --to_db UniProtKB
 
 # Map EMBL/GenBank accessions to UniProtKB
-uv run uniprot_tools.py map "M100**" --from_db EMBL-GenBank-DDBJ --to_db UniProtKB
+uv run uniprot_tools.py map "M10051" --from_db EMBL-GenBank-DDBJ --to_db UniProtKB
 
 # Map HGNC IDs to UniProtKB
 uv run uniprot_tools.py map "HGNC:119**" --from_db HGNC --to_db UniProtKB

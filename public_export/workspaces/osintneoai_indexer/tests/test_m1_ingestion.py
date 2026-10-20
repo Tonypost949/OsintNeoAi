@@ -75,7 +75,7 @@ from workspaces.osintneoai_indexer.connectors.mailbox_reader import (
     MailboxReaderError,
 )
 
-EMPTY_SHA256 = "e3b0c442**fc1c149afbf4c8996fb924**ae41e4649b934ca495991b7852b855"
+EMPTY_SHA256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 
 
 # ============================================================================
@@ -208,7 +208,7 @@ class TestHasherModule:
 
     def test_stream_hasher_incremental_updates(self):
         hasher = StreamHasher(chunk_size=1024)
-        chunks = [b"Chunk 1: ", b"Federal Case ****ings ", b"United States v. Sidhu"]
+        chunks = [b"Chunk 1: ", b"Federal Case Filings ", b"United States v. Sidhu"]
         combined = b"".join(chunks)
 
         for c in chunks:

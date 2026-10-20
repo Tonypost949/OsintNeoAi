@@ -44,7 +44,7 @@ def test_csv_schemas_and_rows(temp_output_dir):
     with open(file_map["sba_ppp_loans"], "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         headers = reader.fieldnames
-        assert "Loan ****mber" in headers
+        assert "LoanNumber" in headers
         assert "BorrowerName" in headers
         assert "CurrentApprovalAmount" in headers
         rows = list(reader)

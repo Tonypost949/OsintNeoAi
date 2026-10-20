@@ -1,7 +1,7 @@
 # 🔒 EVIDENTIARY SUPPRESSION AUDIT: WHY THE STATE SEALED THE SPECIFIC CRUSHED PILL ASSAYS
 ## Analysis of Plymouth County DA Evidence Impoundment, Crime Lab Secrecy & Brady Discovery Battles
 **Investigation Reference:** `NWO-RICO-CLANCY-SEALED-ASSAYS-001`  
-**Case ****cket:** *Commonwealth v. Lindsay Clancy*, Plymouth Superior Court No. `2383CR000**`  
+**Case Docket:** *Commonwealth v. Lindsay Clancy*, Plymouth Superior Court No. `2383CR00048`  
 **Core Finding:** The Commonwealth Has NOT Publicly Released Specific Chemical Assays of Crushed Pill Residues
 
 ---

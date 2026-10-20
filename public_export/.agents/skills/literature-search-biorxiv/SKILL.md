@@ -111,7 +111,7 @@ uv run scripts/search_by_dates.py \
     dramatically reduces the data the script must download and filter.
 -   `--keywords`: List of strings to search in the title/abstract.
 -   `--match_logic`: `AND` (default) or `OR` for keywords.
--   `--author`: Author name (case ****tive string match).
+-   `--author`: Author name (case-insensitive string match).
 -   `--include_abstracts`: Flag to include full abstracts in the JSON output.
 
 ### 2. Fetch Metadata by DOI (`search_by_doi.py`)

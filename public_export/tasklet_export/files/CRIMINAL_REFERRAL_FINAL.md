@@ -68,7 +68,7 @@ This referral documents a coordinated racketeering enterprise operating across 3
 
 | Item | Type | Source |
 |------|------|--------|
-| PPP loan ****ords (968,524 rows) | Federal data | SBA data.sba.gov, BigQuery |
+| PPP loan records (968,524 rows) | Federal data | SBA data.sba.gov, BigQuery |
 | hb_llcs (2,696 out-of-state entities) | Property records | OC Assessor GIS |
 | GeoTracker HB-NAV-01 (CrVI 49x) | Environmental | CA Water Board |
 | Phase I ESA (G&M Oil #124, 174** Beach) | Environmental | EEC Environmental |

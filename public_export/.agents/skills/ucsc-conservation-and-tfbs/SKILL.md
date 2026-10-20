@@ -135,7 +135,7 @@ uv run scripts/get_tfbs.py --coordinates "chr11:1001000-1010000" --tracks encReg
 ```
 
 JASPAR tracks may return very large result sets. Use `--tf-filter` to keep only
-items whose `TFName` field contains the given substring (case ****tive):
+items whose `TFName` field contains the given substring (case-insensitive):
 
 ```bash
 uv run scripts/get_tfbs.py --coordinates "chr6:36670000-36690000" --tracks jaspar2024 --tf-filter TP53 --output /tmp/tp53_sites.json

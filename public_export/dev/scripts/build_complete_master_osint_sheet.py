@@ -110,7 +110,7 @@ def main():
                     "Primary_Identifier_Or_Email": email,
                     "Linked_Accounts_Or_Entities": email,
                     "Jurisdiction_Or_Location": t.get("organization", "Cloud Platform"),
-                    "Legal_Statute_Or_Basis": "Whistleblower Target Account ****ence",
+                    "Legal_Statute_Or_Basis": "Whistleblower Target Account Cross-Reference",
                     "Evidence_SHA256_Hash": "INDEXED_TARGET_HASH",
                     "Verification_Status": "LIVE_MONITORING",
                     "Threat_Or_Impact_Level": "HIGH",
@@ -290,7 +290,7 @@ def main():
                         cell.font = Font(color="991B1B", bold=True)
                     elif "HIGH" in val:
                         cell.fill = PatternFill(start_color="FEF3C7", fill_type="solid")
-                        cell.font = Font(color="924**E", bold=True)
+                        cell.font = Font(color="92400E", bold=True)
 
         # Auto-adjust column widths
         for col in ws.columns:
@@ -355,7 +355,7 @@ def main():
         tr:hover {{ background-color: rgba(56, 189, 248, 0.05); }}
         
         .pill {{ display: inline-block; padding: 3px 8px; border-radius: 9999px; font-size: 0.72rem; font-weight: 700; }}
-        .pill-critical {{ background: rgba(239, 68, 68, 0.2); color: #f871**; border: 1px solid rgba(239, 68, 68, 0.4); }}
+        .pill-critical {{ background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }}
         .pill-high {{ background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }}
         .pill-op {{ background: rgba(59, 130, 246, 0.2); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.4); }}
     </style>

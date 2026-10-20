@@ -15,7 +15,7 @@ Found **790 unique files** across 7 repositories that are NOT already in the mai
 | OSINTNeoAiCLI | 40 | 36 | 10.0% | MEDIUM - Entity extraction, graph DB, IP-to-port, web search transforms |
 | OSINTNeoAiXL | 16 | 12 | 25.0% | LOW - Investigation findings, SQL extraction scripts |
 | osintneoai-a1 | 487 | 1 | 99.8% | IGNORE - Almost entirely duplicated (build artifacts, gradle cache, browser session) |
-| OsintNeoAi520** | 26 | 20 | 23.1% | LOW - UI components for maps, graphs, Google Workspace integration |
+| OsintNeoAi52026 | 26 | 20 | 23.1% | LOW - UI components for maps, graphs, Google Workspace integration |
 
 ## Top Priority Items for Consolidation
 
@@ -85,7 +85,7 @@ Found **790 unique files** across 7 repositories that are NOT already in the mai
 - investigation_findings.md, osint_matrix_report.md
 - SQL extraction scripts (hb_extraction_query.sql, inject_*.sql)
 
-### OsintNeoAi520** (20 unique files) - LOW
+### OsintNeoAi52026 (20 unique files) - LOW
 - React components: MapTracker, NetworkGraph, NeoAnalysis
 - Google Workspace libs: googleAuth, googleDrive, googleDocs, googleMail, googleSheets
 
@@ -104,7 +104,7 @@ Merge into scripts/investigation/
 ### Phase 3: Application Capabilities (Week 2-3)
 Integrate OSINTNeoAiCLI entity/graph/transform modules into src/core/
 Evaluate osint_analyzer React components for adoption
-Integrate OsintNeoAi520** Google Workspace libs
+Integrate OsintNeoAi52026 Google Workspace libs
 
 ### Phase 4: Reference Materials (Week 3)
 Archive OSINTNeoAiXL SQL scripts to scripts/sql/archive/

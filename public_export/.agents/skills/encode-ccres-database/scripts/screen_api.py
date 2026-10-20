@@ -565,7 +565,7 @@ def main():
   )
   p_search.add_argument(
       "--cellType",
-      help="Biosample-specific epigenetic signal (e.g., GM128**_ENCDO000AAK)",
+      help="Biosample-specific epigenetic signal (e.g., GM12878_ENCDO000AAK)",
   )
   p_search.set_defaults(func=cmd_search)
 

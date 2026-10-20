@@ -1,6 +1,6 @@
 # ⚖️ NOTICE OF MOTION AND MOTION TO VACATE VOID DEFAULT JUDGMENTS
 **Court:** Superior Court of California, County of Orange — Central Justice Center  
-**Case ****mber:** `30-2021-01201327-CL-UD-CJC`  
+**Case Number:** `30-2021-01201327-CL-UD-CJC`  
 **Plaintiff:** WOODBRIDGE MEADOWS APARTMENTS LLC DBA WOODBRIDGE  
 **Defendant:** ANTHONY DIMARCELLO  
 **Statutory Basis:** California Code of Civil Procedure § 473(d), § 473.5, and the Inherent Inherent Power of the Court  
@@ -11,7 +11,7 @@
 SUPERIOR COURT OF CALIFORNIA, COUNTY OF ORANGE
 CENTRAL JUSTICE CENTER
 
-WOODBRIDGE MEADOWS APARTMENTS LLC,  )  Case ****DCJC
+WOODBRIDGE MEADOWS APARTMENTS LLC,  )  Case No.: 30-2021-01201327-CL-UD-CJC
                                    )  
             Plaintiff,             )  NOTICE OF MOTION AND MOTION TO
                                    )  VACATE VOID CLERK DEFAULT JUDGMENT

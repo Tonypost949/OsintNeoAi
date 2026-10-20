@@ -26,7 +26,7 @@
       FALK PROPERTY TRUST
       ATTN: REAL ESTATE ACQUISITION FUND
       NEW YORK, NY, USA
-:70: REMITTANCE INFO: REAL ESTATE INVESTMENT APN (***) ***-7056
+:70: REMITTANCE INFO: REAL ESTATE INVESTMENT APN 5531007056
 :71A: DETAILS OF CHARGES: SHA
 -}
 ```
@@ -100,7 +100,7 @@ The material you've provided reads like a collection of purported forensic, OSIN
 ## Preliminary Forensic Assessment
 
 ### 1. SWIFT MT103 Transfer Record
-**Claim ****nted:**
+**Claim presented:**
 - $12.8M USD transfer from **Shell Holdings S.A. de C.V.** in Culiacán.
 - Beneficiary identified as **Falk Property Trust** in New York.
 - Real estate acquisition reference included.
@@ -113,14 +113,14 @@ The material you've provided reads like a collection of purported forensic, OSIN
 - Corresponding bank account records.
 - MT103/MT202 reconciliation.
 - KYC and beneficial ownership documentation.
-- Property records tied to APN (***) ***-7056.
+- Property records tied to APN 5531007056.
 **Red flag:**
 - The statement that the intercept "satisfies the admissibility standard" cannot be determined from the text alone. Chain of custody, collection authority, integrity validation, and witness testimony would typically be required.
 
 ---
 
 ### 2. Corporate Registry / Shell Company Mapping
-**Claim ****nted:**
+**Claim presented:**
 - Four entities share:
 - Common address.
 - Common registered agent.
@@ -145,7 +145,7 @@ These are commonly recognized indicators that may justify additional beneficial 
 ---
 
 ### 3. Network Infrastructure Findings
-**Claim ****nted:**
+**Claim presented:**
 - Server at `[IP_REDACTED]`.
 - Open SSH, HTTPS, MySQL, Tomcat services.
 - Internal-themed hostnames.
@@ -168,7 +168,7 @@ The hostnames appear descriptive and potentially investigative in nature; there 
 ---
 
 ### 4. Blockchain Transaction Evidence
-**Claim ****nted:**
+**Claim presented:**
 - Transaction hash:
 `f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16`
 - Amount allegedly 450.5 BTC.
@@ -534,7 +534,7 @@ In other words, it functions well as an **investigative roadmap**.
 ---
 
 ### What the Package Does Not Yet Establish
-Even if the theory is internally consistent, an actual RICO, money-laundering, wire-fraud, corruption, or forfeiture case ****ires independent proof of:
+Even if the theory is internally consistent, an actual RICO, money-laundering, wire-fraud, corruption, or forfeiture case requires independent proof of:
 - who controlled the entities,
 - who authorized the transfers,
 - source of funds,
@@ -621,7 +621,7 @@ However, the document currently lacks:
 - receiving bank confirmation,
 - SWIFT authentication records,
 - chain of custody,
-- account ****ship records.
+- account ownership records.
 
 Therefore the transfer remains:
 > Alleged transaction activity requiring independent confirmation.
@@ -700,7 +700,7 @@ Subject to authentication
 ```
 because admissibility cannot generally be established from isolated screenshots, packet extracts, OSINT notes, or scan outputs alone.
 
-## Biggest Threat to Case ****lity
+## Biggest Threat to Case Credibility
 The blockchain section.
 
 The cited address:

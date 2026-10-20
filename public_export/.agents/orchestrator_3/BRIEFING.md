@@ -54,13 +54,13 @@ Orchestrate completion of Milestone 3 (Entity Resolution, SQLite Vault, Master J
 ## Team Roster
 | Agent | Type | Work Item | Status | Conv ID |
 |-------|------|-----------|--------|---------|
-| worker_m3_gen2 | teamwork_preview_worker | Milestone 3 (Resolution & Storage) | in-progress | 609**c4c-9032-4c44-a029-d3cb1c790aa1 |
+| worker_m3_gen2 | teamwork_preview_worker | Milestone 3 (Resolution & Storage) | in-progress | 60954c4c-9032-4c44-a029-d3cb1c790aa1 |
 | test_writer_gen2 | teamwork_preview_test_writer | E2E Testing Track (Tiers 1-4) | in-progress | 42b3f2d1-926d-46d7-8200-8b084b1388ac |
 
 ## Succession Status
 - Succession required: no
 - Spawn count: 2 / 16
-- Pending subagents: 609**c4c-9032-4c44-a029-d3cb1c790aa1, 42b3f2d1-926d-46d7-8200-8b084b1388ac
+- Pending subagents: 60954c4c-9032-4c44-a029-d3cb1c790aa1, 42b3f2d1-926d-46d7-8200-8b084b1388ac
 - Predecessor: 34f685b0-e5c3-4fa3-aac5-dc635a0add4e (orchestrator_2)
 - Successor: not yet spawned
 

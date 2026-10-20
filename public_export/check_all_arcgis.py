@@ -4,8 +4,8 @@ import json
 urls = [
     'https://ocpw.maps.arcgis.com/sharing/rest/content/items/5bbd1fa12e7a43fa8d27a55afa83afa8/data?f=json',
     'https://ocpw.maps.arcgis.com/sharing/rest/content/items/cec066dcef964bdd8636ec05f9408a7a/data?f=json',
-    'https://ocpw.maps.arcgis.com/sharing/rest/content/items/cc8ebdb51c364**aa421bd4ccfc0e7fd/data?f=json',
-    'https://ocpw.maps.arcgis.com/sharing/rest/content/items/323e1b6ae027**bca659ca98ebc2435a/data?f=json',
+    'https://ocpw.maps.arcgis.com/sharing/rest/content/items/cc8ebdb51c36432aa421bd4ccfc0e7fd/data?f=json',
+    'https://ocpw.maps.arcgis.com/sharing/rest/content/items/323e1b6ae02746bca659ca98ebc2435a/data?f=json',
     'https://www.ocgis.com/ocpw/pavementcondition/?f=json',
 ]
 

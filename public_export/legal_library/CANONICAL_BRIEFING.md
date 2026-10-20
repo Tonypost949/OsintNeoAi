@@ -113,7 +113,7 @@
 | Date | Event |
 |------|-------|
 | **/**/2020 | City of HB (Jim Merid) requests OCWD well data for 176** Cameron / 176** Beach (0.5 mile radius) |
-| **/**/2020 | OCHCA issues fraudulent Case ****osed (20IC002) — certifies safety despite CrVI plume |
+| **/**/2020 | OCHCA issues fraudulent Case Closed (20IC002) — certifies safety despite CrVI plume |
 | 08/2020-01/2021 | City acquires Yamada parcel using $6,094,847 LMIHAF reserves |
 | **/**/2021 | STEWART INDUSTRIES LLC acquires 3311 B*** Cir via 1077 PCH mailbox — 34 days after first PPP loan |
 | **/**/2022 | DYLAN & ANDREW HOLDINGS LLC acquires 7561 C*** Ave #J1 for $725,000 |

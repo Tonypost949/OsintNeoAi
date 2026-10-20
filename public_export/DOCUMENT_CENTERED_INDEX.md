@@ -13,9 +13,9 @@ This index abandons narrative interpretation in favor of a strict document-cente
 - **Document Held:** Public settlement documents (*In re: T-Mobile Customer Data Security Breach Litigation*), confirming the 76.6M record exposure.
 - **Document Required:** T-Mobile internal subscriber logs verifying the exposure of Anthony Michael DiMarcello III's specific PII (SSN, DL, DOB).
 
-### 2. The SIM Swap & Account ****over
+### 2. The SIM Swap & Account Takeover
 - **Document Held:** Intercepted Meta confirmation code log (Code: `QXWAYKtW`).
-- **Document Required:** Cellular carrier (T-Mobile) account ****cess logs and customer service voice recordings from the date of the SIM transfer.
+- **Document Required:** Cellular carrier (T-Mobile) account access logs and customer service voice recordings from the date of the SIM transfer.
 
 ### 3. Mexican Origin Cyber Assault
 - **Document Held:** Google/Meta network telemetry logs indicating origin from Plan Libertador, Baja California, Mexico, using device identifiers "9185W" and "T513W".
@@ -52,7 +52,7 @@ This index abandons narrative interpretation in favor of a strict document-cente
 ## IV. The Insurance Fraud Architecture
 
 ### 1. The Denied Claims
-- **Document Held:** Assurant Claim ****nial (Policy ****0103) and AIG Claim ****nial (Policy ****7868), explicitly denying coverage for PII-based identity theft.
+- **Document Held:** Assurant Claim Denial (Policy ****0103) and AIG Claim Denial (Policy ****7868), explicitly denying coverage for PII-based identity theft.
 - **Document Required:** The K5 Reinsurance Notes internal underwriting guidelines proving that the financial products were deliberately structured to exclude the most common forms of identity theft, rendering them fraudulent instruments.
 
 ---

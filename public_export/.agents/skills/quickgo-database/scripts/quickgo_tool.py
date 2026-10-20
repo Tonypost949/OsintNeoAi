@@ -234,7 +234,7 @@ def main():
 
   ann_search_p = ann_sub.add_parser("search", help="Search annotations")
   ann_search_p.add_argument(
-      "--geneProductId", help="Gene product ID (e.g. UniProtKB:P046**)"
+      "--geneProductId", help="Gene product ID (e.g. UniProtKB:P04637)"
   )
   ann_search_p.add_argument(
       "--geneProductSubset", help="Gene product subset (e.g. Swiss-Prot)"

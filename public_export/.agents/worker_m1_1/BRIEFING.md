@@ -8,14 +8,14 @@ Aggregate, transcribe, verify, and author the authoritative official federal cou
 - Roles: implementer, qa, specialist
 - Working directory: C:\OsintNeoAi\.agents\worker_m1_1
 - Original parent: 0fbbdca0-8259-49a6-8940-8bf40c97c0ac
-- Milestone: M1 (Federal Judicial Case ****ings)
+- Milestone: M1 (Federal Judicial Case Filings)
 
 ## 🔒 Key Constraints
 - Exclusive write ownership:
   - `C:\OsintNeoAi\evidence\official_court_records\01_USA_v_Harry_Sidhu_8_23_cr_001**_CJC.md`
   - `C:\OsintNeoAi\evidence\official_court_records\03_USA_v_Todd_Ament_and_Melahat_Rafiei.md`
   - `C:\OsintNeoAi\evidence\official_court_records\04_USA_v_Christopher_Ryan_3_20_mj_050**_TJB.md`
-- Integrity mandate: genuine, complete, verified implementations with exact case ****bers, statutory codes, verbatim quotes, and evidentiary cross-references.
+- Integrity mandate: genuine, complete, verified implementations with exact case numbers, statutory codes, verbatim quotes, and evidentiary cross-references.
 - No deletion of existing files; maintain full fidelity.
 
 ## Current Parent

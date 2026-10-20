@@ -27,7 +27,7 @@ risk score of 0 does not necessarily mean the project is 100% without risk.
 **Section 2: Risk Dashboard**
 
 A table of the top 5 riskiest buckets (sorted by severity), followed by a
-policy ****evel control status block and per-control bucket rollups. The admin
+policy-level control status block and per-control bucket rollups. The admin
 should understand their overall risk posture from this section alone.
 
 Table columns: Priority (#), Bucket, Severity, Risk, Quickfix.
@@ -52,7 +52,7 @@ gs://model-checkpoints | Critical | Prompt Injection to Data Destruction | See
 Policy Fix #2, Bucket Fix #2 | | 3 | gs://logs-archive | Medium | UBLA disabled;
 versioning off | See Bucket Fix #2, Bucket Fix #3 |
 
-Follow the table with a policy ****evel summary and a baseline-failure rollup:
+Follow the table with a policy-level summary and a baseline-failure rollup:
 
 ```
 ✅ Verified: HMAC restriction, Data Access Audit Logs
@@ -95,7 +95,7 @@ Rules for these lines:
 **Section 3: Action Plan**
 
 Start with the per-bucket cards so the admin sees the findings before the fixes.
-Follow with Policy ****ixes and Bucket Fixes as a remediation reference.
+Follow with Policy Fixes and Bucket Fixes as a remediation reference.
 
 **Per-Bucket Cards** (soft cap: 6 lines per card):
 
@@ -131,7 +131,7 @@ Publicly readable, no encryption. Exfiltration leaves no recovery path.
 2. Add encryption and network boundary: → Bucket Fix #1 (CMEK), Policy Fix #2
 ```
 
-**Policy ****ixes** (org or project-level — may require elevated permissions):
+**Policy Fixes** (org or project-level — may require elevated permissions):
 
 List each fix with a title, Console path, and gcloud command. Only include a
 description when the fix title alone is not self-explanatory.
@@ -182,7 +182,7 @@ telemetry. Adapt the structure above:
 -   **Skip** the bucket Risk Heuristic (Section 1) and the per-bucket Risk
     Dashboard table (Section 2's bucket rows) — render them as "Unavailable —
     requires Storage Intelligence" rather than fabricating buckets or scores.
--   **Keep** the policy ****evel control status block and project findings: IAM,
+-   **Keep** the policy-level control status block and project findings: IAM,
     VPC-SC, Data Access audit logs, org policies (data residency, Block HTTP,
     TLS floor, HMAC), and Model Armor posture. These carry the report.
 

@@ -25,7 +25,7 @@
 
 | Chamber of Commerce Entity | Municipal Scope & Headquarters | Primary Investigative & Development Significance |
 | :--- | :--- | :--- |
-| **Anaheim Chamber of Commerce** | City of Anaheim (201 E*** St) | • **Core Target in FBI Affidavit (USA v. Sidhu / USA v. Ament)**<br>• Diverted $1.5M in federal COVID relief funds to chamber non-profits<br>• Secret policy ****eats, coaching council votes, Angel Stadium sale lobbying |
+| **Anaheim Chamber of Commerce** | City of Anaheim (201 E. C*** St) | • **Core Target in FBI Affidavit (USA v. Sidhu / USA v. Ament)**<br>• Diverted $1.5M in federal COVID relief funds to chamber non-profits<br>• Secret policy retreats, coaching council votes, Angel Stadium sale lobbying |
 | **Greater Irvine Chamber of Commerce** | City of Irvine (36 Executive Park) | • Major business alliance for Irvine Business Complex (IBC)<br>• Coordinates with master developers (Shea Properties, Irvine Company)<br>• Municipal zoning & commercial tax incentives |
 | **Huntington Beach Chamber of Commerce** | City of Huntington Beach (2213 M*** St) | • Commercial corridor revitalization & Beach Blvd Specific Plan<br>• Nexus to 17642 B*** Blvd navigation center debates & Knabb litigation |
 | **Costa Mesa Chamber of Commerce** | City of Costa Mesa | • Harbor Blvd & South Coast Metro commercial alliances |

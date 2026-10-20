@@ -24,7 +24,7 @@ The Plaid report outlines the systemic breakdown of 30 years of traditional iden
 |                                                                                                         |
 |  3. THE NEW DEFENSE MODEL: CONTINUOUS FINANCIAL NETWORK INTELLIGENCE:                                  |
 |     • Moving from static KYC checks to cross-institutional behavioral graph analysis.                   |
-|     • Case ****tudy Impact: Surfaced 40% of previously undetected first-party fraud with just 5% step-ups.|
+|     • Case Study Impact: Surfaced 40% of previously undetected first-party fraud with just 5% step-ups.|
 |     • Caught 47% of sophisticated fraud rings that had passed standard point-in-time KYC checks.        |
 +---------------------------------------------------------------------------------------------------------+
 ```
@@ -50,7 +50,7 @@ The findings in the Plaid report explain the exact structural vulnerabilities un
 1. **FinTech Auto-Approval Vulnerability (The PPP Loan Wave):**  
    * *Plaid Finding:* Single-platform KYC controls fail when bad actors use automated scripts to generate convincing personas.  
    * *Repository Proof:* Explains how FinTech automated underwriting approved 18 loans ($1.11M) at **11770 W*** Ave** across identical hospice and medical shell companies without detecting shared suite addresses.
-2. **The 1,000 Micro-Account ****ring Loop ("Smurfing" - 31 U.S.C. § 5324):**  
+2. **The 1,000 Micro-Account Structuring Loop ("Smurfing" - 31 U.S.C. § 5324):**  
    * *Plaid Finding:* Fraudsters cycle rapidly between multiple FinTech apps, creating distributed sub-threshold accounts to evade single-bank monitoring.  
    * *Repository Proof:* Explains the **$10.9M–$11.9M utility and escheatment structuring pipeline** (e.g. Hand to Hand / Loc Nguyen), where micro-deposits were sprinkled across hundreds of accounts until forced into California State Controller vaults.
 3. **Graph Network Intelligence as the Only Solution:**  

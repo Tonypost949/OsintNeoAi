@@ -12,7 +12,7 @@
 
 ## REQUEST FOR SAR LOOKBACK
 
-Pursuant to 31 U.S.C. § 5318 (Bank Secrecy Act), I request that FinCEN issue a SAR Lookback Alert to the following lenders regarding suspicious patterns in PPP loan ****lios:
+Pursuant to 31 U.S.C. § 5318 (Bank Secrecy Act), I request that FinCEN issue a SAR Lookback Alert to the following lenders regarding suspicious patterns in PPP loan portfolios:
 
 ---
 
@@ -60,7 +60,7 @@ All flagged entities share a common characteristic: **virtual office suite addre
 2. **Shell company indicators:** Virtual office addresses, generic business names
 3. **Real estate linkage:** PPP proceeds immediately funneled to real estate purchases in Orange County CA
 4. **Beneficial ownership opacity:** No verifiable principal names across entities
-5. **NAICS code inflation:** Environmental/hazmat classifications used to justify large loan ****unts
+5. **NAICS code inflation:** Environmental/hazmat classifications used to justify large loan amounts
 
 ---
 

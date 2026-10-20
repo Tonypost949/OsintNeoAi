@@ -307,7 +307,7 @@ def extract_case_citations(text: str) -> List[NormalizedCaseCitation]:
 
 def extract_case_numbers(text: str) -> List[str]:
     """
-    Convenience helper extracting de-duplicated canonical case ****bers and citations
+    Convenience helper extracting de-duplicated canonical case numbers and citations
     matching ExtractedRecord.case_numbers interface.
     """
     citations = extract_case_citations(text)

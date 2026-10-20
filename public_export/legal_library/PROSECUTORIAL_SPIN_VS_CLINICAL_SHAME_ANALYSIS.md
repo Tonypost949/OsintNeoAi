@@ -1,5 +1,5 @@
 # ⚖️ PROSECUTORIAL SPIN VS. CLINICAL SHAME & DISSOCIATION
-## Case ****ject: Lindsay Clancy (Duxbury, MA) • The "Art Therapy / Crayons" Statements, Journal Entries & Patrick Clancy's Reaction
+## Case Subject: Lindsay Clancy (Duxbury, MA) • The "Art Therapy / Crayons" Statements, Journal Entries & Patrick Clancy's Reaction
 **Investigation Reference:** `NWO-RICO-CLANCY-SPIN-001`  
 **Court Proceedings Reference:** Plymouth District Court Arraignment (Feb 7, 2023) • ADA Jennifer Sprague Proffers  
 **Core Medical Doctrine:** Emotional Blunting • Maternal Shame • Iatrogenic Akathisia • Involuntary Delirium

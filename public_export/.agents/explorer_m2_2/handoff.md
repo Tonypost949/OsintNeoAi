@@ -62,7 +62,7 @@
    - Plaintext/CSV requires delimiter sniffing and an encoding recovery ladder (`utf-8-sig` -> `utf-16` -> `cp1252` -> `chardet` -> `latin-1`).
 
 4. **From System Architecture (PROJECT.md Interface Contracts)**:
-   - `DocumentExtractor` provides the unified entry point, mapping MIME types to specific extractors, piping the resulting text through `DateNormalizer`, `FinancialNormalizer`, and `Case ****izer`, and returning the canonical `ExtractedRecord` matching Milestone 3 schema requirements.
+   - `DocumentExtractor` provides the unified entry point, mapping MIME types to specific extractors, piping the resulting text through `DateNormalizer`, `FinancialNormalizer`, and `CaseNormalizer`, and returning the canonical `ExtractedRecord` matching Milestone 3 schema requirements.
 
 ---
 

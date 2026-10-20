@@ -13,7 +13,7 @@ def build_grand_jury_workbook():
     # -------------------------------------------------------------
     header_fill = PatternFill(start_color="1E293B", end_color="1E293B", fill_type="solid")
     accent_fill = PatternFill(start_color="0F172A", end_color="0F172A", fill_type="solid")
-    gold_fill = PatternFill(start_color="D977**", end_color="D977**", fill_type="solid")
+    gold_fill = PatternFill(start_color="D97706", end_color="D97706", fill_type="solid")
     green_fill = PatternFill(start_color="059669", end_color="059669", fill_type="solid")
     
     title_font = Font(name="Arial", size=14, bold=True, color="FFFFFF")
@@ -80,9 +80,9 @@ def build_grand_jury_workbook():
 
     exhibits_data = [
         ("EXHIBIT A-1", "Notice Defect", "15-Day Notice acknowledging COVID financial distress receipt (March 18, 2021)", "SB 91 / AB 832 Safe Harbor", "VERIFIED ADMISSION", "EV-021 / Landlord File"),
-        ("EXHIBIT A-2", "Perjured Verification", "Shea Assistant Community Manager false verification Box 7d(2) (May 15, 2021)", "Cal. Penal Code § 118", "VERIFIED PERJURY", "UD-101 Verification (Case ****1327)"),
-        ("EXHIBIT A-3", "Armed Dispossession", "OCSD Levying Officer File No. (***) ***-2780 (8 armed deputies lockout on Aug 4, 2021)", "Cal. Civ. Code § 1942.5", "VERIFIED SHERIFF RECORD", "Levying Officer Notice / Barnes Command"),
-        ("EXHIBIT B-1", "Shelter Toxic Cap", "OCHCA Case ****osed Certificate 20IC002 issued without DTSC concurrence (Aug 21, 2020)", "RCRA / CERCLA § 107", "VERIFIED REGULATORY FRAUD", "OCHCA Certificate 20IC002"),
+        ("EXHIBIT A-2", "Perjured Verification", "Shea Assistant Community Manager false verification Box 7d(2) (May 15, 2021)", "Cal. Penal Code § 118", "VERIFIED PERJURY", "UD-101 Verification (Case 30-2021-01201327)"),
+        ("EXHIBIT A-3", "Armed Dispossession", "OCSD Levying Officer File No. 2021102780 (8 armed deputies lockout on Aug 4, 2021)", "Cal. Civ. Code § 1942.5", "VERIFIED SHERIFF RECORD", "Levying Officer Notice / Barnes Command"),
+        ("EXHIBIT B-1", "Shelter Toxic Cap", "OCHCA Case Closed Certificate 20IC002 issued without DTSC concurrence (Aug 21, 2020)", "RCRA / CERCLA § 107", "VERIFIED REGULATORY FRAUD", "OCHCA Certificate 20IC002"),
         ("EXHIBIT B-2", "Toxic Assay", "Soil assays showing Hexavalent Chromium at 490 ppb (49x EPA limit) at HBNC shelter", "Prop 65 / Cal. H&S § 252**.5", "VERIFIED LAB ASSAY", "TOX-001 / TOX-002 Assays"),
         ("EXHIBIT C-1", "HCD Notice of Violation", "State Housing Department $96,000,000 mandatory statutory fine demand", "AB 1486 / Gov. Code § 542**.5", "VERIFIED NOTICE", "HCD Dec 8, 2021 Notice of Violation"),
         ("EXHIBIT C-2", "FBI Wiretap Affidavits", "Special Agent Brian Adkins affidavit detailing Sidhu $1M bribe & appraisal leaks", "18 U.S.C. § 1346 / § 1001", "VERIFIED PLEA RECORD", "USA v. Sidhu (Case 8:23-cr-00115-DOC)"),

@@ -4,12 +4,12 @@
 
 ---
 
-## ⚖️ Case ****ight: Jesse Knabb v. City of Huntington Beach & DiMarcello Retaliation Audits
-* **Federal Case ****cket:** `8:2026-cv-00348 (C.D. Cal.)`
+## ⚖️ Case Spotlight: Jesse Knabb v. City of Huntington Beach & DiMarcello Retaliation Audits
+* **Federal Case Docket:** `8:2026-cv-00348 (C.D. Cal.)`
 * **Federal Criminal Dockets:** `USA v. Sidhu (8:23-cr-00108-CJC)`, `USA v. Ament (8:22-cr-00078-CJC)`, `USA v. Ryan (3:20-mj-05007-TJB)`
 * **State Superior Court:** `Woodbridge Meadows v. Dimarcello (30-2021-01201327-CL-UD-CJC)`
 * **State Administrative Action:** `HCD SLA Notice of Violation ($96M Penalty)` / `Petition A-2926`
-* **Monitored Physical Situs:** `8332 S*** Way, Huntington Beach, CA 926**` & `2000 E Gene Autry Way, Anaheim, CA`
+* **Monitored Physical Situs:** `8332 S*** Way, Huntington Beach, CA 926**` & `2000 E. G*** Way, Anaheim, CA`
 * **Filing Status:** `Active Judicial, Criminal & Administrative Record`
 
 ---

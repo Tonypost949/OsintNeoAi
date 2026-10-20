@@ -96,7 +96,7 @@ Reference list for commonly used Reactome pathway stable IDs:
     overwhelming. Filter with `--fdr 0.05` or `--pvalue 0.01` to focus on
     statistically significant pathways.
 5.  **Identifier formats**: Reactome auto-detects identifiers including gene
-    symbols (TP53), UniProt (P046**), Ensembl (ENSG00000141510), ChEBI, OMIM,
+    symbols (TP53), UniProt (P04637), Ensembl (ENSG00000141510), ChEBI, OMIM,
     EntrezGene, and many more.
 6.  **Handle large outputs**: For commands that return large data (like
     `species-comparison`), use the `--summary` flag to truncate lists and avoid

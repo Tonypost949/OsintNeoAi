@@ -33,8 +33,8 @@
 |----------------|-------------------|------------------|------------|------|
 | `9335f86f-6daa-497b-9736-9fc38e298ce5` | Mercy House Operational Network | **CMS-992-SHELTER** | **+$5,500,000,000.00** | $5.5B Shelter transaction |
 | `ac43bd82-6aee-4630-85cd-d1c4242b8b1c` | Mercy House Operational Network | **CMS-992-SHELTER** | **+$5,500,000,000.00** | Duplicate/re-entry transaction |
-| `0761e79d-2708-41de-acff-c419**bac293` | Mercy House | **TAX-FRAUD-EIN-874001776** | $0.00 | Active Tax Fraud Flag |
-| `740b2ece-f47d-47a7-919f-9c(***) ***-1100` | Mercy House Living Centers | **MERCY-HOUSE-TAX-FY2022** | $0.00 | FY2022 Tax alignment check |
+| `0761e79d-2708-41de-acff-c41969bac293` | Mercy House | **TAX-FRAUD-EIN-874001776** | $0.00 | Active Tax Fraud Flag |
+| `740b2ece-f47d-47a7-919f-9c2246731100` | Mercy House Living Centers | **MERCY-HOUSE-TAX-FY2022** | $0.00 | FY2022 Tax alignment check |
 
 ---
 

@@ -8,7 +8,7 @@ def full_gmail_sweep():
     user = "a***@gmail.com"
     pas = "hsmajxgytrvzrvwc"
     
-    print(f"[+] Authenticating to Gmail for full account ****weep: {user}")
+    print(f"[+] Authenticating to Gmail for full account sweep: {user}")
     mail = imaplib.IMAP4_SSL("imap.gmail.com")
     mail.login(user, pas)
     print("[+] Successfully logged in via App Password!")

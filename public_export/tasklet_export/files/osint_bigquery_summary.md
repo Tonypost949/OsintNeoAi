@@ -17,7 +17,7 @@
 - Verified BigQuery connection to Google Cloud project `noble-beanbag-497411-m4`.
 - Listed active datasets: `ai_sandbox`, `hb_church_osint`, `national_audits`, `nppes_export`, `ppp_rico`.
 - Mapped dataset purposes:
-  - `ppp_rico`: financial tracing (loan ****erns, shell companies, forgiveness anomalies)
+  - `ppp_rico`: financial tracing (loan patterns, shell companies, forgiveness anomalies)
   - `hb_church_osint`: local property / historical land use
   - `nppes_export` / `national_audits`: identity and entity cross-reference
   - `ai_sandbox`: staging / validation

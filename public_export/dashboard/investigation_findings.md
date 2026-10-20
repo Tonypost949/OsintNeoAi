@@ -53,7 +53,7 @@ The exact same matrix—fraud, bribery, and institutional abuse surrounding "vul
 
 ## 3. Foster Care & Departmental Abuse Settlements
 *   **New Jersey:** 
-    *   **Foster Care Abuse:** In early 2026, the state agreed to an **$8 Million** settlement to resolve a lawsuit filed by a survivor of sexual abuse in the state's foster care system. The case ****osed severe systemic failures, including lack of proper abuse documentation.
+    *   **Foster Care Abuse:** In early 2026, the state agreed to an **$8 Million** settlement to resolve a lawsuit filed by a survivor of sexual abuse in the state's foster care system. The case exposed severe systemic failures, including lack of proper abuse documentation.
     *   **Newark Watershed (NWCDC):** A massive kickback and bribery scheme run through a quasi-public development entity. The Executive Director and Special Projects Manager solicited bribes and fraudulent invoices from contractors, ultimately dissolving the entity and landing numerous officials in federal prison.
 *   **Los Angeles County:** Reached a staggering **$4.8 Billion** settlement to resolve over 11,000 claims of sexual abuse spanning decades in county juvenile halls and foster care. 
 *   **Mississippi & Oregon:** Both states are actively dealing with massive class-action lawsuits over systemic neglect and record-high abuse rates in their child welfare departments. 

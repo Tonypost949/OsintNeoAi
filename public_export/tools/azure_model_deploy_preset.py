@@ -13,7 +13,7 @@ import subprocess
 import json
 import sys
 
-SUBSCRIPTION = "f055033f-83fb-4ae9-9c36-be48f0c861**"
+SUBSCRIPTION = "f055033f-83fb-4ae9-9c36-be48f0c86158"
 RESOURCE_GROUP = "opencode-rg"
 ACCOUNT_NAME = "opencode-ai-8609"
 LOCATION = "eastus"
@@ -61,7 +61,7 @@ print(f"  State     : {acct_info['properties'].get('provisioningState','N/A')}")
 
 # ── Phase 3: List Available Models ───────────────────────────
 section("Phase 3: Available Models")
-out, err, code = run(f"az cognitiveservices account ****dels --name {ACCOUNT_NAME} --resource-group {RESOURCE_GROUP} --output json")
+out, err, code = run(f"az cognitiveservices account list-models --name {ACCOUNT_NAME} --resource-group {RESOURCE_GROUP} --output json")
 if code != 0:
     print(f"[ERROR] Cannot list models: {err}")
     sys.exit(1)
@@ -96,7 +96,7 @@ else:
 
 # ── Phase 5: List Existing Deployments ───────────────────────
 section("Phase 5: Existing Deployments")
-out, err, code = run(f"az cognitiveservices account ****ment list --name {ACCOUNT_NAME} --resource-group {RESOURCE_GROUP} --output json")
+out, err, code = run(f"az cognitiveservices account deployment list --name {ACCOUNT_NAME} --resource-group {RESOURCE_GROUP} --output json")
 if code != 0:
     print(f"[WARN] Cannot list deployments: {err}")
     existing = []
@@ -120,7 +120,7 @@ section("Phase 6: Deployment Plan")
 print("""
   TARGET DEPLOYMENT:
   ─────────────────────────────────────────────────────
-  Account ****8609
+  Account       : opencode-ai-8609
   Resource Group: opencode-rg
   Location      : eastus
   SKU           : GlobalStandard
@@ -130,7 +130,7 @@ print("""
   ─────────────────────────────────────────────────────
   
   To deploy, run:
-  az cognitiveservices account ****ment create \\
+  az cognitiveservices account deployment create \\
     --name opencode-ai-8609 \\
     --resource-group opencode-rg \\
     --deployment-name osint-gpt4o-preset-001 \\

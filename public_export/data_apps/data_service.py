@@ -53,12 +53,12 @@ def get_state_disparity_data():
     top_states = [
         {"state": "CA", "name": "California", "pit": 713**, "gap": 374430, "coc_funding": 155000000, "ppp_total": 103157155708},
         {"state": "NY", "name": "New York", "pit": 880**, "gap": 462131, "coc_funding": 142000000, "ppp_total": 60727938521},
-        {"state": "WA", "name": "Washington", "pit": 141**, "gap": 742**, "coc_funding": 58900000, "ppp_total": (***) ***-8555},
-        {"state": "AZ", "name": "Arizona", "pit": 9642, "gap": 506**, "coc_funding": 42100000, "ppp_total": (***) ***-5935},
+        {"state": "WA", "name": "Washington", "pit": 141**, "gap": 742**, "coc_funding": 58900000, "ppp_total": 18261098555},
+        {"state": "AZ", "name": "Arizona", "pit": 9642, "gap": 506**, "coc_funding": 42100000, "ppp_total": 12387225935},
         {"state": "TX", "name": "Texas", "pit": 4244, "gap": 222**, "coc_funding": 38000000, "ppp_total": 62748970400},
         {"state": "FL", "name": "Florida", "pit": 2314, "gap": 121**, "coc_funding": 1800000, "ppp_total": 50056342105},
-        {"state": "AL", "name": "Alabama", "pit": 1124, "gap": 5901, "coc_funding": 12500000, "ppp_total": (***) ***-8018},
-        {"state": "AK", "name": "Alaska", "pit": 1422, "gap": 7465, "coc_funding": 3400000, "ppp_total": (***) ***-7770}
+        {"state": "AL", "name": "Alabama", "pit": 1124, "gap": 5901, "coc_funding": 12500000, "ppp_total": 9414668018},
+        {"state": "AK", "name": "Alaska", "pit": 1422, "gap": 7465, "coc_funding": 3400000, "ppp_total": 2047297770}
     ]
     return top_states
 

@@ -1,4 +1,4 @@
-# Progress Tracking — Worker M1 (Federal Judicial Case ****ings)
+# Progress Tracking — Worker M1 (Federal Judicial Case Filings)
 **Last visited:** 2026-08-27T06:58:55Z
 **Status:** Completed
 

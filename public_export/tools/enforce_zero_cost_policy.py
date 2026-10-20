@@ -53,7 +53,7 @@ def enforce_policy():
     POLICY_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(POLICY_FILE, "w", encoding="utf-8") as f:
         json.dump(ZERO_COST_RULES, f, indent=2)
-    print(f"  [✓] Policy ****aved to: {POLICY_FILE}")
+    print(f"  [✓] Policy saved to: {POLICY_FILE}")
 
     # Register in task system registry
     task_entry = {

@@ -42,7 +42,7 @@ Official state environmental deliverables filed for target parcels:
 
 ## 📍 IV. Nevada Desert & MGM Grand GPS Spatial Coordinate Hubs
 
-* 🎰 **MGM Grand Las Vegas Hub:** `36.1026° N, 115.1703° W` (3799 S Las Vegas Blvd, Clark County, NV)
+* 🎰 **MGM Grand Las Vegas Hub:** `36.1026° N, 115.1703° W` (3799 S. L*** Blvd, Clark County, NV)
 * 🏜️ **Apex Desert Industrial Corridor:** `36.3150° N, 114.9200° W` (Clark County, NV)
 * ⛏️ **Nye County Mining / Testing Corridor:** `36.9092° N, 116.7547° W` (Beatty Corridor, NV)
 * 🏭 **Tahoe-Reno / Storey County Industrial:** `39.5296° N, 119.8138° W` (USA Pkwy, NV)

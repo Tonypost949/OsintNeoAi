@@ -4,7 +4,7 @@ import html
 with open('C:/OsintNeoAi/scraped_system_bookmarks.json', 'r', encoding='utf-8') as f:
     bookmarks = json.load(f)
 
-# Filter key Google, Microsoft, Power Platform, Azure, GitHub, and cloud account ****arks
+# Filter key Google, Microsoft, Power Platform, Azure, GitHub, and cloud account bookmarks
 filtered = []
 seen = set()
 for b in bookmarks:
@@ -16,13 +16,13 @@ for b in bookmarks:
         seen.add(url)
         filtered.append({'title': title, 'url': url, 'source': b.get('source', 'Browser')})
 
-print(f"Total Account ****ific Bookmarks Filtered: {len(filtered)}")
+print(f"Total Account Specific Bookmarks Filtered: {len(filtered)}")
 
 html_content = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Universal Account ****arks Vault (17,006 Total Harvested)</title>
+    <title>Universal Account Bookmarks Vault (17,006 Total Harvested)</title>
     <style>
         body { font-family: 'Segoe UI', sans-serif; background: #0a0e17; color: #f3f4f6; padding: 24px; margin: 0; }
         h1 { color: #00d2ff; font-size: 1.8rem; margin-top: 0; }
@@ -39,9 +39,9 @@ html_content = """<!DOCTYPE html>
     </style>
 </head>
 <body>
-    <h1>📌 Universal Account ****arks Vault</h1>
+    <h1>📌 Universal Account Bookmarks Vault</h1>
     <div class="stats-badge">Total Harvested System Bookmarks: 17,006 | Account & Cloud Items Index: """ + str(len(filtered)) + """</div>
-    <input type="text" class="search-box" id="searchInput" onkeyup="filter()" placeholder="🔍 Search 17,006 account ****arks, Google Drive files, PowerApps, Azure, Gmail, Office 365...">
+    <input type="text" class="search-box" id="searchInput" onkeyup="filter()" placeholder="🔍 Search 17,006 account bookmarks, Google Drive files, PowerApps, Azure, Gmail, Office 365...">
     <div class="grid" id="container">
 """
 

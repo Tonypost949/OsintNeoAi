@@ -81,7 +81,7 @@
 
 2. **Windows File Lock Handling**:
    - Evaluated `ManagedZipStream` (`local_crawler.py:185-252`) and `ManagedTarStream` (`local_crawler.py:253-324`).
-   - Verified that `close()` and `__exit__` properly close the inner member ****ream and parent `zipfile.ZipFile` / `tarfile.TarFile` instances in `finally` blocks.
+   - Verified that `close()` and `__exit__` properly close the inner member stream and parent `zipfile.ZipFile` / `tarfile.TarFile` instances in `finally` blocks.
    - Stress-tested concurrent stream readers and mid-stream exception handling (`test_adversarial_m1.py::TestAdversarialWindowsLocks`), confirming immediate Windows file lock release and zero `PermissionError` unlinking/overwrite failures.
 
 3. **Streaming Memory Invariance ($O(1)$ RAM Bounds)**:

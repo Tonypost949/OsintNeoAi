@@ -7,11 +7,11 @@ import webbrowser
 CLOUDS = [
     {
         "name": "OsintNeoAi Sentinel Agent",
-        "url": "https://copilotstudio.microsoft.com/environments/d5b42781-da97-e29a-a5bc-d88f977ebd01/bots/e6781ec6-79e6-4868-90be-60e88d514**b/canvas"
+        "url": "https://copilotstudio.microsoft.com/environments/d5b42781-da97-e29a-a5bc-d88f977ebd01/bots/e6781ec6-79e6-4868-90be-60e88d51435b/canvas"
     },
     {
         "name": "OsintNeoAi Master Agent",
-        "url": "https://copilotstudio.microsoft.com/environments/d5b42781-da97-e29a-a5bc-d88f977ebd01/bots/3bda9cdd-4646-47bf-8e7a-4d025**f01bf/canvas"
+        "url": "https://copilotstudio.microsoft.com/environments/d5b42781-da97-e29a-a5bc-d88f977ebd01/bots/3bda9cdd-4646-47bf-8e7a-4d02547f01bf/canvas"
     },
     {
         "name": "Truth & Fact Audit Agent",
@@ -23,7 +23,7 @@ CLOUDS = [
     },
     {
         "name": "Osint Neo AI Bot (Personal)",
-        "url": "https://copilotstudio.microsoft.com/environments/584c706d-38a2-e52e-b6e3-24a809f105**/bots/fc647254-a398-f111-b8db-00224803c960/canvas"
+        "url": "https://copilotstudio.microsoft.com/environments/584c706d-38a2-e52e-b6e3-24a809f10508/bots/fc647254-a398-f111-b8db-00224803c960/canvas"
     },
     {
         "name": "Master Bookmarks & Evidence Hub",

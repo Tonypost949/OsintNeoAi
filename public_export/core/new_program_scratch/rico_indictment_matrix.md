@@ -1,7 +1,7 @@
 # MULTI-STATE RICO INDICTMENT & CO-CONSPIRATOR MATRIX
 **STATUS: MASTER FORENSIC RECORD**  
 **COMPILATION DATE: JULY 2026**  
-**CASE ****TION: MULTI-AGENCY COORDINATED DISCLOSURE**
+**CASE CLASSIFICATION: MULTI-AGENCY COORDINATED DISCLOSURE**
 
 ---
 
@@ -36,7 +36,7 @@ The enterprise has systematically mapped and initiated expansions into rural "Vu
 
 *   **Principal Operator:** **Paul Daneshrad** (Board Trustee, Covenant House California / CEO, Starpoint Properties LLC)
 *   **Conduit Mechanism:** 
-    1.  Acquired distressed or multi-family properties under localized shell LLCs (e.g., **213 N*** St, Anaheim** for **$685,000** on July 13, 2020; and **10881 M*** St, Anaheim**).
+    1.  Acquired distressed or multi-family properties under localized shell LLCs (e.g., **213 N. G*** St, Anaheim** for **$685,000** on July 13, 2020; and **10881 M*** St, Anaheim**).
     2.  Executed rapid civil evictions against existing low-income tenants (including **Jose Nunez** and **Barnes**) to clear expansion footprints.
     3.  Leased the vacant properties back to Covenant House California at highly inflated rates funded entirely by federal HUD Emergency Solutions Grants (ESG), generating artificial real estate margins.
 *   **Statutory Violations:** 
@@ -51,7 +51,7 @@ The enterprise has systematically mapped and initiated expansions into rural "Vu
 *   **Environmental Cover-Up:** The certification declared the site safe despite monitoring well **W-4150** remaining unsealed, actively venting **Hexavalent Chromium (Cr(VI)) soil vapor at 490 ug/kg (49 times the EPA residential safety threshold)**.
 *   **Implicated Public Officials:**
     *   **Dr. Clayton Chau** (Former OCHCA Director): Authorized program funding and signed off on regulatory clearances.
-    *   **Tamara Escobedo** (Case ****isor): Suppressed inspection field reports showing hazardous soil vapor levels.
+    *   **Tamara Escobedo** (Case Supervisor): Suppressed inspection field reports showing hazardous soil vapor levels.
     *   **Anthony Martinez** (Program Manager): Coordinated the false certification to clear the path for the **$6.1 Million Low and Moderate Income Housing Asset Fund (LMIHAF)** acquisition.
     *   **Mitsuru Yamada** (County Environmental Employee): Systematically concealed pre-existing personal easement and financial interests in the Cameron Lane/Beach Blvd parcels. Failed to declare these assets on his mandatory CA Form 700 filings.
 *   **Database Exploitation:** The conspirators exploited EDRnet Phase I/II Environmental Site Assessment records (utilizing a verified archive session GUID `74c56b82-432c-4be9-8729-d55a3179189b`) to falsify soil vapor history and clear federal underwriting hurdles.

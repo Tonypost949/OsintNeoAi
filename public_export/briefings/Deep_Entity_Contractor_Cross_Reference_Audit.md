@@ -36,7 +36,7 @@
 | Cluster Identifier | Entity / Geographic Scope | Matched Node Count | Key Correlated Predicates & Operations |
 | :--- | :--- | :--- | :--- |
 | **Mercy House & Huntington Beach Cluster** | HBNC, 17642 B*** Blvd, 17631 C*** Ln | **502 Nodes** | Hexavalent Chromium (49x limit), GeoTracker tampering, OCHCA 20IC002, LMIHAF $6.1M fund misuse |
-| **Shea Properties & Irvine Cluster** | Woodbridge Meadows, Shea Homes, Irvine Blvd | **166 Nodes** | Levying File (***) ***-2780, Perjured UD-101 verification, COVID rent relief safe harbor violations |
+| **Shea Properties & Irvine Cluster** | Woodbridge Meadows, Shea Homes, Irvine Blvd | **166 Nodes** | Levying File 2021102780, Perjured UD-101 verification, COVID rent relief safe harbor violations |
 | **Healthcare & 117** Warner Cluster** | 11770 W*** Ave Suite 200, Fountain Valley | **138 Nodes** | 18 SBA PPP Loans ($1.11M), Marcus Angulo NPI, Belavita, Hospice shell networks |
 | **Anaheim Cabal & Chamber Cluster** | City Hall, Anaheim Chamber, Platinum Triangle | **51 Nodes** | Mayor Harry Sidhu guilty plea, Todd Ament wire fraud, secret mock council rehearsals |
 | **Moreno & Stadium Syndicate Cluster** | SRB Management LLC, Angels Baseball LP | **1 Node (150 Acres)** | $320M land transaction undervaluation, $96M HCD statutory fine demand |

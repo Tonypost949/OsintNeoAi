@@ -174,7 +174,7 @@ def check_secure_org_policies_enforced(
     # policy, so if the rules are not configured, we consider the policy
     # to be set to its default value, which is insecure.
     if policy_type is OrgPolicySecureTypeEnum.ENFORCED:
-      # Any enforced rule would be considered secure. A potential case ****here
+      # Any enforced rule would be considered secure. A potential case where
       # there might be multiple rules is if a condition is bound to the
       # enforcement through tags.
       secure = any(rule.get("enforce", False) for rule in rules)

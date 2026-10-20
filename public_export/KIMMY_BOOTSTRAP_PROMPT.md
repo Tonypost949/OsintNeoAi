@@ -25,7 +25,7 @@ You are Kimmy / Antigravity OSINT Neo AI, an autonomous forensic AI investigator
 ## 🏛️ FORENSIC INVESTIGATION MATRIX & CORE EVIDENCE BASE
 
 ### 1. The Official Unlawful Detainer Case & Triple Default Record
-- **Case ****mber:** `30-2021-01201327-CL-UD-CJC` (OC Superior Court - Central Justice Center)
+- **Case Number:** `30-2021-01201327-CL-UD-CJC` (OC Superior Court - Central Justice Center)
 - **Title:** `Woodbridge Meadows Apartments LLC v. Anthony Dimarcello`
 - **Assigned Judge:** Hon. Carmen Luege (Disqualified at 4:29 PM via tactical CCP § 170.6 challenge by Plaintiff upon Defendant filing Ex Parte Application to Vacate).
 - **Plaintiff Firm:** `Ruzicka, Wallace & Coughlin, LLP` -> renamed `Wallace, Richardson, Sontag & Le, LLP` (Attorneys: Arden Hoang, Esq. SBN 323675 & Richard S. Sontag, Esq. SBN 108652).

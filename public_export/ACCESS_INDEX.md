@@ -29,7 +29,7 @@ Uptime: 24/7 (Cloud hosted)
 ### Azure Portal (Hosting)
 **URL:** https://portal.azure.com  
 **Account:** a***@students.post.edu  
-**Subscription:** Azure for Students (f055033f-83fb-4ae9-9c36-be48f0c861**)  
+**Subscription:** Azure for Students (f055033f-83fb-4ae9-9c36-be48f0c86158)  
 **App Service:** osintneoai-app-949 (East US, B1 tier)  
 **Cost:** $100/month free credit (student benefit)  
 

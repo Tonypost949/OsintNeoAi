@@ -39,7 +39,7 @@ To understand what Patrick Clancy understood between December 2022 and the court
 graph TD
     A["Stage 1 (Jan 1–5, 2023): Real-Time Frustration at McLean<br/>Both know 'crayons/art' is superficial, but doctors sign safe discharge"] --> B["Stage 2 (Jan 6–24, 2023): The Fragile Post-Discharge Window<br/>Patrick hopes the new Trintellix and doctors' advice will work"]
     B --> C["Stage 3 (Jan 28, 2023): The Immediate Forgiveness Statement<br/>Patrick publicly states: 'The real Lindsay was loving; she was stolen'"]
-    C --> D["Stage 4 (The Courtroom Ambush): The DA's Manipulation<br/>Prosecution shows private phone notes to claim ****rick was 'conned'"]
+    C --> D["Stage 4 (The Courtroom Ambush): The DA's Manipulation<br/>Prosecution shows private phone notes to claim Patrick was 'conned'"]
     D --> E["The State's Goal: Shield McLean Hospital & Pharma from 9-Figure Liability"]
 ```
 

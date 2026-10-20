@@ -171,8 +171,8 @@ rsync error: some files/attrs were not transferred (see previous errors) (code 2
    at Kudu.Core.Infrastructure.FileSystemHelpers.CopyDirectoryRecursive(String sourceDirPath, String destinationDirPath, Boolean overwrite) in /tmp/KuduLite/Kudu.Core/Infrastructure/FileSystemHelpers.cs:line 239
    at Kudu.Core.Deployment.Generator.OneDeployBuilder.Build(DeploymentContext context, CancellationToken token) in /tmp/KuduLite/Kudu.Core/Deployment/Generator/OneDeployBuilder.cs:line 108
    at Kudu.Core.Deployment.DeploymentManager.Build(ChangeSet changeSet, ITracer tracer, IDisposable deployStep, IRepository repository, DeploymentInfoBase deploymentInfo, DeploymentAnalytics deploymentAnalytics, Boolean fullBuildByDefault, CancellationToken cancellationToken) in /tmp/KuduLite/Kudu.Core/Deployment/DeploymentManager.cs:line 771" /><!-- duration: 6ms -->
-            </step><!-- duration: 107**ms -->
-          </step><!-- duration: 109**ms -->
+            </step><!-- duration: 10764ms -->
+          </step><!-- duration: 10924ms -->
           <step title="Error occurred" date="2026-08-22T07:25:27.955" type="error" text="Invalid argument : &apos;/home/site/wwwroot/dashboard\.github\workflows\deploy.yml&apos;" stackTrace="   at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
    at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64&amp; fileLength, UnixFileMode&amp; filePermissions, Boolean failForSymlink, Boolean&amp; wasSymlink, Func`4 createOpenException)
    at System.IO.FileSystem.CopyFile(String sourceFullPath, String destFullPath, Boolean overwrite)
@@ -190,7 +190,7 @@ rsync error: some files/attrs were not transferred (see previous errors) (code 2
    at Kudu.Core.Deployment.DeploymentManager.Build(ChangeSet changeSet, ITracer tracer, IDisposable deployStep, IRepository repository, DeploymentInfoBase deploymentInfo, DeploymentAnalytics deploymentAnalytics, Boolean fullBuildByDefault, CancellationToken cancellationToken) in /tmp/KuduLite/Kudu.Core/Deployment/DeploymentManager.cs:line 771
    at Kudu.Core.Deployment.DeploymentManager.Build(ChangeSet changeSet, ITracer tracer, IDisposable deployStep, IRepository repository, DeploymentInfoBase deploymentInfo, DeploymentAnalytics deploymentAnalytics, Boolean fullBuildByDefault, CancellationToken cancellationToken) in /tmp/KuduLite/Kudu.Core/Deployment/DeploymentManager.cs:line 840
    at Kudu.Core.Deployment.DeploymentManager.DeployAsync(IRepository repository, ChangeSet changeSet, String deployer, Boolean clean, DeploymentInfoBase deploymentInfo, Boolean needFileUpdate, Boolean fullBuildByDefault) in /tmp/KuduLite/Kudu.Core/Deployment/DeploymentManager.cs:line 266" /><!-- duration: 8ms -->
-        </step><!-- duration: 117**ms -->
+        </step><!-- duration: 11795ms -->
         <step title="Reloading status file with latest updates" date="2026-08-22T07:25:28.756" >
           <step title="WebHooksManager.PublishEventAsync: PostDeployment" date="2026-08-22T07:25:28.768" /><!-- duration: 75ms -->
         </step><!-- duration: 94ms -->
@@ -203,7 +203,7 @@ rsync error: some files/attrs were not transferred (see previous errors) (code 2
    at Kudu.Core.Deployment.DeploymentManager.Build(ChangeSet changeSet, ITracer tracer, IDisposable deployStep, IRepository repository, DeploymentInfoBase deploymentInfo, DeploymentAnalytics deploymentAnalytics, Boolean fullBuildByDefault, CancellationToken cancellationToken) in /tmp/KuduLite/Kudu.Core/Deployment/DeploymentManager.cs:line 840
    at Kudu.Core.Deployment.DeploymentManager.DeployAsync(IRepository repository, ChangeSet changeSet, String deployer, Boolean clean, DeploymentInfoBase deploymentInfo, Boolean needFileUpdate, Boolean fullBuildByDefault) in /tmp/KuduLite/Kudu.Core/Deployment/DeploymentManager.cs:line 266" /><!-- duration: 6ms -->
         <step title="Marking deployment as failed and cleaning up the temp deployment" date="2026-08-22T07:25:28.941" /><!-- duration: 6ms -->
-      </step><!-- duration: 141**ms -->
+      </step><!-- duration: 14146ms -->
       <step title="Error occurred" date="2026-08-22T07:25:29.152" type="error" text="One or more errors occurred. (Deployment failed)" stackTrace="   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
    at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
    at System.Threading.Tasks.Task.Wait()
@@ -212,4 +212,4 @@ rsync error: some files/attrs were not transferred (see previous errors) (code 2
    at Kudu.Contracts.Infrastructure.LockExtensions.LockOperation(IOperationLock lockObj, Action operation, String operationName, TimeSpan timeout) in /tmp/KuduLite/Kudu.Contracts/Infrastructure/LockExtensions.cs:line 46
    at Kudu.Core.Deployment.FetchDeploymentManager.&lt;&gt;c__DisplayClass22_0.&lt;PerformBackgroundDeployment&gt;b__1() in /tmp/KuduLite/Kudu.Core/Deployment/FetchDeploymentManager.cs:line 393" innerText="Deployment failed" innerStackTrace="   at Kudu.Core.Deployment.DeploymentManager.DeployAsync(IRepository repository, ChangeSet changeSet, String deployer, Boolean clean, DeploymentInfoBase deploymentInfo, Boolean needFileUpdate, Boolean fullBuildByDefault) in /tmp/KuduLite/Kudu.Core/Deployment/DeploymentManager.cs:line 307
    at Kudu.Core.Deployment.FetchDeploymentManager.PerformDeployment(DeploymentInfoBase deploymentInfo, IDisposable tempDeployment, ChangeSet tempChangeSet, DeployStatusApiResult updateStatusObj) in /tmp/KuduLite/Kudu.Core/Deployment/FetchDeploymentManager.cs:line 230" /><!-- duration: 8ms -->
-    </step><!-- duration: 141**ms -->
+    </step><!-- duration: 14196ms -->

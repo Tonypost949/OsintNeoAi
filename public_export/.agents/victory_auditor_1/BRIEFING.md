@@ -44,9 +44,9 @@ Conduct an independent 3-phase Victory Audit of the statutory aggregation, court
 
 ## Attack Surface
 - **Hypotheses tested**:
-  - H1: Are statutory references and case ****bers real and accurate? Confirmed TRUE across all 8 exhibits.
+  - H1: Are statutory references and case numbers real and accurate? Confirmed TRUE across all 8 exhibits.
   - H2: Are test results hardcoded or true evaluations? Confirmed TRUE evaluations parsing actual disk files.
-  - H3: Did git backup and repository integrity succeed per AGENTS.md? Confirmed TRUE (branch main up to date with origin/main, commit f387**c).
+  - H3: Did git backup and repository integrity succeed per AGENTS.md? Confirmed TRUE (branch main up to date with origin/main, commit f38765c).
 - **Vulnerabilities found**: None.
 - **Untested angles**: None.
 

@@ -1,5 +1,5 @@
 # Digital Nodes Forensic Audit
-**Target Matter:** 1133 N Formosa Ave / Falk HOA & Fiduciary Investigation  
+**Target Matter:** 1133 N. F*** Ave / Falk HOA & Fiduciary Investigation  
 **Location:** West Hollywood, CA
 
 ---
@@ -8,7 +8,7 @@
 
 ### Node 1: `d***@me.com`
 * **Domain Classification:** Personal Apple iCloud domain (`@me.com`).
-* **Fiduciary Finding:** Fiduciary and property management duties for common interest developments require compliant, retainable records. Using a personal consumer account ****oids corporate retention obligations.
+* **Fiduciary Finding:** Fiduciary and property management duties for common interest developments require compliant, retainable records. Using a personal consumer account avoids corporate retention obligations.
 * **Preservation Action:** Export raw `.eml`/`.msg` files with complete SPF, DKIM, and hop routing headers.
 
 ### Node 2: `s***@yahoo.com`

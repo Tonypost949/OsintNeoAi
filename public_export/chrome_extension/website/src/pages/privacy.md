@@ -6,7 +6,7 @@
 
 At Tab Copy, we understand the critical importance of safeguarding our users' data. Every decision we make during development is driven by our commitment to security and data protection. We continuously evaluate our code, architecture, processes, and the systems we rely on to ensure your trust in us is never compromised.
 
-This privacy policy ****ains what information Tab Copy collects and how it's used, as well as the kind of information we do NOT collect.
+This privacy policy explains what information Tab Copy collects and how it's used, as well as the kind of information we do NOT collect.
 
 ## Information We Collect
 

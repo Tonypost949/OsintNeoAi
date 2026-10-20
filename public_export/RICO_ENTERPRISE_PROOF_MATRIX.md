@@ -40,7 +40,7 @@ For each major coordination proposition, seek:
 
 ---
 
-## Case ****File Status Labels
+## Case-File Status Labels
 Use controlled labels rather than argumentative descriptions:
 - **FACT:** Directly supported by a reliable source.
 - **CORROBORATED FACT:** Supported by independent sources.

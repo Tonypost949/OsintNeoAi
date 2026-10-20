@@ -201,7 +201,7 @@ class TestScenario2UnlawfulDetainerDocket:
 
     def test_scenario_02_unlawful_detainer_docket_reconciliation(self, tmp_path: Path):
         """
-        Executes full reconciliation of Case ****DCJC:
+        Executes full reconciliation of Case No. 30-2021-01201327-CL-UD-CJC:
         1. Ingests HTML register of actions (ROA) containing multiple court entries.
         2. Ingests Notice of Default Judgments (**/**/2021, **/**/2021, **/**/2022).
         3. Ingests Cal. CCP § 170.6 Peremptory Challenge striking Judge Carmen Luege.
@@ -215,7 +215,7 @@ class TestScenario2UnlawfulDetainerDocket:
         roa_html = """
         <html><body>
         <h1>SUPERIOR COURT OF CALIFORNIA, COUNTY OF ORANGE</h1>
-        <h2>Case ****DCJC: Woodbridge Meadows v. Anthony DiMarcello</h2>
+        <h2>Case No. 30-2021-01201327-CL-UD-CJC: Woodbridge Meadows v. Anthony DiMarcello</h2>
         <table border="1">
             <tr><th>ROA #</th><th>Filing Date</th><th>Entry Description</th></tr>
             <tr><td>1</td><td>**/**/2021</td><td>Complaint for Unlawful Detainer Filed by Wallace, Richardson, Sontag & Le LLP</td></tr>
@@ -248,7 +248,7 @@ class TestScenario2UnlawfulDetainerDocket:
         events = conn.execute("SELECT event_date_iso, description FROM timeline_events ORDER BY event_date_iso ASC").fetchall()
         assert len(events) >= 3
 
-        # Verify case ****ions
+        # Verify case citations
         doc_text = conn.execute("SELECT extracted_text FROM documents").fetchone()[0]
         case_citations = extract_case_citations(doc_text)
         dockets = [c.case_number for c in case_citations if c.case_number]
@@ -279,7 +279,7 @@ class TestScenario3MultiStatePoliceLogs:
         p1 = evidence_dir / "Hamilton_PD_Incident_Report_2019.txt"
         p1.write_text(
             "HAMILTON TOWNSHIP POLICE DIVISION - INCIDENT REPORT\n"
-            "Incident Case ****3723\n"
+            "Incident Case: 2019-00053723\n"
             "Date: **/**/2019\n"
             "Location: 1456 C*** Lane, Hamilton NJ 086**\n"
             "Cross-referenced with Ewing Police Department Chain of Custody Case I-2019-001222.\n"
@@ -322,7 +322,7 @@ class TestScenario3MultiStatePoliceLogs:
         assert trx[0] == 4850.0
         assert trx[2] == "WIRE"
 
-        # Verify case ****tion
+        # Verify case extraction
         docs = conn.execute("SELECT extracted_text FROM documents").fetchall()
         all_text = " ".join(d[0] for d in docs)
         citations = extract_case_citations(all_text)

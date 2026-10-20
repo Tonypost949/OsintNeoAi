@@ -86,7 +86,7 @@ uv run --project $SKILL_DIR /tmp/my_analysis.py --arg1 val1
     integer type is not available". This occurs when using boolean masks with
     `.iloc` on integer-indexed DataFrames in newer pandas versions. **Fix**:
     Convert boolean masks to integer indices using `np.flatnonzero(mask)`.
--   **GTF Feather Case ****vity**: The AlphaGenome GTF Feather file uses
+-   **GTF Feather Case Sensitivity**: The AlphaGenome GTF Feather file uses
     **Capitalized** column names (`Feature`, `Start`, `End`, `Strand`) unlike
     standard GTF files. Always check `df.columns` if getting KeyErrors.
 -   **`score_variant` ontology filtering**: `score_variant` does NOT accept
@@ -127,9 +127,9 @@ uv run --project $SKILL_DIR /tmp/my_analysis.py --arg1 val1
             use the *observed junction data* to drive zoom levels.
 -   [`examples/splicing/`](docs/examples/splicing/) — Splicing analysis examples
 -   [`examples/model_limitation_RNU4ATAC/`](docs/examples/model_limitation_RNU4ATAC/)
-    — ncRNA structure limitation case ****tudy
+    — ncRNA structure limitation case study
 -   [`examples/polyadenylation_HBA2/`](docs/examples/polyadenylation_HBA2/) — 3'
-    UTR / Polyadenylation case ****tudy
+    UTR / Polyadenylation case study
 -   [`examples/regulatory/`](docs/examples/regulatory/) — Regulatory variant
     examples
 -   [`examples/negative_result_GATA4/`](docs/examples/negative_result_GATA4/) —

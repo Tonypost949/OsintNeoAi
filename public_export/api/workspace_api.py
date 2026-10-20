@@ -625,7 +625,7 @@ def crypto_public():
             },
             "bridge": {
                 "name":       "MultiPoolEscrow",
-                "contract":   os.environ.get("MULTI_POOL_ESCROW_ADDRESS", "0x155**C9A8a5903336CC67F2cBa00dBdAd944dC5B"),
+                "contract":   os.environ.get("MULTI_POOL_ESCROW_ADDRESS", "0x15564C9A8a5903336CC67F2cBa00dBdAd944dC5B"),
                 "apy":        "12.5%",
                 "multiplier": "1.05x",
             },

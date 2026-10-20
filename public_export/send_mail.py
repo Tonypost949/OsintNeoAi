@@ -5,7 +5,7 @@ import smtplib
 from email.mime.text import MIMEText
 
 sender = os.environ.get("GMAIL_USER", "y***@gmail.com")
-password=[REDACTED]"GMAIL_APP_PASSWORD", "your_app_password")  # Generate via Google Account ****rity settings
+password=[REDACTED]"GMAIL_APP_PASSWORD", "your_app_password")  # Generate via Google Account security settings
 receiver = os.environ.get("RECIPIENT_EMAIL", "r***@gmail.com")
 
 if len(sys.argv) > 1:

@@ -47,14 +47,14 @@ graph TD
 
 ### 2. Microsoft OneDrive Corpus (`onedrive_forensics.onedrive_documents`)
 - **BigQuery Corpus:** `noble-beanbag-497411-m4.onedrive_forensics.onedrive_documents` (72.8 MB uncompressed file index).
-- **Function:** Cross-indexing Microsoft Office documents (.docx, .xlsx, .pdf) against SBA PPP loan ****ords and municipal grant disbursements.
+- **Function:** Cross-indexing Microsoft Office documents (.docx, .xlsx, .pdf) against SBA PPP loan records and municipal grant disbursements.
 
 ---
 
 ## III. DEEPSEEK HBPD BREACH ANALYSIS (`agent/deepseek_session_dehashed_hbpd.md`)
 
 - **Dataset Source:** `Dehashed-HBPD-scan.json` (4,462 lines of forensic chat extraction).
-- **Core Finding:** 400 compromised account ****ings for the **Huntington Beach Police Department (`hbpd.org`)** identified on Dehashed.
+- **Core Finding:** 400 compromised account listings for the **Huntington Beach Police Department (`hbpd.org`)** identified on Dehashed.
 - **Exposed Data Types:** Internal officer login credentials, cleartext email addresses, employee contact details, and administrative hash signatures.
 - **Forensic Correlation:** Cross-linked with the "HB Holes" data tampering analysis (`hbpd.org` suppressing 25 out of 26 admin web paths).
 

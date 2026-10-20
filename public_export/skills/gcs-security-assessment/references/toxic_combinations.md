@@ -40,10 +40,10 @@ are dangerous in context.
 >     role on the bucket or its objects.
 > -   **Data-residency mismatch** — bucket location is a multi-region (or
 >     non-compliant region) containing data subject to regional regulations, AND
->     no org policy ****ains resource locations.
+>     no org policy constrains resource locations.
 > -   **AI-agent workload context** — Model Armor API enabled in the project
 >     (signaling Vertex AI Agent Engine / Agent Builder usage), combined with
->     agent-side configuration like a service account ****ding broad storage
+>     agent-side configuration like a service account holding broad storage
 >     roles.
 >
 > A bucket failing only baseline controls is reported in the Section 2 baseline
@@ -132,9 +132,9 @@ and completely invisible.
 **Remediation:**
 
 -   Reduce service account to least privilege: `gcloud projects
-    add-iam-policy ****ding PROJECT_ID --member='serviceAccount:SA_EMAIL'
+    add-iam-policy-binding PROJECT_ID --member='serviceAccount:SA_EMAIL'
     --role='roles/storage.objectViewer'` then `gcloud projects
-    remove-iam-policy ****ding PROJECT_ID --member='serviceAccount:SA_EMAIL'
+    remove-iam-policy-binding PROJECT_ID --member='serviceAccount:SA_EMAIL'
     --role='roles/storage.admin'`
 -   Create VPC-SC perimeter: `gcloud access-context-manager perimeters create
     PERIMETER_NAME --title='AI Assets Perimeter'
@@ -180,9 +180,9 @@ trail = **undetectable and unrecoverable** data tampering.
     https://cloud.google.com/storage/docs/encryption/customer-managed-keys
 -   Reduce write permissions: Grant `roles/storage.objectViewer` or
     `roles/storage.objectCreator` instead of `roles/storage.objectAdmin`.
-    `gcloud storage buckets add-iam-policy ****ding gs://BUCKET
+    `gcloud storage buckets add-iam-policy-binding gs://BUCKET
     --member='user:USER_EMAIL' --role='roles/storage.objectViewer'` then `gcloud
-    storage buckets remove-iam-policy ****ding gs://BUCKET
+    storage buckets remove-iam-policy-binding gs://BUCKET
     --member='user:USER_EMAIL' --role='roles/storage.objectAdmin'`
 -   Enable Data Access audit logs: Update project audit config for
     `storage.googleapis.com` with DATA_READ and DATA_WRITE.
@@ -263,7 +263,7 @@ that looks secure but cannot withstand a regulatory audit.
 **Remediation:**
 
 -   Set org policy to restrict resource locations: `gcloud resource-manager
-    org-policies set-policy ****ject=PROJECT_ID policy.yaml` (constrain to
+    org-policies set-policy --project=PROJECT_ID policy.yaml` (constrain to
     compliant regions)
 -   Migrate bucket to compliant region: `gcloud storage buckets create
     gs://NEW_BUCKET --location=COMPLIANT_REGION` then `gcloud storage rsync
@@ -320,9 +320,9 @@ Model Exfiltration, Data Poisoning, Model Source Tampering
 **Remediation:**
 
 -   **URGENT** — Reduce agent service account to least privilege: `gcloud
-    projects remove-iam-policy ****ding PROJECT_ID
+    projects remove-iam-policy-binding PROJECT_ID
     --member='serviceAccount:AGENT_SA' --role='roles/storage.admin'` then
-    `gcloud storage buckets add-iam-policy ****ding gs://SPECIFIC_BUCKET
+    `gcloud storage buckets add-iam-policy-binding gs://SPECIFIC_BUCKET
     --member='serviceAccount:AGENT_SA' --role='roles/storage.objectViewer'`
 -   **URGENT** — Activate Model Armor Vertex AI integration: `gcloud model-armor
     floorsettings update

@@ -29,10 +29,10 @@ In early 2020, the City of Huntington Beach faced state forfeiture of over $3,00
 To execute the transaction using restricted housing funds, the City required an environmental clearance. 
 1. **Defendant David Bernier (EEC Environmental)** fabricated a well-search narrative to obscure the existence of the 1947 Well W-4150, which acted as a direct conduit into the Talbert aquifer.
 2. **Defendant Tamera Escobedo (OCHCA)** orchestrated the physical gerrymandering of the parcel addresses, consolidating Cameron Lane into Beach Blvd to illegally bypass California Department of Toxic Substances Control (DTSC) mandatory oversight.
-3. **Defendant Anthony Martinez (OCHCA)** issued a fraudulent "Case ****osed" certification (Case ****C002) on August 21, 2020, actively concealing the Cr-VI plume and the 1955 Standard Oil (Permit C812**) infrastructure legacy.
+3. **Defendant Anthony Martinez (OCHCA)** issued a fraudulent "Case Closed" certification (Case #20IC002) on August 21, 2020, actively concealing the Cr-VI plume and the 1955 Standard Oil (Permit C81252) infrastructure legacy.
 
 ### C. The Standard Oil / Tract 405 Concealment
-Newly acquired municipal records from the Laserfiche WebLink portal (Folder ID 4806972) confirm that on October 25, 1955, Standard Oil Co. of California obtained Permit C812** under the "Tract 405" designation for 17642 B*** Blvd. The Defendants actively suppressed this petrochemical baseline to expedite the LMIHAF funding.
+Newly acquired municipal records from the Laserfiche WebLink portal (Folder ID 4806972) confirm that on October 25, 1955, Standard Oil Co. of California obtained Permit C81252 under the "Tract 405" designation for 17642 B*** Blvd. The Defendants actively suppressed this petrochemical baseline to expedite the LMIHAF funding.
 
 ### D. Ongoing Operational Fraud (Mercy House)
 **Defendant Mercy House** currently operates the Huntington Beach Navigation Center (HBNC) atop the un-remediated Cr-VI plume. Mercy House continues to draw millions in state and federal continuum-of-care grants while failing to disclose the environmental endangerment of the 164+ displaced residents, constituting ongoing False Claims.
@@ -42,7 +42,7 @@ Newly acquired municipal records from the Laserfiche WebLink portal (Folder ID 4
 Defendants knowingly presented false claims for payment (the LMIHAF disbursements and COVID-19 operational grants) based on fabricated environmental certifications.
 
 **Count II: Making or Using False Records (31 U.S.C. § 3729(a)(1)(B))**
-Defendants Escobedo, Martinez, and Bernier authored false records—including the Case ****C002 certification and Phase I ESA—material to the fraudulent claims.
+Defendants Escobedo, Martinez, and Bernier authored false records—including the Case #20IC002 certification and Phase I ESA—material to the fraudulent claims.
 
 ## IV. TREBLE DAMAGES CALCULATION
 - **Fraudulent LMIHAF Encumbrance:** $6,094,847

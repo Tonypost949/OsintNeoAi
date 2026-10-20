@@ -52,9 +52,9 @@ Three interlocking RICO enterprises share infrastructure — LLCs, registered ag
 |---|---|---|---|---|
 | **198** BROOKHURST LLC** | N/A (real estate only) | N/A | CA | $12.7M OC property |
 | **RAI PARTNERS LLC** | N/A (real estate only) | N/A | CA | $2.8M OC property |
-| **CM CLEANING SOLUTIONS INC** | $253,282 | Wells Fargo | CA | PPP #(***) ***-8010 |
-| **CM CLEANING SOLUTIONS INC** | $200,662 | Mortgage Capital Dev | CA | PPP #(***) ***-9002 |
-| **CM CLEANING CO, IC** | $462,747 | Rockland Trust | MA | PPP #(***) ***-7203 |
+| **CM CLEANING SOLUTIONS INC** | $253,282 | Wells Fargo | CA | PPP #6821648010 |
+| **CM CLEANING SOLUTIONS INC** | $200,662 | Mortgage Capital Dev | CA | PPP #8529389002 |
+| **CM CLEANING CO, IC** | $462,747 | Rockland Trust | MA | PPP #8883607203 |
 
 **CM CLEANING SOLUTIONS: Total PPP = $916,691 across CA + MA**
 
@@ -150,7 +150,7 @@ OC SSA (Social Services Agency)
       → Shelter placement (HBNC, Mercy House, contracted facilities)
         → BILLING:
           • Per-diem rates per child ($200-$800/night)
-          • Medicaid ****ound billing
+          • Medicaid wraparound billing
           • Federal IV-E admin claiming
     → OUTCOMES (2020-2026):
       • 4 child deaths (at or near Mercy House/HBNC facilities)
@@ -237,7 +237,7 @@ United by: OC SSA as the removing agency, contracted shelter operators (HBNC, Me
 |---|---|---|
 | 13+ | Wire fraud (false PPP applications) | 18 U.S.C. § 1343 |
 | 13+ | Bank fraud (false representations to SBA/lenders) | 18 U.S.C. § 1344 |
-| 13+ | False statements on loan ****ions | 18 U.S.C. § 1014 |
+| 13+ | False statements on loan applications | 18 U.S.C. § 1014 |
 | 4+ | Money laundering (PPP → real estate) | 18 U.S.C. § 1956 |
 | 2+ | Wire fraud (HUD/CoC grant applications) | 18 U.S.C. § 1343 |
 | 2+ | False statements on grant applications | 18 U.S.C. § 1014 |
@@ -250,7 +250,7 @@ United by: OC SSA as the removing agency, contracted shelter operators (HBNC, Me
 
 ### 5.3 Statute of Limitations Notes
 
-- PPP fraud: 18 U.S.C. § 1343 — 5 years from date of loan ****oval/forgiveness
+- PPP fraud: 18 U.S.C. § 1343 — 5 years from date of loan approval/forgiveness
 - IV-E fraud: 18 U.S.C. § 1343 — 5 years from date of false claim
 - Child trafficking: 18 U.S.C. § 1591 — 10 years (if minor victim); no statute of limitations for certain felonies
 - Kidnapping: 18 U.S.C. § 1201 — 10 years (non-physical restraint); life if death involved
@@ -294,7 +294,7 @@ United by: OC SSA as the removing agency, contracted shelter operators (HBNC, Me
 
 ### OC SSA / CPS
 10. What is the breakdown of the 29,300 missing children (runaway vs. unreported vs. trafficked)?
-11. Are any OC SSA removal case ****kers or supervisors financially connected to Mercy House / HBNC / the shelter operators?
+11. Are any OC SSA removal caseworkers or supervisors financially connected to Mercy House / HBNC / the shelter operators?
 12. Is IV-E billing being claimed for children who are not actually in licensed foster care placements?
 13. Were Native American children properly identified and tribal notifications made under ICWA?
 

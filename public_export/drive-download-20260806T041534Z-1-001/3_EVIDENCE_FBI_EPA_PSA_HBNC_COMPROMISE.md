@@ -1,7 +1,7 @@
 # EVIDENCE: FBI/EPA PSA → HBNC PLC Infrastructure Compromise
 
 **Source:** FBI/EPA Cybersecurity Alert PSA I-073026-PSA (July 30, 2026)  
-**Case:** CACD Case 8:2026cv003**  
+**Case:** CACD Case 8:2026cv00348  
 **Filed by:** Anthony DiMarcello III
 
 ---
@@ -54,13 +54,13 @@ HBNC knowingly left a Cr(VI)-contaminated well feeding the monitoring infrastruc
 
 1. **Obtain HBNC water system specs** — Identify PLC model controlling Well W-4150; determine if internet-exposed (building permits, contracts, DHS ICS-CERT)
 2. **Document monitoring timeline** — When did monitoring go offline? Cross-reference with maintenance records and Cr(VI) readings
-3. **File supplementary motion** to CACD Case 8:2026cv003** citing FBI/EPA PSA I-073026-PSA as new corroborating evidence of infrastructure compromise methodology
+3. **File supplementary motion** to CACD Case 8:2026cv00348 citing FBI/EPA PSA I-073026-PSA as new corroborating evidence of infrastructure compromise methodology
 4. **Request emergency relief** — PLC forensic examination + facility closure TRO
 5. **Asset seizure** — Yamada properties + unclaimed property (Pham Family Living Trust, Property ID 1024456136)
 
 ---
 
-## Transformation of Case ****eory
+## Transformation of Case Theory
 
 | Before PSA | After PSA |
 |---|---|

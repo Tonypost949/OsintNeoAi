@@ -185,7 +185,7 @@ DEFAULT_TARGET_PATHS: List[str] = [
 class ManagedZipStream(io.RawIOBase):
     """
     A binary stream wrapper around a zip member (ZipExtFile) that guarantees
-    both the member ****ream and parent ZipFile are closed on exit.
+    both the member stream and parent ZipFile are closed on exit.
     """
     def __init__(self, zip_path: str, member_name: str):
         super().__init__()

@@ -25,7 +25,7 @@ records = [
         'file_path': r'C:\Users\Amd949609\Downloads\Cameron Lane Navigation Center- Contract and Permit Record Review.pdf',
         'filename': 'Cameron_Lane_Navigation_Center_Permit_Review.pdf',
         'page_count': 5,
-        'extracted_text': 'Accela PWG2020-020 Final grading 176** Cameron. PW# 20-020 / L# 20-128 Precise Grading Plan Sheet 3 of 8. B(***) ***-4554, B2020-005184 MEP permits. Resolution 2019-22, TTS Engineering contract. Escalation: $670K -> $2.41M (3.6x). Unverified: PWE2020-304, PWE2022-0046 encroachment. Building Permit TBD. StormTech design/as-builts not produced.',
+        'extracted_text': 'Accela PWG2020-020 Final grading 176** Cameron. PW# 20-020 / L# 20-128 Precise Grading Plan Sheet 3 of 8. B2020004554, B2020-005184 MEP permits. Resolution 2019-22, TTS Engineering contract. Escalation: $670K -> $2.41M (3.6x). Unverified: PWE2020-304, PWE2022-0046 encroachment. Building Permit TBD. StormTech design/as-builts not produced.',
         'key_value_count': 15,
         'ocr_timestamp': datetime.utcnow().isoformat() + 'Z'
     }

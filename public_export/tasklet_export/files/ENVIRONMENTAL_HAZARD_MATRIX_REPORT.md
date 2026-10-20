@@ -18,11 +18,11 @@
 
 ---
 
-## 📄 II. THE FRAUDULENT CLOSURE (CASE ****C002)
+## 📄 II. THE FRAUDULENT CLOSURE (CASE #20IC002)
 
 | Date | Event | Actor |
 | :--- | :--- | :--- |
-| **2020-08-21** | False "Case ****osed" Certification | OCHCA (Dr. Clayton Chau / Tamera Escobedo) |
+| **2020-08-21** | False "Case Closed" Certification | OCHCA (Dr. Clayton Chau / Tamera Escobedo) |
 | **2021-01-04** | Well W-4150 Destruction Waiver | OCHCA (Anthony Martinez) |
 
 **The Fraud:** The 2020 closure certified the site as safe for "temporary housing tents" using a thin asphalt cap. This cap is non-compliant with Title 27 DTSC standards for hazardous waste containment.

@@ -18,7 +18,7 @@ Survey existing dossier/timeline/matrix reporting, testing suites, and 3-locatio
 - Preserve AGENTS.md rules and cardinal rules
 
 ## Current Parent
-- Conversation ID: 732690b7-29f9-4a6b-8380-b817**c3f7f4
+- Conversation ID: 732690b7-29f9-4a6b-8380-b81754c3f7f4
 - Updated: 2026-09-02T16:42:00Z
 
 ## Investigation State

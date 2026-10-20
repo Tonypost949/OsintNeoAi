@@ -1,7 +1,7 @@
 # ⚖️ JUDICIAL TRIAL EXHIBIT & PRESCRIBER LIABILITY MATRIX: LINDSAY CLANCY
 ## Official Courtroom Medication Timeline (July 27, 2026) • Named Individual Prescribers & Blood Toxicology Confirmation
 **Investigation Reference:** `NWO-RICO-CLANCY-TRIAL-RX-001`  
-**Court Proceeding:** *Commonwealth v. Lindsay Clancy*, Plymouth Superior Court No. `2383CR000**`  
+**Court Proceeding:** *Commonwealth v. Lindsay Clancy*, Plymouth Superior Court No. `2383CR00048`  
 **Core Evidentiary Milestone:** Official Courtroom Slide Display of Specific Prescribers, Titration Dates & Serum Assays
 
 ---

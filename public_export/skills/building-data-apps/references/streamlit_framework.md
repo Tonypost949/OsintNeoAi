@@ -39,22 +39,22 @@ Inject via `st.markdown(css, unsafe_allow_html=True)`.
 Use f-strings with `IS_DARK` to swap values:
 ```css
 :root {
-    --bg: [dark: #090**b | light: #ffffff];
+    --bg: [dark: #09090b | light: #ffffff];
     --bg-subtle: [dark: #0c0c0f | light: #f9fafb];
     --card: [dark: #0c0c0f | light: #ffffff];
     --card-hover: [dark: #131316 | light: #f4f4f5];
     --border: [dark: #1e1e24 | light: #e4e4e7];
-    --border-subtle: [dark: #161**a | light: #f0f0f2];
-    --text: [dark: #fafafa | light: #090**b];
-    --text-muted: #717**a;
-    --text-dim: [dark: #525**b | light: #a1a1aa];
+    --border-subtle: [dark: #16161a | light: #f0f0f2];
+    --text: [dark: #fafafa | light: #09090b];
+    --text-muted: #71717a;
+    --text-dim: [dark: #52525b | light: #a1a1aa];
     --accent: #2563eb;
     --accent-muted: #1d4ed8;
     --green: [dark: #22c55e | light: #16a34a];
     --green-muted: [dark: rgba(34,197,94,0.12) | light: rgba(22,163,74,0.08)];
     --red: [dark: #ef4444 | light: #dc2626];
     --red-muted: [dark: rgba(239,68,68,0.12) | light: rgba(220,38,38,0.08)];
-    --amber: [dark: #f59e0b | light: #d977**];
+    --amber: [dark: #f59e0b | light: #d97706];
     --amber-muted: [dark: rgba(245,158,11,0.12) | light: rgba(217,119,6,0.08)];
     --shadow: [dark: none | light: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03)];
     --radius: 10px;
@@ -207,17 +207,17 @@ Apply this layout to ALL charts:
 PLOT_LAYOUT = dict(
     paper_bgcolor="rgba(0,0,0,0)",
     plot_bgcolor="rgba(0,0,0,0)",
-    font=dict(family="DM Sans, sans-serif", color="#717**a" if not IS_DARK else "#a1a1aa", size=11),
+    font=dict(family="DM Sans, sans-serif", color="#71717a" if not IS_DARK else "#a1a1aa", size=11),
     margin=dict(l=0, r=0, t=8, b=0),
     xaxis=dict(
         gridcolor="rgba(0,0,0,0.04)" if not IS_DARK else "rgba(255,255,255,0.04)",
         zerolinecolor="rgba(0,0,0,0.04)" if not IS_DARK else "rgba(255,255,255,0.04)",
-        tickfont=dict(size=10, color="#717**a"),
+        tickfont=dict(size=10, color="#71717a"),
     ),
     yaxis=dict(
         gridcolor="rgba(0,0,0,0.04)" if not IS_DARK else "rgba(255,255,255,0.04)",
         zerolinecolor="rgba(0,0,0,0.04)" if not IS_DARK else "rgba(255,255,255,0.04)",
-        tickfont=dict(size=10, color="#717**a"),
+        tickfont=dict(size=10, color="#71717a"),
     ),
 )
 ```

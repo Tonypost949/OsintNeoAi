@@ -9,7 +9,7 @@ Exhaustive unit, boundary, scenario, and memory verification across:
 - Feature 7: Image Preprocessing & Enhancement (OpenCV CLAHE & Deskewing)
 - Feature 8: Timestamp Normalizer (ISO 8601 UTC across 15+ formats)
 - Feature 9: Financial Transaction Normalizer (Dual Float & Integer Cents via Decimal)
-- Feature 10: Legal Case ****fier Normalizer (Federal & CA Superior Court Dockets, Statutes)
+- Feature 10: Legal Case Identifier Normalizer (Federal & CA Superior Court Dockets, Statutes)
 - Feature 11: Correspondence & Entity Normalizer (Corporate Suffix, Soundex, Double Metaphone)
 - 5-Tier Fallback Ladder & O(1) Memory Invariance
 """
@@ -361,7 +361,7 @@ class TestFinancialNormalizer:
         cents_found = [f.amount_cents for f in extracted]
         assert 32_000_000_000 in cents_found
         assert 5_000_000 in cents_found
-        # 2022 (year), 1456 (address), (***) ***-2834 (phone) must NOT be extracted
+        # 2022 (year), 1456 (address), 5550192834 (phone) must NOT be extracted
         assert 202200 not in cents_found
         assert 145600 not in cents_found
 
@@ -379,7 +379,7 @@ class TestFinancialNormalizer:
 
 
 # ==============================================================================
-# 3. Case ****fier Normalization Tests (Feature 10)
+# 3. Case Identifier Normalization Tests (Feature 10)
 # ==============================================================================
 
 class TestCaseNormalizer:
@@ -404,7 +404,7 @@ class TestCaseNormalizer:
         assert "19-cr-01787-BAS" in canonical_ids or "19-CR-1787-BAS" in canonical_ids
 
     def test_california_superior_court_docket(self):
-        sample = "Woodbridge Meadows v. Dimarcello, Case ****DCJC"
+        sample = "Woodbridge Meadows v. Dimarcello, Case No. 30-2021-01201327-CL-UD-CJC"
         citations = extract_case_citations(sample)
         assert len(citations) == 1
         c = citations[0]
@@ -415,10 +415,10 @@ class TestCaseNormalizer:
 
     def test_police_incidents_and_summons(self):
         sample = """
-        Hamilton Township Police Division Case ****3723 and Case 2020-00008897.
+        Hamilton Township Police Division Case 2019-00053723 and Case 2020-00008897.
         Summons #2020-613 issued.
-        Ewing Police Dept Case ****mber: I-2019-001222.
-        Levying Officer File No. (***) ***-2780.
+        Ewing Police Dept Case Number: I-2019-001222.
+        Levying Officer File No. 2021102780.
         """
         citations = extract_case_citations(sample)
         canon_ids = [c.canonical_id for c in citations]
@@ -426,7 +426,7 @@ class TestCaseNormalizer:
         assert any("2020-00008897" in cid for cid in canon_ids)
         assert any("2020-613" in cid for cid in canon_ids)
         assert any("I-2019-001222" in cid or "2019-001222" in cid for cid in canon_ids)
-        assert any("(***) ***-2780" in cid for cid in canon_ids)
+        assert any("2021102780" in cid for cid in canon_ids)
 
     def test_statutory_citations(self):
         sample = """

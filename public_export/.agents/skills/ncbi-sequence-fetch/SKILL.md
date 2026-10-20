@@ -70,7 +70,7 @@ Fetches protein FASTA from NCBI by accession (XP_, NP_, GenPept, etc.)
 
 ```bash
 uv run scripts/ncbi_fetch.py fetch-protein XP_022033624 -o /tmp/result.json
-uv run scripts/ncbi_fetch.py fetch-protein NP_001234567 ABC123**.1
+uv run scripts/ncbi_fetch.py fetch-protein NP_001234567 ABC12345.1
 ```
 
 ### 2. Fetch Nucleotide by Accession
@@ -145,8 +145,8 @@ Searches by locus tag in both NCBI Protein and Nuccore databases. Extracts CDS
 translations from GenBank XML when direct protein hits aren't available.
 
 ```bash
-uv run scripts/ncbi_fetch.py locus-protein At1g565** --organism "Arabidopsis thaliana"
-uv run scripts/ncbi_fetch.py locus-protein Niben101Scf024**g020**.1 \
+uv run scripts/ncbi_fetch.py locus-protein At1g56540 --organism "Arabidopsis thaliana"
+uv run scripts/ncbi_fetch.py locus-protein Niben101Scf02422g02015.1 \
   --organism "Nicotiana benthamiana" -o /tmp/result.json
 ```
 

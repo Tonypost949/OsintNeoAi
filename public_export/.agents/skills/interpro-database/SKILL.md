@@ -25,7 +25,7 @@ description: >
 
 InterPro combines signatures from multiple, diverse databases into a single
 searchable resource, reducing redundancy and helping users interpret their
-sequence analysis results. By uniting these member ****ases (e.g., Pfam, CDD,
+sequence analysis results. By uniting these member databases (e.g., Pfam, CDD,
 SMART), InterPro capitalises on their individual strengths to produce a powerful
 diagnostic tool and integrated resource.
 
@@ -94,14 +94,14 @@ format your own `/` separated strings:**
 2.  **`/{endpoint}/{sourceDB}`** (e.g. `/entry/pfam`) `uv run
     ./scripts/interpro_client.py fetch entry --source_db pfam --limit 10
     --output pfam_entries.jsonl`
-3.  **`/{endpoint}/{sourceDB}/{accession}`** (e.g. `/entry/pfam/PF000**`) `uv
+3.  **`/{endpoint}/{sourceDB}/{accession}`** (e.g. `/entry/pfam/PF00001`) `uv
     run ./scripts/interpro_client.py fetch entry --source_db pfam --accession
-    PF000** --limit 10 --output pf000**_entry.jsonl`
+    PF00001 --limit 10 --output pf00001_entry.jsonl`
 4.  **`/{endpoint}/{sourceDB}/{linked_endpoint}/{sourceDB}/{accession}`** (e.g.
-    `/entry/interpro/protein/uniprot/P046**`) `uv run
+    `/entry/interpro/protein/uniprot/P04637`) `uv run
     ./scripts/interpro_client.py fetch entry \ --source_db interpro \
     --linked_endpoint protein \ --linked_source_db uniprot \ --linked_accession
-    P046** \ --limit 10 --output p046**_entries.jsonl`
+    P04637 \ --limit 10 --output p04637_entries.jsonl`
 
 ## Valid Source Databases (`--source_db`)
 
@@ -199,7 +199,7 @@ query parameters available for each endpoint:
 InterPro provides powerful tools for searching proteins by their domain
 architecture (the exact combination and order of domains). Because the API does
 not allow querying proteins directly by multiple domains at once (e.g., "give me
-proteins with PF000** AND PF000**"), finding proteins with specific domain
+proteins with PF00069 AND PF00017"), finding proteins with specific domain
 combinations requires a two-step process.
 
 ### Step 1: Find matching architectures (`ida_search`)
@@ -216,12 +216,12 @@ Domain Architectures (IDAs) containing the domains you specify.
     -   `exact`: Ensures the architecture matches exactly (no additional
         domains) (flag). **Requires `ordered` flag to be present.**
 
-**Example**: Find architectures containing both a kinase domain (PF000**) and an
-SH2 domain (PF000**), in that exact order:
+**Example**: Find architectures containing both a kinase domain (PF00069) and an
+SH2 domain (PF00017), in that exact order:
 
 ```bash
 uv run scripts/interpro_client.py fetch entry
-  --query_params ida_search=PF000**,PF000**
+  --query_params ida_search=PF00069,PF00017
   --flags ordered exact
   --output architectures.jsonl
 ```
@@ -347,7 +347,7 @@ results = fetch_interpro_data(
 ## Strict Lookup Rules
 
 1.  **Always Use UniProt Accessions, NEVER Gene Names:** When looking up
-    proteins in InterPro, you MUST use their UniProt Accessions (e.g. `P046**`).
+    proteins in InterPro, you MUST use their UniProt Accessions (e.g. `P04637`).
     InterPro does not natively support or reliably map gene names (e.g. `TP53`).
     If the user provides a gene name, you must use a database like Ensembl or
     UniProt first to resolve it to an accession.
@@ -403,14 +403,14 @@ payload structures.
 ### 1. Determining all protein domains
 
 ```bash
-# Fetches InterPro Entries within UniProt protein P046**
-# URL equivalent: /entry/interpro/protein/uniprot/P046**
+# Fetches InterPro Entries within UniProt protein P04637
+# URL equivalent: /entry/interpro/protein/uniprot/P04637
 uv run ./scripts/interpro_client.py fetch entry
     --source_db interpro
     --linked_endpoint protein
     --linked_source_db uniprot
-    --linked_accession P046**
-    --output p046**_domains.jsonl
+    --linked_accession P04637
+    --output p04637_domains.jsonl
 ```
 
 ### 2. Fetching all PDB structures for an Entry

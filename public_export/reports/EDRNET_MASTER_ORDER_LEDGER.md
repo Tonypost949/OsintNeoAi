@@ -11,7 +11,7 @@
 | **/**/2025 | `7969092` | `Portions Shipped` | Hamilton Crossing Development Hamilton Crossing Development &nbsp; 400,460, 508 L*** Road Alcoa, TN 377** |
 | **/**/2025 | `7968269` | `Portions Shipped` | Cambridge Square Townhomes Cambridge Square Townhomes &nbsp; 6084 A*** Way Ooltewah, TN 373** |
 | **/**/2025 | `7968188` | `Shipped` | HUB 4 - Knoxville HUB 4 - Knoxville &nbsp; 1800, 1804, 1826 W*** Avenue Knoxville, TN 379** |
-| **/**/2025 | `7966732` | `Shipped` | W Andrew Johnson Morristown TN W Andrew Johnson Hwy and W 1st N St. - Morristown &nbsp; 1611 W Andrew Johnson Hwy,1608 and 1612 W 1st N St Morristown, TN 378** |
+| **/**/2025 | `7966732` | `Shipped` | W Andrew Johnson Morristown TN W Andrew Johnson Hwy and W 1st N St. - Morristown &nbsp; 1611 W. A*** Hwy,1608 and 1612 W 1st N St Morristown, TN 378** |
 | **/**/2025 | `7966268` | `Shipped` | Proposed Hickory Cove Proposed Hickory Cove &nbsp; Hwy 96 Burns, TN 370** |
 | **/**/2025 | `7964483` | `Shipped` | Proposed YMCA Phase I ESA Pine Grove Road &nbsp; Pine Grove Road Ringgold, GA 307** |
 | **/**/2025 | `7964463` | `Shipped` | Radius at Donelson Phase I ESA 2301 Lebanon Pike &nbsp; 2301 Lebanon Pike Nashville, TN 372** |
@@ -30,7 +30,7 @@
 | **/**/2025 | `7956198` | `Shipped` | Lookout Valley Grocery Lookout Valley Grocery &nbsp; Cummings Hwy Chattanooga, TN 374** |
 | **/**/2025 | `7955476` | `Shipped` | 701 Highway 76 701 Highway 76 &nbsp; 701 Highway 76 White House, TN 371** |
 | **/**/2025 | `7955445` | `Shipped` | Well Key Urgent Care - Sevier Well Key Urgent Care - Sevierville &nbsp; 1787 V*** Boulevard Sevierville, TN 378** |
-| **/**/2025 | `7954310` | `Shipped` | 4702 W Main St. Kalamazoo MI 4702 W*** Street, Kalamazoo MI &nbsp; 4702 W*** Street Kalamazoo, MI 490** |
+| **/**/2025 | `7954310` | `Shipped` | 4702 W. M*** St. Kalamazoo MI 4702 W*** Street, Kalamazoo MI &nbsp; 4702 W*** Street Kalamazoo, MI 490** |
 | **/**/2025 | `7954290` | `Shipped` | 5806 G*** Road, Kalamazoo MI 5806 G*** Road, Kalamazoo MI &nbsp; 5806 G*** Rd Kalamazoo, MI 490** |
 | **/**/2025 | `7952201` | `Shipped` | 7959 P*** Road Poplar Creek &nbsp; 7959 P*** Road Nashville, TN 372** |
 | **/**/2025 | `7952044` | `Shipped` | Stone Lake Subdivision Stone Lake Road &nbsp; Stone Lake Road Mc Donald, TN 373** |
@@ -56,7 +56,7 @@
 | **/**/2025 | `7913490` | `Shipped` | N Green Lea Boulevard &nbsp; N Green Lea Boulevard Gallatin, TN 370** |
 | **/**/2025 | `7913443` | `Shipped` | 108, 110, 112, &amp; 114 P*** Ln 108, 110, 112, &amp; 114 P*** Lane &nbsp; 108 P*** Lane Oak Ridge, TN 378** |
 | **/**/2025 | `7913404` | `Shipped` | 1509 E*** Road 1509 E*** Road &nbsp; 1509 E*** Road Knoxville, TN 379** |
-| **/**/2025 | `7909324` | `Shipped` | Bellwood Farms Update 4087 W Andrew Johnson Highway &nbsp; 4087 W Andrew Johnson Highway Morristown, TN 378** |
+| **/**/2025 | `7909324` | `Shipped` | Bellwood Farms Update 4087 W. A*** Highway &nbsp; 4087 W. A*** Highway Morristown, TN 378** |
 | **/**/2025 | `7909071` | `Shipped` | Alton Blakely Dealerships Alton Blakely Dealerships &nbsp; 2130 and 2190 S*** Hwy 27 &amp; 755 M*** St. Somerset, KY 425** |
 | **/**/2025 | `7907410` | `Shipped` | Commerce Park Lot 6, Oak Ridge Commerce Park Development Lot 6 &nbsp; 1079 COMMERCE PARK DR OAK RIDGE, TN 378** |
 | **/**/2025 | `7905502` | `Shipped` | Proposed Target Phase I ESA N Green Lea Boulevard &nbsp; N Green Lea Boulevard Gallatin, TN 370** |
@@ -67,7 +67,7 @@
 | **/**/2025 | `7904279` | `Shipped` | Winfield Dunn Pkwy Development Winfield Dunn Parkway &nbsp; Winfield Dunn Parkway Sevierville, TN 378** |
 | **/**/2025 | `7903986` | `Shipped` | 525 P*** Street NW 525 P*** Street NW &nbsp; 525 P*** Street NW Knoxville, TN 379** |
 | **/**/2025 | `7902795` | `Shipped` | Cobalt Boats Sam Rayburn Parkway &nbsp; Sam Rayburn Parkway Lenoir City, TN 377** |
-| **/**/2025 | `7901272` | `Shipped` | Proposed Townhome Development 503 W Trinity Lane &nbsp; 503 W Trinity Lane Nashville, TN 372** |
+| **/**/2025 | `7901272` | `Shipped` | Proposed Townhome Development 503 W. T*** Lane &nbsp; 503 W. T*** Lane Nashville, TN 372** |
 | **/**/2025 | `7901070` | `Shipped` | Proposed South Willow Avenue Proposed South Willow Avenue &nbsp; 1100 S*** Avenue Cookeville, TN 385** |
 | **/**/2025 | `7900616` | `Shipped` | 2400 D*** Drive Solar Project Denso Solar Site &nbsp; 2400 D*** Drive Athens, TN 373** |
 | **/**/2025 | `7899464` | `Shipped` | 2400 D*** Drive Solar Project Denso Solar Site &nbsp; 2400 D*** Drive Athens, TN 373** |

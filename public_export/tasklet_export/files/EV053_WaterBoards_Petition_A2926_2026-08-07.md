@@ -7,7 +7,7 @@
 
 ## Key Findings
 
-1. **OCHCA "Case ****osed" Certificate** - Orange County Health Care Agency issued a Case ****osed certificate on the contaminated site. Petition seeks to vacate and declare it void.
+1. **OCHCA "Case Closed" Certificate** - Orange County Health Care Agency issued a Case Closed certificate on the contaminated site. Petition seeks to vacate and declare it void.
 
 2. **Contaminants Confirmed:**
    - Hexavalent Chromium (Cr-VI) at 49x safety limit
@@ -20,7 +20,7 @@
 4. **Regional Board Inaction Challenged:** Person challenges Santa Ana RWQCB's refusal to act on prior complaints (August 13, 2025 and November 13, 2025).
 
 5. **Relief Sought:**
-   - Vacate OCHCA Case ****osed certificate
+   - Vacate OCHCA Case Closed certificate
    - Mandate immediate RWQCB jurisdiction over HBNC site
    - Compel DTSC/RWQCB Site Cleanup Program referral
    - Order cessation of high-pressure washing
@@ -28,7 +28,7 @@
 ## Relevance to RICO Brief
 
 - Strengthens Count 4 with independent regulatory corroboration
-- OCHCA "Case ****osed" certificate is additional evidence of cover-up / institutional failure
+- OCHCA "Case Closed" certificate is additional evidence of cover-up / institutional failure
 - Mercy House named as actively contributing to ongoing contamination
 
 ## Primary Source

@@ -6,7 +6,7 @@
 
 ## I. Summary of Excerpts and Apparent Showings
 Based solely on the records provided within the repository, if the quoted excerpts are accurate and authentic, they indicate the following:
-- A property identified as **1133 N Formosa Ave** is referenced in connection with **Dr. Ann Verma**.
+- A property identified as **1133 N. F*** Ave** is referenced in connection with **Dr. Ann Verma**.
 - A person identified as **Andrew Falk** is referenced in connection with a **Normandie Ave address**.
 - The same collection of records appears to mention both the Formosa property and a Normandie address.
 
@@ -47,5 +47,5 @@ An important limitation in the current dataset includes:
 
 ## V. Defensible OSINT Conclusion
 A defensible OSINT conclusion would be:
-> The repository excerpts suggest a documented reference overlap between 1133 N Formosa Ave and a Normandie Ave address associated with Andrew Falk. However, the provided material does not independently establish wrongdoing, liability, ownership relationships involving 15 SWIFT LLC, or operational links to Sammy Zreik. Additional verified records would be required to substantiate those claims.
+> The repository excerpts suggest a documented reference overlap between 1133 N. F*** Ave and a Normandie Ave address associated with Andrew Falk. However, the provided material does not independently establish wrongdoing, liability, ownership relationships involving 15 SWIFT LLC, or operational links to Sammy Zreik. Additional verified records would be required to substantiate those claims.
 

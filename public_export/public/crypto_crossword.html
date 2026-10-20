@@ -95,7 +95,7 @@
         .btn-check { background: var(--accent-blue); color: #020617; }
         .btn-check:hover { background: #7dd3fc; }
         .btn-claim { background: var(--accent-gold); color: #020617; display: none; }
-        .btn-claim ****over { background: #fde047; }
+        .btn-claim:hover { background: #fde047; }
         
         /* Modal */
         .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 100; justify-content: center; align-items: center; }
@@ -159,15 +159,15 @@
         </div>
     </div>
 
-    <!-- Claim ****odal -->
-    <div class="modal-overlay" id="claim ****odal">
+    <!-- Claim Modal -->
+    <div class="modal-overlay" id="claim-modal">
         <div class="modal">
             <h2><i class="fa-solid fa-trophy"></i> Crossword Solved!</h2>
             <p>Congratulations, Investigator. You have proven forensic competence. Your 50 TFT Bounty has been cryptographically minted on the Sepolia Testnet Escrow.</p>
             
             <div class="hash-box">
                 <span style="color: var(--text-muted); font-size: 0.75rem;">SEPOLIA MINT RECEIPT HASH:</span><br>
-                <strong id="claim ****hash">0x7f83b1657ff1fc53b92dc181**a1d65dfc2d4b1fa3d677284addd200126d9069</strong>
+                <strong id="claim-hash">0x7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069</strong>
             </div>
 
             <button class="btn btn-check" style="width: 100%; justify-content: center;" onclick="closeClaimModal()">
@@ -292,8 +292,8 @@
             const hashArray = Array.from(new Uint8Array(hashBuffer));
             const hashHex = "0x" + hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 
-            document.getElementById('claim ****hash').innerText = hashHex;
-            document.getElementById('claim ****odal').style.display = 'flex';
+            document.getElementById('claim-hash').innerText = hashHex;
+            document.getElementById('claim-modal').style.display = 'flex';
 
             // Post to backend ledger
             try {
@@ -310,7 +310,7 @@
         }
 
         function closeClaimModal() {
-            document.getElementById('claim ****odal').style.display = 'none';
+            document.getElementById('claim-modal').style.display = 'none';
         }
     </script>
 </body>

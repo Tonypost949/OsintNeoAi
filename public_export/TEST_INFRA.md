@@ -20,7 +20,7 @@
 
 ## Test Architecture
 - Test runners: `python -m unittest tests/test_osint_forensic_pipeline.py` and `python test_pipeline.py`
-- Test case ****rmat: Automated unit and integration assertions covering inputs, schemas, SHA-256 hashes, graph topologies, report formats, and backup triggers.
+- Test case format: Automated unit and integration assertions covering inputs, schemas, SHA-256 hashes, graph topologies, report formats, and backup triggers.
 - Test directory: `tests/test_osint_forensic_pipeline.py` and project root `test_pipeline.py`.
 
 ## Real-World Application Scenarios (Tier 4)

@@ -41,7 +41,7 @@ SECTION II: STATEMENT OF FACTS
    criminal guilty pleas in USA v. Sidhu (8:23-cr-00108) and USA v. Ament (8:22-cr-00078).
 4. THE SHADOW EVICTION AND JUDICIAL DEFAULT RING: Defendants Wallace, Richardson,
    Sontag & Le LLP operated an expedited unlawful detainer default mill in the
-   Orange County Superior Court (Central Justice Center). In Case ****1327,
+   Orange County Superior Court (Central Justice Center). In Case No. 30-2021-01201327,
    Defendants procured three successive default entries against Plaintiff despite
    lacking valid service of summons, and executed an emergency judicial strike at
    4:29 PM (ROA #37) to prevent independent scrutiny.
@@ -83,7 +83,7 @@ SECTION V: LEGAL EXPOSURE MATRIX & STATUTORY CLAIMS
 SECTION VI: EVIDENTIARY ANCHORING & WITNESS DOSSIER
 15. The claims are anchored in authenticated physical, digital, and official records:
     - EV-001: California HCD $96M Notice of Violation & City Resolution 2022-064;
-    - EV-002: OC CJC Docket Case ****1327 certified records;
+    - EV-002: OC CJC Docket Case #30-2021-01201327 certified records;
     - EV-003: Quantum Auto Dismantler Invoice #140** & Interstate Bill of Lading;
     - EV-004: OCHCA & City Hazmat Abatement Reports for 17631 C*** Lane;
     - EV-005: 8 Lakeview Grant Deed and HOMI IRS Form 990 filings.

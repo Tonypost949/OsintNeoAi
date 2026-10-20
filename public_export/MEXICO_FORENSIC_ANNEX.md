@@ -166,7 +166,7 @@ The biggest challenge is not proving each event individually. It is proving **th
 - Speculative intelligence reports.
 ---
 # What Would Turn the Summary Into a Credible Case?
-A credible case ****kage would typically include:
+A credible case package would typically include:
 1. **Source documents** for every dollar amount mentioned.
 2. **Transaction maps** showing movement of funds.
 3. **Property ownership timelines**.
@@ -178,4 +178,4 @@ A credible case ****kage would typically include:
 9. **Chain-of-custody records** for all evidence.
 10. **A forensic accounting report** independently tracing the money.
 
-Without those underlying documents, the summary remains an allegation or analytical hypothesis rather than proof. The key question investigators would ask is: **"Can each claim be tied to identifiable records that independently verify it?"** If the answer is yes, the case ****omes much stronger. If not, the summary alone would not establish the alleged scheme.
+Without those underlying documents, the summary remains an allegation or analytical hypothesis rather than proof. The key question investigators would ask is: **"Can each claim be tied to identifiable records that independently verify it?"** If the answer is yes, the case becomes much stronger. If not, the summary alone would not establish the alleged scheme.

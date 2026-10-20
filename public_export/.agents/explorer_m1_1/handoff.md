@@ -21,7 +21,7 @@
 3. **Runtime & Hashing Verification**:
    - Standard Python 3.14.7 runtime with `hashlib`, `hmac`, `io`, and `tracemalloc` was tested.
    - Verified that empty stream hashing produces the standard canonical digest:  
-     `"e3b0c442**fc1c149afbf4c8996fb924**ae41e4649b934ca495991b7852b855"`.
+     `"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"`.
    - Verified that chunked 64 KB stream hashing on a 50 MB synthetic binary stream resulted in peak memory of **256.90 KB (0.25 MB)**, proving the $O(1)$ memory invariant against the 250 MB threshold.
    - Verified `HashingReader` transparent streaming integration with `io.RawIOBase`.
 

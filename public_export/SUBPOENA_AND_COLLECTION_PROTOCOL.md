@@ -22,7 +22,7 @@
 **Data Systems Targeted:** Banking Institutions, SWIFT/ACH networks, FinCEN.
 
 ### Data Preservation & Subpoena Demands:
-- **KYC/Beneficial Ownership:** Demand the original account ****ning documents, signature cards, and beneficial ownership declarations for all flagged accounts.
+- **KYC/Beneficial Ownership:** Demand the original account opening documents, signature cards, and beneficial ownership declarations for all flagged accounts.
 - **Transaction Ledgers:** Request native-format (CSV/Excel) transaction histories, not just PDF statements, to allow forensic accounting software to map the structuring.
 - **Wire/SWIFT Logs:** Demand the exact routing numbers, originator details, and beneficiary details for all cross-border or high-value transfers.
 - **RICO Link:** This establishes the "Enterprise" financial structure and the "Benefit" derived from the coordinated acts (Proposition E-07).

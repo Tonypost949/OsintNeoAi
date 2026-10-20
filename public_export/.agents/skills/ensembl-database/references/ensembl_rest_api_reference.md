@@ -313,7 +313,7 @@ List all biotype classifications for a species.
    when querying multiple IDs or regions — this reduces the number of HTTP
    round-trips.
 4. **Check `info/external_dbs`** before using the `external_db` filter on
-   xrefs — the exact database name strings are case ****tive and not
+   xrefs — the exact database name strings are case-sensitive and not
    always obvious (e.g., `UniProt_gn` not `UniProt`).
 5. **Region size limits**: The `/overlap/region/` endpoint has a maximum
    region size of 5 Mb for most feature types. Split larger regions.

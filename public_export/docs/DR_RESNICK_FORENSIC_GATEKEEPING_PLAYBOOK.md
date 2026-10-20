@@ -1,8 +1,8 @@
 # 🩺 INSTITUTIONAL FORENSIC GATEKEEPING: THE DR. PHILLIP RESNICK METHODOLOGY
 ## How Forensic Experts Isolate High-Profile Cases to "Individual Psychosis" While Shielding Corporate & Healthcare Networks
 **Investigation Reference:** `NWO-RICO-GATEKEEPER-RESNICK-001`  
-**Target Subject:** Dr. Phillip J. Resnick, M.D. (Director of Forensic Psychiatry, Case ****tern Reserve University School of Medicine)  
-**Historical Case ****ents:** Andrea Yates • Jeffrey Dahmer • Theodore Kaczynski (Unabomber) • Lindsay Clancy  
+**Target Subject:** Dr. Phillip J. Resnick, M.D. (Director of Forensic Psychiatry, Case Western Reserve University School of Medicine)  
+**Historical Case Precedents:** Andrea Yates • Jeffrey Dahmer • Theodore Kaczynski (Unabomber) • Lindsay Clancy  
 **Governing Statutory Scheme:** 18 U.S.C. § 1962 (RICO) • 31 U.S.C. § 3729 (FCA) • Fed. R. Evid. 702 / Daubert Standard
 
 ---
@@ -30,7 +30,7 @@ However, forensic analysis reveals a secondary, structural institutional functio
 
 The blueprint for the Lindsay Clancy gatekeeping strategy was perfected in the **Andrea Yates case** (Houston, TX, 2001):
 
-| Case ****sion | Andrea Yates Case (2001) | Lindsay Clancy Case (2023) |
+| Case Dimension | Andrea Yates Case (2001) | Lindsay Clancy Case (2023) |
 |---|---|---|
 | **Underlying Malpractice** | Dr. Mohammed Saeed abruptly discontinued Haldol and quadrupled Effexor (high-dose polypharmacy) despite clear warnings of psychosis. | Mass General Brigham prescribers stacked 13 medications in 120 days despite charted Zoloft adverse drug reactions. |
 | **Dr. Resnick's Role** | Testified as the primary defense forensic expert, successfully establishing that Yates was psychotic under the Texas insanity standard. | Retained to evaluate Clancy’s mental state and construct the psychiatric defense framework. |
@@ -47,7 +47,7 @@ graph TD
     B --> C["Method 1: Narrow Diagnostic Box<br/>Frame as 'Postpartum Psychosis' only"]
     B --> D["Method 2: Chemical Isolation<br/>Omit GC-MS & Counterfeit Contamination"]
     B --> E["Method 3: Prescriber Absolution<br/>Label 13-drug stacking as 'Aggressive Treatment'"]
-    B --> F["Method 4: Institutional Closure<br/>Case ****rted to State Hospital, Civil Claims Barred"]
+    B --> F["Method 4: Institutional Closure<br/>Case diverted to State Hospital, Civil Claims Barred"]
 ```
 
 #### Method 1: The Narrow Diagnostic Box
@@ -72,4 +72,4 @@ graph TD
 To overcome the Resnick gatekeeping strategy, the defense and relators must demand:
 1. **Physical Evidence Assays:** Bypassing psychiatric expert opinion by directly testing the seized physical pill bottles via independent GC-MS/LC-MS.
 2. **Subpoenaing the Whitman Pill Press Evidence:** Introducing the DEA/MSP raid records of the Andrew Billings lab (14.8 miles away) into the trial record.
-3. **Filing Concurrent False Claims Act Disclosures:** Exposing the Medicaid/Medicare ****ling and off-label polypharmacy upcoding under 31 U.S.C. § 3729.
+3. **Filing Concurrent False Claims Act Disclosures:** Exposing the Medicaid/Medicare billing and off-label polypharmacy upcoding under 31 U.S.C. § 3729.

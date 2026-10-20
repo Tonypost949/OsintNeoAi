@@ -49,15 +49,15 @@ The physical displacement and digital erasure of the Relator were executed to pr
 
 ---
 
-## SECTION 2: THE ENVIRONMENT COMPROMISE & REGULATORY COLLUSION (OCHCA CASE ****C002)
+## SECTION 2: THE ENVIRONMENT COMPROMISE & REGULATORY COLLUSION (OCHCA CASE NO. 20IC002)
 
-### A. The False Closure Fraud: Case ****C002
-Newly extracted regulatory files from GeoTracker unmask the formal mechanism of the cover-up. On **August 21, 2020** (exactly one year before the Relator's eviction), the Orange County Health Care Agency (OCHCA) issued a conditional **"Case ****osed"** status for the Beach Boulevard Project (Global ID: `T10000018579`, Case #: `20IC002`).
+### A. The False Closure Fraud: Case No. 20IC002
+Newly extracted regulatory files from GeoTracker unmask the formal mechanism of the cover-up. On **August 21, 2020** (exactly one year before the Relator's eviction), the Orange County Health Care Agency (OCHCA) issued a conditional **"Case Closed"** status for the Beach Boulevard Project (Global ID: `T10000018579`, Case #: `20IC002`).
 *   **Authorizing Officials:** The closure was authorized and signed off by:
     1.  **Clayton Chau** (Former OCHCA Director)
-    2.  **Tamara Escobedo** (Case ****isor)
+    2.  **Tamara Escobedo** (Case Supervisor)
     3.  **Anthony Martinez** (Program Manager)
-*   **The Fraudulent Certification:** The OCHCA case ****view certified the site as a "paved lot for temporary housing tents," stating "site must be reevaluated for any land use changes." Crucially, the closure summary records: **"No cleanup actions have been reported."**
+*   **The Fraudulent Certification:** The OCHCA case review certified the site as a "paved lot for temporary housing tents," stating "site must be reevaluated for any land use changes." Crucially, the closure summary records: **"No cleanup actions have been reported."**
 *   **The Well W-4150 Hazard:** Well **W-4150** is located on the property within 924 feet of the main living quarters. Instead of being chemically stabilized or physically sealed with concrete, the well was covered with a thin asphalt cap. Forensic soil gas monitoring has confirmed that Well W-4150 is leaking **Hexavalent Chromium soil vapor at 490 ug/kg (49x the EPA residential screening limit)** directly into the living and dining quarters of the shelter.
 
 ```
@@ -154,5 +154,5 @@ We request that the Department of Justice, civil division under the False Claims
 *   **Status:** Continuous Ingestion Active & Coupled
 *   **System Verification Timestamp:** 2026-07-03T13:44:45.531164 PST
 *   **Copilot Synergy Status:** Connected (Dual-engine Active Mapping)
-*   **Active Data Checks:** verified 132 HBPD scanned credential rows, verified 37 structural failure hits, verified GeoTracker Case ****C002, verified Well W-4150 toxic plume concentration.
+*   **Active Data Checks:** verified 132 HBPD scanned credential rows, verified 37 structural failure hits, verified GeoTracker Case 20IC002, verified Well W-4150 toxic plume concentration.
 *   **Engine Verdict:** Core indicators unmasked and structurally sound. Integrity of remote repository main branch synced.

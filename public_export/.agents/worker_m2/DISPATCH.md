@@ -13,7 +13,7 @@ Read authoritative files first:
 4. Explorer blueprints:
    - C:\OsintNeoAi\.agents\explorer_m2_1\analysis.md (OCR engine, image enhancer, document extractor fallback ladder)
    - C:\OsintNeoAi\.agents\explorer_m2_2\analysis.md (Format extractors: TIFF, HTML, DOCX, Images, Text/CSV/JSON)
-   - C:\OsintNeoAi\.agents\explorer_m2_3\analysis.md (Normalizers: Date, Financial, Case ****kets, Entity normalizers)
+   - C:\OsintNeoAi\.agents\explorer_m2_3\analysis.md (Normalizers: Date, Financial, Case dockets, Entity normalizers)
 
 Files You Exclusively Own & Must Implement:
 - C:\OsintNeoAi\workspaces\osintneoai_indexer\extractors\__init__.py

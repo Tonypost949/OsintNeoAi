@@ -52,7 +52,7 @@ def run_master_everything_pipeline():
             "2021_eviction": "Unlawful Pandemic Eviction & Housing Deprivation (42 U.S.C. 3604(f))",
             "mother_injury": "Disability Discrimination & Accommodation Denial resulting in injury (24 C.F.R. 100.204)",
             "mercy_house": "Year 1+ Mercy House Retaliation, Extortion & Housing Deprivation (42 U.S.C. 3617)",
-            "identity_theft_retaliation": "Chase Bank Account ****sure, T-Mobile Data Breach, ID Theft Insurance Interference",
+            "identity_theft_retaliation": "Chase Bank Account Closure, T-Mobile Data Breach, ID Theft Insurance Interference",
             "dr_ann_verma": "Medical & Clinical Records Audit & Retaliation Evidence"
         },
         "evidence_manifest_location": manifest_file,

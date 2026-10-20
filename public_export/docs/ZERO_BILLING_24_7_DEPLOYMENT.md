@@ -15,7 +15,7 @@ You have an active, verified **Azure for Students** subscription linked to your 
 
 ### Subscription Details:
 * **Subscription Name:** `Azure for Students`
-* **Subscription ID:** `f055033f-83fb-4ae9-9c36-be48f0c861**`
+* **Subscription ID:** `f055033f-83fb-4ae9-9c36-be48f0c86158`
 * **Tenant ID:** `dc2273e5-b77e-4b19-ae61-f4b69fb7609c`
 * **State:** `Enabled` / Active
 * **Annual Allowance:** **$100.00 USD Free Cloud Credits** (renews every year while enrolled)
@@ -35,7 +35,7 @@ powershell -ExecutionPolicy Bypass -File C:\OsintNeoAi\deploy-azure-secure.ps1
 ---
 
 ## 2. 🧰 Visual Studio Dev Essentials (VSDE)
-Your Visual Studio Dev Essentials account ****ocks additional free developer resources:
+Your Visual Studio Dev Essentials account unlocks additional free developer resources:
 * **Free Azure Monthly Cloud Credits**
 * **Free Microsoft 365 Developer Sandbox** (25 user licenses, E5 developer subscription with SharePoint, OneDrive, and Entra ID)
 * **Free Licensed Developer Tools:** Syncfusion Essential Studio enterprise license, SQL Server Developer Edition, Pluralsight learning tracks.

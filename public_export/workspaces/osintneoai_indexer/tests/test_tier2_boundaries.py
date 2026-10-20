@@ -2,7 +2,7 @@
 OsintNeoAi Indexer — Tier 2: Comprehensive Boundary & Corner Case Test Suite
 Path: C:\\OsintNeoAi\\workspaces\\osintneoai_indexer\\tests\\test_tier2_boundaries.py
 
-Provides exhaustive, non-trivial boundary and corner case ****ests across ALL 17 system features:
+Provides exhaustive, non-trivial boundary and corner case tests across ALL 17 system features:
 - Feature 1: Stream Ingestion & Chunking Boundaries (5 tests)
 - Feature 2: Google Drive Link Resolver Boundaries (5 tests)
 - Feature 3: Cryptographic SHA-256 Engine Boundaries (5 tests)
@@ -12,7 +12,7 @@ Provides exhaustive, non-trivial boundary and corner case ****ests across ALL 17
 - Feature 7: Image Preprocessing & Enhancement Boundaries (5 tests)
 - Feature 8: Timestamp Normalizer Boundaries (5 tests)
 - Feature 9: Financial Transaction Normalizer Boundaries (5 tests)
-- Feature 10: Legal Case ****fier Normalizer Boundaries (5 tests)
+- Feature 10: Legal Case Identifier Normalizer Boundaries (5 tests)
 - Feature 11: Communication Metadata Normalizer Boundaries (5 tests)
 - Feature 12: 6-Category Entity Extractor Boundaries (5 tests)
 - Feature 13: Phonetic & Contextual Entity Resolver Boundaries (5 tests)
@@ -234,7 +234,7 @@ class TestFeature3Boundaries:
 
     def test_f3_boundary_empty_bytes_sha256(self):
         """Verify empty byte hashing returns standard SHA-256 empty digest."""
-        empty_sha = "e3b0c442**fc1c149afbf4c8996fb924**ae41e4649b934ca495991b7852b855"
+        empty_sha = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
         assert compute_bytes_sha256(b"") == empty_sha
 
         hasher = StreamHasher()
@@ -292,7 +292,7 @@ class TestFeature4Boundaries:
     """Boundary and corner tests for Feature 4: Multi-Format MIME Dispatcher."""
 
     def test_f4_boundary_extension_case_insensitivity(self):
-        """Verify uppercase and mixed case ****ions resolve to canonical MIME types."""
+        """Verify uppercase and mixed case extensions resolve to canonical MIME types."""
         assert get_mime_type("docket.PDF") == "application/pdf"
         assert get_mime_type("audit.DOCX") == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
         assert get_mime_type("photo.JpEg") == "image/jpeg"
@@ -561,7 +561,7 @@ class TestFeature9Boundaries:
         """Verify Euro, British Pound, and Yen symbols resolve to respective ISO codes."""
         f_eur = normalize_financial("€50M")
         assert f_eur.currency == "EUR"
-        assert f_eur.amount_cents == (***) ***-0000
+        assert f_eur.amount_cents == 5000000000
 
         f_gbp = normalize_financial("£25,000.00")
         assert f_gbp.currency == "GBP"
@@ -575,11 +575,11 @@ class TestFeature9Boundaries:
 
 
 # ==============================================================================
-# FEATURE 10 BOUNDARIES: LEGAL CASE ****FIER NORMALIZER (5 TESTS)
+# FEATURE 10 BOUNDARIES: LEGAL CASE IDENTIFIER NORMALIZER (5 TESTS)
 # ==============================================================================
 
 class TestFeature10Boundaries:
-    """Boundary and corner tests for Feature 10: Legal Case ****fier Normalizer."""
+    """Boundary and corner tests for Feature 10: Legal Case Identifier Normalizer."""
 
     def test_f10_boundary_dockets_with_irregular_spacing(self):
         """Verify regex accommodates extra spaces in docket numbers."""
@@ -596,7 +596,7 @@ class TestFeature10Boundaries:
 
     def test_f10_boundary_state_dockets_other_counties(self):
         """Verify state dockets from other California counties (e.g. County 19 for Los Angeles)."""
-        citations = extract_case_citations("Case ****CCJC")
+        citations = extract_case_citations("Case No. 19-2022-00123456-CU-BC-CJC")
         assert len(citations) == 1
         assert citations[0].canonical_id == "19-2022-00123456-CU-BC-CJC"
         assert "County 19" in citations[0].jurisdiction

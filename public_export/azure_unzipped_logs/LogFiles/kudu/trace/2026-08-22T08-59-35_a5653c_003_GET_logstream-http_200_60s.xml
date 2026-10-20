@@ -2,4 +2,4 @@
   <step title="LogStreamHandlerMiddleware.Invoke" date="2026-08-22T08:59:35.851" /><!-- duration: 70ms -->
   <step title="Error occurred" date="2026-08-22T09:00:35.921" type="error" text="LogStreamManager: ProcessRequest end" /><!-- duration: 7ms -->
   <step title="Outgoing response" date="2026-08-22T09:00:35.938" type="response" statusCode="200" statusText="OK" /><!-- duration: 6ms -->
-</step><!-- duration: 601**ms -->
+</step><!-- duration: 60141ms -->

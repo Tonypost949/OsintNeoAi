@@ -261,7 +261,7 @@ pipeline = OsintNeoAiBlueprintIntegration(project_id='noble-beanbag-497411-m4')
 documents = [
     'briefings/HUNTINGTON_BEACH_RICO_NETWORK.md',
     'CIVIL_FORFEITURE_PHAM_WELLS_FARGO_DRAFT.md',
-    'evidence/OCSD_File_(***) ***-2780_Audit.md'
+    'evidence/OCSD_File_2021102780_Audit.md'
 ]
 
 # Transaction data from California State Controller

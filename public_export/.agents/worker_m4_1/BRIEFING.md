@@ -22,8 +22,8 @@ Author and verify `08_Multi_State_Police_and_Commercial_Incident_Logs.md` coveri
 
 ## Task Summary
 - **What to build**: Comprehensive, structured official record markdown file `08_Multi_State_Police_and_Commercial_Incident_Logs.md` detailing:
-  1. Hamilton Township Police Division Case ****3723 & Case 2020-00008897.
-  2. Ewing Police Department Case ****1222 Chain of Custody (Item 044.01 & Item 046 to FBI SA Bradley Zartman for USDC D.N.J. 3:20-mj-05007-TJB).
+  1. Hamilton Township Police Division Case 2019-00053723 & Case 2020-00008897.
+  2. Ewing Police Department Case I-2019-001222 Chain of Custody (Item 044.01 & Item 046 to FBI SA Bradley Zartman for USDC D.N.J. 3:20-mj-05007-TJB).
   3. Quantum Auto Dismantler Santa Ana Invoice #140** / Workorder #145** & IRS SS-4 EIN (Dog's Day Productions) / Alaska Airlines travel conduit.
 - **Success criteria**: Strict compliance with Interface Contracts in `PROJECT.md`, verified against primary OCR transcripts and Explorer 3 survey report.
 - **Interface contracts**: `PROJECT.md § Interface Contracts`

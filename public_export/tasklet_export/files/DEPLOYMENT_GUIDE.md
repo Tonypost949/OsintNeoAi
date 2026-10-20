@@ -78,15 +78,15 @@ gcloud iam service-accounts create github-actions \
   --display-name="GitHub Actions Deployer"
 
 # Grant permissions
-gcloud projects add-iam-policy ****ding $PROJECT_ID \
+gcloud projects add-iam-policy-binding $PROJECT_ID \
   --member="serviceAccount:github-actions@${PROJECT_ID}.iam.gserviceaccount.com" \
   --role="roles/run.admin"
 
-gcloud projects add-iam-policy ****ding $PROJECT_ID \
+gcloud projects add-iam-policy-binding $PROJECT_ID \
   --member="serviceAccount:github-actions@${PROJECT_ID}.iam.gserviceaccount.com" \
   --role="roles/scheduler.admin"
 
-gcloud projects add-iam-policy ****ding $PROJECT_ID \
+gcloud projects add-iam-policy-binding $PROJECT_ID \
   --member="serviceAccount:github-actions@${PROJECT_ID}.iam.gserviceaccount.com" \
   --role="roles/storage.admin"
 ```
@@ -141,8 +141,8 @@ gcloud iam workload-identity-pools providers create-oidc "github" \
   --attribute-condition="assertion.aud == 'https://github.com/Tonypost949'" \
   --disabled=false
 
-# Create service account ****ping
-gcloud iam service-accounts add-iam-policy ****ding \
+# Create service account mapping
+gcloud iam service-accounts add-iam-policy-binding \
   github-actions@${PROJECT_ID}.iam.gserviceaccount.com \
   --project=$PROJECT_ID \
   --role="roles/iam.workloadIdentityUser" \
@@ -207,7 +207,7 @@ gcloud scheduler jobs create http osint-data-collection \
   --schedule="0 */4 * * *" \
   --uri="https://osint-neo-ai-${REGION}.a.run.app/collect" \
   --http-method=POST \
-  --oidc-service-account ****mail=github-actions@${PROJECT_ID}.iam.gserviceaccount.com \
+  --oidc-service-account-email=github-actions@${PROJECT_ID}.iam.gserviceaccount.com \
   --oidc-token-audience="https://osint-neo-ai-${REGION}.a.run.app"
 
 # Entity resolution every 12 hours
@@ -216,7 +216,7 @@ gcloud scheduler jobs create http osint-entity-resolution \
   --schedule="0 */12 * * *" \
   --uri="https://osint-neo-ai-${REGION}.a.run.app/resolve" \
   --http-method=POST \
-  --oidc-service-account ****mail=github-actions@${PROJECT_ID}.iam.gserviceaccount.com \
+  --oidc-service-account-email=github-actions@${PROJECT_ID}.iam.gserviceaccount.com \
   --oidc-token-audience="https://osint-neo-ai-${REGION}.a.run.app"
 
 # Check scheduled jobs

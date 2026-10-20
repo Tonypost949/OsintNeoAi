@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Facebook Account ****trol & Automation Script for Termux & Kali Linux
+Facebook Account Control & Automation Script for Termux & Kali Linux
 Supports:
-1. Fetching account ****osts and comments
-2. Publishing automated status updates / case ****sier releases
+1. Fetching account posts and comments
+2. Publishing automated status updates / case dossier releases
 3. Querying profile statistics
 """
 

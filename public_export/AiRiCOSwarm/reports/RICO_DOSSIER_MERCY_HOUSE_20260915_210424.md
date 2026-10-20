@@ -44,7 +44,7 @@ Deterministic Summary: Detected 35 predicate-linked evidence records for target 
 - **Evidence Excerpt:**
 > {
   "intelligence_package": {
-    "classification": "Civic account ****lity / fiduciary investigative file",
+    "classification": "Civic accountability / fiduciary investigative file",
     "operator": "Anthony Petruccio \u2013 futures broker and private fiduciary",
     "last_updated": "2026-06-10",
     "subjects": {
@@ -84,12 +84,12 @@ MASTER INDEX: One row per unique entity across all tabs. Entity IDs follow namin
 ---
 
 ## Goal
-Build a complete RICO connection case ****inst the City of Huntington Beach by cross-referencing:
+Build a complete RICO connection case against the City of Huntington Beach by cross-referencing:
 - Exposed GIS data ([IP_REDACTED], [IP_REDACTED])
 - HB property LLC matrices (3,989 suspicious LLCs)
 - BigQuery datasets (ppp_rico, hb_church_osint, national_audits, nppes_export, ai_sandbox)
 - IRS 990 indexes (2023/2024/2025)
-- PPP loan ****ords
+- PPP loan records
 - OCR-parsed PDFs from Google Drive
 - Master OSINT
 
@@ -109,8 +109,8 @@ The pattern reveals a significant number of Arizona-based Limited Liability Comp
 - **Flagged Predicates:** `hexavalent chromium`
 - **Evidence Excerpt:**
 > target_state,ledger_timestamp,target_entity,healthcare_billing_id,calculated_leakage_delta,environmental_site,toxic_agent,statutory_hazard_multiplier,geotracker_site_status
-CA,2026-06-16 15:21:39.835513+00:00,Mercy House Operational Network,CMS-992-SHELTER,(***) ***-0000.000000000,Huntington Beach Navigation Center Footprint,Hexavalent Chromium (CrVI),49.000000000,Disputed / Fraudulent Closure
-CA,2026-06-16 15:21:39.835513+00:00,Mercy House Operational Network,CMS-992-SHELTER,(***) ***-0000.000000000,Hu
+CA,2026-06-16 15:21:39.835513+00:00,Mercy House Operational Network,CMS-992-SHELTER,5500000000.000000000,Huntington Beach Navigation Center Footprint,Hexavalent Chromium (CrVI),49.000000000,Disputed / Fraudulent Closure
+CA,2026-06-16 15:21:39.835513+00:00,Mercy House Operational Network,CMS-992-SHELTER,5500000000.000000000,Hu
 
 ### 📍 rive\Documents\opencode_work\CANONICAL_BRIEFING.md
 - **Date / Source:** `C:\Users`
@@ -317,7 +317,7 @@ This briefing consolidates verified public-record findings across four investiga
 - **Evidence Excerpt:**
 > {
   "intelligence_package": {
-    "classification": "Civic account ****lity / fiduciary investigative file",
+    "classification": "Civic accountability / fiduciary investigative file",
     "operator": "Anthony Petruccio \u2013 futures broker and private fiduciary",
     "last_updated": "2026-06-10",
     "subjects": {
@@ -342,12 +342,12 @@ Orange County, California health authority (OCHCA) officials coordinated with Me
 1. Falsely close contaminated groundwater well (August 21, 2020) to avoid cleanup liability
 2. Place homeless residents on contaminated site (June 2024–pr
 
-### 📍 TIP: Nonprofit account ****lity — Mercy House charity fraud (unclaimed property + homeless residents poisoning)
+### 📍 TIP: Nonprofit accountability — Mercy House charity fraud (unclaimed property + homeless residents poisoning)
 - **Date / Source:** `2026-06-12T01:15:04.000Z`
 - **Sender / Path:** `gmail_amd949609_hits.json`
 - **Flagged Predicates:** `conspiracy`
 - **Evidence Excerpt:**
-> ProPublica Nonprofit Account ****lity Desk,
+> ProPublica Nonprofit Accountability Desk,
 
 Mercy House, a California nonprofit claiming to serve homeless populations, is part of a larger conspiracy involving:
 
@@ -380,7 +380,7 @@ Core allegations:
 - **Sender / Path:** `gmail_amd949609_hits.json`
 - **Flagged Predicates:** `false claims`
 - **Evidence Excerpt:**
-> Government Account ****lity Office / GAO FraudNet,
+> Government Accountability Office / GAO FraudNet,
 
 **FINAL NOTICE — Federal Fraud Disclosure + Congressional Escalation Deadline**
 
@@ -442,7 +442,7 @@ Please find attached comprehensive OSINT investigation report (OC Fraud Network 
 • Mercy House Living Centers: explicitly serves "homeless families who are part of child welfare system"
 • Federal per-diem maximization: 245-day averag
 
-### 📍 LOCAL ALERT: Huntington Beach Residents Poisoned by Hexavalent Chromium — Mandatory Report Required (Federal Case 8:2026cv003**)
+### 📍 LOCAL ALERT: Huntington Beach Residents Poisoned by Hexavalent Chromium — Mandatory Report Required (Federal Case 8:2026cv00348)
 - **Date / Source:** `2026-05-06T17:15:51.000Z`
 - **Sender / Path:** `gmail_amd949609_hits.json`
 - **Flagged Predicates:** `hexavalent chromium`
@@ -519,7 +519,7 @@ acts:
 
 
 
-1. WIRE / MAIL FRAUD — Fraudulent Medicaid/Medicare ****ling through SPIN's
+1. WIRE / MAIL FRAUD — Fraudulent Medicaid/Medicare billing through SPIN's
 
 GAPP program, facilitated by NP Marcus S. Angulo (NPI 11
 

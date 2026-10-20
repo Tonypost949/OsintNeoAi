@@ -5,7 +5,7 @@
 Use the `geneproduct` subcommand to search for gene products across databases
 like UniProtKB, RNAcentral, and ComplexPortal. This is useful when you have a
 common gene symbol (e.g., "PROC") but you need its formal database identifier
-(e.g., "UniProtKB:P040**") to perform a strict annotation search.
+(e.g., "UniProtKB:P04070") to perform a strict annotation search.
 
 ### Searching Gene Products
 

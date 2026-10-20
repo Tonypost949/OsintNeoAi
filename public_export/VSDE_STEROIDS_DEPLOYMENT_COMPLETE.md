@@ -29,7 +29,7 @@ All 8 VSDE Benefits tasks completed and deployed live to Azure App Service.
 - **Resource Group:** neoai-rg
 - **App Service Name:** osintneoai-app-949
 - **URL:** https://osintneoai-app-949.azurewebsites.net
-- **Subscription:** Azure for Students (f055033f-83fb-4ae9-9c36-be48f0c861**)
+- **Subscription:** Azure for Students (f055033f-83fb-4ae9-9c36-be48f0c86158)
 - **Account:** a***@students.post.edu
 - **Region:** East US
 - **Runtime Stack:** Python 3.11
@@ -226,7 +226,7 @@ All tasks in `data/tasks.json` updated with DONE status and completion metadata:
 {
   "id": "TASK-VSDE-001",
   "status": "DONE",
-  "title": "Claim ****sion Essential Studio Enterprise $9,995",
+  "title": "Claim Syncfusion Essential Studio Enterprise $9,995",
   "updated_at": "2026-09-01T11:33:00Z"
 }
 ```

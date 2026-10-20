@@ -98,7 +98,7 @@ GAP RATIO                   98%
 |-------|------|------|
 | COC Housing | CA-600 | $2,173 |
 | CMS Shelter | 992-SHELTER | variable |
-| CMS Behavioral | 251S000**X | uncapped under ACA |
+| CMS Behavioral | 251S00000X | uncapped under ACA |
 | Rehab (inpatient) | residential | $720,000 |
 | ID Theft Insurance | K5 / AIG | never triggered |
 | **Total paper value** | | **$250K+** |
@@ -111,7 +111,7 @@ ID Theft Policy (AIG + Farmers FL)
     → OTC Trading (Abacus-style CDO)
       → Trigger: direct theft of CASH ONLY
         → PII breach = NOT covered
-          → Claim ****nied = no payout
+          → Claim denied = no payout
             → K5 paper continues to trade
 ```
 

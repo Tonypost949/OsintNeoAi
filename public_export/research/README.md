@@ -137,4 +137,4 @@ Academic papers collected to inform the Spark Intelligence Engine architecture a
 
 | Title | DOI | Notes |
 |-------|-----|-------|
-| SAKSHI: Agentic AI for Regional Intelligence | 10.1109/icads694**.2026.11545466 | F1=0.84, timelag correlation |
+| SAKSHI: Agentic AI for Regional Intelligence | 10.1109/icads69450.2026.11545466 | F1=0.84, timelag correlation |

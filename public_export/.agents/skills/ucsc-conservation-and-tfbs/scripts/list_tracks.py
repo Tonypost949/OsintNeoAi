@@ -111,7 +111,7 @@ def main():
       "--search",
       help=(
           "Substring to search for in trackName, shortLabel, or longLabel"
-          " (case ****tive)."
+          " (case-insensitive)."
       ),
   )
   parser.add_argument(

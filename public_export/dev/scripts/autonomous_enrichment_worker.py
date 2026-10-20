@@ -37,7 +37,7 @@ def run_enrichment_cycle(cycle_num):
     nodes = []
     edges = []
     
-    # 1. System Health & Target Account ****ysis
+    # 1. System Health & Target Account Analysis
     health = mcp.handle_tool_call("osint_system_health", {})
     print(f"  [+] MCP Forensic Engine Status: {health.get('status')} (Target: {health.get('bigquery_target')})")
     

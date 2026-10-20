@@ -15,10 +15,10 @@ Read Explorer 3 findings in `C:\OsintNeoAi\.agents\explorer_survey_3\survey_repo
 
 REQUIREMENTS:
 - Hamilton Township Police Division (NJ):
-  * Case ****3723 (**/**/2019 at 1456 C*** Lane, Hamilton NJ): Responding officers (P/O Donovan #484, P/O Perkins #506, P/O McLaughlin #536, P/O Murphy #531, P/O Durand #457, Sgt. Wilkes #443, P/O Thornton #546), physical struggle in lumber debris, Complaint Summons 1103-S-2019-002671 (N.J.S.A. 2C:29-1a), and transport to Helene Fuld Crisis Center.
-  * Case ****8897 (**/**/2020 at Home Depot 740 Rt. 130): Officers Seeds (#529) & Mancuso (#523), Criminal Complaint Summons #2020-613 (N.J.S.A. 2C:20-11b(1)).
+  * Case 2019-00053723 (**/**/2019 at 1456 C*** Lane, Hamilton NJ): Responding officers (P/O Donovan #484, P/O Perkins #506, P/O McLaughlin #536, P/O Murphy #531, P/O Durand #457, Sgt. Wilkes #443, P/O Thornton #546), physical struggle in lumber debris, Complaint Summons 1103-S-2019-002671 (N.J.S.A. 2C:29-1a), and transport to Helene Fuld Crisis Center.
+  * Case 2020-00008897 (**/**/2020 at Home Depot 740 Rt. 130): Officers Seeds (#529) & Mancuso (#523), Criminal Complaint Summons #2020-613 (N.J.S.A. 2C:20-11b(1)).
 - Ewing Police Department (NJ):
-  * Case ****1222: Chain of custody logs for Item 044.01 (Methamphetamine collected by Officer 154-Ranker) and Item 046 (Samsung phone collected by Officer 171-Condrat), received and transferred on **/**/2019 by Officer 108-Giovacchini directly to FBI SA Bradley H. Zartman ("TOT FBI AGENT BRADLEY ZARTMAN") for USDC D.N.J. Case 3:20-mj-05007-TJB.
+  * Case I-2019-001222: Chain of custody logs for Item 044.01 (Methamphetamine collected by Officer 154-Ranker) and Item 046 (Samsung phone collected by Officer 171-Condrat), received and transferred on **/**/2019 by Officer 108-Giovacchini directly to FBI SA Bradley H. Zartman ("TOT FBI AGENT BRADLEY ZARTMAN") for USDC D.N.J. Case 3:20-mj-05007-TJB.
 - Quantum Auto Dismantler (Santa Ana, CA):
   * Invoice #140** / Workorder #145** (**/**/2020): Vehicle unit complete (VIN 302796, $546.25 cash) shipping to Dean Innocenzi at 1456 C*** Ln, Hamilton NJ, linked to IRS SS-4 EIN for Dog's Day Productions (Dean Innocenzi, SSN ***-**-7252) and interstate flight timeline.
 - Format with structured Markdown tables, officer badge registers, incident timelines, and evidence chain diagrams.

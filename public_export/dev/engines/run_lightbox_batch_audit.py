@@ -17,7 +17,7 @@ PRIMARY_AUDIT_TARGETS = [
     {"name": "Garden Grove Blvd Asset", "address": "13252 G*** Blvd, Garden Grove, CA 928**", "lat": 33.7745, "lon": -117.9056},
     {"name": "Huntington Beach Civic Center", "address": "2000 M*** St, Huntington Beach, CA 926**", "lat": 33.6603, "lon": -117.9992},
     {"name": "Fair Drive County Hub", "address": "88 F*** Dr, Costa Mesa, CA 926**", "lat": 33.6644, "lon": -117.8967},
-    {"name": "MGM Grand Hotel & Casino (Nevada Hub)", "address": "3799 S Las Vegas Blvd, Las Vegas, NV 891**", "lat": 36.1026, "lon": -115.1703},
+    {"name": "MGM Grand Hotel & Casino (Nevada Hub)", "address": "3799 S. L*** Blvd, Las Vegas, NV 891**", "lat": 36.1026, "lon": -115.1703},
     {"name": "Apex Desert Industrial Corridor (Nevada)", "address": "Apex Desert Parcel, Clark County, NV", "lat": 36.3150, "lon": -114.9200},
     {"name": "Nye County Desert Mining / Testing Site", "address": "Beatty Corridor, Nye County, NV", "lat": 36.9092, "lon": -116.7547},
     {"name": "Storey County / Tahoe-Reno Industrial", "address": "USA Pkwy, Sparks, NV 894**", "lat": 39.5296, "lon": -119.8138}

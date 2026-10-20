@@ -26,7 +26,7 @@
 - **Functionality:** 1-click page scraping, point-of-upload client SHA-256 hashing, and immediate receipt generation directly from municipal/DTSC pages.
 
 ### S15: Municipal GIS Polygon Layer Overlay (Huntington Beach & Orange County)
-- **Objective:** Integrate GeoJSON plume polygons for DTSC EnviroStor ID 30490016 (Ascon Landfill) and GeoTracker Case ****C002 ($Cr\text{-VI}$ plume) into Cytoscape and Leaflet/Mapbox maps on `osintneoai.me`.
+- **Objective:** Integrate GeoJSON plume polygons for DTSC EnviroStor ID 30490016 (Ascon Landfill) and GeoTracker Case 20IC002 ($Cr\text{-VI}$ plume) into Cytoscape and Leaflet/Mapbox maps on `osintneoai.me`.
 
 ### S16: Automated Cal. CCP § 473(d) & Rule 60(d)(3) Court Filing Package Generator
 - **Objective:** Build an automated PDF/Word legal document assembler that extracts user testimony, EDR contaminant data, and docket procedural flags to generate court-ready Notice of Motion and Motion to Vacate Void Judgment packages.

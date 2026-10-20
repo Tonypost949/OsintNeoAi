@@ -17,8 +17,8 @@
 - **Environmental Loophole:** The emergency shelter designation bypassed mandatory California Environmental Quality Act (CEQA) EIR review and Department of Toxic Substances Control (DTSC) soil remediation.
 - **The Plume:** The site sat directly atop an unmitigated industrial plume consisting of Hexavalent Chromium (Cr(VI)), Lead (Pb), Arsenic (As), and organochlorine agricultural pesticides.
 
-### 3. Regulatory Complicity: OCHCA Case ****C002 & Petition A-2926
-- **OCHCA Case ****C002:** The Orange County Health Care Agency issued an expedited "Closure Certification" on August 21, 2020 to facilitate opening the facility.
+### 3. Regulatory Complicity: OCHCA Case 20IC002 & Petition A-2926
+- **OCHCA Case 20IC002:** The Orange County Health Care Agency issued an expedited "Closure Certification" on August 21, 2020 to facilitate opening the facility.
 - **SWRCB Petition A-2926:** Former resident Jesse Knabb filed an administrative appeal before the California State Water Resources Control Board challenging the closure as *Ultra Vires* and alleging Imminent and Substantial Endangerment (ISE) under California Water Code.
 - **Federal RCRA Litigation:** *Jesse Knabb v. City of Huntington Beach et al.* (CACD Case No. `8:26-cv-00348`), citing hazardous waste exposure under 42 U.S.C. § 6972.
 

@@ -5,7 +5,7 @@ Tests:
 - 200 MB stream ingestion with active memory ceiling (<250 MB)
 - High concurrency rapid stream lifecycle (no FD / handle leak on Windows)
 - Malformed / mid-stream stream failure resilience
-- Mixed-case ****ions and unknown MIME fallbacks
+- Mixed-case extensions and unknown MIME fallbacks
 """
 
 from __future__ import annotations
@@ -168,7 +168,7 @@ class TestMixedCaseAndMimeFallbacks:
         """Verify crawler properly extracts members from mixed-case .TAR.GZ archive."""
         tar_gz_path = tmp_path / "ARCHIVE.TAR.GZ"
         with tarfile.open(tar_gz_path, "w:gz") as tf:
-            data = b"Sample tar.gz member ****tent"
+            data = b"Sample tar.gz member content"
             ti = tarfile.TarInfo("inner_evidence.txt")
             ti.size = len(data)
             tf.addfile(ti, io.BytesIO(data))
@@ -179,7 +179,7 @@ class TestMixedCaseAndMimeFallbacks:
         assert len(artifacts) == 1
         assert artifacts[0].mime_type == "text/plain"
         with artifacts[0].raw_stream_factory() as s:
-            assert s.read() == b"Sample tar.gz member ****tent"
+            assert s.read() == b"Sample tar.gz member content"
 
     def test_unknown_extension_magic_byte_sniffing(self, tmp_path: Path):
         """Tests that a file with .unknown or no extension is classified via magic bytes."""

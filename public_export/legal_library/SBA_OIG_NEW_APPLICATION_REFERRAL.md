@@ -14,18 +14,18 @@
 
 **Entity Name (as recorded):** "NEW APPLICATION"
 **Estimated Total PPP:** $24,270,800 across 11 states
-**SBA Loan ****bers:** [See breakdown below]
+**SBA Loan Numbers:** [See breakdown below]
 **EIN:** Unknown — URGENT: Must be obtained from SBA records
 
 ---
 
 ## FACTS
 
-The SBA PPP loan ****base contains multiple entries under the entity name **"NEW APPLICATION"** — a generic placeholder that should never appear as a business legal name. This entity received federally-backed PPP loans across 11 states during the COVID-19 pandemic:
+The SBA PPP loan database contains multiple entries under the entity name **"NEW APPLICATION"** — a generic placeholder that should never appear as a business legal name. This entity received federally-backed PPP loans across 11 states during the COVID-19 pandemic:
 
 ### State-by-State Breakdown:
 
-| State | Amount | SBA Loan ****mber |
+| State | Amount | SBA Loan Number |
 |---|---|---|
 | Maine | $13,817,105 | [Obtain from SBA records] |
 | Massachusetts | $3,719,053 | [Obtain from SBA records] |
@@ -55,8 +55,8 @@ The SBA PPP loan ****base contains multiple entries under the entity name **"NEW
 ## QUESTIONS FOR SBA RECORDS
 
 1. What is/are the actual EIN(s) associated with these "NEW APPLICATION" entries?
-2. What are the SBA Loan ****bers for each state award?
-3. What are the Business Names associated with these Loan ****bers?
+2. What are the SBA Loan Numbers for each state award?
+3. What are the Business Names associated with these Loan Numbers?
 4. What lenders processed these loans?
 5. Were these loans forgiven? Under what certifications?
 

@@ -13,7 +13,7 @@ directly to PostgreSQL. You **MUST** adhere to these strict constraints:
    (`$1`) with standard GraphQL named variables (`$id`). The `sql:` argument
    MUST be a hardcoded string literal block (`"""SELECT..."""`), not a GraphQL
    variable.
-1. **Table & Column Mapping (Case ****vity):**
+1. **Table & Column Mapping (Case Sensitivity):**
    - **Default `snake_case` Conversion:** By default, SQL Connect converts
      `PascalCase` types and `camelCase` fields to `snake_case` in the database.
      - *Schema:* `type UserProfile { releaseYear: Int }` -> *Native SQL:*

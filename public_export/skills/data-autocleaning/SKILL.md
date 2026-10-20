@@ -158,12 +158,12 @@ Perform these checks **before** generating the `implementation_plan.md`.
 -   **CRITICAL**: Filter out `NULL` elements after `SAFE_CAST` (e.g., using
     `ARRAY`) as BigQuery arrays cannot contain `NULL`s.
 -   **Normalization**: Only trim whitespace on string fields. Make sure to
-    **PRESERVE CASE**. **DO NOT** perform case ****ions (e.g., `LOWER()`,
+    **PRESERVE CASE**. **DO NOT** perform case conversions (e.g., `LOWER()`,
     `UPPER()`) unless explicitly required.
 -   **Filtering**: Filter out `NULL` values using `ARRAY_FILTER(array_column, e
     -> e IS NOT NULL)`.
 -   **Deduplication**: Use `ARRAY(SELECT DISTINCT x FROM UNNEST(array_column))`
-    for case ****tive deduplication.
+    for case-sensitive deduplication.
 -   **Transformations**: Use `ARRAY_TRANSFORM` or `UNNEST`/`ARRAY_AGG` for
     element-wise changes (e.g., date parsing).
 -   **Restructuring**: Use `UNNEST` to expand to rows, or `ARRAY_AGG` to group
@@ -176,7 +176,7 @@ Perform these checks **before** generating the `implementation_plan.md`.
 -   **Type Casting**: Cast each field using `SAFE_CAST` based on the destination
     schema or inferred profile.
 -   **Normalization**: Only trim whitespace on string fields. Make sure to
-    **PRESERVE CASE**. **DO NOT** perform case ****ions (e.g., `LOWER()`,
+    **PRESERVE CASE**. **DO NOT** perform case conversions (e.g., `LOWER()`,
     `UPPER()`) unless explicitly required.
 -   **Field Mapping**: Map directly if structures align; use dot notation (e.g.,
     `struct.field`) to extract; or use `STRUCT()` constructor to group columns.

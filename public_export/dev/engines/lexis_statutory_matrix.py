@@ -16,7 +16,7 @@ LEXIS_STATUTORY_AUTHORITIES = {
     "statutory_presumption": {
         "statute": "California Civil Code § 1942.5",
         "legal_standard": "180-Day Statutory Presumption of Retaliation following protected tenant/whistleblower disclosure.",
-        "case_application": "Case ****DCJC (Motion to Vacate Unlawful Eviction)"
+        "case_application": "Case No. 30-2021-01201327-CL-UD-CJC (Motion to Vacate Unlawful Eviction)"
     },
     "surplus_land_act": {
         "statute": "California Government Code § 542** et seq. (AB 1486)",

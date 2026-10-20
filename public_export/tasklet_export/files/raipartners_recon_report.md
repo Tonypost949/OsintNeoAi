@@ -21,7 +21,7 @@
 * **Name Servers:** AWS Route 53 (`ns-1015.awsdns-62.net`, `ns-54.awsdns-06.com`, etc.)
 * **Mail Servers (MX):** Google Workspace (`aspmx.l.google.com`)
 * **TXT Verifications:**
-  * **Rippling:** `rippling-domain-verification=8db1f707**d42bc9` (Employee management / HR integration)
+  * **Rippling:** `rippling-domain-verification=8db1f70736d42bc9` (Employee management / HR integration)
   * **Slack:** `slack-domain-verification=w1CyNDlrlvmN1eo1GMteXGEKw7IQIPR5sxSlClzF`
   * **Anthropic:** `anthropic-domain-verification-e52pgv=OwOMKICqdKqGTP0FjhEyLbEdC`
   * **Apple:** `apple-domain-verification=HqsqprFMFuDnkHmS`

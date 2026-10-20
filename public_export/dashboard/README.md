@@ -67,7 +67,7 @@ To configure automatic deployment on every push to the `main` branch:
 ## 🔒 Security & Secrets Management
 - The application retrieves database project mappings dynamically via environment variables (`GOOGLE_PROJECT_ID`).
 - Do not commit hardcoded API keys or Service Account JSON files to the repository.
-- Use Google Cloud **Secret Manager** or **IAM Role Bindings** (such as assigning the `BigQuery Data Viewer` role to your Cloud Run Service Account ****ipal) for authentication in production.
+- Use Google Cloud **Secret Manager** or **IAM Role Bindings** (such as assigning the `BigQuery Data Viewer` role to your Cloud Run Service Account principal) for authentication in production.
 
 ---
 

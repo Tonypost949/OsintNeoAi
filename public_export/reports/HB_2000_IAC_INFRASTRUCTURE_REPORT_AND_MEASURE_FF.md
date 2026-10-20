@@ -54,7 +54,7 @@ The IAC's determination that general city revenues were consistently diverted aw
 |:---|:---|:---|
 | **Total Need Identified:** | **$1.37 Billion** (20-year horizon) | **$1.80 Billion** (15-year horizon, 2024–2039) |
 | **Capital Invested to Date:** | Baseline year (Zero Measure FF funds) | **$697 Million** invested under Measure FF (2005–2024) |
-| **Methodology:** | Citizens Advisory Committee Audit | ASCE 8-Criteria Technical Evaluation + 100-Member ****ttee |
+| **Methodology:** | Citizens Advisory Committee Audit | ASCE 8-Criteria Technical Evaluation + 100-Member Committee |
 | **Data Systems / IT:** | Supervisory SCADA & Paper/Early Digital | **Information Systems: Grade C ($21M needed)** |
 | **Top Infrastructure Deficit:** | Sewer & Storm Drains ($500M+) | **Stormwater ($877M) & Facilities ($180M)** |
 | **Network Security Status:** | Legacy On-Premise Subnet (Pre-Cloud) | **Split Architecture (Cloudflare vs Direct Subnet [IP_REDACTED]/24)** |

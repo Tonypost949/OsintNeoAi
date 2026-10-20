@@ -34,7 +34,7 @@ Between 2019 and 2023, the municipal governance of the City of Anaheim, Californ
 * **Administrative Oversight Authority:** California Government Code **§ 542**.5** and **§ 655**.1** (granting HCD direct enforcement, review, and civil penalty authority).
 
 ### B. Issuing Officers & Key Personnel
-* **Issuing Agency:** State of California Department of Housing and Community Development (HCD) — Division of Housing Policy ****ment / Housing Account ****lity Unit (HAU).
+* **Issuing Agency:** State of California Department of Housing and Community Development (HCD) — Division of Housing Policy Development / Housing Accountability Unit (HAU).
 * **Signatory Officer:** **Megan Kirkeby**, Deputy Director, Division of Housing Policy Development.
 * **Department Director:** **Gustavo Velasquez**, Director, California Department of Housing and Community Development.
 * **Recipient Entity:** City of Anaheim / Anaheim City Council (Attn: Harry Sidhu, Mayor; Jim Vanderpool, City Manager; Robert Fabela, City Attorney).
@@ -152,7 +152,7 @@ The JL Group report corroborated and substantially expanded upon the FBI's crimi
   * **Curt Pringle:** Former Anaheim Mayor and influential municipal lobbyist.
   * **Melahat Rafiei:** Political consultant, campaign strategist, and former Secretary of the California Democratic Party.
 * **Mechanics of Control:**
-  * **Secret Policy ****eats:** The cabal convened closed-door strategy retreats (such as the December 2020 Monterey retreat and private meetings at the Anaheim White House restaurant) where municipal legislative agendas, budget line items, and campaign contributions were mapped out prior to public exposure.
+  * **Secret Policy Retreats:** The cabal convened closed-door strategy retreats (such as the December 2020 Monterey retreat and private meetings at the Anaheim White House restaurant) where municipal legislative agendas, budget line items, and campaign contributions were mapped out prior to public exposure.
   * **Candidate Sourcing & Council Coaching:** The Chamber recruited handpicked council candidates, funded their independent expenditure committees, and subsequently scripted their public hearing remarks and voting positions.
 
 #### 3. "Anaheim First" as a Political "Fig Leaf" & Data Mining Operation
@@ -176,7 +176,7 @@ All primary records, investigative whitepapers, and statutory analyses are catal
 2. `C:\OsintNeoAi\evidence\official_court_records\01_USA_v_Harry_Sidhu_8_23_cr_001**_CJC.md`
    * Complete 4-count felony Information and Plea Agreement (*USA v. Sidhu*, 8:23-cr-00108-CJC), search warrant affidavit, and $1M bribery recordings.
 3. `C:\OsintNeoAi\evidence\official_court_records\03_USA_v_Todd_Ament_and_Melahat_Rafiei.md`
-   * Plea agreements for Todd Ament (8:22-cr-00078-CJC) and Melahat Rafiei (8:23-cr-00009-CJC), TA Group LLC shell account ****sics, and Big Bear property wire fraud.
+   * Plea agreements for Todd Ament (8:22-cr-00078-CJC) and Melahat Rafiei (8:23-cr-00009-CJC), TA Group LLC shell account forensics, and Big Bear property wire fraud.
 4. `C:\OsintNeoAi\evidence\official_court_records\OFFICIAL_DOCUMENTS_INDEX.md`
    * Master index connecting federal plea dockets, state regulatory notices, and municipal resolution records.
 

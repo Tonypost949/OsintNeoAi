@@ -6,7 +6,7 @@
 set -e
 
 # Configuration
-SUBSCRIPTION_ID="f055033f-83fb-4ae9-9c36-be48f0c861**"
+SUBSCRIPTION_ID="f055033f-83fb-4ae9-9c36-be48f0c86158"
 REGION="eastus"
 RESOURCE_GROUP="osintneoai-rg"
 REGISTRY_NAME="osintneoairegistry"  # Must be globally unique (lowercase, no hyphens after first char)
@@ -71,7 +71,7 @@ az container create \
     LOG_LEVEL=INFO \
   --cpu 2 \
   --memory 2 \
-  --restart-policy ****lure
+  --restart-policy OnFailure
 
 # Step 8: Get public IP
 echo "📝 Step 8: Getting public IP..."

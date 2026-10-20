@@ -12,11 +12,11 @@
   - Ran command: `python -m pytest C:\OsintNeoAi\workspaces\osintneoai_indexer\tests\test_m1_ingestion.py -v`
   - Output: `32 passed in 2.37s` (100% pass rate across all 6 test suites)
 - **Forensic Verification Checks**:
-  1. *Hardcoded hash search*: Zero hardcoded hashes found in production code. Only standard empty string SHA-256 (`e3b0c442...`) present in `test_m1_ingestion.py:78` for edge-case ****dary assertions.
+  1. *Hardcoded hash search*: Zero hardcoded hashes found in production code. Only standard empty string SHA-256 (`e3b0c442...`) present in `test_m1_ingestion.py:78` for edge-case boundary assertions.
   2. *Trivial assertions search*: Zero instances of `assert True` or no-op assertions across test files.
   3. *64 KB block chunking empirical test*: `StreamHasher` and `HashingReader` processed a 197,842-byte payload in exact chunk increments: `[655**, 655**, 655**, 1234]`.
   4. *Archive zero-disk-dump check*: `LocalCrawler` processed ZIP and TAR archives directly via in-memory stream factories (`ManagedZipStream`, `ManagedTarStream`); directory snapshots before and after confirmed 0 temporary uncompressed files dumped to disk.
-  5. *Live evidence crawl*: `LocalCrawler` traversed `C:\OsintNeoAi\evidence\official_court_records\` and yielded 11 valid evidentiary artifacts. Hashes were independently verified to match `hashlib.sha256()` on raw disk bytes (e.g. `680af37d86e0b118**a2b7790749bad7797515b548c29b082768cbc5d22d3fab`).
+  5. *Live evidence crawl*: `LocalCrawler` traversed `C:\OsintNeoAi\evidence\official_court_records\` and yielded 11 valid evidentiary artifacts. Hashes were independently verified to match `hashlib.sha256()` on raw disk bytes (e.g. `680af37d86e0b11867a2b7790749bad7797515b548c29b082768cbc5d22d3fab`).
   6. *Memory bounds*: `tracemalloc` peak RAM for 5 MB stream ingestion was < 25 MB, strictly conforming to the 250 MB invariant limit.
 
 ## 2. Logic Chain

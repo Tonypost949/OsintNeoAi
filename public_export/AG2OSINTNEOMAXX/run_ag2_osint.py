@@ -114,7 +114,7 @@ Definition: A control cluster exists when:
 - same person controls multiple entities OR
 - same registered agent controls multiple entities OR
 - same manager controls multiple entities OR
-- same member ****rols multiple entities
+- same member controls multiple entities
 Output: control_clusters.json
 Include: cluster id, entities, people, addresses, properties, PPP amounts
 

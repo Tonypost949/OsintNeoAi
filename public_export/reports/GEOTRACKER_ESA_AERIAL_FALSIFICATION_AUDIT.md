@@ -1,7 +1,7 @@
 ﻿# FORENSIC AUDIT REPORT: FALSIFICATION AND CONCEALMENT IN GEOTRACKER PHASE I ESA AERIAL PHOTOGRAPHS
 **Deliverable Document:** `T10000018579.20200318.Phase I Environmental Site Assessment.pdf`  
 **GeoTracker Global ID:** `T10000018579` | **Regulatory Case ID:** `20IC002` (OCHCA / RWQCB Santa Ana)  
-**Deliverable ID:** `(***) ***-0641` (State Water Resources Control Board GeoTracker System)  
+**Deliverable ID:** `8203290641` (State Water Resources Control Board GeoTracker System)  
 **Target Properties:** 17631 C*** Lane (APN 167-472-08) & 17642 B*** Boulevard (APN 167-472-09), Huntington Beach, CA  
 **Auditor:** Antigravity Autonomous OSINT Forensic Engine  
 **Date of Forensic Audit:** September 7, 2026  
@@ -10,7 +10,7 @@
 
 ## 1. EXECUTIVE SUMMARY & SMOKING GUN FINDINGS
 
-A forensic pixel-level, metadata, and structural PDF audit of the Phase I Environmental Site Assessment (ESA) deliverable uploaded to the State of California GeoTracker system on **March 10, 2025** (Deliverable ID `(***) ***-0641`, 591 pages, 38,356,491 bytes) confirms the user's assertion:
+A forensic pixel-level, metadata, and structural PDF audit of the Phase I Environmental Site Assessment (ESA) deliverable uploaded to the State of California GeoTracker system on **March 10, 2025** (Deliverable ID `8203290641`, 591 pages, 38,356,491 bytes) confirms the user's assertion:
 
 > **THE ORIGINAL GEOTRACKER ESA DELIVERABLE CONTAINS FALSIFIED, MANIPULATED, INVERTED, AND BLACKED-OUT HISTORICAL AERIAL PHOTOGRAPHS.**
 
@@ -36,7 +36,7 @@ A forensic pixel-level, metadata, and structural PDF audit of the Phase I Enviro
 | :--- | :--- |
 | **File Name** | `T10000018579.20200318.Phase I Environmental Site Assessment.pdf` |
 | **State GeoTracker URL** | `https://documents.geotracker.waterboards.ca.gov/regulators/deliverable_documents/8203290641/T10000018579.20200318.Phase%20I%20Environmental%20Site%20Assessment.pdf` |
-| **Deliverable ID** | `(***) ***-0641` |
+| **Deliverable ID** | `8203290641` |
 | **Upload Timestamp** | March 10, 2025 at 21:51:46 GMT |
 | **File Size** | 38,356,491 bytes (36.58 MB) |
 | **Page Count** | 591 Pages |
@@ -120,7 +120,7 @@ Underneath the center target patches (`Im3` / `Im5` / `Im4`), the base image `Im
 
 1. **Defective Regulatory Filing (Water Code § 132** / § 133**):**  
    Environmental deliverables submitted to the Regional Water Quality Control Board and OCHCA must be true, complete, and accurate. Submitting inverted, blacked-out, and spliced historical aerial photographs compromises regulatory oversight.
-2. **Voidability of OCHCA Case ****sure `20IC002`:**  
+2. **Voidability of OCHCA Case Closure `20IC002`:**  
    The closure of Case `20IC002` was granted in part on the representations in this Phase I ESA that no RECs existed outside the southeast storage area. The blackout of the 1938 aerial concealed the regional drainage and historical land use.
 3. **California False Claims Act Exposure:**  
    Public funds were used by the Huntington Beach Housing Authority to acquire both parcels (Grant Deeds `2020000420412` and `2021000002954`). Relying on a Phase I ESA with fabricated/altered aerial packages and an order scope that omitted one of the parcels creates significant liability under California Government Code § 126** et seq.

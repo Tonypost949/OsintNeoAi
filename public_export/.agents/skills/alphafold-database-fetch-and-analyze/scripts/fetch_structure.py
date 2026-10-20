@@ -154,7 +154,7 @@ if __name__ == "__main__":
       description="Download AlphaFold structure files for a UniProt ID"
   )
   parser.add_argument(
-      "uniprot_id", help="The UniProt ID (e.g., P046** or A0A1B0GX81)"
+      "uniprot_id", help="The UniProt ID (e.g., P04637 or A0A1B0GX81)"
   )
   parser.add_argument(
       "-o",

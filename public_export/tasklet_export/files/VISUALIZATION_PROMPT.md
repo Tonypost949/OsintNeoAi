@@ -111,7 +111,7 @@ Create a flowchart showing how the criminal enterprise operates.
 
 ### Pipeline 1: PPP Fraud
 Start: Small business owners in Orange County
-Flow: Apply for PPP loan ****sing fake business address -> Receive funds -> Wire to shell company -> Shell company wires to personal accounts
+Flow: Apply for PPP loan using fake business address -> Receive funds -> Wire to shell company -> Shell company wires to personal accounts
 Entities involved: l2tmedia.com, rbabuilders.com, stewartindustries.com, advancedrealestate.com, raipartners.com
 
 ### Pipeline 2: Nonprofit Money Laundering
@@ -119,7 +119,7 @@ Start: HUD/COC/ESG government grants
 Flow: Government grant -> Nonprofit receives funds -> Nonprofit pays management fees to shell company -> Shell company pays personal accounts
 Entities involved: illuminationfoundation.org, mercyhouse.org, covenanthouseca.org, waymakers.org
 
-### Pipeline 3: IV-E Medicaid ****ling
+### Pipeline 3: IV-E Medicaid Billing
 Start: Foster children in group homes
 Flow: Children placed in group home -> Group home bills Medicaid -> Medicaid pays group home -> Group home pays management fees to parent company -> Parent company pays personal accounts
 Entities involved: libertyhomes.org, libertycare.com, libertycare.org, libertyseniorliving.com

@@ -55,4 +55,4 @@ Every permission and host permission declared in `manifest.json` is justified be
   - Real-time indicator extraction from Gmail/web pages.
   - Custom Google Dorking generator with interactive checkboxes.
   - Interactive mock threat leak database index for target lookups.
-  - Chrome profile setting guidelines and active account ****sion display.
+  - Chrome profile setting guidelines and active account session display.

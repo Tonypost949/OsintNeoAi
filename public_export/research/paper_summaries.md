@@ -62,7 +62,7 @@ Public OSINT sources separate into three operationally distinct mission profiles
 - **84.5% pre-adjudication agreement** across 251 verification outcomes (2-verifier protocol)
 
 ### Methodology
-Case ****trol study design adapted from epidemiology (Allodi & Massacci), with signal-to-incident linkage via 7 criteria (CVE match, malware family, threat actor, infrastructure, advisory cross-reference, TTP, sectoral context). Portfolio optimization via greedy set-cover with (1−1/e) approximation guarantee.
+Case-control study design adapted from epidemiology (Allodi & Massacci), with signal-to-incident linkage via 7 criteria (CVE match, malware family, threat actor, infrastructure, advisory cross-reference, TTP, sectoral context). Portfolio optimization via greedy set-cover with (1−1/e) approximation guarantee.
 
 ### Applies to OsintNeoAi's Spark Intelligence Engine
 1. **Source portfolio optimization** — implement cardinality-constrained maximum coverage to maximize attack detection with minimal source monitoring
@@ -82,7 +82,7 @@ Case ****trol study design adapted from epidemiology (Allodi & Massacci), with s
 
 ---
 
-## Paper 3: Insights for an AI Whistleblower Office from 30 Case ****dies
+## Paper 3: Insights for an AI Whistleblower Office from 30 Case Studies
 
 **Source:** `2603.012**_AI_Whistleblower_Office.pdf`
 **Authors:** Beri (Oxford), Baker (RAND)
@@ -92,7 +92,7 @@ Case ****trol study design adapted from epidemiology (Allodi & Massacci), with s
 Whistleblower programmes for AI regulation should financially reward whistleblowers (10–30% of sanctions), provide robust protections against retaliation, enable anonymous tipping, and be adequately staffed — because **57–67% of whistleblowers face retaliation**, **87%+ are morally motivated**, and **90%+ are insiders** who are the only ones positioned to detect noncompliance.
 
 ### Key Statistics
-- **30 case ****dies** spanning 1978–2020 across 15 industries, 58 fields per case
+- **30 case studies** spanning 1978–2020 across 15 industries, 58 fields per case
 - **≥87%** morally motivated whistleblowers
 - **≥90%** were insiders (employees of the wrongdoing organization)
 - **80%** of insiders were mid-level employees or executives
@@ -106,7 +106,7 @@ Whistleblower programmes for AI regulation should financially reward whistleblow
 - Wrongdoing types: fraud (23%), safety violations (20%), other varied
 
 ### Methodology
-Empirical case ****tudy analysis: 30 randomly sampled notable whistleblowers from Government Account ****lity Project and Wikipedia lists, with conservative motivation attribution using multiple source triangulation and evidence columns.
+Empirical case-study analysis: 30 randomly sampled notable whistleblowers from Government Accountability Project and Wikipedia lists, with conservative motivation attribution using multiple source triangulation and evidence columns.
 
 ### Applies to OsintNeoAi's Spark Intelligence Engine
 1. **Insider threat detection** — 90%+ of whistleblowers are insiders; OsintNeoAi should monitor for internal signals of compliance concern (leak indicators, anomalous data access patterns, whistleblower-related communications)

@@ -16,18 +16,18 @@
    * Complies with the Interface Contracts specified in `PROJECT.md § Interface Contracts`.
 
 2. **Hamilton Township Police Division Incident Records:**
-   * **Case ****3723 (**/**/2019 at 14:16 hrs, 1456 C*** Lane, Hamilton NJ):**
+   * **Case 2019-00053723 (**/**/2019 at 14:16 hrs, 1456 C*** Lane, Hamilton NJ):**
      * Complete Officer Badge Registry: P/O Timothy Donovan (#484), P/O Kevin Perkins (#506), P/O Richard McLaughlin (#536), P/O John Murphy (#531), P/O Michael Durand (#457), Sgt. Timothy A. Wilkes (#443), Reviewer P/O Kyle Thornton (#546).
      * Subject: Dean Anthony Innocenzi (DOB: **/**/1968, SSN: `***-**-7252`).
      * Physical confrontation on rear porch, grapple into lumber debris with exposed nails, double-handcuffs applied, BWC deactivation upon impact.
      * Involuntary medical transport in Patrol Unit 701 to Capital Health Regional Medical Center (Helene Fuld Crisis Center).
      * Criminal Complaint Summons `1103-S-2019-002671` charging N.J.S.A. 2C:29-1a (Obstructing Administration of Law).
-   * **Case ****8897 (**/**/2020 at 14:00 hrs, Home Depot #0928, 740 Route 130, Hamilton NJ):**
+   * **Case 2020-00008897 (**/**/2020 at 14:00 hrs, Home Depot #0928, 740 Route 130, Hamilton NJ):**
      * Officers Seeds (#529) & Mancuso (#523).
      * Criminal Complaint Summons `#2020-613` charging N.J.S.A. 2C:20-11b(1) (Shoplifting).
 
 3. **Ewing Police Department Chain of Custody & FBI Nexus:**
-   * **Case ****1222:**
+   * **Case I-2019-001222:**
      * Item `044.01` (Suspected Methamphetamine in glass jar / clear bag): Collected **/**/2019 at 01:45 by Officer 154-Ranker; stored in Temporary Chute T3 on **/**/2019; logged into Bulk Evidence Safe on **/**/2019 at 07:42 by Officer 108-Giovacchini; transferred at 07:44 with notation `"TOT FBI AGENT BRADLEY ZARTMAN"`.
      * Item `046` (Samsung Smartphone): Collected **/**/2019 at 10:40 by Officer 171-Andrew Condrat at Ewing HQ Sally Port; moved in custody on **/**/2019; logged into safe on **/**/2019 at 07:42 by Officer 108-Giovacchini; transferred at 07:44 with notation `"TOT FBI AGENT BRADLEY ZARTMAN"`.
    * **Federal Criminal Proceeding:**
@@ -35,7 +35,7 @@
      * Lead Federal Investigator: FBI SA Bradley H. Zartman (21 U.S.C. § 841).
 
 4. **Quantum Auto Dismantler (Santa Ana, CA) Interstate Commercial Conduit:**
-   * Vendor: Quantum Auto Dismantler, 3125 W. 5th St, Santa Ana, CA 927** (***) ***-5555).
+   * Vendor: Quantum Auto Dismantler, 3125 W. 5th St, Santa Ana, CA 927** ((***) ***-5555).
    * Invoice #`140**` / Workorder #`145**` / Doc #`193**` / Tag #`R003187` (**/**/2020 at 16:30 hrs).
    * Purchased Item: VEHICLE UNIT COMPLETE PURCHASE (VIN `302796`, Parts $500.00 + Tax $46.25 = $546.25 Cash Paid in Full).
    * Customer: Dean Innocenzi, billed/shipped to `1456 C*** Ln, Hamilton, NJ 086**`.

@@ -106,7 +106,7 @@ def main():
                     "Risk_Level": "HIGH",
                     "Last_Updated": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC"),
                     "Source_Reference": "agent/target_accounts_master.json",
-                    "Notes": t.get("notes", "Target account ****nder active BigQuery and local OCR correlation.")
+                    "Notes": t.get("notes", "Target account under active BigQuery and local OCR correlation.")
                 })
 
     # 4. Ingest BigQuery Cross-Reference Matches
@@ -133,7 +133,7 @@ def main():
                         "Risk_Level": "CRITICAL" if match_count > 100 else "ELEVATED",
                         "Last_Updated": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC"),
                         "Source_Reference": "data/master_accounts_crossref_matches.json",
-                        "Notes": f"Target account ****ched across {len(info.get('sample_matches', []))} sample evidence records in national audits BigQuery warehouse."
+                        "Notes": f"Target account matched across {len(info.get('sample_matches', []))} sample evidence records in national audits BigQuery warehouse."
                     })
 
     # 5. Ingest Consolidated Sheet Assets

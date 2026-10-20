@@ -82,7 +82,7 @@ gh azure-devops list-repos
 **App Service:** osintneoai-app-949  
 **Region:** East US  
 **Tier:** B1 (Azure for Students)  
-**Subscription:** f055033f-83fb-4ae9-9c36-be48f0c861**  
+**Subscription:** f055033f-83fb-4ae9-9c36-be48f0c86158  
 **Account:** a***@students.post.edu  
 
 **Build:** 2 seconds ✅  

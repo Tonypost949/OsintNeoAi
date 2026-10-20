@@ -9,7 +9,7 @@
 ## 📌 EXECUTIVE SUMMARY & INVESTIGATIVE FINDINGS
 
 An automated deep cross-dataset sweep was executed across multi-terabyte state and federal databases.
-The scan uncovered widespread **cross-state nexus points**, **high-velocity PPP loan ****ness anomalies**, and **clustered maildrop proxies** linking California real estate to operations across over 20 US States.
+The scan uncovered widespread **cross-state nexus points**, **high-velocity PPP loan forgiveness anomalies**, and **clustered maildrop proxies** linking California real estate to operations across over 20 US States.
 
 ### Key Metrics Discovered:
 - **Out-of-State PPP Dispersions:** 17 high-risk instances
@@ -23,7 +23,7 @@ The scan uncovered widespread **cross-state nexus points**, **high-velocity PPP 
 
 ## 🚨 SECTION 1: TOP OUT-OF-STATE PPP GEOGRAPHIC MISMATCHES
 
-| Entity Name | Property Location | Loan ****igin | PPP Amount | Forgiven Amount | Jobs Reported |
+| Entity Name | Property Location | Loan Origin | PPP Amount | Forgiven Amount | Jobs Reported |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **TRIUMVIRATE LLC** | 219** BROOKHURST ST (FOUNTAIN VALLEY) | Anchorage, AK | `$852,740.00` | `$859,751.42` | 33.0 |
 | **TRIUMVIRATE, LLC** | 219** BROOKHURST ST (FOUNTAIN VALLEY) | ANCHORAGE, AK | `$619,100.00` | `$625,841.31` | 12.0 |

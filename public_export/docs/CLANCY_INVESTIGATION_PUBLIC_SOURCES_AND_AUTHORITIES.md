@@ -25,20 +25,20 @@
 ### II. PRIMARY PUBLIC SOURCES & FORMAL CITATIONS
 
 #### 1. Official Court Dockets & Judicial Hearings
-* **Primary Case ****tion:** *Commonwealth of Massachusetts v. Lindsay Clancy*
+* **Primary Case Caption:** *Commonwealth of Massachusetts v. Lindsay Clancy*
 * **Jurisdictions & Docket Numbers:**
   * Plymouth District Court (Arraignment: February 7, 2023)
-  * Plymouth County Superior Court (Docket No. `2383CR000**` — Arraignment: October 26, 2023)
+  * Plymouth County Superior Court (Docket No. `2383CR00048` — Arraignment: October 26, 2023)
 * **Defense Counsel Disclosures:** Attorney Kevin J. Reddington (Brockton, MA), formal bail hearing statements detailing the 13-drug polypharmacy cascade, lack of psychosis pre-2022, and involuntary intoxication defense.
-* **Prosecutorial Filings:** Plymouth County District Attorney Timothy J. Cruz, official statements of case ****acts and electronic device extractions.
+* **Prosecutorial Filings:** Plymouth County District Attorney Timothy J. Cruz, official statements of case facts and electronic device extractions.
 
 ---
 
 #### 2. Clinical Commentaries & Expert Psychiatric Reviews
 * **Dr. Kirk Honda, PsyD, LMFT (Psychology in Seattle):**
-  * Public clinical case ****ysis series dissecting Lindsay Clancy’s pre-2022 high-functioning baseline, perinatal anxiety vulnerability, Zoloft-induced insomnia, and the extreme dangers of multi-class polypharmacy.
+  * Public clinical case analysis series dissecting Lindsay Clancy’s pre-2022 high-functioning baseline, perinatal anxiety vulnerability, Zoloft-induced insomnia, and the extreme dangers of multi-class polypharmacy.
 * **Forensic Expert Reviewers:**
-  * Dr. Phillip J. Resnick, M.D. (Case ****tern Reserve University School of Medicine) — Retention by defense team for insanity / involuntary intoxication evaluation.
+  * Dr. Phillip J. Resnick, M.D. (Case Western Reserve University School of Medicine) — Retention by defense team for insanity / involuntary intoxication evaluation.
   * Dr. Paul Zeizel, Psy.D. — Forensic psychological testing of Lindsay Clancy at Tewksbury Hospital.
 
 ---
@@ -67,7 +67,7 @@ All records compiled in this investigation are authorized and protected under:
 
 | Governing Federal Statute | Purpose & Protection |
 |---|---|
-| **31 U.S.C. § 3729–3733 (False Claims Act)** | Relator compilation of fraudulent Medicaid/Medicare ****ling, unindicated polypharmacy, and diagnostic upcoding. |
+| **31 U.S.C. § 3729–3733 (False Claims Act)** | Relator compilation of fraudulent Medicaid/Medicare billing, unindicated polypharmacy, and diagnostic upcoding. |
 | **31 U.S.C. § 3730(h)** | **Whistleblower Anti-Retaliation Protection:** Prohibits discharge, demotion, harassment, or legal discrimination against relators compiling evidence of healthcare fraud. |
 | **18 U.S.C. § 1962(c) (Civil RICO)** | Pattern of racketeering discovery regarding institutional shielding of pharmaceutical distributors and hospital liability. |
 | **Mass. R. Crim. P. 17 & Fed. R. Crim. P. 17(c)** | Compulsory legal process to subpoena unredacted crime lab raw GC-MS data and pharmacy lot manifests. |

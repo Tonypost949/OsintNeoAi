@@ -89,7 +89,7 @@
 - Mercy House CHDO Inc — EIN: 20-4122028
 - Garden Grove Community Foundation — Tam Nguyen; ARPA grant administration
 - Bank of Jackson Hole Trust — Triumvirate lender; Wyoming regional bank (NOT conduit)
-- OCHCA — False closure certification Case ****C002 (Aug 21, 2020)
+- OCHCA — False closure certification Case No. 20IC002 (Aug 21, 2020)
 - Shea Homes — Developer on contaminated Cameron Lane plume
 
 ---

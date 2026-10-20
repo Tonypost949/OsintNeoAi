@@ -48,6 +48,6 @@ if __name__ == "__main__":
     director = "Hon. Jane Doe"
     email = "r***@countyhousing.gov"
     fax = "(***) ***-0199"
-    address = "100 Government Center Plaza, Suite 400, City Hall, State"
+    address = "100 G*** Plaza, Suite 400, City Hall, State"
 
     dispatch_omnichannel_legal_service(agency, director, email, fax, address)

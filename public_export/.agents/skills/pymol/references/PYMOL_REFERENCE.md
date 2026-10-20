@@ -136,7 +136,7 @@ cmd.quit()
 
 1.  **`cmd.quit()` is mandatory** — without it, the PyMOL process hangs and the
     container will time out.
-2.  **Selection case ****vity** — `"chain a"` is NOT the same as `"chain A"`.
+2.  **Selection case sensitivity** — `"chain a"` is NOT the same as `"chain A"`.
 3.  **`cmd.fetch()` will fail** — there is no network inside the container. Use
     `cmd.load()` with pre-downloaded files.
 4.  **`cmd.png()` before `cmd.quit()`** — ensure all rendering is done before

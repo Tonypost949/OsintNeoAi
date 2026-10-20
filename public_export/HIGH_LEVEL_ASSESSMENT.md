@@ -15,7 +15,7 @@ Examples include:
 - Toxicology reports
 - Historical aerial imagery
 - GPR surveys
-- Insurance claim ****nial letters
+- Insurance claim denial letters
 If authentic and preserved with chain of custody, these are the most valuable components.
 
 ### Category 2: Publicly Verifiable External Events
@@ -57,7 +57,7 @@ The report's strongest aspects are:
 The narrative provides:
 - Named actors
 - Dates
-- Case ****bers
+- Case numbers
 - Document identifiers
 - Exhibit references
 That structure is useful because timelines are easier to validate than broad allegations.
@@ -188,4 +188,4 @@ A professional investigator would likely extract:
 7. Witness statements
 and then independently verify each component before drawing conclusions about fraud, retaliation, RICO liability, environmental violations, or identity theft.
 
-The strongest path forward is not adding more narrative, but creating a **claim ****ence matrix** showing every allegation, the exact exhibit supporting it, whether it is independently verified, and what additional proof would be required to establish it in court.
+The strongest path forward is not adding more narrative, but creating a **claim-to-evidence matrix** showing every allegation, the exact exhibit supporting it, whether it is independently verified, and what additional proof would be required to establish it in court.

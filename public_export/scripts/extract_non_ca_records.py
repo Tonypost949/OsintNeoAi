@@ -168,7 +168,7 @@ class NonCAEntityExtractor:
             nexus_details={
                 "agency": "Federal Bureau of Investigation (FBI)",
                 "division": "Newark Division / Trenton Resident Agency",
-                "office_address": "Clarkson S. Fisher Federal Building, 402 E State St, Trenton, NJ 086**",
+                "office_address": "Clarkson S. Fisher Federal Building, 402 E. S*** St, Trenton, NJ 086**",
                 "role": "Lead Federal Investigating Agent & Criminal Complaint Affiant"
             }
         )
@@ -316,7 +316,7 @@ class NonCAEntityExtractor:
         )
 
         self._create_entity(
-            name="Ewing Police Department Evidence Ledger Case ****1222",
+            name="Ewing Police Department Evidence Ledger Case I-2019-001222",
             state="NJ",
             jurisdiction="Mercer County, New Jersey",
             entity_type="POLICE_RECORD",
@@ -400,7 +400,7 @@ class NonCAEntityExtractor:
             source_dataset="evidence/official_court_records/08_Multi_State_Police_and_Commercial_Incident_Logs.md",
             nexus_details={
                 "address": "740 Route 130, Hamilton, NJ 086**",
-                "incident_nexus": "Location of shoplifting incident in Hamilton PD Case ****8897"
+                "incident_nexus": "Location of shoplifting incident in Hamilton PD Case 2020-00008897"
             }
         )
 
@@ -417,7 +417,7 @@ class NonCAEntityExtractor:
                 "document_number": "193**",
                 "tag_number": "R003187",
                 "date": "2020-01-17T16:30:00",
-                "origin_vendor": "Quantum Auto Dismantler, 3125 W. 5th St, Santa Ana, CA 927** (***) ***-5555)",
+                "origin_vendor": "Quantum Auto Dismantler, 3125 W. 5th St, Santa Ana, CA 927** ((***) ***-5555)",
                 "destination_purchaser": "Dean Innocenzi, 1456 C*** Lane, Hamilton, NJ 086**",
                 "item_description": "Complete Salvage Vehicle Unit, VIN/Stock #302796",
                 "amount": 546.25,
@@ -487,7 +487,7 @@ class NonCAEntityExtractor:
                 "docket_number": "2:21-cr-00215",
                 "defendant": "Brandon Casutt",
                 "financial_exposure": 5700000.00,
-                "scheme": "CARES Act PPP loan ****raud laundered into Las Vegas luxury real estate and casino gaming chips",
+                "scheme": "CARES Act PPP loan fraud laundered into Las Vegas luxury real estate and casino gaming chips",
                 "statutory_citations": ["18 U.S.C. § 1344", "18 U.S.C. § 1956"]
             }
         )
@@ -537,7 +537,7 @@ class NonCAEntityExtractor:
             source_dataset="evidence/whois/lvmpd.com.txt",
             nexus_details={
                 "domain": "lvmpd.com",
-                "address": "400 S Martin Luther King Blvd, Las Vegas, NV 891**",
+                "address": "400 S. M*** Blvd, Las Vegas, NV 891**",
                 "agency_type": "Joint City/County Metropolitan Law Enforcement"
             }
         )
@@ -627,7 +627,7 @@ class NonCAEntityExtractor:
             }
         )
 
-        # 2. 5815 E Redfield Rd Scottsdale Shell Fleet & Johannes Van Herk
+        # 2. 5815 E. R*** Rd Scottsdale Shell Fleet & Johannes Van Herk
         redfield_llcs = [
             "DOLORES RE HOLDINGS LLC",
             "PEARCE RE HOLDINGS LLC",
@@ -642,7 +642,7 @@ class NonCAEntityExtractor:
                 entity_type="CORPORATION",
                 source_dataset="agent/ARIZONA_CONNECTIONS.md",
                 nexus_details={
-                    "registered_address": "5815 E Redfield Rd, Scottsdale, AZ 852**",
+                    "registered_address": "5815 E. R*** Rd, Scottsdale, AZ 852**",
                     "controlling_principal": "Johannes A. Van Herk",
                     "pattern": "$0 deed transfer loops to out-of-state asset holding shells"
                 }
@@ -655,19 +655,19 @@ class NonCAEntityExtractor:
             entity_type="INDIVIDUAL",
             source_dataset="agent/ARIZONA_CONNECTIONS.md",
             nexus_details={
-                "address": "5815 E Redfield Rd, Scottsdale, AZ 852**",
+                "address": "5815 E. R*** Rd, Scottsdale, AZ 852**",
                 "role": "Principal executing $0 property transfers to 4 Scottsdale shell LLCs"
             }
         )
 
         self._create_entity(
-            name="5815 E Redfield Rd Scottsdale Shell Complex",
+            name="5815 E. R*** Rd Scottsdale Shell Complex",
             state="AZ",
             jurisdiction="Arizona / Maricopa County",
             entity_type="PROPERTY",
             source_dataset="agent/ARIZONA_CONNECTIONS.md",
             nexus_details={
-                "address": "5815 E Redfield Rd, Scottsdale, AZ 852**",
+                "address": "5815 E. R*** Rd, Scottsdale, AZ 852**",
                 "usage": "Shared corporate hub housing multiple zero-dollar transfer LLCs"
             }
         )
@@ -746,7 +746,7 @@ class NonCAEntityExtractor:
             entity_type="CORPORATION",
             source_dataset="agent/ARIZONA_CONNECTIONS.md",
             nexus_details={
-                "address": "301 W Jefferson St, Phoenix, AZ 850**",
+                "address": "301 W. J*** St, Phoenix, AZ 850**",
                 "role": "Disbursing municipal governance entity for Grant #220141-RFP"
             }
         )
@@ -776,8 +776,8 @@ class NonCAEntityExtractor:
                 "docket_number": "2:21-cr-00812",
                 "defendant": "Willie Mitchell",
                 "financial_exposure": 9500000.00,
-                "scheme": "Fraudulent PPP loan ****tion through ghost logistics shells and commercial entities",
-                "addresses": ["2375 E*** Rd, Phoenix, AZ", "4400 N*** Rd, Scottsdale, AZ"]
+                "scheme": "Fraudulent PPP loan extraction through ghost logistics shells and commercial entities",
+                "addresses": ["2375 E. C*** Rd, Phoenix, AZ", "4400 N. S*** Rd, Scottsdale, AZ"]
             }
         )
 
@@ -788,7 +788,7 @@ class NonCAEntityExtractor:
             entity_type="INDIVIDUAL",
             source_dataset="briefings/NATIONWIDE_PPP_LOAN_FRAUD_RICO_AUDIT_2026.md",
             nexus_details={
-                "charges": "Federal loan ****raud in Case 2:21-cr-00812",
+                "charges": "Federal loan fraud in Case 2:21-cr-00812",
                 "diverted_funds": 9500000.00
             }
         )
@@ -851,7 +851,7 @@ class NonCAEntityExtractor:
             source_dataset="briefings/NATIONWIDE_PPP_LOAN_FRAUD_RICO_AUDIT_2026.md",
             nexus_details={
                 "address": "5858 W*** Rd, Houston, TX 770**",
-                "usage": "Commercial hub hosting multiple sham companies in Aqeel loan ****cate"
+                "usage": "Commercial hub hosting multiple sham companies in Aqeel loan syndicate"
             }
         )
 
@@ -955,7 +955,7 @@ class NonCAEntityExtractor:
                 "defendant": "David T. Hines",
                 "financial_exposure": 3900000.00,
                 "scheme": "Extraction of CARES Act funds; laundering into $318,000 Lamborghini Huracán and luxury real estate",
-                "address_clusters": ["1000 B*** Ave, Miami, FL", "200 S*** Blvd, Miami, FL"]
+                "address_clusters": ["1000 B*** Ave, Miami, FL", "200 S. B*** Blvd, Miami, FL"]
             }
         )
 
@@ -1029,7 +1029,7 @@ class NonCAEntityExtractor:
                 nexus_details={
                     "ppp_loan_amount": ppp_amt,
                     "address_note": note,
-                    "pipeline": "Out-of-state corporate holding / PPP loan ****cing"
+                    "pipeline": "Out-of-state corporate holding / PPP loan financing"
                 }
             )
 
@@ -1162,7 +1162,7 @@ class NonCAEntityExtractor:
                 "docket_number": "1:21-cr-00312",
                 "defendants": "Mark Dawkins et al.",
                 "financial_exposure": 3000000.00,
-                "scheme": "Multi-state stolen identity and loan ****ging ring",
+                "scheme": "Multi-state stolen identity and loan packaging ring",
                 "address_clusters": ["3340 P*** Rd NE, Atlanta, GA", "100 G*** Pkwy, Atlanta, GA"]
             }
         )

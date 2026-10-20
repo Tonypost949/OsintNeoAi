@@ -31,7 +31,7 @@ The L2T MEDIA PPP loan on **April 16, 2020**, is significant because it demonstr
 
 **4. Alignment of PPP timeline (April 2020 - March 2021) with Do grant steering timeline (Aug 2018 - July 2024):**
 
-The PPP loan ****riod (specifically April 2020 through at least early 2021 for initial rounds) falls directly **within and overlaps significantly** with Andrew Do's grant steering timeline (August 2018 - July 2024).
+The PPP loan period (specifically April 2020 through at least early 2021 for initial rounds) falls directly **within and overlaps significantly** with Andrew Do's grant steering timeline (August 2018 - July 2024).
 
 *   **Overlap Period:** April 2020 through early 2021, and continuing with ARPA grants (2021-2024).
 *   **Significance:** This temporal alignment means that while Andrew Do was actively steering grants and sole-source contracts (starting 2018 and continuing through 2024), entities closely associated with his office (like 2T Media) were simultaneously securing substantial federal PPP funds. Later, these same entities (2T Media, Saigon TV) also received steered ARPA grants, which are also federal funds distributed locally. This creates a continuous timeline where Do's political influence and the receipt of federal funds by his associated entities run concurrently, providing multiple avenues for potential financial misconduct involving public funds.
@@ -51,6 +51,6 @@ Based on the combined patterns, the following federal crimes could serve as pred
 *   **Conspiracy (18 U.S.C. § 371):**
     *   **Evidence:** The coordinated actions across multiple individuals and entities (Andrew Do, Chris Wangsaporn, 2T Media/Aaron Ngo, Tam Nguyen, various LLCs, Mercy House, GGCF, WCOC) to execute schemes involving grant steering, fraudulent PPP applications, and real estate transactions strongly suggest an agreement to commit these federal offenses.
 *   **False Statements (18 U.S.C. § 1001):**
-    *   **Evidence:** Aaron Ngo's denial of making the $8,100 campaign contribution suggests a potentially falsified record. Misrepresentations on PPP loan ****ions would also qualify.
+    *   **Evidence:** Aaron Ngo's denial of making the $8,100 campaign contribution suggests a potentially falsified record. Misrepresentations on PPP loan applications would also qualify.
 *   **Obstruction of Justice (18 U.S.C. § 1503, § 1505):**
     *   **Evidence:** The explicit blocking of the $6.6B qui tam submission by HUD OIG directly points to an attempt to obstruct a federal investigation related to federal funds and housing programs (Mercy House CHDO).

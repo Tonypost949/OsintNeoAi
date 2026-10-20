@@ -9,7 +9,7 @@ Coverage:
   2. Code Fence Delimiters, Encoding & Structural Hierarchy
   3. Register of Actions (ROA) 1..61 Exact Sequence, Completeness & Gaps/Duplicates
   4. Link & File Path Resolution in Index and All Artifacts
-  5. Cross-Document Numerical, Date, Case ****mber & Statutory Discrepancies
+  5. Cross-Document Numerical, Date, Case Number & Statutory Discrepancies
   6. Forensic Arithmetic & Statutory Exposure Calculations
   7. Exhaustive Feature-by-Feature Integrity (F1 through F15)
 """
@@ -251,10 +251,10 @@ class TestAdversarialLinkResolution(unittest.TestCase):
 
 
 class TestAdversarialCrossDocumentDiscrepancies(unittest.TestCase):
-    """Stress-test case ****bers, dates, dollar amounts, and statutory citations for discrepancies."""
+    """Stress-test case numbers, dates, dollar amounts, and statutory citations for discrepancies."""
 
     def test_case_number_integrity_across_corpus(self):
-        """Verify key case ****bers appear consistently in relevant files and Master Index."""
+        """Verify key case numbers appear consistently in relevant files and Master Index."""
         corpus = {p.name: load_file(p) for p in ALL_DOC_PATHS}
 
         case_numbers = [
@@ -274,9 +274,9 @@ class TestAdversarialCrossDocumentDiscrepancies(unittest.TestCase):
             for fname in expected_files:
                 if fname in corpus:
                     if case_no not in corpus[fname]:
-                        discrepancies.append(f"Case ****mber '{case_no}' missing from {fname}")
+                        discrepancies.append(f"Case number '{case_no}' missing from {fname}")
 
-        self.assertEqual(discrepancies, [], f"Case ****cies found:\n" + "\n".join(discrepancies))
+        self.assertEqual(discrepancies, [], f"Case number discrepancies found:\n" + "\n".join(discrepancies))
 
     def test_financial_figures_consistency(self):
         """Cross-check that critical dollar values are identically quoted across files."""

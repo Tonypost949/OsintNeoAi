@@ -510,7 +510,7 @@ class TestTier1FeatureCoverage(unittest.TestCase):
     # ----------------------------------------------------------------------------------
 
     def test_f3_01_ppp_property_overlap_detection(self):
-        """F3.1: Detect PPP loan ****ient owning real estate property (Vector 1)."""
+        """F3.1: Detect PPP loan recipient owning real estate property (Vector 1)."""
         nodes = [
             {"id": "ORG_CORRUPT_1", "type": "ORGANIZATION", "name": "Shadow Entity LLC", "risk_score": 85},
             {"id": "PROP_001", "type": "PROPERTY", "address": "17642 B*** Blvd"}
@@ -1141,7 +1141,7 @@ class TestTier3CrossFeatureCombinations(unittest.TestCase):
         self.assertEqual(ppp_leads[0]["severity"], "CRITICAL")
 
     def test_tier3_combo2_powerapps_intake_vault_search(self):
-        """Pipeline 2: Power Apps Intake (/api/submit-victim) -> Case ****ault -> Search Index Query."""
+        """Pipeline 2: Power Apps Intake (/api/submit-victim) -> Case Vault -> Search Index Query."""
         victim_name = "Dean Innocenzi"
         res = self.client.post("/api/submit-victim", data=json.dumps({
             "victim_name": victim_name,

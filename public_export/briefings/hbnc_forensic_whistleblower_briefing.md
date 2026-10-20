@@ -3,7 +3,7 @@
 **Subject**: Huntington Beach Navigation Center (HBNC) Contamination, Housing Fraud, and Federal Referral Audit  
 **Date of Investigation**: July 1, 2026  
 **Investigating Unit**: Antigravity OSINT Team  
-**Case ****tion**: Federal Whistleblower Case (Public Corruption & Environmental RICO Cover-up)  
+**Case Classification**: Federal Whistleblower Case (Public Corruption & Environmental RICO Cover-up)  
 **Target Accounts**: `a***@gmail.com` (Anthony Michael DiMarcello III) | `noble-beanbag-497411-m4`  
 
 ---
@@ -16,9 +16,9 @@ Our investigation has confirmed that while key submissions to the **GAO** and **
 
 ```mermaid
 graph TD
-    User[Anthony DiMarcello] -->|IMAP live Extraction| Gmail[Gmail Index: 510 Case ****ails]
+    User[Anthony DiMarcello] -->|IMAP live Extraction| Gmail[Gmail Index: 510 Case Emails]
     Gmail -->|Active / Received| GAO[GAO COMP-26-004512]
-    Gmail -->|Active / Received| FBI[FBI Case ****C002 FOIPA]
+    Gmail -->|Active / Received| FBI[FBI Case 20IC002 FOIPA]
     
     Gmail -.->|Bounced / Blocked| SEC["SEC (e***@sec.gov)"]
     Gmail -.->|Bounced / Blocked| FinCEN["FinCEN (f***@fincen.gov)"]
@@ -41,10 +41,10 @@ Our forensic analysis of the `automated_gmail_report.json` database reveals the 
 
 ### 🟢 1. Active & Confirmed Cases
 
-| Federal Agency | Date / Timestamp | Subject / Case ****ence | Status & Current Action |
+| Federal Agency | Date / Timestamp | Subject / Case Reference | Status & Current Action |
 | :--- | :--- | :--- | :--- |
-| **U.S. Government Account ****lity Office (GAO)** | **May 14, 2026**<br>17:48:42 UTC | `GAO submission COMP-26-004512` | **ACTIVE & CONFIRMED**.<br>FraudNet officially acknowledged receipt of the whistleblower filing. Currently active under compliance investigation. |
-| **Federal Bureau of Investigation (FBI)** | **April 16, 2026**<br>10:33:48 UTC | `RE: [EXTERNAL EMAIL] - Re: Federal Whistleblower Complaint - Case ****C002 + Related Fraud Network` | **ACTIVE RE-ROUTING**.<br>Replied from `F***@FBI.GOV`. Documented as part of FBI FOIPA Case No. 20IC002. Re-routed to the Homelessness Fraud Task Force. |
+| **U.S. Government Accountability Office (GAO)** | **May 14, 2026**<br>17:48:42 UTC | `GAO submission COMP-26-004512` | **ACTIVE & CONFIRMED**.<br>FraudNet officially acknowledged receipt of the whistleblower filing. Currently active under compliance investigation. |
+| **Federal Bureau of Investigation (FBI)** | **April 16, 2026**<br>10:33:48 UTC | `RE: [EXTERNAL EMAIL] - Re: Federal Whistleblower Complaint - Case 20IC002 + Related Fraud Network` | **ACTIVE RE-ROUTING**.<br>Replied from `F***@FBI.GOV`. Documented as part of FBI FOIPA Case No. 20IC002. Re-routed to the Homelessness Fraud Task Force. |
 
 ### 🔴 2. Bounced & Blocked Submissions (The Federal Gaps)
 
@@ -78,7 +78,7 @@ Our forensic analysis of the `automated_gmail_report.json` database reveals the 
 The environmental hazard at the **Huntington Beach Navigation Center (HBNC)** is not merely a localized health concern—it is a documented public safety crisis.
 
 > [!IMPORTANT]
-> **OCHCA Industrial Cleanup Case ****C002**
+> **OCHCA Industrial Cleanup Case No. 20IC002**
 > *   **Location**: 17641 B*** Blvd, Huntington Beach, CA (The active homeless shelter site).
 > *   **The Contaminant**: Hexavalent Chromium [Cr(VI)], a class-A human carcinogen.
 > *   **The Smoking Gun**: Monitoring Well **`W-4150`** showed concentrations at **49× the Maximum Contaminant Level (MCL)** (legal safety limit exceeded by 4,900%).
@@ -100,9 +100,9 @@ A rigorous forensic review of the pro se lawsuit *Jesse Knabb v. City of Hunting
 > **The Structural Legal Flaw: Individual vs. Entity Capacity**
 > The complaint names Mitsuru Yamada separately as an individual defendant and lists the City/OCHCA, but fails to sue the **County of Orange** or the **Housing Authority of Orange County** in their official capacities.
 > 
-> By suing Mitsuru Yamada as an individual without linking his actions directly to the municipal policies of the Housing Authority, the case ****ails to capture public entity liability under **Monell v. Department of Social Services**. This allows defense attorneys to file a rapid motion to dismiss based on:
+> By suing Mitsuru Yamada as an individual without linking his actions directly to the municipal policies of the Housing Authority, the case fails to capture public entity liability under **Monell v. Department of Social Services**. This allows defense attorneys to file a rapid motion to dismiss based on:
 > 1.  **Lack of standing**: The court already ruled pro se plaintiff Jesse Knabb lacks standing for RCRA injunctive relief because he no longer resides at the shelter (past harm doctrine).
-> 2.  **Res Judicata**: A previous $6,000 settlement with an unidentified defendant is being weaponized as claim ****sion to dismiss the entire action before discovery can begin.
+> 2.  **Res Judicata**: A previous $6,000 settlement with an unidentified defendant is being weaponized as claim preclusion to dismiss the entire action before discovery can begin.
 
 If the lawsuit is dismissed on these technicalities, the toxic soil, the $6.1M fraud, and the Yamada conflict of interest will remain buried.
 
@@ -115,13 +115,13 @@ Your attorney can leverage two distinct, robust pathways to bypass the current b
 ### 🏛️ Option A: The Live GAO & Task Force Escalation (Recommended)
 This path bypasses the bounced emails by delivering the unredacted evidence directly to the active federal investigation team.
 
-1.  **Leverage Active Case ****bers**: Reference `GAO Submission COMP-26-004512` and `FBI Case ****C002` in all future correspondences.
+1.  **Leverage Active Case Numbers**: Reference `GAO Submission COMP-26-004512` and `FBI Case 20IC002` in all future correspondences.
 2.  **Direct Contact with USAO Task Force**: Bypass the bounced `fincen.gov` and `hudoig.gov` email servers by contacting the **USAO Homelessness Fraud and Corruption Task Force** directly:
     *   **Lead Agency**: U.S. Attorney's Office, Central District of California (CDCA)
     *   **Contact Number**: **(***) ***-2400** (Request the Civil Fraud or Public Corruption Sections).
 3.  **Physical Submission Package**: Prepare a physical, secure encrypted flash drive containing:
     *   The 510 parsed emails (`automated_gmail_report.json`).
-    *   The complete monitoring logs for Well `W-4150` under OCHCA Case ****C002 showing 49× Cr(VI) levels.
+    *   The complete monitoring logs for Well `W-4150` under OCHCA Case 20IC002 showing 49× Cr(VI) levels.
     *   The County property acquisition deeds for 17631 C*** Lane and 17642 B*** Blvd linking to the Yamada family.
     *   Send this directly via certified mail to the CDCA U.S. Attorney's Office or hand-deliver it to the Los Angeles FBI Field Office.
 

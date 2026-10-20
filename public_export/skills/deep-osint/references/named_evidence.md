@@ -2,7 +2,7 @@
 
 ## Oliver Chi
 - Ordered Behzad Zamanian to secretly search Michael Gates' emails (Tier A)
-- Federal sexual harassment lawsuit (case ****sing – Tier B)
+- Federal sexual harassment lawsuit (case number missing – Tier B)
 - Unwanted hugging of executive assistant (Tier B)
 
 ## Michael Gates

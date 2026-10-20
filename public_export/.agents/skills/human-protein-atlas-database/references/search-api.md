@@ -10,7 +10,7 @@ and functional classifications.
 ## 1. Core Syntax Overview
 
 The HPA search engine follows a standard key-value pair format. All queries are
-**case ****tive**.
+**case-insensitive**.
 
 **IMPORTANT:** Terms with spaces do **not** need to be enclosed in double
 quotes (e.g. `protein_class:Transcription factors`), and adding quotes may

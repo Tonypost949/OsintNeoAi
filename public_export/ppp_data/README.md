@@ -10,7 +10,7 @@ Source: [SBA PPP FOIA Public Dataset](https://data.sba.gov/dataset/ppp-foia) (Se
 
 | File | Description |
 |------|-------------|
-| `ppp_117**_warner.csv` | Filtered PPP loan ****ords (18 rows) |
+| `ppp_117**_warner.csv` | Filtered PPP loan records (18 rows) |
 | `ppp_117**_warner_bq.json` | Newline-delimited JSON for BigQuery import |
 | `ppp_bq_schema.json` | BigQuery table schema definition |
 | `load_to_bigquery.sh` | One-command BigQuery load script |
@@ -18,7 +18,7 @@ Source: [SBA PPP FOIA Public Dataset](https://data.sba.gov/dataset/ppp-foia) (Se
 ## Summary
 
 - **18 loans** across 16 unique entities
-- **Total loan ****ount:** $1,112,211.96
+- **Total loan amount:** $1,112,211.96
 - **Total forgiveness:** $1,108,811.84 (99.7% forgiveness rate)
 - **Date range:** April 2020 – March 2021
 
@@ -42,7 +42,7 @@ Target table: `noble-beanbag-497411-m4:ppp_rico.ppp_117**_warner`
    - MORECARE PALLIATIVE & HOSPICE INC (Suite 210) — two loans, $625,000 total
    - WALLACE L CHOW, CPA / WALLACE CHOW (Suite 221) — two loans, $9,998 total
    - HOUGH CHIROPRACTIC, INC / HOUGH CHIROPRACTIC INC. (Suite 122) — two loans, $41,050 total
-3. **99.7% forgiveness rate** — nearly every loan ****iven in full (15 of 18 received MORE than they borrowed)
+3. **99.7% forgiveness rate** — nearly every loan forgiven in full (15 of 18 received MORE than they borrowed)
 4. **9 entities reported only 1 employee** yet received loans
 5. **4 "new businesses" (≤2 years old)** received $101,742 combined
 6. **INGRAM AMERICA LLC** — NAICS code 999990 (unclassified), new business, 3 employees, $36,402 loan

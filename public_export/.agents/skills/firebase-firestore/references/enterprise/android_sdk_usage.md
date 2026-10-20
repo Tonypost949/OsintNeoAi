@@ -85,7 +85,7 @@ ______________________________________________________________________
 > Server-side execution via pipelines is the superior, non-negotiable core
 > architecture for Enterprise instances.
 
-### Strict Rules & Account ****lity
+### Strict Rules & Accountability
 
 1. **Mandatory Execution Engine**: Every repository lookup requiring related
    data mapping, textual relevance scoring, or multi-document counting MUST be

@@ -43,11 +43,11 @@ To clear the way for public-private development without incurring high remediati
 
 ```
   [July 13, 2020]
-  Starpoint acquires 213 N*** St ($685K)
+  Starpoint acquires 213 N. G*** St ($685K)
         │
         ▼
   [August 21, 2020]
-  OCHCA Case ****C002 Fraudulent Closure
+  OCHCA Case No. 20IC002 Fraudulent Closure
   (Well W-4150 buried under thin asphalt cap)
         │
         ▼
@@ -61,12 +61,12 @@ To clear the way for public-private development without incurring high remediati
 
 ### 2.2 Chronological Breakdown
 
-*   **July 13, 2020:** **Starpoint Site Acquisition:** Under direction of Covenant House board trustee and Starpoint Properties CEO **Paul Daneshrad**, the residential property at **213 N*** St, Anaheim** is acquired under an obscured land trust for **$685,000**.
+*   **July 13, 2020:** **Starpoint Site Acquisition:** Under direction of Covenant House board trustee and Starpoint Properties CEO **Paul Daneshrad**, the residential property at **213 N. G*** St, Anaheim** is acquired under an obscured land trust for **$685,000**.
 *   **August 2020:** **Forced Civil Eviction (Gilbert St):** Starpoint executes rapid eviction proceedings against low-income tenant *Jose Nunez* to clear the property for development.
-*   **August 21, 2020:** **OCHCA CASE ****C002 FALSE CLOSURE:** The Orange County Health Care Agency (OCHCA) issues a conditional environmental case ****sure for the Beach Boulevard Project (Global ID: `T10000018579`, Case: `20IC002`).
+*   **August 21, 2020:** **OCHCA CASE No. 20IC002 FALSE CLOSURE:** The Orange County Health Care Agency (OCHCA) issues a conditional environmental case closure for the Beach Boulevard Project (Global ID: `T10000018579`, Case: `20IC002`).
     *   **The Fraud:** Authorized and signed off by former OCHCA Director **Clayton Chau**, Supervisor **Tamara Escobedo**, and Program Manager **Anthony Martinez**, the closure certifies the toxic industrial site as a "sealed paved lot for temporary housing tents."
     *   **The Concealed Hazard:** The closure notes record **"No cleanup actions have been reported."** Crucially, Well **W-4150** is covered with a standard visco-elastic asphalt cap rather than being sealed with regulatory concrete grouting, leaving an active soil-vapor pathway open.
-*   **November 2020:** **Forced Civil Eviction (East St):** Starpoint files parallel eviction proceedings to clear the parcel at **632 N*** St, Anaheim** (tenant *Barnes*), completing the property clearance phase of the Anaheim real estate corridor.
+*   **November 2020:** **Forced Civil Eviction (East St):** Starpoint files parallel eviction proceedings to clear the parcel at **632 N. E*** St, Anaheim** (tenant *Barnes*), completing the property clearance phase of the Anaheim real estate corridor.
 *   **December 2020:** **Circular Lease-Back Execution:** The cleared Anaheim properties are leased back to Covenant House California at artificially inflated commercial lease rates, funded entirely by municipal homeless relief grants. This circular transaction extracts public capital directly into Daneshrad’s private corporate accounts.
 
 ---
@@ -113,7 +113,7 @@ The electronic cover-up expanded as regional server vulnerabilities allowed admi
     *   **Class Action Siting:** Class action lawsuit *M.G. v. Therapymatch, Inc.* is filed, proving Headway’s integration of Google Analytics tracking pixels to scrape mental health queries.
     *   **Controlled Diversion:** Headway acknowledges "heightened scrutiny around controlled substances" as local drug rings exploit weak identity verifications to siphon ADHD Schedule II amphetamines (Adderall) into local black markets (`CASE-061`).
 *   **March 15, 2025:** **Huntington Beach Ransomware Attack:** A massive ransomware attack hits the City of Huntington Beach, forcing municipal networks offline and exposing sensitive data (`CASE-004`).
-*   **March 15, 2025:** **Dark Web Credential Leak:** A dark-web scanner identifies **400+ active public-safety credentials** belonging to `hbpd.org` case ****gers and officers leaked on Dehashed (`CASE-005`). MX records confirm Microsoft 365 Exchange Online endpoint hosting (`CASE-006`).
+*   **March 15, 2025:** **Dark Web Credential Leak:** A dark-web scanner identifies **400+ active public-safety credentials** belonging to `hbpd.org` case managers and officers leaked on Dehashed (`CASE-005`). MX records confirm Microsoft 365 Exchange Online endpoint hosting (`CASE-006`).
 *   **May 3, 2025:** **WAYBACK MACHINE EDRNET GUID LEAK:**
     *   **The Leak:** Cyber forensic monitoring uncovers an active, unauthenticated session link archived on the Wayback Machine, dated May 3, 2025.
     *   **The Session:** The link exposes administrative session GUID **`74c56b82-432c-4be9-8729-d55a3179189b`**.
@@ -158,8 +158,8 @@ Below is the authoritative chronological reference table mapping all 18 major ti
 | **1904** | HIST-01 | Wintersburg Japanese-American settlement founded. | Historical Settlers | N/A (Historical Root) |
 | **May 1942** | HIST-02 | Executive Order 9066 displacement and property seizures. | Federal Government / Locals | US Constitutional violations |
 | **Sept 15, 1979** | HIST-03 | Chen-Yamada Reciprocal Easement Agreement (UPX1978058). | Yamada family, Chen family | CA Civil Property Code |
-| **July 13, 2020** | EV-01 | Paul Daneshrad (Starpoint) acquires 213 N*** St. | Starpoint Properties, LLC | Real estate asset structuring |
-| **Aug 21, 2020** | ENV-01 | OCHCA Case ****C002 False Environmental Closure. | OCHCA (Chau, Escobedo, Martinez) | 18 U.S.C. § 1519 (Falsification) |
+| **July 13, 2020** | EV-01 | Paul Daneshrad (Starpoint) acquires 213 N. G*** St. | Starpoint Properties, LLC | Real estate asset structuring |
+| **Aug 21, 2020** | ENV-01 | OCHCA Case No. 20IC002 False Environmental Closure. | OCHCA (Chau, Escobedo, Martinez) | 18 U.S.C. § 1519 (Falsification) |
 | **Nov 2020** | EV-02 | Eviction of Jose Nunez (Gilbert St) & tenant Barnes (East St). | Starpoint Properties, LLC | CA Tenant Protection Act |
 | **Dec 2020** | FIN-01 | Inflated lease-backs of Anaheim properties executed. | Covenant House California | 18 U.S.C. § 1341 (Mail/Wire Fraud) |
 | **Jan-Feb 2021** | WH-01 | Relator files fraud disclosures with OCSD IA and EPA OIG. | OCSD Internal Affairs, EPA OIG | 31 U.S.C. § 3730(h) (Relator) |

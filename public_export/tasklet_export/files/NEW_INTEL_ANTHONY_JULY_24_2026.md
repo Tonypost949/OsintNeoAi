@@ -8,9 +8,9 @@
 
 ## 1. ADDRESS CLARIFICATION — ANDREW FALK TWO PROPERTIES
 
-**1133 N*** Ave, Los Angeles, CA 900**** — Andrew Falk's CURRENT personal residence
+**1133 N. N*** Ave, Los Angeles, CA 900**** — Andrew Falk's CURRENT personal residence
 
-**1133 N Formosa Ave, West Hollywood, CA 900**** — The rental property where the rent-to-own fraud against Dr. Ann Verma occurred. Subject of July 4, 2026 Notice of Rescission.
+**1133 N. F*** Ave, West Hollywood, CA 900**** — The rental property where the rent-to-own fraud against Dr. Ann Verma occurred. Subject of July 4, 2026 Notice of Rescission.
 
 Both addresses are valid and connected to Andrew Falk. The Normandie address is where Falk lives; the Formosa address is where he committed the fraud.
 
@@ -24,7 +24,7 @@ The property records and contract details for Andrew Falk's West Hollywood unit 
 - The unit was leased with severe, undisclosed material defects that breached the warranty of habitability, specifically containing visible blood (a biohazard), mold, and fire safety hazards.
 - Under West Hollywood Municipal Code § 17.52.090, knowingly renting a unit with these biohazards and fire risks constitutes severe tenant harassment.
 - A formal demand for full restitution was drafted requiring Falk to return the upfront option fee, prepaid rent, security deposits, and relocation costs.
-- Falk used a shadow email address (d***@me.com) and operated under the guise of the "1133 N Formosa Ave Homeowners Association," which public records show is actually an "Inactive" corporate entity.
+- Falk used a shadow email address (d***@me.com) and operated under the guise of the "1133 N. F*** Ave Homeowners Association," which public records show is actually an "Inactive" corporate entity.
 - Documentation explicitly instructs Dr. Ann Verma not to rely solely on the shadow email, but to pull the official registered address tied to Andrew Falk directly from the LA County Assessor's deed and send the notice via USPS Certified Mail.
 
 ---
@@ -101,10 +101,10 @@ Dr. Ann Verma, an ethical psychiatrist advocating for natural healing over heavy
 The Drive index contains dozens of additional TruthFinder reports by address, including:
 - 10042 B*** Dr (574 KB)
 - 121 M*** St (68 KB)
-- 1330 N Custer St (669 KB)
+- 1330 N. C*** St (669 KB)
 - 16381 W*** Ln (580 KB)
 - 17841 L*** St (73 KB)
-- 1814 W Carlton Pl (657 KB)
+- 1814 W. C*** Pl (657 KB)
 - 194** Rue De Valore (338 KB)
 - 3207 O*** Rd (52 KB)
 - 33113 W*** St (743 KB)

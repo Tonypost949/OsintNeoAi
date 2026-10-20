@@ -101,7 +101,7 @@ def export_all():
         .turn {{ background: #1e293b; border-radius: 12px; padding: 20px; margin-bottom: 25px; border: 1px solid #334155; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); }}
         .turn-header {{ display: flex; justify-content: space-between; border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 15px; }}
         .turn-number {{ font-weight: bold; color: #38bdf8; font-size: 16px; }}
-        .timestamp {{ font-size: 12px; color: #647**b; }}
+        .timestamp {{ font-size: 12px; color: #64748b; }}
         .user-block {{ background: #0f172a; border-left: 4px solid #38bdf8; padding: 14px; border-radius: 6px; margin-bottom: 15px; font-family: monospace; white-space: pre-wrap; color: #e2e8f0; font-size: 14px; }}
         .agent-block {{ background: #182234; border-left: 4px solid #4ade80; padding: 16px; border-radius: 6px; white-space: pre-wrap; font-size: 14px; color: #f1f5f9; }}
         .label {{ font-weight: bold; margin-bottom: 6px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }}

@@ -10,7 +10,7 @@ Review R1 task backlog updates in data/tasks.json, TASKS.md, and cli/data/tasks.
 - Original parent: 2556ff43-f8bc-41fe-8487-738b76d80c8d
 - Milestone: M5 / Gate 1
 - Instance: 1 of 1
-- Current dispatch parent: e68e15f5-4a37-405f-8e73-c5b576**b6cf (orchestrator_13)
+- Current dispatch parent: e68e15f5-4a37-405f-8e73-c5b57613b6cf (orchestrator_13)
 - Current milestone: R1 Backlog Review (TASK-069, 070, 072, 074, 076, 078)
 
 ## 🔒 Key Constraints
@@ -21,7 +21,7 @@ Review R1 task backlog updates in data/tasks.json, TASKS.md, and cli/data/tasks.
 - If ANY integrity violation is found, verdict MUST be REQUEST_CHANGES
 
 ## Current Parent
-- Conversation ID: e68e15f5-4a37-405f-8e73-c5b576**b6cf
+- Conversation ID: e68e15f5-4a37-405f-8e73-c5b57613b6cf
 - Updated: 2026-09-10T19:15:00Z
 
 ## Review Scope

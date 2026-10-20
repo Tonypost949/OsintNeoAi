@@ -93,20 +93,20 @@
 
 ### Finding 2023-001 — Books and Records (Material Weakness)
 - Original trial balance and Schedule of Expenditures of Federal Awards (SEFA) not prepared on timely basis
-- **Recommendation**: Reconcile all account ****nces and prepare accurate SEFA
+- **Recommendation**: Reconcile all account balances and prepare accurate SEFA
 
 ### Finding 2023-002 — Grant Revenue and Refundable Advances (Significant Deficiency)
 - **Condition**: Unspent funds of unconditional grants/contributions with donor restrictions recorded as **refundable advances (liabilities)** instead of **restricted grant/contribution revenue**
 - Cost-reimbursement grant recorded as revenue **prior to costs being incurred**
 - **Effect**: Revenues **understated** and liabilities **overstated** by **$1,517,679**
-- **Recommendation**: Implement controls for proper period and account ****tion of grant revenue
+- **Recommendation**: Implement controls for proper period and account classification of grant revenue
 
 ---
 
 ## CEO COMPENSATION (from OSINT report)
 - Larry Haynes: ~$153K-$169K (Mercy House) + ~$16K-$17K other comp + ~$30K-$42K (CHDO)
 - **Total estimated: ~$199K-$228K/year combined**
-- OC county contract rate: >$100/hr for Haynes vs. $23/hr for front-line case ****gers
+- OC county contract rate: >$100/hr for Haynes vs. $23/hr for front-line case managers
 
 ---
 
@@ -114,7 +114,7 @@
 
 ### Potential FCA/Grant Fraud Indicators:
 1. **$1.5M revenue understatement** (Finding 2023-002) — grant revenue recognized before qualifying expenditures
-2. **33% concentration in County of Orange** — single-source dependency, minimal competitive account ****lity
+2. **33% concentration in County of Orange** — single-source dependency, minimal competitive accountability
 3. **Permanent housing performance under 30% mandate** — contract renewed despite "underperforming" status
 4. **Dual compensation from CHDO** — conflict of interest in real estate/tax credit deals
 5. **No competitive bidding** evidence on $36M+ OC contracts since 2009

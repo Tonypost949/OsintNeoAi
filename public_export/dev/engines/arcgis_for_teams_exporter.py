@@ -197,7 +197,7 @@ def generate_esri_feature_collection(features, output_path):
                 {"name": "APN", "type": "esriFieldTypeString", "alias": "APN"},
                 {"name": "Severity", "type": "esriFieldTypeString", "alias": "Severity"},
                 {"name": "Description", "type": "esriFieldTypeString", "alias": "Description"},
-                {"name": "Case_Ref", "type": "esriFieldTypeString", "alias": "Case ****ence"}
+                {"name": "Case_Ref", "type": "esriFieldTypeString", "alias": "Case Reference"}
             ]
         },
         "featureSet": {

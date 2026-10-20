@@ -15,7 +15,7 @@ Provides exhaustive, non-trivial cross-feature pairwise integration tests across
 - Test 10: F6 + F7   (Image Preprocessing & CLAHE Enhancement -> Neural Offline OCR Engine)
 - Test 11: F8 + F12  (Timestamp Normalizer -> 6-Category Entity Extractor Contextual Association)
 - Test 12: F9 + F12  (Financial Normalizer -> 6-Category Entity Extractor Payer/Payee Mapping)
-- Test 13: F10 + F12 (Legal Case ****izer -> 6-Category Entity Extractor Judicial/Agency Mapping)
+- Test 13: F10 + F12 (Legal Case Normalizer -> 6-Category Entity Extractor Judicial/Agency Mapping)
 - Test 14: F11 + F12 (Communication Metadata Normalizer -> Entity Extractor Header Disambiguation)
 - Test 15: F12 + F13 (6-Category Entity Extractor -> Phonetic & Contextual DSU Entity Resolver)
 - Test 16: F13 + F14 (Phonetic Entity Resolver -> SQLite Relational Vault 3NF Database)
@@ -336,8 +336,8 @@ class TestTier3ExtractionAndNormalizers:
         financials = extract_financials(res.text)
         
         assert any(f.amount_float == 320000000.0 and f.amount_cents == 32000000000 for f in financials)
-        assert any(f.amount_float == 96000000.0 and f.amount_cents == (***) ***-0000 for f in financials)
-        assert any(f.amount_float == 50000000.0 and f.amount_cents == (***) ***-0000 for f in financials)
+        assert any(f.amount_float == 96000000.0 and f.amount_cents == 9600000000 for f in financials)
+        assert any(f.amount_float == 50000000.0 and f.amount_cents == 5000000000 for f in financials)
 
     def test_comb_09_f5_f10_digital_extractor_to_case_normalizer(self, tmp_path: Path):
         """
@@ -446,7 +446,7 @@ class TestTier3EntityResolutionCombinations:
 
     def test_comb_13_f10_f12_case_normalizer_to_entity_judicial_mapping(self):
         """
-        [F10 + F12] Legal Case ****izer integrated with Entity Extractor.
+        [F10 + F12] Legal Case Normalizer integrated with Entity Extractor.
         Verifies docket numbers associate with judicial officer and agency entities.
         """
         record = ExtractedRecord(
@@ -457,7 +457,7 @@ class TestTier3EntityResolutionCombinations:
             mime_type="text/plain",
             normalized_date="2021-12-22",
             raw_date_string="December 22, 2021",
-            extracted_text="In Case ****DCJC, Judge Carmen Luege issued a stay order.",
+            extracted_text="In Case No. 30-2021-01201327-CL-UD-CJC, Judge Carmen Luege issued a stay order.",
             ocr_engine_used="text_reader",
             financial_amounts=[],
             case_numbers=["30-2021-01201327-CL-UD-CJC"],

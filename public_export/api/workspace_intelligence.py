@@ -68,7 +68,7 @@ TOXIC_ANCHORS = [
         "lat": 33.6761,
         "lon": -117.7314,
         "apn": "N/A - Military Reservation",
-        "regulatory_id": "EPA ID CA(***) ***-3208 / DTSC 30440006",
+        "regulatory_id": "EPA ID CA6170023208 / DTSC 30440006",
         "contaminants": ["Trichloroethylene (TCE)", "Tetrachloroethylene (PCE)", "VOCs"],
         "max_concentration": "Regional 3-mile VOC groundwater migration plume",
         "risk_level": "SUPERFUND_REGIONAL",

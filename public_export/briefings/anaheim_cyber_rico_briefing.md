@@ -19,31 +19,31 @@ Through the cross-reference of corporate records, municipal scan data, and civil
 
 Our investigation has successfully unmasked the property titles and eviction timelines for two high-value Anaheim real estate nodes, establishing a circular transaction loop.
 
-### Node A: 213 N*** St, Anaheim CA
+### Node A: 213 N. G*** St, Anaheim CA
 *   **Property Profile:** Last sold on July 13, 2020, for $685,000.  
     Raw Property URL: https://www.redfin.com/CA/Anaheim/213-N-Gilbert-St-92801/home/3314019
 *   **Unmasked Owner Entity:** **Gilbert Property Trust (Daneshrad Node)**
 *   **Operational Management:** Managed under a proxy entity controlled by **Starpoint Properties** (Paul Daneshrad’s firm). Transaction records show a circular ownership loop where Starpoint Properties purchased the asset from a residential shell entity and transferred it directly into the Gilbert Property Trust structure to coincide with the initial "Relief Fund" cash placement windows.
 *   **Eviction Target:** Jose Nunez
-*   **Docket Reference:** *Gilbert Property Trust v. Nunez*, Case ****42CL
+*   **Docket Reference:** *Gilbert Property Trust v. Nunez*, Case No. 30-2021-0118942-CL
 *   **Eviction Date:** March 12, 2021
 *   **Forensic Significance:** This eviction occurred during the height of the PPP distribution window. Jose Nunez was targeted for a swift eviction to clear title on the residential node, preparing it for asset syndication and equity-stripping maneuvers.
 
-### Node B: 632 N*** St, Anaheim CA (Covenant House California)
+### Node B: 632 N. E*** St, Anaheim CA (Covenant House California)
 *   **Property Profile:** Registered commercial/residential facility operating as a 25-bed emergency youth shelter.  
     Raw Property URL: https://www.redfin.com/CA/Anaheim/632-N-East-St-92805/home/3318182
 *   **Corporate Entity:** Covenant House California (EIN: 13-3391210)
 *   **Federal Funding Conduits (PPP Node):**
-    *   **Loan ****ount:** $1,976,026.00
+    *   **Loan Amount:** $1,976,026.00
     *   **Forgiven Amount:** $1,998,926.25 (Principal + Interest)
     *   **Status:** Fully Forgiven / Paid in Full
 *   **Eviction Target:** Barnes
-*   **Docket Reference:** *Covenant House California v. Barnes*, Case ****42CL
+*   **Docket Reference:** *Covenant House California v. Barnes*, Case No. 30-2021-0118342-CL
 *   **Eviction Date:** March 24, 2021
 *   **The Daneshrad Double-Node Connection:**
     Paul Daneshrad occupies a dual role that serves as the bridge between these nodes:
-    1.  **Founder & CEO of Starpoint Properties**, which controls the Gilbert Property Trust at 213 N*** St.
-    2.  **Board of Directors / Advisory Board Member of Covenant House California**, which operates the facility at 632 N*** St.
+    1.  **Founder & CEO of Starpoint Properties**, which controls the Gilbert Property Trust at 213 N. G*** St.
+    2.  **Board of Directors / Advisory Board Member of Covenant House California**, which operates the facility at 632 N. E*** St.
 
 ```mermaid
 graph TD
@@ -54,8 +54,8 @@ graph TD
     
     subgraph Asset Nodes
         SP -->|Controls Proxy| GPT[Gilbert Property Trust]
-        GPT -->|Owns Node A| G[213 N*** St]
-        CHC -->|Operates Node B| E[632 N*** St]
+        GPT -->|Owns Node A| G[213 N. G*** St]
+        CHC -->|Operates Node B| E[632 N. E*** St]
     end
     
     subgraph Federal Funding & Eviction Nexus
@@ -76,7 +76,7 @@ This 12-day window represents a highly synchronized operational pattern:
 1.  **Funding Influx:** Covenant House California received a massive federal PPP injection of $1,976,026.00, which was subsequently 100% forgiven.
 2.  **Asset Conversion:** Under Daneshrad's oversight, these non-profit funds were offset against operating expenses, freeing up capital to flow through Starpoint-controlled real estate conduits.
 3.  **Title Clearance:** Gilbert Property Trust and Covenant House California executed simultaneous "title-clearing" evictions to prepare both residential and commercial structures for refinancing, securing high-value equity from the cash-rich properties.
-4.  **Circular Integration:** The capital was successfully integrated back into commercial acquisitions, including Anaheim assets like 10881 M*** St (Raw Property URL: https://www.redfin.com/CA/Anaheim/10881-Mac-St-92804/home/3419084) and Fullerton nodes like 1000 N*** Blvd (Raw Property URL: https://www.redfin.com/CA/Fullerton/1000-N-Harbor-Blvd-92832/home/3353429).
+4.  **Circular Integration:** The capital was successfully integrated back into commercial acquisitions, including Anaheim assets like 10881 M*** St (Raw Property URL: https://www.redfin.com/CA/Anaheim/10881-Mac-St-92804/home/3419084) and Fullerton nodes like 1000 N. H*** Blvd (Raw Property URL: https://www.redfin.com/CA/Fullerton/1000-N-Harbor-Blvd-92832/home/3353429).
 
 ---
 
@@ -90,7 +90,7 @@ Using python-based data analytics across the merged datasets, we computed both l
 *   **Exposed Endpoints vs. Total PPP Dollar Amount:**
     *   **Pearson Correlation Coefficient ($r$):** `0.9738` (Extremely Strong Linear Correlation)
     *   **Spearman Rank Correlation Coefficient ($r_s$):** `0.2352` (Weak-to-Moderate Ordinal Correlation)
-*   **Exposed Endpoints vs. Total PPP Loan ****ount:**
+*   **Exposed Endpoints vs. Total PPP Loan Count:**
     *   **Pearson Correlation Coefficient ($r$):** `0.9083` (Extremely Strong Linear Correlation)
     *   **Spearman Rank Correlation Coefficient ($r_s$):** `0.2478` (Weak-to-Moderate Ordinal Correlation)
 
@@ -102,7 +102,7 @@ The wide gap between the Pearson ($r = 0.97$) and Spearman ($r_s = 0.23$) coeffi
 ### 3. Merged State-by-State Forensic Matrix
 Below is the merged statistical matrix of the 39 states tracked in our pipeline, ordered by total PPP dollar amount:
 
-| State | Exposed Endpoints | Total Scans | Vuln Rate | Total PPP Amount | Loan ****ount | Forgiven Amount |
+| State | Exposed Endpoints | Total Scans | Vuln Rate | Total PPP Amount | Loan Count | Forgiven Amount |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **CA** | 495 | 495 | 100.00% | **$10,344,405.60** | 52 | $9,227,872.38 |
 | **AK** | 26 | 26 | 100.00% | **$1,577,121.00** | 4 | $1,591,838.39 |

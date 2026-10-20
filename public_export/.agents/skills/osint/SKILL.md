@@ -14,13 +14,13 @@ This skill guides the selection and deployment of open-source intelligence (OSIN
 | Tool | Capability & Investigation Purpose | Live Endpoint / Method |
 | :--- | :--- | :--- |
 | **Zehef** | Cross-checks email registration across 18+ social media platforms and initial breach indicators. | `https://osintcabal.org/livecenter/zehef.html` |
-| **Holehe** | Deep social media account ****tion across 120+ sites without notifying target. | `https://osintcabal.org/livecenter/holehe.html` |
+| **Holehe** | Deep social media account detection across 120+ sites without notifying target. | `https://osintcabal.org/livecenter/holehe.html` |
 | **Mailsleuth** | Comprehensive social presence scanner by email. | `https://osintcabal.org/livecenter/mailsleuth.html` |
 | **Mailcat** | Scrapes for username handles matching domain aliases. | `https://osintcabal.org/livecenter/mailcat.html` |
 | **Email Validator** | Verifies MX records, server responsiveness, SMTP handshakes, and creation metadata. | `https://osintcabal.org/livecenter/emailvalidator.html` |
 | **Eyes** | Advanced social reconnaissance tool for aggregating linked email identities. | `https://osintcabal.org/livecenter/eyes.html` |
 | **Hashtray** | Identifies Gravatar profiles and MD5 hashes associated with email addresses. | `https://osintcabal.org/livecenter/hashtray.html` |
-| **Blackbird** | Executes multi-platform email and account ****tion modules. | `https://osintcabal.org/livecenter/blackbird.html` |
+| **Blackbird** | Executes multi-platform email and account correlation modules. | `https://osintcabal.org/livecenter/blackbird.html` |
 | **Hunter.io** | Domain-based corporate email pattern discovery and employee address extraction. | `https://osintcabal.org/livecenter/Hunterio.html` |
 | **Proton Intelligence** | Reconnaissance on ProtonMail keys, creation date ranges, and public PGP keys. | `https://osintcabal.org/livecenter/protonintelligence.html` |
 
@@ -46,7 +46,7 @@ This skill guides the selection and deployment of open-source intelligence (OSIN
 
 | Tool | Capability & Investigation Purpose | Live Endpoint / Method |
 | :--- | :--- | :--- |
-| **Have I Been Pwned** | Queries HIBP v3 API to detect account ****ment in public data breaches. | `https://osintcabal.org/livecenter/cabalbreach-haveibeenpwned.html` |
+| **Have I Been Pwned** | Queries HIBP v3 API to detect account involvement in public data breaches. | `https://osintcabal.org/livecenter/cabalbreach-haveibeenpwned.html` |
 | **Hudson Rock (Cavalier)** | Real-time database of compromised enterprise credentials harvested by info-stealers. | `https://osintcabal.org/livecenter/hudsonrock.html` |
 | **Chiasmodon** | OSINT credential and asset scanner aggregating multi-breach exposures. | `https://osintcabal.org/livecenter/cabalbreach-chiasmodon.html` |
 | **HuntPastebin** | Scrapes Pastebin, GitHub Gists, and text drops for sensitive query leaks. | `https://osintcabal.org/livecenter/huntpastebin.html` |

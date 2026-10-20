@@ -96,7 +96,7 @@ Filter datasets using the following arguments:
 -   `--biological-condition` (biological condition or source)
 -   `--data-source` (source of data, e.g., "ENCODE")
 -   `--has-pvalue` ("true" or "false")
--   `--identifier` (e.g., "GSE601**")
+-   `--identifier` (e.g., "GSE60130")
 -   `--jaspar-id` (JASPAR database profile matrix ID)
 -   `--model` (prediction model)
 -   `--summary` (summary filter)

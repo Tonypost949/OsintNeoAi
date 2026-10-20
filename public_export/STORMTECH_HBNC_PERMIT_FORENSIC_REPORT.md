@@ -5,7 +5,7 @@
 **Report Date:** 2026-10-02  
 **Classification:** Federal Relator Work Product / Qui Tam Evidence  
 **Source Files:** 
-- `C:\EVIDENCE_LOCKER_MASTER\20_ANALYSIS\db66e1e0-b949-11f1-8e00-dbd4e67e7847.pdf` (SHA256: 5b4f0cd753c96c96fa414**db970**c8077e710d2c466644ac6a1d96e961**d6)
+- `C:\EVIDENCE_LOCKER_MASTER\20_ANALYSIS\db66e1e0-b949-11f1-8e00-dbd4e67e7847.pdf` (SHA256: 5b4f0cd753c96c96fa41468db97001c8077e710d2c466644ac6a1d96e96109d6)
 - `C:\OsintNeoAi\evidence\stormtech_legal_permit_index.json` (226 permits)
 - `C:\Users\Amd949609\Downloads\Cameron Lane Navigation Center- Contract and Permit Record Review.pdf`
 - Laserfiche Docs: 5406552, 6386715; Legistar 8.03.20
@@ -97,7 +97,7 @@ Per `Cameron Lane Navigation Center- Contract and Permit Record Review.pptx` Sli
 2. **PWE2020-304 & PWE2022-0046** — Encroachment permit applications, issued permits, plans, conditions, final records
 3. **Resolution 2019-22** — Staff reports, contracts, emergency findings, bid/sole-source records, change orders
 4. **Building Permits** — B2020-005184, B2020-005914, B2020-005996 and related MEP permit attachments
-5. **Abandoned Water Well** — Plan references well at "400 ft North of Newman Ave, 25 ft West of Cameron St" requiring OCHCA coordination (***) ***-6287) for destruction compliance — **NEVER EXECUTED**
+5. **Abandoned Water Well** — Plan references well at "400 ft North of Newman Ave, 25 ft West of Cameron St" requiring OCHCA coordination ((***) ***-6287) for destruction compliance — **NEVER EXECUTED**
 
 ---
 
@@ -122,7 +122,7 @@ Per `Cameron Lane Navigation Center- Contract and Permit Record Review.pptx` Sli
 2. **Michael Baker International** — StormTech MC-3500 design calculations, chamber layout, manifold sizing, as-builts
 3. **AESCO Geotechnical** — Report #20200305-7053 full lab data (Eurofins Calscience WO), not just summary
 4. **Eurofins Calscience** — All 86 soil sample / 3 groundwater sample raw data packages (Chain of Custody)
-5. **OCHCA Environmental Health** — Well W-4150 file, destruction waiver justification, Case ****C002 complete record
+5. **OCHCA Environmental Health** — Well W-4150 file, destruction waiver justification, Case #20IC002 complete record
 6. **SWRCB** — WDID 8 30W004769 application, approval, compliance reports
 7. **TTS Engineering** — Invoices, daily reports, soil disposal manifests (1,085 CY), HAZWOPER training records
 8. **Mercy House / Surf City Navigation Center Inc** — Operations logs, HMIS referral data, incident reports (279 medical emergencies, 4 child deaths)

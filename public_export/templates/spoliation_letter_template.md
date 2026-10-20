@@ -2,7 +2,7 @@
 
 **TO:** [Opposing Party / Entity / Agency Counsel]  
 **DATE:** [Date]  
-**RE:** Notice of Duty to Preserve Evidence — [Case ****tion & Docket No.]
+**RE:** Notice of Duty to Preserve Evidence — [Case Caption & Docket No.]
 
 ### 1. Duty to Preserve
 Pursuant to the Federal Rules of Civil Procedure (Rules 26 and 37) and governing law, you are hereby given formal notice of your legal obligation to preserve all physical evidence, electronically stored information (ESI), internal communications, and physical site records relating to [Subject Matter / Location].

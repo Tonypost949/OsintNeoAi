@@ -11,7 +11,7 @@ os.makedirs(EVIDENCE_DIR, exist_ok=True)
 # 1. EMAIL EVIDENTIARY CHRONOLOGY & COURT DOCKET CROSS-MATCH INDEX
 # -------------------------------------------------------------
 email_index_md = f"""# 📧 EMAIL EVIDENTIARY CHRONOLOGY & DOCKET CROSS-MATCH INDEX
-**Case ****cket:** `30-2021-01201327-CL-UD-CJC` (*Woodbridge Meadows Apartments LLC v. Anthony Dimarcello*)  
+**Case Docket:** `30-2021-01201327-CL-UD-CJC` (*Woodbridge Meadows Apartments LLC v. Anthony Dimarcello*)  
 **Court:** Superior Court of California, County of Orange — Central Justice Center  
 **Audit Standard:** Extrinsic Fraud & Due Diligence Rebuttal (Cal. CCP § 473.5 / § 473(d))  
 **Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}  
@@ -38,7 +38,7 @@ The contemporaneous email record directly rebuts this sworn assertion, proving t
 | **June 3 – June 29, 2021** | Emails regarding ongoing rental operations and occupancy. | ****/**/2021 (ROA #18-26):** Plaintiff rushes *Clerk's Default Judgment* and *Writ of Possession*. | Deprived Defendant of actual notice and 5-day statutory response window (Cal. CCP § 1167). |
 | **July – August 2021** | Written objections sent to management regarding premature lockout threats and lack of hearing. | ****/**/2021:** Sheriff Lockout executed; ****/**/2021 (ROA #28):** Defendant files 32-page *Ex Parte Application to Vacate Default*. | Established retaliatory animus under Cal. Civ. Code § 1942.5. |
 | **August 20, 2021 (4:29 PM)** | Defendant serves Ex Parte Application for August 23 hearing in Dept C61. | ****/**/2021 (ROA #37):** Plaintiff files emergency **CCP § 170.6 Peremptory Challenge striking Judge Carmen Luege**. | Tactical bad-faith judge disqualification to prevent adjudication of the motion to vacate. |
-| **Dec 2021 – Feb 2022** | Ongoing dispute correspondence regarding property and tenancy status. | ****/**/2021 (ROA #45-51) & **/**/2022 (ROA #54-60):** Plaintiff files back-to-back duplicate Court Default Judgments. | **VOID AB INITIO:** Re-entering defaults on an already-disposed case ****hout notice constitutes ongoing fraud on the tribunal. |
+| **Dec 2021 – Feb 2022** | Ongoing dispute correspondence regarding property and tenancy status. | ****/**/2021 (ROA #45-51) & **/**/2022 (ROA #54-60):** Plaintiff files back-to-back duplicate Court Default Judgments. | **VOID AB INITIO:** Re-entering defaults on an already-disposed case without notice constitutes ongoing fraud on the tribunal. |
 
 ---
 
@@ -53,7 +53,7 @@ The contemporaneous email record directly rebuts this sworn assertion, proving t
 # -------------------------------------------------------------
 motion_md = f"""# ⚖️ NOTICE OF MOTION AND MOTION TO VACATE VOID DEFAULT JUDGMENTS
 **Court:** Superior Court of California, County of Orange — Central Justice Center  
-**Case ****mber:** `30-2021-01201327-CL-UD-CJC`  
+**Case Number:** `30-2021-01201327-CL-UD-CJC`  
 **Plaintiff:** WOODBRIDGE MEADOWS APARTMENTS LLC DBA WOODBRIDGE  
 **Defendant:** ANTHONY DIMARCELLO  
 **Statutory Basis:** California Code of Civil Procedure § 473(d), § 473.5, and the Inherent Inherent Power of the Court  
@@ -64,7 +64,7 @@ motion_md = f"""# ⚖️ NOTICE OF MOTION AND MOTION TO VACATE VOID DEFAULT JUDG
 SUPERIOR COURT OF CALIFORNIA, COUNTY OF ORANGE
 CENTRAL JUSTICE CENTER
 
-WOODBRIDGE MEADOWS APARTMENTS LLC,  )  Case ****DCJC
+WOODBRIDGE MEADOWS APARTMENTS LLC,  )  Case No.: 30-2021-01201327-CL-UD-CJC
                                    )  
             Plaintiff,             )  NOTICE OF MOTION AND MOTION TO
                                    )  VACATE VOID CLERK DEFAULT JUDGMENT

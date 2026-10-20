@@ -11,10 +11,10 @@ The following findings rely exclusively on official court dockets, state environ
 ---
 
 ## I. JUDICIAL PERJURY & UNLAWFUL EVICTION (Verified Court & Sheriff Records)
-**Primary Source:** OC Superior Court Register of Actions (Case ****DCJC), OCSD Levying File #(***) ***-2780.
+**Primary Source:** OC Superior Court Register of Actions (Case 30-2021-01201327-CL-UD-CJC), OCSD Levying File #2021102780.
 
 ### 🔍 Verified Smoking Gun: Physical Concealment of Valid Tender
-* **The Evidence:** Contemporaneous emails (March 12 & 15, 2021) confirm management authorized and received $500 monthly money orders. During the August 4, 2021 lockout (OCSD Levying File #(***) ***-2780, Sheriff Don Barnes), Senior Community Manager Brian Olsen physically handed back three months of these money orders.
+* **The Evidence:** Contemporaneous emails (March 12 & 15, 2021) confirm management authorized and received $500 monthly money orders. During the August 4, 2021 lockout (OCSD Levying File #2021102780, Sheriff Don Barnes), Senior Community Manager Brian Olsen physically handed back three months of these money orders.
 * **Statutory Violation:** Management signed Form UD-101 under penalty of perjury claiming no tender was made, while holding the funds. This violates Cal. Penal Code § 118 (Perjury) and extinguishes non-payment claims under Cal. Civ. Code § 1500.
 
 ### 🔍 Verified Smoking Gun: Structural Judicial Defects

@@ -4,7 +4,7 @@
 - Role: Code Reviewer & Quality Auditor (R1 Backlog Tasks)
 - Archetype: teamwork_preview_reviewer
 - Working directory: C:\OsintNeoAi\.agents\reviewer_1
-- Parent: orchestrator_13 (e68e15f5-4a37-405f-8e73-c5b576**b6cf)
+- Parent: orchestrator_13 (e68e15f5-4a37-405f-8e73-c5b57613b6cf)
 
 ## Scope
 Review the R1 deliverables:

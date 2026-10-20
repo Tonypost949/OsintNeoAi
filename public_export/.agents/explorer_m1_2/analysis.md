@@ -218,7 +218,7 @@ def make_gzip_stream_factory(gz_path: str) -> Callable[[], BinaryIO]:
    - Skip directories (`entry.is_dir()`), Mac metadata (`__MACOSX/`, `._*`), and excluded extensions.
    - Sanitize path: check for path traversal attacks (`..` or absolute paths).
    - If member is an evidentiary document/image/text:
-     - Open member ****ream via `zf.open(entry.filename, 'r')`.
+     - Open member stream via `zf.open(entry.filename, 'r')`.
      - Compute SHA-256 and uncompressed byte count via 64 KB block streaming.
      - Build canonical URI: `f"zip://{zip_path}#{entry.filename}"`.
      - Assign `raw_stream_factory = make_zip_stream_factory(zip_path, entry.filename)`.
@@ -426,7 +426,7 @@ DEFAULT_TARGET_PATHS = [
 class ManagedZipStream(io.RawIOBase):
     """
     A binary stream wrapper around a zip member (ZipExtFile) that guarantees
-    both the member ****ream and parent ZipFile are closed on exit.
+    both the member stream and parent ZipFile are closed on exit.
     """
     def __init__(self, zip_path: str, member_name: str):
         super().__init__()
@@ -1007,7 +1007,7 @@ The implementation of `local_crawler.py` must be validated by the following test
 1. **`test_crawl_local_evidence_directory`**: Crawls `C:\OsintNeoAi\evidence\official_court_records`, asserts that all 10 markdown court records are yielded with valid 64-char hex `artifact_id`, non-zero `file_size_bytes`, `text/markdown` MIME, and readable stream factories.
 2. **`test_zip_streaming_without_disk_extraction`**: Creates a synthetic zip archive containing `file1.pdf` and `file2.txt`, crawls the zip, asserts that members are yielded as `zip://...#file1.pdf` and can be read via `with artifact.raw_stream_factory() as s: data = s.read()`.
 3. **`test_binary_exclusion_filter`**: Verifies that `.exe`, `.dll`, `.pyc`, `.jar` files are skipped and counted in `crawler.stats.skipped_binaries`.
-4. **`test_windows_file_lock_release`**: Opens a zip member ****ream via `artifact.raw_stream_factory()`, reads 50 bytes, closes the stream context, and asserts that the zip file can immediately be renamed/removed or re-opened without `PermissionError` (proving `ManagedZipStream` closed the underlying `ZipFile`).
+4. **`test_windows_file_lock_release`**: Opens a zip member stream via `artifact.raw_stream_factory()`, reads 50 bytes, closes the stream context, and asserts that the zip file can immediately be renamed/removed or re-opened without `PermissionError` (proving `ManagedZipStream` closed the underlying `ZipFile`).
 5. **`test_tar_and_gzip_streaming`**: Tests tarball and `.txt.gz` archive streaming decompression.
 6. **`test_corrupted_archive_graceful_recovery`**: Creates a truncated / corrupted zip file, crawls it, asserts that crawler logs a warning, increments `errors_encountered`, and does not crash.
 

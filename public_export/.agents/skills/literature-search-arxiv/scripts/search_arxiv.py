@@ -118,8 +118,8 @@ def search_arxiv(args: argparse.Namespace):
     for child in entry:
       tag = strip_namespace(child.tag)
       if tag == "id":
-        # Extract just the ID part (e.g., http://arxiv.org/abs/2305.106**v1
-        # -> 2305.106**v1)
+        # Extract just the ID part (e.g., http://arxiv.org/abs/2305.10601v1
+        # -> 2305.10601v1)
         if child.text:
           paper["id"] = child.text.split("/abs/")[-1]
       elif tag == "title":

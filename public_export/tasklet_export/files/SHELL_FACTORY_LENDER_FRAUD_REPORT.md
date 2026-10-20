@@ -8,10 +8,10 @@
 | LLC | Mailing Address | State |
 |-----|----------------|-------|
 | INCUPLACE LLC | PO Box 3772, Alhambra | CA |
-| ADT Security Services LLC | 475 N Muller St, Anaheim | CA |
+| ADT Security Services LLC | 475 N. M*** St, Anaheim | CA |
 | RM Art Designs LLC | 12531 H*** Blvd, Garden Grove | CA |
 | Cellular Sales Management Group LLC | 9040 E*** Dr, Knoxville | TN |
-| TLG Adhesives LLC | 848 N Rainbow Blvd, Las Vegas | NV |
+| TLG Adhesives LLC | 848 N. R*** Blvd, Las Vegas | NV |
 | Creative Babe Market LLC | 15015 F*** Ave, Norwalk | CA |
 | HSE Holdings 6 LLC | 6901 Jericho Tpke, Syosset | NY |
 
@@ -28,8 +28,8 @@
 
 | Loan | Amount | Forgiven | Over-forgiven | Date | NAICS | Jobs |
 |------|--------|----------|---------------|------|-------|------|
-| (***) ***-8501 | $301,444 | $304,062 | +$2,618 | **/**/2021 | 722310 (Food Service) | 13 |
-| (***) ***-7201 | $287,175 | $289,331 | +$2,156 | **/**/2020 | 541613 (Marketing Consulting) | 12 |
+| 2143528501 | $301,444 | $304,062 | +$2,618 | **/**/2021 | 722310 (Food Service) | 13 |
+| 8863977201 | $287,175 | $289,331 | +$2,156 | **/**/2020 | 541613 (Marketing Consulting) | 12 |
 
 **Red flags:**
 - 2 loans from different lenders (Harvest Small Business Finance + Mega Bank)
@@ -55,6 +55,6 @@
 
 ## Next Steps
 - Investigate remaining 6 LLCs at 88 F*** Dr for PPP connections
-- Map full Harvest/Mega Bank loan ****work
+- Map full Harvest/Mega Bank loan network
 - Cross-reference lender fraud with other shell factory addresses
 - Prepare FOIA requests for Harvest Small Business Finance and Mega Bank records

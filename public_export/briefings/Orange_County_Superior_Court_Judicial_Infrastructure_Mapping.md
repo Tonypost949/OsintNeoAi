@@ -24,19 +24,19 @@
 
 | Justice Center Venue | Physical Address | Primary Jurisdictional Scope & Cases |
 | :--- | :--- | :--- |
-| **Central Justice Center (CJC)** | 700 C*** Dr W, Santa Ana, CA 927** | • Unlimited Civil, Master Filings, Appeals<br>• **Venue for Case ****DCJC** (*Woodbridge Meadows v. DiMarcello*)<br>• HCD v. City of Anaheim (*Case ****1102*) |
+| **Central Justice Center (CJC)** | 700 C*** Dr W, Santa Ana, CA 927** | • Unlimited Civil, Master Filings, Appeals<br>• **Venue for Case 30-2021-01201327-CL-UD-CJC** (*Woodbridge Meadows v. DiMarcello*)<br>• HCD v. City of Anaheim (*Case 30-2020-01131102*) |
 | **Harbor Justice Center (HJC)** | 4601 J*** Rd, Newport Beach, CA 926** | • Coastal & South County Civil / Criminal<br>• Irvine, Newport Beach, Laguna Beach jurisdiction<br>• Hoag Memorial Hospital medical zone |
 | **West Justice Center (WJC)** | 8141 13th St, Westminster, CA 926** | • West County Civil / Criminal<br>• Huntington Beach (HBNC / Beach Blvd site), Seal Beach, Westminster, Garden Grove |
-| **North Justice Center (NJC)** | 1275 N Berkeley Ave, Fullerton, CA 928** | • North County Civil / Criminal<br>• City of Anaheim, Fullerton, Brea, Buena Park, Placentia |
+| **North Justice Center (NJC)** | 1275 N. B*** Ave, Fullerton, CA 928** | • North County Civil / Criminal<br>• City of Anaheim, Fullerton, Brea, Buena Park, Placentia |
 | **Lamoreaux Justice Center (LJC)** | 341 T*** Dr S, Orange, CA 928** | • Juvenile Court, Family Law, Probate & Mental Health Conservatorships |
 
 ---
 
 ## 💻 2. ONLINE SERVICES & COURT ACCESS ENDPOINTS
 
-1. **Online Case ****cess (Civil Case ****arch / Register of Actions):**
-   * Portal: `https://www.occourts.org/online-services/case ****cess`
-   * Capability: Lookup by Case ****mber (e.g., `30-2021-01201327-CL-UD-CJC`), party name, or business entity.
+1. **Online Case Access (Civil Case Search / Register of Actions):**
+   * Portal: `https://www.occourts.org/online-services/case-access`
+   * Capability: Lookup by Case Number (e.g., `30-2021-01201327-CL-UD-CJC`), party name, or business entity.
 2. **Civil Division & Unlawful Detainer Guidelines:**
    * Portal: `https://www.occourts.org/divisions/civil`
    * Rules governing mandatory 15-day statutory notices, COVID-19 Declarations of Financial Distress, and Emergency Eviction Moratorium Safe Harbors (SB 91 / AB 832).

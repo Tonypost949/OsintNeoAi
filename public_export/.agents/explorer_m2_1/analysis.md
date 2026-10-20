@@ -15,7 +15,7 @@ Milestone 2 (M2) delivers the core extraction and normalization engines for the 
 1. **Feature 5**: Native Digital Text Extraction (PyMuPDF high-speed parser with block-level layout analysis).
 2. **Feature 6**: Neural Offline OCR Engine (CPU-optimized RapidOCR ONNX runtime integration with lazy model initialization, multi-page generator, and bounding box spatial sorting).
 3. **Feature 7**: Image Preprocessing & Enhancement (OpenCV CLAHE contrast equalization, adaptive Otsu/Gaussian thresholding, deskewing, and noise reduction for degraded/faxed scans).
-4. **Features 8–11**: Multi-Tier Normalization Pipeline (ISO 8601 timestamps, dual float/cents financial transactions, federal/state case ****kets, and correspondence metadata).
+4. **Features 8–11**: Multi-Tier Normalization Pipeline (ISO 8601 timestamps, dual float/cents financial transactions, federal/state case dockets, and correspondence metadata).
 
 ### Core Extraction Architecture & Data Flow
 
@@ -80,7 +80,7 @@ Milestone 2 (M2) delivers the core extraction and normalization engines for the 
   [ Multi-Tier Normalization Pipeline ]
   ├── 1. Date Normalizer -> ISO 8601 UTC (YYYY-MM-DD / YYYY-MM-DDTHH:MM:SSZ)
   ├── 2. Financial Normalizer -> Float + Integer Cents ($320M -> 32000000000)
-  ├── 3. Case ****cket Normalizer -> Federal (8:23-cr-00108) & CA (30-2021-01201327)
+  ├── 3. Case Docket Normalizer -> Federal (8:23-cr-00108) & CA (30-2021-01201327)
   └── 4. Entity & Header Normalizer -> FROM/TO/ATTN extraction, honorific stripping
          │
          ▼
@@ -1113,7 +1113,7 @@ class DocumentExtractor:
         metadata: Dict[str, Any]
     ) -> ExtractedRecord:
         """
-        Executes date, financial, case ****cket, and correspondence normalization
+        Executes date, financial, case docket, and correspondence normalization
         to build the canonical ExtractedRecord for Milestone 3.
         """
         from workspaces.osintneoai_indexer.normalizers.date_normalizer import normalize_dates_from_text
@@ -1127,7 +1127,7 @@ class DocumentExtractor:
         # 2. Financial amounts normalization
         financials = extract_financial_amounts(text_body)
         
-        # 3. Legal case ****iers & court citations
+        # 3. Legal case identifiers & court citations
         case_nums = extract_case_numbers(text_body)
         
         # 4. Sender and recipients metadata
@@ -1186,14 +1186,14 @@ class DocumentExtractor:
   - Accounting negatives: `($500.00)`, `-$12,450.00`, `($320M)`
   - Edge cases: ignores standalone numbers like years (`2022`), docket numbers (`8:23-cr-00108`), or street addresses (`1456 C*** Lane`).
 
-### 5.3 Case ****cket Normalizer: `normalizers/case_normalizer.py` (Feature 10)
+### 5.3 Case Docket Normalizer: `normalizers/case_normalizer.py` (Feature 10)
 - **Target Invariant**: Extracts and standardizes federal dockets, California Superior Court dockets, police incident numbers, and statutory violation citations.
 - **Patterns**:
   - **Federal Dockets**: `(?:8:)?(?:\d{2})-(?:cr|cv|mj|bk|mc)-(?:\d{4,6})(?:-[A-Z0-9\-]+)?`
     - Matches `8:23-cr-00108-CJC`, `8:22-cr-00078-CJC`, `8:23-cr-00009-CJC`, `3:20-mj-05007-TJB`.
   - **California Superior Court**: `30-(?:\d{4})-(?:\d{8})-[A-Z]{2}-[A-Z]{2}-[A-Z0-9]+`
     - Matches `30-2021-01201327-CL-UD-CJC` (Orange County Unlawful Detainer).
-  - **Police & Incident Cases**: `Case (?:No\.?\s*)?2019-00053723`, `Case ****1222`, `Summons #2020-613`.
+  - **Police & Incident Cases**: `Case (?:No\.?\s*)?2019-00053723`, `Case I-2019-001222`, `Summons #2020-613`.
   - **Statutory Citations**: `Cal. Gov. Code § 542**`, `Cal. CCP § 170.6`, `18 U.S.C. § 1343`, `18 U.S.C. § 1951`, `18 U.S.C. § 1961`, `Ralph M. Brown Act`, `Resolution No. 2022-064`.
 
 ### 5.4 Correspondence Normalizer: `normalizers/entity_normalizer.py` (Feature 11)
@@ -1227,7 +1227,7 @@ The M2 test suite will be implemented in `workspaces/osintneoai_indexer/tests/te
 3. **Multi-Tier Normalizer Validation (Features 8–11)**:
    - ISO 8601 date parsing for US court stamps, military timestamps (`PM 4:29`), and relative dates.
    - Financial amount parsing for `$320M`, `$96 Million`, `($500.00)`, and dual cents verification (`amount_cents == int(round(amount_float * 100))`).
-   - Case ****cket regex validation across federal, California state, and police incident formats.
+   - Case docket regex validation across federal, California state, and police incident formats.
 4. **End-to-End Real World Workloads**:
    - Extraction of Harry Sidhu Plea Agreement (8:23-cr-00108-CJC).
    - Extraction of Todd Ament Information (8:22-cr-00078-CJC).

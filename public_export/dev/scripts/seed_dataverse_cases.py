@@ -29,7 +29,7 @@ BENCHMARK_WORKSPACE = {
 
 CASES = [
     {
-        "cr_caseid": "case ****idhu",
+        "cr_caseid": "case-001-sidhu",
         "cr_workspaceid": BENCHMARK_WORKSPACE["cr_workspaceid"],
         "cr_casenumber": "8:23-cr-00108-CJC",
         "cr_casename": "USA v. Harry Sidhu",
@@ -37,10 +37,10 @@ CASES = [
         "cr_court": "USDC Central District of California (Santa Ana)",
         "cr_status": "Disposed / Plea",
         "cr_filingdate": "2023-08-16",
-        "cr_notes": "18 U.S.C. §§ 1343, 1519, 1001. $320M Angel Stadium land transaction. 54 years max statutory exposure. Case ****lved via plea agreement before Hon. Cormac J. Carney."
+        "cr_notes": "18 U.S.C. §§ 1343, 1519, 1001. $320M Angel Stadium land transaction. 54 years max statutory exposure. Case resolved via plea agreement before Hon. Cormac J. Carney."
     },
     {
-        "cr_caseid": "case ****ment",
+        "cr_caseid": "case-002-ament",
         "cr_workspaceid": BENCHMARK_WORKSPACE["cr_workspaceid"],
         "cr_casenumber": "8:22-cr-00078-CJC",
         "cr_casename": "USA v. Todd Ament",
@@ -51,7 +51,7 @@ CASES = [
         "cr_notes": "18 U.S.C. §§ 1343, 1014; 26 U.S.C. § 7206(1). Anaheim Chamber of Commerce $225k slush wire fraud and mortgage fraud scheme."
     },
     {
-        "cr_caseid": "case ****ryan",
+        "cr_caseid": "case-003-ryan",
         "cr_workspaceid": BENCHMARK_WORKSPACE["cr_workspaceid"],
         "cr_casenumber": "3:20-mj-05007-TJB",
         "cr_casename": "USA v. Christopher Ryan",
@@ -62,7 +62,7 @@ CASES = [
         "cr_notes": "21 U.S.C. §§ 841(a)(1), 841(b)(1)(A). 435 grams d-methamphetamine hydrochloride assay. FBI SA Bradley H. Zartman investigation."
     },
     {
-        "cr_caseid": "case ****idge",
+        "cr_caseid": "case-004-woodbridge",
         "cr_workspaceid": BENCHMARK_WORKSPACE["cr_workspaceid"],
         "cr_casenumber": "30-2021-01201327-CL-UD-CJC",
         "cr_casename": "Woodbridge Meadows v. Dimarcello",
@@ -129,7 +129,7 @@ EVIDENCE_ITEMS = [
 def validate_seed_data():
     """Validates structural and cryptographic invariants of seed records."""
     for case in CASES:
-        assert case["cr_casenumber"], "Case ****nnot be empty"
+        assert case["cr_casenumber"], "Case number cannot be empty"
         assert case["cr_jurisdiction"], "Jurisdiction must be defined"
     
     for scen in STATUTORY_SCENARIOS:
@@ -152,7 +152,7 @@ def export_json_packages():
             "version": "[IP_REDACTED]",
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "tenant_id": "dc2273e5-b77e-4b19-ae61-f4b69fb7609c",
-            "environment_id": "584c706d-38a2-e52e-b6e3-24a809f105**",
+            "environment_id": "584c706d-38a2-e52e-b6e3-24a809f10508",
             "app_id": "aea4876c-1dbb-4e7c-8024-79443ffb7e40"
         },
         "workspaces": [BENCHMARK_WORKSPACE],

@@ -23,7 +23,7 @@ This report synthesizes the 9 primary investigation dossiers extracted from `con
 | `7feba345-a323-47d9-ba2a-206a45bcd749` | **Municipal Recon Audit** | 438 exposed municipal endpoints across LA/OC counties; 14 open services documented on county host clusters. |
 | `77b25e7e-ec5e-4603-982e-77bdf3261ce2` | **OC Property Price Lookup** | Nuway / Newey real estate nexus (`raipartners.com` $2.8M, `starpointproperties.com` `[IP_REDACTED]`, `advancedrealestate.com`). |
 | `143a939c-c8de-4499-bd8a-8803ff840798` | **Huntington Beach 1956 Water Well Search** | Historical municipal utility & GIS backend mapping (`gis.huntingtonbeachca.gov` `.153`). |
-| `f0937f1d-d82b-4b87-8249-eeea2d250**e` | **Southern California Edison Unclaimed Property** | Unclaimed property audit & utility distribution infrastructure cross-reference. |
+| `f0937f1d-d82b-4b87-8249-eeea2d25038e` | **Southern California Edison Unclaimed Property** | Unclaimed property audit & utility distribution infrastructure cross-reference. |
 | `a5ef4f1a-2ab5-48de-a314-6b8234c8099e` | **Unclaimed Property Data Pipeline Blueprint** | Automated data ingestion architecture for state & county unclaimed asset matrices. |
 
 ---

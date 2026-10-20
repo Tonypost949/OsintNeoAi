@@ -16,7 +16,7 @@ This dossier presents the structured intelligence and forensic optical character
 
 ### A. Federal Criminal Proceedings & Multi-Agency Investigations
 * **Federal Court Jurisdiction:** United States District Court for the District of New Jersey
-* **Case ****ence Numbers:** `20-5007 (TJB)` / `3:20-mj-05007`
+* **Case Reference Numbers:** `20-5007 (TJB)` / `3:20-mj-05007`
 * **Lead Defendant:** Christopher Ryan
 * **Defense Counsel:** Timothy R. Anderson (`Bar No. 001112009`), Tim Anderson Law LLC, 225 B*** Street, Red Bank, NJ 077**
 * **Evidence Transfers:** Ewing Police Department Evidence Chain of Custody logs documenting seizures of narcotics, packaging, and digital communication devices formally transferred to **FBI Agent Bradley Zartman**.
@@ -26,12 +26,12 @@ This dossier presents the structured intelligence and forensic optical character
 * **Primary Subject:** Anthony Michael DiMarcello III (DOB: `**/**/1983`)
 * **California Driver License:** DL No. `E1845810` (80 H*** St Spc 621, Huntington Beach, CA 926**)
 * **Social Security Administration Credential:** SSN Record verified (`***-**-3050`)
-* **AIG Insurance Identity Theft Claim:** Master Policy No. `2910696...`, formal *Identity Theft Expense Reimbursement Claim ****orms* documenting lost wages, legal expenses, and credit impairment.
+* **AIG Insurance Identity Theft Claim:** Master Policy No. `2910696...`, formal *Identity Theft Expense Reimbursement Claim Forms* documenting lost wages, legal expenses, and credit impairment.
 * **ChexSystems Disclosure:** Confirmation tracking reference `CXDS7580451`.
 * **FCRA Federal Civil Complaint:** Civil action pursuant to the Fair Credit Reporting Act (15 U.S.C. § 1681 *et seq.*) filed under Case No. `2:22-cv-01546`.
 
 ### C. State Government Benefits & Unclaimed Property
-* **California Medi-Cal Benefits Identification Card (BIC):** ID No. `99451018G321**` (California Department of Health Care Services).
+* **California Medi-Cal Benefits Identification Card (BIC):** ID No. `99451018G32195` (California Department of Health Care Services).
 * **California State Controller's Office (SCO) Unclaimed Property:** Claim ID `20943163`, Property ID `1005197573`, reported cash `$281.03 USD`.
 
 ### D. Housing, Unlawful Detainer & County Enforcement

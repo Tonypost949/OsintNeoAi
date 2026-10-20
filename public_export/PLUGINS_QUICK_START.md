@@ -141,7 +141,7 @@ Then paste your SQL query.
 ```bash
 1. @clinvar
 2. "Look up BRCA1 c.68_69delAG"
-3. Output: Pathogenicity, clinical evidence, case ****orts
+3. Output: Pathogenicity, clinical evidence, case reports
 ```
 
 ### "Get allele frequency for a SNP"

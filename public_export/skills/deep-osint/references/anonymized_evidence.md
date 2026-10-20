@@ -15,6 +15,6 @@
 - City Manager ordered the City Information Officer to secretly search the City Attorney's emails
 
 ## Gaps
-- Federal sexual harassment lawsuit against City Manager (case ****sing)
+- Federal sexual harassment lawsuit against City Manager (case number missing)
 - Authenticated DOJ rescission letter
 - Original surveillance order email

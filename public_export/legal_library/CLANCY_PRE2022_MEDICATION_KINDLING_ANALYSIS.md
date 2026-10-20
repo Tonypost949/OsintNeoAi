@@ -1,5 +1,5 @@
 # 🔬 FORENSIC PHARMACOLOGICAL ANALYSIS: PRE-2022 MEDICATION EXPOSURE, NEUROCHEMICAL KINDLING & THE 2022 POLYPHARMACY CATASTROPHE
-## Case ****ject: Lindsay Clancy (Duxbury, MA) • Prior SSRI Exposure & Receptor Sensitization
+## Case Subject: Lindsay Clancy (Duxbury, MA) • Prior SSRI Exposure & Receptor Sensitization
 **Investigation Reference:** `NWO-RICO-CLANCY-KINDLING-001`  
 **Core Medical Doctrine:** Receptor Sensitization, Iatrogenic Kindling & Involuntary Intoxication
 

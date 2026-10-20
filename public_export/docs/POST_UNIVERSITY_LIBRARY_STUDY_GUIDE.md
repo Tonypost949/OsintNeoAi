@@ -57,6 +57,6 @@ The Anki-compatible flashcard dataset is available in [`docs/POST_UNIVERSITY_LIB
 | **Legal Studies** | **Nexis Uni** | LexisNexis | Caselaw, statutes & court dockets | `"public utilities code" AND "851"` |
 | **Legal Studies** | **HeinOnline** | Hein | CFR, Federal Register & law reviews | `"31 U.S.C." AND "5324" AND "structuring"` |
 | **Business** | **Mergent Online** | Mergent | SEC 10-Ks & corporate trees | `"Edison International" AND "subsidiary"` |
-| **Business** | **ABI/INFORM** | ProQuest | Global fraud case ****dies & FinTech | `"FinTech lending" AND "underwriting"` |
-| **Nursing** | **CINAHL Complete** | EBSCOhost | Palliative care & hospice standards | `"palliative care" AND "Medicare ****ling"` |
+| **Business** | **ABI/INFORM** | ProQuest | Global fraud case studies & FinTech | `"FinTech lending" AND "underwriting"` |
+| **Nursing** | **CINAHL Complete** | EBSCOhost | Palliative care & hospice standards | `"palliative care" AND "Medicare billing"` |
 | **Nursing** | **PubMed** | NLM | Toxicology & drug interactions | `("Bromazolam" OR "Metonitazene") AND "toxicity"` |

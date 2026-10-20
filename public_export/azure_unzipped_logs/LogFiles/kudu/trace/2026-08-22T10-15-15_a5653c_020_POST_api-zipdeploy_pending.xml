@@ -5,9 +5,9 @@
       <step title="Commit id: d8e0d0d2-4b54-41ad-8be5-af8a7df55c09" date="2026-08-22T10:15:15.539" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 5ms -->
     </step><!-- duration: 16ms -->
     <step title="Starting PushDeployAsync" date="2026-08-22T10:15:15.555" /><!-- duration: 5ms -->
-    <step title="Writing artifact to /tmp/zipdeploy/08e4c31f-879d-4530-ad8f-5d7c048**c56.zip" date="2026-08-22T10:15:15.574" >
-      <step title="Writing multipart request body to /tmp/zipdeploy/08e4c31f-879d-4530-ad8f-5d7c048**c56.zip" date="2026-08-22T10:15:15.580" /><!-- duration: 6ms -->
-      <step title="Writing zip file to /tmp/zipdeploy/08e4c31f-879d-4530-ad8f-5d7c048**c56.zip" date="2026-08-22T10:15:15.595" /><!-- duration: 10ms -->
+    <step title="Writing artifact to /tmp/zipdeploy/08e4c31f-879d-4530-ad8f-5d7c04825c56.zip" date="2026-08-22T10:15:15.574" >
+      <step title="Writing multipart request body to /tmp/zipdeploy/08e4c31f-879d-4530-ad8f-5d7c04825c56.zip" date="2026-08-22T10:15:15.580" /><!-- duration: 6ms -->
+      <step title="Writing zip file to /tmp/zipdeploy/08e4c31f-879d-4530-ad8f-5d7c04825c56.zip" date="2026-08-22T10:15:15.595" /><!-- duration: 10ms -->
     </step><!-- duration: 56ms -->
     <step title="Removing previous build artifact&apos;s manifest file" date="2026-08-22T10:15:15.642" >
       <step title="None repository commit" date="2026-08-22T10:15:15.650" >

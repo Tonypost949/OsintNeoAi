@@ -38,7 +38,7 @@ bPect:** Santa Ana Security Services; Miguel Gonzalez
 
 **Amount:** $17,134
 
-**Pattern:** Active board member ****lled the organization through her own sole proprietorship (Clarity Tax Accounting) without disclosure.
+**Pattern:** Active board member billed the organization through her own sole proprietorship (Clarity Tax Accounting) without disclosure.
 
 **Source:** Mercy House Form 990, FY2020, Schedule L
 
@@ -64,7 +64,7 @@ bPect:** Santa Ana Security Services; Miguel Gonzalez
 
 **PPP Zero-Dollar Transfer Fraud (11770 W*** Ave Hub)**
 - Alleged: 25 LLCs, $7.07M drawn, all over-forgiven; 4 LLCs controlling 5,270 property parcels
-- Source needed: SBA public PPP loan ****base
+- Source needed: SBA public PPP loan database
 - Status: Not yet confirmed. Pull SBA data before adding.
 
 ---

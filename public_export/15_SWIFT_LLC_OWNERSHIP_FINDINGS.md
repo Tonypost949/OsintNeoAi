@@ -1,7 +1,7 @@
 # 15 SWIFT LLC — Ownership Investigation Findings
 
 **Date:** August 5, 2026
-**Property:** 1133 N Formosa Ave, West Hollywood, CA 900** (Unit 1 — Dr. Ann Verma)
+**Property:** 1133 N. F*** Ave, West Hollywood, CA 900** (Unit 1 — Dr. Ann Verma)
 
 ---
 
@@ -31,9 +31,9 @@ Thanh Nguyen is co-indicted with Peter Anh Pham (federal case, 2025):
 
 ## Property Records
 
-- AIN (***) ***-7056 — Unit 1
-- AIN (***) ***-7057 — Unit 2
-- AIN (***) ***-7058 — Unit 3
+- AIN 5531007056 — Unit 1
+- AIN 5531007057 — Unit 2
+- AIN 5531007058 — Unit 3
 - Assessed Value (2026): ~$1.36M | Taxes: ~$16K/year
 - Landlord (per tenant): Falk (Normandie Ave address)
 - Assessed owner: REQUIRES paid title search to confirm LLC ownership

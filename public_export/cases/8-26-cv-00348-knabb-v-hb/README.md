@@ -5,7 +5,7 @@
 
 ---
 
-## Case ****view
+## Case Overview
 * **Plaintiff:** Knabb
 * **Defendant:** City of Huntington Beach et al.
 * **Statutory Authority:** 42 U.S.C. § 6972(a)(1)(A) & (a)(1)(B) (Imminent and Substantial Endangerment)

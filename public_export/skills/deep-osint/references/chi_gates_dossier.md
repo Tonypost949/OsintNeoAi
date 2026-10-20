@@ -55,7 +55,7 @@ Oliver Chi (Huntington Beach City Manager, later Irvine/Santa Monica) and Michae
 - Chi's order to Zamanian appears only in attorney letter (original email missing).
 
 **Risk Assessment**  
-- Chi: **High** – surveillance order + sexual harassment claim (unverified case ****mber).  
+- Chi: **High** – surveillance order + sexual harassment claim (unverified case number).  
 - Gates: **High** – $2.5M settlement + DOJ termination (even if rescinded).  
 - Both deny all claims.
 
@@ -102,12 +102,12 @@ Oliver Chi (Huntington Beach City Manager, later Irvine/Santa Monica) and Michae
 
 | Subject | Risk Tier | Regulatory Exposure | Recommended Next Steps |
 |---------|-----------|---------------------|------------------------|
-| Oliver Chi | **High** | CFAA, Title VII, CA Gov. Code §8547 | PACER search for missing case ****mber; contact Zamanian's attorney |
+| Oliver Chi | **High** | CFAA, Title VII, CA Gov. Code §8547 | PACER search for missing case number; contact Zamanian's attorney |
 | Michael Gates | **High** | ADEA, FEHA, DOJ conduct standards | CPRA/FOIA for authenticated SF‑52 + rescission letter |
 | City of HB | **Medium** | Employment practices monitorship | Already settled – monitor compliance |
 | Behzad Zamanian | **Unverified** | Whistleblower retaliation | Search Orange County Superior Court docket |
 
-**Critical gap**: Chi's federal sexual harassment case ****mber – without it, the most serious allegation is unanchored.
+**Critical gap**: Chi's federal sexual harassment case number – without it, the most serious allegation is unanchored.
 
 ---
 
@@ -124,7 +124,7 @@ Oliver Chi (Huntington Beach City Manager, later Irvine/Santa Monica) and Michae
 **Primary referral path**:  
 - Chi → FBI IC3 + EEOC.  
 - Gates' DOJ conduct → OSC or DOJ OIG.  
-- Missing case ****mber → PACER (CDCA) search.
+- Missing case number → PACER (CDCA) search.
 
 ---
 
@@ -132,7 +132,7 @@ Oliver Chi (Huntington Beach City Manager, later Irvine/Santa Monica) and Michae
 
 | Gap | Severity | Next Action |
 |-----|----------|-------------|
-| Chi federal sexual harassment case ****mber | **Critical** | PACER search (C.D. Cal.) |
+| Chi federal sexual harassment case number | **Critical** | PACER search (C.D. Cal.) |
 | Zamanian lawsuit outcome | High | Orange County Superior Court docket search |
 | Authenticated DOJ rescission letter | Medium | CPRA request to DOJ |
 | Original Chi→Zamanian email | Medium | CPRA request to HB IT |

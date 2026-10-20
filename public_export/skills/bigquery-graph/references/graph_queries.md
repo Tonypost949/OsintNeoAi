@@ -84,7 +84,7 @@ match into a subsequent pattern match.
 
 ```sql
 GRAPH <project>.<dataset>.<graph>
-MATCH (blocked:Account ****HERE blocked.is_frozen = true)
+MATCH (blocked:Account WHERE blocked.is_frozen = true)
 RETURN blocked.id AS frozen_id
 NEXT
 MATCH (a:Account)-[t:Transfers]->(b:Account)

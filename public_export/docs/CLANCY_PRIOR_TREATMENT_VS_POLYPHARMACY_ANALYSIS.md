@@ -1,7 +1,7 @@
 # 🩺 FORENSIC CLINICAL ANALYSIS: PRIOR MILD ANXIETY VS. 2022 POLYPHARMACY EXPLOSION
-## Case ****ject: Lindsay Clancy (Duxbury, MA) • Addressing Pre-2022 Mental Health Consultations
+## Case Subject: Lindsay Clancy (Duxbury, MA) • Addressing Pre-2022 Mental Health Consultations
 **Investigation Reference:** `NWO-RICO-CLANCY-PRE2022-001`  
-**Clinical Commentator Reference:** Dr. Kirk (Psychology in Seattle / Clinical Case ****view)  
+**Clinical Commentator Reference:** Dr. Kirk (Psychology in Seattle / Clinical Case Review)  
 **Key Forensic Distinction:** Non-Pharmacological Baseline vs. 120-Day Neurochemical Assault
 
 ---

@@ -26,7 +26,7 @@ All findings are sourced from SBA PPP FOIA data, IRS Form 990 filings, Orange Co
 | Property | 3311 B*** Cir, Seal Beach, CA |
 | Mailing Address | 1077 P*** Hwy #247, Seal Beach (CMRA) |
 | PPP Loans | 2 loans, $1,128,328 total |
-| Loan ****igin | Battle Creek, MI (out-of-state) |
+| Loan Origin | Battle Creek, MI (out-of-state) |
 | Forgiveness | $1,137,911 — 100% forgiven |
 | In RICO Matrix | Yes |
 | Property Purchase | Pre-PPP acquisition |
@@ -39,9 +39,9 @@ All findings are sourced from SBA PPP FOIA data, IRS Form 990 filings, Orange Co
 | Mailing Address | 9874 R*** Ave, Fountain Valley |
 | Property Purchase | November 2021 — $2,800,000 |
 | PPP Loans | 3 loans, $1,481,077 total |
-| Loan ****igin | Anchorage, AK via Bank of Jackson Hole Trust (WY) |
+| Loan Origin | Anchorage, AK via Bank of Jackson Hole Trust (WY) |
 | Forgiveness | 100% forgiven |
-| PPP Timing | Loan ****ment precedes property purchase |
+| PPP Timing | Loan disbursement precedes property purchase |
 | In RICO Matrix | Yes |
 
 ### 1.3 Shared Pattern (Distributed Model)
@@ -52,7 +52,7 @@ Both entities exhibit identical structural behavior without shared addresses, le
 2. Obtain out-of-state PPP loans (MI bank / WY bank → AK entity)
 3. Acquire Huntington Beach area real estate
 4. Use CMRA or residential mailbox
-5. Achieve 100% loan ****ness
+5. Achieve 100% loan forgiveness
 
 **Conclusion:** Distributed actors using the same playbook — not a centralized shell network.
 
@@ -135,7 +135,7 @@ The "cluster" illusion was caused by individual condo unit APNs — not multi-en
 | Date | Event |
 |------|-------|
 | Aug 21, 2020 | Well W-4150 documented as Cr(VI) contaminated (49× MCL) |
-| Aug 21, 2020 | OCHCA falsely certified facility closure (Case ****C002) |
+| Aug 21, 2020 | OCHCA falsely certified facility closure (Case No. 20IC002) |
 | Current | Disabled homeless residents at facility; contaminated water on-site |
 
 **Source:** OCHCA files, HBNC Criminal Referral Evidence Pack (verified public record).
@@ -257,10 +257,10 @@ Behavioral linkage: same pattern, different infrastructure nodes
 | OC Property Records (HB LLCs) | BigQuery: `ppp_rico.hb_llcs` | VERIFIED — PUBLIC RECORD |
 | RICO Evidence Matrix | BigQuery: `ppp_rico.rico_evidence_matrix` | VERIFIED — ANALYTIC DERIVED |
 | IRS Form 990 (Mercy House FY2024) | GSA Federal Audit Clearinghouse, PDF extracted via pdfminer | VERIFIED — PUBLIC RECORD |
-| CA GeoTracker Permitted UST | SWRCB GeoTracker database, local zip `G:\DL ****CKUP\GeoTrackerPermittedUST.zip` | VERIFIED — PUBLIC RECORD |
+| CA GeoTracker Permitted UST | SWRCB GeoTracker database, local zip `G:\DL BACKUP\GeoTrackerPermittedUST.zip` | VERIFIED — PUBLIC RECORD |
 | CA Secretary of State / FPPC Form 700 | Public database; Yamada non-disclosure verified | VERIFIED — PUBLIC RECORD |
 | National Archives WRA Database | aad.archives.gov | VERIFIED — PUBLIC RECORD |
-| Orange County HCA Case ****C002 | OCHCA Industrial Cleanup Unit | VERIFIED — PUBLIC RECORD |
+| Orange County HCA Case No. 20IC002 | OCHCA Industrial Cleanup Unit | VERIFIED — PUBLIC RECORD |
 
 ---
 
@@ -271,7 +271,7 @@ Behavioral linkage: same pattern, different infrastructure nodes
 | 1 | 🔴 Stewart/Triumvirate distributed PPP pattern | **HIGH** | SBA FOIA + OC property records + RICO matrix; multi-source verified |
 | 2 | 🔴 Mercy House $1.5M material weakness | **HIGH** | GSA Federal Audit Clearinghouse; two-year recurrence pattern |
 | 3 | 🔴 Yamada Form 700 violation | **HIGH** | CA SOS/FPPC public database; cross-matched with OC employment records |
-| 4 | 🔴 HBNC Cr(VI) contamination (49× MCL) | **HIGH** | OCHCA Case ****C002; environmental compliance documents |
+| 4 | 🔴 HBNC Cr(VI) contamination (49× MCL) | **HIGH** | OCHCA Case No. 20IC002; environmental compliance documents |
 | 5 | 🔴 7561 C*** Ave entity convergence | **HIGH** | OC property records; Weaver audit corroboration; 12 entities confirmed |
 | 6 | 🔴 CP PREMIER CAPITAL $0 quitclaims | **HIGH** | OC property records; matched to Peter Pham/Cynthia Chau ownership |
 | 7 | 🟡 Brookhurst UST corridor adjacency | **MEDIUM** | CA GeoTracker database; Triumvirate property in corridor but no direct tank |

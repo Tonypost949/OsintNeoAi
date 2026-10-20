@@ -295,14 +295,14 @@
             backdrop-filter: var(--glass-blur);
         }
 
-        table.case ****able {
+        table.cases-table {
             width: 100%;
             border-collapse: collapse;
             font-size: 14px;
             text-align: left;
         }
 
-        table.case ****able th {
+        table.cases-table th {
             background: rgba(0, 0, 0, 0.3);
             color: var(--accent-color);
             font-weight: 600;
@@ -310,13 +310,13 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        table.case ****able td {
+        table.cases-table td {
             padding: 14px 18px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             vertical-align: top;
         }
 
-        table.case ****able tr:hover td {
+        table.cases-table tr:hover td {
             background: rgba(0, 255, 170, 0.02);
         }
 
@@ -429,7 +429,7 @@
         </div>
         <nav class="nav-links">
             <a href="#" id="nav-briefings" class="active" onclick="switchView('briefings')">Dossiers & Briefings</a>
-            <a href="#" id="nav-cases" onclick="switchView('cases')">69-Case ****ster Index</a>
+            <a href="#" id="nav-cases" onclick="switchView('cases')">69-Case Master Index</a>
             <a href="#" id="nav-network" onclick="switchView('network')">RICO Network Map</a>
         </nav>
     </header>
@@ -478,7 +478,7 @@
             </div>
 
             <div class="table-wrapper">
-                <table class="case ****able">
+                <table class="cases-table">
                     <thead>
                         <tr>
                             <th>Case ID</th>
@@ -490,7 +490,7 @@
                             <th>Status</th>
                         </tr>
                     </thead>
-                    <tbody id="case ****body">
+                    <tbody id="cases-tbody">
                         <!-- Case rows populated dynamically -->
                     </tbody>
                 </table>
@@ -542,7 +542,7 @@
 
                             <circle cx="330" cy="120" r="40" fill="rgba(30, 41, 59, 0.9)" stroke="#10b981" stroke-width="2" />
                             <text x="330" y="118" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">Kristy Conway</text>
-                            <text x="330" y="132" fill="#8b949e" font-size="9" text-anchor="middle">Case ****ager</text>
+                            <text x="330" y="132" fill="#8b949e" font-size="9" text-anchor="middle">Case Manager</text>
 
                             <circle cx="570" cy="120" r="40" fill="rgba(30, 41, 59, 0.9)" stroke="#f59e0b" stroke-width="2" />
                             <text x="570" y="118" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">HB Nav Center</text>
@@ -702,7 +702,7 @@
 
         // Populate Cases Table
         function renderCasesTable(cases) {
-            const tbody = document.getElementById('case ****body');
+            const tbody = document.getElementById('cases-tbody');
             tbody.innerHTML = '';
 
             if (cases.length === 0) {

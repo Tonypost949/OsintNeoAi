@@ -60,7 +60,7 @@ The following materials are available for review and have been compiled into a p
 |---|---|
 | Weaver & Tidwell GSA Audit FY2024 | Independent auditor's report, Findings and Questioned Costs (pp. 39-40) |
 | IRS Form 990 | Related-party contribution disclosures, CHDO entity listing |
-| SBA PPP Loan ****cord | (***) ***-7109 — Mercy House Living Centers, Inc., $1.339M |
+| SBA PPP Loan Record | 5552257109 — Mercy House Living Centers, Inc., $1.339M |
 | CHDO Transaction Table | $13.5M carryback, $7.9M Century loan, $6.5M grant payment to private lender |
 | Cross-Reference Evidence | Geographic clustering of LLCs, ownership structures |
 

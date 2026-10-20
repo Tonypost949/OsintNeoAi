@@ -20,7 +20,7 @@ Cross-referencing newly ingested federal plea agreements, judicial dockets, prop
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                        LAYER 1: MUNICIPAL CONTRACTING & POLICY ****TION              │
+│                        LAYER 1: MUNICIPAL CONTRACTING & POLICY CORRUPTION              │
 │  Anaheim Angel Stadium $320M Land Sale • Mayor Sidhu ($1M Quid Pro Quo) • Ament / Rafiei │
 │  HCD $96M Surplus Land Act Violation (Res. 2022-064) • JL Forensic Audit "Cabal"        │
 └───────────────────────────────────────────┬────────────────────────────────────────────┘
@@ -28,7 +28,7 @@ Cross-referencing newly ingested federal plea agreements, judicial dockets, prop
                                             ▼
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
 │                        LAYER 2: JUDICIAL DEFAULT ENGINE & SHADOW PROCESS               │
-│  Central Justice Center Case ****DCJC (212 Southbrook, Irvine)       │
+│  Central Justice Center Case #30-2021-01201327-CL-UD-CJC (212 Southbrook, Irvine)       │
 │  Triple Default Judgments (06/29/21, 12/22/21, 02/04/22) • Emergency § 170.6 Strike   │
 │  Ruzicka, Wallace & Coughlin LLP ➔ Wallace, Richardson, Sontag & Le LLP                │
 └───────────────────────────────────────────┬────────────────────────────────────────────┘
@@ -97,7 +97,7 @@ Cross-referencing newly ingested federal plea agreements, judicial dockets, prop
 * **Engineered Conditions:** Precise Civil Grading Blueprint (PW#_2) confirms:
   * An **undestroyed abandoned water well** located 400ft N of Newman Ave / 25ft W of Cameron St (OCHCA & OCWD Well Records).
   * Mandatory **lead-based paint and asbestos hazard abatement mandates**.
-* **Operating Entity:** `Mercy House Living Centers` (Austin R. Drissen), implementing internal policy ****ions, grievance suppression, and property pack-out protocols.
+* **Operating Entity:** `Mercy House Living Centers` (Austin R. Drissen), implementing internal policy restrictions, grievance suppression, and property pack-out protocols.
 * **Correlation Significance:** Connects county homeless services contracts to non-compliant physical infrastructure, unmitigated groundwater hazards, and institutional secrecy policies.
 
 ---

@@ -20,7 +20,7 @@ Passive infrastructure analysis has resolved the protected backends of primary m
 
 ## 3. Van Herk Registry Relationships
 Forensic data identifies a direct "Directional" link between the Scottsdale tech hub and Orange County real estate:
-- **Scottsdale Cluster (5815 E Redfield Rd):** Hosting PEARCE RE, ALABAMA RE, MILO RE, and DOLORES RE HOLDINGS LLC.
+- **Scottsdale Cluster (5815 E. R*** Rd):** Hosting PEARCE RE, ALABAMA RE, MILO RE, and DOLORES RE HOLDINGS LLC.
 - **Huntington Beach Link:** Registered Agent for the Scottsdale cluster is **Margaret Van Herk** (8381 S*** Dr, Huntington Beach, CA).
 - **Costa Mesa Link:** **DEMION RE HOLDINGS LLC** (3194 H*** Cir, Costa Mesa) is owned by the same **Johannes A Van Herk** who manages the Scottsdale entities.
 
@@ -31,8 +31,8 @@ Forensic data confirms a direct financial and infrastructure pipeline between Ma
 
 ## 5. Evidence Integration
 The following evidence files have been integrated into the forensic index:
-- **fs.pdf:** Medical record for Petruccio, Elizabeth Tina. [Download Receipt](https://customer-assets-eiarnc6j.emergentagent.net/wingman/f6888b9c-9bc5-4857-aaf4-07839ee310**/attachments/9ec6e969c0ff4e57baf881**e659a17a_fs.pdf)
-- **andrewfalk.png:** Investigative photographic evidence. [Download Receipt](https://customer-assets-eiarnc6j.emergentagent.net/wingman/f6888b9c-9bc5-4857-aaf4-07839ee310**/attachments/56f443c66f73414897ff800feb5e1b1b_andrewfalk.png)
+- **fs.pdf:** Medical record for Petruccio, Elizabeth Tina. [Download Receipt](https://customer-assets-eiarnc6j.emergentagent.net/wingman/f6888b9c-9bc5-4857-aaf4-07839ee31075/attachments/9ec6e969c0ff4e57baf88179e659a17a_fs.pdf)
+- **andrewfalk.png:** Investigative photographic evidence. [Download Receipt](https://customer-assets-eiarnc6j.emergentagent.net/wingman/f6888b9c-9bc5-4857-aaf4-07839ee31075/attachments/56f443c66f73414897ff800feb5e1b1b_andrewfalk.png)
 
 ## 6. Conclusion & Recommendations
 The investigation has established a "Smoking Gun" link between municipal police infrastructure in Arizona and the RICO network in Orange County. It is recommended that this evidence package be presented for immediate federal review.

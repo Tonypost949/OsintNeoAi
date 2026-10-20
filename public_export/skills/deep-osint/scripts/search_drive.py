@@ -59,14 +59,14 @@ def run_oauth_flow():
     return creds
 
 def get_service_account_credentials():
-    """Load service account ****ials if available."""
+    """Load service account credentials if available."""
     if os.path.exists(SERVICE_ACCOUNT_FILE):
         try:
             return ServiceAccountCredentials.from_service_account_file(
                 SERVICE_ACCOUNT_FILE, scopes=SCOPES
             )
         except Exception as e:
-            print(f"Error loading service account ****ials: {e}")
+            print(f"Error loading service account credentials: {e}")
     return None
 
 def query_drive_api(query, creds):
@@ -246,7 +246,7 @@ class SearchAPIRequestHandler(http.server.SimpleHTTPRequestHandler):
         if not creds:
             self.send_json({
                 "error": "Not Authenticated",
-                "message": "No valid OAuth token or Service Account ****ials found."
+                "message": "No valid OAuth token or Service Account credentials found."
             }, 401)
             return
             

@@ -51,7 +51,7 @@
 
 **Fraud signals:**
 - Jobs inflated 52% (96 → 146) during COVID lockdown — statistically implausible
-- Loan ****unts virtually identical ($1,437,300 vs $1,437,376) — template duplication
+- Loan amounts virtually identical ($1,437,300 vs $1,437,376) — template duplication
 - NAICS sub-code shift 561330 → 561320 to evade duplicate detection
 - Different lenders used to avoid same-bank deduplication checks
 
@@ -62,7 +62,7 @@
 | 2 | **/**/2021 | $1,085,212.00 | 561320 (Temp Staffing) | **67** | Harvest SBF | Exemption 4 |
 
 **Fraud signals:**
-- Loan ****unts nearly identical to the cent ($1,085,212.50 vs $1,085,212.00) — copied template
+- Loan amounts nearly identical to the cent ($1,085,212.50 vs $1,085,212.00) — copied template
 - NAICS shifted Executive Search → Temp Staffing (different sub-industry claim)
 - Jobs inflated 46% (46 → 67) during COVID
 - Round 2 filed under Exemption 4 (disclosure withheld) — concealment behavior
@@ -85,7 +85,7 @@
 ### BOYS & GIRLS CLUBS OF HUNTINGTON VALLEY (16582 B*** St, FV)
 | Round | Amount | NAICS | Lender |
 |-------|--------|-------|--------|
-| 1 | $1,147,300 | 624110 (Child Day Services) | Loan ****urce Inc. |
+| 1 | $1,147,300 | 624110 (Child Day Services) | Loan Source Inc. |
 | 2 | $1,011,644 | 624110 (same) | **Harvest Small Business Finance** |
 | **Total** | **$2,158,944** | | |
 

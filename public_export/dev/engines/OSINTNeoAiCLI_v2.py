@@ -1328,7 +1328,7 @@ def api_ai_chat():
                                   "Our cross-domain graph query reveals a **55.6% concentration of Hospice shell entities** operating out of **11770 W*** Ave, Fountain Valley, CA**:\n\n"
                                   "* **Total PPP Ingestion:** **18 loans** totaling **$1,114,832.00** approved via automated FinTech lending pipelines.\n"
                                   "* **Shared Suite Footprint:** Entities including *Grace Hospice Care*, *Alpha Palliative Care*, and *Lotus Hospice* registered identical suite numbers.\n"
-                                  "* **Governing Statutes:** 18 U.S.C. § 1344 (Bank Fraud), 18 U.S.C. § 1014 (False Statements on Loan ****ions), 42 C.F.R. § 418.302 (Medicare ****pice Billing).")
+                                  "* **Governing Statutes:** 18 U.S.C. § 1344 (Bank Fraud), 18 U.S.C. § 1014 (False Statements on Loan Applications), 42 C.F.R. § 418.302 (Medicare Hospice Billing).")
             citations.append({"title": "Nationwide Public Funds & Tax Flow Audit", "url": "/docs"})
             citations.append({"title": "HBNC RICO GIS Parcel Map", "url": "/maps/hbnc_rico_gis.html"})
 

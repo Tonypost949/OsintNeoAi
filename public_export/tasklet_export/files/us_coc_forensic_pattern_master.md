@@ -31,7 +31,7 @@ graph TD
 
 ## 2. United States CoC Registry
 
-The following table serves as the core database for our case ****ment spreadsheet.
+The following table serves as the core database for our case-management spreadsheet.
 
 | State | CoC Number | CoC Name | Counties Covered | Policing Status | Environmental Justice Flag | Mercy House Presence | Operational / Forensic Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |

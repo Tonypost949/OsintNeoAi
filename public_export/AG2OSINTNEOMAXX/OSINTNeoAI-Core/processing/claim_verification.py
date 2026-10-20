@@ -1,4 +1,4 @@
-"""Evidence-first claim ****tion primitives for OSINTNeoAI.
+"""Evidence-first claim verification primitives for OSINTNeoAI.
 
 This module is deterministic: it never promotes an AI-generated statement
 to VERIFIED without explicit evidence records.
@@ -9,7 +9,7 @@ from enum import Enum
 from hashlib import sha256
 from typing import Iterable, Optional
 
-class Claim ****atus(str, Enum):
+class ClaimStatus(str, Enum):
     OBSERVED = "OBSERVED"
     DERIVED = "DERIVED"
     SUPPORTED = "SUPPORTED"
@@ -49,7 +49,7 @@ class Evidence:
 class Claim:
     claim_id: str
     text: str
-    status: Claim ****atus = ClaimStatus.UNRESOLVED
+    status: ClaimStatus = ClaimStatus.UNRESOLVED
     evidence: list[Evidence] = field(default_factory=list)
     what_source_establishes: list[str] = field(default_factory=list)
     what_source_does_not_establish: list[str] = field(default_factory=list)
@@ -60,7 +60,7 @@ class Claim:
         item.validate()
         self.evidence.append(item)
 
-    def adjudicate(self) -> Claim ****atus:
+    def adjudicate(self) -> ClaimStatus:
         """Conservative evidence gate; it never invents evidence."""
         if not self.evidence:
             self.status = ClaimStatus.UNSUPPORTED

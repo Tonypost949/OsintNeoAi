@@ -443,7 +443,7 @@ def make_synthetic_docx(tmp_path: Path) -> Callable[..., Path]:
         doc.add_heading("FORENSIC INVESTIGATION MEMORANDUM", 0)
 
         paras = paragraphs or [
-            "Case ****DCJC",
+            "Case: 30-2021-01201327-CL-UD-CJC",
             "Parties: Woodbridge Meadows Apartments LLC v. DiMarcello",
             "Date: 2021-06-29",
             "Summary: Default Judgment entered for $50,000.00."
@@ -581,8 +581,8 @@ def angel_stadium_records() -> Dict[str, Any]:
         ],
         "financials": [
             {"raw": "$320,000,000", "float": 320000000.0, "cents": 32000000000, "purpose": "Original Stadium Land Sale Price"},
-            {"raw": "$96,000,000", "float": 96000000.0, "cents": (***) ***-0000, "purpose": "HCD Surplus Land Act Penalty (30%)"},
-            {"raw": "$50,000,000", "float": 50000000.0, "cents": (***) ***-0000, "purpose": "Refunded Escrow Deposit to SRB Management"},
+            {"raw": "$96,000,000", "float": 96000000.0, "cents": 9600000000, "purpose": "HCD Surplus Land Act Penalty (30%)"},
+            {"raw": "$50,000,000", "float": 50000000.0, "cents": 5000000000, "purpose": "Refunded Escrow Deposit to SRB Management"},
             {"raw": "$1,000,000", "float": 1000000.0, "cents": 100000000, "purpose": "Sidhu Campaign Solicitations Target"},
         ],
         "timeline_events": [

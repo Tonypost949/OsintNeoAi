@@ -88,7 +88,7 @@ Pattern: money laundering / asset hiding vehicle
 ```
 Van Herk, Johannes A.
     ↓
-$0 transfers to 4 LLCs at 5815 E Redfield Rd, Scottsdale, AZ
+$0 transfers to 4 LLCs at 5815 E. R*** Rd, Scottsdale, AZ
     ↓
 Properties in Huntington Beach, CA
 ```

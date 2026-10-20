@@ -1,5 +1,5 @@
-# 📄 WORKING HYPOTHESIS: INSTITUTIONAL INSULATION & SYSTEMATIC ACCOUNT ****LITY AVOIDANCE
-## Case ****ject: Lindsay Clancy Investigation • Working Perspective on Institutional Incentives & Systemic Deflection
+# 📄 WORKING HYPOTHESIS: INSTITUTIONAL INSULATION & SYSTEMATIC ACCOUNTABILITY AVOIDANCE
+## Case Subject: Lindsay Clancy Investigation • Working Perspective on Institutional Incentives & Systemic Deflection
 **Document Reference:** `NWO-RICO-CLANCY-HYPOTHESIS-001`  
 **Classification:** Working Hypothesis / Investigative Synthesis  
 

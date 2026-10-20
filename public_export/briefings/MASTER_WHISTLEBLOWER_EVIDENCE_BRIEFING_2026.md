@@ -8,7 +8,7 @@
 ---
 
 ## 1. 🎯 EXECUTIVE SUMMARY & JURISDICTIONAL STATEMENT
-This Master Whistleblower Evidence Briefing establishes an empirical, multi-vector evidentiary record documenting systemic municipal procurement fraud, False Claims Act (FCA) violations, property mischaracterizations, PPP loan ****ring, and environmental hazard concealment across Orange County municipal and corporate vectors.
+This Master Whistleblower Evidence Briefing establishes an empirical, multi-vector evidentiary record documenting systemic municipal procurement fraud, False Claims Act (FCA) violations, property mischaracterizations, PPP loan layering, and environmental hazard concealment across Orange County municipal and corporate vectors.
 
 * **Total Records & Datasets Audited:** 196,683 cross-referenced transactions.
 * **Unique Resolved Entities:** 104,227 individuals and corporate nodes.

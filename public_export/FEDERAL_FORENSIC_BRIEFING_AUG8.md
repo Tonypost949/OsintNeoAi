@@ -9,7 +9,7 @@ This briefing consolidates findings from an audit of municipal cyber infrastruct
 ## 2. Key Target Vectors
 ### A. Financial Fraud (PPP/CARES Act)
 *   **Target:** Stewart Industries LLC
-*   **Vector:** $2.26M+ in forgiven PPP loan ****ents under dubious institutional co-location.
+*   **Vector:** $2.26M+ in forgiven PPP loan disbursements under dubious institutional co-location.
 *   **Evidence:** Node `PPP_LOAN_STEWART INDUSTRIES LLC` (status: PAID IN FULL).
 
 ### B. Cyber Infrastructure Compromise
@@ -22,7 +22,7 @@ This briefing consolidates findings from an audit of municipal cyber infrastruct
 
 ## 4. Tactical Recommendations
 1.  **Immediate Federal Intervention:** Execute metadata forensic preservation of identified municipal endpoints.
-2.  **Financial Seizure:** Initiate asset tracing on the Stewart Industries LLC and related PPP loan ****ment streams.
+2.  **Financial Seizure:** Initiate asset tracing on the Stewart Industries LLC and related PPP loan repayment streams.
 3.  **Cross-Jurisdictional Audit:** Mandate a federal investigation into the Scottsdale/Orange County municipal hosting co-location.
 
 ## 5. Corroborating Evidence: Social Timeline & ADA Violation Nexus

@@ -8,7 +8,7 @@ https://cloud.oracle.com/free
 - **OCPUs**: 4 (max free)
 - **Memory**: 24 GB (max free)
 - **OS**: Ubuntu 22.04
-- **SSH Key**: paste your `~/.ssh/id_ed255**.pub`
+- **SSH Key**: paste your `~/.ssh/id_ed25519.pub`
 
 ## 3. AFTER CREATE
 - Add ingress rules: 22 (SSH), 5052 (CLI hub), 100** (Map), 8080/8443

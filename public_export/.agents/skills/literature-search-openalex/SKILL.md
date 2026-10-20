@@ -78,7 +78,7 @@ Entity types (shared across commands): `works`, `authors`, `sources`,
 `display_name`, `hint`. Use `--per-page N` for more candidates.
 
 **get** `<entity> <id>` — Full metadata for one entity. Accepts short ID
-(`W(***) ***-9807`), full URL, or DOI URL. Use `--select` to limit fields.
+(`W2741809807`), full URL, or DOI URL. Use `--select` to limit fields.
 
 **filter** `<entity>` — Search/filter entities. Key flags are:
 
@@ -123,7 +123,7 @@ Consult `references/` for valid filter, sort, and group-by fields per entity:
 # Author's works (resolve → filter)
 uv run scripts/openalex_cli.py resolve authors "Geoffrey Hinton"
 uv run scripts/openalex_cli.py filter works \
-  --filter "authorships.author.id:A(***) ***-3963" \
+  --filter "authorships.author.id:A5108093963" \
   --sort "cited_by_count:desc" --per-page 10 > papers.json
 cat papers.json | jq '[.results[] | {id, title: .display_name, year: .publication_year, citations: .cited_by_count}]'
 

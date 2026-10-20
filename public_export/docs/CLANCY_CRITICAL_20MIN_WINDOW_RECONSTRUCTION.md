@@ -1,5 +1,5 @@
 # ⏱️ MINUTE-BY-MINUTE FORENSIC RECONSTRUCTION: THE CRITICAL 45-MINUTE WINDOW
-## Case ****ject: Lindsay Clancy (47 S*** St, Duxbury, MA) • January 24, 2023 (4:50 PM – 5:35 PM)
+## Case Subject: Lindsay Clancy (47 S*** St, Duxbury, MA) • January 24, 2023 (4:50 PM – 5:35 PM)
 **Investigation Reference:** `NWO-RICO-CLANCY-20MIN-001`  
 **Subject:** Lindsay Clancy, R.N. • Acute Dissociative Fugue State, Automatism & Paraplegia-Inducing Window Leap  
 **Governing Medical Doctrine:** Iatrogenic Toxic Delirium • Parasomnic Somnambulism • Involuntary Automatism

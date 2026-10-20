@@ -45,7 +45,7 @@ Here, the record establishes that:
 * **May 15, 2021:** Landlord executes Form UD-101 with false verification.
 * **May 18, 2021:** Complaint for Unlawful Detainer filed in the Central Justice Center.
 * **June 2021 – July 2021:** Consecutive, contradictory requests for entry of default processed despite statutory rental relief stays (ROA #26, #51, #60).
-* **August 4, 2021:** Extrajudicial and armed execution of unposted writ utilizing eight Orange County Sheriff deputies (Levying File No. (***) ***-2780), resulting in unlawful dispossession of Defendant, minor dependent, and disabled mother.
+* **August 4, 2021:** Extrajudicial and armed execution of unposted writ utilizing eight Orange County Sheriff deputies (Levying File No. 2021102780), resulting in unlawful dispossession of Defendant, minor dependent, and disabled mother.
 
 ---
 
@@ -65,8 +65,8 @@ The issuance of multiple entries of default against a single defendant on identi
 
 #### IV. CONCLUSION & PRAYER FOR RELIEF
 WHEREFORE, Defendant prays for an Order:
-1. Vacating the default and default judgment in Case ****DCJC;
-2. Quashing the Writ of Possession and Levying File No. (***) ***-2780;
+1. Vacating the default and default judgment in Case 30-2021-01201327-CL-UD-CJC;
+2. Quashing the Writ of Possession and Levying File No. 2021102780;
 3. Directing the Clerk to seal and dismiss the action with prejudice;
 4. Reserving jurisdiction for restitution and statutory damages under Cal. Civ. Code § 1942.5 and Cal. Labor Code § 1102.5.
 

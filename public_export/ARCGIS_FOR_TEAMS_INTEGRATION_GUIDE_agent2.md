@@ -1,7 +1,7 @@
 ﻿# ≡ƒù║∩╕Å ArcGIS for Teams ΓÇö Integration & Deployment Guide
 
 **Project:** OSINT Neo AI / Makaveli Protocol  
-**Case ****ence:** CACD Case 8:2026cv003**  
+**Case Reference:** CACD Case 8:2026cv00348  
 **ArcGIS Platform:** Esri ArcGIS Online / ArcGIS Enterprise / ArcGIS for Microsoft Teams  
 
 ---

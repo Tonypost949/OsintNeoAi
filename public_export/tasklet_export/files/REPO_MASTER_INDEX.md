@@ -116,9 +116,9 @@ OsintNeoAi/
 
 ### Version Control
 All previous versions preserved in git history:
-- `8cd337f6161cc8064f(***) ***-1080f49a6512f202` - Original main
+- `8cd337f6161cc8064f6221151080f49a6512f202` - Original main
 - `f104a242030469426c79c3e523263135105adae2` - Initial OPEN_HERE.html
-- `dbd498f467e22b1b317**f5723d282cbaeb68a90` - Updated main
+- `dbd498f467e22b1b31704f5723d282cbaeb68a90` - Updated main
 - `3f8e0699f47cf3d571a41951803d49c3a6622fdc` - Updated feat/city-cyber-recon-map
 
 ---

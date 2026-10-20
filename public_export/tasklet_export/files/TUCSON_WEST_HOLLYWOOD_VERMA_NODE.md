@@ -16,7 +16,7 @@
 | Phone | (***) ***-6377 |
 | NPI | 1902152242 |
 | License | A155456 |
-| Address | 1133 N Formosa Ave, West Hollywood, CA 900** |
+| Address | 1133 N. F*** Ave, West Hollywood, CA 900** |
 | Platform | Headway (care.headway.co/providers/ann-verma) |
 | Psychology Today | psychologytoday.com/profile/1737136 |
 | Company | Brain Regenerative Medicine Inc. (Founder) |
@@ -27,7 +27,7 @@
 | CSULB (2001-2005) | Undergraduate research, yeast sugar antibodies, Dr. Mason Zhang's lab |
 | American University of the Caribbean School of Medicine | MD (2010) |
 | University of South Dakota | Fellowship training |
-| Case ****tern Reserve | Fellowship training |
+| Case Western Reserve | Fellowship training |
 
 ### 15-Year Retaliation Pattern:
 | Year | Event |
@@ -75,7 +75,7 @@
 | Post-eviction | Landlord collected COVID rental relief funds despite executing eviction |
 | 8 months | DMV withheld renewed ID |
 | 11 months | EDD froze legitimate pandemic layoff claims |
-| Ongoing | DFEH deleted case ****2945 without notice |
+| Ongoing | DFEH deleted case #82945 without notice |
 | 2025 | Submitted evidence to First Asst. USA Bill Essayli |
 | 2025 | "Zombie warrant" issued — PC 496d(a), mailed to stale address 412 O*** Ave |
 | 2025 | Detained while calling police about church vandalism |
@@ -118,9 +118,9 @@
 
 ### TWO ADDRESSES — BOTH CONFIRMED
 
-**1133 N*** Ave, Los Angeles, CA 900**** — Andrew Falk's CURRENT personal residence (confirmed by user July 24, 2026)
+**1133 N. N*** Ave, Los Angeles, CA 900**** — Andrew Falk's CURRENT personal residence (confirmed by user July 24, 2026)
 
-**1133 N Formosa Ave, West Hollywood, CA 900**** — The rental property where the rent-to-own fraud against Dr. Ann Verma occurred. Subject of July 4, 2026 Notice of Rescission.
+**1133 N. F*** Ave, West Hollywood, CA 900**** — The rental property where the rent-to-own fraud against Dr. Ann Verma occurred. Subject of July 4, 2026 Notice of Rescission.
 
 Both addresses are valid and connected to Andrew Falk. The Normandie address is where Falk lives; the Formosa address is where he committed the fraud.
 
@@ -150,7 +150,7 @@ Correct spelling: **Andrew Falk** (no 'u'). Confirmed by email (d***@me.com) and
 | Field | Detail |
 |-------|--------|
 | Station | LASD West Hollywood Station |
-| Address | 780 N*** Blvd, West Hollywood, CA 900** |
+| Address | 780 N. S*** Blvd, West Hollywood, CA 900** |
 | Phone | (***) ***-8850 |
 | Captain | Fanny Lapkin (since Aug 2025) |
 | Previous Capt | William Moulder (medical leave) |
@@ -192,7 +192,7 @@ Correct spelling: **Andrew Falk** (no 'u'). Confirmed by email (d***@me.com) and
 2. **Fire code violations** — Specific complaints, LA County records, inspection reports
 3. **Sham rent-to-own agreement** — Copy of the contract, payment history
 4. **West Hollywood Sheriff operations** — Specific incidents, dates, officers involved
-5. **Judge Swift cases** — Case ****bers, dates, what was ruled
+5. **Judge Swift cases** — Case numbers, dates, what was ruled
 6. **1133 N Formosa HOA** — HOA formed 1990, 5 units, fire alarm panels, sprinklers, emergency lighting status
 7. **Andrew Falk.png photo** — Confirm if this is the landlord's face; download from Drive for evidence package
 8. **1133 N Formosa property records** — Verify APN, deed history, Andrew Falk/Falk listed as owner on official records
@@ -204,7 +204,7 @@ This is the SAME pattern as HB:
 - Sheriff department provides cover (West Hollywood Sheriff)
 - Courts rubber-stamp the fraud (Judge Swift, Santa Monica)
 - Whistleblower is targeted for reporting (Dr. Ann Verma)
-- Neighborhood has no fire codes = no account ****lity = no safety
+- Neighborhood has no fire codes = no accountability = no safety
 
 The 1133 N Formosa node connects to:
 - HBPD node (same retaliation pattern)

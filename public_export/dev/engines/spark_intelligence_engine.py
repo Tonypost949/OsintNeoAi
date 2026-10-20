@@ -62,7 +62,7 @@ def generate_spark_digest_and_enrichments(raw_data):
     
     ## 1. Executive Summary
     
-    [2-3 paragraphs summarizing the most critical findings. Lead with the highest-impact item. Include specific dollar amounts, case ****bers, entity names, and regulatory implications. Bold key figures and case identifiers.]
+    [2-3 paragraphs summarizing the most critical findings. Lead with the highest-impact item. Include specific dollar amounts, case numbers, entity names, and regulatory implications. Bold key figures and case identifiers.]
     
     ---
     
@@ -111,7 +111,7 @@ def generate_spark_digest_and_enrichments(raw_data):
     
     RULES:
     - Use realistic source URLs where applicable (DOJ, SEC, FinCEN, PACER, etc.)
-    - Include specific dollar amounts, case ****bers, entity names, dates
+    - Include specific dollar amounts, case numbers, entity names, dates
     - Cite specific statutes (e.g., 31 U.S.C. § 3729, California Labor Code § 1102.5)
     - Professional legal/intelligence analytical tone
     - Bold key terms and figures

@@ -316,7 +316,7 @@ def filter_preference(track: Any) -> Any:
 
   if title_col:
     titles = track.metadata[title_col].unique()
-    # Case ****tive check
+    # Case insensitive check
     titles_lower = [t.lower() for t in titles if isinstance(t, str)]
 
     has_total = any('total rna-seq' in t for t in titles_lower)

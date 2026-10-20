@@ -271,7 +271,7 @@ def main():
       help="End date (YYYY-MM-DD)",
   )
   parser.add_argument("--category", help="Strict server-side category filter")
-  parser.add_argument("--author", help="Local author filter (case ****tive)")
+  parser.add_argument("--author", help="Local author filter (case-insensitive)")
   parser.add_argument(
       "--keywords",
       nargs="+",

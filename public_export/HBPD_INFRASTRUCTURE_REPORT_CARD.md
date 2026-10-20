@@ -29,7 +29,7 @@ The scan detected **3 Critical Endpoint Exposures** returning HTTP 200 (Success)
 3. `/.aws/credentials` (Exposes Amazon Web Services cloud access keys)
 
 ## 3. Data Breach Saturation
-The Dehashed intelligence scan (`Dehashed-HBPD-scan.json`) corroborates this structural weakness, identifying **400 separate compromised account ****ings** associated with the `hbpd.org` domain.
+The Dehashed intelligence scan (`Dehashed-HBPD-scan.json`) corroborates this structural weakness, identifying **400 separate compromised account listings** associated with the `hbpd.org` domain.
 
 ## Conclusion
 The Huntington Beach Police Department infrastructure is operating with a Grade-F security posture. The combination of exposed RDP/VNC (remote desktop), exposed raw databases (SQL/Mongo/Elastic), and exposed cloud credentials (`.aws/credentials`) means the network is entirely porous. Any threat actor could map, access, and exfiltrate data from this system with minimal resistance.

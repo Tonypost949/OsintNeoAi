@@ -34,7 +34,7 @@ This survey investigation thoroughly audited:
 
 ### 2.2 Deep Dive: `C:\OsintNeoAi\evidence`
 
-`C:\OsintNeoAi\evidence` is the primary curated repository of investigative case ****ials, court records, and intelligence logs.
+`C:\OsintNeoAi\evidence` is the primary curated repository of investigative case materials, court records, and intelligence logs.
 
 #### Subdirectory Layout:
 - `official_court_records/` (11 markdown transcripts and master index):
@@ -81,7 +81,7 @@ The Downloads folder contains recent primary evidentiary intakes, medical record
    - `Hospital Conditions of Admission (1).TIF` (0.34 MB), `General Consent for Treatment.TIF` (0.15 MB, 3 pages).
    - `Authorization for Release of Information.TIF` (0.24 MB), `Authorization to Release Protected Health Information.TIF` (0.22 MB).
    - `ED AVS Dec 14, 2025.PDF` (1.08 MB), `Itemized Bill_20260820.PDF`, `Patient Signature Dec 14, 2025.PDF`.
-   - `medrec5444.pdf`, `rec1.pdf` through `rec666**.pdf`, `Sub 01 Sanderson.pdf`.
+   - `medrec5444.pdf`, `rec1.pdf` through `rec66666.pdf`, `Sub 01 Sanderson.pdf`.
 2. **Court Search Results & Legislative / Municipal Documents**:
    - `The Superior Court of California - Name Search Results.html` (along with subfolder files).
    - `Knabb_v__City_of_Huntington_Beach.pdf`.
@@ -130,7 +130,7 @@ The repository contains battle-tested extraction, parsing, and correlation code 
     - **Names**: `\b([A-Z][a-z]{1,20}\s+(?:[A-Z]\.?\s+)?[A-Z][a-z]{1,20}(?:\s+(?:Jr|Sr|III|II|IV)\.?)?)\b`
     - **Addresses**: Full street patterns with suffixes (`St|Street|Ave|Blvd|Dr|Ln|Rd|Way|Ct|Pl|Cir`) and suite/unit identifiers.
     - **Financial Amounts**: `\$[\d,]+(?:\.\d{1,2})?(?:\s*(?:million|billion|M|B|K))?`
-    - **Federal/State Case ****bers**: `\b\d{1,2}:\d{2}-(?:cv|cr|mc|mj|ml)-\d{3,6}(?:-[A-Z]{2,5}(?:-[A-Z]{2,5})?)?\b` and state format `30-2021-01201327-CL-UD-CJC`.
+    - **Federal/State Case Numbers**: `\b\d{1,2}:\d{2}-(?:cv|cr|mc|mj|ml)-\d{3,6}(?:-[A-Z]{2,5}(?:-[A-Z]{2,5})?)?\b` and state format `30-2021-01201327-CL-UD-CJC`.
     - **Organizations**: Standard corporate and municipal identifiers (`Inc|LLC|Corp|Foundation|Association|Group|Solutions|Center|Institute|LLP|LP|Ltd`).
     - **Smoking Gun Keywords**: 30+ legal, corruption, and environmental terms (`indictment`, `guilty plea`, `wire fraud`, `restitution`, `rico`, `qui tam`, `false claims`, `unsealed`, `hexavalent chromium`, `ceqa`, `superfund`).
 - **`core/AG2OSINTNEOMAXX/onedrive_ingestion_engine.py`**:
@@ -289,7 +289,7 @@ The relational database `timeline_vault.db` must feature the following normalize
 - `title` (TEXT) — Extracted title or subject
 - `sender` (TEXT) — Author / Sending party
 - `recipient` (TEXT) — Recipient / Target agency
-- `case_number` (TEXT) — Detected federal or state case ****mber
+- `case_number` (TEXT) — Detected federal or state case number
 - `financial_amount` (REAL) — Primary extracted dollar amount (if present)
 - `text_body` (TEXT NOT NULL) — Full extracted / OCR text
 - `ocr_applied` (INTEGER NOT NULL) — 1 if OCR was executed, 0 if digital text

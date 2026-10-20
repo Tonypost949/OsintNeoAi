@@ -10,7 +10,7 @@ Historical and official pre-1960 document deep investigation for 17631 C*** Ln, 
 - Victory Auditor: ce3ce1b0-4882-401f-8dbd-cf505a81f6fc (victory_auditor_3)
 - Orchestrator (active): 4ea1f01b-b75e-4977-bfe3-2c8630301b0e (orchestrator_12)
 - Victory Auditor (active): b276234f-c46b-418c-8125-abce715bff2e (victory_auditor_4)
-- Orchestrator (active gen13): e68e15f5-4a37-405f-8e73-c5b576**b6cf (orchestrator_13)
+- Orchestrator (active gen13): e68e15f5-4a37-405f-8e73-c5b57613b6cf (orchestrator_13)
 - Victory Auditor (active gen13): 87d51b8b-27d6-4e48-9bdf-95f15b018433 (victory_auditor_5)
 - Orchestrator (active gen16): f4ca7f7a-13ef-4422-aea0-b7673715fcfc (orchestrator_1)
 - Victory Auditor (active gen16): [to be spawned on victory claim]

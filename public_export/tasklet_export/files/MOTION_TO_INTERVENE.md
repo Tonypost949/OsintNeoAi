@@ -57,7 +57,7 @@ This is not merely an environmental case. It is a **racketeering enterprise** op
 **The Fraudulent Closure Chain:**
 
 1. **March 11, 2020** — Jim Merid (City of Huntington Beach, J***@surfcity-hb.org) requests OCWD well data for 17631 C*** Ln / 17642 B*** Blvd (0.5 mile radius)
-2. **August 21, 2020** — OCHCA issues fraudulent "Case ****osed" certificate (20IC002) certifying environmental safety despite documented 1947 irrigation well and CrVI plume
+2. **August 21, 2020** — OCHCA issues fraudulent "Case Closed" certificate (20IC002) certifying environmental safety despite documented 1947 irrigation well and CrVI plume
 3. **August 2020 – January 2021** — City acquires Yamada parcel using $6,094,847 LMIHAF reserves
 4. **2024** — CrVI soil sample confirms 490 ppb — 49 times the EPA limit
 
@@ -140,7 +140,7 @@ Mitsuru Yamada is listed in Knabb's complaint as a separate defendant — a priv
 
 **The Conflict:**
 
-The County cannot claim ****mada was a private actor when he worked for the County's own environmental agency. The County cannot claim the fraudulent RAS forms were Yamada's private act when the signature is alleged to be forged. The County cannot sever Yamada from the enterprise when the enterprise used Yamada's government position, Yamada's property, and Yamada's (allegedly forged) signature to close the case.
+The County cannot claim Yamada was a private actor when he worked for the County's own environmental agency. The County cannot claim the fraudulent RAS forms were Yamada's private act when the signature is alleged to be forged. The County cannot sever Yamada from the enterprise when the enterprise used Yamada's government position, Yamada's property, and Yamada's (allegedly forged) signature to close the case.
 
 ---
 
@@ -153,7 +153,7 @@ All environmental reports were in the undersigned's possession **before** Knabb 
 | Phase I ESA (commercial EDR) | 43.2MB | Apr 23, 2025 | Anthony DiMarcello |
 | Phase I ESA (government GeoTracker) | 36.6MB | Mar 23, 2025 | Anthony DiMarcello |
 | 176** Yamada backfill 2 1990 | 0.1MB | Jan 22, 2025 | Anthony DiMarcello |
-| C812** cesspool permit | 0.2MB | Jan 22, 2025 | Anthony DiMarcello |
+| C81252 cesspool permit | 0.2MB | Jan 22, 2025 | Anthony DiMarcello |
 | GeoTracker T10000018579 ZIP | 159MB | Jan 1, 2026 | Anthony DiMarcello |
 | Site Assessment Report | 109MB | Nov 18, 2025 | Anthony DiMarcello |
 | Property Report 17642 B*** Blvd | 1.2MB | Jan 15, 2025 | Anthony DiMarcello |
@@ -185,7 +185,7 @@ All environmental reports were in the undersigned's possession **before** Knabb 
 | Agency | Funding Stream | Amount | Failure |
 |--------|---------------|--------|---------|
 | **HUD** | CoC Block Grants, LMIHAF | $454M national, $155M HBNC | OIG blocking qui tam submissions |
-| **SBA** | PPP Loan ****ness | $3.1B OC-area | No audit of shell LLC borrowers |
+| **SBA** | PPP Loan Forgiveness | $3.1B OC-area | No audit of shell LLC borrowers |
 | **HHS/ACF** | Title IV-E Foster Care | $200M-$300M+/yr OC | No tracking of child outcomes |
 | **EPA Region 9** | CERCLA/RCRA Enforcement | — | No enforcement at HBNC despite 49x CrVI |
 | **IRS** | IRC §4941 Self-Dealing | $6.49M verified | No investigation of Mercy House board |

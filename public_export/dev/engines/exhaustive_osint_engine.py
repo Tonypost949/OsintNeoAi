@@ -40,7 +40,7 @@ class ExhaustiveOSINTEngine:
         }
         print(f"\n" + "="*70, flush=True)
         print(f" [!] LAUNCHING EXHAUSTIVE OSINT PIPELINE: '{self.query}'", flush=True)
-        print(f" [!] Policy ****AUST ALL SOURCES BEFORE STOPPING", flush=True)
+        print(f" [!] Policy: EXHAUST ALL SOURCES BEFORE STOPPING", flush=True)
         print("="*70 + "\n", flush=True)
 
     def log_source(self, source_name: str, status: str, summary: str, data: Any = None):

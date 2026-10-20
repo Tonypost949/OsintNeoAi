@@ -21,7 +21,7 @@ Adversarially challenge and stress-test the new workspace intelligence endpoints
 - Report any failures as findings — do NOT fix them yourself
 
 ## Current Parent
-- Conversation ID: e68e15f5-4a37-405f-8e73-c5b576**b6cf (orchestrator_13)
+- Conversation ID: e68e15f5-4a37-405f-8e73-c5b57613b6cf (orchestrator_13)
 - Updated: 2026-09-10T19:15:00Z
 
 ## Review Scope

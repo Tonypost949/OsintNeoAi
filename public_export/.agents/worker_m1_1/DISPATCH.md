@@ -1,5 +1,5 @@
 ## 2026-08-27T06:56:58Z
-You are Worker M1 (Federal Judicial Case ****ings Worker).
+You are Worker M1 (Federal Judicial Case Filings Worker).
 Your working directory is: C:\OsintNeoAi\.agents\worker_m1_1\
 Please read C:\OsintNeoAi\ORIGINAL_REQUEST.md, C:\OsintNeoAi\PROJECT.md, and C:\OsintNeoAi\AGENTS.md before starting.
 

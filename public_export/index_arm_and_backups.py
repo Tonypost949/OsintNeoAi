@@ -24,7 +24,7 @@ def index_all_system_backups_and_arm_injury():
                 if any(k in item_str for k in ["phone", "backup", "sms", "call", "contacts", "vcf", "chat", "takeout", "tmobile"]):
                     phone_backup_records.append(item)
                     
-                # Check Cloud Storage & Account ****yncs
+                # Check Cloud Storage & Account Syncs
                 if any(k in item_str for k in ["google_drive", "google_photos", "onedrive", "gdrive", "photos", "cloud"]):
                     cloud_storage_records.append(item)
                     

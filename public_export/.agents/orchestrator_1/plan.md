@@ -9,7 +9,7 @@ Aggregate, transcribe, verify statutory authorities, and permanently archive all
 - **Explorer 3**: Orange County Unlawful Detainer (61 ROA entries, triple defaults, 170.6) & Law Enforcement / Commercial records (Hamilton, Ewing, Quantum).
 - Deliverables: Feature Inventory in `PROJECT.md`.
 
-## Step 1: Milestone 1 — Federal Judicial Case ****ings (R1)
+## Step 1: Milestone 1 — Federal Judicial Case Filings (R1)
 - Compile complete structured transcripts, docket metadata, charges, plea terms, affidavits into `evidence/official_court_records/federal_judicial/`.
 - Verify statutory citations (18 U.S.C. §§ 371, 1001, 1343, 1346, 666, 26 U.S.C. § 7206, etc.).
 
@@ -18,7 +18,7 @@ Aggregate, transcribe, verify statutory authorities, and permanently archive all
 - Verify statutory framework (Gov Code § 542** Surplus Land Act, Brown Act Gov Code § 549** et seq., $96M penalty).
 
 ## Step 3: Milestone 3 — California Superior Court Unlawful Detainer Complete Docket (R3)
-- Transcribe complete 61 ROA entries for Case ****DCJC into `evidence/official_court_records/superior_court_ud/`.
+- Transcribe complete 61 ROA entries for Case No. 30-2021-01201327-CL-UD-CJC into `evidence/official_court_records/superior_court_ud/`.
 - Detail triple default judgments (**/**/2021, **/**/2021, **/**/2022) and 4:29 PM CCP § 170.6 Peremptory Challenge against Judge Carmen Luege.
 
 ## Step 4: Milestone 4 — Multi-State Police & Commercial Incident Logs (R4)

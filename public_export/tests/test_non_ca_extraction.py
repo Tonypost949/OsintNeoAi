@@ -136,7 +136,7 @@ class TestNonCAEntityExtraction(unittest.TestCase):
         self.assertTrue(any("DEAN ANTHONY INNOCENZI" in k for k in entity_names), "Missing Dean Anthony Innocenzi")
         self.assertTrue(any("ZARTMAN" in k for k in entity_names), "Missing SA Bradley Zartman")
         self.assertTrue(any("2019-00053723" in k for k in entity_names), "Missing Hamilton PD Incident 2019-00053723")
-        self.assertTrue(any("I-2019-001222" in k for k in entity_names), "Missing Ewing PD Ledger Case ****1222")
+        self.assertTrue(any("I-2019-001222" in k for k in entity_names), "Missing Ewing PD Ledger Case I-2019-001222")
         self.assertTrue(any("QUANTUM AUTO" in k for k in entity_names), "Missing Quantum Auto Dismantler shipment")
 
         # 4. Pennsylvania Split Billing

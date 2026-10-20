@@ -9,7 +9,7 @@
 ## I. TIER 1 IMMEDIATE SEIZURE (18 U.S.C. § 982)
 
 **The Primary Financial Target:** The $3,887,991.41 Pham Family Living Trust (Wells Fargo).
-**Status:** UNCLAIMED PROPERTY (CA State Controller) — **PENDING CLAIM ****TIVE**
+**Status:** UNCLAIMED PROPERTY (CA State Controller) — **PENDING CLAIM ACTIVE**
 
 ### Execution Protocol:
 1. **Emergency Protective Order:** Due to the active "Pending Claim" on Property ID `1024456136`, an immediate Federal Hold Order under 18 U.S.C. § 982 (Money Laundering) must be filed with the Central District of California.
@@ -24,7 +24,7 @@
 **Status:** Active Municipal Property / Homeless Shelter
 
 ### Execution Protocol:
-1. **Civil Asset Forfeiture:** The $6.1M utilized to purchase the property originated from restricted LMIHAF funds. Because the purchase was executed using fraudulent certifications (OCHCA Case ****C002), the property itself represents the proceeds of fraud.
+1. **Civil Asset Forfeiture:** The $6.1M utilized to purchase the property originated from restricted LMIHAF funds. Because the purchase was executed using fraudulent certifications (OCHCA Case #20IC002), the property itself represents the proceeds of fraud.
 2. **Federal Receiver:** Petition the court to appoint a federal receiver to assume immediate control of the property, terminate the Mercy House operator contract, and manage the relocation of the displaced individuals currently housed atop the Cr-VI plume.
 3. **Liquidation:** Upon successful forfeiture, the property will be liquidated, with proceeds returning to the federal/state governments as restitution. However, the environmental liability (Section III) must be factored into the valuation.
 
@@ -35,7 +35,7 @@
 **The True Cost:** $8M - $15M Estimated Cleanup Liability.
 
 ### Execution Protocol:
-1. **Identify Responsible Parties:** The City of Huntington Beach, the Yamada Family Trusts, and Standard Oil of California (Chevron). The 1955 Permit (C812**) explicitly ties Standard Oil to Tract 405.
+1. **Identify Responsible Parties:** The City of Huntington Beach, the Yamada Family Trusts, and Standard Oil of California (Chevron). The 1955 Permit (C81252) explicitly ties Standard Oil to Tract 405.
 2. **Cost Recovery Action:** Under CERCLA (42 U.S.C. § 9607), the government must initiate a cost recovery action against the City of Huntington Beach and the historical operators to fund the deep-aquifer remediation. The City's liability is compounded by their active concealment of the 1947 agricultural well and the Tract 405 designation.
 
 ---
@@ -50,4 +50,4 @@
 2. **FinCEN 314(a) Request:** Trigger a FinCEN 314(a) sweep to identify any previously unmapped shell entities mirroring the "Brink Center" or "VAS Associates" naming conventions utilized in the out-of-state accounts.
 
 ---
-**CONCLUSION:** The immediate priority is severing the fraud network's access to the $3.88M Wells Fargo trust. If the pending claim on that account ****ears, the capital will likely be offshored to jurisdictions non-compliant with US forfeiture laws.
+**CONCLUSION:** The immediate priority is severing the fraud network's access to the $3.88M Wells Fargo trust. If the pending claim on that account clears, the capital will likely be offshored to jurisdictions non-compliant with US forfeiture laws.

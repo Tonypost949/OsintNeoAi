@@ -25,13 +25,13 @@ def run_continuous_quad_agent_loop():
         "copilot_agents": [
             {
                 "name": "OsintNeoAi Sentinel Agent",
-                "id": "e6781ec6-79e6-4868-90be-60e88d514**b",
+                "id": "e6781ec6-79e6-4868-90be-60e88d51435b",
                 "status": "ACTIVE_MONITORING",
                 "action": "Continuous threat, proximity & cellular SIM swap vector monitoring"
             },
             {
                 "name": "OsintNeoAi Master Agent",
-                "id": "3bda9cdd-4646-47bf-8e7a-4d025**f01bf",
+                "id": "3bda9cdd-4646-47bf-8e7a-4d02547f01bf",
                 "status": "ACTIVE_ORCHESTRATION",
                 "action": "Cross-domain Dataverse API bridge orchestration (/api/nodes)"
             },

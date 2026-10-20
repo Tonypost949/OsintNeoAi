@@ -35,7 +35,7 @@ scored AS (
         entity_count,
         total_loan_amount,
         geographic_span,
-        -- Risk score: multi-state + high loan ****ount + many entities
+        -- Risk score: multi-state + high loan count + many entities
         (
             LEAST(ARRAY_LENGTH(geographic_span), 5) * 10 +  -- multi-state penalty
             LEAST(entity_count, 10) * 5 +                    -- entity count

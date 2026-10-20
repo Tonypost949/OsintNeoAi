@@ -8,11 +8,11 @@
 
 ## 🏛️ PART 1: ORANGE COUNTY SUPERIOR COURT UNLAWFUL DETAINER DOCKET
 
-### 1.1 Case ****view & Judicial Officers
+### 1.1 Case Overview & Judicial Officers
 * **Court:** Superior Court of California, County of Orange — Central Justice Center (CJC), 700 C*** Dr. West, Santa Ana, CA 927**
-* **Case ****mber:** `30-2021-01201327-CL-UD-CJC`
-* **Case ****itle:** `WOODBRIDGE MEADOWS APARTMENTS LLC VS. ANTHONY DIMARCELLO`
-* **Case ****gory / Type:** Civil - Limited / Unlawful Detainer - Residential
+* **Case Number:** `30-2021-01201327-CL-UD-CJC`
+* **Case Title:** `WOODBRIDGE MEADOWS APARTMENTS LLC VS. ANTHONY DIMARCELLO`
+* **Case Category / Type:** Civil - Limited / Unlawful Detainer - Residential
 * **Filing Date:** May 18, 2021
 * **Assigned Judicial Officer:** Hon. Carmen Luege (Department C61)
 * **Court Clerk:** David H. Yamasaki (Clerk of the Court); Agustin Carbajal (Courtroom Clerk); Brook Romney (Deputy Clerk); Diana Cuevas (Deputy Clerk)
@@ -34,15 +34,15 @@ The following table contains the complete, verified 61-entry Register of Actions
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **1** | **/**/2021 | COMPLAINT FILED BY WOODBRIDGE MEADOWS APARTMENTS LLC ON **/**/2021 | Plaintiff | 16 pgs | Transaction # 1848669 (**/**/2021 02:30:04 PM) |
 | **2** | **/**/2021 | PLAINTIFF'S MANDATORY COVER SHEET AND SUPPLEMENTAL ALLEGATIONS - UNLAWFUL DETAINER FILED BY WOODBRIDGE MEADOWS APARTMENTS LLC ON **/**/2021 | Plaintiff | 7 pgs | Form UD-101 / Mandatory Cover Sheet |
-| **3** | **/**/2021 | CIVIL CASE ****OVER SHEET FILED BY WOODBRIDGE MEADOWS APARTMENTS LLC ON **/**/2021 | Plaintiff | 2 pgs | Form CM-010 |
+| **3** | **/**/2021 | CIVIL CASE COVER SHEET FILED BY WOODBRIDGE MEADOWS APARTMENTS LLC ON **/**/2021 | Plaintiff | 2 pgs | Form CM-010 |
 | **4** | **/**/2021 | SUMMONS ISSUED AND FILED BY WOODBRIDGE MEADOWS APARTMENTS LLC ON **/**/2021 | Plaintiff / Clerk | 2 pgs | Form SUM-130 |
 | **5** | **/**/2021 | PAYMENT RECEIVED BY CONTINUINGEDUCATIONOFTHEBAR FOR 171 - COMPLAINT OR OTHER 1ST PAPER <=$10K (UNLAWFUL DETAINER) IN THE AMOUNT OF $240.00 | CEB / Plaintiff | 1 pg | Transaction # 12887559 / Receipt # 12715335 |
 | **6** | **/**/2021 | E-FILING TRANSACTION 1848669 RECEIVED ON **/**/2021 02:30:04 PM | Court | -- | System Electronic Receipt (NV) |
-| **7** | **/**/2021 | CASE ****GNED TO JUDICIAL OFFICER LUEGE, CARMEN ON **/**/2021 | Court | -- | Initial Judicial Assignment (NV) |
-| **8** | **/**/2021 | CASE ****TION FORM(S) HAVE BEEN GENERATED | Court | 2 pgs | Clerk Initiation Notice |
+| **7** | **/**/2021 | CASE ASSIGNED TO JUDICIAL OFFICER LUEGE, CARMEN ON **/**/2021 | Court | -- | Initial Judicial Assignment (NV) |
+| **8** | **/**/2021 | CASE INITIATION FORM(S) HAVE BEEN GENERATED | Court | 2 pgs | Clerk Initiation Notice |
 | **9** | **/**/2021 | E-FILING TRANSACTION 41200567 RECEIVED ON **/**/2021 03:44:27 PM | Court | -- | System Electronic Receipt (NV) |
 | **10** | **/**/2021 | APPLICATION AND ORDER TO SERVE SUMMONS BY POSTING - UNLAWFUL DETAINER RECEIVED ON **/**/2021 | Plaintiff | 4 pgs | Cal. CCP § 415.45 Application; Signed by Arden Hoang; Recorded by Diana Cuevas |
-| **11** | **/**/2021 | PAYMENT RECEIVED BY CONTINUINGEDUCATIONOFTHEBAR FOR 37 - REQUESTS NOT REQUIRING A HEARING: CONTINUANCE OF HEARING OR CASE ****MENT CONFERENCE; STIPULATION AND ORDER; SERVICE BY POSTING OR PUBLICATION IN THE AMOUNT OF $20.00 | CEB / Plaintiff | 1 pg | Transaction # 12895733 / Receipt # 12723532 |
+| **11** | **/**/2021 | PAYMENT RECEIVED BY CONTINUINGEDUCATIONOFTHEBAR FOR 37 - REQUESTS NOT REQUIRING A HEARING: CONTINUANCE OF HEARING OR CASE MANAGEMENT CONFERENCE; STIPULATION AND ORDER; SERVICE BY POSTING OR PUBLICATION IN THE AMOUNT OF $20.00 | CEB / Plaintiff | 1 pg | Transaction # 12895733 / Receipt # 12723532 |
 | **12** | **/**/2021 | ORDER - OTHER FILED BY WOODBRIDGE MEADOWS APARTMENTS LLC ON **/**/2021 | Court / Plaintiff | 4 pgs | Order Authorizing Posting Under CCP § 415.45 |
 | **13** | **/**/2021 | CLERK'S CERTIFICATE OF MAILING/ELECTRONIC SERVICE | Court | 5 pgs | Proof of Service of Posting Order |
 | **14** | **/**/2021 | E-FILING TRANSACTION 1864562 RECEIVED ON **/**/2021 11:57:23 AM | Court | -- | System Electronic Receipt (NV) |
@@ -57,8 +57,8 @@ The following table contains the complete, verified 61-entry Register of Actions
 | **23** | **/**/2021 | WRIT ISSUED ON **/**/2021 | Clerk of Court | 3 pgs | Writ of Possession Issued (Form EJ-130) |
 | **24** | **/**/2021 | PAYMENT RECEIVED BY CONTINUINGEDUCATIONOFTHEBAR FOR 214 - WRIT IN THE AMOUNT OF $40.00 | CEB / Plaintiff | 1 pg | Transaction # 12905980 / Receipt # 12733802 |
 | **25** | **/**/2021 | COMPLAINT DISPOSED WITH DISPOSITION OF DEFAULT JUDGMENT BY CLERK | Clerk of Court | -- | ⚡ **DEFAULT JUDGMENT #1 ENTERED** (NV) |
-| **26** | **/**/2021 | CASE ****OSED WITH DISPOSITION OF DEFAULT JUDGMENT BY CLERK | Clerk of Court | -- | Electronic Case ****tion by Clerk (NV) |
-| **--** | **/**/2021 | [Non-Docketed Enforcement Action] Orange County Sheriff Don Barnes executes physical lockout | OCSD Civil Div. | -- | Levying File # (***) ***-2780 |
+| **26** | **/**/2021 | CASE DISPOSED WITH DISPOSITION OF DEFAULT JUDGMENT BY CLERK | Clerk of Court | -- | Electronic Case Disposition by Clerk (NV) |
+| **--** | **/**/2021 | [Non-Docketed Enforcement Action] Orange County Sheriff Don Barnes executes physical lockout | OCSD Civil Div. | -- | Levying File # 2021102780 |
 | **27** | **/**/2021 | REQUEST TO WAIVE COURT FEES FILED BY DIMARCELLO, ANTHONY ON **/**/2021 | Defendant | -- | Form FW-001 (Fee Waiver Request) |
 | **28** | **/**/2021 | EX PARTE APPLICATION - OTHER FILED BY DIMARCELLO, ANTHONY ON **/**/2021 | Defendant | 32 pgs | Ex Parte Motion to Set Aside Default, Default Judgment, and Quash Writ of Possession |
 | **29** | **/**/2021 | EX PARTE SCHEDULED FOR **/**/2021 AT 08:30:00 AM IN C61 AT CENTRAL JUSTICE CENTER | Court | -- | Hearing Calendar Notice (NV) |
@@ -103,7 +103,7 @@ The Register of Actions definitively demonstrates that Plaintiff's counsel and t
 
 1. **Default Judgment #1 — June 29, 2021 (ROA #25, #26):**
    * **Mechanism:** Clerk's Default Judgment entered under Cal. CCP § 585(a) / § 1169 following shadow service by posting (ROA #10, #15).
-   * **Enforcement:** A Writ of Possession was immediately issued (ROA #23) and executed by Orange County Sheriff Don Barnes on August 4, 2021 (Levying File # (***) ***-2780).
+   * **Enforcement:** A Writ of Possession was immediately issued (ROA #23) and executed by Orange County Sheriff Don Barnes on August 4, 2021 (Levying File # 2021102780).
 2. **Default Judgment #2 — December 22, 2021 (ROA #50, #51):**
    * **Mechanism:** After Defendant filed an Ex Parte Application to Vacate (ROA #28), Plaintiff filed a new Request for Court Default Judgment (ROA #45) with a 56-page declaration under Cal. CCP § 585(d) (ROA #48) on December 3, 2021.
    * **Entry:** The Court entered a second disposition of Default Judgment on December 22, 2021 (ROA #51).
@@ -156,7 +156,7 @@ A minute-by-minute analysis of the events of Friday, August 20, 2021 reveals agg
 
 ## 🚓 PART 2: HAMILTON TOWNSHIP POLICE DIVISION (NJ) RECORDS
 
-### 2.1 Case ****3723 — Residential Disturbance Incident
+### 2.1 Case No. 2019-00053723 — Residential Disturbance Incident
 * **Agency:** Hamilton Township Police Division, 1270 W*** Road, Hamilton, NJ 086** (Phone: (***) ***-4000 / 4036)
 * **Incident Date & Time:** December 29, 2019 at 14:16 – 14:21 hrs
 * **Location:** 1456 C*** Lane, Hamilton, NJ 086** (Rear Yard & Residence)
@@ -176,7 +176,7 @@ A minute-by-minute analysis of the events of Friday, August 20, 2021 reveals agg
 
 ---
 
-### 2.2 Case ****8897 — Commercial Shoplifting Incident
+### 2.2 Case No. 2020-00008897 — Commercial Shoplifting Incident
 * **Agency:** Hamilton Township Police Division
 * **Incident Date:** March 4, 2020 (at approximately 14:00 hrs)
 * **Location:** Home Depot, 740 Route 130, Hamilton, NJ 086**
@@ -189,9 +189,9 @@ A minute-by-minute analysis of the events of Friday, August 20, 2021 reveals agg
 
 ## 🏛️ PART 3: EWING POLICE DEPARTMENT (NJ) CHAIN OF CUSTODY & FBI NEXUS
 
-### 3.1 Case ****1222 — Chain of Custody Evidence Log
+### 3.1 Case No. I-2019-001222 — Chain of Custody Evidence Log
 * **Agency:** Ewing Police Department, 2 J*** Drive, Ewing, NJ 086**
-* **Department Case ****mber:** `I-2019-001222`
+* **Department Case Number:** `I-2019-001222`
 * **Evidence Items & Chain of Custody History:**
 
 #### Item 044.01 — Suspected Methamphetamine
@@ -211,7 +211,7 @@ A minute-by-minute analysis of the events of Friday, August 20, 2021 reveals agg
   4. ***/**/2019 at 07:44:* Custody transferred to Other Agency by **Officer 108 - GIOVACCHINI, C.** ➔ **Comments: "TOT FBI AGENT BRADLEY ZARTMAN"**.
 
 ### 3.2 Federal Judicial Nexus
-* **Federal Case ****mber:** `3:20-mj-05007-TJB` (United States District Court for the District of New Jersey)
+* **Federal Case Number:** `3:20-mj-05007-TJB` (United States District Court for the District of New Jersey)
 * **Presiding Magistrate Judge:** Hon. Tonianne J. Bongiovanni (U.S. Magistrate Judge, Trenton)
 * **Lead Federal Investigator:** Special Agent Bradley H. Zartman (Federal Bureau of Investigation).
 * **Significance:** Direct evidentiary conduit connecting local New Jersey municipal narcotics/seizure operations directly to active FBI federal criminal proceedings.
@@ -256,7 +256,7 @@ A minute-by-minute analysis of the events of Friday, August 20, 2021 reveals agg
    * Name: `DEAN A. INNOCENZI`
    * Date of Birth: `**/**/1968`
    * Address: `2216 LIBERTY STREET, TRENTON, NJ`
-   * Driver License ****mber: `DL ****2682` (Issued: **/**/2011, Exp: **/**/2015)
+   * Driver License Number: `DL ****2682` (Issued: **/**/2011, Exp: **/**/2015)
 3. **Interstate Flight / Travel Conduit:**
    * Airline: Alaska Airlines
    * Outbound Flight: AS 1129 (Philadelphia PHL ➔ Los Angeles LAX, Tue Feb 19, 6:25 AM – 9:45 AM)
@@ -295,10 +295,10 @@ All primary source documents, certified OCR text transcripts, and evidentiary fi
    * `google_photos_evidence_batch3_album3_photo_074.jpg.txt` & `photo_075.jpg.txt`, `048.jpg.txt`, `018.jpg.txt` (Ex Parte Remote Hearing Minute Order on **/**/2021 - ROA #38)
    * `google_photos_evidence_batch3_album3_photo_072.jpg.txt` (Proposed Order Denying Motion to Vacate - ROA #40)
 3. **Hamilton Township Police Records:**
-   * `batch8_album8_photo_017.jpg.txt`, `photo_018.jpg.txt`, `photo_019.jpg.txt`, `photo_021.jpg.txt`, `photo_022.jpg.txt`, `photo_026.jpg.txt`, `photo_028.jpg.txt` (Case ****3723 & Case ****8897)
+   * `batch8_album8_photo_017.jpg.txt`, `photo_018.jpg.txt`, `photo_019.jpg.txt`, `photo_021.jpg.txt`, `photo_022.jpg.txt`, `photo_026.jpg.txt`, `photo_028.jpg.txt` (Case 2019-00053723 & Case 2020-00008897)
    * `batch8_album8_photo_243.jpg.txt` & `photo_244.jpg.txt` (Mercer County deeds, judgments, and liens at 1456 C*** Lane)
 4. **Ewing Police Chain of Custody:**
-   * `batch8_album8_photo_103.jpg.txt`, `photo_104.jpg.txt`, `photo_105.jpg.txt`, `photo_106.jpg.txt` (Case ****1222 Items 044.01 & 046 turned over to FBI SA Bradley H. Zartman)
+   * `batch8_album8_photo_103.jpg.txt`, `photo_104.jpg.txt`, `photo_105.jpg.txt`, `photo_106.jpg.txt` (Case I-2019-001222 Items 044.01 & 046 turned over to FBI SA Bradley H. Zartman)
 5. **Quantum Auto Dismantler & Identity Records:**
    * `batch8_album8_photo_013.jpg.txt` (Quantum Auto Dismantler Santa Ana Invoice #140** / Workorder #145**)
    * `batch8_album8_photo_011.jpg.txt` & `photo_012.jpg.txt` (IRS Form SS-4 EIN Dog's Day Productions)

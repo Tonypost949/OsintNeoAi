@@ -108,7 +108,7 @@
 ### Core Forensic Documents
 | File | Path | SHA256 | Description |
 |------|------|--------|-------------|
-| Precise Grading Plan (8 sheets) | `C:\EVIDENCE_LOCKER_MASTER\20_ANALYSIS\db66e1e0-b949-11f1-8e00-dbd4e67e7847.pdf` | `5b4f0cd753c96c96fa414**db970**c8077e710d2c466644ac6a1d96e961**d6` | **Primary evidence** — StormTech MC-3500, 1,085 CY export, Cr-VI data |
+| Precise Grading Plan (8 sheets) | `C:\EVIDENCE_LOCKER_MASTER\20_ANALYSIS\db66e1e0-b949-11f1-8e00-dbd4e67e7847.pdf` | `5b4f0cd753c96c96fa41468db97001c8077e710d2c466644ac6a1d96e96109d6` | **Primary evidence** — StormTech MC-3500, 1,085 CY export, Cr-VI data |
 | StormTech Legal Permit Index | `C:\OsintNeoAi\evidence\stormtech_legal_permit_index.json` | — | 226 permits, ZERO for HBNC |
 | Cameron Lane Permit Review (PDF) | `C:\Users\Amd949609\Downloads\Cameron Lane Navigation Center- Contract and Permit Record Review.pdf` | — | Building Permit TBD, TTS 3.6× escalation |
 | Cameron Lane Permit Review (PPTX) | `C:\Users\Amd949609\Downloads\Cameron Lane Navigation Center- Contract and Permit Record Review.pptx` | — | 5-slide forensic summary |
@@ -135,7 +135,7 @@
 ### Analysis Reports (Antigravity Brain)
 | File | Path | Lines | Key Content |
 |------|------|-------|-------------|
-| Cameron Lane Grading Plan Analysis | `C:\Users\Amd949609\.gemini\antigravity-cli\brain\c2bf64a6-eb49-447b-a2e2-(***) ***-7284a1\cameron_lane_shelter_grading_plan_analysis.md` | 113 | Sheet-by-sheet breakdown |
+| Cameron Lane Grading Plan Analysis | `C:\Users\Amd949609\.gemini\antigravity-cli\brain\c2bf64a6-eb49-447b-a2e2-7062537284a1\cameron_lane_shelter_grading_plan_analysis.md` | 113 | Sheet-by-sheet breakdown |
 | Cameron Lane Geotech/Eurofins/EDR Audit | `...cameron_lane_geotech_permits_eurofins_edr_audit.md` | 67 | Lab data, EDR cross-ref |
 | Cameron Lane Referenced Reports | `...cameron_lane_referenced_environmental_reports_master.md` | — | Report bibliography |
 | Eurofins Calscience Full Lab Audit | `...eurofins_calscience_full_lab_audit.md` | — | 86 soil / 3 GW samples |
@@ -182,7 +182,7 @@ SELECT * FROM `noble-beanbag-497411-m4.national_audits.drive_file_index`
 WHERE file_name LIKE '%HBNC%' OR file_name LIKE '%Cameron%' OR file_name LIKE '%176**%' OR file_name LIKE '%176**%'
 ORDER BY modified_time DESC;
 
--- 7. GMAIL - HBNC CASE ****AILS
+-- 7. GMAIL - HBNC CASE EMAILS
 SELECT * FROM `noble-beanbag-497411-m4.national_audits.gmail_index`
 WHERE subject LIKE '%HBNC%' OR body LIKE '%176**%' OR body LIKE '%176**%' OR body LIKE '%Cameron%'
 ORDER BY date DESC;
@@ -205,7 +205,7 @@ SELECT * FROM `noble-beanbag-497411-m4.ai_sandbox.permit_ocr_results`;
 
 | Entity | Role | Key Evidence |
 |--------|------|--------------|
-| **Anthony Martinez** | OCHCA Program Manager | Signed Well W-4150 destruction waiver (Case ****C002) |
+| **Anthony Martinez** | OCHCA Program Manager | Signed Well W-4150 destruction waiver (Case #20IC002) |
 | **Tamera Escobedo** | OCHCA | Instructed parcel unification to evade DTSC review |
 | **David Bernier** | EEC Principal Geologist | Fabricated Well W-4150 search narrative |
 | **George Felix** | CBRE | Signed RAS forms without authority |
@@ -219,7 +219,7 @@ SELECT * FROM `noble-beanbag-497411-m4.ai_sandbox.permit_ocr_results`;
 | **Surf City Navigation Center Inc** | HBNC Operator (NP-002) | Nonprofit operator |
 | **RPM Modular** | Shelter Builder | $2.2M contract (per build_matrix) |
 | **City of Huntington Beach** | Owner/Permitting Authority | Fraudulent CEQA exemption, LMIHAF purchase |
-| **Orange County Health Care Agency (OCHCA)** | Regulatory | Case ****C002, well waiver |
+| **Orange County Health Care Agency (OCHCA)** | Regulatory | Case #20IC002, well waiver |
 | **SWRCB** | State Water Board | WDID 8 30W004769 (abused waiver) |
 | **DTSC** | State Toxics | Bypassed via SWRCB waiver |
 | **EPA Region 9** | Federal | CERCLA authority, Cr-VI 49× MCL |
@@ -298,7 +298,7 @@ SELECT * FROM `noble-beanbag-497411-m4.ai_sandbox.permit_ocr_results`;
 | **Michael Baker Intl** | StormTech MC-3500 design calcs, chamber layout, as-builts | Subpoena |
 | **AESCO Geotechnical** | Report #20200305-7053 full Eurofins data packages | Subpoena |
 | **Eurofins Calscience** | 86 soil / 3 GW raw data, COC, QA/QC | Subpoena |
-| **OCHCA Env Health** | Well W-4150 file, Case ****C002 complete, Yamada records | Subpoena |
+| **OCHCA Env Health** | Well W-4150 file, Case #20IC002 complete, Yamada records | Subpoena |
 | **SWRCB** | WDID 8 30W004769 application, approval, monitoring | Subpoena |
 | **TTS Engineering** | Invoices, daily reports, soil disposal manifests (1,085 CY) | Subpoena |
 | **Mercy House / Surf City Nav** | HMIS referrals, incident logs, financials, board minutes | Subpoena |
@@ -324,11 +324,11 @@ SELECT * FROM `noble-beanbag-497411-m4.ai_sandbox.permit_ocr_results`;
 
 | Date | Event | Source |
 |------|-------|--------|
-| 1955-10-25 | Standard Oil Permit C812** (Tract 405) for 176** Beach | Laserfiche Folder 4806972 |
+| 1955-10-25 | Standard Oil Permit C81252 (Tract 405) for 176** Beach | Laserfiche Folder 4806972 |
 | 1978-1979 | Chen/Yamada Reciprocal Easement (UPX1978058) | UPX1978058 docs |
 | 2019-08-04 | Resolution 2019-22 (TTS Engineering) | Council records |
 | 2020-08-19 | LMIHAF Purchase 176** Cameron ($3.05M) | Purchase Agreement |
-| 2020-08-21 | OCHCA Case ****C002 — Well W-4150 waiver | OCHCA records |
+| 2020-08-21 | OCHCA Case #20IC002 — Well W-4150 waiver | OCHCA records |
 | 2020-08-21 | SWRCB WDID 8 30W004769 issued | SWRCB records |
 | 2020-11-03 | TTS Amendment A1 (+$880K) | Laserfiche 5406552 |
 | 2020-12-21 | TTS Amendment A2 (+$837K) | Laserfiche 5406552 |

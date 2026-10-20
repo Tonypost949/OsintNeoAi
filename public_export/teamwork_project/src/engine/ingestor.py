@@ -265,7 +265,7 @@ def parse_ppp_loans_csv(path: Union[str, Path]) -> IngestionResult:
         state = row_lower.get("state") or row_lower.get("borrowerstate") or ""
         zip_code = row_lower.get("zip") or row_lower.get("borrowerzip") or ""
 
-        loan_num = row_lower.get("loan ****mber") or row_lower.get("loan_number") or row_lower.get("id") or ""
+        loan_num = row_lower.get("loannumber") or row_lower.get("loan_number") or row_lower.get("id") or ""
         approval_amt = _clean_numeric(row_lower.get("currentapprovalamount") or row_lower.get("approval_amount") or row_lower.get("amount"))
         forgiven_amt = _clean_numeric(row_lower.get("forgivenessamount") or row_lower.get("forgiven_amount"))
 
@@ -311,7 +311,7 @@ def parse_ppp_loans_csv(path: Union[str, Path]) -> IngestionResult:
                     "borrower_name": borrower_name,
                     "amount": approval_amt,
                     "forgiven_amount": forgiven_amt,
-                    "status": row_lower.get("loan ****atus", "APPROVED")
+                    "status": row_lower.get("loanstatus", "APPROVED")
                 }
             )
 

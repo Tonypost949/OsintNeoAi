@@ -27,7 +27,7 @@ The prosecution of Lindsay Clancy is a coordinated cover‑up by pharmaceutical 
 
 ### 2. Dr. Phillip Resnick – Defense’s “Gatekeeper”
 - **Role:** Final defense expert. Testified Clancy was **“clearly psychotic”** and believed she was “doing the right thing.”
-- **Stature:** World‑renowned forensic psychiatrist; Director of Forensic Psychiatry at Case ****tern Reserve University; named professorship.
+- **Stature:** World‑renowned forensic psychiatrist; Director of Forensic Psychiatry at Case Western Reserve University; named professorship.
 - **Andrea Yates Connection:** Testified for the defense in Yates’ 2006 retrial (not guilty by reason of insanity).
 - **The Catch:** Hired through **Park Dietz & Associates** – the same firm as Mack.  
 - **How He Fits the Theory:** He gives the *illusion* of a defense while never touching the counterfeit pill angle. He is **controlled opposition** – part of the same system that buried Andrea Yates.

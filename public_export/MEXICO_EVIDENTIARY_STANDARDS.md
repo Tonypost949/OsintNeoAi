@@ -16,7 +16,7 @@ This document establishes the exact evidentiary baseline required to convert our
     *   *OSINT Status:* Identified international transaction patterns mapped in `MEXICO_FORENSIC_ANNEX.md`.
     *   *Subpoena Target:* correspondent bank SWIFT logs (MT103, MT202, ISO 200** messages).
 *   **Requirement 3: U.S. Real Estate Integration** (Prove funds acquired domestic properties)
-    *   *OSINT Status:* Mapped to Falk Property Vector (`falk_1133_formosa.txt`, APN `(***) ***-7056` valued at $1.35M).
+    *   *OSINT Status:* Mapped to Falk Property Vector (`falk_1133_formosa.txt`, APN `5531007056` valued at $1.35M).
     *   *Subpoena Target:* Escrow instructions and ALTA Settlement Statements from the closing title company.
 
 ---

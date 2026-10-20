@@ -74,7 +74,7 @@ def run_pipeline():
             {
                 "docket_type": "FORECLOSURE_DEFICIENCY_FRAUD",
                 "target_statute": "12 U.S.C. ? 2605 (RESPA) & Federal FCA (31 U.S.C. ? 3729)",
-                "basis": "Inflated appraisals concealing environmental liabilities used to artificially trigger loan ****ults and transfer equity to municipal land banks."
+                "basis": "Inflated appraisals concealing environmental liabilities used to artificially trigger loan defaults and transfer equity to municipal land banks."
             }
         ]
     }

@@ -128,7 +128,7 @@
       domains.forEach(d => {
         const result = allResults.find(r => r.domain === d);
         const coords = cityCoords[d] || { x: Math.random() * 0.8 + 0.1, y: Math.random() * 0.6 + 0.2 };
-        const color = result ? (result.reachable ? (result.foundPaths.length > 0 ? '#ffa726' : '#4caf50') : '#f443**') : '#555';
+        const color = result ? (result.reachable ? (result.foundPaths.length > 0 ? '#ffa726' : '#4caf50') : '#f44336') : '#555';
         
         const px = coords.x * canvas.width;
         const py = coords.y * canvas.height;

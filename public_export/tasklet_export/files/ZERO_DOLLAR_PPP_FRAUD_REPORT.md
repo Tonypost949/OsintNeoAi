@@ -22,7 +22,7 @@
 1. **Zero-dollar transfers** - Property acquired for $0 (likely shell entity transfers)
 2. **PPP over-forgiveness** - All loans forgiven for more than borrowed
 3. **Multiple loans per entity** - Some entities have 2+ PPP loans
-4. **Family member ****lers** - Properties transferred between family members
+4. **Family member sellers** - Properties transferred between family members
 5. **Shell factory addresses** - Multiple LLCs at same address (88 FAIR DR)
 
 ### Lender Network
@@ -33,7 +33,7 @@
 - **TD Bank** - LAZER LLC
 - **Farmers & Merchants Bank** - PACIFIC CITY HOTEL
 - **Umpqua Bank** - DRT LLC
-- **Loan ****urce Inc** - THE LE FAMILY
+- **Loan Source Inc** - THE LE FAMILY
 - **Herring Bank** - THE LE FAMILY
 - **South Atlantic Bank** - RAV LLC
 
@@ -41,7 +41,7 @@
 
 1. **Systematic over-forgiveness** across multiple lenders
 2. **Zero-dollar property transfers** between shell entities
-3. **Family member ****ions** to obscure ownership
+3. **Family member transactions** to obscure ownership
 4. **Multiple PPP loans** per entity
 5. **Shell factory addresses** (88 FAIR DR, 230** NEWPORT COAST DR, 829 HARBOR ISLAND DR)
 
@@ -53,7 +53,7 @@
 
 ### Next Steps
 
-1. Investigate family member ****hips (STEWART, LE, NGUYEN)
+1. Investigate family member relationships (STEWART, LE, NGUYEN)
 2. Map lender network connections
 3. Cross-reference with other fraud patterns
-4. Prepare FOIA requests for loan ****ness documentation
+4. Prepare FOIA requests for loan forgiveness documentation

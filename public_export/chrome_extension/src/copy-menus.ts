@@ -12,7 +12,7 @@ import { intl } from '@/intl'
 // contexts for copy menus must be mutually exclusive such that only one appears at a time; contexts that can coincide (eg `link` and `image`) need to be colocated.
 // - notable contexts:
 //   - `selection`: tricky because we don't want to show nothing on selections but a selection can coincide with a link, so `selection` must be a `copyItem` menu context. this introduces the quirky possibility for a `Copy` menu to have only one submenu item `Tab` or `Tab as` when the click target is a simple text selection.
-//   - `editable`: most commonly a text input but may be a content-editable element, in which case ****ould contain link or src items and as such needs to be a `copyItem` menu context. this introduces the quirky possibility for a `Copy` menu to have only one submenu item `Tab` or `Tab as` when the content-editable's click target is not a link or src item.
+//   - `editable`: most commonly a text input but may be a content-editable element, in which case could contain link or src items and as such needs to be a `copyItem` menu context. this introduces the quirky possibility for a `Copy` menu to have only one submenu item `Tab` or `Tab as` when the content-editable's click target is not a link or src item.
 //   - `frame`: excluded because we want the same behavior in frames as in pages
 
 const COPY_TAB_MENU_ID = 'copyTab'

@@ -50,7 +50,7 @@ On July 30, 2026, the Federal Bureau of Investigation (FBI) and the Environmenta
 
 ### 2. THE HBNC INFRASTRUCTURE SABOTAGE NEXUS (WELL W-4150)
 
-Groundwater Well W-4150 (located on the HBNC site) was fraudulently certified as "closed" under OCHCA Case ****C002 on August 21, 2020. Soil and groundwater sampling confirmed:
+Groundwater Well W-4150 (located on the HBNC site) was fraudulently certified as "closed" under OCHCA Case No. 20IC002 on August 21, 2020. Soil and groundwater sampling confirmed:
 - **Hexavalent Chromium (Cr VI):** **490 ppb** (EPA Maximum Contaminant Level: **10 ppb** — **4900% excess**).
 - **Lead & TPH:** Exceeding OEHHA and DTSC screening thresholds.
 
@@ -95,7 +95,7 @@ WHEREFORE, Intervenor Anthony Michael DiMarcello III respectfully requests that 
 
 1. **GRANT** leave to intervene under Fed. R. Civ. P. 24(a)(2) and entry of this Supplemental Notice into the record.
 2. **ISSUE AN ORDER** compelling an emergency forensic inspection of all PLC units at 17642 B*** Blvd / 17631 C*** Ln by an independent EPA/ICS-CERT certified expert.
-3. **ISSUE A TEMPORARY RESTRAINING ORDER** freezing Wells Fargo Account ****erty ID `1024456136` ($3,887,991.41).
+3. **ISSUE A TEMPORARY RESTRAINING ORDER** freezing Wells Fargo Account Property ID `1024456136` ($3,887,991.41).
 4. **TRANSMIT** this evidence filing to the United States Department of Justice, United States Attorney's Office for the Central District of California, FBI Los Angeles Field Office, and EPA Region 9 Administrator.
 
 DATED: August 6, 2026

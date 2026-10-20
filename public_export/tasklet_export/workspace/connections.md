@@ -1,6 +1,6 @@
-# Connections - ws_700**mwacncdba2sez9k
+# Connections - ws_70075mwacncdba2sez9k
 
-**Source:** https://tasklet.ai/agents/ws_700**mwacncdba2sez9k/connections
+**Source:** https://tasklet.ai/agents/ws_70075mwacncdba2sez9k/connections
 **Fetched:** 2026-08-22
 
 ## Content

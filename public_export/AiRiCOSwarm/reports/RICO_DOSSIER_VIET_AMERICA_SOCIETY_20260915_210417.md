@@ -73,8 +73,8 @@ The Huntington Beach Navigation Center (HBNC) was built on a documented
 
 hazardous waste site. Hexavalent chromium at 49 times the California safety
 
-limit. Orange County Health Care Agency issued a fraudulent "Case ****osed"
+limit. Orange County Health Care Agency issued a fraudulent "Case Closed"
 
-certificate (IC Case ****C002, August 21, 2020) to meet a $6.1 million
+certificate (IC Case No. 20IC002, August 21, 2020) to meet a $6.1 million
 
 fu

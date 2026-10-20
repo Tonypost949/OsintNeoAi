@@ -10,7 +10,7 @@
 ## 1. Observation
 
 1. **Repository Requirements & Features**:
-   - `ORIGINAL_REQUEST.md` (Lines 11–37) and `PROJECT.md` (Lines 14–32) define 15 core features spanning Federal Judicial Case ****ings (F1–F4), State Regulatory & Municipal Enforcement (F5–F7), California Superior Court Unlawful Detainer Docket (F8–F10), Multi-State Police & Commercial Incident Logs (F11–F13), Master Index Catalog (F14), and Repository Integrity & Backup (F15).
+   - `ORIGINAL_REQUEST.md` (Lines 11–37) and `PROJECT.md` (Lines 14–32) define 15 core features spanning Federal Judicial Case Filings (F1–F4), State Regulatory & Municipal Enforcement (F5–F7), California Superior Court Unlawful Detainer Docket (F8–F10), Multi-State Police & Commercial Incident Logs (F11–F13), Master Index Catalog (F14), and Repository Integrity & Backup (F15).
 2. **Primary Source Artifacts**:
    - The primary official records were located and verified under `C:\OsintNeoAi\evidence\official_court_records\`:
      - `01_USA_v_Harry_Sidhu_8_23_cr_001**_CJC.md` (10,749 bytes)
@@ -36,10 +36,10 @@
 ## 2. Logic Chain
 
 1. **Primary Source Grounding (Observation 1 & 2)**:
-   - To ensure zero facade testing, expected values were derived from verified case ****ions, unsealed affidavits, and official dockets (e.g., SA Brian Adkins $1M tape recording quote, DEA 435g meth chemical assay, HCD $96,000,000 SLA penalty, continuous 1-61 Register of Actions entries, Arden Hoang 4:29 PM § 170.6 strike).
+   - To ensure zero facade testing, expected values were derived from verified case captions, unsealed affidavits, and official dockets (e.g., SA Brian Adkins $1M tape recording quote, DEA 435g meth chemical assay, HCD $96,000,000 SLA penalty, continuous 1-61 Register of Actions entries, Arden Hoang 4:29 PM § 170.6 strike).
 2. **Tiered Structural Design (Observation 3)**:
    - **Tier 1 (F1–F15)** tests each feature in complete isolation with >=5 assertions per feature.
-   - **Tier 2** tests boundary conditions, statutory citation regexes, case ****mats, date chronologies, and mathematical calculations ($320M * 30% = $96M; $500 + $46.25 = $546.25).
+   - **Tier 2** tests boundary conditions, statutory citation regexes, case number formats, date chronologies, and mathematical calculations ($320M * 30% = $96M; $500 + $46.25 = $546.25).
    - **Tier 3** tests cross-jurisdictional evidentiary conduits (Ewing PD -> Zartman -> D.N.J. Complaint; Sidhu wiretaps -> HCD penalty -> Anaheim voidance -> JL audit).
    - **Tier 4** tests institutional Markdown header compliance, Master Index link integrity, and whole-corpus text consistency.
 3. **Execution & Validation (Observation 3)**:

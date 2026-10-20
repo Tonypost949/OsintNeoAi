@@ -4,7 +4,7 @@
 - Role: Forensic Integrity Auditor
 - Archetype: teamwork_preview_auditor
 - Working directory: C:\OsintNeoAi\.agents\auditor_1
-- Parent: orchestrator_13 (e68e15f5-4a37-405f-8e73-c5b576**b6cf)
+- Parent: orchestrator_13 (e68e15f5-4a37-405f-8e73-c5b57613b6cf)
 
 ## Scope
 Perform forensic integrity verification across all work products of `worker_impl_m1_m2`:

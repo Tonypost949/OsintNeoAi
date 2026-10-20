@@ -27,7 +27,7 @@ Investigate and design the exact technical specification, module interfaces, and
   1. Python 3.14 environment with verified `pymupdf` 1.28.2, `rapidocr-onnxruntime` 1.2.3, `opencv-python` [IP_REDACTED], `python-docx` 1.2.0.
   2. 300 DPI rasterization of 8.5x11" PDF produces 25.2 MB uncompressed RGB array per page; streaming generator with `del pix; del img_np` and `gc.collect()` every 10 pages satisfies the $< 250$ MB RAM invariant.
   3. 5-Tier Fallback Ladder designed: PyMuPDF Digital Native $\rightarrow$ Density Check $\rightarrow$ 300 DPI RapidOCR ONNX $\rightarrow$ OpenCV CLAHE/Deskewing $\rightarrow$ Non-PDF dedicated parsers.
-  4. Multi-tier normalizers designed: ISO 8601 UTC dates, dual float/cents financial parsing, federal/state case ****kets, correspondence parties.
+  4. Multi-tier normalizers designed: ISO 8601 UTC dates, dual float/cents financial parsing, federal/state case dockets, correspondence parties.
   5. M1 baseline confirmed passing 141 of 141 tests in 8.23s.
 - **Unexplored areas**: None for M2 exploration scope; ready for implementer agent execution.
 

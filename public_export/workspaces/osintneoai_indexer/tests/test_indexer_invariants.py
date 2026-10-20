@@ -276,7 +276,7 @@ class TestFinancialConservatismInvariants:
         penalty = stadium_purchase_price * statutory_rate
 
         assert penalty == Decimal("96000000.00")
-        assert int(penalty * 100) == (***) ***-0000
+        assert int(penalty * 100) == 9600000000
 
     def test_inv_10_escrow_deposit_refund_balance_invariance(self, in_memory_vault_db):
         """

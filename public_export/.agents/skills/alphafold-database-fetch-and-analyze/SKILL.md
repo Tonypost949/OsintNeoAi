@@ -56,8 +56,8 @@ very large proteins.
 Examples:
 
 ```bash
-uv run scripts/fetch_structure.py P005** -o /path/to/output/
-uv run scripts/fetch_structure.py P046** -o /path/to/custom_results/
+uv run scripts/fetch_structure.py P00520 -o /path/to/output/
+uv run scripts/fetch_structure.py P04637 -o /path/to/custom_results/
 ```
 
 Always specify `-o` with an absolute path or a path relative to the user's

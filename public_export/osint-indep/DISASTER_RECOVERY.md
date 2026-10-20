@@ -187,7 +187,7 @@ print('Registered:', reg.list_collectors())
 
 ---
 
-## Appendix: Service Account ****etup (For New Recovery Machines)
+## Appendix: Service Account Setup (For New Recovery Machines)
 
 ```bash
 # 1. Get service account JSON from maintainer (encrypted)

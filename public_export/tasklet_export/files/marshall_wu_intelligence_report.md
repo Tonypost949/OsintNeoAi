@@ -17,7 +17,7 @@ The correspondence spans over four years (**May 2022 – February 2026**), docum
 
 ## 👤 Entity Profile: Marshall Wu
 
-*   **Role**: Staff Assistant (Case ****rker)
+*   **Role**: Staff Assistant (Caseworker)
 *   **Affiliation**: Office of U.S. Senator Dianne Feinstein (San Francisco, CA Office)
 *   **Official Email**: `M***@feinstein.senate.gov`
 *   **Associated Team Email**: `C***@feinstein.senate.gov`
@@ -44,7 +44,7 @@ The correspondence spans over four years (**May 2022 – February 2026**), docum
 *   **August 3, 2022 (Sent)**: Anthony describes a "serious and dangerous domino effect" in which his home and paid-for cars (Chase and Ally Bank) were illegally seized using fraudulent court proceedings.
 *   **August 5, 2022 (Received)**: Marshall Wu urges Anthony to rely on family support:
     > "It has been tough for you the past year... We know roughly what had happened to you, but could you rely on your family to assist you in this situation?"
-*   **August 4, 2022 (Sent)**: Anthony details harassment from individuals associated with Shea Homes attempting to loop him into "SBA loan ****cams," expressing frustration at the lack of direct intervention:
+*   **August 4, 2022 (Sent)**: Anthony details harassment from individuals associated with Shea Homes attempting to loop him into "SBA loan scams," expressing frustration at the lack of direct intervention:
     > "Just to make sure this is clear, I had my life stripped from me in 60 days and I have no one to help me look into that? Really?"
 
 ### 3. Identity Theft and Whistleblower Petitions (2023 – 2026)
@@ -61,7 +61,7 @@ The correspondence spans over four years (**May 2022 – February 2026**), docum
 
 1.  **Direct Legislative Channel**: Anthony DiMarcello maintained a direct line of communication with Dianne Feinstein's San Francisco Staff Assistant, Marshall Wu, who acted as an intermediary to the California EDD.
 2.  **State vs. Federal Jurisdictional Boundaries**: The official correspondence highlights a recurring tension: Anthony requested direct legislative intervention in private civil disputes (landlord-tenant eviction by Shea Homes, auto-finance disputes with Ally/Chase), which Marshall Wu consistently clarified fell outside a U.S. Senator's constitutional authority.
-3.  **Extensive Paper Trail**: The parsed data contains complete timestamps, case ****bers, and liaison statements, serving as a highly detailed legal record of systemic identity theft and constituent outreach.
+3.  **Extensive Paper Trail**: The parsed data contains complete timestamps, case numbers, and liaison statements, serving as a highly detailed legal record of systemic identity theft and constituent outreach.
 
 > [!NOTE]
 > The full, raw email matching database is saved securely in your local environment at:  

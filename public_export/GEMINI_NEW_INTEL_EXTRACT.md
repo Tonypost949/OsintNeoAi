@@ -1,6 +1,6 @@
 # NEW INTELLIGENCE — EXTRACTED FROM FORENSIC ANALYSIS
 # Source: Gemini forensic intelligence report, July 24, 2026
-# Status: CRITICAL NEW DATA — merge into existing case ****iles
+# Status: CRITICAL NEW DATA — merge into existing case files
 
 **Date:** July 24, 2026
 **Relator:** Anthony Michael DiMarcello III
@@ -48,7 +48,7 @@ Prior to forced displacement August 4, 2021:
 | Displaced | Anthony, his minor son, and his medically dependent mother (Elizabeth) |
 | Rental Relief | DiMarcello was actively enrolled in CA COVID-19 Rental Relief Program |
 | Post-Eviction Fraud | Landlord collected COVID rental relief funds despite executing the eviction |
-| Court Case | San Diego County Court, Case ****DCJC |
+| Court Case | San Diego County Court, Case 30-2021-01201327-CL-UD-CJC |
 | Woodbridge Meadows | LLC directly linked to Shea Properties |
 
 **The double fraud:** Evicted during active pandemic protections AND collected the rental relief money after booting them out.
@@ -61,8 +61,8 @@ Prior to forced displacement August 4, 2021:
 |---|---|---|
 | DMV | Withheld renewed ID card | 8 months |
 | EDD | Froze legitimate pandemic layoff claims | 11 months |
-| EDD | Manipulated account ****tory, stripped W-2 status | Permanent |
-| DFEH | Deleted official civil rights case ****2945 | Without notice |
+| EDD | Manipulated account history, stripped W-2 status | Permanent |
+| DFEH | Deleted official civil rights case #82945 | Without notice |
 
 **Combined effect:** No ID = no bank accounts = no emergency loans. No EDD = no income. No DFEH case = no civil rights remedy. Complete financial and legal isolation.
 
@@ -112,7 +112,7 @@ Prior to forced displacement August 4, 2021:
 | CSULB (2001-2005) | Undergraduate research, yeast sugar antibodies, Dr. Mason Zhang's lab |
 | American University of the Caribbean School of Medicine | MD (2010) |
 | University of South Dakota | Fellowship training |
-| Case ****tern Reserve | Fellowship training |
+| Case Western Reserve | Fellowship training |
 
 ### 2011 Philadelphia Retaliation (NEW — CRITICAL):
 | Detail | Fact |
@@ -269,7 +269,7 @@ Prior to forced displacement August 4, 2021:
 | Agency | Status | New Detail |
 |---|---|---|
 | GAO | ACTIVE | COMP-26-004512 |
-| FBI | ACTIVE | Case ****C002 FOIPA |
+| FBI | ACTIVE | Case 20IC002 FOIPA |
 | DOJ Corporate Whistleblower | FILED | March 30, 2026 |
 | DOJ Civil Rights Division | FILED | C***@usdoj.gov |
 | HHS OIG | FILED | o***@oig.hhs.gov |

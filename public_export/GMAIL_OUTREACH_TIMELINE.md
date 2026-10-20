@@ -19,7 +19,7 @@ The `gmail_govt_responses_hits.json` file contains 53 government emails — ALL 
 - 1 Medicare/CMS newsletter
 - 1 Mercy House donation appeal
 
-**NO case ****bers, NO reference numbers, NO acknowledgments of personal complaints were received from ANY federal agency.**
+**NO case numbers, NO reference numbers, NO acknowledgments of personal complaints were received from ANY federal agency.**
 
 ---
 
@@ -113,9 +113,9 @@ The `gmail_govt_responses_hits.json` file contains 53 government emails — ALL 
 
 | Date | Target | Subject | Status |
 |------|--------|---------|--------|
-| **Apr 14, 2026** | Bureau of Trust Funds Administration | IIM Account ****tion Tip (ICWA non-compliance) | SENT |
+| **Apr 14, 2026** | Bureau of Trust Funds Administration | IIM Account Misappropriation Tip (ICWA non-compliance) | SENT |
 | **Apr 14, 2026** | HHS OIG | Healthcare Fraud Tip (SPIN/Angulo NPI 1124486568/GAPP billing) | SENT |
-| **Apr 14, 2026** | LAist | Investigative Tip: OC Toxic Shelter / Medicaid ****raud / Native Child IIM Theft / Andrew Do Network | SENT |
+| **Apr 14, 2026** | LAist | Investigative Tip: OC Toxic Shelter / Medicaid Fraud / Native Child IIM Theft / Andrew Do Network | SENT |
 | **Apr 14, 2026** | DOJ | Supplemental Qui Tam Disclosure (RICO pattern) | SENT |
 | **Apr 14, 2026** | s***@senate.ca.gov | Senate outreach | **FAILED** |
 
@@ -170,7 +170,7 @@ The `gmail_govt_responses_hits.json` file contains 53 government emails — ALL 
 | Date | Target | Subject | Status |
 |------|--------|---------|--------|
 | **May 9, 2026** | DOJ | Qui Tam $598.7M submission | SENT |
-| **May 9, 2026** | HHS OIG | Medicaid ****raud complaint | SENT |
+| **May 9, 2026** | HHS OIG | Medicaid fraud complaint | SENT |
 | **May 9, 2026** | FBI LAX | RICO/Trafficking/Fraud referral ($598M+) | SENT |
 | **May 9, 2026** | DOI/BIA OIG | ICWA/IIM violations ($200M+) | SENT |
 | **May 9, 2026** | California State Auditor | $598M+ OC Fraud referral | SENT |
@@ -428,4 +428,4 @@ The Antigravity AI backup at `C:\migrate opencode\OSINTNEOAI\agent\ai_sync_vault
 - `scratch/anaheim_details.txt` — 1133 N. N*** Ave / Andrew Falk / 180k Aspergillus / Mayor Heilman / Judge Swift
 - `scratch/deepseek_investigation_matches_formatted.txt` — Full investigation matches
 
-**ADDRESS DISCREPANCY NOTED:** Antigravity data references **1133 N*** Ave, Los Angeles, CA 900**** while current doc references **1133 N Formosa Ave, West Hollywood**. These may be different properties or the same corridor. Both are in the Hollywood/West Hollywood zone.
+**ADDRESS DISCREPANCY NOTED:** Antigravity data references **1133 N. N*** Ave, Los Angeles, CA 900**** while current doc references **1133 N. F*** Ave, West Hollywood**. These may be different properties or the same corridor. Both are in the Hollywood/West Hollywood zone.

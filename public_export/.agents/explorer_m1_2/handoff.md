@@ -16,7 +16,7 @@
    - `C:\Users\Amd949609\Downloads`: 2,578 total files including 283 evidentiary target files (48 PDFs, 51 HTML, 12 TIFs, 94 PNGs, 28 `.zip` files including multi-gigabyte archives like `datagrip-2026.2.3.win.zip` [1.09 GB], `Goddy_5.3.zip` [798 MB], `HealthSummary_*.zip`, and `Photos.zip` [6–11 MB]).
    - Identified massive non-evidentiary binary clutter in Downloads: 985 `.pyc`, 260 `.jar`, 206 `.download`, 138 `.dll`, 93 `.exe`, 58 `.rpyc`.
 2. **Streaming Execution Feasibility**:
-   - Verified via runtime probe that Python stdlib `zipfile.ZipFile.open()` allows streaming extraction of member ****ytes without writing to disk.
+   - Verified via runtime probe that Python stdlib `zipfile.ZipFile.open()` allows streaming extraction of member bytes without writing to disk.
    - Tested PIL (`PIL.Image.open`) and PyMuPDF (`pymupdf.open(stream=...)`) consuming binary streams generated from zip members directly.
    - Discovered on Windows NTFS that opening zip members without managing the parent `ZipFile` instance can keep file locks on disk. Resolved via `ManagedZipStream(io.RawIOBase)`.
 3. **Interface Contracts**:
@@ -30,7 +30,7 @@
 1. **Premise 1**: Processing gigabyte-scale archives and directories on local disks without unbounded memory usage requires continuous streaming in small chunks ($O(1)$ RAM).
 2. **Premise 2**: Downstream extraction (M2) and storage (M3) require multiple reader passes over raw content (e.g. hashing, MIME inspection, neural OCR, text extraction).
 3. **Inference 1**: Instead of buffering raw bytes in memory or extracting archives to disk, `local_crawler.py` must yield `IngestedArtifact` objects containing a `raw_stream_factory` callable that opens a fresh, isolated stream on demand.
-4. **Premise 3**: Standard Windows `zipfile.open()` does not automatically close parent `ZipFile` file descriptors when the member ****ream is closed.
+4. **Premise 3**: Standard Windows `zipfile.open()` does not automatically close parent `ZipFile` file descriptors when the member stream is closed.
 5. **Inference 2**: Introducing `ManagedZipStream` and `ManagedTarStream` classes wrapping both the entry stream and parent archive guarantees that exiting context managers or calling `.close()` instantly releases all Windows OS file locks.
 6. **Premise 4**: Thousands of non-evidentiary files (`.pyc`, `.jar`, `.dll`, `.exe`) exist in `Downloads`.
 7. **Inference 3**: Implementing directory-level top-down pruning and file extension blocklists skips non-evidentiary files instantly, keeping scan times under 1 second.

@@ -1,7 +1,7 @@
 # Master Evidence Dossier & Audit Ledger
 ## Project: 2022 Anaheim Angel Stadium Corruption & Form 700 Audit
 **Date:** October 5, 2026
-**Investigative Target:** 2000 E Gene Autry Way, Anaheim, CA 928** (Angel Stadium Site)
+**Investigative Target:** 2000 E. G*** Way, Anaheim, CA 928** (Angel Stadium Site)
 **Auditor Tool:** `C:\Amd949609_Antigravity_v1\tools\structured_project_form700_auditor.py`
 **Matrix Artifact:** `C:\Amd949609_Antigravity_v1\tools\structured_project_form700_audit.json`
 

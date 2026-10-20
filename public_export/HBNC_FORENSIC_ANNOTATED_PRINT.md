@@ -92,11 +92,11 @@ UNDERGROUND UTILITY EXCAVATION SHALL BE COMPLETED BY
 
 ## 🔴 SMOKING GUN #4: WELL W-4150 DESTRUCTION WAIVED (490 PPB Cr-VI)
 
-**Source:** OCHCA Case ****C002 / Cameron Lane Permit Review
+**Source:** OCHCA Case #20IC002 / Cameron Lane Permit Review
 
 | Record | Date | Status |
 |--------|------|--------|
-| OCHCA Case ****C002 | 2020-08-21 | **Well destruction waiver issued** |
+| OCHCA Case #20IC002 | 2020-08-21 | **Well destruction waiver issued** |
 | Anthony Martinez (OCHCA) | 2020-08-21 | Signed waiver: "not necessary" |
 | Well W-4150 Cr-VI | 2020 | **490 ppb** (49× EPA MCL of 10 ppb) |
 | Well Location | Under shelter footprint | **Never destroyed** |
@@ -209,7 +209,7 @@ WHERE LATITUDE BETWEEN 33.69 AND 33.72
 | Evidence | Path |
 |----------|------|
 | **Precise Grading Plan (PDF)** | `C:\EVIDENCE_LOCKER_MASTER\20_ANALYSIS\db66e1e0-b949-11f1-8e00-dbd4e67e7847.pdf` |
-| **SHA256 Hash** | `5b4f0cd753c96c96fa414**db970**c8077e710d2c466644ac6a1d96e961**d6` |
+| **SHA256 Hash** | `5b4f0cd753c96c96fa41468db97001c8077e710d2c466644ac6a1d96e96109d6` |
 | **StormTech Legal Index** | `C:\OsintNeoAi\evidence\stormtech_legal_permit_index.json` |
 | **Cameron Lane Permit Review (PDF)** | `C:\Users\Amd949609\Downloads\Cameron Lane Navigation Center- Contract and Permit Record Review.pdf` |
 | **Cameron Lane Permit Review (PPTX)** | `C:\Users\Amd949609\Downloads\Cameron Lane Navigation Center- Contract and Permit Record Review.pptx` |

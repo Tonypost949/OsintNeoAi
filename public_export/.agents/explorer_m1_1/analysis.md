@@ -143,7 +143,7 @@ Cryptographic SHA-256 signatures form the immutable backbone of the OsintNeoAi I
 1. **$O(1)$ RAM Invariant**: The memory footprint of the hashing engine is strictly bounded to the 64 KB chunk size + ~2 KB Python state overhead, regardless of whether the file is 100 bytes or 50 GB.
 2. **Bit-for-Bit Determinism**: For any input byte stream $B$, `compute_stream_sha256(B) == hashlib.sha256(B).hexdigest()`.
 3. **Empty Stream Integrity**: An empty file or zero-length stream returns the canonical SHA-256 constant:  
-   `"e3b0c442**fc1c149afbf4c8996fb924**ae41e4649b934ca495991b7852b855"`.
+   `"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"`.
 4. **Timing-Attack Resistance**: All digest comparison functions (`verify_file_sha256`, `verify_stream_sha256`) utilize `hmac.compare_digest()` for constant-time evaluation.
 
 ### 3.2 Key Classes and Functions
@@ -755,7 +755,7 @@ from workspaces.osintneoai_indexer.storage.hasher import (
     verify_stream_sha256,
 )
 
-EMPTY_SHA256 = "e3b0c442**fc1c149afbf4c8996fb924**ae41e4649b934ca495991b7852b855"
+EMPTY_SHA256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 
 
 def test_config_defaults_and_paths():

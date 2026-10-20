@@ -3,7 +3,7 @@
 **Version:** August 2026
 **Owner:** Anthony DiMarcello III
 **Repo:** https://github.com/Tonypost949/OsintNeoAi
-**Case:** CACD Case 8:2026cv003**
+**Case:** CACD Case 8:2026cv00348
 
 ---
 
@@ -56,7 +56,7 @@ python agent/bulk_city_ip_scanner.py --scan-california-cities
 
 ---
 
-## Active Case ****iles (in Tasklet /tasklet/agent/home/)
+## Active Case Files (in Tasklet /tasklet/agent/home/)
 
 ### Master Reports
 - OC_Fraud_Network_OSINT_Report_v16.1_HBNC_ENVIRONMENTAL_FRAUD_MANDATORY_REPORTER.md (33K)

@@ -39,7 +39,7 @@ When connected to your Microsoft 365 / Entra ID tenant, Graph Explorer lets you 
 GET https://graph.microsoft.com/v1.0/me
 
 ### List All Users in Tenant (with properties)
-GET https://graph.microsoft.com/v1.0/users?$select=displayName,userPrincipalName,id,account ****bled,jobTitle,department
+GET https://graph.microsoft.com/v1.0/users?$select=displayName,userPrincipalName,id,accountEnabled,jobTitle,department
 
 ### List App Registrations (Service Principals)
 GET https://graph.microsoft.com/v1.0/applications?$select=id,appId,displayName,createdDateTime
@@ -62,7 +62,7 @@ GET https://graph.microsoft.com/v1.0/identityProtection/riskyUsers
 
 #### 3. Power Platform & SharePoint Evidence Document Search
 ```http
-### Search Files in OneDrive & SharePoint for Case ****ords
+### Search Files in OneDrive & SharePoint for Case Keywords
 GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='Warner')?$select=name,id,webUrl,size
 
 ### List SharePoint Sites

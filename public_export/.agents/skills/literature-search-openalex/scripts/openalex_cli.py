@@ -233,7 +233,7 @@ def handle_resolve(args: argparse.Namespace) -> None:
   print_json(results)
 
 
-# Matches standard OpenAlex short IDs like W(***) ***-9807, A(***) ***-8391, etc.
+# Matches standard OpenAlex short IDs like W2741809807, A5023888391, etc.
 _OPENALEX_SHORT_ID_RE = re.compile(r"^[A-Za-z]\d+$")
 
 
@@ -241,8 +241,8 @@ def _is_valid_entity_id(entity_id: str) -> bool:
   """Returns True if *entity_id* looks like a valid OpenAlex entity reference.
 
   Accepted formats:
-    - Short IDs: W(***) ***-9807, A(***) ***-8391
-    - Full OpenAlex URLs: https://openalex.org/W(***) ***-9807
+    - Short IDs: W2741809807, A5023888391
+    - Full OpenAlex URLs: https://openalex.org/W2741809807
     - DOIs: https://doi.org/10.xxx
   """
   return bool(
@@ -261,7 +261,7 @@ def handle_get(args: argparse.Namespace) -> None:
   """
   if not _is_valid_entity_id(args.id):
     logging.error(
-        "Invalid entity ID %r. Expected a short ID (e.g. W(***) ***-9807),"
+        "Invalid entity ID %r. Expected a short ID (e.g. W2741809807),"
         " a full OpenAlex URL, or a DOI URL.",
         args.id,
     )
@@ -565,7 +565,7 @@ def main(argv: Sequence[str]) -> None:
       "get", help="Get a single entity by its ID"
   )
   parser_get.add_argument("entity_type", choices=ENTITY_TYPES)
-  parser_get.add_argument("id", help="The OpenAlex ID (e.g., W(***) ***-9807)")
+  parser_get.add_argument("id", help="The OpenAlex ID (e.g., W2741809807)")
   parser_get.add_argument(
       "--select", type=str, help="Limit returned fields (e.g., id,title)"
   )
@@ -575,7 +575,7 @@ def main(argv: Sequence[str]) -> None:
   parser_pdf = subparsers.add_parser(
       "download-pdf", help="Download PDF for a work (costs $0.01 per request)"
   )
-  parser_pdf.add_argument("id", help="The OpenAlex Work ID (e.g., W(***) ***-9807)")
+  parser_pdf.add_argument("id", help="The OpenAlex Work ID (e.g., W2741809807)")
   parser_pdf.add_argument("output", help="Output file path (e.g., paper.pdf)")
   parser_pdf.set_defaults(func=handle_download_pdf)
 

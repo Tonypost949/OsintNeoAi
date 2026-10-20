@@ -9,7 +9,7 @@
 
 Under the Racketeer Influenced and Corrupt Organizations Act (18 U.S.C. § 1962(c)), it is unlawful for any person employed by or associated with any enterprise engaged in interstate commerce to conduct or participate in the conduct of such enterprise's affairs through a **"pattern of racketeering activity."**
 
-The official records, plea agreements, property deeds, and court dockets establish all four essential elements of a **Civil RICO claim ****nder 18 U.S.C. § 1964(c)**:
+The official records, plea agreements, property deeds, and court dockets establish all four essential elements of a **Civil RICO claim under 18 U.S.C. § 1964(c)**:
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐

@@ -246,7 +246,7 @@ class TestAdversarialMailboxConnector:
         msg = EmailMessage()
         msg["From"] = "i***@doj.gov"
         msg["To"] = "a***@fbi.gov"
-        msg["Subject"] = "Nested Multipart Case ****ysis"
+        msg["Subject"] = "Nested Multipart Case Analysis"
         msg["Date"] = "Mon, 15 Aug 2022 12:00:00 +0000"
         msg["Message-ID"] = "<n***@doj.gov>"
 

@@ -37,7 +37,7 @@ Source: `CRIMINAL_REFERRAL_FINAL.md`, `forensic_investigative_dossier.md` lines 
 - Location: 17641 B*** Blvd, Huntington Beach (HBNC homeless shelter)
 - Contaminant: Hexavalent Chromium [Cr(VI)] — 490 ug/kg — **49x EPA limit**
 - Monitoring Well W-4150: unsealed, actively leaking toxic vapor into shelter living spaces
-- OCHCA Case ****C002: fraudulent "case ****osed" certificate issued Aug 21, 2020
+- OCHCA Case 20IC002: fraudulent "case closed" certificate issued Aug 21, 2020
 - Ascon Landfill Superfund Site: elevated arsenic, lead, pesticides, TPH
 - Children housed at facility tested with elevated blood lead levels (exceeding CDC 3.5 ug/dL)
 - CEQA waived using emergency homelessness declaration
@@ -46,7 +46,7 @@ Source: `CRIMINAL_REFERRAL_FINAL.md`, `forensic_investigative_dossier.md` lines 
 **Who signed the fraud:**
 - Clayton Chau (former OCHCA Director)
 - Tamara Escobedo (Supervisor) — instructed parcel unification to evade DTSC review
-- Anthony Martinez (OCHCA Program Manager) — waived well-destruction permit, signed Case ****osed
+- Anthony Martinez (OCHCA Program Manager) — waived well-destruction permit, signed Case Closed
 - George Felix (CBRE) — signed Remedial Action Scheme forms without authority
 - Mitsuru Yamada — OC environmental agency employee, owned the contaminated property, zero Form 700 disclosures (felony conflict of interest), reciprocal easement agreements linking his property to the contaminated parcels
 
@@ -63,7 +63,7 @@ Source: `CRIMINAL_REFERRAL_FINAL.md` lines 22-32, `forensic_investigative_dossie
 - Each CPS removal draws federal Title IV-E reimbursement — estimated $200-300M+/year flowing through OC
 
 **The Gatekeeper:**
-- Kristy Conway — Case ****ager, HBPD Homeless Task Force
+- Kristy Conway — Case Manager, HBPD Homeless Task Force
 - Denies rapid rehousing, employment support, relocation assistance
 - Funnels families directly into Mercy House Navigation Center
 - Family connection: Tom Conway (her family) sits on Mercy House board
@@ -81,7 +81,7 @@ Source: `CRIMINAL_REFERRAL_FINAL.md` lines 22-32, `forensic_investigative_dossie
 |---|---|---|
 | COC Housing | CA-600 | $2,173 |
 | CMS Shelter | 992-SHELTER | Variable |
-| CMS Behavioral | 251S000**X | Uncapped under ACA |
+| CMS Behavioral | 251S00000X | Uncapped under ACA |
 | Rehab (inpatient) | Residential | $720,000 |
 | ID Theft Insurance | K5/AIG | Never triggered |
 | **Total paper value** | | **$250K+ per child** |
@@ -122,14 +122,14 @@ Source: `forensic_investigative_dossier.md` lines 375-410, `CRIMINAL_REFERRAL_FI
 | Agency | Status | What Happened |
 |---|---|---|
 | GAO | ACTIVE | COMP-26-004512 confirmed |
-| FBI | ACTIVE | Case ****C002 FOIPA, re-routed to Homelessness Fraud Task Force |
+| FBI | ACTIVE | Case 20IC002 FOIPA, re-routed to Homelessness Fraud Task Force |
 | SEC | BLOCKED | Custom mail flow rule blocked submission |
 | FinCEN | BLOCKED | Communication failure — message rejected |
 | HUD OIG | BLOCKED | Custom mail flow rule at hudoig.onmicrosoft.com blocked submission |
 | ODNI | BLOCKED | Address not found — misrouted |
 
 ### Legal Suppression
-- DFEH deleted Anthony's case ****mber
+- DFEH deleted Anthony's case number
 - Knabb v. City of HB (8:26-cv-00348) — structural flaw: doesn't name County or Housing Authority in official capacity (Monell liability missed)
 - $6,000 settlement being weaponized as res judicata to dismiss entire action
 - Dr. Ann Verma: sham rent-to-own by Andrew Falk, WH Sheriff operations, Judge Swift in Santa Monica courts
@@ -163,7 +163,7 @@ Source: `hbnc_forensic_whistleblower_briefing.md` lines 38-73, `TUCSON_WEST_HOLL
 - Psychiatrist, NPI 1902152242, License A155456
 - Headway whistleblower — filed Jan 15, 2026
 - Reported: HIPAA/CCPA/CIPA violations, billing fraud, forced biometric scraping, wage theft, controlled substance diversion
-- Living at 1133 N Formosa Ave — sham rent-to-own by Andrew Falk
+- Living at 1133 N. F*** Ave — sham rent-to-own by Andrew Falk
 - WH Sheriff running operations on her, Judge Swift in Santa Monica courts
 - July 4, 2026: filed "Notice of Rescission and Demand for Restitution: 1133 N Formosa"
 - Email: a***@gmail.com

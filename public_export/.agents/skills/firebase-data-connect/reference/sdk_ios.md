@@ -31,7 +31,7 @@ import FirebaseCore
 import FirebaseDataConnect
 
 // Assuming connector name is 'movies' in connector.yaml
-// The connector name is the lower camel case ****orId defined in connector.yaml suffixed with the word 'Connector'
+// The connector name is the lower camel case connectorId defined in connector.yaml suffixed with the word 'Connector'
 let connector = DataConnect.moviesConnector
 
 // For local development with emulator

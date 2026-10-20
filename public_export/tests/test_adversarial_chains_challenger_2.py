@@ -81,7 +81,7 @@ class TestChain1EwingToFBIZartmanToDNJ(unittest.TestCase):
         self.assertIn("**/**/2019 07:44", self.police_text)
 
     def test_c1_federal_complaint_and_magistrate_officer(self):
-        """Verify USDC D.N.J. case ****mber, judge, prosecutor, and statutory charge."""
+        """Verify USDC D.N.J. case number, judge, prosecutor, and statutory charge."""
         self.assertIn("3:20-mj-05007-TJB", self.ryan_text)
         self.assertIn("Mag. No. 20-5007", self.ryan_text)
         self.assertIn("Hon. Tonianne J. Bongiovanni", self.ryan_text)
@@ -399,7 +399,7 @@ class TestAdversarialIntegrityAndInvariants(unittest.TestCase):
         self.assertEqual(half_price * 2, full_price_low)
 
     def test_cross_jurisdiction_case_number_canonical_formats(self):
-        """Verify that all case ****bers across the 9 primary records follow official regex formats."""
+        """Verify that all case numbers across the 9 primary records follow official regex formats."""
         federal_cdca = re.compile(r"^8:\d{2}-(cr|mj)-\d{5}-CJC$")
         federal_dnj = re.compile(r"^3:\d{2}-(cr|mj)-\d{5}-TJB$")
         superior_court = re.compile(r"^30-2021-01201327-CL-UD-CJC$")

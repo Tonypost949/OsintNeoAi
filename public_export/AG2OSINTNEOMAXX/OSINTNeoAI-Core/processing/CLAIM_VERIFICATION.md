@@ -1,4 +1,4 @@
-# Claim ****tion Gate
+# Claim Verification Gate
 
 OSINTNeoAI must distinguish collected evidence from AI-generated interpretation.
 
@@ -19,7 +19,7 @@ AI output is an analysis artifact, not primary evidence.
 7. Present as verified fact only when SUPPORTED and explicitly human-reviewed.
 8. Keep ALLEGATION and HYPOTHESIS separate from factual findings.
 9. Never infer causation from correlation.
-10. Never manufacture a quotation, page, source, date, case ****mber, or document.
+10. Never manufacture a quotation, page, source, date, case number, or document.
 
 ## Important distinction
 

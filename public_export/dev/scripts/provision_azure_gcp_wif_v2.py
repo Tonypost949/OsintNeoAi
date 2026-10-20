@@ -19,7 +19,7 @@ GCP_SERVICE_ACCOUNT_NAME = "azure-wif-bq-collector"
 GCP_SERVICE_ACCOUNT_EMAIL = f"{GCP_SERVICE_ACCOUNT_NAME}@{GCP_PROJECT_ID}.iam.gserviceaccount.com"
 
 # Azure Entra ID Tenant
-AZURE_TENANT_ID = os.environ.get("AZURE_TENANT_ID", "f055033f-83fb-4ae9-9c36-be48f0c861**")
+AZURE_TENANT_ID = os.environ.get("AZURE_TENANT_ID", "f055033f-83fb-4ae9-9c36-be48f0c86158")
 AZURE_ISSUER_URL = f"https://sts.windows.net/{AZURE_TENANT_ID}/"
 
 def generate_wif_gcloud_commands():
@@ -44,15 +44,15 @@ def generate_wif_gcloud_commands():
         f"--display-name='Azure Cross-Cloud BigQuery Data Collector'",
 
         # 4. Grant BigQuery Data Editor & Job User to Service Account
-        f"gcloud projects add-iam-policy ****ding {GCP_PROJECT_ID} "
+        f"gcloud projects add-iam-policy-binding {GCP_PROJECT_ID} "
         f"--member='serviceAccount:{GCP_SERVICE_ACCOUNT_EMAIL}' "
         f"--role='roles/bigquery.dataEditor'",
-        f"gcloud projects add-iam-policy ****ding {GCP_PROJECT_ID} "
+        f"gcloud projects add-iam-policy-binding {GCP_PROJECT_ID} "
         f"--member='serviceAccount:{GCP_SERVICE_ACCOUNT_EMAIL}' "
         f"--role='roles/bigquery.jobUser'",
 
         # 5. Allow Azure Workload Pool identities to impersonate the GCP Service Account
-        f"gcloud iam service-accounts add-iam-policy ****ding {GCP_SERVICE_ACCOUNT_EMAIL} "
+        f"gcloud iam service-accounts add-iam-policy-binding {GCP_SERVICE_ACCOUNT_EMAIL} "
         f"--project={GCP_PROJECT_ID} "
         f"--role='roles/iam.workloadIdentityUser' "
         f"--member='principalSet://iam.googleapis.com/projects/{GCP_PROJECT_ID}/locations/global/workloadIdentityPools/{GCP_POOL_ID}/*'"

@@ -42,7 +42,7 @@ Four interlocking pipelines form a unified nationwide RICO enterprise. The enter
   1. **Discreditation Through Overmedication:** Whistleblowers (Dr. Ann Verma, relators) and vulnerable individuals are subjected to weaponized psychiatric polypharmacy (e.g. 13-drug stacking in 4 months) or exposed to local counterfeit pill circulation (Whitman / North Shore labs) to trigger akathisia and drug-induced delirium.
   2. **Compromised Psychiatric Evaluations:** Hired forensic experts (*Park Dietz & Associates*: Dr. Avram Mack, Dr. Phillip Resnick, Dr. Donald Kushon) label corruption disclosures as "paranoid delusions" to destroy witness credibility before grand juries and the public.
   3. **Direct Asset Stripping ("Robbery"):** Executing non-judicial surprise lockouts (Shea Properties / 212 Southbrook) and involuntary conservatorships to seize evidence files, workstations, and personal assets.
-  4. **Public Tax Dollar Extraction:** Billing high-tier Medicaid (MassHealth/Medi-Cal) and Medicare ****ient codes ($2,500+/day) and off-label polypharmacy claims to extract hundreds of millions in recurring public tax dollars.
+  4. **Public Tax Dollar Extraction:** Billing high-tier Medicaid (MassHealth/Medi-Cal) and Medicare inpatient codes ($2,500+/day) and off-label polypharmacy claims to extract hundreds of millions in recurring public tax dollars.
 
 ---
 
@@ -59,7 +59,7 @@ graph TD
     end
     
     subgraph "Double Tax Extraction Engine"
-        BILLING["4. Medicaid / Medicare ****ient Upcoding<br>(False Claims Act 31 U.S.C. § 3729)"]
+        BILLING["4. Medicaid / Medicare Inpatient Upcoding<br>(False Claims Act 31 U.S.C. § 3729)"]
         GRANTS["5. HUD CoC & Title IV-E Placement Subsidies<br>(Draws Millions in Federal Matching Funds)"]
     end
 
@@ -74,7 +74,7 @@ graph TD
 
 | Enterprise Element | California Evidence Anchor | Massachusetts Evidence Anchor |
 |---|---|---|
-| **Property & Shell Network** | 333 W*** Blvd #142-409, Marina del Rey | CM Cleaning Co (Rockland Trust PPP #(***) ***-7203) |
+| **Property & Shell Network** | 333 W*** Blvd #142-409, Marina del Rey | CM Cleaning Co (Rockland Trust PPP #8883607203) |
 | **Toxic Contamination** | 17642 B*** Blvd (490 ppb Cr-VI `T10000018579`) | Whitman Biohazard Lab (Condemned Dec 2023) |
 | **Whistleblower Targeted** | Anthony DiMarcello III / Dr. Ann Verma | Lindsay Clancy (Involuntary Intoxication Coverup) |
 | **Forensic Gatekeepers** | OCSD Internal Affairs / Municipal City Attorneys | Park Dietz & Associates (Dr. Mack / Dr. Resnick / Dr. Kushon) |

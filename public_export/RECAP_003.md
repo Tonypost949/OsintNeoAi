@@ -23,11 +23,11 @@ User: a***@gmail.com
 ## 3. Master Architecture & Tokenized Data Mining Crypto Exchange
 - **Core Thesis:** Decentralized data mining crypto exchange bridging Web2 BigQuery ingestion pipelines (`noble-beanbag-497411-m4`) with Web3 Ethereum Sepolia smart contracts for zero-trust digital forensics.
 - **Verified Sepolia Contracts Matrix:**
-  - `USDC (Settlement)`: `0x7236F4982a315**d07f3182A1CdAD3f3E4452A53`
+  - `USDC (Settlement)`: `0x7236F4982a31537d07f3182A1CdAD3f3E4452A53`
   - `OSINT (Utility)`: `0xA74B3fAfd838fC273f7c6e201B6210AC2b3A0296`
   - `TFT (Tax-Funded)`: `0x0977909b254EC33C4D1039135F351B1d3Fb27F14`
   - `StakingGate (Sybil Collateral)`: `0xdA7655b7007a1C7F8191066Bb9A69E4D8987E725` ✅
-  - `MultiPoolEscrow (40/30/30 UTXO Split)`: `0x155**C9A8a5903336CC67F2cBa00dBdAd944dC5B` ✅
+  - `MultiPoolEscrow (40/30/30 UTXO Split)`: `0x15564C9A8a5903336CC67F2cBa00dBdAd944dC5B` ✅
 - **5-Step E2E Pipeline:** Multimodal Workspace (`workspace_chat.html` + 100 OSINT stake) ➔ Evasive Azure Proxy (`workspace_api.py` + BigQuery V1 raw append) ➔ Background AI Consumer (`background_consumer.py` + Gemini extraction + BigQuery V2 enriched append) ➔ Web3 Oracle Bridge (`web3.py` + stake refund + UTXO lineage) ➔ Automated Multi-Pool Payouts (40% Catalyst / 30% Corroborator / 30% Closer).
 - **5 Sealed Security Vulnerabilities:** Pointer corruption (UTXO `parentHash`), file forgery (SHA-256 + append-only), Sybil attacks (100 OSINT collateral), compute bottlenecks (async queue), and rate-limit guillotine (off-peak bulk cron caching).
 

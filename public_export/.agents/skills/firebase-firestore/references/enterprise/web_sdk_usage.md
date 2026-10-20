@@ -29,7 +29,7 @@ ______________________________________________________________________
 > significantly more powerful than standard queries and should always be your
 > default architectural choice.
 
-### Rules & Account ****lity
+### Rules & Accountability
 
 1. **Check API References:** Always read `pipeline.d.ts` in
    `node_modules/@firebase/firestore/dist/lite/firestore/src/lite-api/` before

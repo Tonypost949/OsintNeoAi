@@ -20,7 +20,7 @@ The threat actors possessed the required PII (SSN, DOB, DL) to execute impersona
 
 ---
 
-## 2. The SIM Swap & Meta Account ****mise (May 2026)
+## 2. The SIM Swap & Meta Account Compromise (May 2026)
 
 ### Verifiable Facts
 - **Access Method:** Facebook password reset via SMS (SIM swap/interception).
@@ -67,8 +67,8 @@ The subject was incarcerated under a psychiatric hold, forcibly medicated, and s
 ### Verifiable Facts
 - **DMV Record:** Identification card renewal withheld for 8 months.
 - **EDD Record:** Layoff claims frozen for 11 months; W-2 status altered.
-- **Assurant Claim:** Policy ****0103, Claim ****1508 — **DENIED** (Reason: PII breach excluded).
-- **AIG Claim:** Policy ****7868, Claim ****69US — **DENIED** (Reason: PII breach excluded).
+- **Assurant Claim:** Policy ****0103, Claim #00201641508 — **DENIED** (Reason: PII breach excluded).
+- **AIG Claim:** Policy ****7868, Claim #3337423269US — **DENIED** (Reason: PII breach excluded).
 
 ### What This Proves
 The subject was systematically isolated from state services (ID, income) while identity theft insurance policies explicitly refused coverage for PII-based breaches.

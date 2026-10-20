@@ -63,14 +63,14 @@ class TestDetermineGenesisTypeAdversarial(unittest.TestCase):
             "Pacific Gas & Electric pipeline corruption",
             "The City of Anaheim entered into a void contract under SLA 542**",
             "DTSC inspection report for parcel APN 123-456-78",
-            "Court docket for Case ****DCJC"
+            "Court docket for Case No. 30-2021-01201327-CL-UD-CJC"
         ]
         for phrase in entity_cases:
             res = determine_genesis_type(phrase)
             self.assertEqual(res, "ENTITY", f"Failed standard ENTITY test: {phrase}")
 
     def test_case_insensitivity_and_whitespace(self):
-        """Case ****ions and excessive whitespace must be handled deterministically."""
+        """Case variations and excessive whitespace must be handled deterministically."""
         variations = [
             ("MY NAME IS ANTHONY", "BIO"),
             ("mY nAmE iS aNtHoNy", "BIO"),

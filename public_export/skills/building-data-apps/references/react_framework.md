@@ -17,7 +17,7 @@ Follow these instructions when building data applications using the React framew
 
 -   **Backgrounds:** The app must support both Light and Dark modes. Always map
     colors to their `dark:` variant and provide a light mode equivalent.
-    -   Page Background: `bg-zinc-50 dark:bg-[#090**b]`
+    -   Page Background: `bg-zinc-50 dark:bg-[#09090b]`
     -   Cards / Containers: `bg-white dark:bg-[#0c0c0f]` (solid slightly lighter
         dark)
 -   **Typography:** Use sans-serif default fonts.
@@ -130,7 +130,7 @@ conditional secondary panel (e.g., an Investigation/Details Panel).
     -   Ghost: `text-[#2563eb] dark:text-[#60a5fa] hover:bg-[#eff6ff]
         dark:hover:bg-[#1e3a8a] rounded-[8px] px-[16px] py-[8px] font-[500]
         transition-colors bg-transparent border border-transparent shadow-none`.
--   **Inputs:** `w-full bg-[#ffffff] dark:bg-[#090**b] border border-zinc-200
+-   **Inputs:** `w-full bg-[#ffffff] dark:bg-[#09090b] border border-zinc-200
     dark:border-zinc-800 rounded-[8px] px-[12px] py-[8px] text-sm shadow-sm
     focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500
     text-zinc-950 dark:text-zinc-100 transition-all`. Provide a `label` with
@@ -197,5 +197,5 @@ conditional secondary panel (e.g., an Investigation/Details Panel).
     children elements with `useSortable({ id })`.
 -   **Standard Chart Colors Array:** Establish these 10 Tailwind standard
     500-level variables when initiating chart sets: `["#3b82f6", "#10b981",
-    "#f59e0b", "#ef4444", "#8b5cf6", "#ec4899", "#06b6d4", "#84cc16", "#f973**",
+    "#f59e0b", "#ef4444", "#8b5cf6", "#ec4899", "#06b6d4", "#84cc16", "#f97316",
     "#6366f1"]`.

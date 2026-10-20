@@ -306,4 +306,4 @@ HOLD
 
 Each row shows: ENTITY_ID, ENTITY_NAME, ENTITY_TYPE, STATUS, CLASSIFICATION, specific HOLD_KEYWORDS_HIT, MANUAL_KEYWORDS_HIT, MIXED_INDICATORS_HIT, and TOTAL_HITS.
 
-All files are ready for download. The Legal Brief is formatted for direct court filing, the network diagram can be embedded in presentations or briefs, and the classification matrix can be imported into any case ****ment system.
+All files are ready for download. The Legal Brief is formatted for direct court filing, the network diagram can be embedded in presentations or briefs, and the classification matrix can be imported into any case management system.

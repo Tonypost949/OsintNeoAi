@@ -12,7 +12,7 @@ gap and move on.
 :                         :            : accessible                          :
 | Object versioning       | BQ Dataset | Whether previous versions are       |
 :                         :            : retained on overwrite/delete        :
-| RetentionExpirationTime | BQ Dataset | Whether a retention policy ****ents |
+| RetentionExpirationTime | BQ Dataset | Whether a retention policy prevents |
 :                         :            : premature deletion                  :
 | Encryption type         | BQ Dataset | GMEK (Google-default), CMEK         |
 :                         :            : (customer-managed), or CSEK         :

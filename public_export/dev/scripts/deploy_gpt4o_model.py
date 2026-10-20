@@ -12,7 +12,7 @@ capacity = 10  # 10k TPM
 print(f"=== DEPLOYING AZURE OPENAI MODEL: {model_name} ({model_version}) ===")
 print(f"Target Account: {account} | Resource Group: {rg} | SKU: {sku_name}\n")
 
-cmd = f'az cognitiveservices account ****ment create --name {account} --resource-group {rg} --deployment-name {deployment_name} --model-name {model_name} --model-version {model_version} --model-format OpenAI --sku-name {sku_name} --sku-capacity {capacity} --output json'
+cmd = f'az cognitiveservices account deployment create --name {account} --resource-group {rg} --deployment-name {deployment_name} --model-name {model_name} --model-version {model_version} --model-format OpenAI --sku-name {sku_name} --sku-capacity {capacity} --output json'
 
 res = subprocess.run(cmd, shell=True, capture_output=True, text=True)
 

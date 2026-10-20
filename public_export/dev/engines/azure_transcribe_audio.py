@@ -30,7 +30,7 @@ speech_config.speech_recognition_language = "en-US"
 audio_dirs = [
     r"C:\Users\HP\OneDrive\Documents\opencode_work\OSINT_VAULT_BACKUP",
     r"C:\Users\HP\.gemini\antigravity-ide\scratch\osint-agent",
-    r"G:\DL ****CKUP",
+    r"G:\DL BACKUP",
     r"G:\buckp moto\Download",
 ]
 audio_files = []

@@ -69,7 +69,7 @@ MASTER_TIMELINE = [
     {"EVENT_ID": "TL-001", "DATE": "2019-11-14", "ACTOR": "Quantum Auto Dismantler / Cedar Ln Hub", "EVENT_DESCRIPTION": "Interstate vehicle shipment and invoice generation linking Santa Ana to Hamilton, NJ.", "CORROBORATING_EV": "EV-003"},
     {"EVENT_ID": "TL-002", "DATE": "2020-04-15", "ACTOR": "City of Huntington Beach / Mercy House", "EVENT_DESCRIPTION": "Opening of 17631 C*** Lane shelter facility despite known unsealed toxic well and lead hazards.", "CORROBORATING_EV": "EV-004"},
     {"EVENT_ID": "TL-003", "DATE": "2021-03-22", "ACTOR": "HOMI / Greenglass Associates", "EVENT_DESCRIPTION": "Conveyance and equity extraction of residential property at 8 Lakeview, Irvine for $1,215,000.", "CORROBORATING_EV": "EV-005"},
-    {"EVENT_ID": "TL-004", "DATE": "2021-06-29", "ACTOR": "Wallace, Richardson, Sontag & Le LLP", "EVENT_DESCRIPTION": "Securing first void default judgment in Orange County CJC Case ****1327 without notice.", "CORROBORATING_EV": "EV-002"},
+    {"EVENT_ID": "TL-004", "DATE": "2021-06-29", "ACTOR": "Wallace, Richardson, Sontag & Le LLP", "EVENT_DESCRIPTION": "Securing first void default judgment in Orange County CJC Case #30-2021-01201327 without notice.", "CORROBORATING_EV": "EV-002"},
     {"EVENT_ID": "TL-005", "DATE": "2021-12-08", "ACTOR": "California HCD", "EVENT_DESCRIPTION": "Issuance of formal Surplus Land Act Notice of Violation and $96M fine against Anaheim Stadium deal.", "CORROBORATING_EV": "EV-001"},
     {"EVENT_ID": "TL-006", "DATE": "2022-05-16", "ACTOR": "FBI / US Attorney CDCA", "EVENT_DESCRIPTION": "Public unsealing of federal criminal complaint and search warrants against Mayor Sidhu, Todd Ament, and Melahat Rafiei.", "CORROBORATING_EV": "EV-001; EV-002"}
 ]
@@ -139,7 +139,7 @@ for e in MASTER_ENTITIES:
 unified_edges = [
     {"source": "RICO-001", "target": "PER-001", "relation": "MEMBER_LEADER", "label": "Executive Conduit"},
     {"source": "RICO-001", "target": "PER-002", "relation": "MEMBER_OPERATOR", "label": "Chamber Steering"},
-    {"source": "RICO-001", "target": "PER-004", "relation": "MEMBER_STRATEGIST", "label": "Cabal Policy ****ator"},
+    {"source": "RICO-001", "target": "PER-004", "relation": "MEMBER_STRATEGIST", "label": "Cabal Policy Orchestrator"},
     {"source": "PER-001", "target": "EV-001", "relation": "CORROBORATED_BY", "label": "Guilty Plea / $96M Fine"},
     {"source": "RICO-001", "target": "RICO-002", "relation": "SUBSIDIARY_CONDUIT", "label": "Judicial Enforcement Arm"},
     {"source": "RICO-002", "target": "PER-005", "relation": "OPERATOR_ATTORNEY", "label": "Default Eviction Mill"},
@@ -214,7 +214,7 @@ SECTION II: STATEMENT OF FACTS
    criminal guilty pleas in USA v. Sidhu (8:23-cr-00108) and USA v. Ament (8:22-cr-00078).
 4. THE SHADOW EVICTION AND JUDICIAL DEFAULT RING: Defendants Wallace, Richardson,
    Sontag & Le LLP operated an expedited unlawful detainer default mill in the
-   Orange County Superior Court (Central Justice Center). In Case ****1327,
+   Orange County Superior Court (Central Justice Center). In Case No. 30-2021-01201327,
    Defendants procured three successive default entries against Plaintiff despite
    lacking valid service of summons, and executed an emergency judicial strike at
    4:29 PM (ROA #37) to prevent independent scrutiny.
@@ -256,7 +256,7 @@ SECTION V: LEGAL EXPOSURE MATRIX & STATUTORY CLAIMS
 SECTION VI: EVIDENTIARY ANCHORING & WITNESS DOSSIER
 15. The claims are anchored in authenticated physical, digital, and official records:
     - EV-001: California HCD $96M Notice of Violation & City Resolution 2022-064;
-    - EV-002: OC CJC Docket Case ****1327 certified records;
+    - EV-002: OC CJC Docket Case #30-2021-01201327 certified records;
     - EV-003: Quantum Auto Dismantler Invoice #140** & Interstate Bill of Lading;
     - EV-004: OCHCA & City Hazmat Abatement Reports for 17631 C*** Lane;
     - EV-005: 8 Lakeview Grant Deed and HOMI IRS Form 990 filings.
@@ -435,7 +435,7 @@ SVG_IMAGE = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" wi
   <text x="600" y="70" fill="#94a3b8" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">OSINT Neo AI Forensic Investigation Engine — 5 Operational Hubs</text>
 
   <!-- Connectors -->
-  <g stroke="#647**b" stroke-width="2" opacity="0.6">
+  <g stroke="#64748b" stroke-width="2" opacity="0.6">
     <line x1="600" y1="180" x2="200" y2="340" />
     <line x1="600" y1="180" x2="400" y2="340" />
     <line x1="600" y1="180" x2="600" y2="340" />
@@ -457,7 +457,7 @@ SVG_IMAGE = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" wi
 
   <!-- Central Hub RICO-001 -->
   <g filter="url(#shadow)">
-    <rect x="440" y="110" width="320" height="70" rx="10" fill="#dc2626" stroke="#f871**" stroke-width="2" />
+    <rect x="440" y="110" width="320" height="70" rx="10" fill="#dc2626" stroke="#f87171" stroke-width="2" />
     <text x="600" y="138" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">RICO-001: MUNICIPAL ENTERPRISE HUB</text>
     <text x="600" y="160" fill="#fecaca" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Anaheim / Irvine / HB Network &amp; Cabal</text>
   </g>
@@ -475,7 +475,7 @@ SVG_IMAGE = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" wi
     <text x="400" y="388" fill="#ede9fe" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">1601 D*** St Shell Hub</text>
 
     <!-- Core Lead PER-001/PER-004 -->
-    <rect x="510" y="340" width="180" height="70" rx="8" fill="#b91c1c" stroke="#f871**" stroke-width="2"/>
+    <rect x="510" y="340" width="180" height="70" rx="8" fill="#b91c1c" stroke="#f87171" stroke-width="2"/>
     <text x="600" y="368" fill="#ffffff" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">CABAL LEADERSHIP</text>
     <text x="600" y="388" fill="#fee2e2" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Sidhu / Ament / Flint</text>
 
@@ -492,23 +492,23 @@ SVG_IMAGE = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" wi
 
   <!-- Level 3: Operators & Contractors -->
   <g filter="url(#shadow)">
-    <rect x="110" y="520" width="180" height="70" rx="8" fill="#334155" stroke="#647**b" stroke-width="2"/>
+    <rect x="110" y="520" width="180" height="70" rx="8" fill="#334155" stroke="#64748b" stroke-width="2"/>
     <text x="200" y="548" fill="#f8fafc" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Arden Hoang, Esq.</text>
     <text x="200" y="568" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">WRSL LLP Eviction Mill</text>
 
-    <rect x="310" y="520" width="180" height="70" rx="8" fill="#334155" stroke="#647**b" stroke-width="2"/>
+    <rect x="310" y="520" width="180" height="70" rx="8" fill="#334155" stroke="#64748b" stroke-width="2"/>
     <text x="400" y="548" fill="#f8fafc" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">HOMI / Greenglass</text>
     <text x="400" y="568" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">8 Lakeview $1.2M Flip</text>
 
-    <rect x="510" y="520" width="180" height="70" rx="8" fill="#334155" stroke="#647**b" stroke-width="2"/>
+    <rect x="510" y="520" width="180" height="70" rx="8" fill="#334155" stroke="#64748b" stroke-width="2"/>
     <text x="600" y="548" fill="#f8fafc" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Harry Sidhu / Ament</text>
     <text x="600" y="568" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">Federal Wire Fraud Pleas</text>
 
-    <rect x="710" y="520" width="180" height="70" rx="8" fill="#334155" stroke="#647**b" stroke-width="2"/>
+    <rect x="710" y="520" width="180" height="70" rx="8" fill="#334155" stroke="#64748b" stroke-width="2"/>
     <text x="800" y="548" fill="#f8fafc" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Melahat Rafiei / FPS</text>
     <text x="800" y="568" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">Cannabis &amp; Political Bribes</text>
 
-    <rect x="910" y="520" width="180" height="70" rx="8" fill="#334155" stroke="#647**b" stroke-width="2"/>
+    <rect x="910" y="520" width="180" height="70" rx="8" fill="#334155" stroke="#64748b" stroke-width="2"/>
     <text x="1000" y="548" fill="#f8fafc" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Austin Drissen / Mercy</text>
     <text x="1000" y="568" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">Cameron Ln Shelter Ops</text>
   </g>
@@ -516,7 +516,7 @@ SVG_IMAGE = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" wi
   <!-- Level 4: Evidentiary Anchors -->
   <g filter="url(#shadow)">
     <rect x="110" y="670" width="180" height="60" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
-    <text x="200" y="695" fill="#60a5fa" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">EV-002: Case ****1327</text>
+    <text x="200" y="695" fill="#60a5fa" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">EV-002: Case #1201327</text>
     <text x="200" y="715" fill="#94a3b8" font-family="Arial, sans-serif" font-size="9" text-anchor="middle">Triple Void Default Judgments</text>
 
     <rect x="310" y="670" width="180" height="60" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>

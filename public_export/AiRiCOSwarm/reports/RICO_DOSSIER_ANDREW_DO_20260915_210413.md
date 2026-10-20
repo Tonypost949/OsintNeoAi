@@ -126,7 +126,7 @@ This referral documents a coordinated racketeering enterprise operating across 3
 I am submitting a comprehensive OSINT investigation documenting a multi-state human trafficking and money-laundering network with federal exposure totaling $2.84B–$4.39B in treble damages.
 
 **THE STORY:**
-What began as an Orange County COVID fraud case (Andrew Do, convicted 5 years for $13.5M diversion) has expanded into a multi-state RICO conspiracy involving homeless/foster child trafficking, Medicaid ****raud, environmental poisoning, and federal contract frau
+What began as an Orange County COVID fraud case (Andrew Do, convicted 5 years for $13.5M diversion) has expanded into a multi-state RICO conspiracy involving homeless/foster child trafficking, Medicaid fraud, environmental poisoning, and federal contract frau
 
 ### 📍 INVESTIGATION TIP: Orange County COVID Fraud + Child Welfare Trafficking Network
 - **Date / Source:** `2026-05-24T06:23:32.000Z`
@@ -135,7 +135,7 @@ What began as an Orange County COVID fraud case (Andrew Do, convicted 5 years fo
 - **Evidence Excerpt:**
 > Dear KABC-TV (ABC 7) News Tips,
 
-I am submitting a comprehensive OSINT investigation documenting a multi-layered fraud and trafficking network in Orange County, California, involving $512M+ COVID/CARES Act embezzlement, $90M+ Medicaid ****raud, and systematic child welfare trafficking.
+I am submitting a comprehensive OSINT investigation documenting a multi-layered fraud and trafficking network in Orange County, California, involving $512M+ COVID/CARES Act embezzlement, $90M+ Medicaid fraud, and systematic child welfare trafficking.
 
 **THE STORY:**
 Andrew Do (former OC Supervisor) was convicted and sentenced to 5 years in federal prison for stealing $13.5M in COVID funds. But he was only ONE PIECE of a much larger network. Peter Pham (Do's co-co
@@ -177,7 +177,7 @@ I am a California resident and federal whistleblower submitting comprehensive OS
 • COVID/CARES Act embezzlement: $512M+ (Andrew Do convicted, 5 years)
 • Medi-Cal billing fraud: $90M+ (Marcus Angulo, N
 
-### 📍 Investigative Tip — OC Toxic Shelter / Medicaid ****raud / Native Child IIM Theft / Andrew Do Network
+### 📍 Investigative Tip — OC Toxic Shelter / Medicaid Fraud / Native Child IIM Theft / Andrew Do Network
 - **Date / Source:** `2026-04-14T23:57:32.000Z`
 - **Sender / Path:** `gmail_amd949609_hits.json`
 - **Flagged Predicates:** `hexavalent chromium`
@@ -190,7 +190,7 @@ I am a federal whistleblower with documented evidence of an interconnected
 
 fraud network in Orange County that spans homeless shelter funding,
 
-Medicaid ****ling, Native American child welfare, and environmental
+Medicaid billing, Native American child welfare, and environmental
 
 contamination.
 
@@ -202,13 +202,13 @@ Here is the story in brief:
 
 THE TOXIC SHELTER
 
-A "Case ****osed" environmental clearance was issued in August 2020 for a
+A "Case Closed" environmental clearance was issued in August 2020 for a
 
 site with hexavalent chromium contamination at 49 times the California
 
 safety limit. That clearance enabled a
 
-### 📍 Investigative Tip — OC Toxic Shelter / Medicaid ****raud / Native Child IIM Theft / Andrew Do Network
+### 📍 Investigative Tip — OC Toxic Shelter / Medicaid Fraud / Native Child IIM Theft / Andrew Do Network
 - **Date / Source:** `2026-04-14T23:47:10.000Z`
 - **Sender / Path:** `gmail_amd949609_hits.json`
 - **Flagged Predicates:** `hexavalent chromium`
@@ -221,7 +221,7 @@ I am a federal whistleblower with documented evidence of an interconnected
 
 fraud network in Orange County that spans homeless shelter funding,
 
-Medicaid ****ling, Native American child welfare, and environmental
+Medicaid billing, Native American child welfare, and environmental
 
 contamination.
 
@@ -233,7 +233,7 @@ Here is the story in brief:
 
 THE TOXIC SHELTER
 
-A "Case ****osed" environmental clearance was issued in August 2020 for a
+A "Case Closed" environmental clearance was issued in August 2020 for a
 
 site with hexavalent chromium contamination at 49 times the California
 
@@ -260,8 +260,8 @@ The Huntington Beach Navigation Center (HBNC) was built on a documented
 
 hazardous waste site. Hexavalent chromium at 49 times the California safety
 
-limit. Orange County Health Care Agency issued a fraudulent "Case ****osed"
+limit. Orange County Health Care Agency issued a fraudulent "Case Closed"
 
-certificate (IC Case ****C002, August 21, 2020) to meet a $6.1 million
+certificate (IC Case No. 20IC002, August 21, 2020) to meet a $6.1 million
 
 fu

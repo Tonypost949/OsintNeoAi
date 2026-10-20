@@ -13,7 +13,7 @@ The intelligence analysis indicates severe exposure under the federal False Clai
 
 ## 2. Regulatory Enforcement & Docket Analysis
 
-### United States ex rel. Public Account ****lity Project v. County of Orange et al. (Docket No. 8:2026-cv-00348)
+### United States ex rel. Public Accountability Project v. County of Orange et al. (Docket No. 8:2026-cv-00348)
 * **Jurisdiction:** U.S. District Court for the Central District of California (Santa Ana Division)
 * **Risk Categorization:** Critical / High-Impact Public Integrity & Federal Grant Fraud
 * **Key Implications:**

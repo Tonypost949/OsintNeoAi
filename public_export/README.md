@@ -34,11 +34,11 @@ The core financial, staking, and escrow logic is fully deployed and verified on 
 
 | Contract / Asset | Contract Address | Explorer Verification | Purpose |
 | :--- | :--- | :--- | :--- |
-| **USDC (Settlement)** | [`0x7236F4982a315**d07f3182A1CdAD3f3E4452A53`](https://sepolia.etherscan.io/address/0x7236F4982a315**d07f3182A1CdAD3f3E4452A53#code) | [View on Etherscan](https://sepolia.etherscan.io/address/0x7236F4982a315**d07f3182A1CdAD3f3E4452A53#code) | Primary fiat-pegged settlement asset for whistleblower & investigative bounties |
+| **USDC (Settlement)** | [`0x7236F4982a31537d07f3182A1CdAD3f3E4452A53`](https://sepolia.etherscan.io/address/0x7236F4982a31537d07f3182A1CdAD3f3E4452A53#code) | [View on Etherscan](https://sepolia.etherscan.io/address/0x7236F4982a31537d07f3182A1CdAD3f3E4452A53#code) | Primary fiat-pegged settlement asset for whistleblower & investigative bounties |
 | **OSINT (Utility Token)** | [`0xA74B3fAfd838fC273f7c6e201B6210AC2b3A0296`](https://sepolia.etherscan.io/address/0xA74B3fAfd838fC273f7c6e201B6210AC2b3A0296#code) | [View on Etherscan](https://sepolia.etherscan.io/address/0xA74B3fAfd838fC273f7c6e201B6210AC2b3A0296#code) | Platform staking collateral, miner reputation weight & access token |
 | **TFT (Tax-Funded Token)** | [`0x0977909b254EC33C4D1039135F351B1d3Fb27F14`](https://sepolia.etherscan.io/address/0x0977909b254EC33C4D1039135F351B1d3Fb27F14#code) | [View on Etherscan](https://sepolia.etherscan.io/address/0x0977909b254EC33C4D1039135F351B1d3Fb27F14#code) | Domain-specific mining reward minted for municipal & government audit bounties |
 | **StakingGate** | [`0xdA7655b7007a1C7F8191066Bb9A69E4D8987E725`](https://sepolia.etherscan.io/address/0xdA7655b7007a1C7F8191066Bb9A69E4D8987E725#code) | [View on Etherscan ✅](https://sepolia.etherscan.io/address/0xdA7655b7007a1C7F8191066Bb9A69E4D8987E725#code) | Sybil defense gateway collateralizing data submissions (100 OSINT stake required) |
-| **MultiPoolEscrow** | [`0x155**C9A8a5903336CC67F2cBa00dBdAd944dC5B`](https://sepolia.etherscan.io/address/0x155**C9A8a5903336CC67F2cBa00dBdAd944dC5B#code) | [View on Etherscan ✅](https://sepolia.etherscan.io/address/0x155**C9A8a5903336CC67F2cBa00dBdAd944dC5B#code) | UTXO provenance graph tracking evidence lineage with automated 40/30/30 deterministic payouts |
+| **MultiPoolEscrow** | [`0x15564C9A8a5903336CC67F2cBa00dBdAd944dC5B`](https://sepolia.etherscan.io/address/0x15564C9A8a5903336CC67F2cBa00dBdAd944dC5B#code) | [View on Etherscan ✅](https://sepolia.etherscan.io/address/0x15564C9A8a5903336CC67F2cBa00dBdAd944dC5B#code) | UTXO provenance graph tracking evidence lineage with automated 40/30/30 deterministic payouts |
 
 ---
 

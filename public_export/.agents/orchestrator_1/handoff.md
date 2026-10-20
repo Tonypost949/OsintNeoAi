@@ -11,17 +11,17 @@
 | # | Milestone Name | Status | Key Deliverables / Exhibits |
 |---|---|:---:|---|
 | **M0** | Survey & Source Mapping | DONE | Survey Reports (Explorers 1–3), `PROJECT.md` Feature Inventory (F1–F15) |
-| **M1** | Federal Judicial Case ****ings | DONE | `01_USA_v_Harry_Sidhu...md`, `03_USA_v_Todd_Ament...md`, `04_USA_v_Christopher_Ryan...md` |
+| **M1** | Federal Judicial Case Filings | DONE | `01_USA_v_Harry_Sidhu...md`, `03_USA_v_Todd_Ament...md`, `04_USA_v_Christopher_Ryan...md` |
 | **M2** | State Regulatory & Municipal Enforcement | DONE | `02_HCD_Notice_of_Violation...md`, `06_JL_Investigation...md`, `07_Anaheim_City_Council...md` |
 | **M3** | California Superior Court Unlawful Detainer | DONE | `05_Woodbridge_Meadows_v_Dimarcello...md` (Complete 61 ROA, Triple Defaults, 4:29 PM § 170.6) |
 | **M4** | Multi-State Police & Commercial Logs | DONE | `08_Multi_State_Police_and_Commercial_Incident_Logs.md` (Hamilton PD, Ewing PD, Quantum Auto) |
-| **M5** | Master Index & Dual-Track E2E Verification & Git Push | DONE | `OFFICIAL_DOCUMENTS_INDEX.md`, `TEST_INFRA.md`, `TEST_READY.md`, `tests/test_official_documents.py`, Git Commit `f387**c` pushed to `origin/main` |
+| **M5** | Master Index & Dual-Track E2E Verification & Git Push | DONE | `OFFICIAL_DOCUMENTS_INDEX.md`, `TEST_INFRA.md`, `TEST_READY.md`, `tests/test_official_documents.py`, Git Commit `f38765c` pushed to `origin/main` |
 
 ---
 
 ## 2. ACTIVE SUBAGENTS & ROSTER
 - All 15 subagents spawned across the workflow have delivered structured handoffs and are retired:
-  - 3 Explorers: `explorer_survey_1` (`9f3e5c88`), `explorer_survey_2` (`9ff47d2a`), `explorer_survey_3` (`edb380**`)
+  - 3 Explorers: `explorer_survey_1` (`9f3e5c88`), `explorer_survey_2` (`9ff47d2a`), `explorer_survey_3` (`edb38042`)
   - 4 Record Workers: `worker_m1` (`7963971c`), `worker_m2` (`c33c1bec`), `worker_m3` (`a5c85e48`), `worker_m4` (`382cb800`)
   - 1 E2E Test Writer: `test_writer` (`1796b272`)
   - 1 Master Index Worker: `worker_m5` (`11697107`)
@@ -59,7 +59,7 @@
   - `tests/test_adversarial_stress.py` (17 tests)
   - `tests/test_adversarial_chains_challenger_2.py` (20 tests)
 - **Git & Backup Status:**
-  - Remote: `https://github.com/Tonypost949/OsintNeoAi.git` (`main`, Commit `f387**c`)
+  - Remote: `https://github.com/Tonypost949/OsintNeoAi.git` (`main`, Commit `f38765c`)
   - Offline Backup: `C:\Users\HP\OneDrive\Documents\OsintNeoAi\backups\repo\backup_20260827_001000\`
 
 ---
@@ -74,7 +74,7 @@ All primary source documents across federal, state, and municipal investigations
 2. 4 specialized Workers generated Exhibits 01 through 08 with strict file separation.
 3. Master Index and 4-Tier Automated Test Suite created and executed.
 4. Independent 5-agent Gate Evaluation (2 Reviewers, 2 Challengers, 1 Auditor) passed unanimously with 100% clean verdicts.
-5. Repository integrity enforced via Git commit `f387**c` and push to origin main without any file deletions.
+5. Repository integrity enforced via Git commit `f38765c` and push to origin main without any file deletions.
 
 ### Caveats
 - No caveats. All records are grounded in verified OCR transcripts and primary docket transactions.

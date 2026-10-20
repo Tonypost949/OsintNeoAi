@@ -17,7 +17,7 @@ On **June 29, 2026 (`**/**/2026`)**, two critical operational milestones occurre
 graph TD
     subgraph EVENT_1["1. Dehashed HBPD Breach Audit (10:15:24)"]
         D1["Source File: Dehashed-HBPD-scan.json"]
-        D2["Discovery: 400 Compromised HBPD Account ****ings"]
+        D2["Discovery: 400 Compromised HBPD Account Listings"]
         D3["Data Exposed: Internal Officer Credentials & Cleartext Signatures"]
     end
 
@@ -36,7 +36,7 @@ graph TD
 ## II. KEY FINDINGS FROM JUNE 29, 2026 DISCOVERIES
 
 1. **Huntington Beach Police Department (`hbpd.org`) Breach Data:**
-   - On **June 29, 2026 at 10:15:24**, an intelligence scan of `Dehashed.com` (`Dehashed-HBPD-scan.json`) uncovered **400 compromised account ****ings** directly associated with the email service of the Huntington Beach Police Department.
+   - On **June 29, 2026 at 10:15:24**, an intelligence scan of `Dehashed.com` (`Dehashed-HBPD-scan.json`) uncovered **400 compromised account listings** directly associated with the email service of the Huntington Beach Police Department.
    - Exposed attributes included employee contact details, cleartext email addresses, internal administrative signatures, and compromised password hashes.
 2. **Correlated Municipal Data Suppression ("HB Holes"):**
    - The June 29 discovery was cross-referenced against the OpenCode web recon audit, which proved that `hbpd.org` was actively suppressing 25 out of 26 admin web paths (returning hard HTTP 403 blocks), whereas neighboring municipal domains (`cityofirvine.org`, `anaheim.net`) returned open HTTP 301/302 redirects across all 26 admin paths.

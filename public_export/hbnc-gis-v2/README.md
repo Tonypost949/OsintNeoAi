@@ -74,12 +74,12 @@ All coordinates and values sourced from:
 
 1. **Phase I ESA** — T10000018579, 17642 B*** Blvd / 17631 C*** Ln (APN 167-042-08/09)
 2. **Site Assessment Report** — Cr-VI up to 980 µg/kg (Table 2), B-6 borehole
-3. **OC Health Care Agency** — Case ****C002, "Case ****osed" **/**/2020 (VOID ab initio)
+3. **OC Health Care Agency** — Case 20IC002, "Case Closed" **/**/2020 (VOID ab initio)
 4. **City Ordinance 4289 / Res 2023-13** — Rezoning nullified NFA
 5. **PPP/SBA Data** — Triumvirate $1.47M, Stewart $1.13M, ONNI $97.25M, etc.
 6. **GeoTracker** — T10000018579 historic files
 7. **Parcel Data** — Huntington Beach GIS exports (May 2026)
-8. **Federal Court** — 8:2026cv003** (Knabb v. HB), Qui Tam under seal
+8. **Federal Court** — 8:2026cv00348 (Knabb v. HB), Qui Tam under seal
 
 See `data/SOURCES.md` for full citations with document IDs.
 

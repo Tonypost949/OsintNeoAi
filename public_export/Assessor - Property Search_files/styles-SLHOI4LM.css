@@ -145,7 +145,7 @@ button.toast-close-button {
   background-color: #2F96B4;
 }
 .toast-warning {
-  background-color: #F894**;
+  background-color: #F89406;
 }
 .toast-progress {
   position: absolute;
@@ -191,7 +191,7 @@ button.toast-close-button {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
-  --bs-pink: #d633**;
+  --bs-pink: #d63384;
   --bs-red: #dc3545;
   --bs-orange: #fd7e14;
   --bs-yellow: #ffc107;
@@ -361,7 +361,7 @@ button.toast-close-button {
     10,
     88,
     202;
-  --bs-code-color: #d633**;
+  --bs-code-color: #d63384;
   --bs-highlight-color: #212529;
   --bs-highlight-bg: rgb(255, 242.6, 205.4);
   --bs-border-width: 1px;
@@ -2426,7 +2426,7 @@ textarea.form-control-lg {
   height: calc(1.5em + 1rem + calc(var(--bs-border-width) * 2));
 }
 .form-select {
-  --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%233**a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
   display: block;
   width: 100%;
   padding: 0.375rem 2.25rem 0.375rem 0.75rem;
@@ -7054,7 +7054,7 @@ fieldset:disabled .btn {
   --bs-aspect-ratio: 56.25%;
 }
 .ratio-21x9 {
-  --bs-aspect-ratio: 42.(***) ***-8571%;
+  --bs-aspect-ratio: 42.8571428571%;
 }
 .fixed-top {
   position: fixed;
@@ -11582,13 +11582,13 @@ fieldset:disabled .btn {
 }
 .fa-xs {
   font-size: 0.75em;
-  line-height: 0.083**em;
+  line-height: 0.08333em;
   vertical-align: 0.125em;
 }
 .fa-sm {
   font-size: 0.875em;
-  line-height: 0.071**em;
-  vertical-align: 0.053**em;
+  line-height: 0.07143em;
+  vertical-align: 0.05357em;
 }
 .fa-lg {
   font-size: 1.25em;
@@ -11597,12 +11597,12 @@ fieldset:disabled .btn {
 }
 .fa-xl {
   font-size: 1.5em;
-  line-height: 0.041**em;
+  line-height: 0.04167em;
   vertical-align: -0.125em;
 }
 .fa-2xl {
   font-size: 2em;
-  line-height: 0.031**em;
+  line-height: 0.03125em;
   vertical-align: -0.1875em;
 }
 .fa-fw {
@@ -18467,7 +18467,7 @@ fieldset:disabled .btn {
   text-align: center;
 }
 .bs-datepicker-body table td {
-  color: #547**b;
+  color: #54708b;
   text-align: center;
   position: relative;
   padding: 0;
@@ -18624,7 +18624,7 @@ fieldset:disabled .btn {
 .bs-datepicker {
 }
 .bs-datepicker .current-timedate {
-  color: #547**b;
+  color: #54708b;
   font-size: 15px;
   text-align: center;
   height: 30px;
@@ -18667,7 +18667,7 @@ fieldset:disabled .btn {
   display: block;
   width: 14px;
   height: 10px;
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAKCAYAAABrGwT5AAAA1ElEQVQoU42RsQrCUAxF77VuDu7O4oMWW//BURBBpZvgKk4uIrjoqKOTf+DopIO4uYggtFTfw3+pkQqCW1/G5J7kJiFy4m5MxUlxAzgIPHX+lzMPzupRYlYgxiR7vqsOP8YKzsTx0yxFMCUZ+q7aZzlr+OvgoWcAFyAHgat2jLWu482**DdqAihDJGSSJNUUxYmQjs3+hPQBlAh2rG2LCOPnaw3IiGDX99TRCs7ASJsNhUOA7d/LcuHvRG22FIZvsNXw1MX6VZExCilOQKEfeLXr/10+aC9Ho7arh7oAAAAASUVORK5CYII=);
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAKCAYAAABrGwT5AAAA1ElEQVQoU42RsQrCUAxF77VuDu7O4oMWW//BURBBpZvgKk4uIrjoqKOTf+DopIO4uYggtFTfw3+pkQqCW1/G5J7kJiFy4m5MxUlxAzgIPHX+lzMPzupRYlYgxiR7vqsOP8YKzsTx0yxFMCUZ+q7aZzlr+OvgoWcAFyAHgat2jLWu48252DdqAihDJGSSJNUUxYmQjs3+hPQBlAh2rG2LCOPnaw3IiGDX99TRCs7ASJsNhUOA7d/LcuHvRG22FIZvsNXw1MX6VZExCilOQKEfeLXr/10+aC9Ho7arh7oAAAAASUVORK5CYII=);
   position: absolute;
   top: 25px;
   left: -8px;
@@ -18717,7 +18717,7 @@ fieldset:disabled .btn {
   transition: 0.3s;
 }
 .bs-datepicker-predefined-btns button:hover {
-  background-color: #547**b;
+  background-color: #54708b;
 }
 .bs-datepicker {
 }
@@ -18751,7 +18751,7 @@ fieldset:disabled .btn {
   padding: 10px 0;
 }
 .bs-timepicker-label {
-  color: #547**b;
+  color: #54708b;
   margin-bottom: 10px;
 }
 .bs-timepicker-controls {
@@ -18765,7 +18765,7 @@ fieldset:disabled .btn {
   border-radius: 50%;
   border: 0;
   background-color: #e9edf0;
-  color: #547**b;
+  color: #54708b;
   font-size: 16px;
   font-weight: 700;
   vertical-align: middle;
@@ -18790,7 +18790,7 @@ fieldset:disabled .btn {
   border-radius: 20px;
   border: 1px solid #e9edf0;
   background: #fff;
-  color: #547**b;
+  color: #54708b;
   font-size: 13px;
 }
 .bs-timepicker .switch-time-format img {
@@ -19012,13 +19012,13 @@ bs-daterangepicker-container {
 }
 .theme-red .btn-today-wrapper .btn-success:not(:disabled):not(.disabled):active,
 .theme-red .btn-clear-wrapper .btn-success:not(:disabled):not(.disabled):active {
-  background-color: #D235**;
-  border-color: #D235**;
+  background-color: #D23531;
+  border-color: #D23531;
 }
 .theme-red .btn-today-wrapper .btn-success:hover,
 .theme-red .btn-clear-wrapper .btn-success:hover {
-  background-color: #E337**;
-  border-color: #E337**;
+  background-color: #E33732;
+  border-color: #E33732;
 }
 .theme-red .bs-datepicker-predefined-btns button.selected {
   background-color: #d9534f;

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """GeoJSON Spatial Telemetry Transformer for OsintNeoAi 3D Maps.
 
-Converts GPS coordinates, municipal entities, and target account ****ions
+Converts GPS coordinates, municipal entities, and target account locations
 into standardized GeoJSON FeatureCollections for MapLibre / ArcGIS / God's Eye.
 """
 

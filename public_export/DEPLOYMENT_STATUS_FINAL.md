@@ -7,7 +7,7 @@
 
 ## 🌐 Live Cloud Infrastructure
 - **Production URL:** [https://osintneoai-app-949.azurewebsites.net](https://osintneoai-app-949.azurewebsites.net)
-- **Azure Subscription:** Azure for Students (`f055033f-83fb-4ae9-9c36-be48f0c861**`)
+- **Azure Subscription:** Azure for Students (`f055033f-83fb-4ae9-9c36-be48f0c86158`)
 - **Account:** `a***@students.post.edu`
 - **Resource Group:** `neoai-rg` (East US, B1 Tier)
 - **Local Machine Load:** 0% (100% cloud-hosted in Azure)

@@ -492,7 +492,7 @@ class DocumentExtractor:
         metadata: Dict[str, Any]
     ) -> ExtractedRecord:
         """
-        Executes date, financial, case ****cket, and correspondence normalization
+        Executes date, financial, case docket, and correspondence normalization
         to build the canonical ExtractedRecord for Milestone 3.
         """
         # 1. Date normalization
@@ -501,7 +501,7 @@ class DocumentExtractor:
         # 2. Financial amounts normalization
         financials = extract_financial_amounts(text_body)
 
-        # 3. Legal case ****iers & court citations
+        # 3. Legal case identifiers & court citations
         case_nums = extract_case_numbers(text_body)
 
         # 4. Sender and recipients metadata

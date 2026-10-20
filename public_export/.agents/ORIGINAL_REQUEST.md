@@ -8,7 +8,7 @@ Working directory: C:\OsintNeoAi\evidence\official_court_records\
 
 ## Requirements
 
-### R1. Official Judicial & Federal Case ****ings
+### R1. Official Judicial & Federal Case Filings
 Aggregate, transcribe, and structure the complete official court records and plea agreements:
 1. United States v. Harry Sidhu, Case No. 8:23-cr-00108-CJC (USDC CDCA) — 4-count felony Information, Plea Agreement, and FBI SA Brian Adkins search warrant affidavit.
 2. United States v. Todd Ament, Case No. 8:22-cr-00078-CJC (USDC CDCA) — Plea Agreement & Information.
@@ -22,7 +22,7 @@ Aggregate official statutory notices and city legislative acts:
 3. JL Investigation Independent Forensic Audit into Anaheim public corruption and Chamber of Commerce slush funds.
 
 ### R3. California Superior Court Unlawful Detainer Docket
-Transcribe and verify all entries of Case ****DCJC (Woodbridge Meadows v. Dimarcello, CJC):
+Transcribe and verify all entries of Case No. 30-2021-01201327-CL-UD-CJC (Woodbridge Meadows v. Dimarcello, CJC):
 1. Complete 61-entry Register of Actions (ROA).
 2. Proof of Triple Default Judgments (**/**/2021, **/**/2021, **/**/2022).
 3. Tactical 4:29 PM Cal. CCP § 170.6 Peremptory Challenge striking Judge Carmen Luege.
@@ -39,7 +39,7 @@ Enforce AGENTS.md protocol: all files saved under evidence/official_court_record
 ## Acceptance Criteria
 
 ### Comprehensive Record Verification
-- [ ] Every listed case ****udes verified case ****bers, filing dates, judicial officers, and statutory violation citations.
+- [ ] Every listed case includes verified case numbers, filing dates, judicial officers, and statutory violation citations.
 - [ ] Master index markdown file OFFICIAL_DOCUMENTS_INDEX.md catalogs every primary source document.
 - [ ] All records are pushed to GitHub origin/main without data loss or overwriting existing files.
 
@@ -192,7 +192,7 @@ Integrity mode: development
 The pipeline must automatically scan, ingest, and unpack raw multi-format evidence (PDF medical/court records, images, Google Drive/Photos exports, zip archives in evidence/ or incoming queues), extract machine-readable text and metadata, and store structured audit-ready JSON artifacts with SHA-256 integrity hashes.
 
 ### R2. Entity Extraction, Cross-Referencing & Graph Analysis
-Extracted records must be processed through an entity resolution engine to extract named entities (organizations, individuals, government agencies, medical identifiers, case ****bers, addresses, financial amounts) and format them for BigQuery graph tables (national_audits, onedrive_forensics, forensic_layers).
+Extracted records must be processed through an entity resolution engine to extract named entities (organizations, individuals, government agencies, medical identifiers, case numbers, addresses, financial amounts) and format them for BigQuery graph tables (national_audits, onedrive_forensics, forensic_layers).
 
 ### R3. Automated Dossier, Timeline & Correlation Matrix Generation
 The system must generate daily intelligence briefing summaries, chronological event timelines, and cross-entity correlation matrices saved to reports/daily/ and formatted in Markdown and tabular JSON for interactive dashboard consumption.

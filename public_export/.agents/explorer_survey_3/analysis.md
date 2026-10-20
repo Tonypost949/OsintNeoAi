@@ -126,7 +126,7 @@ $$\text{Confidence} = 0.50 \cdot \text{Score}_{\text{Jaro-Winkler}} + 0.20 \cdot
 
 The extraction engine combines compiled high-precision regular expressions for structured identifiers with named entity extraction for unstructured narrative blocks.
 
-#### 1. Court Case ****cket Identifiers
+#### 1. Court Case Docket Identifiers
 ```python
 REGEX_COURT_DOCKETS = {
     "FEDERAL_CRIMINAL_CDCA": re.compile(

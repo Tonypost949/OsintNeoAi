@@ -54,7 +54,7 @@ class TestHBMunicipalURLIndex(unittest.TestCase):
         self.assertIn("GENERAL_MUNICIPAL", cats)
 
     def test_search_substring(self):
-        """Verify case ****tive substring search in 82,757 URLs."""
+        """Verify case-insensitive substring search in 82,757 URLs."""
         res = self.index.search(query="planning", limit=10)
         self.assertEqual(res["status"], "ok")
         self.assertGreater(res["total_matches"], 100)

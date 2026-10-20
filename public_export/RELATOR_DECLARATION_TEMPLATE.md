@@ -2,7 +2,7 @@
 **UNITED STATES DISTRICT COURT**
 **CENTRAL DISTRICT OF CALIFORNIA**
 
-**CASE NO:** [Insert Case ****mber, e.g., 8:26-cv-00348-JWH-ADS]
+**CASE NO:** [Insert Case Number, e.g., 8:26-cv-00348-JWH-ADS]
 **TITLE:** [Plaintiff/Relator Name] ex rel. UNITED STATES OF AMERICA v. [Insert Defendants, e.g., City of Huntington Beach, et al.]
 
 ---

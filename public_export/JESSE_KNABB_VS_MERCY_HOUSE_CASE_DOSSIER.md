@@ -1,5 +1,5 @@
-# MASTER CASE ****SIER: JESSE KNABB v. CITY OF HUNTINGTON BEACH ET AL.
-**Case ****mber:** `Case No. 8:26-cv-00348-JWH-ADS`
+# MASTER CASE DOSSIER: JESSE KNABB v. CITY OF HUNTINGTON BEACH ET AL.
+**Case Number:** `Case No. 8:26-cv-00348-JWH-ADS`
 **Jurisdiction:** U.S. District Court, Central District of California (Santa Ana Division)
 **Filing Date:** February 14, 2026
 **Presiding Judge:** Hon. John W. Holcomb
@@ -8,7 +8,7 @@
 
 ---
 
-## 1. Case ****ties & Entity Matrix
+## 1. Case Parties & Entity Matrix
 
 | Party Role | Entity / Individual Name | Details & Operational Role |
 | :--- | :--- | :--- |

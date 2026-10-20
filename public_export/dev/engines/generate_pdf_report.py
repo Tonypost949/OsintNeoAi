@@ -183,7 +183,7 @@ def create_pdf_report():
     
     ds_table = Table(data_sources, colWidths=[2*inch, 2.5*inch, 1.5*inch])
     ds_table.setStyle(TableStyle([
-        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#344**E')),
+        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#34495E')),
         ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
         ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
         ('FONTNAME', (0, 0), (-1, -1), 'Helvetica'),

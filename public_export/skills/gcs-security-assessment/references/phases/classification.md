@@ -16,4 +16,4 @@ The classification determines how urgently findings should be treated:
 
 > [!IMPORTANT]
 > Unclassified is NOT the same as non-sensitive. If a bucket has no
-> classification, treat it as worst-case ****ntil the customer classifies it.
+> classification, treat it as worst-case until the customer classifies it.

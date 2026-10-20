@@ -27,11 +27,11 @@ Every data node, financial transaction, environmental plume coordinate, corporat
 
 | Investigation Target | Regulatory Agency & Public Database | Specific Docket / File Citation | Public Data Verified |
 |---|---|---|---|
-| **17642 B*** Blvd Plume** | CalEPA / State Water Resources Control Board | **GeoTracker Global ID:** `T10000018579`<br>**Deliverable Document ID:** `(***) ***-2897` | 490 ppb Hexavalent Chromium (Cr-VI) in groundwater (49x public drinking water limit). |
-| **17631 C*** Ln Site** | California Regional Water Quality Control Board | **GeoTracker Document ID:** `(***) ***-7770`<br>**Site Assessment ID:** `1147596061` | Industrial solvent migration, PCE/TCE contamination, across-the-street drainage sink infiltration. |
+| **17642 B*** Blvd Plume** | CalEPA / State Water Resources Control Board | **GeoTracker Global ID:** `T10000018579`<br>**Deliverable Document ID:** `8173352897` | 490 ppb Hexavalent Chromium (Cr-VI) in groundwater (49x public drinking water limit). |
+| **17631 C*** Ln Site** | California Regional Water Quality Control Board | **GeoTracker Document ID:** `8599347770`<br>**Site Assessment ID:** `1147596061` | Industrial solvent migration, PCE/TCE contamination, across-the-street drainage sink infiltration. |
 | **GAMA Drinking Water Wells** | California Groundwater Ambient Monitoring (GAMA) | **Well IDs:** `W0603000618`<br>`CA3000618_001_001`<br>`05S11W25_E042873` | Hexavalent Chromium time-series concentration spike and municipal aquifer proximity. |
 | **Ascon Superfund Site** | U.S. Environmental Protection Agency (EPA) | **EPA Superfund ID:** `CAD980737093`<br>**EnviroStor ID:** `30400001` | Toxic oil waste pit, styrene, heavy metal lagoons, and unpermitted municipal emergency bypass. |
-| **MCAS El Toro Plume** | U.S. Navy / EPA Region 9 Superfund Registry | **EPA Superfund ID:** `CA(***) ***-3208`<br>**GeoTracker ID:** `SL605934444` | Trichloroethylene (TCE) groundwater plume migration across Irvine / Great Park development. |
+| **MCAS El Toro Plume** | U.S. Navy / EPA Region 9 Superfund Registry | **EPA Superfund ID:** `CA6170023208`<br>**GeoTracker ID:** `SL605934444` | Trichloroethylene (TCE) groundwater plume migration across Irvine / Great Park development. |
 | **LightBox / EDR Records** | LightBox RE / Environmental Data Resources | **EDR Parcel ID:** `147-111-14`<br>`147-111-15` & `147-111-16` | Historical landfill, oil sump, and toxic parcel boundary survey registry. |
 
 ---
@@ -40,7 +40,7 @@ Every data node, financial transaction, environmental plume coordinate, corporat
 
 | Enterprise Entity | Public Repository / Registry | Specific Filing / Identifier | Financial & Legal Fact Established |
 |---|---|---|---|
-| **SBA PPP Loan ****ness** | U.S. Small Business Administration FOIA Ledgers | **Weaver Forensic Audit Ledger:** `national_audits.ppp_master` | $3.1B+ in regional Paycheck Protection Program loan ****ness funneled to commercial real estate shells. |
+| **SBA PPP Loan Forgiveness** | U.S. Small Business Administration FOIA Ledgers | **Weaver Forensic Audit Ledger:** `national_audits.ppp_master` | $3.1B+ in regional Paycheck Protection Program loan forgiveness funneled to commercial real estate shells. |
 | **Triumvirate Real Estate Shells** | California Secretary of State (BizFile) | **CA SOS Entity Numbers:**<br>• HRAPTS1 LLC (`202029310243`)<br>• TS Marketplace LLC (`201931810452`) | Commercial corridor acquisitions along Brookhurst ($12.7M, $18.5M, $11.2M) without operational tenants. |
 | **Mercy House CHDO / Grant Funnel** | California Secretary of State / IRS Form 990 | **CA SOS Entity No:** `C1629851`<br>**EIN:** `33-0331086` | Non-profit CHDO extraction of $50M+ in HUD CoC, HHAP, and ESG municipal shelter funding over toxic plumes. |
 | **Orange County Title Deeds** | Orange County Clerk-Recorder Public Records | **Grant Deed Doc #:** `2021000618992`<br>**Easement Doc #:** `UPX1978058` | Parcel transfers, reciprocal access easements, and Yamada trustee encumbrances. |
@@ -62,9 +62,9 @@ Every data node, financial transaction, environmental plume coordinate, corporat
 
 | Target / Evidence | Judicial / Regulatory Authority | Formal Citation / Docket No. | Evidentiary Fact Established |
 |---|---|---|---|
-| ***Commonwealth v. Lindsay Clancy*** | Massachusetts Trial Court (Plymouth County) | **Superior Court Docket:** `2383CR000**`<br>**District Court Arraignment:** Feb 7, 2023 | 13-drug rapid polypharmacy cascade; zero pre-2022 psychosis; McLean partial hospitalization. |
+| ***Commonwealth v. Lindsay Clancy*** | Massachusetts Trial Court (Plymouth County) | **Superior Court Docket:** `2383CR00048`<br>**District Court Arraignment:** Feb 7, 2023 | 13-drug rapid polypharmacy cascade; zero pre-2022 psychosis; McLean partial hospitalization. |
 | **Defense Discovery Proffers** | Attorney Kevin J. Reddington (Brockton, MA) | **Bail Proffer & Hearing Records:** Feb 7 & Oct 26, 2023 | Documented adverse drug reactions; involuntary intoxication under *Commonwealth v. Sheehan*. |
-| **Clinical Case ****view** | Dr. Kirk Honda, PsyD, LMFT (*Psychology in Seattle*) | **Clinical Analysis Series (2023):** *The Lindsay Clancy Case ****ysis* | Pre-2022 baseline anxiety; Zoloft-induced hyperarousal/insomnia; polypharmacy akathisia. |
+| **Clinical Case Review** | Dr. Kirk Honda, PsyD, LMFT (*Psychology in Seattle*) | **Clinical Analysis Series (2023):** *The Lindsay Clancy Case Analysis* | Pre-2022 baseline anxiety; Zoloft-induced hyperarousal/insomnia; polypharmacy akathisia. |
 | **Whitman Pill Press Lab Raid** | Massachusetts State Police / DEA Boston | **Plymouth District Court Criminal Complaint:** Andrew Billings (Dec 21, 2023) | Industrial rotary tablet presses, custom dies, and Bromazolam/Fentanyl seized 14.8 miles from Duxbury. |
 | ***United States v. Jared Wheat* (Hi-Tech)** | U.S. District Court (Northern District of Georgia) | **Federal Criminal Docket:** `1:06-CR-00382` | Precedent proving industrial counterfeit generic prescription pills penetrate commercial supply chains. |
 | **Whistleblower Protected Disclosure** | Dr. Ann Verma, M.D. (Psychiatry) | **Formal Rescission Notice:** [`DR_ANN_VERMA_RESCISSION_NOTICE.docx`](file:///C:/Users/Amd949609/OsintNeoAi-1/evidence/google_drive/DR_ANN_VERMA_RESCISSION_NOTICE.docx) | Direct insider disclosure exposing diagnostic laundering, weaponized psychiatric evaluations, and asset stripping. |
@@ -76,7 +76,7 @@ Every data node, financial transaction, environmental plume coordinate, corporat
 All investigations, data correlations, and automated complaint generations across the OSINTNeoAi system operate under express federal statutory authorizations:
 
 1. **31 U.S.C. §§ 3729–3733 (False Claims Act / Qui Tam Relator Shield):**
-   * Expressly authorizes citizens and relators to investigate, compile evidence of, and plead federal grant fraud, Medicaid ****ding, and procurement fraud on behalf of the United States Government.
+   * Expressly authorizes citizens and relators to investigate, compile evidence of, and plead federal grant fraud, Medicaid upcoding, and procurement fraud on behalf of the United States Government.
 2. **31 U.S.C. § 3730(h) (Federal Whistleblower Anti-Retaliation Immunity):**
    * Affords absolute statutory protection against discharge, demotion, suspension, threats, harassment, or legal discrimination for lawful acts done in furtherance of a False Claims Act investigation.
 3. **18 U.S.C. § 1964(c) (Civil RICO Treble Damages & Subpoenas):**

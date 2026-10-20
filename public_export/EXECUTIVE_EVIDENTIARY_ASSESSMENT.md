@@ -59,7 +59,7 @@ For example, proving:
 is substantially easier than proving:
 > "The filing was knowingly false."
 
-That distinction often determines whether a claim ****unds in:
+That distinction often determines whether a claim sounds in:
 - procedural error,
 - negligence,
 - misconduct,
@@ -139,7 +139,7 @@ A transaction pattern may appear suspicious but still fail to establish:
 ### Current Strength
 Low to Moderate
 Current exhibits seem to indicate:
-- account ****vity,
+- account activity,
 - device identifiers,
 - authentication concerns,
 - network indicators.

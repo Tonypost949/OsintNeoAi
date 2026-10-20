@@ -2,7 +2,7 @@ import os
 import re
 import json
 
-HTML_PATH = r"C:\Users\Amd949609\Documents\POST825**favorites_8_25_26.html"
+HTML_PATH = r"C:\Users\Amd949609\Documents\POST82526favorites_8_25_26.html"
 OUT_JSON = os.path.join("evidence", "post_favorites_8_25_26.json")
 OUT_MD = os.path.join("legal_library", "POST_UNIVERSITY_FAVORITES_BOOKMARK_INDEX.md")
 

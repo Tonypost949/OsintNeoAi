@@ -1,7 +1,7 @@
 # BRIEFING — 2026-08-27T07:00:00Z
 
 ## Mission
-Authoritative, complete, exhaustive compilation and statutory analysis of Orange County Superior Court Case ****DCJC (Woodbridge Meadows v. Dimarcello) with full 61 ROA entries, Triple Default Judgments voidness analysis, and § 170.6 Peremptory Challenge timeline.
+Authoritative, complete, exhaustive compilation and statutory analysis of Orange County Superior Court Case No. 30-2021-01201327-CL-UD-CJC (Woodbridge Meadows v. Dimarcello) with full 61 ROA entries, Triple Default Judgments voidness analysis, and § 170.6 Peremptory Challenge timeline.
 
 ## 🔒 My Identity
 - Archetype: worker

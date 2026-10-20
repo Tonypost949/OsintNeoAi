@@ -10,19 +10,19 @@ Biological Processes, Molecular Functions, and Cellular Components.
 
 ```bash
 # Find experimentally-validated (EXP=ECO:0000269) annotations for a specific UniProtKB ID
-uv run scripts/quickgo_tool.py annotation search --geneProductId "UniProtKB:P040**" --taxonId 9606 --evidenceCode "ECO:0000269" --limit 50 --output annotations.json
+uv run scripts/quickgo_tool.py annotation search --geneProductId "UniProtKB:P04070" --taxonId 9606 --evidenceCode "ECO:0000269" --limit 50 --output annotations.json
 
 # Find all annotations for a specific GO ID (e.g. apoptosis)
 uv run scripts/quickgo_tool.py annotation search --goId "GO:0006915" --goUsage desc --taxonId 9606 --limit 50 --output apoptosis_annotations.json
 
 # Find Biological Process annotations for a specific UniProtKB ID
-uv run scripts/quickgo_tool.py annotation search --geneProductId "UniProtKB:P046**" --aspect "biological_process" --limit 50 --output p53_bp_annotations.json
+uv run scripts/quickgo_tool.py annotation search --geneProductId "UniProtKB:P04637" --aspect "biological_process" --limit 50 --output p53_bp_annotations.json
 ```
 
 **Parameters:**
 
 -   `--geneProductId`: The database identifier for the gene product (e.g.,
-    `UniProtKB:P046**`).
+    `UniProtKB:P04637`).
 -   `--goId`: The Gene Ontology ID (e.g., `GO:0006915`).
 -   `--aspect`: Filter by GO aspect (`biological_process`, `molecular_function`,
     `cellular_component`).

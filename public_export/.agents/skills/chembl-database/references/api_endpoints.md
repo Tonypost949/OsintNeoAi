@@ -61,9 +61,9 @@ ChEMBL supports Django-style filter operators as query parameters:
 |---|---|---|
 | (none) | Exact match | `molecule_chembl_id=CHEMBL25` |
 | `__exact` | Exact match | `pref_name__exact=Aspirin` |
-| `__iexact` | Case ****tive exact | `pref_name__iexact=aspirin` |
+| `__iexact` | Case-insensitive exact | `pref_name__iexact=aspirin` |
 | `__contains` | Substring match | `pref_name__contains=aspirin` |
-| `__icontains` | Case ****tive substring | `pref_name__icontains=aspirin` |
+| `__icontains` | Case-insensitive substring | `pref_name__icontains=aspirin` |
 | `__startswith` | Prefix match | `pref_name__startswith=Asp` |
 | `__endswith` | Suffix match | `pref_name__endswith=rin` |
 | `__gt` | Greater than | `standard_value__gt=100` |

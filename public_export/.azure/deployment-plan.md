@@ -159,6 +159,6 @@ Generated: 2026-09-10T01:55:00Z
 > Current: Phase 1 - Planning
 
 1. Confirm subscription and location with user
-2. Check Azure Policy ****ints on the subscription
+2. Check Azure Policy constraints on the subscription
 3. Invoke azure-quotas skill to validate capacity
 4. Complete plan and present for approval

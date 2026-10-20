@@ -15,19 +15,19 @@ SURETY_BOND_STATUTE_REGISTRY = [
         "bond_type": "PUBLIC_OFFICIAL_SURETY_BOND",
         "governing_statute": "Cal. Gov. Code § 1480 - 1505",
         "law_title": "Mandatory Official Bond & Public Faithful Performance Guarantee",
-        "legal_recourse": "Direct claim ****inst public official's surety bond issuer for breach of duty, fraud, or official misconduct."
+        "legal_recourse": "Direct claim against public official's surety bond issuer for breach of duty, fraud, or official misconduct."
     },
     {
         "bond_type": "PUBLIC_WORKS_PAYMENT_AND_PERFORMANCE_BOND",
         "governing_statute": "Cal. Civil Code § 9550 / 31 U.S.C. § 3131 (Miller Act)",
         "law_title": "Mandatory Contractor Performance & Payment Surety Bond",
-        "legal_recourse": "Direct claim ****inst vendor/contractor's surety bond for defective work, environmental cap failure, or fraudulent billing."
+        "legal_recourse": "Direct claim against vendor/contractor's surety bond for defective work, environmental cap failure, or fraudulent billing."
     },
     {
         "bond_type": "FEDERAL_CORPORATE_SURETY_BOND",
         "governing_statute": "31 U.S.C. § 9304 - 9309",
         "law_title": "Approved Corporate Sureties for Public Obligations",
-        "legal_recourse": "Federal claim ****inst Treasury-approved corporate surety bond underwriters for public loss recovery."
+        "legal_recourse": "Federal claim against Treasury-approved corporate surety bond underwriters for public loss recovery."
     }
 ]
 

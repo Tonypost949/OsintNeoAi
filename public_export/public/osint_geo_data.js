@@ -3,7 +3,7 @@
 const LIVE_TOXIC = [
   {
     "label": "SPEEDWAY No. 3796",
-    "desc": "UST / 101 E Whittier Blvd / CalEnviroScreen: 0.0%",
+    "desc": "UST / 101 E. W*** Blvd / CalEnviroScreen: 0.0%",
     "lat": 33.68,
     "lng": -118.0,
     "value": 0.0
@@ -17,7 +17,7 @@ const LIVE_TOXIC = [
   },
   {
     "label": "G&M Oil Co. #61",
-    "desc": "UST / 10502 S*** Ave. / CalEnviroScreen: 0.0%",
+    "desc": "UST / 10502 S. M*** Ave. / CalEnviroScreen: 0.0%",
     "lat": 33.68,
     "lng": -118.0,
     "value": 0.0
@@ -38,7 +38,7 @@ const LIVE_TOXIC = [
   },
   {
     "label": "UNITED #132",
-    "desc": "UST / 3400 E Pacific Coast Hwy / CalEnviroScreen: 0.0%",
+    "desc": "UST / 3400 E. P*** Hwy / CalEnviroScreen: 0.0%",
     "lat": 33.68,
     "lng": -118.0,
     "value": 0.0
@@ -59,7 +59,7 @@ const LIVE_TOXIC = [
   },
   {
     "label": "Frontier California: Aliso RSU",
-    "desc": "UST / 310** S Coast Hwy / CalEnviroScreen: 0.0%",
+    "desc": "UST / 31092 S. C*** Hwy / CalEnviroScreen: 0.0%",
     "lat": 33.68,
     "lng": -118.0,
     "value": 0.0
@@ -73,7 +73,7 @@ const LIVE_TOXIC = [
   },
   {
     "label": "CEMEX Construction Materials P",
-    "desc": "UST / 1730 N Main St / CalEnviroScreen: 0.0%",
+    "desc": "UST / 1730 N. M*** St / CalEnviroScreen: 0.0%",
     "lat": 33.68,
     "lng": -118.0,
     "value": 0.0
@@ -115,7 +115,7 @@ const LIVE_TOXIC = [
   },
   {
     "label": "G&M Oil Co. #31",
-    "desc": "UST / 9225 S*** St. / CalEnviroScreen: 0.0%",
+    "desc": "UST / 9225 S. B*** St. / CalEnviroScreen: 0.0%",
     "lat": 33.68,
     "lng": -118.0,
     "value": 0.0
@@ -129,7 +129,7 @@ const LIVE_TOXIC = [
   },
   {
     "label": "CITY OF ORANGE WATER",
-    "desc": "UST / 1130 E Almond Ave / CalEnviroScreen: 0.0%",
+    "desc": "UST / 1130 E. A*** Ave / CalEnviroScreen: 0.0%",
     "lat": 33.7858,
     "lng": 117.8408,
     "value": 0.0
@@ -164,7 +164,7 @@ const LIVE_TOXIC = [
   },
   {
     "label": "SPEEDWAY No. 6355",
-    "desc": "UST / 2800 W Ball Rd / CalEnviroScreen: 17.5%",
+    "desc": "UST / 2800 W. B*** Rd / CalEnviroScreen: 17.5%",
     "lat": 37.271881,
     "lng": -119.270233,
     "value": 17.5
@@ -178,7 +178,7 @@ const LIVE_TOXIC = [
   },
   {
     "label": "GZ & S INC (ARCO)",
-    "desc": "UST / 1801 S State College Blvd / CalEnviroScreen: 17.5%",
+    "desc": "UST / 1801 S. S*** Blvd / CalEnviroScreen: 17.5%",
     "lat": 37.271881,
     "lng": -119.270233,
     "value": 17.5
@@ -220,14 +220,14 @@ const LIVE_TOXIC = [
   },
   {
     "label": "SA Recycling Anaheim",
-    "desc": "UST / 3200 E Frontera St / CalEnviroScreen: 87.5%",
+    "desc": "UST / 3200 E. F*** St / CalEnviroScreen: 87.5%",
     "lat": 33.848**,
     "lng": -117.850**,
     "value": 87.5
   },
   {
     "label": "Republic Waste Services of Sou",
-    "desc": "UST / 1231 N Blue Gum St / CalEnviroScreen: 77.5%",
+    "desc": "UST / 1231 N. B*** St / CalEnviroScreen: 77.5%",
     "lat": 33.852**,
     "lng": -117.872**,
     "value": 77.5
@@ -241,7 +241,7 @@ const LIVE_TOXIC = [
   },
   {
     "label": "ZOUHEIR OIL INC.",
-    "desc": "UST / 3080 E La Palma Ave / CalEnviroScreen: 77.5%",
+    "desc": "UST / 3080 E. L*** Ave / CalEnviroScreen: 77.5%",
     "lat": 33.850**,
     "lng": -117.857**,
     "value": 77.5
@@ -255,7 +255,7 @@ const LIVE_TOXIC = [
   },
   {
     "label": "H&S Energy Products, LLC #2049",
-    "desc": "UST / 3085 E La Palma Ave / CalEnviroScreen: 77.5%",
+    "desc": "UST / 3085 E. L*** Ave / CalEnviroScreen: 77.5%",
     "lat": 33.851**,
     "lng": -117.857**,
     "value": 77.5
@@ -269,21 +269,21 @@ const LIVE_TOXIC = [
   },
   {
     "label": "Southern California Gas Compan",
-    "desc": "UST / 3050 E La Jolla St / CalEnviroScreen: 77.5%",
+    "desc": "UST / 3050 E. L*** St / CalEnviroScreen: 77.5%",
     "lat": 33.860**,
     "lng": -117.863**,
     "value": 77.5
   },
   {
     "label": "FedEx Freight, Inc. ANH",
-    "desc": "UST / 1379 N Miller St / CalEnviroScreen: 77.5%",
+    "desc": "UST / 1379 N. M*** St / CalEnviroScreen: 77.5%",
     "lat": 33.863**,
     "lng": -117.852**,
     "value": 77.5
   },
   {
     "label": "AT&T California - CA156",
-    "desc": "UST / 3031 E La Palma Ave / CalEnviroScreen: 77.5%",
+    "desc": "UST / 3031 E. L*** Ave / CalEnviroScreen: 77.5%",
     "lat": 33.8511094,
     "lng": -117.8596437,
     "value": 77.5
@@ -353,7 +353,7 @@ const LIVE_TOXIC = [
   },
   {
     "label": "AT&T California - CB388",
-    "desc": "UST / 7295 E Columbus Dr / CalEnviroScreen: 12.5%",
+    "desc": "UST / 7295 E. C*** Dr / CalEnviroScreen: 12.5%",
     "lat": 33.8427668,
     "lng": -117.7417499,
     "value": 12.5
@@ -367,7 +367,7 @@ const LIVE_TOXIC = [
   },
   {
     "label": "Petromax, Inc.",
-    "desc": "UST / 5650 E*** Avenue / CalEnviroScreen: 0.0%",
+    "desc": "UST / 5650 E. L*** Avenue / CalEnviroScreen: 0.0%",
     "lat": 33.859**,
     "lng": -117.791**,
     "value": 0.0
@@ -395,14 +395,14 @@ const LIVE_TOXIC = [
   },
   {
     "label": "Circle K Stores Inc. Site #270",
-    "desc": "UST / 741 S Weir Canyon Rd / CalEnviroScreen: 22.5%",
+    "desc": "UST / 741 S. W*** Rd / CalEnviroScreen: 22.5%",
     "lat": 33.862**,
     "lng": -117.738**,
     "value": 22.5
   },
   {
     "label": "AT&T California - CB157",
-    "desc": "UST / 245 S Orange Ave / CalEnviroScreen: 67.5%",
+    "desc": "UST / 245 S. O*** Ave / CalEnviroScreen: 67.5%",
     "lat": 33.917**,
     "lng": -117.898**,
     "value": 67.5
@@ -430,7 +430,7 @@ const LIVE_TOXIC = [
   },
   {
     "label": "BREA FIRE STATION #3",
-    "desc": "UST / 2600 E Santa Fe Rd / CalEnviroScreen: 32.5%",
+    "desc": "UST / 2600 E. S*** Rd / CalEnviroScreen: 32.5%",
     "lat": 33.923**,
     "lng": -117.863**,
     "value": 32.5
@@ -479,21 +479,21 @@ const LIVE_TOXIC = [
   },
   {
     "label": "Imperial Mariner,LLC",
-    "desc": "UST / 915 W Imperial Hwy / CalEnviroScreen: 42.5%",
+    "desc": "UST / 915 W. I*** Hwy / CalEnviroScreen: 42.5%",
     "lat": 33.917**,
     "lng": -117.911**,
     "value": 42.5
   },
   {
     "label": "Imperial Mariner,LLC",
-    "desc": "UST / 975 W Imperial Hwy / CalEnviroScreen: 42.5%",
+    "desc": "UST / 975 W. I*** Hwy / CalEnviroScreen: 42.5%",
     "lat": 33.917**,
     "lng": -117.911**,
     "value": 42.5
   },
   {
     "label": "ALRON OIL CO.",
-    "desc": "UST / 365 W Central Ave / CalEnviroScreen: 67.5%",
+    "desc": "UST / 365 W. C*** Ave / CalEnviroScreen: 67.5%",
     "lat": 33.932**,
     "lng": -117.899**,
     "value": 67.5
@@ -507,7 +507,7 @@ const LIVE_TOXIC = [
   },
   {
     "label": "United Pacific 0680",
-    "desc": "UST / 2405 E Imperial Hwy / CalEnviroScreen: 42.5%",
+    "desc": "UST / 2405 E. I*** Hwy / CalEnviroScreen: 42.5%",
     "lat": 33.911**,
     "lng": -117.869**,
     "value": 42.5
@@ -521,21 +521,21 @@ const LIVE_TOXIC = [
   },
   {
     "label": "Brea Car Wash",
-    "desc": "UST / 1700 E Lambert Rd / CalEnviroScreen: 42.5%",
+    "desc": "UST / 1700 E. L*** Rd / CalEnviroScreen: 42.5%",
     "lat": 33.925**,
     "lng": -117.879**,
     "value": 42.5
   },
   {
     "label": "SPEEDWAY No. 5086",
-    "desc": "UST / 718 S Brea Blvd / CalEnviroScreen: 27.5%",
+    "desc": "UST / 718 S. B*** Blvd / CalEnviroScreen: 27.5%",
     "lat": 33.909**,
     "lng": -117.903**,
     "value": 27.5
   },
   {
     "label": "CHEVRON STATION #907**/2020",
-    "desc": "UST / 700 E Imperial Hwy / CalEnviroScreen: 67.5%",
+    "desc": "UST / 700 E. I*** Hwy / CalEnviroScreen: 67.5%",
     "lat": 33.9137,
     "lng": -117.893**,
     "value": 67.5
@@ -549,28 +549,28 @@ const LIVE_TOXIC = [
   },
   {
     "label": "UNITED #009",
-    "desc": "UST / 798 N Brea Blvd / CalEnviroScreen: 52.5%",
+    "desc": "UST / 798 N. B*** Blvd / CalEnviroScreen: 52.5%",
     "lat": 33.931**,
     "lng": -117.8937,
     "value": 52.5
   },
   {
     "label": "SO CA GAS CO - Brea Base Trans",
-    "desc": "UST / 2191 E Birch St / CalEnviroScreen: 42.5%",
+    "desc": "UST / 2191 E. B*** St / CalEnviroScreen: 42.5%",
     "lat": 33.9187,
     "lng": -117.8729,
     "value": 42.5
   },
   {
     "label": "Brea Fuel and Food",
-    "desc": "UST / 3300 E*** Hwy. / CalEnviroScreen: 37.5%",
+    "desc": "UST / 3300 E. I*** Hwy. / CalEnviroScreen: 37.5%",
     "lat": 33.909**,
     "lng": -117.852**,
     "value": 37.5
   },
   {
     "label": "World Oil Marketing Company #1",
-    "desc": "UST / 901 N Placentia Ave / CalEnviroScreen: 72.5%",
+    "desc": "UST / 901 N. P*** Ave / CalEnviroScreen: 72.5%",
     "lat": 33.878**,
     "lng": -117.878**,
     "value": 72.5
@@ -640,7 +640,7 @@ const LIVE_TOXIC = [
   },
   {
     "label": "Sunny Hills Carwash",
-    "desc": "UST / 100 W Bastanchury Rd / CalEnviroScreen: 22.5%",
+    "desc": "UST / 100 W. B*** Rd / CalEnviroScreen: 22.5%",
     "lat": 33.895**,
     "lng": -117.929**,
     "value": 22.5
@@ -654,7 +654,7 @@ const LIVE_TOXIC = [
   },
   {
     "label": "FULLERTON GAS, LLC",
-    "desc": "UST / 3950 N Harbor Blvd / CalEnviroScreen: 52.5%",
+    "desc": "UST / 3950 N. H*** Blvd / CalEnviroScreen: 52.5%",
     "lat": 33.916**,
     "lng": -117.932**,
     "value": 52.5
@@ -682,7 +682,7 @@ const LIVE_TOXIC = [
   },
   {
     "label": "H&S Energy Products, LLC #2015",
-    "desc": "UST / 2844 N Santiago Blvd / CalEnviroScreen: 42.5%",
+    "desc": "UST / 2844 N. S*** Blvd / CalEnviroScreen: 42.5%",
     "lat": 33.836**,
     "lng": -117.834**,
     "value": 42.5
