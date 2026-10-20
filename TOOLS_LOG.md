@@ -21,6 +21,7 @@ Dependencies: none beyond Python 3 standard library. No requirements.txt needed.
 
 | Tool | Source | Notes |
 |---|---|---|
+| Edge0 (streaming MoE inference framework) | https://github.com/Edge0-AI/Edge0 (Apache 2.0; arXiv 2609.18063) — cloned for reference at ~/workspace/tools/Edge0/ | NOT installed: no Linux runtime. Python path is macOS Apple Silicon + MLX only; native engines exist for macOS, iOS, Android, Windows (C++/Vulkan). Runs only its own prepared MoE checkpoints (Edge0-35B-A3B-preview, ~2.9 GB active RAM via SSD expert offload; Edge0-8B-A1B-preview) — cannot run dense models such as Qwen3.8-27B. Revisit on the owner's Windows PC, Android phone, or any Apple Silicon machine. |
 | Qwen3.8-27B-Uncensored (abliterated builds of Qwen/Qwen3.8-27B) | Hugging Face — junafinity/Qwen-3.8-27B-Uncensored (bf16, ~52 GB, Apache 2.0); FP8 build ~30.9 GB; huihui-ai GGUF quants ~12–19 GB — surfaced via Facebook Reel, 2026-10-20 | Real artifact, verified to exist. NOT installed: cannot run on the Muse VM (2 cores, 7 GB RAM, no GPU). Smallest usable quants need ~12 GB+ RAM; FP8 needs a GPU box. Revisit on hardware with 16 GB+ RAM (GGUF) or a CUDA GPU (FP8/vLLM). |
 | OX Alpha / "OpenFinisher" | Facebook Reel claim, 2026-10-19 | Unverified hype claim; no installable artifact identified. Logged for awareness only. |
 | OSINTNeoAiCLI (Tonypost949/OSINTNeoAiCLI) | User's own repo (Python) | Sibling project; not yet installed or audited here. |
