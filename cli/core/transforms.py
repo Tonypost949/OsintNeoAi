@@ -2,6 +2,8 @@ import os
 import socket
 import json
 import random
+import time
+import datetime
 import requests
 
 from .entities import (
@@ -10,6 +12,71 @@ from .entities import (
     BreachRecord, DNSRecord, GeoLocation, ReputationScore,
     URLScanResult, ASNInfo
 )
+
+# ─────────────────────────────────────────────────────────────
+# HTTP 429 Rate-Limit Handling — Exponential Backoff
+# ─────────────────────────────────────────────────────────────
+
+RETRYABLE_STATUS_CODES = (429, 502, 503, 504)
+DEFAULT_MAX_RETRIES = 4            # retries after the initial attempt
+DEFAULT_BASE_DELAY = 1.0           # first backoff interval (seconds)
+MAX_BACKOFF_DELAY = 60.0           # hard cap per sleep (seconds)
+BACKOFF_JITTER = 0.25              # ±25% jitter avoids thundering-herd retries
+
+
+def _retry_after_delay(response, fallback: float) -> float:
+    """Return the server-supplied Retry-After (seconds or HTTP-date), else fallback."""
+    header = (getattr(response, "headers", None) or {}).get("Retry-After")
+    if not header:
+        return fallback
+    try:
+        return max(0.0, min(float(header), MAX_BACKOFF_DELAY))
+    except (TypeError, ValueError):
+        pass
+    try:
+        from email.utils import parsedate_to_datetime
+        when = parsedate_to_datetime(header)
+        delta = (when - datetime.datetime.now(datetime.timezone.utc)).total_seconds()
+        return max(0.0, min(delta, MAX_BACKOFF_DELAY))
+    except Exception:
+        return fallback
+
+
+def _backoff_delay(attempt: int, base_delay: float = DEFAULT_BASE_DELAY) -> float:
+    """Exponential backoff with jitter: base_delay * 2**attempt, capped at MAX_BACKOFF_DELAY."""
+    delay = min(base_delay * (2 ** attempt), MAX_BACKOFF_DELAY)
+    jitter = delay * BACKOFF_JITTER
+    return max(0.0, delay + random.uniform(-jitter, jitter))
+
+
+def http_request(method: str, url: str, *,
+                 max_retries: int = DEFAULT_MAX_RETRIES,
+                 base_delay: float = DEFAULT_BASE_DELAY,
+                 **kwargs) -> requests.Response:
+    """
+    requests.request() wrapper that retries with exponential backoff when the
+    server answers HTTP 429 (rate limit) or a transient 502/503/504.
+
+    - Honours an explicit Retry-After header (seconds or HTTP-date).
+    - Delay sequence: base_delay * 2**attempt (±25% jitter), capped at 60s.
+    - Returns the final response once retries are exhausted so the caller
+      can decide how to report the failure.
+    """
+    kwargs.setdefault("timeout", 10)
+    delay = base_delay
+    response = None
+    for attempt in range(max_retries + 1):
+        response = requests.request(method, url, **kwargs)
+        if response.status_code not in RETRYABLE_STATUS_CODES or attempt >= max_retries:
+            return response
+        sleep_for = _retry_after_delay(response, delay)
+        host = url.split("/")[2] if "//" in url else url
+        print(f"  [!] HTTP {response.status_code} from {host} — "
+              f"backoff {attempt + 1}/{max_retries}, retrying in {sleep_for:.1f}s")
+        time.sleep(sleep_for)
+        delay = _backoff_delay(attempt + 1, base_delay)
+    return response
+
 
 # ─────────────────────────────────────────────────────────────
 # Base Transform
@@ -63,8 +130,8 @@ class EmailToSocialProfile(Transform):
         for platform, url_template in self.PLATFORMS:
             url = url_template.format(u=username)
             try:
-                r = requests.head(url, allow_redirects=True, timeout=5,
-                                  headers={"User-Agent": "Mozilla/5.0"})
+                r = http_request("HEAD", url, allow_redirects=True, timeout=5,
+                                 headers={"User-Agent": "Mozilla/5.0"})
                 if r.status_code == 200:
                     results.append(SocialProfile(value=f"{platform}: {url}"))
                     print(f"  [+] {platform}: ACTIVE")
@@ -94,7 +161,23 @@ class IPToShodanInfo(Transform):
         try:
             import shodan
             api = shodan.Shodan(api_key)
-            host = api.host(entity.value)
+            # Shodan answers rate limits (HTTP 429) with an APIError — retry
+            # with the same exponential backoff used for raw HTTP calls.
+            host = None
+            for attempt in range(DEFAULT_MAX_RETRIES + 1):
+                try:
+                    host = api.host(entity.value)
+                    break
+                except Exception as e:
+                    msg = str(e).lower()
+                    rate_limited = "429" in msg or "rate limit" in msg
+                    if rate_limited and attempt < DEFAULT_MAX_RETRIES:
+                        sleep_for = _backoff_delay(attempt)
+                        print(f"  [!] Shodan rate limited — backoff "
+                              f"{attempt + 1}/{DEFAULT_MAX_RETRIES}, retrying in {sleep_for:.1f}s")
+                        time.sleep(sleep_for)
+                        continue
+                    raise
             results = []
             for item in host.get("data", []):
                 port = item.get("port")
@@ -121,7 +204,7 @@ class DomainToVirusTotal(Transform):
             return [ThreatScore(value="Score: 2/89 (Low Risk — stub)")]
         try:
             url = f"https://www.virustotal.com/api/v3/domains/{entity.value}"
-            r = requests.get(url, headers={"x-apikey": api_key}, timeout=10)
+            r = http_request("GET", url, headers={"x-apikey": api_key}, timeout=10)
             r.raise_for_status()
             stats = r.json()["data"]["attributes"]["last_analysis_stats"]
             malicious = stats.get("malicious", 0)
@@ -146,7 +229,7 @@ class DomainToWHOIS(Transform):
 
         # Strategy 1: RDAP
         try:
-            r = requests.get(f"https://rdap.org/domain/{domain}", timeout=10,
+            r = http_request("GET", f"https://rdap.org/domain/{domain}", timeout=10,
                              headers={"Accept": "application/json"})
             if r.status_code == 200:
                 data = r.json()
@@ -262,7 +345,7 @@ class DomainToSSLCert(Transform):
 
         # Strategy 2: crt.sh
         try:
-            r = requests.get(f"https://crt.sh/?q={hostname}&output=json", timeout=10)
+            r = http_request("GET", f"https://crt.sh/?q={hostname}&output=json", timeout=10)
             seen = set()
             for c in r.json()[:20]:
                 name = c.get("name_value", "").strip()
@@ -295,7 +378,7 @@ class EmailToHIBP(Transform):
         headers = {"User-Agent": "OSINTNeoAi-CLI/1.0", "hibp-api-key": api_key or ""}
         try:
             url = f"https://haveibeenpwned.com/api/v3/breachedaccount/{email}?truncateResponse=false"
-            r = requests.get(url, headers=headers, timeout=10)
+            r = http_request("GET", url, headers=headers, timeout=10)
             if r.status_code == 200:
                 breaches = r.json()
                 print(f"  [!] FOUND in {len(breaches)} breach(es)!")
@@ -312,7 +395,9 @@ class EmailToHIBP(Transform):
             elif r.status_code == 401:
                 results.append(BreachRecord(value="Set HIBP_API_KEY env var (https://haveibeenpwned.com/API/Key)"))
             elif r.status_code == 429:
-                results.append(BreachRecord(value="HIBP rate limited — retry in 60s"))
+                results.append(BreachRecord(
+                    value=f"HIBP still rate limited after {DEFAULT_MAX_RETRIES} backoff retries — wait 60s and re-run"
+                ))
             else:
                 results.append(BreachRecord(value=f"HIBP HTTP {r.status_code}"))
         except Exception as e:
@@ -322,7 +407,7 @@ class EmailToHIBP(Transform):
         try:
             import hashlib
             prefix = hashlib.sha1(b"password").hexdigest().upper()[:5]
-            pr = requests.get(f"https://api.pwnedpasswords.com/range/{prefix}", timeout=5)
+            pr = http_request("GET", f"https://api.pwnedpasswords.com/range/{prefix}", timeout=5)
             if pr.status_code == 200:
                 results.append(BreachRecord(value="[INFO] HIBP Password API: k-Anonymity endpoint reachable"))
         except Exception:
@@ -347,7 +432,8 @@ class DomainToDNS(Transform):
         try:
             for rtype in self.RECORD_TYPES:
                 try:
-                    r = requests.get(
+                    r = http_request(
+                        "GET",
                         f"https://dns.google/resolve?name={domain}&type={rtype}",
                         timeout=6
                     )
@@ -387,7 +473,8 @@ class IPToGeoLocation(Transform):
 
         # ip-api.com (free)
         try:
-            r = requests.get(
+            r = http_request(
+                "GET",
                 f"http://ip-api.com/json/{ip}?fields=status,message,country,regionName,city,zip,lat,lon,isp,org,as",
                 timeout=8
             )
@@ -410,7 +497,8 @@ class IPToGeoLocation(Transform):
         # ipinfo.io fallback
         try:
             token = os.environ.get("IPINFO_TOKEN", "")
-            r = requests.get(
+            r = http_request(
+                "GET",
                 f"https://ipinfo.io/{ip}/json",
                 params={"token": token} if token else {},
                 timeout=8
@@ -452,19 +540,24 @@ class DomainToReputation(Transform):
                         "threatEntries": [{"url": f"http://{domain}"}]
                     }
                 }
-                r = requests.post(
+                r = http_request(
+                    "POST",
                     f"https://safebrowsing.googleapis.com/v4/threatMatches:find?key={gsb_key}",
                     json=payload, timeout=8
                 )
-                data = r.json()
-                if data.get("matches"):
-                    for m in data["matches"]:
-                        results.append(ReputationScore(
-                            value=f"[GSB] THREAT: {m.get('threatType')} — {m.get('platformType')}"
-                        ))
+                if r.status_code == 429:
+                    # Backoff exhausted — never report a false "Clean" on a rate limit.
+                    results.append(ReputationScore(value="[GSB] Rate limited after backoff — retry later"))
                 else:
-                    results.append(ReputationScore(value="[GSB] Clean"))
-                print(f"  [+] Google Safe Browsing checked.")
+                    data = r.json()
+                    if data.get("matches"):
+                        for m in data["matches"]:
+                            results.append(ReputationScore(
+                                value=f"[GSB] THREAT: {m.get('threatType')} — {m.get('platformType')}"
+                            ))
+                    else:
+                        results.append(ReputationScore(value="[GSB] Clean"))
+                    print(f"  [+] Google Safe Browsing checked.")
             except Exception as e:
                 print(f"  [-] GSB failed: {e}")
         else:
@@ -472,8 +565,8 @@ class DomainToReputation(Transform):
 
         # URLHaus (no key)
         try:
-            r = requests.post("https://urlhaus-api.abuse.ch/v1/host/",
-                              data={"host": domain}, timeout=8)
+            r = http_request("POST", "https://urlhaus-api.abuse.ch/v1/host/",
+                             data={"host": domain}, timeout=8)
             data = r.json()
             qs = data.get("query_status", "")
             if qs == "is_host":
@@ -497,7 +590,8 @@ class DomainToReputation(Transform):
         if aipdb_key:
             try:
                 ip = socket.gethostbyname(domain)
-                r = requests.get(
+                r = http_request(
+                    "GET",
                     "https://api.abuseipdb.com/api/v2/check",
                     headers={"Key": aipdb_key, "Accept": "application/json"},
                     params={"ipAddress": ip, "maxAgeInDays": 90},
@@ -584,7 +678,8 @@ class WebSearch(Transform):
         if api_key:
             try:
                 encoded = requests.utils.quote(query)
-                r = requests.get(
+                r = http_request(
+                    "GET",
                     "https://api.bing.microsoft.com/v7.0/search",
                     params={"q": query, "count": self.MAX_RESULTS, "mkt": "en-US"},
                     headers={"Ocp-Apim-Subscription-Key": api_key},
@@ -608,7 +703,7 @@ class WebSearch(Transform):
             from bs4 import BeautifulSoup
             encoded = requests.utils.quote(query)
             url = f"https://www.bing.com/search?q={encoded}&count={self.MAX_RESULTS}&setlang=en"
-            r = requests.get(url, headers=self._HEADERS, timeout=10)
+            r = http_request("GET", url, headers=self._HEADERS, timeout=10)
             r.raise_for_status()
             soup = BeautifulSoup(r.text, "html.parser")
             results = []
@@ -637,7 +732,8 @@ class WebSearch(Transform):
         if not api_key:
             return []
         try:
-            r = requests.get(
+            r = http_request(
+                "GET",
                 "https://api.search.brave.com/res/v1/web/search",
                 params={"q": query, "count": self.MAX_RESULTS},
                 headers={**self._HEADERS, "Accept": "application/json",
@@ -665,7 +761,8 @@ class WebSearch(Transform):
         if not api_key or not cx:
             return []
         try:
-            r = requests.get(
+            r = http_request(
+                "GET",
                 "https://www.googleapis.com/customsearch/v1",
                 params={"q": query, "key": api_key, "cx": cx, "num": min(self.MAX_RESULTS, 10)},
                 timeout=10
