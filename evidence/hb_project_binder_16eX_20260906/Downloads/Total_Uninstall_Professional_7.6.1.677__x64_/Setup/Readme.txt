@@ -1,1 +1,0 @@
-Cracked version. Block app in Firewall.

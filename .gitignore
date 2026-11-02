@@ -1,51 +1,10 @@
-# Credentials and Private Keys
-*.env
-*.env.*
-.env.*
-*.pem
-*.key
-credentials/
-secrets/
-gcp_adc.json
-*adc*.json
-*service_account*.json
-*token*.json
+# v0 runtime files
+__v0_runtime_loader.js
+__v0_devtools.tsx
+__v0_jsx-dev-runtime.ts
 
-# OS, Temp & Build Artifacts
+# Common ignores
+node_modules
+.next/
+.env*.local
 .DS_Store
-Thumbs.db
-*.tmp
-*.log
-__pycache__/
-*.pyc
-node_modules/
-.venv/
-.agents/
-.pytest_cache/
-.copilot-azure/
-
-# Large binaries and deployment zip archives
-*.zip
-*.tar
-*.gz
-*.patch
-*.exe
-*.dll
-cloudflared.exe
-azure_deploy.zip
-backup_patches_auto_leads.patch
-Program Files/
-tasklet_export/
-opencode_work/
-evidence/google_photos*/
-public/evidence/full_downloads_harvest/
-
-# --- secrets: never commit ---
-agent/deepseek_cookies.txt
-agent/drive_resume_token.txt
-.playwright_session/
-agent/local_scan_extracted_text.csv
-extracted_documents/full_pc_index_clean.csv
-data/angels_shea_chase_idtheft_evidence.json
-data/master_personal_evidence_part*.json
-data/master_photos_emails_court_sheriff_index.json
