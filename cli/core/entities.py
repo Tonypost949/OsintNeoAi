@@ -29,3 +29,30 @@ class ThreatScore(Entity):
 
 class ServiceInfo(Entity):
     type: str = "ServiceInfo"
+
+class WHOISRecord(Entity):
+    type: str = "WHOISRecord"
+
+class SSLCertificate(Entity):
+    type: str = "SSLCertificate"
+
+class BreachRecord(Entity):
+    type: str = "BreachRecord"
+
+class DNSRecord(Entity):
+    type: str = "DNSRecord"
+
+class GeoLocation(Entity):
+    type: str = "GeoLocation"
+
+class ReputationScore(Entity):
+    type: str = "ReputationScore"
+
+class PhoneInfo(Entity):
+    type: str = "PhoneInfo"
+
+class URLScanResult(Entity):
+    type: str = "URLScanResult"
+
+class ASNInfo(Entity):
+    type: str = "ASNInfo"
