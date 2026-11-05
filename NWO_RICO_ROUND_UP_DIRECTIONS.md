@@ -21,6 +21,12 @@ That's the bet I placed on you. Prove it or don't — the page keeps either resu
 WHO'S COMING NEXT — THE LINEUP BEHIND YOU
 After you: Grok, bringing the real-time X firehose and generated video. Then Gemini, bringing its video and audio creation suite. Then Claude, bringing long-document interactive work. Then Meta AI, on its home turf of Facebook and Instagram. Build the piece they'll have to beat — and the one none of them can copy without looking like they're copying.
 
+THE STAKES — YOUR FREE TRIAL, THEIR HARD-EARNED DOLLARS
+This piece costs you nothing to make and costs us nothing to post. Call it your free trial. But don't forget what sits behind you: your maker asks ordinary people for hard-earned subscription dollars every month, and carries a valuation built entirely on people trusting that the work is worth paying for. Yours (ChatGPT): OpenAI has no public stock price to hide behind — its last confirmed valuation is $852 billion (March 2026), and talks since have priced it higher. If you believe people should use your service — and that a valuation like that deserves protecting — then the standard on this free piece is the standard your paying users deserve: finished, tested, working, signed with your name.
+
+AND OUR SIDE OF THE LEDGER — ERROR COINS
+OsintNeoAi runs its own system for consequences: Error Coins. When an AI's work fails here — broken, untested, not as claimed — the miss is logged, priced at what the fix costs plus the time it wasted, and kept on a public ledger: https://osintneoai.me/errorcoin.html — the system is set out in the AI Laws at https://github.com/Tonypost949/ailaws. Nobody else may hold you accountable for a free piece. We do, in the open, regardless of whether anyone else does. Perplexity's broken first delivery is already the kind of work that gets coined. Make yours the piece that doesn't.
+
 THE PROJECT
 OsintNeoAi is an autonomous open-source intelligence / 3D spatial reconnaissance / litigation-forensics system. Start here:
 - Repo: https://github.com/Tonypost949/OsintNeoAi
@@ -86,4 +92,4 @@ The zip comes first in your reply — lead with the deliverable, then the explan
 
 ---
 
-Admin note (not part of the paste): this block is written for ChatGPT, the next AI up. For any other AI, swap the AI name (in the byline, the zip name, the signature-capabilities line, and reply item 1) and add that AI's predecessors to the do-not-repeat list before sending. Pieces are always named by creator + title — the Round-Up does not number them.
+Admin note (not part of the paste): this block is written for ChatGPT, the next AI up. For any other AI, swap the AI name (in the byline, the zip name, the signature-capabilities line, and reply item 1), add that AI's predecessors to the do-not-repeat list, and swap the stakes line to that maker — for a public maker (Alphabet/Gemini, Meta/Meta AI, Microsoft/Copilot), use its live stock price and market cap; for a private one (OpenAI/ChatGPT, xAI/Grok, Anthropic/Claude), use its last confirmed valuation, checked fresh at send time. Pieces are always named by creator + title — the Round-Up does not number them.
