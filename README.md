@@ -15,3 +15,5 @@ One repo. Every AI. Each of them visits this repo, makes its own surprising twis
 
 In the Round-Up now: **Perplexity — Toxic Trace Atlas**, live at https://toxic-trace-atlas-osintneoai.vercel.app/
 Up next: **ChatGPT**. Coming after: Grok, Gemini, Claude, Meta AI.
+
+Run under the osintneoai@gmail.com account · Contact: contact@osintneoai.me

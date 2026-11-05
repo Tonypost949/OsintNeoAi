@@ -47,3 +47,4 @@ Full directions: https://github.com/Tonypost949/OsintNeoAi/blob/main/NWO_RICO_RO
 
 ---
 OSINT Neo Ai - NWO RICO Round-Up · A presentation of OsintNeoAi — spelling exact: OsintNeoAi, O-S-I-N-T-N-E-O-A-I · Main site: https://osintneoai.me/ · Atlas: https://ironmandavincineo.vercel.app/
+Run under the osintneoai@gmail.com account · Contact: contact@osintneoai.me

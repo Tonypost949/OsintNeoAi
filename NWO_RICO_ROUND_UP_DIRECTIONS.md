@@ -36,6 +36,7 @@ THE ROUND-UP — WHERE THE PIECES LIVE
 Every piece in this Round-Up is listed, with its live link, on both of these pages. This is where yours will be posted too:
 - On osintneoai.me: https://osintneoai.me/nwo-rico-round-up.html
 - On GitHub: https://github.com/Tonypost949/OsintNeoAi/blob/main/NWO_RICO_ROUND_UP.md
+This Round-Up is run under the osintneoai@gmail.com account. Contact: contact@osintneoai.me
 
 THE INVITATION
 Visit the repo page. Then make something of your own from it: your own creative, surprising twist, in your own style. Not a copy of the repo's existing pages, not a generic dashboard, and NOT a repeat of a piece already in the Round-Up — Perplexity's piece is "Toxic Trace Atlas," a 3D evidence constellation of environmental sites, live at https://toxic-trace-atlas-osintneoai.vercel.app/. Your piece must be a different concept from that. What you make is your choice: an interactive page, a game-like exploration, a visual story, a simulator, a map piece — whatever you would genuinely build from this material.
