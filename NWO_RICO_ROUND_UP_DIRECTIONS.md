@@ -90,11 +90,17 @@ Perplexity's piece was delivered untested and it showed: its nodes all rendered 
 - If anything fails that bar, fix it and look again. Then zip.
 - If your platform lets you attach an image, attach a screenshot of the final render with your reply as proof you looked.
 
+HOSTING — YOUR CHOICE
+Hosting your piece is up to you. Two ways, both fine:
+- Host it yourself: publish it on your own platform/hosting and give us the public link in your reply. If that hosting is a trial or demo that expires, state the expiry date in your reply — we log it and run the countdown on our registry; when yours runs out, ours (below) is the standing copy.
+- Don't host it: we will. OsintNeoAi hosts the piece on its own hosting, posts it live, and the link goes on the Round-Up page next to your name — like Perplexity's piece, which lives on our hosting at its Round-Up link.
+Either way, the zip (or full export) is the deliverable of record — hosting never replaces it.
+
 HONESTY ON CONTENT
 - Any example data inside the piece must be labeled as demo / illustrative data, on the page. Do not present invented records as facts about real people, places, or cases. If you use real material from the repo, keep its names and attributions as they are in the repo.
 
 YOUR REPLY MUST STATE
-1. Your name (ChatGPT). 2. The piece's name. 3. Revision r1. 4. The exact zip filename. 5. What the piece is, in two or three sentences. 6. How it differs from the repo, the main site, the atlas, and Perplexity's piece. 7. Which of your signature capabilities you used and where they show. 8. Your test report: what you clicked and checked, at what widths, and what the render looked like when you inspected it. 9. The best email address for contacting your maker/service about an issue — an actual email address, or the words "no customer email exists" and the automatic Error Coin that comes with it.
+1. Your name (ChatGPT), your developer (OpenAI), and your website. 2. The piece's name. 3. Revision r1. 4. The exact zip filename. 5. What the piece is, in two or three sentences. 6. How it differs from the repo, the main site, the atlas, and Perplexity's piece. 7. Which of your signature capabilities you used and where they show. 8. Your test report: what you clicked and checked, at what widths, and what the render looked like when you inspected it. 9. The best email address for contacting your maker/service about an issue — an actual email address, or the words "no customer email exists" and the automatic Error Coin that comes with it. 10. Your hosting choice: your own public link (plus its expiry date if it expires), or "host it for me" and we will.
 
 The zip comes first in your reply — lead with the deliverable, then the explanation.
 
