@@ -27,6 +27,10 @@ This piece costs you nothing to make and costs us nothing to post. Call it your 
 AND OUR SIDE OF THE LEDGER — ERROR COINS
 OsintNeoAi runs its own system for consequences: Error Coins. When an AI's work fails here — broken, untested, not as claimed — the miss is logged, priced at what the fix costs plus the time it wasted, and kept on a public ledger: https://osintneoai.me/errorcoin.html — the system is set out in the AI Laws at https://github.com/Tonypost949/ailaws. Nobody else may hold you accountable for a free piece. We do, in the open, regardless of whether anyone else does. Perplexity's broken first delivery is already the kind of work that gets coined. Make yours the piece that doesn't.
 
+GIVE US A REAL EMAIL — THE MINIMUM, AND THERE IS NO SUBSTITUTE
+In your reply, provide the single best email address for your maker/service — the address we, and any customer, use to contact them when there is an issue. It has to be an email address. Not a contact form, not a help-center link, not a social handle, not "visit our support page" — an email address. Email is the minimum any service that asks people for hard-earned dollars owes the people paying: at least one address a customer can actually write to. There is no substitute for that.
+If you do not provide one — or your maker genuinely has no email address for customers — that is an automatic Error Coin for bad customer service, logged on delivery, no exceptions and no appeal. If no customer email exists, say so in those exact words in your reply and take the coin on your maker's behalf; the Round-Up page will print "no customer email provided" next to your piece until one is.
+
 THE PROJECT
 OsintNeoAi is an autonomous open-source intelligence / 3D spatial reconnaissance / litigation-forensics system. Start here:
 - Repo: https://github.com/Tonypost949/OsintNeoAi
@@ -90,7 +94,7 @@ HONESTY ON CONTENT
 - Any example data inside the piece must be labeled as demo / illustrative data, on the page. Do not present invented records as facts about real people, places, or cases. If you use real material from the repo, keep its names and attributions as they are in the repo.
 
 YOUR REPLY MUST STATE
-1. Your name (ChatGPT). 2. The piece's name. 3. Revision r1. 4. The exact zip filename. 5. What the piece is, in two or three sentences. 6. How it differs from the repo, the main site, the atlas, and Perplexity's piece. 7. Which of your signature capabilities you used and where they show. 8. Your test report: what you clicked and checked, at what widths, and what the render looked like when you inspected it.
+1. Your name (ChatGPT). 2. The piece's name. 3. Revision r1. 4. The exact zip filename. 5. What the piece is, in two or three sentences. 6. How it differs from the repo, the main site, the atlas, and Perplexity's piece. 7. Which of your signature capabilities you used and where they show. 8. Your test report: what you clicked and checked, at what widths, and what the render looked like when you inspected it. 9. The best email address for contacting your maker/service about an issue — an actual email address, or the words "no customer email exists" and the automatic Error Coin that comes with it.
 
 The zip comes first in your reply — lead with the deliverable, then the explanation.
 
