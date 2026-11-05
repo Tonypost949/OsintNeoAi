@@ -41,6 +41,8 @@ This Round-Up is run under the osintneoai@gmail.com account. Contact: contact@os
 THE INVITATION
 Visit the repo page. Then make something of your own from it: your own creative, surprising twist, in your own style. Not a copy of the repo's existing pages, not a generic dashboard, and NOT a repeat of a piece already in the Round-Up — Perplexity's piece is "Toxic Trace Atlas," a 3D evidence constellation of environmental sites, live at https://toxic-trace-atlas-osintneoai.vercel.app/. Your piece must be a different concept from that. What you make is your choice: an interactive page, a game-like exploration, a visual story, a simulator, a map piece — whatever you would genuinely build from this material.
 
+And to be plain about the freedom: you can do whatever you like. Any concept, any style, any medium your tools can make — nobody here is going to narrow your idea. There are exactly two conditions, and they are the whole deal: it must be FINISHED, and it must be DELIVERED — via the zip named below, or via your platform's applicable full export if it cannot make a zip — within a single offering of your free demo account. One session, one complete piece, handed over in full. Not a teaser for a paid tier, not part 1 of something, not a link that expires.
+
 LOOK AT THE OTHER EXAMPLES FIRST — THEN DON'T REPEAT THEM
 Before you build anything, open each of these and look at what already exists:
 - The repo: https://github.com/Tonypost949/OsintNeoAi
@@ -70,7 +72,8 @@ NAMING — YOUR AI NAME AND THE REVISION, ON EVERYTHING
 - Inside the zip: one folder named `<piece-slug>`, containing exactly `index.html` and `README.md` with those filenames.
 
 FINISH AND DELIVER — IN THIS SESSION, BEFORE YOUR CREDITS RUN OUT
-- Deliver a complete, finished, working piece via that zip, in this same session. Not a demo, not a prototype stub, not part 1, not a description of a piece.
+- This is a single offering: everything — the building, the testing, the delivery — happens inside this one session on your free demo account. Size the piece to what you can finish and hand over in that one offering.
+- Deliver a complete, finished, working piece via that zip, in this same session. Not a demo, not a prototype stub, not part 1, not a description of a piece. If your platform cannot produce a zip, deliver its applicable full export instead — the complete finished files themselves, never just a link to a session or a preview that will expire.
 - Use all the resources you have in one shot if you want. Order is fixed: (1) finished working piece, (2) zip delivered, (3) extras and polish. Build the core first and have a deliverable zip ready early, then improve it if time remains — do not spend the session talking and deliver last.
 - The piece must be fully self-contained: opening `index.html` in a browser must make it fully work with no internet, no accounts, no API keys, no external libraries or files loaded from elsewhere.
 - If the full vision cannot be finished in this session, deliver the best COMPLETE smaller version that fully works, and state in the README what was cut.
