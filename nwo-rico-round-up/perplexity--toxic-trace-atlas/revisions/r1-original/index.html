@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Toxic Trace Atlas — Evidence Constellation</title>
+<style>
+:root{--bg:#050810;--panel:#0b1220;--ink:#e8f0ff;--dim:#8fa3bf;--cyan:#4be3ff;--amber:#ffb347;--red:#ff5c72}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 70% 20%,#0d1b30 0,#050810 60%);color:var(--ink);font:15px/1.5 system-ui,Segoe UI,sans-serif}
+header{padding:22px 28px;border-bottom:1px solid #16283f}h1{margin:0;font-size:24px;letter-spacing:.5px}
+h1 span{color:var(--cyan)}p.sub{margin:6px 0 0;color:var(--dim);max-width:900px}
+main{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:0;min-height:calc(100vh - 105px)}
+#stage{position:relative;overflow:hidden}canvas{width:100%;height:100%;display:block;cursor:grab}
+.side{background:rgba(8,14,25,.88);border-left:1px solid #16283f;padding:20px;overflow:auto}
+.card{background:#0d1626;border:1px solid #1d3350;border-radius:12px;padding:14px;margin-bottom:14px}
+.k{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:1px}
+.big{font-size:26px;font-weight:700}.riskbar{height:8px;border-radius:99px;background:#182b45;margin-top:8px;overflow:hidden}
+.riskfill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--amber),var(--red))}
+ul{margin:8px 0 0;padding-left:18px}li{margin:4px 0}
+.badge{display:inline-block;border:1px solid #2a4a72;border-radius:99px;padding:2px 9px;font-size:12px;color:var(--cyan)}
+#hud{position:absolute;left:18px;bottom:16px;background:rgba(5,10,18,.78);border:1px solid #1d3350;border-radius:10px;padding:10px 14px;color:var(--dim);font-size:12px}
+#legend{position:absolute;right:18px;top:16px;background:rgba(5,10,18,.78);border:1px solid #1d3350;border-radius:10px;padding:10px 14px;font-size:12px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px}
+footer{padding:12px 28px;color:var(--dim);border-top:1px solid #16283f;font-size:12px}
+@media(max-width:900px){main{grid-template-columns:1fr}.side{border-left:0;border-top:1px solid #16283f}}
+</style></head><body>
+<header><h1>Toxic Trace <span>Atlas</span></h1>
+<p class="sub">An original 3D evidence-constellation prototype: environmental compliance signals become spatial, temporal, and litigation-ready narratives. Select a node to open its evidence chain.</p></header>
+<main><div id="stage"><canvas id="c"></canvas>
+<div id="legend"><span class="dot" style="background:#4be3ff"></span>Low risk &nbsp; <span class="dot" style="background:#ffb347"></span>Elevated &nbsp; <span class="dot" style="background:#ff5c72"></span>Critical</div>
+<div id="hud">Drag to orbit • Scroll to zoom • Click a node</div></div>
+<aside class="side"><div class="card"><div class="k">Selected site</div><div class="big" id="siteName">Select a node</div><div id="siteStatus" class="badge">Awaiting selection</div>
+<div class="riskbar"><div class="riskfill" id="riskFill" style="width:0%"></div></div><div class="k" style="margin-top:6px" id="riskLabel">Risk index</div></div>
+<div class="card"><div class="k">Contaminants</div><ul id="contams"><li>—</li></ul></div>
+<div class="card"><div class="k">Evidence chain</div><ul id="chain"><li>—</li></ul></div>
+<div class="card"><div class="k">Analyst note</div><p id="note" style="color:var(--dim);margin:6px 0 0">This prototype uses illustrative records only. Replace the embedded dataset with authorized, source-linked public records before investigative use.</p></div>
+</aside></main>
+<footer>Toxic Trace Atlas • original companion concept inspired by spatial-OSINT and litigation-forensics workflows • demo data, not factual claims</footer>
+<script>
+const DATA=[{"id": "S-001", "name": "Harborview Fuel Terminal", "lat": 33.7405, "lon": -118.277, "risk": 0.91, "status": "Active cleanup", "contaminants": ["TPH-diesel", "Benzene"], "timeline": [["2011", "UST leak reported"], ["2016", "Corrective action ordered"], ["2024", "Monitoring well exceedance"]]}, {"id": "S-002", "name": "Northgate Industrial Yard", "lat": 34.0522, "lon": -118.2437, "risk": 0.78, "status": "Under investigation", "contaminants": ["PCE", "TCE"], "timeline": [["2008", "Solvent handling cited"], ["2019", "Vapor intrusion screening"], ["2025", "Off-site plume detected"]]}, {"id": "S-003", "name": "Cedar Ridge Logistics Hub", "lat": 34.0928, "lon": -117.8974, "risk": 0.64, "status": "Historical release", "contaminants": ["Lead", "Arsenic"], "timeline": [["1998", "Soil stockpile complaint"], ["2012", "Capsule closure"], ["2023", "Receptor survey"]]}, {"id": "S-004", "name": "Delta Chemical Works", "lat": 33.9425, "lon": -118.212, "risk": 0.87, "status": "Enforcement referral", "contaminants": ["VC", "1,4-Dioxane"], "timeline": [["2004", "Wastewater discharge notice"], ["2017", "Groundwater plume mapped"], ["2026", "Referral package assembled"]]}];
+const c=document.getElementById('c'),x=c.getContext('2d');let W,H,cam={rx:-.35,ry:.5,z:1},drag=null,sel=null;
+function resize(){W=c.width=c.clientWidth*devicePixelRatio;H=c.height=c.clientHeight*devicePixelRatio}
+addEventListener('resize',resize);resize();
+function project(s){const lat=s.lat,lon=s.lon;const px=(lon+124)/8,py=(lat-32)/4;const r=1.35;
+let X=Math.cos(cam.ry)*px-Math.sin(cam.ry)*py,Y=Math.sin(cam.ry)*px+Math.cos(cam.ry)*py;
+let Z=r;X*=cam.z;Y*=cam.z;const cx=W/2,cy=H/2,scale=Math.min(W,H)/3.2;return[cx+X*scale,cy+Y*scale,Z]}
+function color(r){return r>.85?'#ff5c72':r>.7?'#ffb347':'#4be3ff'}
+function draw(){x.clearRect(0,0,W,H);x.fillStyle='rgba(75,227,255,.06)';
+for(let i=0;i<70;i++){const a=i*2.399,t=i/70;x.beginPath();x.arc(W/2+Math.cos(a)*W*.35*t,H/2+Math.sin(a)*H*.35*t,devicePixelRatio,0,7);x.fill()}
+DATA.forEach((s,i)=>{const[p,q,z]=project(s);const R=(8+s.risk*18)*devicePixelRatio*cam.z;
+const col=sel===s?'#ffffff':color(s.risk);
+x.strokeStyle='rgba(75,227,255,.18)';x.beginPath();x.moveTo(W/2,H/2);x.lineTo(p,q);x.stroke();
+const g=x.createRadialGradient(p,q,0,p,q,R*2.4);g.addColorStop(0,col);g.addColorStop(1,'transparent');x.fillStyle=g;x.beginPath();x.arc(p,q,R*2.4,0,7);x.fill();
+x.fillStyle=col;x.beginPath();x.arc(p,q,R,0,7);x.fill();
+x.fillStyle='rgba(232,240,255,.9)';x.font=`${12*devicePixelRatio}px system-ui`;x.fillText(s.name,p+R+6*devicePixelRatio,q+4*devicePixelRatio)});
+requestAnimationFrame(draw)}
+function pick(mx,my){let best=null,bd=1e9;DATA.forEach(s=>{const[p,q]=project(s);const d=Math.hypot(mx-p,my-q);if(d<40*devicePixelRatio&&d<bd){bd=d;best=s}});return best}
+c.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY};c.setPointerCapture(e.pointerId)});
+c.addEventListener('pointerup',e=>{if(drag&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)<4){const r=c.getBoundingClientRect();sel=pick((e.clientX-r.left)*devicePixelRatio,(e.clientY-r.top)*devicePixelRatio);render()}drag=null});
+c.addEventListener('pointermove',e=>{if(!drag)return;cam.ry+=(e.clientX-drag.x)*.006;cam.rx+=(e.clientY-drag.y)*.004;drag={x:e.clientX,y:e.clientY}});
+c.addEventListener('wheel',e=>{e.preventDefault();cam.z=Math.min(2.2,Math.max(.45,cam.z*(e.deltaY<0?1.08:.93)))},{passive:false});
+function render(){if(!sel){document.getElementById('siteName').textContent='Select a node';document.getElementById('siteStatus').textContent='Awaiting selection';document.getElementById('riskFill').style.width='0%';document.getElementById('riskLabel').textContent='Risk index';document.getElementById('contams').innerHTML='<li>—</li>';document.getElementById('chain').innerHTML='<li>—</li>';return}
+document.getElementById('siteName').textContent=sel.name;document.getElementById('siteStatus').textContent=sel.status;
+document.getElementById('riskFill').style.width=(sel.risk*100).toFixed(0)+'%';document.getElementById('riskLabel').textContent='Risk index: '+sel.risk.toFixed(2);
+document.getElementById('contams').innerHTML=sel.contaminants.map(v=>`<li>${v}</li>`).join('');
+document.getElementById('chain').innerHTML=sel.timeline.map(([y,t])=>`<li><strong>${y}</strong> — ${t}</li>`).join('')}
+draw();
+</script></body></html>
