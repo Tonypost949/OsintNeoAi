@@ -321,3 +321,20 @@ carry this extraction. (2) Pull 2 — the Steve Morse Unified ED Finder and
 the FamilySearch ED-map collection (2329948) to settle the Liberty Park ED
 number, after which the ED's sheets on T627 roll 272 can be read for the
 Japanese households and for any Anderson head-of-household (Pull 3 item 7).
+
+## ADDENDUM 2026-11-06 ~02:08 PST — Liberty Park ED SETTLED: 30-49
+Settled via the Steve Morse Unified ED Finder (1940, Orange County),
+cross-checked against all ten Huntington Beach EDs 30-40 through 30-49.
+**ED 30-49** — exact description: "HUNTINGTON BEACH JUDICIAL TOWNSHIP
+OUTSIDE HUNTINGTON BEACH CITY BOUNDED BY (N) TALBERT AV; (E) TOWNSHIP
+LINE; (S) COUNTY LINE; (W) HUNTINGTON BEACH CITY LIMITS, HIGHWAY 171."
+Highway 171 is Beach Blvd. This is the unincorporated township ED covering
+the Liberty Park ground (Beach / Cameron / Speer / Slater), east of Beach
+Blvd and south of Talbert Ave. Schedules: NARA roll T627_272.
+Ruled out on their own descriptions: 30-46 (west of Highway 171, bounded
+south by the city limits — the Wintersburg-side ED) and 30-48 (north of
+Talbert Ave and east of Wright).
+NEXT NAMED PULL: read ED 30-49's 1940 schedule sheets and extract every
+Japanese/Japanese American household (to compare against the 26-family
+Huntington Beach Poston roster) and any ANDERSON head of household
+(Pull 3, item 7). Companion ED for the Wintersburg families: 30-46.

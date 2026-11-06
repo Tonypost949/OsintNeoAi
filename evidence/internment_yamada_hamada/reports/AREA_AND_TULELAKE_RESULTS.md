@@ -36,3 +36,37 @@ The registry's Tule Lake FAR data is Ancestry.com's transcription; its records s
 ## C. Named further pulls (not yet run)
 1. Original Tule Lake FAR (NARA RG 210) for Family 21270 — departure types + destinations, and clean records for Haruye and Mitsuru.
 2. 1940 census, Huntington Beach enumeration district(s) covering the Beach Blvd / Cameron Ln / Speer Ave (Liberty Park) area — the street-level physical-area search: which Japanese households were physically there in 1940, two years before the removal.
+
+## ADDENDUM 2026-11-06 ~02:24 PST — ORIGINAL TULE LAKE FAR READ VISUALLY: ALL NINE RESOLVED
+Source: the original ledger itself — Internet Archive item densho-nr-far-tulelake,
+Final Accountability Roster, Tule Lake, March 1946. Yamada entries at scanned
+pp. 551–555; Haruye's married-name entry at p. 37. (Browser read, measured
+02:06–02:24 PST.) All nine carry the same transfer line: T-Colo (transfer from
+Colorado River / Poston), 10-9-43, from Holtville, Ca.
+
+| Person (camp No.) | Departure type | Date | Destination |
+|---|---|---|---|
+| Yutaka (26703) | Term with Grant | 10-23-45 | Los Angeles, Ca |
+| Shizuko (26648) | Term with Grant | 11-8-45 | Anaheim, Ca |
+| Haruye — see DOIDA | Term RePat | 12-25-45 | Japan |
+| Takeshi Jimmy (= Takashi, b.1921) (26664) | Term with Grant | 3-14-46 | Los Angeles, Ca |
+| Yoshiye (26698) | Term with Grant | 3-14-46 | Anaheim, Ca |
+| Hiroshi (26567) | Term with Grant | 3-14-46 | Anaheim, Ca |
+| Shigeru William (26645) | Term with Grant | 11-8-45 | Anaheim, Ca |
+| Fusaye (26550) | Term with Grant | 11-8-45 | Anaheim, Ca |
+| Mitsuru (26620) | Term with Grant | 11-8-45 | Anaheim, Ca |
+
+- **Mitsuru's inconsistency RESOLVED**: the ledger's own row (No. 26620) reads
+  Term with Grant, 11-8-45, Anaheim — matching Shizuko, Shigeru William and
+  Fusaye exactly. The earlier "Mitsuru Thomas" transcription record (entry
+  1942-06-22, departure 1943-09-11) is a different/conflated transcription and
+  does not describe this family's Mitsuru.
+- **Haruye FOUND under her married name**: her Yamada entry (p. 552) is only a
+  cross-reference, "Haruye (Married DOIDA, Takeo)," with no departure data. The
+  full entry sits at p. 37: "DOIDA, Haruye (Nee YAMADA 21270)," No. 1117 —
+  Term RePat, 12-25-45, destination Japan. She is the only one of the nine who
+  left by repatriation.
+- No departure cell was blank or a ditto mark for any of the nine.
+- Destinations as printed: five of the nine (Shizuko, Yoshiye, Hiroshi,
+  Shigeru William, Fusaye, Mitsuru — six counting Mitsuru) terminated to
+  **Anaheim, California (Orange County)**; Yutaka and Takashi to Los Angeles.
