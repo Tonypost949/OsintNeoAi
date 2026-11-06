@@ -47,6 +47,8 @@ Full-size original records, byte-identical to the Internet Archive items
 - nr-far-tulelake_jp2.zip — the Tule Lake roster's original page images
   (JPEG 2000), 412,178,978 bytes — in originals/parts/ as base64 split parts.
 - OCR layers for both rosters (djvu.txt whole; djvu.xml in plain split parts).
+- civil-exclusion-order-61_csudh.pdf.b64 and public-proclamation-3_csudh.pdf
+  .b64 — the two CSUDH primary orders (decode with base64 -d).
 - civil-restrictive-order-1_berkeley.pdf — Civilian Restrictive Order No. 1
   (in originals/parts/ as base64 split parts).
 - 13_Westminster_Road_District_1912_Plat.jpg — the 1912 Westminster Road
@@ -66,9 +68,10 @@ Full-size original records, byte-identical to the Internet Archive items
   DRB2006039 label sets. See reports/DRIVE_FINDS_LABELS_PLAT_WELLS.md.
 
 ## Named gaps (not conclusions)
-- Civilian Exclusion Order No. 61 and Public Proclamation No. 3 PDFs (CSUDH
-  digital collections): host unreachable from the build machine on 2026-11-06;
-  downloads still owed.
+- (Closed 2026-11-06) Civilian Exclusion Order No. 61 and Public
+  Proclamation No. 3 PDFs (CSUDH): in originals/ as .b64 files, downloaded
+  via the browser route after the direct route failed; hashes in
+  originals/SHA256SUMS.txt.
 - Post-Tule Lake destinations for Family 21270: the original roster pages
   must be read visually; the OCR text layer cannot carry the table.
 - 1940 census ED for Liberty Park (Beach/Cameron/Speer): candidates
