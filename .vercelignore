@@ -1,0 +1,20 @@
+# Bundle trim — 2026-11-09 (Neo, per AI Laws: revise/archive/backup, nothing deleted)
+# These directories stay in the repo and in git history. They are data/archive
+# payloads, not part of the web app (the app is api/main.py + api/osint_pipeline
+# + api/templates). Vercel was bundling all of them into the Python function:
+# 510.88 MB against the 500 MB limit, which failed every rico-report-2026
+# preview build. Excluding them here only keeps them out of the deployment.
+# Backup of the pre-fix branch state: backup/rico-report-2026-pre-bundle-fix-2026-11-09
+evidence＂ --include fs.pdf --drive-shared-with-me/
+extracted_home_data/
+opencode_work/
+agent/
+extracted_documents/
+noble_beanbag_evidence/
+archive/
+Assessor - Property Search_files/
+AG2OSINTNEOMAXX/
+backup-scripts/
+.backup_20260703_073205/
+.agents/
+evidence/
