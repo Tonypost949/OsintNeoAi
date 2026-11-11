@@ -96,3 +96,6 @@ Settling pulls (named, not run): (1) live GLO session at https://glorecords.blm.
 | 4 | BLM GLO CA0750__.001 / CA0780__.042 | Both Las Bolsas patents DOCUMENTED (Yorba et al., 6/19/1874; Murillo & wife, 8/27/1877; undivided halves, Land Act of 1851); accession-to-patent mapping NOT YET DOCUMENTED |
 
 All four open items share one settling route: a live interactive browser session (RecorderWorks, AAD, GLO, GeoTracker/EnviroStor are all form/JavaScript systems that a text fetch cannot drive). No custodian was contacted and nothing was ordered.
+
+## CORRECTION (2026-11-10 18:34 PST) — Pull 1 is now SETTLED by a live index read; the format analysis was wrong
+A live RecorderWorks session after this report ran the document-number search directly: the index carries the Cameron grant deed as **2020000420412 (13 digits)** — GRANT DEED, recorded 8/19/2020, 4 pages, grantors YAMADA SHIGERU TR / YAMADA MITSURU TR / MITSURA YAMADA LIVING TRUST / SHIGERU YAMADA LIVING TRUST, grantee HUNTINGTON BEACH HOUSING AUTHORITY; the 12-digit form 202000420412 resolves to the same record. The 12-digit-format observation in Pull 1 was inference and is **withdrawn** — the county's number for this instrument is 13 digits as recorded. The dossier's instrument number was correct on this point.
