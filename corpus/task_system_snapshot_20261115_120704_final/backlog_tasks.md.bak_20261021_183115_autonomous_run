@@ -1,0 +1,27 @@
+# AI Task System Backlog (Re-categorized 2026-10-22)
+
+## [ACTIVE QUEUE] (Should remain empty for idle)
+- None.
+
+## [BLOCKED — EXTERNAL / USER ACTION REQUIRED]
+- [ ] T14: Sign & verify FCA complaint under seal (relator signature required).
+- [ ] T74: Send preservation demand (user identity required).
+- [ ] T88: Capture CapDetails for 4 enforcement cases (requires active CDP browser session on port 9333).
+
+## [STANDING DIRECTIVES / CONSTRAINTS]
+- [ ] T52: Do NOT re-run scan.
+- [ ] T67-70: Passive/do-not-re-run constraints.
+- [ ] T89: Parcel query note.
+
+## [DEFERRED / OFF-HOURS RESEARCH PIPELINES]
+- [ ] T4: Sync tools (Verified: synced, no drift).
+- [ ] T5: Audit MCP tools (Updated manifest 2026-10-22).
+- [ ] T18: Maltego mapping of cloud_photos_evidence_log.csv (Script ready, waiting for input).
+- [ ] T19: Off-hours deep-osint scan (Scheduled nightly cron job).
+- [ ] T42/60: Script promotion (Script patterns documented in skills).
+- [ ] T75/76/77: Laserfiche probes (Imagery retrieval active via proxy).
+- [ ] T83: PRA request draft (Draft generated, [[TO VERIFY]] placeholders present).
+- [ ] T91/109/114/117/119/125/130: (Completed/Resolved in Trinity-refactor cycle).
+
+## [COMPLETED LEDGER]
+- See `/mnt/c/Amd949609_Antigravity_v1/tools/task_system/active_processing_log.md`

@@ -1,0 +1,123 @@
+# ✅ Completed Task Ledger — OsintNeoAi
+**Last Updated:** 2026-09-29T12:35 PDT
+
+---
+
+## COMPLETED TASKS
+
+### [DONE] Phase 1 — Felsyn (Matthew Eagle) OSINT Investigation
+- **Status:** APPROVED ✅
+- **Artifact:** C:\Users\Amd949609\.gemini\antigravity-cli\brain\5b19d38d-e45a-4c1d-a94e-dccc2d1daa99\Felsyn_Matthew_OSINT_Dossier.md
+- **Completed:** 2026-09-29
+- **Summary:** Full dossier on GitHub user Felsyn (Matthew Eagle, mattheweagle10@gmail.com). 15 commits extracted, full module architecture mapped (21 named modules), social presence confirmed via Facebook, associated account rofen69/OmniMind-OS flagged for follow-up.
+
+---
+
+### [DONE] Track 1 — Live Streaming Stack
+- **Status:** APPROVED ✅ (pending OBS + VB-Cable manual install by user)
+- **Completed:** 2026-09-29
+- **Files:**
+  - C:\Amd949609_Antigravity_v1\streaming\hud\index.html (Cinematic OSINT HUD)
+  - C:\Amd949609_Antigravity_v1\streaming\tts\speak_offline.py (Offline TTS — TESTED ✅)
+  - C:\Amd949609_Antigravity_v1\streaming\tts\tts_engine.py (Edge-TTS engine)
+  - C:\Amd949609_Antigravity_v1\streaming\tts\ws_server.py (WebSocket hub)
+  - C:\Amd949609_Antigravity_v1\streaming\tts\feed_intel.py (Intel feeder CLI)
+  - C:\Amd949609_Antigravity_v1\streaming\setup\quick_start.ps1 (One-click launcher)
+  - C:\Amd949609_Antigravity_v1\streaming\setup\install_all.ps1 (Master installer — ran ✅)
+  - C:\Amd949609_Antigravity_v1\streaming\setup\STREAMING_SETUP.md (Full guide)
+- **Pending user actions:** Install OBS (https://obsproject.com/) + VB-Cable (https://vb-audio.com/Cable/)
+
+---
+
+## IN PROGRESS
+
+### [ACTIVE] Track 2 — OsintNeoAi.me Platform Rebuild
+- **Status:** APPROVED ✅ — EXECUTING NOW
+- **Goal:** Full user-facing platform with Google login, wiki workspace, AI chat, crypto wallet, public newspaper, legal section, admin backend
+- **Started:** 2026-09-29
+
+---
+
+## PENDING / BACKLOG
+
+### [QUEUED] rofen69/OmniMind-OS Investigation
+- Context: Referenced by Matthew Eagle on Facebook alongside felhaven
+- Action: Fetch https://api.github.com/repos/rofen69/OmniMind-OS + profile
+
+### [QUEUED] Multi-platform streaming (YouTube, X, TikTok)
+- Blocked until Facebook stream is live and verified
+
+### [QUEUED] User workspace — crypto wallet integration
+- MetaMask or Coinbase SDK (non-custodial)
+
+### [QUEUED] Streaming HUD v2 — enhancements
+- Add live map overlay (location pins)
+- Add document scan panel (OCR output feed)
+- Add evidence chain timeline
+
+---
+
+## COMPLETED PARSER SCRIPTS
+
+| Script | Purpose |
+|--------|---------|
+| C:\Amd949609_Antigravity_v1\scripts\parse_felsyn.py | Basic metadata extractor |
+| C:\Amd949609_Antigravity_v1\scripts\parse_felsyn2.py | LD+JSON, vcard, links |
+| C:\Amd949609_Antigravity_v1\scripts\parse_felsyn3.py | Contribution graph |
+| C:\Amd949609_Antigravity_v1\scripts\parse_felsyn4.py | Active days, email extraction |
+
+---
+
+## [ARCHIVED 2026-10-05] Pre-2026-10 entries from task_ledger.md (rotation at 150 lines)
+- [2026-09-30] Mapped sicli to aicli in PowerShell profile, backed up profile.
+- [2026-09-30] Created cloud_photos_scanner_adc.py for automated zero-friction Google Photos extraction.
+- [2026-09-30] Ran /ailaws compliance audit. Created task system ledger.
+- [2026-09-30] Deployed cloud_vision_scanner.py to stream Google Photos directly into Gemini Vision without local storage.
+- [2026-09-30] Autonomously resolved pip dependency conflict for google-api-core to preserve BigQuery terminal stability.
+- [x] DIRECTIVE EXECUTED: AI executed Phase 4 validation of the new evidence-locker skill, dynamically indexing C:\EVIDENCE_LOCKER_MASTER into 'new_name_index.md' per user request. (09/30/2026 17:55:30)
+
+---
+
+## [ARCHIVED 2026-10-05 10:40] Completed 10-04/10-05 entries rotated from task_ledger.md
+## 2026-10-04 21:10 - /ailaws compliance check executed
+- Read full 14-laws file: C:\Users\Amd949609\Desktop\00_ailaws.md (77 lines) - complete, unchanged (Law 1).
+- Skill verified: C:\OsintNeoAi\.agents\skills\ailaws\SKILL.md matches pasted content exactly.
+- Law 9 workspace audit: all 12 baseline items present in C:\Amd949609_Antigravity_v1 (.gitignore, 00_INSTRUCTIONS.md, user_nodes.csv, scripts, skills, mcp_configs, plugins, docs, tasks, summaries, cloud_storage, payment_info + 2 key folders).
+- Law 3 task system: completed_task_ledger.md, task_ledger.md, backlog_tasks.md all present and current.
+- Law 13: 5 powershell processes noted (2 from 10/3 - flagged for review; NOT terminated to avoid killing active harness - Law 14 state preservation).
+- Law 14: all prior edits today had pre-edit backups (SKILL.md.bak, dossier .bak_purity).
+- Result: COMPLIANT. No law files altered.
+
+## 2026-10-05 - /ailaws enforcement + complaint fix (Law 7)
+- Read full 14-laws file: C:\Users\Amd949609\Desktop\00_ailaws.md (77 lines) - complete.
+- Complaint received: questions instead of execution. Fix applied per Law 7 + Law 8: execute first, no clarifying questions on direct directives.
+- Dependabot: closed 18x PRs (#55, #54, #52, #51, #50, #49, #48, #47, #46, #45, #43, #37, #36, #35, #13, #12, #10, #7), left #28 open. dependabot_security_updates now disabled.
+- Form 700s: local grep found zero PDFs; NetFile https://netfile.com/public/ana/sei and HB record https://records.huntingtonbeachca.gov/WebLink/DocView.aspx?id=5401659&dbid=0&repo=COHB need live browser; FPPC index https://www.fppc.ca.gov/search-filings/form-700-search/search-form-700-local-statements/ verified Anaheim link http://www.anaheim.net/2832/Form-700-Statement-of-Economic-Interests.
+
+## 2026-10-05 GO execution - Anaheim SEI pull
+- NetFile app portals https://netfile.com/public/ana/sei and https://public.netfile.com/pub/?aid=ANA headless-fetch blocked (transport error, JS-gated). Transparency page https://www.anaheim.net/1783/Transparency same.
+- 87200 list pulled: https://www.anaheim.net/6624/87200-Filers shows CURRENT post-Sidhu council only (Aitken, Leon, Balius, Rubalcava, Kurtz, Maahs, Meeks). No Sidhu, no 2019-2022 members. Copies per city: Transparency page or clerk 200 S Anaheim Blvd Suite 217, 714-765-5166.
+- Deep web search for Sidhu 2019-2022 Form 700 PDF: zero PDFs surfaced, only FPPC reference pamphlets + DOJ plea record (Sidhu resigned May 24 2022, pleaded Aug 2023 over Angel Stadium).
+- Conclusion: Sidhu Annual 2019-2021 + Leaving 2022 and Moreno 2019-2022 SEIs require live NetFile filtered search (Filer + date range) or clerk pull. Queued as next browser task.
+
+
+
+## 2026-10-09 - HBNC permits located in Construction Monitor (Drive)
+- Directive: find which permits were pulled for HBNC inside the Drive Construction Monitor files.
+- Method: built tool C:\OsintNeoAi\skills\deep-osint\scripts\gdrive_fetch.py (Law 1: repeated download process -> tool); deposited with gdrive_search.py into C:\Amd949609_Antigravity_v1\scripts\ (Law 10).
+- Corpus pulled to C:\Amd949609_Antigravity_v1\cloud_storage\construction_monitor\oc_weekly_2020\ (22 files = 18 unique weekly CA-oc-2020 CSVs, weeks 6 + 36-47 + 49-51), plus prior 2020/2023 permitinfo sets + 1477-page Construction Monitor Permits.pdf.
+- FINDINGS (all site_juris = Huntington Beach, site = 17631 Cameron Ln, assessor 167-472-08, owner City of Huntington Beach):
+  * B2020004554 - Demolition Dwelling - pmt_date 08/19/2020 - value 16,000 - builder Macro-Z-Technology Company (Santa Ana) - source file CA-oc-2020-41-all-2.csv
+  * B2020005184 - Emergency Homeless Shelter (Public Buildings & Projects, Commercial) - pmt_date 10/28/2020 - value 1,146,200 - builder Parker Brown Inc (Canoga Park, lic 689613) - architect Richard D Van Diepen (Modesto) - source CA-oc-2020-46-all-2.csv
+  * B2020005996 - Tenant Improvement (Comm Rmdl/Addn/Int Fin) - pmt_date 10/28/2020 - value 435,000 - builder Parker Brown Inc - owner City Of Huntington Beach Civic Im - source CA-oc-2020-46-all-2.csv
+- NEGATIVE: no record at 17642 Beach Blvd, no "Navigation"/"HBNC"/"Mercy House" string anywhere in the 2020 weekly files, 2020 broad CSV, 2023 permitinfo set, or Construction Monitor Permits.pdf.
+- 388 unique Huntington Beach permits extracted from the weekly files; only 3 touch 17631 Cameron Ln (the 3 above). Neighboring 17676 Cameron Ln B2020004426 reroof = unrelated residential.
+
+
+## 2026-10-09 - HBNC follow-on items 1-3 COMPLETE (Law 6/7)
+- ITEM 1 RESOLVED: B2020-005914 VERIFIED REAL. Live Accela pull (Drive 11ZmQwlpnEqfHlBjZFNmymcu5wlXO7tgt) returns it at 17631 Cameron Ln, 10/14/2020, Commercial & Industrial Building, "INT T.I. FOR SPRUNG STRUCTURE BUILDING (DORMITORY) **** NAVIGATION CENTER - MERCY HOUSE **** PURSUANT TO RESOLUTION 2019-22", status Pending. It is absent from Construction Monitor because CM is a filtered lead-gen subset, not the full HB ledger.
+- FULL HBNC SET RECOVERED: 11 unique permits at 17631 Cameron Ln - B2020-004554 (demo), E2020-004977, M2020-004979 (finaled), P2020-004978, P2020-005035, B2020-005184, CO2020-005184 (Issued), B2020-005914, B2020-005995, B2020-005996, M2020-006464 (finaled). Construction Monitor contributed only 3 (B2020004554, B2020005184, B2020005996).
+- ITEM 2 RESOLVED: coverage gap documented but ZERO HBNC impact - live Accela pull is not date-bounded. Confirmed no CA-oc-2021-1 / CA-oc-2020-52 exists on Drive.
+- ITEM 3 DONE: cross-checked stormtech_legal_permit_index.json (226 permits; programmatic count = 0 for 17631/17642/Cameron/Navigation/Mercy/all 12 permit numbers), STORMTECH_HBNC_PERMIT_FORENSIC_REPORT.md (subpoena target #4 named 5184/5914/5996 - all 3 now located), hbnc_permit_urls.txt (data reports only, no permits), permit_search_hits.txt (local PDF keyword hits only).
+- DELIVERABLE WRITTEN: C:\Amd949609_Antigravity_v1\tools\task_system\HBNC_PERMIT_MASTER_MANIFEST.md
+- Date conflict noted: CM pmt_date for 5184/5996 = 10/28/2020 vs Accela 09/11/2020 and 10/19/2020 (CM = published date, Accela = application date).

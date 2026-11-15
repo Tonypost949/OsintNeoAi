@@ -1,0 +1,136 @@
+[
+ {
+  "id": "35cc7c0d-7fb0-43d3-828d-e22aa0cf15fa",
+  "type": "html_parse",
+  "target": "risk_matrix.html",
+  "status": "completed",
+  "priority": "high",
+  "completed_at": "2026-10-19T03:23:50+00:00",
+  "outputs": [
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/risk_matrix.parsed.md",
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/risk_matrix.parsed.json"
+  ]
+ },
+ {
+  "id": "4bf31526-4a44-4689-a4f1-75de2968727d",
+  "type": "html_parse",
+  "target": "timeline.html",
+  "status": "completed",
+  "priority": "high",
+  "completed_at": "2026-10-19T03:23:50+00:00",
+  "outputs": [
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/timeline.parsed.md",
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/timeline.parsed.json"
+  ]
+ },
+ {
+  "id": "ffedb981-ca01-46fc-a19d-cdbf5214bf74",
+  "type": "markdown_parse",
+  "target": "Compliance and Legal-Readiness Review.md",
+  "status": "completed",
+  "priority": "high",
+  "completed_at": "2026-10-19T03:23:50+00:00",
+  "outputs": [
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/Compliance and Legal-Readiness Review.parsed.md",
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/Compliance and Legal-Readiness Review.parsed.json"
+  ]
+ },
+ {
+  "id": "2be93693-2a01-4b97-8bec-d0042722358a",
+  "type": "html_parse",
+  "target": "port_heatmap.html",
+  "status": "completed",
+  "priority": "medium",
+  "completed_at": "2026-10-19T03:23:50+00:00",
+  "outputs": [
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/port_heatmap.parsed.md",
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/port_heatmap.parsed.json"
+  ]
+ },
+ {
+  "id": "cee8274f-0a89-49fe-8a26-da6e5c340c6e",
+  "type": "html_parse",
+  "target": "geo_map.html",
+  "status": "completed",
+  "priority": "high",
+  "completed_at": "2026-10-19T03:23:50+00:00",
+  "outputs": [
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/geo_map.parsed.md",
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/geo_map.parsed.json"
+  ]
+ },
+ {
+  "id": "c2da3ab9-2788-49a0-aeeb-5c9939989074",
+  "type": "markdown_parse",
+  "target": "dockets.justia.com_docket_california_cacdce_8_2026cv00348_1007201_75cfdc7a-d96f-4e01-bba5-62752f66b2ce.md",
+  "status": "completed",
+  "priority": "critical",
+  "completed_at": "2026-10-19T03:23:51+00:00",
+  "outputs": [
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/dockets.justia.com_docket_california_cacdce_8_2026cv00348_1007201_75cfdc7a-d96f-4e01-bba5-62752f66b2ce.parsed.md",
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/dockets.justia.com_docket_california_cacdce_8_2026cv00348_1007201_75cfdc7a-d96f-4e01-bba5-62752f66b2ce.parsed.json"
+  ]
+ },
+ {
+  "id": "3b43d125-3dc4-43e1-ae92-ef60af8b39b1",
+  "type": "html_parse",
+  "target": "rico_flow.html",
+  "status": "completed",
+  "priority": "critical",
+  "completed_at": "2026-10-19T03:23:51+00:00",
+  "outputs": [
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/rico_flow.parsed.md",
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/rico_flow.parsed.json"
+  ]
+ },
+ {
+  "id": "a1a57f67-7141-4682-a069-07244d87e67c",
+  "type": "html_parse",
+  "target": "rici visual ai_studio_code.html",
+  "status": "completed",
+  "priority": "medium",
+  "completed_at": "2026-10-19T03:23:51+00:00",
+  "outputs": [
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/rici visual ai_studio_code.parsed.md",
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/rici visual ai_studio_code.parsed.json"
+  ]
+ },
+ {
+  "id": "4b42d968-c43c-486b-8cf6-4ff4481abb89",
+  "type": "html_parse",
+  "target": "cluster_map.html",
+  "status": "completed",
+  "priority": "high",
+  "completed_at": "2026-10-19T03:23:51+00:00",
+  "outputs": [
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/cluster_map.parsed.md",
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/cluster_map.parsed.json"
+  ]
+ },
+ {
+  "id": "c064ad4b-3bcd-45fc-aa4a-962d9ae69056",
+  "type": "html_parse",
+  "target": "Importing from Other Reference Managers _ Zotero Documentation.html",
+  "status": "completed",
+  "priority": "low",
+  "completed_at": "2026-10-19T03:23:51+00:00",
+  "outputs": [
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/Importing from Other Reference Managers _ Zotero Documentation.parsed.md",
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/Importing from Other Reference Managers _ Zotero Documentation.parsed.json"
+  ]
+ },
+ {
+  "id": "d24c67f9-3c7e-4440-ae33-8c6dd65cbbd7",
+  "type": "markdown_parse",
+  "target": "SKILL.md",
+  "status": "completed",
+  "priority": "low",
+  "completed_at": "2026-10-19T03:23:51+00:00",
+  "outputs": [
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/SKILL.parsed.md",
+   "/mnt/c/OsintNeoAi/evidence/downloads_batch_ingest/parsed_20261018/SKILL.parsed.json"
+  ]
+ }
+]
+{"task": "TF_ENRICHED_SCAN_ADDITIONAL_DATA", "status": "queued_blocked_2fa", "priority": "high", "created": "2026-10-14T13:40:00Z", "detail": "Kim Thomson first then Shawn Elliott, Ricardo Alvarado, Eddie Shapiro, Andrew Falk, Brian Essah. Linux fresh login hit TruthFinder new-device SMS 2FA to (714) 787-6377. Did NOT trigger SMS to avoid lockout. Must run from Windows trusted browser_debug_profile via C:\\Amd949609_Antigravity_v1\\scripts\\execute_full_tf_enriched_scan.py which clicks all Scan for Data / Load Extended banners.", "evidence": ["C:\\Amd949609_Antigravity_v1\\evidence\\truthfinder_records\\TF_LINUX_2fa_challenge.html", "C:\\Amd949609_Antigravity_v1\\evidence\\truthfinder_records\\TF_LINUX_2fa_challenge.png"]}
+{"task": "TF_ENRICHED_SCAN_ADDITIONAL_DATA", "status": "completed_verified_linux", "completed": "2026-10-14T13:52:00Z", "detail": "All 6 enriched targets verified in 3 vaults: 24 files, 59236103 bytes (56.5 MB). Kim, Shawn, Ricardo, Eddie, Falk, Brian each with HTML+PNG+CDP PDF+TXT.", "paths": ["C:\\Amd949609_Antigravity_v1\\evidence\\truthfinder_records\\", "C:\\Amd949609_Antigravity_v1\\cloud_storage\\evidence_locker\\truthfinder_records\\", "C:\\Amd949609_Antigravity_v1\\cloud_storage\\gdrive_backup\\truthfinder_records\\"]}

@@ -1,0 +1,38 @@
+# AI Task System Backlog
+
+## Off-Hours / Automated Tasks
+- [ ] Sync all tools from C:\ai_shared_tools into C:\Amd949609_Gemini_3.6_Flash_Low\scripts\
+- [ ] Audit MCP tools and register full config manifest
+- [ ] AZURE-TICKET WATCH: run C:\Users\Amd949609\AppData\Local\Temp\opencode\azure_support_filing\check_ticket_485806.py (school mailbox UIA check). Post ICT ticket #485806 (https://support.post.edu/hc/requests/485806) filed 2026-10-05 12:42 AM. If no human ICT reply by 2026-10-05 17:00, reply to the 12:43 AM auto-ack email to bump the ticket (keeps thread per Zendesk).
+- [ ] AZURE UNBLOCK CHAIN (after ICT resets MFA off dead phone ...31): portal.azure.com fresh login -> pass proofup with +19493502312 -> Help + Support -> free billing/subscription request -> paste C:\OsintNeoAi\.copilot-azure\sessions\6e9a17ea-366e-468b-95a5-80e65fb93c2b\support_request_draft_20261004.md v2 (reactivation + $100 itemization + refund review). ON RE-ENABLE: delete all 36 idle resources FIRST (ledger 2026-10-04).
+- [ ] AZURE FALLBACK if ICT stalls >24h: @AzureSupport public tweet/DM - subscription f055033f-83fb-4ae9-9c36-be48f0c86158 (Azure for Students, student offer) disabled = $100 credit exhausted, billing/subscription re-enable + itemization request; login-less channel, no MFA gate. Dry-run draft in task_system first.
+- [ ] Microsoft portal support REST API + contactus form = confirmed closed (InvalidSupportPlan / sign-in required, verified 2026-10-05 01:17) - do not re-probe.
+
+## User Review Required
+- [ ] DAILY: Post ICT ticket #485806 status (auto-ack 12:43 AM; awaiting human reply). Azure remains ReadOnlyDisabledSubscription until ICT acts (blocked: MFA proofup to dead phone +1-949-659-7131; only registered method).
+
+
+- [ ] (rotated from task_ledger 2026-10-05) Integrate Maltego mapping script to automatically ingest cloud_photos_evidence_log.csv.
+- [ ] (rotated from task_ledger 2026-10-05) Run complete deep-osint filesystem scan in off-hours.
+
+## 2026-10-09 - Dependabot: 145 Vulnerabilities on Tonypost949/OsintNeoAi (Route to Daily Review)
+- Source: GitHub push response on commit 4572fc560 (4 critical, 65 high, 62 moderate, 14 low).
+- Detail URL: https://github.com/Tonypost949/OsintNeoAi/security/dependabot
+- Action: Review criticals first; batch-upgrade requirements.txt pins in off-hours run (reversible, backup first). Category: automated background candidate + daily user review flag (4 criticals are high-impact).
+- Status: OPEN [DEFERRED 2026-10-09 per user directive: "cleanup off tasks, not doing that now"]
+
+## 2026-10-09 - DAVE MIN follow-on (from DAVIDMIN-HUNT-2)
+- [x] DONE 2026-10-09 (TASK-20261009-DAVIDMIN-HUNT-3): Download + analyze "Gmail Report Analysis and Synthesis" Drive series (10 files: 1zSAOD6PLqrzAkm5uUxg5KY9DXM8H3g0P24SEQkPXPYY, 1t4vNfFrUagRXtg3aNQKUVhV0zXCiUSIuKc8U4ufgY-Q, 1jywCz120f2Wf78KV-jPcxmYAu9YhzVOV, 18gm4gjIBSl1i-ZVaf8eZZtDMT3Sr2GL_, 143uzJvsC3coihfgI6rBLJCrMth7WjM4j, 1CU-UyDeztkGqcqlkHm2DsFuJHfD-SIhl, 1s1kwUauAXOnofaV-hh5bbW8jh02dXsn2, 1UM2hRu90JUGEe08paUNl7pCe9-XwAZWG4oNOZ8xhGhc, 1-x2JscTgeFMq5Cg89briVLo7zh31zwBl, 1Wq2-ImDiUmj9xHGV900WfmmdyKFSQ6OR) - 6 unique docs extracted to C:\OsintNeoAi\opencode_work\david_min_hunt\gmail_report_series\.
+- [x] DONE 2026-10-09 (TASK-20261009-DAVIDMIN-HUNT-4): Forensic Telemetry docx (1kuAftMUxI4DbyPfovtdZ9NlFbISjsLck) downloaded (2,994,610 bytes) + extracted (46,744 chars: Dave Min x3, Sally Lim x1, RICO x6, "Senate District 37/29"); near-variant of analysis_and_generation_docx (sha differs).
+- [x] DONE 2026-10-09 (TASK-20261009-DAVIDMIN-HUNT-3): Enumerate all 46 Gmail "Dave Min" conversations (gmail_46_dave_min_THREADS_FINAL.json) + quote-extract direct office reply (Matt Kern, Policy Analyst, May 2 2024) + auto-reply (Dave Min, Jun 10 2024) + 32-msg Identity Theft thread (full text already in PDF).
+- [ ] Reconcile PER-016 Dave Min RICO Matrix row: email says "State Senator SD-29" but Min = SD-37 - verify matrix source doc in repo. NEW EVIDENCE: data_extraction_gdoc.txt contains BOTH "PER-016 Dave Min State Senator SD-29" AND "District 37" in same matrix row; analysis_and_generation_docx says "Senate District 37/29".
+- [x] DONE 2026-10-09 (TASK-20261009-DAVIDMIN-HUNT-4): federated-identity report deep-analyzed - full takeover chronology extracted: Jul 2021 Chase account closure, Aug 4 2021 armed Irvine eviction, Sep 2021 vehicle-reversal hijack, Oct 4 2023 ID.me OAuth link, May 22 2026 19:38 PDT hostile password change + T-Mobile REVVL TAB 2 incursion, May 27/28 recovery fight, Jun 7 2026 02:17 PDT permanent Google lockout of amd949609@gmail.com. Key claim: OAuth link -> likely federal ID (IRS/VA) access -> tax/healthcare/unemployment fraud. Different doc from Synthesis series (0 Dave Min).
+- [x] DONE 2026-10-09 (TASK-20261009-DAVIDMIN-HUNT-4): TOOL CREATED + VERIFIED: C:\Amd949609_Antigravity_v1\tools\cdp_gdrive_gmail\cdp_gdrive_gmail.py (+README.md). Modes: gmail-search / gmail-rows / gmail-thread / drive-search / drive-download / extract. Smoke-tested: extract mode OK, gmail-thread E2E OK (opened 18f3a578 direct-reply thread, full text returned, tab auto-closed).
+
+
+## 2026-10-09 - HBNC Construction Monitor: residual gaps (follow-on)
+- [ ] Verify/unverify B2020005914: cited in prior HBNC research but ABSENT from every Construction Monitor file on Drive (exact-match search = 0). Confirm via HB city permit portal https://records.huntingtonbeachca.gov/WebLink/DocView.aspx or https://www.huntingtonbeachca.gov/ that it exists and what it covers.
+- [ ] Coverage gap 1: Drive holds only OC weekly files for pmt_date 08/03/2020..12/14/2020 (weeks 36-51 minus 48). Missing CA-oc-2020 weeks 1-5, 7-35, 48, 52 = no pmt_date 05/26/2020..08/02/2020 or 12/15/2020..12/31/2020. Search Drive for CA-oc-2021-1/CA-oc-2020-52 (none found) or re-subscribe Construction Monitor to close it.
+- [ ] Coverage gap 2: Construction Monitor Permits.pdf (1477 pp) + permitinfo CSVs cover only 08/31/2023-09/27/2023 and 12/02/2019-05/25/2020 - zero HBNC. Do not re-scan these for HBNC.
+- [ ] Cross-check HBNC permits against EVIDENCE_LOCKER_MASTER/09_PERMITS/hbnc_permit_urls.txt and permit_search_hits.txt, plus Drive stormtech_legal_permit_index.json (222 permits) and STORMTECH_HBNC_PERMIT_FORENSIC_REPORT.md.
+- [ ] LAW 14/1 candidate: promote recurring Drive CSV keyword-mass-scan into C:\Amd949609_Antigravity_v1\tools\ (gdrive_search.py + gdrive_fetch.py + local grep pipeline).

@@ -1,0 +1,67 @@
+# ✅ Completed Task Ledger — OsintNeoAi
+**Last Updated:** 2026-09-29T12:35 PDT
+
+---
+
+## COMPLETED TASKS
+
+### [DONE] Phase 1 — Felsyn (Matthew Eagle) OSINT Investigation
+- **Status:** APPROVED ✅
+- **Artifact:** C:\Users\Amd949609\.gemini\antigravity-cli\brain\5b19d38d-e45a-4c1d-a94e-dccc2d1daa99\Felsyn_Matthew_OSINT_Dossier.md
+- **Completed:** 2026-09-29
+- **Summary:** Full dossier on GitHub user Felsyn (Matthew Eagle, mattheweagle10@gmail.com). 15 commits extracted, full module architecture mapped (21 named modules), social presence confirmed via Facebook, associated account rofen69/OmniMind-OS flagged for follow-up.
+
+---
+
+### [DONE] Track 1 — Live Streaming Stack
+- **Status:** APPROVED ✅ (pending OBS + VB-Cable manual install by user)
+- **Completed:** 2026-09-29
+- **Files:**
+  - C:\Amd949609_Antigravity_v1\streaming\hud\index.html (Cinematic OSINT HUD)
+  - C:\Amd949609_Antigravity_v1\streaming\tts\speak_offline.py (Offline TTS — TESTED ✅)
+  - C:\Amd949609_Antigravity_v1\streaming\tts\tts_engine.py (Edge-TTS engine)
+  - C:\Amd949609_Antigravity_v1\streaming\tts\ws_server.py (WebSocket hub)
+  - C:\Amd949609_Antigravity_v1\streaming\tts\feed_intel.py (Intel feeder CLI)
+  - C:\Amd949609_Antigravity_v1\streaming\setup\quick_start.ps1 (One-click launcher)
+  - C:\Amd949609_Antigravity_v1\streaming\setup\install_all.ps1 (Master installer — ran ✅)
+  - C:\Amd949609_Antigravity_v1\streaming\setup\STREAMING_SETUP.md (Full guide)
+- **Pending user actions:** Install OBS (https://obsproject.com/) + VB-Cable (https://vb-audio.com/Cable/)
+
+---
+
+## IN PROGRESS
+
+### [ACTIVE] Track 2 — OsintNeoAi.me Platform Rebuild
+- **Status:** APPROVED ✅ — EXECUTING NOW
+- **Goal:** Full user-facing platform with Google login, wiki workspace, AI chat, crypto wallet, public newspaper, legal section, admin backend
+- **Started:** 2026-09-29
+
+---
+
+## PENDING / BACKLOG
+
+### [QUEUED] rofen69/OmniMind-OS Investigation
+- Context: Referenced by Matthew Eagle on Facebook alongside felhaven
+- Action: Fetch https://api.github.com/repos/rofen69/OmniMind-OS + profile
+
+### [QUEUED] Multi-platform streaming (YouTube, X, TikTok)
+- Blocked until Facebook stream is live and verified
+
+### [QUEUED] User workspace — crypto wallet integration
+- MetaMask or Coinbase SDK (non-custodial)
+
+### [QUEUED] Streaming HUD v2 — enhancements
+- Add live map overlay (location pins)
+- Add document scan panel (OCR output feed)
+- Add evidence chain timeline
+
+---
+
+## COMPLETED PARSER SCRIPTS
+
+| Script | Purpose |
+|--------|---------|
+| C:\Amd949609_Antigravity_v1\scripts\parse_felsyn.py | Basic metadata extractor |
+| C:\Amd949609_Antigravity_v1\scripts\parse_felsyn2.py | LD+JSON, vcard, links |
+| C:\Amd949609_Antigravity_v1\scripts\parse_felsyn3.py | Contribution graph |
+| C:\Amd949609_Antigravity_v1\scripts\parse_felsyn4.py | Active days, email extraction |

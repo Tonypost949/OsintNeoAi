@@ -1,0 +1,16 @@
+# AI Task System Backlog
+
+## Off-Hours / Automated Tasks
+- [ ] Sync all tools from C:\ai_shared_tools into C:\Amd949609_Gemini_3.6_Flash_Low\scripts\
+- [ ] Audit MCP tools and register full config manifest
+- [ ] AZURE-TICKET WATCH: run C:\Users\Amd949609\AppData\Local\Temp\opencode\azure_support_filing\check_ticket_485806.py (school mailbox UIA check). Post ICT ticket #485806 (https://support.post.edu/hc/requests/485806) filed 2026-10-05 12:42 AM. If no human ICT reply by 2026-10-05 17:00, reply to the 12:43 AM auto-ack email to bump the ticket (keeps thread per Zendesk).
+- [ ] AZURE UNBLOCK CHAIN (after ICT resets MFA off dead phone ...31): portal.azure.com fresh login -> pass proofup with +19493502312 -> Help + Support -> free billing/subscription request -> paste C:\OsintNeoAi\.copilot-azure\sessions\6e9a17ea-366e-468b-95a5-80e65fb93c2b\support_request_draft_20261004.md v2 (reactivation + $100 itemization + refund review). ON RE-ENABLE: delete all 36 idle resources FIRST (ledger 2026-10-04).
+- [ ] AZURE FALLBACK if ICT stalls >24h: @AzureSupport public tweet/DM - subscription f055033f-83fb-4ae9-9c36-be48f0c86158 (Azure for Students, student offer) disabled = $100 credit exhausted, billing/subscription re-enable + itemization request; login-less channel, no MFA gate. Dry-run draft in task_system first.
+- [ ] Microsoft portal support REST API + contactus form = confirmed closed (InvalidSupportPlan / sign-in required, verified 2026-10-05 01:17) - do not re-probe.
+
+## User Review Required
+- [ ] DAILY: Post ICT ticket #485806 status (auto-ack 12:43 AM; awaiting human reply). Azure remains ReadOnlyDisabledSubscription until ICT acts (blocked: MFA proofup to dead phone +1-949-659-7131; only registered method).
+
+
+- [ ] (rotated from task_ledger 2026-10-05) Integrate Maltego mapping script to automatically ingest cloud_photos_evidence_log.csv.
+- [ ] (rotated from task_ledger 2026-10-05) Run complete deep-osint filesystem scan in off-hours.
