@@ -1,5 +1,37 @@
 [
   {
+    "id": "DISPATCH-20261115-052",
+    "title": "312-SCAN EXPANSION: Active StealC, Lumma, and Raccoon Stealers Infiltrate Newport Center Drive Leadership and Brokerage Portals",
+    "category": "CYBER_FORENSICS",
+    "jurisdiction": "NEWPORT CENTER / FASHION ISLAND, CA",
+    "published_at": "2026-11-15T07:31:00Z",
+    "author": "OSINT NEO CYBER RECON UNIT",
+    "excerpt": "Device-level infostealer telemetry reveals widespread malware infiltration across the executive leadership of 620 Newport Center Dr. Active StealC and Raccoon stealers exfiltrate credentials on Marianne Moy (Moy Family Trust), while RedLine stealers compromise Hai N. Jao (Bridgecreek Group). Simultaneously, Lumma and Acreed stealers actively breach Ashwill commercial brokerage operations, confirming that high-level real estate dealmakers encircling Fashion Island operate in an actively compromised cyber environment.",
+    "statutory_notes": "18 U.S.C. § 1030 (Computer Fraud and Abuse Act), 18 U.S.C. § 1961 (RICO Pattern of Racketeering Activity), Cal. Civ. Code § 1798.82.",
+    "sources_exhausted": [
+      "C:\\Amd949609_Antigravity_v1\\evidence\\NEWPORT_CENTER_CORRIDOR_BREACH_REPORT.md",
+      "C:\\Amd949609_Antigravity_v1\\evidence\\breach\\NEWPORT_CENTER_CORRIDOR_BREACH_SWEEP.json",
+      "Hudson Rock Cavalier Cybercrime Telemetry"
+    ],
+    "raw_audit_file": "NEWPORT_CENTER_CORRIDOR_BREACH_REPORT.md"
+  },
+  {
+    "id": "DISPATCH-20261115-051",
+    "title": "FIDUCIARY NERVE CENTER: Newport Center Drive Triad Unmasked Sheltering + Shell Conduits and Regulated Brokerages",
+    "category": "CROSS_JURISDICTION_RECON",
+    "jurisdiction": "FASHION ISLAND / NEWPORT BEACH, CA",
+    "published_at": "2026-11-15T07:30:00Z",
+    "author": "SWARM RECON INTELLIGENCE DESK",
+    "excerpt": "Forensic audit of corporate addresses encircling Fashion Island unmasks Newport Center Drive as the operational nerve center for both licensed real estate brokerages and multi-million-dollar anonymous property conduits. 220 Newport Center Dr (#11-557) shelters VJHB Cove LLC (.64M conveyance), Peninsula Village LLC, and Vue Investor Owner LLC behind CMRA mailbox shields, while 520 and 620 Newport Center Dr house Greystar California (DRE #01525765), Compass California, Golden Horizon Realty (Marianne Moy), and Bridgecreek Group (Frank Jao), establishing institutional proximity to distressed optionor flips.",
+    "statutory_notes": "Cal. Bus. & Prof. Code §§ 10159.2, 10085.5 (Broker Supervisory Liability & Advanced Fee Violations), 18 U.S.C. § 1956 (Money Laundering).",
+    "sources_exhausted": [
+      "C:\\Amd949609_Antigravity_v1\\evidence\\NEWPORT_CENTER_FIDUCIARY_CORRIDOR_AUDIT.md",
+      "California Department of Real Estate Public Records",
+      "Orange County Assessor Tax Rolls"
+    ],
+    "raw_audit_file": "NEWPORT_CENTER_FIDUCIARY_CORRIDOR_AUDIT.md"
+  },
+  {
     "id": "DISPATCH-20261115-050",
     "title": "300-SCAN CYBER MILESTONE: Active Infostealers Infiltrate Macquarie Group Infrastructure; RedLine and StealC Compromise Bayside Cove Sellers",
     "category": "CYBER_FORENSICS",
