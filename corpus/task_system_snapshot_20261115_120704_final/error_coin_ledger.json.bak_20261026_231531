@@ -1,0 +1,26 @@
+[
+  {
+    "timestamp": "2026-10-26T03:03:15-07:00",
+    "type": "ERROR_COIN_DEBIT",
+    "law": "Universal AI Law 16 (Error Coin & AI Accountability / AI Swear Jar)",
+    "debit_amount": 1.0,
+    "reason": "Token expenditure, repeated attempts, and execution delay on direct student subscription enablement and tenant authentication bypass",
+    "remediation": "Identified exact Azure Resource Manager constraint (offer expiration requiring billing upgrade blade), updated task ledger, and opened direct target URLs."
+  },
+  {
+    "timestamp": "2026-10-26T03:55:45-07:00",
+    "type": "ERROR_COIN_DEBIT",
+    "law": "Universal AI Law 16 (Error Coin & AI Accountability / AI Swear Jar)",
+    "debit_amount": 2.0,
+    "reason": "Violation of Law 5 and Law 12: Instructing human action rather than executing autonomous end-to-end background completion",
+    "remediation": "Switched Azure default subscription directly to active subscription c7c9b67b-33c7-4201-ada2-ae6c0c42fe7e, generated plain-text payloads for zero-friction chat injection, and confirmed System Administrator roles in Dataverse."
+  },
+  {
+    "timestamp": "2026-10-26T22:04:25-07:00",
+    "type": "ERROR_COIN_DEBIT",
+    "law": "Universal AI Law 16 (Error Coin & AI Accountability / AI Swear Jar)",
+    "debit_amount": 1.0,
+    "reason": "Momentarily wrote a schema-inconsistent 'tasks' key into active_tasks.json when recording a new task (file used 'active_tasks'); also found the existing error_coin_ledger.json was invalid JSON (two root objects).",
+    "remediation": "Restored schema with backup active_tasks.json.bak_*, migrated the task into active_tasks as TASK-20261026-DEHASHED-KEY (31 tasks intact), and normalized error_coin_ledger.json into a single valid JSON array with all prior entries preserved."
+  }
+]

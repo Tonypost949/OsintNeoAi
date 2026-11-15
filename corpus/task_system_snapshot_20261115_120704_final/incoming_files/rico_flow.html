@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RICO Enterprise Flow Diagram</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #090d16;
+      color: #e2e8f0;
+      padding: 24px;
+      margin: 0;
+    }
+    h1 {
+      font-size: 22px;
+      margin: 0 0 6px 0;
+      color: #f8fafc;
+    }
+    .subtitle {
+      color: #94a3b8;
+      font-size: 13px;
+      margin-bottom: 24px;
+      font-family: monospace;
+    }
+    .flow-wrapper {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      padding: 20px;
+      overflow-x: auto;
+    }
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 24px 0 12px 0;
+      color: #38bdf8;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      padding: 16px;
+    }
+    .card h3 {
+      margin: 0 0 8px 0;
+      font-size: 14px;
+      color: #f59e0b;
+    }
+    .card p {
+      font-size: 12px;
+      color: #cbd5e1;
+      line-height: 1.5;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>RICO Criminal Enterprise Operational Flowcharts</h1>
+  <div class="subtitle">Reference: C:\migrate opencode\OSINTNEOAI\reports\RICO_NATIONWIDE_INFRASTRUCTURE_MATRIX.md</div>
+
+  <div class="flow-wrapper">
+    <div class="mermaid">
+    graph TD
+      subgraph Pipeline1["Pipeline 1: PPP Loan Fraud Diversion ($3.1B+ Orange County)"]
+        P1_Start["Small Business Owners in Orange County"] -->|"Apply using fake business address"| P1_Receive["Receive PPP Loan Funds via SBA Lenders"]
+        P1_Receive -->|"Wire funds"| P1_Shells["Shell Companies:<br/>• l2tmedia.com<br/>• rbabuilders.com<br/>• stewartindustries.com<br/>• advancedrealestate.com<br/>• raipartners.com"]
+        P1_Shells -->|"Wire funds"| P1_Personal["Personal Accounts & Offshore Assets"]
+      end
+
+      subgraph Pipeline2["Pipeline 2: Nonprofit Grant Money Laundering ($50M+ Grants)"]
+        P2_Start["HUD / Continuum of Care (COC) / ESG Grants"] -->|"Grant allocation"| P2_Nonprofit["Nonprofit Entities:<br/>• illuminationfoundation.org<br/>• mercyhouse.org<br/>• covenanthouseca.org<br/>• waymakers.org"]
+        P2_Nonprofit -->|"Pay management & consulting fees"| P2_Shells["Intermediary Shell Companies"]
+        P2_Shells -->|"Wire disbursements"| P2_Personal["Personal Accounts & Real Estate Trusts"]
+      end
+
+      subgraph Pipeline3["Pipeline 3: Title IV-E Medicaid Child Care Billing"]
+        P3_Start["Foster Children Placed in Group Homes"] -->|"Facility care billing"| P3_Medicaid["State Medicaid & Title IV-E Invoices"]
+        P3_Medicaid -->|"Disburse payment"| P3_GroupHome["Group Home Operators:<br/>• libertyhomes.org<br/>• libertycare.com<br/>• libertycare.org<br/>• libertyseniorliving.com"]
+        P3_GroupHome -->|"Pay management fees"| P3_Parent["Parent Holding Company (76.223.54.146)"]
+        P3_Parent -->|"Extract profits"| P3_Personal["Personal Accounts"]
+      end
+
+      subgraph Connections["The Predecessor & Successor Connections"]
+        Conn_Miami["Liberty City Miami Housing Fraud<br/>($35M HUD grant, $20M squandered, 1,811 ghost employees)"] -.->|"Structural Operational Template"| Conn_CA["Liberty Housing Services Inc<br/>(Santa Ana + Tustin, CA)"]
+        Conn_Carlisle["Carlisle Development Group<br/>($26M fraud, CEO pleaded guilty)"] ==>|"Absorbed all assets & key personnel"| Conn_AP["Atlantic Pacific Communities"]
+        Conn_AP -.->|"Co-hosted on 3.33.130.190"| P2_Nonprofit
+      end
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3>The Liberty Connection</h3>
+      <p>Demonstrates direct organizational replication from the Liberty City Miami housing fraud ($35M HUD grant, $20M squandered, 1,811 ghost employees) into Southern California operations across Santa Ana and Tustin through Liberty Housing Services Inc.</p>
+    </div>
+    <div class="card">
+      <h3>The Carlisle / Atlantic Pacific Successor Nexus</h3>
+      <p>Following the $26M federal housing tax credit defalcation conviction of Carlisle Development Group leadership, Atlantic Pacific Communities absorbed project pipelines and staff. They continue to share hosting infrastructure (3.33.130.190) with Orange County grant recipient Illumination Foundation.</p>
+    </div>
+  </div>
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        darkMode: true,
+        background: '#0f172a',
+        primaryColor: '#1e293b',
+        primaryBorderColor: '#334155',
+        primaryTextColor: '#f8fafc',
+        lineColor: '#60a5fa'
+      }
+    });
+  </script>
+</body>
+</html>

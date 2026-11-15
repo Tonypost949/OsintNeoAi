@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Department Infrastructure Risk Matrix</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; padding: 25px; }
+    h1 { font-size: 20px; margin-bottom: 5px; }
+    p { color: #94a3b8; font-size: 14px; margin-bottom: 20px; }
+    input { width: 100%; max-width: 350px; padding: 8px 12px; margin-bottom: 15px; border-radius: 4px; border: 1px solid #334155; background: #1e293b; color: #fff; }
+    table { border-collapse: collapse; width: 100%; font-size: 13px; background: #1e293b; border-radius: 6px; overflow: hidden; }
+    th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid #334155; }
+    th { background: #1e293b; cursor: pointer; color: #38bdf8; }
+    th:hover { background: #334155; }
+    tr:hover { background: #243248; }
+    .badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; }
+    .badge-critical { background: #7f1d1d; color: #fca5a5; }
+    .badge-high { background: #991b1b; color: #fecaca; }
+    .badge-med { background: #9a3412; color: #fdba74; }
+    .badge-low { background: #14532d; color: #86efac; }
+  </style>
+</head>
+<body>
+  <h1>Sheriff & Law Enforcement Infrastructure Risk Matrix</h1>
+  <p>Sortable assessment of exposed services, perimeter firewall controls, and related inquiry status.</p>
+
+  <input type="text" id="search" placeholder="Filter departments or states..." onkeyup="filterTable()">
+
+  <table id="matrix">
+    <thead>
+      <tr>
+        <th onclick="sortTable(0)">Department Name</th>
+        <th onclick="sortTable(1)">State</th>
+        <th onclick="sortTable(2)">Population</th>
+        <th onclick="sortTable(3)">Open Ports</th>
+        <th onclick="sortTable(4)">WAF Status</th>
+        <th onclick="sortTable(5)">Infrastructure Risk</th>
+        <th onclick="sortTable(6)">Investigation Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cook County Sheriff</td>
+        <td>Illinois</td>
+        <td>5.2M</td>
+        <td>4</td>
+        <td>Cloudflare WAF</td>
+        <td><span class="badge badge-high">HIGH</span> (Shares IP block with shell domain)</td>
+        <td>Active federal investigation</td>
+      </tr>
+      <tr>
+        <td>Pima County Sheriff</td>
+        <td>Arizona</td>
+        <td>1.0M</td>
+        <td>4</td>
+        <td>Cloudflare WAF</td>
+        <td><span class="badge badge-med">MEDIUM</span> (Asset forfeiture probe scrutiny)</td>
+        <td>FBI investigation, perjury allegations</td>
+      </tr>
+      <tr>
+        <td>Los Angeles County Sheriff</td>
+        <td>California</td>
+        <td>10.0M</td>
+        <td>13</td>
+        <td>NO WAF</td>
+        <td><span class="badge badge-critical">CRITICAL</span> (RDP, DBs, Elasticsearch exposed)</td>
+        <td>Unknown</td>
+      </tr>
+      <tr>
+        <td>Shelby County Sheriff</td>
+        <td>Tennessee</td>
+        <td>930K</td>
+        <td>2</td>
+        <td>NO WAF</td>
+        <td><span class="badge badge-high">HIGH</span> (Shared IP with target municipal site)</td>
+        <td>Unknown</td>
+      </tr>
+      <tr>
+        <td>HB Police Department</td>
+        <td>California</td>
+        <td>200K</td>
+        <td>1</td>
+        <td>Cloudflare WAF</td>
+        <td><span class="badge badge-med">MEDIUM</span> (Prior multi-port exposure scan records)</td>
+        <td>400 Dehashed breach listings</td>
+      </tr>
+      <tr>
+        <td>Las Vegas Metro Police</td>
+        <td>Nevada</td>
+        <td>2.3M</td>
+        <td>1</td>
+        <td>Cloudflare WAF</td>
+        <td><span class="badge badge-low">LOW</span> (Standard edge reverse proxy)</td>
+        <td>Unknown</td>
+      </tr>
+      <tr>
+        <td>Anaheim Police</td>
+        <td>California</td>
+        <td>350K</td>
+        <td>2</td>
+        <td>Cloudflare WAF</td>
+        <td><span class="badge badge-high">HIGH</span> (Shared external IP mapping)</td>
+        <td>Unknown</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    function filterTable() {
+      const q = document.getElementById("search").value.toLowerCase();
+      const rows = document.querySelectorAll("#matrix tbody tr");
+      rows.forEach(r => {
+        r.style.display = r.innerText.toLowerCase().includes(q) ? "" : "none";
+      });
+    }
+
+    function sortTable(n) {
+      const table = document.getElementById("matrix");
+      let switching = true, dir = "asc", switchcount = 0;
+      while (switching) {
+        switching = false;
+        let rows = table.rows;
+        for (let i = 1; i < (rows.length - 1); i++) {
+          let shouldSwitch = false;
+          let x = rows[i].getElementsByTagName("TD")[n];
+          let y = rows[i + 1].getElementsByTagName("TD")[n];
+          let cmpX = x.innerText.toLowerCase();
+          let cmpY = y.innerText.toLowerCase();
+          if (dir == "asc" ? cmpX > cmpY : cmpX < cmpY) {
+            shouldSwitch = true;
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount++;
+            break;
+          }
+        }
+        if (!switching && dir == "asc" && switchcount == 0) {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+  </script>
+</body>
+</html>

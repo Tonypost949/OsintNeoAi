@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Target Port Exposure Heatmap</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #090d16;
+      color: #f1f5f9;
+      padding: 24px;
+      margin: 0;
+    }
+    h1 {
+      font-size: 22px;
+      margin: 0 0 6px 0;
+      color: #f8fafc;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      color: #94a3b8;
+      font-size: 13px;
+      margin-bottom: 24px;
+      font-family: monospace;
+    }
+    .table-container {
+      overflow-x: auto;
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 12px;
+      min-width: 1000px;
+    }
+    th, td {
+      padding: 10px 8px;
+      text-align: center;
+      border: 1px solid #1e293b;
+    }
+    th {
+      background: #1e293b;
+      color: #cbd5e1;
+      font-weight: 600;
+      font-size: 11px;
+    }
+    th.target-col {
+      text-align: left;
+      min-width: 190px;
+      padding-left: 14px;
+    }
+    td.target-name {
+      text-align: left;
+      font-weight: 600;
+      font-family: monospace;
+      color: #e2e8f0;
+      padding-left: 14px;
+      background: #0f172a;
+    }
+    .cell-closed {
+      background-color: #14532d;
+      color: #86efac;
+      font-weight: 500;
+    }
+    .cell-low {
+      background-color: #713f12;
+      color: #fef08a;
+      font-weight: 600;
+    }
+    .cell-med {
+      background-color: #c2410c;
+      color: #ffedd5;
+      font-weight: 700;
+    }
+    .cell-high {
+      background-color: #991b1b;
+      color: #fee2e2;
+      font-weight: 800;
+      box-shadow: inset 0 0 0 1px #ef4444;
+      animation: pulseAlert 2.5s infinite ease-in-out;
+    }
+    @keyframes pulseAlert {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+    .legend {
+      display: flex;
+      gap: 20px;
+      margin-top: 24px;
+      font-size: 13px;
+      flex-wrap: wrap;
+    }
+    .legend-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .swatch {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+    }
+    .notes-box {
+      margin-top: 24px;
+      padding: 16px;
+      background: #1e293b;
+      border-left: 4px solid #ef4444;
+      border-radius: 4px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .notes-box strong {
+      color: #fca5a5;
+    }
+  </style>
+</head>
+<body>
+  <h1>Port Exposure Attack Surface Heatmap</h1>
+  <div class="subtitle">Evidence Files: C:\migrate opencode\OSINTNEOAI\evidence\port_scans\*.txt</div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th class="target-col">Target (Domain)</th>
+          <th>21<br>FTP</th>
+          <th>25<br>SMTP</th>
+          <th>80<br>HTTP</th>
+          <th>110<br>POP3</th>
+          <th>143<br>IMAP</th>
+          <th>443<br>HTTPS</th>
+          <th>993<br>IMAPS</th>
+          <th>995<br>POP3S</th>
+          <th>1433<br>MSSQL</th>
+          <th>3306<br>MySQL</th>
+          <th>3389<br>RDP</th>
+          <th>5432<br>PGSQL</th>
+          <th>5900<br>VNC</th>
+          <th>8080<br>HTTP-A</th>
+          <th>8443<br>HTTPS-A</th>
+          <th>9200<br>Elastic</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="target-name">lacounty.gov</td>
+          <td class="cell-med">OPEN</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-med">OPEN</td>
+          <td class="cell-med">OPEN</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-med">OPEN</td>
+          <td class="cell-med">OPEN</td>
+          <td class="cell-high">OPEN</td>
+          <td class="cell-high">OPEN</td>
+          <td class="cell-high">OPEN</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-high">OPEN</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-high">OPEN</td>
+        </tr>
+        <tr>
+          <td class="target-name">libertyseniorliving.com</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-closed">CLOSED</td>
+        </tr>
+        <tr>
+          <td class="target-name">pimasheriff.org</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-closed">CLOSED</td>
+        </tr>
+        <tr>
+          <td class="target-name">cookcountysheriff.org</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-closed">CLOSED</td>
+        </tr>
+        <tr>
+          <td class="target-name">hbpd.org</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+        </tr>
+        <tr>
+          <td class="target-name">shelbycountytn.gov</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+        </tr>
+        <tr>
+          <td class="target-name">anaheim.net</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-low">OPEN</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+          <td class="cell-closed">CLOSED</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="legend">
+    <div class="legend-box"><div class="swatch" style="background:#14532d;"></div> GREEN = Closed / Filtered</div>
+    <div class="legend-box"><div class="swatch" style="background:#713f12;"></div> YELLOW = Open Low Risk (HTTP/HTTPS)</div>
+    <div class="legend-box"><div class="swatch" style="background:#c2410c;"></div> ORANGE = Open Medium Risk (Mail/Cleartext Services)</div>
+    <div class="legend-box"><div class="swatch" style="background:#991b1b;"></div> RED = Open High Risk (Databases, RDP, VNC, Elasticsearch)</div>
+  </div>
+
+  <div class="notes-box">
+    <strong>Forensic Assessment Summary:</strong><br>
+    • <strong>lacounty.gov</strong> represents a critical vulnerability profile: 13 total open ports including direct exposure of production database engines (1433 MSSQL, 3306 MySQL), administrative remote control protocols (3389 RDP, 5900 VNC), and document store (9200 Elasticsearch) with NO Web Application Firewall detected.<br>
+    • <strong>cookcountysheriff.org</strong> and <strong>libertyseniorliving.com</strong> utilize Cloudflare reverse-proxy insulation but demonstrate multi-tenant co-hosting connections to corporate shell networks.
+  </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+[
+  {
+    "task_id": "TASK-VERMA-FULL-SUITE-20261105065046",
+    "timestamp_utc": "2026-11-05T06:50:46.637083Z",
+    "title": "Exhaustive 240-PDF TruthFinder Extraction, Genealogical GEDCOM/Kinship Reconstruction, Multi-State Probate/Deed Audit, and Forensic Tax/AML Audit for Dr. Ann Prema Verma, M.D.",
+    "skills_executed": [
+      "C:\\OsintNeoAi\\.agents\\skills\\probate-estate-forensics\\SKILL.md",
+      "C:\\OsintNeoAi\\.agents\\skills\\family-tree-recon\\SKILL.md",
+      "C:\\OsintNeoAi\\.agents\\skills\\tax-forensics-moneylaundering\\SKILL.md",
+      "C:\\OsintNeoAi\\.agents\\skills\\truthfinder\\SKILL.md"
+    ],
+    "deliverables": [
+      {
+        "file": "VERMA_PROBATE_ESTATE_INHERITANCE_FORENSICS.md",
+        "local_path": "C:\\Amd949609_Antigravity_v1\\evidence\\investigation_dossiers\\VERMA_PROBATE_ESTATE_INHERITANCE_FORENSICS.md",
+        "cloud_path": "C:\\Amd949609_Antigravity_v1\\cloud_storage\\evidence_locker\\investigation_dossiers\\VERMA_PROBATE_ESTATE_INHERITANCE_FORENSICS.md",
+        "gdrive_path": "C:\\Amd949609_Antigravity_v1\\cloud_storage\\gdrive_backup\\investigation_dossiers\\VERMA_PROBATE_ESTATE_INHERITANCE_FORENSICS.md",
+        "size_bytes": 19542,
+        "sha256": "70C098BC5EC9ECD104FF6E5F076BE59DB8FB4868F4DBA25D9E06055A127C6BD0"
+      },
+      {
+        "file": "verma_probate_deed_inheritance_ledger.csv",
+        "local_path": "C:\\Amd949609_Antigravity_v1\\evidence\\investigation_dossiers\\verma_probate_deed_inheritance_ledger.csv",
+        "cloud_path": "C:\\Amd949609_Antigravity_v1\\cloud_storage\\evidence_locker\\investigation_dossiers\\verma_probate_deed_inheritance_ledger.csv",
+        "gdrive_path": "C:\\Amd949609_Antigravity_v1\\cloud_storage\\gdrive_backup\\investigation_dossiers\\verma_probate_deed_inheritance_ledger.csv",
+        "size_bytes": 9879,
+        "sha256": "5C547FF601C6BDD23684C5E60B5824F81C40404E35DDCA08296F017B711BF770"
+      },
+      {
+        "file": "DR_ANN_VERMA_GENEALOGY_AND_FAMILY_TREE_MASTER.md",
+        "local_path": "C:\\Amd949609_Antigravity_v1\\evidence\\investigation_dossiers\\DR_ANN_VERMA_GENEALOGY_AND_FAMILY_TREE_MASTER.md",
+        "cloud_path": "C:\\Amd949609_Antigravity_v1\\cloud_storage\\evidence_locker\\investigation_dossiers\\DR_ANN_VERMA_GENEALOGY_AND_FAMILY_TREE_MASTER.md",
+        "gdrive_path": "C:\\Amd949609_Antigravity_v1\\cloud_storage\\gdrive_backup\\investigation_dossiers\\DR_ANN_VERMA_GENEALOGY_AND_FAMILY_TREE_MASTER.md",
+        "size_bytes": 19517,
+        "sha256": "7712138629DC5B953B032ACDDE172F393ED27198B83D198304A8DB13DB64079C"
+      },
+      {
+        "file": "dr_ann_verma_family_tree.ged",
+        "local_path": "C:\\Amd949609_Antigravity_v1\\evidence\\investigation_dossiers\\dr_ann_verma_family_tree.ged",
+        "cloud_path": "C:\\Amd949609_Antigravity_v1\\cloud_storage\\evidence_locker\\investigation_dossiers\\dr_ann_verma_family_tree.ged",
+        "gdrive_path": "C:\\Amd949609_Antigravity_v1\\cloud_storage\\gdrive_backup\\investigation_dossiers\\dr_ann_verma_family_tree.ged",
+        "size_bytes": 11255,
+        "sha256": "CC86A9ADB2112E76E0E837BEB62688651475D4CF8241C2CE341CAD07F74ECCF3"
+      },
+      {
+        "file": "verma_complete_family_tree_nodes.csv",
+        "local_path": "C:\\Amd949609_Antigravity_v1\\evidence\\investigation_dossiers\\verma_complete_family_tree_nodes.csv",
+        "cloud_path": "C:\\Amd949609_Antigravity_v1\\cloud_storage\\evidence_locker\\investigation_dossiers\\verma_complete_family_tree_nodes.csv",
+        "gdrive_path": "C:\\Amd949609_Antigravity_v1\\cloud_storage\\gdrive_backup\\investigation_dossiers\\verma_complete_family_tree_nodes.csv",
+        "size_bytes": 11449,
+        "sha256": "9D9D24C5F9B8AB20622A6533164F83762ECC24081293A59018626E23657F4FFE"
+      },
+      {
+        "file": "VERMA_TAX_FORENSICS_AML_AND_TRUST_AUDIT.md",
+        "local_path": "C:\\Amd949609_Antigravity_v1\\evidence\\investigation_dossiers\\VERMA_TAX_FORENSICS_AML_AND_TRUST_AUDIT.md",
+        "cloud_path": "C:\\Amd949609_Antigravity_v1\\cloud_storage\\evidence_locker\\investigation_dossiers\\VERMA_TAX_FORENSICS_AML_AND_TRUST_AUDIT.md",
+        "gdrive_path": "C:\\Amd949609_Antigravity_v1\\cloud_storage\\gdrive_backup\\investigation_dossiers\\VERMA_TAX_FORENSICS_AML_AND_TRUST_AUDIT.md",
+        "size_bytes": 56217,
+        "sha256": "ED19A065934A483CA0ED7BE05132132AD2108E16550FE372566561D736555524"
+      },
+      {
+        "file": "verma_tax_forensics_aml_schedule.csv",
+        "local_path": "C:\\Amd949609_Antigravity_v1\\evidence\\investigation_dossiers\\verma_tax_forensics_aml_schedule.csv",
+        "cloud_path": "C:\\Amd949609_Antigravity_v1\\cloud_storage\\evidence_locker\\investigation_dossiers\\verma_tax_forensics_aml_schedule.csv",
+        "gdrive_path": "C:\\Amd949609_Antigravity_v1\\cloud_storage\\gdrive_backup\\investigation_dossiers\\verma_tax_forensics_aml_schedule.csv",
+        "size_bytes": 15824,
+        "sha256": "1693B3AA1F24983E7618227BB976FD5E9BFF03FAEA96BB4D7FE390DB7932BB74"
+      },
+      {
+        "file": "TRUTHFINDER_240_DEEP_PARSE_SUMMARY.md",
+        "local_path": "C:\\Amd949609_Antigravity_v1\\evidence\\investigation_dossiers\\TRUTHFINDER_240_DEEP_PARSE_SUMMARY.md",
+        "cloud_path": "C:\\Amd949609_Antigravity_v1\\cloud_storage\\evidence_locker\\investigation_dossiers\\TRUTHFINDER_240_DEEP_PARSE_SUMMARY.md",
+        "gdrive_path": "C:\\Amd949609_Antigravity_v1\\cloud_storage\\gdrive_backup\\investigation_dossiers\\TRUTHFINDER_240_DEEP_PARSE_SUMMARY.md",
+        "size_bytes": 398382,
+        "sha256": "A58DC1AD19F05A11C9B40B44FEFDA9188F8106E978E13575560E3F6DBD0DD536"
+      },
+      {
+        "file": "TRUTHFINDER_240_EXTRACTED_MASTER_DATA.json",
+        "local_path": "C:\\Amd949609_Antigravity_v1\\evidence\\investigation_dossiers\\TRUTHFINDER_240_EXTRACTED_MASTER_DATA.json",
+        "cloud_path": "C:\\Amd949609_Antigravity_v1\\cloud_storage\\evidence_locker\\investigation_dossiers\\TRUTHFINDER_240_EXTRACTED_MASTER_DATA.json",
+        "gdrive_path": "C:\\Amd949609_Antigravity_v1\\cloud_storage\\gdrive_backup\\investigation_dossiers\\TRUTHFINDER_240_EXTRACTED_MASTER_DATA.json",
+        "size_bytes": 1182806,
+        "sha256": "FD21566DCA66750D7797B60D6E88B15B1A57C321A9AC4555BAE2B38110D63889"
+      }
+    ]
+  }
+]

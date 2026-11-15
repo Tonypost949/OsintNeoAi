@@ -1,0 +1,6 @@
+Tool_Name,Category,Status,Endpoint_URL,Capability_Description
+"Have I Been Pwned","Breach_Monitoring","Verified_Corrected","https://osintcabal.org/livecenter/cabalbreach-haveibeenpwned.html","Queries HIBP v3 API to detect account involvement in public data breaches."
+"Proton Intelligence","Email_Recon","Disentangled","https://osintcabal.org/livecenter/protonintelligence.html","Reconnaissance on ProtonMail keys, creation date ranges, and public PGP keys."
+"Proxy / VPN Checker","Network_Infrastructure","Verified_Active","https://osintcabal.org/livecenter/proxyvpnchecker.html","Queries IP risk scores, detecting commercial VPNs, proxies, and Tor exit nodes."
+"Webcheck","Network_Infrastructure","Verified_Active","https://osintcabal.org/livecenter/webcheck.html","Comprehensive security headers, TLS posture, server location, and DNS telemetry."
+"HuntPastebin","Breach_Monitoring","Verified_Active","https://osintcabal.org/livecenter/huntpastebin.html","Scrapes Pastebin, GitHub Gists, and text drops for sensitive query leaks."

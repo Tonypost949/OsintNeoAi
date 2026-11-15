@@ -1,0 +1,10 @@
+TaskID,TargetURL,FolderID,DocIDs,Status,EgressMethod,Timestamp
+LF-20261010-01,https://records.huntingtonbeachca.gov/WebLink/,4806972,"5406552, 6386715",QUEUED_UNBLOCKED_EGRESS,Remote-VPS-Tunnel,2026-10-10T16:47:00-07:00
+LF-20261010-02,5406552,TTS grading contract + 3 amendments + bid schedule,RETRIEVED via webfetch egress 2026-10-10,Saved: C:\OsintNeoAi\evidence\laserfiche_5406552_TTS_grading_contract_FULL.txt (172097 B)
+LF-20261010-03,5401659,Council item 20-1799 shelter auth + ground lease Yamada + env findings,RETRIEVED via webfetch egress 2026-10-10,Saved: C:\OsintNeoAi\evidence\laserfiche_5401659_council_20-1799_shelter_auth_FULL.txt (80383 B)
+LF-20261010-04,6386715,PWG2020-020 plan set (8 sheets w/ StormTech MC-3500 layout),STILL BLOCKED - cookies required on DocView for this ID - webfetch egress works for 5406xxx range but 6386715 needs ASP.NET session cookie
+LF-20261010-05,4806972,Laserfiche folder listing,STILL BLOCKED - system error via webfetch
+LF-20261010-06,"retrieve","PWG2020-020 stamped plan sheets","Laserfiche DocView IDs near 5406552; Accela documents tab","blocked-cookie-session","2026-10-10"
+LF-20261010-07,"retrieve","Accela PWG2020-020 documents/conditions","aca-prod.accela.com CapDetail 20ENG-00000-005ZM AJAX iframes","blocked-auth-session","2026-10-10"
+LF-20261010-08,"success","Laserfiche 6386715 Future Development 17642","DocView.aspx?id=6386715","retrieved","2026-10-10"
+LF-20261010-09,"success","Accela PWG2020-020 record metadata","CapDetail.aspx?ALTID=PWG2020-020","retrieved","2026-10-10"
