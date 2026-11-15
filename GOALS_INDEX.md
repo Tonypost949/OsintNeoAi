@@ -1,0 +1,78 @@
+# Goals index - titles only
+
+Generated 2026-11-14 from the first line of each ~/workspace/goals/*/GOAL.md (74 goals). Full GOAL.md files were NOT copied - titles/descriptions only, family names replaced with relationship labels where they appeared in a title.
+
+- `25skills-list-from-amelia-fiorini` - 25SKILLS list from Amelia Fiorini
+- `5252-argosy-ave-hb-full-address-protocol-sweep` - 5252 Argosy Ave HB — full address protocol sweep
+- `9185w-tablet-drive-offload` - 9185W tablet Drive offload
+- `a16-phone-storage-cleanup` - A16 phone storage cleanup
+- `above-top-secret-tony-codes-posts-december-2-2015-wayback-pull` - Above Top Secret Tony Codes posts — December 2, 2015 Wayback pull
+- `ai-laws-github-update` - AI laws GitHub update
+- `ambulance-file-shelter-marked-as-clinic-in-nemsis` - Ambulance file — shelter marked as clinic in NEMSIS
+- `anonymous-tip-2026-11-08-disney-dollars-follow-up-pulls` - Anonymous tip 2026-11-08 — Disney Dollars follow-up pulls
+- `april-2021-official-document-timeline` - April 2021 official-document timeline
+- `arbitrage-underdog-rebuild-djdrop-install-and-fiverr-check` - Arbitrage Underdog rebuild — djdrop install and Fiverr check
+- `bridge-live-viewer` - Bridge live viewer
+- `chase-bank-records` - Chase Bank records
+- `cia-rdp-foia-frame-templates` - CIA RDP FOIA frame templates
+- `dehashed-domain-counts-for-organizations` - DeHashed domain counts for organizations
+- `dehashed-hbpd-org-full-results-scrape` - DeHashed hbpd.org full results scrape
+- `dj-dr-p-facebook-video-drops` - DJ DR∅P Facebook video drops
+- `djdrop-rustdesk-remote-access` - djdrop RustDesk remote access
+- `edr-corrections-order-7887036` - EDR corrections — Order 7887036
+- `entity-risk-register` - Entity risk register
+- `fact-checker-powerapp-fix-re-test` - Fact-checker PowerApp — fix + re-test
+- `falk-trust-question-formosa-property-and-falk-property-trust` - Falk trust question — Formosa property and Falk Property Trust
+- `feed-tool-installs` - Feed tool installs
+- `fiverr-legal-services-outreach` - Fiverr legal-services outreach
+- `fppc-ingest-and-the-resolve-package-yamada-and-angels-stadium` - FPPC ingest and THE RESOLVE package — Yamada and Angels Stadium
+- `free-wifi-for-djdrop` - Free WiFi for djdrop
+- `gmail-and-outlook-mailbox-connection` - Gmail and Outlook mailbox connection
+- `god-s-eye-view-and-gis-data-navigator` - God's Eye View and GIS Data Navigator
+- `google-ai-pro-best-deal-acquisition` - Google AI Pro best-deal acquisition
+- `hardened-antigravity-replication-to-9185w-and-a16` - Hardened Antigravity replication to 9185W and A16
+- `harper-fabric-osintneoai-first-app` - Harper Fabric osintneoai first app
+- `hb-museum-native-american-artifact-provenance` - HB museum — Native American artifact provenance
+- `hercules-osint-neo-ai-app` - Hercules OSINT NEO AI app
+- `hide-me-vpn-on-djdrop-for-a-us-address` - hide.me VPN on djdrop for a US address
+- `huntington-beach-shelter-threads` - Huntington Beach shelter threads
+- `identity-theft-insurance-records` - Identity theft insurance records
+- `jose-skip-trace-4105-54th-pl` - Jose skip trace — 4105 54th Pl
+- `knabb-case-certified-docket-pull` - Knabb case certified docket pull
+- `letter-to-erica-dimarcello` - Letter to My Sister
+- `locally-uncensored-with-edge0` - Locally Uncensored with Edge0
+- `lowenberg-circuit-open-document-pulls` - Lowenberg circuit — open document pulls
+- `lua-trading-algorithms` - Lua trading algorithms
+- `manus-army-recruit` - Manus army recruit
+- `millworks-designs-and-business-development` - Millworks designs and business development
+- `neo-page-saver-extension` - Neo Page Saver extension
+- `neo-self-clone-experiment` - Neo self-clone experiment
+- `nes-cli-ai` - NES CLI AI
+- `nwo-rico-presentation-osintneoai-ai-entries` - NWO RICO presentation — OsintNeoAi AI entries
+- `omar-150-mxn-transfer` - Omar 150 MXN transfer
+- `omni-channel-outreach-engine-github-repo-hunt` - Omni-Channel outreach engine GitHub repo hunt
+- `osint-revolver-toolbox` - OSINT revolver toolbox
+- `osintneoai-page-reachable-presence` - OsintNeoAi Page @-reachable presence
+- `osintneoai-repo-sort-for-public-flip` - OsintNeoAi repo sort for public flip
+- `pawn-shop-laptop-phone-room-data-consolidation` - Pawn-shop laptop — phone-room data consolidation
+- `pc-cleanup-djdrop` - PC cleanup — djdrop
+- `phone-wi-fi-in-home-room` - Phone Wi-Fi in home room
+- `pinderhughes-id-scan-hb-origin-pull` - Pinderhughes ID scan — HB origin pull
+- `post-eviction-debt-consolidation-records` - Post-eviction debt consolidation records
+- `queued-app-builds` - Queued app builds
+- `rea-kimi-talk-back-into-agy-cli` - REA Kimi talk-back into agy CLI
+- `render-pipeline-powerapp` - Render Pipeline PowerApp
+- `rustdesk-on-tab-a9` - RustDesk on Tab A9+
+- `second-hercules-app-inspection` - Second Hercules app inspection
+- `shea-shelter-shared-plume-pull` - Shea–shelter shared plume pull
+- `skywork-daily-credit-build-for-osintneoai-repo` - Skywork daily-credit build for OsintNeoAi repo
+- `step-pyramid-system-splinter-sweep-of-everything` - Step Pyramid system — Splinter sweep of everything
+- `tab-a9-storage-cleanup` - Tab A9+ storage cleanup
+- `tablet-volume-drift-fix` - Tablet volume drift fix
+- `tailscale-link-windows-pc-to-neo-vm` - Tailscale link: Windows PC to Neo VM
+- `tax-dollar-trace-and-official-document-stacks` - Tax-dollar trace and official-document stacks
+- `top-3-free-legal-ai-tools-claim-and-add-to-legal-section` - Top 3 free legal AI tools — claim and add to legal section
+- `trinity-written-only-bridge-and-device-upkeep` - Trinity written-only bridge and device upkeep
+- `truthfinder-unlimited-reports-activation` - TruthFinder unlimited reports activation
+- `u-s-v-gomes-court-docs-pull` - U.S. v. Gomes court-docs pull
+- `yamada-notary-and-elder-status-investigation` - Yamada notary and elder-status investigation
