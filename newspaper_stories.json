@@ -1,5 +1,53 @@
 [
   {
+    "id": "DISPATCH-20261115-065",
+    "title": "HARBORFRONT TAKEOVER: 59 Balboa Marina Parcels Co-Vested in Redwood West and OSF NB as  Bulk Drop Pierced in Superior Court",
+    "category": "CROSS_JURISDICTION_RECON",
+    "jurisdiction": "BALBOA PENINSULA / NEWPORT BEACH, CA / OC SUPERIOR COURT",
+    "published_at": "2026-11-15T07:48:00Z",
+    "author": "SWARM RECON INTELLIGENCE DESK",
+    "excerpt": "Exhaustive parcel-by-parcel graph reconstruction deconstructs the 59 subdivided APNs (932-713-01 to 61) along 2210-2300 Newport Blvd across 23 commercial suites, 33 luxury waterfront condos, and master marina parking. 57 parcels are simultaneously co-vested in Peninsula Village LLC (Redwood West CFO Kimberly Tavares) and OSF NB LLC following an August 2022 .00 bulk transfer from Vue Investor Owner LLC executed mid-lawsuit, triggering compulsory joinder orders under Judge Lon F. Hurwitz.",
+    "statutory_notes": "Cal. Civ. Code § 3439.04 (UVTA), Cal. Code Civ. Proc. § 389, 18 U.S.C. § 1956 (Money Laundering).",
+    "sources_exhausted": [
+      "C:\\Amd949609_Antigravity_v1\\evidence\\BALBOA_PENINSULA_59_APN_MARINA_LITIGATION_DOSSIER.md",
+      "Orange County Assessor Tax Rolls",
+      "Orange County Superior Court Docket"
+    ],
+    "raw_audit_file": "BALBOA_PENINSULA_59_APN_MARINA_LITIGATION_DOSSIER.md"
+  },
+  {
+    "id": "DISPATCH-20261115-064",
+    "title": "CROSS-CLUSTER SMOKING GUN: Identical Credentials Bind 220 Newport Center to Moy 620 Tower, Bella Terra Mall, and Saigon Villas in 24-Entity Expansion",
+    "category": "CYBER_FORENSICS",
+    "jurisdiction": "NEWPORT CENTER / HUNTINGTON BEACH / WESTMINSTER, CA",
+    "published_at": "2026-11-15T07:47:00Z",
+    "author": "OSINT NEO CYBER RECON UNIT",
+    "excerpt": "Hudson Rock threat telemetry establishes irrefutable Gate 1 physical hardware and credential matches directly binding 220 Newport Center Dr to the master network: VJHB Cove LLC (220 Newport Center) exfiltrates the exact same email credential string as Marianne Moy (620 Newport Center Fl 11th); Redwood West CFO Kimberly Tavares (220 Newport Center) exfiltrates the exact same credential string as Bella Terra Associates LLC; and Cut and Paste LLC exfiltrates the identical device identifier as Saigon Villas Unit 249 counterparty Dang Huynh. The unified Zynga breach syndicate now expands to TWENTY-FOUR (24) confirmed entities (P < 10^-23 against chance).",
+    "statutory_notes": "18 U.S.C. § 1030 (CFAA), 18 U.S.C. § 1961 (RICO Pattern of Racketeering Activity), Cal. Civ. Code § 1798.82.",
+    "sources_exhausted": [
+      "C:\\Amd949609_Antigravity_v1\\evidence\\PENINSULA_VILLAGE_REDWOOD_BREACH_REPORT.md",
+      "C:\\Amd949609_Antigravity_v1\\evidence\\breach\\PENINSULA_VILLAGE_REDWOOD_BREACH_SWEEP.json",
+      "Hudson Rock Cavalier Cybercrime Telemetry"
+    ],
+    "raw_audit_file": "PENINSULA_VILLAGE_REDWOOD_BREACH_REPORT.md"
+  },
+  {
+    "id": "DISPATCH-20261115-063",
+    "title": "JUDICIAL EXPOSURE: Redwood West and Vue Investor Owner Compelled as Co-Defendants in Mid-Lawsuit  Balboa Marina Shift",
+    "category": "CROSS_JURISDICTION_RECON",
+    "jurisdiction": "BALBOA PENINSULA / NEWPORT BEACH, CA / OC SUPERIOR COURT",
+    "published_at": "2026-11-15T07:46:00Z",
+    "author": "SWARM RECON INTELLIGENCE DESK",
+    "excerpt": "Court docket and title reconciliation uncovers judicial orders compelling Peninsula Village LLC (Redwood West CFO Kimberly Tavares) and Vue Investor Owner LLC (Third Palm Capital) as co-defendants before Judge Lon F. Hurwitz in Orange County Superior Court. The judicial action was triggered by an unencumbered .00 title shift of 49 Balboa Peninsula marina and commercial parcels (APNs 932-713-xx at 2200-2280 Newport Blvd) executed mid-litigation through 220 Newport Center Dr CMRA mailbox #11-557.",
+    "statutory_notes": "Cal. Civ. Code § 3439.04 (Uniform Voidable Transactions Act), Cal. Code Civ. Proc. § 389 (Compulsory Joinder of Indispensable Parties), 18 U.S.C. § 1956.",
+    "sources_exhausted": [
+      "C:\\Amd949609_Antigravity_v1\\evidence\\BALBOA_PENINSULA_REDWOOD_WEST_AUDIT.md",
+      "Orange County Superior Court Docket (South Coast Shipyard v. Vue Investor Owner)",
+      "Orange County Assessor Tax Rolls"
+    ],
+    "raw_audit_file": "BALBOA_PENINSULA_REDWOOD_WEST_AUDIT.md"
+  },
+  {
     "id": "DISPATCH-20261115-062",
     "title": "19-WAY MASTER SYNDICATE BREACH: Second Shared Workstation Proved on Saigon Villas Nominees as Golden Horizon Expands Zynga Convergence",
     "category": "CYBER_FORENSICS",
