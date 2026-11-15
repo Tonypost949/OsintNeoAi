@@ -7,6 +7,7 @@
 - Published here: 338 text files + this manifest, under `corpus/task_system_snapshot_20261115_120704_final/`
 - Redactions applied to this public copy ONLY (originals unredacted on djdrop and in Neo's workspace copy):
   - 103 Google API key values (AIza format, carried in the task ledgers as key lists) replaced with `[REDACTED-GOOGLE-API-KEY]`
+  - 2 occurrences of a GCP service-account API key (AQ. format) in `completed_task_ledger.json` replaced with `[REDACTED-GCP-API-KEY]` — caught by GitHub's own secret scanner on the first batch-2 attempt, which was rejected before commit; the redacted file was then pushed clean
   - 239 occurrences of a close-family surname replaced with `[FAMILY-NAME]`
   - 3 log files converted from CP1252 to UTF-8
 - Omitted from this push (binary; the GitHub snapshot route carries UTF-8 text only) — preserved in the original zip:
