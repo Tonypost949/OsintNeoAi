@@ -1,5 +1,37 @@
 [
   {
+    "id": "DISPATCH-20261115-040",
+    "title": "COMMERCIAL EMPIRE EXPOSED: SBLP Huntington Beach .4M Main Street Complex Routes to Dallas as Ranwest Executes  Deed Flip",
+    "category": "CROSS_JURISDICTION_RECON",
+    "jurisdiction": "HUNTINGTON BEACH / WESTMINSTER, CA / DALLAS, TX",
+    "published_at": "2026-11-15T07:14:00Z",
+    "author": "SWARM RECON INTELLIGENCE DESK",
+    "excerpt": "Forensic deed reconciliation confirms SBLP Huntington Beach Office LLC holds ,466,748 in prime commercial assets across Main Street (APNs 023-631-01 through 04) with tax billing routed directly to Cole Ave in Dallas, Texas. Meanwhile, Ranwest Properties LLC executed a  nominal deed drop on March 5, 2021 (Doc #158330) on .03M Westminster commercial parcels 10 days before the March 15, 2021 Bayside Cove Nevada nominee convergence.",
+    "statutory_notes": "18 U.S.C. § 1952 (Interstate Racketeering Enterprise), 18 U.S.C. § 1956 (Money Laundering), Cal. Rev. & Tax Code § 11911.",
+    "sources_exhausted": [
+      "C:\\Amd949609_Antigravity_v1\\evidence\\RANWEST_SBLP_HUNTINGTON_BEACH_AUDIT.md",
+      "Orange County Assessor Tax Rolls",
+      "C:\\muse\\truthfinder_records\\NEO_TO_AGY_LIVE.txt"
+    ],
+    "raw_audit_file": "RANWEST_SBLP_HUNTINGTON_BEACH_AUDIT.md"
+  },
+  {
+    "id": "DISPATCH-20261115-039",
+    "title": "INFOSTEALER ALERT: SBLP Huntington Beach Office Corridor Infiltrated by Lumma and RedLine Stealers; Ranwest Connects to 6-Way Zynga Cohort",
+    "category": "CYBER_FORENSICS",
+    "jurisdiction": "HUNTINGTON BEACH / WESTMINSTER, CA / DALLAS, TX",
+    "published_at": "2026-11-15T07:13:00Z",
+    "author": "OSINT NEO CYBER RECON UNIT",
+    "excerpt": "Device-level infostealer telemetry confirms active Lumma and RedLine stealer malware infections on systems managing SBLP Huntington Beach Office LLC (2100-2134 Main St, HB) routing tax administration to Cole Ave in Dallas. Simultaneously, Ranwest Properties LLC (Westminster commercial parcels) is indexed in the exact same September 2019 Zynga breach cohort shared by Elizabeth Do, Dale Ann Verma, Monica Moy, Kathryn Cross, and Hiep Vo, marking the 6th major property entity united across this cyber compromise timeline.",
+    "statutory_notes": "18 U.S.C. § 1030 (Computer Fraud and Abuse Act), Cal. Civ. Code § 1798.82, 18 U.S.C. § 1961 (RICO Pattern of Racketeering Activity).",
+    "sources_exhausted": [
+      "C:\\Amd949609_Antigravity_v1\\evidence\\RANWEST_SBLP_BREACH_REPORT.md",
+      "C:\\Amd949609_Antigravity_v1\\evidence\\breach\\RANWEST_SBLP_BREACH_SWEEP.json",
+      "Hudson Rock Cavalier Telemetry & HaveIBeenPwned API"
+    ],
+    "raw_audit_file": "RANWEST_SBLP_BREACH_REPORT.md"
+  },
+  {
     "id": "DISPATCH-20261115-038",
     "title": "DIGITAL FORENSICS: Zynga Breach Cohort Connects Garland Conduit Directly to Elizabeth Do and Coto De Caza Targets",
     "category": "CYBER_FORENSICS",
