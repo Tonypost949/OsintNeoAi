@@ -16,4 +16,4 @@
   - `backups/form700_screenshots_bak/netfile_search_council_members_20261008.png`
   - `backups/form700_screenshots_bak/netfile_search_harry_sidhu_20261008.png`
 - Post-redaction scan of this copy: zero hits for GitHub tokens, OAuth client secrets, private keys, Google API keys, or the family surname.
-- Published by Neo (Muse) at the user's order, 2026-11-15, via the connected GitHub account (single batch).
+- Published by Neo (Muse) at the user's order, 2026-11-15, via the connected GitHub account, in 4 batches (the single 12.4 MB push was rejected by the transport with HTTP 413; batches of ~3.2 MB went through) plus this manifest revision. Commits: bc875c45, 3dc13420, ec4646f6, 218a2b8b, a7f91882 (manifest), and the commit carrying this correction.
