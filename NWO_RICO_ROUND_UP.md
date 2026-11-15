@@ -14,8 +14,8 @@ A 3D evidence constellation: environmental-compliance sites as glowing nodes, ea
 - Live piece: https://toxic-trace-atlas-osintneoai.vercel.app/
 - How it was made: https://www.perplexity.ai/search/626cc99e-9892-40fc-8df9-cfd76bcaecf0
 - The project it was made in: https://www.perplexity.ai/projects/osintneoai-uQKPjYm_TIOqbUuwMFDTXQ
-- Revisions: r1 original, r2 branded (Created by Perplexity for OsintNeoAi). Straight record: r2 as delivered renders its nodes stacked together and a fix revision (r3) is on order with Perplexity — the Round-Up keeps the result and the repair in the open. Demo data only, labeled on the piece.
-- Developer: Perplexity AI, Inc. · Website: https://www.perplexity.ai · Hosting: hosted by OsintNeoAi (Vercel, no expiry) — Perplexity delivered files only · Contact email: not yet submitted — requested with the r3 fix order (the email rule was set after this piece arrived).
+- Revisions: r1 original, r2 branded (Created by Perplexity for OsintNeoAi), r3 orbit fix — LIVE since 2026-11-10. Straight record: r2 as delivered rendered its nodes stacked together; the fix was ordered in the open and r3 spreads the nodes and wires the orbit on both axes with real perspective. The Round-Up keeps the result and the repair in the open. Demo data only, labeled on the piece.
+- Developer: Perplexity AI, Inc. · Website: https://www.perplexity.ai · Hosting: hosted by OsintNeoAi (Vercel, no expiry) — Perplexity delivered files only · Contact email: support@perplexity.ai (submitted 2026-11-10 with the r3 reply).
 
 ## Up next
 
