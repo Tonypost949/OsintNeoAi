@@ -1,5 +1,184 @@
 [
   {
+    "id": "DISP-2026-1115-DAWN-KIEFLER-PUBLIC-TRUST",
+    "title": "TRINITY AUDIT: County of San Diego Public Employee Living Trust Assets & Nevada Footprint Reconciled",
+    "category": "Public Sector Living Trusts & Real Estate Forensics",
+    "jurisdiction": "San Diego / Oxnard, CA / Las Vegas, NV",
+    "published_at": "2026-11-15T06:54:00Z",
+    "author": "studio-engine / OsintNeoAi Strike Army",
+    "excerpt": "Multimodal extraction identifies Dawn L. Kiefler (dawn.kiefler@sdcounty.ca.gov, County of San Diego municipal employee) transferring APN 133-0-290-445 on 11/16/2021 for ,000.00 into the Kiefler Living Trust alongside San Diego residential condo holdings (APN 472-620-15-06) and a Las Vegas NV interstate node, mirroring public agency employee asset protection patterns seen under Cal. Gov. Code \u00a7 1090 / \u00a7 87100.",
+    "statutory_notes": [
+      "Cal. Gov. Code \u00a7 87100 (Public Official Economic Interest Disclosure)",
+      "Cal. Prob. Code \u00a7 16000 (Fiduciary Trust Standards)",
+      "Trinity Gate 2 Public Agency Employee Reconciliation"
+    ],
+    "sources_exhausted": [
+      "DAWN_KIEFLER_PUBLIC_AGENCY_TRUST_DOSSIER.md",
+      "County of San Diego Public Directory",
+      "TruthFinder Extended Records"
+    ],
+    "raw_audit_file": "C:\\Amd949609_Antigravity_v1\\evidence\\DAWN_KIEFLER_PUBLIC_AGENCY_TRUST_DOSSIER.md"
+  },
+  {
+    "id": "DISP-2026-1115-DOUGLAS-CROSS-BREACH",
+    "title": "KALI RECON SWEEP: Trabuco Canyon Cross Asset Holders Share 2019 Canva/Zynga Breach Cohort",
+    "category": "Cyber Forensics & Digital Cohort Correlation",
+    "jurisdiction": "Trabuco Canyon / Orange County, CA",
+    "published_at": "2026-11-15T06:54:00Z",
+    "author": "kali-recon / OsintNeoAi Strike Army",
+    "excerpt": "Credential sweep across Douglas and Kathryn Cross (scans #212\u2013#214 in breach.db)\u2014owners of APN 811-091-04 adjacent to Coto De Caza Lyon acreage\u2014identifies participation in the identical Canva (2019-05) and Zynga (2019-09) breach cohorts previously mapped across Elizabeth Do, Monica Moy, and Hiep Vo matrices, corroborating demographic and digital timeline overlap across Orange County asset holders.",
+    "statutory_notes": [
+      "18 U.S.C. \u00a7 1030 (CFAA) & Credential Footprint Auditing",
+      "Trinity Gate 2 Multi-Source Digital Cohort Corroboration"
+    ],
+    "sources_exhausted": [
+      "DOUGLAS_CROSS_BREACH_REPORT.md",
+      "Hudson Rock Cavalier API & LeakCheck v2 Index",
+      "SQLite Forensic Database (breach.db Scans #212\u2013#214)"
+    ],
+    "raw_audit_file": "C:\\Amd949609_Antigravity_v1\\evidence\\DOUGLAS_CROSS_BREACH_REPORT.md"
+  },
+  {
+    "id": "DISP-2026-1115-MEGA-SHEA-VJHB-AUDIT",
+    "title": "TRINITY AUDIT: .39M Mega-Conveyances Decoded Across Shea Corte Bella (.75M) & VJHB Cove (.64M)",
+    "category": "Institutional Real Estate & Mega-Conveyances",
+    "jurisdiction": "Huntington Beach / Newport Center, CA",
+    "published_at": "2026-11-15T06:53:00Z",
+    "author": "neo-liaison / OsintNeoAi Strike Army",
+    "excerpt": "Orange County Recorder reconciliation decodes two mega-conveyances totaling ,390,500.00: Shea Center Corte Bella (APN 167-281-04, 9531 Slater Ave) transferred for ,750,000.00 to TruAmerica within the Wintersburg contamination corridor, and VJHB Cove LLC (APN 165-225-05, 17300 Keelson Ln) acquired for ,640,500.00 on 07/30/2021 with corporate tax routing through 220 Newport Center Dr PMB 11777.",
+    "statutory_notes": [
+      "18 U.S.C. \u00a7\u00a7 1961\u20131968 (RICO Institutional Capital Flow Tracking)",
+      "Cal. Gov. Code \u00a7 27201 (Deed Transfer Tax Compliance)",
+      "Trinity Gate 1 Physical Deed & Parcel Instrument Verification"
+    ],
+    "sources_exhausted": [
+      "MEGA_CONVEYANCES_SHEA_VJHB_COVE_AUDIT.md",
+      "Orange County Clerk-Recorder Stamped Instruments (APN 167-281-04, 165-225-05)",
+      "rico_evidence_matrix.csv (2,696 records)"
+    ],
+    "raw_audit_file": "C:\\Amd949609_Antigravity_v1\\evidence\\MEGA_CONVEYANCES_SHEA_VJHB_COVE_AUDIT.md"
+  },
+  {
+    "id": "DISP-2026-1115-DOUGLAS-CROSS-TRABUCO",
+    "title": "TRINITY PROVENANCE: Douglas Cross Trabuco Canyon Parcel (APN 811-091-04) Reconciled with Lyon Acreage",
+    "category": "Foothill Acreage & Trust Correlation",
+    "jurisdiction": "Trabuco Canyon / Coto De Caza, CA",
+    "published_at": "2026-11-15T06:52:00Z",
+    "author": "studio-engine / OsintNeoAi Strike Army",
+    "excerpt": "Multimodal extraction identifies Douglas Allen Cross and Kathryn Armin Cross (18946 Canyon Hill Dr) vested in APN 811-091-04 (Subdivision 8057, Doc #298655) situated in the Trabuco Canyon foothill corridor directly contiguous to Coto De Caza acreage banks held by the William Lyon Family trusts, expanding the Cross/Crosley geographic footprint across Orange County.",
+    "statutory_notes": [
+      "Orange County Assessor Parcel Roll (APN 811-091-04)",
+      "Trinity Gate 1 Physical Geographic Mapping",
+      "TruthFinder Extended Records (Douglas Allen Cross)"
+    ],
+    "sources_exhausted": [
+      "DOUGLAS_CROSS_TRABUCO_CANYON_DOSSIER.md",
+      "Orange County Assessor Parcel Database",
+      "TruthFinder Extended Records"
+    ],
+    "raw_audit_file": "C:\\Amd949609_Antigravity_v1\\evidence\\DOUGLAS_CROSS_TRABUCO_CANYON_DOSSIER.md"
+  },
+  {
+    "id": "DISP-2026-1115-MADANI-REDLINE-STEALER",
+    "title": "KALI RECON SWEEP: RedLine Infostealer Hits Confirmed on Reza Madani & Real-Emotions LLC Conduits",
+    "category": "Cyber Forensics & Infostealer Telemetry",
+    "jurisdiction": "Huntington Beach / Irvine, CA / Global",
+    "published_at": "2026-11-15T06:51:00Z",
+    "author": "kali-recon / OsintNeoAi Strike Army",
+    "excerpt": "Breach and telemetry sweep across Reza Madani and his D&B shell entities (scans #206\u2013#211 in breach.db) confirms Hudson Rock RedLine Infostealer compromises on rezamadani (exfiltrating r*******@me.com, Risk 54/100) and Real-Emotions LLC (DUNS 096225812, exfiltrating d*********@gmail.com, Risk 66/100), plus raw stealer logs on Realpals LLC (DUNS 116818556). Corroborates active cyber vulnerability on operators behind the .1M 2501 Florida St conveyance.",
+    "statutory_notes": [
+      "18 U.S.C. \u00a7 1030 (CFAA) & 18 U.S.C. \u00a7 1343 (Wire Fraud Forensics)",
+      "Trinity Gate 1 Physical Device Hardware Telemetry",
+      "Hudson Rock RedLine Stealer Payload Verification"
+    ],
+    "sources_exhausted": [
+      "REZA_MADANI_COMMERCIAL_SHELL_BREACH_REPORT.md",
+      "Hudson Rock Cavalier Telemetry API & LeakCheck v2 Index",
+      "SQLite Forensic Database (breach.db Scans #206\u2013#211)"
+    ],
+    "raw_audit_file": "C:\\Amd949609_Antigravity_v1\\evidence\\REZA_MADANI_COMMERCIAL_SHELL_BREACH_REPORT.md"
+  },
+  {
+    "id": "DISP-2026-1115-MADANI-SUMMIT-PROPERTIES",
+    "title": "TRINITY AUDIT: .1M Florida St Coastal Transfer from Madani Living Trust to Summit Properties LLC",
+    "category": "Commercial Real Estate & Trust Conveyances",
+    "jurisdiction": "Huntington Beach / Orange, CA",
+    "published_at": "2026-11-15T06:50:00Z",
+    "author": "neo-liaison / OsintNeoAi Strike Army",
+    "excerpt": "Orange County Recorder reconciliation on APN 025-111-58 (2501 Florida St, HB) decodes the 03/07/2025 conveyance of ,100,000.00 from Reza Madani / Madani Revocable Living Trust into SUMMIT PROPERTIES LLC with tax billing routed to 3334 E Woodbine Rd, Orange CA, corroborating 6 commercial DUNS shell vehicles across Orange County and Fort Lauderdale FL.",
+    "statutory_notes": [
+      "18 U.S.C. \u00a7\u00a7 1961\u20131968 (RICO Commercial Real Estate Pattern)",
+      "Cal. Gov. Code \u00a7 27201 (Deed Transfer Tax Audit)",
+      "Orange County Clerk-Recorder Stamped Instrument (APN 025-111-58)"
+    ],
+    "sources_exhausted": [
+      "REZA_MADANI_SUMMIT_PROPERTIES_AUDIT.md",
+      "Orange County Assessor Parcel Database & Clerk-Recorder Deeds",
+      "Dun & Bradstreet DUNS Filings"
+    ],
+    "raw_audit_file": "C:\\Amd949609_Antigravity_v1\\evidence\\REZA_MADANI_SUMMIT_PROPERTIES_AUDIT.md"
+  },
+  {
+    "id": "DISP-2026-1115-REZA-MADANI-HARBOR",
+    "title": "TRINITY AUDIT: Reza Madani Unmasked Across 6 D&B Shell Conduits & Florida Interstate Network",
+    "category": "Corporate Shell Conduits & Commercial DUNS Mapping",
+    "jurisdiction": "Huntington Beach / Irvine, CA / Fort Lauderdale, FL",
+    "published_at": "2026-11-15T06:50:00Z",
+    "author": "studio-engine / OsintNeoAi Strike Army",
+    "excerpt": "Multimodal document extraction uncovers Reza Madani (2501 Florida St, HB & 17941 Mitchell S, Irvine) operating 6 distinct corporate vehicles registered under separate Dun & Bradstreet DUNS identifiers: Harbor Objects LLC, Real H Dialysis LLC, Real H Properties LLC, Real-Emotions LLC, and Realpals LLC, alongside an interstate conduit node at 723 NE 7th Ave, Fort Lauderdale, FL.",
+    "statutory_notes": [
+      "18 U.S.C. \u00a7\u00a7 1961\u20131968 (RICO Interstate Corporate Shell Operations)",
+      "Dun & Bradstreet DUNS Registry Verification",
+      "Trinity Gate 2 Multi-Entity Corporate Disambiguation"
+    ],
+    "sources_exhausted": [
+      "REZA_MADANI_HARBOR_OBJECTS_REAL_H_DOSSIER.md",
+      "Dun & Bradstreet DUNS Database (796502664, 078782334, 005547647)",
+      "TruthFinder Extended Records (Reza Madani, Florida St, HB)"
+    ],
+    "raw_audit_file": "C:\\Amd949609_Antigravity_v1\\evidence\\REZA_MADANI_HARBOR_OBJECTS_REAL_H_DOSSIER.md"
+  },
+  {
+    "id": "DISP-2026-1115-DEERING-BREACH-SWEEP",
+    "title": "KALI RECON SWEEP: 17692 Cameron Ln Contiguous Landholder Identity & Cryptocurrency Breach Verified",
+    "category": "Cyber Forensics & Environmental Witness Intake",
+    "jurisdiction": "Huntington Beach / Orange County, CA",
+    "published_at": "2026-11-15T06:46:00Z",
+    "author": "kali-recon / OsintNeoAi Strike Army",
+    "excerpt": "Breach and credential footprint sweep across Teunis & Hendrika Deering (scans #202\u2013#205 in breach.db)\u2014owners of 17692 Cameron Ln directly adjacent to the contaminated Navigation Center\u2014identifies Gatehub.net cryptocurrency exchange exposure on handle tjdeering while confirming a clean generational landholder baseline with zero infostealer infections. Solidifies witness and deposition intake for CACD Case No. 8:26-cv-00348-JWH-ADS.",
+    "statutory_notes": [
+      "18 U.S.C. \u00a7 1030 (CFAA) & Credential Footprint Auditing",
+      "Trinity Gate 1 Physical Witness Identity Verification",
+      "CACD Case No. 8:26-cv-00348-JWH-ADS Deposition Matrix"
+    ],
+    "sources_exhausted": [
+      "CAMERON_LANE_ADJACENT_BREACH_REPORT.md",
+      "Hudson Rock Cavalier API & LeakCheck v2 Index",
+      "SQLite Forensic Database (breach.db Scans #202\u2013#205)"
+    ],
+    "raw_audit_file": "C:\\Amd949609_Antigravity_v1\\evidence\\CAMERON_LANE_ADJACENT_BREACH_REPORT.md"
+  },
+  {
+    "id": "DISP-2026-1115-CAMERON-CORRIDOR-ADJACENCY",
+    "title": "TRINITY PROVENANCE: Complete Cameron Lane Toxic Corridor Adjacency Matrix Mapped for Federal RCRA Tort",
+    "category": "Environmental Crime & Contiguous Hydrology",
+    "jurisdiction": "Huntington Beach / Orange County, CA",
+    "published_at": "2026-11-15T06:45:00Z",
+    "author": "neo-liaison / OsintNeoAi Strike Army",
+    "excerpt": "Full boundary resolution on APN block 167-471 maps contiguous ownership around the 17631 Cameron Lane toxic site (.09M City of HB acquisition from Mitsuru Yamada): 17692 Cameron Ln (Teunis & Hendrika Deering, APN 167-471-14), 17680 Cameron Ln (NEW HORIZONVIEW LLC), 17592 Cameron Ln (H&R PROPERTY MANAGEMENT LLC), and 17712 Cameron Ln (DAIBO REALTY LLC). Establishes prime third-party deposition witnesses and private property tort victims sharing subterranean exposure to the 490 ppb Cr(VI) plume under CACD Case No. 8:26-cv-00348-JWH-ADS.",
+    "statutory_notes": [
+      "42 U.S.C. \u00a7 6928(e) (RCRA Knowing Endangerment & Deprived Health)",
+      "Cal. Health & Safety Code \u00a7 25189.5 (Toxic Plume Contiguous Impact)",
+      "Trinity Gate 1 Physical Hydrologic Contiguity"
+    ],
+    "sources_exhausted": [
+      "CAMERON_LANE_CORRIDOR_ADJACENCY_AUDIT.md",
+      "Orange County Assessor Parcel Database (APN Block 167-471)",
+      "GeoTracker Global ID T10000018579 / OCHCA Case #20IC002"
+    ],
+    "raw_audit_file": "C:\\Amd949609_Antigravity_v1\\evidence\\CAMERON_LANE_CORRIDOR_ADJACENCY_AUDIT.md"
+  },
+  {
     "id": "DISP-2026-1115-DEERING-CAMERON-LN",
     "title": "TRINITY PROVENANCE: 17692 Cameron Ln Contiguous Parcel (APN 167-471-14) Identified in Plume Path",
     "category": "Environmental Crime & Contiguous Parcel Mapping",
