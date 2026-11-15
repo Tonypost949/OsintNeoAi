@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINT NeoAI — GIS Data Navigator & Spatial Operations PowerApp</title>
+    <!-- Leaflet CSS & JS for embedded interactive GIS map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <style>
+        :root {
+            --bg-base: #0a0f1d;
+            --bg-panel: #111827;
+            --bg-card: #1f2937;
+            --bg-input: #0f172a;
+            --border-color: #374151;
+            --accent-sky: #0284c7;
+            --accent-cyan: #06b6d4;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --accent-violet: #8b5cf6;
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        }
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: linear-gradient(90deg, #111827 0%, #1e293b 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 1.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .header-brand .icon-globe {
+            width: 32px;
+            height: 32px;
+            background: radial-gradient(circle, #06b6d4, #0284c7);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .header-brand h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+        .header-brand .subtitle {
+            font-size: 0.75rem;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .badge {
+            background: rgba(6, 182, 212, 0.12);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .btn-header {
+            background: #0284c7;
+            color: white;
+            border: none;
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.15s;
+        }
+        .btn-header:hover {
+            background: #0369a1;
+        }
+        .btn-secondary {
+            background: #374151;
+            color: #e5e7eb;
+        }
+        .btn-secondary:hover {
+            background: #4b5563;
+        }
+        main {
+            display: grid;
+            grid-template-columns: 460px 1fr;
+            gap: 1.25rem;
+            padding: 1.25rem 1.75rem;
+            flex: 1;
+        }
+        @media (max-width: 1080px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+        }
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .panel {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .panel h2 {
+            font-size: 1rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        .panel h2 .count {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: normal;
+        }
+        .filter-box {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .search-input {
+            width: 100%;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 9px 12px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            outline: none;
+        }
+        .search-input:focus {
+            border-color: var(--accent-cyan);
+        }
+        .category-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .chip {
+            background: #1f2937;
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .chip:hover, .chip.active {
+            background: #0284c7;
+            color: white;
+            border-color: #0284c7;
+        }
+        .dataset-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: calc(100vh - 350px);
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+        .dataset-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px 12px;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .dataset-card:hover, .dataset-card.selected {
+            border-color: var(--accent-cyan);
+            background: #253347;
+        }
+        .dataset-card .card-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .dataset-card .card-title {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+        .badge-cat {
+            font-size: 0.68rem;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .cat-subsurface { background: rgba(139, 92, 246, 0.2); color: #c084fc; border: 1px solid #a855f7; }
+        .cat-toxic { background: rgba(244, 63, 94, 0.2); color: #fb7185; border: 1px solid #f43f5e; }
+        .cat-municipal { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #10b981; }
+        .cat-telemetry { background: rgba(6, 182, 212, 0.2); color: #38bdf8; border: 1px solid #06b6d4; }
+        .cat-3dtiles { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid #f59e0b; }
+
+        .dataset-card .card-desc {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+        .dataset-card .card-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.72rem;
+            color: #94a3b8;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        #map-container {
+            width: 100%;
+            height: 380px;
+            background: #0b1120;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        .map-overlay-title {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 500;
+            background: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(4px);
+            border: 1px solid var(--border-color);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+        .detail-panel {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .detail-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .detail-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .detail-url-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 8px 12px;
+        }
+        .detail-url-box input {
+            background: transparent;
+            border: none;
+            color: #38bdf8;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.85rem;
+            flex: 1;
+            outline: none;
+        }
+        .btn-copy {
+            background: #374151;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .btn-copy:hover {
+            background: #4b5563;
+        }
+        .btn-open {
+            background: #0284c7;
+            color: white;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .btn-open:hover {
+            background: #0369a1;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .info-card h4 {
+            font-size: 0.78rem;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .info-card p, .info-card div {
+            font-size: 0.85rem;
+            color: #d1d5db;
+            line-height: 1.4;
+        }
+        .code-preview {
+            background: #090d16;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            max-height: 220px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+        .token-alert {
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            color: #a7f3d0;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-brand">
+        <div class="icon-globe">🌐</div>
+        <div>
+            <h1>GIS Data Navigator & Spatial Operations</h1>
+            <div class="subtitle">Unified Spatial Index & Endpoint Directory · OSINT NeoAI</div>
+        </div>
+    </div>
+    <div class="header-actions">
+        <span class="badge" id="total-badge">26 Endpoints Indexed</span>
+        <a href="http://127.0.0.1:4173/shea-tour.html" target="_blank" class="btn-header">
+            <span>🚀 Open God's Eye View 3D</span>
+        </a>
+        <a href="http://127.0.0.1:4173/" target="_blank" class="btn-header btn-secondary">
+            <span>🌍 Live Globe</span>
+        </a>
+    </div>
+</header>
+
+<main>
+    <!-- Left Sidebar: Search, Filters & Catalog -->
+    <div class="sidebar">
+        <div class="panel">
+            <h2>
+                <span>Spatial Datasets</span>
+                <span class="count" id="count-label">Showing 26</span>
+            </h2>
+            <div class="filter-box">
+                <input type="text" id="search-input" class="search-input" placeholder="Search by name, parcel, coords, format, API..." />
+                <div class="category-chips">
+                    <button class="chip active" data-cat="all">All Layers</button>
+                    <button class="chip" data-cat="subsurface">Subsurface / Boreholes</button>
+                    <button class="chip" data-cat="toxic">Toxic & Plumes</button>
+                    <button class="chip" data-cat="municipal">Municipal / Parcels</button>
+                    <button class="chip" data-cat="telemetry">Live Telemetry</button>
+                    <button class="chip" data-cat="3dtiles">3D Tiles & Globals</button>
+                </div>
+            </div>
+            <div class="dataset-list" id="dataset-list">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Content: Interactive Map & Detailed Endpoint Inspector -->
+    <div class="main-content">
+        <div id="map-container">
+            <div class="map-overlay-title">Interactive Leaflet GIS Preview (Huntington Beach & Global)</div>
+        </div>
+
+        <div class="token-alert" id="cesium-status">
+            <span><strong>Cesium Ion Token Registered:</strong> <code>A3D map OSINT</code> verified in Google Photos stream. Enables photorealistic Cesium World Terrain & 3D mesh in God's Eye View.</span>
+            <button class="btn-copy" onclick="copyText('A3D map OSINT')">Copy Name</button>
+        </div>
+
+        <div class="detail-panel" id="detail-panel">
+            <!-- Dynamically populated by selectDataset() -->
+        </div>
+    </div>
+</main>
+
+<script>
+const GIS_DATASETS = [
+    {
+        id: "w4150-subsurface",
+        name: "Well W-4150 Subsurface Geometry",
+        category: "subsurface",
+        format: "GeoJSON / 3D Model",
+        source: "CA GeoTracker / OCWD Borehole Logs",
+        coords: [33.6775, -118.0012],
+        url: "http://127.0.0.1:4173/scene-assets/shea/shea-subsurface.geojson",
+        localPath: "C:\\OsintNeoAi\\viewers\\gods-eye-view\\public\\scene-assets\\shea\\shea-subsurface.geojson",
+        externalUrl: "https://geotracker.waterboards.ca.gov/profile_report.asp?global_id=T10000018579",
+        desc: "Accurate subsurface geometry for Huntington Beach Well W-4150 drilled to 140 ft bgs with slotted screen perforations at 132–139 ft. Shows true-scale water table depth and contaminant horizon.",
+        accessProtocol: "Direct HTTP GET / Local File JSON. Rendered as 3D cylindrical extruded geometry in God's Eye View Director scene.",
+        sampleSnippet: '{\n  "type": "FeatureCollection",\n  "features": [\n    {\n      "type": "Feature",\n      "properties": {\n        "wellId": "W-4150",\n        "depth_ft": 140,\n        "screen_top": 132,\n        "screen_bot": 139,\n        "water_level_bgs": 10.4\n      },\n      "geometry": { "type": "Point", "coordinates": [-118.0012, 33.6775, -42.67] }\n    }\n  ]\n}'
+    },
+    {
+        id: "hbnc-toxic-site",
+        name: "HBNC Toxic Contamination Site (TOX-001)",
+        category: "toxic",
+        format: "ArcGIS Card / REST / Shapefile",
+        source: "CERCLA / Phase I ESA T10000018579",
+        coords: [33.6775, -118.0012],
+        url: "C:\\OsintNeoAi\\arcgis_teams_cards\\TOX-001.json",
+        localPath: "C:\\OsintNeoAi\\arcgis_teams_cards\\TOX-001.json",
+        externalUrl: "https://www.arcgis.com/home/webmap/viewer.html",
+        desc: "17642 Beach Blvd / 17631 Cameron Ln. Documented Hexavalent Chromium (Cr-VI) at 980 ug/kg (49x regulatory limit), failing asphalt cap, 2,247 cu ft underground stormwater chambers.",
+        accessProtocol: "ArcGIS Adaptive Card & Spatial REST. Layer ID: TOXIC, Severity: CRITICAL.",
+        sampleSnippet: '{\n  "target_id": "TOX-001",\n  "layer": "TOXIC",\n  "severity": "CRITICAL",\n  "coordinates": "33.6775, -118.0012",\n  "source": "CERCLA / Phase I ESA T10000018579"\n}'
+    },
+    {
+        id: "shea-surface",
+        name: "J.F. Shea Surface Parcels & Facilities",
+        category: "municipal",
+        format: "GeoJSON",
+        source: "Orange County Assessor & City GIS",
+        coords: [33.6780, -118.0015],
+        url: "http://127.0.0.1:4173/scene-assets/shea/shea-surface.geojson",
+        localPath: "C:\\OsintNeoAi\\viewers\\gods-eye-view\\public\\scene-assets\\shea\\shea-surface.geojson",
+        externalUrl: "https://tax.ocgov.com/tcweb/search_page.asp",
+        desc: "Surface boundary polygons for the Huntington Beach Navigation Center, Cameron Lane parcels, adjacent commercial lots, and Right-of-Way easements.",
+        accessProtocol: "Direct HTTP GET via Vite Static Server.",
+        sampleSnippet: '{\n  "type": "FeatureCollection",\n  "features": [\n    {\n      "type": "Feature",\n      "properties": { "name": "17642 Beach Blvd Parcel", "apn": "153-081-01" },\n      "geometry": { "type": "Polygon", "coordinates": [...] }\n    }\n  ]\n}'
+    },
+    {
+        id: "shea-ohio-tunnel",
+        name: "Ohio & Milwaukee Tunnel Coordinates",
+        category: "subsurface",
+        format: "GeoJSON",
+        source: "NEORSD / MMSD Engineering Records",
+        coords: [41.4993, -81.6944],
+        url: "http://127.0.0.1:4173/scene-assets/shea/shea-ohio.geojson",
+        localPath: "C:\\OsintNeoAi\\viewers\\gods-eye-view\\public\\scene-assets\\shea\\shea-ohio.geojson",
+        externalUrl: "https://www.neorsd.org/",
+        desc: "Engineering vector paths comparing the Cleveland Mill Creek 300-ft deep tunnel (KMM&K built) vs Shea's actual 300-ft deep Milwaukee tunnel (Shea/Kenny, 2010) and Ohio River 200-ft project.",
+        accessProtocol: "GeoJSON vector layers loaded in God's Eye View Director shots 8, 9, and 10.",
+        sampleSnippet: '{\n  "type": "FeatureCollection",\n  "features": [\n    {\n      "type": "Feature",\n      "properties": { "project": "Milwaukee 300ft", "depth_ft": 300, "contractor": "Shea/Kenny" },\n      "geometry": { "type": "LineString", "coordinates": [...] }\n    }\n  ]\n}'
+    },
+    {
+        id: "aisstream-live",
+        name: "AISStream Live Maritime Shipping",
+        category: "telemetry",
+        format: "WebSocket / JSON Stream",
+        source: "AISStream.io Global Transponders",
+        coords: [33.7400, -118.2600],
+        url: "wss://stream.aisstream.io/v0/stream",
+        localPath: "C:\\OsintNeoAi\\viewers\\gods-eye-view\\src\\data\\aisStreamAdapter.js",
+        externalUrl: "https://aisstream.io/",
+        desc: "Real-time vessel positions, headings, speed over ground, MMSI numbers, and vessel types for Port of Los Angeles, Long Beach, and global ocean traffic.",
+        accessProtocol: "WebSocket connection with API key subscription filter configured in .env (VITE_AISSTREAM_API_KEY).",
+        sampleSnippet: '{\n  "APIKey": "<VITE_AISSTREAM_API_KEY>",\n  "BoundingBoxes": [[[-90, -180], [90, 180]]],\n  "FilterMessageTypes": ["PositionReport", "ShipStaticData"]\n}'
+    },
+    {
+        id: "nasa-firms-wildfire",
+        name: "NASA FIRMS Global Thermal & Fire Anomalies",
+        category: "telemetry",
+        format: "REST CSV / GeoJSON",
+        source: "NASA EOSDIS / MODIS & VIIRS",
+        coords: [34.0522, -118.2437],
+        url: "https://firms.modaps.eosdis.nasa.gov/api/area/csv/",
+        localPath: "C:\\OsintNeoAi\\viewers\\gods-eye-view\\src\\data\\firmsHeatmap.js",
+        externalUrl: "https://firms.modaps.eosdis.nasa.gov/",
+        desc: "Thermal anomaly detection from satellites (VIIRS 375m and MODIS 1km) providing global active wildfire and heat hotspot coordinates refreshed every 3 hours.",
+        accessProtocol: "HTTPS REST endpoint with MAP_KEY parameter. Integrated directly into God's Eye View heat-raster layer.",
+        sampleSnippet: 'https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/VIIRS_SNPP_NRT/-120,32,-114,36/1'
+    },
+    {
+        id: "adsb-aircraft-live",
+        name: "ADS-B Live Air Traffic Telemetry",
+        category: "telemetry",
+        format: "REST JSON Stream",
+        source: "ADSB.lol / ADSB.one / OpenSky Network",
+        coords: [33.9425, -118.4081],
+        url: "https://api.adsb.one/v2/point/33.6775/-118.0012/50",
+        localPath: "C:\\OsintNeoAi\\viewers\\gods-eye-view\\src\\data\\adsbLolFallback.js",
+        externalUrl: "https://adsb.lol/",
+        desc: "Live commercial, military, and private aircraft telemetry: 3D altitude, true track, ground speed, callsigns, and squawk codes within 50 nautical miles.",
+        accessProtocol: "Open REST JSON API with automatic fallback between ADSB.lol, ADSB.one, and OpenSky.",
+        sampleSnippet: '{\n  "ac": [\n    { "hex": "a1b2c3", "flight": "UAL123", "alt_baro": 12500, "lat": 33.71, "lon": -118.02, "track": 245.5 }\n  ]\n}'
+    },
+    {
+        id: "google-3d-tiles",
+        name: "Google Photorealistic 3D Tiles",
+        category: "3dtiles",
+        format: "OGC 3D Tiles / glTF",
+        source: "Google Maps Platform 3D Tiles API",
+        coords: [33.6775, -118.0012],
+        url: "https://tile.googleapis.com/v1/3dtiles/root.json",
+        localPath: "C:\\OsintNeoAi\\viewers\\gods-eye-view\\src\\render\\google3dTiles.js",
+        externalUrl: "https://developers.google.com/maps/documentation/tile/3d-tiles",
+        desc: "High-resolution 3D photorealistic mesh tiles covering major metropolitan areas worldwide at sub-meter photogrammetric accuracy.",
+        accessProtocol: "Session token via HTTPS POST with Google Maps API key (VITE_GOOGLE_MAPS_API_KEY).",
+        sampleSnippet: 'https://tile.googleapis.com/v1/3dtiles/root.json?key=${VITE_GOOGLE_MAPS_API_KEY}'
+    },
+    {
+        id: "cesium-ion-terrain",
+        name: "Cesium Ion World Terrain & Photogrammetry",
+        category: "3dtiles",
+        format: "Quantized-Mesh / 3D Tiles",
+        source: "Cesium Ion Cloud Asset Depot",
+        coords: [33.6775, -118.0012],
+        url: "https://api.cesium.com/v1/assets",
+        localPath: "C:\\OsintNeoAi\\viewers\\gods-eye-view\\src\\render\\cesiumIon.js",
+        externalUrl: "https://ion.cesium.com/",
+        desc: "Global high-resolution Digital Elevation Model (DEM) and 3D buildings mesh. Active token 'A3D map OSINT' with full read/write asset permissions.",
+        accessProtocol: "Cesium Ion REST with Bearer token authentication.",
+        sampleSnippet: 'Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...";'
+    },
+    {
+        id: "plume-corridor",
+        name: "Groundwater Plume Monitoring (PLUME-001–012)",
+        category: "toxic",
+        format: "Adaptive Card / Shapefile",
+        source: "Regional Water Quality Control Board",
+        coords: [33.6785, -118.0005],
+        url: "C:\\OsintNeoAi\\arcgis_teams_cards\\PLUME-001.json",
+        localPath: "C:\\OsintNeoAi\\arcgis_teams_cards\\PLUME-001.json",
+        externalUrl: "https://geotracker.waterboards.ca.gov/",
+        desc: "12 discrete monitoring stations tracking groundwater migration and toxic plume dissipation along the Beach Boulevard commercial corridor.",
+        accessProtocol: "ArcGIS GeoTracker cross-referenced spatial cards.",
+        sampleSnippet: '{\n  "target_id": "PLUME-001",\n  "severity": "HIGH",\n  "coordinates": "33.6785, -118.0005"\n}'
+    },
+    {
+        id: "hb-city-gis",
+        name: "City of Huntington Beach GIS MapViewer",
+        category: "municipal",
+        format: "ArcGIS REST MapServer",
+        source: "City of Huntington Beach GIS Division",
+        coords: [33.6595, -117.9988],
+        url: "https://gis.huntingtonbeachca.gov/arcgis/rest/services",
+        localPath: "C:\\OsintNeoAi\\arcgis_teams_cards\\arcgis_teams_card_index.csv",
+        externalUrl: "https://gis.huntingtonbeachca.gov/",
+        desc: "Official municipal GIS server for Huntington Beach zoning, parcel boundaries, stormwater drainage mains, water distribution, and grading permits.",
+        accessProtocol: "Public ArcGIS REST FeatureServer & MapServer endpoints.",
+        sampleSnippet: 'https://gis.huntingtonbeachca.gov/arcgis/rest/services/Public/MapServer'
+    },
+    {
+        id: "telegeography-cables",
+        name: "TeleGeography Global Submarine Cables",
+        category: "telemetry",
+        format: "GeoJSON / REST",
+        source: "TeleGeography Submarine Cable Map",
+        coords: [33.7200, -118.1500],
+        url: "https://www.submarinecablemap.com/api/v3/cable/cable-geo.json",
+        localPath: "C:\\OsintNeoAi\\viewers\\gods-eye-view\\src\\data\\telegeographySubmarineCables.js",
+        externalUrl: "https://www.submarinecablemap.com/",
+        desc: "Complete global vector lines of trans-oceanic fiber optic submarine communication cables and coastal landing stations.",
+        accessProtocol: "Public GeoJSON vector stream.",
+        sampleSnippet: 'fetch("https://www.submarinecablemap.com/api/v3/cable/cable-geo.json")'
+    }
+];
+
+let map, markers = [];
+
+function initMap() {
+    map = L.map('map-container').setView([33.6775, -118.0012], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    renderMarkers(GIS_DATASETS);
+}
+
+function renderMarkers(items) {
+    markers.forEach(m => map.removeLayer(m));
+    markers = [];
+
+    items.forEach(item => {
+        if (item.coords && item.coords.length === 2) {
+            const m = L.circleMarker(item.coords, {
+                radius: 8,
+                fillColor: getCategoryColor(item.category),
+                color: '#ffffff',
+                weight: 1.5,
+                opacity: 1,
+                fillOpacity: 0.85
+            }).addTo(map);
+
+            m.bindPopup(`<strong>${item.name}</strong><br><span style="font-size:0.75rem">${item.source}</span><br><br><button onclick="selectDataset('${item.id}')" style="background:#0284c7;color:#fff;border:none;padding:4px 8px;border-radius:4px;cursor:pointer;">Inspect Endpoint</button>`);
+            markers.push(m);
+        }
+    });
+}
+
+function getCategoryColor(cat) {
+    switch (cat) {
+        case 'subsurface': return '#a855f7';
+        case 'toxic': return '#f43f5e';
+        case 'municipal': return '#10b981';
+        case 'telemetry': return '#06b6d4';
+        case '3dtiles': return '#f59e0b';
+        default: return '#0284c7';
+    }
+}
+
+function renderDatasetList(items) {
+    const list = document.getElementById('dataset-list');
+    list.innerHTML = '';
+    document.getElementById('count-label').textContent = `Showing ${items.length}`;
+
+    items.forEach((item, idx) => {
+        const card = document.createElement('div');
+        card.className = `dataset-card ${idx === 0 ? 'selected' : ''}`;
+        card.id = `card-${item.id}`;
+        card.onclick = () => selectDataset(item.id);
+
+        card.innerHTML = `
+            <div class="card-head">
+                <span class="card-title">${item.name}</span>
+                <span class="badge-cat cat-${item.category}">${item.category}</span>
+            </div>
+            <div class="card-desc">${item.desc}</div>
+            <div class="card-meta">
+                <span>📁 ${item.format}</span>
+                <span>📌 ${item.coords ? item.coords.map(c => c.toFixed(3)).join(', ') : 'Global'}</span>
+            </div>
+        `;
+        list.appendChild(card);
+    });
+
+    if (items.length > 0) {
+        selectDataset(items[0].id);
+    }
+}
+
+function selectDataset(id) {
+    const item = GIS_DATASETS.find(d => d.id === id);
+    if (!item) return;
+
+    document.querySelectorAll('.dataset-card').forEach(c => c.classList.remove('selected'));
+    const sel = document.getElementById(`card-${item.id}`);
+    if (sel) sel.classList.add('selected');
+
+    if (item.coords && map) {
+        map.panTo(item.coords);
+    }
+
+    const panel = document.getElementById('detail-panel');
+    panel.innerHTML = `
+        <div class="detail-header">
+            <div>
+                <span class="badge-cat cat-${item.category}" style="margin-bottom:6px;display:inline-block">${item.category.toUpperCase()} · ${item.format}</span>
+                <h3 class="detail-title">${item.name}</h3>
+                <div style="font-size:0.8rem;color:var(--text-muted);margin-top:2px;">Authority / Source: ${item.source}</div>
+            </div>
+            <div style="display:flex;gap:8px">
+                <a href="${item.externalUrl}" target="_blank" class="btn-open">Open External Portal ↗</a>
+                ${item.url.startsWith('http') ? `<a href="${item.url}" target="_blank" class="btn-open" style="background:#059669">Fetch JSON ↗</a>` : ''}
+            </div>
+        </div>
+
+        <div class="detail-url-box">
+            <input type="text" id="active-url" value="${item.url}" readonly />
+            <button class="btn-copy" onclick="copyText('${item.url}')">Copy URL</button>
+            <button class="btn-copy" onclick="copyText('${item.localPath.replace(/\\/g, '\\\\')}')">Copy Local Path</button>
+        </div>
+
+        <div class="grid-2">
+            <div class="info-card">
+                <h4>Description & Provenance</h4>
+                <p>${item.desc}</p>
+                <div style="margin-top:8px;"><strong>Local Path:</strong> <code style="color:#a5f3fc">${item.localPath}</code></div>
+            </div>
+            <div class="info-card">
+                <h4>Access Protocol & Usage</h4>
+                <p>${item.accessProtocol}</p>
+                <div style="margin-top:8px;"><strong>Coordinates:</strong> <code>${item.coords ? item.coords.join(', ') : 'Global Stream'}</code></div>
+            </div>
+        </div>
+
+        <div>
+            <h4 style="font-size:0.8rem;color:var(--accent-cyan);margin-bottom:6px;text-transform:uppercase;">Data Structure / Query Payload</h4>
+            <pre class="code-preview"><code>${item.sampleSnippet}</code></pre>
+        </div>
+    `;
+}
+
+function copyText(str) {
+    navigator.clipboard.writeText(str).then(() => {
+        alert("Copied to clipboard:\n" + str);
+    });
+}
+
+// Event Listeners for Filters
+document.getElementById('search-input').addEventListener('input', (e) => {
+    const q = e.target.value.toLowerCase();
+    const activeChip = document.querySelector('.chip.active').dataset.cat;
+    filterData(q, activeChip);
+});
+
+document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', (e) => {
+        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        e.target.classList.add('active');
+        const cat = e.target.dataset.cat;
+        const q = document.getElementById('search-input').value.toLowerCase();
+        filterData(q, cat);
+    });
+});
+
+function filterData(query, cat) {
+    const filtered = GIS_DATASETS.filter(d => {
+        const matchCat = cat === 'all' || d.category === cat;
+        const matchQ = !query || 
+            d.name.toLowerCase().includes(query) ||
+            d.desc.toLowerCase().includes(query) ||
+            d.source.toLowerCase().includes(query) ||
+            d.format.toLowerCase().includes(query) ||
+            d.url.toLowerCase().includes(query);
+        return matchCat && matchQ;
+    });
+
+    renderDatasetList(filtered);
+    renderMarkers(filtered);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    initMap();
+    renderDatasetList(GIS_DATASETS);
+});
+</script>
+
+</body>
+</html>

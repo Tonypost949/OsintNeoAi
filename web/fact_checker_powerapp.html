@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Trinity Legal & Official Fact Checker OSINT PowerApp</title>
+    <style>
+        :root {
+            --bg-base: #0f172a;
+            --bg-card: #1e293b;
+            --bg-input: #0f172a;
+            --border-color: #334155;
+            --accent-sky: #0284c7;
+            --accent-cyan: #06b6d4;
+            --accent-green: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-red: #ef4444;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .header-title h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        .badge-law15 {
+            background: rgba(2, 132, 199, 0.15);
+            color: var(--accent-sky);
+            border: 1px solid var(--accent-sky);
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        main {
+            display: grid;
+            grid-template-columns: 480px 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem 2rem;
+            flex: 1;
+        }
+        .panel {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        h2 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+        input, select, textarea {
+            background-color: var(--bg-input);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.15s;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--accent-sky);
+        }
+        button.btn-verify {
+            background-color: #0284c7;
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        button.btn-verify:hover {
+            background-color: #0369a1;
+        }
+        .verdict-box {
+            background: #0f172a;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .verdict-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .verdict-title {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 0.02em;
+        }
+        .trinity-gates-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .gate-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+        }
+        .gate-title {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .gate-val {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-top: 4px;
+        }
+        .statute-card {
+            background: rgba(15, 23, 42, 0.6);
+            border-left: 4px solid var(--accent-sky);
+            border-radius: 6px;
+            padding: 14px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .statute-quote {
+            font-style: italic;
+            color: #e2e8f0;
+            margin: 8px 0;
+            padding: 8px;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 4px;
+        }
+        .code-box {
+            background: #020617;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: #38bdf8;
+            max-height: 160px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+        .history-list {
+            margin-top: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 180px;
+            overflow-y: auto;
+        }
+        .history-item {
+            background: #0f172a;
+            border: 1px solid var(--border-color);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            <span style="font-size:1.6rem;">🏛️</span>
+            <h1>LEGAL & OFFICIAL FACT CHECKER — The Trinity Evidentiary Matrix</h1>
+        </div>
+        <div class="badge-law15">Universal AI Law 15 (Official Records Primacy) Active</div>
+    </header>
+
+    <main>
+        <!-- Intake Panel -->
+        <section class="panel">
+            <h2>1. Forensic Claim & Target Intake</h2>
+            <form id="factCheckForm" onsubmit="executeFactCheck(event)">
+                <div class="form-group">
+                    <label>Factual Claim / Allegation / Event to Verify</label>
+                    <textarea id="claimText" rows="3" placeholder="e.g. Sheriff executed lockout without valid personal service; mail was tampered with to manufacture default judgment." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Target Entity / Official / Fiduciary</label>
+                    <input type="text" id="entityInvolved" placeholder="e.g. Orange County Sheriff / Superior Court Referee / Property Management LLC" required>
+                </div>
+                <div class="form-group">
+                    <label>Controlling Statutory Authority (or Auto-Match)</label>
+                    <select id="statuteSelect">
+                        <option value="">Auto-Match to Controlling Statute</option>
+                        <option value="CIVIL_RIGHTS_1983">42 U.S.C. § 1983 — Civil Rights Deprivation / Due Process</option>
+                        <option value="JUDICIAL_VOID_THOMSON">Cal. Gov. Code § 1090 & Thomson v. Call — Void Ab Initio / Disgorgement</option>
+                        <option value="MAIL_TAMPERING_1708">18 U.S.C. § 1708 — Federal Mail Theft & Sewer Service</option>
+                        <option value="ENVIRONMENTAL_DTSC_DEED">Cal. Health & Safety § 25356.1.5 — DTSC Toxic Deed Restriction</option>
+                        <option value="PENAL_115_FALSE_DOCS">Cal. Penal Code § 115 — Procuring / Filing False Instruments</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Incident Date or Critical Period (YYYY-MM-DD)</label>
+                    <input type="text" id="incidentDate" placeholder="e.g. 2026-10-15">
+                </div>
+                <div class="form-group">
+                    <label>Jurisdiction / Agency</label>
+                    <input type="text" id="jurisdiction" placeholder="e.g. California Superior Court / DTSC / Federal">
+                </div>
+                <button type="submit" class="btn-verify" id="btnSubmit">EXECUTE LEGAL FACT CHECK & COMPILE PROOF PLAN</button>
+            </form>
+
+            <h2 style="margin-top:0.5rem;">Audit Ledger History</h2>
+            <div class="history-list" id="historyList">
+                <div style="color:var(--text-muted); font-size:0.85rem;">No prior audits loaded.</div>
+            </div>
+        </section>
+
+        <!-- Legal Authority, Precedents & Retrieval Plan Panel -->
+        <section class="panel">
+            <h2>2. Controlling Statutory Authority, Precedents & Retrieval Blueprint</h2>
+
+            <div class="verdict-box">
+                <div class="verdict-header">
+                    <span class="verdict-title" id="verdictText" style="color:var(--accent-sky);">STANDBY — AWAITING FORENSIC INTAKE</span>
+                    <span id="confidenceBadge" style="font-size:0.9rem; font-weight:700; color:var(--text-muted);">Score: --%</span>
+                </div>
+                <div style="font-size:0.9rem; color:var(--text-muted);" id="statuteBadge">Statutory Citation: --</div>
+            </div>
+
+            <!-- Trinity Gate Scores -->
+            <div class="trinity-gates-row">
+                <div class="gate-card">
+                    <div class="gate-title">Gate 1: Physics & Reality</div>
+                    <div class="gate-val" id="g1Val" style="color:var(--accent-cyan);">--%</div>
+                </div>
+                <div class="gate-card">
+                    <div class="gate-title">Gate 2: Stochastic Probability</div>
+                    <div class="gate-val" id="g2Val" style="color:var(--accent-sky);">--%</div>
+                </div>
+                <div class="gate-card">
+                    <div class="gate-title">Gate 3: Statutory Authority</div>
+                    <div class="gate-val" id="g3Val" style="color:var(--accent-green);">--%</div>
+                </div>
+            </div>
+
+            <!-- Verbatim Statute Quote Card -->
+            <div class="statute-card">
+                <strong id="statuteTitle" style="color:var(--accent-sky);">Controlling Statutory Authority</strong>
+                <div class="statute-quote" id="statuteQuote">
+                    "Submit an allegation to generate verbatim statutory quotation, controlling precedents, and empirical retrieval blueprint."
+                </div>
+                <strong style="font-size:0.85rem; color:var(--text-muted);">Controlling Judicial Precedents:</strong>
+                <ul id="precedentsList" style="margin-left:1.2rem; font-size:0.85rem; color:var(--text-main); margin-top:4px;">
+                    <li>Awaiting claim evaluation...</li>
+                </ul>
+            </div>
+
+            <!-- Factual Pattern Example -->
+            <div style="background:rgba(15,23,42,0.5); border:1px solid var(--border-color); border-radius:6px; padding:12px;">
+                <h3 style="font-size:0.85rem; color:var(--accent-amber); text-transform:uppercase; margin-bottom:4px;">Factual Pattern & Precedent Example:</h3>
+                <p id="exampleText" style="font-size:0.88rem; color:var(--text-main);">--</p>
+            </div>
+
+            <!-- Retrieval Action Steps -->
+            <div style="background:rgba(15,23,42,0.5); border:1px solid var(--border-color); border-radius:6px; padding:12px;">
+                <h3 style="font-size:0.85rem; color:var(--accent-green); text-transform:uppercase; margin-bottom:6px;">Official Primary Records Retrieval Plan:</h3>
+                <ol id="planSteps" style="margin-left:1.2rem; font-size:0.88rem; line-height:1.5;">
+                    <li>Awaiting claim audit...</li>
+                </ol>
+            </div>
+
+            <!-- Formulated CPRA Demand Letter -->
+            <div style="background:rgba(15,23,42,0.5); border:1px solid var(--border-color); border-radius:6px; padding:12px;">
+                <h3 style="font-size:0.85rem; color:var(--accent-cyan); text-transform:uppercase; margin-bottom:6px;">Formulated CPRA Demand Letter / Legal Vehicle:</h3>
+                <div class="code-box" id="praLetterBox">No letter generated yet.</div>
+            </div>
+
+            <!-- Executable Extraction Code -->
+            <div style="background:rgba(15,23,42,0.5); border:1px solid var(--border-color); border-radius:6px; padding:12px;">
+                <h3 style="font-size:0.85rem; color:#38bdf8; text-transform:uppercase; margin-bottom:6px;">Executable Automated Extraction Code:</h3>
+                <div class="code-box" id="codeBox">No code generated yet.</div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        async function loadHistory() {
+            try {
+                const res = await fetch('/api/v1/factcheck/history');
+                if (!res.ok) return;
+                const items = await res.json();
+                const container = document.getElementById('historyList');
+                if (!items.length) return;
+                container.innerHTML = items.map(item => `
+                    <div class="history-item">
+                        <div style="font-weight:700; color:var(--accent-sky);">${item.verdict}</div>
+                        <div style="color:var(--text-main); font-size:0.8rem; margin:2px 0;">${item.claim.substring(0, 80)}...</div>
+                        <div style="color:var(--text-muted); font-size:0.75rem;">${item.entity} | ${item.statute} (${item.confidence}%)</div>
+                    </div>
+                `).join('');
+            } catch (e) {
+                console.log('History load error:', e);
+            }
+        }
+
+        async function executeFactCheck(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btnSubmit');
+            btn.textContent = 'AUDITING AGAINST THE TRINITY GATES & LEGAL REPOSITORIES...';
+            btn.disabled = true;
+
+            const payload = {
+                claim_text: document.getElementById('claimText').value,
+                entity_involved: document.getElementById('entityInvolved').value,
+                alleged_statute: document.getElementById('statuteSelect').value,
+                incident_date: document.getElementById('incidentDate').value,
+                jurisdiction: document.getElementById('jurisdiction').value
+            };
+
+            try {
+                const res = await fetch('/api/v1/factcheck/verify', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+
+                // Verdict Box
+                const vText = document.getElementById('verdictText');
+                vText.textContent = data.verdict;
+                if (data.verdict.includes('CONFIRMED')) vText.style.color = 'var(--accent-red)';
+                else if (data.verdict.includes('PROBABLE')) vText.style.color = 'var(--accent-amber)';
+                else vText.style.color = 'var(--accent-green)';
+
+                document.getElementById('confidenceBadge').textContent = `Confidence: ${data.confidence_score}%`;
+                document.getElementById('statuteBadge').textContent = `Statute Cited: ${data.matched_authority.statute} — ${data.matched_authority.title}`;
+
+                // Trinity Gate Scores
+                document.getElementById('g1Val').textContent = `${data.trinity_gate_scores.gate1_physics_reality}%`;
+                document.getElementById('g2Val').textContent = `${data.trinity_gate_scores.gate2_stochastic_probability}%`;
+                document.getElementById('g3Val').textContent = `${data.trinity_gate_scores.gate3_statutory_baseline}%`;
+
+                // Statute & Precedents
+                document.getElementById('statuteTitle').textContent = `${data.matched_authority.statute} — ${data.matched_authority.title}`;
+                document.getElementById('statuteQuote').textContent = `"${data.matched_authority.statutory_quote}"`;
+                
+                const precList = document.getElementById('precedentsList');
+                precList.innerHTML = data.matched_authority.controlling_precedents.map(p => `<li>${p}</li>`).join('');
+
+                // Factual Example
+                document.getElementById('exampleText').textContent = data.matched_authority.factual_example;
+
+                // Action Steps
+                const stepsList = document.getElementById('planSteps');
+                stepsList.innerHTML = data.retrieval_plan.action_steps.map(s => `<li>${s}</li>`).join('');
+
+                // CPRA Letter & Code Box
+                document.getElementById('praLetterBox').textContent = data.retrieval_plan.pra_demand_letter;
+                document.getElementById('codeBox').textContent = data.retrieval_plan.automated_extraction_code;
+
+                loadHistory();
+            } catch (err) {
+                alert('Fact check error: ' + err);
+            } finally {
+                btn.textContent = 'EXECUTE LEGAL FACT CHECK & COMPILE PROOF PLAN';
+                btn.disabled = false;
+            }
+        }
+
+        window.onload = loadHistory;
+    </script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RICO Infrastructure IP Cluster Map</title>
+  <!-- Vis.js Network Standalone -->
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #090d16;
+      color: #e2e8f0;
+      overflow: hidden;
+    }
+    #header {
+      padding: 14px 20px;
+      background: #0f172a;
+      border-bottom: 1px solid #1e293b;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      color: #f8fafc;
+    }
+    .badge-path {
+      font-size: 11px;
+      color: #94a3b8;
+      font-family: monospace;
+      background: #1e293b;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    #legend {
+      display: flex;
+      gap: 14px;
+      font-size: 12px;
+      flex-wrap: wrap;
+      background: #090d16;
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: 1px solid #1e293b;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    #controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    button {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #cbd5e1;
+      padding: 5px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.15s ease;
+    }
+    button:hover {
+      background: #334155;
+      color: #fff;
+    }
+    #network {
+      width: 100vw;
+      height: calc(100vh - 105px);
+      background: radial-gradient(circle at 50% 50%, #0d1527 0%, #050811 100%);
+    }
+    #info-card {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 320px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      display: none;
+      z-index: 100;
+    }
+    #info-card h3 {
+      margin: 0 0 6px 0;
+      font-size: 14px;
+      color: #38bdf8;
+    }
+    #info-card p {
+      margin: 4px 0;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <div>
+      <h1>IP Cluster & Infrastructure Link Map</h1>
+      <div class="badge-path">Source: C:\migrate opencode\OSINTNEOAI\evidence\EVIDENCE_INDEX_CLEAN.md</div>
+    </div>
+    <div id="legend">
+      <div class="legend-item"><span class="dot" style="background:#ef4444"></span> Shell Companies</div>
+      <div class="legend-item"><span class="dot" style="background:#f97316"></span> Liberty-Branded</div>
+      <div class="legend-item"><span class="dot" style="background:#22c55e"></span> Carlisle / Atlantic Pacific</div>
+      <div class="legend-item"><span class="dot" style="background:#eab308"></span> Nonprofits</div>
+      <div class="legend-item"><span class="dot" style="background:#3b82f6"></span> Government / Sheriff</div>
+      <div class="legend-item"><span class="dot" style="background:#6b7280"></span> Other Entities</div>
+      <div class="legend-item"><span class="dot" style="background:#a855f7; border-radius: 2px;"></span> IP Infrastructure Host</div>
+    </div>
+    <div id="controls">
+      <button onclick="network.fit({animation: true})">Fit View</button>
+      <button onclick="togglePhysics()">Toggle Physics</button>
+    </div>
+  </div>
+
+  <div id="network"></div>
+
+  <div id="info-card">
+    <h3 id="card-title">Node Selected</h3>
+    <p id="card-type"></p>
+    <p id="card-desc"></p>
+  </div>
+
+  <script>
+    const nodes = new vis.DataSet([
+      // IP Nodes (Purple Boxes)
+      { id: "ip-141.193.213.10", label: "141.193.213.10\n[Liberty Senior]", color: { background: "#a855f7", border: "#7e22ce" }, shape: "box", font: { color: "#fff", face: "monospace", size: 12 }, shadow: true },
+      { id: "ip-141.193.213.21", label: "141.193.213.21\n[RICO Shell + Cook Sheriff]", color: { background: "#9333ea", border: "#6b21a8" }, shape: "box", font: { color: "#fff", face: "monospace", size: 12, bold: true }, shadow: true },
+      { id: "ip-3.33.130.190", label: "3.33.130.190\n[Carlisle / AP / Nonprofit]", color: { background: "#9333ea", border: "#6b21a8" }, shape: "box", font: { color: "#fff", face: "monospace", size: 12, bold: true }, shadow: true },
+      { id: "ip-76.223.54.146", label: "76.223.54.146\n[Liberty Care + RBA Shell]", color: { background: "#9333ea", border: "#6b21a8" }, shape: "box", font: { color: "#fff", face: "monospace", size: 12, bold: true }, shadow: true },
+      { id: "ip-89.106.200.153", label: "89.106.200.153\n[Shelby Sheriff + Anaheim]", color: { background: "#a855f7", border: "#7e22ce" }, shape: "box", font: { color: "#fff", face: "monospace", size: 12 }, shadow: true },
+      { id: "ip-206.188.193.48", label: "206.188.193.48\n[Stewart Industries]", color: { background: "#a855f7", border: "#7e22ce" }, shape: "box", font: { color: "#fff", face: "monospace", size: 12 }, shadow: true },
+      { id: "ip-206.188.193.178", label: "206.188.193.178\n[Carlisle Dev]", color: { background: "#a855f7", border: "#7e22ce" }, shape: "box", font: { color: "#fff", face: "monospace", size: 12 }, shadow: true },
+      { id: "ip-135.84.124.41", label: "135.84.124.41\n[Gov Cluster & LVMPD]", color: { background: "#a855f7", border: "#7e22ce" }, shape: "box", font: { color: "#fff", face: "monospace", size: 12 }, shadow: true },
+
+      // RED: Shell Companies
+      { id: "l2tmedia.com", label: "l2tmedia.com", color: { background: "#ef4444", border: "#b91c1c" }, font: { color: "#fff" }, title: "RICO Shell Company - Co-hosted with Cook County Sheriff" },
+      { id: "rbabuilders.com", label: "rbabuilders.com", color: { background: "#ef4444", border: "#b91c1c" }, font: { color: "#fff" }, title: "RICO Shell Company - Co-hosted with Liberty Care entities" },
+      { id: "stewartindustries.com", label: "stewartindustries.com", color: { background: "#ef4444", border: "#b91c1c" }, font: { color: "#fff" }, title: "RICO Shell Company - In 206.188.193.0/24 subnet" },
+
+      // ORANGE: Liberty Entities
+      { id: "libertyseniorliving.com", label: "libertyseniorliving.com", color: { background: "#f97316", border: "#c2410c" }, font: { color: "#fff" } },
+      { id: "libertyhomes.org", label: "libertyhomes.org", color: { background: "#f97316", border: "#c2410c" }, font: { color: "#fff" } },
+      { id: "libertycare.com", label: "libertycare.com", color: { background: "#f97316", border: "#c2410c" }, font: { color: "#fff" } },
+      { id: "libertycare.org", label: "libertycare.org", color: { background: "#f97316", border: "#c2410c" }, font: { color: "#fff" } },
+
+      // GREEN: Carlisle / Atlantic Pacific
+      { id: "carlisledev.com", label: "carlisledev.com", color: { background: "#22c55e", border: "#15803d" }, font: { color: "#fff" } },
+      { id: "carlisledevelopment.com", label: "carlisledevelopment.com", color: { background: "#22c55e", border: "#15803d" }, font: { color: "#fff" } },
+      { id: "atlanticpacificcommunities.com", label: "atlanticpacificcommunities.com", color: { background: "#22c55e", border: "#15803d" }, font: { color: "#fff" } },
+      { id: "atlanticpacific.com", label: "atlanticpacific.com", color: { background: "#22c55e", border: "#15803d" }, font: { color: "#fff" } },
+
+      // YELLOW: Nonprofits
+      { id: "illuminationfoundation.org", label: "illuminationfoundation.org", color: { background: "#eab308", border: "#a16207" }, font: { color: "#000", bold: true } },
+      { id: "mercyhouse.org", label: "mercyhouse.org", color: { background: "#eab308", border: "#a16207" }, font: { color: "#000" } },
+      { id: "covenanthouseca.org", label: "covenanthouseca.org", color: { background: "#eab308", border: "#a16207" }, font: { color: "#000" } },
+      { id: "waymakers.org", label: "waymakers.org", color: { background: "#eab308", border: "#a16207" }, font: { color: "#000" } },
+
+      // BLUE: Government & Law Enforcement
+      { id: "cookcountysheriff.org", label: "cookcountysheriff.org", color: { background: "#3b82f6", border: "#1d4ed8" }, font: { color: "#fff" } },
+      { id: "pimasheriff.org", label: "pimasheriff.org", color: { background: "#3b82f6", border: "#1d4ed8" }, font: { color: "#fff" } },
+      { id: "hbpd.org", label: "hbpd.org", color: { background: "#3b82f6", border: "#1d4ed8" }, font: { color: "#fff" } },
+      { id: "shelbycountytn.gov", label: "shelbycountytn.gov", color: { background: "#3b82f6", border: "#1d4ed8" }, font: { color: "#fff" } },
+      { id: "lacounty.gov", label: "lacounty.gov", color: { background: "#3b82f6", border: "#1d4ed8" }, font: { color: "#fff" } },
+      { id: "anaheim.net", label: "anaheim.net", color: { background: "#3b82f6", border: "#1d4ed8" }, font: { color: "#fff" } },
+      { id: "anaheimpd.org", label: "anaheimpd.org", color: { background: "#3b82f6", border: "#1d4ed8" }, font: { color: "#fff" } },
+      { id: "costamesa.gov", label: "costamesa.gov", color: { background: "#3b82f6", border: "#1d4ed8" }, font: { color: "#fff" } },
+      { id: "fullerton.ca.us", label: "fullerton.ca.us", color: { background: "#3b82f6", border: "#1d4ed8" }, font: { color: "#fff" } },
+      { id: "orangeca.gov", label: "orangeca.gov", color: { background: "#3b82f6", border: "#1d4ed8" }, font: { color: "#fff" } },
+      { id: "lvmpd.com", label: "lvmpd.com", color: { background: "#3b82f6", border: "#1d4ed8" }, font: { color: "#fff" } },
+
+      // GRAY: Other
+      { id: "starpointproperties.com", label: "starpointproperties.com", color: { background: "#6b7280", border: "#374151" }, font: { color: "#fff" } },
+      { id: "advancedrealestate.com", label: "advancedrealestate.com", color: { background: "#6b7280", border: "#374151" }, font: { color: "#fff" } },
+      { id: "raipartners.com", label: "raipartners.com", color: { background: "#6b7280", border: "#374151" }, font: { color: "#fff" } },
+      { id: "ocgov.com", label: "ocgov.com", color: { background: "#6b7280", border: "#374151" }, font: { color: "#fff" } }
+    ]);
+
+    const edges = new vis.DataSet([
+      { from: "ip-141.193.213.10", to: "libertyseniorliving.com", color: "#64748b" },
+
+      // CRITICAL LINK: 141.193.213.21
+      { from: "ip-141.193.213.21", to: "l2tmedia.com", color: "#ef4444", width: 2.5 },
+      { from: "ip-141.193.213.21", to: "cookcountysheriff.org", color: "#3b82f6", width: 2.5 },
+
+      // CRITICAL LINK: 3.33.130.190
+      { from: "ip-3.33.130.190", to: "carlisledev.com", color: "#22c55e", width: 2 },
+      { from: "ip-3.33.130.190", to: "atlanticpacificcommunities.com", color: "#22c55e", width: 2 },
+      { from: "ip-3.33.130.190", to: "illuminationfoundation.org", color: "#eab308", width: 2 },
+
+      // CRITICAL LINK: 76.223.54.146
+      { from: "ip-76.223.54.146", to: "libertyhomes.org", color: "#f97316", width: 2 },
+      { from: "ip-76.223.54.146", to: "libertycare.com", color: "#f97316", width: 2 },
+      { from: "ip-76.223.54.146", to: "libertycare.org", color: "#f97316", width: 2 },
+      { from: "ip-76.223.54.146", to: "rbabuilders.com", color: "#ef4444", width: 2.5 },
+
+      // CRITICAL LINK: 89.106.200.153
+      { from: "ip-89.106.200.153", to: "shelbycountytn.gov", color: "#3b82f6", width: 2 },
+      { from: "ip-89.106.200.153", to: "anaheim.net", color: "#3b82f6", width: 2 },
+
+      // SUBNET LINK: 206.188.193.0/24
+      { from: "ip-206.188.193.48", to: "stewartindustries.com", color: "#ef4444", width: 2 },
+      { from: "ip-206.188.193.178", to: "carlisledevelopment.com", color: "#22c55e", width: 2 },
+      { from: "ip-206.188.193.48", to: "ip-206.188.193.178", dashes: true, color: "#f59e0b", label: "206.188.193.0/24 Subnet", font: { color: "#f59e0b", size: 10 } },
+
+      // GOV GATEWAY: 135.84.124.41
+      { from: "ip-135.84.124.41", to: "costamesa.gov", color: "#3b82f6" },
+      { from: "ip-135.84.124.41", to: "fullerton.ca.us", color: "#3b82f6" },
+      { from: "ip-135.84.124.41", to: "orangeca.gov", color: "#3b82f6" },
+      { from: "ip-135.84.124.41", to: "lvmpd.com", color: "#3b82f6" },
+
+      // Additional Affiliation Edges
+      { from: "carlisledev.com", to: "atlanticpacificcommunities.com", dashes: true, color: "#10b981", label: "Asset Absorption" },
+      { from: "anaheim.net", to: "anaheimpd.org", color: "#3b82f6" }
+    ]);
+
+    const container = document.getElementById("network");
+    const data = { nodes: nodes, edges: edges };
+    const options = {
+      physics: {
+        solver: "forceAtlas2Based",
+        forceAtlas2Based: {
+          gravitationalConstant: -70,
+          centralGravity: 0.015,
+          springLength: 140,
+          springConstant: 0.18,
+          damping: 0.4
+        },
+        stabilization: { iterations: 180 }
+      },
+      interaction: {
+        hover: true,
+        tooltipDelay: 150,
+        navigationButtons: true,
+        keyboard: true
+      }
+    };
+
+    const network = new vis.Network(container, data, options);
+    let physicsEnabled = true;
+
+    function togglePhysics() {
+      physicsEnabled = !physicsEnabled;
+      network.setOptions({ physics: { enabled: physicsEnabled } });
+    }
+
+    network.on("selectNode", function(params) {
+      if (params.nodes.length > 0) {
+        const nodeId = params.nodes[0];
+        const node = nodes.get(nodeId);
+        const card = document.getElementById("info-card");
+        document.getElementById("card-title").innerText = node.label.replace(/\\n/g, ' ');
+        document.getElementById("card-type").innerText = "ID: " + node.id;
+        document.getElementById("card-desc").innerText = node.title || "Network node mapped in forensic infrastructure dossier.";
+        card.style.display = "block";
+      }
+    });
+
+    network.on("deselectNode", function() {
+      document.getElementById("info-card").style.display = "none";
+    });
+  </script>
+</body>
+</html>

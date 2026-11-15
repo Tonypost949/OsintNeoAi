@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Opinion OSINT PowerApp — Strategic Advisory & Decision Matrix</title>
+    <style>
+        :root {
+            --bg-base: #0f172a;
+            --bg-card: #1e293b;
+            --bg-input: #0f172a;
+            --border-color: #334155;
+            --accent-cyan: #06b6d4;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-red: #ef4444;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .header-title h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .badge-trinity {
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        main {
+            display: grid;
+            grid-template-columns: 460px 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem 2rem;
+            flex: 1;
+        }
+        .panel {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        h2 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+        input, select, textarea {
+            background-color: var(--bg-input);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.15s;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--accent-cyan);
+        }
+        button.btn-evaluate {
+            background-color: #0891b2;
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        button.btn-evaluate:hover {
+            background-color: #0e7490;
+        }
+        .verdict-box {
+            background: #0f172a;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .verdict-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .verdict-title {
+            font-size: 1.75rem;
+            font-weight: 900;
+            letter-spacing: 0.02em;
+        }
+        .verdict-BUY { color: var(--accent-green); border-color: var(--accent-green); }
+        .verdict-PASS { color: var(--accent-red); border-color: var(--accent-red); }
+        .verdict-NEGOTIATE { color: var(--accent-amber); border-color: var(--accent-amber); }
+        .verdict-ALT { color: var(--accent-cyan); border-color: var(--accent-cyan); }
+
+        .trinity-gates-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .gate-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+        }
+        .gate-title {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .gate-val {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-top: 4px;
+        }
+        .dossier-section {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px;
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+        .dossier-section h3 {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .red-flag-item {
+            color: #fca5a5;
+            margin-left: 1.2rem;
+            margin-bottom: 4px;
+        }
+        .alt-item {
+            border-left: 3px solid var(--accent-green);
+            padding-left: 8px;
+            margin-bottom: 8px;
+        }
+        .history-list {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .history-item {
+            background: #0f172a;
+            border: 1px solid var(--border-color);
+            padding: 8px 12px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            <span style="font-size:1.5rem;">⚖️</span>
+            <h1>SECOND OPINION OSINT — Strategic Advisory & Decision Matrix</h1>
+        </div>
+        <div class="badge-trinity">The Trinity Engine (Gates 1-3) Active</div>
+    </header>
+
+    <main>
+        <!-- Intake Panel -->
+        <section class="panel">
+            <h2>1. Proposal & Purchase Intake</h2>
+            <form id="intakeForm" onsubmit="executeEvaluation(event)">
+                <div class="form-group">
+                    <label>Proposal, Product, or Decision Name</label>
+                    <input type="text" id="itemName" placeholder="e.g. Enterprise Cloud Vault X" required>
+                </div>
+                <div class="form-group">
+                    <label>Evaluation Category</label>
+                    <select id="category">
+                        <option value="software">Software & SaaS</option>
+                        <option value="hardware">Hardware & Physical Devices</option>
+                        <option value="cloud_service">Cloud & Infrastructure</option>
+                        <option value="contractor">Contractor & Consulting Service</option>
+                        <option value="legal_retainer">Legal Retainer & Compliance</option>
+                        <option value="strategic_asset">Strategic Asset / Real Estate</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Vendor / Provider Entity</label>
+                    <input type="text" id="vendorName" placeholder="e.g. Oracle, Salesforce, ACME Corp">
+                </div>
+                <div class="form-group">
+                    <label>Proposed Cost ($ USD Upfront or Annual)</label>
+                    <input type="number" id="cost" placeholder="e.g. 15000" min="0" step="any" required>
+                </div>
+                <div class="form-group">
+                    <label>Vendor Marketing Claims / Promised Value Props</label>
+                    <textarea id="claims" rows="3" placeholder="Key promised benefits (e.g. 100% automated, zero latency, 5x ROI)..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Operational Context & Urgency Notes</label>
+                    <textarea id="notes" rows="2" placeholder="Why are we considering this? Any specific timing constraints?"></textarea>
+                </div>
+                <button type="submit" class="btn-evaluate" id="btnSubmit">EXECUTE SECOND OPINION</button>
+            </form>
+
+            <h2 style="margin-top:1rem;">Evaluation History</h2>
+            <div class="history-list" id="historyList">
+                <div style="color:var(--text-muted); font-size:0.85rem;">No historical records loaded yet.</div>
+            </div>
+        </section>
+
+        <!-- Executive Advisory Dossier Panel -->
+        <section class="panel">
+            <h2>2. Institutional Consulting-Grade Advisory Dossier</h2>
+
+            <div class="verdict-box" id="verdictBox">
+                <div class="verdict-header">
+                    <span class="verdict-title" id="verdictText">STANDBY — READY FOR INTAKE</span>
+                    <span id="confidenceBadge" style="font-size:0.9rem; font-weight:700; color:var(--text-muted);">Score: --%</span>
+                </div>
+                <div style="font-size:0.9rem; color:var(--text-muted);" id="tcoLabel">5-Year TCO Estimate: --</div>
+            </div>
+
+            <!-- The Trinity Gate Scores -->
+            <div class="trinity-gates-row">
+                <div class="gate-card">
+                    <div class="gate-title">Gate 1: Physics & Limits</div>
+                    <div class="gate-val" id="g1Val" style="color:var(--accent-cyan);">--%</div>
+                </div>
+                <div class="gate-card">
+                    <div class="gate-title">Gate 2: Stochastic Probability</div>
+                    <div class="gate-val" id="g2Val" style="color:var(--accent-blue);">--%</div>
+                </div>
+                <div class="gate-card">
+                    <div class="gate-title">Gate 3: Mean Reversion / TCO</div>
+                    <div class="gate-val" id="g3Val" style="color:var(--accent-amber);">--%</div>
+                </div>
+            </div>
+
+            <!-- Executive Summary -->
+            <div class="dossier-section">
+                <h3>Executive Advisory Summary</h3>
+                <p id="summaryText" style="color:var(--text-main);">
+                    Submit a proposal to generate an institutional second opinion. Analysis tests against Gartner/Forrester paradigms, IEEE/Wirecutter lab benchmarks, and SEC 10-K risk disclosures with 0% Yelp or low-signal noise.
+                </p>
+            </div>
+
+            <!-- Consulting & Lab Consensus -->
+            <div class="dossier-section">
+                <h3>Enterprise Consulting Consensus</h3>
+                <p id="consultingText" style="color:var(--text-muted);">Waiting for input...</p>
+                <h3 style="margin-top:8px;">Independent Engineering & Lab Consensus</h3>
+                <p id="labText" style="color:var(--text-muted);">Waiting for input...</p>
+            </div>
+
+            <!-- Red Flags & Omissions -->
+            <div class="dossier-section" style="border-left: 3px solid var(--accent-red);">
+                <h3 style="color:var(--accent-red);">Institutional Red Flags & What Sales Hides</h3>
+                <ul id="redFlagsList" style="list-style-type: disc;">
+                    <li class="red-flag-item">Awaiting proposal data...</li>
+                </ul>
+            </div>
+
+            <!-- Recommended Alternatives -->
+            <div class="dossier-section" style="border-left: 3px solid var(--accent-green);">
+                <h3 style="color:var(--accent-green);">Recommended Consulting-Grade Alternatives</h3>
+                <div id="alternativesList">
+                    <p style="color:var(--text-muted);">No alternatives generated yet.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        async function loadHistory() {
+            try {
+                const res = await fetch('/api/v1/opinion/history');
+                if (!res.ok) return;
+                const items = await res.json();
+                const container = document.getElementById('historyList');
+                if (!items.length) return;
+                container.innerHTML = items.map(item => `
+                    <div class="history-item">
+                        <div>
+                            <strong>${item.item_name}</strong>
+                            <span style="color:var(--text-muted);font-size:0.75rem;"> (${item.category})</span>
+                        </div>
+                        <div style="font-weight:700; color:${getVerdictColor(item.verdict)};">
+                            ${item.verdict} (${item.confidence_score}%)
+                        </div>
+                    </div>
+                `).join('');
+            } catch (e) {
+                console.log('History load error:', e);
+            }
+        }
+
+        function getVerdictColor(verdict) {
+            if (verdict === 'BUY') return 'var(--accent-green)';
+            if (verdict === 'PASS') return 'var(--accent-red)';
+            if (verdict === 'NEGOTIATE') return 'var(--accent-amber)';
+            return 'var(--accent-cyan)';
+        }
+
+        async function executeEvaluation(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btnSubmit');
+            btn.textContent = 'EVALUATING AGAINST THE TRINITY...';
+            btn.disabled = true;
+
+            const payload = {
+                item_name: document.getElementById('itemName').value,
+                category: document.getElementById('category').value,
+                vendor_name: document.getElementById('vendorName').value,
+                proposed_cost: parseFloat(document.getElementById('cost').value) || 0,
+                claimed_benefits: document.getElementById('claims').value,
+                context_notes: document.getElementById('notes').value
+            };
+
+            try {
+                const res = await fetch('/api/v1/opinion/evaluate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+
+                // Render Verdict Box
+                const vText = document.getElementById('verdictText');
+                vText.textContent = data.verdict;
+                vText.style.color = getVerdictColor(data.verdict);
+
+                document.getElementById('confidenceBadge').textContent = `Confidence: ${data.confidence_score}%`;
+                document.getElementById('tcoLabel').textContent = `5-Year Projected TCO: $${data.tco_estimate_5yr.toLocaleString()}`;
+
+                // Render Gate Scores
+                document.getElementById('g1Val').textContent = `${data.trinity_gate_scores.gate1_physics_constraints}%`;
+                document.getElementById('g2Val').textContent = `${data.trinity_gate_scores.gate2_stochastic_probability}%`;
+                document.getElementById('g3Val').textContent = `${data.trinity_gate_scores.gate3_mean_reversion_tco}%`;
+
+                // Text sections
+                document.getElementById('summaryText').textContent = data.executive_summary;
+                document.getElementById('consultingText').textContent = data.consulting_consensus;
+                document.getElementById('labText').textContent = data.lab_teardown_consensus;
+
+                // Red Flags
+                const flagsList = document.getElementById('redFlagsList');
+                flagsList.innerHTML = data.red_flags.map(f => `<li class="red-flag-item">${f}</li>`).join('');
+
+                // Alternatives
+                const altsList = document.getElementById('alternativesList');
+                altsList.innerHTML = data.recommended_alternatives.map(a => `
+                    <div class="alt-item">
+                        <strong>${a.name}</strong> — ${a.advantage}
+                        <div style="font-size:0.8rem; color:var(--text-muted);">${a.cost_comparison}</div>
+                    </div>
+                `).join('');
+
+                loadHistory();
+            } catch (err) {
+                alert('Evaluation error: ' + err);
+            } finally {
+                btn.textContent = 'EXECUTE SECOND OPINION';
+                btn.disabled = false;
+            }
+        }
+
+        window.onload = loadHistory;
+    </script>
+</body>
+</html>

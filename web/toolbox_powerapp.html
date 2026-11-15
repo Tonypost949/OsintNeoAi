@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Toolbox PowerApp</title>
+    <style>
+        :root {
+            --bg-primary: #090d16;
+            --bg-secondary: #0f172a;
+            --bg-card: #1e293b;
+            --border-color: #334155;
+            --accent-cyan: #06b6d4;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-purple: #a855f7;
+            --accent-amber: #f59e0b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: linear-gradient(135deg, #090d16 0%, #1e1b4b 50%, #0f172a 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+        }
+        .header-title-box {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+        .logo-box {
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            color: #000;
+            font-weight: 900;
+            padding: 0.6rem 0.9rem;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+        }
+        .header-title h1 {
+            font-size: 1.45rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .header-title p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+        .stats-cluster {
+            display: flex;
+            gap: 1.25rem;
+        }
+        .stat-badge {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1.25rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-count {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+        }
+        .stat-desc {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+        }
+        .control-bar {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.85rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .category-filters {
+            display: flex;
+            gap: 0.45rem;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: #1e293b;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 0.45rem 1rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover {
+            color: var(--text-main);
+            border-color: #64748b;
+        }
+        .filter-btn.active {
+            background: var(--accent-blue);
+            color: #fff;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+        }
+        .search-field {
+            background: #090d16;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.55rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            width: 320px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .search-field:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+        }
+        main {
+            flex: 1;
+            padding: 2.5rem;
+            overflow-y: auto;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 1.25rem;
+        }
+        .tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 0.85rem;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            position: relative;
+        }
+        .tool-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        .tool-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            font-family: monospace;
+            word-break: break-all;
+        }
+        .category-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.25rem 0.55rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .tag-osint { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); border: 1px solid rgba(6, 182, 212, 0.3); }
+        .tag-trinity { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); border: 1px solid rgba(16, 185, 129, 0.3); }
+        .tag-ai { background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); border: 1px solid rgba(168, 85, 247, 0.3); }
+        .tag-legal { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.3); }
+        .tag-suite { background: rgba(59, 130, 246, 0.15); color: var(--accent-blue); border: 1px solid rgba(59, 130, 246, 0.3); }
+        .tag-util { background: rgba(100, 116, 139, 0.2); color: #94a3b8; border: 1px solid rgba(100, 116, 139, 0.3); }
+
+        .tool-desc {
+            font-size: 0.88rem;
+            line-height: 1.45;
+            color: #cbd5e1;
+            flex: 1;
+        }
+        .card-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .meta-text {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-family: monospace;
+        }
+        .action-btn {
+            background: #0f172a;
+            border: 1px solid var(--border-color);
+            color: #38bdf8;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .action-btn:hover {
+            background: var(--accent-blue);
+            color: #fff;
+            border-color: var(--accent-blue);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-title-box">
+            <div class="logo-box">TOOLBOX</div>
+            <div class="header-title">
+                <h1>Universal AI Toolbox Command Center</h1>
+                <p>Path: C:\Amd949609_Antigravity_v1\tools | Cross-AI Universal Repository</p>
+            </div>
+        </div>
+        <div class="stats-cluster">
+            <div class="stat-badge">
+                <div class="stat-count" id="stat-total">0</div>
+                <div class="stat-desc">Total Tools</div>
+            </div>
+            <div class="stat-badge">
+                <div class="stat-count" id="stat-osint" style="color: var(--accent-cyan);">0</div>
+                <div class="stat-desc">OSINT / Recon</div>
+            </div>
+            <div class="stat-badge">
+                <div class="stat-count" id="stat-trinity" style="color: var(--accent-green);">0</div>
+                <div class="stat-desc">The Trinity</div>
+            </div>
+            <div class="stat-badge">
+                <div class="stat-count" id="stat-ai" style="color: var(--accent-purple);">0</div>
+                <div class="stat-desc">AI & PowerApps</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="control-bar">
+        <div class="category-filters" id="filterContainer">
+            <button class="filter-btn active" onclick="setCategory('All')">All Tools</button>
+            <button class="filter-btn" onclick="setCategory('OSINT & Recon')">OSINT & Recon</button>
+            <button class="filter-btn" onclick="setCategory('The Trinity & Verification')">The Trinity</button>
+            <button class="filter-btn" onclick="setCategory('AI Core & PowerApps')">AI & PowerApps</button>
+            <button class="filter-btn" onclick="setCategory('Legal & Public Records')">Legal / Form 700</button>
+            <button class="filter-btn" onclick="setCategory('Sub-System / Suite')">Sub-Systems</button>
+            <button class="filter-btn" onclick="setCategory('Automation & Utilities')">Utilities</button>
+        </div>
+        <input type="text" id="toolSearch" class="search-field" placeholder="Search tools, filenames, commands..." oninput="renderGrid()">
+    </div>
+
+    <main>
+        <div class="grid-container" id="toolGrid"></div>
+    </main>
+
+    <script>
+        const toolsData = [{"name": "accela", "path": "C:\\Amd949609_Antigravity_v1\\tools\\accela", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-10-21 18:38", "description": "Directory containing specialized toolchain modules for accela."}, {"name": "ai_control_center.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\ai_control_center.py", "is_dir": false, "category": "AI Core & PowerApps", "size_kb": 10.0, "modified": "2026-10-19 08:56", "description": "Executable operational script / module."}, {"name": "ai_inventory.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\ai_inventory.py", "is_dir": false, "category": "AI Core & PowerApps", "size_kb": 2.5, "modified": "2026-10-27 03:01", "description": "AI Engine & Cluster Discovery Registry Lists all active AI backends, models, and endpoints across local and cloud environments. Governed by Universal AI Law 1 (Repeated processes become AI tools) & La"}, {"name": "AI_MODELS_AND_KEYS_TRACKER.md", "path": "C:\\Amd949609_Antigravity_v1\\tools\\AI_MODELS_AND_KEYS_TRACKER.md", "is_dir": false, "category": "AI Core & PowerApps", "size_kb": 3.3, "modified": "2026-10-19 08:54", "description": "AI Models, Clear Keys & Access Tracker (Live Status) \u26a1 Active & Ready AI Model Keys"}, {"name": "aicli.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\aicli.py", "is_dir": false, "category": "AI Core & PowerApps", "size_kb": 2.0, "modified": "2026-09-18 18:16", "description": "Unified AI Coding Agent Launcher \u2014 OSINTNEOAI Location: C:\\Amd949609_Antigravity_v1\\tools\\aicli.py"}, {"name": "ailaws_github_sync.sh", "path": "C:\\Amd949609_Antigravity_v1\\tools\\ailaws_github_sync.sh", "is_dir": false, "category": "AI Core & PowerApps", "size_kb": 4.2, "modified": "2026-10-21 17:05", "description": "ailaws_github_sync.sh Purpose: keep https://github.com/Tonypost949/ailaws in sync with the canonical AI laws file, and make it IMPOSSIBLE to publish a laws file that has had the SOURCE OF TRUTH RULE ("}, {"name": "ailaws_verify.sh", "path": "C:\\Amd949609_Antigravity_v1\\tools\\ailaws_verify.sh", "is_dir": false, "category": "AI Core & PowerApps", "size_kb": 3.3, "modified": "2026-10-21 17:05", "description": "ailaws_verify.sh Purpose: single-command integrity audit of every AI-laws copy on this machine. Exits 0 only when ALL copies are byte-identical to the canonical C:\\Amd949609_Antigravity_v1\\00_ailaws.m"}, {"name": "asn_lookup_tool.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\asn_lookup_tool.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 16.2, "modified": "2026-10-19 15:21", "description": "ASN - Autonomous System Number & Network Infrastructure Intelligence Tool Integrated into unified user environment C:\\\\Amd949609_Antigravity_v1\\\\tools\\\\ Governed strictly by Universal AI Laws (Law 1, "}, {"name": "audit_ai_keys.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\audit_ai_keys.py", "is_dir": false, "category": "AI Core & PowerApps", "size_kb": 2.1, "modified": "2026-10-19 08:54", "description": "Executable operational script / module."}, {"name": "azure_checker", "path": "C:\\Amd949609_Antigravity_v1\\tools\\azure_checker", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-10-21 18:10", "description": "Directory containing specialized toolchain modules for azure_checker."}, {"name": "baseline_store.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\baseline_store.py", "is_dir": false, "category": "The Trinity & Verification", "size_kb": 3.6, "modified": "2026-10-21 18:24", "description": "baseline_store.py \u2014 Gate 3 baseline registry loader (THE TRINITY). Reads the numeric baselines in C:\\\\Amd949609_Antigravity_v1\\\\EVIDENCE_LOCKER_MASTER\\\\baselines\\\\<metric>.json and returns the `baseli"}, {"name": "blueprints", "path": "C:\\Amd949609_Antigravity_v1\\tools\\blueprints", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-09-18 18:36", "description": "Directory containing specialized toolchain modules for blueprints."}, {"name": "build_task_powerapp.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\build_task_powerapp.py", "is_dir": false, "category": "AI Core & PowerApps", "size_kb": 16.5, "modified": "2026-10-27 12:21", "description": "Executable operational script / module."}, {"name": "cabalbreach_hashid.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\cabalbreach_hashid.py", "is_dir": false, "category": "OSINT & Recon", "size_kb": 6.4, "modified": "2026-10-19 15:31", "description": "Hash ID - Cryptographic Hash Identification Engine Universal AI Tool Implementation for C:\\Amd949609_Antigravity_v1 Governed by Universal AI Laws: Law 1 (Tool Creation), Law 10 (Cross-AI Tool Sharing)"}, {"name": "cabalbreach_hibp.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\cabalbreach_hibp.py", "is_dir": false, "category": "OSINT & Recon", "size_kb": 8.3, "modified": "2026-10-19 15:31", "description": "Have I Been Pwned (HIBP) - Breach & Credential Exposure Scanner Universal AI Tool Implementation for C:\\Amd949609_Antigravity_v1 Governed by Universal AI Laws: Law 1 (Tool Creation), Law 10 (Cross-AI "}, {"name": "capcut_live_pro", "path": "C:\\Amd949609_Antigravity_v1\\tools\\capcut_live_pro", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-10-25 22:05", "description": "Directory containing specialized toolchain modules for capcut_live_pro."}, {"name": "cdp_gdrive_gmail", "path": "C:\\Amd949609_Antigravity_v1\\tools\\cdp_gdrive_gmail", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-10-18 18:52", "description": "Directory containing specialized toolchain modules for cdp_gdrive_gmail."}, {"name": "celonis_sync.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\celonis_sync.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 1.5, "modified": "2026-10-25 05:41", "description": "Executable operational script / module."}, {"name": "chiasmodon_tool.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\chiasmodon_tool.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 5.3, "modified": "2026-10-19 15:31", "description": "Chiasmodon - OSINT Credential, Asset & Multi-Breach Exposure Scanner Universal AI Tool Implementation for C:\\Amd949609_Antigravity_v1 Governed by Universal AI Laws: Law 1 (Tool Creation), Law 10 (Cros"}, {"name": "clipboard_powerapp.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\clipboard_powerapp.py", "is_dir": false, "category": "AI Core & PowerApps", "size_kb": 15.1, "modified": "2026-10-27 12:27", "description": "Transparent Right-Sidebar Clipboard PowerApp - Shortcut: Win+C (or Alt+V / Ctrl+Shift+V fallback) - Docked to right side of screen - Configurable transparency with bottom dimmer slider - Automatic cli"}, {"name": "cloudflare_bypass", "path": "C:\\Amd949609_Antigravity_v1\\tools\\cloudflare_bypass", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-10-18 20:54", "description": "Directory containing specialized toolchain modules for cloudflare_bypass."}, {"name": "darkus_search.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\darkus_search.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 7.9, "modified": "2026-10-19 14:53", "description": "Darkus - Deep / Dark Web Onion Searcher & Intelligence Gathering Tool Reference: https://osintcabal.org/livecenter/darkus.html Upstream Repo: https://github.com/Lucksi/Darkus Law Compliance: Universal"}, {"name": "dehashed", "path": "C:\\Amd949609_Antigravity_v1\\tools\\dehashed", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-10-26 22:58", "description": "Directory containing specialized toolchain modules for dehashed."}, {"name": "docker-compose.yml", "path": "C:\\Amd949609_Antigravity_v1\\tools\\docker-compose.yml", "is_dir": false, "category": "Automation & Utilities", "size_kb": 0.8, "modified": "2026-09-18 18:34", "description": "Executable operational script / module."}, {"name": "Dockerfile.kali", "path": "C:\\Amd949609_Antigravity_v1\\tools\\Dockerfile.kali", "is_dir": false, "category": "Automation & Utilities", "size_kb": 0.6, "modified": "2026-09-18 18:34", "description": "Dockerfile for Official Kali Linux OSINT Toolsuite Update and install Kali OSINT, Recon, Network, and Forensics Toolsets"}, {"name": "dorksint_tool.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\dorksint_tool.py", "is_dir": false, "category": "OSINT & Recon", "size_kb": 5.3, "modified": "2026-10-19 14:56", "description": "DorkSint - Automated OSINT Dork Search & Config Dump Generator Universal AI Tool Implementation for C:\\Amd949609_Antigravity_v1 Governed by Universal AI Laws: Law 1 (Tool Creation), Law 10 (Cross-AI T"}, {"name": "edu_newspaper_harvester.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\edu_newspaper_harvester.py", "is_dir": false, "category": "OSINT & Recon", "size_kb": 10.1, "modified": "2026-10-25 16:35", "description": "Academic .EDU Newspaper, Historical Archives & California Digital Newspaper Collection (CDNC/UCR) Harvester Harvests: 1. University of California Riverside (UCR.edu) California Digital Newspaper Colle"}, {"name": "enforce_ailaws_universal.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\enforce_ailaws_universal.py", "is_dir": false, "category": "AI Core & PowerApps", "size_kb": 2.4, "modified": "2026-10-13 19:26", "description": "enforce_ailaws_universal.py \u2014 Universal AI Laws Enforcer Tool Governance: AI Law 1 (Repeated processes become AI Tools), AI Law 2 (Strict Execution & Accuracy Format) This tool MUST be executed prior "}, {"name": "error_coin_minter.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\error_coin_minter.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 5.3, "modified": "2026-10-25 23:51", "description": "Executable operational script / module."}, {"name": "examples", "path": "C:\\Amd949609_Antigravity_v1\\tools\\examples", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-10-21 17:41", "description": "Directory containing specialized toolchain modules for examples."}, {"name": "extract_all_tabs.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\extract_all_tabs.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 2.7, "modified": "2026-10-25 22:43", "description": "Executable operational script / module."}, {"name": "finalrecon_recon_tool.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\finalrecon_recon_tool.py", "is_dir": false, "category": "OSINT & Recon", "size_kb": 12.1, "modified": "2026-10-19 15:03", "description": "FinalRecon Standalone Reconnaissance Tool Universal AI Tool for C:\\\\Amd949609_Antigravity_v1\\\\tools\\\\ Compliant with Universal AI Laws 1, 10, 11, 15 Performs fast, all-in-one automated web reconnaissa"}, {"name": "find_tabs.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\find_tabs.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 0.6, "modified": "2026-10-25 22:43", "description": "Look for patterns like gid and tab names Look for tabs array"}, {"name": "generate_toolbox_powerapp.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\generate_toolbox_powerapp.py", "is_dir": false, "category": "AI Core & PowerApps", "size_kb": 17.4, "modified": "2026-10-27 12:32", "description": "Toolbox PowerApp Generator Scans C:\\\\Amd949609_Antigravity_v1\\\\tools, extracts docstrings, file sizes, last modified times, and generates a standalone high-performance PowerApp Command Center. Governe"}, {"name": "hudsonrock_cavalier.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\hudsonrock_cavalier.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 8.7, "modified": "2026-10-19 14:53", "description": "Hudson Rock (Cavalier) Info-Stealer Intelligence & Credential Breach Reconnaissance Tool Universal AI Tool per Universal AI Law 1, Law 10, Law 11, and Law 15. Live Endpoints: - OSINT Cabal Live Center"}, {"name": "huntington_beach_navigation_center_form700_audit.json", "path": "C:\\Amd949609_Antigravity_v1\\tools\\huntington_beach_navigation_center_form700_audit.json", "is_dir": false, "category": "Legal & Public Records", "size_kb": 0.5, "modified": "2026-10-05 03:35", "description": "Executable operational script / module."}, {"name": "huntpastebin.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\huntpastebin.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 4.1, "modified": "2026-10-19 14:59", "description": "HuntPastebin - OSINT Sensitive Query & Text Drop Scraper Tool Universal AI Tool per Universal AI Laws 1, 10, 11, and 15. Capability: Scrapes Pastebin, GitHub Gists, and text drops for sensitive query "}, {"name": "ingest_backlog_processor.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\ingest_backlog_processor.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 12.0, "modified": "2026-10-21 17:49", "description": "ingest_backlog_processor.py \u2014 processes queued parse tasks from automated_backlog.json. Reads the task_system automated_backlog.json, parses each queued target file (HTML visualization / markdown), ex"}, {"name": "key_rotator", "path": "C:\\Amd949609_Antigravity_v1\\tools\\key_rotator", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-10-21 17:33", "description": "Directory containing specialized toolchain modules for key_rotator."}, {"name": "maltego_export.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\maltego_export.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 8.4, "modified": "2026-10-21 18:04", "description": "maltego_export.py \u2014 turn an evidence CSV (photo/video harvest logs, entity sheets, breach lists) into Maltego-importable entity + link CSVs. Law 10 (cross-AI tool sharing) / Law 15 (official-evidence "}, {"name": "master_entity_matrix.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\master_entity_matrix.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 4.6, "modified": "2026-10-26 04:04", "description": "Initializes the local SQLite Master Entity Matrix schema."}, {"name": "media_and_broadsheet_generator.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\media_and_broadsheet_generator.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 26.4, "modified": "2026-10-25 16:28", "description": "Deep Media, Wikipedia, YouTube, and Broadsheet Headline Harvester & Generator Harvests: 1. Full Wikipedia pages & Structured JSON dossiers for all past historic crime & precedent scenarios. 2. Complet"}, {"name": "notebooklm_ingest_tool.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\notebooklm_ingest_tool.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 8.6, "modified": "2026-10-25 23:24", "description": "notebooklm_ingest_tool.py \u2014 Autonomous NotebookLM & Gemini Saved Webpage Ingestion Engine Part of the OSINT & AI Tools Ecosystem. Extracts all Sources, Studio artifacts, Deep Dive audio metadata, Stud"}, {"name": "offhours_evidence_rescan.sh", "path": "C:\\Amd949609_Antigravity_v1\\tools\\offhours_evidence_rescan.sh", "is_dir": false, "category": "Automation & Utilities", "size_kb": 0.7, "modified": "2026-10-21 18:05", "description": "offhours_evidence_rescan.sh \u2014 nightly, Trinity-gated evidence re-scan (off-hours window). Law 15: artifacts are re-hashed and provenance-checked; anything that changed since the last intake is QUARANT"}, {"name": "opencode_autonomous_agent_tool.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\opencode_autonomous_agent_tool.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 0.9, "modified": "2026-09-18 16:04", "description": "OpenCode Extracted Autonomous AI Tool Generated At: 2026-09-18"}, {"name": "openosint_mcp_server.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\openosint_mcp_server.py", "is_dir": false, "category": "OSINT & Recon", "size_kb": 15.1, "modified": "2026-10-25 22:45", "description": "OpenOSINT Model Context Protocol (MCP) Server for OsintNeoAi. Provides 19 native reconnaissance & entity resolution tools to Antigravity and AI agents: 1. osint_lookup_person: Enrich person identity a"}, {"name": "osint", "path": "C:\\Amd949609_Antigravity_v1\\tools\\osint", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-10-19 15:30", "description": "Directory containing specialized toolchain modules for osint."}, {"name": "osint_people_finder.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\osint_people_finder.py", "is_dir": false, "category": "OSINT & Recon", "size_kb": 4.8, "modified": "2026-10-25 22:44", "description": "OSINT Master People Finder Tool Engine Ingests and indexes the extracted 1,223+ OSINT tool arsenal from CyberSecStu's 'Set it on fire child - OSINT for Finding People v0.7'. Provides programmatic sear"}, {"name": "osint_people_finder_registry.json", "path": "C:\\Amd949609_Antigravity_v1\\tools\\osint_people_finder_registry.json", "is_dir": false, "category": "OSINT & Recon", "size_kb": 253.2, "modified": "2026-10-25 22:44", "description": "Executable operational script / module."}, {"name": "osint_process_miner.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\osint_process_miner.py", "is_dir": false, "category": "OSINT & Recon", "size_kb": 4.0, "modified": "2026-10-25 05:51", "description": "Executable operational script / module."}, {"name": "osint_suite", "path": "C:\\Amd949609_Antigravity_v1\\tools\\osint_suite", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-09-20 14:05", "description": "Directory containing specialized toolchain modules for osint_suite."}, {"name": "osintneoai_unified_router.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\osintneoai_unified_router.py", "is_dir": false, "category": "OSINT & Recon", "size_kb": 1.4, "modified": "2026-09-18 18:26", "description": "OSINTNEOAI Unified 3-Tier Environment Router Server"}, {"name": "precedent_and_citation_harvester.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\precedent_and_citation_harvester.py", "is_dir": false, "category": "OSINT & Recon", "size_kb": 27.4, "modified": "2026-10-25 16:12", "description": "Precedent & Citation Harvester Engine Harvests full dockets, judicial opinions, citators, multilingual cross-jurisdictional citations, video interviews, and transcripts for target cases: 1. Jesse Knab"}, {"name": "project_form700_search_tool.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\project_form700_search_tool.py", "is_dir": false, "category": "Legal & Public Records", "size_kb": 3.7, "modified": "2026-10-05 03:34", "description": "Unified AI Tool: Project-Based Form 700 & Conflict of Interest Search Engine. Executes cross-referencing between project locations, APN parcels, vendor RFPs, key political/supervisor figures (e.g. Jan"}, {"name": "public_works_engine", "path": "C:\\Amd949609_Antigravity_v1\\tools\\public_works_engine", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-10-16 18:00", "description": "Directory containing specialized toolchain modules for public_works_engine."}, {"name": "raw_library_harvester.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\raw_library_harvester.py", "is_dir": false, "category": "OSINT & Recon", "size_kb": 12.6, "modified": "2026-10-25 16:32", "description": "Raw Full-Text Archival & Unedited Library Builder Downloads and saves 100% UNEDITED, FULL-LENGTH copies of all source materials: 1. Complete Wikipedia Articles in Raw HTML & Raw API JSON (megabytes of"}, {"name": "rea", "path": "C:\\Amd949609_Antigravity_v1\\tools\\rea", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-10-19 08:11", "description": "Directory containing specialized toolchain modules for rea."}, {"name": "records_portal", "path": "C:\\Amd949609_Antigravity_v1\\tools\\records_portal", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-10-21 18:50", "description": "Directory containing specialized toolchain modules for records_portal."}, {"name": "reddit_pushpull.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\reddit_pushpull.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 17.5, "modified": "2026-10-19 15:07", "description": "Reddit Push-Pull Forensics & Deleted Content Recovery Tool Integration: OSINT Cabal Live Center (https://osintcabal.org/livecenter/redditpushpull.html) Upstream API: PullPush API (https://api.pullpush"}, {"name": "screenshot_2nwj7co.png", "path": "C:\\Amd949609_Antigravity_v1\\tools\\screenshot_2nwj7co.png", "is_dir": false, "category": "Automation & Utilities", "size_kb": 161.4, "modified": "2026-09-13 02:41", "description": "Executable operational script / module."}, {"name": "share_chat", "path": "C:\\Amd949609_Antigravity_v1\\tools\\share_chat", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-10-16 11:56", "description": "Directory containing specialized toolchain modules for share_chat."}, {"name": "shared_export", "path": "C:\\Amd949609_Antigravity_v1\\tools\\shared_export", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-10-21 18:30", "description": "Directory containing specialized toolchain modules for shared_export."}, {"name": "sovereign_wiki_generator.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\sovereign_wiki_generator.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 2.9, "modified": "2026-10-25 15:42", "description": "Executable operational script / module."}, {"name": "start_backend_no_docker.ps1", "path": "C:\\Amd949609_Antigravity_v1\\tools\\start_backend_no_docker.ps1", "is_dir": false, "category": "Automation & Utilities", "size_kb": 0.8, "modified": "2026-10-04 21:34", "description": "OsintNeoAi backend starter - NO Docker required Target: PowerShell. Run: powershell -ExecutionPolicy Bypass -File \"C:\\Amd949609_Antigravity_v1\\tools\\start_backend_no_docker.ps1\" Load .env (last occurr"}, {"name": "structured_project_form700_audit.json", "path": "C:\\Amd949609_Antigravity_v1\\tools\\structured_project_form700_audit.json", "is_dir": false, "category": "Legal & Public Records", "size_kb": 3.8, "modified": "2026-10-05 11:31", "description": "Executable operational script / module."}, {"name": "structured_project_form700_auditor.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\structured_project_form700_auditor.py", "is_dir": false, "category": "Legal & Public Records", "size_kb": 7.4, "modified": "2026-10-05 09:54", "description": "Structured AI Tool for Project-Based Form 700 & OSINT Reconnaissance. Enforces a strict Schema Matrix defining mandatory entity roles/types. Fills in available data or explicitly flags the field as [D"}, {"name": "tabcopy", "path": "C:\\Amd949609_Antigravity_v1\\tools\\tabcopy", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-10-21 16:39", "description": "Directory containing specialized toolchain modules for tabcopy."}, {"name": "tabcopy_tool.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\tabcopy_tool.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 0.7, "modified": "2026-09-17 20:35", "description": "TabCopy Ingestion Tool Processes tab lists pasted via Ctrl+Shift+X shortcut."}, {"name": "task_system", "path": "C:\\Amd949609_Antigravity_v1\\tools\\task_system", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-10-27 03:02", "description": "Directory containing specialized toolchain modules for task_system."}, {"name": "telegram_breach_monitor.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\telegram_breach_monitor.py", "is_dir": false, "category": "OSINT & Recon", "size_kb": 6.7, "modified": "2026-10-19 15:31", "description": "Telegram Breach Monitor - Threat Actor & Credential Drop OSINT Tracker Universal AI Tool Implementation for C:\\Amd949609_Antigravity_v1 Governed by Universal AI Laws: Law 1 (Tool Creation), Law 10 (Cr"}, {"name": "telegramsint.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\telegramsint.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 23.3, "modified": "2026-10-19 15:03", "description": "Telegram OSINT Kit (TeleGramSint) Multi-API intelligence gathering tool for Telegram reconnaissance Official Source: https://osintcabal.org/livecenter/TeleGramSint.html GitHub: https://github.com/OSIN"}, {"name": "test_openosint_mcp_harness.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\test_openosint_mcp_harness.py", "is_dir": false, "category": "OSINT & Recon", "size_kb": 3.0, "modified": "2026-09-18 17:12", "description": "test_openosint_mcp_harness.py \u2014 Automated Test Harness for 19 Native OpenOSINT MCP Tools Governance: AI Law 1 (Repeated processes become AI Tools), AI Law 2 (Strict Verification Output) Executes test "}, {"name": "test_trinity_gate.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\test_trinity_gate.py", "is_dir": false, "category": "The Trinity & Verification", "size_kb": 9.9, "modified": "2026-10-21 17:40", "description": "Unit tests for trinity_gate.py \u2014 run: python3 -m unittest test_trinity_gate -v"}, {"name": "test_trinity_hook.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\test_trinity_hook.py", "is_dir": false, "category": "The Trinity & Verification", "size_kb": 4.9, "modified": "2026-10-21 17:51", "description": "Unit tests for trinity_hook.py \u2014 run: python3 -m unittest test_trinity_hook -v"}, {"name": "theharvester_tool.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\theharvester_tool.py", "is_dir": false, "category": "OSINT & Recon", "size_kb": 6.3, "modified": "2026-10-21 18:27", "description": "The Harvester OSINT Automation & Passive Reconnaissance Tool Universal AI Tool per Universal AI Law 1 & Law 10 Single unified location: C:\\Amd949609_Antigravity_v1\\tools\\theharvester_tool.py Integrate"}, {"name": "ticker_tape", "path": "C:\\Amd949609_Antigravity_v1\\tools\\ticker_tape", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-10-16 21:14", "description": "Directory containing specialized toolchain modules for ticker_tape."}, {"name": "tiktok_metadata_kit.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\tiktok_metadata_kit.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 10.7, "modified": "2026-10-19 14:56", "description": "TikTok Metadata Kit & Forensic Timestamp Extractor Based on Bellingcat OSINT methodology & TikTok 64-bit Snowflake ID specification. Integrated into Antigravity OSINT Toolchain: - Primary Source: http"}, {"name": "trinity_gate.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\trinity_gate.py", "is_dir": false, "category": "The Trinity & Verification", "size_kb": 25.9, "modified": "2026-10-21 17:51", "description": "trinity_gate.py \u2014 THE TRINITY: Foundational Engine for Truth & Accuracy ======================================================================= Implements the three-gate validation pipeline defined in"}, {"name": "trinity_hook.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\trinity_hook.py", "is_dir": false, "category": "The Trinity & Verification", "size_kb": 9.8, "modified": "2026-10-21 17:51", "description": "trinity_hook.py \u2014 integration layer that puts files and parsed artifacts through THE TRINITY gates before they enter the Evidence Locker. Law: THE TRINITY: FOUNDATIONAL ENGINE FOR TRUTH & ACCURACY C:\\"}, {"name": "trinity_intake.sh", "path": "C:\\Amd949609_Antigravity_v1\\tools\\trinity_intake.sh", "is_dir": false, "category": "The Trinity & Verification", "size_kb": 2.6, "modified": "2026-10-21 17:41", "description": "trinity_intake.sh \u2014 run evidence records through The Trinity before they are accepted into the Evidence Locker.  Law: THE TRINITY: FOUNDATIONAL ENGINE FOR TRUTH & ACCURACY C:\\Amd949609_Antigravity_v1\\"}, {"name": "truth_engine", "path": "C:\\Amd949609_Antigravity_v1\\tools\\truth_engine", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-10-21 16:19", "description": "Directory containing specialized toolchain modules for truth_engine."}, {"name": "truthfinder", "path": "C:\\Amd949609_Antigravity_v1\\tools\\truthfinder", "is_dir": true, "category": "Sub-System / Suite", "size_kb": 0, "modified": "2026-10-14 13:54", "description": "Directory containing specialized toolchain modules for truthfinder."}, {"name": "vm_move_to_payg_plan.md", "path": "C:\\Amd949609_Antigravity_v1\\tools\\vm_move_to_payg_plan.md", "is_dir": false, "category": "Automation & Utilities", "size_kb": 2.6, "modified": "2026-10-04 21:34", "description": "VM move plan: Disabled Students sub -> new PAYG sub (same MCA billing) Source (frozen, read-only, do NOT delete)"}, {"name": "webcheck_scanner.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\webcheck_scanner.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 6.9, "modified": "2026-10-19 14:55", "description": "Webcheck Scanner Tool (Autonomous Domain & Infrastructure Telemetry) Integrated into unified user environment C:\\\\Amd949609_Antigravity_v1\\\\tools\\\\ Governed strictly by Universal AI Laws (Law 1, Law 1"}, {"name": "whatsapp_profile_lookup.py", "path": "C:\\Amd949609_Antigravity_v1\\tools\\whatsapp_profile_lookup.py", "is_dir": false, "category": "Automation & Utilities", "size_kb": 3.1, "modified": "2026-10-19 14:55", "description": "WhatsApp Profile Lookup & Metadata Tool Integrated with OSINT Cabal Live Center & CheckLeaked API Path: C:\\Amd949609_Antigravity_v1\\tools\\whatsapp_profile_lookup.py"}];
+        let activeCategory = 'All';
+
+        function computeStats() {
+            document.getElementById('stat-total').innerText = toolsData.length;
+            document.getElementById('stat-osint').innerText = toolsData.filter(t => t.category === 'OSINT & Recon').length;
+            document.getElementById('stat-trinity').innerText = toolsData.filter(t => t.category === 'The Trinity & Verification').length;
+            document.getElementById('stat-ai').innerText = toolsData.filter(t => t.category === 'AI Core & PowerApps').length;
+        }
+
+        function setCategory(cat) {
+            activeCategory = cat;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.innerText === (cat === 'All' ? 'All Tools' : (cat.includes('Trinity') ? 'The Trinity' : (cat.includes('AI') ? 'AI & PowerApps' : (cat.includes('Legal') ? 'Legal / Form 700' : (cat.includes('Sub-System') ? 'Sub-Systems' : (cat.includes('Utilities') ? 'Utilities' : cat)))))));
+            });
+            renderGrid();
+        }
+
+        function getTagClass(cat) {
+            if (cat === 'OSINT & Recon') return 'tag-osint';
+            if (cat === 'The Trinity & Verification') return 'tag-trinity';
+            if (cat === 'AI Core & PowerApps') return 'tag-ai';
+            if (cat === 'Legal & Public Records') return 'tag-legal';
+            if (cat === 'Sub-System / Suite') return 'tag-suite';
+            return 'tag-util';
+        }
+
+        function copyPath(path) {
+            navigator.clipboard.writeText(path).then(() => {
+                alert('Copied tool path to clipboard:\n' + path);
+            });
+        }
+
+        function renderGrid() {
+            const query = (document.getElementById('toolSearch').value || '').toLowerCase();
+            const grid = document.getElementById('toolGrid');
+            grid.innerHTML = '';
+
+            const filtered = toolsData.filter(t => {
+                const matchesCat = (activeCategory === 'All' || t.category === activeCategory);
+                const matchesSearch = t.name.toLowerCase().includes(query) ||
+                                      t.description.toLowerCase().includes(query) ||
+                                      t.category.toLowerCase().includes(query);
+                return matchesCat && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '<div style="color: var(--text-muted); grid-column: 1/-1; text-align: center; padding: 4rem;">No tools found matching your query.</div>';
+                return;
+            }
+
+            filtered.forEach(t => {
+                const card = document.createElement('div');
+                card.className = 'tool-card';
+
+                const sizeText = t.is_dir ? 'DIR' : `${t.size_kb} KB`;
+                const tagClass = getTagClass(t.category);
+
+                card.innerHTML = `
+                    <div class="card-top">
+                        <div class="tool-name">${t.name}</div>
+                        <span class="category-tag ${tagClass}">${t.category}</span>
+                    </div>
+                    <div class="tool-desc">${t.description}</div>
+                    <div class="card-footer">
+                        <span class="meta-text">${sizeText} • ${t.modified}</span>
+                        <button class="action-btn" onclick="copyPath('${t.path.replace(/\\/g, '\\\\')}')">Copy Path</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        computeStats();
+        renderGrid();
+    </script>
+</body>
+</html>

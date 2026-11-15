@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OsintNeoAi — Investigator Command Portal & Forensic Dispatch Hub</title>
+  <style>
+    :root {
+      --bg: #070b14;
+      --card: #0f172a;
+      --border: #1e293b;
+      --accent: #38bdf8;
+      --green: #00ffaa;
+      --red: #f87171;
+      --gold: #f59e0b;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: radial-gradient(circle at top right, #0f1d36, var(--bg) 55%);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 28px 20px 60px;
+    }
+    .wrap { max-width: 1280px; margin: 0 auto; }
+    header {
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 14px;
+      padding: 26px 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.55);
+      margin-bottom: 26px;
+    }
+    .brand h1 { font-size: 26px; font-weight: 800; letter-spacing: 0.6px; color: var(--accent); }
+    .brand p { color: var(--muted); font-size: 13px; margin-top: 6px; }
+    .status-strip { display: flex; flex-wrap: wrap; gap: 10px; }
+    .pill {
+      font-family: monospace;
+      font-size: 12px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid #1e293b;
+      background: #020617;
+      color: var(--green);
+    }
+    .pill.warn { color: var(--gold); }
+    .section-title {
+      font-size: 13px;
+      font-family: monospace;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      margin: 26px 0 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 28px rgba(56, 189, 248, 0.15);
+    }
+    .card.primary { border-color: rgba(0, 255, 170, 0.45); background: linear-gradient(145deg, #0f172a, #0b2220); }
+    .card.breaking { border-color: rgba(248, 113, 113, 0.45); }
+    .tag {
+      align-self: flex-start;
+      font-family: monospace;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+    .card.primary .tag { background: rgba(0, 255, 170, 0.16); color: var(--green); }
+    .card.breaking .tag { background: rgba(248, 113, 113, 0.16); color: var(--red); }
+    .card h3 { font-size: 17px; font-weight: 700; line-height: 1.3; }
+    .card p { font-size: 13px; color: var(--muted); line-height: 1.45; }
+    .card .meta { font-family: monospace; font-size: 11px; color: var(--accent); margin-top: auto; padding-top: 6px; }
+    .stories-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-top: 12px;
+    }
+    .story-row {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .story-row:last-child { border-bottom: none; }
+    .story-row h4 { font-size: 16px; color: #fff; }
+    .story-row .s-meta { font-family: monospace; font-size: 11px; color: var(--green); }
+    .story-row p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .story-row .s-path { font-family: monospace; font-size: 11px; color: #64748b; word-break: break-all; }
+    footer {
+      margin-top: 34px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      font-family: monospace;
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <h1>OSINTNEOAI — INVESTIGATOR COMMAND HUB</h1>
+        <p>Live Portal Serving Public-Record Broadsheet Dossiers, 3D Geospatial Maps, RICO Graphs &amp; Synced Google Tasks Ledger</p>
+      </div>
+      <div class="status-strip">
+        <span class="pill">PORTAL: LIVE (:8080)</span>
+        <span class="pill">TRINITY GATES: ENFORCED</span>
+        <span class="pill warn">ZERO OUTSIDE-CREDIT SPEND</span>
+      </div>
+    </header>
+
+    <div class="section-title">
+      <span>Primary Investigator Publications &amp; Task Sync</span>
+      <span>Law 3 &amp; Law 15 Governed</span>
+    </div>
+    <div class="grid">
+      <a class="card primary" href="newspaper_broadsheet_v3.html">
+        <span class="tag">Broadsheet Flagship</span>
+        <h3>The Tax-Funded Dispatch (Broadsheet v3)</h3>
+        <p>Interactive broadsheet edition with live dossier dispatches from newspaper_stories.json, Syncfusion evidence grid, and entity inspector.</p>
+        <span class="meta">Open Broadsheet v3 →</span>
+      </a>
+      <a class="card breaking" href="newspaper_hub.html">
+        <span class="tag">Front Page Edition</span>
+        <h3>Newspaper Dispatch Hub</h3>
+        <p>Editorial front page highlighting flagship forensic extractions and live JSON dossier stream.</p>
+        <span class="meta">Open Newspaper Hub →</span>
+      </a>
+      <a class="card primary" href="task_system_powerapp.html">
+        <span class="tag">Synced Task PowerApp</span>
+        <h3>Unified Task Ledger &amp; Google Tasks Mirror</h3>
+        <p>86 active/queued/completed AI &amp; OSINT tasks mirrored for Google Tasks oversight.</p>
+        <span class="meta">Open Task PowerApp →</span>
+      </a>
+      <a class="card" href="https://tasks.google.com/" target="_blank" rel="noopener">
+        <span class="tag">External Primary</span>
+        <h3>Google Tasks (https://tasks.google.com/)</h3>
+        <p>Mandatory Law 3 primary Task Manager. Open directly in signed-in Google Chrome profile.</p>
+        <span class="meta">Launch Google Tasks ↗</span>
+      </a>
+    </div>
+
+    <div class="section-title">
+      <span>3D GIS, RICO Flows &amp; Statutory Visualizers</span>
+      <span>Verified Evidence Tools</span>
+    </div>
+    <div class="grid">
+      <a class="card" href="tactical_3d_map.html">
+        <span class="tag">3D WebGL</span>
+        <h3>Tactical 3D Vector &amp; Satellite GIS</h3>
+        <p>Preserved MapLibre GL 3D terrain &amp; Huntington Beach / Orange County Superfund and parcel telemetry view.</p>
+        <span class="meta">Launch 3D Map →</span>
+      </a>
+      <a class="card" href="gis_powerapp.html">
+        <span class="tag">PowerApp</span>
+        <h3>GIS Parcel &amp; Assessor PowerApp</h3>
+        <p>Orange County Assessor APN explorer and spatial property ownership ledger.</p>
+        <span class="meta">Open GIS PowerApp →</span>
+      </a>
+      <a class="card" href="Google_AI_Studio_Void_Ab_Initio_Visual_App.html">
+        <span class="tag">Void Ab Initio</span>
+        <h3>Void Ab Initio Form 700 Visualizer</h3>
+        <p>Thomson v. Call 100% disgorgement &amp; Cal. Gov. Code § 1090 strict liability statutory interactive model.</p>
+        <span class="meta">Open Visual App →</span>
+      </a>
+      <a class="card" href="rico_flow.html">
+        <span class="tag">RICO Flow</span>
+        <h3>RICO Capital &amp; Property Transfer Flow</h3>
+        <p>Multi-party transaction and shell entity transfer visualization across OC Assessor instruments.</p>
+        <span class="meta">Open RICO Flow →</span>
+      </a>
+      <a class="card" href="cluster_map.html">
+        <span class="tag">Cluster Map</span>
+        <h3>Entity &amp; Parcel Cluster Map</h3>
+        <p>Geographic clustering across Huntington Beach, Garden Grove, Westminster, and Fountain Valley.</p>
+        <span class="meta">Open Cluster Map →</span>
+      </a>
+      <a class="card" href="risk_matrix.html">
+        <span class="tag">Risk Matrix</span>
+        <h3>Forensic Risk &amp; Exposure Matrix</h3>
+        <p>Quantitative risk scoring across breach hits, infostealer telemetry, and deed anomalies.</p>
+        <span class="meta">Open Risk Matrix →</span>
+      </a>
+      <a class="card" href="timeline.html">
+        <span class="tag">Chronology</span>
+        <h3>Forensic Event Timeline</h3>
+        <p>Chronological reconstruction including the Spring–Fall 2021 acquisition spree and Cameron Ln history.</p>
+        <span class="meta">Open Timeline →</span>
+      </a>
+      <a class="card" href="fact_checker_powerapp.html">
+        <span class="tag">Trinity Verify</span>
+        <h3>Trinity Fact Checker &amp; Second Opinion</h3>
+        <p>Multi-gate physics, probability, and statutory baseline verification tools (<a href="second_opinion_powerapp.html" style="color:#38bdf8;">Second Opinion</a> | <a href="toolbox_powerapp.html" style="color:#38bdf8;">Toolbox</a>).</p>
+        <span class="meta">Open Fact Checker →</span>
+      </a>
+    </div>
+
+    <div class="section-title">
+      <span>Latest Published Forensic Dispatches (./newspaper_stories.json)</span>
+      <span id="storyCountLabel">Loading...</span>
+    </div>
+    <div class="stories-box" id="liveStoriesContainer">
+      <div class="story-row"><p>Loading live dispatches from newspaper_stories.json...</p></div>
+    </div>
+
+    <footer>
+      <span>Repo: https://github.com/Tonypost949/OsintNeoAi.git</span>
+      <span>Active User Folder: C:\Amd949609_Antigravity_v1</span>
+      <span>Supplemental Maps: <a href="geo_map.html" style="color:#38bdf8;">geo_map.html</a> · <a href="port_heatmap.html" style="color:#38bdf8;">port_heatmap.html</a></span>
+    </footer>
+  </div>
+
+  <script>
+    (async function () {
+      const container = document.getElementById('liveStoriesContainer');
+      const countLbl = document.getElementById('storyCountLabel');
+      const esc = (v) => String(v || '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+      try {
+        const res = await fetch('./newspaper_stories.json');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const stories = await res.json();
+        countLbl.textContent = stories.length + ' VERIFIED DISPATCHES';
+        container.innerHTML = stories.slice(0, 6).map(s => `
+          <div class="story-row">
+            <div class="s-meta">${esc(s.id)} · ${esc(s.category)} · ${esc(s.jurisdiction)} · ${esc(s.published_at)}</div>
+            <h4><a href="newspaper_broadsheet_v3.html" style="color:#38bdf8;text-decoration:none;">${esc(s.title)}</a></h4>
+            <p>${esc(s.excerpt || s.summary || '')}</p>
+            ${s.raw_audit_file ? `<div class="s-path">Primary Evidence Path: ${esc(s.raw_audit_file)}</div>` : ''}
+          </div>
+        `).join('');
+      } catch (err) {
+        countLbl.textContent = 'FEED UNAVAILABLE';
+        container.innerHTML = '<div class="story-row"><p>Could not load ./newspaper_stories.json: ' + esc(err.message) + '</p></div>';
+      }
+    })();
+  </script>
+</body>
+</html>

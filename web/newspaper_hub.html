@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tax-Funded Dispatch - Investigative Newspaper</title>
+  <style>
+    body { font-family: 'Georgia', serif; background: #faf8f5; color: #1a1a1a; margin: 0; padding: 0; }
+    header { border-bottom: 3px double #1a1a1a; text-align: center; padding: 20px; }
+    h1 { font-size: 42px; font-family: 'Playfair Display', serif; margin: 0; text-transform: uppercase; letter-spacing: 2px; }
+    .tagline { font-style: italic; color: #555; font-size: 14px; margin-top: 4px; }
+    .date-bar { border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; padding: 6px 20px; font-size: 12px; font-family: sans-serif; display: flex; justify-content: space-between; }
+    .container { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; max-width: 1200px; margin: 24px auto; padding: 0 20px; }
+    .featured { background: #fff; padding: 20px; border: 1px solid #e5e5e5; border-top: 4px solid #b91c1c; }
+    .featured h2 { font-size: 28px; margin-top: 0; color: #b91c1c; }
+    .badge-flagship { background: #b91c1c; color: #fff; font-family: sans-serif; font-size: 10px; font-weight: bold; padding: 3px 8px; text-transform: uppercase; }
+    .sidebar-feed { background: #fff; padding: 16px; border: 1px solid #e5e5e5; }
+    .sidebar-feed h3 { font-family: sans-serif; font-size: 14px; border-bottom: 2px solid #1a1a1a; padding-bottom: 6px; text-transform: uppercase; }
+    .article-stub { margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #eee; }
+    .article-stub h4 { margin: 0 0 4px 0; font-size: 16px; }
+    .meta { font-size: 11px; font-family: sans-serif; color: #777; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>The Tax-Funded Dispatch</h1>
+    <div class="tagline">Public Record Audits & Independent Open Source Investigations</div>
+  </header>
+
+  <div class="date-bar">
+    <span>VOL. I ... EDITION 2026-11-15 | <a href="index.html" style="color:#b91c1c;font-weight:bold;text-decoration:none;">← Investigator Portal Hub</a> | <a href="newspaper_broadsheet_v3.html" style="color:#1a1a1a;font-weight:bold;text-decoration:none;">Full Broadsheet v3</a> | <a href="task_system_powerapp.html" style="color:#1a1a1a;font-weight:bold;text-decoration:none;">Task Ledger</a></span>
+    <span>PUBLISHED: NOVEMBER 15, 2026</span>
+    <span>OFFICIAL RECORDS & TRINITY FEED</span>
+  </div>
+
+  <div class="container">
+    <!-- Flagship Primary Investigation -->
+    <div class="featured" id="leadStoryCard">
+      <span class="badge-flagship">Flagship Investigation</span>
+      <h2 id="hubLeadTitle">EXPOSED: $14.2M Non-Profit Tax-Exemption Loophole Audit</h2>
+      <div class="meta" id="hubLeadMeta" style="margin-bottom: 12px;">By OsintNeoAi Forensic Unit | Verified via The Trinity</div>
+      <p id="hubLeadExcerpt">A multi-year investigation into county property tax exemptions reveals a network of shell non-profits receiving public tax waivers while devoting less than 4% of gross revenue to direct community assistance. Automated IRS 990 cross-referencing and OC Recorder deed correlation have mapped the active property cluster...</p>
+      <div id="hubLeadMetaExtra" style="font-size:12px;font-family:monospace;color:#333;background:#f7f5f0;padding:8px 12px;border-left:3px solid #b91c1c;margin-bottom:14px;">Full live dossier dispatch feed loading from ./newspaper_stories.json</div>
+      <button onclick="window.location.href='newspaper_broadsheet_v3.html'" style="background: #1a1a1a; color: #fff; border: none; padding: 10px 18px; font-family: sans-serif; font-weight: bold; cursor: pointer;">Read Full Investigation & Broadsheet Dossier →</button>
+    </div>
+
+    <!-- Community Pipeline & Breaking User Investigations -->
+    <div class="sidebar-feed" id="hubDispatchFeed">
+      <h3>📰 Latest Forensic Dossiers & Dispatches</h3>
+
+      <div class="article-stub">
+        <h4>Municipal Vehicle Fleet Contract Discrepancy</h4>
+        <div class="meta">Piped by User @InvestigatorX</div>
+        <p style="font-size: 13px; color: #444;">USASpending cross-reference flags $1.8M over-budget equipment lease...</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    (async function loadLiveDispatches() {
+      try {
+        const res = await fetch('./newspaper_stories.json');
+        if (!res.ok) return;
+        const stories = await res.json();
+        if (!Array.isArray(stories) || stories.length === 0) return;
+
+        const lead = stories[0];
+        document.getElementById('hubLeadTitle').textContent = lead.title || '';
+        document.getElementById('hubLeadMeta').textContent =
+          'By ' + (lead.author || 'OsintNeoAi') + ' | ' + (lead.jurisdiction || '') + ' | ' + (lead.published_at || '');
+        document.getElementById('hubLeadExcerpt').textContent = lead.excerpt || lead.summary || '';
+        document.getElementById('hubLeadMetaExtra').textContent =
+          'ID: ' + (lead.id || 'N/A') + ' | Statutory: ' + ((lead.statutory_notes || []).join(' • ')) +
+          (lead.raw_audit_file ? ' | Source: ' + lead.raw_audit_file : '');
+
+        const feed = document.getElementById('hubDispatchFeed');
+        const esc = (v) => String(v || '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+        feed.innerHTML = '<h3>📰 Latest Forensic Dossiers & Dispatches (' + stories.length + ')</h3>' +
+          stories.slice(1, 7).map(s => `
+            <div class="article-stub">
+              <h4><a href="newspaper_broadsheet_v3.html" style="color:#1a1a1a;text-decoration:none;">${esc(s.title)}</a></h4>
+              <div class="meta">${esc(s.category)} · ${esc(s.jurisdiction)} · ${esc(s.published_at)}</div>
+              <p style="font-size: 13px; color: #444;">${esc((s.excerpt || '').substring(0, 170))}...</p>
+              <div class="meta" style="font-family:monospace;color:#b91c1c;word-break:break-all;">${esc(s.raw_audit_file || '')}</div>
+            </div>
+          `).join('');
+      } catch (err) {
+        console.warn('Could not load newspaper_stories.json dynamically:', err);
+      }
+    })();
+  </script>
+</body>
+</html>
