@@ -1,0 +1,300 @@
+[
+  {
+    "task_id": "TASK-20260928-01",
+    "timestamp": "2026-09-28T10:29:11.405935+00:00",
+    "category": "OFFICIAL_GOV_API_ANALYSIS",
+    "description": "Ingested and analyzed 203,441 US EPA PCS Water Discharge Permit records, identified 9 Huntington Beach NPDES permits, and appended to UNIFIED_MASTER_INVESTIGATIVE_DOSSIER.md.",
+    "status": "COMPLETED",
+    "cloud_synced": true
+  },
+  {
+    "task_id": "TASK-20260928-02",
+    "timestamp": "2026-09-28T10:29:11.406047+00:00",
+    "category": "OFFICIAL_GOV_API_ANALYSIS",
+    "description": "Ingested and analyzed 27 US EPA TRI Facility records and appended Section 8 to UNIFIED_MASTER_INVESTIGATIVE_DOSSIER.md.",
+    "status": "COMPLETED",
+    "cloud_synced": true
+  },
+  {
+    "task_id": "TASK-20260928-03",
+    "timestamp": "2026-09-28T10:29:11.406066+00:00",
+    "category": "FORENSIC_IP_SWEEP",
+    "description": "Executed ASN & Geolocation enrichment sweep across 2,664 public IP addresses and generated PUBLIC_IPS_FORENSIC_SWEEP_DOSSIER.md.",
+    "status": "COMPLETED",
+    "cloud_synced": true
+  },
+  {
+    "task_id": "TASK-20260928-04",
+    "timestamp": "2026-09-28T10:29:11.406081+00:00",
+    "category": "EVIDENCE_CRYPTOGRAPHY",
+    "description": "Generated Master SHA256 Evidence Manifest for 1,265 active files in C:\\EVIDENCE_LOCKER_MASTER.",
+    "status": "COMPLETED",
+    "cloud_synced": true
+  },
+  {
+    "task_id": "TASK-20260928-05",
+    "timestamp": "2026-09-28T12:46:30Z",
+    "category": "EVIDENCE_CRYPTOGRAPHY",
+    "description": "Updated Master SHA256 Evidence Manifest for 1,267 active files in C:\\EVIDENCE_LOCKER_MASTER including newly ingested Emergency Shelter grading plan PDF and EasyOCR transcript, and mirrored to gdrive:Sharedall/EVIDENCE_LOCKER_MASTER/00_INDEX.",
+    "status": "COMPLETED",
+    "cloud_synced": true
+  },
+  {
+    "task_id": "TASK-20260928-06",
+    "timestamp": "2026-09-28T14:10:35Z",
+    "category": "FORENSIC_CROSS_REFERENCING_AUDIT",
+    "description": "Executed forensic cross-referencing audit of AESCO Geotechnical Report #20200305-7053, SWRCB Erosivity Waiver WDID 8 30W004769, Eurofins Calscience lab sheets (86 soil/3 GW samples), and EDR Radius Maps. Created cameron_lane_geotech_permits_eurofins_edr_audit.md and updated Section 13 of UNIFIED_MASTER_INVESTIGATIVE_DOSSIER.md.",
+    "status": "COMPLETED",
+    "cloud_synced": true
+  },
+  {
+    "task_id": "TASK-20260928-01",
+    "timestamp": "2026-09-28T16:36:22.655892+00:00",
+    "category": "OFFICIAL_GOV_API_ANALYSIS",
+    "description": "Ingested and analyzed 203,441 US EPA PCS Water Discharge Permit records, identified 9 Huntington Beach NPDES permits, and appended to UNIFIED_MASTER_INVESTIGATIVE_DOSSIER.md.",
+    "status": "COMPLETED",
+    "cloud_synced": true
+  },
+  {
+    "task_id": "TASK-20260928-02",
+    "timestamp": "2026-09-28T16:36:22.657631+00:00",
+    "category": "OFFICIAL_GOV_API_ANALYSIS",
+    "description": "Ingested and analyzed 27 US EPA TRI Facility records and appended Section 8 to UNIFIED_MASTER_INVESTIGATIVE_DOSSIER.md.",
+    "status": "COMPLETED",
+    "cloud_synced": true
+  },
+  {
+    "task_id": "TASK-20260928-03",
+    "timestamp": "2026-09-28T16:36:22.657677+00:00",
+    "category": "FORENSIC_IP_SWEEP",
+    "description": "Executed ASN & Geolocation enrichment sweep across 2,664 public IP addresses and generated PUBLIC_IPS_FORENSIC_SWEEP_DOSSIER.md.",
+    "status": "COMPLETED",
+    "cloud_synced": true
+  },
+  {
+    "task_id": "TASK-20260928-04",
+    "timestamp": "2026-09-28T16:36:22.657689+00:00",
+    "category": "EVIDENCE_CRYPTOGRAPHY",
+    "description": "Generated Master SHA256 Evidence Manifest for 1,265 active files in C:\\EVIDENCE_LOCKER_MASTER.",
+    "status": "COMPLETED",
+    "cloud_synced": true
+  },
+  {
+    "task_id": "TASK-20260928-01",
+    "timestamp": "2026-09-28T16:45:00.817854+00:00",
+    "category": "OFFICIAL_GOV_API_ANALYSIS",
+    "description": "Ingested and analyzed 203,441 US EPA PCS Water Discharge Permit records, identified 9 Huntington Beach NPDES permits, and appended to UNIFIED_MASTER_INVESTIGATIVE_DOSSIER.md.",
+    "status": "COMPLETED",
+    "cloud_synced": true
+  },
+  {
+    "task_id": "TASK-20260928-02",
+    "timestamp": "2026-09-28T16:45:00.817914+00:00",
+    "category": "OFFICIAL_GOV_API_ANALYSIS",
+    "description": "Ingested and analyzed 27 US EPA TRI Facility records and appended Section 8 to UNIFIED_MASTER_INVESTIGATIVE_DOSSIER.md.",
+    "status": "COMPLETED",
+    "cloud_synced": true
+  },
+  {
+    "task_id": "TASK-20260928-03",
+    "timestamp": "2026-09-28T16:45:00.817926+00:00",
+    "category": "FORENSIC_IP_SWEEP",
+    "description": "Executed ASN & Geolocation enrichment sweep across 2,664 public IP addresses and generated PUBLIC_IPS_FORENSIC_SWEEP_DOSSIER.md.",
+    "status": "COMPLETED",
+    "cloud_synced": true
+  },
+  {
+    "task_id": "TASK-20260928-04",
+    "timestamp": "2026-09-28T16:45:00.817934+00:00",
+    "category": "EVIDENCE_CRYPTOGRAPHY",
+    "description": "Generated Master SHA256 Evidence Manifest for 1,265 active files in C:\\EVIDENCE_LOCKER_MASTER.",
+    "status": "COMPLETED",
+    "cloud_synced": true
+  },
+  {
+    "task_id": "TASK-2026-HB-NAV-CENTER-FORM700",
+    "timestamp": "2026-10-05T09:31:16.499921",
+    "task_name": "Project-Based Form 700 & Title Owner Audit (Huntington Beach Navigation Center)",
+    "target_addresses": [
+      "17631 Cameron Lane",
+      "17642 Beach Blvd",
+      "17621 Cameron Lane",
+      "17641 Cameron Lane"
+    ],
+    "key_entities_identified": {
+      "sellers": [
+        "Shigeru Yamada",
+        "Mitsuru Yamada",
+        "Shigeru & Mitsuru Yamada Living Trusts"
+      ],
+      "purchase_price": "$2.97M ($3.16M total)",
+      "brokers": [
+        "Dan Blackwell",
+        "George Felix (CBRE)"
+      ],
+      "operator": "Mercy House Living Centers"
+    },
+    "critical_finding": "CONFIRMED: NO Form 700 project disclosures were filed by officials for this specific project.",
+    "status": "COMPLETED & PERMANENTLY LEDGERED"
+  },
+  {
+    "task_id": "TASK-2026-DEFAULT-JUDGMENT-FB-EXPOSURE",
+    "timestamp": "2026-10-05T11:16:27.564533",
+    "task_name": "Default Judgment Motion & Public Facebook Exposure Post Generation",
+    "case_no": "8:26-cv-00348-JWH-ADS",
+    "relator_reward_target": "$4.32M - $8.64M",
+    "facebook_post_file": "C:\\Amd949609_Antigravity_v1\\summaries\\PUBLIC_FACEBOOK_EXPOSURE_POST.txt",
+    "status": "COMPLETED & ARCHIVED"
+  },
+  {
+    "task_id": "TASK-2026-MASTER-SOLE-SOURCE-SYNCHRONIZATION",
+    "timestamp": "2026-10-05T11:25:14.946660",
+    "task_name": "System-Wide Master Synchronization (Sole-Source Whistleblower & Void Ab Initio DOA Update)",
+    "original_source_relator": "Anthony Michael DiMarcello III ('The Architect')",
+    "litigation_defect_noted": "Co-litigant Jesse Knabb derived info second-hand; improperly named Yamada as separate private entity for DOA contract.",
+    "contract_legal_status": "VOID AB INITIO / DEAD ON ARRIVAL under Cal. Gov. Code § 1090 (Thomson v. Call). Entitled to 100% $6.094M disgorgement.",
+    "federal_default_status": "Clerk's Entry of Default entered June 29, 2026 against Mitsuru Yamada (ECF No. 82).",
+    "relator_financial_target": "$4,323,681.15 to $8,647,362.30 (Relator bounty + statutory § 3730(h) retaliation damages)",
+    "updated_files": [
+      "C:\\Amd949609_Antigravity_v1\\summaries\\MASTER_HB_NAVIGATION_CENTER_FORM700_DOSSIER.md",
+      "C:\\Amd949609_Antigravity_v1\\summaries\\MOTION_DEFAULT_JUDGMENT_AND_RETALIATION_PACKET.md",
+      "C:\\Amd949609_Antigravity_v1\\summaries\\PUBLIC_FACEBOOK_EXPOSURE_POST.txt",
+      "C:\\Amd949609_Antigravity_v1\\tools\\structured_project_form700_audit.json",
+      "C:\\Amd949609_Antigravity_v1\\summaries\\yamada_user_evidence_index.md"
+    ],
+    "status": "100% SYNCHRONIZED & PERMANENTLY LEDGERED"
+  },
+  {
+    "task_id": "TASK_DOJ_18USC666_MEMO",
+    "timestamp": "2026-10-05T11:32:00Z",
+    "description": "Generate 18 U.S.C. § 666 Federal Bribery & Kickback Evidence Memorandum and copy to clipboard",
+    "status": "COMPLETED",
+    "file_created": "C:\\Amd949609_Antigravity_v1\\summaries\\DOJ_18USC666_BRIBERY_AND_KICKBACK_MEMORANDUM.md"
+  },
+  {
+    "task_id": "TASK_TRANSMITTAL_PACKAGE_ZIP",
+    "timestamp": "2026-10-05T11:53:06.182001",
+    "description": "Bundle all evidence dossiers, bribery memos, and transmittal manifests into DOJ_FED_EVIDENCE_TRANSMITTAL_PACKAGE.zip",
+    "status": "COMPLETED",
+    "file_created": "C:\\Amd949609_Antigravity_v1\\DOJ_FED_EVIDENCE_TRANSMITTAL_PACKAGE.zip"
+  },
+  {
+    "task_id": "TASK_COVER_LETTERS_USAO_FBI",
+    "timestamp": "2026-10-05T11:56:12.304476",
+    "description": "Generate official cover letters for U.S. Attorney's Office (CDCA) and FBI Public Corruption Squad",
+    "status": "COMPLETED",
+    "files_created": [
+      "C:\\Amd949609_Antigravity_v1\\summaries\\COVER_LETTER_USAO_CDCA.md",
+      "C:\\Amd949609_Antigravity_v1\\summaries\\COVER_LETTER_FBI_CORRUPTION.md"
+    ]
+  },
+  {
+    "task_id": "TASK_TRANSMITTAL_PACKAGE_ZIP",
+    "timestamp": "2026-10-05T11:56:38.250095",
+    "description": "Bundle all evidence dossiers, bribery memos, and transmittal manifests into DOJ_FED_EVIDENCE_TRANSMITTAL_PACKAGE.zip",
+    "status": "COMPLETED",
+    "file_created": "C:\\Amd949609_Antigravity_v1\\DOJ_FED_EVIDENCE_TRANSMITTAL_PACKAGE.zip"
+  },
+  {
+    "task_id": "TASK_TRANSMITTAL_PACKAGE_ZIP",
+    "timestamp": "2026-10-05T11:56:50.778035",
+    "description": "Bundle all evidence dossiers, bribery memos, and transmittal manifests into DOJ_FED_EVIDENCE_TRANSMITTAL_PACKAGE.zip",
+    "status": "COMPLETED",
+    "file_created": "C:\\Amd949609_Antigravity_v1\\DOJ_FED_EVIDENCE_TRANSMITTAL_PACKAGE.zip"
+  },
+  {
+    "task_id": "TASK_DISPATCH_AND_FINAL_AUDIT",
+    "timestamp": "2026-10-05T11:59:17.863992",
+    "description": "Create automated agency dispatch script and perform full directory audit of C:\\Amd949609_Antigravity_v1",
+    "status": "COMPLETED",
+    "files_created": [
+      "C:\\Amd949609_Antigravity_v1\\scripts\\agency_dispatch.py",
+      "C:\\Amd949609_Antigravity_v1\\summaries\\FINAL_SYSTEM_DIRECTORY_AUDIT.json"
+    ]
+  },
+  {
+    "task_id": "TASK_TRANSMITTAL_PACKAGE_ZIP",
+    "timestamp": "2026-10-05T12:02:19.903769",
+    "description": "Bundle all evidence dossiers, bribery memos, and transmittal manifests into DOJ_FED_EVIDENCE_TRANSMITTAL_PACKAGE.zip",
+    "status": "COMPLETED",
+    "file_created": "C:\\Amd949609_Antigravity_v1\\DOJ_FED_EVIDENCE_TRANSMITTAL_PACKAGE.zip"
+  },
+  {
+    "task_id": "TASK_PRESS_RELEASE_AND_OPTIMIZED_FB_POST",
+    "timestamp": "2026-10-05T12:02:19.926957",
+    "description": "Generate tailored media press release, optimized Facebook post with hashtags (copied to clipboard), and updated master transmittal package.",
+    "status": "COMPLETED",
+    "files_created": [
+      "C:\\Amd949609_Antigravity_v1\\summaries\\MEDIA_PRESS_RELEASE_HB_NAVIGATION_CENTER.md",
+      "C:\\Amd949609_Antigravity_v1\\summaries\\OPTIMIZED_FACEBOOK_EXPOSURE_POST.txt"
+    ]
+  },
+  {
+    "task_id": "TASK_GDRIVE_CLOUD_STORAGE_SYNC",
+    "timestamp": "2026-10-05T16:39:12.984824",
+    "description": "Stage all master transmittal packages, bribery memos, and Form 700 dossiers into cloud_storage directory and mounted Google Drive folder.",
+    "status": "COMPLETED",
+    "report": "C:\\Amd949609_Antigravity_v1\\summaries\\GDRIVE_CLOUD_SYNC_REPORT.json"
+  },
+  {
+    "task_id": "TASK_EVIDENCE_LOCKER_AND_GIT_SYNC",
+    "timestamp": "2026-10-05T17:49:40.178602",
+    "description": "Establish dedicated EVIDENCE_LOCKER directory, initialize/commit Git snapshot, index GDrive evidence, and generate master index report.",
+    "status": "COMPLETED",
+    "evidence_locker": "C:\\Amd949609_Antigravity_v1\\EVIDENCE_LOCKER"
+  },
+  {
+    "task_id": "TASK_REVISED_POST_HBNC_WITH_STATUTORY_NUMBERS",
+    "timestamp": "2026-10-08T14:57:57.236340",
+    "description": "Generate POST_HBNC.txt with statutory False Claims Act numbers, Cal. Gov. Code 1090 legal framing, exact verified URLs, and save to repo and clipboard.",
+    "status": "COMPLETED",
+    "file_created": "C:\\Amd949609_Antigravity_v1\\summaries\\POST_HBNC.txt"
+  },
+  {
+    "task_id": "TASK_EXACT_INTRO_POST_HBNC",
+    "timestamp": "2026-10-08T15:02:48.102583",
+    "description": "Generate POST_HBNC.txt starting with exact user intro ('I AM THE ORIGINAL FEDERAL RELATOR IN THIS CASE.') and statutory FCA numbers, save to repo and copy to clipboard.",
+    "status": "COMPLETED",
+    "file_created": "C:\\Amd949609_Antigravity_v1\\summaries\\POST_HBNC.txt"
+  },
+  {
+    "task_id": "TASK-20261008-FB-FINAL",
+    "timestamp": "2026-10-09T04:53:21.308626+00:00",
+    "category": "FACEBOOK_EXPOSURE_POSTS",
+    "description": "Finished self-evident-proof Facebook post series (7 posts: Legistar 23-522 ,094,847 admission, Gov Code 1090/Form 700, federal default ECF 82 in 8:26-cv-00348-JWH-ADS, W-4150/Cr(VI) 49x/OCHCA 20IC002, May 23 2022 22:16 PST prior-art email, Sidhu/Ament convictions, FCA 31 USC 3729 demands). Output: C:\\Amd949609_Antigravity_v1\\summaries\\FACEBOOK_SELF_EVIDENT_POSTS_FINAL.md (copied to clipboard, 8193 chars). Pre-action backups of prior posts stamped 20261008_214526.",
+    "status": "COMPLETED",
+    "cloud_synced": false
+  },
+  {
+    "task_id": "TASK-20261008-SIDHU-FORM700-PDF",
+    "timestamp": "2026-10-09T05:53:47.190495+00:00",
+    "category": "EVIDENCE_ACQUISITION",
+    "description": "Downloaded all 6 raw Harry Sidhu (City of Anaheim Mayor) FPPC Form 700 PDF filings directly from form700search.fppc.ca.gov API incl. FY2020 and FY2021 annual schedules to C:\\OsintNeoAi\\data\\form700_sidhu_pdfs\\ with SHA-256 manifests; verified genuine 6-page official PDFs.",
+    "status": "COMPLETED",
+    "cloud_synced": false
+  },
+  {
+    "task_id": "TASK-20261008-SENTINEL-FIX",
+    "timestamp": "2026-10-09T06:13:44.190917+00:00",
+    "category": "MONITORING_FIX",
+    "description": "Fixed sentinel.py overall_status false-CRITICAL bug (non-critical local down now WARN) and restarted local hub :5052 + map server :10000; rerun OVERALL=OK exit 0. Standing constraint logged: no Facebook/social posting without explicit user order.",
+    "status": "COMPLETED",
+    "cloud_synced": false
+  },
+  {
+    "task_id": "TASK-20261008-SIDHU-SCHEDULE-EXTRACTION",
+    "timestamp": "2026-10-09T06:25:02.056853+00:00",
+    "category": "EVIDENCE_ANALYSIS",
+    "description": "Extracted text + PNG renders of all 6 raw Sidhu Form 700 PDFs; wrote SIDHU_RAW_FORM700_SCHEDULE_EXTRACTION.md covering FY2020/FY2021 schedules (SRH MGMT A-2; Schedule B CA-only properties; tenants redacted FY2021). Background-notes cleanup task cancelled per user.",
+    "status": "COMPLETED",
+    "cloud_synced": false
+  },
+  {
+    "task_id": "TASK-20261008-SIDHU-AUDITS",
+    "timestamp": "2026-10-09T06:50:38.847773+00:00",
+    "category": "EVIDENCE_ANALYSIS",
+    "description": "Visual checkbox audit (FY2020/FY2021 covers: only A-2+B attached, D/E unchecked) + 6-filing Schedule B diff (Belterra disappears after FY2020, no Arizona property, tenants redacted post-FY2020) + FY2019 amendment Schedule D gifts (Guanajuato tequila, Disney dinner).",
+    "status": "COMPLETED",
+    "cloud_synced": false
+  }
+]
