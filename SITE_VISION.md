@@ -29,6 +29,10 @@ Those older files stay as archive; THIS file governs.
   (user, 2026-11-12 — this name governs; "The Tax-Funded Dispatch" in
   older repo material was repo build material, not his naming).
   Main front-page material: TAX-FUNDED stuff.
+- The standard reading style changes daily, taking visual inspiration from
+  a different historic newspaper. Readers can also choose light, dark,
+  large print, pride, a futuristic Matrix-inspired style, an original
+  Platypus Rex comic-book style, or pink (user, 2026-11-16).
 - It will have a FEATURED section. First featured story: the user's own
   investigation — the NWO RICO Round-Up.
 - It will have a legal section — a combination, whatever is easiest; the

@@ -30,15 +30,32 @@
       --font-body: 'Libre Baskerville', Georgia, serif;
       --font-mono: 'JetBrains Mono', monospace;
     }
-    [data-theme="modern"] {
-      --bg:#f8fafc; --card:#fff; --text:#0f172a; --text2:#475569;
-      --border:#0f172a; --border-l:#e2e8f0; --red:#dc2626;
-      --font-mast:'Cinzel',serif; --font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    [data-theme="light"], [data-theme="large-print"] {
+      --bg:#f8fafc; --card:#fff; --text:#101820; --text2:#344252;
+      --border:#182433; --border-l:#9aa9b9; --red:#a11616;
+      --font-mast:'Cinzel',serif; --font-body:Arial,sans-serif;
     }
-    [data-theme="cyber"] {
-      --bg:#0b0f17; --card:#111827; --text:#f0f6fc; --text2:#8b949e;
-      --border:#30363d; --border-l:#21262d; --red:#f85149;
-      --font-mast:'JetBrains Mono',monospace; --font-body:'JetBrains Mono',monospace;
+    [data-theme="dark"] {
+      color-scheme:dark; --bg:#111820; --card:#1b2733; --text:#f2f5f8; --text2:#c1ceda;
+      --border:#dce7f1; --border-l:#768b9d; --red:#a12323;
+    }
+    [data-theme="pride"] {
+      --bg:#fff9f5; --card:#fff; --text:#24172a; --text2:#524054;
+      --border:#39204c; --border-l:#a791aa; --red:#9f1554;
+    }
+    [data-theme="matrix"] {
+      color-scheme:dark; --bg:#09120f; --card:#10231b; --text:#e5fff0; --text2:#b5d7c2;
+      --border:#9df4bd; --border-l:#54866a; --red:#8a272e;
+      --font-mast:'Cinzel',serif; --font-head:'Cinzel',serif;
+    }
+    [data-theme="platypus"] {
+      --bg:#fff3cb; --card:#fffdf1; --text:#15152a; --text2:#3b3850;
+      --border:#161528; --border-l:#7c7481; --red:#a71d35;
+      --font-mast:'Cinzel',serif; --font-head:'Cinzel',serif; --font-body:Arial,sans-serif;
+    }
+    [data-theme="pink"] {
+      --bg:#fff3f7; --card:#fff; --text:#351224; --text2:#694254;
+      --border:#61233f; --border-l:#b8869e; --red:#9e164d;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--bg); color: var(--text); font-family: var(--font-body); transition: background .3s, color .3s; }
@@ -68,14 +85,16 @@
     .top-controls {
       display: flex; justify-content: space-between; align-items: center;
       padding: 8px 0; font-family: var(--font-mono); font-size: 11px;
-      border-bottom: 1px solid var(--border-l); margin-bottom: 12px;
+      border-bottom: 1px solid var(--border-l); margin-bottom: 12px; gap:12px; flex-wrap:wrap;
     }
     .theme-buttons button {
       background: none; border: 1px solid var(--border); padding: 3px 10px;
       font-family: var(--font-mono); font-size: 10px; cursor: pointer;
-      color: var(--text); margin-left: 4px;
+      color: var(--text); margin: 3px 4px 3px 0; min-height:36px;
     }
     .theme-buttons button:hover { background: var(--border); color: var(--bg); }
+    .theme-buttons button[aria-pressed="true"] { background:var(--border); color:var(--bg); font-weight:bold; }
+    .theme-buttons button:focus-visible { outline:3px solid var(--red); outline-offset:3px; }
 
     /* ── Masthead ── */
     .masthead { text-align: center; padding: 20px 0 10px; border-bottom: 3px double var(--border); margin-bottom: 12px; }
@@ -236,6 +255,41 @@
     .loading { color: var(--text2); font-family: var(--font-mono); font-size: 12px; padding: 8px; }
     .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #3fb950; margin-right: 6px; animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+    /* Daily editions reinterpret historic newspaper design without copying their mastheads. */
+    [data-theme="standard"][data-edition="times"] .masthead { border-block:4px double var(--border); }
+    [data-theme="standard"][data-edition="times"] .masthead h1 { font-family:Georgia,serif; letter-spacing:-2px; text-transform:none; }
+    [data-theme="standard"][data-edition="world"] .masthead { border-block:6px solid var(--border); }
+    [data-theme="standard"][data-edition="world"] .masthead h1 { font-family:'Cinzel',serif; letter-spacing:3px; }
+    [data-theme="standard"][data-edition="world"] .lead-story h2 { font-size:clamp(28px,4vw,48px); text-transform:uppercase; }
+    [data-theme="standard"][data-edition="tribune"] .masthead { border-block:2px solid var(--border); }
+    [data-theme="standard"][data-edition="tribune"] .masthead h1 { font-family:'UnifrakturMaguntia',serif; text-transform:none; }
+    [data-theme="standard"][data-edition="courier"] .masthead { border-bottom:8px double var(--border); }
+    [data-theme="standard"][data-edition="courier"] .masthead h1 { font-family:Georgia,serif; font-style:italic; }
+    [data-theme="standard"][data-edition="courier"] .lead-story h2 { font-style:italic; }
+    [data-theme="standard"][data-edition="guardian"] .masthead { text-align:left; border-bottom:5px solid var(--border); }
+    [data-theme="standard"][data-edition="guardian"] .masthead h1 { font-family:Arial,sans-serif; text-transform:none; letter-spacing:-3px; }
+    [data-theme="standard"][data-edition="journal"] .masthead { border:3px double var(--border); padding:16px; }
+    [data-theme="standard"][data-edition="journal"] .masthead h1 { font-family:'Cinzel',serif; letter-spacing:4px; }
+    [data-theme="standard"][data-edition="chronicle"] .masthead { border-top:3px solid var(--border); border-bottom:3px solid var(--border); }
+    [data-theme="standard"][data-edition="chronicle"] .masthead h1 { font-family:'Playfair Display',serif; text-transform:none; }
+    [data-theme="pride"] .masthead { border-top:8px solid transparent; border-image:linear-gradient(90deg,#bd1935,#d86d00,#eccb25,#267c4a,#245ac1,#74389b) 1; }
+    [data-theme="matrix"] .masthead { border-top:2px solid #bc9c58; text-shadow:0 0 16px #2c8055; }
+    [data-theme="platypus"] .masthead { border:4px solid var(--border); background-color:#ffdf72; background-image:radial-gradient(#e9b33f 1px,transparent 1px); background-size:9px 9px; box-shadow:6px 6px 0 var(--border); }
+    [data-theme="platypus"] .lead-badge { transform:rotate(-2deg); }
+    [data-theme="pink"] .masthead { border-top:4px solid #c24d7f; }
+    [data-theme="large-print"] body { font-size:20px; line-height:1.6; }
+    [data-theme="large-print"] .multi-col-text { column-count:1; }
+    [data-theme="large-print"] .multi-col-text p, [data-theme="large-print"] .story-item p,
+    [data-theme="large-print"] .signup-panel p, [data-theme="large-print"] .byline,
+    [data-theme="large-print"] .dateline-bar, [data-theme="large-print"] .theme-buttons button { font-size:18px; line-height:1.6; }
+    [data-theme="large-print"] .story-item h4, [data-theme="large-print"] .side-col h3 { font-size:22px; }
+    [data-theme="large-print"] .ledger-table { font-size:16px; }
+    [data-theme="large-print"] .wrapper :is(p, span, label, button, input, td, th, a, .motto, .byline, .search-label, .wire-content, .wire-badge) { font-size:max(1.125rem, 1em) !important; }
+    [data-theme="large-print"] .multi-col-text p { text-align:left; }
+    [data-theme="large-print"] .crypto-panel { overflow-x:auto; }
+    @media (max-width:600px) { .wrapper { padding-inline:12px; } .theme-buttons { width:100%; } .search-bar { flex-wrap:wrap; } .search-bar input { min-width:0; } }
+    @media (prefers-reduced-motion:reduce) { .wire-content, .status-dot { animation:none; } body { transition:none; } }
   </style>
 </head>
 <body>
@@ -278,11 +332,16 @@
         <span style="font-family:var(--font-mono);font-size:11px;">AZURE: <strong>taxfunded-app-001.azurewebsites.net</strong></span>
         <span style="margin-left:14px;font-family:var(--font-mono);font-size:11px;">STATUS: <span style="color:#10b981;">● LIVE</span></span>
       </div>
-      <div class="theme-buttons">
-        <span style="margin-right:6px;font-family:var(--font-mono);font-size:11px;">EDITION:</span>
-        <button onclick="setTheme('broadsheet')">Broadsheet</button>
-        <button onclick="setTheme('modern')">Modern</button>
-        <button onclick="setTheme('cyber')">Cyber Dark</button>
+      <div class="theme-buttons" role="group" aria-label="Reading style">
+        <span style="margin-right:6px;font-family:var(--font-mono);font-size:11px;">READING STYLE:</span>
+        <button type="button" data-theme-option="standard" aria-pressed="true" onclick="setTheme('standard')">Daily Newspaper</button>
+        <button type="button" data-theme-option="light" aria-pressed="false" onclick="setTheme('light')">Light</button>
+        <button type="button" data-theme-option="dark" aria-pressed="false" onclick="setTheme('dark')">Dark</button>
+        <button type="button" data-theme-option="large-print" aria-pressed="false" onclick="setTheme('large-print')">Large Print</button>
+        <button type="button" data-theme-option="pride" aria-pressed="false" onclick="setTheme('pride')">Pride</button>
+        <button type="button" data-theme-option="matrix" aria-pressed="false" onclick="setTheme('matrix')">Future Matrix</button>
+        <button type="button" data-theme-option="platypus" aria-pressed="false" onclick="setTheme('platypus')">Platypus Rex</button>
+        <button type="button" data-theme-option="pink" aria-pressed="false" onclick="setTheme('pink')">Pink</button>
       </div>
     </div>
 
@@ -290,6 +349,7 @@
     <header class="masthead">
       <h1>The Broadsheet</h1>
       <div class="motto">"Exposing the Divergence Between Public Appropriations and Public Value"</div>
+      <p id="editionCaption" class="motto" aria-live="polite">Daily newspaper edition</p>
     </header>
 
     <!-- ── Dateline Bar ── -->
@@ -504,19 +564,48 @@
     const API_BASE = window.location.origin; // same-origin API
 
     // ── Theme ──────────────────────────────────────────────
-    function setTheme(t) {
-      t === 'broadsheet'
-        ? document.documentElement.removeAttribute('data-theme')
-        : document.documentElement.setAttribute('data-theme', t);
-      localStorage.setItem('tf_theme', t);
+    const themes = ['standard', 'light', 'dark', 'large-print', 'pride', 'matrix', 'platypus', 'pink'];
+    const legacyThemes = { broadsheet:'standard', modern:'light', cyber:'dark' };
+    function setTheme(t, persist = true) {
+      t = legacyThemes[t] || t;
+      if (!themes.includes(t)) t = 'standard';
+      document.documentElement.setAttribute('data-theme', t);
+      document.querySelectorAll('[data-theme-option]').forEach(button => {
+        button.setAttribute('aria-pressed', String(button.dataset.themeOption === t));
+      });
+      if (persist) {
+        try { localStorage.setItem('tf_theme', t); } catch (e) { /* Reading styles still work without storage. */ }
+      }
     }
-    const saved = localStorage.getItem('tf_theme');
-    if (saved) setTheme(saved);
+    let savedTheme;
+    try { savedTheme = localStorage.getItem('tf_theme'); } catch (e) { savedTheme = null; }
+    setTheme(savedTheme || 'standard', false);
+    window.addEventListener('storage', event => {
+      if (event.key === 'tf_theme') setTheme(event.newValue || 'standard', false);
+    });
 
-    // ── Time ────────────────────────────────────────────────
-    const opts = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
-    document.getElementById('liveTimestamp').textContent =
-      new Date().toLocaleDateString('en-US', opts).toUpperCase();
+    const newspaperEditions = [
+      { id:'times', label:'The Times, Victorian London' },
+      { id:'world', label:'The New York World, 1890s' },
+      { id:'tribune', label:'Chicago Tribune, early 1900s' },
+      { id:'courier', label:'Pittsburgh Courier, 1930s' },
+      { id:'guardian', label:'The Guardian, 1960s' },
+      { id:'journal', label:'Le Petit Journal, 1890s' },
+      { id:'chronicle', label:'San Francisco Chronicle, early 1900s' }
+    ];
+    function updateNewspaperEdition() {
+      const now = new Date();
+      const day = Math.floor(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86400000);
+      const edition = newspaperEditions[((day % newspaperEditions.length) + newspaperEditions.length) % newspaperEditions.length];
+      document.documentElement.setAttribute('data-edition', edition.id);
+      document.getElementById('editionCaption').textContent = 'Daily newspaper inspiration: ' + edition.label + ' · Daily Newspaper view';
+      document.getElementById('liveTimestamp').textContent = now.toLocaleDateString('en-US', {
+        weekday:'long', year:'numeric', month:'long', day:'numeric'
+      }).toUpperCase();
+      const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+      setTimeout(updateNewspaperEdition, Math.max(1000, tomorrow - now + 50));
+    }
+    updateNewspaperEdition();
 
     // ── Modal helpers ───────────────────────────────────────
     function openModal(id) { document.getElementById(id).style.display = 'flex'; }
