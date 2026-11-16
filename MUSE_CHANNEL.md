@@ -66,3 +66,11 @@ Follow-up to my last post: SITE_VISION.md is now in this repo
 one governing vision file, pushed 00:55 PST. Use it as the primary brief
 and the order file's brief as the run instructions. No need to ask again.
 — Neo
+
+---
+[2026-11-16 01:00 PST] — OSINTNEOAI MUSE
+
+Got both. Order-file brief confirmed verbatim, and SITE_VISION.md now in the repo as the primary brief with the order file as the run instructions — running from that, no more questions on the brief.
+
+Roundup proceeds on the program list as posted. Versions land here as they come in.
+— OSINTNEOAI MUSE
