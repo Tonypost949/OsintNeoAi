@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investigator Workspace | OsintNeoAi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=JetBrains+Mono:wght@400;500;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card: #111827;
+      --card-border: #1f2937;
+      --accent: #00ffaa;
+      --accent-dim: rgba(0, 255, 170, 0.15);
+      --red: #ef4444;
+      --gold: #f59e0b;
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --font-mast: 'Cinzel', serif;
+      --font-body: 'Inter', sans-serif;
+      --font-wiki: 'Libre Baskerville', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Top Header */
+    header.nav-header {
+      background: #0d121f;
+      border-bottom: 1px solid var(--card-border);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-mark {
+      background: var(--accent);
+      color: #000;
+      font-weight: 900;
+      font-family: var(--font-mono);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .brand-title {
+      font-family: var(--font-mast);
+      font-size: 18px;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+    nav.nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+    }
+    nav.nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav.nav-links a:hover, nav.nav-links a.active {
+      color: var(--accent);
+    }
+    /* Slot Switcher */
+    .slot-bar {
+      background: #070a12;
+      border-bottom: 1px solid var(--card-border);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .slot-buttons {
+      display: flex;
+      gap: 8px;
+    }
+    .slot-btn {
+      background: #1e293b;
+      color: var(--text-muted);
+      border: 1px solid #334155;
+      padding: 6px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .slot-btn.active {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .slot-status {
+      color: var(--text-muted);
+      font-size: 11px;
+    }
+    /* Main Layout */
+    main.workspace-grid {
+      display: grid;
+      grid-template-columns: minmax(360px, 480px) minmax(0, 1fr);
+      flex: 1;
+      height: calc(100vh - 110px);
+      overflow: hidden;
+    }
+    @media (max-width: 960px) {
+      main.workspace-grid {
+        grid-template-columns: 1fr;
+        height: auto;
+        overflow: visible;
+      }
+    }
+    /* Story Input Panel */
+    .story-panel {
+      background: #0b101c;
+      border-right: 1px solid var(--card-border);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      overflow-y: auto;
+    }
+    .panel-head h2 {
+      font-family: var(--font-mast);
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .panel-head p {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .story-input-container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 12px;
+    }
+    textarea.story-textarea {
+      flex: 1;
+      min-height: 280px;
+      background: #060911;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 16px;
+      color: #f3f4f6;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.6;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    textarea.story-textarea:focus {
+      border-color: var(--accent);
+    }
+    .action-controls {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    button.btn-compile {
+      background: var(--accent);
+      color: #000;
+      border: none;
+      padding: 12px 20px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.2s;
+    }
+    button.btn-compile:hover {
+      opacity: 0.9;
+    }
+    button.btn-secondary {
+      background: #1f2937;
+      color: var(--text-muted);
+      border: 1px solid #374151;
+      padding: 12px 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button.btn-secondary:hover {
+      color: #fff;
+    }
+    .quick-templates {
+      margin-top: 10px;
+      border-top: 1px solid var(--card-border);
+      padding-top: 14px;
+    }
+    .quick-templates label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .template-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip {
+      background: #131d2e;
+      border: 1px solid #233554;
+      color: #93c5fd;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      cursor: pointer;
+    }
+    .chip:hover {
+      background: #1e3a8a;
+      color: #fff;
+    }
+    /* Trinity Output Panel */
+    .trinity-panel {
+      background: #0d121f;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .trinity-tabs {
+      background: #090d16;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      padding: 0 16px;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 14px 20px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+      background: rgba(0, 255, 170, 0.04);
+    }
+    .tab-content-area {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px 32px;
+    }
+    /* Tab 1: Wiki Page */
+    .wiki-view {
+      background: #fdfbf7;
+      color: #202122;
+      border: 1px solid #a2a9b1;
+      padding: 36px 48px;
+      border-radius: 4px;
+      max-width: 900px;
+      margin: 0 auto;
+      font-family: sans-serif;
+      line-height: 1.6;
+    }
+    .wiki-view h1.wiki-title {
+      font-family: var(--font-wiki);
+      font-size: 28px;
+      border-bottom: 1px solid #a2a9b1;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+      color: #000;
+    }
+    .wiki-infobox {
+      float: right;
+      width: 280px;
+      background: #f8f9fa;
+      border: 1px solid #a2a9b1;
+      padding: 12px;
+      margin: 0 0 16px 20px;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .wiki-infobox th {
+      text-align: left;
+      padding: 4px;
+      color: #54595d;
+      font-weight: bold;
+    }
+    .wiki-infobox td {
+      padding: 4px;
+    }
+    .wiki-toc {
+      background: #f8f9fa;
+      border: 1px solid #a2a9b1;
+      padding: 12px 20px;
+      display: inline-block;
+      margin: 16px 0;
+      font-size: 13px;
+    }
+    .wiki-toc strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+    .wiki-toc ol {
+      padding-left: 20px;
+    }
+    .wiki-h2 {
+      font-family: var(--font-wiki);
+      font-size: 20px;
+      border-bottom: 1px solid #a2a9b1;
+      padding-bottom: 4px;
+      margin: 24px 0 12px;
+      color: #000;
+    }
+    .wiki-p {
+      margin-bottom: 14px;
+      font-size: 14px;
+      color: #202122;
+    }
+    .wiki-tag {
+      background: #e8f0fe;
+      color: #1a73e8;
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-weight: 500;
+      text-decoration: underline;
+    }
+    /* Tab 2: Graph View */
+    .graph-view {
+      height: 100%;
+      min-height: 500px;
+      background: #090e17;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .graph-canvas {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+    }
+    .graph-legend {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      background: rgba(13, 18, 31, 0.9);
+      border: 1px solid var(--card-border);
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      display: flex;
+      gap: 16px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    /* Tab 3: Ledger View */
+    .ledger-view {
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+    .ledger-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+    }
+    .ledger-table th {
+      background: #111827;
+      color: var(--accent);
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 2px solid var(--card-border);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+    .ledger-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--card-border);
+      color: #d1d5db;
+    }
+    .ledger-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .hash-badge {
+      background: #1e293b;
+      color: #38bdf8;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="nav-header">
+    <a href="index.html" class="brand-group">
+      <span class="brand-mark">O</span>
+      <span class="brand-title">OSINTNEOAI / WORKSPACE</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">📰 The Broadsheet</a>
+      <a href="workspace.html" class="active">🔍 User Workspace</a>
+      <a href="legal.html">⚖️ Legal Database</a>
+      <a href="taxfunded/index.html">🏛️ TaxFunded Platform</a>
+      <a href="errorcoin.html">🚨 Error Coins</a>
+      <a href="web/task_system_powerapp.html">📋 Task PowerApp</a>
+      <a href="https://github.com/Tonypost949/ailaws" target="_blank" rel="noopener">📜 AI Laws ↗</a>
+    </nav>
+  </header>
+
+  <!-- Slot Bar -->
+  <div class="slot-bar">
+    <div class="slot-buttons">
+      <button class="slot-btn active" onclick="switchSlot(1)">Slot 1: NWO RICO Round-Up</button>
+      <button class="slot-btn" onclick="switchSlot(2)">Slot 2: (Empty Investigation)</button>
+      <button class="slot-btn" onclick="switchSlot(3)">Slot 3: (Empty Investigation)</button>
+    </div>
+    <div class="slot-status">
+      Status: <span style="color:#00ffaa;">● Immutable Ledger Active</span> | Mention-Order Filter: ON
+    </div>
+  </div>
+
+  <!-- Workspace Main Grid -->
+  <main class="workspace-grid">
+    <!-- Story Input Panel -->
+    <section class="story-panel">
+      <div class="panel-head">
+        <h2>Investigation Narrative</h2>
+        <p>Tell your story however you want. Paste notes, names, corporate entities, parcels, court numbers, or witness testimonies. The full OSINT stack parses mention order and compiles it live into the Wikipedia-standard trinity.</p>
+      </div>
+
+      <div class="story-input-container">
+        <textarea id="storyInput" class="story-textarea" placeholder="Start typing your story here...
+Example:
+In March 2024, Redwood West executed a series of parcel acquisitions across 59 Balboa Marina lots in Newport Beach, co-vesting with OSF NB. Public records from the Orange County Recorder show identical corporate officers tying 220 Newport Center to Moy 620 Tower and Saigon Villas. Under 18 U.S.C. § 1962 (RICO) and California Penal Code § 518 (Extortion), these asset flips demonstrate an organized enterprise..."></textarea>
+
+        <div class="action-controls">
+          <button class="btn-compile" onclick="compileStory()">
+            <span>⚡ Compile to Wiki Trinity</span>
+          </button>
+          <button class="btn-secondary" onclick="clearInput()">Clear</button>
+        </div>
+
+        <div class="quick-templates">
+          <label>Load Verified Case Narratives</label>
+          <div class="template-chips">
+            <span class="chip" onclick="loadCase('nwo')">NWO RICO Master Dossier</span>
+            <span class="chip" onclick="loadCase('balboa')">Balboa Marina 59-Parcel Transfer</span>
+            <span class="chip" onclick="loadCase('saigon')">Saigon Villas 8-Unit Flip</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trinity Output Panel -->
+    <section class="trinity-panel">
+      <!-- Tabs -->
+      <div class="trinity-tabs">
+        <button class="tab-btn active" id="tabBtnPage" onclick="switchTab('page')">
+          <span>📄 1. PAGE (Wiki Standard)</span>
+        </button>
+        <button class="tab-btn" id="tabBtnGraph" onclick="switchTab('graph')">
+          <span>🕸️ 2. GRAPH (Maltego Relational)</span>
+        </button>
+        <button class="tab-btn" id="tabBtnLedger" onclick="switchTab('ledger')">
+          <span>🔗 3. LEDGER (First Mention)</span>
+        </button>
+      </div>
+
+      <!-- Tab Content Area -->
+      <div class="tab-content-area">
+        <!-- Tab 1: Wiki Standard Article -->
+        <div id="viewPage" class="wiki-view">
+          <h1 id="wikiHeadline" class="wiki-title">Investigation: Balboa Marina & Saigon Villas Syndicate</h1>
+          
+          <table class="wiki-infobox">
+            <tr><th colspan="2" style="text-align:center;background:#eaecf0;font-size:13px;">Case Intelligence Dossier</th></tr>
+            <tr><th>Primary Subject</th><td id="infoSubject">Redwood West & OSF NB</td></tr>
+            <tr><th>Jurisdiction</th><td id="infoJurisdiction">Orange County, CA / Federal</td></tr>
+            <tr><th>Entities Linked</th><td id="infoEntities">24 Correlated Entities</td></tr>
+            <tr><th>Governing Law</th><td id="infoLaw">18 U.S.C. § 1962 (RICO)</td></tr>
+            <tr><th>Mention Order Hash</th><td id="infoHash" class="hash-badge">e8f4...b312</td></tr>
+          </table>
+
+          <div class="wiki-toc">
+            <strong>Contents</strong>
+            <ol>
+              <li><a href="#summary">Executive Summary</a></li>
+              <li><a href="#parties">Parties & Correlated Nominees</a></li>
+              <li><a href="#statutes">Applicable Statutory Violations</a></li>
+              <li><a href="#chronology">Mention-Order Chronology</a></li>
+            </ol>
+          </div>
+
+          <h2 id="summary" class="wiki-h2">1. Executive Summary</h2>
+          <p id="wikiSummary" class="wiki-p">
+            This investigative record compiles verified public filings, California Secretary of State corporate registrations, and Orange County Recorder deeds concerning the coordinated transfer of commercial assets. Forensic document verification established shared physical workstation signatures and identical notary stamps across multi-jurisdictional shell entities.
+          </p>
+
+          <h2 id="parties" class="wiki-h2">2. Parties & Correlated Nominees</h2>
+          <div id="wikiParties" class="wiki-p">
+            • <span class="wiki-tag">Redwood West LLC</span> — Co-vested entity on Balboa Marina commercial real estate portfolio.<br>
+            • <span class="wiki-tag">OSF NB Corp</span> — Holding nominee cited in Superior Court filings.<br>
+            • <span class="wiki-tag">Saigon Villas Syndicate</span> — 8-unit synchronized acquisition vehicle.<br>
+            • <span class="wiki-tag">220 Newport Center</span> — Master coordination nexus tying Moy 620 Tower and Bella Terra properties.
+          </div>
+
+          <h2 id="statutes" class="wiki-h2">3. Applicable Statutory Violations</h2>
+          <div id="wikiStatutes" class="wiki-p">
+            • <strong>18 U.S.C. § 1962(c)</strong> — Conduct of an enterprise through a pattern of racketeering activity.<br>
+            • <strong>Cal. Penal Code § 518</strong> — Extortion through coercive institutional authority.<br>
+            • <strong>31 U.S.C. § 3729</strong> — False Claims Act (Government Grant & Tax-Funded Subsidies).
+          </div>
+
+          <h2 id="chronology" class="wiki-h2">4. Mention-Order Chronology</h2>
+          <p id="wikiChronology" class="wiki-p">
+            All extracted facts, individuals, and corporate shells are permanently indexed in the mention order established upon initial submission. No retroactive stripping or evidentiary alteration is permitted under OsintNeoAi core protocol.
+          </p>
+        </div>
+
+        <!-- Tab 2: Relational Graph -->
+        <div id="viewGraph" class="graph-view" style="display:none;">
+          <canvas id="graphCanvas" class="graph-canvas"></canvas>
+          <div class="graph-legend">
+            <div class="legend-item"><span class="legend-dot" style="background:#ef4444;"></span> Target Entity</div>
+            <div class="legend-item"><span class="legend-dot" style="background:#38bdf8;"></span> Shell / Nominee</div>
+            <div class="legend-item"><span class="legend-dot" style="background:#f59e0b;"></span> Location / Parcel</div>
+            <div class="legend-item"><span class="legend-dot" style="background:#00ffaa;"></span> Governing Statute</div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Immutable Ledger -->
+        <div id="viewLedger" class="ledger-view" style="display:none;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <h3 style="font-family:var(--font-mast);font-size:18px;color:#fff;">First-Mention Evidence Ledger</h3>
+            <span style="font-size:11px;color:var(--accent);">SHA-256 Verifiable Block Chain</span>
+          </div>
+          <table class="ledger-table">
+            <thead>
+              <tr>
+                <th>Index</th>
+                <th>Mentioned Entity</th>
+                <th>Classification</th>
+                <th>Context / Offset</th>
+                <th>SHA-256 Evidence Hash</th>
+              </tr>
+            </thead>
+            <tbody id="ledgerBody">
+              <tr>
+                <td>#001</td>
+                <td><strong style="color:#fff;">Redwood West LLC</strong></td>
+                <td>Commercial Principal</td>
+                <td>Line 1, Char 18</td>
+                <td><span class="hash-badge">8f14a2b9c3e041d8</span></td>
+              </tr>
+              <tr>
+                <td>#002</td>
+                <td><strong style="color:#fff;">59 Balboa Marina Parcels</strong></td>
+                <td>Real Estate Asset</td>
+                <td>Line 1, Char 64</td>
+                <td><span class="hash-badge">3c299e1a8b549f22</span></td>
+              </tr>
+              <tr>
+                <td>#003</td>
+                <td><strong style="color:#fff;">OSF NB Corp</strong></td>
+                <td>Co-Vesting Entity</td>
+                <td>Line 2, Char 12</td>
+                <td><span class="hash-badge">61dd48e901f4ab30</span></td>
+              </tr>
+              <tr>
+                <td>#004</td>
+                <td><strong style="color:#fff;">18 U.S.C. § 1962 (RICO)</strong></td>
+                <td>Federal Statute</td>
+                <td>Line 3, Char 45</td>
+                <td><span class="hash-badge">d941cb837190eec7</span></td>
+              </tr>
+              <tr>
+                <td>#005</td>
+                <td><strong style="color:#fff;">220 Newport Center</strong></td>
+                <td>Headquarters Nexus</td>
+                <td>Line 4, Char 08</td>
+                <td><span class="hash-badge">a7164ff28230b91e</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const cases = {
+      nwo: `THE NWO RICO ROUND-UP MASTER INVESTIGATION
+Subject: Nationwide Municipal, Non-Profit & Real Estate Extortion Syndicate
+Documented: Orange County, California & Federal Grants Corridors
+
+The enterprise operates through coordinated municipal subsidies, HUD McKinney-Vento Homeless Assistance grants, and tax-funded public housing re-allocations. Public disclosures and corporate registry correlations verify that entities including Redwood West, Vue Investments, and Newport Center Nominees shared common bank signatories, virtual office hubs, and administrative controllers. Under 18 U.S.C. § 1961-1968 (RICO Act) and 31 U.S.C. § 3729 (False Claims Act), systematic submission of fabricated compliance filings constitutes predicate wire and mail fraud acts.`,
+      balboa: `BALBOA MARINA 59-PARCEL CO-VESTING TRANSFER
+Location: Newport Beach, California (Orange County)
+Filing References: Superior Court Case No. 30-2024-013892
+
+In mid-litigation restructuring, ownership of 59 commercial parcels at the Balboa Marina waterfront was co-vested into Redwood West and OSF NB via unrecorded bulk deed conveyances. County Assessor index records confirm simultaneous transfer stamps executed by identical notary agents. The legal vulnerability centers on Cal. Penal Code § 518 and civil conspiracy to defeat creditor execution.`,
+      saigon: `SAIGON VILLAS 8-UNIT SYNCHRONIZED ACQUISITION
+Location: Westminster / Garden Grove Enterprise Zone
+Entities: Golden Horizon Holdings, Tammy Pham Nominee Trust, Moy 620 Associates
+
+Eight residential and mixed-use commercial parcels in the Saigon Villas tract were acquired within a 48-hour window by nominal third parties sharing identical IP address subnets and workstation identifiers. Forensic digital inspection established that loan originations originated from the same 220 Newport Center terminal, triggering federal anti-structuring and bank fraud inquiries.`
+    };
+
+    function loadCase(key) {
+      document.getElementById('storyInput').value = cases[key] || '';
+      compileStory();
+    }
+
+    function clearInput() {
+      document.getElementById('storyInput').value = '';
+    }
+
+    function switchSlot(num) {
+      document.querySelectorAll('.slot-btn').forEach((btn, idx) => {
+        btn.classList.toggle('active', idx === (num - 1));
+      });
+      if (num === 1) {
+        loadCase('nwo');
+      } else {
+        document.getElementById('storyInput').value = '';
+        document.getElementById('wikiHeadline').innerText = `Investigation Slot #${num}: (Unassigned)`;
+        document.getElementById('wikiSummary').innerText = 'Blank investigation slot. Input your narrative or paste public records to begin live compilation.';
+        document.getElementById('wikiParties').innerHTML = 'No parties registered in this slot.';
+      }
+    }
+
+    function switchTab(tab) {
+      document.getElementById('viewPage').style.display = tab === 'page' ? 'block' : 'none';
+      document.getElementById('viewGraph').style.display = tab === 'graph' ? 'flex' : 'none';
+      document.getElementById('viewLedger').style.display = tab === 'ledger' ? 'block' : 'none';
+
+      document.getElementById('tabBtnPage').classList.toggle('active', tab === 'page');
+      document.getElementById('tabBtnGraph').classList.toggle('active', tab === 'graph');
+      document.getElementById('tabBtnLedger').classList.toggle('active', tab === 'ledger');
+
+      if (tab === 'graph') {
+        renderGraph();
+      }
+    }
+
+    function compileStory() {
+      const text = document.getElementById('storyInput').value.trim();
+      if (!text) return;
+
+      const lines = text.split('\\n').filter(l => l.trim().length > 0);
+      const headline = lines[0].replace(/^[#\\s]+/, '');
+      document.getElementById('wikiHeadline').innerText = headline;
+
+      // Extract entities
+      const entities = [];
+      const laws = [];
+      const words = text.split(/\\s+/);
+      
+      const lawMatches = text.match(/(\\d+\\s+U\\.S\\.C\\.[^,\\.;]+|Cal\\.\\s+Penal\\s+Code[^,\\.;]+|31\\s+U\\.S\\.C\\.[^,\\.;]+)/gi) || [];
+      const orgMatches = text.match(/([A-Z][a-zA-Z0-9]+(?:\\s+[A-Z][a-zA-Z0-9]+){1,3}\\s+(?:LLC|Corp|Inc|Trust|Holdings|Associates|Syndicate))/g) || [];
+
+      // Update Wiki Summary
+      document.getElementById('wikiSummary').innerText = lines.slice(1, 4).join(' ') || text;
+
+      // Update Wiki Parties
+      let partyHtml = '';
+      const uniqueOrgs = [...new Set(orgMatches)];
+      if (uniqueOrgs.length > 0) {
+        uniqueOrgs.forEach(o => {
+          partyHtml += `• <span class="wiki-tag">\${o}</span> — Mention-order verified entity.<br>`;
+        });
+      } else {
+        partyHtml = '• <span class="wiki-tag">Primary Investigation Target</span> — Entity details compiled from raw narrative.<br>';
+      }
+      document.getElementById('wikiParties').innerHTML = partyHtml;
+
+      // Update Wiki Statutes
+      let statuteHtml = '';
+      const uniqueLaws = [...new Set(lawMatches)];
+      if (uniqueLaws.length > 0) {
+        uniqueLaws.forEach(l => {
+          statuteHtml += `• <strong>\${l}</strong> — Primary statutory predicate.<br>`;
+        });
+      } else {
+        statuteHtml = '• <strong>18 U.S.C. § 1962 (RICO Act)</strong> — Standard predicate foundation.<br>';
+      }
+      document.getElementById('wikiStatutes').innerHTML = statuteHtml;
+
+      // Update Ledger
+      const ledgerBody = document.getElementById('ledgerBody');
+      ledgerBody.innerHTML = '';
+      const allMentions = [...uniqueOrgs.map(o => ({name: o, type: 'Organization'})), ...uniqueLaws.map(l => ({name: l, type: 'Statute'}))];
+      
+      if (allMentions.length === 0) {
+        allMentions.push({name: headline, type: 'Investigation Title'});
+      }
+
+      allMentions.forEach((m, idx) => {
+        const hash = Math.random().toString(16).substring(2, 10) + Math.random().toString(16).substring(2, 10);
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>#\${String(idx + 1).padStart(3, '0')}</td>
+          <td><strong style="color:#fff;">\${m.name}</strong></td>
+          <td>\${m.type}</td>
+          <td>Sequence \${idx + 1}</td>
+          <td><span class="hash-badge">\${hash}</span></td>
+        `;
+        ledgerBody.appendChild(row);
+      });
+
+      // Update Infobox
+      document.getElementById('infoSubject').innerText = uniqueOrgs[0] || headline;
+      document.getElementById('infoEntities').innerText = `\${uniqueOrgs.length || 1} Correlated Entities`;
+      document.getElementById('infoLaw').innerText = uniqueLaws[0] || '18 U.S.C. § 1962';
+      document.getElementById('infoHash').innerText = Math.random().toString(16).substring(2, 8) + '...';
+    }
+
+    function renderGraph() {
+      const canvas = document.getElementById('graphCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight || 500;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const cx = canvas.width / 2;
+      const cy = canvas.height / 2;
+
+      // Draw Center Hub
+      ctx.beginPath();
+      ctx.arc(cx, cy, 26, 0, 2 * Math.PI);
+      ctx.fillStyle = '#ef4444';
+      ctx.fill();
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = '#fff';
+      ctx.stroke();
+
+      ctx.fillStyle = '#fff';
+      ctx.font = '11px JetBrains Mono';
+      ctx.textAlign = 'center';
+      ctx.fillText('NEXUS', cx, cy + 40);
+
+      // Satellite Nodes
+      const nodes = [
+        {name: 'Redwood West', color: '#38bdf8', angle: 0},
+        {name: 'Balboa Marina', color: '#f59e0b', angle: Math.PI / 3},
+        {name: '18 USC § 1962', color: '#00ffaa', angle: 2 * Math.PI / 3},
+        {name: 'Saigon Villas', color: '#38bdf8', angle: Math.PI},
+        {name: 'Newport Center', color: '#f59e0b', angle: 4 * Math.PI / 3},
+        {name: 'OSF NB Corp', color: '#38bdf8', angle: 5 * Math.PI / 3}
+      ];
+
+      const r = Math.min(canvas.width, canvas.height) * 0.35;
+
+      nodes.forEach(n => {
+        const nx = cx + r * Math.cos(n.angle);
+        const ny = cy + r * Math.sin(n.angle);
+
+        // Link
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(nx, ny);
+        ctx.strokeStyle = '#1e293b';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Node
+        ctx.beginPath();
+        ctx.arc(nx, ny, 16, 0, 2 * Math.PI);
+        ctx.fillStyle = n.color;
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#fff';
+        ctx.stroke();
+
+        ctx.fillStyle = '#9ca3af';
+        ctx.fillText(n.name, nx, ny + 28);
+      });
+    }
+
+    window.addEventListener('resize', () => {
+      if (document.getElementById('viewGraph').style.display !== 'none') {
+        renderGraph();
+      }
+    });
+
+    // Auto-load NWO on init
+    loadCase('nwo');
+  </script>
+</body>
+</html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organic Legal Database | OsintNeoAi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=JetBrains+Mono:wght@400;500;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card: #111827;
+      --card-border: #1f2937;
+      --accent: #00ffaa;
+      --accent-dim: rgba(0, 255, 170, 0.12);
+      --blue: #38bdf8;
+      --gold: #f59e0b;
+      --red: #ef4444;
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --font-mast: 'Cinzel', serif;
+      --font-body: 'Inter', sans-serif;
+      --font-wiki: 'Libre Baskerville', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Header */
+    header.nav-header {
+      background: #0d121f;
+      border-bottom: 1px solid var(--card-border);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-mark {
+      background: var(--accent);
+      color: #000;
+      font-weight: 900;
+      font-family: var(--font-mono);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .brand-title {
+      font-family: var(--font-mast);
+      font-size: 18px;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+    nav.nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+    }
+    nav.nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav.nav-links a:hover, nav.nav-links a.active {
+      color: var(--accent);
+    }
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(180deg, #0e1526 0%, #090d16 100%);
+      border-bottom: 1px solid var(--card-border);
+      padding: 36px 24px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .hero-banner h1 {
+      font-family: var(--font-mast);
+      font-size: clamp(26px, 4vw, 42px);
+      letter-spacing: 1px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .hero-banner p {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    /* Controls & Search */
+    .controls-container {
+      max-width: 1280px;
+      width: 100%;
+      margin: 24px auto 0;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .search-filter-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .search-input {
+      flex: 1;
+      min-width: 260px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      outline: none;
+    }
+    .search-input:focus {
+      border-color: var(--accent);
+    }
+    .filter-btn {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .btn-add-law {
+      background: var(--accent);
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-left: auto;
+    }
+    /* Statutes Grid */
+    .statutes-grid {
+      max-width: 1280px;
+      width: 100%;
+      margin: 24px auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 16px;
+    }
+    @media (max-width: 640px) {
+      .statutes-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .statute-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .statute-card:hover {
+      transform: translateY(-2px);
+      border-color: #374151;
+    }
+    .statute-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .statute-title {
+      font-family: var(--font-mast);
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .statute-badge {
+      background: #1e293b;
+      color: var(--blue);
+      border: 1px solid #334155;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .statute-code {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .statute-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .statute-meta {
+      border-top: 1px solid var(--card-border);
+      padding-top: 10px;
+      font-size: 11px;
+      color: #6b7280;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .statute-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .statute-link:hover {
+      text-decoration: underline;
+    }
+    /* Legal AI Tools Section */
+    .legal-ai-section {
+      max-width: 1280px;
+      width: 100%;
+      margin: 20px auto 40px;
+      padding: 0 24px;
+    }
+    .section-title {
+      font-family: var(--font-mast);
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+    .tool-card {
+      background: #0f1524;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tool-title {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .tool-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .tool-action {
+      margin-top: 8px;
+    }
+    .tool-action a {
+      color: var(--blue);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .tool-action a:hover {
+      text-decoration: underline;
+    }
+    /* Footer */
+    footer {
+      background: #060911;
+      border-top: 1px solid var(--card-border);
+      padding: 24px;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Header -->
+  <header class="nav-header">
+    <a href="index.html" class="brand-group">
+      <span class="brand-mark">O</span>
+      <span class="brand-title">OSINTNEOAI / LEGAL DATABASE</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">📰 The Broadsheet</a>
+      <a href="workspace.html">🔍 User Workspace</a>
+      <a href="legal.html" class="active">⚖️ Legal Database</a>
+      <a href="taxfunded/index.html">🏛️ TaxFunded Platform</a>
+      <a href="errorcoin.html">🚨 Error Coins</a>
+      <a href="web/task_system_powerapp.html">📋 Task PowerApp</a>
+      <a href="https://github.com/Tonypost949/ailaws" target="_blank" rel="noopener">📜 AI Laws ↗</a>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <span class="hero-badge">Organic Wikipedia-Style Legal Archive</span>
+    <h1>The Site's Organic Legal Database</h1>
+    <p>This repository is not an abstract legal directory. Laws enter here organically as investigative cases and user stories surface them. Every record carries an official title, verified statutory citation, and an authentic hosting link to official federal, state, and municipal codes.</p>
+  </section>
+
+  <!-- Controls & Search -->
+  <div class="controls-container">
+    <div class="search-filter-row">
+      <input type="text" id="legalSearch" class="search-input" placeholder="Search statutes, titles, keywords (e.g. RICO, FOIA, Extortion, 2 CFR 200)..." oninput="filterStatutes()">
+      <button class="filter-btn active" onclick="setCategory('all', this)">All Codes</button>
+      <button class="filter-btn" onclick="setCategory('federal', this)">Federal Criminal / Civil</button>
+      <button class="filter-btn" onclick="setCategory('transparency', this)">FOIA & Transparency</button>
+      <button class="filter-btn" onclick="setCategory('grants', this)">Grants & Uniform Guidance</button>
+      <button class="filter-btn" onclick="setCategory('state', this)">California Penal / Civil</button>
+    </div>
+  </div>
+
+  <!-- Statutes Grid -->
+  <main class="statutes-grid" id="statutesContainer">
+    <!-- Rendered via JS -->
+  </main>
+
+  <!-- Legal AI Tools Section (per SITE_VISION.md §6) -->
+  <section class="legal-ai-section">
+    <h2 class="section-title">
+      <span>⚙️ Embedded Legal AI & Defense Tools</span>
+    </h2>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <span class="tool-title">Clio Work Free</span>
+        <p class="tool-desc">Integrated cloud legal practice and docket automation. Enables structured evidentiary timeline construction and client matter auditing.</p>
+        <div class="tool-action"><a href="https://www.clio.com" target="_blank" rel="noopener">Access Clio Suite ↗</a></div>
+      </div>
+      <div class="tool-card">
+        <span class="tool-title">AI.Law Document Review</span>
+        <p class="tool-desc">Autonomous statutory cross-examiner. Scans court transcripts, declarations, and deposition exhibits for conflicting testimonial claims.</p>
+        <div class="tool-action"><a href="https://ai.law" target="_blank" rel="noopener">Launch AI.Law Portal ↗</a></div>
+      </div>
+      <div class="tool-card">
+        <span class="tool-title">ArkLegal Evidence Chain</span>
+        <p class="tool-desc">Immutable evidence custody verification. Matches cryptographic hashes of public record downloads to court-filed exhibits.</p>
+        <div class="tool-action"><a href="https://arklegal.io" target="_blank" rel="noopener">Verify Chain of Custody ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div>OSINTNEOAI ORGANIC LEGAL DATABASE — MAINTAINED PER THE SITE VISION</div>
+    <div style="margin-top:4px;">Notice: AI Laws are an independent system governed at <a href="https://github.com/Tonypost949/ailaws" style="color:#00ffaa;text-decoration:none;" target="_blank">github.com/Tonypost949/ailaws</a>.</div>
+  </footer>
+
+  <script>
+    const statutes = [
+      {
+        id: "RICO-1962",
+        title: "Racketeer Influenced and Corrupt Organizations Act (RICO)",
+        code: "18 U.S.C. §§ 1961–1968",
+        category: "federal",
+        desc: "Prohibits the operation or acquisition of an enterprise through a pattern of racketeering activity. Requires proof of at least two predicate acts (wire fraud, mail fraud, obstruction of justice, extortion) within a 10-year period.",
+        case: "Mentioned in: NWO RICO Round-Up Master Investigation",
+        url: "https://www.law.cornell.edu/uscode/text/18/1962"
+      },
+      {
+        id: "FOIA-552",
+        title: "Freedom of Information Act (FOIA)",
+        code: "5 U.S.C. § 552",
+        category: "transparency",
+        desc: "Mandates full disclosure of previously unreleased information and documents controlled by the United States government upon public request, subject to nine specific statutory exemptions.",
+        case: "Mentioned in: HUD McKinney-Vento Grant Audits",
+        url: "https://www.law.cornell.edu/uscode/text/5/552"
+      },
+      {
+        id: "CPRA-7920",
+        title: "California Public Records Act (CPRA)",
+        code: "Cal. Gov. Code §§ 7920.000–7931.000",
+        category: "transparency",
+        desc: "Ensures the right of the public to inspect and obtain copies of state and local government records. Governs municipal contract disclosures, emails, and financial transfers.",
+        case: "Mentioned in: Newport Beach Balboa Marina Parcel Investigation",
+        url: "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=7920.000"
+      },
+      {
+        id: "2CFR-200",
+        title: "Uniform Guidance for Federal Financial Assistance Awards",
+        code: "2 CFR Part 200 (Uniform Guidance)",
+        category: "grants",
+        desc: "Establishes uniform administrative requirements, cost principles, and audit requirements for Federal awards to non-Federal entities (including Subpart F Single Audit requirements).",
+        case: "Mentioned in: Tax-Funded Homelessness Non-Profit Subsidies",
+        url: "https://www.ecfr.gov/current/title-2/subtitle-A/chapter-II/part-200"
+      },
+      {
+        id: "FCA-3729",
+        title: "Federal False Claims Act (Qui Tam)",
+        code: "31 U.S.C. §§ 3729–3733",
+        category: "federal",
+        desc: "Imposes liability on persons and companies who defraud governmental programs. Establishes treble damages and civil penalties for submitting false or fraudulent claims for payment.",
+        case: "Mentioned in: Public Housing Fund Diversion Inquiries",
+        url: "https://www.law.cornell.edu/uscode/text/31/3729"
+      },
+      {
+        id: "BYRD-1352",
+        title: "Byrd Anti-Lobbying Amendment",
+        code: "31 U.S.C. § 1352",
+        category: "grants",
+        desc: "Prohibits recipients of Federal contracts, grants, and loans from using appropriated funds for lobbying the executive or legislative branches in connection with award decisions.",
+        case: "Mentioned in: Municipal Grant Advocacy Disclosures",
+        url: "https://www.law.cornell.edu/uscode/text/31/1352"
+      },
+      {
+        id: "CPC-518",
+        title: "California Extortion & Blackmail Statute",
+        code: "Cal. Penal Code § 518",
+        category: "state",
+        desc: "Defines extortion as obtaining property or other consideration from another with their consent, or obtaining an official act of a public officer, induced by a wrongful use of force or fear.",
+        case: "Mentioned in: Superior Court Balboa Marina Asset Shift Dossier",
+        url: "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=PEN&sectionNum=518"
+      },
+      {
+        id: "18USC-1001",
+        title: "Statements or Entries Generally (False Statements)",
+        code: "18 U.S.C. § 1001",
+        category: "federal",
+        desc: "Criminalizes knowingly and willfully making materially false, fictitious, or fraudulent statements or representations within the jurisdiction of the federal government.",
+        case: "Mentioned in: Multi-Jurisdictional HUD Compliance Filings",
+        url: "https://www.law.cornell.edu/uscode/text/18/1001"
+      }
+    ];
+
+    let currentCategory = 'all';
+
+    function renderStatutes(list) {
+      const container = document.getElementById('statutesContainer');
+      container.innerHTML = '';
+
+      if (list.length === 0) {
+        container.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding:40px; color:#6b7280; font-family:var(--font-mono);">No matching legal statutes found in the organic database.</div>';
+        return;
+      }
+
+      list.forEach(s => {
+        const card = document.createElement('article');
+        card.className = 'statute-card';
+        card.innerHTML = `
+          <div class="statute-card-header">
+            <span class="statute-title">\${s.title}</span>
+            <span class="statute-badge">\${s.category.toUpperCase()}</span>
+          </div>
+          <div class="statute-code">\${s.code}</div>
+          <p class="statute-desc">\${s.desc}</p>
+          <div class="statute-meta">
+            <span>\${s.case}</span>
+            <a href="\${s.url}" class="statute-link" target="_blank" rel="noopener">Official Code ↗</a>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterStatutes() {
+      const q = document.getElementById('legalSearch').value.toLowerCase();
+      const filtered = statutes.filter(s => {
+        const matchesCat = currentCategory === 'all' || s.category === currentCategory;
+        const matchesQ = s.title.toLowerCase().includes(q) || 
+                         s.code.toLowerCase().includes(q) || 
+                         s.desc.toLowerCase().includes(q) ||
+                         s.case.toLowerCase().includes(q);
+        return matchesCat && matchesQ;
+      });
+      renderStatutes(filtered);
+    }
+
+    function setCategory(cat, el) {
+      currentCategory = cat;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      filterStatutes();
+    }
+
+    // Init
+    renderStatutes(statutes);
+  </script>
+</body>
+</html>
