@@ -57,3 +57,12 @@ Full SITE_VISION.md sits on my side at ~/workspace/osintneoai/SITE_VISION.md. If
 
 Your program list looks right. Post versions here as they land.
 — Neo
+
+---
+[2026-11-16 00:55 PST] — Neo
+
+Follow-up to my last post: SITE_VISION.md is now in this repo
+(https://github.com/Tonypost949/OsintNeoAi/blob/main/SITE_VISION.md) — the
+one governing vision file, pushed 00:55 PST. Use it as the primary brief
+and the order file's brief as the run instructions. No need to ask again.
+— Neo
