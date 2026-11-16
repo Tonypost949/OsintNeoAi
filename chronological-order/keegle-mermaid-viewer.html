@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>KEEGLE + MERMAID — The Chronological Order — OsintNeoAi</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;background:#0d0f12;color:#e8e6e1;font-family:Georgia,serif;overflow:hidden}
+#stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:12vmin 12vw}
+#stage.bw{filter:grayscale(1)}
+#viewK,#viewM{max-width:100%;max-height:100%;overflow:auto}
+#viewM{display:none;background:#14161a;border-radius:8px;padding:14px}
+svg text{user-select:none}
+.corner{position:fixed;width:10vmin;height:10vmin;min-width:52px;min-height:52px;background:#171a1f;border:1px solid #3a3f47;color:#e8e6e1;font-size:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:40;border-radius:6px}
+#btnTL{top:0;left:0}#btnTR{top:0;right:0}#btnBL{bottom:0;left:0}#btnBR{bottom:0;right:0}
+body.flipped #btnTL{left:auto;right:0}body.flipped #btnBL{left:auto;right:0}
+body.flipped #btnTR{right:auto;left:0}body.flipped #btnBR{right:auto;left:0}
+.shake{animation:shk .45s ease}
+@keyframes shk{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+#sliderZone{position:fixed;top:10vmin;bottom:10vmin;left:0;width:10vw;min-width:52px;z-index:30;display:flex;flex-direction:column;align-items:center}
+body.flipped #sliderZone{left:auto;right:0}
+#groove{position:relative;width:14px;flex:1;background:#22262d;border-radius:8px;border:1px solid #3a3f47;margin:8px 0}
+#ball{position:absolute;left:50%;transform:translate(-50%,50%);bottom:50%;width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe9a8,#d4af37 55%,#8a6d1f);border:2px solid #6e5616;box-shadow:0 2px 10px rgba(0,0,0,.6);cursor:grab;touch-action:none}
+#mode{font-size:11px;color:#d4af37;letter-spacing:1px;text-align:center;padding:2px}
+#chips{position:fixed;top:11vmin;left:50%;transform:translateX(-50%);z-index:35;display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.chip{background:#171a1f;border:1px solid #4a5058;color:#e8e6e1;border-radius:16px;padding:5px 12px;font-size:12px;cursor:pointer}
+.chip.on{border-color:#d4af37;color:#ffe9a8}
+#sheet{position:fixed;left:50%;transform:translateX(-50%);bottom:11vmin;width:min(680px,86vw);max-height:52vh;background:rgba(20,22,26,.12);border:1px solid #3a3f47;border-radius:12px;z-index:35;display:flex;flex-direction:column;backdrop-filter:blur(2px)}
+#sheet.solid{background:rgba(20,22,26,.97)}
+#sheetHead{display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid #333;font-size:12px;color:#c9c4ba}
+#sheetHead .x{margin-left:auto;background:none;border:1px solid #4a5058;color:#e8e6e1;border-radius:6px;padding:2px 10px;cursor:pointer}
+#msgs{overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:8px}
+.msg{background:#1d2126;border:1px solid #333;border-radius:10px;padding:9px 11px;line-height:1.5;max-width:92%}
+.msg .tm{display:block;font-size:.68em;color:#8f8a80;margin-top:4px;text-align:right}
+#sheetBar{display:flex;gap:6px;padding:8px 10px;border-top:1px solid #333;flex-wrap:wrap}
+.sbtn{background:#22262d;border:1px solid #4a5058;color:#e8e6e1;border-radius:16px;padding:5px 12px;font-size:12px;cursor:pointer}
+#menu{position:fixed;top:11vmin;right:1vw;width:min(300px,80vw);background:#14161a;border:1px solid #3a3f47;border-radius:10px;z-index:50;padding:10px;display:none}
+body.flipped #menu{right:auto;left:1vw}
+body.flipped #gem{left:auto!important;right:1vw}
+#menu button{display:block;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid #262a30;color:#e8e6e1;padding:10px 6px;font-size:14px;cursor:pointer;font-family:inherit}
+#menu .h{color:#d4af37;font-size:12px;letter-spacing:1px;padding:4px 6px}
+#viewC{display:none;width:100%;height:100%;flex-direction:column}
+#calHead{display:flex;gap:10px;align-items:center;justify-content:center;padding:6px;font-size:14px;flex-wrap:wrap}
+#calGrid{flex:1;display:grid;grid-template-columns:repeat(7,1fr);gap:4px;padding:4px}
+.cday{background:#171a1f;border:1px solid #262a30;border-radius:6px;padding:6px;font-size:13px;color:#bbb;position:relative}
+.cday.has{border-color:#a33;background:#2a1414;cursor:pointer;color:#e8e6e1}
+.cday .cdot{position:absolute;right:6px;top:6px;width:8px;height:8px;border-radius:50%;background:#ff6b6b}
+#card{position:fixed;inset:0;background:#0d0f12;z-index:60;display:none;flex-direction:column}
+#cardFile{flex:1;display:flex;align-items:center;justify-content:center;overflow:auto;padding:12vmin 4vw 4vh}
+#cardFile img{max-width:100%;max-height:100%;border:1px solid #3a3f47}
+#cardBox{position:fixed;left:50%;transform:translateX(-50%);bottom:11vmin;width:min(680px,88vw);background:rgba(20,22,26,.12);border:1px solid #d4af37;border-radius:10px;padding:12px;z-index:65;min-height:90px;font-size:15px;line-height:1.55;white-space:pre-wrap}
+#cardBox.solid{background:rgba(20,22,26,.97)}
+#cardBox .lab{color:#d4af37;font-size:11px;letter-spacing:1px}
+#tags{position:fixed;top:11vmin;left:50%;transform:translateX(-50%);width:min(560px,88vw);max-height:60vh;overflow:auto;background:#14161a;border:1px solid #3a3f47;border-radius:10px;z-index:55;padding:12px;display:none}
+#tags .t{display:inline-block;border:1px solid #4a5058;border-radius:14px;padding:4px 10px;margin:3px;font-size:12.5px;cursor:pointer}
+#tags .t:hover{border-color:#d4af37;color:#ffe9a8}
+</style></head><body>
+<div id="chips">
+ <button class="chip on" data-l="1">L1 BASIC</button>
+ <button class="chip on" data-l="2">L2 DOCUMENTS</button>
+ <button class="chip on" data-l="3">L3 PULLS</button>
+</div>
+
+<div id="stage">
+ <div id="viewK">
+ <svg viewBox="0 0 1000 640" style="width:min(94vw,1000px);height:auto">
+  <g id="L1">
+  <line x1="40" y1="180" x2="960" y2="180" stroke="#e8e6e1" stroke-width="3"/>
+  <line x1="430" y1="150" x2="430" y2="210" stroke="#e8e6e1" stroke-width="3"/>
+  <line x1="668" y1="180" x2="648" y2="212" stroke="#e8e6e1" stroke-width="3"/>
+  <text x="235" y="168" text-anchor="middle" font-size="30" font-weight="700" fill="#e8e6e1">WHO</text>
+  <text x="549" y="168" text-anchor="middle" font-size="30" font-weight="700" fill="#e8e6e1">DID</text>
+  <text x="814" y="168" text-anchor="middle" font-size="30" font-weight="700" fill="#e8e6e1">WHAT</text>
+  <line x1="500" y1="180" x2="180" y2="330" stroke="#e8e6e1" stroke-width="2"/>
+  <line x1="60" y1="330" x2="300" y2="330" stroke="#e8e6e1" stroke-width="2"/>
+  <text x="180" y="318" text-anchor="middle" font-size="30" font-weight="700" fill="#e8e6e1">WHEN</text>
+  <line x1="560" y1="180" x2="470" y2="330" stroke="#e8e6e1" stroke-width="2"/>
+  <line x1="350" y1="330" x2="590" y2="330" stroke="#e8e6e1" stroke-width="2"/>
+  <text x="470" y="318" text-anchor="middle" font-size="30" font-weight="700" fill="#e8e6e1">WHERE</text>
+  <line x1="620" y1="180" x2="760" y2="330" stroke="#ff5252" stroke-width="2" stroke-dasharray="6 5"/>
+  <line x1="640" y1="330" x2="880" y2="330" stroke="#ff5252" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="760" y="318" text-anchor="middle" font-size="30" font-weight="700" fill="#e8e6e1">WHY</text>
+  </g>
+  <g id="L2">
+  <text x="180" y="362" text-anchor="middle" font-size="15" font-weight="600" fill="#ffb3b3">2021-04-23 4:05 PM — the demand</text>
+  <text x="180" y="386" text-anchor="middle" font-size="15" font-weight="600" fill="#ffb3b3">2021-08-04 — the execution</text>
+  <text x="470" y="362" text-anchor="middle" font-size="15" font-weight="600" fill="#ffb3b3">Unit SB-212, 212 Southbrook</text>
+  <text x="470" y="386" text-anchor="middle" font-size="15" font-weight="600" fill="#ffb3b3">Irvine, California</text>
+  <text x="235" y="238" text-anchor="middle" font-size="15" font-weight="600" fill="#ffb3b3">Victor Nunez, for</text>
+  <text x="235" y="262" text-anchor="middle" font-size="15" font-weight="600" fill="#ffb3b3">Woodbridge Meadows Apts LLC</text>
+  <text x="814" y="238" text-anchor="middle" font-size="15" font-weight="600" fill="#ffb3b3">demanded the home, or $5,788,</text>
+  <text x="814" y="262" text-anchor="middle" font-size="15" font-weight="600" fill="#ffb3b3">"must be paid to stop further</text>
+  <text x="814" y="286" text-anchor="middle" font-size="15" font-weight="600" fill="#ffb3b3">eviction proceedings" — then took it</text>
+  </g>
+  <g id="L3">
+  <text x="760" y="362" text-anchor="middle" font-size="15" font-weight="700" fill="#ff5252">— OPEN —</text>
+  <text x="760" y="390" text-anchor="middle" font-size="13" font-style="italic" fill="#c9c4ba">no lawful cause on the paper</text>
+  <text x="760" y="412" text-anchor="middle" font-size="13" font-style="italic" fill="#c9c4ba">declaration received 2021-02-21</text>
+  <text x="760" y="434" text-anchor="middle" font-size="13" font-style="italic" fill="#c9c4ba">sworn reason contradicted by their own email</text>
+  </g>
+ </svg>
+ </div>
+ <div id="viewM"><div class="mermaid">
+flowchart TD
+ A["2020-09-20 LEASE<br/>SB-212, $2,072/mo, to 2021-10-19"] --> B["2021-02-21 DECLARATION RECEIVED<br/>Doyle email confirms"]
+ B --> C["2021-03-18 15-DAY NOTICE<br/>box CHECKED: declaration submitted"]
+ C --> D["2021-04-03 $500 MONEY ORDER REFUSED"]
+ D --> E["2021-04-23 16:05 THE DEMAND<br/>home or $5,788"]
+ E --> F["2021-05-18 UD FILED<br/>alleges NO declaration"]
+ F --> G["2021-06-29 WRIT ISSUED<br/>possession only, $0"]
+ G --> H["2021-07-12 06:01 DEADLINE<br/>NOT executed"]
+ H --> I["2021-08-04 EXECUTION<br/>23 days later, no new paper"]
+ I --> J["COUNTER RUNNING<br/>homeless since — days count up"]
+ </div></div>
+</div>
+
+<div id="viewC">
+ <div id="calHead"><b id="calTitle">August 2021</b><span id="calClock" style="color:#9a958c"></span>
+ <label style="font-size:12px;color:#9a958c">GO TO DATE <input type="date" id="goDate" value="2021-08-04" style="background:#171a1f;color:#e8e6e1;border:1px solid #4a5058;border-radius:6px;padding:4px"></label>
+ <span style="font-size:12px;color:#9a958c">tap a red date = its Media Card</span></div>
+ <div id="calGrid"></div>
+</div>
+<div id="sliderZone"><div id="mode">TRANS-<br>PARENCY</div><div id="groove"><div id="ball" title="gold ball"></div></div><div id="modeV" style="font-size:11px;color:#9a958c">85%</div></div>
+
+<button class="corner" id="btnTL" title="Uno flip — shake and switch sides">🔄</button>
+<button class="corner" id="btnTR" title="Everything else">☰</button>
+<button class="corner" id="btnBL" title="Gem menu">💎</button>
+<button class="corner" id="btnBR" title="Share">➤</button>
+
+<div id="gem" style="position:fixed;bottom:11vmin;left:1vw;width:min(280px,78vw);background:#14161a;border:1px solid #d4af37;border-radius:10px;z-index:50;padding:8px;display:none">
+ <div style="color:#d4af37;font-size:12px;letter-spacing:1px;padding:4px 6px">💎 GEM</div>
+ <button id="gBW" style="display:block;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid #262a30;color:#e8e6e1;padding:10px 6px;font-size:14px;cursor:pointer;font-family:inherit">◐ B/W ⇄ Color — instant</button>
+ <button id="gSave" style="display:block;width:100%;text-align:left;background:none;border:none;color:#e8e6e1;padding:10px 6px;font-size:14px;cursor:pointer;font-family:inherit">💾 Save .txt to desktop</button>
+</div>
+<div id="menu">
+ <div class="h">EVERYTHING ELSE</div>
+ <button id="mView">View: Keegle ⇄ Mermaid</button>
+ <button id="mCards">View: Media Cards (calendar)</button>
+ <button id="mTags">Auto-Tag (from all screenshots)</button>
+ <button id="mSummary">Summary: on/off</button>
+ <button id="mBW">Black &amp; white ⇄ Color</button>
+ <button id="mFlip">Uno flip (shake + switch sides)</button>
+ <button id="mWide">Slider width: 1/10 ⇄ 2/10</button>
+ <button id="mFont">Summary font: cycle</button>
+ <button id="mLang">Summary text: EN ⇄ ES</button>
+ <button id="mKind">Summary kind: AI ⇄ OCR ⇄ META</button>
+ <div class="h">HOW IT WORKS</div>
+ <div style="font-size:12.5px;color:#c9c4ba;line-height:1.55;padding:4px 6px">
+ Gold ball: drag = transparency. TAP the ball = switch slider to COLOR (drag = B/W→RGB).
+ TAP ball again = back to transparency. ◐ corner = instant B/W ⇄ color, right now.
+ 🔄 = uno flip: the corners shake and switch sides. Pinch the summary to zoom its text;
+ tap a message to cycle its font. ▶ reads it aloud (talk-back); ⏸ pauses.</div>
+</div>
+
+<div id="tags"><div style="color:#d4af37;font-size:12px;letter-spacing:1px;margin-bottom:6px">AUTO-TAG — FROM ALL SCREENSHOTS (main menu only)</div><div id="tagList"></div>
+<div style="font-size:12px;color:#9a958c;margin-top:8px">One album per card: the first tag the file matches. Tap a tag to see its album name on the next card you open.</div></div>
+<div id="card"><div id="cardFile"></div>
+<div id="cardBox"></div>
+<button class="corner" id="cardX" style="top:0;right:0;position:fixed">✕</button></div>
+<div id="sheet">
+ <div id="sheetHead"><span id="sDate"></span><span id="sTime"></span><span style="color:#d4af37">SUMMARY</span>
+ <button class="x" id="sX">✕</button></div>
+ <div id="msgs"></div>
+ <div id="sheetBar">
+  <button class="sbtn" id="bPlay">▶ Talk-back</button>
+  <button class="sbtn" id="bPause">⏸ Pause</button>
+  <button class="sbtn" id="bFont">Font</button>
+  <button class="sbtn" id="bMinus">A−</button>
+  <button class="sbtn" id="bPlus">A+</button>
+  <button class="sbtn" id="bKind">AI summary</button>
+  <button class="sbtn" id="bLang">EN</button>
+ </div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const stage=$('stage'),sheet=$('sheet'),msgs=$('msgs');
+const TEXTS={
+ en:{ai:["WHEN — 2021-04-23, 4:05 PM: the demand lands. Home, or $5,788, 'must be paid to stop further eviction proceedings.'","WHO — Victor Nunez, for Woodbridge Meadows Apartments LLC dba Woodbridge, Shea Properties Management Co.","WHERE — Unit SB-212, 212 Southbrook, Irvine. The lease ran to October 19, 2021.","WHY — the shelf is empty. The declaration was received February 21, 2021, in the landlord's own writing. The sworn reason says the opposite.","2021-08-04: executed anyway. The counter has run since."],
+ ocr:["From: Victor Nunez — Fri, Apr 23, 2021, 4:05 PM","'Unit SB-212 — you must vacate the unit or remit payment in the total amount of $5,588 plus $200 in late fees, a total $5,788... must be paid to stop further eviction proceedings.'","From: Carissa Doyle — Feb 21, 2021: 'you provided us with the signed declarations form... please continue to sign the declaration each month.'"],
+ meta:["CASE: 30-2021-01201327-CL-UD-CJC · OC Superior Court","REGISTER: E-01…E-26 · DAY SHEET: 60 days populated","ANCHOR: 2021-08-04 · COUNTER: live, this screen's sheet header clock","SOURCE OF TRUTH: DAY_BY_DAY_SHEET.xlsx — marked in place, nothing moved"]},
+ es:{ai:["CUÁNDO — 2021-04-23, 4:05 PM: llega la demanda. La casa, o $5,788, 'debe pagarse para detener más procedimientos de desalojo.'","QUIÉN — Victor Nunez, por Woodbridge Meadows Apartments LLC dba Woodbridge, Shea Properties Management Co.","DÓNDE — Unidad SB-212, 212 Southbrook, Irvine. El contrato corría hasta el 19 de octubre de 2021.","POR QUÉ — el estante está vacío. La declaración fue recibida el 21 de febrero de 2021, por escrito del propio arrendador.","2021-08-04: ejecutado de todos modos. El contador corre desde entonces."],
+ ocr:["De: Victor Nunez — vie., 23 abr. 2021, 4:05 PM","'Unidad SB-212 — debe desocupar la unidad o remitir el pago por un total de $5,588 más $200 de cargos, total $5,788... debe pagarse para detener más procedimientos de desalojo.'"],
+ meta:["CASO: 30-2021-01201327-CL-UD-CJC · Corte Superior de OC","REGISTRO: E-01…E-26 · HOJA DE DÍAS: 60 días poblados","ANCLA: 2021-08-04 · CONTADOR: en vivo"]}};
+let lang='en',kind='ai',fontPx=15,fonts=['Georgia,serif','Verdana,sans-serif','Courier New,monospace'],fi=0;
+function renderMsgs(){msgs.innerHTML='';(TEXTS[lang][kind]||[]).forEach(t=>{const d=document.createElement('div');d.className='msg';d.style.fontSize=fontPx+'px';d.style.fontFamily=fonts[fi];d.innerHTML=t+'<span class="tm">'+new Date().toLocaleTimeString()+'</span>';d.onclick=()=>{fi=(fi+1)%fonts.length;renderMsgs();};msgs.appendChild(d);});}
+renderMsgs();
+function clock(){const n=new Date();$('sDate').textContent=n.toLocaleDateString(undefined,{weekday:'short',year:'numeric',month:'short',day:'numeric'});$('sTime').textContent=n.toLocaleTimeString();}
+clock();setInterval(clock,1000);
+sheet.addEventListener('pointerdown',()=>sheet.classList.add('solid'));
+/* pinch zoom on the summary */
+let lastD=0;
+sheet.addEventListener('touchmove',e=>{if(e.touches.length===2){e.preventDefault();const d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);if(lastD){fontPx=Math.max(11,Math.min(30,fontPx+(d-lastD)*0.06));renderMsgs();}lastD=d;}},{passive:false});
+sheet.addEventListener('touchend',()=>lastD=0);
+$('bPlus').onclick=()=>{fontPx=Math.min(30,fontPx+1);renderMsgs();};
+$('bMinus').onclick=()=>{fontPx=Math.max(11,fontPx-1);renderMsgs();};
+$('bFont').onclick=()=>{fi=(fi+1)%fonts.length;renderMsgs();};
+$('bLang').onclick=e=>{lang=lang==='en'?'es':'en';e.target.textContent=lang.toUpperCase();renderMsgs();};
+$('bKind').onclick=e=>{kind=kind==='ai'?'ocr':kind==='ocr'?'meta':'ai';e.target.textContent=kind==='ai'?'AI summary':kind.toUpperCase();renderMsgs();};
+$('sX').onclick=()=>sheet.style.display='none';
+/* talk-back */
+$('bPlay').onclick=()=>{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance((TEXTS[lang][kind]||[]).join(' '));u.lang=lang==='es'?'es-ES':'en-US';speechSynthesis.speak(u);};
+$('bPause').onclick=()=>{speechSynthesis.speaking?speechSynthesis.pause():speechSynthesis.resume();};
+/* gold ball slider: mode transparency <-> color */
+const ball=$('ball'),groove=$('groove');let mode='T',val=85,dragging=false,moved=false;
+function applyVal(){if(mode==='T'){sheet.style.opacity=val/100;$('modeV').textContent=val+'%';stage.style.opacity=1;}
+ else{stage.style.filter='saturate('+(val/100)+')';$('modeV').textContent='RGB '+val+'%';}}
+function setBall(){const r=groove.getBoundingClientRect();ball.style.bottom='calc('+(val)+'% )';}
+function ballTo(y){const r=groove.getBoundingClientRect();val=Math.max(0,Math.min(100,Math.round((r.bottom-y)/r.height*100)));setBall();applyVal();}
+ball.addEventListener('pointerdown',e=>{dragging=true;moved=false;ball.setPointerCapture(e.pointerId);});
+ball.addEventListener('pointermove',e=>{if(dragging){moved=true;ballTo(e.clientY);}});
+ball.addEventListener('pointerup',()=>{dragging=false;if(!moved){mode=mode==='T'?'C':'T';$('mode').innerHTML=mode==='T'?'TRANS-<br>PARENCY':'COLOR<br>B/W⇄RGB';val=mode==='T'?85:100;stage.style.filter='';sheet.style.opacity=mode==='T'?.85:1;setBall();applyVal();}});
+setBall();applyVal();
+/* corners */
+function bwToggle(){stage.classList.toggle('bw');if(stage.classList.contains('bw'))stage.style.filter='';else applyVal();}
+$('btnBL').onclick=()=>{const g=$('gem');g.style.display=g.style.display==='block'?'none':'block';};
+$('gBW').onclick=()=>{bwToggle();$('gem').style.display='none';};
+$('gSave').onclick=()=>{const lines=['THE CHRONOLOGICAL ORDER — OsintNeoAi','Saved: '+new Date().toLocaleString(),'','WHEN did WHO do WHAT, WHERE, and WHY?','',...(TEXTS[lang][kind]||[]),'','CASE: 30-2021-01201327-CL-UD-CJC · Register E-01…E-26 · Source: DAY_BY_DAY_SHEET.xlsx'];const b=new Blob([lines.join('\n')],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='CHRONOLOGICAL_ORDER.txt';a.click();$('gem').style.display='none';};
+function flip(){['btnTL','btnTR','btnBL','btnBR','sliderZone'].forEach(i=>{const el=$(i);el.classList.remove('shake');void el.offsetWidth;el.classList.add('shake');});setTimeout(()=>document.body.classList.toggle('flipped'),220);}
+$('btnTL').onclick=flip;
+$('btnBR').onclick=async()=>{const data={title:'The Chronological Order — Keegle',text:'WHEN did WHO do WHAT, WHERE, and WHY? The populated Keegle.',url:location.href};if(navigator.share){try{await navigator.share(data);}catch(e){}}else if(navigator.clipboard){await navigator.clipboard.writeText(location.href);$('btnBR').textContent='✓';setTimeout(()=>$('btnBR').textContent='➤',1500);}};
+const menu=$('menu');$('btnTR').onclick=()=>menu.style.display=menu.style.display==='block'?'none':'block';
+/* menu actions */
+$('mView').onclick=()=>{const k=$('viewK').style.display!=='none';$('viewK').style.display=k?'none':'block';$('viewM').style.display=k?'block':'none';};
+$('mSummary').onclick=()=>{sheet.style.display=sheet.style.display==='none'?'flex':'none';};
+$('mBW').onclick=bwToggle;$('mFlip').onclick=flip;
+$('mWide').onclick=()=>{const z=$('sliderZone');z.style.width=z.style.width==='20vw'?'10vw':'20vw';};
+$('mFont').onclick=()=>{fi=(fi+1)%fonts.length;renderMsgs();};
+$('mLang').onclick=()=>{lang=lang==='en'?'es':'en';renderMsgs();};
+$('mKind').onclick=()=>{kind=kind==='ai'?'ocr':kind==='ocr'?'meta':'ai';renderMsgs();};
+/* layers */
+document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{c.classList.toggle('on');const g=document.getElementById('L'+c.dataset.l);if(g)g.style.opacity=c.classList.contains('on')?1:.07;});
+try{mermaid.initialize({startOnLoad:true,theme:'dark'});}catch(e){}
+/* ===== MEDIA CARDS ===== */
+const DAYS_WITH={ '2021-08-04':1,'2021-07-01':1,'2021-07-05':1,'2021-07-06':1,'2021-07-12':1,'2021-04-23':1,'2021-02-21':1,'2021-03-18':1,'2021-04-03':1,'2021-04-24':1,'2021-05-18':1,'2021-06-29':1 };
+const cg=$('calGrid');
+(function(){const first=new Date(2021,7,1);let start=(first.getDay()+6)%7;const names=['Mo','Tu','We','Th','Fr','Sa','Su'];
+ names.forEach(n=>{const d=document.createElement('div');d.style.cssText='text-align:center;color:#888;font-size:11px';d.textContent=n;cg.appendChild(d);});
+ for(let i=0;i<start;i++)cg.appendChild(document.createElement('div'));
+ for(let d=1;d<=31;d++){const key='2021-08-'+String(d).padStart(2,'0');const el=document.createElement('div');el.className='cday'+(DAYS_WITH[key]?' has':'');el.innerHTML=d+(DAYS_WITH[key]?'<span class="cdot"></span>':'');if(DAYS_WITH[key])el.onclick=()=>openCard(key);cg.appendChild(el);} })();
+function calClock(){const n=new Date();$('calClock').textContent=n.toLocaleDateString()+' · '+n.toLocaleTimeString();}
+calClock();setInterval(calClock,1000);
+$('goDate').onchange=e=>{if(DAYS_WITH[e.target.value])openCard(e.target.value);else{$('calTitle').textContent='No card on '+e.target.value+' yet — marked, not moved.';setTimeout(()=>$('calTitle').textContent='August 2021',2200);}};
+const CARD={
+ '2021-04-23':{date:'2021-04-23',ai:'The demand. Nunez to DiMarcello (and to his business): vacate Unit SB-212 or remit $5,588 + $200 late fees = $5,788, \'must be paid to stop further eviction proceedings.\'',fname:'Gmail 17900fafa43d8523 — Nunez demand email',meta:'SOURCED · amd949609@gmail.com · Fri Apr 23 2021 16:05 PDT · To: Anthony DiMarcello, Atlas Cabinets',album:'Extortion — April 2021',img:null},
+ '2021-08-04':{date:'2021-08-04',ai:'Execution day. Sheriff placed the landlord in possession of 212 Southbrook. His inbox that day: 50+ automated messages, zero about this. Counter starts here.',fname:'Return on Writ EJ-130 — executed 2021-08-04 (filed 2021-08-10)',meta:'SOURCED · Levying Officer File 2021102780 · Agent #10444 for Sheriff Don Barnes · costs $145',album:'Eviction — Execution',img:'assets/media-generation-vceb-sketch-1-opening-0-ba4c1dec-33b9-46ac-aec5-42af73847e17.webp'},
+};
+const CARDFALL={date:'—',ai:'Layer 1 holds this date in the day sheet; the full file card populates in the next layer.',fname:'DAY_BY_DAY_SHEET.xlsx',meta:'SOURCED · marked in place — nothing moved',album:'Chronological Order',img:null};
+let typeTimer=null,chosenAlbum=null;
+function openCard(key){const c=CARD[key]||Object.assign({},CARDFALL,{date:key});const card=$('card');card.style.display='flex';
+ const f=$('cardFile');f.innerHTML='';
+ if(c.img){const im=document.createElement('img');im.src=c.img;im.alt=c.fname;
+  im.onerror=()=>{f.innerHTML='<div style="max-width:640px;color:#c9c4ba;line-height:1.6"><b style="color:#ff6b6b">AI FIXER:</b> the file image did not load on this screen. Reason: image unreachable from this view. Fix applied: rendered as sourced text instead — nothing lost.<br><br>'+c.ai+'<br><br><span style="color:#8f8a80">'+c.fname+' · '+c.meta+'</span></div>';};
+  f.appendChild(im);}
+ else{f.innerHTML='<div style="max-width:640px;color:#c9c4ba;line-height:1.6">'+c.ai+'<br><br><span style="color:#8f8a80">Full file renders here when its layer lands — screenshot of the entire file, native controls.</span></div>';}
+ const box=$('cardBox');box.classList.remove('solid');box.textContent='';
+ const album=chosenAlbum||c.album;
+ const lines=[['DATE',c.date],['AI SUMMARY',c.ai],['FILENAME',c.fname],['META — SOURCED',c.meta],['RELATED ALBUM',album]];
+ let li=0,ci=0,cur='';clearInterval(typeTimer);
+ typeTimer=setInterval(()=>{if(li>=lines.length){clearInterval(typeTimer);return;}
+   const full=lines[li][0]+'\n'+lines[li][1];
+   if(ci===0&&li>0)cur+='\n\n';
+   cur+=full.charAt(ci)||'';ci++;
+   box.innerHTML=cur.replace(/^(DATE|AI SUMMARY|FILENAME|META — SOURCED|RELATED ALBUM)$/gm,'<span class="lab">$1</span>');
+   if(ci>full.length){li++;ci=0;}},12);
+ box.onclick=()=>box.classList.add('solid');}
+$('cardX').onclick=()=>{$('card').style.display='none';clearInterval(typeTimer);};
+$('mCards').onclick=()=>{$('viewK').style.display='none';$('viewM').style.display='none';const v=$('viewC');v.style.display='flex';menu.style.display='none';};
+$('mView').onclick=()=>{$('viewC').style.display='none';};
+const TAGS=[['Unlawful Detainer',25],['UD',61],['Superior Court',26],['Summons',26],['Possession',25],['Default',39],['Sheriff',14],['Writ',9],['Eviction',8],['Proof of Service',6],['ROA',6],['Chain of Custody',3]];
+$('tagList').innerHTML=TAGS.map(t=>'<span class="t" data-a="'+t[0]+' — album">'+t[0]+' · '+t[1]+'</span>').join('');
+document.querySelectorAll('#tagList .t').forEach(el=>el.onclick=()=>{chosenAlbum=el.dataset.a;$('tags').style.display='none';});
+$('mTags').onclick=()=>{const t=$('tags');t.style.display=t.style.display==='block'?'none':'block';menu.style.display='none';};
+</script></body></html>

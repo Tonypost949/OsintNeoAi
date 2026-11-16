@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Investigations — The Chronological Order — OsintNeoAi</title>
+<style>
+body{background:#0d0f12;color:#e8e6e1;font-family:Georgia,serif;margin:0;padding:22px;line-height:1.55}
+.wrap{max-width:920px;margin:0 auto}
+h1{margin:2px 0}.sub{color:#9a958c;font-size:13px}
+.slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:20px 0}
+.slot{background:#14161a;border:1px solid #3a3f47;border-radius:10px;padding:18px;cursor:pointer}
+.slot.live{border-color:#ff5252}
+.slot h3{margin:0 0 6px}.slot p{color:#c9c4ba;font-size:13.5px;margin:4px 0}
+.tag{display:inline-block;font-size:11px;letter-spacing:1px;border:1px solid #4a5058;border-radius:12px;padding:2px 9px;color:#ffe9a8}
+form{background:#14161a;border:1px solid #3a3f47;border-radius:10px;padding:18px;display:none}
+label{display:block;font-size:12.5px;color:#9a958c;margin:12px 0 4px;letter-spacing:.4px}
+input,textarea{width:100%;background:#0d0f12;color:#e8e6e1;border:1px solid #4a5058;border-radius:6px;padding:9px;font-family:inherit;font-size:14.5px}
+button{background:#22262d;color:#e8e6e1;border:1px solid #d4af37;border-radius:8px;padding:10px 18px;cursor:pointer;font-family:inherit;font-size:14.5px;margin-top:14px}
+.wiki{display:none;background:#f8f9fa;color:#202122;font-family:sans-serif;border-radius:4px;padding:22px;margin-top:22px;line-height:1.6}
+.wiki h1{font-family:Georgia,serif;border-bottom:1px solid #a2a9b1;font-size:28px}
+.wiki h2{font-family:Georgia,serif;border-bottom:1px solid #a2a9b1;font-size:21px;margin-top:24px}
+.infobox{float:right;width:270px;background:#f8f9fa;border:1px solid #a2a9b1;padding:10px;margin:0 0 12px 16px;font-size:13px}
+.infobox th{text-align:left;color:#54595d;padding-right:8px;vertical-align:top}
+.wiki table.chron{border-collapse:collapse;width:100%;font-size:14px}
+.wiki table.chron td,.wiki table.chron th{border:1px solid #a2a9b1;padding:6px 8px;text-align:left}
+.cards{display:none;margin-top:18px}
+.card{background:#171a1f;border:1px solid #a33;border-radius:8px;padding:12px;margin:8px 0;font-size:14px}
+.card .need{color:#ff8f8f}
+.card input{width:110px;display:inline-block;margin-left:8px}
+.sheet{display:none;margin-top:18px;overflow:auto}
+.sheet table{border-collapse:collapse;width:100%;font-size:13px}
+.sheet td,.sheet th{border:1px solid #3a3f47;padding:6px 8px;text-align:left}
+.bar{display:none;margin-top:14px}.bar button{margin-right:8px}
+</style></head><body><div class="wrap">
+<div class="sub">THE CHRONOLOGICAL ORDER · USER WORKSPACE</div>
+<h1>Your investigations</h1>
+<div class="sub">Three slots. Each starts blank and populates as a wiki — form in, page out, calendar under it, one Excel sheet behind everything. Your data, your phone, your terms.</div>
+
+<div class="slots">
+ <div class="slot live" onclick="location.href='settlement.html'"><span class="tag">SLOT 1 · POPULATED</span><h3>DiMarcello / Woodbridge</h3><p>Extortion, 2021. Register E-01…E-26 · 60 days on the sheet · counter running since 2021-08-04.</p><p>→ open the settlement presentation</p></div>
+ <div class="slot" onclick="startSlot(2)"><span class="tag">SLOT 2 · BLANK</span><h3>Investigation 2</h3><p>Empty. Tap to start: tell the story, the page builds itself.</p></div>
+ <div class="slot" onclick="startSlot(3)"><span class="tag">SLOT 3 · BLANK</span><h3>Investigation 3</h3><p>Empty. Tap to start: tell the story, the page builds itself.</p></div>
+</div>
+
+<form id="frm">
+ <h3 id="frmTitle" style="margin-top:0">New investigation</h3>
+ <label>TITLE — who / what is this about?</label><input id="fTitle" placeholder="e.g. My landlord, 2023">
+ <label>TELL THE STORY — type it, paste it, or dictate it. Dates you mention become the chronology.</label>
+ <textarea id="fStory" rows="7" placeholder="On March 3rd they came to the door... In April 2021 the letter arrived..."></textarea>
+ <label>UPLOAD — documents / photos (OCR reads them and files the text into the page)</label>
+ <input type="file" id="fFiles" multiple>
+ <label>YOUR NAME (for the page)</label><input id="fName" placeholder="Your name">
+ <button type="button" onclick="buildPage()">BUILD THE PAGE →</button>
+</form>
+
+<article class="wiki" id="wiki"></article>
+<div class="cards" id="cards"></div>
+<div class="bar" id="bar">
+ <button onclick="showSheet()">BACKEND SHEET (the Excel)</button>
+ <button onclick="dlSheet()">DOWNLOAD .CSV — opens in Excel / Sheets</button>
+ <button onclick="window.print()">PRINT — court copy</button>
+</div>
+<div class="sheet" id="sheet"></div>
+</div>
+<script>
+let curSlot=0,rows=[];
+function startSlot(n){curSlot=n;document.getElementById('frm').style.display='block';document.getElementById('frmTitle').textContent='Investigation '+n+' — tell it';document.getElementById('frm').scrollIntoView({behavior:'smooth'});}
+const MONTHS={january:1,february:2,march:3,april:4,may:5,june:6,july:7,august:8,september:9,october:10,november:11,december:12,jan:1,feb:2,mar:3,apr:4,jun:6,jul:7,aug:8,sep:9,sept:9,oct:10,nov:11,dec:12};
+function findDates(text){const out=[];let m;
+ const re1=/(\b\d{4})-(\d{2})-(\d{2})\b/g;while((m=re1.exec(text)))out.push({y:+m[1],mo:+m[2],d:+m[3],raw:m[0]});
+ const re2=/\b(january|february|march|april|may|june|july|august|september|october|november|december|jan|feb|mar|apr|jun|jul|aug|sep|sept|oct|nov|dec)\s+(\d{1,2})(?:st|nd|rd|th)?(?:,?\s+(\d{4}))?/gi;
+ while((m=re2.exec(text)))out.push({y:m[3]?+m[3]:null,mo:MONTHS[m[1].toLowerCase()],d:+m[2],raw:m[0]});
+ const re3=/\b(\d{1,2})\/(\d{1,2})\/(\d{4})\b/g;while((m=re3.exec(text)))out.push({y:+m[3],mo:+m[1],d:+m[2],raw:m[0]});
+ return out;}
+function sentFor(text,raw){const i=text.indexOf(raw);if(i<0)return text.slice(0,110);const s=Math.max(0,text.lastIndexOf('.',i-40));const e=text.indexOf('.',i+raw.length);return text.slice(s<0?0:s+1,(e<0?i+140:e+1)).trim();}
+function buildPage(){
+ const title=document.getElementById('fTitle').value||'Untitled investigation';
+ const story=document.getElementById('fStory').value||'';
+ const name=document.getElementById('fName').value||'—';
+ const files=[...document.getElementById('fFiles').files].map(f=>f.name);
+ const dates=findDates(story);
+ rows=dates.map((x,i)=>({date:x.y?x.y+'-'+String(x.mo).padStart(2,'0')+'-'+String(x.d).padStart(2,'0'):'YEAR?',written:x.raw,event:sentFor(story,x.raw),source:'story text',grade:x.y?'DATED':'NEEDS YEAR',i}));
+ rows.sort((a,b)=>(a.date<b.date?-1:1));
+ const chron=rows.map(r=>'<tr><td>'+r.date+'</td><td>'+r.event+'</td><td>'+r.written+'</td></tr>').join('');
+ const w=document.getElementById('wiki');
+ w.innerHTML='<h1>'+title+'</h1>'
+ +'<table class="infobox"><tr><th>Subject</th><td>'+title+'</td></tr><tr><th>Filed by</th><td>'+name+'</td></tr><tr><th>Slot</th><td>Investigation '+curSlot+' of 3</td></tr><tr><th>Dates found</th><td>'+dates.length+'</td></tr><tr><th>Documents</th><td>'+(files.length?files.join(', '):'none yet — OCR intake open')+'</td></tr><tr><th>Order</th><td>WHEN → WHO → WHERE → WHY</td></tr></table>'
+ +'<p>'+(story.slice(0,420)||'This page populates as material arrives.')+'</p>'
+ +'<h2>Chronology</h2><table class="chron"><tr><th>Date</th><th>Event</th><th>As written</th></tr>'+(chron||'<tr><td colspan="3">No dates found yet — add one and the timeline starts.</td></tr>')+'</table>'
+ +'<h2>People</h2><p>Populated from the material — five to seven names is a whole world. Each gets a page.</p>'
+ +'<h2>Documents</h2><p>'+(files.length?files.join('<br>'):'None filed yet. Uploads are OCR-read and filed here, marked in place — originals never move.')+'</p>'
+ +'<h2>Open pulls</h2><p>Every undated or unproven item sits here with the exact pull that settles it.</p>';
+ w.style.display='block';
+ const c=document.getElementById('cards');c.innerHTML='<h3 style="margin:6px 0">CALENDAR CARDS — same data, day by day</h3>'+rows.map((r,j)=>'<div class="card"><b>'+r.date+'</b> — '+r.event+(r.y?'':' <span class="need">PUT YOUR YEAR:</span> <input type="number" min="1900" max="2100" placeholder="YYYY" onchange="setYear('+j+',this.value)">')+'</div>').join('');
+ c.style.display='block';document.getElementById('bar').style.display='block';w.scrollIntoView({behavior:'smooth'});}
+function setYear(j,y){if(!y)return;const r=rows[j];const p=r.date.split('-');r.date=y+'-'+(p[1]||'01')+'-'+(p[2]||'01');r.grade='DATED';rows.sort((a,b)=>(a.date<b.date?-1:1));buildRefresh();}
+function buildRefresh(){const c=document.getElementById('cards');c.innerHTML='<h3 style="margin:6px 0">CALENDAR CARDS — same data, day by day</h3>'+rows.map(r=>'<div class="card"><b>'+r.date+'</b> — '+r.event+'</div>').join('');}
+function showSheet(){const s=document.getElementById('sheet');s.innerHTML='<table><tr><th>Date</th><th>As written</th><th>Event</th><th>Source</th><th>Grade</th></tr>'+rows.map(r=>'<tr><td>'+r.date+'</td><td>'+r.written+'</td><td>'+r.event+'</td><td>'+r.source+'</td><td>'+r.grade+'</td></tr>').join('')+'</table>';s.style.display='block';s.scrollIntoView({behavior:'smooth'});}
+function dlSheet(){const csv='Date,As written,Event,Source,Grade\n'+rows.map(r=>[r.date,r.written,'"'+r.event.replace(/"/g,'""')+'"',r.source,r.grade].join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='investigation_'+curSlot+'_backend_sheet.csv';a.click();}
+</script></body></html>

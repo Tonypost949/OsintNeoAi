@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DJ DRØP's DT — MY DESKTOP · Broadcast #1</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Georgia,serif}
+body{background:#07080a;color:#e8e6e1;transition:background .6s}
+#lamp{position:fixed;inset:0;pointer-events:none;opacity:0;transition:opacity .6s;background:radial-gradient(ellipse 90% 65% at 50% 0%,rgba(255,214,120,.34),rgba(255,180,60,.12) 45%,transparent 72%)}
+body.on #lamp{opacity:1}
+body.on{background:#101319}
+header{text-align:center;padding:26px 12px 4px;position:relative}
+h1{margin:0;font-size:clamp(26px,6vw,44px)}h1 span{color:#ffb3b3}
+.sub{color:#9a958c;font-size:13px;margin-top:4px}
+#state{margin-top:8px;font-size:13px;letter-spacing:2px;color:#8f8a80}
+body.on #state{color:#ffd678}
+#desk{max-width:860px;margin:26px auto;padding:0 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;position:relative}
+.folder{background:#14161a;border:1px solid #3a3f47;border-radius:12px;padding:20px 14px;text-align:center;cursor:pointer;transition:transform .15s, box-shadow .3s}
+.folder:hover{transform:translateY(-3px)}
+body.on .folder{box-shadow:0 6px 24px rgba(255,190,80,.14)}
+.folder .ic{font-size:44px}
+.folder .nm{margin-top:8px;font-size:16px}
+.folder .ds{color:#9a958c;font-size:12px;margin-top:3px;line-height:1.4}
+#openBtn{grid-column:1/-1;background:#1d2126;border:1px solid #d4af37;color:#ffe9a8;border-radius:12px;padding:16px;font-size:16px;cursor:pointer;font-family:inherit}
+#panel{max-width:860px;margin:0 auto 30px;padding:0 16px;display:none}
+#panelIn{background:#101216;border:1px solid #333;border-radius:10px;padding:16px;line-height:1.65;font-size:14.5px;white-space:pre-wrap}
+#switchZone{position:fixed;right:18px;bottom:18px;text-align:center;z-index:20}
+#switch{width:74px;height:120px;border-radius:12px;background:#171a1f;border:2px solid #3a3f47;cursor:pointer;position:relative;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+#knob{position:absolute;left:50%;transform:translateX(-50%);bottom:10px;width:46px;height:46px;border-radius:9px;background:radial-gradient(circle at 35% 30%,#ffe9a8,#d4af37 55%,#8a6d1f);border:2px solid #6e5616;transition:bottom .35s cubic-bezier(.6,-0.2,.3,1.4)}
+body.on #knob{bottom:58px}
+#switchZone .lab{font-size:11px;letter-spacing:2px;color:#9a958c;margin-top:6px}
+#hand{position:fixed;left:50%;top:-140px;transform:translateX(-50%);font-size:110px;z-index:30;pointer-events:none;opacity:0}
+#hand.grab{animation:grab 1.5s ease forwards}
+@keyframes grab{0%{top:-140px;opacity:0}25%{opacity:1}45%{top:34%}70%{top:30%}100%{top:-160px;opacity:0}}
+.foot{text-align:center;color:#6e6a61;font-size:12px;padding:0 12px 110px}
+</style></head><body>
+<div id="lamp"></div><div id="hand">🖐️</div>
+<header><h1>DJ DRØP's <span>DT</span></h1>
+<div class="sub">MY DESKTOP — broadcast #1 · the actual desktop, mirrored full-function to visitors · blockchain-locked at source</div>
+<div id="state">● BROADCAST OFF — the desk is dark</div></header>
+
+<div id="desk">
+ <div class="folder" data-p="code"><div class="ic">💻</div><div class="nm">Coding</div><div class="ds">vibe-written code lives here</div></div>
+ <div class="folder" data-p="media"><div class="ic">🎬</div><div class="nm">Media</div><div class="ds">pictures, video, the work</div></div>
+ <div class="folder" data-p="web"><div class="ic">🌐</div><div class="nm">Browser</div><div class="ds">catch-all: URLs + file paths — they correlate</div></div>
+ <button id="openBtn">📂 OPEN FILE — standard</button>
+</div>
+<div id="panel"><div id="panelIn"></div></div>
+
+<div id="switchZone"><div id="switch" title="Broadcast light switch"><div id="knob"></div></div><div class="lab">BROADCAST</div></div>
+
+<div class="foot">Flip the switch: the light comes up over the desk like a real desk lamp, the hand comes down from the top view and grabs what's on the desktop — that's a visitor arriving. Flip it off: dark, private, yours.</div>
+
+<script>
+const P={
+code:"CODING — vibe-written, working\n\n• build_vceb.py — the calendar board generator\n• build_viewer.py — Keegle + Mermaid + Media Cards viewer\n• build_day_sheet.py — the day-by-day sheet\n• make_gsheet.py — Google Sheets bridge\n• gmail_search.py — the mail pull tool\n\nEvery script that built today, in one folder.",
+media:"MEDIA\n\n• Sketch 1 — the opening (date, counter, calendar)\n• Sketch 2 — day view (cards, toggle, layers)\n• The DJ drop queue lives on the real DT — this is the visitor's shelf.",
+web:"BROWSER — URLs and file paths, correlated\n\n• https://osintneoai.me\n• Facebook Page — facebook.com/61594100636376\n• Repo — github.com/Tonypost949/OsintNeoAi\n• ~/workspace/your_files/extortion-packet/ (the packet)\n• ~/workspace/osintneoai-public-staging/ (this desk's staging)\n\nA URL and a file path for the same thing sit side by side — because they correlate."};
+const panel=document.getElementById('panel'),pin=document.getElementById('panelIn');
+document.querySelectorAll('.folder').forEach(f=>f.onclick=()=>{pin.textContent=P[f.dataset.p];panel.style.display='block';panel.scrollIntoView({behavior:'smooth'});});
+document.getElementById('openBtn').onclick=()=>{pin.textContent='OPEN FILE — standard button.\n\nOne button, any file on the desk: pick it, it opens full-size in its native view — and if it does not load, the AI fixer states why and renders it as sourced text. (Viewer behavior, already built in Media Cards.)';panel.style.display='block';};
+const sw=document.getElementById('switch'),hand=document.getElementById('hand'),state=document.getElementById('state');
+sw.onclick=()=>{const on=document.body.classList.toggle('on');state.textContent=on?'● BROADCAST ON — DJ DRØP\u2019s DT is live':'● BROADCAST OFF — the desk is dark';if(on){hand.classList.remove('grab');void hand.offsetWidth;hand.classList.add('grab');}};
+</script></body></html>

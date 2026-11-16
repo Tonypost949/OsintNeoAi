@@ -1,0 +1,47 @@
+# EXTORTION REGISTER — ROLLING LIST
+## Every real document, and what is going for each one
+
+**Opened 2026-11-13.** This register is a rolling list: it gets populated as the
+work happens, not delivered once at the end. Each entry = one real document —
+what it is, where it lives, what it proves, and the live action on it.
+Evidence arm for everything below: `~/workspace/transparency-packet/`
+(spine `01_CHRONOLOGY_SPINE.md`, claims `02_CLAIMS_REGISTER.md`, logs `hidden/`).
+
+| # | Document | Date | Lives at | Proves / does | Going for it |
+|---|---|---|---|---|---|
+| E-01 | Lease, Shea Properties Mgmt for Woodbridge Meadows Apartments LLC, Unit SB-212, $2,072/mo, term Sep 20 2020 → Oct 19 2021 | 2020-09-20 | transparency-packet/hidden/attachments/ (log: lease_read_2026-10-28.md) | The contract he was under — he was in a lease, not a squatter, not month-to-month arrears chaos | Anchor doc; no pull needed |
+| E-02 | Doyle email — office RECEIVED his signed declaration: "you provided us with the signed declarations form" | 2021-02-21 | amd949609 Gmail `177c611ede21773e` | The "missing paper" pretext was false on the office's own writing | Centerpiece of the contradiction board |
+| E-03 | Doyle email — "we will just have you sign the declaration each month" | 2021-02-21 | amd949609 Gmail `177c65d453a6c071` | The office's own monthly-declaration routine, in writing | Paired with E-02 everywhere |
+| E-04 | Email thread — $500/mo money-order routine confirmed by BOTH sides (Mar 12–17) | 2021-03-12→17 | Quoted in amd949609 Gmail `17900a0de1e68d4f` | He was paying, on the office's own confirmed routine — not a non-payer | Kills the "deadbeat" defense before it starts |
+| E-05 | 15-day notice, total $3,516 — February box CHECKED "declaration previously submitted" | 2021-03-18 | UD bundle Exhibit + PDF "SB-212 MAR 15 Day Sept to June.pdf" | Their own notice admits the February declaration was submitted | Contradiction board, third panel |
+| E-06 | Proof of service of the 15-day notice, signed by Victor Nunez under penalty of perjury (posting + mailing, Mar 18) | 2021-03-18 | UD bundle Exhibit 3 (drive_ud_bundle_read_2026-10-28.md) | Nunez put his sworn signature on the service of a notice whose own box contradicts the later claim that he did not deliver a declaration in the time required | Perjury-register cross-ref (sworn paper vs sworn paper) |
+| E-07 | His signed declaration page (photo) — "Anthony DiMarcello," dated (best reading) 3-18-21 | 2021-03-18 | Photos on his Aug 19 2021 UD-104 email, Gmail `17b603eff667472f` | He signed. The paper exists, photographed | Print-grade copy to pull from Photos originals |
+| E-08 | Nunez email — $500 money order REFUSED: "Your payment cannot be accepted" | 2021-04-03 | amd949609 Gmail `17899194b7ccaa40` | They stopped taking his money three weeks before demanding all of it | Timeline board |
+| E-09 | Doyle email — "I did receive your other email regarding the declaration notices" | 2021-04-23 | Quoted in amd949609 Gmail `17900a0de1e68d4f` | Even on demand day, the office acknowledged his declaration emails | Contradiction board |
+| E-10 | HIS email, same day — describes the porch/stairs "surprise eviction," told he was evicted in front of family and neighbors, "two inches from my face" | 2021-04-23 | amd949609 Gmail `17900a0de1e68d4f` | Contemporaneous written record of the porch confrontation (MIA-015's event) | His account, documented as written that day — not a later reconstruction |
+| E-11 | **THE DEMAND** — Nunez: possession OR $5,588 + $200 = **$5,788**, "must be paid to stop further eviction proceedings" | 2021-04-23 | amd949609 Gmail `17900fafa43d8523` | The §523 writing: a written demand under threat, punishable as completed extortion | **The core exhibit.** Copies into every board |
+| E-12 | His demand back — "You told me and the neighborhood I'm in the surprise eviction process on my porch, so yes please send over the docs to payoff my rent" | 2021-04-24 | Quoted in amd949609 Gmail `17906064b29d07fa` | He answered in writing, asking for the payoff documents — they never sent payoff docs | Shows his conduct: paper requested, paper refused |
+| E-13 | Nunez email — "The time to sign and submit the declaration page has expired" | 2021-04-24 | amd949609 Gmail `17906064b29d07fa` | The reversal: received it Feb 21, "expired" Apr 24 | Contradiction board, closing panel |
+| E-14 | UD-101 cover sheet — item 7d(2) alleges he did NOT deliver a COVID declaration **in the time required**; Nunez verification under penalty of perjury, May 15 | Filed 2021-05-18 | UD bundle (25 pp), transparency-packet/hidden/attachments/woodbridge_ud_drive.pdf | The sworn court filing against the office's own emails — the paper-vs-paper conflict | P-register candidate; settles fully with certified record (L-3009) |
+| E-15 | UD-100 complaint + summons SUM-130, Case 30-2021-01201327-CL-UD-CJC | 2021-05-18 | UD bundle (25 pp) | The machine starts, three weeks after the demand | Case anchor |
+| E-16 | Court register — filed 5/18/21; posting service ordered 6/2; clerk default 6/29; writ issued 6/29; NO July entries; ex parte 8/20–8/23; ends 2/4/2022 | Pulled 2026-10-28 | transparency-packet/hidden/docket_portal_live_2026-10-28.md | The court's own sequence — unofficial online view (certified = L-3009) | Certified-record pull = the one paid step ($0.50/page), his call |
+| E-17 | Writ of Possession EJ-130 — possession only, $0 money, issued 6/29/21, Clerk Yamasaki by Deputy Hammer | 2021-06-29 | Drive photos, ROA 41 set (writ_and_return_read_2026-10-28.md) | What was actually issued — one writ, possession only | Two-writs gap = MIA-106, pull: Sheriff file |
+| E-18 | Return on Writ of Possession — Sheriff received 7/1; Notice to Vacate posted 7/5; mailed 7/6; **possession delivered 8/4/21**; costs $145; Agent #10444 for Sheriff Barnes; Levying File 2021102780 | Executed 2021-08-06 | Drive photos, ROA 41 set | The execution paper — and its silence on Jul 12 → Aug 4 | Levying file 2021102780 pull = settles MIA-106/107/108 |
+| E-19 | Sheriff's posted notice strip — "possession… on or before Monday, July 12, 2021 06:01 am," 212 Southbrook | 2021-07-12 deadline | Photos (photos_followup_2026-10-28.md) | A July 12 deadline existed — and did not execute | Interval board (Jul 12 → Aug 4) |
+| E-20 | Eviction Restoration Notice — Eviction Date "8-4-21," C. Lopez #1778 for Sheriff Don Barnes; form allows 15 days for property | 2021-08-04 | Gmail `17b5faeb47b23bca` attachment (attachment_read_2026-10-28.md) | The eviction, on the Sheriff's own form | Paired with E-21 for the 15-days-vs-today conflict |
+| E-21 | Nunez email sending the Restoration Notice — "until end of business day today" to recover belongings | 2021-08-19 | amd949609 Gmail `17b5faeb47b23bca` | Landlord cut the Sheriff form's 15 days to one day, in writing | Damages board |
+| E-22 | His "EMERGENCY UD-104" email to OC Court Civil Self-Help + court reply: mailbox unmonitored after Jun 28 2021, submissions "will not be processed" | 2021-08-19 | amd949609 Gmail `17b603eff667472f` + hunt log §2 | He sought the court; the court's own door was closed and said so | Inaction board |
+| E-23 | UD-120 — landlord verifies under penalty of perjury: NO rental assistance received for notice amounts, NO application pending | Signed 2021-11-27, filed 2022-01-04 | transparency-packet/hidden/ud120_read_2026-10-28.md | The landlord's sworn word on relief money — testable against program records | Relief-program payment records pull (packet §7.6) |
+| E-24 | Move-out statement — "Move-Out Date: August 4, 2021," charges **$17,404.02**, incl. FULL August rent | Undated | transparency-packet/hidden/moveout_statement_read_2026-10-28.md | They charged him for the month they locked him out of | Damages board |
+| E-25 | HIS email to Feinstein casework + ~40 recipients — "On July 12th I was told by local representatives that I would not be evicted and I could stay until the end of my lease" | 2022-05-15 | amd949609 Gmail `180ddd422fd0ec98` (gmail_july12_thread_2026-10-28.md) | His account of the Jul 12 assurance, in dated writing | Interval board; phone-records pull named in MIA-107 |
+| E-26 | MIA-015 — the porch demand entry (source event of the whole chain) | Opened 2026-11-07 | ~/workspace/task_system/MISSING_AND_INACTION_LEDGER.md | Keeps the source event and its pulls in one numbered place | Live — every downstream item traces here |
+
+## LIVE PULLS ON THIS REGISTER (not documents yet — the work going)
+1. OC Sheriff levying file **2021102780** — settles MIA-106 (second writ), MIA-107 (interval), MIA-108 (manner of execution).
+2. Certified UD record, OC Superior Court form **L-3009** ($0.50/page — the only paid step; his call) — settles MIA-109 (judgment doc), MIA-110 (§170.6 jurat), upgrades E-16.
+3. CA HCD / OC rental-assistance payment records for 212 Southbrook — tests E-23's sworn UD-120.
+4. Phone records / Apple Notes for Jul 12, 2021 — the assurance (MIA-107).
+5. Exact-match case search — a CA §518 landlord pay-or-leave conviction (see COMPARABLE_CASES.md, "The Gap").
+6. Backwards trace, today → Aug 4, 2021 — everything after the eviction stacked in reverse order (ordered 2026-11-13; not yet built).
+
+*Boards fed by this register: Contradiction Board (E-02/03/05/09/13/14), Timeline Board (E-01→E-26), Interval Board (E-17/18/19/25), Damages Board (E-21/24), Inaction Board (E-22 + register E-16).*
