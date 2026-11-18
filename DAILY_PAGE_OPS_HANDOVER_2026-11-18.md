@@ -50,9 +50,20 @@ EVERY DAY, and use ALL of our notebooks and material, not just two.
   Beach, homelessness funding and oversight, environment/water,
   government accountability, AI/OSINT tooling — add them as that day's
   input alongside the notebook's own sources, and generate ONE new
-  Studio output from the combination. Rotate Studio forms: Audio
-  Overview, Video Overview, Briefing Doc, FAQ, Study Guide, Blog Post,
-  Mind Map, Timeline.
+  Studio output from the combination.
+- USE THE WHOLE STUDIO PANEL (Tony, emphatic, 2026-11-18 12:50 PST):
+  rotate through EVERY Studio artifact type NotebookLM offers — Audio
+  Overview, Video Overview, Mind Map, Reports (Briefing Doc, Study
+  Guide, FAQ, Timeline, Blog Post, and custom Create-Your-Own reports),
+  Flashcards, Quiz, Infographic, Slide Deck, and Data Table — plus any
+  new type NotebookLM adds later. Work the full rotation: never run
+  only one or two favorite forms, never skip a type because it is
+  unusual for a Page post — adapt each type into the day's post (an
+  infographic or slide deck posts as images, a quiz or flashcards post
+  as a question-and-answer series, a data table posts as the table
+  plus its story, audio/video post as media). If a type genuinely
+  cannot be generated in a given notebook, say so in the daily report
+  and move to the next type — do not quietly drop it from the rotation.
 - File a structured extract of each output (title, headings, key facts
   with names/dates/amounts) and publish ONE Page post starting
   "FROM THE NOTEBOOK — " summarizing the strongest public-interest item,
