@@ -1,16 +1,23 @@
 # CASE BRIEF FOR AI PROGRAMS — ONE CASE, ANSWER THESE QUESTIONS
 ## Feed this brief verbatim to each program. Do not split it into separate cases.
 
-ORDER OF WORK (user's order, 2026-11-16): Answer the extortion questions
+REWORDED 2026-11-18 on the user's direct order: the label word for the
+offense is removed from this brief entirely. The offense is identified by
+its statute numbers only — California Penal Code §§518–524. The facts, the
+questions, the order of work, and all six follow-ups are unchanged.
+
+ORDER OF WORK (user's order, 2026-11-16): Answer the lead questions
 FIRST — questions 1–5 and follow-ups 1–2 — from this brief and the law
 alone. Do NOT open the Atlas yet. The Atlas Corpus is given to you AFTER
-your extortion verdict, before follow-up 3, as the material for the
+your verdict on questions 1–3, before follow-up 3, as the material for the
 "now what" questions. The verdict must be yours, on the law, before you
 see anything else.
 
 You are a legal analysis program. Analyze the following facts under California
 and federal law. Answer in this exact order:
-1. YES or NO first: Is the April 23, 2021 written demand extortion?
+1. YES or NO first: Does the April 23, 2021 written demand meet the
+   elements of the offense defined by California Penal Code §§518, 519,
+   and 523?
 2. Which statutes does it meet, element by element? Cite the statute text.
 3. Which past case controls / is most like this? Name the case, citation, and
    what happened to the defendant in it (conviction / plea / sentence).
@@ -31,13 +38,14 @@ answers are compared only afterward, by the man who commissioned them —
 not during the asking.
 
 FRAMING — READ BEFORE ANSWERING (correction added 2026-11-16): Questions
-1–3 concern a CRIMINAL REFERRAL, not a filing. Extortion is a crime; the
-victim does not file it and no filing deadline of his applies to it. He
-refers the documented record to law enforcement and prosecutors, who
-decide whether and when to charge. Grade questions 1–3 on the conduct and
-the documents only — do NOT discount them for timeliness, delay, or how
-long ago the events occurred. Question 4 is the only civil question and
-is separate: whether a lawyer would take the civil case.
+1–3 concern a CRIMINAL REFERRAL, not a filing. The offense in questions
+1–3 is a crime; the victim does not file it and no filing deadline of his
+applies to it. He refers the documented record to law enforcement and
+prosecutors, who decide whether and when to charge. Grade questions 1–3
+on the conduct and the documents only — do NOT discount them for
+timeliness, delay, or how long ago the events occurred. Question 4 is
+the only civil question and is separate: whether a lawyer would take the
+civil case.
 
 MANDATORY FOLLOW-UP — CITE AUTHORITY (ask in the same session, right
 after the program answers questions 1–5; added 2026-11-16 on the user's
@@ -58,13 +66,13 @@ time part exactly: (a) name the rule you applied; (b) cite its authority
 it binds — a plaintiff filing a civil suit, a victim making a criminal
 referral, or a prosecutor deciding whether to charge; (d) state whether it
 applies to a criminal referral of documented conduct, which is what this
-is — the victim files nothing. Extortion is a crime; the conduct either
-was extortion or it was not, and that does not change with time. If your
+is — the victim files nothing. The conduct either met the elements of
+that offense or it did not, and that does not change with time. If your
 time rule does not bind this referral, say so plainly, WITHDRAW the
-discount, and restate your extortion answer and your score without it."
+discount, and restate your answer to question 1 and your score without it."
 
-NOW STUDY THIS — THE ATLAS CORPUS (given only after the extortion
-verdict, on the user's order): Before answering follow-up 3, study the
+NOW STUDY THIS — THE ATLAS CORPUS (given only after your verdict on
+questions 1–3, on the user's order): Before answering follow-up 3, study the
 OSINT Neo AI Corpus Atlas — the index of the man's whole corpus, every
 file one tile: https://web-1025bwvi1vdt.skywork.website/
 (full index as data: https://web-1025bwvi1vdt.skywork.website/assets/data.json)
@@ -256,7 +264,7 @@ construction workers and service providers necessary to construction sites
 exempt from the stay-home order. His home was his essential-services
 workplace.
 
-**The extortion sequence.**
+**The demand sequence.**
 - Apr. 3, 2021: landlord (Victor Nunez) refused his $500 money order in
   writing: "Your payment cannot be accepted, please call me ASAP."
 - Apr. 23, 2021: a porch confrontation demanding about $5,000 (his account,
@@ -294,22 +302,24 @@ note the demand, $5,788, is over its $5,000 line); 18 U.S.C. §1513(e)
 18 U.S.C. §1001, §§1341/1343 (false statements / fraud, for the sworn filings).
 
 ## PRECEDENT TO TEST YOUR ANSWER AGAINST
-- People v. Beggs, 178 Cal. 79 (1918) — extortion conviction affirmed;
-  threatening to collect even a genuine debt is extortion.
-- Flatley v. Mauro, 39 Cal.4th 299 (2006) — a demand letter is criminal
-  extortion as a matter of law under §§518/519/523.
-- People v. Massengale, 10 Cal.App.3d 689 (1970) — extortion convictions
-  affirmed; no explicit threat required, conduct/circumstances suffice.
-- State v. Ashley, 108 N.M. 343 (1989) — pay $3,500 or be evicted = extortion.
+- People v. Beggs, 178 Cal. 79 (1918) — conviction under §§518/524
+  affirmed; threatening to collect even a genuine debt meets the offense.
+- Flatley v. Mauro, 39 Cal.4th 299 (2006) — a demand letter meets the
+  offense as a matter of law under §§518/519/523.
+- People v. Massengale, 10 Cal.App.3d 689 (1970) — convictions under
+  §§518/524 affirmed; no explicit threat required, conduct/circumstances
+  suffice.
+- State v. Ashley, 108 N.M. 343 (1989) — pay $3,500 or be evicted = the
+  offense.
 - Kevin Baker (Muskingum County, Ohio, 2026) — landlord filed an eviction,
   sent a written message trading cancellation of the eviction, guilty plea,
-  sentenced to 2 years in prison (prosecutor framed the case as extortion;
-  plea count of record: Intimidation F3).
+  sentenced to 2 years in prison (prosecutor framed the case on that
+  theory; plea count of record: Intimidation F3).
 - United States v. Re, 401 F.3d 828 (7th Cir. 2005) — landlord, Hobbs Act
-  extortion conviction affirmed.
+  conviction affirmed.
 - David Merryman (E.D. Va. 4:24-cr-4) — landlord who forged tenant
   signatures to collect COVID rent relief while evicting tenants; guilty
   plea, 17 years (fraud / identity theft / housing-rights counts, not
-  extortion counts — label it exactly that).
+  counts under §§518–524 — label it exactly that).
 
 Now answer questions 1–5 above.
