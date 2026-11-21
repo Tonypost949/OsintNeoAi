@@ -17,10 +17,6 @@
   <script src="https://cdn.syncfusion.com/ej2/24.2.7/ej2-data/scripts/ej2-data.min.js"></script>
   <script src="https://cdn.syncfusion.com/ej2/24.2.7/ej2-grids/scripts/ej2-grids.min.js"></script>
 
-  <!-- Leaflet -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
   <style>
     :root {
       --bg: #faf7f0; --card: #fdfbf7; --text: #181512; --text2: #4a453e;
@@ -299,6 +295,8 @@
         <span style="background:#00ffaa;color:#000;font-weight:900;padding:3px 8px;border-radius:3px;">OSINTNEOAI</span>
         <a href="index.html" style="color:#00ffaa;font-weight:bold;text-decoration:none;">📰 The Broadsheet</a>
         <a href="workspace.html" style="color:#9ca3af;text-decoration:none;">🔍 User Workspace</a>
+        <a href="addons.html" style="color:#9ca3af;text-decoration:none;">🧩 Add-Ons &amp; Muse Hub</a>
+        <a href="omnichannel_legal_hub.html" style="color:#9ca3af;text-decoration:none;">📨 FOIA / Legal Dispatch</a>
         <a href="legal.html" style="color:#9ca3af;text-decoration:none;">⚖️ Legal Database</a>
         <a href="errorcoin.html" style="color:#9ca3af;text-decoration:none;">🚨 Error Coins</a>
         <a href="web/task_system_powerapp.html" style="color:#9ca3af;text-decoration:none;">📋 Task System</a>
@@ -321,7 +319,7 @@
     <span class="c-sep">│</span>
     <span><span class="c-label">Taxpayer Tracked</span> <span class="c-val">$14,200,000</span></span>
     <span class="c-sep">│</span>
-    <span><span class="status-dot"></span><span class="c-label">Public Ledger: </span><span class="c-val" id="ledgerStatus">LIVE</span></span>
+    <span><span class="status-dot"></span><span class="c-label">Public Ledger: </span><span class="c-val" id="ledgerStatus">SNAPSHOT</span></span>
     <a href="#signup" class="signup-btn">🔐 Create Free Workspace</a>
   </div>
 
@@ -391,7 +389,7 @@
         <div class="byline" id="leadByline">By OsintNeoAi Builder Master Workspace · Loading...</div>
         <div class="multi-col-text">
           <p class="drop-cap" id="leadBody1">Loading investigation data from builder workspace...</p>
-          <div class="evidence-stat-box">
+          <div class="evidence-stat-box" id="statutoryMatrix">
             <div class="stat-title">Statutory Violation Matrix</div>
             <p style="font-size:13px;"><strong>Primary:</strong> Cal. Rev. &amp; Tax. Code § 214 — Welfare Exemption disqualification</p>
             <p style="font-size:13px;margin-top:4px;"><strong>Civil:</strong> Cal. Gov. Code § 12650 — False Claims Act (Treble Damages)</p>
@@ -561,7 +559,10 @@
 
   <script>
     // ── Config ──────────────────────────────────────────────
-    const API_BASE = window.location.origin; // same-origin API
+    // Same-origin, relative API paths keep the site working under any subpath.
+    const escHtml = (v) => String(v == null ? '' : v).replace(/[&<>"']/g, ch => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[ch]));
 
     // ── Theme ──────────────────────────────────────────────
     const themes = ['standard', 'light', 'dark', 'large-print', 'pride', 'matrix', 'platypus', 'pink'];
@@ -617,12 +618,12 @@
     // ── Load Crypto Data (/api/crypto/public) ────────────────
     async function loadCrypto() {
       try {
-        const r = await fetch(API_BASE + '/api/crypto/public');
+        const r = await fetch('./api/crypto/public');
         if (!r.ok) throw new Error('API unavailable');
         const d = await r.json();
         document.getElementById('tftSupply').textContent = d.tokens.TFT.supply + ' TFT';
         document.getElementById('osintSupply').textContent = d.tokens.OSINT.supply + ' OSINT';
-        document.getElementById('ledgerStatus').textContent = 'LIVE';
+        document.getElementById('ledgerStatus').textContent = 'LIVE API';
 
         // Ledger table
         const blocks = d.ledger || [];
@@ -630,14 +631,14 @@
         if (blocks.length > 0) {
           body.innerHTML = blocks.map(b => `
             <tr>
-              <td>${b.block_number || '—'}</td>
-              <td><span class="hash">${(b.tx_hash || '—').substring(0,14)}...</span></td>
-              <td><span class="${b.token === 'TFT' ? 't-tft' : 't-osint'}">${b.token || '—'}</span></td>
-              <td>${b.target_entity || '—'}</td>
-              <td style="font-size:10px;">${b.action_type || '—'}</td>
-              <td>${b.amount_minted || '—'}</td>
-              <td style="color:#3fb950;">${b.growth_impact || '—'}</td>
-              <td style="font-size:10px;">${b.statutory_mapping || '—'}</td>
+              <td>${escHtml(b.block_number || '—')}</td>
+              <td><span class="hash">${escHtml(String(b.tx_hash || '—').substring(0,14))}...</span></td>
+              <td><span class="${b.token === 'TFT' ? 't-tft' : 't-osint'}">${escHtml(b.token || '—')}</span></td>
+              <td>${escHtml(b.target_entity || '—')}</td>
+              <td style="font-size:10px;">${escHtml(b.action_type || '—')}</td>
+              <td>${escHtml(b.amount_minted || '—')}</td>
+              <td style="color:#3fb950;">${escHtml(b.growth_impact || '—')}</td>
+              <td style="font-size:10px;">${escHtml(b.statutory_mapping || '—')}</td>
             </tr>`).join('');
         } else {
           body.innerHTML = staticLedgerRows();
@@ -653,6 +654,7 @@
       document.getElementById('tftGrow').textContent = '↑ +14.2% Audit Growth';
       document.getElementById('osintSupply').textContent = '50,000,000 OSINT';
       document.getElementById('osintGrow').textContent = '↑ +8.5% Staking Yield';
+      document.getElementById('ledgerStatus').textContent = 'DEMO DATA';
       document.getElementById('ledgerBody').innerHTML = staticLedgerRows();
     }
 
@@ -683,7 +685,7 @@
     // ── Load Ledger Growth Index (/api/crypto/public/ledger-growth) ──
     async function loadGrowthIndex() {
       try {
-        const r = await fetch(API_BASE + '/api/crypto/public/ledger-growth');
+        const r = await fetch('./api/crypto/public/ledger-growth');
         if (!r.ok) throw new Error('growth API unavailable');
         const d = await r.json();
         document.getElementById('wsBadge').textContent = d.platform_stats.public_workspaces;
@@ -720,6 +722,17 @@
       const storyBadge = document.getElementById('storyBadge');
       if (storyBadge) storyBadge.textContent = String(stories.length);
 
+      const matrix = document.getElementById('statutoryMatrix');
+      if (matrix && lead.statutory_notes) {
+        const notes = String(lead.statutory_notes).split(/[.;]\s+/).map(n => n.trim()).filter(Boolean);
+        if (notes.length) {
+          const labels = ['Primary', 'Civil', 'RICO', 'Additional', 'Additional', 'Additional'];
+          matrix.innerHTML = '<div class="stat-title">Statutory Violation Matrix</div>' + notes.slice(0, 6).map((n, i) =>
+            `<p style="font-size:13px;margin-top:${i ? 4 : 0}px;"><strong>${labels[i]}:</strong> ${escHtml(n.replace(/\.$/, ''))}</p>`
+          ).join('');
+        }
+      }
+
       const list = document.getElementById('storiesList');
       list.innerHTML = stories.slice(0, 8).map((s, idx) => {
         const summaryText = s.summary || s.excerpt || '';
@@ -741,7 +754,7 @@
 
     async function loadFeaturedStory() {
       try {
-        const r = await fetch(API_BASE + '/api/newspaper/featured');
+        const r = await fetch('./api/newspaper/featured');
         if (!r.ok) throw new Error('featured API unavailable');
         const d = await r.json();
         const stories = d.stories || [];
@@ -789,12 +802,11 @@
     }
 
     // ── Workspace Search ──────────────────────────────────────
-    let _searchInit = false, _searchGrid = null;
     function runWorkspaceSearch() {
       const q = document.getElementById('wsSearchInput').value.trim();
       if (!q) { openInspectModal(); return; }
       openModal('inspectModal');
-      if (!_searchGrid) initInspectGrid(q);
+      if (!_inspectInit) initInspectGrid(q);
       else filterInspectGrid(q);
     }
 
@@ -802,6 +814,10 @@
     let _gridInit = false, _gridObj = null;
     function initEvidenceGrid() {
       _gridInit = true;
+      if (!window.ej || !ej.base || !ej.grids) {
+        console.warn('Syncfusion grid library unavailable; evidence grid disabled.');
+        return;
+      }
       ej.base.registerLicense('Ngo9BigBOggjGyl/Vkj+Xk9GfVZLVGpUf1FrRmJJfV16cVxMZVVaRnZdRF1rS3hTdURhXXtfd3ZUTWNY');
       const data = [
         { ID:'EVD-001', Title:'$14.2M Non-Profit Tax Exemption Audit', Cat:'Tax Law', Jx:'Orange County, CA', Status:'Verified', Records:142, Impact:'$14,200,000' },
@@ -836,6 +852,10 @@
     let _inspectInit = false, _inspectGrid = null;
     function initInspectGrid(filterTerm) {
       _inspectInit = true;
+      if (!window.ej || !ej.base || !ej.grids) {
+        console.warn('Syncfusion grid library unavailable; inspector grid disabled.');
+        return;
+      }
       ej.base.registerLicense('Ngo9BigBOggjGyl/Vkj+Xk9GfVZLVGpUf1FrRmJJfV16cVxMZVVaRnZdRF1rS3hTdURhXXtfd3ZUTWNY');
       const nodes = [
         { Node:'PERSON-001', Label:'Oliver Chi', Type:'Person', Role:'City Manager', Connections:48, Evidence:'FOIA-2026-9041', Risk:'HIGH' },
@@ -881,40 +901,27 @@
       const result = document.getElementById('signupResult');
       if (!name || !email) { result.style.display='block'; result.style.color='#f85149'; result.textContent='Display name and email are required.'; return; }
       try {
-        const r = await fetch(API_BASE + '/api/workspaces/create', {
+        const r = await fetch('./api/workspaces/create', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ display_name: name, email: email, is_public: isPublic })
         });
-        const d = await r.json();
-        if (r.ok) {
-          result.style.display = 'block'; result.style.color = '#3fb950';
-          result.innerHTML = '✅ Workspace created!<br>Wallet: ' + d.wallet_address + '<br>Workspace ID: ' + d.workspace_id.substring(0,20) + '...<br>' + d.message;
-        } else {
+        if (!r.ok) {
+          let msg = 'Workspace API returned HTTP ' + r.status;
+          try { const e = await r.json(); msg = e.description || e.error || msg; } catch (_) {}
           result.style.display = 'block'; result.style.color = '#f85149';
-          result.textContent = 'Error: ' + (d.description || d.error || 'Unknown error');
+          result.textContent = 'Error: ' + msg;
+          return;
         }
+        const d = await r.json();
+        result.style.display = 'block'; result.style.color = '#3fb950';
+        result.textContent = '✅ Workspace created. Wallet: ' + (d.wallet_address || 'pending') +
+          ' · Workspace ID: ' + String(d.workspace_id || 'pending').substring(0, 20) +
+          (d.message ? ' · ' + d.message : '');
       } catch(e) {
-        // Autonomous Client-Side Fallback: Generates Real Cryptographic Wallet & Workspace
-        const randHex = (len) => Array.from(crypto.getRandomValues(new Uint8Array(len))).map(b => b.toString(16).padStart(2,'0')).join('');
-        const walletAddr = '0x' + randHex(20);
-        const wsId = 'ws_' + randHex(12);
-        const userData = {
-          display_name: name,
-          email: email,
-          is_public: isPublic,
-          wallet_address: walletAddr,
-          workspace_id: wsId,
-          created_at: new Date().toISOString()
-        };
-        localStorage.setItem('osint_user', JSON.stringify(userData));
-        result.style.display = 'block';
-        result.style.color = '#3fb950';
-        result.innerHTML = `✅ <strong>Workspace & Wallet Created!</strong><br>
-          <span style="font-size:11px;color:#cbd5e1;">Wallet: <code style="color:#38bdf8;">${walletAddr}</code></span><br>
-          <span style="font-size:11px;color:#cbd5e1;">Author Identity: <strong>${name}</strong> (${email})</span><br>
-          <div style="margin-top:10px;"><a href="workspace.html" style="display:inline-block;background:#00ffaa;color:#000;font-weight:bold;padding:6px 12px;border-radius:4px;text-decoration:none;">→ Enter Workspace Now</a></div>`;
-        setTimeout(() => { window.location.href = 'workspace.html'; }, 2000);
+        result.style.display = 'block'; result.style.color = '#f59e0b';
+        result.innerHTML = 'Workspace API is unavailable. No account was created locally. ' +
+          '<a href="workspace.html" style="color:#38bdf8;">Open the local demo workspace</a>.';
       }
     }
 
@@ -922,7 +929,7 @@
     async function dispatchFax() {
       if (!confirm('Send eFax to all regulatory agencies (SEC, FinCEN, HUD OIG, GAO, FBI, EPA)?')) return;
       try {
-        const r = await fetch(API_BASE + '/api/dispatch/fax', {
+        const r = await fetch('./api/dispatch/fax', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ agencies: ['SEC','FinCEN','HUD_OIG','GAO','FBI','EPA'], brief_path: 'briefings/hbnc_forensic_whistleblower_briefing.md' })

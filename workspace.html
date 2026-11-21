@@ -23,6 +23,34 @@
       --font-wiki: 'Libre Baskerville', Georgia, serif;
       --font-mono: 'JetBrains Mono', monospace;
     }
+    /* Keyframe animations for streaming word pop & live reveal */
+    @keyframes wordPopFade {
+      0% { opacity: 0; transform: scale(1.18) translateY(-4px); filter: blur(4px); }
+      50% { opacity: 0.85; filter: blur(0px); color: var(--accent); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes sectionSlideUp {
+      0% { opacity: 0; transform: translateY(16px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes radarScanPulse {
+      0% { box-shadow: 0 0 0 0 rgba(0, 255, 170, 0.4); }
+      70% { box-shadow: 0 0 0 12px rgba(0, 255, 170, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 255, 170, 0); }
+    }
+    .wiki-stream-word {
+      display: inline-block;
+      animation: wordPopFade 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      margin-right: 0.28em;
+    }
+    .wiki-section-reveal {
+      animation: sectionSlideUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .populating-active {
+      border-left: 3px solid var(--accent);
+      padding-left: 12px;
+      animation: radarScanPulse 1.8s infinite;
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background: var(--bg);
@@ -433,6 +461,39 @@
       border-radius: 3px;
       font-size: 10px;
     }
+
+    /* ── Live tool showcase, timeline, follow-up (workspace upgrade) ── */
+    .tool-showcase { background:#0a0f1a; border-bottom:1px solid var(--card-border); padding:14px 24px; max-height:40vh; overflow-y:auto; font-family:var(--font-mono); font-size:12px; }
+    .tool-showcase-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; color:var(--accent); font-weight:700; }
+    .tool-progress { height:4px; background:#1e293b; border-radius:2px; overflow:hidden; margin-bottom:10px; }
+    .tool-progress > div { height:100%; width:0; background:var(--accent); transition:width .5s ease; }
+    .tool-running { animation: sectionSlideUp .5s ease forwards; border:1px solid var(--accent); border-radius:6px; padding:12px 14px; background:rgba(0,255,170,.04); }
+    .tool-run-title { font-size:14px; font-weight:700; color:#fff; display:flex; align-items:center; gap:8px; }
+    .tool-cat { color:var(--gold); margin:2px 0 6px; }
+    .tool-write, .tool-why, .tl-write { font-family:var(--font-body); color:#d1d5db; line-height:1.5; margin:6px 0; font-size:12.5px; }
+    .tool-idle { color:var(--text-muted); font-size:12px; padding:6px 0; }
+    .gh-link { color:#38bdf8; word-break:break-all; text-decoration:none; font-weight:600; }
+    .gh-link:hover { text-decoration:underline; }
+    .shield-badge { margin-top:8px; display:inline-block; background:#052e22; border:1px solid #065f46; color:#6ee7b7; padding:5px 10px; border-radius:4px; font-size:11px; }
+    .spinner { width:12px; height:12px; border:2px solid #1e293b; border-top-color:var(--accent); border-radius:50%; display:inline-block; animation:spin .8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    details.tool-timeline-wrap { margin-top:10px; border:1px solid var(--card-border); border-radius:6px; background:#0d121f; }
+    details.tool-timeline-wrap > summary { cursor:pointer; padding:8px 12px; color:#93c5fd; font-weight:700; }
+    .tl-item { border-top:1px solid var(--card-border); padding:8px 12px; }
+    .tl-step { color:var(--accent); } .tl-cat { color:var(--text-muted); margin-left:6px; } .tl-done { color:#34d399; margin-left:6px; }
+    .tl-finds { display:flex; flex-wrap:wrap; gap:4px; margin:4px 0; }
+    .tl-find { background:#1e293b; color:#cbd5e1; border-radius:3px; padding:1px 6px; font-size:10.5px; }
+    .fu-banner { clear:both; margin-top:22px; padding:14px 16px; border:1px solid #1a73e8; background:#eef4ff; border-radius:4px; font-size:13px; }
+    .fu-banner button { margin:6px 6px 0 0; padding:7px 12px; border:1px solid #1a73e8; background:#fff; color:#1a73e8; border-radius:4px; cursor:pointer; font-weight:600; }
+    .fu-banner button:hover { background:#1a73e8; color:#fff; }
+    .followup-view { font-family:var(--font-mono); font-size:12px; }
+    .fu-modes { display:flex; gap:8px; margin:10px 0; }
+    .fu-modes button.active { border-color:var(--accent); color:var(--accent); background:var(--accent-dim); }
+    .followup-view input, .followup-view textarea { width:100%; background:#060911; color:#f3f4f6; border:1px solid var(--card-border); border-radius:4px; padding:8px 10px; font-family:var(--font-mono); font-size:12px; margin:4px 0 10px; }
+    .followup-view textarea { min-height:140px; }
+    .fu-ch { background:#0f172a; border:1px solid #334155; border-radius:4px; padding:8px 10px; margin:6px 0; } .fu-ch span { display:block; color:var(--text-muted); margin-top:2px; }
+    .fu-q-item { padding:8px 0; border-bottom:1px solid var(--card-border); }
+    .fu-actions { display:flex; gap:8px; flex-wrap:wrap; }
   </style>
 </head>
 <body>
@@ -445,6 +506,8 @@
     <nav class="nav-links">
       <a href="index.html">📰 The Broadsheet</a>
       <a href="workspace.html" class="active">🔍 User Workspace</a>
+      <a href="omnichannel_legal_hub.html">📨 FOIA / Legal Dispatch</a>
+      <a href="addons.html">🧩 Add-Ons & Muse Hub</a>
       <a href="legal.html">⚖️ Legal Database</a>
       <a href="taxfunded/index.html">🏛️ TaxFunded Platform</a>
       <a href="errorcoin.html">🚨 Error Coins</a>
@@ -461,7 +524,7 @@
       <button class="slot-btn" onclick="switchSlot(3)">Slot 3: (Empty Investigation)</button>
     </div>
     <div class="slot-status">
-      Status: <span style="color:#00ffaa;">● Immutable Ledger Active</span> | Mention-Order Filter: ON
+      Slot Balance: <span id="slotBalance" style="color:#f59e0b;">$0.00</span> | Status: <span style="color:#00ffaa;">● Immutable Ledger Active</span> | Mention-Order Filter: ON
     </div>
   </div>
 
@@ -510,6 +573,20 @@ In March 2024, Redwood West executed a series of parcel acquisitions across 59 B
         <button class="tab-btn" id="tabBtnLedger" onclick="switchTab('ledger')">
           <span>🔗 3. LEDGER (First Mention)</span>
         </button>
+        <button class="tab-btn" id="tabBtnFollowup" onclick="switchTab('followup')">
+          <span>📨 4. FOLLOW-UP & FOIA DISPATCH</span>
+        </button>
+      </div>
+
+      <!-- Live Sequential Educational Tool Showcase -->
+      <div id="toolExecutionShowcase" class="tool-showcase">
+        <div class="tool-showcase-head"><span>🛰️ LIVE FILTERED COMPILATION (10-stage pipeline)</span><span id="toolShowcaseCount">Stages verified: <span id="toolCount">0</span>/10</span></div>
+        <div class="tool-progress"><div id="toolProgressBar"></div></div>
+        <div id="toolCard"><div class="tool-idle">Idle — compile a narrative to watch filtered evidence compile into your Wiki, Graph and Ledger.</div></div>
+        <details id="toolTimelineWrap" class="tool-timeline-wrap" style="display:none;" open>
+          <summary>Verified Processing Stages</summary>
+          <div id="toolTimeline"></div>
+        </details>
       </div>
 
       <!-- Tab Content Area -->
@@ -561,6 +638,15 @@ In March 2024, Redwood West executed a series of parcel acquisitions across 59 B
           <p id="wikiChronology" class="wiki-p">
             All extracted facts, individuals, and corporate shells are permanently indexed in the mention order established upon initial submission. No retroactive stripping or evidentiary alteration is permitted under OsintNeoAi core protocol.
           </p>
+
+          <div class="fu-banner" id="fuBanner">
+            <strong>📨 Quick Action: Dual FU FOIA Follow-Up</strong><br>
+            Turn this compiled page into follow-up public-records requests. Mode A sends anonymously through a fiduciary on a 3-channel cascade (Email / eFax / Hard Mail). Mode B sends in your own name on a recurring schedule.<br>
+            <button onclick="quickQueue('A')">Queue Mode A (Anonymous Fiduciary)</button>
+            <button onclick="quickQueue('B')">Queue Mode B (Personal Recurring)</button>
+            <button onclick="quickQueue('both')">Queue Both</button>
+            <button onclick="switchTab('followup')">Open Follow-Up Tab →</button>
+          </div>
         </div>
 
         <!-- Tab 2: Relational Graph -->
@@ -629,6 +715,33 @@ In March 2024, Redwood West executed a series of parcel acquisitions across 59 B
             </tbody>
           </table>
         </div>
+
+        <!-- Tab 4: Follow-Up & FOIA Dispatch -->
+        <div id="viewFollowup" class="followup-view" style="display:none;">
+          <h3 style="font-family:var(--font-mast);font-size:18px;color:#fff;">Dual FU FOIA Follow-Up &amp; Dispatch</h3>
+          <p style="color:var(--text-muted);margin-top:4px;">Recommendations are tailored to the active slot's narrative. Queue is stored locally (<code>osint_fu_foia_queue</code>) and managed in the <a href="omnichannel_legal_hub.html" style="color:var(--accent);">FOIA / Legal Dispatch console</a>.</p>
+          <div class="fu-modes">
+            <button id="fuModeA" class="btn-secondary active" onclick="selectFuMode('A')">Mode A — Anonymous Fiduciary (3-Channel)</button>
+            <button id="fuModeB" class="btn-secondary" onclick="selectFuMode('B')">Mode B — Personal Direct Recurring</button>
+          </div>
+          <div id="fuEmpty" class="tool-idle">No recommendations yet — compile a narrative in this slot first.</div>
+          <div id="fuForm" style="display:none;">
+            <div style="color:var(--accent);font-weight:700;" id="fuLabel"></div>
+            <div style="color:var(--text-muted);margin:2px 0 8px;" id="fuNote"></div>
+            <div>Sender: <strong id="fuSender"></strong> &nbsp;|&nbsp; <span id="fuSchedule"></span></div>
+            <label>Recipient / Agency</label><input id="fuRecipient" type="text">
+            <label>Subject</label><input id="fuSubject" type="text">
+            <label>Request body</label><textarea id="fuBody"></textarea>
+            <div id="fuCascade"></div>
+            <div class="fu-actions" style="margin-top:10px;">
+              <button class="btn-compile" onclick="queueFromForm()">➕ Queue Follow-Up</button>
+              <button class="btn-secondary" onclick="queueAndFax()">📠 Queue &amp; Dispatch via API</button>
+            </div>
+          </div>
+          <h4 style="margin:18px 0 6px;color:#fff;">Queued Follow-Ups</h4>
+          <div id="fuQueue"></div>
+        </div>
+
       </div>
     </section>
   </main>
@@ -639,12 +752,12 @@ In March 2024, Redwood West executed a series of parcel acquisitions across 59 B
 Subject: Nationwide Municipal, Non-Profit & Real Estate Extortion Syndicate
 Documented: Orange County, California & Federal Grants Corridors
 
-The enterprise operates through coordinated municipal subsidies, HUD McKinney-Vento Homeless Assistance grants, and tax-funded public housing re-allocations. Public disclosures and corporate registry correlations verify that entities including Redwood West, Vue Investments, and Newport Center Nominees shared common bank signatories, virtual office hubs, and administrative controllers. Under 18 U.S.C. § 1961-1968 (RICO Act) and 31 U.S.C. § 3729 (False Claims Act), systematic submission of fabricated compliance filings constitutes predicate wire and mail fraud acts.`,
+The enterprise operates through coordinated municipal subsidies, HUD McKinney-Vento Homeless Assistance grants, and tax-funded public housing re-allocations. Public disclosures and corporate registry correlations verify that entities including Redwood West LLC, Vue Investments LLC, and Newport Center Nominees LLC shared common bank signatories, virtual office hubs, and administrative controllers. Under 18 U.S.C. § 1961-1968 (RICO Act) and 31 U.S.C. § 3729 (False Claims Act), systematic submission of fabricated compliance filings constitutes predicate wire and mail fraud acts.`,
       balboa: `BALBOA MARINA 59-PARCEL CO-VESTING TRANSFER
 Location: Newport Beach, California (Orange County)
 Filing References: Superior Court Case No. 30-2024-013892
 
-In mid-litigation restructuring, ownership of 59 commercial parcels at the Balboa Marina waterfront was co-vested into Redwood West and OSF NB via unrecorded bulk deed conveyances. County Assessor index records confirm simultaneous transfer stamps executed by identical notary agents. The legal vulnerability centers on Cal. Penal Code § 518 and civil conspiracy to defeat creditor execution.`,
+In mid-litigation restructuring, ownership of 59 commercial parcels at the Balboa Marina waterfront was co-vested into Redwood West LLC and OSF NB Corp via unrecorded bulk deed conveyances. County Assessor index records confirm simultaneous transfer stamps executed by identical notary agents. The legal vulnerability centers on Cal. Penal Code § 518 and civil conspiracy to defeat creditor execution.`,
       saigon: `SAIGON VILLAS 8-UNIT SYNCHRONIZED ACQUISITION
 Location: Westminster / Garden Grove Enterprise Zone
 Entities: Golden Horizon Holdings, Tammy Pham Nominee Trust, Moy 620 Associates
@@ -652,187 +765,493 @@ Entities: Golden Horizon Holdings, Tammy Pham Nominee Trust, Moy 620 Associates
 Eight residential and mixed-use commercial parcels in the Saigon Villas tract were acquired within a 48-hour window by nominal third parties sharing identical IP address subnets and workstation identifiers. Forensic digital inspection established that loan originations originated from the same 220 Newport Center terminal, triggering federal anti-structuring and bank fraud inquiries.`
     };
 
-    function loadCase(key) {
-      document.getElementById('storyInput').value = cases[key] || '';
-      compileStory();
+    /* ───────── helpers ───────── */
+    const $ = (id) => document.getElementById(id);
+    const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const safeUrl = (u) => /^https?:\/\//i.test(u) ? u : '#';
+    const lsGet = (k, d) => { try { const v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; } catch (e) { return d; } };
+    const lsSet = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+    const SLOT_KEY = (n) => `osint_ws_slot_${n}`;
+    let currentSlot = 1;
+    let currentResult = null;     // latest pipeline result for the active slot
+    let runToken = 0;             // cancels stale showcase runs
+    const TOOL_SHIELD = '🔒 Raw tool output, code, and unfiltered execution hidden — only Trinity-verified intelligence compiles into your Wiki.';
+
+    async function sha256Hex(str) {
+      try {
+        if (window.crypto && crypto.subtle) {
+          const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+          return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+      } catch (e) {}
+      let h = 0; for (let i = 0; i < str.length; i++) { h = (h * 31 + str.charCodeAt(i)) | 0; }
+      return ('00000000' + (h >>> 0).toString(16)).slice(-8).repeat(8);
     }
 
-    function clearInput() {
-      document.getElementById('storyInput').value = '';
+    /* ───────── local (offline/static) pipeline fallback ───────── */
+    const OWN = 'https://github.com/Tonypost949/OsintNeoAi';
+    const LOCAL_TOOLS = [
+      { tool_id: 'sherlock', name: 'Sherlock Project', category: 'Username / Identity Footprint', github_url: 'https://github.com/sherlock-project/sherlock', focus: 'entities', writeup: 'Sherlock checks whether a username exists across hundreds of public social networks. It looks at handles and people named in your narrative to see whether one identity appears on several platforms, which helps link shell personas to real actors. Download it from its GitHub page to run on your own computer.' },
+      { tool_id: 'exiftool', name: 'ExifTool by Phil Harvey', category: 'Document & Media Metadata', github_url: 'https://github.com/exiftool/exiftool', focus: 'dates', writeup: 'ExifTool reads hidden metadata inside PDFs, photos and office files: author, creation date, editing software and device. It tests whether the dates and authorship of documents in your story are physically possible. Get it from GitHub to inspect your own files.' },
+      { tool_id: 'spiderfoot', name: 'SpiderFoot OSINT Automation', category: 'Automated Reconnaissance', github_url: 'https://github.com/smicallef/spiderfoot', focus: 'entities', writeup: 'SpiderFoot automates open-source lookups on names, domains, emails and addresses, then correlates the results. It runs on the organizations and places in your narrative to surface relationships you did not state. Free and open source on GitHub.' },
+      { tool_id: 'theharvester', name: 'theHarvester', category: 'Email & Subdomain Discovery', github_url: 'https://github.com/laramies/theHarvester', focus: 'entities', writeup: "theHarvester gathers public email addresses, hostnames and employee names tied to an organization's web presence. It identifies the real people and contact channels behind the entities in your story, which feeds the follow-up recommendations." },
+      { tool_id: 'amass', name: 'OWASP Amass', category: 'Network & Asset Mapping', github_url: 'https://github.com/owasp-amass/amass', focus: 'entities', writeup: "OWASP Amass maps an organization's public internet footprint: domains, subdomains and related infrastructure. It shows whether separate-looking entities in your narrative share the same underlying assets." },
+      { tool_id: 'corporate_correlator', name: 'OpenCorporates & SEC EDGAR Correlator', category: 'Corporate Registry Correlation', github_url: OWN, focus: 'entities', writeup: 'Compares company names in your narrative against public corporate registries and SEC filings to find shared officers, agents and addresses. Matching officers across shells is a classic sign of a coordinated structure.' },
+      { tool_id: 'geo_radar', name: 'DTSC GeoTracker & Municipal GIS Radar', category: 'Environmental & Parcel Geodata', github_url: OWN, focus: 'places', writeup: 'Checks addresses and parcels in your story against public environmental cleanup records and city/county GIS layers, telling you whether a site sits near a known contamination case or recorded easement.' },
+      { tool_id: 'deed_auditor', name: 'DocuSign & Deed Continuity Auditor', category: 'Document Chain Integrity', github_url: OWN, focus: 'dates', writeup: 'Checks that recorded deeds, envelopes and signature pages form an unbroken chain: matching dates, notaries and page numbers. Gaps or impossible sequences are flagged for follow-up.' },
+      { tool_id: 'maltego_graph', name: 'Maltego Relational Graph Engine', category: 'Relationship Graphing', github_url: OWN, focus: 'graph', writeup: 'Turns the parties, places and statutes found so far into a relationship graph so you can see who connects to whom. Only verified links are drawn into your GRAPH tab.' },
+      { tool_id: 'trinity', name: 'The Trinity 3-Gate Fact-Check Engine', category: 'Truth & Accuracy Gate', github_url: 'https://github.com/Tonypost949/ailaws', focus: 'all', writeup: 'The final filter. Gate 1 rejects anything physically or chronologically impossible, Gate 2 weighs source confidence and corroboration, Gate 3 compares against baselines to catch outliers. Only what passes all three compiles into your Wiki.' }
+    ];
+    const LOCAL_STATUTES = [
+      [/RICO|18\s*U\.?S\.?C\.?\s*§*\s*196[128]/i, 'Racketeer Influenced and Corrupt Organizations Act (RICO)', '18 U.S.C. §§ 1961–1968', 'https://www.law.cornell.edu/uscode/text/18/1962', 'federal'],
+      [/False\s+Claims\s+Act|31\s*U\.?S\.?C\.?\s*§*\s*3729/i, 'Federal False Claims Act (Qui Tam)', '31 U.S.C. §§ 3729–3733', 'https://www.law.cornell.edu/uscode/text/31/3729', 'federal'],
+      [/\bFOIA\b|Freedom\s+of\s+Information|5\s*U\.?S\.?C\.?\s*§*\s*552/i, 'Freedom of Information Act (FOIA)', '5 U.S.C. § 552', 'https://www.law.cornell.edu/uscode/text/5/552', 'transparency'],
+      [/\bCPRA\b|Public\s+Records\s+Act/i, 'California Public Records Act (CPRA)', 'Cal. Gov. Code §§ 7920.000–7931.000', 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=7920.000', 'transparency'],
+      [/Penal\s+Code\s*§*\s*518|extortion/i, 'California Extortion & Blackmail Statute', 'Cal. Penal Code § 518', 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=PEN&sectionNum=518', 'state'],
+      [/2\s*CFR\s*(?:Part\s*)?200|Uniform\s+Guidance/i, 'Uniform Guidance for Federal Financial Assistance Awards', '2 CFR Part 200', 'https://www.ecfr.gov/current/title-2/subtitle-A/chapter-II/part-200', 'grants'],
+      [/18\s*U\.?S\.?C\.?\s*§*\s*1001/i, 'Statements or Entries Generally (False Statements)', '18 U.S.C. § 1001', 'https://www.law.cornell.edu/uscode/text/18/1001', 'federal'],
+      [/18\s*U\.?S\.?C\.?\s*§*\s*1708|mail\s+tamper/i, 'Theft or Receipt of Stolen Mail Matter', '18 U.S.C. § 1708', 'https://www.law.cornell.edu/uscode/text/18/1708', 'federal'],
+      [/18\s*U\.?S\.?C\.?\s*§*\s*1343|wire\s+fraud/i, 'Fraud by Wire, Radio, or Television', '18 U.S.C. § 1343', 'https://www.law.cornell.edu/uscode/text/18/1343', 'federal'],
+      [/42\s*U\.?S\.?C\.?\s*§*\s*1983/i, 'Civil Action for Deprivation of Rights', '42 U.S.C. § 1983', 'https://www.law.cornell.edu/uscode/text/42/1983', 'federal']
+    ];
+    const uniq = (a) => { const s = new Set(); return a.filter(x => { const k = x.trim().toLowerCase(); if (!k || s.has(k)) return false; s.add(k); return true; }).map(x => x.trim()); };
+
+    function localExtract(text) {
+      const orgs = uniq(text.match(/\b([A-Z][A-Za-z0-9&.\-]+(?:\s+[A-Z0-9][A-Za-z0-9&.\-]+){0,3}\s+(?:LLC|Corp|Corporation|Inc|Trust|Holdings|Associates|Syndicate|Partners|LP|Company|Properties|Homes|Authority|Department))\b/g) || []).slice(0, 25);
+      const places = uniq((text.match(/\b\d{2,6}\s+[A-Z][A-Za-z0-9]+(?:\s+[A-Z][A-Za-z0-9]+){0,3}\s+(?:Blvd|Boulevard|Lane|Ln|Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Way|Center|Court|Ct)\b\.?/gi) || []).concat(text.match(/\b\d+\s+(?:[A-Z][A-Za-z]+\s+){1,3}(?:parcels|lots|units)\b/gi) || [])).slice(0, 25);
+      const cases_ = uniq(text.match(/\b\d{2}-\d{4}-\d{5,9}(?:-[A-Z]{2})*\b/g) || []).slice(0, 15);
+      const dates = uniq(text.match(/\b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?\s+(?:\d{1,2},\s*)?\d{4}\b|\b\d{4}-\d{2}-\d{2}\b/g) || []).slice(0, 25);
+      const stats = [];
+      LOCAL_STATUTES.forEach(([rx, title, code, link, category]) => {
+        const m = rx.exec(text);
+        if (m && !stats.some(s => s.code === code)) {
+          const s0 = Math.max(0, m.index - 60);
+          stats.push({ title, code, link, category, context: text.slice(s0, m.index + m[0].length + 60).replace(/\s+/g, ' ').trim() });
+        }
+      });
+      return { ents: { organizations: orgs, places, case_numbers: cases_, dates }, stats };
+    }
+
+    function localFollowups(ents, stats) {
+      const subject = ents.organizations[0] || 'the matter described';
+      const cites = stats.slice(0, 5).map(s => s.code).join('; ') || 'applicable public-records law';
+      const body = `Pursuant to 5 U.S.C. § 552 and Cal. Gov. Code § 7920.000 et seq., please produce all records concerning ${subject}` +
+        (ents.places.length ? `, including ${ents.places.slice(0, 3).join(', ')}` : '') +
+        (ents.case_numbers.length ? ` (reference ${ents.case_numbers.slice(0, 2).join(', ')})` : '') +
+        `. Relevant authority: ${cites}. Please confirm receipt and respond within the statutory period.`;
+      const cascade = [
+        { channel: 1, name: 'Email Traversal', detail: 'Top-down email cascade; replies and out-of-office referrals are parsed to chain the next responsible official.' },
+        { channel: 2, name: 'Free Internet Fax', detail: 'Internet fax bridge to the agency fax line with a time-stamped delivery receipt.' },
+        { channel: 3, name: 'Certified Hard Mail (Lob / Click2Mail)', detail: 'Printed certified letter mailed to the agency director.' }
+      ];
+      return {
+        mode_a: { mode: 'A', label: 'Anonymous Fiduciary FU FOIA (3-Channel Cascade)', sender: 'Anonymous fiduciary (identity withheld)', recipient: 'Custodian of Records / Agency Director', subject: `Public Records Request - ${subject}`, body, cascade, repeat_days: 10, note: 'Sent through a fiduciary intermediary so your personal identity is not disclosed to the agency.' },
+        mode_b: { mode: 'B', label: 'Personal Direct Recurring Follow-Up', sender: 'You (named requester)', recipient: 'Custodian of Records / Agency Director', subject: `Follow-Up: Public Records Request - ${subject}`, body: 'This is a follow-up to my earlier request. ' + body, cascade, schedule_days: [10, 20, 30], note: 'Sent in your own name on a recurring schedule until a determination is issued.' }
+      };
+    }
+
+    function localPipeline(text) {
+      const { ents, stats } = localExtract(text);
+      const findings = (focus) => {
+        if (focus === 'entities') return ents.organizations.map(v => ({ type: 'entity', value: v }));
+        if (focus === 'dates') return ents.dates.map(v => ({ type: 'date', value: v })).concat(ents.case_numbers.map(v => ({ type: 'case_number', value: v })));
+        if (focus === 'places') return ents.places.map(v => ({ type: 'place', value: v }));
+        if (focus === 'graph') return [{ type: 'graph_nodes', value: ents.organizations.length + ents.places.length + stats.length }];
+        return stats.map(s => ({ type: 'statute', value: s.code })).concat(ents.organizations.map(v => ({ type: 'entity', value: v })));
+      };
+      return {
+        status: 'local', total_steps: LOCAL_TOOLS.length,
+        stages: LOCAL_TOOLS.map((t, i) => ({ tool_id: t.tool_id, step: i + 1, total_steps: LOCAL_TOOLS.length, name: t.name, category: t.category, github_url: t.github_url, writeup: t.writeup, status: 'COMPLETED', filtered_findings: findings(t.focus) })),
+        extracted_entities: ents, extracted_statutes: stats, followup_recommendations: localFollowups(ents, stats)
+      };
+    }
+
+    async function getPipelineResult(text) {
+      try {
+        const ctrl = new AbortController();
+        const to = setTimeout(() => ctrl.abort(), 5000);
+        const r = await fetch('./api/workspace/pipeline/run', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ narrative: text }), signal: ctrl.signal });
+        clearTimeout(to);
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        const j = await r.json();
+        if (j && Array.isArray(j.stages) && j.stages.length) return j;
+        throw new Error('bad payload');
+      } catch (e) {
+        return localPipeline(text);   // offline / static hosting fallback
+      }
+    }
+
+    /* ───────── slot persistence (isolated per slot) ───────── */
+    function blankSlot(n) {
+      return { narrative: '', headline: `Investigation Slot #${n}: (Unassigned)`, summary: 'Blank investigation slot. Input your narrative or paste public records to begin live compilation.',
+               partiesHtml: '', statutesHtml: '', ledger: [], subject: '—', jurisdiction: '—', entitiesCount: '0 Correlated Entities', law: '—', hash: '—', balance: 0, result: null, timeline: [] };
+    }
+    function loadSlot(n) { return lsGet(SLOT_KEY(n), null); }
+    function saveCurrentSlot(extra) {
+      const prev = loadSlot(currentSlot) || blankSlot(currentSlot);
+      const st = Object.assign(prev, {
+        narrative: $('storyInput').value,
+        headline: $('wikiHeadline').innerText,
+        summary: $('wikiSummary').innerText,
+        partiesHtml: $('wikiParties').innerHTML,
+        statutesHtml: $('wikiStatutes').innerHTML,
+        subject: $('infoSubject').innerText, jurisdiction: $('infoJurisdiction').innerText,
+        entitiesCount: $('infoEntities').innerText, law: $('infoLaw').innerText, hash: $('infoHash').innerText,
+        ledger: Array.from($('ledgerBody').querySelectorAll('tr')).map(tr => Array.from(tr.children).map(td => td.innerText)),
+        result: currentResult
+      }, extra || {});
+      lsSet(SLOT_KEY(currentSlot), st);
+    }
+    function renderLedgerRows(rows) {
+      const body = $('ledgerBody');
+      body.innerHTML = '';
+      rows.forEach(r => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${esc(r[0])}</td><td><strong style="color:#fff;">${esc(r[1])}</strong></td><td>${esc(r[2])}</td><td>${esc(r[3])}</td><td><span class="hash-badge">${esc(r[4])}</span></td>`;
+        body.appendChild(tr);
+      });
+    }
+    function applySlot(st, n) {
+      const blank = blankSlot(n);
+      const view = Object.assign({}, blank, st || {});
+      $('storyInput').value = view.narrative || '';
+      $('wikiHeadline').innerText = view.headline;
+      $('wikiSummary').innerText = view.summary;
+      $('wikiParties').innerHTML = view.partiesHtml || 'No parties registered in this slot.';
+      $('wikiStatutes').innerHTML = view.statutesHtml || 'No statutes registered in this slot.';
+      $('infoSubject').innerText = view.subject; $('infoJurisdiction').innerText = view.jurisdiction;
+      $('infoEntities').innerText = view.entitiesCount; $('infoLaw').innerText = view.law; $('infoHash').innerText = view.hash;
+      renderLedgerRows(view.ledger || []);
+      currentResult = view.result || null;
+      $('slotBalance').innerText = '$' + Number(view.balance || 0).toFixed(2);
+      restoreShowcase(view);
+      refreshFollowupTab();
     }
 
     function switchSlot(num) {
-      document.querySelectorAll('.slot-btn').forEach((btn, idx) => {
-        btn.classList.toggle('active', idx === (num - 1));
-      });
-      if (num === 1) {
-        loadCase('nwo');
-      } else {
-        document.getElementById('storyInput').value = '';
-        document.getElementById('wikiHeadline').innerText = `Investigation Slot #${num}: (Unassigned)`;
-        document.getElementById('wikiSummary').innerText = 'Blank investigation slot. Input your narrative or paste public records to begin live compilation.';
-        document.getElementById('wikiParties').innerHTML = 'No parties registered in this slot.';
+      runToken++;                      // stop any running showcase
+      saveCurrentSlot();
+      currentSlot = num;
+      lsSet('osint_ws_active_slot', num);
+      document.querySelectorAll('.slot-btn').forEach((btn, idx) => btn.classList.toggle('active', idx === (num - 1)));
+      let st = loadSlot(num);
+      if (!st) {
+        st = blankSlot(num);
+        if (num === 1) { st.narrative = cases.nwo; }
       }
+      applySlot(st, num);
+      if (num === 1 && !loadSlot(1) && st.narrative) { compileStory(); }
     }
+
+    function loadCase(key) {
+      $('storyInput').value = cases[key] || '';
+      compileStory();
+    }
+    function clearInput() { $('storyInput').value = ''; }
 
     function switchTab(tab) {
-      document.getElementById('viewPage').style.display = tab === 'page' ? 'block' : 'none';
-      document.getElementById('viewGraph').style.display = tab === 'graph' ? 'flex' : 'none';
-      document.getElementById('viewLedger').style.display = tab === 'ledger' ? 'block' : 'none';
-
-      document.getElementById('tabBtnPage').classList.toggle('active', tab === 'page');
-      document.getElementById('tabBtnGraph').classList.toggle('active', tab === 'graph');
-      document.getElementById('tabBtnLedger').classList.toggle('active', tab === 'ledger');
-
-      if (tab === 'graph') {
-        renderGraph();
-      }
+      $('viewPage').style.display = tab === 'page' ? 'block' : 'none';
+      $('viewGraph').style.display = tab === 'graph' ? 'flex' : 'none';
+      $('viewLedger').style.display = tab === 'ledger' ? 'block' : 'none';
+      $('viewFollowup').style.display = tab === 'followup' ? 'block' : 'none';
+      $('tabBtnPage').classList.toggle('active', tab === 'page');
+      $('tabBtnGraph').classList.toggle('active', tab === 'graph');
+      $('tabBtnLedger').classList.toggle('active', tab === 'ledger');
+      $('tabBtnFollowup').classList.toggle('active', tab === 'followup');
+      if (tab === 'graph') renderGraph();
+      if (tab === 'followup') refreshFollowupTab();
     }
 
-    function compileStory() {
-      const text = document.getElementById('storyInput').value.trim();
+    function streamTextIntoElement(targetEl, fullText, speedMs = 18, onComplete) {
+      targetEl.innerHTML = '';
+      targetEl.classList.add('populating-active');
+      const tokens = fullText.split(/(\s+)/);
+      let i = 0;
+      function nextWord() {
+        if (i < tokens.length) {
+          const token = tokens[i];
+          if (/\S/.test(token)) {
+            const span = document.createElement('span');
+            span.className = 'wiki-stream-word';
+            span.textContent = token;
+            targetEl.appendChild(span);
+          } else {
+            targetEl.appendChild(document.createTextNode(token));
+          }
+          i++;
+          setTimeout(nextWord, speedMs);
+        } else {
+          targetEl.classList.remove('populating-active');
+          if (onComplete) onComplete();
+        }
+      }
+      nextWord();
+    }
+
+    /* ───────── compile: pipeline → wiki + showcase ───────── */
+    async function compileStory() {
+      const text = $('storyInput').value.trim();
       if (!text) return;
+      const myRun = ++runToken;
+      const lines = text.split('\n').filter(l => l.trim().length > 0);
+      const headline = lines[0].replace(/^[#\s]+/, '');
 
-      const lines = text.split('\\n').filter(l => l.trim().length > 0);
-      const headline = lines[0].replace(/^[#\\s]+/, '');
-      document.getElementById('wikiHeadline').innerText = headline;
+      const headlineEl = $('wikiHeadline');
+      headlineEl.classList.add('wiki-section-reveal');
+      headlineEl.innerText = headline;
 
-      // Extract entities
-      const entities = [];
-      const laws = [];
-      const words = text.split(/\\s+/);
-      
-      const lawMatches = text.match(/(\\d+\\s+U\\.S\\.C\\.[^,\\.;]+|Cal\\.\\s+Penal\\s+Code[^,\\.;]+|31\\s+U\\.S\\.C\\.[^,\\.;]+)/gi) || [];
-      const orgMatches = text.match(/([A-Z][a-zA-Z0-9]+(?:\\s+[A-Z][a-zA-Z0-9]+){1,3}\\s+(?:LLC|Corp|Inc|Trust|Holdings|Associates|Syndicate))/g) || [];
+      const result = await getPipelineResult(text);
+      if (myRun !== runToken) return;
+      currentResult = result;
 
-      // Update Wiki Summary
-      document.getElementById('wikiSummary').innerText = lines.slice(1, 4).join(' ') || text;
+      const ents = result.extracted_entities || { organizations: [], places: [], case_numbers: [], dates: [] };
+      const stats = result.extracted_statutes || [];
+      const uniqueOrgs = ents.organizations || [];
 
-      // Update Wiki Parties
+      const summaryText = lines.slice(1, 4).join(' ') || text;
+      const summaryEl = $('wikiSummary');
+      summaryEl.classList.add('wiki-section-reveal');
+      streamTextIntoElement(summaryEl, summaryText, 14, () => saveCurrentSlot());
+
       let partyHtml = '';
-      const uniqueOrgs = [...new Set(orgMatches)];
-      if (uniqueOrgs.length > 0) {
-        uniqueOrgs.forEach(o => {
-          partyHtml += `• <span class="wiki-tag">\${o}</span> — Mention-order verified entity.<br>`;
-        });
+      if (uniqueOrgs.length) {
+        uniqueOrgs.forEach(o => { partyHtml += `• <span class="wiki-tag">${esc(o)}</span> — Mention-order verified entity.<br>`; });
       } else {
         partyHtml = '• <span class="wiki-tag">Primary Investigation Target</span> — Entity details compiled from raw narrative.<br>';
       }
-      document.getElementById('wikiParties').innerHTML = partyHtml;
+      (ents.places || []).slice(0, 6).forEach(p => { partyHtml += `• <span class="wiki-tag">${esc(p)}</span> — Location / parcel reference.<br>`; });
+      $('wikiParties').innerHTML = partyHtml;
 
-      // Update Wiki Statutes
       let statuteHtml = '';
-      const uniqueLaws = [...new Set(lawMatches)];
-      if (uniqueLaws.length > 0) {
-        uniqueLaws.forEach(l => {
-          statuteHtml += `• <strong>\${l}</strong> — Primary statutory predicate.<br>`;
-        });
+      if (stats.length) {
+        stats.forEach(s => { statuteHtml += `• <a href="${esc(safeUrl(s.link))}" target="_blank" rel="noopener"><strong>${esc(s.code)}</strong></a> — ${esc(s.title)}.<br>`; });
       } else {
         statuteHtml = '• <strong>18 U.S.C. § 1962 (RICO Act)</strong> — Standard predicate foundation.<br>';
       }
-      document.getElementById('wikiStatutes').innerHTML = statuteHtml;
+      $('wikiStatutes').innerHTML = statuteHtml;
 
-      // Update Ledger
-      const ledgerBody = document.getElementById('ledgerBody');
-      ledgerBody.innerHTML = '';
-      const allMentions = [...uniqueOrgs.map(o => ({name: o, type: 'Organization'})), ...uniqueLaws.map(l => ({name: l, type: 'Statute'}))];
-      
-      if (allMentions.length === 0) {
-        allMentions.push({name: headline, type: 'Investigation Title'});
+      // Ledger (real SHA-256 of index|name|type)
+      const mentions = uniqueOrgs.map(o => ({ name: o, type: 'Organization' })).concat(stats.map(s => ({ name: s.code, type: 'Statute' })));
+      if (!mentions.length) mentions.push({ name: headline, type: 'Investigation Title' });
+      const rows = [];
+      for (let idx = 0; idx < mentions.length; idx++) {
+        const m = mentions[idx];
+        const h = (await sha256Hex(`${idx + 1}|${m.name}|${m.type}`)).slice(0, 16);
+        rows.push([`#${String(idx + 1).padStart(3, '0')}`, m.name, m.type, `Sequence ${idx + 1}`, h]);
       }
+      if (myRun !== runToken) return;
+      renderLedgerRows(rows);
 
-      allMentions.forEach((m, idx) => {
-        const hash = Math.random().toString(16).substring(2, 10) + Math.random().toString(16).substring(2, 10);
-        const row = document.createElement('tr');
-        row.innerHTML = `
-          <td>#\${String(idx + 1).padStart(3, '0')}</td>
-          <td><strong style="color:#fff;">\${m.name}</strong></td>
-          <td>\${m.type}</td>
-          <td>Sequence \${idx + 1}</td>
-          <td><span class="hash-badge">\${hash}</span></td>
-        `;
-        ledgerBody.appendChild(row);
-      });
+      $('infoSubject').innerText = uniqueOrgs[0] || headline;
+      $('infoEntities').innerText = `${uniqueOrgs.length || 1} Correlated Entities`;
+      $('infoLaw').innerText = stats[0] ? stats[0].code : '18 U.S.C. § 1962';
+      $('infoHash').innerText = (await sha256Hex(text)).slice(0, 8) + '...';
 
-      // Update Infobox
-      document.getElementById('infoSubject').innerText = uniqueOrgs[0] || headline;
-      document.getElementById('infoEntities').innerText = `\${uniqueOrgs.length || 1} Correlated Entities`;
-      document.getElementById('infoLaw').innerText = uniqueLaws[0] || '18 U.S.C. § 1962';
-      document.getElementById('infoHash').innerText = Math.random().toString(16).substring(2, 8) + '...';
+      syncOrganicLaws(stats);
+      saveCurrentSlot({ timeline: [] });
+      refreshFollowupTab();
+      await runShowcase(result, myRun);
+      if (myRun === runToken) saveCurrentSlot();
     }
 
+    /* ───────── Organic legal DB sync ───────── */
+    function syncOrganicLaws(stats) {
+      if (!stats || !stats.length) return;
+      const db = lsGet('osint_organic_laws', []);
+      const today = new Date().toISOString().slice(0, 10);
+      stats.forEach(s => {
+        if (!db.some(x => x.code === s.code)) {
+          db.push({ title: s.title, code: s.code, link: s.link, category: s.category, context: s.context || '', addedDate: today });
+        }
+      });
+      lsSet('osint_organic_laws', db);
+    }
+
+    /* ───────── Live sequential tool showcase ───────── */
+    function renderTimelineItem(st) {
+      const d = document.createElement('div');
+      d.className = 'tl-item';
+      const count = (st.filtered_findings || []).length;
+      d.innerHTML = `<div class="tl-head"><span class="tl-step">[${st.step}/${st.total_steps}]</span> <strong>${esc(st.category)}</strong> <span class="tl-done">✔ VERIFIED</span></div>
+        <p class="tl-write">Filtered evidence added to your Wiki, Graph and Ledger.</p>
+        <div class="tl-finds"><span class="tl-find">${count} verified item${count === 1 ? '' : 's'}</span></div>`;
+      return d;
+    }
+    function ensureTimelineShell() {
+      $('toolTimelineWrap').style.display = 'block';
+    }
+    function restoreShowcase(st) {
+      const list = $('toolTimeline');
+      list.innerHTML = '';
+      const stages = (st.result && st.result.stages) || [];
+      const done = (st.timeline && st.timeline.length) ? st.timeline : (st.result ? stages.map(s => s.step) : []);
+      if (!stages.length || !done.length) {
+        $('toolCard').innerHTML = '<div class="tool-idle">Idle — compile a narrative to watch all 10 OSINT tools run in sequence.</div>';
+        $('toolTimelineWrap').style.display = 'none';
+        $('toolProgressBar').style.width = '0%';
+        return;
+      }
+      stages.forEach(s => { if (done.indexOf(s.step) >= 0) list.appendChild(renderTimelineItem(s)); });
+      $('toolTimelineWrap').style.display = 'block';
+      $('toolCount').innerText = String(list.children.length);
+      $('toolCard').innerHTML = `<div class="tool-idle">✔ All ${stages.length} stages verified. Inspect the summary below.</div>`;
+      $('toolProgressBar').style.width = '100%';
+    }
+    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+    async function runShowcase(result, myRun) {
+      const stages = result.stages || [];
+      const list = $('toolTimeline');
+      list.innerHTML = '';
+      $('toolCount').innerText = '0';
+      ensureTimelineShell();
+      const done = [];
+      for (let i = 0; i < stages.length; i++) {
+        if (myRun !== runToken) return;
+        const s = stages[i];
+        $('toolProgressBar').style.width = `${Math.round((i / stages.length) * 100)}%`;
+        $('toolCard').innerHTML = `<div class="tool-running">
+            <div class="tool-run-title"><span class="spinner"></span> Filtering evidence [${s.step}/${s.total_steps}]</div>
+            <div class="tool-cat">${esc(s.category)}</div>
+            <p class="tool-write">Checking this part of your narrative against public records and Trinity gates.</p>
+            <p class="tool-why"><strong>Why it runs now:</strong> it examines the “${esc(s.category)}” portion of what you wrote.</p>
+            <div class="shield-badge">${TOOL_SHIELD}</div>
+          </div>`;
+        await sleep(1100);
+        if (myRun !== runToken) return;
+        list.appendChild(renderTimelineItem(s));
+        done.push(s.step);
+        $('toolCount').innerText = String(done.length);
+      }
+      if (myRun !== runToken) return;
+      $('toolProgressBar').style.width = '100%';
+      $('toolCard').innerHTML = `<div class="tool-idle">✔ All ${stages.length} tools completed. ${TOOL_SHIELD}</div>`;
+      saveCurrentSlot({ timeline: done });
+    }
+
+    /* ───────── Dual FU FOIA follow-up ───────── */
+    let fuMode = 'A';
+    function getFollowups() { return currentResult && currentResult.followup_recommendations ? currentResult.followup_recommendations : null; }
+    function selectFuMode(m) {
+      fuMode = m;
+      $('fuModeA').classList.toggle('active', m === 'A');
+      $('fuModeB').classList.toggle('active', m === 'B');
+      fillFuForm();
+    }
+    function fillFuForm() {
+      const fu = getFollowups();
+      const rec = fu ? (fuMode === 'A' ? fu.mode_a : fu.mode_b) : null;
+      $('fuEmpty').style.display = rec ? 'none' : 'block';
+      $('fuForm').style.display = rec ? 'block' : 'none';
+      if (!rec) return;
+      $('fuLabel').innerText = rec.label;
+      $('fuNote').innerText = rec.note;
+      $('fuSender').innerText = rec.sender;
+      $('fuRecipient').value = rec.recipient;
+      $('fuSubject').value = rec.subject;
+      $('fuBody').value = rec.body;
+      const scheduleDays = Array.isArray(rec.schedule_days) ? rec.schedule_days.join(', ') : 'none';
+      $('fuSchedule').innerText = fuMode === 'A' ? `Repeat every ${rec.repeat_days || 7} days until acknowledged` : `Recurring follow-ups on day ${scheduleDays}`;
+      $('fuCascade').innerHTML = rec.cascade.map(c => `<div class="fu-ch">Channel ${c.channel}: <strong>${esc(c.name)}</strong><span>${esc(c.detail)}</span></div>`).join('');
+    }
+    function refreshFollowupTab() { fillFuForm(); renderFuQueue(); }
+    function currentFuRecord() {
+      const fu = getFollowups();
+      if (!fu) return null;
+      const base = fuMode === 'A' ? fu.mode_a : fu.mode_b;
+      return Object.assign({}, base, { recipient: $('fuRecipient').value, subject: $('fuSubject').value, body: $('fuBody').value });
+    }
+    function queueFollowup(rec, extra) {
+      const q = lsGet('osint_fu_foia_queue', []);
+      const item = Object.assign({ id: 'fu_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), slot: currentSlot, status: 'QUEUED', created: new Date().toISOString() }, rec, extra || {});
+      q.push(item);
+      lsSet('osint_fu_foia_queue', q);
+      return item;
+    }
+    function queueFromForm() {
+      const rec = currentFuRecord(); if (!rec) return;
+      queueFollowup(rec);
+      renderFuQueue();
+    }
+    async function queueAndFax() {
+      const rec = currentFuRecord(); if (!rec) return;
+      const item = queueFollowup(rec);
+      let status = 'QUEUED_FAX_PENDING';
+      try {
+        const r = await fetch('./api/dispatch/fax', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mode: rec.mode, recipient: rec.recipient, subject: rec.subject, body: rec.body, channels: ['email', 'fax', 'hardmail'] }) });
+        status = r.ok ? 'FAX_DISPATCHED' : 'FAX_API_ERROR_' + r.status;
+      } catch (e) { status = 'QUEUED_OFFLINE'; }
+      const q = lsGet('osint_fu_foia_queue', []);
+      q.forEach(x => { if (x.id === item.id) x.status = status; });
+      lsSet('osint_fu_foia_queue', q);
+      renderFuQueue();
+    }
+    function quickQueue(which) {
+      const fu = getFollowups();
+      if (!fu) { alert('Compile a narrative first.'); return; }
+      if (which === 'A' || which === 'both') queueFollowup(fu.mode_a);
+      if (which === 'B' || which === 'both') queueFollowup(fu.mode_b);
+      switchTab('followup');
+    }
+    function removeFu(id) {
+      lsSet('osint_fu_foia_queue', lsGet('osint_fu_foia_queue', []).filter(x => x.id !== id));
+      renderFuQueue();
+    }
+    function renderFuQueue() {
+      const q = lsGet('osint_fu_foia_queue', []);
+      const el = $('fuQueue');
+      if (!q.length) { el.innerHTML = '<div class="tool-idle">Queue is empty.</div>'; return; }
+      el.innerHTML = q.map(x => `<div class="fu-q-item"><span class="hash-badge">Mode ${esc(x.mode)}</span> <strong>${esc(x.subject)}</strong> → ${esc(x.recipient)} <span class="tl-done">${esc(x.status)}</span> <span style="color:var(--text-muted)">Slot ${esc(x.slot)}</span> <button class="btn-secondary" style="padding:3px 8px" onclick="removeFu('${esc(x.id)}')">✕</button></div>`).join('');
+    }
+
+    /* ───────── graph ───────── */
     function renderGraph() {
-      const canvas = document.getElementById('graphCanvas');
+      const canvas = $('graphCanvas');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
       canvas.width = canvas.parentElement.clientWidth;
       canvas.height = canvas.parentElement.clientHeight || 500;
-
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      const cx = canvas.width / 2;
-      const cy = canvas.height / 2;
-
-      // Draw Center Hub
-      ctx.beginPath();
-      ctx.arc(cx, cy, 26, 0, 2 * Math.PI);
-      ctx.fillStyle = '#ef4444';
-      ctx.fill();
-      ctx.lineWidth = 3;
-      ctx.strokeStyle = '#fff';
-      ctx.stroke();
-
-      ctx.fillStyle = '#fff';
-      ctx.font = '11px JetBrains Mono';
-      ctx.textAlign = 'center';
+      const cx = canvas.width / 2, cy = canvas.height / 2;
+      ctx.beginPath(); ctx.arc(cx, cy, 26, 0, 2 * Math.PI);
+      ctx.fillStyle = '#ef4444'; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = '#fff'; ctx.stroke();
+      ctx.fillStyle = '#fff'; ctx.font = '11px JetBrains Mono'; ctx.textAlign = 'center';
       ctx.fillText('NEXUS', cx, cy + 40);
-
-      // Satellite Nodes
-      const nodes = [
-        {name: 'Redwood West', color: '#38bdf8', angle: 0},
-        {name: 'Balboa Marina', color: '#f59e0b', angle: Math.PI / 3},
-        {name: '18 USC § 1962', color: '#00ffaa', angle: 2 * Math.PI / 3},
-        {name: 'Saigon Villas', color: '#38bdf8', angle: Math.PI},
-        {name: 'Newport Center', color: '#f59e0b', angle: 4 * Math.PI / 3},
-        {name: 'OSF NB Corp', color: '#38bdf8', angle: 5 * Math.PI / 3}
-      ];
-
+      let nodes = [];
+      if (currentResult && currentResult.extracted_entities) {
+        const e = currentResult.extracted_entities;
+        (e.organizations || []).slice(0, 5).forEach(n => nodes.push({ name: n, color: '#38bdf8' }));
+        (e.places || []).slice(0, 3).forEach(n => nodes.push({ name: n, color: '#f59e0b' }));
+        (currentResult.extracted_statutes || []).slice(0, 3).forEach(s => nodes.push({ name: s.code, color: '#00ffaa' }));
+      } else if (currentSlot === 1) {
+        nodes = [{ name: 'Redwood West', color: '#38bdf8' }, { name: 'Balboa Marina', color: '#f59e0b' }, { name: '18 USC § 1962', color: '#00ffaa' }, { name: 'Saigon Villas', color: '#38bdf8' }, { name: 'Newport Center', color: '#f59e0b' }, { name: 'OSF NB Corp', color: '#38bdf8' }];
+      }
       const r = Math.min(canvas.width, canvas.height) * 0.35;
-
-      nodes.forEach(n => {
-        const nx = cx + r * Math.cos(n.angle);
-        const ny = cy + r * Math.sin(n.angle);
-
-        // Link
-        ctx.beginPath();
-        ctx.moveTo(cx, cy);
-        ctx.lineTo(nx, ny);
-        ctx.strokeStyle = '#1e293b';
-        ctx.lineWidth = 2;
-        ctx.stroke();
-
-        // Node
-        ctx.beginPath();
-        ctx.arc(nx, ny, 16, 0, 2 * Math.PI);
-        ctx.fillStyle = n.color;
-        ctx.fill();
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = '#fff';
-        ctx.stroke();
-
-        ctx.fillStyle = '#9ca3af';
-        ctx.fillText(n.name, nx, ny + 28);
+      nodes.forEach((n, i) => {
+        const a = (2 * Math.PI * i) / nodes.length;
+        const nx = cx + r * Math.cos(a), ny = cy + r * Math.sin(a);
+        ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(nx, ny); ctx.strokeStyle = '#1e293b'; ctx.lineWidth = 2; ctx.stroke();
+        ctx.beginPath(); ctx.arc(nx, ny, 16, 0, 2 * Math.PI); ctx.fillStyle = n.color; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = '#fff'; ctx.stroke();
+        ctx.fillStyle = '#9ca3af'; ctx.fillText(String(n.name).slice(0, 28), nx, ny + 28);
       });
     }
+    window.addEventListener('resize', () => { if ($('viewGraph').style.display !== 'none') renderGraph(); });
 
-    window.addEventListener('resize', () => {
-      if (document.getElementById('viewGraph').style.display !== 'none') {
-        renderGraph();
+    /* ───────── init ───────── */
+    (function init() {
+      // Slots 2 & 3 start 100% blank; persist the blank so they stay isolated.
+      [2, 3].forEach(n => { if (!loadSlot(n)) lsSet(SLOT_KEY(n), blankSlot(n)); });
+      const active = Number(lsGet('osint_ws_active_slot', 1)) || 1;
+      currentSlot = [1, 2, 3].includes(active) ? active : 1;
+      document.querySelectorAll('.slot-btn').forEach((btn, idx) => btn.classList.toggle('active', idx === (currentSlot - 1)));
+      const st = loadSlot(currentSlot);
+      if (st) {
+        applySlot(st, currentSlot);
+      } else {
+        // Slot 1 first visit: auto-load the NWO case and compile (original behavior)
+        $('storyInput').value = cases.nwo;
+        compileStory();
       }
-    });
-
-    // Auto-load NWO on init
-    loadCase('nwo');
+    })();
   </script>
 </body>
 </html>

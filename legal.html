@@ -338,6 +338,8 @@
       <a href="index.html">📰 The Broadsheet</a>
       <a href="workspace.html">🔍 User Workspace</a>
       <a href="legal.html" class="active">⚖️ Legal Database</a>
+      <a href="omnichannel_legal_hub.html">📡 FOIA / Dispatch Hub</a>
+      <a href="addons.html">🧩 Add-Ons & Muse Hub</a>
       <a href="taxfunded/index.html">🏛️ TaxFunded Platform</a>
       <a href="errorcoin.html">🚨 Error Coins</a>
       <a href="web/task_system_powerapp.html">📋 Task PowerApp</a>
@@ -477,6 +479,31 @@
 
     let currentCategory = 'all';
 
+    const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const safeUrl = (u) => /^https?:\/\//i.test(u) ? u : '#';
+
+    // Organic growth: merge laws surfaced inside user workspaces (localStorage 'osint_organic_laws')
+    function allStatutes() {
+      let organic = [];
+      try { organic = JSON.parse(localStorage.getItem('osint_organic_laws')) || []; } catch (e) { organic = []; }
+      const known = new Set(statutes.map(s => s.code));
+      const merged = statutes.slice();
+      organic.forEach((o, i) => {
+        if (!o || !o.code || known.has(o.code)) return;
+        known.add(o.code);
+        merged.push({
+          id: 'ORG-' + i,
+          title: o.title || o.code,
+          code: o.code,
+          category: ['federal', 'transparency', 'grants', 'state'].includes(o.category) ? o.category : 'federal',
+          desc: o.context ? ('Surfaced in a user investigation: "' + o.context + '"') : 'Added organically when a user investigation cited this statute.',
+          case: 'Added organically' + (o.addedDate ? ' on ' + o.addedDate : '') + ' · from user workspace',
+          url: o.link || '#'
+        });
+      });
+      return merged;
+    }
+
     function renderStatutes(list) {
       const container = document.getElementById('statutesContainer');
       container.innerHTML = '';
@@ -491,14 +518,14 @@
         card.className = 'statute-card';
         card.innerHTML = `
           <div class="statute-card-header">
-            <span class="statute-title">\${s.title}</span>
-            <span class="statute-badge">\${s.category.toUpperCase()}</span>
+            <span class="statute-title">${esc(s.title)}</span>
+            <span class="statute-badge">${esc(String(s.category).toUpperCase())}</span>
           </div>
-          <div class="statute-code">\${s.code}</div>
-          <p class="statute-desc">\${s.desc}</p>
+          <div class="statute-code">${esc(s.code)}</div>
+          <p class="statute-desc">${esc(s.desc)}</p>
           <div class="statute-meta">
-            <span>\${s.case}</span>
-            <a href="\${s.url}" class="statute-link" target="_blank" rel="noopener">Official Code ↗</a>
+            <span>${esc(s.case)}</span>
+            <a href="${esc(safeUrl(s.url))}" class="statute-link" target="_blank" rel="noopener">Official Code ↗</a>
           </div>
         `;
         container.appendChild(card);
@@ -507,7 +534,7 @@
 
     function filterStatutes() {
       const q = document.getElementById('legalSearch').value.toLowerCase();
-      const filtered = statutes.filter(s => {
+      const filtered = allStatutes().filter(s => {
         const matchesCat = currentCategory === 'all' || s.category === currentCategory;
         const matchesQ = s.title.toLowerCase().includes(q) || 
                          s.code.toLowerCase().includes(q) || 
@@ -526,7 +553,7 @@
     }
 
     // Init
-    renderStatutes(statutes);
+    renderStatutes(allStatutes());
   </script>
 </body>
 </html>
