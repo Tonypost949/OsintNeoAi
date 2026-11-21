@@ -37,8 +37,8 @@ Those older files stay as archive; THIS file governs.
   investigation — the NWO RICO Round-Up.
 - It will have a legal section — a combination, whatever is easiest; the
   exact front-page shape is figured out with the user, not invented.
-- The crypto stuff gets its own page (already done — leave it). The legal
-  section gets its own page.
+- The crypto / token ledger panel lives on the front page (already done —
+  leave it). The legal section gets its own page.
 
 ## 3. User workspaces
 
@@ -85,5 +85,5 @@ Those older files stay as archive; THIS file governs.
 - One vision = this one file. Amend it here; do not spawn copies.
 - Nothing in the crypto/token pages changes under this vision.
 - The Legal AI tools block (Clio Work Free / AI.Law / ArkLegal, added
-  2026-11-11 to ailaws.html as a stopgap) belongs to the legal section
+  2026-11-11 to the legal database as a stopgap) belongs to the legal section
   (§2) when that page is built — it moves by revise/archive, not deletion.
