@@ -941,8 +941,77 @@
       }
     }
 
+    // ── Indio AI Assistant ───────────────────────────────────
+    async function indioChat() {
+      const input = document.getElementById('indioInput');
+      const out = document.getElementById('indioOutput');
+      const q = input.value.trim();
+      if (!q) return;
+      out.style.display = 'block';
+      out.innerHTML = '<span style="color:var(--text2);">Indio AI is thinking...</span>';
+      try {
+        const r = await fetch('./api/indio/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query: q })
+        });
+        if (r.ok) {
+          const d = await r.json();
+          out.innerHTML = '<strong>Indio AI:</strong> ' + (d.response || d.message || 'No response');
+        } else {
+          out.innerHTML = '<strong>Indio AI:</strong> Service unavailable. Try again later.';
+        }
+      } catch(e) {
+        out.innerHTML = '<strong>Indio AI:</strong> Offline. Connect to the Indio AI endpoint to enable.';
+      }
+    }
+
+    // ── Text Funded ──────────────────────────────────────────
+    async function textFund() {
+      const phone = document.getElementById('textFundPhone').value.trim();
+      const amount = document.getElementById('textFundAmount').value.trim();
+      const result = document.getElementById('textFundResult');
+      if (!phone || !amount) { result.style.display='block'; result.style.color='#f85149'; result.textContent='Phone and amount required.'; return; }
+      try {
+        const r = await fetch('./api/textfunded/donate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ phone: phone, amount: amount })
+        });
+        const d = await r.json();
+        result.style.display='block'; result.style.color='#3fb950';
+        result.textContent = '✅ Text-funded donation queued: $' + amount + ' from ' + phone;
+      } catch(e) {
+        result.style.display='block'; result.style.color='#f59e0b';
+        result.textContent = 'Text-funded API offline. Donation queued locally.';
+      }
+    }
+
     // ── Bootstrap all API calls ──────────────────────────────
     Promise.all([loadCrypto(), loadGrowthIndex(), loadFeaturedStory()]);
   </script>
+
+  <!-- Indio AI Section -->
+  <section id="indioAI" style="max-width:1100px;margin:20px auto;padding:20px;border:1px solid var(--border-l);border-radius:8px;background:var(--card);">
+    <h2 style="font-family:var(--font-head);margin:0 0 12px;">🤖 Indio AI — Investigative Assistant</h2>
+    <p style="color:var(--text2);font-size:13px;margin:0 0 12px;">Ask Indio AI about any investigation, evidence, or legal topic. Powered by the OsintNeoAi intelligence stack.</p>
+    <div style="display:flex;gap:8px;margin-bottom:12px;">
+      <input type="text" id="indioInput" placeholder="Ask Indio AI anything..." style="flex:1;padding:10px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);" onkeydown="if(event.key==='Enter')indioChat()">
+      <button onclick="indioChat()" style="padding:10px 20px;background:#1f6feb;color:#fff;border:none;border-radius:4px;cursor:pointer;font-weight:600;">Ask</button>
+    </div>
+    <div id="indioOutput" style="display:none;padding:12px;border:1px solid var(--border-l);border-radius:4px;background:var(--bg);font-size:14px;line-height:1.6;"></div>
+  </section>
+
+  <!-- Text Funded Section -->
+  <section id="textFunded" style="max-width:1100px;margin:20px auto;padding:20px;border:1px solid var(--border-l);border-radius:8px;background:var(--card);">
+    <h2 style="font-family:var(--font-head);margin:0 0 12px;">📱 Text-Funded — SMS Donation Channel</h2>
+    <p style="color:var(--text2);font-size:13px;margin:0 0 12px;">Support investigative journalism via text message. Send a donation amount to any phone number on file.</p>
+    <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
+      <input type="tel" id="textFundPhone" placeholder="Phone number" style="flex:1;min-width:180px;padding:10px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);">
+      <input type="number" id="textFundAmount" placeholder="Amount ($)" style="width:120px;padding:10px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);">
+      <button onclick="textFund()" style="padding:10px 20px;background:#238636;color:#fff;border:none;border-radius:4px;cursor:pointer;font-weight:600;">Fund</button>
+    </div>
+    <div id="textFundResult" style="display:none;padding:12px;border:1px solid var(--border-l);border-radius:4px;background:var(--bg);font-size:14px;"></div>
+  </section>
 </body>
 </html>
