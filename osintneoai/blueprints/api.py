@@ -19,18 +19,18 @@ def api_status():
         "service": "OSINTNeoAI Blueprints Engine"
     })
 
-@api_bp.route('/api/indio/chat', methods=['POST'])
-def api_indio_chat():
+@api_bp.route('/api/osintneoai/chat', methods=['POST'])
+def api_osintneoai_chat():
     data = request.get_json(silent=True) or {}
     query = data.get('query', '')
     return jsonify({
-        "response": "Indio AI received: " + query + ". Full intelligence stack integration pending.",
-        "model": "indio-ai-v1",
+        "response": "OSINT NEO AI received: " + query + ". Full intelligence stack integration pending.",
+        "model": "osint-neo-ai-v1",
         "status": "online"
     })
 
-@api_bp.route('/api/textfunded/donate', methods=['POST'])
-def api_textfunded_donate():
+@api_bp.route('/api/taxfunded/donate', methods=['POST'])
+def api_taxfunded_donate():
     data = request.get_json(silent=True) or {}
     phone = data.get('phone', '')
     amount = data.get('amount', '0')
@@ -38,7 +38,7 @@ def api_textfunded_donate():
         "status": "queued",
         "phone": phone,
         "amount": amount,
-        "message": "Text-funded donation queued for processing."
+        "message": "Tax-funded donation queued for processing."
     })
 
 @api_bp.route('/api/voicemail/record', methods=['POST'])
