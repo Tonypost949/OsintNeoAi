@@ -24,8 +24,8 @@ def api_osintneoai_chat():
     data = request.get_json(silent=True) or {}
     query = data.get('query', '')
     return jsonify({
-        "response": "OSINT NEO AI received: " + query + ". Full intelligence stack integration pending.",
-        "model": "osint-neo-ai-v1",
+        "response": "Ocean Neo AI received: " + query + ". Full intelligence stack integration pending.",
+        "model": "ocean-neo-ai-v1",
         "status": "online"
     })
 
