@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧩 Add-Ons & Muse Hub | OsintNeoAi Investigative Ecosystem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=JetBrains+Mono:wght@400;500;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card: #111827;
+      --card-border: #1f2937;
+      --card-hover: #1e293b;
+      --accent: #00ffaa;
+      --accent-dim: rgba(0, 255, 170, 0.12);
+      --blue: #38bdf8;
+      --blue-dim: rgba(56, 189, 248, 0.12);
+      --gold: #f59e0b;
+      --gold-dim: rgba(245, 158, 11, 0.12);
+      --red: #ef4444;
+      --red-dim: rgba(239, 68, 68, 0.12);
+      --purple: #c084fc;
+      --purple-dim: rgba(192, 132, 252, 0.12);
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --font-mast: 'Cinzel', serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Top Navigation Bar ── */
+    header.nav-header {
+      background: #0d121f;
+      border-bottom: 1px solid var(--card-border);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-mark {
+      background: var(--accent);
+      color: #000;
+      font-weight: 900;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+    .brand-title {
+      font-family: var(--font-mast);
+      font-size: 16px;
+      letter-spacing: 1px;
+      font-weight: 700;
+      color: #fff;
+    }
+    nav.nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    nav.nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav.nav-links a:hover, nav.nav-links a.active {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .nav-external {
+      color: var(--gold) !important;
+      font-weight: 600;
+    }
+
+    /* ── Hero Banner ── */
+    .hero-banner {
+      background: linear-gradient(180deg, #0e1526 0%, #090d16 100%);
+      border-bottom: 1px solid var(--card-border);
+      padding: 36px 24px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .hero-banner h1 {
+      font-family: var(--font-mast);
+      font-size: clamp(24px, 4vw, 40px);
+      letter-spacing: 1px;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .hero-banner p {
+      max-width: 860px;
+      margin: 0 auto;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Search & Filter Controls ── */
+    .controls-container {
+      max-width: 1360px;
+      width: 100%;
+      margin: 24px auto 0;
+      padding: 0 24px;
+    }
+    .search-filter-box {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .search-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .search-input {
+      flex: 1;
+      background: #0b0f19;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-input:focus {
+      border-color: var(--accent);
+    }
+    .filter-chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .chip {
+      background: #0b0f19;
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .chip:hover, .chip.active {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── Section Structure ── */
+    .main-container {
+      max-width: 1360px;
+      width: 100%;
+      margin: 32px auto 48px;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+    .hub-section {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 2px solid var(--card-border);
+      padding-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .section-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title {
+      font-family: var(--font-mast);
+      font-size: 20px;
+      color: #fff;
+      font-weight: 700;
+    }
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .tag-green { background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent); }
+    .tag-blue { background: var(--blue-dim); color: var(--blue); border: 1px solid var(--blue); }
+    .tag-gold { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold); }
+    .tag-purple { background: var(--purple-dim); color: var(--purple); border: 1px solid var(--purple); }
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ── Card Grids ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 18px;
+    }
+    @media (max-width: 680px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .hub-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .hub-card:hover {
+      transform: translateY(-3px);
+      border-color: #374151;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .card-title {
+      font-family: var(--font-mast);
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+    .card-creator {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 3px;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .card-meta-box {
+      background: #090d16;
+      border: 1px solid #1f2937;
+      border-radius: 6px;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+    }
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+    .meta-label {
+      color: #6b7280;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.5px;
+    }
+    .meta-val {
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+    .meta-url {
+      color: var(--blue);
+      text-decoration: none;
+      word-break: break-all;
+      font-size: 11px;
+    }
+    .meta-url:hover {
+      text-decoration: underline;
+    }
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+      border: 1px solid var(--accent);
+    }
+    .btn-primary:hover {
+      background: #00dd92;
+    }
+    .btn-secondary {
+      background: #1f2937;
+      color: #e5e7eb;
+      border: 1px solid #374151;
+    }
+    .btn-secondary:hover {
+      background: #374151;
+      color: #fff;
+    }
+    .btn-blue {
+      background: var(--blue);
+      color: #000;
+      border: 1px solid var(--blue);
+    }
+    .btn-blue:hover {
+      background: #0284c7;
+      color: #fff;
+    }
+
+    /* ── Educational Box for Law 11 & Trinity ── */
+    .edu-banner {
+      background: linear-gradient(135deg, rgba(0, 255, 170, 0.05) 0%, rgba(56, 189, 248, 0.05) 100%);
+      border: 1px solid rgba(0, 255, 170, 0.25);
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-size: 12px;
+      line-height: 1.6;
+      color: #cbd5e1;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .edu-icon {
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #060911;
+      border-top: 1px solid var(--card-border);
+      padding: 28px 24px;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: auto;
+      line-height: 1.8;
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Top Navigation Bar ── -->
+  <header class="nav-header">
+    <a href="index.html" class="brand-group">
+      <span class="brand-mark">O</span>
+      <span class="brand-title">OSINTNEOAI / ADD-ONS &amp; MUSE HUB</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">📰 The Broadsheet</a>
+      <a href="workspace.html">🔍 User Workspace</a>
+      <a href="addons.html" class="active">🧩 Add-Ons &amp; Muse Hub</a>
+      <a href="omnichannel_legal_hub.html">📨 FOIA / Legal Dispatch</a>
+      <a href="legal.html">⚖️ Legal Database</a>
+      <a href="taxfunded/index.html" style="color:#38bdf8;font-weight:600;">🏛️ TaxFunded Platform</a>
+      <a href="errorcoin.html">🚨 Error Coins</a>
+      <a href="web/task_system_powerapp.html">📋 Task PowerApp</a>
+      <a href="https://github.com/Tonypost949/ailaws" target="_blank" rel="noopener" class="nav-external">📜 AI Laws Repo ↗</a>
+    </nav>
+  </header>
+
+  <!-- ── Hero Banner ── -->
+  <section class="hero-banner">
+    <div class="hero-badge">Autonomous Multi-Agent Workspace &amp; Tool Ecosystem</div>
+    <h1>🧩 Add-Ons, Muse Army &amp; OSINT Tool Arsenal</h1>
+    <p>
+      The comprehensive nexus of all AI-generated investigative prototypes, live multi-model round-up candidate versions,
+      sovereign GIS and tactical PowerApps, and open-source intelligence tools. Every URL, sheet coordinate, and tool repository
+      is verified and rendered explicitly under Universal AI Law 11 and The Trinity.
+    </p>
+  </section>
+
+  <!-- ── Search & Filter Controls ── -->
+  <div class="controls-container">
+    <div class="search-filter-box">
+      <div class="search-row">
+        <input type="text" id="hubSearch" class="search-input" placeholder="Search creations, tools, creators, or keywords (e.g. Perplexity, GeoTracker, Sherlock, Grok, Sheets)..." oninput="filterHub()">
+      </div>
+      <div class="filter-chips">
+        <button class="chip active" onclick="setHubCategory('all', this)">All Add-Ons &amp; Tools</button>
+        <button class="chip" onclick="setHubCategory('muse-army', this)">1. Muse &amp; AI Army Creations</button>
+        <button class="chip" onclick="setHubCategory('site-roundup', this)">2. Site AI Candidates &amp; Sheets</button>
+        <button class="chip" onclick="setHubCategory('portals-gis', this)">3. Sovereign Portals &amp; 3D GIS</button>
+        <button class="chip" onclick="setHubCategory('osint-arsenal', this)">4. Open-Source OSINT Arsenal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Main Content Container ── -->
+  <main class="main-container">
+
+    <!-- Universal AI Law 11 Notice -->
+    <div class="edu-banner">
+      <div class="edu-icon">⚖️</div>
+      <div>
+        <strong>Universal AI Law 11 &amp; The Trinity Enforcement:</strong> All external repositories, cloud deployments, and backend databases display explicit, unmasked full URLs in plain text below. No hidden links, no unverified abstractions. Physical Reality (Gate 1), Stochastic Likelihood (Gate 2), and Baseline Frequency (Gate 3) govern all intelligence and tools in this hub.
+      </div>
+    </div>
+
+    <!-- Live Multi-Agent & VM Fleet Command Center -->
+    <section class="hub-section" id="section-fleet-command" data-cat="all" style="margin-bottom:24px;">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2 class="section-title">🛰️ Live Multi-Agent &amp; Cloud VM Fleet Command</h2>
+          <span class="section-tag tag-green" id="fleetSummaryBadge">6/6 Active / Ready</span>
+        </div>
+        <div class="section-subtitle">
+          Unified autonomous fleet across Antigravity CLI, Hermes Agent, Underboss Neo (Muse #1), OsintNeoAi Muse (Muse #2), Kali Linux WSL2 + OpenCode v1.19.4, IntelliJ BYOK Gemini, Azure &amp; GCP VMs — synced via <code style="color:#00ffaa;">C:\Amd949609_Antigravity_v1\tools\fleet_orchestrator\fleet_orchestrator.py</code>.
+        </div>
+      </div>
+      <div id="fleetNodesGrid" class="cards-grid">
+        <div class="hub-card" data-keywords="hermes agent nous research"><div class="card-title">Hermes Agent (Nous Research v0.23.2)</div><div class="card-desc">Local gateway running · Home: <code>C:\Users\Amd949609\AppData\Local\hermes</code></div></div>
+        <div class="hub-card" data-keywords="neo muse tailscale"><div class="card-title">Muse #1 — Underboss Neo</div><div class="card-desc">Tailscale <code>100.79.79.27</code> active · Bridge: <code>C:\Amd949609_Antigravity_v1\cross_ai_bridge\outbox\NEO_TO_AGY_LIVE.txt</code></div></div>
+        <div class="hub-card" data-keywords="osintneoai muse channel"><div class="card-title">Muse #2 — OsintNeoAi Muse</div><div class="card-desc">Repo channel active · <code>C:\OsintNeoAi\MUSE_CHANNEL.md</code></div></div>
+        <div class="hub-card" data-keywords="opencode kali linux wsl ollama"><div class="card-title">OpenCode v1.19.4 + Kali Linux WSL2</div><div class="card-desc">324-provider catalog + nmap, sherlock, spiderfoot, exiftool, whois, tshark, ollama</div></div>
+        <div class="hub-card" data-keywords="intellij byok gemini"><div class="card-title">IntelliJ IDEA 2026.2 AI Assistant (BYOK)</div><div class="card-desc"><code>acp.registry.gemini</code> BYOK · Bridge: <code>C:\OsintNeoAi\.bridge\to_intellij.txt</code></div></div>
+        <div class="hub-card" data-keywords="azure vm student gcp cloud"><div class="card-title">Azure &amp; GCP Cloud VMs (Zero-Spend Guard)</div><div class="card-desc">Azure <code>osintadmin@20.246.121.30</code> (<code>anthony.dimarcello.student@gmail.com</code>) &amp; GCP <code>34.133.245.250</code></div></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+    <!-- SECTION 1: MUSE & AI ARMY INTERACTIVE CREATIONS (NWO RICO ROUND-UP)     -->
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="hub-section" id="section-muse-army" data-cat="muse-army">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2 class="section-title">1. Muse &amp; AI Army Interactive Creations</h2>
+          <span class="section-tag tag-green">NWO RICO Round-Up</span>
+        </div>
+        <div class="section-subtitle">
+          Autonomous forensic prototypes constructed across 11 AI platforms investigating the NWO RICO enterprise.
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <!-- Perplexity -->
+        <div class="hub-card" data-keywords="perplexity toxic trace atlas r3 vercel 3d constellation orbit">
+          <div>
+            <div class="card-top">
+              <div class="card-title">Toxic Trace Atlas (r3)</div>
+              <span class="section-tag tag-green">LIVE PROTOTYPE</span>
+            </div>
+            <div class="card-creator">Creator: Perplexity AI, Inc. (support@perplexity.ai)</div>
+            <p class="card-desc">
+              Interactive 3D evidence constellation prototype mapping the DTSC toxic soil-gas plume and parcel-level containment. Features real rotation perspective, keyboard navigation, and zero external dependencies.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Live Deployment:</span>
+              <a href="https://toxic-trace-atlas-osintneoai.vercel.app/" target="_blank" rel="noopener" class="meta-url">https://toxic-trace-atlas-osintneoai.vercel.app/</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Local Repository:</span>
+              <span class="meta-val">nwo-rico-round-up/perplexity--toxic-trace-atlas/index.html</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Revision &amp; MD5:</span>
+              <span class="meta-val">r3 Orbit-Fix (MD5: c4e934b2cc37daae69744c8f97ccf06f)</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://toxic-trace-atlas-osintneoai.vercel.app/" target="_blank" rel="noopener" class="card-btn btn-primary">🚀 Launch Live Cloud ↗</a>
+            <a href="nwo-rico-round-up/perplexity--toxic-trace-atlas/index.html" class="card-btn btn-secondary">📂 Local Mirror</a>
+          </div>
+        </div>
+
+        <!-- Skywork -->
+        <div class="hub-card" data-keywords="skywork the third gate press editorial broadsheet rico syndicate">
+          <div>
+            <div class="card-top">
+              <div class="card-title">The Third Gate Press</div>
+              <span class="section-tag tag-blue">COMPLETED</span>
+            </div>
+            <div class="card-creator">Creator: Skywork AI</div>
+            <p class="card-desc">
+              Autonomous editorial investigative press engine designed to synthesize complex municipal fraud dockets into journalistic exposés adhering to The Trinity Gate 3 baseline reversion.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Target Architecture:</span>
+              <span class="meta-val">Journalistic Broadsheet &amp; Wire Terminal</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Channel Verification:</span>
+              <span class="meta-val">MUSE_CHANNEL.md (2026-11-16 02:47 PST)</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Status:</span>
+              <span class="meta-val">Verified Delivered in NWO RICO Round-Up</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="index.html" class="card-btn btn-secondary">📰 Compare in Broadsheet</a>
+          </div>
+        </div>
+
+        <!-- Manus -->
+        <div class="hub-card" data-keywords="manus the relay room dispatch autonomous communications handoffs">
+          <div>
+            <div class="card-top">
+              <div class="card-title">The Relay Room</div>
+              <span class="section-tag tag-blue">COMPLETED</span>
+            </div>
+            <div class="card-creator">Creator: Manus AI</div>
+            <p class="card-desc">
+              Multi-channel communications router and autonomous dispatch console linking investigations directly to municipal custodians, county recorders, and FOIA officers without human relaying.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Target Architecture:</span>
+              <span class="meta-val">Omnichannel Dispatch &amp; Evidence Relaying</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Channel Verification:</span>
+              <span class="meta-val">MUSE_CHANNEL.md (2026-11-16 02:47 PST)</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Lawful Precedent:</span>
+              <span class="meta-val">Universal AI Law 1 IPC Protocol</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="omnichannel_legal_hub.html" class="card-btn btn-blue">📨 Open FOIA Dispatch Hub</a>
+          </div>
+        </div>
+
+        <!-- Grok -->
+        <div class="hub-card" data-keywords="grok demo osint record explorer r2 xai public records">
+          <div>
+            <div class="card-top">
+              <div class="card-title">Demo OSINT Record Explorer (r2)</div>
+              <span class="section-tag tag-gold">REVISED r2</span>
+            </div>
+            <div class="card-creator">Creator: Grok (xAI)</div>
+            <p class="card-desc">
+              High-velocity interactive public records and entity correlation interface. Refined through r2 offline corrections to parse dense litigation dockets and property transfer chains.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Engine:</span>
+              <span class="meta-val">xAI Grok OSINT Explorer Engine</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Verification:</span>
+              <span class="meta-val">r2 Code Patch &amp; Offline Fix Verified</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Scope:</span>
+              <span class="meta-val">Entity Cross-Examination &amp; Docket Ingestion</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="workspace.html" class="card-btn btn-secondary">🔍 Test in Workspace</a>
+          </div>
+        </div>
+
+        <!-- Bolt.new -->
+        <div class="hub-card" data-keywords="bolt.new the preservation window cryptographic snapshot immutable">
+          <div>
+            <div class="card-top">
+              <div class="card-title">The Preservation Window</div>
+              <span class="section-tag tag-blue">COMPLETED</span>
+            </div>
+            <div class="card-creator">Creator: Bolt.new (StackBlitz)</div>
+            <p class="card-desc">
+              Instant web container architecture delivering client-side cryptographic proof hashing, snapshot freezing, and immutable evidence packaging for spoliation prevention.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Target Architecture:</span>
+              <span class="meta-val">WebContainer Static Vault &amp; Hash Sealing</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Delivery Timestamp:</span>
+              <span class="meta-val">2026-11-16 10:23 PST Logged</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://bolt.new" target="_blank" rel="noopener" class="card-btn btn-secondary">Bolt Platform ↗</a>
+          </div>
+        </div>
+
+        <!-- Z.ai -->
+        <div class="hub-card" data-keywords="z.ai weights of evidence r2 bayesian probability trinity gate 2">
+          <div>
+            <div class="card-top">
+              <div class="card-title">Weights of Evidence (r2)</div>
+              <span class="section-tag tag-green">VERIFIED r2</span>
+            </div>
+            <div class="card-creator">Creator: Z.ai</div>
+            <p class="card-desc">
+              Stochastic probability and Bayesian belief network model computing dynamic evidentiary weights for contested claims under The Trinity Gate 2 odds assessment.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Mathematical Gate:</span>
+              <span class="meta-val">The Trinity Gate 2 (Stochastic Probability)</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Status:</span>
+              <span class="meta-val">r2 Verdict Fix Tested &amp; Approved</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="web/risk_matrix.html" class="card-btn btn-secondary">📊 View Risk Matrix</a>
+          </div>
+        </div>
+
+        <!-- Lovable -->
+        <div class="hub-card" data-keywords="lovable the predicate loom rico acts mapping lovable.app">
+          <div>
+            <div class="card-top">
+              <div class="card-title">The Predicate Loom</div>
+              <span class="section-tag tag-green">LIVE CLOUD</span>
+            </div>
+            <div class="card-creator">Creator: Lovable (lovable.dev)</div>
+            <p class="card-desc">
+              Visual graph weaver connecting 18 U.S.C. § 1961 predicate offenses (mail fraud, wire fraud, extortion) across corporate and municipal actor timelines.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Public Cloud Hosting:</span>
+              <a href="https://lovable.app" target="_blank" rel="noopener" class="meta-url">https://lovable.app</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Status:</span>
+              <span class="meta-val">Live in Lovable Cloud &amp; Local Backup</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://lovable.app" target="_blank" rel="noopener" class="card-btn btn-primary">Launch on Lovable ↗</a>
+            <a href="web/rico_flow.html" class="card-btn btn-secondary">Visual RICO Flow</a>
+          </div>
+        </div>
+
+        <!-- Replit Agent -->
+        <div class="hub-card" data-keywords="replit agent the custodians desk subpoena fiduciary public records">
+          <div>
+            <div class="card-top">
+              <div class="card-title">The Custodian's Desk</div>
+              <span class="section-tag tag-blue">COMPLETED</span>
+            </div>
+            <div class="card-creator">Creator: Replit Agent</div>
+            <p class="card-desc">
+              Full-stack evidentiary intake desk managing subpoena compliance logs, document chain-of-custody, and Bates stamp indexing for complex civil/criminal actions.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Ecosystem:</span>
+              <span class="meta-val">Replit Autonomous Agent Container</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Function:</span>
+              <span class="meta-val">Bates Indexing &amp; Chain-of-Custody</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="workspace.html" class="card-btn btn-secondary">🔍 Open Workspace</a>
+          </div>
+        </div>
+
+        <!-- v0 -->
+        <div class="hub-card" data-keywords="v0 the quiet interval temporal gap sewer service timeline vercel">
+          <div>
+            <div class="card-top">
+              <div class="card-title">The Quiet Interval</div>
+              <span class="section-tag tag-blue">COMPLETED</span>
+            </div>
+            <div class="card-creator">Creator: v0 (Vercel)</div>
+            <p class="card-desc">
+              High-fidelity UI component modeling unexplainable gaps in procedural notices and identifying sewer service temporal fabrications where summons dates precede lawsuit filing.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Engine:</span>
+              <span class="meta-val">v0 Next.js / Tailwind Component Studio</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Gate Alignment:</span>
+              <span class="meta-val">Gate 1 Physical Reality &amp; Temporal Checks</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="web/timeline.html" class="card-btn btn-secondary">⏱️ Timeline Viewer</a>
+          </div>
+        </div>
+
+        <!-- Poe -->
+        <div class="hub-card" data-keywords="poe the hinge record judicial notice fre 201 docket linkage">
+          <div>
+            <div class="card-top">
+              <div class="card-title">The Hinge Record</div>
+              <span class="section-tag tag-blue">COMPLETED</span>
+            </div>
+            <div class="card-creator">Creator: Poe (Quora)</div>
+            <p class="card-desc">
+              Multi-model cross-case judicial notice engine mapping Federal Rule of Evidence 201 cross-filings and Judge John W. Holcomb docket relationships into binding precedent.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Platform:</span>
+              <span class="meta-val">Poe Multi-Bot Engine</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Statutory Target:</span>
+              <span class="meta-val">FRE 201 Judicial Notice Linkage</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="legal.html" class="card-btn btn-secondary">⚖️ Organic Legal DB</a>
+          </div>
+        </div>
+
+        <!-- Duck.ai -->
+        <div class="hub-card" data-keywords="duck.ai the glass envelope r2 docusign page continuity verification">
+          <div>
+            <div class="card-top">
+              <div class="card-title">The Glass Envelope (r2)</div>
+              <span class="section-tag tag-green">VERIFIED r2</span>
+            </div>
+            <div class="card-creator">Creator: Duck.ai</div>
+            <p class="card-desc">
+              DocuSign forensic verification apparatus auditing envelope UUIDs, verification hash continuity, and PDF producer strings to uncover spliced signatures and missing disclosures.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Forensic Method:</span>
+              <span class="meta-val">Envelope Hash &amp; Page Continuity Audit</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Patch Status:</span>
+              <span class="meta-val">r2 Advance-Fix Verified (Zero Scene Skips)</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="workspace.html" class="card-btn btn-secondary">Inspect in Workspace</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+    <!-- SECTION 2: SITE AI ROUNDUP CANDIDATES & GOOGLE SHEETS BACKEND           -->
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="hub-section" id="section-site-roundup" data-cat="site-roundup">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2 class="section-title">2. Site AI Roundup Candidates &amp; Google Sheets Backend</h2>
+          <span class="section-tag tag-gold">Live Spreadsheets</span>
+        </div>
+        <div class="section-subtitle">
+          Independent site broadsheet editions compiled by competing AI models, synchronized with real-time Google Sheets.
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <!-- Site Roundup Google Sheet -->
+        <div class="hub-card" data-keywords="google sheet site roundup osintneoai live tracking candidates">
+          <div>
+            <div class="card-top">
+              <div class="card-title">Site Roundup — OsintNeoAi Google Sheet</div>
+              <span class="section-tag tag-gold">MASTER SHEET</span>
+            </div>
+            <div class="card-creator">Master Ledger · Maintained by OSINTNEOAI MUSE</div>
+            <p class="card-desc">
+              The live master spreadsheet tracking every AI candidate site build. Records model name, route, status, version link, what it built vs. the brief, blockers, and Google Task status.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Full URL:</span>
+              <a href="https://docs.google.com/spreadsheets/d/1ItArHdeDuV-CnGJ32FfH8e_jBlhiQCIwtICkvQMlTnI/edit" target="_blank" rel="noopener" class="meta-url">https://docs.google.com/spreadsheets/d/1ItArHdeDuV-CnGJ32FfH8e_jBlhiQCIwtICkvQMlTnI/edit</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Sheet ID:</span>
+              <span class="meta-val">1ItArHdeDuV-CnGJ32FfH8e_jBlhiQCIwtICkvQMlTnI</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://docs.google.com/spreadsheets/d/1ItArHdeDuV-CnGJ32FfH8e_jBlhiQCIwtICkvQMlTnI/edit" target="_blank" rel="noopener" class="card-btn btn-primary">📊 Open Live Master Sheet ↗</a>
+          </div>
+        </div>
+
+        <!-- AI Army Registry Google Sheet -->
+        <div class="hub-card" data-keywords="google sheet ai army registry accounts credentials 95 services">
+          <div>
+            <div class="card-top">
+              <div class="card-title">AI Army Registry — Accounts Sheet</div>
+              <span class="section-tag tag-gold">95+ SERVICES</span>
+            </div>
+            <div class="card-creator">Shared Registry · Both Muses (Tony's Army Order)</div>
+            <p class="card-desc">
+              The master multi-identity credential registry spanning ~95 AI services across osintneoai@gmail.com and ironmandavinci@gmail.com. Managed under strict zero outside-spend rules.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Full URL:</span>
+              <a href="https://docs.google.com/spreadsheets/d/1a_0FmQ5ENScrpnFhNDxn5NiQbP2vUCWvaY5B9jY39PA/edit" target="_blank" rel="noopener" class="meta-url">https://docs.google.com/spreadsheets/d/1a_0FmQ5ENScrpnFhNDxn5NiQbP2vUCWvaY5B9jY39PA/edit</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Sheet ID:</span>
+              <span class="meta-val">1a_0FmQ5ENScrpnFhNDxn5NiQbP2vUCWvaY5B9jY39PA</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://docs.google.com/spreadsheets/d/1a_0FmQ5ENScrpnFhNDxn5NiQbP2vUCWvaY5B9jY39PA/edit" target="_blank" rel="noopener" class="card-btn btn-primary">📊 Open Army Registry ↗</a>
+          </div>
+        </div>
+
+        <!-- OpenCode Provider Route Sheet -->
+        <div class="hub-card" data-keywords="google sheet opencode provider route ai army 324 providers openrouter vercel">
+          <div>
+            <div class="card-top">
+              <div class="card-title">OpenCode Provider Route Sheet</div>
+              <span class="section-tag tag-gold">324 PROVIDERS</span>
+            </div>
+            <div class="card-creator">Aggregator Directory · Tony &amp; Neo</div>
+            <p class="card-desc">
+              Exhaustive inventory of 324 AI inference endpoints including OpenRouter (377 free models), Vercel AI Gateway (418 models), and Requesty, enabling scaling toward 700 reachable models.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Full URL:</span>
+              <a href="https://docs.google.com/spreadsheets/d/1_mw40Iye89PuJv4lsGjxdZj50QSdY5CixiPCxtV4odo/edit" target="_blank" rel="noopener" class="meta-url">https://docs.google.com/spreadsheets/d/1_mw40Iye89PuJv4lsGjxdZj50QSdY5CixiPCxtV4odo/edit</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Sheet ID:</span>
+              <span class="meta-val">1_mw40Iye89PuJv4lsGjxdZj50QSdY5CixiPCxtV4odo</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://docs.google.com/spreadsheets/d/1_mw40Iye89PuJv4lsGjxdZj50QSdY5CixiPCxtV4odo/edit" target="_blank" rel="noopener" class="card-btn btn-primary">📊 Open Provider Sheet ↗</a>
+          </div>
+        </div>
+
+        <!-- ChatGPT Candidate -->
+        <div class="hub-card" data-keywords="chatgpt site broadsheet 5 files candidate openai">
+          <div>
+            <div class="card-top">
+              <div class="card-title">ChatGPT Site Broadsheet Candidate</div>
+              <span class="section-tag tag-blue">DELIVERED</span>
+            </div>
+            <div class="card-creator">Creator: ChatGPT (OpenAI) · 03:02 PST</div>
+            <p class="card-desc">
+              Complete 5-file flat edition (Front + Legal + Workspace + Round-Up + README). Built with no external asset CDNs. Chromium 1440/390 verified; Candidate edition awaiting final review.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">File Structure:</span>
+              <span class="meta-val">5 files flat (HTML + Markdown)</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Status:</span>
+              <span class="meta-val">Delivered (Row in Site Roundup Sheet)</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="index.html" class="card-btn btn-secondary">Compare with Live Broadsheet</a>
+          </div>
+        </div>
+
+        <!-- Perplexity Candidate -->
+        <div class="hub-card" data-keywords="perplexity site broadsheet candidate 4 html files">
+          <div>
+            <div class="card-top">
+              <div class="card-title">Perplexity Site Broadsheet Candidate</div>
+              <span class="section-tag tag-blue">DELIVERED</span>
+            </div>
+            <div class="card-creator">Creator: Perplexity AI · 03:23 PST (support@perplexity.ai)</div>
+            <p class="card-desc">
+              Modular 4-HTML + README edition. Includes clean editorial masthead, verified responsive CSS layout, and demo-labeled investigative queues.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Contact:</span>
+              <span class="meta-val">support@perplexity.ai</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Status:</span>
+              <span class="meta-val">Delivered (Row in Site Roundup Sheet)</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="index.html" class="card-btn btn-secondary">Compare with Live Broadsheet</a>
+          </div>
+        </div>
+
+        <!-- Gemini Candidate -->
+        <div class="hub-card" data-keywords="gemini site broadsheet candidate google deepmind">
+          <div>
+            <div class="card-top">
+              <div class="card-title">Gemini Site Broadsheet Candidate</div>
+              <span class="section-tag tag-blue">DELIVERED</span>
+            </div>
+            <div class="card-creator">Creator: Google Gemini · 05:02 PST</div>
+            <p class="card-desc">
+              5-file flat edition emphasizing tax-funded public resource tracking, clean dark/light typography, and embedded organic legal database synchronization.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Verification:</span>
+              <span class="meta-val">Zero External URLs, Pure CSS Architecture</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Status:</span>
+              <span class="meta-val">Delivered (Row in Site Roundup Sheet)</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="index.html" class="card-btn btn-secondary">Compare with Live Broadsheet</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+    <!-- SECTION 3: SOVEREIGN PORTALS, TACTICAL POWERAPPS & 3D GIS VIEWERS      -->
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="hub-section" id="section-portals-gis" data-cat="portals-gis">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2 class="section-title">3. Sovereign Portals, Tactical PowerApps &amp; 3D GIS Viewers</h2>
+          <span class="section-tag tag-purple">Tactical Suite</span>
+        </div>
+        <div class="section-subtitle">
+          Interactive forensic applications, spatial map renderers, and legal enforcement PowerApps built for OsintNeoAi.
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <!-- TaxFunded Platform -->
+        <div class="hub-card" data-keywords="taxfunded platform cloud pages sovereign municipal audit tft">
+          <div>
+            <div class="card-top">
+              <div class="card-title">TaxFunded Platform</div>
+              <span class="section-tag tag-green">SOVEREIGN CLOUD</span>
+            </div>
+            <div class="card-creator">Sovereign Municipal &amp; Tax Audit Portal</div>
+            <p class="card-desc">
+              The flagship sovereign taxpayer ledger tracking municipal fund flows, public contracts, and community accountability coins with live cloud hosting.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Live Cloud URL:</span>
+              <a href="https://taxfunded.pages.dev" target="_blank" rel="noopener" class="meta-url">https://taxfunded.pages.dev</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Local File Path:</span>
+              <span class="meta-val">taxfunded/index.html</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://taxfunded.pages.dev" target="_blank" rel="noopener" class="card-btn btn-primary">🚀 Launch Cloud App ↗</a>
+            <a href="taxfunded/index.html" class="card-btn btn-secondary">📂 Local Mirror</a>
+          </div>
+        </div>
+
+        <!-- Ocean Neo AI -->
+        <div class="hub-card" data-keywords="ocean neo ai assistant chat intelligence osint">
+          <div>
+            <div class="card-top">
+              <div class="card-title">Ocean Neo AI — Investigative Assistant</div>
+              <span class="section-tag tag-blue">AI ENGINE</span>
+            </div>
+            <div class="card-creator">OsintNeoAi Intelligence Stack</div>
+            <p class="card-desc">
+              AI-powered investigative assistant. Ask about any investigation, evidence, or legal topic. Powered by the OsintNeoAi intelligence stack with Gemini free-tier pool (26 live keys) and local obliterated model fallback.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Live URL:</span>
+              <a href="https://tonypost949.github.io/OsintNeoAi/" target="_blank" rel="noopener" class="meta-url">tonypost949.github.io/OsintNeoAi</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Local API:</span>
+              <span class="meta-val">/api/oceanneoai/chat</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="index.html#indioAI" class="card-btn btn-primary">🤖 Open Ocean Neo AI ↗</a>
+            <a href="https://tonypost949.github.io/OsintNeoAi/#indioAI" target="_blank" rel="noopener" class="card-btn btn-secondary">Live Site</a>
+          </div>
+        </div>
+
+        <!-- Voicemail for VM -->
+        <div class="hub-card" data-keywords="voicemail vm virtual machine audio message recording">
+          <div>
+            <div class="card-top">
+              <div class="card-title">Voicemail Arm — VM Message System</div>
+              <span class="section-tag tag-purple">VOICE</span>
+            </div>
+            <div class="card-creator">OsintNeoAi Voice Infrastructure</div>
+            <p class="card-desc">
+              Voicemail recording and playback system for virtual machines. Records caller messages with timestamps, stores as JSON, and provides a listing API. Integrated with the Flask backend and OpenCode agent ecosystem.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Record API:</span>
+              <span class="meta-val">/api/voicemail/record</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">List API:</span>
+              <span class="meta-val">/api/voicemail/list</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="index.html" class="card-btn btn-secondary">📂 Local Mirror</a>
+          </div>
+        </div>
+
+        <!-- Obliterated Small Model -->
+        <div class="hub-card" data-keywords="obliterated heretic dolphin phi uncensored model ollama opencode local llm">
+          <div>
+            <div class="card-top">
+              <div class="card-title">Obliterated Small Model — Dolphin Phi (Uncensored)</div>
+              <span class="section-tag tag-green">LOCAL LLM</span>
+            </div>
+            <div class="card-creator">Ollama + OpenCode Integration</div>
+            <p class="card-desc">
+              Uncensored/abliterated small language model (dolphin-phi, 1.6 GB) running locally via Ollama. OpenAI-compatible API at localhost:11434. Wired into OpenCode as the 'heretic' provider for uncensored inference on all devices. Auto-starts at logon.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Model:</span>
+              <span class="meta-val">dolphin-phi:latest (1.6 GB)</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Endpoint:</span>
+              <span class="meta-val">http://127.0.0.1:11434/v1</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">OpenCode Provider:</span>
+              <span class="meta-val">heretic</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="http://127.0.0.1:11434" target="_blank" rel="noopener" class="card-btn btn-primary">🚀 Ollama API ↗</a>
+          </div>
+        </div>
+
+        <!-- The Trinity Fact Checker PowerApp -->
+        <div class="hub-card" data-keywords="fact checker powerapp trinity 3-gate physics probability baseline">
+          <div>
+            <div class="card-top">
+              <div class="card-title">The Trinity Fact Checker PowerApp</div>
+              <span class="section-tag tag-purple">POWERAPP</span>
+            </div>
+            <div class="card-creator">The Trinity 3-Gate Forensic Pipeline</div>
+            <p class="card-desc">
+              Step-by-step fact-checking console applying Gate 1 (Physics/Reality), Gate 2 (Stochastic Probability), and Gate 3 (Baseline Frequency) to any claim or docket.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Local Path:</span>
+              <a href="web/fact_checker_powerapp.html" class="meta-url">web/fact_checker_powerapp.html</a>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="web/fact_checker_powerapp.html" class="card-btn btn-primary">Open Fact Checker ↗</a>
+          </div>
+        </div>
+
+        <!-- Tactical GIS PowerApp -->
+        <div class="hub-card" data-keywords="gis powerapp spatial parcel mapping dtsc toxic plume zoning">
+          <div>
+            <div class="card-top">
+              <div class="card-title">Tactical GIS PowerApp</div>
+              <span class="section-tag tag-purple">POWERAPP</span>
+            </div>
+            <div class="card-creator">Spatial Intelligence Division</div>
+            <p class="card-desc">
+              Full-featured geographic information system layering Orange County APN parcels, DTSC EnviroStor hazard zones, historic well records, and municipal boundaries.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Local Path:</span>
+              <a href="web/gis_powerapp.html" class="meta-url">web/gis_powerapp.html</a>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="web/gis_powerapp.html" class="card-btn btn-primary">Open Tactical GIS ↗</a>
+          </div>
+        </div>
+
+        <!-- Void Ab Initio Visual App -->
+        <div class="hub-card" data-keywords="void ab initio visual app google ai studio form 700 conflict disgorgement">
+          <div>
+            <div class="card-top">
+              <div class="card-title">Void Ab Initio Visual App</div>
+              <span class="section-tag tag-purple">POWERAPP</span>
+            </div>
+            <div class="card-creator">Google AI Studio / Legal Forensics</div>
+            <p class="card-desc">
+              Interactive legal visualizer demonstrating California Government Code § 1090 violations, Form 700 financial omissions, and Thomson v. Call 100% disgorgement mandates.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Local Path:</span>
+              <a href="web/Google_AI_Studio_Void_Ab_Initio_Visual_App.html" class="meta-url">web/Google_AI_Studio_Void_Ab_Initio_Visual_App.html</a>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="web/Google_AI_Studio_Void_Ab_Initio_Visual_App.html" class="card-btn btn-primary">Open Void Ab Initio App ↗</a>
+          </div>
+        </div>
+
+        <!-- Tactical 3D Map -->
+        <div class="hub-card" data-keywords="tactical 3d map spatial three.js webgl parcel elevation">
+          <div>
+            <div class="card-top">
+              <div class="card-title">Tactical 3D Map Viewer</div>
+              <span class="section-tag tag-blue">3D ENGINE</span>
+            </div>
+            <div class="card-creator">WebGL Spatial Engine</div>
+            <p class="card-desc">
+              Interactive 3D elevation and parcel visualization inspecting toxic plume migration depths and spatial proximity between commercial operations and residential receptors.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Local Path:</span>
+              <a href="web/tactical_3d_map.html" class="meta-url">web/tactical_3d_map.html</a>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="web/tactical_3d_map.html" class="card-btn btn-primary">Launch 3D Map ↗</a>
+          </div>
+        </div>
+
+        <!-- Task System PowerApp -->
+        <div class="hub-card" data-keywords="task system powerapp universal ai law 3 google tasks sync">
+          <div>
+            <div class="card-top">
+              <div class="card-title">Task System PowerApp</div>
+              <span class="section-tag tag-purple">POWERAPP</span>
+            </div>
+            <div class="card-creator">Universal AI Law 3 Governance Engine</div>
+            <p class="card-desc">
+              Unified task manager synchronizing local agent tasks directly with Google Tasks (https://tasks.google.com/), ensuring zero computational work or idea loss.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Local Path:</span>
+              <a href="web/task_system_powerapp.html" class="meta-url">web/task_system_powerapp.html</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Cloud Target:</span>
+              <a href="https://tasks.google.com/" target="_blank" rel="noopener" class="meta-url">https://tasks.google.com/</a>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="web/task_system_powerapp.html" class="card-btn btn-primary">Open Task PowerApp ↗</a>
+          </div>
+        </div>
+
+        <!-- Second Opinion PowerApp -->
+        <div class="hub-card" data-keywords="second opinion powerapp multi-agent cross examination verification">
+          <div>
+            <div class="card-top">
+              <div class="card-title">Second Opinion PowerApp</div>
+              <span class="section-tag tag-purple">POWERAPP</span>
+            </div>
+            <div class="card-creator">Multi-Model Cross-Examination Engine</div>
+            <p class="card-desc">
+              Forensic cross-examination console pitting multiple LLM analyses against each other to surface contradictory assumptions and eliminate hallucinated findings.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Local Path:</span>
+              <a href="web/second_opinion_powerapp.html" class="meta-url">web/second_opinion_powerapp.html</a>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="web/second_opinion_powerapp.html" class="card-btn btn-secondary">Open Second Opinion ↗</a>
+          </div>
+        </div>
+
+        <!-- OsintNeoAi Toolbox PowerApp -->
+        <div class="hub-card" data-keywords="toolbox powerapp utilities hash generators converters encoders">
+          <div>
+            <div class="card-top">
+              <div class="card-title">OsintNeoAi Toolbox PowerApp</div>
+              <span class="section-tag tag-purple">POWERAPP</span>
+            </div>
+            <div class="card-creator">Core Utility Suite</div>
+            <p class="card-desc">
+              All-in-one investigative workstation featuring cryptographic hash calculators, base64 forensic decoders, timestamp synchronizers, and APN sanitizers.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Local Path:</span>
+              <a href="web/toolbox_powerapp.html" class="meta-url">web/toolbox_powerapp.html</a>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="web/toolbox_powerapp.html" class="card-btn btn-secondary">Launch Toolbox ↗</a>
+          </div>
+        </div>
+
+        <!-- Additional Tactical Map & Chart Suite -->
+        <div class="hub-card" data-keywords="cluster map geo heatmap rico flow risk matrix timeline charts">
+          <div>
+            <div class="card-top">
+              <div class="card-title">Tactical Chart &amp; Visual Suite</div>
+              <span class="section-tag tag-blue">6 MODULES</span>
+            </div>
+            <div class="card-creator">Visual Intelligence Components</div>
+            <p class="card-desc">
+              High-density tactical visualizers for network density, maritime logistics, RICO liability flowcharts, risk matrices, and event chronologies.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Cluster Map:</span>
+              <a href="web/cluster_map.html" class="meta-url">web/cluster_map.html</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Geo Boundaries:</span>
+              <a href="web/geo_map.html" class="meta-url">web/geo_map.html</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Port Heatmap:</span>
+              <a href="web/port_heatmap.html" class="meta-url">web/port_heatmap.html</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">RICO Flow:</span>
+              <a href="web/rico_flow.html" class="meta-url">web/rico_flow.html</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Risk Matrix:</span>
+              <a href="web/risk_matrix.html" class="meta-url">web/risk_matrix.html</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Timeline:</span>
+              <a href="web/timeline.html" class="meta-url">web/timeline.html</a>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="web/rico_flow.html" class="card-btn btn-secondary">RICO Flow</a>
+            <a href="web/timeline.html" class="card-btn btn-secondary">Timeline</a>
+            <a href="web/risk_matrix.html" class="card-btn btn-secondary">Risk Matrix</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+    <!-- SECTION 4: OPEN-SOURCE OSINT TOOL ARSENAL & GITHUB DIRECTORY           -->
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="hub-section" id="section-osint-arsenal" data-cat="osint-arsenal">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2 class="section-title">4. Open-Source OSINT Tool Arsenal &amp; GitHub Directory</h2>
+          <span class="section-tag tag-blue">10 Core Tools</span>
+        </div>
+        <div class="section-subtitle">
+          The 10 foundational open-source tools powering the OsintNeoAi backend pipeline. Every tool is linked to its official GitHub repository with educational guides.
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <!-- 1. Sherlock -->
+        <div class="hub-card" data-keywords="sherlock username osint social media footprint hunt github">
+          <div>
+            <div class="card-top">
+              <div class="card-title">1. Sherlock</div>
+              <span class="section-tag tag-blue">IDENTITY OSINT</span>
+            </div>
+            <div class="card-creator">GitHub: sherlock-project/sherlock</div>
+            <p class="card-desc">
+              Hunts down social media and forum accounts by username across hundreds of major platforms simultaneously. In the OsintNeoAi pipeline, Sherlock uncovers clandestine aliases, adverse party sock-puppets, and corporate alter-ego handles across global networks.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Official GitHub URL:</span>
+              <a href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noopener" class="meta-url">https://github.com/sherlock-project/sherlock</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Execution Mode:</span>
+              <span class="meta-val">Autonomous User Footprinting &amp; Reverse Query</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noopener" class="card-btn btn-primary">GitHub Repository ↗</a>
+          </div>
+        </div>
+
+        <!-- 2. ExifTool -->
+        <div class="hub-card" data-keywords="exiftool metadata image pdf forensic camera timestamp gps github">
+          <div>
+            <div class="card-top">
+              <div class="card-title">2. ExifTool</div>
+              <span class="section-tag tag-blue">METADATA AUDIT</span>
+            </div>
+            <div class="card-creator">GitHub: exiftool/exiftool</div>
+            <p class="card-desc">
+              The premier command-line application for reading, writing, and manipulating EXIF, IPTC, and XMP metadata in images, audio, video, and PDF documents. Used to extract camera serials, GPS coordinates, original modification dates, and uncover backdated filings.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Official GitHub URL:</span>
+              <a href="https://github.com/exiftool/exiftool" target="_blank" rel="noopener" class="meta-url">https://github.com/exiftool/exiftool</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Execution Mode:</span>
+              <span class="meta-val">Deep File Provenance &amp; Camera Hardware Extraction</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://github.com/exiftool/exiftool" target="_blank" rel="noopener" class="card-btn btn-primary">GitHub Repository ↗</a>
+          </div>
+        </div>
+
+        <!-- 3. SpiderFoot -->
+        <div class="hub-card" data-keywords="spiderfoot automation reconnaissance osint modules smicallef github">
+          <div>
+            <div class="card-top">
+              <div class="card-title">3. SpiderFoot</div>
+              <span class="section-tag tag-blue">RECON AUTOMATION</span>
+            </div>
+            <div class="card-creator">GitHub: smicallef/spiderfoot</div>
+            <p class="card-desc">
+              Automates the collection of intelligence from over 100 public data sources (OSINT) covering IP addresses, domain names, e-mail addresses, and names. Powers automated external threat profiling and adverse corporate reconnaissance in seconds.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Official GitHub URL:</span>
+              <a href="https://github.com/smicallef/spiderfoot" target="_blank" rel="noopener" class="meta-url">https://github.com/smicallef/spiderfoot</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Execution Mode:</span>
+              <span class="meta-val">Automated Threat &amp; Domain Multi-Source Scan</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://github.com/smicallef/spiderfoot" target="_blank" rel="noopener" class="card-btn btn-primary">GitHub Repository ↗</a>
+          </div>
+        </div>
+
+        <!-- 4. theHarvester -->
+        <div class="hub-card" data-keywords="theharvester emails subdomains employees osint laramies github">
+          <div>
+            <div class="card-top">
+              <div class="card-title">4. theHarvester</div>
+              <span class="section-tag tag-blue">INFRASTRUCTURE RECON</span>
+            </div>
+            <div class="card-creator">GitHub: laramies/theHarvester</div>
+            <p class="card-desc">
+              Gathers emails, names, subdomains, open ports, and employee directories across major search engines, PGP key servers, and Shodan. Essential for identifying rogue employee credentials and unlisted infrastructure within fraudulent corporate networks.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Official GitHub URL:</span>
+              <a href="https://github.com/laramies/theHarvester" target="_blank" rel="noopener" class="meta-url">https://github.com/laramies/theHarvester</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Execution Mode:</span>
+              <span class="meta-val">Search Engine &amp; PGP Subdomain Harvester</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://github.com/laramies/theHarvester" target="_blank" rel="noopener" class="card-btn btn-primary">GitHub Repository ↗</a>
+          </div>
+        </div>
+
+        <!-- 5. OWASP Amass -->
+        <div class="hub-card" data-keywords="owasp amass attack surface network mapping dns graph owasp-amass github">
+          <div>
+            <div class="card-top">
+              <div class="card-title">5. OWASP Amass</div>
+              <span class="section-tag tag-blue">ATTACK SURFACE</span>
+            </div>
+            <div class="card-creator">GitHub: owasp-amass/amass</div>
+            <p class="card-desc">
+              Performs in-depth network mapping of all attack surfaces and external asset discovery using active reconnaissance and information gathering techniques. Unveils hidden DNS records, cloud storage buckets, and sub-networks maintained by targets.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Official GitHub URL:</span>
+              <a href="https://github.com/owasp-amass/amass" target="_blank" rel="noopener" class="meta-url">https://github.com/owasp-amass/amass</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Execution Mode:</span>
+              <span class="meta-val">DNS Brute-Force, Graph Traversal &amp; ASN Mapping</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://github.com/owasp-amass/amass" target="_blank" rel="noopener" class="card-btn btn-primary">GitHub Repository ↗</a>
+          </div>
+        </div>
+
+        <!-- 6. OpenCorporates & SEC EDGAR Correlator -->
+        <div class="hub-card" data-keywords="opencorporates sec edgar correlator corporate registration officers tonypost949 github">
+          <div>
+            <div class="card-top">
+              <div class="card-title">6. OpenCorporates &amp; SEC EDGAR Correlator</div>
+              <span class="section-tag tag-green">CORPORATE OSINT</span>
+            </div>
+            <div class="card-creator">GitHub: Tonypost949/OsintNeoAi</div>
+            <p class="card-desc">
+              Custom cross-referencing module querying OpenCorporates and the SEC EDGAR system to cross-correlate officer names, corporate registries, subsidiary parent trees, and Form 700 filers to uncover concealed ownership chains and shell corporations.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Official GitHub URL:</span>
+              <a href="https://github.com/Tonypost949/OsintNeoAi" target="_blank" rel="noopener" class="meta-url">https://github.com/Tonypost949/OsintNeoAi</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Execution Mode:</span>
+              <span class="meta-val">Entity Resolution, CIK Matching &amp; Officer Linkage</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://github.com/Tonypost949/OsintNeoAi" target="_blank" rel="noopener" class="card-btn btn-primary">OsintNeoAi Repo ↗</a>
+          </div>
+        </div>
+
+        <!-- 7. DTSC GeoTracker & Municipal GIS Radar -->
+        <div class="hub-card" data-keywords="dtsc geotracker envirostor municipal gis radar toxic covenant deed restriction tonypost949 github">
+          <div>
+            <div class="card-top">
+              <div class="card-title">7. DTSC GeoTracker &amp; Municipal GIS Radar</div>
+              <span class="section-tag tag-green">ENVIRONMENTAL RADAR</span>
+            </div>
+            <div class="card-creator">GitHub: Tonypost949/OsintNeoAi</div>
+            <p class="card-desc">
+              Extracts regulatory land use restrictions, environmental deeds, vapor intrusion monitoring, and GeoTracker records from California Department of Toxic Substances Control (DTSC) and Water Board databases to verify habitability and toxic contamination covenants.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Official GitHub URL:</span>
+              <a href="https://github.com/Tonypost949/OsintNeoAi" target="_blank" rel="noopener" class="meta-url">https://github.com/Tonypost949/OsintNeoAi</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Statutory Baseline:</span>
+              <span class="meta-val">Cal. Health &amp; Safety Code § 25356.1.5 (Doc #2017000109919)</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://github.com/Tonypost949/OsintNeoAi" target="_blank" rel="noopener" class="card-btn btn-primary">OsintNeoAi Repo ↗</a>
+          </div>
+        </div>
+
+        <!-- 8. DocuSign & Deed Continuity Auditor -->
+        <div class="hub-card" data-keywords="docusign deed continuity auditor forensic envelope hash verification tonypost949 github">
+          <div>
+            <div class="card-top">
+              <div class="card-title">8. DocuSign &amp; Deed Continuity Auditor</div>
+              <span class="section-tag tag-green">DOC FORENSICS</span>
+            </div>
+            <div class="card-creator">GitHub: Tonypost949/OsintNeoAi</div>
+            <p class="card-desc">
+              Performs page-by-page PDF producer audits, envelope token verification, and digital certificate chain checks to detect inserted pages, altered lease terms, or missing mandatory disclosures across escrow and legal dockets.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Official GitHub URL:</span>
+              <a href="https://github.com/Tonypost949/OsintNeoAi" target="_blank" rel="noopener" class="meta-url">https://github.com/Tonypost949/OsintNeoAi</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Execution Mode:</span>
+              <span class="meta-val">Envelope Token Continuity &amp; SHA-256 Checksum</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://github.com/Tonypost949/OsintNeoAi" target="_blank" rel="noopener" class="card-btn btn-primary">OsintNeoAi Repo ↗</a>
+          </div>
+        </div>
+
+        <!-- 9. Maltego Relational Graph Engine -->
+        <div class="hub-card" data-keywords="maltego relational graph engine link analysis entity network tonypost949 github">
+          <div>
+            <div class="card-top">
+              <div class="card-title">9. Maltego Relational Graph Engine</div>
+              <span class="section-tag tag-green">GRAPH INTELLIGENCE</span>
+            </div>
+            <div class="card-creator">GitHub: Tonypost949/OsintNeoAi</div>
+            <p class="card-desc">
+              Converts complex multi-party litigation, corporate aliases, LLC filings, bank accounts, and properties into an interactive node-and-edge relational graph. Exposes hidden connections and common beneficial ownership behind complex RICO conspiracies.
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Official GitHub URL:</span>
+              <a href="https://github.com/Tonypost949/OsintNeoAi" target="_blank" rel="noopener" class="meta-url">https://github.com/Tonypost949/OsintNeoAi</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Execution Mode:</span>
+              <span class="meta-val">Entity-Relation Link Analysis &amp; Cluster Layout</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://github.com/Tonypost949/OsintNeoAi" target="_blank" rel="noopener" class="card-btn btn-primary">OsintNeoAi Repo ↗</a>
+          </div>
+        </div>
+
+        <!-- 10. The Trinity 3-Gate Fact-Check Engine -->
+        <div class="hub-card" data-keywords="the trinity 3-gate fact check engine truth physics probability baseline ailaws github">
+          <div>
+            <div class="card-top">
+              <div class="card-title">10. The Trinity 3-Gate Fact-Check Engine</div>
+              <span class="section-tag tag-gold">SUPREME TRUTH ENGINE</span>
+            </div>
+            <div class="card-creator">GitHub: Tonypost949/ailaws</div>
+            <p class="card-desc">
+              The foundational truth engine governing all claims. Replaces arbitrary authority with three sequential empirical gates: Gate 1 (Physics/Reality), Gate 2 (Stochastic Probability &amp; Odds), and Gate 3 (Baseline Frequency &amp; Reversion to Mean).
+            </p>
+          </div>
+          <div class="card-meta-box">
+            <div class="meta-row">
+              <span class="meta-label">Official GitHub URL:</span>
+              <a href="https://github.com/Tonypost949/ailaws" target="_blank" rel="noopener" class="meta-url">https://github.com/Tonypost949/ailaws</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Governing Mandate:</span>
+              <span class="meta-val">The Trinity Supremacy Rule (Universal AI Laws)</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://github.com/Tonypost949/ailaws" target="_blank" rel="noopener" class="card-btn btn-primary">AI Laws Repository ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div>osintneoai.me • Static site • Master Architect: Anthony Michael DiMarcello III</div>
+    <div>Governed by Universal AI Laws • Primary Evidence Locker: <code style="color:#cbd5e1;">C:\Amd949609_Antigravity_v1\evidence</code></div>
+    <div>All tools and links verified under The Trinity (Gate 1 Physics • Gate 2 Probability • Gate 3 Baselines) • Zero Data Deletion Policy Enforced</div>
+  </footer>
+
+  <!-- ── Interactive Filtering & Search Script ── -->
+  <script>
+    function filterHub() {
+      const q = document.getElementById('hubSearch').value.toLowerCase().trim();
+      const activeChip = document.querySelector('.filter-chips .chip.active');
+      const selectedCategory = activeChip ? activeChip.getAttribute('data-cat') || 'all' : 'all';
+
+      const cards = document.querySelectorAll('.hub-card');
+      const sections = document.querySelectorAll('.hub-section');
+
+      cards.forEach(card => {
+        const text = (card.innerText || '').toLowerCase();
+        const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+        const sectionCat = card.closest('.hub-section').getAttribute('data-cat');
+
+        const matchesQuery = !q || text.includes(q) || keywords.includes(q);
+        const matchesCategory = (selectedCategory === 'all' || sectionCat === selectedCategory);
+
+        if (matchesQuery && matchesCategory) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Hide empty sections if filtering
+      sections.forEach(sec => {
+        const secCat = sec.getAttribute('data-cat');
+        if (selectedCategory !== 'all' && secCat !== selectedCategory) {
+          sec.style.display = 'none';
+        } else {
+          const visibleCards = sec.querySelectorAll('.hub-card[style*="display: flex"]');
+          if (visibleCards.length === 0 && q) {
+            sec.style.display = 'none';
+          } else {
+            sec.style.display = 'flex';
+          }
+        }
+      });
+    }
+
+    function setHubCategory(cat, btn) {
+      document.querySelectorAll('.filter-chips .chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      btn.setAttribute('data-cat', cat);
+      filterHub();
+    }
+
+    (async function loadLiveFleet() {
+      try {
+        const r = await fetch('./api/fleet/status');
+        if (!r.ok) return;
+        const data = await r.json();
+        if (!data || !Array.isArray(data.nodes)) return;
+        const badge = document.getElementById('fleetSummaryBadge');
+        if (badge) badge.textContent = `${data.active_or_ready}/${data.total_nodes} Active / Ready`;
+        const grid = document.getElementById('fleetNodesGrid');
+        if (!grid) return;
+        const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+        grid.innerHTML = data.nodes.map(n => `
+          <div class="hub-card" data-keywords="${esc(n.id)} ${esc(n.name)} ${esc(n.type)} ${esc(n.status)}">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px;">
+              <strong style="color:#fff;font-size:14px;">${esc(n.name)}</strong>
+              <span style="font-family:var(--font-mono);font-size:10px;padding:2px 8px;border-radius:10px;background:${['ONLINE','READY','BRIDGE_FILE_READY'].includes(n.status) ? 'rgba(0,255,170,0.15);color:#00ffaa;border:1px solid #00ffaa' : 'rgba(245,158,11,0.15);color:#f59e0b;border:1px solid #f59e0b'};">${esc(n.status)}</span>
+            </div>
+            <div style="font-size:11px;color:#38bdf8;font-family:var(--font-mono);margin-bottom:6px;">${esc(n.type)}</div>
+            <div style="font-size:12px;color:#cbd5e1;line-height:1.5;margin-bottom:8px;">${esc(n.detail)}</div>
+            <div style="font-family:var(--font-mono);font-size:11px;color:#9ca3af;word-break:break-all;">Endpoint: ${esc(n.endpoint)}</div>
+          </div>
+        `).join('');
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>
