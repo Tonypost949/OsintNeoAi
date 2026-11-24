@@ -290,39 +290,6 @@
 </head>
 <body>
 
-    <div style="background:#090d16;border-bottom:1px solid #1f2937;padding:10px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--font-mono);font-size:12px;">
-      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-        <span style="background:#00ffaa;color:#000;font-weight:900;padding:3px 8px;border-radius:3px;">OSINTNEOAI</span>
-        <a href="index.html" style="color:#00ffaa;font-weight:bold;text-decoration:none;">📰 The Broadsheet</a>
-        <a href="workspace.html" style="color:#9ca3af;text-decoration:none;">🔍 User Workspace</a>
-        <a href="addons.html" style="color:#9ca3af;text-decoration:none;">🧩 Add-Ons &amp; Muse Hub</a>
-        <a href="omnichannel_legal_hub.html" style="color:#9ca3af;text-decoration:none;">📨 FOIA / Legal Dispatch</a>
-        <a href="legal.html" style="color:#9ca3af;text-decoration:none;">⚖️ Legal Database</a>
-        <a href="errorcoin.html" style="color:#9ca3af;text-decoration:none;">🚨 Error Coins</a>
-        <a href="web/task_system_powerapp.html" style="color:#9ca3af;text-decoration:none;">📋 Task System</a>
-        <a href="taxfunded/index.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">🏛️ TaxFunded Platform</a>
-        <a href="https://taxfunded.pages.dev" target="_blank" style="color:#38bdf8;text-decoration:none;">(Live Cloud ↗)</a>
-      </div>
-      <div>
-        <a href="https://github.com/Tonypost949/ailaws" target="_blank" style="color:#f59e0b;text-decoration:none;font-weight:600;">📜 AI Laws Repo ↗</a>
-      </div>
-    </div>
-
-
-  <!-- ── Live Crypto Ticker Bar (from /api/crypto/public) ── -->
-  <div class="crypto-bar">
-    <span><span class="c-label">TFT</span> <span class="c-badge" id="tftBadge">TFT</span> <span class="c-val" id="tftSupply">14,200,000</span> <span class="c-grow" id="tftGrow">↑ LOADING</span></span>
-    <span class="c-sep">│</span>
-    <span><span class="c-label">OSINT</span> <span class="c-badge osint" id="osintBadge">OSINT</span> <span class="c-val" id="osintSupply">50,000,000</span> <span class="c-grow" id="osintGrow">↑ LOADING</span></span>
-    <span class="c-sep">│</span>
-    <span><span class="c-label">Bridge APY</span> <span class="c-val">12.5%</span> <span class="c-grow">1.05× Multiplier</span></span>
-    <span class="c-sep">│</span>
-    <span><span class="c-label">Taxpayer Tracked</span> <span class="c-val">$14,200,000</span></span>
-    <span class="c-sep">│</span>
-    <span><span class="status-dot"></span><span class="c-label">Public Ledger: </span><span class="c-val" id="ledgerStatus">SNAPSHOT</span></span>
-    <a href="#signup" class="signup-btn">🔐 Create Free Workspace</a>
-  </div>
-
   <div class="wrapper">
     <!-- ── Top Controls ── -->
     <div class="top-controls">
@@ -353,10 +320,18 @@
     <!-- ── Dateline Bar ── -->
     <div class="dateline-bar">
       <span>VOL. IX · No. 448</span>
-      <span>WASHINGTON · SACRAMENTO · ANAHEIM · ONLINE</span>
+      <span>WASHINGTON · SACRAMENTO · CALIFORNIA · ONLINE</span>
       <span id="liveTimestamp">LOADING DATE...</span>
-      <span>100% OPEN SOURCE · FREE ACCESS</span>
+      <span>SOURCE-LINKED · PUBLIC RECORDS · FREE ACCESS</span>
     </div>
+
+    <nav aria-label="Main navigation" style="display:flex;justify-content:center;gap:18px;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:3px double var(--border);padding:8px 12px;margin-bottom:12px;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;">
+      <a href="index.html" style="color:var(--red);font-weight:bold;text-decoration:none;">The Broadsheet</a>
+      <a href="taxfunded/index.html" style="color:var(--text);text-decoration:none;">Tax-Funded Reporting</a>
+      <a href="#featured" style="color:var(--text);text-decoration:none;">Featured</a>
+      <a href="legal.html" style="color:var(--text);text-decoration:none;">Legal Database</a>
+      <a href="workspace.html" style="color:var(--text);text-decoration:none;">User Workspaces</a>
+    </nav>
 
     <!-- ── Public Workspace Search Bar ── -->
     <div class="search-bar">
@@ -367,28 +342,21 @@
     </div>
 
     <!-- ── Wire Ticker ── -->
-    <div class="breaking-wire">
-      <span class="wire-badge">FLASH WIRE</span>
-      <div class="wire-content" id="wireTicker">
-        ⚡ $14.2M HUNTINGTON BEACH LAND ALLOCATION FRAUD EXPOSED · HBNC HEXAVALENT CHROMIUM 49× FEDERAL LIMIT ·
-        ⚡ OSINT TOKEN WHISTLEBLOWER REWARDS ACTIVE — 5,000 OSINT PER VERIFIED SUBMISSION ·
-        ⚡ TFT TOKEN MINTING: 14,200 TFT ON TAX WASTE RECOVERY SETTLEMENT ·
-        ⚡ FOIA-2026-9041 FILED — YAMADA LIVING TRUSTS $14.2M CAL. GOV. CODE § 1090 ·
-        ⚡ FEATURED WORKSPACE OPEN FOR PUBLIC SEARCH — NO SIGNUP REQUIRED ·
-        ⚡ CREATE YOUR OWN WORKSPACE: WALLET + INVESTIGATION + NEWSPAPER IN ONE ACCOUNT
-      </div>
+    <div class="breaking-wire" aria-label="Current reporting wire">
+      <span class="wire-badge">REPORTING WIRE</span>
+      <div id="wireTicker">Tax-funded reporting · Public records · The NWO RICO Round-Up is the featured investigation · Source-linked findings</div>
     </div>
 
     <!-- ── Main Broadsheet Grid ── -->
-    <div class="broadsheet-grid">
+    <div class="broadsheet-grid" id="featured">
 
       <!-- COLUMN 1: Lead Story (live from /api/newspaper/featured) -->
       <article class="lead-story" id="featuredStoryCol">
         <span class="lead-badge" id="leadBadge">FLAGSHIP FORENSIC INVESTIGATION</span>
-        <h2 id="leadTitle">Loading Featured Story #1...</h2>
-        <div class="byline" id="leadByline">By OsintNeoAi Builder Master Workspace · Loading...</div>
+        <h2 id="leadTitle">NWO RICO Round-Up</h2>
+        <div class="byline" id="leadByline">First featured investigation · Documented public-record reporting</div>
         <div class="multi-col-text">
-          <p class="drop-cap" id="leadBody1">Loading investigation data from builder workspace...</p>
+          <p class="drop-cap" id="leadBody1">The featured investigation opens from the public record: identify the claim, attach the source, separate fact from allegation, and preserve the trail for review.</p>
           <div class="evidence-stat-box" id="statutoryMatrix">
             <div class="stat-title">Statutory Violation Matrix</div>
             <p style="font-size:13px;"><strong>Primary:</strong> Cal. Rev. &amp; Tax. Code § 214 — Welfare Exemption disqualification</p>
@@ -396,7 +364,7 @@
             <p style="font-size:13px;margin-top:4px;"><strong>RICO:</strong> 18 U.S.C. § 1961 — Enterprise Pattern of Corruption</p>
             <p style="font-size:13px;margin-top:4px;"><strong>Environmental:</strong> CEQA § 21083 — 49× Hexavalent Chromium federal limit</p>
           </div>
-          <p id="leadBody2">Evidence graph contains 35,000+ nodes across BigQuery forensic vault, EDR environmental reports, county assessor data, and federal FOIA responses. All evidence publicly searchable above.</p>
+          <p id="leadBody2">Each finding is presented with its supporting record and a clear statement of what remains open. This is the featured section of The Broadsheet, not an add-on dashboard.</p>
         </div>
         <div class="lead-actions">
           <button class="btn-investigate" onclick="openInspectModal()">📂 INSPECT WORKSPACE</button>
@@ -412,37 +380,11 @@
           <div class="loading">Loading stories from builder workspace...</div>
         </div>
 
-        <!-- Token Reward Panel -->
-        <div class="reward-panel" style="margin-top:16px;">
-          <h4>🪙 Token Reward Engine</h4>
-          <div class="reward-row"><span class="reward-label">TFT per Tax Recovery:</span><span class="reward-val">14,200 TFT</span></div>
-          <div class="reward-row"><span class="reward-label">OSINT per Whistleblower:</span><span class="reward-val">5,000 OSINT</span></div>
-          <div class="reward-row"><span class="reward-label">Bridge Staking APY:</span><span class="reward-val">12.5%</span></div>
-          <div class="reward-row"><span class="reward-label">Growth Multiplier:</span><span class="reward-val">1.05×</span></div>
-          <div class="reward-row"><span class="reward-label">Network:</span><span class="reward-val" style="color:#93c5fd;">Ethereum + Arbitrum</span></div>
-        </div>
       </div>
 
       <!-- COLUMN 3: Crypto + Signup -->
       <div class="side-col">
         <h3>Platform Status</h3>
-
-        <!-- Workspace Growth Index -->
-        <div style="background:var(--card);border:1px solid var(--border-l);padding:12px;margin-bottom:14px;font-family:var(--font-mono);font-size:11px;">
-          <div style="font-weight:bold;text-transform:uppercase;font-size:10px;margin-bottom:8px;border-bottom:1px solid var(--border-l);padding-bottom:4px;">Ledger Growth Index</div>
-          <div class="reward-row" style="background:transparent;border:none;border-bottom:1px solid var(--border-l);padding:4px 0;display:flex;justify-content:space-between;color:var(--text);">
-            <span style="color:var(--text2);">Public Workspaces:</span><span id="wsBadge" style="font-weight:bold;">—</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-l);">
-            <span style="color:var(--text2);">Published Stories:</span><span id="storyBadge" style="font-weight:bold;">—</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border-l);">
-            <span style="color:var(--text2);">TFT Growth Index:</span><span id="tftIdx" style="color:#3fb950;font-weight:bold;">—</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:4px 0;">
-            <span style="color:var(--text2);">OSINT Growth Index:</span><span id="osintIdx" style="color:#6ee7b7;font-weight:bold;">—</span>
-          </div>
-        </div>
 
         <!-- Signup CTA -->
         <div id="signup" class="signup-panel">
@@ -464,45 +406,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- ── Full Crypto Dashboard Panel ── -->
-    <div class="crypto-panel">
-      <h3>🪙 Dual-Token Crypto Ledger — Live Ecosystem Tracker</h3>
-      <div class="crypto-stats">
-        <div class="c-stat">
-          <div class="c-title">TFT Total Supply</div>
-          <div class="c-num">14,200,000 <span style="font-size:14px;">TFT</span></div>
-          <div class="c-sub">↑ Tax Waste Recovery Mint</div>
-        </div>
-        <div class="c-stat">
-          <div class="c-title">OSINT Total Supply</div>
-          <div class="c-num">50,000,000 <span style="font-size:14px;">OSINT</span></div>
-          <div class="c-sub">↑ Whistleblower Reward Pool</div>
-        </div>
-        <div class="c-stat">
-          <div class="c-title">Taxpayer Value Tracked</div>
-          <div class="c-num">$14,200,000</div>
-          <div class="c-sub">100% On-Chain Proof</div>
-        </div>
-        <div class="c-stat">
-          <div class="c-title">Staking Pool APY</div>
-          <div class="c-num">12.5%<span style="font-size:14px;"> APY</span></div>
-          <div class="c-sub">Auto-Reinvest · 1.05× Multiplier</div>
-        </div>
-      </div>
-      <table class="ledger-table" id="ledgerTable">
-        <thead>
-          <tr>
-            <th>Block</th><th>TX Hash</th><th>Token</th>
-            <th>Target Entity</th><th>Action</th>
-            <th>Amount</th><th>Growth</th><th>Statutory</th>
-          </tr>
-        </thead>
-        <tbody id="ledgerBody">
-          <tr><td colspan="8" style="color:#8b949e;font-style:italic;text-align:center;">Loading on-chain ledger...</td></tr>
-        </tbody>
-      </table>
     </div>
 
   </div><!-- /wrapper -->
@@ -709,30 +612,6 @@
         loadFallbackStories();
         return;
       }
-      const lead = stories[0];
-      const leadSummary = lead.summary || lead.excerpt || '';
-      document.getElementById('leadTitle').textContent = lead.title || 'Master Investigation Dossier';
-      document.getElementById('leadByline').textContent =
-        'By ' + (lead.display_name || lead.author || 'OsintNeoAi Builder') + ' · ' +
-        (lead.jurisdiction ? lead.jurisdiction + ' · ' : '') +
-        (featuredWallet ? 'Wallet: ' + String(featuredWallet).substring(0, 20) + '...' : (lead.published_at || '2026-11-15'));
-      if (leadSummary && document.getElementById('leadBody1')) {
-        document.getElementById('leadBody1').textContent = leadSummary;
-      }
-      const storyBadge = document.getElementById('storyBadge');
-      if (storyBadge) storyBadge.textContent = String(stories.length);
-
-      const matrix = document.getElementById('statutoryMatrix');
-      if (matrix && lead.statutory_notes) {
-        const notes = String(lead.statutory_notes).split(/[.;]\s+/).map(n => n.trim()).filter(Boolean);
-        if (notes.length) {
-          const labels = ['Primary', 'Civil', 'RICO', 'Additional', 'Additional', 'Additional'];
-          matrix.innerHTML = '<div class="stat-title">Statutory Violation Matrix</div>' + notes.slice(0, 6).map((n, i) =>
-            `<p style="font-size:13px;margin-top:${i ? 4 : 0}px;"><strong>${labels[i]}:</strong> ${escHtml(n.replace(/\.$/, ''))}</p>`
-          ).join('');
-        }
-      }
-
       const list = document.getElementById('storiesList');
       list.innerHTML = stories.slice(0, 8).map((s, idx) => {
         const summaryText = s.summary || s.excerpt || '';
@@ -783,21 +662,21 @@
       document.getElementById('storiesList').innerHTML = `
         <div class="story-item">
           <span class="tag featured">FEATURED</span><span class="tag">forensic</span>
-          <h4>HBNC Contamination — 49× Hexavalent Chromium Cover-Up</h4>
-          <p>GAO COMP-26-004512, FBI Case 20IC002. McNeely dossier published. EPA non-response documented.</p>
-          <button class="inspect-btn" onclick="openInspectModal()">Inspect Workspace →</button>
+          <h4>NWO RICO Round-Up</h4>
+          <p>First featured investigation: public records, source links, and open questions stay separated.</p>
+          <a class="inspect-btn" href="#featured">Open Featured Section →</a>
         </div>
         <div class="story-item">
           <span class="tag">foia</span><span class="tag">taxfunded</span>
-          <h4>FOIA-2026-9041: Yamada Living Trusts $14.2M Land Allocation</h4>
-          <p>Cal. Gov. Code § 1090 conflict of interest. CEQA environmental violations. TFT minting triggered.</p>
-          <button class="inspect-btn" onclick="openInspectModal()">Inspect Workspace →</button>
+          <h4>Tax-Funded Reporting</h4>
+          <p>Follow public appropriations, official awards, municipal spending, and source records.</p>
+          <a class="inspect-btn" href="taxfunded/index.html">Open Tax-Funded Reporting →</a>
         </div>
         <div class="story-item">
-          <span class="tag">rico</span><span class="tag">anaheim</span>
-          <h4>Anaheim Municipal RICO — Cyber Evidence Chain</h4>
-          <p>18 U.S.C. § 1961 enterprise pattern. 719 city properties audited. SEC/FinCEN/HUD OIG submissions.</p>
-          <button class="inspect-btn" onclick="openInspectModal()">Inspect Workspace →</button>
+          <span class="tag">legal</span><span class="tag">organic</span>
+          <h4>Organic Legal Database</h4>
+          <p>Law entries grow from investigations, with a title, statute, and official source link.</p>
+          <a class="inspect-btn" href="legal.html">Open Legal Database →</a>
         </div>`;
     }
 
@@ -988,7 +867,7 @@
     }
 
     // ── Bootstrap all API calls ──────────────────────────────
-    Promise.all([loadCrypto(), loadGrowthIndex(), loadFeaturedStory()]);
+    loadFeaturedStory();
   </script>
 
   <!-- OSINT NEO AI Section -->
