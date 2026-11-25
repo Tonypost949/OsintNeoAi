@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omnichannel Legal Hub | OsintNeoAi</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=JetBrains+Mono:wght@400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf7f0;--card:#fdfbf7;--text:#181512;--text2:#4a453e;--border:#181512;--border-l:#dcd6c8;--red:#8b0000;
+--font-mast:'UnifrakturMaguntia','Cinzel',serif;--font-head:'Playfair Display',serif;--font-body:'Libre Baskerville',Georgia,serif;--font-mono:'JetBrains Mono',monospace;}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.55}a{color:#1d4ed8}
+header.masthead{border-bottom:3px double var(--border);padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:var(--card)}
+.mast-title{font-family:var(--font-mast);font-size:34px;margin:0}.mast-sub{font-family:var(--font-mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text2)}
+nav.top{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--font-mono);font-size:12px}nav.top a{text-decoration:none;color:var(--text2)}nav.top a:hover,nav.top a.active{color:var(--red)}
+main{max-width:1050px;margin:0 auto;padding:24px 22px}h1.page{font-family:var(--font-head);font-size:30px;margin:0 0 4px}
+.lede{color:var(--text2);font-size:14px;max-width:780px;margin:0 0 18px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{border:1px solid var(--border-l);border-radius:8px;background:var(--card);padding:16px}
+.card h2{font-family:var(--font-head);font-size:17px;margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.card p{font-size:13px;color:var(--text2);margin:0 0 10px}
+.tag{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.5px;border:1px solid var(--border-l);border-radius:3px;padding:2px 6px;color:var(--text2);margin-right:4px}
+.btn{display:inline-block;padding:8px 13px;border:1px solid var(--border);background:var(--text);color:var(--bg);font-family:var(--font-mono);font-size:11px;text-transform:uppercase;cursor:pointer;border-radius:3px;text-decoration:none}
+.btn:hover{background:var(--red);border-color:var(--red)}.btn.ghost{background:transparent;color:var(--text)}.btn.ghost:hover{background:var(--text);color:var(--bg)}
+.note{border:1px solid var(--border-l);border-left:4px solid var(--red);background:var(--card);padding:12px 14px;border-radius:4px;font-size:13px;margin-top:18px}
+footer{border-top:1px solid var(--border-l);padding:14px 22px;font-family:var(--font-mono);font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:1px}
+</style></head><body>
+<header class="masthead"><div><h1 class="mast-title">OsintNeoAi — Omnichannel Legal Hub</h1><div class="mast-sub">Newspaper · email · fax · hardmail · follow-up · court-ready</div></div>
+<nav class="top"><a href="index.html">Front Page</a><a href="workspace.html">🔍 User Workspace</a><a href="addons.html">Add-Ons</a><a href="legal.html">⚖️ Legal Database</a><a href="errorcoin.html">🚨 Error Coins</a></nav></header>
+<main>
+<h1 class="page">Legal services, one channel at a time</h1>
+<p class="lede">The components the user named: newspaper notes, market viewing, and the email / fax / hardmail follow-up system. Each channel keeps its own evidence copy and its own error coins.</p>
+<div class="cards">
+  <div class="card"><h2>The Broadsheet</h2><p>Newspaper of record. Tax-funded lead, featured forensic investigation, legal section, crypto page.</p><span class="tag">Published</span><a class="btn ghost" href="index.html">Open front page</a></div>
+  <div class="card"><h2>Email Follow-Up</h2><p>Threaded outreach with timestamps and delivery receipt. Every send logs to the ledger.</p><span class="tag">Email</span></div>
+  <div class="card"><h2>Fax Dispatch</h2><p>eFax / Lob-style hard dispatch. Confirmation number is the evidence of delivery.</p><span class="tag">Fax</span></div>
+  <div class="card"><h2>Hardmail</h2><p>Physical mail with certified tracking. Scan the receipt back into the evidence locker.</p><span class="tag">Mail</span></div>
+  <div class="card"><h2>Chronological Order</h2><p>The financial record. Every event ordered; court-ready export from the workspace.</p><span class="tag">Timeline</span><a class="btn ghost" href="workspace.html">Open workspace</a></div>
+  <div class="card"><h2>Legal Database</h2><p>Organic law pointers: title + statute + official link, raised by the story.</p><span class="tag">Law</span><a class="btn ghost" href="legal.html">Open database</a></div>
+</div>
+<div class="note"><b>Status:</b> this hub is the routing layer. The send engines live in the repo (agent/fax_hardmail_dispatch_v2.py and related connectors); nothing here sends without an explicit per-message action and a recorded confirmation.</div>
+</main>
+<footer>OsintNeoAi · Omnichannel Legal Hub</footer>
+</body></html>

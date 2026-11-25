@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legal Database | OsintNeoAi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=JetBrains+Mono:wght@400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf7f0;--card:#fdfbf7;--text:#181512;--text2:#4a453e;--border:#181512;--border-l:#dcd6c8;--red:#8b0000;--green:#1c6b3a;--amber:#9a6b00;--blue:#1d4ed8;
+--font-mast:'UnifrakturMaguntia','Cinzel',serif;--font-head:'Playfair Display',serif;--font-body:'Libre Baskerville',Georgia,serif;--font-mono:'JetBrains Mono',monospace;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.55}
+a{color:var(--blue)}
+header.masthead{border-bottom:3px double var(--border);padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:var(--card)}
+.mast-title{font-family:var(--font-mast);font-size:34px;margin:0}
+.mast-sub{font-family:var(--font-mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text2)}
+nav.top{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--font-mono);font-size:12px}
+nav.top a{text-decoration:none;color:var(--text2);border-bottom:1px solid transparent;padding-bottom:2px}
+nav.top a:hover,nav.top a.active{color:var(--red);border-bottom-color:var(--red)}
+main{max-width:1050px;margin:0 auto;padding:24px 22px}
+h1.page{font-family:var(--font-head);font-size:30px;margin:0 0 4px}
+.lede{color:var(--text2);margin:0 0 18px;font-size:14px;max-width:760px}
+.panel{border:1px solid var(--border-l);border-radius:8px;padding:16px;background:var(--card);margin-bottom:18px}
+.panel h2{font-family:var(--font-head);font-size:18px;margin:0 0 10px;text-transform:uppercase;letter-spacing:1px}
+.grid{display:grid;grid-template-columns:1.3fr 1fr 1.4fr 1fr auto;gap:8px;align-items:end}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+label.f{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--text2);display:block;margin-bottom:3px}
+input{width:100%;padding:8px;border:1px solid var(--border-l);background:var(--bg);font-family:var(--font-mono);font-size:12px;color:var(--text)}
+.btn{display:inline-block;padding:9px 16px;border:1px solid var(--border);background:var(--text);color:var(--bg);font-family:var(--font-mono);font-size:12px;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;border-radius:3px;text-decoration:none;text-align:center}
+.btn:hover{background:var(--red);border-color:var(--red)}
+.btn.ghost{background:transparent;color:var(--text)}
+.btn.ghost:hover{background:var(--text);color:var(--bg)}
+table.laws{width:100%;border-collapse:collapse;font-size:13px}
+table.laws th{background:var(--text);color:var(--bg);text-align:left;padding:8px;font-family:var(--font-mono);font-size:10px;letter-spacing:1px;text-transform:uppercase}
+table.laws td{padding:8px;border-bottom:1px solid var(--border-l);vertical-align:top}
+table.laws tr:nth-child(even) td{background:#f7f3ea}
+table.laws a{word-break:break-all}
+.stamp{font-family:var(--font-mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;border:1px solid var(--border-l);padding:2px 6px;border-radius:3px;color:var(--text2);white-space:nowrap}
+.stamp.pending{border-color:var(--amber);color:var(--amber)}
+.stamp.linked{border-color:var(--green);color:var(--green)}
+.blank-note{border:1px dashed var(--border-l);border-radius:8px;padding:26px;text-align:center;color:var(--text2);font-style:italic}
+.note{font-family:var(--font-mono);font-size:10px;color:var(--text2);margin-top:10px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+footer{border-top:1px solid var(--border-l);padding:14px 22px;font-family:var(--font-mono);font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:1px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div>
+    <h1 class="mast-title">OsintNeoAi — Legal Database</h1>
+    <div class="mast-sub">Organic · grows only when a story raises a law · title + statute + official link</div>
+  </div>
+  <nav class="top">
+    <a href="index.html">Front Page</a>
+    <a href="workspace.html">🔍 User Workspace</a>
+    <a href="addons.html">Add-Ons</a>
+    <a href="legal.html" class="active">⚖️ Legal Database</a>
+    <a href="errorcoin.html">🚨 Error Coins</a>
+  </nav>
+</header>
+
+<main>
+  <h1 class="page">The organic legal record</h1>
+  <p class="lede">This is <b>not</b> a hosted catalog of everything ever written. A law enters only when a user’s story brings it up. The entry is a title, the statute, and a link to where it is officially hosted. A missing link is a redline: <b>NOT YET DOCUMENTED</b>.</p>
+
+  <section class="panel">
+    <h2>Add a law raised by a story</h2>
+    <div class="grid">
+      <div><label class="f">Title</label><input id="lawTitle" placeholder="e.g. California Civil Code § 1179.03"></div>
+      <div><label class="f">Statute / citation</label><input id="lawStatute" placeholder="CCP 1179.03"></div>
+      <div><label class="f">Official link</label><input id="lawLink" placeholder="https://leginfo.legislature.ca.gov/..."></div>
+      <div><label class="f">Raised by (entity)</label><input id="lawEntity" placeholder="optional"></div>
+      <div><button class="btn" onclick="addLaw()">Add</button></div>
+    </div>
+    <div class="note">Official sources only. Title + statute + link. No commentary is stored as law.</div>
+  </section>
+
+  <section class="panel">
+    <div class="row" style="justify-content:space-between;margin-bottom:10px">
+      <h2 style="margin:0">Entries</h2>
+      <div class="row">
+        <input id="search" placeholder="Search laws…" oninput="render()" style="width:220px">
+        <button class="btn ghost" onclick="exportCSV()">⬇ CSV / Excel</button>
+        <button class="btn ghost" onclick="seed()">Load examples</button>
+      </div>
+    </div>
+    <table class="laws"><thead><tr><th>#</th><th>Title</th><th>Statute</th><th>Official link</th><th>Raised by</th><th>Status</th><th></th></tr></thead><tbody id="lawBody"></tbody></table>
+    <div id="empty" class="blank-note" style="margin-top:12px">No laws recorded yet. They appear as stories raise them.</div>
+  </section>
+
+  <section class="panel">
+    <h2>Court-ready note</h2>
+    <p style="font-size:13px;margin:0">Every entry is a pointer, not a determination. Allegations stay allegations. A law is only “documented” when the official link resolves and the statute text is attached. The chronological order of events lives in each <a href="workspace.html">User Workspace</a>.</p>
+  </section>
+</main>
+
+<footer>
+  <span>OsintNeoAi · Legal Database · Local-first</span>
+  <span id="footStamp">POINTERS ONLY — NOT LEGAL ADVICE</span>
+</footer>
+
+<script>
+const KEY='osintneoai_legal_v1';
+let laws=JSON.parse(localStorage.getItem(KEY)||'[]');
+function save(){localStorage.setItem(KEY,JSON.stringify(laws));}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function addLaw(){
+  const title=document.getElementById('lawTitle').value.trim();
+  if(!title){alert('Title is required.');return;}
+  laws.unshift({title,statute:document.getElementById('lawStatute').value.trim()||'NOT YET DOCUMENTED',link:document.getElementById('lawLink').value.trim(),entity:document.getElementById('lawEntity').value.trim(),ts:new Date().toISOString()});
+  save(); ['lawTitle','lawStatute','lawLink','lawEntity'].forEach(i=>document.getElementById(i).value=''); render();
+}
+function del(i){ if(confirm('Remove this entry?')){laws.splice(i,1);save();render();} }
+function render(){
+  const q=(document.getElementById('search').value||'').toLowerCase();
+  const rows=laws.map((l,i)=>({l,i})).filter(({l})=>!q||(l.title+' '+l.statute+' '+l.entity).toLowerCase().includes(q));
+  document.getElementById('lawBody').innerHTML=rows.map(({l,i})=>
+    `<tr><td>${i+1}</td><td>${esc(l.title)}</td><td>${esc(l.statute)}</td>
+     <td>${l.link?`<a href="${esc(l.link)}" target="_blank" rel="noopener">${esc(l.link)}</a>`:'—'}</td>
+     <td>${esc(l.entity)||'—'}</td>
+     <td><span class="stamp ${l.statute==='NOT YET DOCUMENTED'?'pending':'linked'}">${l.statute==='NOT YET DOCUMENTED'?'PENDING':'LINKED'}</span></td>
+     <td><button class="btn ghost" style="padding:3px 8px" onclick="del(${i})">×</button></td></tr>`).join('');
+  document.getElementById('empty').style.display=rows.length?'none':'block';
+}
+function exportCSV(){
+  const rows=[['#','title','statute','official_link','raised_by','added_utc']];
+  laws.forEach((l,i)=>rows.push([i+1,l.title,l.statute,l.link,l.entity,l.ts]));
+  const csv=rows.map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(',')).join('\r\n');
+  const b=new Blob([csv],{type:'text/csv'}),u=URL.createObjectURL(b),a=document.createElement('a');
+  a.href=u;a.download='osintneoai_legal_database.csv';a.click();setTimeout(()=>URL.revokeObjectURL(u),1500);
+}
+function seed(){
+  const ex=[
+    {title:'California Civil Code § 1179.03',statute:'Civ. Code 1179.03',link:'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1179.03.',entity:'Woodbridge Meadows'},
+    {title:'California Civil Code § 1179.03.5',statute:'Civ. Code 1179.03.5',link:'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1179.03.5.',entity:'Woodbridge Meadows'},
+    {title:'15 U.S.C. § 9058a — COVID-19 foreclosure moratorium',statute:'15 USC 9058a',link:'https://www.law.cornell.edu/uscode/text/15/9058a',entity:'Shea Properties'},
+    {title:'85 Fed. Reg. 55292 — CDC eviction moratorium',statute:'85 FR 55292',link:'https://www.federalregister.gov/documents/2020/09/04/2020-19636/temporary-halt-in-residential-evictions-to-prevent-the-further-spread-of-covid-19',entity:'CDC'}
+  ];
+  ex.forEach(e=>{ if(!laws.some(l=>l.title===e.title)) laws.push({...e,ts:new Date().toISOString()}); });
+  save(); render();
+}
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TaxFunded | OsintNeoAi</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=JetBrains+Mono:wght@400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf7f0;--card:#fdfbf7;--text:#181512;--text2:#4a453e;--border:#181512;--border-l:#dcd6c8;--red:#8b0000;--blue:#1d4ed8;
+--font-mast:'UnifrakturMaguntia','Cinzel',serif;--font-head:'Playfair Display',serif;--font-body:'Libre Baskerville',Georgia,serif;--font-mono:'JetBrains Mono',monospace;}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.55}
+header.masthead{border-bottom:3px double var(--border);padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:var(--card)}
+.mast-title{font-family:var(--font-mast);font-size:34px;margin:0}.mast-sub{font-family:var(--font-mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text2)}
+nav.top{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--font-mono);font-size:12px}nav.top a{text-decoration:none;color:var(--text2)}nav.top a:hover{color:var(--red)}
+main{max-width:1000px;margin:0 auto;padding:26px 22px}h1.page{font-family:var(--font-head);font-size:32px;margin:0 0 4px}
+.lede{color:var(--text2);font-size:15px;max-width:780px;margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.card{border:1px solid var(--border-l);border-radius:8px;background:var(--card);padding:18px}
+.card h2{font-family:var(--font-head);font-size:17px;margin:0 0 6px}
+.card p{font-size:13px;color:var(--text2);margin:0 0 12px}
+.btn{display:inline-block;padding:9px 15px;border:1px solid var(--border);background:var(--text);color:var(--bg);font-family:var(--font-mono);font-size:11px;text-transform:uppercase;cursor:pointer;border-radius:3px;text-decoration:none}
+.btn:hover{background:var(--red);border-color:var(--red)}.btn.ghost{background:transparent;color:var(--text)}.btn.ghost:hover{background:var(--text);color:var(--bg)}
+.banner{border:1px solid var(--border);background:#fff;padding:18px;border-radius:8px;margin-bottom:18px}
+.banner b{font-family:var(--font-head);font-size:18px}
+footer{border-top:1px solid var(--border-l);padding:14px 22px;font-family:var(--font-mono);font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:1px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+</style></head><body>
+<header class="masthead"><div><h1 class="mast-title">TaxFunded</h1><div class="mast-sub">Public-money accountability · part of the OsintNeoAi ecosystem</div></div>
+<nav class="top"><a href="../index.html">Front Page</a><a href="../workspace.html">🔍 User Workspace</a><a href="../legal.html">⚖️ Legal Database</a><a href="../errorcoin.html">🚨 Error Coins</a></nav></header>
+<main>
+<h1 class="page">Follow the public money</h1>
+<p class="lede">TaxFunded tracks how public funds move through contracts, properties, and agencies — and turns the record into evidence a resident can use.</p>
+<div class="banner"><b>Where this runs.</b> The TaxFunded platform app is deployed separately at <a href="https://taxfunded.pages.dev" target="_blank" rel="noopener">https://taxfunded.pages.dev</a>. This page is the OsintNeoAi entry point and record index.</div>
+<div class="grid">
+  <div class="card"><h2>Contract Ledger</h2><p>Public contracts, awards, and change orders with source links.</p><a class="btn ghost" href="../legal.html">Open legal record</a></div>
+  <div class="card"><h2>Property &amp; Parcel</h2><p>Assessor and recorder data tied to public spending.</p><a class="btn ghost" href="../workspace.html">Open workspace</a></div>
+  <div class="card"><h2>Agency Scorecard</h2><p>Response times, dead links, missing records — each miss mints an Error Coin.</p><a class="btn ghost" href="../errorcoin.html">Open Error Coins</a></div>
+  <div class="card"><h2>Court-Ready Packet</h2><p>Chronological export with hash-chained ledger entries.</p><a class="btn ghost" href="../workspace.html">Build packet</a></div>
+</div>
+<p style="font-family:var(--font-mono);font-size:10px;color:var(--text2);margin-top:20px">All claims are pointers until an official source is attached. Allegations remain allegations.</p>
+</main>
+<footer><span>OsintNeoAi · TaxFunded</span><span>PUBLIC MONEY · OFFICIAL SOURCES FIRST</span></footer>
+</body></html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Error Coins | OsintNeoAi</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=JetBrains+Mono:wght@400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf7f0;--card:#fdfbf7;--text:#181512;--text2:#4a453e;--border:#181512;--border-l:#dcd6c8;--red:#8b0000;--green:#1c6b3a;--amber:#9a6b00;
+--font-mast:'UnifrakturMaguntia','Cinzel',serif;--font-head:'Playfair Display',serif;--font-body:'Libre Baskerville',Georgia,serif;--font-mono:'JetBrains Mono',monospace;}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.55}a{color:#1d4ed8}
+header.masthead{border-bottom:3px double var(--border);padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:var(--card)}
+.mast-title{font-family:var(--font-mast);font-size:34px;margin:0}.mast-sub{font-family:var(--font-mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text2)}
+nav.top{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--font-mono);font-size:12px}nav.top a{text-decoration:none;color:var(--text2)}nav.top a:hover,nav.top a.active{color:var(--red)}
+main{max-width:1000px;margin:0 auto;padding:24px 22px}h1.page{font-family:var(--font-head);font-size:30px;margin:0 0 4px}
+.lede{color:var(--text2);font-size:14px;max-width:760px;margin:0 0 18px}
+.panel{border:1px solid var(--border-l);border-radius:8px;padding:16px;background:var(--card);margin-bottom:18px}
+.panel h2{font-family:var(--font-head);font-size:18px;margin:0 0 10px;text-transform:uppercase;letter-spacing:1px}
+input,textarea,select{width:100%;padding:8px;border:1px solid var(--border-l);background:var(--bg);font-family:var(--font-mono);font-size:12px;color:var(--text)}
+.grid{display:grid;grid-template-columns:1fr 1.4fr 1fr auto;gap:8px;align-items:end}@media(max-width:760px){.grid{grid-template-columns:1fr}}
+label.f{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;color:var(--text2);display:block;margin-bottom:3px}
+.btn{display:inline-block;padding:9px 16px;border:1px solid var(--border);background:var(--text);color:var(--bg);font-family:var(--font-mono);font-size:12px;text-transform:uppercase;cursor:pointer;border-radius:3px;text-decoration:none}
+.btn:hover{background:var(--red);border-color:var(--red)}.btn.ghost{background:transparent;color:var(--text)}.btn.ghost:hover{background:var(--text);color:var(--bg)}
+table{width:100%;border-collapse:collapse;font-size:13px}th{background:var(--text);color:var(--bg);text-align:left;padding:8px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:1px}
+td{padding:8px;border-bottom:1px solid var(--border-l);vertical-align:top}tr:nth-child(even) td{background:#f7f3ea}
+.coin{display:inline-block;border:1px solid var(--amber);color:var(--amber);border-radius:50%;width:26px;height:26px;text-align:center;line-height:24px;font-family:var(--font-mono);font-size:11px}
+.blank{border:1px dashed var(--border-l);border-radius:8px;padding:26px;text-align:center;color:var(--text2);font-style:italic}
+footer{border-top:1px solid var(--border-l);padding:14px 22px;font-family:var(--font-mono);font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:1px}
+</style></head><body>
+<header class="masthead"><div><h1 class="mast-title">OsintNeoAi — Error Coins</h1><div class="mast-sub">Accountability ledger · separate from AI Laws · performance, dead links, missing records</div></div>
+<nav class="top"><a href="index.html">Front Page</a><a href="workspace.html">🔍 User Workspace</a><a href="addons.html">Add-Ons</a><a href="legal.html">⚖️ Legal Database</a><a href="errorcoin.html" class="active">🚨 Error Coins</a></nav></header>
+<main>
+<h1 class="page">Error Coins</h1>
+<p class="lede">Error Coins are accountability, not AI Laws. When a system underperforms, a city record is not there, or a link is dead, the miss is minted here. The AI pays in remediation, not in excuses.</p>
+<section class="panel"><h2>Mint an Error Coin</h2>
+<div class="grid">
+<div><label class="f">Error type</label><select id="etype"><option>DEAD_LINK</option><option>MISSING_RECORD</option><option>UNDERPERFORMANCE</option><option>HALLUCINATION</option><option>STALE_DATA</option></select></div>
+<div><label class="f">What failed</label><input id="edesc" placeholder="e.g. City portal link 404 on APN 167-472-08"></div>
+<div><label class="f">Owning system</label><input id="eowner" placeholder="e.g. records_portal"></div>
+<div><button class="btn" onclick="mint()">Mint coin</button></div>
+</div></section>
+<section class="panel"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px"><h2 style="margin:0">Ledger</h2><button class="btn ghost" onclick="exportCSV()">⬇ CSV</button></div>
+<table><thead><tr><th>#</th><th>Coin</th><th>Type</th><th>Failure</th><th>Owner</th><th>Status</th><th>Opened</th><th></th></tr></thead><tbody id="body"></tbody></table>
+<div id="empty" class="blank" style="margin-top:12px">No Error Coins minted. When something fails, it gets one.</div></section>
+</main>
+<footer>OsintNeoAi · Error Coin Ledger · local-first</footer>
+<script>
+const KEY='osintneoai_errorcoins_v1';let coins=JSON.parse(localStorage.getItem(KEY)||'[]');
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function save(){localStorage.setItem(KEY,JSON.stringify(coins));}
+function mint(){const d=document.getElementById('edesc').value.trim();if(!d){alert('Describe the failure.');return;}
+coins.unshift({id:'EC-'+Date.now().toString(36).toUpperCase(),type:document.getElementById('etype').value,desc:d,owner:document.getElementById('eowner').value.trim()||'unassigned',status:'OPEN',ts:new Date().toISOString()});
+document.getElementById('edesc').value='';document.getElementById('eowner').value='';save();render();}
+function close_(i){coins[i].status='REMEDIATED';save();render();}
+function del(i){if(confirm('Delete this coin?')){coins.splice(i,1);save();render();}}
+function render(){document.getElementById('body').innerHTML=coins.map((c,i)=>
+`<tr><td>${i+1}</td><td><span class="coin">!</span></td><td>${esc(c.type)}</td><td>${esc(c.desc)}</td><td>${esc(c.owner)}</td><td>${esc(c.status)}</td><td>${esc(c.ts.slice(0,10))}</td>
+<td><button class="btn ghost" style="padding:2px 7px" onclick="close_(${i})">✓</button> <button class="btn ghost" style="padding:2px 7px" onclick="del(${i})">×</button></td></tr>`).join('');
+document.getElementById('empty').style.display=coins.length?'none':'block';}
+function exportCSV(){const rows=[['id','type','failure','owner','status','opened_utc']];coins.forEach(c=>rows.push([c.id,c.type,c.desc,c.owner,c.status,c.ts]));
+const csv=rows.map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(',')).join('\r\n');const b=new Blob([csv],{type:'text/csv'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='osintneoai_errorcoins.csv';a.click();setTimeout(()=>URL.revokeObjectURL(u),1500);}
+render();
+</script></body></html>
