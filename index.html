@@ -892,5 +892,59 @@
     </div>
     <div id="textFundResult" style="display:none;padding:12px;border:1px solid var(--border-l);border-radius:4px;background:var(--bg);font-size:14px;"></div>
   </section>
+    <!-- ── Voice-to-text (browser-native Web Speech API; free, no keys, no credits) ── -->
+    <script id="vyVoiceScript">
+    (function(){
+      var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+      window.__voiceOn = false; window.__voiceRec = null;
+      function addMic(el){
+        if(!SR || !el || el.dataset.vyMic) return;
+        el.dataset.vyMic = '1';
+        var b = document.createElement('button');
+        b.type='button'; b.textContent='\uD83C\uDFA4';
+        b.title='Voice to text (click, or Ctrl+Shift+M)';
+        b.setAttribute('aria-label','Voice to text');
+        b.style.cssText='margin-left:6px;padding:6px 10px;cursor:pointer;font-size:15px;background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:4px;';
+        b.addEventListener('click',function(e){ e.preventDefault(); window.toggleVoice(el); });
+        if(el.parentNode) el.parentNode.insertBefore(b, el.nextSibling);
+      }
+      function wire(){
+        var q='input[type=text],input[type=email],input[type=tel],input[type=number],textarea';
+        Array.prototype.forEach.call(document.querySelectorAll(q), addMic);
+      }
+      window.stopVoice = function(){
+        if(window.__voiceRec){ try{ window.__voiceRec.stop(); }catch(e){} }
+        window.__voiceRec=null; window.__voiceOn=false;
+      };
+      window.toggleVoice = function(target){
+        if(!SR){ alert('Voice to text needs Google Chrome. Open this site in Chrome.'); return; }
+        if(window.__voiceOn){ window.stopVoice(); return; }
+        var el = target || document.activeElement;
+        if(!el || !/^(INPUT|TEXTAREA)$/.test(el.tagName)) el = document.getElementById('wsSearchInput') || document.querySelector('input[type=text]');
+        if(!el) return;
+        var rec = new SR();
+        rec.continuous = true; rec.interimResults = true; rec.lang = 'en-US';
+        var base = el.value ? el.value + ' ' : '';
+        var finalText = '';
+        rec.onresult = function(ev){
+          var interim='';
+          for(var i=ev.resultIndex;i<ev.results.length;i++){
+            var t=ev.results[i][0].transcript;
+            if(ev.results[i].isFinal) finalText += t + ' '; else interim += t;
+          }
+          el.value = base + finalText + interim;
+          el.dispatchEvent(new Event('input',{bubbles:true}));
+        };
+        rec.onerror = function(ev){ window.__voiceOn=false; alert('Voice error: '+ev.error); };
+        rec.onend = function(){ window.__voiceOn=false; };
+        try { rec.start(); } catch(e){ return; }
+        window.__voiceRec = rec; window.__voiceOn = true; el.focus();
+      };
+      document.addEventListener('keydown',function(e){
+        if(e.ctrlKey && e.shiftKey && (e.key==='M'||e.key==='m')){ e.preventDefault(); window.toggleVoice(); }
+      });
+      if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',wire); else wire();
+    })();
+    </script>
 </body>
 </html>
