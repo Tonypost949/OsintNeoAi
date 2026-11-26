@@ -820,78 +820,10 @@
       }
     }
 
-    // ── OSINT NEO AI Assistant ───────────────────────────────
-    async function indioChat() {
-      const input = document.getElementById('indioInput');
-      const out = document.getElementById('indioOutput');
-      const q = input.value.trim();
-      if (!q) return;
-      out.style.display = 'block';
-      out.innerHTML = '<span style="color:var(--text2);">Osint Neo AI is thinking...</span>';
-      try {
-        const r = await fetch('./api/osintneoai/chat', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ query: q })
-        });
-        if (r.ok) {
-          const d = await r.json();
-          out.innerHTML = '<strong>Osint Neo AI:</strong> ' + (d.response || d.message || 'No response');
-        } else {
-          out.innerHTML = '<strong>Osint Neo AI:</strong> Service unavailable. Try again later.';
-        }
-      } catch(e) {
-        out.innerHTML = '<strong>Osint Neo AI:</strong> Offline. Connect to the Osint Neo AI endpoint to enable.';
-      }
-    }
-
-    // ── Tax Funded ───────────────────────────────────────────
-    async function textFund() {
-      const phone = document.getElementById('textFundPhone').value.trim();
-      const amount = document.getElementById('textFundAmount').value.trim();
-      const result = document.getElementById('textFundResult');
-      if (!phone || !amount) { result.style.display='block'; result.style.color='#f85149'; result.textContent='Phone and amount required.'; return; }
-      try {
-        const r = await fetch('./api/taxfunded/donate', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ phone: phone, amount: amount })
-        });
-        const d = await r.json();
-        result.style.display='block'; result.style.color='#3fb950';
-        result.textContent = '✅ Tax-funded donation queued: $' + amount + ' from ' + phone;
-      } catch(e) {
-        result.style.display='block'; result.style.color='#f59e0b';
-        result.textContent = 'Tax-funded API offline. Donation queued locally.';
-      }
-    }
-
     // ── Bootstrap all API calls ──────────────────────────────
     loadFeaturedStory();
   </script>
 
-  <!-- OSINT NEO AI Section -->
-  <section id="indioAI" style="max-width:1100px;margin:20px auto;padding:20px;border:1px solid var(--border-l);border-radius:8px;background:var(--card);">
-    <h2 style="font-family:var(--font-head);margin:0 0 12px;">🤖 Osint Neo AI — Investigative Assistant</h2>
-    <p style="color:var(--text2);font-size:13px;margin:0 0 12px;">Ask Osint Neo AI about any investigation, evidence, or legal topic. Powered by the OsintNeoAi intelligence stack.</p>
-    <div style="display:flex;gap:8px;margin-bottom:12px;">
-      <input type="text" id="indioInput" placeholder="Ask OsintNeo AI anything..." style="flex:1;padding:10px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);" onkeydown="if(event.key==='Enter')indioChat()">
-      <button onclick="indioChat()" style="padding:10px 20px;background:#1f6feb;color:#fff;border:none;border-radius:4px;cursor:pointer;font-weight:600;">Ask</button>
-    </div>
-    <div id="indioOutput" style="display:none;padding:12px;border:1px solid var(--border-l);border-radius:4px;background:var(--bg);font-size:14px;line-height:1.6;"></div>
-  </section>
-
-  <!-- Tax Funded Section -->
-  <section id="textFunded" style="max-width:1100px;margin:20px auto;padding:20px;border:1px solid var(--border-l);border-radius:8px;background:var(--card);">
-    <h2 style="font-family:var(--font-head);margin:0 0 12px;">💰 Tax-Funded — Public Records & Accountability</h2>
-    <p style="color:var(--text2);font-size:13px;margin:0 0 12px;">Tax-funded investigative journalism and public records accountability. Support transparency through tax-funded research channels.</p>
-    <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
-      <input type="tel" id="textFundPhone" placeholder="Contact number" style="flex:1;min-width:180px;padding:10px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);">
-      <input type="number" id="textFundAmount" placeholder="Amount ($)" style="width:120px;padding:10px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);">
-      <button onclick="textFund()" style="padding:10px 20px;background:#238636;color:#fff;border:none;border-radius:4px;cursor:pointer;font-weight:600;">Fund</button>
-    </div>
-    <div id="textFundResult" style="display:none;padding:12px;border:1px solid var(--border-l);border-radius:4px;background:var(--bg);font-size:14px;"></div>
-  </section>
     <!-- ── Voice-to-text (browser-native Web Speech API; free, no keys, no credits) ── -->
     <script id="vyVoiceScript">
     (function(){
@@ -902,7 +834,7 @@
         el.dataset.vyMic = '1';
         var b = document.createElement('button');
         b.type='button'; b.textContent='\uD83C\uDFA4';
-        b.title='Voice to text (click, or Ctrl+Shift+M)';
+        b.title='Voice to text (click, tap Shift twice, or Ctrl+Shift+M)';
         b.setAttribute('aria-label','Voice to text');
         b.style.cssText='margin-left:6px;padding:6px 10px;cursor:pointer;font-size:15px;background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:4px;';
         b.addEventListener('click',function(e){ e.preventDefault(); window.toggleVoice(el); });
@@ -940,8 +872,16 @@
         try { rec.start(); } catch(e){ return; }
         window.__voiceRec = rec; window.__voiceOn = true; el.focus();
       };
+      var __lastShift = 0;
       document.addEventListener('keydown',function(e){
-        if(e.ctrlKey && e.shiftKey && (e.key==='M'||e.key==='m')){ e.preventDefault(); window.toggleVoice(); }
+        if(e.ctrlKey && e.shiftKey && (e.key==='M'||e.key==='m')){ e.preventDefault(); window.toggleVoice(); return; }
+        if(e.key==='Escape' && window.__voiceOn){ e.preventDefault(); window.stopVoice(); return; }
+        // Double-tap Shift toggles dictation (matches your Shift habit)
+        if(e.key==='Shift'){
+          var now = Date.now();
+          if(now - __lastShift < 500){ __lastShift = 0; e.preventDefault(); window.toggleVoice(); }
+          else __lastShift = now;
+        }
       });
       if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',wire); else wire();
     })();
